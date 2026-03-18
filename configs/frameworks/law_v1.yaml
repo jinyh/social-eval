@@ -1,0 +1,118 @@
+name: 法学论文评价框架
+discipline: law
+version: "1.0"
+std_threshold: 5.0
+dimensions:
+  - key: problem_originality
+    name_zh: 问题创新性
+    name_en: Problem Originality
+    weight: 0.1667
+    prompt_template: |
+      请评估以下法学论文在「问题创新性」维度的表现。
+      评分范围：0-100分。
+      评估要点：研究问题是否具有独创性，是否填补了现有研究空白。
+      请从论文中引用1-3处关键证据，并给出分析说明。
+      ---
+      论文正文：
+      {paper_content}
+      ---
+      参考文献列表：
+      {references}
+      ---
+      请严格按以下 JSON 格式返回，不要输出其他内容：
+      {"dimension": "problem_originality", "score": <0-100整数>, "evidence_quotes": ["引用1", "引用2"], "analysis": "分析文字"}
+
+  - key: literature_insight
+    name_zh: 现状洞察度
+    name_en: Literature Insight
+    weight: 0.1667
+    prompt_template: |
+      请评估以下法学论文在「现状洞察度」维度的表现。
+      评分范围：0-100分。
+      评估要点：对既有文献的把握程度与批判性分析能力。
+      请从论文中引用1-3处关键证据，并给出分析说明。
+      ---
+      论文正文：
+      {paper_content}
+      ---
+      参考文献列表：
+      {references}
+      ---
+      请严格按以下 JSON 格式返回，不要输出其他内容：
+      {"dimension": "literature_insight", "score": <0-100整数>, "evidence_quotes": ["引用1", "引用2"], "analysis": "分析文字"}
+
+  - key: theoretical_construction
+    name_zh: 理论建构力
+    name_en: Theoretical Construction
+    weight: 0.1667
+    prompt_template: |
+      请评估以下法学论文在「理论建构力」维度的表现。
+      评分范围：0-100分。
+      评估要点：理论框架的完整性与自洽性。
+      请从论文中引用1-3处关键证据，并给出分析说明。
+      ---
+      论文正文：
+      {paper_content}
+      ---
+      参考文献列表：
+      {references}
+      ---
+      请严格按以下 JSON 格式返回，不要输出其他内容：
+      {"dimension": "theoretical_construction", "score": <0-100整数>, "evidence_quotes": ["引用1", "引用2"], "analysis": "分析文字"}
+
+  - key: logical_coherence
+    name_zh: 逻辑严密性
+    name_en: Logical Coherence
+    weight: 0.1667
+    prompt_template: |
+      请评估以下法学论文在「逻辑严密性」维度的表现。
+      评分范围：0-100分。
+      评估要点：论证推理的严谨程度。
+      请从论文中引用1-3处关键证据，并给出分析说明。
+      ---
+      论文正文：
+      {paper_content}
+      ---
+      参考文献列表：
+      {references}
+      ---
+      请严格按以下 JSON 格式返回，不要输出其他内容：
+      {"dimension": "logical_coherence", "score": <0-100整数>, "evidence_quotes": ["引用1", "引用2"], "analysis": "分析文字"}
+
+  - key: scholarly_consensus
+    name_zh: 学术共识度
+    name_en: Scholarly Consensus
+    weight: 0.1667
+    prompt_template: |
+      请评估以下法学论文在「学术共识度」维度的表现。
+      评分范围：0-100分。
+      评估要点：与主流学术共同体的对话程度。
+      请从论文中引用1-3处关键证据，并给出分析说明。
+      ---
+      论文正文：
+      {paper_content}
+      ---
+      参考文献列表：
+      {references}
+      ---
+      请严格按以下 JSON 格式返回，不要输出其他内容：
+      {"dimension": "scholarly_consensus", "score": <0-100整数>, "evidence_quotes": ["引用1", "引用2"], "analysis": "分析文字"}
+
+  - key: forward_extension
+    name_zh: 前瞻延展性
+    name_en: Forward Extension
+    weight: 0.1665
+    prompt_template: |
+      请评估以下法学论文在「前瞻延展性」维度的表现。
+      评分范围：0-100分。
+      评估要点：研究对未来议题的开拓潜力。
+      请从论文中引用1-3处关键证据，并给出分析说明。
+      ---
+      论文正文：
+      {paper_content}
+      ---
+      参考文献列表：
+      {references}
+      ---
+      请严格按以下 JSON 格式返回，不要输出其他内容：
+      {"dimension": "forward_extension", "score": <0-100整数>, "evidence_quotes": ["引用1", "引用2"], "analysis": "分析文字"}
