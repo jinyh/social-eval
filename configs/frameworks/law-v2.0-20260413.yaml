@@ -11,9 +11,9 @@ metadata:
     v2.0 变化：
     - 理论建构力 → 分析框架建构力（涵盖多元论文类型）
     - 学术共识度 → 结论共识度（更精准定义）
-    - 前瞻延展性 → 可选加分项（最高+10分）
     - 新增准入条件：学术规范性（不合格即退稿）
-    - 权重调整：问题创新性30% + 逻辑严密性25%（双核心）
+    - 权重调整：问题创新性30% + 逻辑严密性25%（双核心），前瞻延展性5%（权重最低）
+    - 保持六维结构，总分100（符合学术惯例）
 
 # 准入条件（前置筛选）
 precheck:
@@ -49,12 +49,10 @@ precheck:
 
 # 评分结构
 scoring_structure:
-  base_max: 100
-  bonus_max: 10
-  total_max: 110
-  description: "五核心维度基础分满分100，前瞻延展性加分最高10分"
+  total_max: 100
+  description: "六维度评分，总分100（符合学术惯例）"
 
-# 五核心维度
+# 六维度定义
 dimensions:
   # 维度1：问题创新性（权重30%）
   - key: problem_originality
@@ -285,7 +283,7 @@ dimensions:
   - key: conclusion_consensus
     name_zh: 结论共识度
     name_en: Conclusion Consensus
-    weight: 0.15
+    weight: 0.10
     position: 5
     position_name: "落脚"
     ai_difficulty: "high"
@@ -333,53 +331,86 @@ dimensions:
       请输出JSON：
       {"dimension": "conclusion_consensus", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
 
-# 加分项：前瞻延展性（最高+10分）
-bonus:
-  key: forward_extension
-  name_zh: 前瞻延展性
-  name_en: Forward Extension
-  max_score: 10
-  position: 6
-  position_name: "开放"
-  optional: true
-  description: |
-    为后续研究"画地图"。判例分析、实务指南类论文可能不需要此项。
-    不影响基础分评价。
-  scoring_criteria:
-    excellent:
-      range: [8, 10]
-      indicators:
-        - "不终结争论，重置讨论方式"
-        - "明确后续研究路径"
-        - "'如果你不同意，你该从哪里反驳'有答案"
-    good:
-      range: [5, 7]
-      indicators:
-        - "有后续研究建议但不够具体"
-    marginal:
-      range: [2, 4]
-      indicators:
-        - "延展方向模糊但有意识"
-    none:
-      range: [0, 1]
-      indicators:
-        - "无前瞻性或论文类型不需要"
-  positive_anchor:
-    paper: "林来梵《民法典编纂的宪法学透析》"
-    score: 9
-    evidence: "提出'合宪性解释基准条款'指明后续立法/解释路径"
-  prompt_template: |
-    请对这篇法学论文的【前瞻延展性】进行加分评估（0-10分）。
+  # 维度6：前瞻延展性（权重5%）
+  - key: forward_extension
+    name_zh: 前瞻延展性
+    name_en: Forward Extension
+    weight: 0.05
+    position: 6
+    position_name: "开放"
+    ai_difficulty: "low"
+    needs_expert_review: false
+    description: |
+      研究成果是否具备溢出效应？
+      能否为跨学科交流或未来更深度的研究提供延展接口？
+      好论文往往不终结争论，而是画出后续研究的地图。
+      注：判例分析、实务指南类论文在此维度得分可能较低，但权重仅5%，对总分影响小。
+    scoring_criteria:
+      excellent:
+        range: [90, 100]
+        description: "显著溢出效应"
+        indicators:
+          - "明确后续研究路径"
+          - "具有跨学科延展潜力"
+          - "'如果你不同意，你该从哪里反驳'有答案"
+      good:
+        range: [80, 89]
+        description: "有后续指向"
+        indicators:
+          - "有后续研究指向"
+          - "重置讨论方式而非封闭结论"
+      acceptable:
+        range: [70, 79]
+        description: "较开放但模糊"
+        indicators:
+          - "结论较开放，但后续指向模糊"
+          - "未明确具体起点"
+      marginal:
+        range: [60, 69]
+        description: "结论封闭性弱"
+        indicators:
+          - "结论封闭性弱"
+          - "无主动指出后续可推进方向"
+      unacceptable:
+        range: [0, 59]
+        description: "自封终结争论"
+        indicators:
+          - "自封'终结争论'"
+          - "无后续接口"
+          - "'本文已充分论证...'"
+    positive_anchor:
+      paper: "林来梵《民法典编纂的宪法学透析》"
+      score: 90
+      evidence: "提出'合宪性解释基准条款'，指明后续立法/解释路径——如果你不同意，你该从哪里反驳？论文给出了明确的起点"
+    negative_anchor:
+      paper: "差论文典型"
+      score: 20
+      evidence: "封闭性结论：'本文已充分论证...'，无后续空间"
+    prompt_template: |
+      请对这篇法学论文的【前瞻延展性】进行评分（0-100分）。
 
-    说明：这是可选加分项。判例分析、实务指南类论文可能不需要此项。
+      说明：判例分析、实务指南类论文在此维度得分可能较低，但权重仅5%，对总分影响小。
 
-    评价要点：
-    1. 是否为后续研究留有接口？
-    2. 是否明确指出后续研究的起点？
-    3. 论文是否开放而非封闭？
+      评价要点：
+      1. 是否为后续研究留有接口？
+      2. 是否明确指出后续研究的起点？
+      3. 论文是否开放而非封闭？
+      4. "如果你不同意，你该从哪里反驳"是否有答案？
 
-    请输出JSON：
-    {"dimension": "forward_extension", "bonus_score": <0-10整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      评分区间：
+      - 90-100分：显著溢出效应，明确后续路径
+      - 80-89分：有后续指向，开放性讨论
+      - 70-79分：较开放但指向模糊
+      - 60-69分：结论封闭性弱
+      - <60分：自封终结争论，无后续接口
+
+      请输出JSON：
+      {"dimension": "forward_extension", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+    boundary_notes: |
+      与"结论共识度"的边界：
+      - 前瞻延展性评价未来——后续研究价值
+      - 结论共识度评价当下——共同体是否接受
+      - 时间维度不同
 
 # 判断链条顺序
 evaluation_chain:
@@ -396,7 +427,7 @@ evaluation_chain:
     - dimension: conclusion_consensus
       reason: "落脚——没有结论共识度，前瞻延展性无人接续"
     - dimension: forward_extension
-      reason: "开放——可选加分项"
+      reason: "开放——权重最低（5%），对判例分析类论文影响小"
 
 # 区分度阈值
 discrimination_threshold:
