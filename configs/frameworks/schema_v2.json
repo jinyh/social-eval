@@ -1,9 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "SocialEval Evaluation Framework Schema v2.0",
-  "description": "法学论文评价框架配置文件schema，支持五核心维度+一加分项+准入条件",
+  "description": "Schema for normalized v2 framework files with metadata, precheck, six-dimension scoring, and expert-review hints.",
   "type": "object",
-  "required": ["metadata", "precheck", "scoring_structure", "dimensions", "bonus", "evaluation_chain", "discrimination_threshold", "expert_review_triggers", "anchors"],
+  "required": [
+    "metadata",
+    "std_threshold",
+    "precheck",
+    "scoring_structure",
+    "dimensions",
+    "evaluation_chain",
+    "discrimination_threshold",
+    "expert_review_triggers",
+    "anchors"
+  ],
   "properties": {
     "metadata": {
       "type": "object",
@@ -17,15 +27,19 @@
         "changelog": { "type": "string" }
       }
     },
+    "std_threshold": {
+      "type": "number",
+      "minimum": 0
+    },
     "precheck": {
       "type": "object",
-      "description": "准入条件（前置筛选）",
       "required": ["name", "description", "criteria", "prompt_template"],
       "properties": {
         "name": { "type": "string" },
         "description": { "type": "string" },
         "criteria": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "type": "object",
             "required": ["key", "name_zh", "description", "pass_required"],
@@ -42,164 +56,58 @@
     },
     "scoring_structure": {
       "type": "object",
-      "description": "评分结构配置",
-      "required": ["base_max", "bonus_max", "total_max", "description"],
+      "required": ["total_max", "description"],
       "properties": {
-        "base_max": { "type": "integer", "default": 100 },
-        "bonus_max": { "type": "integer", "default": 10 },
-        "total_max": { "type": "integer", "default": 110 },
+        "total_max": {
+          "type": "integer",
+          "minimum": 1
+        },
         "description": { "type": "string" }
       }
     },
     "dimensions": {
       "type": "array",
-      "description": "五核心维度",
-      "minItems": 5,
-      "maxItems": 5,
+      "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["key", "name_zh", "name_en", "weight", "position", "position_name", "description", "scoring_criteria", "prompt_template"],
+        "required": [
+          "key",
+          "name_zh",
+          "name_en",
+          "weight",
+          "prompt_template"
+        ],
         "properties": {
           "key": { "type": "string" },
           "name_zh": { "type": "string" },
           "name_en": { "type": "string" },
-          "weight": { "type": "number", "minimum": 0, "maximum": 1 },
-          "position": { "type": "integer", "minimum": 1, "maximum": 5 },
-          "position_name": { "type": "string", "enum": ["起点", "定位", "工具", "骨架", "落脚"] },
-          "ai_difficulty": { "type": "string", "enum": ["low", "medium", "high"] },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "position_name": { "type": "string" },
+          "ai_difficulty": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
           "needs_expert_review": { "type": "boolean" },
           "expert_review_trigger": { "type": "string" },
           "description": { "type": "string" },
-          "scoring_criteria": {
-            "type": "object",
-            "required": ["excellent", "good", "marginal", "unacceptable"],
-            "properties": {
-              "excellent": {
-                "type": "object",
-                "required": ["range", "description", "indicators"],
-                "properties": {
-                  "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                  "description": { "type": "string" },
-                  "indicators": { "type": "array", "items": { "type": "string" } }
-                }
-              },
-              "good": {
-                "type": "object",
-                "required": ["range", "indicators"],
-                "properties": {
-                  "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                  "description": { "type": "string" },
-                  "indicators": { "type": "array", "items": { "type": "string" } }
-                }
-              },
-              "marginal": {
-                "type": "object",
-                "required": ["range", "indicators"],
-                "properties": {
-                  "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                  "description": { "type": "string" },
-                  "indicators": { "type": "array", "items": { "type": "string" } }
-                }
-              },
-              "unacceptable": {
-                "type": "object",
-                "required": ["range", "description", "indicators"],
-                "properties": {
-                  "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                  "description": { "type": "string" },
-                  "indicators": { "type": "array", "items": { "type": "string" } }
-                }
-              }
-            }
-          },
-          "positive_anchor": {
-            "type": "object",
-            "required": ["paper", "score", "evidence"],
-            "properties": {
-              "paper": { "type": "string" },
-              "score": { "type": "integer", "minimum": 0, "maximum": 100 },
-              "evidence": { "type": "string" }
-            }
-          },
-          "negative_anchor": {
-            "type": "object",
-            "required": ["paper", "score", "evidence"],
-            "properties": {
-              "paper": { "type": "string" },
-              "score": { "type": "integer", "minimum": 0, "maximum": 100 },
-              "evidence": { "type": "string" }
-            }
-          },
-          "prompt_template": { "type": "string" }
+          "scoring_criteria": { "type": "object" },
+          "positive_anchor": { "type": "object" },
+          "negative_anchor": { "type": "object" },
+          "prompt_template": { "type": "string" },
+          "boundary_notes": { "type": "string" }
         }
-      }
-    },
-    "bonus": {
-      "type": "object",
-      "description": "加分项：前瞻延展性",
-      "required": ["key", "name_zh", "name_en", "max_score", "position", "position_name", "optional", "description", "scoring_criteria", "prompt_template"],
-      "properties": {
-        "key": { "type": "string" },
-        "name_zh": { "type": "string" },
-        "name_en": { "type": "string" },
-        "max_score": { "type": "integer", "minimum": 0, "maximum": 20 },
-        "position": { "type": "integer", "default": 6 },
-        "position_name": { "type": "string", "default": "开放" },
-        "optional": { "type": "boolean", "default": true },
-        "description": { "type": "string" },
-        "scoring_criteria": {
-          "type": "object",
-          "required": ["excellent", "good", "marginal", "none"],
-          "properties": {
-            "excellent": {
-              "type": "object",
-              "required": ["range", "indicators"],
-              "properties": {
-                "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                "indicators": { "type": "array", "items": { "type": "string" } }
-              }
-            },
-            "good": {
-              "type": "object",
-              "required": ["range", "indicators"],
-              "properties": {
-                "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                "indicators": { "type": "array", "items": { "type": "string" } }
-              }
-            },
-            "marginal": {
-              "type": "object",
-              "required": ["range", "indicators"],
-              "properties": {
-                "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                "indicators": { "type": "array", "items": { "type": "string" } }
-              }
-            },
-            "none": {
-              "type": "object",
-              "required": ["range", "indicators"],
-              "properties": {
-                "range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
-                "indicators": { "type": "array", "items": { "type": "string" } }
-              }
-            }
-          }
-        },
-        "positive_anchor": {
-          "type": "object",
-          "required": ["paper", "score", "evidence"],
-          "properties": {
-            "paper": { "type": "string" },
-            "score": { "type": "integer", "minimum": 0, "maximum": 10 },
-            "evidence": { "type": "string" }
-          }
-        },
-        "prompt_template": { "type": "string" }
       }
     },
     "evaluation_chain": {
       "type": "object",
-      "description": "判断链条顺序",
       "required": ["description", "sequence"],
       "properties": {
         "description": { "type": "string" },
@@ -218,7 +126,6 @@
     },
     "discrimination_threshold": {
       "type": "object",
-      "description": "区分度阈值",
       "required": ["description", "levels"],
       "properties": {
         "description": { "type": "string" },
@@ -229,8 +136,11 @@
             "required": ["level", "threshold", "confidence", "action"],
             "properties": {
               "level": { "type": "string" },
-              "threshold": { "type": "integer", "minimum": 0 },
-              "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+              "threshold": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "confidence": { "type": "string" },
               "action": { "type": "string" }
             }
           }
@@ -239,7 +149,6 @@
     },
     "expert_review_triggers": {
       "type": "object",
-      "description": "专家复核触发条件",
       "required": ["dimension_triggers", "overall_triggers"],
       "properties": {
         "dimension_triggers": {
@@ -268,7 +177,6 @@
     },
     "anchors": {
       "type": "object",
-      "description": "样本锚点",
       "required": ["positive", "negative"],
       "properties": {
         "positive": {

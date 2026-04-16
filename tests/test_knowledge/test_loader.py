@@ -3,7 +3,7 @@ from src.knowledge.loader import load_framework
 from src.core.exceptions import KnowledgeError
 
 
-def test_load_law_framework_succeeds():
+def test_load_legacy_law_framework_succeeds():
     fw = load_framework("configs/frameworks/law_v1.yaml")
     assert fw.discipline == "law"
     assert len(fw.dimensions) == 6
@@ -20,6 +20,28 @@ def test_load_law_framework_dimensions_have_prompts():
         assert dim.prompt_template.strip() != ""
         assert "{paper_content}" in dim.prompt_template
         assert "{references}" in dim.prompt_template
+
+
+def test_load_law_v2_framework_succeeds():
+    fw = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    assert fw.name == "法学评价框架 v2.0"
+    assert fw.discipline == "法学"
+    assert fw.version == "2.0.0"
+    assert fw.std_threshold == 5.0
+    assert len(fw.dimensions) == 6
+    assert fw.precheck is not None
+    assert fw.precheck.name == "学术规范性准入检查"
+    assert fw.scoring_structure is not None
+    assert fw.scoring_structure.total_max == 100
+
+
+def test_load_law_v2_framework_preserves_new_dimension_names():
+    fw = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    dimension_keys = [dim.key for dim in fw.dimensions]
+    assert "analytical_framework" in dimension_keys
+    assert "conclusion_consensus" in dimension_keys
+    assert "theoretical_construction" not in dimension_keys
+    assert "scholarly_consensus" not in dimension_keys
 
 
 def test_weight_sum_must_be_one(tmp_path):

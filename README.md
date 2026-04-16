@@ -71,8 +71,48 @@ social-eval/
 
 ## 文档
 
-- 需求文档：`docs/requirements/SocialEval-requirements-v0.2.md`
+- 需求文档：`docs/requirements/SocialEval-requirements-v0.4.md`
+- 当前法学框架：`configs/frameworks/law-v2.0-20260413.yaml`
+- 架构决策：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
+- 开发路线图：`development-roadmap.md`
 - 参考资料：`ref/` 目录（法学论文评价方法论、AI 评价系统方案）
+
+---
+
+## 本地运行
+
+### 后端
+
+```bash
+uv sync --extra dev
+docker-compose up -d
+alembic upgrade head
+uv run uvicorn src.api.main:app --reload --port 8000
+```
+
+### 前端
+
+```bash
+cd src/web
+npm install
+npm run dev
+```
+
+前端默认开发地址：`http://localhost:5173`  
+后端默认开发地址：`http://localhost:8000`
+
+---
+
+## 当前已落地能力
+
+- Session 登录 + API Key 认证
+- 邀请制账号激活
+- 论文单篇/批量上传
+- v2.0 准入检查 + 六维评分 + 可靠性计算
+- 内部/公开报告生成与 JSON/PDF 导出
+- 专家复核队列、分配、提交
+- 审计日志、管理员重试/关闭、批量任务状态聚合
+- React + TypeScript 最小角色化前端（投稿人 / 编辑 / 专家 / 管理员）
 
 ---
 

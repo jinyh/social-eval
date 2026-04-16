@@ -4,6 +4,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
+from scripts import install_project_skills
+
 
 SCRIPT_PATH = (
     Path(__file__).resolve().parents[2] / "scripts" / "install_project_skills.py"
@@ -37,10 +41,43 @@ def test_install_project_skills_creates_symlinks_for_each_skill(tmp_path: Path) 
     )
 
     assert result.returncode == 0, result.stderr
-    assert (target_dir / "skill-one").is_symlink()
-    assert (target_dir / "skill-two").is_symlink()
+    assert (target_dir / "skill-one").exists()
+    assert (target_dir / "skill-two").exists()
     assert (target_dir / "skill-one").resolve() == skill_root / "skill-one"
     assert (target_dir / "skill-two").resolve() == skill_root / "skill-two"
+
+
+def test_install_symlink_falls_back_to_windows_junction_on_privilege_error(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    skill_dir = tmp_path / "repo" / "agent-skills" / "skill-one"
+    skill_dir.mkdir(parents=True)
+    target_dir = tmp_path / "target"
+    target_dir.mkdir()
+    calls: dict[str, tuple[Path, Path]] = {}
+
+    def fake_symlink_to(self: Path, target: Path, target_is_directory: bool = False) -> None:
+        err = OSError("missing privilege")
+        err.winerror = 1314  # type: ignore[attr-defined]
+        raise err
+
+    def fake_create_windows_junction(source: Path, link_path: Path) -> None:
+        calls["junction"] = (source, link_path)
+
+    monkeypatch.setattr(Path, "symlink_to", fake_symlink_to)
+    monkeypatch.setattr(
+        install_project_skills,
+        "_create_windows_junction",
+        fake_create_windows_junction,
+    )
+    monkeypatch.setattr(install_project_skills.os, "name", "nt")
+
+    install_project_skills.install_symlink(skill_dir.resolve(), target_dir.resolve())
+
+    assert calls["junction"] == (
+        skill_dir.resolve(),
+        (target_dir / skill_dir.name).resolve(),
+    )
 
 
 def test_install_project_skills_fails_when_no_skills_exist(tmp_path: Path) -> None:

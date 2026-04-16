@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import String, Float, Text, DateTime, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 from src.core.database import Base
+from src.core.time import utc_now
 
 
 class ExpertReview(Base):
@@ -11,8 +12,9 @@ class ExpertReview(Base):
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     task_id: Mapped[str] = mapped_column(String(36), ForeignKey("evaluation_tasks.id"), nullable=False)
     expert_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), nullable=False)
-    status: Mapped[str] = mapped_column(String(20), default="pending")  # pending/completed
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    status: Mapped[str] = mapped_column(String(20), default="pending")  # pending/submitted/returned
+    version: Mapped[int] = mapped_column(default=1)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
 
@@ -25,4 +27,4 @@ class ReviewComment(Base):
     ai_score: Mapped[float] = mapped_column(Float, nullable=False)
     expert_score: Mapped[float] = mapped_column(Float, nullable=False)
     reason: Mapped[str] = mapped_column(Text, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)

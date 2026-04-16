@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import String, Text, DateTime
 from sqlalchemy.orm import Mapped, mapped_column
 from src.core.database import Base
+from src.core.time import utc_now
 
 
 class FrameworkVersion(Base):
@@ -13,4 +14,4 @@ class FrameworkVersion(Base):
     version_tag: Mapped[str | None] = mapped_column(String(50), nullable=True)
     yaml_content: Mapped[str] = mapped_column(Text, nullable=False)
     is_active: Mapped[str] = mapped_column(String(1), default="1")
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)

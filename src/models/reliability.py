@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import String, Float, Boolean, DateTime, ForeignKey, JSON
 from sqlalchemy.orm import Mapped, mapped_column
 from src.core.database import Base
+from src.core.time import utc_now
 
 
 class ReliabilityResult(Base):
@@ -15,4 +16,4 @@ class ReliabilityResult(Base):
     std_score: Mapped[float] = mapped_column(Float, nullable=False)
     is_high_confidence: Mapped[bool] = mapped_column(Boolean, nullable=False)
     model_scores: Mapped[dict] = mapped_column(JSON, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)

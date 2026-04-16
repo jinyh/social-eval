@@ -12,14 +12,17 @@ class OpenAIProvider(BaseProvider):
     def __init__(self):
         self._client = openai.AsyncOpenAI(api_key=settings.openai_api_key)
 
-    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+    async def generate_json_response(self, prompt: str) -> dict:
         try:
             response = await self._client.chat.completions.create(
                 model=self.model_name,
                 messages=[{"role": "user", "content": prompt}],
                 response_format={"type": "json_object"},
             )
-            data = json.loads(response.choices[0].message.content)
-            return DimensionResult(**data, model_name=self.model_name)
+            return json.loads(response.choices[0].message.content)
         except Exception as e:
             raise ProviderCallError(self.model_name, str(e)) from e
+
+    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+        data = await self.generate_json_response(prompt)
+        return DimensionResult(**data, model_name=self.model_name)

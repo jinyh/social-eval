@@ -1,13 +1,14 @@
 import logging
 import json
 import sys
-from datetime import datetime
+
+from src.core.time import utc_now
 
 
 class JSONFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         log_data = {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": utc_now().isoformat(),
             "level": record.levelname,
             "logger": record.name,
             "message": record.getMessage(),

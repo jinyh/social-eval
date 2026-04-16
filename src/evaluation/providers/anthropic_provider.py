@@ -12,7 +12,7 @@ class AnthropicProvider(BaseProvider):
     def __init__(self):
         self._client = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)
 
-    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+    async def generate_json_response(self, prompt: str) -> dict:
         try:
             response = await self._client.messages.create(
                 model=self.model_name,
@@ -26,7 +26,10 @@ class AnthropicProvider(BaseProvider):
                 content_text = content_text.split("```json")[1].split("```")[0].strip()
             elif "```" in content_text:
                 content_text = content_text.split("```")[1].split("```")[0].strip()
-            data = json.loads(content_text)
-            return DimensionResult(**data, model_name=self.model_name)
+            return json.loads(content_text)
         except Exception as e:
             raise ProviderCallError(self.model_name, str(e)) from e
+
+    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+        data = await self.generate_json_response(prompt)
+        return DimensionResult(**data, model_name=self.model_name)

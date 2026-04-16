@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -36,14 +38,32 @@ def find_skill_dirs(repo_root: Path) -> list[Path]:
 
 
 def install_symlink(skill_dir: Path, target_dir: Path) -> None:
-    link_path = target_dir / skill_dir.name
+    link_path = (target_dir / skill_dir.name).resolve()
 
-    if link_path.is_symlink() or link_path.exists():
-        if link_path.is_symlink() and link_path.resolve() == skill_dir:
+    if link_path.exists():
+        if link_path.resolve() == skill_dir:
             return
         raise FileExistsError(f"Refusing to overwrite existing path: {link_path}")
 
-    link_path.symlink_to(skill_dir, target_is_directory=True)
+    try:
+        link_path.symlink_to(skill_dir, target_is_directory=True)
+    except OSError as exc:
+        if os.name == "nt" and getattr(exc, "winerror", None) == 1314:
+            _create_windows_junction(skill_dir, link_path)
+            return
+        raise
+
+
+def _create_windows_junction(source: Path, link_path: Path) -> None:
+    result = subprocess.run(
+        ["cmd", "/c", "mklink", "/J", str(link_path), str(source)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        message = result.stderr.strip() or result.stdout.strip() or "Failed to create junction"
+        raise OSError(message)
 
 
 def main() -> int:

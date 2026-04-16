@@ -11,14 +11,17 @@ from src.evaluation.call_logger import log_call
 
 
 async def _call_with_timing(
-    provider: BaseProvider, prompt: str
+    provider: BaseProvider, prompt: str, retry_attempts: int = 3
 ) -> tuple[DimensionResult | Exception, float, str]:
     start = time.time()
-    try:
-        result = await provider.evaluate_dimension(prompt)
-        return result, start, prompt
-    except Exception as e:
-        return e, start, prompt
+    last_error: Exception | None = None
+    for _ in range(retry_attempts):
+        try:
+            result = await provider.evaluate_dimension(prompt)
+            return result, start, prompt
+        except Exception as exc:  # pragma: no cover - covered by retry behavior in integration tests
+            last_error = exc
+    return last_error or RuntimeError("Unknown evaluation failure"), start, prompt
 
 
 async def evaluate_dimension_concurrent(
