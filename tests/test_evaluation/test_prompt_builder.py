@@ -63,3 +63,19 @@ def test_law_v2_precheck_prompt_builder_appends_paper_context():
     assert "学术规范性准入检查" in prompt
     assert "正文片段" in prompt
     assert '{"status": "pass|reject"' in prompt
+
+
+def test_law_v2_prompt_requests_summary_output():
+    """测试 prompt 模板要求输出 summary 字段"""
+    framework = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    paper = ProcessedPaper(
+        full_text="论文全文",
+        body="正文内容",
+        references=[],
+        structure_status="detected",
+    )
+
+    for dimension in framework.dimensions:
+        prompt = build_prompt(dimension, paper)
+        # 检查 prompt 要求输出 summary
+        assert '"summary"' in prompt, f"维度 {dimension.key} 的 prompt 未要求输出 summary"

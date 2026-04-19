@@ -119,7 +119,7 @@ dimensions:
       - 20分示例：追热点式选题，热点词汇机械组合
 
       请输出JSON：
-      {"dimension": "problem_originality", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      {"dimension": "problem_originality", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析", "summary": "一句话总结（不超过50字，概括核心观点）"}
 
   # 维度2：现状洞察度（权重15%）
   - key: literature_insight
@@ -168,7 +168,7 @@ dimensions:
       3. 是否清楚说明"学界走到了哪里，缺口在哪"？
 
       请输出JSON：
-      {"dimension": "literature_insight", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      {"dimension": "literature_insight", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析", "summary": "一句话总结（不超过50字，概括核心观点）"}
 
   # 维度3：分析框架建构力（权重15%）
   # 注意：原"理论建构力"调整为"分析框架建构力"
@@ -228,7 +228,7 @@ dimensions:
          - 比较法：跨国比较框架
 
       请输出JSON：
-      {"dimension": "analytical_framework", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      {"dimension": "analytical_framework", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析", "summary": "一句话总结（不超过50字，概括核心观点）"}
 
   # 维度4：逻辑严密性（权重25%）
   - key: logical_coherence
@@ -278,7 +278,7 @@ dimensions:
       3. 是否有论证飞跃？（直接跳到结论）
 
       请输出JSON：
-      {"dimension": "logical_coherence", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      {"dimension": "logical_coherence", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析", "summary": "一句话总结（不超过50字，概括核心观点）"}
 
   # 维度5：结论共识度（权重15%）
   # 注意：原"学术共识度"调整为"结论共识度"
@@ -331,7 +331,7 @@ dimensions:
       4. 是否会"把体系搞崩"？
 
       请输出JSON：
-      {"dimension": "conclusion_consensus", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      {"dimension": "conclusion_consensus", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析", "summary": "一句话总结（不超过50字，概括核心观点）"}
 
   # 维度6：前瞻延展性（权重5%）
   - key: forward_extension
@@ -407,7 +407,7 @@ dimensions:
       - <60分：自封终结争论，无后续接口
 
       请输出JSON：
-      {"dimension": "forward_extension", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析"}
+      {"dimension": "forward_extension", "score": <0-100整数>, "evidence_quotes": ["引用"], "analysis": "分析", "summary": "一句话总结（不超过50字，概括核心观点）"}
     boundary_notes: |
       与"结论共识度"的边界：
       - 前瞻延展性评价未来——后续研究价值
