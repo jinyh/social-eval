@@ -69,20 +69,43 @@
 
 ### 2. 维度一句话总结生成逻辑
 
-**数据来源**：从报告的 `analysis` 字段提取
+**方案**：AI 直接生成（修改评测 prompt）
 
-**提取规则**：
-1. 如果 `analysis.dimensions[i].summary` 存在，直接使用
-2. 否则，从 `analysis.dimensions[i].analysis` 文本中提取首句（以句号结尾）
+**实现**：在评测时让 AI 为每个维度生成一句话总结，存储在报告中。
 
-**新增函数**：`src/reporting/summary_extractor.py`
+**改动文件**：
+1. `src/evaluation/schemas.py`：在 `DimensionResult` 中增加 `summary` 字段
+2. `src/evaluation/prompt_builder.py`：修改 prompt 模板，要求 AI 输出 `summary`
+
+**prompt 模板修改**：
+```
+请为每个维度输出：
+- score: 分数（0-100）
+- analysis: 详细分析（100-300 字）
+- summary: 一句话总结（不超过 50 字，概括核心观点）
+```
+
+**数据结构修改**：
+```python
+class DimensionResult(BaseModel):
+    dimension_name: str
+    score: float
+    analysis: str
+    summary: str  # 新增：AI 生成的一句话总结
+```
+
+**兼容性处理**：
+- 对于旧报告（没有 `summary` 字段），前端显示"暂无总结"
+- 或在读取时调用 `summary_extractor` 作为兜底
+
+**兜底函数**：`src/reporting/summary_extractor.py`（处理旧数据）
 
 ```python
-def extract_dimension_summary(analysis_text: str, max_length: int = 100) -> str:
-    """从分析文本中提取一句话总结"""
-    # 取第一个句号前的内容
+def extract_dimension_summary(analysis_text: str, max_length: int = 50) -> str:
+    """从分析文本中提取一句话总结（兜底方案）"""
+    # 优先取包含结论性词汇的句子
+    # 否则取首句
     # 限制最大长度
-    # 返回总结文本
 ```
 
 ### 3. PDF 导出改动
@@ -196,12 +219,15 @@ async def export_simple_report(
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
+| `src/evaluation/schemas.py` | 修改 | 增加 `summary` 字段 |
+| `src/evaluation/prompt_builder.py` | 修改 | 修改 prompt 要求输出 summary |
 | `src/web/src/App.tsx` | 修改 | 重构投稿者视图 |
-| `src/reporting/summary_extractor.py` | 新增 | 一句话总结提取 |
+| `src/reporting/summary_extractor.py` | 新增 | 兜底方案：从分析文本提取总结 |
 | `src/reporting/simple_pdf_builder.py` | 新增 | 简洁版 PDF 生成 |
 | `src/api/routers/reports.py` | 修改 | 新增简洁版导出端点 |
 | `tests/test_reporting/test_summary_extractor.py` | 新增 | 单元测试 |
 | `tests/test_reporting/test_simple_pdf_builder.py` | 新增 | 单元测试 |
+| `tests/test_evaluation/test_prompt_builder.py` | 修改 | 更新测试用例 |
 
 ## 后续演进方向
 
