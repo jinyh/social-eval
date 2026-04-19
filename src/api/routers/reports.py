@@ -12,6 +12,7 @@ from src.models.paper import Paper
 from src.models.review import ExpertReview
 from src.models.user import User
 from src.reporting.exporters import export_report_json, export_report_pdf, persist_report_export
+from src.reporting.simple_pdf_builder import build_simple_pdf
 from src.reporting.versioning import get_current_report
 
 router = APIRouter()
@@ -112,3 +113,64 @@ def export_report(
     content = export_report_pdf(report)
     persist_report_export(db, report=report, export_type="pdf", content=content)
     return Response(content=content, media_type="application/pdf")
+
+
+@router.get("/{paper_id}/export/simple")
+def export_simple_report(
+    paper_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """
+    导出简洁版 PDF 报告（投稿者视图）。
+
+    权限：
+    - admin, editor: 可导出所有报告
+    - submitter: 只能导出自己上传的稿件
+    - expert: 可导出被分配复核的稿件
+    """
+    paper, task = _load_paper_and_task(db, paper_id)
+    _ensure_public_access(current_user, paper)
+
+    report = get_current_report(db, task.id, "public")
+
+    # 构建简洁版报告数据
+    simple_data = _build_simple_report_data(report.report_data)
+
+    pdf_content = build_simple_pdf(simple_data)
+
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="report",
+        object_id=report.id,
+        action="simple_export",
+        result="success",
+        details={"paper_id": paper_id, "export_type": "simple_pdf"},
+    )
+
+    return Response(content=pdf_content, media_type="application/pdf")
+
+
+def _build_simple_report_data(report_data: dict) -> dict:
+    """构建简洁版报告数据，过滤掉投稿者不应看到的字段"""
+    dimensions = []
+    for dim in report_data.get("dimensions", []):
+        simple_dim = {
+            "name_zh": dim.get("name_zh", dim.get("name_en")),
+            "name_en": dim.get("name_en"),
+            "ai": {
+                "mean_score": dim.get("ai", {}).get("mean_score", 0),
+            },
+            "summary": dim.get("summary"),
+            "analysis": dim.get("analysis"),  # 用于兜底提取
+        }
+        dimensions.append(simple_dim)
+
+    return {
+        "title": report_data.get("title"),
+        "weighted_total": report_data.get("weighted_total", 0),
+        "conclusion": report_data.get("conclusion"),
+        "dimensions": dimensions,
+        "expert_conclusion": report_data.get("expert_conclusion"),
+    }
