@@ -1,8 +1,9 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import {
   assignExpert,
   createInvitation,
+  exportSimpleReport,
   getCurrentUser,
   getInternalReport,
   getPaperStatus,
@@ -17,7 +18,7 @@ import {
   submitReview,
   uploadPaper,
 } from "./lib/api";
-import type { PaperListItem, PaperStatus, ReviewQueueItem, ReviewTask, User } from "./lib/types";
+import type { DimensionScore, PaperListItem, PaperStatus, PublicReport, ReviewQueueItem, ReviewTask, User } from "./lib/types";
 import "./styles.css";
 
 type AppProps = {
@@ -63,17 +64,56 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
   );
 }
 
+type SimpleScoreCardProps = {
+  dimensions: DimensionScore[];
+};
+
+function SimpleScoreCard({ dimensions }: SimpleScoreCardProps) {
+  return (
+    <div className="score-card">
+      {dimensions.map((dim, index) => (
+        <div key={index} className="score-row">
+          <div className="score-header">
+            <span className="dimension-name">{dim.name_zh}</span>
+            <span className="dimension-score">{dim.ai.mean_score.toFixed(1)}分</span>
+          </div>
+          <p className="dimension-summary">{dim.summary || "暂无总结"}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function SubmitterDashboard() {
   const [papers, setPapers] = useState<PaperListItem[]>([]);
+  const [selectedPaperId, setSelectedPaperId] = useState<string | null>(null);
   const [status, setStatus] = useState<PaperStatus | null>(null);
-  const [report, setReport] = useState<string>("");
+  const [report, setReport] = useState<PublicReport | null>(null);
   const [message, setMessage] = useState<string>("");
+  const [downloading, setDownloading] = useState<boolean>(false);
 
   const refreshPapers = async () => setPapers(await listPapers());
 
   useEffect(() => {
     void refreshPapers().catch(() => setPapers([]));
   }, []);
+
+  useEffect(() => {
+    if (papers.length > 0 && !selectedPaperId) {
+      setSelectedPaperId(papers[0].paper_id);
+    }
+  }, [papers, selectedPaperId]);
+
+  useEffect(() => {
+    if (selectedPaperId) {
+      loadReport(selectedPaperId).catch(() => setReport(null));
+    }
+  }, [selectedPaperId]);
+
+  const loadReport = async (paperId: string) => {
+    setStatus(await getPaperStatus(paperId));
+    setReport(await getPublicReport(paperId));
+  };
 
   const handleUpload = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -84,56 +124,116 @@ function SubmitterDashboard() {
       return;
     }
     const payload = await uploadPaper(file);
-    setMessage(`Uploaded paper ${payload.paper_id}`);
-    setStatus(await getPaperStatus(payload.paper_id));
-    setReport(JSON.stringify(await getPublicReport(payload.paper_id), null, 2));
+    setMessage(`上传成功: ${payload.paper_id}`);
+    setSelectedPaperId(payload.paper_id);
     await refreshPapers();
     form.reset();
   };
 
-  const latestPaperId = useMemo(() => papers[0]?.paper_id, [papers]);
+  const handleDownloadReport = async () => {
+    if (!selectedPaperId) return;
+    setDownloading(true);
+    try {
+      const blob = await exportSimpleReport(selectedPaperId);
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `report-${selectedPaperId}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      setMessage(err instanceof Error ? err.message : "下载失败");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const getStatusLabel = (paperStatus: string): string => {
+    const statusMap: Record<string, string> = {
+      pending: "待处理",
+      prechecking: "准入检查中",
+      precheck_failed: "准入检查未通过",
+      evaluating: "评价中",
+      reviewing: "专家复核中",
+      completed: "已完成",
+      failed: "处理失败",
+    };
+    return statusMap[paperStatus] || paperStatus;
+  };
 
   return (
-    <div className="dashboard-grid">
-      <section className="panel">
-        <h2>Submitter Dashboard</h2>
+    <div className="dashboard-grid submitter-view">
+      <section className="panel upload-section">
+        <h2>投稿者工作台</h2>
         <form onSubmit={handleUpload} className="stack">
           <input name="paper" type="file" accept=".pdf,.docx,.txt" />
-          <button type="submit">Upload paper</button>
+          <button type="submit">上传论文</button>
         </form>
-        {message ? <p>{message}</p> : null}
-        <button
-          type="button"
-          onClick={async () => {
-            if (!latestPaperId) return;
-            setStatus(await getPaperStatus(latestPaperId));
-            setReport(JSON.stringify(await getPublicReport(latestPaperId), null, 2));
-          }}
-        >
-          Refresh latest status
-        </button>
+        {message ? <p className="info-message">{message}</p> : null}
       </section>
 
-      <section className="panel">
-        <h3>My Papers</h3>
-        <ul className="list">
-          {papers.map((paper) => (
-            <li key={paper.paper_id}>
-              <strong>{paper.title ?? paper.original_filename}</strong>
-              <span>{paper.paper_status}</span>
-            </li>
-          ))}
+      <section className="panel papers-section">
+        <h3>我的论文</h3>
+        <ul className="list paper-list">
+          {papers.length === 0 ? (
+            <li className="empty-hint">暂无论文，请上传</li>
+          ) : (
+            papers.map((paper) => (
+              <li
+                key={paper.paper_id}
+                className={paper.paper_id === selectedPaperId ? "selected" : ""}
+                onClick={() => setSelectedPaperId(paper.paper_id)}
+              >
+                <div className="paper-title">{paper.title ?? paper.original_filename}</div>
+                <span className={`paper-status status-${paper.paper_status}`}>
+                  {getStatusLabel(paper.paper_status)}
+                </span>
+              </li>
+            ))
+          )}
         </ul>
       </section>
 
-      <section className="panel">
-        <h3>Latest Status</h3>
-        <pre>{status ? JSON.stringify(status, null, 2) : "No status loaded yet."}</pre>
-      </section>
+      <section className="panel results-section">
+        <h3>评价结果</h3>
+        {report ? (
+          <div className="report-content">
+            <div className="report-header">
+              <h4 className="report-title">{report.title ?? "未命名论文"}</h4>
+              <div className="total-score">
+                <span className="score-label">总分</span>
+                <span className="score-value">{report.weighted_total.toFixed(1)}</span>
+              </div>
+            </div>
 
-      <section className="panel">
-        <h3>Public Report</h3>
-        <pre>{report || "No report loaded yet."}</pre>
+            <div className="report-conclusion">
+              <h5>综合结论</h5>
+              <p>{report.conclusion ?? "暂无结论"}</p>
+            </div>
+
+            <SimpleScoreCard dimensions={report.dimensions} />
+
+            {report.expert_conclusion ? (
+              <div className="expert-comment">
+                <h5>专家评语</h5>
+                <p>{report.expert_conclusion}</p>
+              </div>
+            ) : null}
+
+            <button
+              type="button"
+              className="download-btn"
+              onClick={handleDownloadReport}
+              disabled={downloading}
+            >
+              {downloading ? "下载中..." : "下载报告"}
+            </button>
+          </div>
+        ) : (
+          <p className="empty-hint">选择一篇论文查看评价结果</p>
+        )}
       </section>
     </div>
   );

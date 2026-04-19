@@ -62,3 +62,216 @@ pre {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+/* Submitter View Styles */
+.submitter-view {
+  grid-template-columns: 280px 1fr 1fr;
+}
+
+.upload-section {
+  grid-column: 1;
+}
+
+.papers-section {
+  grid-column: 2;
+}
+
+.results-section {
+  grid-column: 3;
+}
+
+.paper-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.paper-list li:hover {
+  background-color: #f3f4f6;
+}
+
+.paper-list li.selected {
+  background-color: #e0f2fe;
+  border-left: 3px solid #0284c7;
+}
+
+.paper-title {
+  font-weight: 500;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.paper-status {
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #e5e7eb;
+}
+
+.status-pending { background-color: #fef3c7; color: #92400e; }
+.status-prechecking { background-color: #dbeafe; color: #1e40af; }
+.status-precheck_failed { background-color: #fee2e2; color: #991b1b; }
+.status-evaluating { background-color: #dbeafe; color: #1e40af; }
+.status-reviewing { background-color: #e0e7ff; color: #3730a3; }
+.status-completed { background-color: #d1fae5; color: #065f46; }
+.status-failed { background-color: #fee2e2; color: #991b1b; }
+
+.report-content {
+  display: grid;
+  gap: 16px;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.report-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.total-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.score-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.report-conclusion h5,
+.expert-comment h5 {
+  margin: 0 0 8px 0;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.report-conclusion p,
+.expert-comment p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.expert-comment {
+  background-color: #fefce8;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #eab308;
+}
+
+.score-card {
+  display: grid;
+  gap: 12px;
+}
+
+.score-row {
+  background-color: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dimension-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dimension-score {
+  font-weight: 500;
+  color: #3b82f6;
+}
+
+.dimension-summary {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.download-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.download-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.download-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.info-message {
+  color: #059669;
+  background-color: #d1fae5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.empty-hint {
+  color: #9ca3af;
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 1024px) {
+  .submitter-view {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .upload-section {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .submitter-view {
+    grid-template-columns: 1fr;
+  }
+
+  .papers-section,
+  .results-section {
+    grid-column: 1;
+  }
+}

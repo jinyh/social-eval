@@ -22,7 +22,7 @@ describe("App", () => {
       />
     );
 
-    expect(screen.getByText(/submitter dashboard/i)).toBeInTheDocument();
+    expect(screen.getByText(/投稿者工作台/i)).toBeInTheDocument();
   });
 
   it("shows the editor dashboard for editor users", () => {

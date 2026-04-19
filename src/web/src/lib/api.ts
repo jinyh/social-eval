@@ -1,4 +1,4 @@
-import type { PaperListItem, PaperStatus, ReviewQueueItem, ReviewTask, User, UserListResponse } from "./types";
+import type { PaperListItem, PaperStatus, PublicReport, ReviewQueueItem, ReviewTask, User, UserListResponse } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
@@ -63,8 +63,8 @@ export async function getPaperStatus(paperId: string): Promise<PaperStatus> {
   return apiFetch<PaperStatus>(`/api/papers/${paperId}/status`);
 }
 
-export async function getPublicReport(paperId: string): Promise<Record<string, unknown>> {
-  return apiFetch<Record<string, unknown>>(`/api/papers/${paperId}/report`);
+export async function getPublicReport(paperId: string): Promise<PublicReport> {
+  return apiFetch<PublicReport>(`/api/papers/${paperId}/report`);
 }
 
 export async function getInternalReport(paperId: string): Promise<Record<string, unknown>> {
@@ -125,4 +125,14 @@ export async function createInvitation(email: string, role: string): Promise<voi
     method: "POST",
     body: JSON.stringify({ email, role }),
   });
+}
+
+export async function exportSimpleReport(paperId: string): Promise<Blob> {
+  const response = await fetch(`${API_BASE}/api/papers/${paperId}/export/simple`, {
+    credentials: "include",
+  });
+  if (!response.ok) {
+    throw new Error("Failed to export simple report");
+  }
+  return response.blob();
 }

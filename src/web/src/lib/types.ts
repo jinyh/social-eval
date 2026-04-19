@@ -43,3 +43,20 @@ export type ReviewTask = {
 export type UserListResponse = {
   items: User[];
 };
+
+export type DimensionScore = {
+  name_zh: string;
+  name_en?: string;
+  ai: {
+    mean_score: number;
+  };
+  summary?: string | null;
+};
+
+export type PublicReport = {
+  title?: string | null;
+  weighted_total: number;
+  conclusion?: string | null;
+  dimensions: DimensionScore[];
+  expert_conclusion?: string | null;
+};
