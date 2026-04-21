@@ -26,6 +26,11 @@ metadata:
     - 结论可接受性：拉开 ceiling_rules 分数差距（50/55/65）
     - 前瞻延展性：改进跨维度判断规则
 
+    【字数控制】
+    - 新增 output_constraints：每个维度500字，六维度总计3000字
+    - 专家核验时间约30分钟，便于快速复核
+    - 按触发规则动态调整字数上限
+
     【治理机制完善】
     - governance_appendix 增加具体检测方法和阈值
     - 增加跨维度一致性检查规则
@@ -161,6 +166,61 @@ scoring_structure:
   description: "六维度评分，总分100；研究版保留 v2.1 权重不变"
   ceiling_rules_application: "多个 ceiling_rules 同时触发时，取最低上限（最严格规则优先）"
 
+# 输出字数控制（便于专家核验）
+output_constraints:
+  description: "字数控制目标：每个维度500字，六维度总计3000字，专家核验时间约30分钟"
+
+  per_dimension_limits:
+    evidence_quotes:
+      max_count: 3
+      max_chars_per_quote: 80
+      description: "关键证据引用，每条不超过80字"
+    strengths:
+      max_count: 3
+      max_chars_per_item: 50
+      description: "主要优势，每条不超过50字"
+    weaknesses:
+      max_count: 3
+      max_chars_per_item: 50
+      description: "主要缺陷，每条不超过50字"
+    limit_rule_triggered:
+      max_chars_per_rule: 60
+      description: "触发规则说明，每条不超过60字"
+    boundary_note:
+      max_chars: 60
+      description: "维度边界说明，不超过60字"
+    analysis:
+      max_chars: 200
+      description: "核心分析：问题是什么、为什么成立/不成立、分数依据"
+      guidance: |
+        analysis 应包含三个层次：
+        1. 定位：该维度评价对象是什么（如：论文提出的问题是XX）
+        2. 判断：为什么得出这个结论（如：因为该问题触及YY枢纽）
+        3. 分数：分数依据是什么（如：符合excellent档的XX指标）
+
+  triggered_adjustments:
+    ceiling_rules_triggered:
+      analysis_add_chars: 80
+      description: "触发上限规则时，analysis增加80字，用于说明规则触发依据"
+    review_flags_non_none:
+      analysis_add_chars: 100
+      description: "复核标记非none时，analysis增加100字，用于说明复核原因"
+    low_score_below_40:
+      analysis_add_chars: 50
+      description: "分数低于40分时，analysis增加50字，用于详细说明缺陷"
+
+  dimension_max_chars: 500
+  total_max_chars: 3000
+
+  expert_review_guidance:
+    target_time_per_dimension: "5分钟"
+    target_time_total: "30分钟"
+    focus_points:
+      - "检查 evidence_quotes 是否准确引用原文"
+      - "验证 analysis 中的判断逻辑是否成立"
+      - "确认 limit_rule_triggered 是否正确触发"
+      - "判断 review_flags 是否合理标记"
+
 dimensions:
   - key: problem_originality
     name_zh: "问题创新性"
@@ -229,6 +289,14 @@ dimensions:
       不要把"首次研究""现实意义重大""题目宏大"直接当作高分依据。
 
       多个上限规则同时触发时，取最低上限（最严格规则优先）。
+
+      【字数要求】（本维度总计不超过500字）：
+      - evidence_quotes：最多3条，每条不超过80字
+      - strengths/weaknesses：各最多3条，每条不超过50字
+      - limit_rule_triggered：每条不超过60字
+      - boundary_note：不超过60字
+      - analysis：不超过200字，包含定位、判断、分数依据三层
+      - 触发上限规则或复核标记时，analysis可增加80-100字
 
       请输出 JSON：
       {
@@ -313,6 +381,14 @@ dimensions:
       3. 检查是否只是罗列文献、是否触发上限规则
 
       注意：不要使用"顶刊近5年覆盖率"之类无法从文内直接验证的伪量化标准。
+
+      【字数要求】（本维度总计不超过500字）：
+      - evidence_quotes：最多3条，每条不超过80字
+      - strengths/weaknesses：各最多3条，每条不超过50字
+      - limit_rule_triggered：每条不超过60字
+      - boundary_note：不超过60字
+      - analysis：不超过200字，包含定位、判断、分数依据三层
+      - 触发上限规则或复核标记时，analysis可增加80-100字
 
       请输出 JSON：
       {
@@ -407,6 +483,14 @@ dimensions:
       - 类型划分无分类标准和边界
       - 概念前后使用不一致
 
+      【字数要求】（本维度总计不超过500字）：
+      - evidence_quotes：最多3条，每条不超过80字
+      - strengths/weaknesses：各最多3条，每条不超过50字
+      - limit_rule_triggered：每条不超过60字
+      - boundary_note：不超过60字
+      - analysis：不超过200字，包含定位、判断、分数依据三层
+      - 触发上限规则或复核标记时，analysis可增加80-100字
+
       请输出 JSON：
       {
         "dimension": "analytical_framework",
@@ -492,6 +576,14 @@ dimensions:
       2. 结论推出测试：核心结论能否由前文材料、规范分析或案例推导出来
 
       不要把"写得顺"误判为"论证严"。
+
+      【字数要求】（本维度总计不超过500字）：
+      - evidence_quotes：最多3条，每条不超过80字
+      - strengths/weaknesses：各最多3条，每条不超过50字
+      - limit_rule_triggered：每条不超过60字
+      - boundary_note：不超过60字
+      - analysis：不超过200字，包含定位、判断、分数依据三层
+      - 触发上限规则或复核标记时，analysis可增加80-100字
 
       请输出 JSON：
       {
@@ -589,6 +681,14 @@ dimensions:
       - 挑战主流不扣分
       - 真正扣分的是无法进入共同体语境、无法被认真回应
 
+      【字数要求】（本维度总计不超过500字）：
+      - evidence_quotes：最多3条，每条不超过80字
+      - strengths/weaknesses：各最多3条，每条不超过50字
+      - limit_rule_triggered：每条不超过60字
+      - boundary_note：不超过60字
+      - analysis：不超过200字，包含定位、判断、分数依据三层
+      - 触发上限规则或复核标记时，analysis可增加80-100字
+
       请输出 JSON：
       {
         "dimension": "conclusion_consensus",
@@ -673,6 +773,14 @@ dimensions:
       1. 论文是否基于正文论证打开了下一轮研究或制度讨论路径
       2. 后续路径是否具体，而不是口号式拔高
       3. 是否触发"口号式展望"或"延展路径与正文脱节"的上限规则
+
+      【字数要求】（本维度总计不超过500字）：
+      - evidence_quotes：最多3条，每条不超过80字
+      - strengths/weaknesses：各最多3条，每条不超过50字
+      - limit_rule_triggered：每条不超过60字
+      - boundary_note：不超过60字
+      - analysis：不超过200字，包含定位、判断、分数依据三层
+      - 触发上限规则或复核标记时，analysis可增加80-100字
 
       请输出 JSON：
       {
