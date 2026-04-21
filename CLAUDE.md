@@ -15,7 +15,7 @@ uv pip install -e ".[dev]"
 
 # 3. 配置环境变量
 cp .env.example .env
-# 编辑 .env 文件，填入必需的 API Keys（见下方"环境配置"）
+# 编辑 .env 文件，填入必需的 API Keys（见下方"环境配置")
 
 # 4. 启动依赖服务（PostgreSQL + Redis）
 docker-compose up -d
@@ -50,7 +50,7 @@ alembic history                            # 查看迁移历史
 # 依赖管理
 uv pip install <package>      # 安装新依赖
 uv pip list                   # 查看已安装依赖
-uv pip freeze > requirements.txt  # 导出依赖（如需要）
+uv pip freeze > requirements.txt  # 导出依赖（如需要)
 ```
 
 ---
@@ -69,36 +69,39 @@ uv pip freeze > requirements.txt  # 导出依赖（如需要）
 
 ### 技术栈
 - **后端**：Python 3.10+ (FastAPI)，依赖管理用 `uv`
-- **前端**：React + TypeScript（开发中）
-- **数据库**：PostgreSQL（论文/评分/审计日志）
-- **缓存/队列**：Redis（任务队列）
-- **任务队列**：Celery + Redis（异步评审任务）
+- **前端**：React + TypeScript（开发中)
+- **数据库**：PostgreSQL（论文/评分/审计日志)
+- **缓存/队列**：Redis（任务队列)
+- **任务队列**：Celery + Redis（异步评审任务)
 - **AI 接入**：统一抽象层，支持 OpenAI / Anthropic / DeepSeek
 
 ### 目录结构
 
 ```
 src/
-  api/             # F8: RESTful API（FastAPI）
+  api/             # F8: RESTful API（FastAPI)
   core/            # 核心配置与工具
-  evaluation/      # F3: AI 评价引擎（多模型并发）
+  evaluation/      # F3: AI 评价引擎（多模型并发)
   ingestion/       # F1: 文档摄取与预处理
-  knowledge/       # F2: 知识体系配置（YAML/JSON 动态加载）
-  models/          # 数据库模型（SQLAlchemy）
-  reliability/     # F4: 可靠性验证层（均值/标准差/置信度）
-  reporting/       # F6: 报告生成（PDF / JSON 导出）
-  review/          # F5: 专家复核工作流（开发中）
-  web/             # F7: Web 前端（开发中）
+  knowledge/       # F2: 知识体系配置（YAML/JSON 动态加载)
+  models/          # 数据库模型（SQLAlchemy)
+  reliability/     # F4: 可靠性验证层（均值/标准差/置信度)
+  reporting/       # F6: 报告生成（PDF / JSON 导出)
+  review/          # F5: 专家复核工作流（开发中)
+  web/             # F7: Web 前端（开发中)
 configs/
   frameworks/      # 各学科知识体系 YAML 配置文件
-    law-v2.0-20260413.yaml  # 法学评价框架 v2.0（当前使用）
+    law-v2.0-20260413.yaml  # 法学评价框架 v2.0（生产稳定版)
+    law-v2.1-20260421.yaml  # 法学评价框架 v2.1（过渡版)
+    law-v2.2-20260421.yaml  # 法学评价框架 v2.2（研究版)
+    law-v2.3-20260421.yaml  # 法学评价框架 v2.3（研究版，推荐AI测试)
     archive/                 # 历史版本归档
 docs/
   requirements/    # 需求文档
-  architecture/    # ADR（架构决策记录）
+  architecture/    # ADR（架构决策记录)
   evaluation/      # 评价方法论文档
   discussion/      # 设计讨论记录
-tests/             # 测试（镜像 src/ 结构）
+tests/             # 测试（镜像 src/ 结构)
 alembic/           # 数据库迁移脚本
 scripts/           # 工具脚本
 ```
@@ -107,7 +110,7 @@ scripts/           # 工具脚本
 
 ## 环境配置
 
-### 必需的环境变量（`.env` 文件）
+### 必需的环境变量（`.env` 文件)
 
 ```bash
 # 数据库
@@ -119,12 +122,12 @@ REDIS_URL=redis://localhost:6379/0
 # 安全
 SECRET_KEY=change-me-in-production  # ⚠️ 生产环境必须修改
 
-# AI 模型 API Keys（多模型评价必需）
+# AI 模型 API Keys（多模型评价必需)
 OPENAI_API_KEY=sk-...        # OpenAI API 密钥
 ANTHROPIC_API_KEY=sk-ant-... # Anthropic API 密钥
-DEEPSEEK_API_KEY=...         # DeepSeek API 密钥（可选）
+DEEPSEEK_API_KEY=...         # DeepSeek API 密钥（可选)
 
-# SMTP 配置（邮件通知）
+# SMTP 配置（邮件通知)
 SMTP_HOST=smtp.mailtrap.io
 SMTP_PORT=587
 SMTP_USER=
@@ -136,12 +139,12 @@ SMTP_FROM=noreply@socialeval.local
 
 - **DATABASE_URL**: PostgreSQL 连接字符串，格式 `postgresql://user:password@host:port/dbname`
 - **SECRET_KEY**: JWT 签名密钥，生产环境必须使用强随机字符串
-- **AI API Keys**: 至少配置 2 个模型的 API Key（用于多模型并发验证）
+- **AI API Keys**: 至少配置 2 个模型的 API Key（用于多模型并发验证)
 - **SMTP**: 用于发送专家复核通知邮件，开发环境可使用 Mailtrap
 
 ---
 
-## 常见问题（Gotchas）
+## 常见问题（Gotchas)
 
 ### AI 模型调用
 - ✅ **必须通过统一抽象层**：所有 AI 调用必须通过 `src/evaluation/providers/` 的抽象层
@@ -162,7 +165,7 @@ SMTP_FROM=noreply@socialeval.local
 ### 安全注意事项
 - 🔒 **`.env` 不提交**：`.env` 文件已在 `.gitignore` 中，不要提交任何 API Key
 - 🔐 **Token 认证**：所有 API 接口必须 Token 认证，不得暴露未鉴权端点
-- 📄 **文件校验**：用户上传文件必须做类型校验（仅允许 PDF/DOCX/TXT）
+- 📄 **文件校验**：用户上传文件必须做类型校验（仅允许 PDF/DOCX/TXT)
 
 ### 测试相关
 - 🧪 **测试结构**：测试目录镜像 `src/` 结构，如 `tests/test_evaluation/` 对应 `src/evaluation/`
@@ -173,51 +176,60 @@ SMTP_FROM=noreply@socialeval.local
 
 ## 核心领域知识
 
-### 法学评价框架 v2.0（当前使用）
+### 法学评价框架（多版本并存)
 
-**配置文件**：`configs/frameworks/law-v2.0-20260413.yaml`  
+| 版本 | 配置文件 | 状态 | 适用场景 |
+|------|----------|------|----------|
+| v2.0 | `law-v2.0-20260413.yaml` | 生产稳定版 | 已验证，生产环境使用 |
+| v2.1 | `law-v2.1-20260421.yaml` | 过渡版 | 统一评分标准，已被v2.3取代 |
+| v2.2 | `law-v2.2-20260421.yaml` | 研究版 | 增加ceiling_rules、review_flags |
+| v2.3 | `law-v2.3-20260421.yaml` | 研究版 | **推荐用于AI测试**，大模型可操作性最佳 |
+
+**生产环境**：使用 v2.0  
+**AI测试/研究**：推荐 v2.3（规则最明确，输出结构最完善)
+
 **评分规程**：`docs/evaluation/law-scoring-rules-v0.1-20260413.md`  
 **架构决策**：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
 
-#### 准入条件（前置筛选）
+#### 准入条件（前置筛选)
 
 在进入六维评分前，论文必须通过学术规范性检查：
 - **写作规范性**：语言表达清晰、结构完整
 - **引用规范性**：格式符合学术规范、引用准确无捏造
-- **学术伦理**：无抄袭、无数据造假
+- **学术伦理**：无抄袭、无数据造假（v2.2+改为疑点筛查+人工复核)
 
 不合格论文直接退稿，不进入评审流程。
 
-#### 六维度评分（总分 0-100）
+#### 六维度评分（总分 0-100)
 
 | 维度 | 英文名 | 权重 | 描述 |
 |------|--------|------|------|
 | 问题创新性 | Problem Originality | 30% | 研究问题是否为"真问题"且具有枢纽意义 |
 | 现状洞察度 | Literature Insight | 15% | 对既有研究的穷尽程度与未竟点的精准识别 |
-| 分析框架建构力 | Analytical Framework Construction | 15% | 是否建立可操作的分析框架（类型化/比较框架/实证设计） |
+| 分析框架建构力 | Analytical Framework Construction | 15% | 是否建立可操作的分析框架（类型化/比较框架/实证设计) |
 | 逻辑严密性 | Logical Coherence | 25% | 推理链条是否不可颠倒，后一步是否是对前一步的必然回应 |
-| 结论共识度 | Conclusion Consensus | 10% | 对策/结论在制度框架内的可行性（"在司法现实中说得通"） |
-| 前瞻延展性 | Forward Extension | 5% | 为后续研究"画地图"（权重最低，对判例分析类论文影响小） |
+| 结论可接受性 | Conclusion Acceptability | 10% | 对策/结论在制度框架内的可行性（v2.2+改名，原"结论共识度") |
+| 前瞻延展性 | Forward Extension | 5% | 为后续研究"画地图"（权重最低，对判例分析类论文影响小) |
 
-**判断链条**：起点（问题创新性）→ 定位（现状洞察度）→ 工具（分析框架建构力）→ 骨架（逻辑严密性）→ 落脚（结论共识度）→ 开放（前瞻延展性）
+**判断链条**：起点（问题创新性）→ 定位（现状洞察度）→ 工具（分析框架建构力）→ 骨架（逻辑严密性）→ 落脚（结论可接受性）→ 开放（前瞻延展性)
 
 #### 评分结构
 
-- **总分范围**：0–100 分（符合学术惯例）
+- **总分范围**：0–100 分（符合学术惯例)
 - **可靠性阈值**：多模型评分标准差 ≤ 5 分为高置信度
 
-#### v2.0 核心改进（相比 v1.0）
+#### v2.3 核心特性（研究版)
 
-1. **新增准入条件**：学术规范性前置筛选，不合格直接退稿
-2. **保持六维结构，调整权重**：
-   - 问题创新性 30%（提升 5%）
-   - 逻辑严密性 25%（提升 5%）
-   - 结论共识度 10%（降低 5%）
-   - 前瞻延展性 5%（权重最低，对判例分析类论文影响小）
-3. **维度重命名**：
-   - 理论建构力 → 分析框架建构力（涵盖法教义学、判例分析、实证研究等多元类型）
-   - 学术共识度 → 结论共识度（强调可行性而非"符合主流"）
-4. **总分 100**：符合学术惯例，便于与其他评价系统对比
+1. **ceiling_rules（上限规则)**：显式定义触发条件和分数上限
+2. **review_flags（复核标记)**：统一枚举，便于触发专家复核
+3. **limit_rule_triggered**：结构化输出，明确规则触发证据
+4. **跨维度一致性检查**：识别不合理的评分组合
+5. **governance_appendix**：分离治理逻辑，包含风险检测机制
+
+#### Schema 兼容性
+
+- **v2.0/v2.1**：符合 `schema_v2.json`（5维度+1加分项)
+- **v2.2/v2.3**：使用新结构（6维度，无加分项)，需 `schema_v3.json`
 
 ---
 
@@ -225,11 +237,11 @@ SMTP_FROM=noreply@socialeval.local
 
 ### 语言与工具
 - Python 3.10+，依赖管理用 `uv`
-- TypeScript（前端），禁用 `any` 和 `@ts-ignore`
-- Ruff（Python lint/format），ESLint + Prettier（前端）
+- TypeScript（前端)，禁用 `any` 和 `@ts-ignore`
+- Ruff（Python lint/format)，ESLint + Prettier（前端)
 
 ### 代码风格
-- Python: 遵循 PEP 8，行长度 88（Ruff 默认）
+- Python: 遵循 PEP 8，行长度 88（Ruff 默认)
 - 类型注解: 所有公共函数必须有类型注解
 - 文档字符串: 公共 API 必须有 docstring
 
@@ -241,7 +253,7 @@ SMTP_FROM=noreply@socialeval.local
 
 ### 安全红线
 - `.env` 必须在 `.gitignore` 中，不得提交任何 API Key
-- 所有用户上传文件须做类型校验（PDF/DOCX/TXT）
+- 所有用户上传文件须做类型校验（PDF/DOCX/TXT)
 - 生产环境 `SECRET_KEY` 必须使用强随机字符串
 
 ### 提交规范
@@ -251,24 +263,24 @@ SMTP_FROM=noreply@socialeval.local
 
 ---
 
-## 已确认的决策（来自需求 v0.4）
+## 已确认的决策（来自需求 v0.4)
 
 以下事项在需求文档中已有结论，开发时须遵守：
 
-- **OCR 支持**：v1 默认不支持扫描版 PDF OCR；疑似扫描版需提示用户重新上传可解析版本（F1.5）
-- **多模型并发数**：默认值 3，上限 5（F3.4）
-- **专家通知触发条件**：进入复核队列且已完成专家指定后，自动发送邮件通知（F5.5）；编辑也可对高置信度论文手动追加复核
-- **用户注册方式**：全角色邀请制，不支持开放自注册（U1.1）
-- **认证方式**：Web 端使用 Session，API 调用使用 API Key（U1.3, U1.4）
+- **OCR 支持**：v1 默认不支持扫描版 PDF OCR；疑似扫描版需提示用户重新上传可解析版本（F1.5)
+- **多模型并发数**：默认值 3，上限 5（F3.4)
+- **专家通知触发条件**：进入复核队列且已完成专家指定后，自动发送邮件通知（F5.5)；编辑也可对高置信度论文手动追加复核
+- **用户注册方式**：全角色邀请制，不支持开放自注册（U1.1)
+- **认证方式**：Web 端使用 Session，API 调用使用 API Key（U1.3, U1.4)
 
 ---
 
-## 待澄清事项（来自需求 v0.4）
+## 待澄清事项（来自需求 v0.4)
 
 以下事项需在后续版本迭代时确认：
 
 - [ ] 外部期刊系统接入方式、签名机制、幂等策略
-- [ ] MinerU 纳入后续版本时的启用方式（自动通道 or 管理员手动启用）
+- [ ] MinerU 纳入后续版本时的启用方式（自动通道 or 管理员手动启用)
 
 ---
 
