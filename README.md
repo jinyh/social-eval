@@ -74,6 +74,7 @@ social-eval/
 - 需求文档：`docs/requirements/SocialEval-requirements-v0.4.md`
 - 当前法学框架：`configs/frameworks/law-v2.0-20260413.yaml`
 - 架构决策：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
+- 部署与运维说明：`docs/deployment/SocialEval-deployment-and-operations-guide.md`
 - 开发路线图：`development-roadmap.md`
 - 参考资料：`ref/` 目录（法学论文评价方法论、AI 评价系统方案）
 
