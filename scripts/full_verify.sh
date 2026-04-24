@@ -7,6 +7,9 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
+# 使用虚拟环境的 Python
+PYTHON="$PROJECT_ROOT/.venv/bin/python"
+
 # 默认参数
 FRAMEWORK="${1:-configs/frameworks/law-v2.19-20260424.yaml}"
 OUTPUT_DIR="results/autoresearch"
@@ -42,16 +45,16 @@ for i in "${!PAPERS[@]}"; do
 
     echo "[$((i+1))/${#PAPERS[@]}] 测试: $(basename "$PAPER")"
 
-    python3 scripts/run_convergence_test.py \
+    $PYTHON scripts/run_convergence_test.py \
         --framework "$FRAMEWORK" \
         --paper "$PAPER" \
-        --models "gpt-5.4,kimi-k2.6,glm-5.1" \
+        --models "glm-5.1,kimi-k2.6,qwen3.6-plus" \
         --output "$OUTPUT_FILE" \
         --metric composite \
         --no-precheck
 
     # 提取 composite_score
-    SCORE=$(python3 -c "import json; print(json.load(open('$OUTPUT_FILE'))['overall']['composite_score'])")
+    SCORE=$($PYTHON -c "import json; print(json.load(open('$OUTPUT_FILE'))['overall']['composite_score'])")
     SCORES+=("$SCORE")
 
     echo "  Composite Score: $SCORE"
@@ -59,7 +62,7 @@ for i in "${!PAPERS[@]}"; do
 done
 
 # 计算平均 composite_score
-AVG_SCORE=$(python3 -c "scores = [${SCORES[*]}]; print(round(sum(scores) / len(scores), 2))")
+AVG_SCORE=$($PYTHON -c "scores = [${SCORES[*]}]; print(round(sum(scores) / len(scores), 2))")
 
 echo "=== 全量验证完成 ==="
 echo "各论文得分: ${SCORES[*]}"
@@ -68,7 +71,7 @@ echo ""
 
 # 保存汇总结果
 SUMMARY_FILE="$OUTPUT_DIR/full-verify-$TIMESTAMP-summary.json"
-python3 -c "import json; json.dump({'timestamp': '$TIMESTAMP', 'framework': '$FRAMEWORK', 'scores': [${SCORES[*]}], 'avg_score': $AVG_SCORE}, open('$SUMMARY_FILE', 'w'), indent=2)"
+$PYTHON -c "import json; json.dump({'timestamp': '$TIMESTAMP', 'framework': '$FRAMEWORK', 'scores': [${SCORES[*]}], 'avg_score': $AVG_SCORE}, open('$SUMMARY_FILE', 'w'), indent=2)"
 
 echo "汇总结果已保存到: $SUMMARY_FILE"
 

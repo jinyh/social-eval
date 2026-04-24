@@ -7,6 +7,9 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
+# 使用虚拟环境的 Python
+PYTHON="$PROJECT_ROOT/.venv/bin/python"
+
 # 默认参数
 FRAMEWORK="${1:-configs/frameworks/law-v2.19-20260424.yaml}"
 PAPER="${2:-raw/司法公正与同理心正义_杜宴林.pdf}"
@@ -27,16 +30,16 @@ echo ""
 
 # 运行收敛测试（composite 模式）
 cd "$PROJECT_ROOT"
-python3 scripts/run_convergence_test.py \
+$PYTHON scripts/run_convergence_test.py \
     --framework "$FRAMEWORK" \
     --paper "$PAPER" \
-    --models "gpt-5.4,kimi-k2.6,glm-5.1" \
+    --models "glm-5.1,kimi-k2.6,qwen3.6-plus" \
     --output "$OUTPUT_FILE" \
     --metric composite \
     --no-precheck
 
 # 提取 composite_score
-COMPOSITE_SCORE=$(python3 -c "import json; print(json.load(open('$OUTPUT_FILE'))['overall']['composite_score'])")
+COMPOSITE_SCORE=$($PYTHON -c "import json; print(json.load(open('$OUTPUT_FILE'))['overall']['composite_score'])")
 
 echo ""
 echo "=== 验证完成 ==="
