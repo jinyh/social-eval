@@ -68,7 +68,12 @@ async def evaluate_single_dimension(
             errors[provider.model_name] = error
             continue
         raw_outputs[provider.model_name] = raw
-        score = raw.get("score")
+        if isinstance(raw, dict):
+            score = raw.get("score")
+        else:
+            # 模型偶尔返回非 dict 格式，记为错误
+            errors[provider.model_name] = f"Unexpected output type: {type(raw).__name__}"
+            continue
         if score is not None:
             scores[provider.model_name] = int(score)
 
@@ -201,6 +206,13 @@ async def run_convergence_test(
         "dimension_count": len(dimension_results),
     }
 
+    # 计算复合得分（用于 autoresearch）
+    # composite_score = -avg_std + 10 * high_confidence_ratio
+    # 目标：avg_std < 5, high_confidence_ratio > 0.8 → composite_score > 3.0
+    high_confidence_ratio = high_confidence_count / len(dimension_results) if dimension_results else 0.0
+    composite_score = -result["overall"]["avg_std"] + 10 * high_confidence_ratio
+    result["overall"]["composite_score"] = round(composite_score, 2)
+
     # 最高 std 维度（优先优化目标）
     if dimension_results:
         worst_dim = max(dimension_results.values(), key=lambda d: d["std"])
@@ -242,6 +254,12 @@ def main():
         action="store_true",
         help="跳过前置检查",
     )
+    parser.add_argument(
+        "--metric",
+        default="standard",
+        choices=["standard", "composite"],
+        help="输出指标类型：standard=完整JSON，composite=单一复合得分（用于autoresearch）",
+    )
 
     args = parser.parse_args()
 
@@ -278,13 +296,20 @@ def main():
 
     # 打印汇总
     overall = result["overall"]
-    print(f"\n=== 汇总 ===")
-    print(f"加权总分：{overall['weighted_total']}")
-    print(f"平均 std：{overall['avg_std']}")
-    print(f"最大 std：{overall['max_std']}")
-    print(f"高置信度比例：{overall['high_confidence_pct']}%")
-    if "worst_dimension" in overall:
-        print(f"最高 std 维度：{overall['worst_dimension']} (std={overall['worst_std']})")
+
+    if args.metric == "composite":
+        # Autoresearch 模式：只输出单一数值
+        print(f"\ncomposite_score: {overall['composite_score']}")
+    else:
+        # 标准模式：完整汇总
+        print(f"\n=== 汇总 ===")
+        print(f"加权总分：{overall['weighted_total']}")
+        print(f"平均 std：{overall['avg_std']}")
+        print(f"最大 std：{overall['max_std']}")
+        print(f"高置信度比例：{overall['high_confidence_pct']}%")
+        print(f"复合得分：{overall['composite_score']}")
+        if "worst_dimension" in overall:
+            print(f"最高 std 维度：{overall['worst_dimension']} (std={overall['worst_std']})")
 
 
 if __name__ == "__main__":
