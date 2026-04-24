@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     deepseek_api_key: str = ""
     zenmux_api_key: str = ""
+    zenmux_base_url: str = "https://zenmux.ai/api/v1"
+    dashscope_api_key: str = ""
+    dashscope_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     smtp_host: str = ""
     smtp_port: int = 587
     smtp_user: str = ""
