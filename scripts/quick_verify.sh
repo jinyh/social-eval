@@ -12,7 +12,7 @@ PYTHON="$PROJECT_ROOT/.venv/bin/python"
 
 # 默认参数
 FRAMEWORK="${1:-configs/frameworks/law-v2.19-20260424.yaml}"
-PAPER="${2:-raw/司法公正与同理心正义_杜宴林.pdf}"
+PAPER="${2:-raw/比例原则在民法上的适用及展开_郑晓剑.pdf}"
 OUTPUT_DIR="results/autoresearch"
 
 # 创建输出目录
