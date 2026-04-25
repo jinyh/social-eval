@@ -1,0 +1,362 @@
+{
+  "framework": "configs/frameworks/law-v2.33-20260425.yaml",
+  "framework_version": "“2.31.0”",
+  "paper": "raw/国体的起源、构造和选择_中西暗合与差异_佀化强.pdf",
+  "models": [
+    "glm-5.1",
+    "gpt-5.4",
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 75,
+        "gpt-5.4": 60,
+        "qwen3.6-plus": 65
+      },
+      "mean": 66.7,
+      "std": 7.6,
+      "confidence": "medium",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "论文呈现了清晰的国体构造争点与流派对立，但研究地图三要素存在缺口。",
+          "core_judgment": "争点结构充分且流派对立明确，但本文切入点缺失致研究地图不完整。",
+          "score_rationale": "三要素得分=3/6，法学流派=2个，锚定good上限79档，给75分",
+          "evidence_quotes": [
+            "有论者认为，德国学者阿尔布雷希特于1837年最先提出了“国家法人”概念……还有学者认为，将国家喻为人体……乃19世纪德国法学家基尔克、伯伦知理等人的“国家有机体学说”的发明。",
+            "还存在着与上述身体神学政治针锋相对的另一股政治思潮……这就是最初被罗马天主教判为异端、后来演变为宗教革命的清教运动。"
+          ],
+          "strengths": [
+            "清晰呈现横轴与纵轴两个维度的国体构造争点",
+            "明确识别主权一元论与清教多元分权论的对立流派"
+          ],
+          "weaknesses": [
+            "缺乏显性的本文切入点表述，未竟点仅停留在反驳",
+            "研究地图三要素缺口明显，未说明本文如何填补争议"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，上限79分",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "三要素得分3（到达点2+未竟点1+切入点0），法学流派2个"
+            }
+          ],
+          "boundary_note": "评估聚焦于文献梳理与争点呈现，不评国体溯源问题本身的历史新颖性。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 60,
+          "band": "good",
+          "summary": "有清晰研究切入与多处对立结构，但既有研究地图提炼不足、流派识别有限。",
+          "core_judgment": "本文现状洞察主要体现在对“国家身体/国体”解释路径与制度分歧的重构上，但对既有学界研究成果的归纳和定位不够集中。",
+          "score_rationale": "三要素得分=4/6，法学流派=1个，锚定good档，给60分。到达点有若干学者观点与理论史线索，未竟点和本文切入较明确；争点结构达到2分，但未明确置于多流派学界争论中。",
+          "evidence_quotes": [
+            "“其实，这一人体仿生政治学的画像‘国家身体’，既非19世纪德国的发明”",
+            "“在中世纪后期至18世纪，还存在着…针锋相对的另一股政治思潮”"
+          ],
+          "strengths": [
+            "围绕国家身体、单一制/联邦制展开多重争点",
+            "本文问题意识明确，切入点与结论呼应"
+          ],
+          "weaknesses": [
+            "既有研究成果多为引证，缺少集中提炼",
+            "较少明确标示当代学界流派或系统争论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "法学流派识别≤1时，最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文虽有对立思潮，但少以“学界争论/既有研究立场”方式明确归纳为多个法学流派。"
+            }
+          ],
+          "boundary_note": "此处所评是作者如何定位既有研究与争点，不评价其历史解释本身是否原创正确。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "good",
+          "summary": "争点结构清晰呈现一元与多元对立，但缺乏当代法学流派对接。",
+          "core_judgment": "研究地图基本完整且争点脉络分明，但因未嵌入学界争论脉络导致流派识别缺失，受上限规则约束。",
+          "score_rationale": "三要素得分=4/6，法学流派=0个，锚定good档，给65分",
+          "evidence_quotes": [
+            "“然而，‘国家法人’、‘国体’以及19世纪所谓的‘国家有机体’学说，至少在霍布斯那里就已系统化了。”",
+            "“横轴上，清教从混合制到权力分立的‘多头多元’模式，与‘一元论’下博丹式的国体类型三分法形成了鲜明对比。”"
+          ],
+          "strengths": [
+            "争点结构清晰，明确划分横纵轴上的“一元/单一”与“多元/联邦”对立脉络。",
+            "历史文献梳理扎实，有效还原了身体政治学说的演进轨迹与中西差异。"
+          ],
+          "weaknesses": [
+            "未将历史理论分歧明确嵌入当代法学学术争论脉络，流派识别缺失。",
+            "研究缺口与本文切入点的对应关系表述隐晦，缺乏显性学术对话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "法学流派识别≤1触发上限规则",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文聚焦历史政治神学与中西传统比较，未识别并对接当代法学流派。"
+            }
+          ],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现深度，不涉及国体理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 70.46491384506226,
+        "gpt-5.4": 13.116758108139038,
+        "qwen3.6-plus": 88.10912108421326
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 90,
+        "gpt-5.4": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 83.3,
+      "std": 9.9,
+      "confidence": "low",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "将神学身体隐喻转化为横纵二维的国体分析框架，转化度高",
+          "core_judgment": "分析框架成立且法学转化成功，将跨学科隐喻操作化为国体类型判断标准",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“‘一个头部，一个身体，一个灵’的教义，决定了横轴上的一元论……纵轴上，单一制被视为正常的国家形态”",
+            "“西方国体构造中的纵横区分，使得19世纪德国公法学家……所使用的国体概念，无法周延地囊括两个维度的国家构造之类型”"
+          ],
+          "strengths": [
+            "将神学身体隐喻成功转化为横纵二维的法学国体分析框架，解释力极强",
+            "概念界定与分类标准明确，后文对中西法政历史的分析均严格遵循此框架"
+          ],
+          "weaknesses": [
+            "框架源自历史神学隐喻，对现代宪法教义学的直接操作指引稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构与法学转化，不评价历史考证的严密性与史实准确性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.4": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文建构了“一个头部、一个身体、一个灵”的历史解释框架，并贯穿中西比较展开。",
+          "core_judgment": "作为比较法兼历史理论论文，其核心框架较清晰且被反复调用，但主要是解释性框架，法学操作化不足。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=1/4，锚定good档，给72分。",
+          "evidence_quotes": [
+            "“国家身体”的二维构造：在横轴上…在纵轴上…",
+            "“一个头部，一个身体，一个灵”的教义，对世俗国家的构造产生了重大影响。"
+          ],
+          "strengths": [
+            "核心术语和二维结构界定明确",
+            "框架在法国、中国部分被持续调用"
+          ],
+          "weaknesses": [
+            "缺少裁判规则或法律适用步骤",
+            "法学转化主要停留于历史宪制解释"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处扣分在于框架操作化和法学转化不足，不涉及论证是否严密或史料是否充分。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以“国家身体”隐喻构建横纵二维框架，系统阐释中西国体选择逻辑。",
+          "core_judgment": "框架概念清晰、分类明确且贯穿全文，理论转化符合概念分析类标准，建构力强。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给88分。核心隐喻与横纵轴分类明确，全文高频调用；作为理论型论文，概念映射与适用边界界定充分，满足宽松转化标准。",
+          "evidence_quotes": [
+            "“一个头部，一个身体，一个灵”的教义，决定了横轴上的一元论……纵轴上，单一制被视为正常的国家形态，联邦制则被视为国家分裂或双头双体的怪胎。",
+            "就横轴而言……“只有一个头部”、“主权不可分割”……就纵轴上的中央与地方关系而言，“只有一个身体”的教义，使得基督教世界的国家身体都是不言而喻的单一制。"
+          ],
+          "strengths": [
+            "核心隐喻与横纵二维分类标准清晰，为宪法概念史提供结构化分析工具。",
+            "框架贯穿中西比较与民初制宪分析，术语高频调用且逻辑自洽。"
+          ],
+          "weaknesses": [
+            "偏重历史概念梳理，缺乏对当代宪法裁判或制度设计的直接操作指引。",
+            "隐喻转化依赖历史语境，跨时代适用的普适性边界未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及历史论证严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 70.11969208717346,
+        "gpt-5.4": 22.46362018585205,
+        "qwen3.6-plus": 61.202523946762085
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 30,
+        "gpt-5.4": 24,
+        "qwen3.6-plus": 25
+      },
+      "mean": 26.3,
+      "std": 3.2,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅停留在历史现象解释，未提出任何具体的后续研究问题或理论修正路径。",
+          "core_judgment": "论文前瞻延展性不成立，完全缺乏对未来研究方向的实质指引与理论深化路径。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=0/4，锚定unacceptable档，触发slogan_outlook上限，给30分。",
+          "evidence_quotes": [
+            "这一现象，或许是由三者文化之间的差异与暗合决定的。"
+          ],
+          "strengths": [
+            "无"
+          ],
+          "weaknesses": [
+            "未指明具体后续研究问题或争点",
+            "未承认理论局限及指明修正方向"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛拔高或无实质延展",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅为历史总结，无具体后续问题、方法或修正路径"
+            }
+          ],
+          "boundary_note": "本文缺失的是未来理论深化的具体路径，而非当下结论可接受性问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 24,
+          "band": "unacceptable",
+          "summary": "论文结论有历史解释力，但原文几乎未提出可操作的后续延展路径。",
+          "core_judgment": "本文主要止于总结性历史比较与因果归纳，缺少明确的后续研究问题、方法指引、修正路径和反对者进入点。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=2/4，锚定unacceptable档，且触发slogan_outlook上限，给24分。",
+          "evidence_quotes": [
+            "“这一现象，或许是由三者文化之间的差异与暗合决定的。”",
+            "“如果以身体政治学的视角审视并解读，一副清晰的历史画面就会呈现出来。”"
+          ],
+          "strengths": [
+            "结语对全文核心结论有集中回扣",
+            "延展意向仍围绕正文比较框架展开"
+          ],
+          "weaknesses": [
+            "未明确提出具体后续研究问题",
+            "未给出方法、修正方向或反对者切入口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛拔高表述，评分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾仅称“或许是由三者文化之间的差异与暗合决定的”，未展开具体后续研究设计"
+            },
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2时，band只能为marginal或unacceptable",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "四项延展实质标准均缺少原文明示证据"
+            }
+          ],
+          "boundary_note": "本维度只看论文是否明确指出未来如何继续推进，不评价其现有历史解释是否成立。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "结语仅作历史归因总结，未提供任何具体后续问题、理论修正或反对者切入路径。",
+          "core_judgment": "前瞻延展维度不成立，全文缺乏明确的未来研究指引与理论深化设计。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=1/4，锚定unacceptable档，给25分。",
+          "evidence_quotes": [
+            "这一现象，或许是由三者文化之间的差异与暗合决定的。",
+            "中国之所以循法国道路，源于中国传统身体政治学与排斥清教的法国所信奉的天主教神学政治之间有着高度的暗合之处"
+          ],
+          "strengths": [
+            "结论严格限定于正文历史比较框架内，未越界。",
+            "未引入脱离核心论证的无关新议题。"
+          ],
+          "weaknesses": [
+            "未提出任何具体的后续研究问题或理论假设。",
+            "未承认论证局限，亦未指明反对者可切入的争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2触发，上限65分且仅限marginal或unacceptable档。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "结语仅总结历史现象，无具体后续问题、方法指引或修正路径，实质度为0。"
+            }
+          ],
+          "boundary_note": "本维度仅评未来延展路径，不涉本文历史比较结论的当下可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 56.95008087158203,
+        "gpt-5.4": 12.193592071533203,
+        "qwen3.6-plus": 78.44600582122803
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 6.9,
+    "max_std": 9.9,
+    "weighted_total": 27.2,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 3,
+    "composite_score": -3.57,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 9.9
+  }
+}
