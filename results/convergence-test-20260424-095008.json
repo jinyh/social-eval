@@ -1,0 +1,69 @@
+{
+  "framework": "configs/frameworks/law-v2.8-20260423.yaml",
+  "framework_version": "2.8.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "dashscope-glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 45
+      },
+      "mean": 45,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "marginal",
+          "summary": "提出以同理心正义化解司法多元诉求困境，但属哲学主张而非法学争点。",
+          "core_judgment": "核心争点为抽象的正义模式建构，缺乏可争辩的规范冲突与法理定性，问题创新性不足。",
+          "score_rationale": "争点停留在宏观法理与道德哲学层面，未触及具体制度或解释枢纽，触发不可争辩问题上限规则，故评分受限。",
+          "evidence_quotes": [
+            "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求...可成为这一难题的破解之道。",
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效，应转而寻求一种正义的首要原则。"
+          ],
+          "strengths": [
+            "试图回应个案正义与普遍正义的张力。"
+          ],
+          "weaknesses": [
+            "核心问题为哲学主张而非可争辩的法学问题。",
+            "未触及具体制度、规范或解释枢纽。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "争点属哲学/道德主张而非可争辩法学问题",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "以同理心正义作为破解之道属宏观价值倡导，缺乏规范冲突"
+            }
+          ],
+          "boundary_note": "仅评问题是否为可争辩法学争点及是否触及规范枢纽，不评哲学理论深度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 58.43845582008362
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 13.5,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 1,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

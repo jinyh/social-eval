@@ -1,0 +1,70 @@
+{
+  "framework": "configs/frameworks/law-v2.17-20260424.yaml",
+  "framework_version": "2.17.0",
+  "paper": "raw/治国理政的法治理念和法治思维_张文显.pdf",
+  "models": [
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen/qwen3.6-plus": 45
+      },
+      "mean": 45,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文系对特定法治理论的系统性阐释，缺乏明确法学争点与理论交锋。",
+          "core_judgment": "问题维度不成立，因全文为单向理论归纳，未提出可争辩的法学研究问题。",
+          "score_rationale": "可争辩性得分=1/4，枢纽性得分=4/4，锚定unacceptable档，给45分。虽议题触及法治核心原理，但无明确问题句、无学术分歧、缺乏独立论证，触发上限。",
+          "evidence_quotes": [
+            "法治原理和中国特色社会主义法治理论是有关法治的本质、法治的普遍规律……等重大问题的理论。",
+            "‘党大还是法大’是一个政治陷阱，是一个伪命题。"
+          ],
+          "strengths": [
+            "议题覆盖法治基础理论与制度设计，具有宏观枢纽性。",
+            "系统梳理了形式法治与实质法治等核心法理概念。"
+          ],
+          "weaknesses": [
+            "全文为单向理论归纳，缺乏明确的问题意识与争点。",
+            "未呈现学界理论分歧，缺乏独立法学论证过程。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确问题句与学术分歧，属单向理论归纳，触发上限。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 88.14850997924805
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 13.5,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 1,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "framework": "configs/frameworks/law-v2.12-20260423.yaml",
+  "framework_version": "2.12.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 78,
+        "qwen/qwen3.6-plus": 92,
+        "z-ai/glm-5.1": 88
+      },
+      "mean": 86,
+      "std": 7.2,
+      "confidence": "medium",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文能交代问题背景、争点与本文方案，但既有研究的系统梳理和流派对话仍不够规整。",
+          "core_judgment": "本文明显具有研究地图雏形，并覆盖多组法学立场，但“到达点”提炼不足、学术史整理偏散，故现状洞察较强但未达优秀。",
+          "score_rationale": "三要素得分=3/6，法学流派=5个，锚定good上限79档，给78分。到达点仅零散提及个别成果，未竟点较明确，本文切入点清楚；同时识别出法律道德主义/分离论、形式法治/实质法治、机械司法/社会学司法及认知心理学与司法裁判交叉等流派。",
+          "evidence_quotes": [
+            "“尽管有学者甚至为此提出了定罪和量刑分立的变革性设想，但…难以获得共识。”",
+            "“基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论。”"
+          ],
+          "strengths": [
+            "明确指出被害人参与后司法公正面临的新争议。",
+            "能把本文主张与既有法治/司法理论争点连接。"
+          ],
+          "weaknesses": [
+            "既有研究成果提炼不足，多为引文支持而非综述。",
+            "缺口概括多嵌入论证，缺少集中学术史梳理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，最高79分",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "到达点未充分总结既有研究成果，仅未竟点与本文切入点较清楚。"
+            }
+          ],
+          "boundary_note": "本评分针对文献定位是否清楚，不评价“同理心正义”命题本身是否新颖或论证是否成立。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "文献梳理清晰勾勒形式/实质法治与法律道德主义之争，精准定位同理心正义的切入空间。",
+          "core_judgment": "研究地图完整，三要素逻辑闭环严密，跨学科与本土法学流派覆盖充分，维度成立。",
+          "score_rationale": "三要素得分=6/6，法学流派=4个，锚定excellent档，给92分。文献精准提炼既有成果贡献，明确指出现代合法律性正义与多元诉求整合的未竟缺口，并直接以同理心正义理论对接破局。",
+          "evidence_quotes": [
+            "“迄今尚未发现一项杰出计划在实现这一目标时能够声称自己体现了绝对的正义。”",
+            "“超越机械司法／形式理性，而迈向现代性反思后的社会学司法／实践理性的正义。”"
+          ],
+          "strengths": [
+            "精准提炼形式法治与实质法治的学理对立脉络。",
+            "跨学科（认知心理学/现象学）法学对话覆盖充分。"
+          ],
+          "weaknesses": [
+            "对“分离论”等对立流派的直接交锋着墨略少。",
+            "部分引证偏重哲学原典，法学实证研究映射稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有理论脉络梳理与流派对话，未越界评价问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "文献缺口与切入点对应紧密，法学流派对话丰富，洞察度高。",
+          "core_judgment": "本维度成立，研究地图清晰且流派覆盖充分，现状洞察深刻。",
+          "score_rationale": "三要素得分=5/6，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效",
+            "本文认为，有必要引入'同理心正义'理论"
+          ],
+          "strengths": [
+            "缺口识别精准，直击多元诉求整合难题。",
+            "法学流派覆盖广，跨学科对话充分。"
+          ],
+          "weaknesses": [
+            "既有研究到达点梳理较隐晦，未集中呈现。",
+            "部分跨学科理论法学转化论证稍显生硬。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦文献定位与流派覆盖，不涉及同理心正义理论本身是否创新。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 15.485527992248535,
+        "qwen/qwen3.6-plus": 84.04616498947144,
+        "z-ai/glm-5.1": 112.90647888183594
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 7.2,
+    "max_std": 7.2,
+    "weighted_total": 12.9,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 7.2
+  }
+}

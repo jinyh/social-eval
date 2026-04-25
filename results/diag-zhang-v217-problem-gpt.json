@@ -1,0 +1,70 @@
+{
+  "framework": "configs/frameworks/law-v2.17-20260424.yaml",
+  "framework_version": "2.17.0",
+  "paper": "raw/治国理政的法治理念和法治思维_张文显.pdf",
+  "models": [
+    "gpt-5.4"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "gpt-5.4": 38
+      },
+      "mean": 38,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文以理论综述和阐发为主，缺少可争辩、可聚焦的法学问题设定。",
+          "core_judgment": "本文主要是在总结和宣介“法治基础理论的创新”，并未形成明确、可辩驳的核心法学争点，故问题创新性较弱。",
+          "score_rationale": "可争辩性得分=1/4，枢纽性得分=3/4，按规则锚定unacceptable档；虽涉及法治基本原理且影响范围广，但因缺少明确问题句和理论分歧，给38分。",
+          "evidence_quotes": [
+            "题目为“法治基础理论的创新”，属于主题声明而非问题句。",
+            "“习近平创造性地发展了法治原理和中国特色社会主义法治理论”"
+          ],
+          "strengths": [
+            "涉及法治、党法关系等基础性法学议题。",
+            "讨论范围覆盖多制度领域，具有较强枢纽性。"
+          ],
+          "weaknesses": [
+            "未提出明确的“是否/如何/能否”式争点。",
+            "整体为单向阐释，缺少不同理论路径交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以理论归纳和政策阐发为主，未见清晰聚焦的核心问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评价问题是否成立且重要，不评价文献综述充分性与论证严密性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 10.86601972579956
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 11.4,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 1,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

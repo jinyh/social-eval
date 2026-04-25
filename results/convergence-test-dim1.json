@@ -1,0 +1,126 @@
+{
+  "framework": "configs/frameworks/law-v2.8-20260423.yaml",
+  "framework_version": "2.8.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "kimi-k2.6",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "gpt-5.4": 72,
+        "moonshotai/kimi-k2.6": 76,
+        "z-ai/glm-5.1": 40
+      },
+      "mean": 62.7,
+      "std": 19.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "提出了司法公正能否以“同理心正义”作为整合多元诉求基础的争点。",
+          "core_judgment": "本文提出的是可争辩的法理论证问题，涉及司法公正的正当化基础与裁判理由结构，具有一定创新性，但问题表达偏大、规范锚点偏弱。",
+          "score_rationale": "其中心问题不是泛泛谈人文关怀，而是追问同理心能否成为司法公正的首要原则与裁判机制，触及法治中规则、情理与正当性关系这一枢纽；但论证更多是宏观法哲学整合，缺少对具体制度或解释难题的聚焦，故评为良好而非卓越。",
+          "evidence_quotes": [
+            "“有必要引入‘同理心正义’理论”",
+            "“同理心正义是否能经受住现代法律理性、客观性即科学性的考量？”"
+          ],
+          "strengths": [
+            "明确提出可争辩的法哲学问题",
+            "触及司法正当化与裁判理由枢纽"
+          ],
+          "weaknesses": [
+            "问题过于宏观，边界不够收束",
+            "与具体制度解释争点连接偏弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评“提出的问题是否新且关键”，不评价论证是否充分或结论是否正确。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 76,
+          "band": "good",
+          "summary": "论文以被害人参与诉讼为背景，提出同理心正义能否整合多元诉求并奠基司法公正的问题。",
+          "core_judgment": "该问题属于可争辩的法理学问题，触及司法裁判正当性基础与法律情感认知的枢纽，具备理论深度，但未突破现有学术脉络。",
+          "score_rationale": "问题以多元诉求整合为切入点，将同理心系统化为正义理论，具有跨学科整合价值；但议题在法学与心理学交叉领域已有较多讨论，问题边界较为宏大，原创性发现不足。",
+          "evidence_quotes": [
+            "随着社会诉求的日趋多元化，司法的公正运作遇到较为复杂的困难局面。",
+            "应转而寻求一种正义的首要原则，一种政治—道德的规范，使之可能作为公共理性意义上法律责任的基础。"
+          ],
+          "strengths": [
+            "从被害人参与诉讼的具体制度困境切入，具备现实问题导向。",
+            "将认知心理学、现象学与中国法律传统整合，理论视野开阔。"
+          ],
+          "weaknesses": [
+            "问题很快从具体制度跃升至宏大正义理论，聚焦性不足。",
+            "同理心与司法公正的关联在既有研究中已较充分，问题新意受限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价论文所提出问题的可争辩性与学术新颖性，不评价论证过程及结论正确性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "marginal",
+          "summary": "论文提出以同理心正义破解司法困境，但问题属哲学思辨而非法学争点。",
+          "core_judgment": "核心命题为道德与情感哲学主张，缺乏可争辩的具体法学规范问题。",
+          "score_rationale": "问题过于宏大抽象，未触及具体制度或解释枢纽，且非可裁判的法学问题，触发上限规则。",
+          "evidence_quotes": [
+            "同理心正义既能最大限度实现个案的正义裁决……可成为这一难题的破解之道。",
+            "同理心正义尽管发端于心灵或情感体验，但完全能够经受住法律科学性的检验。"
+          ],
+          "strengths": [
+            "触及形式理性与实质正义的张力",
+            "跨学科视角引入认知心理学资源"
+          ],
+          "weaknesses": [
+            "核心问题属道德哲学而非法学争点",
+            "缺乏具体制度或规范落脚点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "核心问题非可争辩的法学问题，而是哲学/道德主张",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "主张同理心正义为破解司法困境之道，属情感哲学命题"
+            }
+          ],
+          "boundary_note": "仅评问题本身的法学创新性，不评理论建构的哲学深度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 10.221415042877197,
+        "moonshotai/kimi-k2.6": 169.27058672904968,
+        "z-ai/glm-5.1": 67.07712483406067
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 19.7,
+    "max_std": 19.7,
+    "weighted_total": 18.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "problem_originality",
+    "worst_std": 19.7
+  }
+}

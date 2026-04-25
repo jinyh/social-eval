@@ -1,0 +1,142 @@
+{
+  "framework": "configs/frameworks/law-v2.35-20260425.yaml",
+  "framework_version": "2.35.0",
+  "paper": "raw/calibration-regression/比例原则在民法上的适用及展开_郑晓剑.pdf",
+  "models": [
+    "glm-5.1",
+    "gpt-5.4",
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 60,
+        "gpt-5.4": 62,
+        "qwen3.6-plus": 48
+      },
+      "mean": 56.7,
+      "std": 7.6,
+      "confidence": "medium",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 60,
+          "band": "marginal",
+          "summary": "论文指出了民法典条文构造与原则界分的后续修正方向，但缺乏方法论指引与反对者进入路径。",
+          "core_judgment": "延展实质度偏弱，仅满足后续问题与修正路径标准，虽与正文衔接紧密，但受上限规则限制。",
+          "score_rationale": "延展实质度得分=2/4，正文衔接度得分=4/4，锚定marginal档，触发weak_extension_path上限，给60分。",
+          "evidence_quotes": [
+            "如何在民法典中妥当地构造出比例原则的条文内容，以及如何将其与诚信原则、禁止权利滥用原则等民法基本原则予以妥当的界分，尚需作进一步的论证分析。"
+          ],
+          "strengths": [
+            "延展路径与正文核心结论（定位为基本原则）高度对应",
+            "明确承认了本文未解决条文构造与原则界分的局限"
+          ],
+          "weaknesses": [
+            "缺乏后续研究的方法论或理论假设指引",
+            "未指明反对者可从何处切入下一轮争论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，理论论文若无具体后续问题、理论假设或概念修正路径，适用该上限",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "延展实质度仅为2，缺乏方法论指引与反对者进入路径"
+            }
+          ],
+          "boundary_note": "评价的是未来如何构造条文与界分原则的延展路径，而非当下比例原则适用民法的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文有较明确的后续制度与理论延展方向，但反对者进入路径不足，整体仍属有限延展。",
+          "core_judgment": "前瞻延展性成立但不强，已提出具体待论证问题与修正方向，且能回溯正文，但开放争论接口不足。",
+          "score_rationale": "延展实质度得分=2/4，正文衔接度得分=4/4，锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "如何在民法典中妥当地构造出比例原则的条文内容",
+            "如何将其与诚信原则、禁止权利滥用原则等民法基本原则予以妥当的界分"
+          ],
+          "strengths": [
+            "结尾提出两个具体后续研究问题",
+            "延展方向紧扣全文核心主张与制度化目标"
+          ],
+          "weaknesses": [
+            "缺少明确的方法论建议或可检验假设",
+            "未明确指出反对者下一轮争论的切入口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2时，上限65，且band只能是marginal或unacceptable",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "仅能明确识别具体后续问题与制度/理论修正方向，方法指引与反对者路径不足"
+            }
+          ],
+          "boundary_note": "本评分针对论文明确指出未来如何继续论证与制度化，不评价其现有结论是否正确或可接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 48,
+          "band": "marginal",
+          "summary": "结尾提出具体后续问题，但缺方法论与局限修正，延展实质度低。",
+          "core_judgment": "仅满足后续问题标准，缺乏方法与反对者路径，延展性成立但较弱。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=3/4，锚定marginal档，给48分。",
+          "evidence_quotes": [
+            "如何在民法典中妥当地构造出比例原则的条文内容，以及如何将其与诚信原则等予以妥当界分，尚需进一步论证。",
+            "比例原则与诚信原则在适用中不可避免地会存在交叉，但不影响其成为独立的民法基本原则。"
+          ],
+          "strengths": [
+            "明确提出了法典化构造与原则界分的具体后续争点。",
+            "延展路径紧扣正文结论，未引入无关新话题。"
+          ],
+          "weaknesses": [
+            "未指明后续研究的具体方法论或理论检验假设。",
+            "未承认正文具体局限，亦未提供反对者切入路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2触发上限65，仅限marginal档。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "仅满足标准1，缺方法论、局限修正与反对者路径。"
+            }
+          ],
+          "boundary_note": "本维仅评未来路径明确性，不评当下论证可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 68.2860779762268,
+        "gpt-5.4": 11.806814908981323,
+        "qwen3.6-plus": 69.71567511558533
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 7.6,
+    "max_std": 7.6,
+    "weighted_total": 2.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "composite_score": -7.6,
+    "worst_dimension": "forward_extension",
+    "worst_std": 7.6
+  }
+}

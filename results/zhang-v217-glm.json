@@ -1,0 +1,217 @@
+{
+  "framework": "configs/frameworks/law-v2.17-20260424.yaml",
+  "framework_version": "2.17.0",
+  "paper": "raw/治国理政的法治理念和法治思维_张文显.pdf",
+  "models": [
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "z-ai/glm-5.1": 15
+      },
+      "mean": 15,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "z-ai/glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文为政策阐释性文本，缺乏法学层面的可争辩问题。",
+          "core_judgment": "文章仅是对法治理论的单向陈述与政策解读，未提出具有理论分歧的法学争点。",
+          "score_rationale": "可争辩性得分=1/4（仅涉及法学层面但无问题句与分歧），枢纽性得分=2/4，锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理和中国特色社会主义法治理论，深刻回答了……",
+            "党大还是法大是一个政治陷阱，是一个伪命题。"
+          ],
+          "strengths": [
+            "涉及法治基础理论，主题具有宏观重要性"
+          ],
+          "weaknesses": [
+            "无明确问题句，仅为主题声明",
+            "单向陈述，无理论分歧与法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策阐释与理论总结，无问题句且无理论分歧"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立且重要，不评文献综述充分度与论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "z-ai/glm-5.1": 42.43356895446777
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "z-ai/glm-5.1": 15
+      },
+      "mean": 15,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文完全缺失研究地图，无文献梳理与学术对话，仅属政策解读。",
+          "core_judgment": "本维度不成立，文章未构建任何学术研究地图，纯属理论阐述与政策解读，缺乏学术现状洞察。",
+          "score_rationale": "三要素得分=0/6，法学流派=2个，锚定unacceptable档，给15分",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理和中国特色社会主义法治理论……",
+            "第一个论断所指的是形式法治。第二个论断所指的是实质法治。"
+          ],
+          "strengths": [
+            "识别了形式法治与实质法治的对立统一关系"
+          ],
+          "weaknesses": [
+            "完全缺失既有文献梳理与学术成果归纳",
+            "未指出任何学术争议或研究缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素得分为0，无到达点、未竟点和切入点"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献定位与梳理，不评价习近平法治思想本身的创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "z-ai/glm-5.1": 39.96057915687561
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {},
+      "mean": 0.0,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {},
+      "errors": {
+        "z-ai/glm-5.1": "[z-ai/glm-5.1] Error code: 400 - {'error': {'code': '400', 'type': 'invalid_params', 'message': '系统检测到输入或生成内容可能包含不安全或敏感内容，请您避免输入易产生敏感内容的提示语，感谢您的配合。'}}"
+      },
+      "elapsed_times": {
+        "z-ai/glm-5.1": 12.157151937484741
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {},
+      "mean": 0.0,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {},
+      "errors": {
+        "z-ai/glm-5.1": "[z-ai/glm-5.1] Error code: 400 - {'error': {'code': '400', 'type': 'invalid_params', 'message': '系统检测到输入或生成内容可能包含不安全或敏感内容，请您避免输入易产生敏感内容的提示语，感谢您的配合。'}}"
+      },
+      "elapsed_times": {
+        "z-ai/glm-5.1": 10.888867855072021
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {},
+      "mean": 0.0,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {},
+      "errors": {
+        "z-ai/glm-5.1": "[z-ai/glm-5.1] Error code: 400 - {'error': {'code': '400', 'type': 'invalid_params', 'message': '系统检测到输入或生成内容可能包含不安全或敏感内容，请您避免输入易产生敏感内容的提示语，感谢您的配合。'}}"
+      },
+      "elapsed_times": {
+        "z-ai/glm-5.1": 12.715436220169067
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "z-ai/glm-5.1": 20
+      },
+      "mean": 20,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "z-ai/glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文缺乏前瞻延展，未提出具体后续研究问题或理论修正路径。",
+          "core_judgment": "该维度不成立，文章止步于理论阐释，无任何未来研究指引。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=0/4，锚定unacceptable档，给20分",
+          "evidence_quotes": [
+            "文章结尾仅列举辩证思维实例，未提出任何延展方向。",
+            "全文无“局限”“待修正”“进一步研究”等延展性表述。"
+          ],
+          "strengths": [
+            "无"
+          ],
+          "weaknesses": [
+            "完全缺乏前瞻延展设计",
+            "未指明理论后续深化或修正路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛拔高表述",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无具体后续问题或理论假设，仅以论述结尾，无延展实质。"
+            },
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，无具体后续问题或修正路径",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "延展实质度为0，未提出任何具体研究问题或概念修正路径。"
+            }
+          ],
+          "boundary_note": "本文问题在于缺乏未来延展方向，而非当下结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "z-ai/glm-5.1": 30.778469800949097
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 7.8,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

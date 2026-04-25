@@ -1,0 +1,126 @@
+{
+  "framework": "configs/frameworks/law-v2.12-20260423.yaml",
+  "framework_version": "2.12.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 62,
+        "qwen/qwen3.6-plus": 88,
+        "z-ai/glm-5.1": 92
+      },
+      "mean": 80.7,
+      "std": 16.3,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文能提出较清晰的问题意识与本文方案，但既有研究的系统梳理和流派覆盖不足。",
+          "core_judgment": "本文有“现实困境—理论引入—自我论证”的结构，但对学界既有成果与争议的研究地图搭建不充分，现状洞察度中等偏弱。",
+          "score_rationale": "三要素得分=4/6，法学流派=1个，锚定marginal档，给62分",
+          "evidence_quotes": [
+            "“但由于被害人具有独立的诉求和利益，这一设想目前看仍然难以获得共识。”",
+            "“基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论。”"
+          ],
+          "strengths": [
+            "明确指出司法多元诉求下的现实难题",
+            "本文切入点与前文困境有直接承接"
+          ],
+          "weaknesses": [
+            "既有研究多为引文支持，缺少成果提炼",
+            "法学流派主要见法律道德主义一支，覆盖窄"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "法学流派识别≤1个，现状洞察的流派覆盖不足，最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "文中虽涉及法律与道德、形式理性/实质理性等，但未形成多组清晰对立流派的系统梳理。"
+            }
+          ],
+          "boundary_note": "此处所评是文献定位是否清晰，不评价“同理心正义”命题本身的新颖性或论证成败。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "文献梳理呈现多维理论对话，研究地图要素完整，流派覆盖充分。",
+          "core_judgment": "现状洞察度成立，文章清晰勾勒既有理论边界与争议缺口，并精准锚定同理心正义的切入位置。",
+          "score_rationale": "三要素得分=5/6，法学流派=4个，锚定excellent档，给88分。文献对话密集，缺口与切入点逻辑闭环严密。",
+          "evidence_quotes": [
+            "尽管有学者甚至为此提出了定罪和量刑分立的变革性设想……这一设想目前看仍然难以获得共识。",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入“同理心正义”理论。"
+          ],
+          "strengths": [
+            "未竟点与切入点高度咬合，问题意识清晰。",
+            "跨学科理论（心理学/现象学）与法学流派交织，视野开阔。"
+          ],
+          "weaknesses": [
+            "到达点多为引文支撑，缺乏对既有研究成果的系统性归纳提炼。",
+            "流派识别偏重理论引介，未充分展开对立学派的实证交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献定位与流派覆盖深度，不涉及同理心正义命题本身的新颖性或后续论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "文献地图完整，跨学科法学流派覆盖充分，洞察力强。",
+          "core_judgment": "本维度成立，研究地图三要素齐备且法学流派识别极为丰富。",
+          "score_rationale": "三要素得分=6/6，法学流派=6个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "被害人参与刑事诉讼制度...有效地化解了...超职权主义诉讼模式的弊端",
+            "既要最大限度满足各方的诉求...显然需要最大限度整合各种诉求的正当性机制"
+          ],
+          "strengths": [
+            "研究地图三要素完整，问题缺口与切入点精准对应。",
+            "法学流派与跨学科理论覆盖极广，对话深入。"
+          ],
+          "weaknesses": [
+            "部分现象学理论引入偏哲学，法学层面转化稍简。",
+            "既有研究梳理集中于开篇，后文偏重自我理论建构。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与流派覆盖深度，不涉同理心概念之创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 12.864464044570923,
+        "qwen/qwen3.6-plus": 83.71862888336182,
+        "z-ai/glm-5.1": 103.64437699317932
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 16.3,
+    "max_std": 16.3,
+    "weighted_total": 12.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 16.3
+  }
+}

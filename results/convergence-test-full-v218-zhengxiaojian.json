@@ -1,0 +1,706 @@
+{
+  "framework": "configs/frameworks/law-v2.18-20260424.yaml",
+  "framework_version": "2.18.0",
+  "paper": "raw/比例原则在民法上的适用及展开_郑晓剑.pdf",
+  "models": [
+    "gpt-5.4",
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "gpt-5.4": {
+      "status": "conditional_pass",
+      "issues": [
+        "写作结构总体完整，核心论点可定位，能够进入评审；但未见标题层级与完整注释系统的规范呈现，且正文夹杂版面页码、期号残片与异体注码，影响规范性阅读。",
+        "全文参考文献列表为空，但正文大量使用脚注号与引文，存在文末参考文献缺失、引注体系不完整的问题。",
+        "引注存在较多格式混杂现象：中德英引注并用，出现“参见前引④”“a.a.O.”“supra note 20”等交叉回指，但由于当前文本缺乏完整注释排版，部分来源难以稳定核对。",
+        "存在若干明显文本质量风险，如德文转码异常、特殊字符乱码、注码错乱，可能导致法源名称、作者名、书名或页码识别错误。",
+        "个别引文或术语呈现出可能的错拼/错植信号，例如“Rechtsstattsprinzip”疑似应为“Rechtsstaatsprinzip”，“Erfordlichkeit”疑似应为“Erforderlichkeit”，“Privarecht”疑似应为“Privatrecht”，“Harald Kreu”作者名可能截断。",
+        "存在前引回溯可能失准的风险，如“参见前引④”“参见前引⑩，王利明文”等，在当前文本形态下难以确认对应关系是否准确。",
+        "学术伦理方面未见直接抄袭、伪造案例或编造数据的明确证据，但全文高度依赖二手文献综述与大量概括性判断，建议在正式评分后对关键法源、案例与外文文献真实性进行人工抽核。",
+        "文中涉及具体案例、司法解释、比较法立法演进与域外判例材料较多，但未提供完整可追踪出处链，存在事实核验成本较高的风险。"
+      ],
+      "evidence_quotes": [
+        "“比例原则( der Grundsatz der Verhltnismβigkeit)”",
+        "“‘禁止过度( bermaβverbot) ’”",
+        "“法治国原则( Ｒechtsstattsprinzip) ”",
+        "“必要性原则( Erfordlichkeit) ”",
+        "“Vgl．Dieter Medicus，Der Grundsatz der Verhltnismβigkeit im Privarecht，AcP192( 1992) ，S．55．”",
+        "“Vgl．Harald Kreu，a．a．O．( Fn．21) ，S．35．”",
+        "“参见前引④。”",
+        "“参见前引⑩，王利明文。”",
+        "“Huscroft，Miller ＆Webber，supra note 20，at 156．”",
+        "“参考文献列表：（无）”"
+      ],
+      "review_flags": [
+        "citation_risk",
+        "writing_risk",
+        "ethics_risk"
+      ],
+      "recommendation": "建议带风险进入六维评分。评分时可对论证、创新性与方法进行正常评价；评分后应交由人工重点复核以下内容：1）补齐完整参考文献表并统一注释体例；2）核查所有“前引”“a.a.O.”“supra note”回引是否准确；3）抽查关键外文作者、书名、期刊名、页码、德文术语拼写及案例名称真实性；4）确认文本乱码、转码错误是否仅为提取问题而非原稿硬伤。当前文本可读、论点明确，尚未达到不可评程度，不宜 reject。"
+    },
+    "qwen/qwen3.6-plus": {
+      "status": "conditional_pass",
+      "issues": [
+        "文本存在大量OCR识别乱码与排版残留（如注脚符号显示为“ 瑏 瑠”、德文特殊字符乱码“bermaβverbot”“Verhltnismβigkeit”等），影响部分引文与注释的准确定位与核对。",
+        "正文中夹杂大量页眉、页脚及页码信息（如“4 4 1 中国法学 2016 年第2 期”“5 4 1 比例原则在民法上的适用及展开”），频繁打断段落连贯性，需进行文本清洗。",
+        "文末“参考文献列表”标注为“（无）”，但正文包含数十条脚注引文，存在引文提取缺失或体例不统一的问题，需人工核对引文完整性。",
+        "部分脚注引用格式混用（如德文“Vgl.”、英文“See”、中文“参见”混排，且存在“参见前引④”等简略指代），未严格遵循单一引注规范，需按目标期刊标准统一。"
+      ],
+      "evidence_quotes": [
+        " 瑏 瑠由于比例原则实现了对于国家权力领域的无缝隙覆 盖，因而，有学者充满激情地宣称...",
+        "禁止过度( bermaβverbot) ”。⑦这是因 4 4 1 中国法学 2016 年第2 期 ③ ④ ⑤ ⑥ ⑦ See Moshe Cohen-Eliya...",
+        "参考文献列表：（无）",
+        "参见前引④。 Vgl．Karl Larenz / Manfred Wolf，Allgemeiner Teil des Bürgerlichen Ｒechts..."
+      ],
+      "review_flags": [
+        "citation_risk",
+        "writing_risk"
+      ],
+      "recommendation": "建议带风险进入六维评分，评分后交由人工复核。复核重点：1. 清理OCR乱码与页眉页脚残留，恢复文本原始排版结构；2. 核对正文脚注与引文来源，补充完整参考文献列表并统一引注体例（建议采用《法学引注手册》或目标期刊规范）；3. 抽查核心引文（如Kreuzberg案、德国学者著作）的准确性。本文核心论点明确（比例原则在民法中的适用逻辑、与私法自治/诚信原则/利益衡量的关系及具体制度展开）、结构完整、论证逻辑严密，格式与引注瑕疵属技术性/排版问题，不影响实质学术评审，可正常推进评分流程。"
+    },
+    "z-ai/glm-5.1": {
+      "status": "conditional_pass",
+      "issues": [
+        "文中存在大量脚注标记的OCR识别乱码（如'瑏瑠'、'瑐瑡'等），影响阅读体验但未遮蔽核心内容",
+        "德文术语及部分外文参考文献存在OCR识别乱码或字符缺失（如'Verhltnismβigkeit'应为'Verhältnismäßigkeit'，'Verh? ltnism? ssigkeit'应为'Verhältnismäßigkeit'）"
+      ],
+      "evidence_quotes": [
+        "比例原则( der Grundsatz der Verhltnismβigkeit) 的理论基础作一番简要铺陈",
+        "瑏瑠由于比例原则实现了对于国家权力领域的无缝隙覆盖",
+        "Vgl．Harald Kreuz，Der Grundsatz der Verh? ltnism? ssigkeit im Arbeitskampfrecht，Verlag Duncker ＆Humblot 1988，S．34．"
+      ],
+      "review_flags": [
+        "writing_risk",
+        "citation_risk"
+      ],
+      "recommendation": "文章论点明确，结构完整，核心案例真实，学术表达清晰，可进入六维评分。但存在明显的PDF转文本导致的脚注标记乱码及外文特殊字符乱码，属于排版与格式风险，建议在评分后交由人工复核时对乱码进行还原与修正。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "gpt-5.4": 90,
+        "qwen/qwen3.6-plus": 92,
+        "z-ai/glm-5.1": 92
+      },
+      "mean": 91.3,
+      "std": 1.2,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出并持续围绕“比例原则能否、如何适用于民法”这一可争辩且具基础性的法学问题展开。",
+          "core_judgment": "该文的问题意识明确，涉及公私法交叉中的基础理论争议，且牵动民法原理、制度与裁判方法，创新性较强。",
+          "score_rationale": "可争辩性得分=4/4，枢纽性得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "既然比例原则适用于民法并无法理及制度上的障碍，那么其是否适用于…全部民法领域呢?",
+            "鉴于比例原则在民法上适用的价值及重要性，可否将其定位为一项民法基本原则?"
+          ],
+          "strengths": [
+            "有明确问题句与层层递进争点",
+            "触及私法自治、诚信原则等基础理论"
+          ],
+          "weaknesses": [
+            "题目较大，涵盖多重子问题",
+            "部分段落偏立场申述，聚焦略分散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评研究问题是否成立且重要，不评价论证是否充分或结论是否正确。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦比例原则跨部门法适用的教义学争点，具有高度理论张力与体系影响力。",
+          "core_judgment": "问题明确指向公法原则私法化的正当性与边界，存在实质理论分歧且触及民法核心原理，争点成立且重要。",
+          "score_rationale": "可争辩性得分=4/4，枢纽性得分=4/4，锚定excellent档，给92分。问题具备明确争点与深厚法理基础，直击公私法交融核心争议，体系辐射广。",
+          "evidence_quotes": [
+            "既然比例原则适用于民法并无法理及制度上的障碍，那么其是否适用于全部民法领域呢？",
+            "有学者主张：要在交易中适用法律保留原则与比例原则，等于宣告私法的死亡。"
+          ],
+          "strengths": [
+            "明确提炼公法原则私法适用的核心争点，理论交锋清晰。",
+            "深度嵌入民法教义学体系，与私法自治、诚信原则等核心原理对话。"
+          ],
+          "weaknesses": [
+            "问题表述偏向“如何适用”的展开型论述，初始争点聚焦度略弱。",
+            "对比例原则可能侵蚀私法自治的潜在风险论证稍显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦比例原则在民法中的适用，问题具有高度可争辩性与枢纽性。",
+          "core_judgment": "核心问题“公法比例原则能否及如何适用于民法”成立且极具理论价值。",
+          "score_rationale": "可争辩性得分=4/4，枢纽性得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "要在交易中适用法律保留原则与比例原则，等于宣告私法的死亡。",
+            "比例原则可否一般性地拘束民事活动？对此，笔者以为不能一概而论"
+          ],
+          "strengths": [
+            "问题直击公私法接轨的理论痛点",
+            "展现了明确的学术对话与理论分歧"
+          ],
+          "weaknesses": [
+            "部分具体适用领域的展开略显宽泛"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立及重要，不评文献综述充分度与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 7.925901889801025,
+        "qwen/qwen3.6-plus": 58.90923285484314,
+        "z-ai/glm-5.1": 35.90562987327576
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 63,
+        "qwen/qwen3.6-plus": 90,
+        "z-ai/glm-5.1": 80
+      },
+      "mean": 77.7,
+      "std": 13.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 63,
+          "band": "marginal",
+          "summary": "论文能交代部分既有观点、争议与自身主张，但研究地图不够凝练，法学流派覆盖不足。",
+          "core_judgment": "本文具有一定现状洞察，但主要表现为观点引述与作者评判，未充分形成清晰完整的学术研究脉络图。",
+          "score_rationale": "三要素得分=4/6，法学流派=1个，锚定marginal档，给63分。虽有既有观点、争议与本文回应，但流派识别不足，受上限规则约束。",
+          "evidence_quotes": [
+            "有学者认为...民法中的财产权与人身自由权...没有适用法律保留原则与比例原则的余地。",
+            "既然比例原则适用于民法并无法理及制度上的障碍，那么其是否适用于...全部民法领域呢?"
+          ],
+          "strengths": [
+            "明确呈现“可适用/不可适用”争议",
+            "本文切入点能回应部分前述争议"
+          ],
+          "weaknesses": [
+            "到达点多为理论铺陈，成果提炼不足",
+            "缺少多个法学流派的系统并置梳理"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "法学流派识别≤1时，最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "文中主要识别出“基本权利与民事权利本质区分论”及其反对意见这一组争论，未见更多独立流派被系统纳入学界脉络。"
+            }
+          ],
+          "boundary_note": "此处评价的是作者如何交代既有研究、争议与本文定位，不评价“比例原则入民法”命题本身是否新颖。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "文献梳理系统完整，精准定位公法私法关系与民法方法论争议，研究地图清晰。",
+          "core_judgment": "本维度高度成立，既有成果归纳扎实，缺口剖析透彻，本文切入点与学术脉络严丝合缝。",
+          "score_rationale": "三要素得分=6/6，法学流派=4个，锚定excellent档，给90分。文献脉络完整，流派覆盖充分，无上限规则触发。",
+          "evidence_quotes": [
+            "“对于如何妥当区分这两种规定，理论上一直未有清晰明快的判断标准……欠缺说服力。”",
+            "“持基本权利与民事权利之‘本质区分论’的学者可能会就此反驳道……事实是否果真如此呢?”"
+          ],
+          "strengths": [
+            "精准提炼效力性/取缔性二分法的理论困境与事后判断缺陷。",
+            "清晰勾勒概念法学向实质正义与利益衡量转型的学术脉络。"
+          ],
+          "weaknesses": [
+            "对域外比例原则民法适用的最新判例演进梳理稍显单薄。",
+            "部分流派对立仅以学者观点代称，未充分展开学派谱系。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与流派覆盖深度，不涉及比例原则引入民法本身的创新性或论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "文献梳理清晰，准确识别了比例原则私法化争议及研究缺口，流派覆盖尚可。",
+          "core_judgment": "本维度成立，研究地图完整，三要素齐备且对应良好，法学流派识别达到2个。",
+          "score_rationale": "三要素得分=6/6，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "有学者认为……要在交易中适用法律保留原则与比例原则，等于宣告私法的死亡。",
+            "笔者并不认同基本权利与民事权利之间存在根本性的区别的观点，而认为二者存在着主体、内容及价值上的关联。"
+          ],
+          "strengths": [
+            "到达点明确，清晰梳理了比例原则公法起源及私法适用否定说。",
+            "未竟点与切入点对应紧密，直击比例原则民法适用的理论障碍。"
+          ],
+          "weaknesses": [
+            "法学流派识别略显隐晦，未明确以学派称谓展开对立论述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献定位与流派梳理，不评价比例原则引入民法这一问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 10.387071132659912,
+        "qwen/qwen3.6-plus": 86.68171691894531,
+        "z-ai/glm-5.1": 62.422966957092285
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "gpt-5.4": 90,
+        "qwen/qwen3.6-plus": 92,
+        "z-ai/glm-5.1": 92
+      },
+      "mean": 91.3,
+      "std": 1.2,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文已建构并反复运用比例原则的分层分析框架，且完成了较充分的民法操作化转化。",
+          "core_judgment": "该文并非停留于理论标签，而是以“目的—手段”结构和三阶/四阶审查形成可重复适用的法学分析框架。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "比例原则由三个子原则所构成：适当性原则、必要性原则和均衡性原则",
+            "在其效力的判断上可以遵循如下步骤：首先…其次…最后…"
+          ],
+          "strengths": [
+            "核心概念、子原则及位阶顺序界定清楚",
+            "后文在侵权、监护、合同效力中反复按步骤适用"
+          ],
+          "weaknesses": [
+            "三阶与四阶理论并存，框架表述略有摇摆",
+            "部分场景仍偏价值宣示，裁判细则可再细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分针对框架是否可操作、可转化，不评价其结论正确与论证周延程度。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "框架定义清晰、步骤明确，成功实现公法原则向民法裁判规则的转化。",
+          "core_judgment": "该分析框架高度成立且具备强可操作性，法学转化彻底，可直接指导司法实践。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "比例原则由三个子原则构成：适当性、必要性和均衡性，判断需遵循一定位阶顺序。",
+            "判定合同无效可遵循四步：目的正当性→适当性→必要性→均衡性，逐步审查。"
+          ],
+          "strengths": [
+            "概念界定清晰，三阶审查步骤明确可循。",
+            "跨学科概念成功转化为民事裁判的具体审查流程。"
+          ],
+          "weaknesses": [
+            "部分制度建议偏宏观，缺乏具体条文设计。",
+            "对比例原则与私法自治的边界划分可更精细。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "成功建构并转化比例原则三阶分析框架，贯穿民法多领域适用。",
+          "core_judgment": "分析框架高度成立且可用，公法比例原则被有效转化为民法裁判与制度审查步骤。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "比例原则由三个子原则所构成: 适当性原则、必要性原则和均衡性原则。",
+            "在其效力的判断上可以遵循如下步骤: 首先...其次...再次...最后..."
+          ],
+          "strengths": [
+            "三阶审查步骤清晰可循，操作性强",
+            "成功将公法原则转化为民法裁判与立法审查工具"
+          ],
+          "weaknesses": [
+            "部分领域（如相邻关系）的框架调用略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评价仅针对三阶分析框架的建构与法学转化，不评价其与诚信原则关系的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 9.468353986740112,
+        "qwen/qwen3.6-plus": 62.75773906707764,
+        "z-ai/glm-5.1": 39.68068981170654
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "gpt-5.4": 71,
+        "qwen/qwen3.6-plus": 82,
+        "z-ai/glm-5.1": 78
+      },
+      "mean": 77,
+      "std": 5.6,
+      "confidence": "medium",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "logical_coherence",
+          "score": 71,
+          "band": "good",
+          "summary": "全文主线较清楚，但若干关键跳跃使“可行”到“应确立为基本原则”的推导不够闭合。",
+          "core_judgment": "本论文具备较完整推理链，但核心规范结论部分存在由类比、价值宣示直接跃迁至制度主张的问题。",
+          "score_rationale": "先论比例原则内涵与公法基础，再论其可进入民法，继而论证其与私法自治、诚信原则、利益衡量的兼容及功能，最后推出应上升为民法基本原则；但中间对“私人行为何以受拘束”“可适用何以必然应 codify”为证成不足，故评为good而非excellent。",
+          "evidence_quotes": [
+            "基本权利与民事权利在形式上的分立，并不能遮掩其在深层的价值问题上的贯通性",
+            "既然比例原则适用于民法并无法理及制度上的障碍，那么其是否适用于…全部民法领域呢"
+          ],
+          "strengths": [
+            "按“概念—前提—适用范围—制度展开”递进",
+            "能意识到反对意见并作回应，链条未完全单线化"
+          ],
+          "weaknesses": [
+            "由国家规制民法存在，直接推到比例原则一般适用于民法，跨度偏大",
+            "由若干制度可体现比例思想，直接推出应成民法基本原则，论证不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "若核心结论与前文之间存在关键推理缺环，且不能由材料、规范分析或案例自然推出，则逻辑分数封顶50；但若主链基本成立、仅局部跳跃，可不触发封顶，仅记录。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "从“适用无障碍、若干制度可援用”直接推出“应将比例原则明确规定为一项基本原则”，中间缺少必要性与排他性证明。因主链尚未断裂，记录但不适用封顶。"
+            }
+          ],
+          "boundary_note": "问题不在章节安排，而在若干结论未由前述规范分析充分推出，属推理闭合不足。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "good",
+          "summary": "逻辑链条完整且边界清晰，但跨法域移植的教义学转译论证稍显薄弱。",
+          "core_judgment": "逻辑严密性成立。推理步骤环环相扣，结论可由前提与规范分析推导，但部分环节依赖价值预设。",
+          "score_rationale": "论证遵循“渊源-可行性-边界-体系协调-具体展开”顺序，有效回应反方观点。扣分点在于宪法原则私法化的推理偏重宏观价值证成，微观教义学衔接略弱，未达纯粹演绎严密标准。",
+          "evidence_quotes": [
+            "民法规范不是由私人意志创设出来的，而是由负责规范制定的国家机关制定的。",
+            "比例原则与利益衡量理论之间并非‘有你无我’……毋宁说，二者是相辅相成、相互补充之关系。"
+          ],
+          "strengths": [
+            "论证链条完整，从公法渊源到私法边界再到具体教义学展开，层层递进。",
+            "明确划定适用边界（排除纯粹意思自治），有效回应了侵蚀私法自治的质疑。"
+          ],
+          "weaknesses": [
+            "宪法原则向民法辐射的论证偏重价值宣示，缺乏教义学转译机制。",
+            "部分场景（如侵权赔偿缓和）的推导依赖个案衡平，逻辑必然性稍弱。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "跨部门法原则移植需明确教义学转译路径",
+              "score_ceiling": 85,
+              "priority": 2,
+              "evidence": "宪法比例原则向民法辐射的论证偏重价值宣示，缺乏具体转译规则。"
+            }
+          ],
+          "boundary_note": "属逻辑链问题：公法原则向私法移植的推理存在价值跳跃，非文章框架结构缺陷。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论证了比例原则适用于民法的可行性及价值，但在升格为基本原则的推演上存在逻辑跳跃。",
+          "core_judgment": "整体推理严密，但“私人合意排除适用”与“确立为民法基本原则”之间存在未解的逻辑张力。",
+          "score_rationale": "前期跨越公私法的论证扎实，具体制度展开有效；但将局部适用的工具性原则直接升格为普遍性基本原则，缺乏充分逻辑支撑。",
+          "evidence_quotes": [
+            "比例原则在双方基于完全的自由意志实施法律行为的情况下……无须比例原则的介入及干预",
+            "将比例原则定位为一项民法基本原则或许更为妥适"
+          ],
+          "strengths": [
+            "公私法跨越的论证层层递进，有效回应了本质区分论的反驳",
+            "对比例原则适用范围的限缩（区分合意与单方强制）增强了论证严谨性"
+          ],
+          "weaknesses": [
+            "从“下位类型/思考工具”直接推导为“基本原则”缺乏必然逻辑",
+            "承认在合意领域不适用，与其作为民法基本原则的普遍拘束力相矛盾"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链条断裂：由局部适用或工具价值无法直接推导出普遍性基本原则地位",
+              "score_ceiling": 85,
+              "priority": 1,
+              "evidence": "作者既论证比例原则在私人合意中不适用，又主张其应成为民法基本原则，逻辑未闭环"
+            }
+          ],
+          "boundary_note": "此为适用范围限缩与原则普遍性之间的逻辑自洽性缺陷，非框架缺失。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 15.951035976409912,
+        "qwen/qwen3.6-plus": 89.38520908355713,
+        "z-ai/glm-5.1": 52.346060037612915
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "gpt-5.4": 88,
+        "qwen/qwen3.6-plus": 92,
+        "z-ai/glm-5.1": 88
+      },
+      "mean": 89.3,
+      "std": 2.3,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论能进入既有法学争论，并与中国民法秩序保持较强兼容性。",
+          "core_judgment": "本文结论并非单纯表态，而是对“比例原则能否进入民法、如何定位”这一争论提出了可回应、可反驳的明确主张，整体可接受性较强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“有学者所主张的‘比例原则在民法中的适用范围并不很大…’是站不住脚的”",
+            "“在未来的民法典中，应将比例原则明确规定为一项基本原则”"
+          ],
+          "strengths": [
+            "明确回应既有学说分歧，结论定位清楚",
+            "兼顾中国民法典语境与制度转化方向"
+          ],
+          "weaknesses": [
+            "结论推进较强，制度落地仍偏原则化",
+            "对反对意见虽有回应，但细化不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分只评结论能否被共同体与制度语境接受，不评价全文论证是否充分严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确主张比例原则应作为民法基本原则，兼具理论自洽与制度兼容。",
+          "core_judgment": "结论深度介入教义学争论，有效回应本土制度约束并指明转化路径，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论深度介入既有争论并回应本土制度约束。",
+          "evidence_quotes": [
+            "本文结论修正了‘比例原则适用等于宣告私法死亡’的观点，主张其构成维护私法自治的防火墙。",
+            "在未来的民法典中，应将比例原则明确规定为一项基本原则……本文的写作毋宁说只是一个开始。"
+          ],
+          "strengths": [
+            "精准定位学术争论，主动回应“私法死亡论”与“空洞公式”质疑。",
+            "紧密结合中国民法典编纂与司法实践，指明立法与裁判转化方向。"
+          ],
+          "weaknesses": [
+            "对比例原则可能侵蚀法官自由裁量边界的防范机制论证稍显单薄。",
+            "具体条文构造与既有原则的体系界分留待后文，当下方案略欠精细。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论当下能否被共同体与制度语境接受，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文结论在共同体对话与制度语境中均具高可接受性，主张将比例原则确立为民法基本原则。",
+          "core_judgment": "结论有效回应了既有争论并兼容现行法秩序，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "要在交易中适用法律保留原则与比例原则，等于宣告私法的死亡……对于上述观点，笔者有的表示赞同，有的则不能轻易苟同。",
+            "在未来的民法典中，应将比例原则明确规定为一项基本原则。"
+          ],
+          "strengths": [
+            "主动回应反对意见，论证比例原则与私法自治的兼容性",
+            "结合中国合同法及司法解释，指明制度转化方向"
+          ],
+          "weaknesses": [
+            "对比例原则与诚信原则的界分略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价结论的共同体与制度可接受性，不评价论证逻辑的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 10.108935117721558,
+        "qwen/qwen3.6-plus": 69.07127118110657,
+        "z-ai/glm-5.1": 36.62714695930481
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "gpt-5.4": 62,
+        "qwen/qwen3.6-plus": 88,
+        "z-ai/glm-5.1": 60
+      },
+      "mean": 70,
+      "std": 15.6,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文提出了民法典中确立比例原则及其与既有原则界分的后续议题，但延展仍偏方向性。",
+          "core_judgment": "前瞻延展成立：已提出较具体的后续理论与规范建构问题，但方法与反对者进入路径不足。",
+          "score_rationale": "延展实质度得分=2/4，正文衔接度得分=4/4，锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "在未来的民法典中，应将比例原则明确规定为一项基本原则。",
+            "如何构造出比例原则的条文内容，以及如何将其与诚信原则等予以界分，尚需进一步论证分析。"
+          ],
+          "strengths": [
+            "明确提出民法典条文化与原则界分两项后续问题",
+            "延展直接承接正文“民法基本原则化”主张"
+          ],
+          "weaknesses": [
+            "未提出明确研究方法或可检验理论假设",
+            "未设置反对观点下一轮争论的具体切入口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，且缺少更完整的具体延展路径，上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "虽提出条文化和与诚信原则界分，但未展开方法、假设或更细化修正方案"
+            }
+          ],
+          "boundary_note": "本项仅评其提出未来理论深化与规范建构空间，不评价正文论证本身是否正确严密。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 88,
+          "band": "excellent",
+          "summary": "明确指出比例原则入典的条文构造及与诚信原则的界分路径，延展具体且紧扣正文。",
+          "core_judgment": "延展实质成立，提出了明确的教义学构造与原则界分问题，非空泛展望。",
+          "score_rationale": "延展实质度得分=3/4，正文衔接度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何在民法典中妥当地构造出比例原则的条文内容，以及如何将其与诚信原则、禁止权利滥用原则等民法基本原则予以妥当的界分，尚需作进一步的论证分析。",
+            "囿于主题和篇幅，对此之探讨，只能另文展开。"
+          ],
+          "strengths": [
+            "明确提出入典条文构造与原则界分的具体理论问题",
+            "精准回溯正文已承认的篇幅局限与论证留白"
+          ],
+          "weaknesses": [
+            "未明确设定反对者切入下一轮理论争辩的具体路径",
+            "对条文构造的方法论指引略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦未来教义学构造与立法技术路径，非评判当下理论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 60,
+          "band": "marginal",
+          "summary": "提出了条文构造与原则界分的具体后续问题，但缺乏方法论与反对者进入路径。",
+          "core_judgment": "前瞻延展性一般，指出了制度完善方向与具体待解问题，但延展深度有限。",
+          "score_rationale": "延展实质度得分=2/4，正文衔接度得分=4/4，锚定marginal档，给60分",
+          "evidence_quotes": [
+            "如何在民法典中妥当地构造出比例原则的条文内容，以及如何将其与诚信原则、禁止权利滥用原则等民法基本原则予以妥当的界分",
+            "在未来的民法典中，应将比例原则明确规定为一项基本原则"
+          ],
+          "strengths": [
+            "明确提出了条文构造与原则界分两个具体后续研究问题",
+            "延展路径与正文核心结论高度对应且未引入无关新话题"
+          ],
+          "weaknesses": [
+            "缺乏后续研究的方法论指引或理论假设",
+            "未指明反对者进入路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，理论论文若缺乏具体后续问题等，即使衔接紧密也适用上限",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "延展实质度得分为2分，触发weak_extension_path上限规则"
+            }
+          ],
+          "boundary_note": "评估的是未来如何构造条文与界分原则的延展性，而非当下比例原则能否被共同体接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 16.706537008285522,
+        "qwen/qwen3.6-plus": 66.45645904541016,
+        "z-ai/glm-5.1": 56.17656588554382
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 6.6,
+    "max_std": 15.6,
+    "weighted_total": 84.4,
+    "high_confidence_pct": 50.0,
+    "dimension_count": 6,
+    "worst_dimension": "forward_extension",
+    "worst_std": 15.6
+  }
+}

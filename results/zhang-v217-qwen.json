@@ -1,0 +1,305 @@
+{
+  "framework": "configs/frameworks/law-v2.17-20260424.yaml",
+  "framework_version": "2.17.0",
+  "paper": "raw/治国理政的法治理念和法治思维_张文显.pdf",
+  "models": [
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen/qwen3.6-plus": 35
+      },
+      "mean": 35,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文系对官方法治理论的系统性阐释，缺乏明确的法学研究问题与理论争辩。",
+          "core_judgment": "该维度不成立，全文为单向度的理论归纳与政策背书，未提出可争辩的法学问题。",
+          "score_rationale": "可争辩性得分=0/4，枢纽性得分=2/4，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理……深刻回答了什么是法治、什么是社会主义法治",
+            "中国特色社会主义法治道路……是建设社会主义法治国家的唯一正确道路"
+          ],
+          "strengths": [
+            "涵盖法治基础理论多维度，体系完整。",
+            "涉及宪法实施、司法权运行等核心法学概念。"
+          ],
+          "weaknesses": [
+            "全文无明确问题句或学术争点，仅为政策宣介。",
+            "缺乏对立观点或解释路径的比较与论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无“是否/如何”问题句，无理论分歧，属单向政策阐释。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 72.74354386329651
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen/qwen3.6-plus": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政策解读与理论阐释，完全缺失学术文献梳理与研究地图构建。",
+          "core_judgment": "本维度不成立，因文本未呈现任何既有研究成果、学术争议或本文切入逻辑。",
+          "score_rationale": "三要素得分=0/6，法学流派=0个，锚定unacceptable档，给30分",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理和中国特色社会主义法治理论，深刻回答了什么是法治……",
+            "法律与道德、法治与德治的关系是中外法学史上的恒久话题。"
+          ],
+          "strengths": [
+            "理论体系宏大完整，政策阐释系统全面。"
+          ],
+          "weaknesses": [
+            "完全缺失文献综述与学术对话，未构建研究地图。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未提及任何既有学术成果、研究缺口或本文对应切入点。"
+            }
+          ],
+          "boundary_note": "本文属政策理论阐释，非学术文献定位，故不评问题创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 71.72039008140564
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen/qwen3.6-plus": 35
+      },
+      "mean": 35,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "属宏观理论综述，未建构可操作的法学分析框架。",
+          "core_judgment": "该维度不成立，全文无框架定义、分类标准与分析步骤，未实现法学转化。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给35分。全文为政策归纳，无框架建构。",
+          "evidence_quotes": [
+            "“中国特色社会主义法治道路，是社会主义法治建设成就和经验的集中体现”",
+            "“本文仅举若干实例。民主与专政……法治与改革……维稳与维权”"
+          ],
+          "strengths": [
+            "全面梳理了新时代法治理论体系",
+            "宏观政策论述详实完整"
+          ],
+          "weaknesses": [
+            "缺乏核心分析框架与概念界定",
+            "无分类标准与可操作步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为理论综述，无框架定义与操作步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及政治立场或宏观逻辑衔接。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 68.14442276954651
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen/qwen3.6-plus": 48
+      },
+      "mean": 48,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 48,
+          "band": "marginal",
+          "summary": "全文为政策理论的系统阐释，缺乏独立法理推演与严密逻辑链条。",
+          "core_judgment": "逻辑严密性不成立，属“以引代证”的并列陈述而非学术论证。",
+          "score_rationale": "先定band为marginal。结构完整但推理链条断裂，依赖权威断言而非逻辑推导，各主题间无因果递进，故给分48。",
+          "evidence_quotes": [
+            "“法治和人治问题是人类政治文明史上的一个基本问题……后一种情况很大程度上与法治不彰有关。”",
+            "“中国特色社会主义法治道路，是社会主义法治建设成就和经验的集中体现，是建设社会主义法治国家的唯一正确道路。”"
+          ],
+          "strengths": [
+            "主题分类清晰，政策表述与规范引证准确。",
+            "宏观框架完整，覆盖法治建设各核心领域。"
+          ],
+          "weaknesses": [
+            "以权威引文替代独立法理推演，缺乏论证深度。",
+            "各节呈并列罗列，无前提至结论的因果递进。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链条断裂或缺失递进关系",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为并列主题罗列，无前提-推演-结论链条，段落可随意调换。"
+            }
+          ],
+          "boundary_note": "此为论证逻辑链缺失，非框架问题，因各节间无逻辑咬合与推导关系。",
+          "review_flags": [
+            "evidence_thin",
+            "counterargument_missing"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 83.66432285308838
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen/qwen3.6-plus": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文系统阐释中国特色社会主义法治理论，结论高度契合中国法秩序与学术语境。",
+          "core_judgment": "结论明确回应既有理论争论，立足中国制度语境，与现行法秩序逻辑高度兼容，具备极强的共同体对话度与制度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "“‘党大还是法大’是一个政治陷阱，是一个伪命题……具体到每个党政组织、每个领导干部，就必须服从和遵守宪法法律。”",
+            "“不能机械临摹、全面移植、全盘西化……坚持加强顶层设计与摸着石头过河相结合。”"
+          ],
+          "strengths": [
+            "精准回应“党法关系”“改革与法治”等核心学术争论，对话意识强。",
+            "理论框架深度嵌入中国宪制结构，与现行法秩序逻辑高度自洽。"
+          ],
+          "weaknesses": [
+            "偏重宏观政治理论阐释，对具体制度转化的操作路径着墨较少。",
+            "未明确交代理论自身的适用边界或学术局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论当下在共同体与制度语境中的可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 73.55314207077026
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen/qwen3.6-plus": 20
+      },
+      "mean": 20,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "全文为理论综述，未设置任何前瞻延展或未来研究路径。",
+          "core_judgment": "该维度不成立，因全文缺乏对理论局限的反思与后续研究的具体指引。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=0/4，锚定unacceptable档，给20分。",
+          "evidence_quotes": [
+            "习近平关于法治建设的其他许多论述也都体现了精准练达的辩证法思维。",
+            "本文未设独立结论或展望章节，通篇为既有论述的归纳。"
+          ],
+          "strengths": [
+            "体系完整，为后续理论深化预留了概念空间。"
+          ],
+          "weaknesses": [
+            "未指明任何具体待修正的理论局限或概念边界。",
+            "缺乏后续研究问题、假设或反对者切入路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2触发上限65，仅可评marginal或unacceptable",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文无前瞻表述，实质度为0，未提具体后续问题或修正路径。"
+            }
+          ],
+          "boundary_note": "本维度仅评未来研究路径，本文纯为现状阐释，未涉及可延展的理论争点。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 75.74903082847595
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 42.5,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}
