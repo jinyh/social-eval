@@ -6,3 +6,10 @@ iteration	timestamp	version	action	avg_std	high_confidence_pct	composite_score	k
 7	20260425-112500	v2.27	discard	7.50	50.0	-2.53	DISCARD	跨4篇均值：AF/LC大幅改善但FE仍为瓶颈(std=18.43)
 8	20260425-115700	v2.28	keep	5.18	62.5	1.09	KEEP	跨4篇均值：FE改善61%，avg_std接近目标5.0；LC=2.7，AF=8.3
 9	20260425-125100	v2.29	discard	~8.5	~54	~-1.5	DISCARD	LI严格规则未显著收窄分歧；马长山PO=23.4(GPT偏低)；徐明FE=23.7(GLM偏低)；v2.28更稳定
+10	20260425-v2.30	v2.30	baseline	7.95	45.8	-3.37	BASELINE	v2.30基线测试（4篇）：v0.7协议对齐；AF=11.82，LI=10.97为瓶颈；张文显是极端outlier
+11	20260425-v2.31	v2.31	keep	6.85	45.8	-2.27	KEEP	LI争点结构优先+AF政策型识别；PO-3.47/LI-1.65/AF-2.07改善；LC/CC微退
+12	20260425-v2.31-3p	v2.31	baseline	4.43	55.5	1.12	BASELINE	v2.31 3篇基线（杜/郑/佀，排除张文显）；PO=6.03/LI=7.17/AF=3.73/LC=6.07/CC=1.90/FE=1.53
+13	20260425-v2.32	v2.32	keep	4.6	55	2.03	KEEP	LC反驳处理操作化+PO枢纽性量化；LC 6.07→2.50(-3.57), PO 6.03→3.00(-3.03)；AF波动(std=9.10)
+14	20260425-v2.33	v2.33	keep	3.6	61	3.33	KEEP	AF法学转化度校准+FE正文衔接量化；杜AF 15.6→1.2, 郑FE 6.4→1.2；佀AF仍9.9(GPT偏低)
+15	20260425-v2.34-prompt	v2.34	discard	10.6	0	-9.1	DISCARD	AF跨文化论文prompt校准失败(佀AF std=10.6)，GPT倾向无法通过prompt消除
+16	20260425-v2.34-anchor	v2.34	discard	17.0	0	-13.6	DISCARD	锚定表收窄反而导致GPT给更低分数(佀LI std=17.0)，已回退
