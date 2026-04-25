@@ -175,6 +175,21 @@ SMTP_FROM=noreply@socialeval.local
 - ⚡ **异步测试**：使用 `pytest-asyncio`，测试函数标记 `@pytest.mark.asyncio`
 - 📊 **覆盖率**：核心业务逻辑（evaluation, knowledge, reliability）需要测试覆盖
 
+### 评价样本目录
+
+框架迭代样本统一放在 `raw/` 下，按用途分组，避免调参集、测试集和验证集混用：
+
+- `raw/calibration-regression/`：校准/回归集。当前 3 篇，允许用于框架调参和回归检查；不能作为泛化有效性的证据。
+- `raw/holdout-test/`：冻结测试集。当前 4 篇，用于调参后测试；运行后只允许修复明确的规则冲突、输出格式或维度错位问题，避免按单篇结果继续调 rubric。
+- `raw/validation/`：最终验证集。当前 8 篇，应在规则冻结后一次性运行；验证结果用于判断是否进入下一框架版本，不应边跑边改。
+
+使用顺序：
+1. 先用 `raw/calibration-regression/` 检查新框架是否破坏既有判断。
+2. 再用 `raw/holdout-test/` 做冻结测试，只修正可归因的问题。
+3. 最后用 `raw/validation/` 做验证，并根据整体结果决定是否进入下一版本。
+
+新增样本时必须先说明用途并归入明确分组；不要把已经参与调参的样本重新标记为验证集。
+
 ---
 
 ## 核心领域知识
