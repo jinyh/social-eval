@@ -33,7 +33,7 @@ cd "$PROJECT_ROOT"
 $PYTHON scripts/run_convergence_test.py \
     --framework "$FRAMEWORK" \
     --paper "$PAPER" \
-    --models "glm-5.1,kimi-k2.6,qwen3.6-plus" \
+    --models "glm-5.1,gpt-5.4,qwen3.6-plus" \
     --output "$OUTPUT_FILE" \
     --metric composite \
     --no-precheck
