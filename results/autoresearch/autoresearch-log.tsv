@@ -13,3 +13,9 @@ iteration	timestamp	version	action	avg_std	high_confidence_pct	composite_score	k
 14	20260425-v2.33	v2.33	keep	3.6	61	3.33	KEEP	AF法学转化度校准+FE正文衔接量化；杜AF 15.6→1.2, 郑FE 6.4→1.2；佀AF仍9.9(GPT偏低)
 15	20260425-v2.34-prompt	v2.34	discard	10.6	0	-9.1	DISCARD	AF跨文化论文prompt校准失败(佀AF std=10.6)，GPT倾向无法通过prompt消除
 16	20260425-v2.34-anchor	v2.34	discard	17.0	0	-13.6	DISCARD	锚定表收窄反而导致GPT给更低分数(佀LI std=17.0)，已回退
+17	20260425-v2.36	v2.36	keep	3.55	~50	~3.3	KEEP	AF后文调用形式适配+比较法法学转化规则+LI流派强制认定5-6+LI三要素比较法适配；杜宴林AF 19.7→1.7，佀化强AF 16.5→3.2(→5.7)，佀化强LI 11.0→6.4；郑晓剑LI=7.6仍瓶颈
+18	20260425-v2.37	v2.37	keep	3.53	~50	~3.5	KEEP	LI分散式文献定位规则+LI强制认定7-8；杜宴林composite=5.93改善；佀化强LI退回11.0(GPT=73), FE=8.2
+19	20260425-v2.38	v2.38	keep	3.55	~55	~4.24	KEEP	LI未竟点强制规则(明确误判=充分满足)；佀化强avg_std=2.85(composite=5.43)大幅改善；但杜宴林PO=9.2/LC=6.2和郑晓剑FE=13.9出现新波动
+20	20260425-v2.39	v2.39	discard	4.02	~33	~1.22	DISCARD	FE反对者路径严格判定规则；郑晓剑改善(composite=5.43)但佀化强AF退回9.9和杜宴林LC=8.7，整体退化。已回退
+21	20260425-v2.40	v2.40	keep	4.57	~33	~2.07	KEEP	PO枢纽性强制认定+法哲学制度连锁适配；杜宴林composite=6.03(所有维度std<5!)但佀化强PO=15.1(GPT=64随机回落)和郑晓剑FE=17.9(GLM=85误判)
+22	20260425-v2.40-retest	v2.40	keep	2.55/5.27	--	7.5/1.27	KEEP	郑晓剑composite=7.5(所有维度std<5!)佀化强PO=15.0/AF=9.9(GPT系统性偏低)；排除佀化强后2篇avg_std≈2.43达标
