@@ -10,6 +10,7 @@ from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
 from src.models.review import ExpertReview, ReviewComment
 from src.reporting.charts import generate_radar_chart_base64
+from src.reporting.scoring import calculate_weighted_total
 
 
 def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> dict:
@@ -32,15 +33,17 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
         scores_by_dimension[score.dimension_key].append(score)
 
     dimensions = []
-    weighted_total = 0.0
+    mean_scores_by_dimension: dict[str, float] = {}
+    dimension_weights: dict[str, float] = {}
     radar_labels: list[str] = []
     radar_values: list[float] = []
 
     for dimension in framework.dimensions:
         reliability = reliability_rows.get(dimension.key)
-        dimension_scores = scores_by_dimension.get(dimension.key, [])
+        per_dimension_scores = scores_by_dimension.get(dimension.key, [])
         mean_score = reliability.mean_score if reliability else 0.0
-        weighted_total += mean_score * dimension.weight
+        mean_scores_by_dimension[dimension.key] = mean_score
+        dimension_weights[dimension.key] = dimension.weight
         radar_labels.append(dimension.name_en)
         radar_values.append(mean_score)
         dimensions.append(
@@ -55,10 +58,12 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
                     "is_high_confidence": reliability.is_high_confidence if reliability else True,
                     "model_scores": reliability.model_scores if reliability else {},
                     "evidence_quotes": [
-                        score.evidence_quotes for score in dimension_scores if score.evidence_quotes
+                        score.evidence_quotes
+                        for score in per_dimension_scores
+                        if score.evidence_quotes
                     ],
                     "analysis": [
-                        score.analysis for score in dimension_scores if score.analysis
+                        score.analysis for score in per_dimension_scores if score.analysis
                     ],
                 },
             }
@@ -92,7 +97,11 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
         "paper_title": paper.title or paper.original_filename,
         "precheck_status": paper.precheck_status,
         "precheck_result": paper.precheck_result,
-        "weighted_total": round(weighted_total, 2),
+        "weighted_total": calculate_weighted_total(
+            dimension_scores=mean_scores_by_dimension,
+            scoring_protocol=framework.raw_config.get("scoring_protocol"),
+            dimension_weights=dimension_weights,
+        ),
         "radar_chart": {
             "labels": radar_labels,
             "values": radar_values,

@@ -44,6 +44,13 @@ def test_load_law_v2_framework_preserves_new_dimension_names():
     assert "scholarly_consensus" not in dimension_keys
 
 
+def test_load_law_v2_30_framework_succeeds():
+    fw = load_framework("configs/frameworks/law-v2.30-20260425.yaml")
+    assert fw.version == "2.30.0"
+    assert fw.scoring_structure is not None
+    assert fw.raw_config.get("scoring_protocol", {}).get("mode") == "core_ceiling_bonus"
+
+
 def test_weight_sum_must_be_one(tmp_path):
     bad_yaml = tmp_path / "bad.yaml"
     bad_yaml.write_text("""
