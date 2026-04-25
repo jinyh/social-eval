@@ -10,6 +10,8 @@ class Settings(BaseSettings):
     deepseek_api_key: str = ""
     zenmux_api_key: str = ""
     zenmux_base_url: str = "https://zenmux.ai/api/v1"
+    openrouter_api_key: str = ""
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
     dashscope_api_key: str = ""
     dashscope_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     smtp_host: str = ""

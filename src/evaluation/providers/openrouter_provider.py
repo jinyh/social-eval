@@ -2,23 +2,23 @@ import json
 
 import openai
 
+from src.core.config import settings
+from src.core.exceptions import ProviderCallError
 from src.evaluation.providers.base import BaseProvider
 from src.evaluation.providers.utils import extract_json
 from src.evaluation.schemas import DimensionResult
-from src.core.config import settings
-from src.core.exceptions import ProviderCallError
 
 
-class DashScopeProvider(BaseProvider):
-    """阿里云百炼（DashScope）Provider，通过 OpenAI 兼容 API 调用模型"""
+class OpenRouterProvider(BaseProvider):
+    """OpenRouter Provider，通过 OpenAI 兼容 API 调用模型"""
 
     DEFAULT_TEMPERATURE = 0.3
 
     def __init__(self, model_name: str):
         self.model_name = model_name
         self._client = openai.AsyncOpenAI(
-            api_key=settings.dashscope_api_key,
-            base_url=settings.dashscope_base_url,
+            api_key=settings.openrouter_api_key,
+            base_url=settings.openrouter_base_url,
         )
 
     async def generate_json_response(self, prompt: str) -> dict:

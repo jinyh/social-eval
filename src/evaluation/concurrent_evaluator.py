@@ -3,6 +3,7 @@ import time
 from sqlalchemy.orm import Session
 
 from src.evaluation.providers.base import BaseProvider
+from src.evaluation.result_validator import normalize_dimension_result
 from src.evaluation.schemas import DimensionResult
 from src.knowledge.schemas import Dimension
 from src.ingestion.schemas import ProcessedPaper
@@ -39,11 +40,30 @@ async def evaluate_dimension_concurrent(
     )
     results = []
     for (outcome, start_time, used_prompt), provider in zip(raw_results, providers):
-        response_text = (
+        raw_response_text = (
             outcome.model_dump_json()
             if isinstance(outcome, DimensionResult)
             else str(outcome)
         )
+        response_text = raw_response_text
+
+        if isinstance(outcome, DimensionResult):
+            try:
+                outcome = normalize_dimension_result(outcome, dimension)
+                response_text = outcome.model_dump_json()
+            except Exception as exc:
+                response_text = f"{raw_response_text}\n\nVALIDATION_ERROR: {exc}"
+                log_call(
+                    db,
+                    task_id,
+                    provider.model_name,
+                    dimension.key,
+                    used_prompt,
+                    response_text,
+                    start_time,
+                )
+                continue
+
         log_call(
             db,
             task_id,
