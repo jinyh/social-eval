@@ -1,4 +1,14 @@
-import type { PaperListItem, PaperStatus, PublicReport, ReviewQueueItem, ReviewTask, User, UserListResponse } from "./types";
+import type {
+  InternalReport,
+  PaperListItem,
+  PaperStatus,
+  PublicReport,
+  ReviewCommentPayload,
+  ReviewQueueItem,
+  ReviewTask,
+  User,
+  UserListResponse,
+} from "./types";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
@@ -67,8 +77,8 @@ export async function getPublicReport(paperId: string): Promise<PublicReport> {
   return apiFetch<PublicReport>(`/api/papers/${paperId}/report`);
 }
 
-export async function getInternalReport(paperId: string): Promise<Record<string, unknown>> {
-  return apiFetch<Record<string, unknown>>(`/api/papers/${paperId}/internal-report`);
+export async function getInternalReport(paperId: string): Promise<InternalReport> {
+  return apiFetch<InternalReport>(`/api/papers/${paperId}/internal-report`);
 }
 
 export async function getReviewQueue(): Promise<ReviewQueueItem[]> {
@@ -93,25 +103,10 @@ export async function listMyReviews(): Promise<ReviewTask[]> {
   return result.items;
 }
 
-export async function submitReview(reviewId: string): Promise<void> {
-  const dimensionKeys = [
-    "problem_originality",
-    "literature_insight",
-    "analytical_framework",
-    "logical_coherence",
-    "conclusion_consensus",
-    "forward_extension",
-  ];
+export async function submitReview(reviewId: string, comments: ReviewCommentPayload[]): Promise<void> {
   await apiFetch(`/api/reviews/${reviewId}/submit`, {
     method: "POST",
-    body: JSON.stringify({
-      comments: dimensionKeys.map((dimensionKey) => ({
-        dimension_key: dimensionKey,
-        ai_score: 70,
-        expert_score: 72,
-        reason: "Frontend submission",
-      })),
-    }),
+    body: JSON.stringify({ comments }),
   });
 }
 

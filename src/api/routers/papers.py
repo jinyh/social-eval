@@ -18,6 +18,7 @@ from src.api.schemas.papers import (
 )
 from src.core.database import get_db
 from src.core.storage import save_upload_file, validate_upload_filename
+from src.evaluation.defaults import DEFAULT_FRAMEWORK_PATH, DEFAULT_PROVIDER_NAMES
 from src.knowledge.loader import load_framework
 from src.models.batch import BatchTask
 from src.models.evaluation import EvaluationTask
@@ -28,13 +29,9 @@ from src.models.user import User
 
 router = APIRouter()
 
-DEFAULT_FRAMEWORK_PATH = "configs/frameworks/law-v2.0-20260413.yaml"
 
-
-def _parse_provider_names(provider_names: str | None) -> list[str]:
-    if not provider_names:
-        return ["openai", "anthropic", "deepseek"]
-    return [name.strip() for name in provider_names.split(",") if name.strip()]
+def _fixed_provider_names(_: str | None = None) -> list[str]:
+    return list(DEFAULT_PROVIDER_NAMES)
 
 
 def _create_task_record(
@@ -143,8 +140,8 @@ async def upload_paper(
         db,
         file,
         current_user,
-        framework_path=framework_path,
-        provider_names=_parse_provider_names(provider_names),
+        framework_path=DEFAULT_FRAMEWORK_PATH,
+        provider_names=_fixed_provider_names(provider_names),
     )
 
 
@@ -185,7 +182,7 @@ async def batch_upload_papers(
     db.commit()
     db.refresh(batch)
     items = []
-    parsed_provider_names = _parse_provider_names(provider_names)
+    parsed_provider_names = _fixed_provider_names(provider_names)
     for file in files:
         items.append(
             await _create_paper_and_task(
@@ -193,7 +190,7 @@ async def batch_upload_papers(
                 db,
                 file,
                 current_user,
-                framework_path=framework_path,
+                framework_path=DEFAULT_FRAMEWORK_PATH,
                 provider_names=parsed_provider_names,
                 batch_id=batch.id,
             )

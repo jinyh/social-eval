@@ -16,6 +16,7 @@ class FakeProvider:
     model_name: str
     score: int
     precheck_status: str = "pass"
+    review_flags: list[str] | None = None
 
     async def evaluate_dimension(self, prompt: str) -> DimensionResult:
         return DimensionResult(
@@ -23,6 +24,7 @@ class FakeProvider:
             score=self.score,
             evidence_quotes=["引文"],
             analysis=f"{self.model_name} analysis",
+            review_flags=self.review_flags or [],
             model_name=self.model_name,
         )
 

@@ -19,6 +19,8 @@ def submit_expert_review(
     review = db.get(ExpertReview, review_id)
     if review is None or review.expert_id != expert_id:
         raise ValueError("Review not found")
+    if not comments:
+        raise ValueError("Review comments are required")
 
     db.query(ReviewComment).filter(ReviewComment.review_id == review.id).delete()
     for comment in comments:

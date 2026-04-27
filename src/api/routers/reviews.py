@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
-from src.api.auth.dependencies import get_current_user, require_roles
+from src.api.auth.dependencies import require_roles
 from src.api.schemas.reviews import (
     AssignExpertsRequest,
     AssignExpertsResponse,
@@ -15,6 +15,8 @@ from src.api.schemas.reviews import (
     SubmitReviewResponse,
 )
 from src.core.database import get_db
+from src.models.evaluation import EvaluationTask
+from src.models.paper import Paper
 from src.models.review import ExpertReview
 from src.models.user import User
 from src.review.assignment import assign_experts
@@ -58,7 +60,19 @@ def list_my_reviews(
 ) -> MyReviewsResponse:
     rows = db.query(ExpertReview).filter(ExpertReview.expert_id == current_user.id).all()
     return MyReviewsResponse(
-        items=[MyReviewItem(review_id=row.id, task_id=row.task_id, status=row.status) for row in rows]
+        items=[_build_my_review_item(db, row) for row in rows]
+    )
+
+
+def _build_my_review_item(db: Session, review: ExpertReview) -> MyReviewItem:
+    task = db.get(EvaluationTask, review.task_id)
+    paper = db.get(Paper, task.paper_id) if task else None
+    return MyReviewItem(
+        review_id=review.id,
+        task_id=review.task_id,
+        paper_id=paper.id if paper else "",
+        paper_title=paper.title if paper else None,
+        status=review.status,
     )
 
 

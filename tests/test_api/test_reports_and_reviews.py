@@ -87,7 +87,7 @@ def test_low_confidence_task_appears_in_review_queue_and_editor_can_assign_exper
     client: TestClient, db_session: Session
 ) -> None:
     create_user(db_session, email="submitter@example.com", role="submitter")
-    editor = create_user(db_session, email="editor@example.com", role="editor")
+    create_user(db_session, email="editor@example.com", role="editor")
     expert = create_user(db_session, email="expert@example.com", role="expert")
     sent_notifications: list[dict] = []
     client.app.state.email_sender = lambda **kwargs: sent_notifications.append(kwargs)
@@ -108,6 +108,78 @@ def test_low_confidence_task_appears_in_review_queue_and_editor_can_assign_exper
     assert assign_response.status_code == 201
     assert assign_response.json()["assigned_count"] == 1
     assert sent_notifications[0]["expert_email"] == "expert@example.com"
+
+
+def test_mandatory_review_flag_enters_review_queue(
+    client: TestClient, db_session: Session
+) -> None:
+    create_user(db_session, email="submitter@example.com", role="submitter")
+    create_user(db_session, email="editor@example.com", role="editor")
+    _install_sync_pipeline(
+        client,
+        [
+            FakeProvider("mock-a", 80, review_flags=["mandatory_expert_review"]),
+            FakeProvider("mock-b", 80),
+            FakeProvider("mock-c", 80),
+        ],
+    )
+
+    _login(client, "submitter@example.com")
+    response = client.post(
+        "/api/papers",
+        files={"file": ("paper.txt", "正文内容".encode("utf-8"), "text/plain")},
+        data={"provider_names": "mock-a,mock-b,mock-c"},
+    )
+    assert response.status_code == 202
+    payload = response.json()
+
+    client.cookies.clear()
+    _login(client, "editor@example.com")
+    queue_response = client.get("/api/reviews/queue")
+    assert queue_response.status_code == 200
+    assert queue_response.json()["items"][0]["task_id"] == payload["task_id"]
+
+    internal_response = client.get(f"/api/papers/{payload['paper_id']}/internal-report")
+    assert internal_response.status_code == 200
+    assert internal_response.json()["expert_review_required"] is True
+
+
+def test_review_submit_rejects_out_of_range_expert_score(
+    client: TestClient, db_session: Session
+) -> None:
+    create_user(db_session, email="submitter@example.com", role="submitter")
+    create_user(db_session, email="editor@example.com", role="editor")
+    expert = create_user(db_session, email="expert@example.com", role="expert")
+    client.app.state.email_sender = lambda **kwargs: None
+
+    _login(client, "submitter@example.com")
+    payload = _upload_with_scores(client, [45, 70, 95])
+
+    client.cookies.clear()
+    _login(client, "editor@example.com")
+    assign_response = client.post(
+        f"/api/reviews/{payload['task_id']}/assign",
+        json={"expert_ids": [expert.id]},
+    )
+    assert assign_response.status_code == 201
+
+    client.cookies.clear()
+    _login(client, "expert@example.com")
+    review_id = client.get("/api/reviews/mine").json()["items"][0]["review_id"]
+    submit_response = client.post(
+        f"/api/reviews/{review_id}/submit",
+        json={
+            "comments": [
+                {
+                    "dimension_key": "problem_originality",
+                    "ai_score": 70,
+                    "expert_score": 120,
+                    "reason": "越界分数",
+                }
+            ]
+        },
+    )
+    assert submit_response.status_code == 422
 
 
 def test_expert_can_submit_review_and_internal_report_contains_feedback(
@@ -162,4 +234,6 @@ def test_expert_can_submit_review_and_internal_report_contains_feedback(
     _login(client, "editor@example.com")
     internal_response = client.get(f"/api/papers/{payload['paper_id']}/internal-report")
     assert internal_response.status_code == 200
-    assert internal_response.json()["expert_reviews"][0]["expert_id"] == expert.id
+    internal_body = internal_response.json()
+    assert internal_body["expert_reviews"][0]["expert_id"] == expert.id
+    assert internal_body["expert_adjusted_total"] is not None

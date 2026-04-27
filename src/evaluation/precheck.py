@@ -16,6 +16,7 @@ class PrecheckResult(BaseModel):
     status: str
     issues: list[str] = []
     recommendation: str = ""
+    review_flags: list[str] = []
 
 
 async def run_precheck(
