@@ -1,4 +1,27 @@
-import type { PaperListItem, PaperStatus, PublicReport, ReviewQueueItem, ReviewTask, User, UserListResponse } from "./types";
+import type {
+  InternalReport,
+  PaperListItem,
+  PaperStatus,
+  PublicReport,
+  ReviewCommentInput,
+  ReviewQueueItem,
+  ReviewTask,
+  User,
+  UserListResponse,
+} from "./types";
+import {
+  getMockRole,
+  isMockMode,
+  mockExperts,
+  mockInternalReport,
+  mockPaperStatus,
+  mockPapers,
+  mockPublicReport,
+  mockReviewQueue,
+  mockReviewTasks,
+  mockUserDirectory,
+  mockUsers,
+} from "./mockData";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
@@ -25,10 +48,13 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export async function getCurrentUser(): Promise<User> {
+  const mockRole = getMockRole();
+  if (mockRole) return mockUsers[mockRole];
   return apiFetch<User>("/api/auth/me");
 }
 
 export async function login(email: string, password: string): Promise<User> {
+  if (isMockMode()) return mockUsers.submitter;
   return apiFetch<User>("/api/auth/login", {
     method: "POST",
     body: JSON.stringify({ email, password }),
@@ -36,15 +62,18 @@ export async function login(email: string, password: string): Promise<User> {
 }
 
 export async function logout(): Promise<void> {
+  if (isMockMode()) return;
   await apiFetch<void>("/api/auth/logout", { method: "POST" });
 }
 
 export async function listPapers(): Promise<PaperListItem[]> {
+  if (isMockMode()) return mockPapers;
   const result = await apiFetch<{ items: PaperListItem[] }>("/api/papers");
   return result.items;
 }
 
 export async function uploadPaper(file: File): Promise<{ paper_id: string; task_id: string }> {
+  if (isMockMode()) return { paper_id: "paper-mock-uploaded", task_id: "task-mock-uploaded" };
   const formData = new FormData();
   formData.append("file", file);
   const response = await fetch(`${API_BASE}/api/papers`, {
@@ -60,28 +89,35 @@ export async function uploadPaper(file: File): Promise<{ paper_id: string; task_
 }
 
 export async function getPaperStatus(paperId: string): Promise<PaperStatus> {
+  if (isMockMode()) return { ...mockPaperStatus, paper_id: paperId };
   return apiFetch<PaperStatus>(`/api/papers/${paperId}/status`);
 }
 
 export async function getPublicReport(paperId: string): Promise<PublicReport> {
+  if (isMockMode()) return { ...mockPublicReport, paper_id: paperId };
   return apiFetch<PublicReport>(`/api/papers/${paperId}/report`);
 }
 
-export async function getInternalReport(paperId: string): Promise<Record<string, unknown>> {
-  return apiFetch<Record<string, unknown>>(`/api/papers/${paperId}/internal-report`);
+export async function getInternalReport(paperId: string, taskId?: string): Promise<InternalReport> {
+  if (isMockMode()) return { ...mockInternalReport, paper_id: paperId };
+  const query = taskId ? `?task_id=${encodeURIComponent(taskId)}` : "";
+  return apiFetch<InternalReport>(`/api/papers/${paperId}/internal-report${query}`);
 }
 
 export async function getReviewQueue(): Promise<ReviewQueueItem[]> {
+  if (isMockMode()) return mockReviewQueue;
   const result = await apiFetch<{ items: ReviewQueueItem[] }>("/api/reviews/queue");
   return result.items;
 }
 
 export async function listExperts(): Promise<User[]> {
+  if (isMockMode()) return mockExperts;
   const result = await apiFetch<UserListResponse>("/api/users/experts");
   return result.items;
 }
 
 export async function assignExpert(taskId: string, expertIds: string[]): Promise<void> {
+  if (isMockMode()) return;
   await apiFetch(`/api/reviews/${taskId}/assign`, {
     method: "POST",
     body: JSON.stringify({ expert_ids: expertIds }),
@@ -89,38 +125,27 @@ export async function assignExpert(taskId: string, expertIds: string[]): Promise
 }
 
 export async function listMyReviews(): Promise<ReviewTask[]> {
+  if (isMockMode()) return mockReviewTasks;
   const result = await apiFetch<{ items: ReviewTask[] }>("/api/reviews/mine");
   return result.items;
 }
 
-export async function submitReview(reviewId: string): Promise<void> {
-  const dimensionKeys = [
-    "problem_originality",
-    "literature_insight",
-    "analytical_framework",
-    "logical_coherence",
-    "conclusion_consensus",
-    "forward_extension",
-  ];
+export async function submitReview(reviewId: string, comments: ReviewCommentInput[]): Promise<void> {
+  if (isMockMode()) return;
   await apiFetch(`/api/reviews/${reviewId}/submit`, {
     method: "POST",
-    body: JSON.stringify({
-      comments: dimensionKeys.map((dimensionKey) => ({
-        dimension_key: dimensionKey,
-        ai_score: 70,
-        expert_score: 72,
-        reason: "Frontend submission",
-      })),
-    }),
+    body: JSON.stringify({ comments }),
   });
 }
 
 export async function listUsers(): Promise<User[]> {
+  if (isMockMode()) return mockUserDirectory;
   const result = await apiFetch<UserListResponse>("/api/users");
   return result.items;
 }
 
 export async function createInvitation(email: string, role: string): Promise<void> {
+  if (isMockMode()) return;
   await apiFetch("/api/users/invitations", {
     method: "POST",
     body: JSON.stringify({ email, role }),
@@ -128,6 +153,7 @@ export async function createInvitation(email: string, role: string): Promise<voi
 }
 
 export async function exportSimpleReport(paperId: string): Promise<Blob> {
+  if (isMockMode()) return new Blob(["Mock SocialEval report"], { type: "application/pdf" });
   const response = await fetch(`${API_BASE}/api/papers/${paperId}/export/simple`, {
     credentials: "include",
   });

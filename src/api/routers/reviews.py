@@ -15,6 +15,8 @@ from src.api.schemas.reviews import (
     SubmitReviewResponse,
 )
 from src.core.database import get_db
+from src.models.evaluation import EvaluationTask
+from src.models.paper import Paper
 from src.models.review import ExpertReview
 from src.models.user import User
 from src.review.assignment import assign_experts
@@ -56,9 +58,24 @@ def list_my_reviews(
     current_user: User = Depends(require_roles("expert")),
     db: Session = Depends(get_db),
 ) -> MyReviewsResponse:
-    rows = db.query(ExpertReview).filter(ExpertReview.expert_id == current_user.id).all()
+    rows = (
+        db.query(ExpertReview, EvaluationTask, Paper)
+        .join(EvaluationTask, ExpertReview.task_id == EvaluationTask.id)
+        .join(Paper, EvaluationTask.paper_id == Paper.id)
+        .filter(ExpertReview.expert_id == current_user.id)
+        .all()
+    )
     return MyReviewsResponse(
-        items=[MyReviewItem(review_id=row.id, task_id=row.task_id, status=row.status) for row in rows]
+        items=[
+            MyReviewItem(
+                review_id=review.id,
+                task_id=review.task_id,
+                paper_id=paper.id,
+                paper_title=paper.title or paper.original_filename,
+                status=review.status,
+            )
+            for review, _, paper in rows
+        ]
     )
 
 

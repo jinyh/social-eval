@@ -28,6 +28,8 @@ class AssignExpertsResponse(BaseModel):
 class MyReviewItem(BaseModel):
     review_id: str
     task_id: str
+    paper_id: str
+    paper_title: str | None
     status: str
 
 
@@ -37,9 +39,9 @@ class MyReviewsResponse(BaseModel):
 
 class ReviewCommentInput(BaseModel):
     dimension_key: str
-    ai_score: float
-    expert_score: float
-    reason: str
+    ai_score: float = Field(ge=0, le=100)
+    expert_score: float = Field(ge=0, le=100)
+    reason: str = Field(min_length=1)
 
 
 class SubmitReviewRequest(BaseModel):
