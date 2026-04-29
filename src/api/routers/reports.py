@@ -33,12 +33,33 @@ def _load_paper_and_task(db: Session, paper_id: str) -> tuple[Paper, EvaluationT
     return paper, task
 
 
-def _ensure_public_access(current_user: User, paper: Paper) -> None:
+def _load_paper_and_task_by_id(db: Session, paper_id: str, task_id: str | None) -> tuple[Paper, EvaluationTask]:
+    if task_id is None:
+        return _load_paper_and_task(db, paper_id)
+    paper = db.get(Paper, paper_id)
+    if paper is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Paper not found")
+    task = db.get(EvaluationTask, task_id)
+    if task is None or task.paper_id != paper.id:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
+    return paper, task
+
+
+def _expert_has_task_access(db: Session, current_user: User, task: EvaluationTask) -> bool:
+    return (
+        db.query(ExpertReview)
+        .filter(ExpertReview.task_id == task.id, ExpertReview.expert_id == current_user.id)
+        .first()
+        is not None
+    )
+
+
+def _ensure_public_access(db: Session, current_user: User, paper: Paper, task: EvaluationTask) -> None:
     if current_user.role in {"admin", "editor"}:
         return
     if current_user.role == "submitter" and paper.uploaded_by == current_user.id:
         return
-    if current_user.role == "expert":
+    if current_user.role == "expert" and _expert_has_task_access(db, current_user, task):
         return
     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
 
@@ -47,12 +68,7 @@ def _ensure_internal_access(db: Session, current_user: User, task: EvaluationTas
     if current_user.role in {"admin", "editor"}:
         return
     if current_user.role == "expert":
-        review = (
-            db.query(ExpertReview)
-            .filter(ExpertReview.task_id == task.id, ExpertReview.expert_id == current_user.id)
-            .first()
-        )
-        if review is not None:
+        if _expert_has_task_access(db, current_user, task):
             return
     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
 
@@ -64,7 +80,7 @@ def get_public_report(
     db: Session = Depends(get_db),
 ) -> dict:
     paper, task = _load_paper_and_task(db, paper_id)
-    _ensure_public_access(current_user, paper)
+    _ensure_public_access(db, current_user, paper, task)
     report = get_current_report(db, task.id, "public")
     return report.report_data
 
@@ -72,10 +88,11 @@ def get_public_report(
 @router.get("/{paper_id}/internal-report")
 def get_internal_report(
     paper_id: str,
+    task_id: str | None = None,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> dict:
-    _, task = _load_paper_and_task(db, paper_id)
+    _, task = _load_paper_and_task_by_id(db, paper_id, task_id)
     _ensure_internal_access(db, current_user, task)
     report = get_current_report(db, task.id, "internal")
     record_audit_log(
@@ -102,7 +119,7 @@ def export_report(
     if report_type == "internal":
         _ensure_internal_access(db, current_user, task)
     else:
-        _ensure_public_access(current_user, paper)
+        _ensure_public_access(db, current_user, paper, task)
 
     report = get_current_report(db, task.id, report_type)
     if format == "json":
@@ -130,7 +147,7 @@ def export_simple_report(
     - expert: 可导出被分配复核的稿件
     """
     paper, task = _load_paper_and_task(db, paper_id)
-    _ensure_public_access(current_user, paper)
+    _ensure_public_access(db, current_user, paper, task)
 
     report = get_current_report(db, task.id, "public")
 

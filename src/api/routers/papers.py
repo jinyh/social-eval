@@ -23,6 +23,7 @@ from src.models.batch import BatchTask
 from src.models.evaluation import EvaluationTask
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
+from src.models.review import ExpertReview
 from src.reliability.threshold_checker import summarize_reliability
 from src.models.user import User
 
@@ -35,6 +36,45 @@ def _parse_provider_names(provider_names: str | None) -> list[str]:
     if not provider_names:
         return ["openai", "anthropic", "deepseek"]
     return [name.strip() for name in provider_names.split(",") if name.strip()]
+
+
+def _ensure_paper_status_access(
+    db: Session,
+    current_user: User,
+    paper: Paper,
+    task: EvaluationTask,
+) -> None:
+    if current_user.role in {"admin", "editor"}:
+        return
+    if current_user.role == "submitter" and paper.uploaded_by == current_user.id:
+        return
+    if current_user.role == "expert":
+        review = (
+            db.query(ExpertReview)
+            .join(EvaluationTask, ExpertReview.task_id == EvaluationTask.id)
+            .filter(EvaluationTask.paper_id == paper.id, ExpertReview.expert_id == current_user.id)
+            .first()
+        )
+        if review is not None:
+            return
+    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
+
+
+def _ensure_batch_status_access(db: Session, current_user: User, tasks: list[EvaluationTask]) -> None:
+    if current_user.role in {"admin", "editor"}:
+        return
+    if current_user.role == "submitter":
+        paper_ids = [task.paper_id for task in tasks]
+        if not paper_ids:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
+        owned_count = (
+            db.query(Paper)
+            .filter(Paper.id.in_(paper_ids), Paper.uploaded_by == current_user.id)
+            .count()
+        )
+        if owned_count == len(paper_ids):
+            return
+    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
 
 
 def _create_task_record(
@@ -204,7 +244,7 @@ async def batch_upload_papers(
 @router.get("/{paper_id}/status", response_model=PaperStatusResponse)
 def get_paper_status(
     paper_id: str,
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> PaperStatusResponse:
     paper = db.get(Paper, paper_id)
@@ -219,6 +259,8 @@ def get_paper_status(
     )
     if task is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
+
+    _ensure_paper_status_access(db, current_user, paper, task)
 
     reliability_rows = db.query(ReliabilityResult).filter(ReliabilityResult.task_id == task.id).all()
     reliability_summary = None
@@ -252,13 +294,14 @@ def get_paper_status(
 @router.get("/batch/{batch_id}/status", response_model=BatchStatusResponse)
 def get_batch_status(
     batch_id: str,
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> BatchStatusResponse:
     batch = db.get(BatchTask, batch_id)
     if batch is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Batch not found")
     tasks = db.query(EvaluationTask).filter(EvaluationTask.batch_id == batch.id).all()
+    _ensure_batch_status_access(db, current_user, tasks)
     completed = sum(1 for task in tasks if task.status == "completed")
     failed = sum(1 for task in tasks if task.status == "recovering")
     return BatchStatusResponse(

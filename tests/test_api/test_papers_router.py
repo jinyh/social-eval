@@ -164,3 +164,42 @@ def test_batch_upload_returns_multiple_tasks(
     body = response.json()
     assert body["total"] == 2
     assert len(body["items"]) == 2
+
+
+def test_batch_status_is_limited_to_batch_owner_or_internal_roles(
+    client: TestClient, db_session: Session
+) -> None:
+    _login_submitter(client, db_session)
+    create_user(db_session, email="other@example.com", role="submitter")
+    create_user(db_session, email="editor@example.com", role="editor")
+    _install_sync_pipeline(
+        client,
+        [
+            FakeProvider("mock-a", 75),
+            FakeProvider("mock-b", 78),
+            FakeProvider("mock-c", 81),
+        ],
+    )
+
+    response = client.post(
+        "/api/papers/batch",
+        files=[("files", ("one.txt", "正文一".encode("utf-8"), "text/plain"))],
+        data={"provider_names": "mock-a,mock-b,mock-c"},
+    )
+    assert response.status_code == 202
+    batch_id = response.json()["batch_id"]
+
+    owner_response = client.get(f"/api/papers/batch/{batch_id}/status")
+    assert owner_response.status_code == 200
+
+    client.cookies.clear()
+    login_response = client.post("/api/auth/login", json={"email": "other@example.com", "password": "secret123"})
+    assert login_response.status_code == 200
+    other_response = client.get(f"/api/papers/batch/{batch_id}/status")
+    assert other_response.status_code == 403
+
+    client.cookies.clear()
+    login_response = client.post("/api/auth/login", json={"email": "editor@example.com", "password": "secret123"})
+    assert login_response.status_code == 200
+    editor_response = client.get(f"/api/papers/batch/{batch_id}/status")
+    assert editor_response.status_code == 200
