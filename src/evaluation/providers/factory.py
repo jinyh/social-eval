@@ -21,6 +21,7 @@ _PROVIDER_MAP: dict[str, type[BaseProvider] | type] = {
     "kimi-k2.6": lambda: DashScopeProvider("kimi-k2.6"),
     "qwen3.6-plus": lambda: DashScopeProvider("qwen3.6-plus"),
     "glm-5.1": lambda: DashScopeProvider("glm-5.1"),
+    "deepseek-v4-pro": lambda: DashScopeProvider("deepseek-v4-pro"),
 }
 
 
