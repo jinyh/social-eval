@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     smtp_from: str = "noreply@socialeval.local"
     max_concurrent_models: int = 3
     default_std_threshold: float = 5.0
+    allowed_origins: str = ""
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

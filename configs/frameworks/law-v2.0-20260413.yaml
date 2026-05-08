@@ -20,7 +20,7 @@ std_threshold: 5.0
 # 准入条件（前置筛选）
 precheck:
   name: "学术规范性准入检查"
-  description: "不合格即退稿，不进入五维评分"
+  description: "宽松准入，主要过滤严重问题"
   criteria:
     - key: writing_norm
       name_zh: "写作规范性"
@@ -42,12 +42,19 @@ precheck:
     2. 引用规范性：引用格式是否规范？引用是否准确？
     3. 学术伦理：是否存在抄袭嫌疑？数据是否真实？
 
-    评分标准：
-    - pass：符合基本规范，可进入五维评分
-    - reject：存在严重问题，建议退稿
+    评分标准（宽松模式）：
+    - pass：基本符合规范，或仅有轻微格式问题，可直接进入六维评分
+    - manual_review：存在一些问题需要人工确认，但仍可进入评分流程
+    - reject：仅当存在严重学术不端（明确抄袭、数据造假等）时才使用
 
-    请输出：
-    {"status": "pass|reject", "issues": ["问题列表"], "recommendation": "处理建议"}
+    重要提示：
+    1. 引用格式不完美、参考文献列表不完整等问题，应判定为 pass 或 manual_review，而非 reject
+    2. 章节编号问题、标点格式问题等，应判定为 pass
+    3. 只要有实质学术内容，就应该让论文进入评审流程
+    4. 不要因为形式问题而 reject 一篇有价值的论文
+
+    请以 JSON 格式输出结果：
+    {"status": "pass|manual_review|reject", "issues": ["问题列表（如有）"], "recommendation": "处理建议"}
 
 # 评分结构
 scoring_structure:

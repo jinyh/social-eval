@@ -23,7 +23,8 @@ import {
   mockUsers,
 } from "./mockData";
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
+// 生产环境使用空字符串（通过 nginx 代理），开发环境使用 localhost
+const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, {
@@ -70,6 +71,11 @@ export async function listPapers(): Promise<PaperListItem[]> {
   if (isMockMode()) return mockPapers;
   const result = await apiFetch<{ items: PaperListItem[] }>("/api/papers");
   return result.items;
+}
+
+export async function deletePaper(paperId: string): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch<void>(`/api/papers/${paperId}`, { method: "DELETE" });
 }
 
 export async function uploadPaper(file: File): Promise<{ paper_id: string; task_id: string }> {
@@ -153,7 +159,7 @@ export async function createInvitation(email: string, role: string): Promise<voi
 }
 
 export async function exportSimpleReport(paperId: string): Promise<Blob> {
-  if (isMockMode()) return new Blob(["Mock SocialEval report"], { type: "application/pdf" });
+  if (isMockMode()) return new Blob(["Mock 中国自主知识创新（法学论文）评价系统 报告"], { type: "application/pdf" });
   const response = await fetch(`${API_BASE}/api/papers/${paperId}/export/simple`, {
     credentials: "include",
   });

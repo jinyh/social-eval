@@ -15,6 +15,7 @@ def build_public_report(internal_report: dict) -> dict:
                     "std_score": dimension["ai"]["std_score"],
                     "is_high_confidence": dimension["ai"]["is_high_confidence"],
                 },
+                "summary": dimension["ai"].get("summary", ""),
             }
         )
 

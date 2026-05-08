@@ -5,19 +5,18 @@ from __future__ import annotations
 import re
 
 
-def extract_dimension_summary(analysis_text: str, max_length: int = 50) -> str:
+def extract_dimension_summary(analysis_text: str, max_length: int | None = None) -> str:
     """
     从分析文本中提取一句话总结。
 
     策略：
     1. 优先取包含结论性词汇的句子
     2. 否则取首句
-    3. 限制最大长度
-    4. 移除引用符号
+    3. 移除引用符号
 
     Args:
         analysis_text: 分析文本
-        max_length: 最大长度（默认50字）
+        max_length: 最大长度（已弃用，不再截断）
 
     Returns:
         一句话总结
@@ -42,14 +41,16 @@ def extract_dimension_summary(analysis_text: str, max_length: int = 50) -> str:
     for sentence in sentences:
         for keyword in conclusion_keywords:
             if keyword in sentence:
-                return _truncate(sentence, max_length)
+                return sentence
 
     # 否则取首句
-    return _truncate(sentences[0], max_length)
+    return sentences[0]
 
 
-def _truncate(text: str, max_length: int) -> str:
+def _truncate(text: str | None, max_length: int) -> str:
     """截断文本到指定长度"""
+    if text is None:
+        return ""
     if len(text) <= max_length:
         return text
     return text[:max_length - 1] + "…"

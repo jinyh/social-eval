@@ -11,6 +11,7 @@ from src.models.reliability import ReliabilityResult
 from src.models.review import ExpertReview, ReviewComment
 from src.reporting.charts import generate_radar_chart_base64
 from src.reporting.scoring import calculate_weighted_total
+from src.reporting.summary_extractor import extract_dimension_summary
 
 
 def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> dict:
@@ -46,6 +47,11 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
         dimension_weights[dimension.key] = dimension.weight
         radar_labels.append(dimension.name_en)
         radar_values.append(mean_score)
+
+        # 从第一个有 analysis 的评分中提取总结
+        analysis_texts = [score.analysis for score in per_dimension_scores if score.analysis]
+        summary = extract_dimension_summary(analysis_texts[0]) if analysis_texts else ""
+
         dimensions.append(
             {
                 "key": dimension.key,
@@ -53,8 +59,8 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
                 "name_en": dimension.name_en,
                 "weight": dimension.weight,
                 "ai": {
-                    "mean_score": mean_score,
-                    "std_score": reliability.std_score if reliability else 0.0,
+                    "mean_score": round(mean_score, 2),
+                    "std_score": round(reliability.std_score, 2) if reliability else 0.0,
                     "is_high_confidence": reliability.is_high_confidence if reliability else True,
                     "model_scores": reliability.model_scores if reliability else {},
                     "evidence_quotes": [
@@ -62,9 +68,8 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
                         for score in per_dimension_scores
                         if score.evidence_quotes
                     ],
-                    "analysis": [
-                        score.analysis for score in per_dimension_scores if score.analysis
-                    ],
+                    "analysis": analysis_texts,
+                    "summary": summary,
                 },
             }
         )
@@ -90,6 +95,12 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
             }
         )
 
+    weighted_total = calculate_weighted_total(
+        dimension_scores=mean_scores_by_dimension,
+        scoring_protocol=framework.raw_config.get("scoring_protocol"),
+        dimension_weights=dimension_weights,
+    )
+
     return {
         "report_type": "internal",
         "paper_id": paper.id,
@@ -97,14 +108,10 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
         "paper_title": paper.title or paper.original_filename,
         "precheck_status": paper.precheck_status,
         "precheck_result": paper.precheck_result,
-        "weighted_total": calculate_weighted_total(
-            dimension_scores=mean_scores_by_dimension,
-            scoring_protocol=framework.raw_config.get("scoring_protocol"),
-            dimension_weights=dimension_weights,
-        ),
+        "weighted_total": round(weighted_total, 2),
         "radar_chart": {
             "labels": radar_labels,
-            "values": radar_values,
+            "values": [round(v, 2) for v in radar_values],
             "image_base64": generate_radar_chart_base64(radar_labels, radar_values),
         },
         "dimensions": dimensions,

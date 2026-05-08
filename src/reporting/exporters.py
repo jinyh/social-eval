@@ -21,7 +21,7 @@ def export_report_pdf(report: Report) -> bytes:
     buffer = BytesIO()
     figure, axis = plt.subplots(figsize=(8.27, 11.69))
     axis.axis("off")
-    axis.text(0.02, 0.97, "SocialEval Report", fontsize=18, va="top")
+    axis.text(0.02, 0.97, "中国自主知识创新（法学论文）评价系统 报告", fontsize=18, va="top")
     axis.text(0.02, 0.92, f"Type: {report.report_type}", fontsize=12, va="top")
     axis.text(
         0.02,

@@ -8,7 +8,7 @@ describe("App", () => {
   it("shows the login form when there is no authenticated user", () => {
     render(<App initialUser={null} />);
 
-    expect(screen.getByRole("heading", { name: /socialeval login/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 
   it("shows the submitter portal for submitter users", () => {
@@ -89,7 +89,7 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
-    expect(await screen.findByRole("heading", { name: /socialeval login/i })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 
   it("anonymizes model names in the internal report mock", async () => {
@@ -137,6 +137,6 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
-    expect(await screen.findByRole("heading", { name: /socialeval login/i })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 });

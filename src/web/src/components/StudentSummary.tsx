@@ -1,6 +1,6 @@
 import type { PaperStatus, PublicReport } from "@/lib/types";
 import { buildStudentSummary, formatScore, getReportTitle, normalizePublicDimensions } from "@/lib/report";
-import { Download } from "lucide-react";
+import { Download, Eye } from "lucide-react";
 
 import { DimensionOverview } from "./DimensionOverview";
 import { Badge } from "./ui/badge";
@@ -18,6 +18,10 @@ export function StudentSummary({ report, status, onDownload, downloading = false
   const summary = buildStudentSummary(report);
   const dimensions = normalizePublicDimensions(report);
 
+  const handlePreview = () => {
+    window.open(`/api/papers/${report.paper_id}/export/simple`, "_blank");
+  };
+
   return (
     <div className="space-y-5">
       <Card>
@@ -31,12 +35,18 @@ export function StudentSummary({ report, status, onDownload, downloading = false
             <div className="flex shrink-0 flex-col gap-3 rounded-2xl border border-blue-100 bg-blue-50 px-5 py-4 text-center">
               <div className="text-xs font-medium text-blue-600">综合总分</div>
               <div className="text-3xl font-semibold text-blue-700">{formatScore(report.weighted_total)}</div>
-              {onDownload ? (
-                <Button type="button" variant="outline" size="sm" onClick={onDownload} disabled={downloading} className="bg-white">
-                  <Download className="h-4 w-4" />
-                  {downloading ? "下载中" : "下载 PDF"}
+              <div className="flex gap-2">
+                <Button type="button" variant="outline" size="sm" onClick={handlePreview} className="bg-white">
+                  <Eye className="h-4 w-4" />
+                  预览
                 </Button>
-              ) : null}
+                {onDownload ? (
+                  <Button type="button" variant="outline" size="sm" onClick={onDownload} disabled={downloading} className="bg-white">
+                    <Download className="h-4 w-4" />
+                    {downloading ? "下载中" : "下载"}
+                  </Button>
+                ) : null}
+              </div>
             </div>
           </div>
         </CardHeader>

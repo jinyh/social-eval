@@ -20,9 +20,10 @@ from src.core.database import get_db
 from src.core.storage import save_upload_file, validate_upload_filename
 from src.knowledge.loader import load_framework
 from src.models.batch import BatchTask
-from src.models.evaluation import EvaluationTask
+from src.models.evaluation import AICallLog, DimensionScore, EvaluationTask
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
+from src.models.report import Report
 from src.models.review import ExpertReview
 from src.reliability.threshold_checker import summarize_reliability
 from src.models.user import User
@@ -30,11 +31,12 @@ from src.models.user import User
 router = APIRouter()
 
 DEFAULT_FRAMEWORK_PATH = "configs/frameworks/law-v2.0-20260413.yaml"
+DEFAULT_PROVIDER_NAMES = ["qwen3.6-plus", "kimi-k2.6", "glm-5.1"]
 
 
 def _parse_provider_names(provider_names: str | None) -> list[str]:
     if not provider_names:
-        return ["openai", "anthropic", "deepseek"]
+        return DEFAULT_PROVIDER_NAMES
     return [name.strip() for name in provider_names.split(",") if name.strip()]
 
 
@@ -310,3 +312,52 @@ def get_batch_status(
         completed=completed,
         failed=failed,
     )
+
+
+@router.delete("/{paper_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_paper(
+    paper_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    """删除论文及其关联的任务、评分、报告等数据"""
+    paper = db.get(Paper, paper_id)
+    if paper is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Paper not found")
+
+    # 权限检查：只有上传者本人或 admin/editor 可以删除
+    if current_user.role not in {"admin", "editor"}:
+        if current_user.role != "submitter" or paper.uploaded_by != current_user.id:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="无权删除此论文")
+
+    # 获取关联的任务
+    tasks = db.query(EvaluationTask).filter(EvaluationTask.paper_id == paper.id).all()
+
+    for task in tasks:
+        # 删除专家评审相关数据
+        reviews = db.query(ExpertReview).filter(ExpertReview.task_id == task.id).all()
+        for review in reviews:
+            db.query(ExpertReview).filter(ExpertReview.id == review.id).delete()
+
+        # 删除可靠性结果
+        db.query(ReliabilityResult).filter(ReliabilityResult.task_id == task.id).delete()
+
+        # 删除维度评分
+        db.query(DimensionScore).filter(DimensionScore.task_id == task.id).delete()
+
+        # 删除报告
+        db.query(Report).filter(Report.task_id == task.id).delete()
+
+        # 删除 AI 调用日志
+        db.query(AICallLog).filter(AICallLog.task_id == task.id).delete()
+
+        # 删除任务
+        db.delete(task)
+
+    # 删除文件
+    if paper.file_path and Path(paper.file_path).exists():
+        Path(paper.file_path).unlink()
+
+    # 删除论文
+    db.delete(paper)
+    db.commit()

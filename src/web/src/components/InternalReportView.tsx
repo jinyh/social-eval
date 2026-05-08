@@ -1,3 +1,4 @@
+import { Send } from "lucide-react";
 import type { ExpertDecisionState, InternalDimensionScore, InternalReport } from "@/lib/types";
 import {
   anonymizeModelScores,
@@ -20,10 +21,11 @@ type InternalReportViewProps = {
   report: InternalReport;
   decisions: Record<string, ExpertDecisionState>;
   onDecisionChange?: (opinionId: string, decision: ExpertDecisionState) => void;
+  onSubmit?: () => void;
   readonly?: boolean;
 };
 
-export function InternalReportView({ report, decisions, onDecisionChange, readonly = false }: InternalReportViewProps) {
+export function InternalReportView({ report, decisions, onDecisionChange, onSubmit, readonly = false }: InternalReportViewProps) {
   const dimensions = normalizeInternalDimensions(report);
   const lowConfidence = dimensions.filter((dimension) => dimension.confidence !== "高置信度");
   const debugReport = buildAnonymizedDebugReport(report);
@@ -72,6 +74,15 @@ export function InternalReportView({ report, decisions, onDecisionChange, readon
           {JSON.stringify(debugReport, null, 2)}
         </pre>
       </details>
+
+      {!readonly && onSubmit && (
+        <div className="sticky bottom-4 z-10 mx-auto mt-4 max-w-md">
+          <Button type="button" className="w-full shadow-lg" onClick={onSubmit}>
+            <Send className="h-4 w-4" />
+            提交复核意见
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

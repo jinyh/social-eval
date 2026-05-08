@@ -184,8 +184,11 @@ def _build_simple_report_data(report_data: dict) -> dict:
         }
         dimensions.append(simple_dim)
 
+    # 兼容 title 和 paper_title 两种字段名
+    title = report_data.get("title") or report_data.get("paper_title")
+
     return {
-        "title": report_data.get("title"),
+        "title": title,
         "weighted_total": report_data.get("weighted_total", 0),
         "conclusion": report_data.get("conclusion"),
         "dimensions": dimensions,

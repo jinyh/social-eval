@@ -17,8 +17,8 @@ type AppProps = {
 };
 
 function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
-  const [email, setEmail] = useState("submitter@example.com");
-  const [password, setPassword] = useState("secret123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent) => {
@@ -36,7 +36,7 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
     <main className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl">SocialEval Login</CardTitle>
+          <CardTitle className="text-2xl">中国自主知识创新（法学论文）评价系统</CardTitle>
           <CardDescription>登录后进入学生入口、评审工作台或内部后台。</CardDescription>
         </CardHeader>
         <CardContent>
@@ -49,7 +49,7 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
               Password
               <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
             </label>
-            <Button type="submit" className="mt-7 w-full">Sign in</Button>
+            <Button type="submit" className="mt-7 w-full">登录</Button>
             {error ? <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p> : null}
           </form>
         </CardContent>
@@ -89,7 +89,7 @@ export function App({ initialUser }: AppProps) {
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div>
-            <h1 className="text-lg font-semibold tracking-tight text-slate-950">SocialEval</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-slate-950">中国自主知识创新（法学论文）评价系统</h1>
             <p className="text-sm text-slate-500">{user.display_name ?? user.email}</p>
           </div>
           <Button
@@ -101,7 +101,7 @@ export function App({ initialUser }: AppProps) {
             }}
           >
             <LogOut className="h-4 w-4" />
-            Sign out
+            退出登录
           </Button>
         </div>
       </header>

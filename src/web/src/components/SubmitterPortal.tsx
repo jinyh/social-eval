@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
-import { UploadCloud } from "lucide-react";
+import { Trash2, UploadCloud } from "lucide-react";
 
-import { exportSimpleReport, getPaperStatus, getPublicReport, listPapers, uploadPaper } from "@/lib/api";
+import { deletePaper, exportSimpleReport, getPaperStatus, getPublicReport, listPapers, uploadPaper } from "@/lib/api";
 import type { PaperListItem, PaperStatus, PublicReport } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +19,7 @@ const statusLabel: Record<string, string> = {
   reviewing: "专家复核中",
   completed: "已完成",
   failed: "处理失败",
+  recovering: "恢复中",
 };
 
 export function SubmitterPortal() {
@@ -28,8 +29,28 @@ export function SubmitterPortal() {
   const [report, setReport] = useState<PublicReport | null>(null);
   const [message, setMessage] = useState("");
   const [downloading, setDownloading] = useState(false);
+  const [deleting, setDeleting] = useState<string | null>(null);
 
   const refreshPapers = async () => setPapers(await listPapers());
+
+  const handleDelete = async (paperId: string, paperTitle: string) => {
+    if (!window.confirm(`确定要删除「${paperTitle}」吗？此操作不可撤销。`)) return;
+    setDeleting(paperId);
+    try {
+      await deletePaper(paperId);
+      setMessage(`已删除：${paperTitle}`);
+      if (selectedPaperId === paperId) {
+        setSelectedPaperId(null);
+        setStatus(null);
+        setReport(null);
+      }
+      await refreshPapers();
+    } catch (err) {
+      setMessage(err instanceof Error ? err.message : "删除失败");
+    } finally {
+      setDeleting(null);
+    }
+  };
 
   useEffect(() => {
     void refreshPapers().catch(() => setPapers([]));
@@ -123,7 +144,7 @@ export function SubmitterPortal() {
         <Card>
           <CardHeader>
             <CardTitle>我的论文</CardTitle>
-            <CardDescription>选择一篇论文查看公开评价摘要。</CardDescription>
+            <CardDescription>选择一篇论文查看公开评价摘要，或删除不需要的论文。</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -131,25 +152,43 @@ export function SubmitterPortal() {
                 <EmptyHint text="暂无论文，请先上传。" />
               ) : (
                 papers.map((paper) => (
-                  <button
+                  <div
                     key={paper.paper_id}
-                    type="button"
-                    onClick={() => setSelectedPaperId(paper.paper_id)}
                     className={cn(
-                      "w-full rounded-xl border p-3 text-left transition-colors",
+                      "group rounded-xl border p-3 transition-colors",
                       paper.paper_id === selectedPaperId
                         ? "border-blue-200 bg-blue-50"
                         : "border-slate-200 bg-white hover:bg-slate-50"
                     )}
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0 flex-1">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedPaperId(paper.paper_id)}
+                        className="min-w-0 flex-1 text-left"
+                      >
                         <p className="truncate text-sm font-medium text-slate-950">{paper.title ?? paper.original_filename}</p>
                         <p className="mt-1 text-xs text-slate-500">{paper.original_filename}</p>
+                      </button>
+                      <div className="flex items-center gap-2">
+                        <StatusBadge status={paper.paper_status} />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="h-7 w-7 p-0 opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-600 hover:bg-red-50"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(paper.paper_id, paper.title ?? paper.original_filename);
+                          }}
+                          disabled={deleting === paper.paper_id}
+                          title="删除"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
-                      <StatusBadge status={paper.paper_status} />
                     </div>
-                  </button>
+                  </div>
                 ))
               )}
             </div>

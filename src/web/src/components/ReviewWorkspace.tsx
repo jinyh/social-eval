@@ -42,6 +42,7 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
   const [selectedExpertId, setSelectedExpertId] = useState("");
   const [report, setReport] = useState<InternalReport | null>(null);
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState<"success" | "error" | "info">("info");
   const [decisions, setDecisions] = useState<Record<string, ExpertDecisionState>>({});
   const [scoreDrafts, setScoreDrafts] = useState<Record<string, number>>({});
   const [reasonDrafts, setReasonDrafts] = useState<Record<string, string>>({});
@@ -120,10 +121,12 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
     if (!selectedTask?.reviewId) return;
     if (report?.paper_id && selectedTask.paperId && report.paper_id !== selectedTask.paperId) {
       setMessage("当前报告与选中任务不一致，请重新选择任务后再提交。");
+      setMessageType("error");
       return;
     }
     if (report?.task_id && selectedTask.taskId && report.task_id !== selectedTask.taskId) {
       setMessage("当前报告任务与选中复核不一致，请重新选择任务后再提交。");
+      setMessageType("error");
       return;
     }
     const { comments, missingRejectedReasons } = buildSubmitComments(
@@ -135,11 +138,18 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
     );
     if (missingRejectedReasons.length > 0) {
       setMessage(`以下维度选择了叉，需填写修正理由：${missingRejectedReasons.join("、")}`);
+      setMessageType("error");
       return;
     }
-    await submitReview(selectedTask.reviewId, comments);
-    setMessage("专家复核意见已提交。三态确认已按后端 comments 结构转译。 ");
-    await refresh();
+    try {
+      await submitReview(selectedTask.reviewId, comments);
+      setMessage("✅ 提交成功！专家复核意见已保存。");
+      setMessageType("success");
+      await refresh();
+    } catch (err) {
+      setMessage(err instanceof Error ? err.message : "提交失败，请重试");
+      setMessageType("error");
+    }
   };
 
   return (
@@ -164,7 +174,14 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
         </CardHeader>
       </Card>
 
-      {message ? <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-700">{message}</div> : null}
+      {message ? (
+        <div className={cn(
+          "rounded-xl border px-4 py-3 text-sm",
+          messageType === "success" && "border-emerald-200 bg-emerald-50 text-emerald-700",
+          messageType === "error" && "border-red-200 bg-red-50 text-red-700",
+          messageType === "info" && "border-blue-100 bg-blue-50 text-blue-700"
+        )}>{message}</div>
+      ) : null}
 
       <div className="grid gap-5 xl:grid-cols-[360px_minmax(0,1fr)]">
         <aside className="space-y-5 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:self-start xl:overflow-y-auto xl:pr-1">
@@ -191,6 +208,7 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
               decisions={decisions}
               readonly={isEditor}
               onDecisionChange={(opinionId, decision) => setDecisions((current) => ({ ...current, [opinionId]: decision }))}
+              onSubmit={isEditor ? undefined : handleSubmitReview}
             />
           ) : (
             <Card>

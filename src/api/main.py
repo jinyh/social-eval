@@ -11,10 +11,14 @@ from src.tasks.evaluation_task import dispatch_evaluation_task
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="SocialEval API", version="0.1.0")
+    app = FastAPI(title="中国自主知识创新（法学论文）评价系统 API", version="0.1.0")
+    # 从环境变量读取允许的 origins
+    allowed_origins = ["http://localhost:5173", "http://127.0.0.1:5173"]
+    if settings.allowed_origins:
+        allowed_origins.extend([o.strip() for o in settings.allowed_origins.split(",") if o.strip()])
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+        allow_origins=allowed_origins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],

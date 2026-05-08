@@ -17,12 +17,33 @@
 from __future__ import annotations
 
 from io import BytesIO
+from pathlib import Path
 from typing import Any
 
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 from matplotlib.backends.backend_pdf import PdfPages
 
 from src.reporting.summary_extractor import extract_dimension_summary
+
+# 配置中文字体
+_CHINESE_FONT_PATH = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+_CHINESE_FONT = None
+
+
+def _get_chinese_font():
+    """获取中文字体，用于PDF渲染"""
+    global _CHINESE_FONT
+    if _CHINESE_FONT is not None:
+        return _CHINESE_FONT
+
+    font_path = Path(_CHINESE_FONT_PATH)
+    if font_path.exists():
+        _CHINESE_FONT = fm.FontProperties(fname=str(font_path))
+    else:
+        # 回退到系统默认字体
+        _CHINESE_FONT = fm.FontProperties()
+    return _CHINESE_FONT
 
 
 def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
@@ -44,51 +65,61 @@ def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
     figure, axis = plt.subplots(figsize=(8.27, 11.69))
     axis.axis("off")
 
-    # 标题
-    title = report_data.get("title", "未命名论文")
-    axis.text(0.5, 0.97, "学术评价报告", fontsize=18, ha="center", va="top", fontweight="bold")
-    axis.text(0.5, 0.92, _truncate_text(title, 40), fontsize=14, ha="center", va="top")
+    # 获取中文字体
+    font = _get_chinese_font()
 
-    # 评价结论
-    conclusion = report_data.get("conclusion", "未评定")
+    # 标题区域
+    title = report_data.get("title") or "未命名论文"
+    axis.text(0.5, 0.95, "中国自主知识创新（法学论文）评价系统", fontsize=16, ha="center", va="top", fontweight="bold", fontproperties=font)
+    axis.text(0.5, 0.90, _truncate_text(title, 35), fontsize=12, ha="center", va="top", fontproperties=font)
+
+    # 总分和评价结论（并排显示）
+    total_score = report_data.get("weighted_total") or 0
+    conclusion = report_data.get("conclusion") or "未评定"
     conclusion_color = _get_conclusion_color(conclusion)
-    axis.text(0.5, 0.86, f"评价结论: {conclusion}", fontsize=14, ha="center", va="top", color=conclusion_color)
 
-    # 总分
-    total_score = report_data.get("weighted_total", 0)
-    axis.text(0.5, 0.81, f"总分: {total_score}", fontsize=16, ha="center", va="top", fontweight="bold")
+    axis.text(0.25, 0.83, f"总分: {total_score}", fontsize=16, ha="center", va="top", fontweight="bold", fontproperties=font)
+    axis.text(0.75, 0.83, f"评价结论: {conclusion}", fontsize=14, ha="center", va="top", color=conclusion_color, fontweight="bold", fontproperties=font)
 
-    # 维度分数表格
-    dimensions = report_data.get("dimensions", [])
+    # 分隔线
+    axis.axhline(y=0.78, xmin=0.05, xmax=0.95, color='gray', linewidth=0.5)
+
+    # 维度评分标题
+    axis.text(0.5, 0.74, "维度评分详情", fontsize=14, ha="center", va="top", fontweight="bold", fontproperties=font)
+
+    # 维度分数 - 逐行显示，每行一个维度
+    dimensions = report_data.get("dimensions") or []
     if dimensions:
-        rows = []
-        for dim in dimensions:
-            name = dim.get("name_zh", "未知维度")
-            score = dim.get("ai", {}).get("mean_score", 0)
-            summary = _get_dimension_summary(dim)
-            rows.append([name, f"{score}", _truncate_text(summary, 30)])
+        y_start = 0.68
+        line_height = 0.11  # 增加行高以容纳多行总结
 
-        table = axis.table(
-            cellText=rows,
-            colLabels=["评价维度", "分数", "一句话总结"],
-            bbox=[0.05, 0.30, 0.90, 0.45],
-            loc="center",
-        )
-        table.auto_set_font_size(False)
-        table.set_fontsize(10)
-        # 调整列宽
-        cell_dict = table.get_celld()
-        for key in cell_dict:
-            if key[0] == 0:  # 表头
-                cell_dict[key].set_text_props(fontweight="bold")
+        for i, dim in enumerate(dimensions):
+            y_pos = y_start - i * line_height
+
+            name = dim.get("name_zh") or "未知维度"
+            score = (dim.get("ai") or {}).get("mean_score") or 0
+            summary = _get_dimension_summary(dim)
+
+            # 维度名称和分数
+            axis.text(0.07, y_pos, f"{name}", fontsize=11, ha="left", va="top", fontweight="bold", fontproperties=font)
+            axis.text(0.32, y_pos, f"{score:.1f}分", fontsize=11, ha="left", va="top", fontproperties=font)
+
+            # 一句话总结（完整显示，可换行）
+            wrapped_summary = _wrap_text(summary, 35)
+            axis.text(0.42, y_pos, wrapped_summary, fontsize=10, ha="left", va="top", fontproperties=font)
+
+            # 分隔线
+            if i < len(dimensions) - 1:
+                axis.axhline(y=y_pos - 0.09, xmin=0.05, xmax=0.95, color='#DDDDDD', linewidth=0.3)
 
     # 专家复核结论（如有）
     expert_conclusion = report_data.get("expert_conclusion")
     if expert_conclusion:
-        axis.text(0.5, 0.22, "专家复核意见", fontsize=12, ha="center", va="top", fontweight="bold")
-        # 长文本需要换行处理
-        wrapped_text = _wrap_text(expert_conclusion, 35)
-        axis.text(0.1, 0.18, wrapped_text, fontsize=10, va="top", wrap=True)
+        y_expert = 0.68 - len(dimensions) * 0.09 - 0.05
+        axis.axhline(y=y_expert, xmin=0.05, xmax=0.95, color='gray', linewidth=0.5)
+        axis.text(0.5, y_expert - 0.03, "专家复核意见", fontsize=12, ha="center", va="top", fontweight="bold", fontproperties=font)
+        wrapped_text = _wrap_text(expert_conclusion, 40)
+        axis.text(0.5, y_expert - 0.07, wrapped_text, fontsize=10, ha="center", va="top", fontproperties=font)
 
     # 生成 PDF
     with PdfPages(buffer) as pdf:
@@ -115,7 +146,7 @@ def _get_dimension_summary(dim: dict[str, Any]) -> str:
         return summary.strip()
 
     # 兜底：从 analysis 提取
-    analysis = dim.get("analysis", "")
+    analysis = dim.get("analysis") or ""
     return extract_dimension_summary(analysis)
 
 
@@ -138,7 +169,7 @@ def _get_conclusion_color(conclusion: str) -> str:
     return "black"
 
 
-def _truncate_text(text: str, max_length: int) -> str:
+def _truncate_text(text: str | None, max_length: int) -> str:
     """
     截断文本到指定长度。
 
@@ -149,12 +180,14 @@ def _truncate_text(text: str, max_length: int) -> str:
     Returns:
         截断后的文本
     """
+    if text is None:
+        return ""
     if len(text) <= max_length:
         return text
     return text[: max_length - 1] + "…"
 
 
-def _wrap_text(text: str, line_length: int) -> str:
+def _wrap_text(text: str | None, line_length: int) -> str:
     """
     将长文本按指定长度换行。
 
@@ -165,6 +198,8 @@ def _wrap_text(text: str, line_length: int) -> str:
     Returns:
         换行后的文本
     """
+    if text is None:
+        return ""
     lines = []
     for i in range(0, len(text), line_length):
         lines.append(text[i : i + line_length])
