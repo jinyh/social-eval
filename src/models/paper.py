@@ -17,6 +17,9 @@ class Paper(Base):
     status: Mapped[str] = mapped_column(String(20), default="pending")  # pending/processing/completed/failed
     precheck_status: Mapped[str | None] = mapped_column(String(20), nullable=True)
     precheck_result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    # v2.45 D 路径工程对齐：第 3 阶段信号校验与聚合契约结果
+    signal_check_result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    aggregate_result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     uploaded_by: Mapped[str | None] = mapped_column(String(36), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now, onupdate=utc_now)

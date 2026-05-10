@@ -48,6 +48,10 @@ def _normalize_framework_data(data: dict[str, Any]) -> dict[str, Any]:
         "discrimination_threshold": data.get("discrimination_threshold"),
         "expert_review_triggers": data.get("expert_review_triggers"),
         "anchors": data.get("anchors"),
+        # v2.45 D 路径工程对齐：提取四份输出契约为 Framework 显式字段
+        "autonomous_knowledge_signals": data.get("autonomous_knowledge_signals"),
+        "aggregate_output_contract": data.get("aggregate_output_contract"),
+        "review_report": data.get("review_report"),
         "raw_config": data,
     }
     return normalized

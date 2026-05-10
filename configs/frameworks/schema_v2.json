@@ -202,6 +202,26 @@
           }
         }
       }
+    },
+    "autonomous_knowledge_signals": {
+      "type": "object",
+      "description": "v0.14 规程第 3 阶段信号校验定义（v2.44+）。框架声明此区块时激活 orchestrator 的四阶段管线。",
+      "additionalProperties": true
+    },
+    "aggregate_output_contract": {
+      "type": "object",
+      "description": "v0.14 规程 §7.1 聚合层输出契约（v2.44+）。由 src/evaluation/result_validator.aggregate_result 消费。",
+      "additionalProperties": true
+    },
+    "review_report": {
+      "type": "object",
+      "description": "v0.14 规程 §7.4 复核报告输出契约（v2.44+）。",
+      "additionalProperties": true
+    },
+    "scoring_protocol": {
+      "type": "object",
+      "description": "核心基础分 + 上限 + 加分协议定义（v2.42+）。由 src/reporting/scoring.calculate_weighted_total 消费。",
+      "additionalProperties": true
     }
   }
 }

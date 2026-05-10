@@ -95,12 +95,6 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
             }
         )
 
-    weighted_total = calculate_weighted_total(
-        dimension_scores=mean_scores_by_dimension,
-        scoring_protocol=framework.raw_config.get("scoring_protocol"),
-        dimension_weights=dimension_weights,
-    )
-
     return {
         "report_type": "internal",
         "paper_id": paper.id,
@@ -108,7 +102,14 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
         "paper_title": paper.title or paper.original_filename,
         "precheck_status": paper.precheck_status,
         "precheck_result": paper.precheck_result,
-        "weighted_total": round(weighted_total, 2),
+        # v2.45 D 路径新增字段：旧 Paper 未写入时为 None（向后兼容）
+        "signal_check_result": paper.signal_check_result,
+        "aggregate_result": paper.aggregate_result,
+        "weighted_total": calculate_weighted_total(
+            dimension_scores=mean_scores_by_dimension,
+            scoring_protocol=framework.raw_config.get("scoring_protocol"),
+            dimension_weights=dimension_weights,
+        ),
         "radar_chart": {
             "labels": radar_labels,
             "values": [round(v, 2) for v in radar_values],

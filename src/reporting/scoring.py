@@ -11,7 +11,8 @@ def _legacy_weighted_total(
     return sum(dimension_scores.get(key, 0.0) * weight for key, weight in dimension_weights.items())
 
 
-def _pick_ceiling(score: float, thresholds: list[dict[str, Any]]) -> float | None:
+def pick_ceiling(score: float, thresholds: list[dict[str, Any]]) -> float | None:
+    """根据结论可接受性分数查表确定总分上限（None 表示不上限）。"""
     for threshold in sorted(
         thresholds, key=lambda item: float(item.get("min_score", 0.0)), reverse=True
     ):
@@ -21,17 +22,24 @@ def _pick_ceiling(score: float, thresholds: list[dict[str, Any]]) -> float | Non
     return None
 
 
-def _pick_bonus(score: float, bands: list[dict[str, Any]], max_bonus: float) -> float:
+def pick_bonus(score: float, bands: list[dict[str, Any]], max_bonus: float) -> float:
+    """根据前瞻延展性分数查表确定加分。"""
     for band in sorted(bands, key=lambda item: float(item.get("min_score", 0.0)), reverse=True):
         if score >= float(band.get("min_score", 0.0)):
             return min(float(band.get("bonus", 0.0)), max_bonus)
     return 0.0
 
 
-def _core_ceiling_bonus_total(
+# 兼容别名：保留私有名供既有调用
+_pick_ceiling = pick_ceiling
+_pick_bonus = pick_bonus
+
+
+def compute_base_score(
     dimension_scores: dict[str, float], protocol: dict[str, Any]
 ) -> float:
-    core_dimensions = protocol.get("core_dimensions", [])
+    """按 scoring_protocol.core_dimensions 计算基础分（核心四维加权平均）。"""
+    core_dimensions = protocol.get("core_dimensions", []) or []
     if not core_dimensions:
         return 0.0
 
@@ -43,40 +51,65 @@ def _core_ceiling_bonus_total(
         dimension_scores.get(str(item.get("key")), 0.0) * float(item.get("weight", 0.0))
         for item in core_dimensions
     )
-    core_score = core_weighted / core_weight_sum
+    return core_weighted / core_weight_sum
 
+
+def compute_bonus(
+    dimension_scores: dict[str, float], protocol: dict[str, Any]
+) -> float:
+    """按 scoring_protocol.bonus_dimension 计算前瞻延展加分。
+
+    需满足 prerequisites：逻辑严密性 >= 60、结论可接受性 >= 60、核心四维均 >= 50。
+    """
     bonus_dimension = protocol.get("bonus_dimension", {}) or {}
     bonus_key = str(bonus_dimension.get("key", ""))
-    bonus = 0.0
-    if bonus_key:
-        prerequisites = bonus_dimension.get("prerequisites", {}) or {}
-        logical_ok = dimension_scores.get("logical_coherence", 0.0) >= float(
-            prerequisites.get("logical_coherence_min", 0.0)
-        )
-        consensus_ok = dimension_scores.get("conclusion_consensus", 0.0) >= float(
-            prerequisites.get("conclusion_consensus_min", 0.0)
-        )
-        core_min = float(prerequisites.get("core_dimension_min", 0.0))
-        core_ok = all(
-            dimension_scores.get(str(item.get("key")), 0.0) >= core_min for item in core_dimensions
-        )
-        if logical_ok and consensus_ok and core_ok:
-            bonus = _pick_bonus(
-                score=dimension_scores.get(bonus_key, 0.0),
-                bands=bonus_dimension.get("bands", []) or [],
-                max_bonus=float(bonus_dimension.get("max_bonus", 0.0)),
-            )
+    if not bonus_key:
+        return 0.0
 
-    subtotal = core_score + bonus
+    prerequisites = bonus_dimension.get("prerequisites", {}) or {}
+    logical_ok = dimension_scores.get("logical_coherence", 0.0) >= float(
+        prerequisites.get("logical_coherence_min", 0.0)
+    )
+    consensus_ok = dimension_scores.get("conclusion_consensus", 0.0) >= float(
+        prerequisites.get("conclusion_consensus_min", 0.0)
+    )
+    core_min = float(prerequisites.get("core_dimension_min", 0.0))
+    core_dimensions = protocol.get("core_dimensions", []) or []
+    core_ok = all(
+        dimension_scores.get(str(item.get("key")), 0.0) >= core_min
+        for item in core_dimensions
+    )
+    if not (logical_ok and consensus_ok and core_ok):
+        return 0.0
 
+    return pick_bonus(
+        score=dimension_scores.get(bonus_key, 0.0),
+        bands=bonus_dimension.get("bands", []) or [],
+        max_bonus=float(bonus_dimension.get("max_bonus", 0.0)),
+    )
+
+
+def compute_ceiling(
+    dimension_scores: dict[str, float], protocol: dict[str, Any]
+) -> float | None:
+    """按 scoring_protocol.ceiling_dimension 计算结论可接受性上限。"""
     ceiling_dimension = protocol.get("ceiling_dimension", {}) or {}
     ceiling_key = str(ceiling_dimension.get("key", ""))
     if not ceiling_key:
-        return subtotal
-    ceiling = _pick_ceiling(
+        return None
+    return pick_ceiling(
         score=dimension_scores.get(ceiling_key, 0.0),
         thresholds=ceiling_dimension.get("thresholds", []) or [],
     )
+
+
+def _core_ceiling_bonus_total(
+    dimension_scores: dict[str, float], protocol: dict[str, Any]
+) -> float:
+    base = compute_base_score(dimension_scores, protocol)
+    bonus = compute_bonus(dimension_scores, protocol)
+    subtotal = base + bonus
+    ceiling = compute_ceiling(dimension_scores, protocol)
     return subtotal if ceiling is None else min(subtotal, ceiling)
 
 

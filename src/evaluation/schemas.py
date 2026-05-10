@@ -9,6 +9,39 @@ class LimitRuleTriggered(BaseModel):
     evidence: str
 
 
+class SignalJudgment(BaseModel):
+    signal_key: str
+    judgment: str
+    evidence_quote: str | None = None
+
+
+class SignalCheckResult(BaseModel):
+    """第 3 阶段（自主知识体系信号校验）结构化输出。
+
+    对应 v0.14 规程 §7.3 autonomous_knowledge_signals.output_contract。
+    """
+
+    # 四类核心信号（对应 v2.44 autonomous_knowledge_signals.signals）
+    china_problem_centered: str | None = None
+    china_practice_explanation_attempted: str | None = None
+    external_theory_transformation: str | None = None
+    verifiable_concept_or_thesis: str | None = None
+
+    # 辅助元数据（对应 auxiliary_metadata）
+    involves_special_chinese_institutional_issue: str | None = None
+    issue_types: list[str] = Field(default_factory=list)
+    uses_traditional_cultural_resource: str | None = None
+
+    # 证据与复核
+    evidence_quotes: list[str] = Field(default_factory=list)
+    risks: list[str] = Field(default_factory=list)
+    triggers_review: bool = False
+    review_reason: str | None = None
+
+    # 兼容字段：legacy 简化结构（已有测试可能依赖）
+    signals: list[SignalJudgment] = Field(default_factory=list)
+
+
 class DimensionResult(BaseModel):
     dimension: str
     score: int  # 0-100

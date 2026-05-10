@@ -124,6 +124,10 @@ class Framework(BaseModel):
     discrimination_threshold: DiscriminationThreshold | None = None
     expert_review_triggers: ExpertReviewTriggers | None = None
     anchors: Anchors | None = None
+    # v2.45 D 路径工程对齐：框架显式持有四份输出契约字段，不再仅落在 raw_config
+    autonomous_knowledge_signals: dict[str, Any] | None = None
+    aggregate_output_contract: dict[str, Any] | None = None
+    review_report: dict[str, Any] | None = None
     raw_config: dict[str, Any] = Field(default_factory=dict)
 
     model_config = ConfigDict(extra="allow")
