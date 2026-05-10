@@ -22,6 +22,7 @@ from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
 from src.reliability.calculator import calculate_reliability
 from src.reliability.threshold_checker import summarize_reliability
+from src.reporting.scoring import calculate_weighted_total
 from src.reporting.versioning import generate_reports_for_task
 
 logger = logging.getLogger(__name__)
@@ -70,6 +71,23 @@ async def run_evaluation_pipeline(
         db.commit()
 
         if precheck.status == "reject":
+            # v0.15 §2.1：reject = 明显不适格 → 不进入六维评分，但必须人工确认
+            # 仍需按 aggregate_output_contract 产出报告（review_level=precheck_level）
+            agg = aggregate_result(
+                dimension_scores={},
+                precheck_result=precheck,
+                signal_result=None,
+                reliability_reports=[],
+                framework=framework,
+                contradiction_rules=[],
+            )
+            paper.aggregate_result = aggregate_result_to_dict(agg)
+            if agg.review_status == "required":
+                task.manual_review_requested = True
+            db.add(paper)
+            db.add(task)
+            db.commit()
+
             ensure_valid_task_transition(task.status, "completed")
             task.status = "completed"
             paper.status = "completed"
@@ -82,10 +100,13 @@ async def run_evaluation_pipeline(
                 "paper_status": paper.status,
                 "precheck_status": paper.precheck_status,
                 "reliability_summary": None,
+                "review_status": agg.review_status,
+                "review_level": agg.review_level,
             }
 
         reliability_reports = []
         dimension_means: dict[str, float] = {}
+        per_model_scores: dict[str, dict[str, float]] = {}
         for dimension in framework.dimensions:
             results = await evaluate_dimension_concurrent(
                 providers,
@@ -108,6 +129,9 @@ async def run_evaluation_pipeline(
                         analysis=result.analysis,
                     )
                 )
+                per_model_scores.setdefault(result.model_name, {})[dimension.key] = (
+                    result.score
+                )
 
             report = calculate_reliability(
                 dimension.key,
@@ -128,13 +152,20 @@ async def run_evaluation_pipeline(
             )
             db.commit()
 
+        # 先按 v2.45 scoring_protocol (core_ceiling_bonus) 算出最终分
+        # 用于 contradiction_triggers 判定（修复 #4：不再用维度均值近似）
+        scoring_protocol = framework.raw_config.get("scoring_protocol")
+        dimension_weights = {d.key: d.weight for d in framework.dimensions}
+        final_score_estimate = calculate_weighted_total(
+            dimension_scores=dimension_means,
+            scoring_protocol=scoring_protocol,
+            dimension_weights=dimension_weights,
+        )
+
         # v2.45 D 路径第 3 阶段：自主知识体系信号校验（仅当 framework 声明时激活）
         signal_result = None
         contradiction_rules: list[str] = []
         if framework.autonomous_knowledge_signals is not None:
-            # 用总分的粗估值作为 contradiction_triggers 的输入
-            # （此时 final_score 未算出；用基础分近似即可，四条规则阈值粒度粗）
-            rough_total = sum(dimension_means.values()) / max(len(dimension_means), 1)
             signal_result = await run_signal_check(
                 providers[0],
                 framework,
@@ -142,15 +173,12 @@ async def run_evaluation_pipeline(
                 task.id,
                 db,
             )
-            triggered, rule_ids = check_contradiction_triggers(
-                signal_result, reliability_reports, framework, rough_total
+            _, rule_ids = check_contradiction_triggers(
+                signal_result, reliability_reports, framework, final_score_estimate
             )
             contradiction_rules = rule_ids
             paper.signal_check_result = signal_to_dict(signal_result)
-            if triggered:
-                task.manual_review_requested = True
             db.add(paper)
-            db.add(task)
             db.commit()
 
         # 聚合契约输出（所有框架都走此路径，旧框架的 precheck.conclusion 为 None 时用默认值）
@@ -161,10 +189,27 @@ async def run_evaluation_pipeline(
             reliability_reports=reliability_reports,
             framework=framework,
             contradiction_rules=contradiction_rules,
+            per_model_scores=per_model_scores,
         )
         paper.aggregate_result = aggregate_result_to_dict(agg)
-        if agg.review_status == "required" and agg.review_level == "evaluation_level":
+        # 修复 #1: 预检层复核（boundary / obviously_ineligible）与评价层复核都进队列
+        if agg.review_status == "required":
             task.manual_review_requested = True
+        # 修复 #5: 信号校验完成后把四信号反填到 precheck_result.triggered_signals
+        if signal_result is not None and precheck.triggered_signals is None:
+            precheck.triggered_signals = {
+                "involves_china_issues": signal_result.china_problem_centered or "uncertain",
+                "has_legal_question": (
+                    signal_result.verifiable_concept_or_thesis or "uncertain"
+                ),
+                "china_practice_explanation_attempted": (
+                    signal_result.china_practice_explanation_attempted or "uncertain"
+                ),
+                "theory_transformation_or_verifiable_thesis": (
+                    signal_result.external_theory_transformation or "uncertain"
+                ),
+            }
+            paper.precheck_result = precheck.model_dump()
         db.add(paper)
         db.add(task)
         db.commit()
@@ -185,6 +230,7 @@ async def run_evaluation_pipeline(
             "signal_check_triggered_rules": contradiction_rules,
             "aggregate_final_score": agg.final_score,
             "review_status": agg.review_status,
+            "review_level": agg.review_level,
         }
     except Exception as exc:
         ensure_valid_task_transition(task.status, "recovering")

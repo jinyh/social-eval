@@ -11,6 +11,7 @@ from src.evaluation.schemas import DimensionResult, SignalCheckResult
 from src.knowledge.schemas import Dimension, Framework
 from src.reliability.schemas import ReliabilityReport
 from src.reporting.scoring import (
+    calculate_weighted_total,
     compute_base_score,
     compute_bonus,
     compute_ceiling,
@@ -102,22 +103,45 @@ _PRECHECK_TO_TRIAGE = {
 
 
 def _compute_multi_model_stats(
-    reliability_reports: list[ReliabilityReport], framework: Framework
+    per_model_scores: dict[str, dict[str, float]] | None,
+    reliability_reports: list[ReliabilityReport],
+    framework: Framework,
 ) -> MultiModelStats | None:
-    """从 reliability_reports 聚合总体置信度。
+    """按 v0.15 §7.1 计算"总分可靠性"：先算每个模型的 final_score，再求 mean/std。
 
-    取所有 std 的平均值作为整体 std；按 framework.std_threshold 归类 label。
+    调用方应传入 per_model_scores（{model_name: {dim_key: score}}）。当缺失
+    per_model_scores（老调用点或单模型场景）时回退为"各维度 std 平均"的近似值
+    并归类为 medium——保留原行为避免破坏旧测试。
     """
 
     if not reliability_reports:
         return None
 
-    means = [r.mean for r in reliability_reports]
-    stds = [r.std for r in reliability_reports]
-    overall_mean = statistics.mean(means)
-    overall_std = statistics.mean(stds)
-
     threshold = framework.std_threshold
+
+    if per_model_scores and len(per_model_scores) >= 1:
+        protocol = framework.raw_config.get("scoring_protocol")
+        dim_weights = {dim.key: dim.weight for dim in framework.dimensions}
+        model_finals: list[float] = []
+        for _, scores in per_model_scores.items():
+            final = calculate_weighted_total(
+                dimension_scores=scores,
+                scoring_protocol=protocol,
+                dimension_weights=dim_weights,
+            )
+            model_finals.append(float(final))
+
+        overall_mean = statistics.mean(model_finals)
+        overall_std = (
+            statistics.stdev(model_finals) if len(model_finals) > 1 else 0.0
+        )
+    else:
+        # 回退路径：老调用方未传 per_model_scores，用各维度 std 平均作近似值
+        means = [r.mean for r in reliability_reports]
+        stds = [r.std for r in reliability_reports]
+        overall_mean = statistics.mean(means)
+        overall_std = statistics.mean(stds)
+
     if overall_std <= threshold:
         label = "high"
     elif overall_std <= threshold + 3:
@@ -127,13 +151,20 @@ def _compute_multi_model_stats(
     else:
         label = "critical"
 
-    return MultiModelStats(mean=overall_mean, std=overall_std, confidence_label=label)
+    return MultiModelStats(
+        mean=round(overall_mean, 2),
+        std=round(overall_std, 2),
+        confidence_label=label,
+    )
 
 
 def _determine_review(
     precheck_conclusion: str, contradiction_rules: list[str]
 ) -> tuple[str, str]:
-    """合并预检层复核与评价层复核，返回 (review_status, review_level)。"""
+    """合并预检层复核与评价层复核，返回 (review_status, review_level)。
+
+    预检层复核优先——如果同时命中，按 v0.14 §6.1 的分层原则取预检层。
+    """
 
     if precheck_conclusion == "obviously_ineligible":
         return "required", "precheck_level"
@@ -151,12 +182,14 @@ def aggregate_result(
     reliability_reports: list[ReliabilityReport],
     framework: Framework,
     contradiction_rules: list[str] | None = None,
+    per_model_scores: dict[str, dict[str, float]] | None = None,
 ) -> AggregateResult:
     """按 aggregate_output_contract 聚合所有评估产物。
 
     - 复用 src/reporting/scoring.py 的 compute_base_score / compute_bonus / compute_ceiling
     - precheck_conclusion 透传自 precheck 适配层
     - review_status / review_level 合并预检与信号校验两个来源
+    - multi_model_stats 若传入 per_model_scores 则按模型 final_score 统计；否则回退维度近似
     """
 
     protocol = framework.raw_config.get("scoring_protocol") or {}
@@ -187,7 +220,9 @@ def aggregate_result(
             None if ceiling_val is None else float(ceiling_val)
         ),
         final_score=final,
-        multi_model_stats=_compute_multi_model_stats(reliability_reports, framework),
+        multi_model_stats=_compute_multi_model_stats(
+            per_model_scores, reliability_reports, framework
+        ),
         review_status=review_status,
         review_level=review_level,
         triage_recommendation=triage,

@@ -13,11 +13,22 @@ from src.knowledge.schemas import Framework
 
 
 # v0.14 规程 §7.2 的 conclusion 字段枚举
+# 映射依据（对应 v0.15 §2.2 三分流）：
+# - pass / manual_review（旧"单模型提示风险"）→ 进评分
+# - conditional_pass（v2.5+ 的"带风险可评"）→ v0.15 口径视为"边界进入评分并标记复核"
+# - reject → 明显不适格（不进入评分，需人工确认）
 _CONCLUSION_MAPPING = {
     "pass": "enter_six_dimension_review",
-    "conditional_pass": "enter_six_dimension_review",
+    "conditional_pass": "boundary_review",
     "manual_review": "boundary_review",
     "reject": "obviously_ineligible",
+}
+
+# enter_six_dimension_review 字段（§7.2 要求）的三档值
+_ENTER_FIELD_MAPPING = {
+    "enter_six_dimension_review": "yes",
+    "boundary_review": "boundary",
+    "obviously_ineligible": "no",
 }
 
 
@@ -36,6 +47,7 @@ class PrecheckResult(BaseModel):
 
     # v0.14 规程 §7.2 契约字段（v2.45+ 由适配层填充）
     conclusion: str | None = None
+    enter_six_dimension_review: str | None = None  # yes | boundary | no
     triggered_signals: dict[str, str] | None = None
     evidence_quotes: list[str] = Field(default_factory=list)
     boundary_reasons: list[str] = Field(default_factory=list)
@@ -50,18 +62,22 @@ def _adapt_to_v014_contract(
 
     仅当 framework 声明了 autonomous_knowledge_signals 区块时激活（即 v2.45+）。
     旧框架（v2.0/v2.8/v2.44 等）直接返回原 result，行为不变。
+
+    triggered_signals 不在此填充——由 aggregate_result 根据 SignalCheckResult 返填
+    （v0.14 规程规定预检阶段的"四信号"与信号校验阶段的"四信号"是同一组定义）。
     """
     if framework.autonomous_knowledge_signals is None:
         return result
 
     conclusion = _CONCLUSION_MAPPING.get(result.status, "enter_six_dimension_review")
-    requires_manual = result.status in ("manual_review", "reject")
+    # conditional_pass / manual_review / reject 都需要人工干预
+    requires_manual = result.status in ("conditional_pass", "manual_review", "reject")
 
     return result.model_copy(
         update={
             "conclusion": conclusion,
+            "enter_six_dimension_review": _ENTER_FIELD_MAPPING[conclusion],
             "requires_manual_confirmation": requires_manual,
-            # 保留原 issues 作为 boundary_reasons / obviously_ineligible_reasons 的备用来源
             "boundary_reasons": result.issues if conclusion == "boundary_review" else [],
             "obviously_ineligible_reasons": (
                 result.issues if conclusion == "obviously_ineligible" else []
