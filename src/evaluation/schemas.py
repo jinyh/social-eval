@@ -1,5 +1,17 @@
 from pydantic import BaseModel, Field
 
+# =====================================================================
+# 降级策略说明
+# =====================================================================
+# YAML output_contract 中标为 required_fields 的字段，在正常评估路径下必须存在。
+# Pydantic 模型使用 Optional / Field(default=...) 是为了兼容以下降级场景：
+#   1. Provider 部分失败（超时/异常），仅部分字段可用
+#   2. 旧框架（v2.0-v2.44）输出结构不含新增字段
+#   3. 信号校验失败时返回 triggers_review=True 的最小结构
+# 校验层（result_validator）在聚合时会检查关键字段是否存在，
+# 缺失时走降级路径而非抛异常，确保 pipeline 不因单点失败整体中断。
+# =====================================================================
+
 
 class LimitRuleTriggered(BaseModel):
     rule_id: str

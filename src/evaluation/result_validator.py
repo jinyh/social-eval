@@ -80,6 +80,13 @@ class AggregateResult(BaseModel):
 
     由 orchestrator 在六维评分与信号校验完成后调用，结果持久化到
     papers.aggregate_result。
+
+    字段 requiredness 策略：
+    - YAML aggregate_output_contract.required_fields 列出的 12 个字段在正常路径下
+      必须全部存在（precheck_conclusion ~ triage_recommendation）。
+    - 下方 triggered_rules / autonomous_signal_* / signal_model_agreement 是运行时
+      元数据，不在 YAML 契约中；用 Optional/default 是因为旧框架或信号校验未激活时
+      这些字段不产出。
     """
 
     precheck_conclusion: str  # enter_six_dimension_review | boundary_review | obviously_ineligible
