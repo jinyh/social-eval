@@ -98,6 +98,7 @@ configs/
     law-v2.43-20260508.yaml # 法学评价框架 v2.43（对齐 v0.14 规程，文档性对齐）
     law-v2.44-20260508.yaml # 法学评价框架 v2.44（契约对齐，补齐四份输出契约）
     law-v2.45-20260510.yaml # 法学评价框架 v2.45（全链路对齐，代码完整消费四份契约）
+    law-v2.46-20260511.yaml # 法学评价框架 v2.46（v0.16 大规模评估候选，YAML 承载 prompt/输出模板/契约）
     archive/                 # 历史版本归档
 docs/
   requirements/    # 需求文档
@@ -163,6 +164,7 @@ SMTP_FROM=noreply@socialeval.local
 - 🔄 **无需重启**：修改配置后无需重启服务，下次评价时自动生效
 - ✅ **Schema 验证**：配置文件必须符合 `configs/frameworks/schema_v2.json` 定义的 schema
 - 🚫 **禁止硬编码**：不要在代码中硬编码评价维度，必须从配置文件读取
+- 📌 **Prompt/契约真源**：评价 prompt、`output_template`、JSON 输出契约与量化映射优先以 `configs/frameworks/*.yaml` 为真源；业务代码只负责渲染、适配、校验和兼容 fallback，不得新增硬编码评价口径
 
 ### 数据库迁移
 - 📝 **自动生成**：修改 `src/models/` 下的模型后，运行 `alembic revision --autogenerate -m "描述"`
@@ -209,11 +211,13 @@ SMTP_FROM=noreply@socialeval.local
 | v2.43 | `law-v2.43-20260508.yaml` | 研究版 / spec-aligned | 对齐 v0.14 规程第 3 阶段"自主知识体系信号校验"（文档性对齐，代码暂不消费新区块） | 2026-05-08 |
 | v2.44 | `law-v2.44-20260508.yaml` | 研究版 / spec-aligned | 契约对齐:补齐 v0.14 规程四份输出契约（预检/聚合/复核层，代码暂不消费） | 2026-05-08 |
 | v2.45 | `law-v2.45-20260510.yaml` | 研究版 / 生产候选 | **全链路对齐**：代码完整消费四份契约，第 3 阶段信号校验进入正式管线；六维 prompt 与 v2.44 字节级一致 | 2026-05-10 |
+| v2.46 | `law-v2.46-20260511.yaml` | 研究版 / v0.16 大规模评估候选 | **大规模评估候选**：阶段1项目口径预检为主、`text_quality_gate` 为旁路工程字段；阶段3 `prompt_template` / `output_template` / 量化契约迁入 YAML，代码优先消费 YAML | 2026-05-11 |
 
 **生产环境推荐**：v2.8 + GPT-5.4 单模型  
 **研究/测试**：v2.6 或 v2.8  
 **规程对齐**：v2.43(第 3 阶段) / v2.44(四份输出契约) — 评分逻辑与 v2.42 严格一致，仅新增文档性区块  
 **代码完整消费的规程对齐**：v2.45 — 启用完整四阶段管线（预检 → 六维 → 信号校验 → 聚合），每次评价多 1 次 API 调用
+**大规模评估候选**：v2.46 / v0.16 — 面向约 2000 篇论文第一阶段筛选；四阶段流程仍为“项目口径预检 → 六维评分 → 自主知识体系信号校验 → 评价层复核判断”，其中 prompt、输出模板、JSON 契约和信号量化映射以 YAML 为准
 
 #### v2.8 核心改进（2026-04-23）
 
@@ -336,6 +340,7 @@ Temperature: 0.3
 ### 关键约束
 - **AI 模型调用**必须通过统一抽象层，禁止在业务层直接 import SDK
 - **知识体系配置**只能通过 `configs/frameworks/` 的 YAML/JSON 文件定义，禁止硬编码维度
+- **评价 prompt 与输出契约**必须优先放在 `configs/frameworks/*.yaml`：包括 `precheck.prompt_template`、`dimensions[].prompt_template`、`autonomous_knowledge_signals.prompt_template`、`output_template`、`output_contract`、`aggregate_output_contract`。代码不得把新评价口径、字段枚举或量化规则硬编码为唯一来源
 - **所有 AI 调用记录**须持久化（输入/输出/时间戳/模型名），不可只存最终结果
 - **API 接口**必须 Token 认证，不得暴露未鉴权端点
 

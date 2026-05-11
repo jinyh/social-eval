@@ -92,6 +92,8 @@ class AggregateResult(BaseModel):
     review_level: str  # precheck_level | evaluation_level | none
     triage_recommendation: str
     triggered_rules: list[str] = Field(default_factory=list)
+    autonomous_signal_score: int | None = None
+    autonomous_signal_strength: str | None = None
 
 
 # 预检结论到分流建议的映射（对应 v0.14 §2.2）
@@ -158,8 +160,37 @@ def _compute_multi_model_stats(
     )
 
 
+_SIGNAL_RISK_REVIEW_FLAGS = {
+    "slogan_inflation_without_legal_argument",
+    "china_material_as_background_only",
+    "policy_restatement_without_legal_thesis",
+    "tradition_as_value_claim_without_legal_transformation",
+    "direct_transplant_without_context_transformation",
+}
+
+
+def _recommended_signal_rules(
+    signal_result: SignalCheckResult | None,
+    final_score: float,
+    framework: Framework,
+) -> list[str]:
+    if signal_result is None:
+        return []
+    if not framework.raw_config.get("autonomous_knowledge_signals", {}).get(
+        "quantification"
+    ):
+        return []
+    if final_score < 75:
+        return []
+    if not (_SIGNAL_RISK_REVIEW_FLAGS & set(signal_result.risks)):
+        return []
+    return ["high_score_with_autonomous_signal_risk"]
+
+
 def _determine_review(
-    precheck_conclusion: str, contradiction_rules: list[str]
+    precheck_conclusion: str,
+    contradiction_rules: list[str],
+    recommended_rules: list[str],
 ) -> tuple[str, str]:
     """合并预检层复核与评价层复核，返回 (review_status, review_level)。
 
@@ -172,6 +203,8 @@ def _determine_review(
         return "required", "precheck_level"
     if contradiction_rules:
         return "required", "evaluation_level"
+    if recommended_rules:
+        return "recommended", "evaluation_level"
     return "none", "none"
 
 
@@ -209,7 +242,11 @@ def aggregate_result(
         if signal_result.review_reason not in rules:
             rules.append(signal_result.review_reason)
 
-    review_status, review_level = _determine_review(conclusion, rules)
+    recommended_rules = _recommended_signal_rules(signal_result, final, framework)
+    all_rules = rules + [r for r in recommended_rules if r not in rules]
+    review_status, review_level = _determine_review(
+        conclusion, rules, recommended_rules
+    )
     triage = _PRECHECK_TO_TRIAGE.get(conclusion, "enter_six_dim")
 
     return AggregateResult(
@@ -226,7 +263,13 @@ def aggregate_result(
         review_status=review_status,
         review_level=review_level,
         triage_recommendation=triage,
-        triggered_rules=rules,
+        triggered_rules=all_rules,
+        autonomous_signal_score=(
+            signal_result.autonomous_signal_score if signal_result else None
+        ),
+        autonomous_signal_strength=(
+            signal_result.autonomous_signal_strength if signal_result else None
+        ),
     )
 
 

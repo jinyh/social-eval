@@ -37,6 +37,25 @@ _CORE_SIGNAL_KEYS = (
 )
 
 
+def _signal_value_to_score(value: Any) -> int:
+    normalized = str(value or "uncertain").strip().lower()
+    if normalized in ("yes", "sufficient", "not_applicable"):
+        return 2
+    if normalized in ("partial", "uncertain"):
+        return 1
+    return 0
+
+
+def _signal_strength(total: int) -> str:
+    if total >= 7:
+        return "strong"
+    if total >= 4:
+        return "medium"
+    if total >= 1:
+        return "weak"
+    return "absent"
+
+
 def _build_signal_result(payload: dict[str, Any]) -> SignalCheckResult:
     """把 provider 返回的 JSON payload 装配为 SignalCheckResult。
 
@@ -45,6 +64,11 @@ def _build_signal_result(payload: dict[str, Any]) -> SignalCheckResult:
     """
 
     evidence = list(payload.get("evidence_quotes", []) or [])
+    signal_scores = {
+        key: _signal_value_to_score(payload.get(key, "uncertain"))
+        for key in _CORE_SIGNAL_KEYS
+    }
+    autonomous_signal_score = sum(signal_scores.values())
     signals = []
     for key in _CORE_SIGNAL_KEYS:
         judgment = payload.get(key, "uncertain")
@@ -71,6 +95,9 @@ def _build_signal_result(payload: dict[str, Any]) -> SignalCheckResult:
         risks=list(payload.get("risks", []) or []),
         triggers_review=bool(payload.get("triggers_review", False)),
         review_reason=payload.get("review_reason"),
+        signal_scores=signal_scores,
+        autonomous_signal_score=autonomous_signal_score,
+        autonomous_signal_strength=_signal_strength(autonomous_signal_score),
         signals=signals,
     )
 

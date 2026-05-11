@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import time
+from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
 
 from src.evaluation.call_logger import log_call
@@ -54,6 +55,12 @@ class PrecheckResult(BaseModel):
     obviously_ineligible_reasons: list[str] = Field(default_factory=list)
     requires_manual_confirmation: bool | None = None
 
+    # v2.46 / v0.16: split text extraction quality from project-scope routing.
+    text_quality_gate: dict[str, Any] | None = None
+    project_scope_precheck: dict[str, Any] | None = None
+
+    model_config = ConfigDict(extra="allow")
+
 
 def _adapt_to_v014_contract(
     result: PrecheckResult, framework: Framework
@@ -69,14 +76,29 @@ def _adapt_to_v014_contract(
     if framework.autonomous_knowledge_signals is None:
         return result
 
-    conclusion = _CONCLUSION_MAPPING.get(result.status, "enter_six_dimension_review")
-    # conditional_pass / manual_review / reject 都需要人工干预
-    requires_manual = result.status in ("conditional_pass", "manual_review", "reject")
+    explicit_scope = bool(
+        framework.raw_config.get("precheck", {}).get("mode")
+        == "text_quality_and_project_scope"
+    )
+    if explicit_scope and result.conclusion in _ENTER_FIELD_MAPPING:
+        conclusion = result.conclusion
+        triggered_signals = result.triggered_signals
+        if triggered_signals is None and result.project_scope_precheck:
+            raw_signals = result.project_scope_precheck.get("triggered_signals")
+            if isinstance(raw_signals, dict):
+                triggered_signals = {str(k): str(v) for k, v in raw_signals.items()}
+        requires_manual = conclusion != "enter_six_dimension_review"
+    else:
+        conclusion = _CONCLUSION_MAPPING.get(result.status, "enter_six_dimension_review")
+        triggered_signals = result.triggered_signals
+        # conditional_pass / manual_review / reject 都需要人工干预
+        requires_manual = result.status in ("conditional_pass", "manual_review", "reject")
 
     return result.model_copy(
         update={
             "conclusion": conclusion,
             "enter_six_dimension_review": _ENTER_FIELD_MAPPING[conclusion],
+            "triggered_signals": triggered_signals,
             "requires_manual_confirmation": requires_manual,
             "boundary_reasons": result.issues if conclusion == "boundary_review" else [],
             "obviously_ineligible_reasons": (

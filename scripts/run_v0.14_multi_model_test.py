@@ -25,6 +25,8 @@
         --output results/v0.14-test-no-gpt.json
 """
 
+# ruff: noqa: E402
+
 import argparse
 import asyncio
 import json
@@ -32,7 +34,6 @@ import statistics
 import sys
 import time
 from pathlib import Path
-from typing import Any
 
 # 确保项目根目录在 sys.path 中
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -46,19 +47,22 @@ from src.knowledge.schemas import Framework
 
 import yaml
 
+# 信号校验（如果框架配置了 autonomous_knowledge_signals）
+from src.evaluation.signal_check import run_signal_check
+
 
 # ============================================================================
 # 配置
 # ============================================================================
 
-# 默认框架配置（v0.14 对应 v2.42）
-DEFAULT_FRAMEWORK = "configs/frameworks/law-v2.42-20260507.yaml"
+# 默认框架配置（v0.16 规程对应 v2.46 大规模评估候选版）
+DEFAULT_FRAMEWORK = "configs/frameworks/law-v2.46-20260511.yaml"
 
-# 三中国模型
-CHINA_MODELS = ["glm-5.1", "qwen3.6-plus", "deepseek-v4-pro"]
+# 两中国模型（仅 GLM + Qwen，不含 DeepSeek）
+CHINA_MODELS = ["glm-5.1", "qwen3.6-plus"]
 
-# GPT 复核模型（默认使用已验证可用的 Zenmux GPT-5.4）
-DEFAULT_REVIEW_MODEL = "gpt-5.4"
+# GPT 复核模型（GPT-5.5，走 Zenmux）
+DEFAULT_REVIEW_MODELS = ["gpt-5.5"]
 
 # 分歧阈值
 STD_THRESHOLD_MEDIUM = 5.0  # 高置信度上限
@@ -134,6 +138,117 @@ def _calculate_confidence(std: float) -> str:
         return "critical"
 
 
+def _compute_bonus(extension_substance: int, text_coherence: int) -> int:
+    """确定性加分映射：(延展实质度, 正文衔接度) → bonus (0-5)"""
+    if extension_substance == 0:
+        return 0
+    if extension_substance == 1:
+        return 1 if text_coherence >= 3 else 0
+    if extension_substance == 2:
+        return 2 if text_coherence >= 3 else 1
+    if extension_substance == 3:
+        return 3 if text_coherence >= 3 else 2
+    if extension_substance >= 4:
+        return 5 if text_coherence >= 3 else 4
+    return 0
+
+
+def _extract_checklist_scores(score_rationale: str) -> tuple[int, int]:
+    """从 score_rationale 中提取延展实质度和正文衔接度分数"""
+    import re
+    substance_match = re.search(r'延展实质度[=:](\d)/4', score_rationale)
+    coherence_match = re.search(r'正文衔接度[=:](\d)/4', score_rationale)
+    substance = int(substance_match.group(1)) if substance_match else 0
+    coherence = int(coherence_match.group(1)) if coherence_match else 0
+    return substance, coherence
+
+
+def compute_layered_score(
+    dimension_results: dict,
+    framework: Framework,
+) -> dict:
+    """计算分层计分：基础分 + 加分 + 上限 + 最终分"""
+    # 1. 基础分 = 前4维加权平均（归一化到 0-100）
+    core_dim_keys = ["problem_originality", "literature_insight",
+                     "analytical_framework", "logical_coherence"]
+    core_weight_sum = 0.0
+    base_raw = 0.0
+    for dim in framework.dimensions:
+        if dim.key in core_dim_keys:
+            dr = dimension_results.get(dim.key)
+            if dr:
+                base_raw += dr["mean"] * dim.weight
+                core_weight_sum += dim.weight
+
+    base_score = round(base_raw / core_weight_sum, 1) if core_weight_sum else 0.0
+
+    # 2. 结论可接受性上限
+    conclusion_score = dimension_results.get("conclusion_consensus", {}).get("mean", 0)
+    if conclusion_score >= 75:
+        ceiling = None
+    elif conclusion_score >= 60:
+        ceiling = 75
+    else:
+        ceiling = 65
+
+    # 3. 前瞻延展性加分
+    fe_dr = dimension_results.get("forward_extension", {})
+    fe_mean = fe_dr.get("mean", 0)
+
+    # 尝试从 score_rationale 提取延展实质度和正文衔接度
+    substance, coherence = 0, 0
+    for model_name, raw_output in fe_dr.get("raw_outputs", {}).items():
+        if isinstance(raw_output, dict):
+            rationale = raw_output.get("score_rationale", "")
+            s, c = _extract_checklist_scores(rationale)
+            substance = max(substance, s)
+            coherence = max(coherence, c)
+
+    # 从 checklist 计算确定性 bonus
+    checklist_bonus = _compute_bonus(substance, coherence)
+
+    # 从原始分数映射 bonus（回退方案）
+    score_bonus = 0
+    if fe_mean >= 80:
+        score_bonus = 5
+    elif fe_mean >= 60:
+        score_bonus = 3
+    elif fe_mean >= 40:
+        score_bonus = 2
+
+    # 优先使用 checklist bonus（如果提取成功）
+    bonus = checklist_bonus if substance > 0 else score_bonus
+
+    # 前提条件检查
+    logical_score = dimension_results.get("logical_coherence", {}).get("mean", 0)
+    conclusion_min = conclusion_score
+    core_min = min(
+        dimension_results.get(k, {}).get("mean", 0) for k in core_dim_keys
+    )
+    prerequisites_met = (
+        logical_score >= 60
+        and conclusion_min >= 60
+        and core_min >= 50
+    )
+    if not prerequisites_met:
+        bonus = 0
+
+    # 4. 最终分
+    final_score = min(base_score + bonus, ceiling) if ceiling else base_score + bonus
+
+    return {
+        "base_score": base_score,
+        "bonus_score": bonus,
+        "bonus_source": "checklist" if checklist_bonus > 0 else "score_mapping",
+        "extension_substance": substance,
+        "text_coherence": coherence,
+        "conclusion_ceiling": ceiling,
+        "prerequisites_met": prerequisites_met,
+        "final_score": round(final_score, 1),
+        "fe_mean_0_100": fe_mean,
+    }
+
+
 def _load_framework_skip_validation(framework_path: str) -> Framework:
     """加载框架但跳过 schema 验证"""
     data = yaml.safe_load(Path(framework_path).read_text(encoding="utf-8"))
@@ -148,7 +263,9 @@ def _load_framework_skip_validation(framework_path: str) -> Framework:
 # ============================================================================
 
 async def run_precheck(providers, framework, paper) -> dict:
-    """运行前置检查"""
+    """运行前置检查（v2.45+ 自动适配 v0.14 §7.2 契约字段）"""
+    from src.evaluation.precheck import PrecheckResult, _adapt_to_v014_contract
+
     prompt = build_precheck_prompt(framework, paper)
 
     results = await asyncio.gather(
@@ -163,11 +280,24 @@ async def run_precheck(providers, framework, paper) -> dict:
                 "error": error,
                 "elapsed": elapsed
             }
-        else:
-            precheck_results[provider.model_name] = {
-                "result": raw,
-                "elapsed": elapsed
-            }
+            continue
+
+        # v2.45 契约适配：在 framework 声明 autonomous_knowledge_signals 时
+        # 填充 conclusion / enter_six_dimension_review 等字段（v0.14 §7.2）
+        adapted = raw
+        try:
+            pc_result = PrecheckResult(**raw)
+            pc_adapted = _adapt_to_v014_contract(pc_result, framework)
+            adapted = pc_adapted.model_dump(exclude_none=True)
+        except Exception as exc:
+            # 遗留字段校验失败（例如返回结构异常）时保留原始 raw，避免丢数据
+            adapted = dict(raw)
+            adapted["_adapt_error"] = str(exc)
+
+        precheck_results[provider.model_name] = {
+            "result": adapted,
+            "elapsed": elapsed
+        }
 
     return precheck_results
 
@@ -222,58 +352,124 @@ async def evaluate_single_dimension(
 
 
 async def run_gpt_review(
-    paper, framework, dimension_results: dict, trigger_reason: str, review_model: str
+    paper, framework, dimension_results: dict,
+    trigger_reason: str, review_models: list[str],
 ) -> dict:
-    """运行 GPT 复核模型"""
-    print(f"\n触发 GPT 复核模型（{review_model}）：{trigger_reason}")
+    """运行 GPT 复核（支持多模型对比），分歧超阈值时触发"""
+    model_names_str = ", ".join(review_models)
+    print(f"\n触发 GPT 复核（{model_names_str}）：{trigger_reason}")
 
-    gpt_provider = create_providers([review_model])[0]
+    review_providers = create_providers(review_models)
 
-    # 对所有维度进行 GPT 复核评价
+    # 对所有维度并发调用所有复核模型
     gpt_dimension_results = {}
-    for dim_key, dim_result in dimension_results.items():
-        # 找到对应的 dimension 对象
-        dimension = None
-        for d in framework.dimensions:
-            if d.key == dim_key:
-                dimension = d
-                break
-
-        if not dimension:
+    for dim in framework.dimensions:
+        dim_result = dimension_results.get(dim.key)
+        if not dim_result:
             continue
 
-        print(f"  GPT 复核模型评估维度：{dimension.name_zh} ({dim_key})...")
-        prompt = build_prompt(dimension, paper)
-        raw, error, elapsed = await _call_provider(gpt_provider, prompt)
+        prompt = build_prompt(dim, paper)
+        print(f"  复核维度：{dim.name_zh} ({dim.key})...")
 
-        if error:
-            gpt_dimension_results[dim_key] = {
-                "error": error,
-                "elapsed": elapsed
-            }
-        else:
+        # 并发调用所有复核模型
+        raw_calls = await asyncio.gather(
+            *[_call_provider(p, prompt) for p in review_providers],
+            return_exceptions=False,
+        )
+
+        dim_review = {
+            "china_models_mean": dim_result["mean"],
+            "china_models_std": dim_result["std"],
+            "models": {},
+        }
+
+        review_scores = []
+        for (raw, error, elapsed), provider in zip(raw_calls, review_providers):
+            if error:
+                dim_review["models"][provider.model_name] = {
+                    "error": error, "elapsed": elapsed,
+                }
+                continue
+
             score = raw.get("score") if isinstance(raw, dict) else None
-            gpt_dimension_results[dim_key] = {
+            if score is not None:
+                score = int(score)
+                review_scores.append(score)
+
+            dim_review["models"][provider.model_name] = {
                 "score": score,
                 "raw_output": raw,
                 "elapsed": elapsed,
-                "china_models_mean": dim_result["mean"],
-                "china_models_std": dim_result["std"],
-                "deviation": abs(score - dim_result["mean"]) if score else None
+                "deviation_from_china_mean": (
+                    abs(score - dim_result["mean"]) if score else None
+                ),
             }
 
-    # 计算 GPT 复核模型的加权总分
-    gpt_weighted_total = 0.0
+        # 复核模型组统计
+        if len(review_scores) > 1:
+            dim_review["review_mean"] = round(statistics.mean(review_scores), 1)
+            dim_review["review_std"] = round(statistics.stdev(review_scores), 1)
+        elif review_scores:
+            dim_review["review_mean"] = review_scores[0]
+            dim_review["review_std"] = 0.0
+
+        # 全部模型（中国 + 复核）综合统计
+        china_scores = list(dim_result["scores"].values())
+        all_scores = china_scores + review_scores
+        if len(all_scores) > 1:
+            dim_review["all_mean"] = round(statistics.mean(all_scores), 1)
+            dim_review["all_std"] = round(statistics.stdev(all_scores), 1)
+        elif all_scores:
+            dim_review["all_mean"] = all_scores[0]
+            dim_review["all_std"] = 0.0
+
+        scores_str = ", ".join(
+            f"{k}={v}" for k, v in
+            {m: d["score"] for m, d in dim_review["models"].items() if "score" in d}.items()
+        )
+        print(f"    复核分数：{scores_str}")
+        if "review_mean" in dim_review:
+            print(f"    复核 mean={dim_review['review_mean']}, std={dim_review['review_std']}")
+        if "all_mean" in dim_review:
+            print(f"    综合 mean={dim_review['all_mean']}, all_std={dim_review['all_std']}")
+
+        gpt_dimension_results[dim.key] = dim_review
+
+    # 加权总分对比
+    def _weighted_total(scores_by_dim_key: dict) -> float:
+        total = 0.0
+        for dim in framework.dimensions:
+            s = scores_by_dim_key.get(dim.key)
+            if s is not None:
+                total += s * dim.weight
+        return total
+
+    # 中国模型加权总分（从 dimension_results 计算）
+    china_weighted_total = 0.0
     for dim in framework.dimensions:
-        if dim.key in gpt_dimension_results and "score" in gpt_dimension_results[dim.key]:
-            gpt_weighted_total += gpt_dimension_results[dim.key]["score"] * dim.weight
+        dr = dimension_results.get(dim.key)
+        if dr:
+            china_weighted_total += dr["mean"] * dim.weight
+
+    # 各复核模型的加权总分
+    review_weighted_totals = {}
+    for model_name in review_models:
+        model_scores = {}
+        for dim_key, dim_review in gpt_dimension_results.items():
+            model_data = dim_review["models"].get(model_name)
+            if model_data and "score" in model_data:
+                model_scores[dim_key] = model_data["score"]
+        review_weighted_totals[model_name] = round(
+            _weighted_total(model_scores), 1
+        )
 
     return {
         "triggered": True,
         "trigger_reason": trigger_reason,
-        "model": review_model,
+        "review_models": review_models,
         "dimensions": gpt_dimension_results,
-        "weighted_total": round(gpt_weighted_total, 1)
+        "china_weighted_total": round(china_weighted_total, 1),
+        "review_weighted_totals": review_weighted_totals,
     }
 
 
@@ -282,12 +478,14 @@ async def run_single_paper_test(
     framework_path: str = DEFAULT_FRAMEWORK,
     model_names: list[str] = None,
     enable_gpt_review: bool = True,
-    review_model: str = DEFAULT_REVIEW_MODEL,
+    review_models: list[str] = None,
     paper_metadata: dict = None
 ) -> dict:
     """运行单篇论文的完整测试"""
     if model_names is None:
         model_names = CHINA_MODELS
+    if review_models is None:
+        review_models = DEFAULT_REVIEW_MODELS
 
     print(f"\n{'='*80}")
     print(f"测试论文：{paper_path}")
@@ -307,6 +505,7 @@ async def run_single_paper_test(
         "paper": paper_path,
         "paper_metadata": paper_metadata or {},
         "models": model_names,
+        "review_models": review_models,
         "paper_structure_status": paper.structure_status,
         "test_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
     }
@@ -340,7 +539,6 @@ async def run_single_paper_test(
 
     # 计算总体统计
     all_stds = [dr["std"] for dr in dimension_results.values()]
-    all_means = [dr["mean"] for dr in dimension_results.values()]
     high_confidence_count = sum(
         1 for dr in dimension_results.values() if dr["confidence"] == "high"
     )
@@ -360,6 +558,9 @@ async def run_single_paper_test(
         dr = dimension_results[dim.key]
         weighted_total += dr["mean"] * dim.weight
 
+    # 分层计分（v0.14 规程要求）
+    layered = compute_layered_score(dimension_results, framework)
+
     avg_std = statistics.mean(all_stds) if all_stds else 0.0
     max_std = max(all_stds) if all_stds else 0.0
 
@@ -377,14 +578,62 @@ async def run_single_paper_test(
         "dimension_count": len(dimension_results),
     }
 
+    # 分层计分结果
+    result["layered_score"] = layered
+
+    # 阶段 3：信号校验（自主知识体系信号）
+    print("\n阶段 3：运行自主知识体系信号校验...")
+    raw_config = _load_framework_skip_validation(framework_path)
+    signals_config = None
+    if hasattr(raw_config, 'raw_config') and isinstance(raw_config, Framework):
+        raw_yaml = yaml.safe_load(Path(framework_path).read_text(encoding="utf-8"))
+        signals_config = raw_yaml.get("autonomous_knowledge_signals")
+    else:
+        # 如果 raw_config 是普通 dict
+        if isinstance(raw_config, dict):
+            signals_config = raw_config.get("autonomous_knowledge_signals")
+        else:
+            raw_yaml = yaml.safe_load(Path(framework_path).read_text(encoding="utf-8"))
+            signals_config = raw_yaml.get("autonomous_knowledge_signals")
+
+    if signals_config:
+        try:
+            signal_result = await run_signal_check(
+                providers[0], framework, paper,
+                task_id="v0.14-test", db=None,
+            )
+            # v0.14 §7.3 契约：扁平四类信号字段 + legacy signals 列表同时输出
+            from src.evaluation.signal_check import signal_to_dict
+            flat_payload = signal_to_dict(signal_result)
+            flat_payload["signals"] = {
+                s.signal_key: s.judgment for s in signal_result.signals
+            }
+            result["signal_check"] = flat_payload
+            print("  信号校验完成")
+            for s in signal_result.signals:
+                print(f"    {s.signal_key}: {s.judgment}")
+            if signal_result.triggers_review:
+                print(f"    ⚠ 触发复核：{signal_result.review_reason}")
+        except Exception as e:
+            result["signal_check"] = {"error": str(e)}
+            print(f"  信号校验失败：{e}")
+    else:
+        result["signal_check"] = None
+        print("  跳过信号校验（框架未配置）")
+
     # 最高 std 维度
     if dimension_results:
         worst_dim = max(dimension_results.values(), key=lambda d: d["std"])
         result["overall"]["worst_dimension"] = worst_dim["dimension"]
         result["overall"]["worst_std"] = worst_dim["std"]
 
-    print(f"\n总体统计：")
+    print("\n总体统计：")
     print(f"  加权总分：{result['overall']['weighted_total']}")
+    print(f"  基础分：{layered['base_score']}")
+    print(f"  前瞻延展性加分：{layered['bonus_score']}/5 (来源：{layered['bonus_source']})")
+    print(f"  结论可接受性上限：{layered['conclusion_ceiling'] or '无上限'}")
+    print(f"  最终分：{layered['final_score']}")
+    print(f"  加分前提：{'满足' if layered['prerequisites_met'] else '不满足'}")
     print(f"  平均 std：{result['overall']['avg_std']}")
     print(f"  最大 std：{result['overall']['max_std']}")
     print(f"  高置信度：{high_confidence_count}/{len(dimension_results)} ({result['overall']['high_confidence_pct']}%)")
@@ -410,20 +659,20 @@ async def run_single_paper_test(
 
         if trigger_reason:
             result["gpt_review"] = await run_gpt_review(
-                paper, framework, dimension_results, trigger_reason, review_model
+                paper, framework, dimension_results, trigger_reason, review_models
             )
         else:
             result["gpt_review"] = {
                 "triggered": False,
                 "reason": "未达到触发条件"
             }
-            print(f"\n未触发 GPT 复核：未达到触发条件")
+            print("\n未触发 GPT 复核：未达到触发条件")
     else:
         result["gpt_review"] = {
             "triggered": False,
             "reason": "用户禁用"
         }
-        print(f"\n跳过 GPT 复核（用户禁用）")
+        print("\n跳过 GPT 复核（用户禁用）")
 
     return result
 
@@ -436,9 +685,11 @@ async def run_batch_test(
     output_dir: str,
     framework_path: str = DEFAULT_FRAMEWORK,
     enable_gpt_review: bool = True,
-    review_model: str = DEFAULT_REVIEW_MODEL,
+    review_models: list[str] = None,
 ) -> dict:
     """批量测试预定义样本"""
+    if review_models is None:
+        review_models = DEFAULT_REVIEW_MODELS
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
@@ -457,7 +708,7 @@ async def run_batch_test(
             paper_path=sample["path"],
             framework_path=framework_path,
             enable_gpt_review=enable_gpt_review,
-            review_model=review_model,
+            review_models=review_models,
             paper_metadata={
                 "type": sample["type"],
                 "signal": sample["signal"],
@@ -504,6 +755,11 @@ def generate_summary_report(all_results: list[dict]) -> dict:
     all_avg_stds = [r["overall"]["avg_std"] for r in all_results]
     all_max_stds = [r["overall"]["max_std"] for r in all_results]
     all_weighted_totals = [r["overall"]["weighted_total"] for r in all_results]
+    all_final_scores = [
+        r.get("layered_score", {}).get("final_score")
+        for r in all_results
+        if r.get("layered_score", {}).get("final_score") is not None
+    ]
 
     high_confidence_papers = sum(
         1 for r in all_results if r["overall"]["high_confidence_pct"] >= 50
@@ -514,6 +770,9 @@ def generate_summary_report(all_results: list[dict]) -> dict:
         "avg_std_median": round(statistics.median(all_avg_stds), 1),
         "max_std_mean": round(statistics.mean(all_max_stds), 1),
         "weighted_total_mean": round(statistics.mean(all_weighted_totals), 1),
+        "final_score_mean": (
+            round(statistics.mean(all_final_scores), 1) if all_final_scores else None
+        ),
         "high_confidence_paper_count": high_confidence_papers,
         "high_confidence_paper_pct": round(high_confidence_papers / len(all_results) * 100, 1)
     }
@@ -564,6 +823,7 @@ def generate_summary_report(all_results: list[dict]) -> dict:
             "avg_std": r["overall"]["avg_std"],
             "max_std": r["overall"]["max_std"],
             "weighted_total": r["overall"]["weighted_total"],
+            "final_score": r.get("layered_score", {}).get("final_score"),
             "high_confidence_pct": r["overall"]["high_confidence_pct"],
             "gpt_review_triggered": r["gpt_review"]["triggered"]
         })
@@ -613,9 +873,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="禁用 GPT 复核模型",
     )
     parser.add_argument(
-        "--review-model",
-        default=DEFAULT_REVIEW_MODEL,
-        help=f"GPT 复核模型名称（默认：{DEFAULT_REVIEW_MODEL}，走 Zenmux）",
+        "--review-models",
+        default=",".join(DEFAULT_REVIEW_MODELS),
+        help=f"GPT 复核模型列表，逗号分隔（默认：{','.join(DEFAULT_REVIEW_MODELS)}，走 FUCHEERS）",
     )
     return parser
 
@@ -633,6 +893,7 @@ def main():
         parser.error("必须指定 --paper 或 --batch")
 
     model_names = args.models.split(",")
+    review_models = args.review_models.split(",")
     enable_gpt_review = not args.no_gpt_review
 
     if args.batch:
@@ -642,12 +903,12 @@ def main():
                 output_dir=args.output_dir,
                 framework_path=args.framework,
                 enable_gpt_review=enable_gpt_review,
-                review_model=args.review_model,
+                review_models=review_models,
             )
         )
 
         print(f"\n{'='*80}")
-        print(f"批量测试完成")
+        print("批量测试完成")
         print(f"{'='*80}")
         print(f"测试论文数：{result['test_count']}")
         print(f"平均 std（均值）：{result['overall_statistics']['avg_std_mean']}")
@@ -670,7 +931,7 @@ def main():
                 framework_path=args.framework,
                 model_names=model_names,
                 enable_gpt_review=enable_gpt_review,
-                review_model=args.review_model,
+                review_models=review_models,
             )
         )
 
@@ -683,7 +944,7 @@ def main():
         )
 
         print(f"\n{'='*80}")
-        print(f"测试完成")
+        print("测试完成")
         print(f"{'='*80}")
         print(f"结果已保存：{output_path}")
 

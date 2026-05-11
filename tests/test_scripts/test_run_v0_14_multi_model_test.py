@@ -20,13 +20,19 @@ def _load_script_module():
     return module
 
 
-def test_default_review_model_uses_zenmux_gpt_5_4() -> None:
+def test_default_review_models_use_gpt_5_5() -> None:
     v0_14_test = _load_script_module()
 
-    assert v0_14_test.DEFAULT_REVIEW_MODEL == "gpt-5.4"
+    assert v0_14_test.DEFAULT_REVIEW_MODELS == ["gpt-5.5"]
 
 
-def test_parser_accepts_custom_review_model() -> None:
+def test_default_framework_uses_v2_46_large_scale_candidate() -> None:
+    v0_14_test = _load_script_module()
+
+    assert v0_14_test.DEFAULT_FRAMEWORK == "configs/frameworks/law-v2.46-20260511.yaml"
+
+
+def test_parser_accepts_custom_review_models() -> None:
     v0_14_test = _load_script_module()
     parser = v0_14_test.build_arg_parser()
 
@@ -34,12 +40,12 @@ def test_parser_accepts_custom_review_model() -> None:
         [
             "--paper",
             "raw/holdout-test/数字法学的理论表达_马长山.pdf",
-            "--review-model",
-            "openrouter-gpt-5.4",
+            "--review-models",
+            "fucheers-gpt-5.5,openrouter-gpt-5.4",
         ]
     )
 
-    assert args.review_model == "openrouter-gpt-5.4"
+    assert args.review_models == "fucheers-gpt-5.5,openrouter-gpt-5.4"
 
 
 def test_summary_report_reads_generic_gpt_review_field() -> None:
@@ -56,6 +62,7 @@ def test_summary_report_reads_generic_gpt_review_field() -> None:
                     "weighted_total": 80.0,
                     "high_confidence_pct": 66.7,
                 },
+                "layered_score": {"final_score": 82.0},
                 "gpt_review": {"triggered": True, "model": "gpt-5.4"},
             }
         ]
@@ -63,3 +70,4 @@ def test_summary_report_reads_generic_gpt_review_field() -> None:
 
     assert summary["gpt_review_statistics"]["triggered_count"] == 1
     assert summary["papers"][0]["gpt_review_triggered"] is True
+    assert summary["papers"][0]["final_score"] == 82.0

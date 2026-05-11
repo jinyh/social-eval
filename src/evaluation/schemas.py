@@ -38,6 +38,12 @@ class SignalCheckResult(BaseModel):
     triggers_review: bool = False
     review_reason: str | None = None
 
+    # v2.46 / v0.16: 阶段3显式量化，只用于排序、分层和复核优先级。
+    # 不进入六维基础分，也不改变 final_score。
+    signal_scores: dict[str, int] = Field(default_factory=dict)
+    autonomous_signal_score: int | None = None
+    autonomous_signal_strength: str | None = None
+
     # 兼容字段：legacy 简化结构（已有测试可能依赖）
     signals: list[SignalJudgment] = Field(default_factory=list)
 
