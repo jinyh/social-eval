@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     max_concurrent_models: int = 3
     default_std_threshold: float = 5.0
     allowed_origins: str = ""
-    provider_timeout: float = 90.0
+    provider_timeout: float = 120.0
 
     model_config = SettingsConfigDict(
         env_file=".env",
