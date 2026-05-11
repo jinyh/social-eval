@@ -189,7 +189,8 @@ def _recommended_signal_rules(
         "quantification"
     ):
         return []
-    if final_score < 75:
+    # 与 YAML autonomous_knowledge_signals.contradiction_triggers[0].condition 对齐：final_score > 70
+    if final_score < 70:
         return []
     if not (_SIGNAL_RISK_REVIEW_FLAGS & set(signal_result.risks)):
         return []

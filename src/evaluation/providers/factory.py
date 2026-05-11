@@ -5,7 +5,10 @@ from src.evaluation.providers.deepseek_provider import DeepSeekProvider
 from src.evaluation.providers.zenmux_provider import ZenmuxProvider
 from src.evaluation.providers.dashscope_provider import DashScopeProvider
 from src.evaluation.providers.openrouter_provider import OpenRouterProvider
+from src.evaluation.providers.fucheers_provider import FucheersProvider
 from src.evaluation.providers.ketan_provider import KetanProvider
+from src.evaluation.providers.yunyi_provider import YunyiProvider
+from src.evaluation.providers.sss_provider import SSSProvider
 
 _PROVIDER_MAP: dict[str, type[BaseProvider] | type] = {
     # 国外模型：通过 Zenmux 调用
@@ -23,9 +26,15 @@ _PROVIDER_MAP: dict[str, type[BaseProvider] | type] = {
     "qwen3.6-plus": lambda: DashScopeProvider("qwen3.6-plus"),
     "glm-5.1": lambda: DashScopeProvider("glm-5.1"),
     "deepseek-v4-pro": lambda: DashScopeProvider("deepseek-v4-pro"),
+    # FUCHEERS 模型
+    "gpt-5.5": lambda: FucheersProvider("gpt-5.5"),
+    "fucheers-gpt-5.5": lambda: FucheersProvider("gpt-5.5"),
     # KETAN 模型
-    "gpt-5.5": lambda: KetanProvider("gpt-5.5"),
     "ketan-gpt-5.5": lambda: KetanProvider("gpt-5.5"),
+    # YUNYI 模型
+    "yunyi-gpt-5.5": lambda: YunyiProvider("gpt-5.5"),
+    # SSS 模型
+    "sss-gpt-5.5": lambda: SSSProvider("gpt-5.5"),
 }
 
 

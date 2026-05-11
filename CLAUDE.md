@@ -272,8 +272,9 @@ SMTP_FROM=noreply@socialeval.local
 
 ### 来自标准差分析（2026-04-23）
 
-- **推荐模型**：GPT-5.4 单模型（Zenmux），Temperature 0.3
-- **供应商策略**：国外模型→Zenmux，国内模型→DashScope 百炼
+- **推荐模型**：Qwen3.6-Plus / GLM-5.1（阿里百炼平台），Temperature 0.3
+- **分歧仲裁**：单维度 std > 8 时引入 GPT-5.5（Fucheers 提供商）
+- **供应商策略**：国内模型→DashScope 百炼，仲裁模型→Fucheers
 - **AI 定位**：辅助初筛，不替代专家终审
 
 详细分析见 `docs/evaluation/std-analysis-summary-20260423.md`
