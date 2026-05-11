@@ -94,6 +94,7 @@ class AggregateResult(BaseModel):
     triggered_rules: list[str] = Field(default_factory=list)
     autonomous_signal_score: int | None = None
     autonomous_signal_strength: str | None = None
+    signal_model_agreement: bool | None = None
 
 
 # 预检结论到分流建议的映射（对应 v0.14 §2.2）
@@ -269,6 +270,9 @@ def aggregate_result(
         ),
         autonomous_signal_strength=(
             signal_result.autonomous_signal_strength if signal_result else None
+        ),
+        signal_model_agreement=(
+            signal_result.signal_model_agreement if signal_result else None
         ),
     )
 

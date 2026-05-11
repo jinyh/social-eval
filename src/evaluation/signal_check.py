@@ -5,10 +5,13 @@
 
 仅当 framework.autonomous_knowledge_signals 被声明时激活（v2.45+）。
 失败时返回降级结果（triggers_review=True），不阻塞主流程。
+
+v2.46+: 多模型并发评估 + 激进聚合（取 max），不走 GPT-5.5 仲裁。
 """
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import time
@@ -222,3 +225,112 @@ def signal_to_dict(signal: SignalCheckResult) -> dict[str, Any]:
     """序列化为 v0.14 §7.3 契约要求的 JSON 结构（用于 paper.signal_check_result 落库）。"""
 
     return signal.model_dump(exclude_none=True, exclude={"signals"})
+
+
+async def run_signal_check_multi(
+    providers: list[BaseProvider],
+    framework: Framework,
+    paper: ProcessedPaper,
+    task_id: str,
+    db: Session | None = None,
+    retry_attempts: int = 2,
+) -> list[SignalCheckResult]:
+    """对所有 providers 并发执行信号校验，返回成功结果列表。"""
+
+    tasks = [
+        run_signal_check(p, framework, paper, task_id, db, retry_attempts)
+        for p in providers
+    ]
+    results = await asyncio.gather(*tasks)
+    # 过滤掉完全失败降级的结果（仅当有成功结果时）
+    successful = [r for r in results if not (r.triggers_review and r.review_reason and r.review_reason.startswith("signal_check_failed"))]
+    return successful if successful else list(results)
+
+
+def aggregate_signal_results(
+    results: list[SignalCheckResult],
+    provider_names: list[str] | None = None,
+) -> SignalCheckResult:
+    """激进聚合：对 signal_scores 各项取 max，暴露 agreement 标记。
+
+    策略：宁可多标不漏，下游有专家复核兜底。
+    """
+
+    if len(results) == 1:
+        results[0].signal_model_agreement = True
+        return results[0]
+
+    if not results:
+        return SignalCheckResult(
+            triggers_review=True,
+            review_reason="signal_check_failed: all providers failed",
+        )
+
+    # 收集各模型的 signal_scores
+    all_model_scores: dict[str, dict[str, int]] = {}
+    for i, r in enumerate(results):
+        name = provider_names[i] if provider_names and i < len(provider_names) else f"model_{i}"
+        all_model_scores[name] = dict(r.signal_scores) if r.signal_scores else {}
+
+    # 激进聚合：每项取 max
+    aggregated_scores: dict[str, int] = {}
+    for key in _CORE_SIGNAL_KEYS:
+        values = [r.signal_scores.get(key, 0) for r in results]
+        aggregated_scores[key] = max(values)
+
+    autonomous_signal_score = sum(aggregated_scores.values())
+
+    # 判断 agreement：四项 signal_scores 完全一致
+    first_scores = results[0].signal_scores
+    agreement = all(
+        r.signal_scores.get(key, 0) == first_scores.get(key, 0)
+        for r in results[1:]
+        for key in _CORE_SIGNAL_KEYS
+    )
+
+    # 四项核心判断字段：取对应 score 最高的那个模型的值
+    best_result_per_key: dict[str, SignalCheckResult] = {}
+    for key in _CORE_SIGNAL_KEYS:
+        best_idx = max(range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0))
+        best_result_per_key[key] = results[best_idx]
+
+    # evidence_quotes 合并去重
+    all_quotes: list[str] = []
+    seen: set[str] = set()
+    for r in results:
+        for q in r.evidence_quotes:
+            if q not in seen:
+                all_quotes.append(q)
+                seen.add(q)
+
+    # risks 合并去重
+    all_risks: list[str] = []
+    seen_risks: set[str] = set()
+    for r in results:
+        for risk in r.risks:
+            if risk not in seen_risks:
+                all_risks.append(risk)
+                seen_risks.add(risk)
+
+    # triggers_review: OR 逻辑
+    any_triggers = any(r.triggers_review for r in results)
+    review_reasons = [r.review_reason for r in results if r.triggers_review and r.review_reason]
+
+    return SignalCheckResult(
+        china_problem_centered=best_result_per_key["china_problem_centered"].china_problem_centered,
+        china_practice_explanation_attempted=best_result_per_key["china_practice_explanation_attempted"].china_practice_explanation_attempted,
+        external_theory_transformation=best_result_per_key["external_theory_transformation"].external_theory_transformation,
+        verifiable_concept_or_thesis=best_result_per_key["verifiable_concept_or_thesis"].verifiable_concept_or_thesis,
+        involves_special_chinese_institutional_issue=results[0].involves_special_chinese_institutional_issue,
+        issue_types=list({t for r in results for t in r.issue_types}),
+        uses_traditional_cultural_resource=results[0].uses_traditional_cultural_resource,
+        evidence_quotes=all_quotes,
+        risks=all_risks,
+        triggers_review=any_triggers,
+        review_reason="; ".join(review_reasons) if review_reasons else None,
+        signal_scores=aggregated_scores,
+        autonomous_signal_score=autonomous_signal_score,
+        autonomous_signal_strength=_signal_strength(autonomous_signal_score),
+        signal_model_agreement=agreement,
+        per_model_signal_scores=all_model_scores,
+    )

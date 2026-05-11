@@ -9,8 +9,10 @@ import pytest
 from src.evaluation.schemas import SignalCheckResult
 from src.evaluation.signal_check import (
     _build_signal_result,
+    aggregate_signal_results,
     check_contradiction_triggers,
     run_signal_check,
+    run_signal_check_multi,
 )
 from src.ingestion.schemas import ProcessedPaper
 from src.knowledge.loader import load_framework
@@ -173,3 +175,187 @@ async def test_run_signal_check_success(framework_v2_45, paper):
     )
     assert result.china_problem_centered == "yes"
     assert not result.triggers_review
+
+
+# === 多模型聚合测试 ===
+
+
+def test_aggregate_signal_results_takes_max():
+    """激进聚合：每项 signal_score 取 max。"""
+    r1 = SignalCheckResult(
+        china_problem_centered="yes",
+        china_practice_explanation_attempted="no",
+        external_theory_transformation="no",
+        verifiable_concept_or_thesis="partial",
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 0,
+            "external_theory_transformation": 0,
+            "verifiable_concept_or_thesis": 1,
+        },
+        autonomous_signal_score=3,
+        autonomous_signal_strength="weak",
+        evidence_quotes=["证据A"],
+    )
+    r2 = SignalCheckResult(
+        china_problem_centered="partial",
+        china_practice_explanation_attempted="yes",
+        external_theory_transformation="sufficient",
+        verifiable_concept_or_thesis="yes",
+        signal_scores={
+            "china_problem_centered": 1,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 2,
+            "verifiable_concept_or_thesis": 2,
+        },
+        autonomous_signal_score=7,
+        autonomous_signal_strength="strong",
+        evidence_quotes=["证据B"],
+    )
+    result = aggregate_signal_results([r1, r2], ["glm", "qwen"])
+
+    assert result.signal_scores["china_problem_centered"] == 2
+    assert result.signal_scores["china_practice_explanation_attempted"] == 2
+    assert result.signal_scores["external_theory_transformation"] == 2
+    assert result.signal_scores["verifiable_concept_or_thesis"] == 2
+    assert result.autonomous_signal_score == 8
+    assert result.autonomous_signal_strength == "strong"
+    # 取 max 的模型判断值
+    assert result.china_problem_centered == "yes"  # r1 score=2 > r2 score=1
+    assert result.china_practice_explanation_attempted == "yes"  # r2 score=2 > r1 score=0
+
+
+def test_aggregate_signal_results_agreement_true():
+    """两模型完全一致时 agreement=True。"""
+    scores = {
+        "china_problem_centered": 2,
+        "china_practice_explanation_attempted": 1,
+        "external_theory_transformation": 0,
+        "verifiable_concept_or_thesis": 2,
+    }
+    r1 = SignalCheckResult(signal_scores=dict(scores), autonomous_signal_score=5)
+    r2 = SignalCheckResult(signal_scores=dict(scores), autonomous_signal_score=5)
+    result = aggregate_signal_results([r1, r2])
+    assert result.signal_model_agreement is True
+
+
+def test_aggregate_signal_results_agreement_false():
+    """任一项不同时 agreement=False。"""
+    r1 = SignalCheckResult(
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 1,
+            "external_theory_transformation": 0,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    r2 = SignalCheckResult(
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 0,  # 不同
+            "external_theory_transformation": 0,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    result = aggregate_signal_results([r1, r2])
+    assert result.signal_model_agreement is False
+
+
+def test_aggregate_signal_results_single_model():
+    """单模型时直接返回，agreement=True。"""
+    r = SignalCheckResult(
+        signal_scores={"china_problem_centered": 2, "china_practice_explanation_attempted": 1,
+                       "external_theory_transformation": 0, "verifiable_concept_or_thesis": 2},
+        autonomous_signal_score=5,
+    )
+    result = aggregate_signal_results([r])
+    assert result.signal_model_agreement is True
+    assert result is r
+
+
+def test_aggregate_signal_results_empty():
+    """空列表降级为 triggers_review=True。"""
+    result = aggregate_signal_results([])
+    assert result.triggers_review is True
+    assert "all providers failed" in (result.review_reason or "")
+
+
+def test_aggregate_signal_results_evidence_dedup():
+    """evidence_quotes 合并去重。"""
+    r1 = SignalCheckResult(
+        signal_scores={"china_problem_centered": 1, "china_practice_explanation_attempted": 0,
+                       "external_theory_transformation": 0, "verifiable_concept_or_thesis": 0},
+        evidence_quotes=["证据A", "证据B"],
+    )
+    r2 = SignalCheckResult(
+        signal_scores={"china_problem_centered": 1, "china_practice_explanation_attempted": 0,
+                       "external_theory_transformation": 0, "verifiable_concept_or_thesis": 0},
+        evidence_quotes=["证据B", "证据C"],
+    )
+    result = aggregate_signal_results([r1, r2])
+    assert result.evidence_quotes == ["证据A", "证据B", "证据C"]
+
+
+def test_aggregate_signal_results_triggers_review_or():
+    """任一模型 triggers_review=True 则聚合结果也触发。"""
+    r1 = SignalCheckResult(
+        signal_scores={"china_problem_centered": 2, "china_practice_explanation_attempted": 2,
+                       "external_theory_transformation": 2, "verifiable_concept_or_thesis": 2},
+        triggers_review=False,
+    )
+    r2 = SignalCheckResult(
+        signal_scores={"china_problem_centered": 2, "china_practice_explanation_attempted": 2,
+                       "external_theory_transformation": 2, "verifiable_concept_or_thesis": 2},
+        triggers_review=True,
+        review_reason="slogan_heavy_but_no_legal_question",
+    )
+    result = aggregate_signal_results([r1, r2])
+    assert result.triggers_review is True
+    assert "slogan_heavy_but_no_legal_question" in result.review_reason
+
+
+def test_aggregate_signal_results_per_model_scores():
+    """per_model_signal_scores 记录各模型原始分。"""
+    r1 = SignalCheckResult(
+        signal_scores={"china_problem_centered": 2, "china_practice_explanation_attempted": 0,
+                       "external_theory_transformation": 1, "verifiable_concept_or_thesis": 2},
+    )
+    r2 = SignalCheckResult(
+        signal_scores={"china_problem_centered": 1, "china_practice_explanation_attempted": 2,
+                       "external_theory_transformation": 0, "verifiable_concept_or_thesis": 1},
+    )
+    result = aggregate_signal_results([r1, r2], ["glm-5.1", "qwen3.6-plus"])
+    assert result.per_model_signal_scores["glm-5.1"]["china_problem_centered"] == 2
+    assert result.per_model_signal_scores["qwen3.6-plus"]["china_practice_explanation_attempted"] == 2
+
+
+@pytest.mark.asyncio
+async def test_run_signal_check_multi_filters_failures(framework_v2_45, paper):
+    """多模型并发时，过滤掉失败降级的结果。"""
+
+    class OkProvider:
+        model_name = "ok-model"
+
+        async def generate_json_response(self, prompt):
+            return {
+                "china_problem_centered": "yes",
+                "china_practice_explanation_attempted": "yes",
+                "external_theory_transformation": "sufficient",
+                "verifiable_concept_or_thesis": "yes",
+                "evidence_quotes": ["证据"],
+                "risks": [],
+                "triggers_review": False,
+            }
+
+    class FailProvider:
+        model_name = "fail-model"
+
+        async def generate_json_response(self, prompt):
+            raise RuntimeError("simulated failure")
+
+    results = await run_signal_check_multi(
+        [OkProvider(), FailProvider()], framework_v2_45, paper, "t3", db=None
+    )
+    # 只保留成功的结果
+    assert len(results) == 1
+    assert results[0].china_problem_centered == "yes"

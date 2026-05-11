@@ -365,6 +365,8 @@ autonomous_knowledge_signals:
       - issue_types
       - uses_traditional_cultural_resource
       - review_reason
+      - signal_model_agreement
+      - per_model_signal_scores
     field_constraints:
       evidence_quotes:
         max_count: 3
@@ -678,6 +680,7 @@ aggregate_output_contract:
     - final_score  # 最终总分
     - autonomous_signal_score  # 0-8，不入基础分
     - autonomous_signal_strength  # strong | medium | weak | absent
+    - signal_model_agreement  # 多模型信号是否一致
     - multi_model_stats  # {mean, std, confidence_label}
     - review_status  # none | recommended | required
     - review_level  # precheck_level | evaluation_level | none

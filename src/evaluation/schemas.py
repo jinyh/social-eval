@@ -44,6 +44,10 @@ class SignalCheckResult(BaseModel):
     autonomous_signal_score: int | None = None
     autonomous_signal_strength: str | None = None
 
+    # 多模型信号聚合元数据
+    signal_model_agreement: bool | None = None
+    per_model_signal_scores: dict[str, dict[str, int]] | None = None
+
     # 兼容字段：legacy 简化结构（已有测试可能依赖）
     signals: list[SignalJudgment] = Field(default_factory=list)
 

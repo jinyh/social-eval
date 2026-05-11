@@ -11,8 +11,9 @@ from src.evaluation.precheck import run_precheck
 from src.evaluation.providers.factory import create_providers
 from src.evaluation.result_validator import aggregate_result, aggregate_result_to_dict
 from src.evaluation.signal_check import (
+    aggregate_signal_results,
     check_contradiction_triggers,
-    run_signal_check,
+    run_signal_check_multi,
     signal_to_dict,
 )
 from src.ingestion.preprocessor import process_file
@@ -162,17 +163,20 @@ async def run_evaluation_pipeline(
             dimension_weights=dimension_weights,
         )
 
-        # v2.45 D 路径第 3 阶段：自主知识体系信号校验（仅当 framework 声明时激活）
+        # v2.45+ D 路径第 3 阶段：自主知识体系信号校验（仅当 framework 声明时激活）
+        # v2.46+: 多模型并发评估 + 激进聚合（取 max）
         signal_result = None
         contradiction_rules: list[str] = []
         if framework.autonomous_knowledge_signals is not None:
-            signal_result = await run_signal_check(
-                providers[0],
+            signal_results = await run_signal_check_multi(
+                providers,
                 framework,
                 processed_paper,
                 task.id,
                 db,
             )
+            provider_names = [p.model_name for p in providers]
+            signal_result = aggregate_signal_results(signal_results, provider_names)
             _, rule_ids = check_contradiction_triggers(
                 signal_result, reliability_reports, framework, final_score_estimate
             )
