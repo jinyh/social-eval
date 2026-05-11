@@ -91,21 +91,43 @@ src/
   web/             # F7: Web 前端（开发中)
 configs/
   frameworks/      # 各学科知识体系 YAML 配置文件
+    law-v2.47-20260511.yaml # forward_extension 纠偏版本（当前活跃）
+    law-v2.46-20260511.yaml # v0.16 大规模评估候选
     law-v2.45-20260510.yaml # 全链路对齐基线
-    law-v2.46-20260511.yaml # v0.16 大规模评估候选（当前活跃）
     archive/                 # 历史版本归档（v2.0 ~ v2.44）
 docs/
   requirements/    # 需求文档
   architecture/    # ADR（架构决策记录）
   evaluation/      # 评价方法论文档
+    archive/       # 历史版本归档（v0.8-v0.14）
     concept-operationalization-v1.0.md  # 概念操作化定义
     std-analysis-summary-20260423.md    # 标准差分析总结
-    README-20260423.md                  # 2026-04-23 工作总结
+    v0.15-phase1-test-report-20260511.md # v0.15 第一阶段测试报告
+    law-ai-assisted-review-rules-v0.16-large-scale-candidate.md # 当前活跃规程
   discussion/      # 设计讨论记录
+  archive/         # 临时分析文档和历史需求归档
 tests/             # 测试（镜像 src/ 结构）
 alembic/           # 数据库迁移脚本
 scripts/           # 工具脚本
-  run_zenmux_simple.py  # Zenmux 简化测试脚本
+  archive/         # 归档的测试脚本（供应商测试、模型测试）
+  analyze_iteration.py
+  dashboard.py
+  export_convergence_reports.py
+  full_verify.sh / quick_verify.sh
+  generate_*.py/js
+  install_project_skills.py
+  regression_v2.42_vs_v2.43.py
+  rubric_reflector.py
+  run_convergence_test.py
+  run_v0.14_*.py/sh
+results/           # 测试结果与评价报告
+  archive/         # 归档的历史测试结果
+    convergence-tests/  # v2.8-v2.31 收敛性测试
+    model-tests/        # 模型对比和端到端测试
+    v0.14-tests/        # v0.14 版本测试
+    v0.15-tests/        # v0.15 版本测试
+  autoresearch/    # 当前活跃的自动研究测试
+    archive/       # 历史版本测试（v2.32-v2.40）
 ```
 
 ---
@@ -197,7 +219,7 @@ SMTP_FROM=noreply@socialeval.local
 ### 权威真源
 
 - **方法论规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`（四阶段流程、评分协议、复核规则、大规模评估执行规则）
-- **实现框架**：`configs/frameworks/law-v2.46-20260511.yaml`（prompt、输出模板、JSON 契约、量化映射）
+- **实现框架**：`configs/frameworks/law-v2.47-20260511.yaml`（prompt、输出模板、JSON 契约、量化映射）
 - **概念操作化**：`docs/evaluation/concept-operationalization-v1.0.md`
 - **标准差分析**：`docs/evaluation/std-analysis-summary-20260423.md`
 - **架构决策**：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
@@ -206,7 +228,8 @@ SMTP_FROM=noreply@socialeval.local
 
 | 版本 | 状态 | 说明 |
 |------|------|------|
-| v2.46 | v0.16 大规模评估候选 | 预检分层 + 信号量化 + 聚合层暴露自主信号；面向 2000 篇第一阶段筛选 |
+| v2.47 | forward_extension 纠偏版本（当前活跃） | 修正前瞻延展性系统性低分；移除旧低分锚点与 bonus 映射冲突；14 篇样本验证均值 75.7 |
+| v2.46 | v0.16 大规模评估候选 | 预检分层 + 信号量化 + 聚合层暴露自主信号；forward_extension 存在系统性低分 |
 | v2.45 | 全链路对齐基线 | 代码完整消费四份契约；六维 prompt 与 v2.46 一致 |
 
 历史版本（v2.0 ~ v2.44）见 `configs/frameworks/` 和 `configs/frameworks/archive/`。
@@ -317,3 +340,47 @@ SMTP_FROM=noreply@socialeval.local
 - 需要项目上下文时，优先读取对应的 `agent-skills/<name>/SKILL.md`
 - 新增项目专属工作流时，在 `agent-skills/` 下新增独立目录，避免继续扩写本文件
 - 若本地代理支持用户级 skill 目录，可用 `scripts/install_project_skills.py` 把仓库内 skill 软链接到本机技能目录，例如 `~/.agents/skills/`
+
+---
+
+## 归档管理
+
+### 归档策略（2026-05-11 更新）
+
+为保持项目目录清晰，历史测试结果和临时脚本已按以下规则归档：
+
+#### 测试结果归档（results/archive/）
+- **convergence-tests/**：v2.8 - v2.31 收敛性测试、诊断测试、基线测试（56 个文件）
+- **model-tests/**：DeepSeek、GPT-5.4、Kimi 等模型测试、端到端管道测试、回归测试（11 个文件）
+- **v0.14-tests/**：v0.14 版本批量测试、烟雾测试、分层测试（8 个文件/目录）
+- **v0.15-tests/**：v0.15 版本批量测试、烟雾测试（2 个文件/目录）
+
+#### 脚本归档（scripts/archive/）
+- **model-tests/**：模型对比、诊断、稳定性测试脚本（7 个）
+- **provider-tests/**：供应商诊断、配置、追踪脚本（11 个）
+
+#### 文档归档
+- **docs/evaluation/archive/v0.8-v0.14/**：法学 AI 辅助评审规则 v0.8 - v0.14 版本及专家反馈（10 个文件）
+- **docs/archive/**：临时分析文档、供应商测试总结、历史需求文档
+- **results/autoresearch/archive/**：快速验证测试（22 个）、v2.32-v2.40 历史版本测试（40 个）
+
+#### 归档原则
+1. **测试结果**：v2.8 - v2.40 的历史测试结果全部归档
+2. **临时脚本**：供应商和模型诊断脚本归档，保留核心工具脚本
+3. **文档版本**：v0.8 - v0.14 的评审规则归档，保留当前活跃版本（v0.15, v0.16）
+4. **保留标准**：
+   - 当前活跃版本（v0.15, v0.16, v2.45, v2.46）
+   - 核心工具脚本（analyze, dashboard, export, verify, run）
+   - 最终评价报告 PDF
+
+#### 查找归档文件
+```bash
+# 查看归档目录结构
+tree -L 2 results/archive/ scripts/archive/ docs/evaluation/archive/
+
+# 搜索特定版本的测试结果
+find results/archive/ -name "*v2.30*"
+
+# 搜索特定模型的测试脚本
+find scripts/archive/ -name "*deepseek*"
+```
