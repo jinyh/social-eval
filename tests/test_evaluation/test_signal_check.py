@@ -81,6 +81,12 @@ def test_rule_2_total_low_but_all_signals_yes(framework_v2_45):
         china_practice_explanation_attempted="yes",
         external_theory_transformation="sufficient",
         verifiable_concept_or_thesis="yes",
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 2,
+            "verifiable_concept_or_thesis": 2,
+        },
     )
     triggered, rules = check_contradiction_triggers(signal, [], framework_v2_45, 45)
     assert triggered

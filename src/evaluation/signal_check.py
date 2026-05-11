@@ -175,13 +175,11 @@ def _dimension_mean(
     return None
 
 
-def _all_signals_yes(signal: SignalCheckResult) -> bool:
-    return (
-        signal.china_problem_centered == "yes"
-        and signal.china_practice_explanation_attempted == "yes"
-        and signal.external_theory_transformation in ("sufficient", "partial")
-        and signal.verifiable_concept_or_thesis == "yes"
-    )
+def _all_signals_strong(signal: SignalCheckResult) -> bool:
+    """四项核心信号均为强信号（signal_scores 各项 == 2）。"""
+    if not signal.signal_scores:
+        return False
+    return all(v == 2 for v in signal.signal_scores.values())
 
 
 def check_contradiction_triggers(
@@ -217,8 +215,8 @@ def check_contradiction_triggers(
     ):
         triggered.append("total_high_but_no_china_problem")
 
-    # 规则 2: 总分<50 但四信号全部 == yes（疑似 AI 误判）
-    if total_score < 50 and _all_signals_yes(signal):
+    # 规则 2: 总分<50 但四项 signal_scores 均为 2（疑似 AI 误判）
+    if total_score < 50 and _all_signals_strong(signal):
         triggered.append("total_low_but_all_signals_yes")
 
     # 规则 3: 研究创新性 >= 80 但 verifiable_concept_or_thesis == no

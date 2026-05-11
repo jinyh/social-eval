@@ -99,8 +99,8 @@ class AggregateResult(BaseModel):
     review_level: str  # precheck_level | evaluation_level | none
     triage_recommendation: str
     triggered_rules: list[str] = Field(default_factory=list)
-    autonomous_signal_score: int | None = None
-    autonomous_signal_strength: str | None = None
+    autonomous_signal_score: int = 0
+    autonomous_signal_strength: str = "absent"
     signal_model_agreement: bool | None = None
 
 
@@ -174,6 +174,7 @@ _SIGNAL_RISK_REVIEW_FLAGS = {
     "policy_restatement_without_legal_thesis",
     "tradition_as_value_claim_without_legal_transformation",
     "direct_transplant_without_context_transformation",
+    "power_allocation_without_process_control",
 }
 
 
@@ -273,10 +274,14 @@ def aggregate_result(
         triage_recommendation=triage,
         triggered_rules=all_rules,
         autonomous_signal_score=(
-            signal_result.autonomous_signal_score if signal_result else None
+            signal_result.autonomous_signal_score
+            if signal_result and signal_result.autonomous_signal_score is not None
+            else 0
         ),
         autonomous_signal_strength=(
-            signal_result.autonomous_signal_strength if signal_result else None
+            signal_result.autonomous_signal_strength
+            if signal_result and signal_result.autonomous_signal_strength
+            else "absent"
         ),
         signal_model_agreement=(
             signal_result.signal_model_agreement if signal_result else None

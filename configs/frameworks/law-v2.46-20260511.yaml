@@ -125,7 +125,7 @@ precheck:
     - boundary_review：只满足部分项目口径信号，需要专家裁断是否属于本项目，但仍进入六维评分。\n- obviously_ineligible：缺少中国问题中心性，且没有中国实践解释、理论转化或可复核命题；或完全不能定位可争辩法学问题。\n\n\
     【旁路字段：text_quality_gate】\n同时记录文本工程质量：\n- ok：文本质量足以评审。\n- risk：存在局部格式/脚注/OCR风险，但核心论点、结构和主要论证仍可定位。\n- block：正文严重不可读、主体缺页、核心论点无法定位，当前不可评分。\n\n\
     重要：不得因可读文本中的 OCR 残留、脚注编号乱码、期刊页码混入或参考文献列表抽取失败，直接输出项目口径 boundary_review。这些问题应进入 text_quality_gate.issues，而不是 project_scope_precheck.boundary_reasons。\n\n\
-    输出兼容字段 status：\n- text_quality_gate.status=block 时 status=reject。\n- project_scope_precheck.conclusion=boundary_review 时 status=manual_review。\n\
+    输出兼容字段 status：\n- text_quality_gate.status=block 时 status=reject。\n- project_scope_precheck.conclusion=obviously_ineligible 时 status=reject。\n- project_scope_precheck.conclusion=boundary_review 时 status=manual_review。\n\
     - 其他可评分但有文本质量风险时 status=conditional_pass。\n- 完全正常时 status=pass。\n\n请只输出 JSON：\n\
     {\n  \"status\": \"pass|conditional_pass|manual_review|reject\",\n  \"conclusion\"\
     : \"enter_six_dimension_review|boundary_review|obviously_ineligible\",\n  \"enter_six_dimension_review\"\
@@ -185,6 +185,11 @@ precheck:
       requires_manual_confirmation:
         type: boolean
         description: 是否需要人工确认
+    optional_fields:
+      - status  # 兼容字段：pass | conditional_pass | manual_review | reject
+      - issues  # 需要后续关注的问题列表
+      - review_flags  # 预检专属：text_quality_risk | project_scope_boundary | ethics_risk | none
+      - recommendation  # 处理建议文本
 autonomous_knowledge_signals:
   # 对应 v0.16 规程第 3 阶段"自主知识体系信号校验"。
   # 代码消费本区块；量化结果用于排序、分层和复核优先级，不进入基础分。
@@ -244,6 +249,7 @@ autonomous_knowledge_signals:
     - 2 表示 yes / sufficient / not_applicable。
     - 1 表示 partial / uncertain。
     - 0 表示 no / insufficient。
+    - uncertain 仅在文本证据相互冲突或确有局部证据但不足以判断时使用；无证据应选 no / insufficient。
     - autonomous_signal_score 为四项分数总和，范围 0-8。
     - autonomous_signal_strength：strong=7-8，medium=4-6，weak=1-3，absent=0。
     - 量化结果只用于排序、分层抽检、专家复核优先级和第二阶段引文分析结合；不得进入六维基础分。
@@ -251,7 +257,7 @@ autonomous_knowledge_signals:
     矛盾触发条件：
 
     - total_high_but_no_china_problem：final_score（最终总分）> 70 且 china_problem_centered == no 或 china_practice_explanation_attempted == no。
-    - total_low_but_all_signals_yes：final_score（最终总分）< 50 但四项自主信号均为强信号。
+    - total_low_but_all_signals_yes：final_score（最终总分）< 50 但四项 signal_scores 均为 2（强信号）。
     - high_originality_but_no_verifiable_thesis：研究创新性 >= 80 但 verifiable_concept_or_thesis == no。
     - slogan_heavy_but_no_legal_question：正文大量使用“中国特色”“自主知识体系”“文化主体性”等标识性概念，但无法定位具体法学问题。
 
@@ -339,7 +345,7 @@ autonomous_knowledge_signals:
       condition: final_score > 70 AND (china_problem_centered == "no" OR china_practice_explanation_attempted == "no")
       action: 触发评价层复核
     - rule: total_low_but_all_signals_yes
-      condition: final_score < 50 AND 四项信号全部 == "yes"
+      condition: final_score < 50 AND signal_scores 四项均 == 2（强信号）
       action: 触发评价层复核（疑似 AI 误判）
     - rule: high_originality_but_no_verifiable_thesis
       condition: problem_originality >= 80 AND verifiable_concept_or_thesis == "no"
@@ -624,15 +630,15 @@ output_constraints:
   description: 字数控制目标：每个维度500字，六维度总计3000字，专家核验时间约30分钟
   per_dimension_limits:
     evidence_quotes:
-      max_count: 3
+      max_count: 2
       max_chars_per_quote: 80
       description: 关键证据引用，每条不超过80字
     strengths:
-      max_count: 3
+      max_count: 2
       max_chars_per_item: 50
       description: 主要优势，每条不超过50字
     weaknesses:
-      max_count: 3
+      max_count: 2
       max_chars_per_item: 50
       description: 主要缺陷，每条不超过50字
     limit_rule_triggered:
@@ -709,8 +715,8 @@ aggregate_output_contract:
       range: [0, 8]
       description: 阶段3四项信号量化总分，只用于排序、分层、抽检和引文分析结合
     autonomous_signal_strength:
-      allowed_values: ["strong", "medium", "weak", "absent", null]
-      description: 阶段3信号强度标签，不作为第七评分维度
+      allowed_values: ["strong", "medium", "weak", "absent"]
+      description: 阶段3信号强度标签，不作为第七评分维度；reject 路径默认 absent
     multi_model_stats:
       description: 多模型或多次评审的统计信息
       required_keys: ["mean", "std", "confidence_label"]
