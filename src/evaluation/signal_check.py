@@ -19,6 +19,7 @@ from typing import Any
 
 from sqlalchemy.orm import Session
 
+from src.core.config import settings
 from src.evaluation.call_logger import log_call
 from src.evaluation.prompt_builder import build_signal_check_prompt
 from src.evaluation.providers.base import BaseProvider
@@ -121,7 +122,12 @@ async def run_signal_check(
 
     for _ in range(retry_attempts):
         try:
-            payload = await provider.generate_json_response(prompt)
+            val = getattr(provider, "timeout", None)
+            timeout = val if isinstance(val, (int, float)) else settings.provider_timeout
+            payload = await asyncio.wait_for(
+                provider.generate_json_response(prompt),
+                timeout=timeout,
+            )
             if db is not None:
                 log_call(
                     db,
@@ -133,6 +139,12 @@ async def run_signal_check(
                     start,
                 )
             return _build_signal_result(payload)
+        except asyncio.TimeoutError:
+            from src.core.exceptions import ProviderTimeoutError
+            val = getattr(provider, "timeout", None)
+            timeout = val if isinstance(val, (int, float)) else settings.provider_timeout
+            last_error = ProviderTimeoutError(provider.model_name, timeout)
+            logger.warning("signal_check timeout: %s", last_error)
         except Exception as exc:
             last_error = exc
             logger.warning("signal_check attempt failed: %s", exc)

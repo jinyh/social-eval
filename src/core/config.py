@@ -1,3 +1,4 @@
+from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -14,6 +15,17 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
     dashscope_api_key: str = ""
     dashscope_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    ketan_api_key: str = ""
+    ketan_base_url: str = "https://api.ketan.ai/v1"
+    fucheers_api_key: str = Field(default="", validation_alias="FUCHEERS_API_KEY")
+    fucheers_base_url: str = Field(
+        default="https://api.fucheers.ai/v1",
+        validation_alias=AliasChoices("FUCHEERS_BASE_URL", "FUCHEERS_BASW_URL"),
+    )
+    yunyi_api_key: str = ""
+    yunyi_base_url: str = "https://api.yunyi.ai/v1"
+    sss_api_key: str = ""
+    sss_base_url: str = "https://api.sss.ai/v1"
     smtp_host: str = ""
     smtp_port: int = 587
     smtp_user: str = ""
@@ -22,8 +34,13 @@ class Settings(BaseSettings):
     max_concurrent_models: int = 3
     default_std_threshold: float = 5.0
     allowed_origins: str = ""
+    provider_timeout: float = 90.0
 
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
+        populate_by_name=True,
+    )
 
 
 settings = Settings()

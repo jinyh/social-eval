@@ -20,6 +20,12 @@ class ProviderCallError(EvaluationError):
         self.provider = provider
 
 
+class ProviderTimeoutError(ProviderCallError):
+    def __init__(self, provider: str, timeout: float):
+        super().__init__(provider, f"Timed out after {timeout}s")
+        self.timeout = timeout
+
+
 class AuthError(SocialEvalError):
     pass
 

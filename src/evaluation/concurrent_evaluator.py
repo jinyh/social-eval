@@ -2,6 +2,8 @@ import asyncio
 import time
 from sqlalchemy.orm import Session
 
+from src.core.config import settings
+from src.core.exceptions import ProviderTimeoutError
 from src.evaluation.providers.base import BaseProvider
 from src.evaluation.result_validator import normalize_dimension_result
 from src.evaluation.schemas import DimensionResult
@@ -11,6 +13,11 @@ from src.evaluation.prompt_builder import build_prompt
 from src.evaluation.call_logger import log_call
 
 
+def _get_timeout(provider: BaseProvider) -> float:
+    val = getattr(provider, "timeout", None)
+    return val if isinstance(val, (int, float)) else settings.provider_timeout
+
+
 async def _call_with_timing(
     provider: BaseProvider, prompt: str, retry_attempts: int = 3
 ) -> tuple[DimensionResult | Exception, float, str]:
@@ -18,9 +25,15 @@ async def _call_with_timing(
     last_error: Exception | None = None
     for _ in range(retry_attempts):
         try:
-            result = await provider.evaluate_dimension(prompt)
+            timeout = _get_timeout(provider)
+            result = await asyncio.wait_for(
+                provider.evaluate_dimension(prompt),
+                timeout=timeout,
+            )
             return result, start, prompt
-        except Exception as exc:  # pragma: no cover - covered by retry behavior in integration tests
+        except asyncio.TimeoutError:
+            last_error = ProviderTimeoutError(provider.model_name, _get_timeout(provider))
+        except Exception as exc:
             last_error = exc
     return last_error or RuntimeError("Unknown evaluation failure"), start, prompt
 
