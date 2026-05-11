@@ -250,8 +250,8 @@ autonomous_knowledge_signals:
 
     矛盾触发条件：
 
-    - total_high_but_no_china_problem：六维总分 > 70 且 china_problem_centered == no 或 china_practice_explanation_attempted == no。
-    - total_low_but_all_signals_yes：六维总分 < 50 但四项自主信号均为强信号。
+    - total_high_but_no_china_problem：final_score（最终总分）> 70 且 china_problem_centered == no 或 china_practice_explanation_attempted == no。
+    - total_low_but_all_signals_yes：final_score（最终总分）< 50 但四项自主信号均为强信号。
     - high_originality_but_no_verifiable_thesis：研究创新性 >= 80 但 verifiable_concept_or_thesis == no。
     - slogan_heavy_but_no_legal_question：正文大量使用“中国特色”“自主知识体系”“文化主体性”等标识性概念，但无法定位具体法学问题。
 
@@ -326,7 +326,7 @@ autonomous_knowledge_signals:
       name_zh: 是否使用传统文化或本土概念资源
       values: ["yes", "no", "uncertain"]
   typical_risks:
-    # 对应 v0.14 §5.5 典型风险
+    # 对应 v0.16 §5.4 典型风险
     - policy_restatement_without_legal_thesis
     - tradition_as_value_claim_without_legal_transformation
     - china_material_as_background_only
@@ -334,12 +334,12 @@ autonomous_knowledge_signals:
     - slogan_inflation_without_legal_argument
     - power_allocation_without_process_control
   contradiction_triggers:
-    # 对应 v0.14 §6.1.2"自主知识体系信号矛盾"
+    # 对应 v0.16 §6.3"自主知识体系信号矛盾"
     - rule: total_high_but_no_china_problem
-      condition: 六维总分 > 70 AND (china_problem_centered == "no" OR china_practice_explanation_attempted == "no")
+      condition: final_score > 70 AND (china_problem_centered == "no" OR china_practice_explanation_attempted == "no")
       action: 触发评价层复核
     - rule: total_low_but_all_signals_yes
-      condition: 六维总分 < 50 AND 四项信号全部 == "yes"
+      condition: final_score < 50 AND 四项信号全部 == "yes"
       action: 触发评价层复核（疑似 AI 误判）
     - rule: high_originality_but_no_verifiable_thesis
       condition: problem_originality >= 80 AND verifiable_concept_or_thesis == "no"
@@ -348,7 +348,7 @@ autonomous_knowledge_signals:
       condition: 正文大量使用"中国特色/自主知识体系/文化主体性"等标识性概念，但无法定位具体法学问题
       action: 触发评价层复核
   output_contract:
-    # 对应 v0.14 §7.3 信号校验输出规范
+    # 对应 v0.16 §7.3 自主知识体系信号输出
     required_fields:
       - china_problem_centered
       - china_practice_explanation_attempted
@@ -482,7 +482,7 @@ expert_review_triggers:
   - condition: 多模型维度分布异常一致
     action: 怀疑 rubric 迎合，提升人工抽检优先级
 review_report:
-  # 对应 v0.14 §7.4 复核建议输出规范
+  # 对应 v0.16 §7.5 复核报告输出
   # 面向专家的复核报告输出，说明触发复核的原因、关键问题、AI 判断分歧、证据片段、风险提示
   description: 复核层输出契约，声明面向专家的复核报告字段
   output_contract:

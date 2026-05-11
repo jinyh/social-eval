@@ -15,9 +15,10 @@ description: 在 SocialEval 仓库内工作时使用；统一加载项目背景�
 
 ## 先读哪些内容
 
-- [CLAUDE.md](../../CLAUDE.md)：项目背景、领域知识、架构方向、关键约束
+- [CLAUDE.md](../../CLAUDE.md)：项目背景、工程约束、评价框架快速参考
+- [docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md](../../docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md)：当前评审规程（四阶段流程、评分协议、复核规则）
 - [docs/requirements/SocialEval-requirements-v0.4.md](../../docs/requirements/SocialEval-requirements-v0.4.md)：当前需求版本
-- `configs/frameworks/`：学科知识体系配置，禁止在业务逻辑中硬编码评价维度
+- `configs/frameworks/law-v2.46-20260511.yaml`：当前活跃框架（prompt、契约、量化映射的实现真源）
 
 ## 必须遵守的约束
 
