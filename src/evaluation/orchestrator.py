@@ -164,7 +164,6 @@ async def run_evaluation_pipeline(
         )
 
         # v2.45+ D 路径第 3 阶段：自主知识体系信号校验（仅当 framework 声明时激活）
-        # v2.46+: 多模型并发评估 + 激进聚合（取 max）
         signal_result = None
         contradiction_rules: list[str] = []
         if framework.autonomous_knowledge_signals is not None:
@@ -176,7 +175,14 @@ async def run_evaluation_pipeline(
                 db,
             )
             provider_names = [p.model_name for p in providers]
-            signal_result = aggregate_signal_results(signal_results, provider_names)
+            agg_strategy = (
+                framework.autonomous_knowledge_signals
+                .get("quantification", {})
+                .get("aggregation_strategy")
+            )
+            signal_result = aggregate_signal_results(
+                signal_results, provider_names, aggregation_strategy=agg_strategy
+            )
             _, rule_ids = check_contradiction_triggers(
                 signal_result, reliability_reports, framework, final_score_estimate
             )

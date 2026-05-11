@@ -6,7 +6,7 @@
 仅当 framework.autonomous_knowledge_signals 被声明时激活（v2.45+）。
 失败时返回降级结果（triggers_review=True），不阻塞主流程。
 
-v2.46+: 多模型并发评估 + 激进聚合（取 max），不走 GPT-5.5 仲裁。
+v2.46+: 多模型并发评估，聚合策略可配置（默认 optimistic 取 max，向后兼容）。
 """
 
 from __future__ import annotations
@@ -39,6 +39,12 @@ _CORE_SIGNAL_KEYS = (
     "external_theory_transformation",
     "verifiable_concept_or_thesis",
 )
+
+# 信号聚合策略（v2.46+，可通过 framework YAML quantification.aggregation_strategy 配置）
+AGGREGATION_OPTIMISTIC = "optimistic"
+AGGREGATION_CONSERVATIVE = "conservative_on_disagreement"
+AGGREGATION_MEAN = "mean"
+_DEFAULT_AGGREGATION_STRATEGY = AGGREGATION_OPTIMISTIC
 
 
 def _signal_value_to_score(value: Any) -> int:
@@ -260,10 +266,14 @@ async def run_signal_check_multi(
 def aggregate_signal_results(
     results: list[SignalCheckResult],
     provider_names: list[str] | None = None,
+    aggregation_strategy: str | None = None,
 ) -> SignalCheckResult:
-    """激进聚合：对 signal_scores 各项取 max，暴露 agreement 标记。
+    """多模型信号聚合，策略可配置。
 
-    策略：宁可多标不漏，下游有专家复核兜底。
+    策略：
+    - optimistic（默认）：每项取 max，宁可多标不漏
+    - conservative_on_disagreement：一致时取 max，分歧时取 min，避免虚高
+    - mean：取均值四舍五入
     """
 
     if len(results) == 1:
@@ -276,19 +286,13 @@ def aggregate_signal_results(
             review_reason="signal_check_failed: all providers failed",
         )
 
+    strategy = aggregation_strategy or _DEFAULT_AGGREGATION_STRATEGY
+
     # 收集各模型的 signal_scores
     all_model_scores: dict[str, dict[str, int]] = {}
     for i, r in enumerate(results):
         name = provider_names[i] if provider_names and i < len(provider_names) else f"model_{i}"
         all_model_scores[name] = dict(r.signal_scores) if r.signal_scores else {}
-
-    # 激进聚合：每项取 max
-    aggregated_scores: dict[str, int] = {}
-    for key in _CORE_SIGNAL_KEYS:
-        values = [r.signal_scores.get(key, 0) for r in results]
-        aggregated_scores[key] = max(values)
-
-    autonomous_signal_score = sum(aggregated_scores.values())
 
     # 判断 agreement：四项 signal_scores 完全一致
     first_scores = results[0].signal_scores
@@ -298,11 +302,30 @@ def aggregate_signal_results(
         for key in _CORE_SIGNAL_KEYS
     )
 
-    # 四项核心判断字段：取对应 score 最高的那个模型的值
+    # 按策略聚合每项 signal_score
+    aggregated_scores: dict[str, int] = {}
+    for key in _CORE_SIGNAL_KEYS:
+        values = [r.signal_scores.get(key, 0) for r in results]
+        if strategy == AGGREGATION_CONSERVATIVE:
+            key_agreement = len(set(values)) == 1
+            aggregated_scores[key] = max(values) if key_agreement else min(values)
+        elif strategy == AGGREGATION_MEAN:
+            aggregated_scores[key] = round(sum(values) / len(values))
+        else:
+            aggregated_scores[key] = max(values)
+
+    autonomous_signal_score = sum(aggregated_scores.values())
+
+    # 四项核心判断字段：取对应聚合分数来源模型的值
     best_result_per_key: dict[str, SignalCheckResult] = {}
     for key in _CORE_SIGNAL_KEYS:
-        best_idx = max(range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0))
-        best_result_per_key[key] = results[best_idx]
+        values = [r.signal_scores.get(key, 0) for r in results]
+        key_has_disagreement = len(set(values)) > 1
+        if strategy == AGGREGATION_CONSERVATIVE and key_has_disagreement:
+            target_idx = min(range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0))
+        else:
+            target_idx = max(range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0))
+        best_result_per_key[key] = results[target_idx]
 
     # evidence_quotes 合并去重
     all_quotes: list[str] = []

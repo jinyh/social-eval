@@ -365,3 +365,153 @@ async def test_run_signal_check_multi_filters_failures(framework_v2_45, paper):
     # 只保留成功的结果
     assert len(results) == 1
     assert results[0].china_problem_centered == "yes"
+
+
+# =====================================================================
+# 聚合策略测试（v2.46+ aggregation_strategy 可配置）
+# =====================================================================
+
+
+def test_aggregate_conservative_on_disagreement_takes_min_for_divergent_key():
+    """conservative_on_disagreement：分歧维度取 min，一致维度取 max。"""
+    r1 = SignalCheckResult(
+        china_problem_centered="yes",
+        china_practice_explanation_attempted="yes",
+        external_theory_transformation="partial",
+        verifiable_concept_or_thesis="yes",
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 1,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    r2 = SignalCheckResult(
+        china_problem_centered="yes",
+        china_practice_explanation_attempted="yes",
+        external_theory_transformation="sufficient",
+        verifiable_concept_or_thesis="yes",
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 2,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    result = aggregate_signal_results(
+        [r1, r2], ["qwen", "glm"],
+        aggregation_strategy="conservative_on_disagreement",
+    )
+    assert result.signal_scores["china_problem_centered"] == 2
+    assert result.signal_scores["china_practice_explanation_attempted"] == 2
+    assert result.signal_scores["verifiable_concept_or_thesis"] == 2
+    assert result.signal_scores["external_theory_transformation"] == 1
+    assert result.autonomous_signal_score == 7
+    assert result.autonomous_signal_strength == "strong"
+    assert result.external_theory_transformation == "partial"
+
+
+def test_aggregate_conservative_all_agree_same_as_optimistic():
+    """conservative_on_disagreement：模型完全一致时结果与 optimistic 相同。"""
+    scores = {
+        "china_problem_centered": 2,
+        "china_practice_explanation_attempted": 1,
+        "external_theory_transformation": 2,
+        "verifiable_concept_or_thesis": 0,
+    }
+    r1 = SignalCheckResult(signal_scores=dict(scores), autonomous_signal_score=5)
+    r2 = SignalCheckResult(signal_scores=dict(scores), autonomous_signal_score=5)
+    result = aggregate_signal_results(
+        [r1, r2], aggregation_strategy="conservative_on_disagreement"
+    )
+    assert result.signal_scores == scores
+    assert result.signal_model_agreement is True
+    assert result.autonomous_signal_score == 5
+
+
+def test_aggregate_mean_strategy():
+    """mean 策略：取均值四舍五入。"""
+    r1 = SignalCheckResult(
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 0,
+            "external_theory_transformation": 1,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    r2 = SignalCheckResult(
+        signal_scores={
+            "china_problem_centered": 1,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 2,
+            "verifiable_concept_or_thesis": 0,
+        },
+    )
+    result = aggregate_signal_results([r1, r2], aggregation_strategy="mean")
+    # (2+1)/2=1.5→2, (0+2)/2=1, (1+2)/2=1.5→2, (2+0)/2=1
+    assert result.signal_scores["china_problem_centered"] == 2
+    assert result.signal_scores["china_practice_explanation_attempted"] == 1
+    assert result.signal_scores["external_theory_transformation"] == 2
+    assert result.signal_scores["verifiable_concept_or_thesis"] == 1
+
+
+def test_aggregate_default_strategy_is_optimistic():
+    """不传 aggregation_strategy 时默认 optimistic（向后兼容）。"""
+    r1 = SignalCheckResult(
+        signal_scores={
+            "china_problem_centered": 1,
+            "china_practice_explanation_attempted": 0,
+            "external_theory_transformation": 1,
+            "verifiable_concept_or_thesis": 0,
+        },
+    )
+    r2 = SignalCheckResult(
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 2,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    result = aggregate_signal_results([r1, r2])
+    assert result.signal_scores["china_problem_centered"] == 2
+    assert result.autonomous_signal_score == 8
+
+
+def test_aggregate_conservative_reproduces_issue_scenario():
+    """复现问题场景：qwen 给 external_theory_transformation 打 1，glm 打 2。"""
+    r_qwen = SignalCheckResult(
+        china_problem_centered="yes",
+        china_practice_explanation_attempted="yes",
+        external_theory_transformation="partial",
+        verifiable_concept_or_thesis="yes",
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 1,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    r_glm = SignalCheckResult(
+        china_problem_centered="yes",
+        china_practice_explanation_attempted="yes",
+        external_theory_transformation="sufficient",
+        verifiable_concept_or_thesis="yes",
+        signal_scores={
+            "china_problem_centered": 2,
+            "china_practice_explanation_attempted": 2,
+            "external_theory_transformation": 2,
+            "verifiable_concept_or_thesis": 2,
+        },
+    )
+    # optimistic 仍然是 8
+    result_opt = aggregate_signal_results([r_qwen, r_glm], ["qwen3.6-plus", "glm-5.1"])
+    assert result_opt.autonomous_signal_score == 8
+
+    # conservative 降为 7
+    result_con = aggregate_signal_results(
+        [r_qwen, r_glm], ["qwen3.6-plus", "glm-5.1"],
+        aggregation_strategy="conservative_on_disagreement",
+    )
+    assert result_con.autonomous_signal_score == 7
+    assert result_con.signal_model_agreement is False
