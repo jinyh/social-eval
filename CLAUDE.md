@@ -91,7 +91,8 @@ src/
   web/             # F7: Web 前端（开发中)
 configs/
   frameworks/      # 各学科知识体系 YAML 配置文件
-    law-v2.47-20260511.yaml # forward_extension 纠偏版本（当前活跃）
+    law-v2.48-20260512.yaml # 收紧 rubric + 致命缺陷识别（当前活跃）
+    law-v2.47-20260511.yaml # forward_extension 纠偏版本
     law-v2.46-20260511.yaml # v0.16 大规模评估候选
     law-v2.45-20260510.yaml # 全链路对齐基线
     archive/                 # 历史版本归档（v2.0 ~ v2.44）
@@ -219,7 +220,7 @@ SMTP_FROM=noreply@socialeval.local
 ### 权威真源
 
 - **方法论规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`（四阶段流程、评分协议、复核规则、大规模评估执行规则）
-- **实现框架**：`configs/frameworks/law-v2.47-20260511.yaml`（prompt、输出模板、JSON 契约、量化映射）
+- **实现框架**：`configs/frameworks/law-v2.48-20260512.yaml`（prompt、输出模板、JSON 契约、量化映射）
 - **概念操作化**：`docs/evaluation/concept-operationalization-v1.0.md`
 - **标准差分析**：`docs/evaluation/std-analysis-summary-20260423.md`
 - **架构决策**：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
@@ -228,8 +229,9 @@ SMTP_FROM=noreply@socialeval.local
 
 | 版本 | 状态 | 说明 |
 |------|------|------|
-| v2.47 | forward_extension 纠偏版本（当前活跃） | 修正前瞻延展性系统性低分；移除旧低分锚点与 bonus 映射冲突；14 篇样本验证均值 75.7 |
-| v2.46 | v0.16 大规模评估候选 | 预检分层 + 信号量化 + 聚合层暴露自主信号；forward_extension 存在系统性低分 |
+| v2.48 | 收紧 rubric + 致命缺陷识别（当前活跃） | 问题创新性和分析框架增加致命缺陷前置检测；正负样本差距 19.3 分（v2.47 为 14.2） |
+| v2.47 | forward_extension 纠偏版本 | 修正前瞻延展性系统性低分；14 篇样本验证均值 75.7 |
+| v2.46 | v0.16 大规模评估候选 | 预检分层 + 信号量化 + 聚合层暴露自主信号 |
 | v2.45 | 全链路对齐基线 | 代码完整消费四份契约；六维 prompt 与 v2.46 一致 |
 
 历史版本（v2.0 ~ v2.44）见 `configs/frameworks/` 和 `configs/frameworks/archive/`。
