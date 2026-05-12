@@ -1,0 +1,508 @@
+{
+  "framework": "configs/frameworks/law-v2.44-20260508.yaml",
+  "framework_version": "2.44.0",
+  "paper": "raw/holdout-test/数字法学的理论表达_马长山.pdf",
+  "paper_metadata": {
+    "type": "理论建构型",
+    "signal": "强",
+    "description": "测试理论型论文的分歧 + 中国模型优势"
+  },
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus"
+  ],
+  "review_models": [
+    "gpt-5.4",
+    "gpt-5.5"
+  ],
+  "paper_structure_status": "detected",
+  "test_timestamp": "2026-05-09 10:27:57",
+  "precheck": {
+    "glm-5.1": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "1. 写作规范性风险：文本存在多处段落开头残缺或断句现象（疑为OCR识别或复制排版错误），如“和优化路径。”、“向计算理性”、“体重建和代际转型”等，导致局部语句不完整、语义断裂，影响阅读连贯性，但核心论点仍可定位。",
+          "2. 引用规范性风险：脚注编号存在明显异常与乱码。注⑪出现两次且指向不同文献，注⑫缺失，注⑬直接承接第二个⑪；后续注释编号出现大量黑方块符号（如■），不符合学术期刊规范。",
+          "3. 引用层级与事实核验风险：大量核心论断（如“90%的人将失业”、“算法操控大选”、“彼得2.0”等）的引注来源为腾讯网、搜狐网、百家号等自媒体或非学术网文，引用层级较低，学术规范性不足，且相关事实性论断存在准确性核验风险。"
+        ],
+        "evidence_quotes": [
+          "然而，数字法学本身的三种演进路径却是明显不同的，并决定了各自不同的内涵、体系和功能。\n和优化路径。它基本是在新文科、新法科建设背景下来展开讨论和分析的...",
+          "体重建和代际转型，是前现代法学—现代法学—数字法学的变革发展新阶段，并将成为数字时代的法学主导形态。",
+          "⑪ 参见前注⑨，张妮、蒲亦非文，第2 页。\n⑪ Simon Deakin, Christopher Markou ed. Is Law Computable? Critical Perspectives on Law and Artificial Intelligence, Bloomsbury Publishing, PLC. 2020, p.100.\n⑬ Id.,104.",
+          "■ ［美］约翰·C. 黑文斯：《失控的未来》，仝琳译，中信出版社2017年版，第22 页。\n■ 参见彭兰：《新媒体用户研究——节点化、媒介化、赛博格化的人》...",
+          "■《人工智能时代的到来，90％的人将失业？教育将走向何方？》，载搜狐网，https://www.sohu.com/a/400727180_120449547，2022年2月8日访问。\n■《算法操控大选，数据左右美国》，载腾讯网..."
+        ],
+        "review_flags": [
+          "writing_risk",
+          "citation_risk",
+          "ethics_risk"
+        ],
+        "recommendation": "稿件核心论点明确、结构完整，可进入六维评分，但需带风险交由人工复核。建议人工重点复核：1）补全文本中残缺的段落开头与断句，确保文本完整性；2）修正脚注编号重复、跳跃及乱码问题；3）专家在评审时需特别关注并核验大量自媒体网文引用所支撑的事实性论断的学术严谨性与准确性。"
+      },
+      "elapsed": 95.61931705474854
+    },
+    "qwen3.6-plus": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "注释编号存在重复（如⑪在文中对应两处不同文献），属明显排版或引用格式错误。",
+          "部分理论论断及经验性预测引用非学术来源（如百家号、腾讯新闻、搜狐网、墨天轮网等自媒体或技术社区文章），学术严谨性与可核验性不足。",
+          "正文多处段落首句存在明显残缺（如“和优化路径。”“体重建和代际转型”“动化的智慧进程”等），疑似PDF提取或排版错漏，影响局部阅读连贯性。"
+        ],
+        "evidence_quotes": [
+          "⑪ 参见前注⑨，张妮、蒲亦非文，第2 页。 / ⑪ Simon Deakin, Christopher Markou ed. Is Law Computable?... (同一编号⑪重复使用)",
+          "⑰ 《计算复杂性50 年：王浩与计算理论》，载墨天轮网... / ㊼ 参见陆继恒：《无代码的时代真的来了吗？》，载百家号...",
+          "正文片段：“和优化路径。它基本是在新文科...” / “体重建和代际转型，是前现代法学...” / “动化的智慧进程会不断加快...” (段落起始文字缺失)",
+          "■ 参见《人工智能时代的到来，90％的人将失业？教育将走向何方？》，载搜狐网..."
+        ],
+        "review_flags": [
+          "citation_risk",
+          "writing_risk"
+        ],
+        "recommendation": "建议带风险进入六维评分。评审专家需重点关注：1. 核对并修正注释编号重复及格式错乱问题；2. 评估非学术网络来源对核心论点的支撑效力，建议作者后续修订时替换为权威学术文献、官方报告或同行评议成果；3. 结合原刊PDF核对正文段落残缺处，补全逻辑链条。文章整体框架完整、核心论点（数字法学为现代法学的代际升级与本体论重塑）清晰可辨，表达达到可评审标准，当前无需阻断。"
+      },
+      "elapsed": 91.12907695770264
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出数字法学本体论革命的核心命题，枢纽性极强但问题表述偏宏大。",
+          "core_judgment": "论文确立了数字法学性质与演进路径的理论分歧，问题成立且影响深远，但表述略显宏大。",
+          "score_rationale": "可争辩性=4/4（含路径分歧但表述宏大），枢纽性=4/4（涉基本原理与多制度连锁），材料新颖性未触发上限，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "数字法学本身的三种演进路径却是明显不同的……本文支持本体论路径",
+            "数字法学不是现代法学的一部分，恰恰相反，现代法学是数字法学的一部分"
+          ],
+          "strengths": [
+            "提出数字法学三种路径的理论分歧，聚焦本体论革命争点",
+            "枢纽性极强，涉及法学基本原理与多部门法制度连锁"
+          ],
+          "weaknesses": [
+            "问题表述过于宏大，缺乏具体聚焦的法学争点句",
+            "后半部分偏向学科建设与政策倡导，稀释了理论争辩性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献综述充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论证数字法学非方法拓展而是本体论代际转型，确立数字时代法学范式重构的核心命题。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，明确挑战现代法学底层逻辑，提出本体论重构路径，成立且极具理论张力。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "数字法学并非现代法学项下的新兴二级学科，而是现代法学之后的进阶升级意义上的代际转型。",
+            "现代法学理论对其仍然能够有效适用……数字法学由继承吸收部分、数字化更新部分和数字新生部分所构成。"
+          ],
+          "strengths": [
+            "明确区分方法论、认识论与本体论路径，理论争点清晰。",
+            "问题辐射全部门法与基础法理，枢纽性极强。"
+          ],
+          "weaknesses": [
+            "部分论述偏向宏观宣示，具体规范命题的争辩性稍弱。",
+            "对“数字法学”边界的界定仍显宽泛，聚焦度可提升。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的成立度与重要性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 120.3688759803772,
+        "qwen3.6-plus": 69.00973892211914
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文清晰构建了数字法学三种演进路径的争点结构，充分梳理了既有研究到达点与未竟点，研究地图完整。",
+          "core_judgment": "本维度成立，论文呈现了法教义学/社科法学及数字法学三种路径的多元争点，研究地图三要素充分满足。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "二者恰恰有着不同的研究前设和侧重点...在面临算法行政等诸多数字问题时，则难免呈现出共同的理论乏力。",
+            "数字法学本身的三种演进路径却是明显不同的...方法论路径...认识论路径...本体论路径...本文支持本体论路径。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰提炼了计算法学、认知法学等具体成果与局限。",
+            "争点结构层次分明，将数字法学演进路径分歧组织为方法论、认识论与本体论的对立。"
+          ],
+          "weaknesses": [
+            "对法教义学与社科法学之争的梳理偏重宏观定性，缺乏具体数字法学成果的对接引证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理深度与争点结构，不评数字法学概念本身的理论创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒数字法学研究脉络，精准定位既有路径局限并确立本体论切入点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，文献定位与本文论证高度咬合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "法教义学和社科法学……基本上是在现代法学的逻辑框架内来展开的，因而属于现代法学的内部之争",
+            "客观而言，信息法学、人工智能法学、计算法学、认知法学等数字法学的理论研究，大都是方法论路径或者认识论路径"
+          ],
+          "strengths": [
+            "精准提炼既有研究的三大演进路径及其理论局限",
+            "将文献梳理深度融入本体论转型的核心论证中"
+          ],
+          "weaknesses": [
+            "对计算法学与认知法学内部细分争点的展开略显不足",
+            "部分跨学科文献的法学对话深度可进一步下沉"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献脉络梳理与争点定位，不涉及数字法学命题本身的创新价值评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 99.52650594711304,
+        "qwen3.6-plus": 65.44957900047302
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 82,
+        "qwen3.6-plus": 85
+      },
+      "mean": 83.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文建构了数字法学本体论转型的宏观分析框架，概念与分类清晰，但缺乏微观操作步骤与操作化定义。",
+          "core_judgment": "框架在宏观理论层面成立，提供了概念重构路径，但操作化与法学转化深度受限。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=2/4，锚定excellent档，给82分",
+          "evidence_quotes": [
+            "数字法学由继承吸收部分、'数字化'更新部分和数字新生部分所构成",
+            "本文主旨在于展示数字时代的法学变革趋势……尚难以提出详尽完整的、体系化的数字法学范畴、概念、原则或原理"
+          ],
+          "strengths": [
+            "核心概念界定清晰，明确区分数字法学与现代法学的代际升级关系",
+            "提出了数字逻辑向法学转化的重构路径（扩张重释、理论创立、原理探索）"
+          ],
+          "weaknesses": [
+            "框架偏宏观维度划分，缺乏可重复适用的微观分析步骤或判断标准",
+            "数字人权、数字正义等核心概念缺乏操作化定义与具体适用边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架的建构与法学转化，不评价理论推演的逻辑严密性或问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了数字法学的底层逻辑与体系架构，概念清晰且贯穿全文分析。",
+          "core_judgment": "分析框架成立，具备较强的理论推演与概念重构能力。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "本文所称数字法学，是以数字社会的法律现象及其规律性为研究内容的科学",
+            "信息中枢、数字行为、算法秩序和节点治理构成数字社会的底层逻辑"
+          ],
+          "strengths": [
+            "核心概念界定清晰，四要素底层逻辑划分明确",
+            "理论推演严密，概念重构路径贯穿全文分析"
+          ],
+          "weaknesses": [
+            "框架偏宏观理论建构，缺乏微观裁判规则转化",
+            "部分跨学科概念的法教义学操作指引仍显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 93.44639921188354,
+        "qwen3.6-plus": 61.10949492454529
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过清晰的路径选择与底层逻辑推演，严密论证了数字法学的本体论转型，反驳处理充分。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可辩护推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“法学的变与不变并不在于它自身，而在于决定其存在和发展的社会条件……法律和法学必然会发生根本性转向”",
+            "“本文主旨在于展示数字时代的法学变革趋势……尚难以提出详尽完整的、体系化的数字法学范畴、概念、原则或原理”"
+          ],
+          "strengths": [
+            "推理链环环相扣，从路径甄选到底层逻辑推导体系构架，依赖度高。",
+            "对隐含分歧（三种路径）与显式反对（马法之议）均有实质性论证回应。"
+          ],
+          "weaknesses": [
+            "从数字生活逻辑到法理表达的局部过渡稍显宏大，但未断裂主线。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦于从路径选择到体系推演的逻辑链条，不评判学科体系表的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建“技术变革→范式转型→本体论重构”推理链，逻辑严密且充分回应学术分歧。",
+          "core_judgment": "推理步骤环环相扣，核心结论可由前文理论推演可辩护地推出，反驳处理充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。论证层层递进，无关键跳步。",
+          "evidence_quotes": [
+            "数字法学不是现代法学的一部分，恰恰相反，现代法学是数字法学的一部分。",
+            "本文主旨在于展示数字时代的法学变革趋势，勾勒数字法学的理论框架，因此，尚难以提出详尽完整的、体系化的数字法学范畴。"
+          ],
+          "strengths": [
+            "推理链呈“背景-批判-重构-路径”严密递进，步骤依赖度高。",
+            "明确回应“二级学科论”与“方法论局限”，并承认体系建构的长期性。"
+          ],
+          "weaknesses": [
+            "部分价值推演（如从算法秩序直接跃至数字正义）缺乏规范中介。",
+            "对“数字人权”具体权利冲突的权衡论证略显宏观。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦前提与结论的推导支撑关系，非评价学科框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 71.53989505767822,
+        "qwen3.6-plus": 61.52077794075012
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文结论在理论层面有效回应了共同体争论与中国制度语境，可接受性高。",
+          "core_judgment": "结论成功进入共同体对话，与现行法秩序兼容且指明转型方向，维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "数字法学并非现代法学的一部分，恰恰相反，现代法学是数字法学的一部分。",
+            "本文主旨在于展示数字时代的法学变革趋势……尚难以提出详尽完整的、体系化的数字法学范畴、概念、原则或原理。"
+          ],
+          "strengths": [
+            "清晰回应法教义学与社科法学之争及学科独立地位之争",
+            "明确承认自身论证局限，展现了良好的学术对话姿态"
+          ],
+          "weaknesses": [
+            "理论宏大，部分制度转化方向仍显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确主张数字法学为现代法学的代际转型，高度契合中国语境且具强学术对话性。",
+          "core_judgment": "该维度完全成立，结论有效嵌入共同体争论并兼容现行法秩序逻辑。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文结论修正了法教义学与社科法学的内部之争，主张数字法学是代际交替的本体论升级。",
+            "尚难以提出详尽完整的体系化范畴……应由法律共同体长期探索完成。"
+          ],
+          "strengths": [
+            "精准定位既有学派争论并提出超越性范式主张。",
+            "明确承认理论局限与跨学科研究难度，展现学术克制。"
+          ],
+          "weaknesses": [
+            "部分本体论断言缺乏具体教义学衔接路径。",
+            "对现行法秩序约束的回应偏宏观，转化机制待细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 60.47521495819092,
+        "qwen3.6-plus": 55.213655948638916
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 50,
+        "qwen3.6-plus": 48
+      },
+      "mean": 49,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文明确承认了未能提出体系化范畴原理的局限，但后续延展仅停留在宏观呼吁，缺乏具体争点与方法指引。",
+          "core_judgment": "前瞻延展性勉强成立，仅满足指出具体局限并指明修正方向，缺乏具体后续研究问题与方法论指引。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=4/4，锚定marginal档，触发weak_extension_path上限，给50分。",
+          "evidence_quotes": [
+            "本文主旨在于展示数字时代的法学变革趋势，勾勒数字法学的理论框架，因此，尚难以提出详尽完整的、体系化的数字法学范畴、概念、原则或原理。",
+            "这些重大任务也并不是某篇论文、某个学者的力量所能企及的……它应该在制度变革和司法实践的基础上，经由法学学者、司法者和实务专家等法律共同体的长期探索才能完成。"
+          ],
+          "strengths": [
+            "明确承认了正文未能提出详尽完整体系化范畴原理的具体局限",
+            "延展方向与正文勾勒数字法学理论框架的核心结论紧密衔接"
+          ],
+          "weaknesses": [
+            "缺乏具体的后续研究问题与争点，仅空泛呼吁长期探索",
+            "未提供明确的方法论指引或理论假设，亦未指明反对者进入路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2且无具体后续问题、理论假设或概念修正路径，上限65分且band限marginal/unacceptable",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "延展实质度仅1分，仅指出局限与宏观修正方向，无具体后续争点与方法论指引"
+            }
+          ],
+          "boundary_note": "本维评判未来理论建构的具体延展路径，而非当下数字法学转型升级结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 48,
+          "band": "marginal",
+          "summary": "论文明确承认理论框架局限并指出长期探索方向，但缺乏具体后续争点与方法指引。",
+          "core_judgment": "该维度仅满足最低成立锚点，前瞻延展性较弱，未达实质性理论深化要求。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=3/4，锚定marginal档，给48分。仅标准3因明确承认局限并指明长期探索方向成立。",
+          "evidence_quotes": [
+            "本文主旨在于展示数字时代的法学变革趋势，勾勒数字法学的理论框架，因此，尚难以提出详尽完整的、体系化的数字法学范畴、概念、原则或原理。",
+            "它应该在制度变革和司法实践的基础上，经由法学学者、司法者和实务专家等法律共同体的长期探索才能完成。"
+          ],
+          "strengths": [
+            "明确承认本文仅勾勒框架而未构建完整体系，符合最低成立锚点。",
+            "延展路径与正文“代际转型”核心结论保持逻辑一致。"
+          ],
+          "weaknesses": [
+            "未提出具体可操作的后续研究问题或理论假设。",
+            "缺乏明确的方法论建议或反对者切入路径，多为宏观倡议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2触发上限65，band仅限marginal/unacceptable。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "仅满足标准3（承认局限），实质度为1，未达具体争点或方法指引要求。"
+            }
+          ],
+          "boundary_note": "本维度仅评估未来理论深化指引，不评当下命题论证严密性或结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 85.82915306091309,
+        "qwen3.6-plus": 69.27326798439026
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.6,
+    "max_std": 4.9,
+    "weighted_total": 86.3,
+    "high_confidence_count": 6,
+    "medium_confidence_count": 0,
+    "low_confidence_count": 0,
+    "critical_confidence_count": 0,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 4.9
+  },
+  "gpt_review": {
+    "triggered": false,
+    "reason": "用户禁用"
+  }
+}

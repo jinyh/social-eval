@@ -1,0 +1,767 @@
+{
+  "framework": "configs/frameworks/law-v2.44-20260508.yaml",
+  "framework_version": "2.44.0",
+  "paper": "raw/holdout-test/股东会与董事会分权制度研究_许可.pdf",
+  "paper_metadata": {},
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus"
+  ],
+  "review_models": [
+    "gpt-5.5"
+  ],
+  "paper_structure_status": "detected",
+  "test_timestamp": "2026-05-09 12:30:31",
+  "precheck": {
+    "glm-5.1": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "1. 【写作规范性-排版杂音】文本存在明显的PDF/OCR提取遗留问题，正文段落间频繁插入页码或版面标记（如“6 2 1 *”、“7 2 1”、“8 2 1”等），打断句子连贯性，影响阅读流畅度。",
+          "2. 【引用规范性-格式瑕疵】外文引文及部分英文单词存在全角/半角字符混用现象（如将R识别为全角Ｒ，如“Ｒeview”、“Ｒevisited”、“Ｒobert”），虽不构成伪引或张冠李戴，但影响引文规范性与检索核实。",
+          "3. 【写作规范性-案例使用】案例二（公司设备出售案）为理论推演或假设案例，虽在注释④中说明了思想出处（罗培新文），但作为核心论据使用时缺乏真实案号支撑，需复核其论证效力是否受限。"
+        ],
+        "evidence_quotes": [
+          "自伯利和米恩斯洞见现代公司所有与经营相分离的事实以来……在不同的法律体系中展开。6 2 1 *",
+          "75 Southern California Law Ｒeview，1189-1201 ( 2002) ．",
+          "案例二: 公司设备出售案。某有限责任公司章程规定，董事会有权处分价值不高于50 万元的资产……④ 参见罗培新: 《股东会与董事会权力构造论: 以合同为进路的分析》，载《政治与法律》2016 年第2 期。"
+        ],
+        "review_flags": [
+          "writing_risk",
+          "citation_risk"
+        ],
+        "recommendation": "稿件核心论点（同等主义）明确，结构完整，逻辑清晰，学术伦理无明显风险（案例真实、无抄袭拼接迹象），可带风险进入六维评分。建议在评分后交由人工复核时：1. 对OCR提取产生的排版杂音（乱入数字、星号）和全角字母进行文本清洗；2. 确认案例二作为假设案例在法学论证中的可接受性及注释规范性。"
+      },
+      "elapsed": 74.33053612709045
+    },
+    "qwen3.6-plus": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "文本存在大量因PDF复制导致的OCR乱码及排版残留（如脚注序号显示为“瑏瑠”“瑐瑡”等不可读字符，正文中夹杂“6 2 1”“中国法学 2017 年第2 期”等页眉页码），影响脚注对应关系与阅读流畅度。",
+          "部分外文文献引用存在全半角标点混用及字体编码异常（如“Lynn A．Stout”“Southern California Law Ｒeview”中的全角点号与特殊Ｒ字符），不符合标准引注格式规范。",
+          "文末标注“参考文献列表：（无）”，虽符合部分法学期刊“脚注即参考文献”的体例，但若评审系统要求独立参考文献列表，需进行格式转换或补充说明。"
+        ],
+        "evidence_quotes": [
+          "脚注乱码示例：'瑏瑠无独有偶，美国学者Nicholas Calcina Howson 从政治经济学的角度将中国公司法的作用理解为促成国有企业实现“没有私有化的公司化”'",
+          "页眉页码残留示例：'6\n2\n1\n*\n①\n②\n中国人民大学法学院教师博士后。需要注明，为便于行文...'",
+          "外文标点混排示例：'Lynn A．Stout，Bad and Not-So-Bad Arguments For Shareholder Primacy，75 Southern California Law Ｒeview，1189-1201 ( 2002) ．'"
+        ],
+        "review_flags": [
+          "citation_risk",
+          "writing_risk"
+        ],
+        "recommendation": "稿件学术质量扎实，核心论点（超越股东/董事会优位主义的“同等主义”分权规则）清晰可定位，结构完整，法理与比较法论证充分，案例与法源真实，可直接进入六维评分。建议在评分环节同步或评分后安排一次技术性格式清洗：1. 修复脚注序号乱码并核对引文对应关系；2. 剔除正文中残留的页眉、页码及DOI标识；3. 统一外文文献标点与字体编码。无需启动学术伦理人工复核。"
+      },
+      "elapsed": 57.26224613189697
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 90,
+        "qwen3.6-plus": 88
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文围绕股东会与董事会分权之争，提出超越优位主义的同等主义，问题明确且枢纽性强。",
+          "core_judgment": "论文提出了明确的法学争点，展现了长期的理论分歧，并基于法经济学提出新的解释路径，问题成立且极具重要性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "股东能否通过公司章程改变公司法规定的股东会和董事会的权限?",
+            "股东优位主义抑或董事会优位主义绝不仅是学理上的分歧，更指向了实践上的疑难"
+          ],
+          "strengths": [
+            "问题句明确，直击公司法权力配置核心争点",
+            "理论分歧显著，涵盖股东优位与董事会优位主义长期对立"
+          ],
+          "weaknesses": [
+            "部分问题表述偏向案例引出，宏大理论建构与具体规则衔接可更紧密"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性及论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦公司权力分配经典争点，以交易成本理论重构分权范式，问题成立且具枢纽价值。",
+          "core_judgment": "问题明确指向股东会与董事会分权之规范争议，理论分歧显著且具跨制度影响力，研究问题高度成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "股东优位主义抑或董事会优位主义绝不仅是学理上的分歧，更指向了实践上的疑难",
+            "公司法的任务并不在于先验地预设何者优位，而应在认可私人协商的基础上，构造出契合市场与经济现实的公司分权制度"
+          ],
+          "strengths": [
+            "明确提炼股东优位与董事优位的经典争点，问题意识清晰",
+            "引入法经济学交易成本理论重构分权逻辑，突破传统二元对立"
+          ],
+          "weaknesses": [
+            "问题设定偏重制度建构，对本土司法裁判分歧的实证挖掘稍显不足",
+            "同等主义的理论证成高度依赖经济学假设，法教义学衔接略弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估研究问题本身的成立度与重要性，不涉论证逻辑与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 58.41063213348389,
+        "qwen3.6-plus": 56.457355976104736
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 92,
+        "qwen3.6-plus": 80
+      },
+      "mean": 86,
+      "std": 8.5,
+      "confidence": "low",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了从理论对立到比较法分歧再到经济逻辑的完整研究地图，洞察深刻。",
+          "core_judgment": "研究地图三要素充分，争点结构完整，流派覆盖丰富，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "股东优位主义抑或董事会优位主义绝不仅是学理上的分歧，更指向了实践上的疑难",
+            "一旦我们回到公司法的文本和实践，以上看似明晰的论断显得不再那么确定"
+          ],
+          "strengths": [
+            "精准提炼股东优位与董事会优位的核心争点及学界既有判断",
+            "深刻揭示比较法多元模式分歧与本土文本实践的未竟之处"
+          ],
+          "weaknesses": [
+            "无明显弱点，文献定位分散但有效"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非分权方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒股东优位与董事会优位之争，结合比较法与法经济学构建分权研究地图。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，流派识别准确，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "两种相互对立的观念———股东优位主义与董事会优位主义在不同的法律体系中展开。",
+            "本文并无预设的立场，而是尝试着在分权层面上发现比较优势，对抽象的主义之争做出具象解答。"
+          ],
+          "strengths": [
+            "三要素完整，明确指出现有研究盲点与本文经济学切入路径。",
+            "争点结构立体，将规范主义之争与法经济学成本分析有效融合。"
+          ],
+          "weaknesses": [
+            "对国内最新实证研究或司法大数据的文献覆盖略显单薄。",
+            "比较法梳理偏重传统法域，对新兴市场公司治理文献涉及较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，非评价分权理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 60.071574211120605,
+        "qwen3.6-plus": 56.53137516975403
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 92,
+        "qwen3.6-plus": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "成功将经济学交易成本转化为公司分权配置矩阵，框架可操作且法学转化度高。",
+          "core_judgment": "论文建构了基于决策权类型化的公司分权矩阵，实现了跨学科概念的深度法学转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "根据决策权的行使对象，它可以分为‘战略决策’和‘战术决策’...根据决策权的行使步骤，它又可分为‘决策管理’和‘决策控制’",
+            "表1 决策权在股东会和董事会间的配置（提供战略/战术、管理/控制的二维交叉矩阵）"
+          ],
+          "strengths": [
+            "经济学概念成功转化为清晰的权力配置矩阵与裁判规则",
+            "框架在后文案例解答与立法建议中被充分调用"
+          ],
+          "weaknesses": [
+            "交易成本权衡步骤偏隐性，缺乏显式的操作流程指引"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构与法学转化，不评估经济学理论本身的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了基于交易成本与决策权类型的“同等主义”分权矩阵，概念清晰、步骤可循且贯穿全文。",
+          "core_judgment": "分析框架高度成立，成功将法经济学原理转化为可操作的教义学规则与立法方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。跨学科概念被精准类型化为决策矩阵，并直接导出裁判解释规则与修法建议，后文调用充分。",
+          "evidence_quotes": [
+            "根据决策权的行使对象，它可以分为“战略决策”和“战术决策”……根据决策权的行使步骤，它又可分为“决策管理”和“决策控制”",
+            "《公司法》第37条、第46条……应理解为股东会和董事会各自权力的疆界，任何一方不得擅越"
+          ],
+          "strengths": [
+            "决策权类型化与成本权衡逻辑严密，形成可复用的分析矩阵",
+            "框架直接对接《公司法》条文解释与修法建议，转化落地性强"
+          ],
+          "weaknesses": [
+            "部分例外情形（如表决权穿越）的司法适用边界可进一步细化",
+            "对公众公司强制分权的程序性审查标准论述略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化效力，不涉及逻辑推演严密性或问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 57.47567796707153,
+        "qwen3.6-plus": 63.43231797218323
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "glm-5.1": 90,
+        "qwen3.6-plus": 92
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过比较法与经济逻辑的递进推演，严密论证了超越优位主义的同等主义分权方案。",
+          "core_judgment": "推理链完整且层层依赖，核心结论可由前文充分辩护推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "症结系股东会与董事会在现实上可能发挥的功能及其边界……有待跳出规则比较的窠臼，在功能主义的进路下发现公司权力分配的理想模式。",
+            "以上只是经济学层面上的线条勾勒，如何透过这一原理设计出富有效率和可操作的公司法规则就成为法律人的工作。"
+          ],
+          "strengths": [
+            "从问题、比较法到经济逻辑的推理链层层递进且相互依赖。",
+            "对反对意见、例外情形和自身局限有明确的承认与实质性回应。"
+          ],
+          "weaknesses": [
+            "从经济逻辑的“线条勾勒”到具体法律规则设计的转化稍显粗略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦于推理链条的支撑度，不评判同等主义方案在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以交易成本理论为枢纽，清晰串联问题提出、原理推导与规则设计的完整推理链。",
+          "core_judgment": "推理链条环环相扣且高度依赖，核心结论可由前文经济分析与规范检视充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "据此，我们有待跳出规则比较的窠臼，在功能主义的进路下发现公司权力分配的理想模式。",
+            "股东优位主义或董事会优位主义只是对公司权力分配的理论抽象，而非法律上的真实场景。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，经济学分析框架有效衔接规范比较与制度设计。",
+            "充分处理“优位主义”对立观点及公司类型差异，反驳回应实质。"
+          ],
+          "weaknesses": [
+            "经济学假设向法律规则转化时，部分成本权衡缺乏本土实证数据支撑。",
+            "对中国特有监事会等机关的权力交叉未作充分逻辑排除与边界划定。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不评经济学框架本身的解释力或立法建议的实操难度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 63.56725192070007,
+        "qwen3.6-plus": 64.23023700714111
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "glm-5.1": 85,
+        "qwen3.6-plus": 90
+      },
+      "mean": 87.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论提出超越优位主义的同等主义，并给出详尽的中国法修改方案，对话与制度回应极佳。",
+          "core_judgment": "结论成功回应既有争论并给出具体制度转化方向，可接受性高。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "无论采股东优位主义还是董事会优位主义皆有失偏颇……这就是超越‘优位主义’的‘同等主义’",
+            "《公司法》第37条、第46条与第99条、第103条应理解为股东会和董事会各自权力的疆界"
+          ],
+          "strengths": [
+            "提出同等主义修正既有二元对立争论",
+            "给出详尽的中国公司法解释与修改方案"
+          ],
+          "weaknesses": [
+            "结论未主动承认同等主义理论的局限或反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "超越优位主义之争，提出基于交易成本的“同等主义”框架，并给出契合中国《公司法》的解释与修法建议。",
+          "core_judgment": "结论深度嵌入中国公司法语境，明确回应既有理论分歧，且具备清晰的制度转化路径，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准定位争议并提出修正方案，全面回应中国法约束，指明修法方向，高度兼容现行法秩序。",
+          "evidence_quotes": [
+            "本文并无预设的立场，而是尝试着在分权层面上发现比较优势",
+            "这就是超越“优位主义”的“同等主义”，并据此提出解释与立法建议"
+          ],
+          "strengths": [
+            "精准切入优位主义之争并提出基于交易成本的替代框架",
+            "紧密结合中国《公司法》条文与司法实践提出具体修法路径"
+          ],
+          "weaknesses": [
+            "经济分析的成本假设在复杂商业实践中面临验证挑战",
+            "部分兜底条款设计需进一步论证与现行体系的衔接细节"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 56.90399193763733,
+        "qwen3.6-plus": 81.68383717536926
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 50,
+        "qwen3.6-plus": 32
+      },
+      "mean": 41,
+      "std": 12.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文提出了具体的制度修正路径和后续争点，但缺乏方法论指引和反对者进入路径。",
+          "core_judgment": "延展实质度成立，基于明确的制度修正方案和具体后续争点，但未满足方法论与反对者路径标准。",
+          "score_rationale": "延展实质度=2/4，正文衔接度=4/4，bonus=2/5，0-100等效分=50。依据确定性加分映射表，(2,4)组合对应bonus 2及40-54等效范围，取50分。",
+          "evidence_quotes": [
+            "各国在公司举债、股利分配、子公司事务等是否皆由董事会决定存在分歧，尚待进一步辨明。",
+            "《公司法》对股东会职权应增加如下兜底条款...对董事会职权则使用‘举重以明轻’的方法，增加‘其他有关公司日常营业的重大事项’"
+          ],
+          "strengths": [
+            "制度修正路径极为具体，直接提出立法修改与司法解释方案。",
+            "后续争点明确指向具体决策权归属的分歧，非空泛展望。"
+          ],
+          "weaknesses": [
+            "缺乏后续研究的方法论指引或可供验证的理论假设。",
+            "未指明反对者可从何处切入下一轮争论。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度<=2，上限为65分，且band只能是marginal或unacceptable。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "延展实质度=2，未满足方法论指引与反对者进入路径标准。"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展路径，不评估当下制度方案的可行性或可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 32,
+          "band": "marginal",
+          "summary": "论文提出具体的公司法修正路径，但未指明后续研究问题与反对者切入路径，延展实质度有限。",
+          "core_judgment": "延展路径紧密衔接正文经济分析框架，但仅满足制度修正路径一项标准，未达多维前瞻要求。",
+          "score_rationale": "延展实质度=1/4，正文衔接度=4/4，bonus=1/5，0-100等效分=32。严格对应映射表25-39区间，受weak_extension_path规则限制归入marginal档。",
+          "evidence_quotes": [
+            "《公司法》主要采取列举主义，难免存在法律漏洞，有待兼顾概括主义……增加如下兜底条款",
+            "在此，我们将以前述分权原则、结构和规则为指针，进而对我国公司法加以解释论和立法论上的阐述"
+          ],
+          "strengths": [
+            "明确指出我国公司法列举式立法的局限，并给出具体的解释论与立法论修正路径。",
+            "修正方案完全基于正文交易成本分析框架，逻辑回溯清晰。"
+          ],
+          "weaknesses": [
+            "未明确提出具体的后续研究问题或理论假设，仅停留在当下制度应用。",
+            "未指明反对者可从何处切入争论，缺乏学术对话的前瞻设计。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，仅具制度修正路径，缺乏后续问题与方法论指引。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "实质度仅1分，未提出具体后续争点或反对者进入路径。"
+            }
+          ],
+          "boundary_note": "本维评估结论后的未来研究/制度演进空间，而非当下论证严密性或结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 248.01123976707458,
+        "qwen3.6-plus": 93.47632575035095
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.6,
+    "max_std": 12.7,
+    "weighted_total": 86.7,
+    "high_confidence_count": 4,
+    "medium_confidence_count": 0,
+    "low_confidence_count": 1,
+    "critical_confidence_count": 1,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "worst_dimension": "forward_extension",
+    "worst_std": 12.7
+  },
+  "layered_score": {
+    "base_score": 89.3,
+    "bonus_score": 2,
+    "bonus_source": "checklist",
+    "extension_substance": 2,
+    "text_coherence": 4,
+    "conclusion_ceiling": null,
+    "prerequisites_met": true,
+    "final_score": 91.3,
+    "fe_mean_0_100": 41
+  },
+  "signal_check": {
+    "error": "name 'processed_paper' is not defined"
+  },
+  "gpt_review": {
+    "triggered": true,
+    "trigger_reason": "单维度 std (12.7) > 12.0 (维度: forward_extension)",
+    "review_models": [
+      "gpt-5.5"
+    ],
+    "dimensions": {
+      "problem_originality": {
+        "china_models_mean": 89,
+        "china_models_std": 1.4,
+        "models": {
+          "gpt-5.5": {
+            "score": 92,
+            "raw_output": {
+              "dimension": "problem_originality",
+              "score": 92,
+              "band": "excellent",
+              "summary": "问题明确且处于公司法核心争议。",
+              "core_judgment": "论文围绕股东会与董事会权限分配提出可争辩、具枢纽性的法学问题。",
+              "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+              "evidence_quotes": [
+                "股东能否通过公司章程改变公司法规定的股东会和董事会的权限?",
+                "无论采股东优位主义还是董事会优位主义皆有失偏颇"
+              ],
+              "strengths": [
+                "问题句清晰，争点可裁判化。",
+                "回应长期的股东优位与董事会优位之争。"
+              ],
+              "weaknesses": [
+                "部分论证借助经济学，法规范焦点略被稀释。"
+              ],
+              "limit_rule_triggered": [],
+              "boundary_note": "本维只评问题成立性与重要性，不评论证严密性。",
+              "review_flags": [
+                "none"
+              ]
+            },
+            "elapsed": 13.759361982345581,
+            "deviation_from_china_mean": 3
+          }
+        },
+        "review_mean": 92,
+        "review_std": 0.0,
+        "all_mean": 90,
+        "all_std": 2.0
+      },
+      "literature_insight": {
+        "china_models_mean": 86,
+        "china_models_std": 8.5,
+        "models": {
+          "gpt-5.5": {
+            "score": 92,
+            "raw_output": {
+              "dimension": "literature_insight",
+              "score": 92,
+              "band": "excellent",
+              "summary": "研究地图清晰，争点结构充分。",
+              "core_judgment": "论文围绕股东会与董事会分权，系统呈现既有立场、制度分歧与本文功能主义切入。",
+              "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+              "evidence_quotes": [
+                "两种相互对立的观念——股东优位主义与董事会优位主义",
+                "我国公司法的文本和实践，以上看似明晰的论断显得不再那么确定"
+              ],
+              "strengths": [
+                "明确提炼股东优位与董事会优位之争",
+                "比较法、解释论和法经济学定位充分"
+              ],
+              "weaknesses": [
+                "无独立参考文献列表，文献依赖脚注",
+                "部分经济学脉络与公司法争点衔接略快"
+              ],
+              "limit_rule_triggered": [],
+              "boundary_note": "本项仅评价文献定位和争点地图，不评价制度方案是否最优。",
+              "review_flags": [
+                "none"
+              ]
+            },
+            "elapsed": 18.30831003189087,
+            "deviation_from_china_mean": 6
+          }
+        },
+        "review_mean": 92,
+        "review_std": 0.0,
+        "all_mean": 88,
+        "all_std": 6.9
+      },
+      "analytical_framework": {
+        "china_models_mean": 92,
+        "china_models_std": 0.0,
+        "models": {
+          "gpt-5.5": {
+            "score": 94,
+            "raw_output": {
+              "dimension": "analytical_framework",
+              "score": 94,
+              "band": "excellent",
+              "summary": "论文构建了较完整且可适用的公司分权分析框架。",
+              "core_judgment": "该文并非单纯比较或综述，而是以交易成本原则和决策类型化建构分权规则。",
+              "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，因规则仍含少量弹性判断，给94分。",
+              "evidence_quotes": [
+                "根据决策权的行使对象，它可以分为“战略决策”和“战术决策”",
+                "依循交易成本节省原则并权衡“信息成本”、“市场成本”与“决策成本”"
+              ],
+              "strengths": [
+                "概念界定、分类标准和分配原则清晰",
+                "后文用于案例解答和公司法修改方案"
+              ],
+              "weaknesses": [
+                "部分成本衡量标准仍较抽象",
+                "个别例外情形的边界仍需细化"
+              ],
+              "limit_rule_triggered": [],
+              "boundary_note": "本评价限于框架建构力，不评价具体经济推理是否完全严密。",
+              "review_flags": [
+                "none"
+              ]
+            },
+            "elapsed": 25.956558227539062,
+            "deviation_from_china_mean": 2
+          }
+        },
+        "review_mean": 94,
+        "review_std": 0.0,
+        "all_mean": 92.7,
+        "all_std": 1.2
+      },
+      "logical_coherence": {
+        "china_models_mean": 91,
+        "china_models_std": 1.4,
+        "models": {
+          "gpt-5.5": {
+            "score": 92,
+            "raw_output": {
+              "dimension": "logical_coherence",
+              "score": 92,
+              "band": "excellent",
+              "summary": "论文主线清晰，比较法与经济分析共同支撑制度结论。",
+              "core_judgment": "从问题提出、比较法排除单一答案，到经济原理和中国法方案，推理链基本闭合。",
+              "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+              "evidence_quotes": [
+                "无论是我国《公司法》的解释还是比较法的考察，都无法为开篇问题提供明确而唯一的回答。",
+                "股东会和董事会应以公司章程和公司法作为权力边界，任何一方均不得擅越。"
+              ],
+              "strengths": [
+                "案例、比较法、经济分析层层递进。",
+                "能处理闭锁公司、公众公司等边界。"
+              ],
+              "weaknesses": [
+                "个别经济学命题到具体条文建议略压缩。",
+                "部分比较法材料与中国方案衔接仍可更细。"
+              ],
+              "limit_rule_triggered": [],
+              "boundary_note": "问题在结论支撑链条强弱，而非框架是否最优。",
+              "review_flags": [
+                "none"
+              ]
+            },
+            "elapsed": 15.201972246170044,
+            "deviation_from_china_mean": 1
+          }
+        },
+        "review_mean": 92,
+        "review_std": 0.0,
+        "all_mean": 91.3,
+        "all_std": 1.2
+      },
+      "conclusion_consensus": {
+        "china_models_mean": 87.5,
+        "china_models_std": 3.5,
+        "models": {
+          "gpt-5.5": {
+            "score": 92,
+            "raw_output": {
+              "dimension": "conclusion_consensus",
+              "score": 92,
+              "band": "excellent",
+              "summary": "结论可进入公司法分权争论并具制度转化性。",
+              "core_judgment": "论文以“同等主义”回应股东优位与董事会优位之争，并落实到中国公司法解释与修法建议。",
+              "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+              "evidence_quotes": [
+                "导向本文倡导的股东会和董事会分权的“同等主义”。",
+                "第37条、第46条与第99条、第103条应理解为股东会和董事会各自权力的疆界"
+              ],
+              "strengths": [
+                "明确回应既有两大主义之争。",
+                "结合案例、法条提出解释论和立法论方案。"
+              ],
+              "weaknesses": [
+                "若干兜底条款仍有再具体化空间。",
+                "部分改革建议与监管规则衔接可再展开。"
+              ],
+              "limit_rule_triggered": [],
+              "boundary_note": "本评分仅评结论能否被共同体和制度语境回应。",
+              "review_flags": [
+                "none"
+              ]
+            },
+            "elapsed": 19.922763109207153,
+            "deviation_from_china_mean": 4.5
+          }
+        },
+        "review_mean": 92,
+        "review_std": 0.0,
+        "all_mean": 89,
+        "all_std": 3.6
+      },
+      "forward_extension": {
+        "china_models_mean": 41,
+        "china_models_std": 12.7,
+        "models": {
+          "gpt-5.5": {
+            "score": 54,
+            "raw_output": {
+              "dimension": "forward_extension",
+              "score": 54,
+              "band": "marginal",
+              "summary": "制度延伸较实，但后续争点与反驳入口不足。",
+              "core_judgment": "比较法兼制度建构型论文；能提出方法和修法路径，但未明确后续研究问题与反对者切入点。",
+              "score_rationale": "延展实质度=2/4，正文衔接度=4/4，bonus=2/5，0-100等效分=54",
+              "evidence_quotes": [
+                "法律经济学正是辅助我们进行理性抉择的有力工具。",
+                "《公司法》对股东会职权应增加如下兜底条款。"
+              ],
+              "strengths": [
+                "修法与解释论方案具体。",
+                "延展紧扣分权制度主线。"
+              ],
+              "weaknesses": [
+                "未提出明确后续研究问题。",
+                "缺少反对者争论入口。"
+              ],
+              "limit_rule_triggered": [
+                {
+                  "rule_id": "forward_extension.weak_extension_path",
+                  "rule": "延展实质度≤2，只能进入marginal或unacceptable。",
+                  "score_ceiling": 65,
+                  "priority": 1,
+                  "evidence": "仅确认方法指引和制度修正，未见后续问题及反对者路径。"
+                }
+              ],
+              "boundary_note": "本维只评未来制度和理论如何延伸，不评现有结论是否成立。",
+              "review_flags": [
+                "future_claim_thin"
+              ]
+            },
+            "elapsed": 41.6814980506897,
+            "deviation_from_china_mean": 13
+          }
+        },
+        "review_mean": 54,
+        "review_std": 0.0,
+        "all_mean": 45.3,
+        "all_std": 11.7
+      }
+    },
+    "china_weighted_total": 86.7,
+    "review_weighted_totals": {
+      "gpt-5.5": 90.4
+    }
+  }
+}

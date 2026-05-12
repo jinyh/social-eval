@@ -1,0 +1,497 @@
+{
+  "framework": "configs/frameworks/law-v2.44-20260508.yaml",
+  "framework_version": "2.44.0",
+  "paper": "raw/holdout-test/善终、凶死与杀人偿命——中国人死刑观念的文化阐释_尚海明.pdf",
+  "paper_metadata": {
+    "type": "文化阐释型",
+    "signal": "强",
+    "description": "测试文化阐释型的分歧 + 中国模型优势"
+  },
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus"
+  ],
+  "review_models": [
+    "gpt-5.4",
+    "gpt-5.5"
+  ],
+  "paper_structure_status": "detected",
+  "test_timestamp": "2026-05-09 10:38:24",
+  "precheck": {
+    "glm-5.1": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "1. 作者姓名存在OCR识别乱码或排版错误，文中多次出现的“许?光”应为著名人类学家“许烺光”（Francis L.K. Hsu），其著作《祖荫下》是本文核心引用文献之一。",
+          "2. 注释42存在明显的张冠李戴嫌疑：该注释标注为“前引〔30〕，许?光书，第169页”，但注释30是许烺光《祖荫下》第143页；且注释40正好是武雅士文第169页。结合正文引文内容（关于凶死鬼魂报复的描述）及页码重合，此处极有可能是作者误将本应引注40（武雅士文）的内容写成了引注30（许烺光书），属于错引风险。"
+        ],
+        "evidence_quotes": [
+          "参见许?光:《祖荫下:中国乡村的亲属、人格与社会流动》，台湾南山书局有限公司2001年版，第143页。",
+          "前引〔30〕，许?光书，第169页。（对应正文：“一些人得了好死，而另一些人没有得到好死。因而他们觉得死得冤枉，便一心一意报复。”）"
+        ],
+        "review_flags": [
+          "citation_risk"
+        ],
+        "recommendation": "文章论点清晰、结构完整、案例与数据真实，具备可评审性，可带风险进入六维评分。但在评分后需交由人工复核引注细节：1.修正作者名OCR乱码（许?光应更正为许烺光）；2.重点核验注释42是否张冠李戴（核实该段引文是否出自武雅士而非许烺光），以排除引用规范性风险。"
+      },
+      "elapsed": 79.84671378135681
+    },
+    "qwen3.6-plus": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "存在明显的OCR识别/排版错误：正文及多处注释中反复出现“许?光”，应为著名人类学家“许烺光”（Francis L.K. Hsu），涉及核心文献《祖荫下》的引用，需统一修正。",
+          "部分网络文献及新闻报道的引注格式存在轻微不规范现象（如部分URL未严格标注完整访问日期或出处层级），虽不影响实质内容核验，但建议按法学引注规范微调。",
+          "文末标注“参考文献列表：（无）”，结合页眉“法学研究 2016 年第4 期”可知该文采用纯脚注体例，符合该刊规范；但若用于其他要求文末附参考文献表的期刊或系统，需补充转换。"
+        ],
+        "evidence_quotes": [
+          "如许?光所言，“中国的人性观并不把人看作是一个固定的实体……”（正文）",
+          "参见许?光:《祖荫下:中国乡村的亲属、人格与社会流动》，台湾南山书局有限公司2001 年版，第143 页。（注30）",
+          "参考文献列表：（无）"
+        ],
+        "review_flags": [
+          "writing_risk",
+          "citation_risk"
+        ],
+        "recommendation": "建议带风险进入六维评分。稿件核心论点明确（批判死刑研究中的“现代化范式”，从传统生死观与鬼魂冤抑想象阐释“杀人偿命”的文化逻辑），结构完整，论证严密，具备充分的可评审性。主要风险集中于多处学者姓名OCR识别错误及个别引注格式细节，不构成学术不端或不可读障碍。评分后请人工复核姓名修正情况及引注准确性，确认无误后即可归档或进入后续流程。"
+      },
+      "elapsed": 53.96676182746887
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 95,
+        "qwen3.6-plus": 92
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文挑战死刑研究“现代化范式”，提出基于本土生命观的杀人偿命正当性解释路径。",
+          "core_judgment": "论文提出了具有明确理论分歧的法学争点，且该争点触及刑罚正当性与法律文化核心。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "现有死刑民意研究在一定程度上受到了‘现代化范式’的宰制……忽视了……道德正当性",
+            "仅用‘报’来解释中国人的死刑正义观易将复杂问题简单化……尝试从传统中国人的生命观进行分析"
+          ],
+          "strengths": [
+            "问题直击死刑存废背后的文化正当性之争，挑战学界主流范式",
+            "将杀人偿命从非理性报复重构为基于本土生命观的正义诉求，解释路径创新"
+          ],
+          "weaknesses": [
+            "问题表述偏向文化阐释，规范命题的法学转化稍显隐含"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以传统生死观重构死刑民意法理基础，挑战主流范式，问题明确且具高度争辩性。",
+          "core_judgment": "问题成立且重要，成功将文化观念转化为刑罚正当性与司法制度的规范争点。",
+          "score_rationale": "可争辩性得分4/4，枢纽性得分4/4，材料/方法校验未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "在死刑废止问题上，刑法学界的主流观点认为应废止死刑，但多项民意调查显示大多数民众反对。",
+            "现有死刑民意研究受“现代化范式”宰制，忽视了民众死刑认知的道德正当性。"
+          ],
+          "strengths": [
+            "明确挑战主流范式，构建可争辩的法学理论分歧",
+            "将文化观念转化为裁判正当性与刑罚制度的规范命题"
+          ],
+          "weaknesses": [
+            "部分论证偏向法社会学阐释，规范教义学衔接稍弱",
+            "对“在地化”共识的具体制度转化路径论述不够充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 74.78156685829163,
+        "qwen3.6-plus": 60.097623109817505
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 90,
+        "qwen3.6-plus": 80
+      },
+      "mean": 85,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，精准识别学界争论与解释路径缺口，从生命观切入回应未竟点。",
+          "core_judgment": "现状洞察度极高，三要素完备，呈现多个核心争点与对立流派，文献定位深入。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "仅用‘报’来解释中国人的死刑正义观易将复杂问题简单化",
+            "现有死刑民意研究在一定程度上受到了‘现代化范式’的宰制"
+          ],
+          "strengths": [
+            "精准识别‘现代化范式’宰制与‘报’解释路径的未竟点",
+            "呈现死刑存废、民意认知、解释路径等多重争点与流派"
+          ],
+          "weaknesses": [
+            "部分人类学/历史学文献作为法学流派锚定稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒死刑存废与民意冲突脉络，精准定位“现代化范式”局限，以生命观为切入点。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别达标，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "现有死刑民意研究在一定程度上受到了“现代化范式”的宰制，忽视了中国民众死刑认知的道德正当性",
+            "本文即尝试从传统中国人的生命观及其现代流变，对中国人的杀人偿命观念进行分析"
+          ],
+          "strengths": [
+            "精准批判“现代化范式”宰制，明确既有研究对民意道德正当性的忽视",
+            "将文献定位融入正文论证，分散式梳理有效支撑核心争点"
+          ],
+          "weaknesses": [
+            "对死刑废止论内部“速废”与“渐进”分歧的学术交锋着墨较少",
+            "跨学科流派（如法社会学/法人类学）的理论对话可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及死刑存废命题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 67.7862401008606,
+        "qwen3.6-plus": 75.56682991981506
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 90,
+        "qwen3.6-plus": 85
+      },
+      "mean": 87.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了从传统生命观推导死刑正义观的理论分析框架，法学转化度高。",
+          "core_judgment": "框架将人类学概念成功转化为法学分析步骤，并在古今案例中有效调用，建构力强。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "正常的死亡属于善终，非正常死亡则为凶死",
+            "鬼魂冤抑观念的弱化让中国人的杀人偿命观念呈现出松弛的迹象"
+          ],
+          "strengths": [
+            "概念界定清晰，善终/凶死/鬼魂冤抑分类明确",
+            "跨学科概念有效转化为死刑观念的法学分析逻辑"
+          ],
+          "weaknesses": [
+            "未提供具体裁判规则（但理论型论文适配允许）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构力而非逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建了“生命观-死亡分类-鬼魂冤抑-死刑诉求”的文化解释框架，理论统摄力强但缺司法操作步骤。",
+          "core_judgment": "该框架作为法文化分析模型成立且具强解释力，但未转化为程序性裁判指引。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给85分。概念与分类清晰且后文高频调用，但缺步骤化流程；跨学科概念已实现理论操作化与边界界定，符合理论型转化标准。",
+          "evidence_quotes": [
+            "本文即尝试从传统中国人的生命观及其现代流变，对中国人的杀人偿命观念进行分析。",
+            "传统中国人以命抵命的死刑正义观与鬼魂冤抑想象密切相关，后者正是前者的文化动因。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，善终与凶死分类标准明确。",
+            "分析逻辑贯穿全文，有效统摄历史文献与现代案例。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的法律适用流程或裁判判断标准。",
+            "跨学科概念向具体司法操作规则的转化深度有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 55.50026297569275,
+        "qwen3.6-plus": 73.34186601638794
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "glm-5.1": 90,
+        "qwen3.6-plus": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "从生命观与鬼魂冤抑的文化逻辑推演杀人偿命的道德正当性，逻辑链条完整且有效回应了理论分歧。",
+          "core_judgment": "推理维度成立。论文通过文化解释充分支撑了民众死刑观的道德正当性结论，可辩护地推出对现代化范式的批判。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。推理步骤环环相扣，对学界批评与替代解释路径均有实质回应，并承认现代观念流变的局限。",
+          "evidence_quotes": [
+            "现有死刑民意研究在一定程度上受到了‘现代化范式’的宰制……忽视了中国民众死刑认知的道德正当性",
+            "一旦鬼魂冤抑观念弱化乃至消失，死刑的补偿性功能不再，杀人便不必然要用命来抵偿"
+          ],
+          "strengths": [
+            "推理链依赖度高：对现代化范式的批判完全建立在生命观的文化分析之上。",
+            "反驳处理深入：不仅回应显式批评，还论证了为何选择生命观而非“报”的解释路径。"
+          ],
+          "weaknesses": [
+            "从文化正当性推导至政策建议（审慎回应民意）的过渡略显简略，但未构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评的是文化解释能否充分支撑道德正当性结论，而非评死刑政策本身是否可操作或可接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建“民意冲突—文化溯源—现代流变—政策反思”推理链，逻辑自洽且反驳处理充分。",
+          "core_judgment": "推理链完整且步骤高度依赖，核心结论可由文化分析与案例推导可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。论证层层递进，有效回应主流分歧并承认观念变迁局限。",
+          "evidence_quotes": [
+            "传统中国人以命抵命的死刑正义观与鬼魂冤抑想象密切相关，后者正是前者的文化动因。",
+            "我国现有的死刑研究多将中国民众的死刑认知认定为落后文化的产物这一判断，是非常值得商榷的。"
+          ],
+          "strengths": [
+            "推理链条完整，从现象描述到文化溯源再到现代流变，逻辑递进严密。",
+            "有效回应学界主流废止论，以本土生命观重构民意正当性，论证充分。"
+          ],
+          "weaknesses": [
+            "部分个案叙事偏重，对观念弱化与和解接受度的因果关联论证稍显单薄。",
+            "结论的政策推导略快，未充分展开制度衔接的具体逻辑约束。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估前提至结论的推导支撑力，不评价文化分析框架的实操性或结论的政策可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 72.64417290687561,
+        "qwen3.6-plus": 69.37548017501831
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深刻回应死刑存废争论，主张在地化理解民众死刑观，与现行法秩序兼容。",
+          "core_judgment": "结论有效挑战主流现代化范式，提出基于中国生命观的死刑正义论，对话与制度兼容度高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "我国现有的死刑研究多将中国民众的死刑认知认定为落后文化的产物这一判断，是非常值得商榷的。",
+            "立法、司法机关在死刑问题上应采取更为审慎的态度，努力提高国家法律的内生性和法律有效回应社会的能力"
+          ],
+          "strengths": [
+            "深刻回应学界主流争论，挑战现代化范式",
+            "理论结论与现行保留死刑的法秩序逻辑高度兼容"
+          ],
+          "weaknesses": [
+            "对自身理论可能被滥用为重刑主义背书的反对意见回应稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度语境可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深刻回应死刑存废争议，立足本土文化阐释民意，与现行法秩序兼容且具政策指引性。",
+          "core_judgment": "结论高度融入学术对话，理论自洽且契合中国法治语境，具备强可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "我国现有的死刑研究多将中国民众的死刑认知认定为落后文化的产物……是非常值得商榷的。",
+            "中国死刑政策的制定应当建立在对民意的充分把握之上……积极回应民众的正义诉求。"
+          ],
+          "strengths": [
+            "精准批判“现代化范式”，有效介入死刑存废核心争论",
+            "以本土生命观重构民意正当性，结论具强文化解释力"
+          ],
+          "weaknesses": [
+            "政策建议偏宏观，缺乏具体司法裁量衔接方案",
+            "对民意可变性与法治引导功能的论证稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 66.72111105918884,
+        "qwen3.6-plus": 58.98839497566223
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 25,
+        "qwen3.6-plus": 30
+      },
+      "mean": 27.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文仅提出在地化视角等宏大方向，缺乏具体后续问题与修正路径",
+          "core_judgment": "前瞻延展性不成立，仅有范式呼吁而无实质延展路径与具体问题",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=1/4，锚定unacceptable档，给25分",
+          "evidence_quotes": [
+            "法律人应当秉持一种“在地化”的视角，在中国的语境下重新发现和理解死刑的中国要素",
+            "中国的法学研究应思考中国人的“理想图景”"
+          ],
+          "strengths": [
+            "延展方向与正文批判现代化范式的立场一致"
+          ],
+          "weaknesses": [
+            "无具体后续研究问题或理论假设",
+            "未承认自身论证局限及提出修正方向"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛拔高表述",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅呼吁在地化视角与理想图景，无具体问题与方法"
+            }
+          ],
+          "boundary_note": "评判的是未来能否往哪里走的具体路径，而非当下结论的可接受性",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "结语仅提出“在地化”视角与政策审慎等规范性呼吁，缺乏具体后续问题、方法指引或理论修正路径。",
+          "core_judgment": "前瞻延展性不成立，未满足任何一项严格标准，仅停留于空泛方向性表述。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=3/4，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "法律人应当秉持一种“在地化”的视角，在中国的语境下重新发现和理解死刑的中国要素",
+            "将死刑废除或命案中死刑立即执行判决数量逐年减少作为死刑改革的目标，极有可能因悖离民众的价值认同而导致法律与社会的断裂"
+          ],
+          "strengths": [
+            "延展方向与正文文化分析结论高度契合，未脱离核心论证脉络"
+          ],
+          "weaknesses": [
+            "全文无明确后续研究问题或方法论指引",
+            "未指明本文论证局限及具体理论修正路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛拔高表述",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅提出“在地化视角”与“政策审慎”等规范性呼吁，无具体学术延展路径"
+            }
+          ],
+          "boundary_note": "本维仅评未来研究路径的明确性，不评当下结论的政策合理性或文化解释力。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 102.77878880500793,
+        "qwen3.6-plus": 86.6070761680603
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.7,
+    "max_std": 7.1,
+    "weighted_total": 86.3,
+    "high_confidence_count": 5,
+    "medium_confidence_count": 1,
+    "low_confidence_count": 0,
+    "critical_confidence_count": 0,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "worst_dimension": "literature_insight",
+    "worst_std": 7.1
+  },
+  "gpt_review": {
+    "triggered": false,
+    "reason": "用户禁用"
+  }
+}

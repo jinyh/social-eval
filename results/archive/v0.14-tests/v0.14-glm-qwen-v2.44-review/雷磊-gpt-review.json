@@ -1,0 +1,488 @@
+{
+  "framework": "configs/frameworks/law-v2.44-20260508.yaml",
+  "framework_version": "2.44.0",
+  "paper": "raw/validation/法秩序统一性原理之建构_雷磊.pdf",
+  "paper_metadata": {},
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus"
+  ],
+  "review_models": [
+    "gpt-5.4",
+    "gpt-5.5"
+  ],
+  "paper_structure_status": "detected",
+  "test_timestamp": "2026-05-09 11:21:53",
+  "precheck": {
+    "glm-5.1": {
+      "result": {
+        "status": "pass",
+        "issues": [
+          "文本因排版或复制转换导致脚注内容与正文混排、页码数字夹杂于段落间，但此为格式转换遗留问题，不影响核心论点定位与实质内容评审"
+        ],
+        "evidence_quotes": [],
+        "review_flags": [],
+        "recommendation": "稿件学术规范性强，论点清晰明确（法秩序统一性原理的体系建构与方法论展开），结构完整严谨（从概念澄清、内涵阐释到方法论构造），表达专业流畅。引用规范详实，中外文文献（如Kelsen, Canaris, Engisch等）及法条引用准确，无错引、伪引或张冠李戴信号；无抄袭嫌疑及数据/案例真实性疑点。文本存在的排版混排现象属于技术性格式问题，不构成评审阻断。建议直接进入六维评分。"
+      },
+      "elapsed": 66.26467704772949
+    },
+    "qwen3.6-plus": {
+      "result": {
+        "status": "conditional_pass",
+        "issues": [
+          "正文脚注标记与页下注内容因PDF复制/排版存在错位与断行残留，部分引文位置需人工核对对应关系",
+          "文末标注“参考文献列表：（无）”，需确认目标期刊体例是否允许仅以页下注替代独立参考文献表，或需补充完整",
+          "部分外文文献（德文/英文）引用格式夹杂多余换行符与空格，需进行技术性清理以符合出版规范"
+        ],
+        "evidence_quotes": [
+          "〔6 〕\\n\\n就法律领域而言, 所谓认识对象的体系是指实在法本身的体系( 也可称为“ 法制” )...",
+          "〔2 〕\\n〔3 〕\\n〔4 〕\\n〔5 〕\\n〔6 〕\\n〔7 〕\\n“ 严格的违法一元论” 预设了法秩序的规范统一...",
+          "参考文献列表：\\n（无）"
+        ],
+        "review_flags": [
+          "citation_risk"
+        ],
+        "recommendation": "稿件核心论点清晰（围绕法秩序统一性原理的视角、构成、效力与价值统一及方法论构造展开），结构完整，论证逻辑严密，表达符合法学学术规范，未发现学术伦理风险。当前可进入六维评分，但建议在评分流程中或评分后由人工/编辑复核脚注编号与正文的对应关系，清理复制产生的排版乱码，并确认参考文献呈现形式是否符合期刊要求。属格式与技术性风险，不阻碍实质性学术评审。"
+      },
+      "elapsed": 65.28517985343933
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕法秩序统一性原理展开体系建构，枢纽性极强但问题句隐含。",
+          "core_judgment": "问题本身成立且极为重要，虽以主题声明形式呈现但隐含深层法理争点。",
+          "score_rationale": "可争辩性=3/4（缺显性问题句），枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "法秩序构成问题的核心是法秩序与法律体系之间的关系。对此, 大体可区分出三种立场: 一是同一论...二是相异论...三是包含论",
+            "法秩序虽然不为行为提供统一的禁止性理由, 却应提供统一的正当化理由"
+          ],
+          "strengths": [
+            "枢纽性极强，涉及宪法与多部门法价值协调",
+            "清晰呈现同一论、相异论等理论分歧"
+          ],
+          "weaknesses": [
+            "缺乏显性问题句，以建构/澄清为主题声明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性或文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文以法秩序统一性原理的体系化建构为核心，明确回应了法秩序的认识论定位与效力/价值双重统一路径。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，聚焦法理学与部门法交叉的核心理论分歧，论证扎实且非政策倡导。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "法秩序是否等同于实在法(甚或制定法)的统一体或体系?",
+            "法秩序的统一性不仅涉及一般法律规范之间的协调,也涉及一般规范与个别规范之间的协调。"
+          ],
+          "strengths": [
+            "明确区分法秩序与法律体系，提出包含论立场",
+            "构建效力统一与价值统一的双维耦合框架"
+          ],
+          "weaknesses": [
+            "部分理论推演偏重教义学整合，实证检验略显不足",
+            "对部门法价值冲突的实质权衡标准可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不涉文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 73.72637701034546,
+        "qwen3.6-plus": 64.857595205307
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰呈现了法秩序统一性的多重争点与流派分歧，研究地图完整。",
+          "core_judgment": "本维度高度成立，论文展现了深厚的文献梳理与争点结构化能力，流派对立清晰。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=5个（违法一元/多元/缓和一元、激进/温和体系观、同一/相异/包含论），锚定excellent档，给88分",
+          "evidence_quotes": [
+            "严格的违法一元论预设了法秩序的规范统一…违法多元论预设了法秩序的价值统一…缓和的违法一元论预设了兼顾存在论统一和目的论统一的混合式理解。",
+            "法秩序构成问题的核心是法秩序与法律体系之间的关系。对此，大体可区分出三种立场：一是同一论…二是相异论…三是包含论。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰呈现了法秩序构成与违法判断的多元流派对立。",
+            "争点结构层次分明，效力统一与价值统一的耦合论证逻辑严密。"
+          ],
+          "weaknesses": [
+            "未竟点虽隐含在对立立场批判中，但缺乏集中显式的缺口表述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评法秩序统一性原理本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒法秩序统一性原理的研究脉络，精准定位既有理论分歧与方法论缺口，并据此展开体系化建构。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "对此，大体可区分出三种立场:一是同一论……二是相异论……三是包含论。",
+            "当法无明文规定时, 是优先适用习惯, 还是优先类推适用相关法律规则。"
+          ],
+          "strengths": [
+            "分散式文献定位精准提取了同一论、相异论等对立立场。",
+            "明确指出了习惯与类推适用的优先性争议等未竟点。"
+          ],
+          "weaknesses": [
+            "部分流派归属未明确标注为学界争论，依赖读者自行归纳。",
+            "对比较法视角下的制度分歧梳理略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及本文建构方案的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 99.50700497627258,
+        "qwen3.6-plus": 65.1950478553772
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 95,
+        "qwen3.6-plus": 92
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文建构了双维四面的法秩序统一性框架，并成功转化为教义学操作步骤。",
+          "core_judgment": "框架概念清晰、分类明确、步骤可循且被后文充分调用，法学转化度高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "法秩序由三个部分构成……是以制定法为主体的多元规范体系",
+            "规范冲突解决……四条一般性准则：位阶性判断、制度性权威优先等"
+          ],
+          "strengths": [
+            "将抽象统一性原理转化为效力与价值双维框架",
+            "提供体系解释与冲突解决的可操作步骤"
+          ],
+          "weaknesses": [
+            "部分漏洞填补步骤的适用边界仍依赖个案裁量",
+            "价值统一性时间面向的论证稍弱于效力面向"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与法学转化，不评价理论推演的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“视角-构成-维度-方法”四位一体框架，逻辑严密且高度可操作。",
+          "core_judgment": "框架成功将抽象法理转化为可重复适用的教义学步骤与裁判指引，建构力极强。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "法秩序预设了应然的而非实然的视角……动态的而非静态的视角",
+            "法秩序统一性原则要求进行特定的方法论构造：规范意义的体系化塑造、规范要求的一致化建构、规范体系的完备化发展"
+          ],
+          "strengths": [
+            "构建“效力-价值”双维与“空间-时间”双轴矩阵，分类边界清晰",
+            "将抽象原理精准转化为体系解释、冲突解决与漏洞填补的裁判步骤"
+          ],
+          "weaknesses": [
+            "部分认知渊源冲突解决仍依赖个案权衡，标准化步骤略显不足",
+            "理论推演密度高，对非教义学背景实务者而言操作门槛较高"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架成立度与可操作性，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 55.203498125076294,
+        "qwen3.6-plus": 67.25641822814941
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "glm-5.1": 95,
+        "qwen3.6-plus": 92
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "概念界定、内涵推导与方法论构造形成严密推理链，且充分回应理论分歧并承认局限。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可辩护推出，反驳处理与局限承认到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分。概念-内涵-方法三步推导环环相扣，理论路径选择有论证，结语深刻反思局限。",
+          "evidence_quotes": [
+            "本文赞同包含论的立场……同一论将个别规范纳入法不符通常语言，相异论割裂效力与价值划分",
+            "追求法秩序的统一性亦非没有代价……它是法秩序必要而非充分的构成条件，是相对的而非绝对的理想原则"
+          ],
+          "strengths": [
+            "概念-内涵-方法论三步推导环环相扣，依赖度高",
+            "对理论分歧路径有实质性选择论证"
+          ],
+          "weaknesses": [
+            "部分方法论构造细节（如冲突解决准则）略显类型化罗列"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判基于推理链支撑度与理论路径选择论证，不涉及法秩序统一性框架在实务中的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文从概念界定推演至双重统一性及方法论，链条完整且充分回应分歧。",
+          "core_judgment": "本维度成立，核心结论可由前文概念辨析、规范分析与代价反思可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。概念到方法论的推演环环相扣，无关键跳步；显式辨析对立学说并实质回应，结语明确承认理论边界与代价。",
+          "evidence_quotes": [
+            "本文赞同包含论的立场。具体而言，法秩序由三个部分构成。首先，法秩序的主体部分无疑是法律体系。",
+            "法的统一性仅仅要求评价形式的‘一致性’……不可能创造全新的评价，也无法确保实质上的正确性。"
+          ],
+          "strengths": [
+            "概念界定与双重统一性推导逻辑严密，层层递进无断裂。",
+            "显式辨析同一论/相异论等对立观点并给出实质论证，非简单罗列。"
+          ],
+          "weaknesses": [
+            "部分教义学技术（如重力公式）的引入略显简略，未完全展开推演。",
+            "方法论构造与理论前提的衔接虽完整，但个别过渡依赖读者既有知识。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的充分支撑与结论可辩护性，未评价合宪性审查框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 107.51904892921448,
+        "qwen3.6-plus": 74.55812287330627
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "glm-5.1": 92,
+        "qwen3.6-plus": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深刻回应既有争论并主动承认局限，与中国制度语境高度兼容。",
+          "core_judgment": "结论在共同体对话与制度兼容维度均高度成立，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "法秩序的统一性或许值得追求，但它是法秩序必要而非充分的构成条件，是相对的而非绝对的理想原则。",
+            "追求法秩序之统一性的代价就是丧失法的多样化所带来的益处……强制的统一性往往意味着保守性。"
+          ],
+          "strengths": [
+            "结论主动承认统一性代价与局限，对话意识极强",
+            "理论结论与中国合宪性审查及民法典语境深度兼容"
+          ],
+          "weaknesses": [
+            "理论结论的制度转化方向虽提及但略显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受度，不评论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应既有争论，深度契合中国法秩序语境，并坦诚理论局限，具备高度学术对话力与制度兼容性。",
+          "core_judgment": "该结论完全成立，既有效嵌入法学共同体核心争点，又在原则层面与中国现行法秩序及司法实践高度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位学术争论，充分回应中国制度语境，且明确承认统一性原理的相对性与代价，理论自洽且具教义学指引价值。",
+          "evidence_quotes": [
+            "本文赞同包含论的立场……法秩序是以制定法为主体的多元规范体系。",
+            "法秩序的统一性或许值得追求，但它是法秩序必要而非充分的构成条件，是相对的而非绝对的理想原则。"
+          ],
+          "strengths": [
+            "精准定位法秩序与法律体系之争，修正传统一元论预设。",
+            "明确承认追求统一性的代价与理论边界，避免绝对化。"
+          ],
+          "weaknesses": [
+            "方法论构造部分偏重教义学推演，对基层司法实操阻力着墨较少。",
+            "合宪性审查耦合机制的论述稍显理想化，未充分展开程序衔接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 44.9526469707489,
+        "qwen3.6-plus": 63.13099813461304
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅在结语承认统一性存在代价与局限，未提出具体后续研究问题或修正路径。",
+          "core_judgment": "前瞻延展性不成立，论文缺乏具体的后续研究指引、理论修正路径或反对者进入点。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=2/4，锚定unacceptable档，给30分",
+          "evidence_quotes": [
+            "追求法秩序的统一性亦非没有代价……它最大的代价就是丧失法的多样化所带来的益处。",
+            "法秩序的统一性……是相对的而非绝对的理想原则。"
+          ],
+          "strengths": [
+            "结语对理论局限的客观承认与正文论证紧密相连。"
+          ],
+          "weaknesses": [
+            "仅有定性结论而无具体后续研究问题或修正路径。",
+            "缺乏反对者进入路径与方法论指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛定性表述，无具体延展路径",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅得出'相对而非绝对理想原则'的空泛定性结论"
+            }
+          ],
+          "boundary_note": "本维评判未来延展路径的缺失，不评判当下对统一性局限之承认是否合理。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "结语仅停留于原理代价与相对性的理论反思，未提出具体后续问题或修正路径。",
+          "core_judgment": "前瞻延展性不成立，缺乏明确后续争点、方法指引与反对者切入路径的原文表述。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=3/4，锚定unacceptable档，给30分。因未满足任一延展标准，触发weak_extension_path规则，依矩阵上限落入0-39区间。",
+          "evidence_quotes": [
+            "法秩序的统一性仅仅要求评价形式的‘一致性’……而不可能创造全新的评价，也无法确保实质上的正确性。",
+            "法秩序的统一性或许值得追求，但它是法秩序必要而非充分的构成条件，是相对的而非绝对的理想原则。"
+          ],
+          "strengths": [
+            "结语紧扣正文核心结论，未脱离法秩序统一性主题另起炉灶。",
+            "对统一性原理的共时与历时代价进行了清晰的理论界定。"
+          ],
+          "weaknesses": [
+            "未明确提出任何具体的后续研究问题或可供检验的理论假设。",
+            "仅陈述原理自身的理论边界，未指明本文论证局限及具体修正方向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2触发上限65，实质度=0时仅能落入unacceptable档",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文结语未提供具体后续问题、方法指引或反对者切入路径，延展实质度为0"
+            }
+          ],
+          "boundary_note": "本维仅评未来研究路径的明确性，不评结语对原理边界的当下理论自洽度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 95.2340259552002,
+        "qwen3.6-plus": 67.01431798934937
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.6,
+    "max_std": 2.8,
+    "weighted_total": 88.4,
+    "high_confidence_count": 6,
+    "medium_confidence_count": 0,
+    "low_confidence_count": 0,
+    "critical_confidence_count": 0,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 2.8
+  },
+  "gpt_review": {
+    "triggered": false,
+    "reason": "未达到触发条件"
+  }
+}
