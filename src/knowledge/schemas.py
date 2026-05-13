@@ -111,6 +111,25 @@ class Anchors(BaseModel):
     model_config = ConfigDict(extra="allow")
 
 
+class ArbitrationTrigger(BaseModel):
+    """仲裁触发条件：针对特定维度的标准差阈值"""
+    dimension: str
+    std_threshold: float
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ArbitrationConfig(BaseModel):
+    """仲裁配置：当模型分歧超过阈值时引入第三方模型"""
+    enabled: bool = False
+    arbiter_model: str = "gpt-5.5"
+    trigger_conditions: list[ArbitrationTrigger] = Field(default_factory=list)
+    aggregation_strategy: str = "median"  # median, mean, weighted_mean
+    fallback_strategy: str = "mean"
+
+    model_config = ConfigDict(extra="allow")
+
+
 class Framework(BaseModel):
     name: str
     discipline: str
@@ -124,6 +143,7 @@ class Framework(BaseModel):
     discrimination_threshold: DiscriminationThreshold | None = None
     expert_review_triggers: ExpertReviewTriggers | None = None
     anchors: Anchors | None = None
+    arbitration_config: ArbitrationConfig | None = None
     # v2.45 D 路径工程对齐：框架显式持有四份输出契约字段，不再仅落在 raw_config
     autonomous_knowledge_signals: dict[str, Any] | None = None
     aggregate_output_contract: dict[str, Any] | None = None
