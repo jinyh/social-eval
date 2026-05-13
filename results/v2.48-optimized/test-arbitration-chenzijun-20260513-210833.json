@@ -1,0 +1,537 @@
+{
+  "framework": "configs/frameworks/law-v2.48-optimized.yaml",
+  "framework_version": "2.48.1",
+  "paper": "raw/sample/负样本/行政机关采集人脸信息活动的法治因应_陈姿君.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与期刊名称混入正文段落间（如“３\\n５\\n１\\n行政法学研究”）",
+          "部分英文参考文献标点及特殊字符OCR识别乱码（如“ｐ􀆰３７５􀆰”）",
+          "表格结构在纯文本中扁平化，但字段内容完整可辨"
+        ],
+        "evidence_quotes": [
+          "３\\n５\\n１\\n行政法学研究",
+          "ｐ􀆰３７５􀆰",
+          "表１ 行政机关采集人脸信息的主要场景\\n规范性文件名称\\n采集场景"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "实践中采集的主体纵横多元、目的不断扩张、程序压缩简化，已然形成多重行政法治悖论",
+          "采集人脸信息活动本质是行政权的运作结果……属于行政事实行为",
+          "应以最小必要原则为整体牵引，确立授权依据以限制采集目的、动态适用知情同意规则以保障相对人数字权益、改进行政程序规则以落实相对人数字参与权",
+          "引入技术性正当程序以保障公众参与……构建行政公益诉讼制度督促行政机关履行相关个人信息保护职责"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "旁路文本工程风险：存在少量页码混排与英文标点乱码，不影响核心论点定位与实质评审"
+      ],
+      "evidence_quotes": [
+        "采集人脸信息活动本质是行政权的运作结果……属于行政事实行为",
+        "引入技术性正当程序以保障公众参与",
+        "构建行政公益诉讼制度督促行政机关履行相关个人信息保护职责"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "符合项目口径，建议直接进入六维评分。文本存在轻微OCR排版残留，评审时可自动过滤页码与乱码，重点考察其对中国数字行政法治中“采集环节”法律性质界定、告知同意规则本土化改造及技术正当程序引入的论证深度与规范命题的可复核性。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码及页眉混入正文（如'351', '451', '551'等数字及'行政法学研究 2023年第3期'）",
+          "脚注编号残留及部分英文参考文献存在OCR拼接/乱码风险（如'SeeIsadoraNeroniRezende'）",
+          "参考文献列表抽取缺失，显示为'（无）'"
+        ],
+        "evidence_quotes": [
+          "３５１",
+          "行政法学研究　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　２０２３年第３期",
+          "ＳｅｅＩｓａｄｏｒａＮｅｒｏｎｉＲｅｚｅｎｄｅ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "行政机关运用人脸识别技术的第一步是采集人脸信息环节...实践中采集的主体纵横多元、目的不断扩张、程序压缩简化，已然形成多重行政法治悖论",
+          "采集人脸信息活动本质是行政权的运作结果...既有的形式框架无法全面回应日益丰富的数字行政，例如“采集活动”并非“行政行为”",
+          "应以最小必要原则为整体牵引，确立授权依据以限制采集目的、动态适用知情同意规则以保障相对人数字权益、改进行政程序规则以落实相对人数字参与权"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程问题：页码/页眉混入正文，英文参考文献OCR乱码，参考文献列表缺失",
+        "项目口径无问题"
+      ],
+      "evidence_quotes": [
+        "实践中采集的主体纵横多元、目的不断扩张、程序压缩简化，已然形成多重行政法治悖论...应以最小必要原则为整体牵引，确立授权依据以限制采集目的"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评价标准，论文聚焦中国行政机关采集人脸信息的法治悖论与规范路径，具有明确的中国问题中心性、可争辩法学问题及理论转化命题。文本存在页码/页眉混入正文及英文OCR乱码等工程风险，但不影响核心论点定位，建议进入六维评分并在后续文本工程阶段清理格式噪音。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "聚焦行政机关采集人脸信息的法治困境，提出以最小必要原则与动态同意规则重构规制路径。",
+          "core_judgment": "问题明确具可争辩性，触及行政法与数据法交叉核心，具备较高枢纽价值。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "既有的法律依据聚焦规范应用阶段，而忽略了采集阶段权力延伸、权益侵犯及算法缺陷等问题。",
+            "针对告知同意的适用困境，学界提出诸多修正方案……笔者认为应当坚持遵守但需动态调整。"
+          ],
+          "strengths": [
+            "精准切中数字行政采集环节的法律保留与程序正当性争点",
+            "有效串联行政事实行为、告知同意与公益诉讼等多重制度"
+          ],
+          "weaknesses": [
+            "问题表述偏向对策建构，法理争辩的对抗性略显不足",
+            "对算法黑箱等技术性难题的法学转化论证尚欠深度"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "聚焦人脸信息采集环节的行政法治困境，问题成立且枢纽性强，但理论命题原创性一般。",
+          "core_judgment": "论文提出了具体的法学争点且涉及多个核心制度，问题成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "行政机关采集人脸信息的活动是否属于法律保留事项有待厘清。",
+            "针对告知同意的适用困境，学界提出诸多修正方案...不适用同意原则...动态同意转变..."
+          ],
+          "strengths": [
+            "问题聚焦“采集环节”，切分数字行政流程，问题具体且有法学争点。",
+            "涉及法律保留、告知同意、正当程序等核心原理，枢纽性强。"
+          ],
+          "weaknesses": [
+            "核心问题表述偏向“如何规制”的主题声明，争点隐含而非主导。",
+            "“聚焦采集环节”更多是视角切分，理论命题的原创性一般。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.30261397361755,
+        "glm-5.1": 47.739113092422485
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 88
+      },
+      "mean": 84,
+      "std": 5.7,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文精准定位采集环节研究空白，呈现规则适用分歧，研究地图清晰完整。",
+          "core_judgment": "研究地图三要素充分满足，争点结构明确，流派识别达标，符合良好档标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学理层面，现有的讨论鲜有区分公用和商用的二元场景，且以规制商用的探讨为主。",
+            "针对告知同意的适用困境，学界提出诸多修正方案。例如，有的观点认为不适用同意原则，有的观点则认为应转向动态同意。"
+          ],
+          "strengths": [
+            "采用分散式文献定位，精准提炼既有研究“重商用轻公用、重宏观轻微观”的局限。",
+            "清晰呈现告知同意规则在行政场景中的学理分歧，争点结构完整。"
+          ],
+          "weaknesses": [
+            "文献梳理偏重制度规则层面，对底层法理学流派的直接对话稍显不足。",
+            "部分引证仅作为理论支撑，未充分展开不同学者间的直接交锋脉络。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及技术新颖性或后续论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，精准定位微观采集环节的未竟点，呈现了多维度争点与流派分歧。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰，流派识别充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "现有的讨论鲜有区分公用和商用的二元场景...鲜有聚焦微观视角",
+            "学界提出诸多修正方案...不适用同意原则...向持续的信息披露与动态同意转变"
+          ],
+          "strengths": [
+            "精准定位既有研究在微观采集环节的未竟点",
+            "对告知同意修正方案进行了有效的分类归纳"
+          ],
+          "weaknesses": [
+            "工具理性与价值理性的对立偏社会学框架，法学流派属性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点梳理深度，不涉及问题本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 83.09169626235962,
+        "glm-5.1": 54.133344888687134
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦采集环节构建概念界定至制度重构的分析框架，法学转化度高。",
+          "core_judgment": "框架成立且具备较强的制度建构力，能有效指引行政法治实践与规则设计。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "本文所探讨的采集环节，是指获取上述的‘数字脸谱’，包括采集探针照片和算法编译数字脸谱两步。",
+            "采集阶段的算法相较应用阶段的算法，结构简单，故可在告知环节采用事前解释＋局部解释。"
+          ],
+          "strengths": [
+            "精准切割采集环节作为独立规制对象，避免宏观泛论",
+            "将技术性正当程序转化为算法公开、解释与审查的具体程序规则"
+          ],
+          "weaknesses": [
+            "最小必要原则缺乏可量化的司法审查步骤与比例权衡标准",
+            "部分场景分类的适用边界与动态退出机制缺乏明确时间节点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "框架分类清晰且法学转化度高，但缺乏递进式审查步骤。",
+          "core_judgment": "框架建构力较强，概念拆解与制度方案转化出色，但分析步骤性稍弱。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "本文所探讨的采集环节，是指获取上述的‘数字脸谱’，包括采集探针照片和算法编译数字脸谱两步。",
+            "在算法编译数字脸谱环节……应引入技术性正当程序以保障公众参与，核心规则包括算法公开、算法的解释权以及算法审核。"
+          ],
+          "strengths": [
+            "概念界定与分类清晰，将采集拆解为探针照片与算法编译两步。",
+            "法学转化度高，提出知情同意动态适用与技术性正当程序等具体方案。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的审查流程，制度设计维度并列而非递进操作步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架是否成立可用有转化，不评推理严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.34443068504333,
+        "glm-5.1": 74.72636103630066
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 72
+      },
+      "mean": 82,
+      "std": 14.1,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“概念界定—实践悖论—规范检视—制度重构”为主线，问题与对策高度咬合，论证链条完整严密。",
+          "core_judgment": "推理链形成闭环，核心结论可由前文规范分析与实践检视充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "采集人脸信息活动本质是行政权的运作结果……本部分拟厘清其中的基础概念",
+            "应当在采集环节坚持遵守告知同意的规定，但需要针对采集的不同场景和步骤动态调整"
+          ],
+          "strengths": [
+            "问题识别与对策设计精准对应，无脱节",
+            "对告知同意规则分歧进行场景化回应，论证扎实"
+          ],
+          "weaknesses": [
+            "技术性正当程序引入的本土适配性论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链条是否闭合及结论可辩护性，不涉制度方案的操作可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文聚焦行政机关采集人脸信息的法治悖论并提出因应方案，推理链基本完整但反驳处理较弱。",
+          "core_judgment": "推理链完整，问题与对策对应良好，但反驳处理不足，部分对策推导存在跳跃。",
+          "score_rationale": "推理链完整性得分=3/4，反驳处理度得分=1/3，锚定good档，给72分",
+          "evidence_quotes": [
+            "“告知同意规则存在适用困境……应当在采集环节坚持遵守告知同意的规定，但需要针对采集的不同场景和步骤动态调整”",
+            "“采集人脸信息的活动行为本质属于职权行为……此种权力行为也需要符合依法行政原则的规定”"
+          ],
+          "strengths": [
+            "问题与对策对应紧密，三大法治悖论与三大制度方案逐一呼应",
+            "概念界定（采集、人脸信息、法律性质）为后续制度分析奠定基础"
+          ],
+          "weaknesses": [
+            "反驳处理薄弱，仅隐含回应告知同意的分歧路径，缺乏显式反对意见",
+            "对策部分从“法律依据缺位”直接跳至“增加授权规范”，未充分论证授权的具体边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价关注对策推导是否充分支撑，不评价对策本身可操作性",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 57.86380219459534,
+        "glm-5.1": 16.424140691757202
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论精准回应数字行政采集环节的法治困境，提出体系化制度方案，兼具学术对话性与实务可操作性。",
+          "core_judgment": "该维度成立，结论深度嵌入中国行政法治语境，能与既有学说有效对话并指明制度转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论明确回应告知同意适用困境等学术争论，提出动态同意、技术性正当程序及行政公益诉讼等具体制度转化方向，与现行《个保法》及行政法治逻辑高度兼容。",
+          "evidence_quotes": [
+            "应以最小必要原则为整体牵引，确立授权依据以限制采集目的、动态适用知情同意规则",
+            "值《行政复议法》修改之际，笔者认为可以先针对采集类纠纷构建特殊规则"
+          ],
+          "strengths": [
+            "精准切入采集环节微观视角，修正宏观讨论不足",
+            "提出动态同意与技术性正当程序，具强实务回应性"
+          ],
+          "weaknesses": [
+            "对算法审查与听证程序的具体衔接成本论证稍显不足",
+            "未充分展开行政公益诉讼在人脸采集场景的举证难点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及未来研究延展或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论聚焦采集环节法治化，与学界及制度语境对话充分，可接受性高。",
+          "core_judgment": "结论有效回应既有争论与制度约束，提出具体改进方案，可接受性维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "现有的讨论鲜有区分公用和商用的二元场景...宏观的讨论不利于识别并解决不同环节中的具体问题",
+            "将采集活动单独列出来规制，虽然会增加合规成本，但是行政机关过度或不当采集个人信息带来的风险不可预估"
+          ],
+          "strengths": [
+            "明确修正学界偏重商用与应用阶段的既有争论",
+            "对策具体，区分场景调整告知同意与技术性正当程序"
+          ],
+          "weaknesses": [
+            "部分对策（如公共监控假定迳行同意）在实务中可能面临执行争议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 60.213099002838135,
+        "glm-5.1": 41.65871572494507
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 78,
+        "glm-5.1": 85
+      },
+      "mean": 81.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文聚焦人脸信息采集环节，提出修法与程序重构方案，并为后续存储、应用及算法治理指明研究接口。",
+          "core_judgment": "存在真实延展路径，通过划定采集边界与提示应用阶段未知风险，明确指向后续制度衔接与算法治理研究。",
+          "score_rationale": "原始分78分，对应bonus=3档。论文明确限定研究于采集阶段，指出后续存储、应用及算法决策环节的规制空白，并提出修法与程序重构的具体路径，延展清晰且与核心论证紧密衔接。",
+          "evidence_quotes": [
+            "本文聚焦于行政机关应用人脸识别技术中的第一步———采集人脸信息活动，对如何采集尝试探讨。",
+            "当人脸识别技术迭代升级至可以精准分析更多个人信息之际，行政机关是否会将已采集的人脸信息用于限制个人权利和自由我们不得而知……"
+          ],
+          "strengths": [
+            "明确划定采集环节边界，为后续规制预留接口；提出动态同意与技术性正当程序等路径，延展方向具体。"
+          ],
+          "weaknesses": [
+            "对应用阶段数据滥用风险仅作原则提示，未展开检验标准；制度建议偏重立法论，缺乏实施成本推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是采集规制落地后，后续存储、应用及算法决策环节应如何接续研究，而非当下制度建议的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "明确指出了从“采集”向“应用”环节延展的研究路径及救济制度的渐进式完善方向。",
+          "core_judgment": "存在真实延展路径，清晰定位了后续应用环节规制与救济范围扩展的方向。",
+          "score_rationale": "原始分85，对应bonus档位5。结语明确将“应用环节规制”作为后续争点，正文指明行政诉讼受案范围扩展及公共安全目的界定的深化方向，路径清晰可定位。",
+          "evidence_quotes": [
+            "行政机关是否会将已采集的人脸信息用于限制个人权利和自由我们不得而知，这是由技术应用环节的复杂性和私密性决定的。",
+            "可以先针对采集类纠纷构建特殊规则，待时机成熟再将其纳入行政诉讼。"
+          ],
+          "strengths": [
+            "明确承认本文聚焦“采集”的局限，指出“应用环节”为下一轮争点。",
+            "给出救济制度从行政复议向行政诉讼扩展的渐进式延展路径。"
+          ],
+          "weaknesses": [
+            "对算法解释权在复杂应用场景的延展仅作简短提示，未展开机制构想。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是“应用环节规制”和“行政诉讼扩展”等未来研究方向，而非当下提出的“最小必要原则”等结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.13774609565735,
+        "glm-5.1": 42.31108593940735
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.1,
+    "max_std": 14.1,
+    "weighted_total": 84.8,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 2.57,
+    "worst_dimension": "logical_coherence",
+    "worst_std": 14.1
+  }
+}

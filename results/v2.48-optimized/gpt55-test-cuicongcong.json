@@ -1,0 +1,547 @@
+{
+  "framework": "configs/frameworks/law-v2.48-optimized.yaml",
+  "framework_version": "2.48.1",
+  "paper": "raw/sample/补充负样本/10.崔聪聪 - 2024 - 个人信息监管沙箱的法理基础与制度构建.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "gpt-5.5"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留页码混入正文（如'· ４ ２ １ ·'、'· ５ ２ １ ·'）",
+          "脚注编号存在乱码/特殊Unicode字符（如'􀃊 􀁉 􀁒'、'􀃊 􀁊 􀁓'）",
+          "部分段落存在异常换行符"
+        ],
+        "evidence_quotes": [
+          "· ４ ２ １ ·\nDOI:10.16092/j.cnki.1001-618x.2024.02.001",
+          "􀃊 􀁉 􀁒静态监管和事后监管难以跟上数字技术和个人信息处理方式变革的步伐"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《中华人民共和国个人信息保护法》生效后，国家网信办、工业和信息化部、公安部、市场监督管理总局以及地方网信、工业和信息化、公安和市场监督管理部门纷纷开展个人信息专项治理活动",
+          "现行个人信息监管机制，事后监管模式应对个人信息滥用引发的风险乏力，压缩收集范围在一定程度上遏制了技术创新甚至影响数字经济发展，亟须突破传统监管维度",
+          "个人信息监管沙箱是基于数字技术引发个人信息处理风险泛化的现实而提出的个人信息监管新范式，是从个人信息监管顶层设计层面，对个人信息监管理念、体制和方法进行重构"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在期刊PDF转写带来的页码混入与脚注符号乱码，属低风险工程问题，建议后续环节进行文本清洗"
+      ],
+      "evidence_quotes": [
+        "个人信息监管沙箱是基于数字技术引发个人信息处理风险泛化的现实而提出的个人信息监管新范式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦中国《个人信息保护法》实施后的监管困境，明确批判“命令—控制型”与“运动式”执法的结构性缺陷，并将金融监管沙箱理论转化为中国个人信息行政监管的制度命题（合作监管、穿透式监管、试验主义及执法豁免机制）。四项项目口径信号均充分满足，具备明确的争辩性法学问题与中国实践解释力，符合进入六维评价标准。文本存在OCR页码残留与脚注乱码，但不影响核心论点定位与实质评审，建议清洗后直接进入六维评分。"
+    },
+    "gpt-5.5": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在期刊页码、栏目名、DOI、责任编辑等版面信息混入正文",
+          "脚注编号和部分脚注符号存在 OCR/抽取乱码，如“􀃊􀁉􀁒”“􀃊􀁋􀁙”等",
+          "英文摘要存在字符间距异常和断词现象",
+          "参考文献列表抽取为“无”，但正文脚注引用较多，可能存在参考文献抽取不完整"
+        ],
+        "evidence_quotes": [
+          "·\n４\n２\n１\n·\nDOI:10.16092/j.cnki.1001-618x.2024.02.001",
+          "􀃊\n􀁉\n􀁒静态监管和事后监管难以跟上数字技术和个人信息处理方式变",
+          "ＴｈｅｏｒｅｔｉｃａｌＪｕｓｔｉｆｉｃａｔｉｏｎａｎｄＩｎｓｔｉｔｕｔｉｏｎａｌＣｏｎｓｔｒｕｃｔｉｏｎｏｆｔｈｅ",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《中华人民共和国个人信息保护法》（以下简称《个人信息保护法》）生效后，国家网信办、工业和信息化部、公安部、市场监督管理总局以及地方网信、工业和信息化、公安和市场监督管理部门纷纷开展个人信息专项治理活动",
+          "当前，我国个人信息治理仍沿用“命令—控制型”治理路径，即授予国家机关制定、执行监管规则，并对违反该规则的行为予以制裁。",
+          "个人信息治理有必要引入个人信息监管沙箱，探索契合数字时代数据高速流通复用需求的监管进路，为构建个人信息长效治理机制奠定基础。",
+          "个人信息监管既要防止“命令—控制型”监管引发的扼杀活力、阻碍创新的结果，又要防止自由放任的监管立场引发的个人信息野蛮处理，放大其破坏性并外溢引发社会风险。",
+          "个人信息监管沙箱代表了个人信息监管的下一个逻辑演进，并将发展成为支撑整个数字时代个人信息监管体系构建的基础要素。",
+          "个人信息监管沙箱是基于数字技术引发个人信息处理风险泛化的现实而提出的个人信息监管新范式，是从个人信息监管顶层设计层面，对个人信息监管理念、体制和方法进行重构。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号、版面信息和英文摘要存在 OCR/抽取噪声，但不影响核心论点、结构和主要论证定位",
+        "文本工程：参考文献列表可能未被完整抽取；正式评分时可注意脚注来源完整性"
+      ],
+      "evidence_quotes": [
+        "当前，我国个人信息治理仍沿用“命令—控制型”治理路径",
+        "个人信息治理有必要引入个人信息监管沙箱，探索契合数字时代数据高速流通复用需求的监管进路",
+        "通过个人信息监管沙箱降低监管成本、提升治理效果，为技术创新留足必要空间，保障数字经济持续健康发展。",
+        "个人信息监管沙箱是基于数字技术引发个人信息处理风险泛化的现实而提出的个人信息监管新范式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入“中国自主知识体系研究”六维评价；文本存在轻度 OCR/脚注抽取风险，建议评分时忽略版面噪声并以正文可定位论证为准。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "gpt-5.5": 84
+      },
+      "mean": 86,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦传统监管模式困境，提出以监管沙箱重塑协同治理范式，问题意识明确且具理论纵深。",
+          "core_judgment": "问题成立且具高度创新性，成功将监管工具转化为个人信息法治核心争点，实现范式转换论证。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "现行个人信息监管机制，事后监管模式应对风险乏力……亟须突破传统监管维度，探索契合数字经济发展规律的监管手段",
+            "个人信息主体对个人信息的利益并非支配性利益而是防御性利益，监管目标也应当从控制转为防止损害。"
+          ],
+          "strengths": [
+            "精准提炼命令控制型监管缺陷，确立可争辩的范式转型命题。",
+            "将沙箱概念深度融入行政法与数据法理，论证路径具规范建构力。"
+          ],
+          "weaknesses": [
+            "问题表述偏重制度建构，法理元理论交锋可进一步深化。",
+            "对沙箱豁免执法的合法性边界论证稍显单薄，需强化教义学支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "problem_originality",
+          "score": 84,
+          "band": "excellent",
+          "summary": "问题具有明确法学争议和制度牵引力。",
+          "core_judgment": "论文以个人信息监管沙箱回应命令—控制型监管失灵，问题成立且较具枢纽性。",
+          "score_rationale": "可争辩性=3/4，枢纽性=3/4，材料新颖性未触发上限，锚定excellent档，给84分。",
+          "evidence_quotes": [
+            "个人信息治理有必要引入个人信息监管沙箱，探索契合数字时代数据高速流通复用需求的监管进路",
+            "个人信息监管沙箱代表了个人信息监管的下一个逻辑演进"
+          ],
+          "strengths": [
+            "围绕监管范式转换提出法学争点",
+            "涉及权利保护、行政监管与数据利用平衡"
+          ],
+          "weaknesses": [
+            "问题句不够显性，多以主张式表达呈现",
+            "监管沙箱移植已有较多研究基础"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立与重要性，不评论证严密和文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 66.33394479751587,
+        "gpt-5.5": 30.367273092269897
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "gpt-5.5": 88
+      },
+      "mean": 84,
+      "std": 5.7,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文通过分散式文献定位清晰勾勒监管模式与理念分歧，研究地图完整。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰，流派识别达标，文献洞察度良好。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分。",
+          "evidence_quotes": [
+            "现行个人信息监管范式对个人信息用途和功能变化明显水土不服，沿用绝对安全观与控制权理论。",
+            "个人信息治理有必要引入监管沙箱，探索契合数字时代数据流通复用需求的监管进路。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，有效提炼命令控制型与合作试验型监管的路径分歧。",
+            "未竟点与切入点高度对应，直指传统监管范式在数字时代的结构性失灵。"
+          ],
+          "weaknesses": [
+            "缺乏独立文献综述，部分争点脉络需读者跨章节拼合。",
+            "对域外沙箱学术争论梳理较薄，未充分展开比较法流派对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点提炼深度，非评价监管沙箱制度本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以分散式文献定位构建了较清晰的监管范式研究地图。",
+          "core_judgment": "文中能提炼既有监管模式、理论缺陷与沙箱切入点，争点结构充分成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "“命令—控制型”的“运动式”执法无法应对个人信息处理的隐蔽性和技术难题",
+            "沿着个人信息的社会性这一主线，个人信息主体对个人信息的利益并非支配性利益而是防御性利益"
+          ],
+          "strengths": [
+            "能将监管缺陷归纳为运动式、看守式、资源约束等结构问题",
+            "呈现控制权与防御性利益、命令控制与合作监管等多重分歧"
+          ],
+          "weaknesses": [
+            "缺少集中式文献综述，部分文献贡献提炼仍偏隐含",
+            "对域外个人信息沙箱研究脉络展开不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评文献定位和争点地图，不评价沙箱方案本身是否创新。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.67838311195374,
+        "gpt-5.5": 30.085509777069092
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 65,
+        "gpt-5.5": 86
+      },
+      "mean": 75.5,
+      "std": 14.8,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "提出三维监管沙箱框架并展开制度设计，但缺乏明确法学分析步骤与类型化标准。",
+          "core_judgment": "框架具备制度设计雏形且后文调用充分，但偏向政策倡导，法学操作化转化不足。",
+          "score_rationale": "框架可操作性得分2/4，法学转化度得分3/4，锚定good档，给65分。",
+          "evidence_quotes": [
+            "个人信息监管沙箱是监管机构设置的一个相对隔离的真实测试环境，用于测试……",
+            "基于监管合作主义、穿透式监管策略和监管试验主义的个人信息监管沙箱……"
+          ],
+          "strengths": [
+            "提出合作、穿透、试验三维框架，结构完整且后文充分调用",
+            "详细设计了沙箱测试机制、互动规则与执法豁免边界，具备制度方案雏形"
+          ],
+          "weaknesses": [
+            "核心概念多借用于金融监管，缺乏明确的法学内涵界定与类型化边界",
+            "未提供可重复适用的法律适用流程或裁判判断步骤，偏向行政政策描述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "analytical_framework",
+          "score": 86,
+          "band": "excellent",
+          "summary": "论文形成了较完整的监管沙箱制度分析框架。",
+          "core_judgment": "作为制度/实务型论文，其框架已从理念转化为监管合作、穿透监管和技术测试等制度方案。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给86分。",
+          "evidence_quotes": [
+            "个人信息监管沙箱是监管机构设置的一个相对隔离的真实测试环境",
+            "技术测试是个人信息监管沙箱的核心，其目的是发现产品或者服务在代码层面是否存在问题"
+          ],
+          "strengths": [
+            "核心概念有定义并贯穿全文",
+            "制度方案包含合作、测试、豁免等操作环节"
+          ],
+          "weaknesses": [
+            "总体流程未被压缩为清晰的统一步骤",
+            "部分分类仍偏理念化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评估关注框架可用性，不评价论证衔接是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 64.82124209403992,
+        "gpt-5.5": 22.455383777618408
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "gpt-5.5": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建了“缺陷诊断—理念纠偏—沙箱重塑—制度展开”的严密推理链，结论可辩护。",
+          "core_judgment": "推理链条完整且环环相扣，对替代范式与权利理论的辨析及边界设定使论证高度严密。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "个人信息控制理论自然延伸至‘知情同意’原则……监管目标也应当从个人信息控制转为防止损害。",
+            "监管沙箱并非豁免法定义务……执法豁免的通常是行政责任，责令停止违法行为不在豁免范围。"
+          ],
+          "strengths": [
+            "问题与对策高度对应，推理步骤依赖性强，无关键跳步。",
+            "明确界定沙箱适用边界与责任豁免限度，论证严谨。"
+          ],
+          "weaknesses": [
+            "对监管俘获风险缺乏深入反驳。",
+            "部分技术测试设计实操论证略显理想化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的充分支撑与结论可辩护性，不评价沙箱制度在行政法体系中的具体落地难度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "问题诊断、理念转型与制度设计之间衔接较紧密。",
+          "core_judgment": "作为实务型制度设计论文，核心结论可由问题分析和监管逻辑可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档；因部分效果论证偏概括，给88分。",
+          "evidence_quotes": [
+            "个人信息治理有必要引入个人信息监管沙箱",
+            "监管沙箱并非豁免个人信息处理者的法定义务"
+          ],
+          "strengths": [
+            "问题与方案对应关系清楚",
+            "制度构造承接前文风险诊断"
+          ],
+          "weaknesses": [
+            "沙箱降低成本的因果论证略概括",
+            "实务约束回应仍可更细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价重点是问题到沙箱方案的推理支撑，而非沙箱框架本身优劣。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.98008918762207,
+        "gpt-5.5": 24.866896867752075
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "gpt-5.5": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确主张以监管沙箱重塑监管范式，深度契合中国数字法治语境。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "现行个人信息治理仍沿用“命令—控制型”路径，有必要引入监管沙箱。",
+            "监管沙箱并非豁免法定义务，执法豁免通常仅限行政罚款，不免除民事与刑事责任。"
+          ],
+          "strengths": [
+            "精准批判运动式执法弊端，与主流监管范式形成清晰学术对话。",
+            "制度设计紧扣《个保法》框架，提出合作、穿透、试验三维路径。"
+          ],
+          "weaknesses": [
+            "沙箱准入标准与跨部门协同的具体程序衔接论证稍显简略。",
+            "对监管豁免可能引发的权力寻租风险防范机制展开不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被学界与制度语境接纳，非论证逻辑或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论能进入个人信息监管共同体与制度语境。",
+          "core_judgment": "论文提出监管沙箱转型方案，能被反对者定位，并与中国个人信息保护制度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "“命令—控制型”监管模式应当转型为……协同治理模式。",
+            "与个人信息安全审查共同构建……“威慑式＋合作式”的监管制度。"
+          ],
+          "strengths": [
+            "回应运动式执法与命令控制监管争论。",
+            "制度转化路径较具体。"
+          ],
+          "weaknesses": [
+            "对沙箱滥用或监管俘获的反驳仍可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论可被共同体和制度语境回应。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 61.35420513153076,
+        "gpt-5.5": 20.10258197784424
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 72,
+        "gpt-5.5": 88
+      },
+      "mean": 80,
+      "std": 11.3,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文基于监管沙箱提出个人信息监管范式转型，并指明算法治理转向、跨境合作与立法迭代等具体延展路径。",
+          "core_judgment": "存在真实延展路径，紧密衔接正文核心结论，具备明确的制度深化与实务推进方向。",
+          "score_rationale": "原始分72，对应bonus=3。论文明确指出未来保护重点转向算法防范，并提出沙箱实践反哺立法与跨境合作路径，方向清晰且紧扣核心结论，但未明示自身局限与精细化研究设计。",
+          "evidence_quotes": [
+            "未来个人数据保护的重点应转移到强调个人免受算法的无理监视、秘密操控和不当歧视上来。",
+            "监管沙箱的运行实践可以为未来立法提供有价值的参考。"
+          ],
+          "strengths": [
+            "指明算法治理与跨境合作的具体深化方向",
+            "提出沙箱测试经验反哺立法的迭代路径"
+          ],
+          "weaknesses": [
+            "未明确交代本文论证的具体局限",
+            "后续研究问题缺乏精细化操作设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦沙箱落地后的立法衔接、算法治理转向及跨境合作等未来推进方向，而非评价当下监管范式转型结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "forward_extension",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕个人信息监管沙箱提出了较清晰的制度实施与场景延伸路径。",
+          "core_judgment": "存在真实且可定位的前瞻延展路径，主要体现为监管合作、穿透式监管、技术测试和跨境合作等制度展开。",
+          "score_rationale": "原始分88，对应bonus=5。论文不仅提出监管沙箱方向，还细化测试对象、执法豁免、透明化、跨境合作等后续制度路径。",
+          "evidence_quotes": [
+            "监管沙箱的运行实践可以为未来立法提供有价值的参考。",
+            "通过监管沙箱机制开展跨境合作……可以有效降低个人信息处理者的合规成本。"
+          ],
+          "strengths": [
+            "延展路径与核心结论衔接紧密",
+            "提出多类实施场景和风险控制"
+          ],
+          "weaknesses": [
+            "部分制度细节仍偏原则化",
+            "缺少试点评估指标的进一步展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分关注论文提出的未来制度推进、场景适用和风险控制方向，而非判断监管沙箱方案当下是否完全可接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.4016170501709,
+        "gpt-5.5": 18.725489139556885
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 6.0,
+    "max_std": 14.8,
+    "weighted_total": 84.4,
+    "high_confidence_pct": 50.0,
+    "dimension_count": 6,
+    "composite_score": -1.0,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 14.8
+  }
+}

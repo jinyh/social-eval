@@ -1,0 +1,556 @@
+{
+  "framework": "configs/frameworks/law-v2.48-optimized.yaml",
+  "framework_version": "2.48.1",
+  "paper": "raw/sample/补充负样本/1.邵莉莉 - 2025 - 论绿色溯源法律制度的规范构造.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "gpt-5.5"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别残留与页码数字混排（如'9\\n6\\n1\\n*'、'0\\n7\\n1'等）",
+          "脚注标记格式异常/乱码（如'஫ 1 0'、'஫ 2'、'஫ 3'等非标准字符）",
+          "期刊页眉页脚信息穿插正文（如'法学评论                                           2025年第6期'、作者名重复出现）",
+          "部分外文参考文献URL断行或格式不完整"
+        ],
+        "evidence_quotes": [
+          "9\n6\n1\n*\n*\n*\n①",
+          "஫ 1 0《欧盟零毁林法案》规定",
+          "法学评论                                           2025年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国已在绿色供应链管理、环境信息披露、碳足迹溯源等方面开展了绿色溯源的实践...但是制度化的约束和外部压力弱...构建和完善绿色溯源法律制度是健全绿色低碳发展机制重要组成部分。",
+          "本文从溯源的对象、内容、类型及主体、法定核算评价规则等方面构建了以产品和服务生命周期全环境足迹为核心的绿色溯源法律制度",
+          "绿色溯源法律制度更需要采用“激励-约束”规制范式...构建我国绿色溯源法律制度体系特别注重发挥“激励-约束”范式及其激励机制具有非常重要的意义"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在OCR页码混排、脚注符号乱码及页眉页脚穿插，但不影响核心论证定位与评审",
+        "项目口径：四项候选信号均明确触发，具备中国问题中心性与可争辩的规范构造命题"
+      ],
+      "evidence_quotes": [
+        "本文从溯源的对象、内容、类型及主体、法定核算评价规则等方面构建了以产品和服务生命周期全环境足迹为核心的绿色溯源法律制度"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR与排版噪声，但核心法学命题、中国问题意识与制度建构逻辑清晰完整。符合进入六维评价标准，建议按conditional_pass流转至正式评分环节，评审时忽略格式噪声即可。"
+    },
+    "gpt-5.5": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在期刊页码、栏间信息、作者页眉等混入正文的情况，但不影响核心论点识别",
+          "脚注编号和部分符号存在 OCR 或抽取乱码，如“஫”“9 6 1”等",
+          "参考文献列表抽取为空，但正文脚注和引文信息仍可辨识"
+        ],
+        "evidence_quotes": [
+          "9\n6\n1\n*\n*\n*\n①\n②\n③",
+          "஫\n1\n0",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国已在绿色供应链管理、环境信息披露、碳足迹溯源等方面开展了绿色溯源的实践,出台了相关政策。",
+          "目前已实施绿色溯源法律规制的领域,溯源的产品和服务生命周期环境足迹不够全面,溯源的义务主体较为狭窄,缺乏对溯源披露的环境足迹是否绿色化的审查规则、核算法定标准,并且主要采取“命令-控制”规制范式,利益调节、行为激励机制弱化,不利于依法有效地引导和规制再生产绿色溯源。",
+          "本文从溯源的对象、内容、类型及主体、法定核算评价规则等方面构建了以产品和服务生命周期全环境足迹为核心的绿色溯源法律制度。",
+          "只有在法律、行政法规层级出台规制绿色溯源法律文件,才能为制定、出台相关专门的实施性绿色溯源部门规章明确上位法依据。",
+          "有必要在《草案》第四编“绿色发展”中增设一章“产品和服务环境足迹溯源”,明确构建再生产绿色溯源法律制度的原则、实施产品和服务生命周期全环境足迹溯源的步骤,以及溯源对象和内容、溯源义务的类型及其主体、环境足迹绿色化法定核算评价、依法履行绿色溯源义务的激励引导、违反绿色溯源义务的法律责任等一般规定和具体规则。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号和页码混入正文，存在轻度 OCR/版面抽取风险，但核心论证完整可定位",
+        "项目口径：无明显边界问题，论文以中国生态环境法典、绿色溯源法律制度构造和中国绿色低碳治理实践为中心"
+      ],
+      "evidence_quotes": [
+        "构建和完善绿色溯源法律制度是健全绿色低碳发展机制重要组成部分。",
+        "《中华人民共和国生态环境法典(征求意见草案)》在相关生态环境领域确立了绿色溯源的总体要求。",
+        "绿色溯源法律制度主要是对再生产的环境足迹和环境影响系统性过程式监督、控制规范,其与既有的环境法律制度共同构成生态环境法律体系。",
+        "构建我国绿色溯源法律制度体系特别注重发挥“激励-约束”范式及其激励机制具有非常重要的意义,“激励-约束”型规范是我国绿色溯源法律制度体系一大特色和发展方向。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评价。文本存在轻度 OCR、脚注和页码抽取问题，建议评分时忽略版面噪声并以正文可辨识论证为依据。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 65,
+        "gpt-5.5": 84
+      },
+      "mean": 74.5,
+      "std": 13.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出构建绿色溯源法律制度的问题，但缺乏明确争点，属政策导向型制度建构。",
+          "core_judgment": "问题具有现实与制度意义，但未提炼出可争辩的法学命题，创新性受限。",
+          "score_rationale": "可争辩性=2/4（有制度建构问题，但无明确争点句与理论分歧）；枢纽性=2/4（涉及环境法、行政法、国际贸易规则，触及立法授权与规制范式）；材料新颖性未触发上限。锚定good档，给65分。",
+          "evidence_quotes": [
+            "构建和完善绿色溯源法律制度是健全绿色低碳发展机制重要组成部分。",
+            "本文从溯源的对象、内容、类型及主体、法定核算评价规则等方面构建了以产品和服务生命周期全环境足迹为核心的绿色溯源法律制度。"
+          ],
+          "strengths": [
+            "问题覆盖环境法、行政法与国际贸易规则，制度影响面广。",
+            "触及部门规章上位法授权与“命令-控制”向“激励-约束”范式转换。"
+          ],
+          "weaknesses": [
+            "全文无“是否/如何/能否”等明确争点句，属单向制度建构。",
+            "未呈现学界对绿色溯源正当性或规制路径的理论分歧。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文以政策响应与制度要素罗列为主，未提炼可争辩的法学命题。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立且重要，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "problem_originality",
+          "score": 84,
+          "band": "excellent",
+          "summary": "问题成立且制度牵引力较强，但核心争议性略弱。",
+          "core_judgment": "论文围绕绿色溯源法律制度如何构造展开，具有明确法学问题和较强制度枢纽性。",
+          "score_rationale": "可争辩性=3/4，枢纽性=3/4，材料新颖性未触发上限，锚定excellent档，给84分。",
+          "evidence_quotes": [
+            "需要探寻我国绿色溯源法律制度的发展基础和方向。",
+            "构建了以产品和服务生命周期全环境足迹为核心的绿色溯源法律制度。"
+          ],
+          "strengths": [
+            "问题涉及上位法依据、义务配置和责任构造。",
+            "结论牵动生态法典、专项立法和部门规章。"
+          ],
+          "weaknesses": [
+            "更偏制度建构，学界对立争点呈现不足。",
+            "部分论证依托政策与新草案背景。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维只评问题成立性与重要性，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 10.537551164627075,
+        "gpt-5.5": 29.35536003112793
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "gpt-5.5": 82
+      },
+      "mean": 81,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文采用分散式文献定位，清晰勾勒政策规制缺陷与制度建构缺口，研究地图完整。",
+          "core_judgment": "本维度成立。文内明确呈现到达点、未竟点与切入点，争点结构清晰，流派识别达标。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "目前规制碳足迹溯源和绿色供应链追溯大多是政策性规定，尚未形成有强制拘束力保障的法律制度。",
+            "现行环境法律对全环境足迹的过程性规制并不充分，绿色溯源法律制度补强了这些生态环境法律制度。"
+          ],
+          "strengths": [
+            "采用分散式文献定位，精准提炼政策引导缺陷与上位法缺失。",
+            "明确对比命令控制与激励约束范式，争点脉络清晰。"
+          ],
+          "weaknesses": [
+            "对域外立法经验的学术争鸣脉络梳理稍显单薄。",
+            "部分规范主张的既有理论交锋引用可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及问题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文能构建较清晰制度现状图谱，但学术流派化呈现不足。",
+          "core_judgment": "文内充分呈现既有政策、域外制度与现行规范缺陷，并据此提出制度构造切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给82分",
+          "evidence_quotes": [
+            "目前规制碳足迹溯源和绿色供应链追溯大多是政策性规定",
+            "《办法》仅采取了“命令-控制”范式,没有采用“激励-约束”范式"
+          ],
+          "strengths": [
+            "能系统梳理国内政策、现行规章与域外立法",
+            "明确提出上位法不足、范围狭窄、激励弱等缺口"
+          ],
+          "weaknesses": [
+            "学界争论和代表性学术立场呈现较少",
+            "部分文献用于支撑规范判断，评价性综述不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评价关注研究地图与争点定位，不评价制度方案本身是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.28216099739075,
+        "gpt-5.5": 36.015610218048096
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "gpt-5.5": 90
+      },
+      "mean": 87.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建全环境足迹绿色溯源制度框架，涵盖原则、对象、义务、核算与责任，结构完整。",
+          "core_judgment": "框架成立且具备规范建构力与法学转化度，契合制度型论文要求。",
+          "score_rationale": "框架可操作性得分3/4，法学转化度得分4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "绿色溯源法律制度规制的溯源对象是产品和服务生命周期……涵盖其从准备到诞生再到终结的所有阶段",
+            "必须明确各类产品和服务全环境足迹绿色标准的上限或者下限。这种评价标准是激励受体做出的行为性或结果性回应是否符合或达到可给予激励性措施的实体法律规范"
+          ],
+          "strengths": [
+            "框架要素完整，覆盖从原则设定到法律责任的规范构造全链条",
+            "将生命周期评估等跨学科概念有效转化为法定披露、核算与激励规则"
+          ],
+          "weaknesses": [
+            "缺乏裁判适用或司法审查的具体步骤指引，偏向立法与行政规制设计",
+            "部分分类标准（如激励类型）的边界与适用条件可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不评逻辑衔接与问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文形成了较完整的绿色溯源法律制度建构框架。",
+          "core_judgment": "作为制度型论文，其框架覆盖概念、对象、主体、义务、标准、激励与责任，具备较强可操作性。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，因核算评价标准仍偏原则化，给90分。",
+          "evidence_quotes": [
+            "本文从溯源的对象、内容、类型及主体、法定核算评价规则等方面构建了……绿色溯源法律制度",
+            "明确构建……原则、实施……步骤，以及溯源对象和内容、溯源义务……法律责任等"
+          ],
+          "strengths": [
+            "制度构成要素完整且层次清晰",
+            "能转化为立法授权、义务配置和责任规则"
+          ],
+          "weaknesses": [
+            "核算评价标准的具体阈值仍待细化",
+            "部分制度步骤偏宏观，操作细则不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评价关注框架是否可用，不评价各制度论证衔接是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 59.40076184272766,
+        "gpt-5.5": 26.14432191848755
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "gpt-5.5": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文逻辑严密，问题与对策高度契合，推理链条完整且充分回应了分歧与边界。",
+          "core_judgment": "推理链完整无关键跳步，核心结论可由前文规范分析与现实需求充分支撑，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。论证从现实缺陷推导至制度范式转换，再细化至规范构造，链条严密；对规制路径分歧有实质回应并明确适用边界。",
+          "evidence_quotes": [
+            "目前规制碳足迹溯源和绿色供应链追溯大多是政策性规定，尚未形成有强制拘束力保障的法律制度。",
+            "构建我国绿色溯源法律制度体系特别注重发挥“激励-约束”范式及其激励机制具有非常重要的意义。"
+          ],
+          "strengths": [
+            "问题识别与对策设计高度对应，制度构建路径清晰具体。",
+            "推理链条完整，从政策缺陷到范式转换再到规范构造层层递进。"
+          ],
+          "weaknesses": [
+            "对“激励-约束”范式可能引发的监管套利风险论证稍显不足。",
+            "国际规则与国内法衔接的具体冲突解决路径可进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的支撑度与推导严密性，而非评价制度方案的实际可操作性或立法技术细节。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "问题诊断与制度构造对应紧密，主线推理完整。",
+          "core_judgment": "论文能由政策缺陷、域外压力和上位法需求，较充分推出绿色溯源制度构造方案。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档；局部理论跳跃不影响主线，给90分。",
+          "evidence_quotes": [
+            "需要法律规制对这些政策引领的企业自我规制固有缺陷予以补足",
+            "有必要在《草案》第四编“绿色发展”中增设一章“产品和服务环境足迹溯源”"
+          ],
+          "strengths": [
+            "问题、原因、制度方案对应清晰",
+            "对对象、义务、标准、责任逐层展开"
+          ],
+          "weaknesses": [
+            "部分价值命题推导略显宏大",
+            "域外经验到本土制度的转换仍可更细"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是结论能否由前文支撑，而非方案操作性优劣。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 81.40013003349304,
+        "gpt-5.5": 24.223166942596436
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "gpt-5.5": 68
+      },
+      "mean": 78,
+      "std": 14.1,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足中国法秩序，系统构建绿色溯源制度框架，兼具理论对话与制度转化可行性。",
+          "core_judgment": "结论明确回应规制范式争论，深度契合中国立法语境与制度约束，具备高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "构建和完善绿色溯源法律制度是健全绿色低碳发展机制重要组成部分。",
+            "有必要在《草案》第四编增设一章，分步骤制定专项法律与行政法规。"
+          ],
+          "strengths": [
+            "精准回应政策引导向法律规制转型的学术争论。",
+            "制度转化路径清晰，契合中国立法权限与法典化进程。"
+          ],
+          "weaknesses": [
+            "对企业合规成本与跨部门执法协同的量化论证稍显不足。",
+            "未充分展开与国际标准接轨时的具体法律冲突应对。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "结论制度落点清晰，但共同体争论回应不足。",
+          "core_judgment": "论文结论能进入中国生态环境法制度语境，但学术对话性和反对意见处理偏弱。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=4/4，锚定制度论文good档，给68分。",
+          "evidence_quotes": [
+            "有必要在《草案》第四编“绿色发展”中增设一章“产品和服务环境足迹溯源”",
+            "根据专项法律和行政法规制定出台实施性、操作性国务院部门规章"
+          ],
+          "strengths": [
+            "结论紧扣中国生态环境法典编纂语境",
+            "制度转化路径较具体"
+          ],
+          "weaknesses": [
+            "未明确回应既有学术争论",
+            "缺少对反对意见或自身局限的承认"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评价限于结论可接受性，不评价论证严密性或前瞻性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 60.41757297515869,
+        "gpt-5.5": 23.561727046966553
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 82,
+        "gpt-5.5": 88
+      },
+      "mean": 85,
+      "std": 4.2,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文提出增设法典专章、分步立法及跨境数据互认的清晰制度延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密围绕绿色溯源法律制度的体系化构建与国际衔接展开。",
+          "score_rationale": "原始分82，对应bonus=5。论文提出增设法典专章、分步制定专项法规及修订现行规章的清晰路径，并指明跨境数据互认方向，延展明确且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "“有必要在《草案》第四编‘绿色发展’中增设一章……分步骤按照溯源的环境足迹分类制定出台专项法律和行政法规”",
+            "“建立针对跨境产品和服务的生命周期的碳足迹的溯源数据互认机制，避免、降低国际贸易中的重复核算。”"
+          ],
+          "strengths": [
+            "提出“法典专章—专项法规—部门规章”的分步立法路径，具可操作性。",
+            "明确跨境数据互认与国际标准接轨的制度延伸方向。"
+          ],
+          "weaknesses": [
+            "对专项立法与现行部门规章的效力冲突协调机制论述不足。",
+            "未深入评估激励规则的财政负担与企业合规成本边界。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价未来立法分步路径与国际规则衔接的制度演进空间，不涉当下结论的学术接受度或论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "gpt-5.5": {
+          "dimension": "forward_extension",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出了较清晰的绿色溯源制度后续完善路径。",
+          "core_judgment": "存在真实且可定位的制度延展路径，并与正文规范构造紧密衔接。",
+          "score_rationale": "原始分88，对应bonus=5；证据显示其明确提出法典增章、专项立法、行政法规与规章衔接等后续制度路径。",
+          "evidence_quotes": [
+            "有必要在《草案》第四编“绿色发展”中增设一章“产品和服务环境足迹溯源”",
+            "分步骤按照溯源的环境足迹分类制定出台专项法律和行政法规"
+          ],
+          "strengths": [
+            "延展方向具体到法典结构与规则层级",
+            "能衔接现行规章修改和实施路径"
+          ],
+          "weaknesses": [
+            "分步骤推进的优先顺序仍较概括",
+            "实施风险控制展开有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评价的是未来制度如何继续完善，而非当前结论是否已充分可接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 60.19693875312805,
+        "gpt-5.5": 18.203779935836792
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 6.1,
+    "max_std": 14.1,
+    "weighted_total": 81.7,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 0.57,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 14.1
+  }
+}

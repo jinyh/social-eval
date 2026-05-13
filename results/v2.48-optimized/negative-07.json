@@ -1,0 +1,537 @@
+{
+  "framework": "configs/frameworks/law-v2.48-optimized.yaml",
+  "framework_version": "2.48.1",
+  "paper": "raw/sample/补充负样本/7.包晓丽 - 2025 - 数据产权登记制度的体系构建.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留（全角页码如“— ０ ５ —”、脚注编号乱码如“z 1 0”）",
+          "文末混入同刊其他论文的英文摘要、关键词及作者信息"
+        ],
+        "evidence_quotes": [
+          "— ０ ５ —",
+          "z 1 0",
+          "Ｎｏｔａｂｌｙ,ｔｈｉｓｓｙｓｔｅｍｓｅｒｖｅｓｂｏｔｈｓｔａｂｉｌｉｔｙａｎｄｉｎｎｏｖａｔｉｏｎｆｕｎｃｔｉｏｎｓ．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "当前的数据登记多以信息发布和交易匹配为主要目的，难以发挥降低权利识别成本和辅助流通监管等功能。",
+          "数据登记制度的建设应当转而聚焦对数据权利状况进行实质性审查的数据产权登记，并根据登记阶段的差异区分为首次登记和流转登记。",
+          "登记并非数据财产权取得与变动的生效要件，宜以登记对抗为原则，这有助于节省排他性交易中当事人的权利公示成本和第三人的权利核验成本。",
+          "相较于登记生效主义，登记对抗主义在以下三方面更具合理性：其一，法律没有必要给予数据财产权绝对排他性……其二，登记对抗主义更契合意思自治原则的要义。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR全角数字、乱码脚注及文末混排的无关英文摘要",
+        "项目口径：无，四项候选信号均明确满足，无需额外标注"
+      ],
+      "evidence_quotes": [
+        "数据登记制度的建设应当转而聚焦对数据权利状况进行实质性审查的数据产权登记，并根据登记阶段的差异区分为首次登记和流转登记。首次登记发挥权利推定效力，流转登记发挥对抗效力。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR格式噪声及文末混排其他论文摘要，但不影响核心论点与论证结构定位。论文聚焦中国数据要素市场产权登记制度，针对地方试点乱象与理论争议，明确提出登记对抗主义、首次登记推定效力与流转登记对抗效力等可复核规范命题，具备充分的中国问题中心性与可争辩法学问题，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号OCR解析乱码，如z10、z11、z12等字符直接混入正文语句中",
+          "期刊原始排版页码（如—０５—、—１５—等）混入正文段落间",
+          "文末拼接了同期刊其他论文（王利明、叶雄彪、程浩楠等）的英文标题与摘要，属于跨文本抽取污染"
+        ],
+        "evidence_quotes": [
+          "还有助于降低数据交易成本、建立可信流通环境、z10保障当事人的排他性商业优势，z11甚至还可以作为行政管理",
+          "—０５—",
+          "Notably, this system serves both stability and innovation functions. Savigny's interpretive methodology constitutes..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "当前的数据登记多以信息发布和交易匹配为主要目的，难以发挥降低权利识别成本和辅助流通监管等功能。数据登记制度的建设应当转而聚焦对数据权利状况进行实质性审查的数据产权登记",
+          "理论界……在登记能力、法律效力和登记对象等三类问题上出现重大争议：第一个争议问题是数据是否具有登记能力……第二个争议问题是登记有何法律效力，应以物权还是知识产权为蓝本设置数据登记规则",
+          "登记并非数据财产权取得与变动的生效要件，宜以登记对抗为原则，这有助于节省排他性交易中当事人的权利公示成本和第三人的权利核验成本"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码（z10等）与排版页码混入正文",
+        "文本工程：文末跨文本抽取污染，混入同期刊其他论文英文摘要",
+        "项目口径：无，完全符合进入六维评审标准"
+      ],
+      "evidence_quotes": [
+        "数据登记制度的建设应当转而聚焦对数据权利状况进行实质性审查的数据产权登记，并根据登记阶段的差异区分为首次登记和流转登记。首次登记发挥权利推定效力，流转登记发挥对抗效力。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程。但在后续评审阶段前，需对文本进行工程清洗：剔除正文中的OCR乱码（z10等）与排版页码，并截断文末混入的非本篇论文英文摘要，以保障评审准确性。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦数据产权登记的核心教义学争议，体系化构建登记效力与对象规则。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，成功将传统物权登记理论迁移至数据要素场景。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "理论界，越来越多的学者也开始关注数据登记的法律构造问题，并在登记能力、法律效力和登记对象等三类问题上出现重大争议",
+            "相较于物权登记，数据登记首先体现出非独占性特点，这决定了登记对抗与人的编成主义的正当性。"
+          ],
+          "strengths": [
+            "精准提炼登记能力、效力与对象三大核心争点，问题意识明确。",
+            "运用民法教义学与交易成本理论，有力论证登记对抗主义的优越性。"
+          ],
+          "weaknesses": [
+            "对数据动态性与登记静态公示的内在张力论证稍显简略。",
+            "实质性审查的成本与可行性缺乏更细致的制度配套分析。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦数据登记的法律效力分歧，问题可争辩且枢纽性强。",
+          "core_judgment": "论文提出了数据登记效力模式的明确争点并给出体系化方案，问题成立且极具枢纽性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "理论界在登记能力、法律效力和登记对象等三类问题上出现重大争议...并提出登记生效、登记对抗、初步证明等进路。",
+            "登记并非数据财产权取得与变动的生效要件，宜以登记对抗为原则...首次登记发挥权利推定效力，流转登记发挥对抗效力。"
+          ],
+          "strengths": [
+            "问题聚焦于数据登记的法律效力分歧，争点明确且具可争辩性。",
+            "将数据登记问题锚定于经典的登记生效与对抗之争，枢纽性强。"
+          ],
+          "weaknesses": [
+            "数据登记效力的争点虽明确，但与既有物权登记理论的区分边界仍需深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性及论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 45.88402009010315,
+        "glm-5.1": 57.50550818443298
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒数据产权登记研究地图，清晰提炼三大核心争点，文献定位与切入点高度契合。",
+          "core_judgment": "研究地图完整且争点结构严密，文献梳理深度充分支撑本文制度构建的正当性。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "理论界……在登记能力、法律效力和登记对象等三类问题上出现重大争议",
+            "本文拟从登记将发挥何种法律效力而非资源管理的角度，聚焦与产权制度密切相关的第一类登记"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼登记生效/对抗/初步证明三大解释路径",
+            "明确指出现有试点重管理轻确权的局限并直接对应本文切入点"
+          ],
+          "weaknesses": [
+            "对比较法上数据登记最新立法动态的学术对话略显单薄",
+            "部分试点规范引用未深入剖析其背后的法理分歧"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点提炼深度，不涉及数据确权问题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准提炼三类重大争议，构建清晰研究地图，争点结构饱满。",
+          "core_judgment": "论文将既有研究精准组织为登记能力、效力与对象三大争辩脉络，洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "理论界在登记能力、法律效力和登记对象等三类问题上出现重大争议",
+            "支持限定说的学者主张...然而，支持扩大说的学者立足于多层次法律架构"
+          ],
+          "strengths": [
+            "争点提炼清晰，将文献梳理转化为三大核心争议结构",
+            "对立立场呈现充分，如登记生效与对抗、限定与扩大说"
+          ],
+          "weaknesses": [
+            "初步证明进路等部分流派虽提及但未充分展开其理论脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评制度方案本身之创新性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.15899610519409,
+        "glm-5.1": 70.6632969379425
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“能力审查—效力配置—内容模块化”的数据登记制度框架。",
+          "core_judgment": "框架概念清晰、步骤可循，全面转化为可操作的立法与裁判指引，建构力成立且突出。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。框架以登记能力为起点，明确效力二分规则，并输出模块化要素表，具备高度可操作性与制度转化力。",
+          "evidence_quotes": [
+            "首次登记发挥权利推定效力，流转登记发挥对抗效力。宜以登记对抗为原则",
+            "登记机构通过对数据物理特征、样本存证和权属状况记载，实现客体特定化"
+          ],
+          "strengths": [
+            "效力二分规则清晰，首次推定与流转对抗界限明确",
+            "输出登记要素表，提供可直接落地的制度设计方案"
+          ],
+          "weaknesses": [
+            "对抗效力在复杂交易中的举证责任分配可进一步细化",
+            "担保登记与流转登记的体系衔接论证略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了以“首次登记-流转登记”为核心的数据产权登记制度框架，法学转化度极高。",
+          "core_judgment": "该维度高度成立，框架不仅分类清晰，且提供了完整的效力配置规则与登记要素设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "根据登记阶段的差异区分为首次登记和流转登记。首次登记发挥权利推定效力，流转登记发挥对抗效力。",
+            "数据担保登记宜统一发挥对抗效力，均已登记的，按登记先后顺序确定受偿顺位。"
+          ],
+          "strengths": [
+            "提出首次/流转登记的二分法及对应效力规则，分类与判断标准明确",
+            "提供了包含权利类型、排他性强度等要素的模块化登记表，制度设计方案可操作"
+          ],
+          "weaknesses": [
+            "对实质性审查的具体操作流程刻画稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架的成立与法学转化，不评价登记对抗主义论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 64.07026195526123,
+        "glm-5.1": 54.5396728515625
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“功能定位—登记能力—效力选择—制度设计”的严密推理链，核心结论获充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理实质且回应了实务约束，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从登记必要性推至能力与效力，再落地于具体规则，无关键跳步；对效力模式争议及规范依据分歧均作实质性回应并承认立法空白局限。",
+          "evidence_quotes": [
+            "相较于物权登记，数据登记首先体现出非独占性特点，这决定了登记对抗与人的编成主义的正当性。",
+            "在法律就登记的法律效力作出明确规定前，该推定力不对人民法院产生强制约束力。"
+          ],
+          "strengths": [
+            "推理步骤呈递进依赖关系，效力选择与数据非独占性特征严密咬合。",
+            "对登记生效与对抗之争的回应结合交易成本与意思自治，论证扎实。"
+          ],
+          "weaknesses": [
+            "担保登记效力统一的论证稍显简略，未充分展开与既有动产担保体系的衔接。",
+            "部分实务约束（如登记机构审查能力边界）的讨论可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否形成充分支撑及结论是否可辩护推出，不评价制度方案的操作可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，反驳处理扎实，逻辑严密性极佳",
+          "core_judgment": "论文构建了从登记必要性、能力到具体效力模式的完整推理链，结论可辩护推出",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理层层递进，对反对路径有实质性回应并承认局限。",
+          "evidence_quotes": [
+            "登记对抗主义更契合意思自治原则……应当将是否选择登记制度保护的决定权交给当事人",
+            "在现行法律法规并未就数据登记作出明确规定的情况下，登记对抗效力仍是理论上的探讨"
+          ],
+          "strengths": [
+            "推理链层层递进，从必要性到能力再到效力，依赖度高",
+            "对登记生效主义等反对路径进行了扎实的实质性反驳"
+          ],
+          "weaknesses": [
+            "担保登记对抗效力的论证相对简略，与前文流转登记的衔接稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价效力模式推导的逻辑严密性，不评价登记要素表的操作可行性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.79830408096313,
+        "glm-5.1": 53.629600048065186
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应登记效力争议，提出“首次推定+流转对抗”规则，高度契合中国数据市场语境。",
+          "core_judgment": "结论具备强共同体对话度与制度兼容性，可被严肃讨论且具明确立法转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论直面效力争议，结合民法典与试点提出对抗规则，并指明立法路径。",
+          "evidence_quotes": [
+            "理论界在登记能力、法律效力和登记对象等三类问题上出现重大争议",
+            "立法者应通过法律法规的方式，明确规定数据登记的法定机构、登记程序和法律效力"
+          ],
+          "strengths": [
+            "精准定位登记生效与对抗之争，论证充分",
+            "紧密结合中国地方试点与民法典担保体系"
+          ],
+          "weaknesses": [
+            "对登记机构实质审查的行政成本论证稍显理想",
+            "未充分展开登记错误赔偿与救济机制设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度回应学界争议并提出契合现行法秩序的具体登记方案",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，能有效进入学术与实务语境",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "既有研究主张赋予数据登记以转让效力……但在数据交易场景下不再适用",
+            "宜以登记对抗为原则……通过法律、行政法规的方式健全全国统一的数据登记制度体系"
+          ],
+          "strengths": [
+            "明确挑战登记生效主义，论证路径清晰可供反驳",
+            "提出首次登记推定与流转登记对抗的具体制度转化方案"
+          ],
+          "weaknesses": [
+            "登记对抗效力的法定化依赖未来立法，当前仅具理论探讨意义"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受，不评论证逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 61.147698163986206,
+        "glm-5.1": 69.14423394203186
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 75,
+        "glm-5.1": 85
+      },
+      "mean": 80,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文针对数据产权登记提出分阶段立法路径与技术配套方案，延展方向明确且与核心论证紧密衔接。",
+          "core_judgment": "存在真实延展路径，明确指出了现行法空白下的理论局限及未来立法完善的具体方向。",
+          "score_rationale": "原始分75，对应bonus=3。论文明确指出登记对抗效力目前仅为理论探讨，并提出“先试点积累经验、后通过法律法规明确机构与效力”的分阶段立法路径，延展具体可定位，但技术实现细节与跨部门规则衔接的展开仍有限。",
+          "evidence_quotes": [
+            "在现行法律法规并未就数据登记作出明确规定的情况下，登记对抗效力仍是理论上的探讨。",
+            "在市场体量和交易情况更为明朗后，立法者应……通过法律法规的方式，明确规定数据登记的法定机构、登记程序和法律效力。"
+          ],
+          "strengths": [
+            "明确指出当前立法空白与理论局限，避免空泛展望。",
+            "提出“试点先行-立法确认”的渐进式制度完善路径，具实务可操作性。"
+          ],
+          "weaknesses": [
+            "对动态数据存证的技术实现路径仅作原则性提及，缺乏深入论证。",
+            "未充分展开统一登记系统与现有知识产权登记体系的具体规则衔接方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于未来立法推进路径与技术配套方向，属前瞻性制度设计；而非评价当前登记对抗结论在现行法解释下的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文为制度/立法型，在规则衔接、适用边界与实施风险控制上提供了清晰可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，指明了数据登记与知识产权及担保规则的衔接、推定力适用边界及技术风险控制。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。论文属制度/立法型，在登记对抗与担保效力统一、与知识产权体系衔接、推定力适用边界及技术风险控制上延展路径清晰，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "若登记对象属于著作权或专利权客体的，可以适用既有知识产权登记体系……若登记对象的知识产权属性较弱的，则建立统一的数据登记系统。",
+            "首次登记的推定力并不适用于数据自然状况的记载，而只适用于与权利有关的部分。"
+          ],
+          "strengths": [
+            "明确指出了数据登记与既有知识产权体系的规则衔接路径。",
+            "划定了首次登记权利推定效力的适用边界，并延伸至技术风险控制。"
+          ],
+          "weaknesses": [
+            "结语部分稍显宏观，未进一步细化立法推进的具体争点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "数据登记与知识产权体系的衔接及立法推进属于未来制度完善方向，而非当下登记效力能否被接受的结论问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 77.85560011863708,
+        "glm-5.1": 43.90440392494202
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.9,
+    "max_std": 7.1,
+    "weighted_total": 89.8,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 6.43,
+    "worst_dimension": "forward_extension",
+    "worst_std": 7.1
+  }
+}
