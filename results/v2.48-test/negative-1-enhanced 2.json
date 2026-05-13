@@ -1,0 +1,486 @@
+{
+  "framework": "configs/frameworks/law-v2.47-20260511.yaml",
+  "framework_version": "2.47.0",
+  "paper": "raw/sample/负样本/对外援助立法论纲_曹俊金.pdf",
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "v2.48_enhanced": true,
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 40,
+        "qwen3.6-plus": 45
+      },
+      "mean": 42.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "全文为立法技术与制度梳理，缺乏可争辩的法学问题。",
+          "core_judgment": "论文属教科书式立法论纲，无法学层面的争辩点与问题句。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未单独触发上限，但受致命缺陷与无可争辩问题规则双重限制，锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "学界关于制定对外援助法的必要性已经形成广泛的理论共识",
+            "当前关于如何制定对外援助法缺乏全面、系统、深入的研究"
+          ],
+          "strengths": [
+            "涉及涉外法治与领域法交叉，有一定制度广度"
+          ],
+          "weaknesses": [
+            "纯立法政策倡导，无法学规范解释争点",
+            "术语与范围讨论属立法技术，非理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确法学问题句，仅为'如何制定法'的立法技术梳理"
+            },
+            {
+              "rule_id": "problem_originality.textbook_compilation",
+              "rule": "教科书式梳理上限60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文结构为历史-现状-定位-重点问题，属制度归纳与立法对策梳理"
+            }
+          ],
+          "boundary_note": "本维度只评法学问题是否成立且重要，不评立法对策是否合理或论证是否严密。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文系对外援助立法纲要，侧重制度梳理与立法技术，缺乏明确可争辩的法学问题。",
+          "core_judgment": "论文以政策倡导与立法技术归纳为主，未提出具理论分歧的法学争点，问题创新性不足。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性未触发上限，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "当前关于如何制定对外援助法缺乏全面、系统、深入的研究",
+            "对外援助法应将“对外援助”作为基本术语"
+          ],
+          "strengths": [
+            "系统梳理援外立法历史与规范基础"
+          ],
+          "weaknesses": [
+            "结构呈教科书式归纳，缺乏明确问题句"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "fatal_defect.textbook_summary",
+              "rule": "教科书式梳理，缺乏问题导向",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文主要为立法技术与制度归纳，无明确争点"
+            },
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，无明确法学问题句",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "通篇为政策倡导与立法框架设计"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 77.43678331375122,
+        "qwen3.6-plus": 89.37130379676819
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 58,
+        "qwen3.6-plus": 80
+      },
+      "mean": 69,
+      "std": 15.6,
+      "confidence": "critical",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "三要素完整但缺乏法学争点结构与流派对话，比较法案例简单列举未深度剖析。",
+          "core_judgment": "研究地图清晰但仅呈现共识与不足，未组织法学对立争辩脉络，案例罗列缺深度剖析。",
+          "score_rationale": "三要素=6/6，争点结构=0/2，法学流派=0个，锚定marginal档，触发致命缺陷4与流派覆盖不足上限60，给58分",
+          "evidence_quotes": [
+            "学界关于制定对外援助法的必要性已经形成广泛的理论共识",
+            "当前关于如何制定对外援助法缺乏全面、系统、深入的研究"
+          ],
+          "strengths": [
+            "三要素完整，精准提炼学界共识与具体研究缺口",
+            "未竟点与切入点高度对应，问题意识清晰"
+          ],
+          "weaknesses": [
+            "缺乏法学流派对话，未呈现理论或解释路径分歧",
+            "比较法案例多为立法例佐证，未深度剖析法理差异"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.simple_listing",
+              "rule": "致命缺陷4：案例与数据简单罗列，未进行深度剖析或实证支撑",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "比较法部分仅罗列美英加丹韩等国术语选择与模式，未剖析法理逻辑差异"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1，缺少争点结构且流派覆盖不足",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文仅呈现学界共识与不足，无对立争辩脉络，无法学流派识别"
+            }
+          ],
+          "boundary_note": "评文献梳理深度与争点结构，不评立法方案本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒对外援助立法研究脉络，精准定位既有共识与制度空白，提出系统性立法框架。",
+          "core_judgment": "研究地图完整，争点结构清晰，文献定位与立法论证深度融合，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学界关于制定对外援助法的必要性已形成共识，但如何制定缺乏系统研究",
+            "学界关于对外援助的发展目的和发展效果存在争议，客观上促进受援方发展"
+          ],
+          "strengths": [
+            "三要素完整闭环，精准锚定立法空白",
+            "争点结构立体，涵盖术语、范围与体制分歧"
+          ],
+          "weaknesses": [
+            "流派识别偏重政策实效争议，法理对立脉络稍弱",
+            "部分制度设计依赖比较经验，本土理论交锋不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦立法基础与制度空白梳理，属文献定位与争点呈现，非问题创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 105.33444786071777,
+        "qwen3.6-plus": 66.40293192863464
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 55,
+        "qwen3.6-plus": 45
+      },
+      "mean": 50,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文属立法论纲，以政策阐释和议题罗列为主，缺乏原创分析框架。",
+          "core_judgment": "框架仅为立法功能与重点议题的提纲式罗列，未形成可重复适用的分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=2/4（有概念界定和分类，无分析步骤），法学转化度得分=1/4（仅政策映射，无操作化转化），触发政策梳理型上限，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "对外援助法应当具有宣示、规范、协调、保障、统筹等功能",
+            "重点关注援外术语选择、法律适用范围、援外法际协调……等议题"
+          ],
+          "strengths": [
+            "对外援助概念界定清晰，分类标准明确。",
+            "提出了具体的立法建议和制度设计方案。"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的分析步骤或判断标准。",
+            "理论概念仅作正当性阐释，未转化为法学分析工具。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_summary",
+              "rule": "政策理论梳理型识别规则：框架可操作性上限2，法学转化度上限1，总分上限60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释权威表述为主，核心为立法功能与议题罗列，无原创分析框架。"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用，不评立法建议的具体内容是否合理或逻辑严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属政策立法论纲，以议题罗列与制度梳理为主，缺乏可重复适用的分析框架与法学操作步骤。",
+          "core_judgment": "框架未脱离政策阐释与立法提纲范畴，不具备独立分析工具的建构力。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给45分。全文以政策立场归纳与立法议题梳理为主，核心术语缺乏明确定义与分类边界，无步骤化分析流程，制度建议未转化为可操作的法学适用指引。",
+          "evidence_quotes": [
+            "对外援助法是对外援助法律体系的基本法、涉外法律体系的重要组成",
+            "现阶段可重点关注以下方面：术语选择、法律适用范围、法际协调、管理体制、项目管理、公共关系"
+          ],
+          "strengths": [
+            "立法议题划分清晰，结构完整覆盖援外法制核心环节",
+            "制度设计建议具体，如项目管理框架与协调机制方案"
+          ],
+          "weaknesses": [
+            "核心概念依赖既有政策表述，缺乏原创性界定与类型化",
+            "全文为立法提纲式罗列，无步骤化分析流程与裁判指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以政策立场归纳与立法议题罗列为主，无明确分类标准与可循分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及立法论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 108.7924599647522,
+        "qwen3.6-plus": 88.2901291847229
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "glm-5.1": 88,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整严密，反驳处理充分，逻辑连贯无脱节。",
+          "core_judgment": "本文逻辑严密性成立，从必要性、基础、定位到立法重点形成完整支撑链条，结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "若采用'国际发展合作'作为基本术语，不仅需全面修订所有对外援助法律文件……将产生巨大的制度适配成本。",
+            "除了本文讨论的问题之外，还有诸多问题有待进一步研究。如，对外援助法的立法模式……"
+          ],
+          "strengths": [
+            "推理链紧密：从立法基础到基本定位再到立法重点，层层递进，无两张皮现象。",
+            "反驳实质：对术语分歧、范围争议给出详实论证回应，非简单罗列。"
+          ],
+          "weaknesses": [
+            "部分历史论证稍长，与当代制度推导的关联偶有松散。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价从基础到重点的推导链条是否严密，不评价所提管理体制等方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑严密，推理链条完整，对核心争议与适用边界有充分回应。",
+          "core_judgment": "逻辑严密性成立，论证遵循“基础—定位—功能—制度”的递进结构，结论可由前文充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证层层递进，无关键跳步，且对术语争议、适用范围及自身局限均有实质性回应。",
+          "evidence_quotes": [
+            "对外援助法可填补对外援助法律体系缺乏综合性、统筹性法律的空白，成为这一体系的基本法。",
+            "不宜将民间援助直接纳入适用范围……政府援助与民间援助在援助目标、资金等方面存在较大差异"
+          ],
+          "strengths": [
+            "推理链条完整，从立法基础到功能定位再到具体制度设计层层递进。"
+          ],
+          "weaknesses": [
+            "部分制度建议（如独立实施机构）的论证略显简略，依赖政策导向。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的支撑力与结论推导过程，而非立法方案的具体可操作性或政策偏好。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 54.80883193016052,
+        "qwen3.6-plus": 57.21539568901062
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "glm-5.1": 90,
+        "qwen3.6-plus": 92
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文结论在共同体对话与制度语境中高度可接受，给出了具体立法方案。",
+          "core_judgment": "结论明确回应学界争论与制度约束，提出了可定位、可反驳的具体立法主张。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界关于制定对外援助法的必要性已经形成广泛的理论共识。然而，当前关于如何制定对外援助法缺乏全面、系统、深入的研究",
+            "对外援助法应将‘对外援助’作为基本术语……若采用‘国际发展合作’作为基本术语，不仅需全面修订所有对外援助法律文件……将产生巨大的制度适配成本"
+          ],
+          "strengths": [
+            "结论回应了术语与范围等核心争论，反对者可清晰反驳",
+            "制度约束回应充分，如行政处罚限制、机构配置剪刀差"
+          ],
+          "weaknesses": [
+            "部分立法建议（如独立实施机构）偏理想化，实务落地难度大"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证逻辑严密性或未来延展性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论立足中国援外实践与涉外法治需求，系统回应立法争议并提出具体制度方案，高度契合现行法秩序。",
+          "core_judgment": "该维度完全成立，结论具备强共同体对话能力与制度落地兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "学界关于制定对外援助法的必要性已形成共识，但当前缺乏全面系统研究",
+            "建议将‘对外援助’作为基本术语，不宜将民间援助直接纳入适用范围"
+          ],
+          "strengths": [
+            "精准定位既有学术争论与立法空白",
+            "制度设计紧密衔接《对外关系法》及现行规章"
+          ],
+          "weaknesses": [
+            "部分配套立法授权路径的实操性论证稍显简略",
+            "对地方援外职责的纵向协调机制探讨可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下可接受性，非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 45.54157519340515,
+        "qwen3.6-plus": 46.660934925079346
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 70,
+        "qwen3.6-plus": 72
+      },
+      "mean": 71,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "明确提出立法模式、篇章体系、制度体系建构三个后续研究方向，但精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了制度深化方向，但路径展开有限。",
+          "score_rationale": "原始分70，bonus档位3（60-79档）。文章明确提出立法模式、篇章体系、制度体系建构三个具体后续研究问题，与正文核心结论紧密衔接，但仅指出方向未展开争点，精细度有限。",
+          "evidence_quotes": [
+            "如，对外援助法的立法模式决定立法的宏观方面……我国应当采用何种模式，需要结合立法需求、立法环境、立法成本、立法能力等因素综合确定。",
+            "再如，对外援助法的篇章体系结构是否合理……形成何种篇章体系结构，需要在总结现有对外援助法律文件、遵循当前对外援助制度逻辑基础上加以提炼和型塑。"
+          ],
+          "strengths": [
+            "明确指出立法模式、篇章体系、制度体系三个后续制度深化方向",
+            "延展路径与正文核心结论紧密衔接"
+          ],
+          "weaknesses": [
+            "延展路径仅指出研究方向，未展开具体争点或细化路径",
+            "结尾存在意义拔高表述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "立法模式与篇章体系建构属于未来立法需解决的制度深化方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结尾明确列出立法模式选择、篇章体系型塑与制度体系建构三项具体后续研究议题，延展路径清晰且与立法论纲定位紧密衔接。",
+          "core_judgment": "存在真实延展路径，聚焦立法技术层面的未决争点，非空泛展望。",
+          "score_rationale": "原始分72，按协议映射为bonus=3。结尾明确列出立法模式、篇章体系与制度建构三项具体待研议题，与论纲定位紧密衔接，但缺乏初步假设与检验路径，精细度有限。",
+          "evidence_quotes": [
+            "除了本文讨论的问题之外，还有诸多问题有待进一步研究。如，对外援助法的立法模式……我国应当采用何种模式",
+            "对外援助法律制度体系是对外援助法的内核……如何建构全面、科学、协调、高效的对外援助制度体系"
+          ],
+          "strengths": [
+            "精准锚定立法模式、篇章结构与制度体系三大后续争点，契合论纲体裁。",
+            "明确排除军事援助、单列紧急人道援助等边界，为后续配套立法预留接口。"
+          ],
+          "weaknesses": [
+            "延展议题属立法常规技术层面，缺乏对潜在制度冲突或实施风险的预判。",
+            "未就所列待研问题提供初步假设或检验路径，精细度与可操作性稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估立法模式选择、篇章结构等未来待解议题的指向性，不涉及当前立法建议的学理共识度或规范可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 51.18278694152832,
+        "qwen3.6-plus": 62.244312047958374
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 5.3,
+    "max_std": 15.6,
+    "weighted_total": 64.7,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 1.37,
+    "worst_dimension": "literature_insight",
+    "worst_std": 15.6
+  }
+}

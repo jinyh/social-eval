@@ -1,0 +1,540 @@
+{
+  "framework": "configs/frameworks/law-v2.48-20260512.yaml",
+  "framework_version": "2.48.0",
+  "paper": "raw/calibration-regression/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（全角/半角字符混排、特殊符号如瑏瑠）",
+          "期刊页码与脚注编号混入正文段落",
+          "末尾英文摘要与参考文献列表抽取不完整"
+        ],
+        "evidence_quotes": [
+          "· ２ ０ １ ·",
+          "① 参见Ｒ．Ｓ．Ｓｕｍｍｅｒｓ",
+          " 瑏 瑠"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "当代中国司法理论界和实务界正呈现出一种新的景象：理论上的司法人文关怀以及实践中的司法改革，共同推进和培育中国特色社会主义司法文明。",
+          "既往的司法经验告诉我们，这一正当性／合法性机制必须根植于中国独特的国情基础上，置国情不顾而简单地照抄照搬无异于缘木求鱼。",
+          "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入“同理心正义”理论……当下中国亟需建构的司法正义原则完全可以理解为……",
+          "中国语境中的同理性正义，可以从以下几方面理解：第一，多样化、本土化正义。……第二，韧性、细腻、周全的正义情感。……第三，互利共赢的“化解”的正义。……第四，超越程序正义的承认合法性正义。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR识别残留与页码/脚注混排，但不影响核心论点定位与评审"
+      ],
+      "evidence_quotes": [
+        "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求，显现出一种亲社会性的公共理性，可成为这一难题的破解之道。",
+        "同理心正义的理论趣旨和目标追求是现代正义理论的超越性尝试：它以“人际”为分析单位，正义不仅是调节分配物质、利益的“分的正义”，也是一种韧性、细腻、周全的正义情感，还是一种互利共赢、亦此亦彼的人际／共在正义，其中，利益为其阿基米德支点，以移情为认知机制的承认合法型正义。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文高度契合项目口径，以中国司法实践中的多元诉求整合与裁判正当性难题为切入点，将心理学/现象学的“同理心”概念转化为中国法理学语境下的“同理心正义”理论命题，具备明确的理论转化与可复核性。文本存在轻微OCR与排版残留，属低风险，建议直接通过预检并进入六维评分阶段。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码倒排混入正文（如·２０１·、·３０１·等）",
+          "脚注编号及内容与正文严重混杂，缺乏分隔",
+          "文末错误混入其他文章的英文摘要及目录信息（如(5) The Topic of Social Policy... (7) The Application of Judicial Methods...）"
+        ],
+        "evidence_quotes": [
+          "·２０１·",
+          "①　本文为国家司法文明协同创新中心...",
+          "(5) The Topic of Social Policy in the New Normal Economy Wang Sibin..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "当代中国司法理论界和实务界正呈现出一种新的景象：理论上的司法人文关怀以及实践中的司法改革，共同推进和培育中国特色社会主义司法文明。",
+          "正当性／合法性机制必须根植于中国独特的国情基础上，置国情不顾而简单地照抄照搬无异于缘木求鱼。",
+          "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求，显现出一种亲社会性的公共理性，可成为这一难题的破解之道。",
+          "同理心正义的运作机理：移情联想，查明事实；位阶排序，维护社会生活的基本秩序；反思权衡，互相求证；理由优化，构筑和巩固共识。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：期刊页码倒排、脚注与正文混杂、其他文章英文摘要混入，需在后续评分阶段注意清洗隔离，不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "正当性／合法性机制必须根植于中国独特的国情基础上",
+        "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文明确以中国司法实践难题为中心，提出了可争辩的法学问题，并将西方现象学、心理学及伦理学理论与中国传统“忠恕之道”“情理法”文化资源相结合，成功转化为“同理心正义”这一法学分析工具和可复核命题，完全符合进入六维评价的口径。文本存在页码倒排、脚注混入及跨文章摘要混入等工程质量问题，但不影响核心论点与结构的定位，建议在进入正式评分前进行文本清洗，剥离无关摘要与乱码页码。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 85
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出以同理心正义破解司法公正困境，问题明确且具核心法理价值。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，成功将跨学科概念转化为法理争点，锚定优秀档。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求，可成为这一难题的破解之道。",
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效，应转而寻求一种正义的首要原则作为法律责任的基础。"
+          ],
+          "strengths": [
+            "明确聚焦司法公正的正当性基础，提出可争辩的法哲学命题。",
+            "深度介入形式理性与实质理性的经典法学争论，枢纽性强。"
+          ],
+          "weaknesses": [
+            "问题表述偏宏大，对具体制度落地的规范命题推进稍显抽象。",
+            "心理学概念引入较多，与部门法教义学衔接的论证密度可进一步强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文触及法哲学核心争点，将同理心正义作为司法公正基础，问题成立且重要。",
+          "core_judgment": "问题成立且枢纽性强，涉及司法正当性基础与形式/实质法治之争，属法哲学核心议题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "同理心正义是否能经受住现代法律理性、客观性即科学性的考量？",
+            "既要最大限度满足各方的诉求……又要做到司法公正，显然需要最大限度整合各种诉求的正当性机制和理据"
+          ],
+          "strengths": [
+            "触及形式法治与实质法治长期核心争点",
+            "将同理心引入司法公正基础，问题设定有理论推进"
+          ],
+          "weaknesses": [
+            "开篇问题句略显主张式，可争辩性呈现稍滞后",
+            "问题宏大，聚焦度略有不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 63.15498971939087,
+        "glm-5.1": 42.320805072784424
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的法理争点地图，精准锚定形式与实质法治、机械与社会学司法等核心分歧，并有效引入跨学科视角。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构立体，流派识别丰富，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "其正义的基本形象呈现出超越机械司法／形式理性，而迈向现代性反思后的社会学司法／实践理性的正义",
+            "程序正义只是正义的一种尺度，实质正义才是正义的核心组成。同理心正义正是这样的尝试"
+          ],
+          "strengths": [
+            "精准提炼形式法治与实质法治、机械司法与社会学司法的对立脉络，争点结构清晰。",
+            "将认知心理学、现象学与法理学交叉融合，有效拓展了既有研究的解释路径。"
+          ],
+          "weaknesses": [
+            "部分跨学科文献的法学转化论证稍显抽象，与本土司法实践的衔接可更紧密。",
+            "对既有程序正义理论的批判虽深刻，但对其制度性优势的吸纳与扬弃论述略欠平衡。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点提炼的完整性，不涉及同理心正义命题本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文呈现清晰研究地图，三要素充分，争点结构明确，法学流派识别充分。",
+          "core_judgment": "本维成立，现状洞察度优秀。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "超越机械司法／形式理性，而迈向现代性反思后的社会学司法／实践理性的正义",
+            "认知心理学研究告诉人们，这些问题的解决完全可以依靠换位思考、将心比心的同理心"
+          ],
+          "strengths": [
+            "研究地图三要素充分，明确指出未竟点和切入点",
+            "争点结构清晰，呈现机械司法vs社会学司法等多个对立"
+          ],
+          "weaknesses": [
+            "部分文献引用罗列观点，缺乏深度分析评价",
+            "法学流派对立如法律道德主义vs分离论未明确展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理深度和争点结构，不评问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 67.91020011901855,
+        "glm-5.1": 124.00415897369385
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“四步运作机理”分析框架，完成跨学科概念的法学转化，理论建构力强。",
+          "core_judgment": "框架概念清晰、步骤可循且后文充分调用，符合理论型论文转化标准，分析框架建构力成立且表现优异。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。理论推演完整，四步机理实现心理学概念的法学操作化，契合理论型论文宽松转化标准。",
+          "evidence_quotes": [
+            "同理心正义的如下司法实践运作机理：第一，移情联想，查明事实。第二，位阶排序，维护社会生活的基本秩序。第三，反思权衡，互相求证。第四，理由优化，构筑和巩固共识。",
+            "同理心正义理论的建立以现实生活为基础……强调情感的认知意义，情感和理性的双重加工理论，‘召唤逻辑的法则，维护常识的权利。’"
+          ],
+          "strengths": [
+            "提出“四步运作机理”，将心理学移情概念清晰转化为司法推理步骤。",
+            "明确界定理论适用边界与局限，完成跨学科概念的法学操作化重构。"
+          ],
+          "weaknesses": [
+            "缺乏具体裁判案例的逐步推演验证，框架的实务检验略显不足。",
+            "部分步骤（如位阶排序）的法学判断标准仍偏抽象，需进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及逻辑严密性与问题创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "将同理心转化为四步司法运作机理，框架可操作且法学转化度高。",
+          "core_judgment": "框架建构力成立，成功将跨学科概念转化为可操作的法学分析步骤并界定适用边界。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。四步机理清晰可循，跨学科概念有效转化为司法运作步骤及适用边界。",
+          "evidence_quotes": [
+            "同理心正义的司法实践运作机理：第一，移情联想...第二，位阶排序...第三，反思权衡...第四，理由优化...",
+            "同理心正义的局限性：缺乏完整性...有偏见之嫌...可能鼓励人们以一种特别的方式看待中国的形式法治..."
+          ],
+          "strengths": [
+            "提出了清晰的四步运作机理，将心理学移情转化为司法分析步骤。",
+            "明确界定了同理心正义的适用边界与局限性，理论转化完整。"
+          ],
+          "weaknesses": [
+            "四步机理在后文多为理论阐释型调用，缺乏具体案例的逐步实操验证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与法学转化，不评理论推演的逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.86587500572205,
+        "glm-5.1": 42.5373010635376
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了从司法困境到同理心正义的完整理论推演链，逻辑严密且反驳充分。",
+          "core_judgment": "推理链完整且高度依赖前序论证，核心结论可由语境分析与跨学科理论充分支撑，反驳与局限处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。主线推演严密，跨学科论证有效支撑核心命题，且对质疑与局限有实质性回应。",
+          "evidence_quotes": [
+            "“既要最大限度满足各方的诉求……应转而寻求一种正义的首要原则”",
+            "“不可否认，同理心正义在收获其可能的理论贡献的同时也有其理论的局限性。”"
+          ],
+          "strengths": [
+            "推理链条完整，从现实困境到理论引入再到机制构建层层递进。",
+            "充分回应“缺乏科学性”质疑，并明确承认理论的适用边界与局限。"
+          ],
+          "weaknesses": [
+            "心理学概念向法学制度转化的中间论证略显抽象，缺乏具体程序载体。",
+            "部分段落引证密集，对核心概念的推演节奏偶有被文献堆砌打断之感。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估概念推演与结论支撑的逻辑闭环，不评价该理论框架在司法实务中的可操作性或制度落地难度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链完整，反驳处理充分，逻辑严密性较高。",
+          "core_judgment": "推理链形成充分支撑，结论可辩护推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论",
+            "不可否认，同理心正义在收获其可能的理论贡献的同时也有其理论的局限性"
+          ],
+          "strengths": [
+            "推理步骤清晰，依赖度高",
+            "反驳处理充分，承认局限"
+          ],
+          "weaknesses": [
+            "局部过渡论证稍简",
+            "对策具体性偏理论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链支撑，不评框架可操作或结论可接受性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 61.1537709236145,
+        "glm-5.1": 63.825653076171875
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 88
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论回应形式与程序正义之争，立足中国语境提出同理心正义，并承认局限，可接受性高。",
+          "core_judgment": "该结论深度嵌入法学争论与中国司法语境，主张清晰可辩，与现行法秩序兼容，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定理论论文excellent档，给85分",
+          "evidence_quotes": [
+            "同理心正义理论的建立以现实生活为基础，而不只是停留在抽象的制度和规则上",
+            "不可否认，同理心正义在收获其可能的理论贡献的同时也有其理论的局限性"
+          ],
+          "strengths": [
+            "精准定位形式/程序正义之争，提出可被反驳的具体主张",
+            "充分结合中国情理法传统与当代司法语境，避免理论悬浮"
+          ],
+          "weaknesses": [
+            "对同理心在复杂诉讼程序中的具体操作边界论述仍偏抽象",
+            "未充分展开该理论与现行证据规则及裁判说理机制的衔接"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论充分回应共同体争论与中国语境，主动承认局限，制度兼容性强。",
+          "core_judgment": "结论在理论层面成功进入共同体对话，且与中国法秩序逻辑高度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "同理心正义……能够从中国当下中国社会伦理和文化资源出发，建构多元、复杂、本土化的正义理论和实践",
+            "不可否认……同理心正义也有其理论的局限性……难免有偏见之嫌"
+          ],
+          "strengths": [
+            "主动承认并深入讨论了同理心正义的偏见与局限",
+            "深度结合中国德治传统与司法国情展开论证"
+          ],
+          "weaknesses": [
+            "对同理心正义如何防范司法擅断的制度约束回应稍显原则化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价结论的可接受性与对话性，不评价论证逻辑严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.00718903541565,
+        "glm-5.1": 44.172162771224976
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 65,
+        "glm-5.1": 65
+      },
+      "mean": 65,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文明确承认理论局限并提出后续深化方向，但路径精细度有限。",
+          "core_judgment": "存在真实延展路径，聚焦于克服移情偏见、完善理论体系及培育职业与公众宽容。",
+          "score_rationale": "原始分65，对应bonus=3档。文末明确承认移情偏见与理论非系统性局限，指出通过道德社会化与培育职业/公众宽容作为后续方向，路径清晰但精细度有限。",
+          "evidence_quotes": [
+            "移情偏见完全是可以得到降低、悬置甚至克服的，当然，这也非一蹴而就。",
+            "需要一批具备良好职业素养的法律人和社会大众的宽容作核心支撑，并无疑也是我们继续努力完善的基本方向。"
+          ],
+          "strengths": [
+            "明确承认移情偏见与理论缺乏系统性等具体局限",
+            "指出通过道德社会化与职业/公众宽容建设作为后续深化路径"
+          ],
+          "weaknesses": [
+            "延展方向偏宏观，未细化具体研究问题或概念修正方案",
+            "部分表述如“继续努力完善”略显泛化，缺乏操作化设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估该理论未来如何克服局限并深化，不涉及当下结论能否被法学共同体接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在承认同理心正义局限的基础上，指出了通过道德社会化克服移情偏见、通过提升法律人素养防范冲击形式法治等延展方向。",
+          "core_judgment": "存在基于正文局限性的明确延展路径，但路径精细度与展开程度有限。",
+          "score_rationale": "原始分65，属good档(bonus=3)。论文明确承认同理心正义的三项局限，并针对移情偏见与形式法治冲突指出了道德社会化与法律人素养的修正方向，路径可定位但展开有限。",
+          "evidence_quotes": [
+            "通过加强移情力量的建设性作用以及道德社会化建设…移情偏见完全是可以得到降低、悬置甚至克服的",
+            "需要一批具备良好职业素养的法律人和社会大众的宽容作核心支撑，并无疑也是我们继续努力完善的基本方向"
+          ],
+          "strengths": [
+            "清晰承认理论局限（常识零散性、移情偏见、冲击形式法治），为后续研究提供真实切入点"
+          ],
+          "weaknesses": [
+            "延展路径（如道德社会化机制）仅作原则性提及，缺乏具体的概念修正或检验方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文指出的“需要法律人素养支撑”属于未来如何完善制度与实践的条件，而非当下同理心正义理论本身能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 61.610328912734985,
+        "glm-5.1": 53.42400598526001
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.6,
+    "max_std": 4.9,
+    "weighted_total": 86.6,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 7.4,
+    "worst_dimension": "literature_insight",
+    "worst_std": 4.9
+  }
+}

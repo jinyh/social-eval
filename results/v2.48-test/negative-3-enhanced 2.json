@@ -1,0 +1,466 @@
+{
+  "framework": "configs/frameworks/law-v2.47-20260511.yaml",
+  "framework_version": "2.47.0",
+  "paper": "raw/sample/负样本/论新质生产力区域协调发展的法治化之道_黄茂钦.pdf",
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "v2.48_enhanced": true,
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 45,
+        "qwen3.6-plus": 60
+      },
+      "mean": 52.5,
+      "std": 10.6,
+      "confidence": "low",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以新政策概念归纳既有法治现象，缺乏法学争辩点。",
+          "core_judgment": "核心问题属于政策治理议题，无法学层面的可争辩性，问题不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性触发上限70，致命缺陷触发上限60，可争辩性≤1触发上限50，取最低上限50，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "如何确保新质生产力实现区域协调发展乃是一项需要政府与市场合力而治的‘巨大的社会工程’",
+            "建立健全区域协调发展法律法规体系就是一个十分重要的‘法治化’工作"
+          ],
+          "strengths": [
+            "体系化梳理了区域经济法治的规范结构与定位"
+          ],
+          "weaknesses": [
+            "缺乏法学层面的可争辩问题",
+            "沦为政策文件的法治化归纳与倡导"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心问题为政策治理议题，无法学争辩点"
+            },
+            {
+              "rule_id": "problem_originality.textbook_compilation",
+              "rule": "教科书式梳理，缺乏法学争辩点，上限60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文为概念-现状-问题-对策结构，梳理法治化内涵与定位"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述是否充分及论证是否严密。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 60,
+          "band": "good",
+          "summary": "论文系统梳理新质生产力区域协调发展的法治路径，但缺乏明确法学争辩点。",
+          "core_judgment": "问题属政策导向的宏观制度归纳，未提炼可争辩的核心法学命题，创新性受限。",
+          "score_rationale": "可争辩性=2/4，枢纽性=3/4，材料新颖性已触发上限，锚定good档，受教科书式梳理缺陷限制上限60分，给60分。",
+          "evidence_quotes": [
+            "如何确保新质生产力实现区域协调发展乃是一项需要政府与市场合力而治的'巨大的社会工程'，需要得到法治的积极回应。",
+            "新质生产力区域协调发展的法治化既是一个具有时代性的现实问题，也是一个具有创新性的学理问题。"
+          ],
+          "strengths": [
+            "系统整合软硬法协同机制，具宏观制度视野。",
+            "准确定位议题在宪法与经济法中的规范坐标。"
+          ],
+          "weaknesses": [
+            "呈'现状-对策'结构，缺乏明确法学争辩句。",
+            "过度依赖新概念，实为既有法治框架套用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.textbook_synthesis",
+              "rule": "教科书式梳理：全文主要是对既有理论或政策的系统归纳，缺乏问题导向学术研究",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "结构为典型'概念-现状-问题-对策'，主要梳理政策沿革与制度框架，无明确可争辩的法学问题句。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 72.74903607368469,
+        "qwen3.6-plus": 91.49500918388367
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 58,
+        "qwen3.6-plus": 88
+      },
+      "mean": 73,
+      "std": 21.2,
+      "confidence": "critical",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文简单罗列观点和数据，未深度剖析，缺乏争点结构。",
+          "core_judgment": "现状洞察度不足，因简单列举触发上限，且缺乏争点结构和法学流派。",
+          "score_rationale": "三要素得分=4/6，争点结构=0/2，法学流派=0个，锚定marginal档，给58分",
+          "evidence_quotes": [
+            "有学者将新质生产力区域协调发展面临的问题归纳为如下四个方面",
+            "我国新质生产力水平从区域来看呈现‘东部领先，中部和西部居中，东北落后’的分布格局"
+          ],
+          "strengths": [
+            "未竟点明确指出既有法治方案不足"
+          ],
+          "weaknesses": [
+            "案例与数据简单罗列，未深度剖析",
+            "缺乏争点结构和法学流派"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.simple_listing",
+              "rule": "致命缺陷4：简单列举，案例与数据简单罗列，未深度剖析",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "论文罗列经济学观点和数据，未进行深度剖析或实证分析"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理深度，不评问题创新性或论证严密性",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "系统梳理新质生产力区域发展的经济实证与法治回应，精准定位既有法治局限，构建协同路径。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，三要素高度契合，文献洞察度表现优异。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "既有的法治方案已不能充分有效地解决如何实现区域间新质生产力优化配置",
+            "现代法治体系中逐步融入了更多的协商民主因素、更多的柔性规制举措、更多的软法治理方案"
+          ],
+          "strengths": [
+            "分散式文献定位精准，经济实证与法学理论深度融合",
+            "明确指出现有法治供给短板，未竟点与本文切入点严密对应"
+          ],
+          "weaknesses": [
+            "对域外区域法治经验的比较分析略显概括，未深入展开制度移植争议",
+            "部分经济学实证数据引用较多，法学教义学层面的争点交锋可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有法治方案局限与规范结构分歧，属文献定位与争点梳理，非单纯问题创新。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 61.75075888633728,
+        "qwen3.6-plus": 66.07808327674866
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "glm-5.1": 55,
+        "qwen3.6-plus": 45
+      },
+      "mean": 50,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出“差序联动”等概念，但缺乏可操作的分析步骤与具体的法学转化方案。",
+          "core_judgment": "框架以政策阐释和宏观归纳为主，未形成可重复适用的分析步骤或裁判/制度操作指引，法学转化度低。",
+          "score_rationale": "框架可操作性得分=2/4（有概念界定和后文调用，无分类边界和操作步骤），法学转化度得分=1/4（仅有宏观宪法功能阐释，无具体制度方案），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "“差序联动”运行机制呈现软硬兼济的运行状态",
+            "“主体－行为－程序－责任”的理论框架...尚未有针对性地围绕新质生产力展开"
+          ],
+          "strengths": [
+            "提出了“差序联动”和“软性法治”作为核心描述概念",
+            "对宪法第15条的促进性与限禁性功能进行了映射阐释"
+          ],
+          "weaknesses": [
+            "核心框架仅为宏观描述，缺乏步骤化的操作标准",
+            "法学转化停留在政策呼吁，未提供具体制度设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架的可操作性与法学转化，不评政策梳理的逻辑连贯性或议题新颖性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，缺乏原创分析框架与可操作步骤，法学转化度低。",
+          "core_judgment": "框架未提供可重复适用的分析步骤或裁判规则，仅作主题归纳与政策阐释。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给45分。受v0.7协议限制，梳理型论文框架上限为2/1。",
+          "evidence_quotes": [
+            "“法治化至少可以从以下六个基本的维度加以理解”",
+            "“以构建差序联动的区域经济法治体系为引领”"
+          ],
+          "strengths": [
+            "按“内涵-定位-实践-路径”逻辑展开，结构清晰完整",
+            "引入“差序联动”等概念尝试描述区域法治实践样态"
+          ],
+          "weaknesses": [
+            "核心概念无操作化定义，未转化为可重复适用的分析步骤",
+            "以归纳政策表述为主，缺乏裁判规则或具体制度设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，缺乏明确定义与分析步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释既定政策立场为主，未提出原创分析框架或可操作步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 122.16574001312256,
+        "qwen3.6-plus": 71.82979416847229
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "glm-5.1": 85,
+        "qwen3.6-plus": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链完整，问题检视与解决方案紧密对应，逻辑严密无脱节。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文可辩护地推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "一般的探讨思路是从法治运行的各个环节……但这两种考察路径尚未有针对性地围绕新质生产力这一焦点展开。",
+            "但这并不意味着不能够采取有效的治理措施……来实现力所能及的改观。"
+          ],
+          "strengths": [
+            "问题检视与解决方案一一对应，无两张皮现象",
+            "理论框架为问题分析提供视角，推理依赖度高"
+          ],
+          "weaknesses": [
+            "从庞德利益理论到数字经济场域的过渡略显生硬"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是问题到对策的推导链条是否完整，而非对策本身是否具备实操性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了“问题识别-理论定位-实践检视-路径回应”的严密推理链，问题与对策高度对应。",
+          "core_judgment": "推理链条完整且依赖性强，核心结论可由前文充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。问题与对策严格对应，推导无关键跳步。",
+          "evidence_quotes": [
+            "基于完善与新质生产力更相适应的生产关系的角度来进行分析，可能更有助于以问题意识为导向来呈现问题。",
+            "针对区域经济法治在运行的各个环节中存在的问题，有待以问题意识为导向……给予及时的对策性回应。"
+          ],
+          "strengths": [
+            "问题检视与对策方案严格对应，形成闭环论证。",
+            "理论定位（宪法-部门法-子部门）为后续制度设计提供坚实推导基础。"
+          ],
+          "weaknesses": [
+            "对潜在反对学说的实质性交锋较少，反驳处理偏重路径选择而非理论辩驳。",
+            "部分对策表述偏宏观，与具体法治环节的衔接论证可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链推导与问题对策对应关系，未评价框架本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 51.8933219909668,
+        "qwen3.6-plus": 89.55280780792236
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "glm-5.1": 85,
+        "qwen3.6-plus": 88
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论高度契合中国制度语境，提出可争辩的差序联动法治框架，对话与制度兼容性均优。",
+          "core_judgment": "结论成功进入共同体语境并与现行法秩序兼容，提出了具体的制度转化方向，非单纯复述官方话语。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，因结论虽高度兼容官方法治话语但提出了可争辩的差序联动框架，给85分。",
+          "evidence_quotes": [
+            "实践中...展现了功能主义法治经验的积累和丰富，但同时也遇到...诸多有待解决的现实问题。",
+            "以构建差序联动的区域经济法治体系为引领...形塑竞争法治、金融法治、财税法治等主要板块。"
+          ],
+          "strengths": [
+            "主动检视法治化实践的四大问题，承认自身局限。",
+            "提出差序联动与软硬兼济的具体制度转化方向。"
+          ],
+          "weaknesses": [
+            "结论与官方法治话语高度同构，批判性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度契合中国区域法治语境，明确回应既有学术争论并提出具象化制度路径。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论深度嵌入中国区域法治语境，明确回应软硬法协同等实务约束，并指明十五五立法方向。",
+          "evidence_quotes": [
+            "以法治化方式促进新质生产力区域协调发展已经成为当下我国促进区域协调发展的一个现实诉求。",
+            "构建差序联动的区域经济法治体系……完善软硬兼济的规范结构……优化制度型开放中的法治实践。"
+          ],
+          "strengths": [
+            "精准嵌入中国立法法与区域协同立法语境，制度兼容性强。",
+            "明确区分方法论与运行论路径，为反对者提供清晰辩驳靶点。"
+          ],
+          "weaknesses": [
+            "对策部分偏重宏观政策表述，具体裁判规则衔接略显不足。",
+            "对区域协同立法中的权限冲突等深层法理争议回应较浅。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 69.36266684532166,
+        "qwen3.6-plus": 60.44232511520386
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "glm-5.1": 82,
+        "qwen3.6-plus": 85
+      },
+      "mean": 83.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文针对四大实践问题提出了清晰可定位的法治化延展路径。",
+          "core_judgment": "存在真实延展路径，指明了硬法供给、规则衔接等具体制度完善方向。",
+          "score_rationale": "原始分82，bonus档位为5分档。论文针对法治滞后、软硬结构失衡等问题，提出了硬法供给、区域协同立法系统集成、大湾区规则衔接等清晰可定位的延展路径，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "着重加强区域协调发展领域的硬法规范供给……实现区域经济法治领域国内法治与涉外法治的统筹发展。",
+            "大湾区仍然存在关键且复杂领域的规则衔接有待加强……其他区域在探索各自的制度型开放模式方面也有发展空间。"
+          ],
+          "strengths": [
+            "延展路径与正文问题检视紧密对应，逻辑闭环",
+            "指明了《国家发展规划法》等具体硬法供给方向及大湾区规则衔接场景"
+          ],
+          "weaknesses": [
+            "部分路径如‘差序联动体系’构建仍偏宏观框架"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "硬法供给短缺与规则衔接难题属于未来制度完善方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕“十五五”时期新质生产力区域协调发展的法治化路径，提出了清晰的制度完善与规则衔接方向。",
+          "core_judgment": "存在真实且具体的延展路径，明确指向区域协同立法、跨域执法司法协作及软硬法规范结构优化等未来议题。",
+          "score_rationale": "原始分85，对应bonus=5档。延展路径清晰可定位，紧扣正文结论，具体指向“十五五”硬法供给、跨域协同机制及制度型开放等制度演进方向。",
+          "evidence_quotes": [
+            "在立法环节‘全面落实法定原则’，构建‘稳定的、具有包容性的法律制度’是完善‘硬性法治’的当务之急",
+            "加强财政立法和税收立法、完善竞争领域法律制度也是‘十五五’时期硬法规范的优化方向。"
+          ],
+          "strengths": [
+            "延展路径紧扣“十五五”规划与区域协同立法、执法司法协作等具体制度场景，指向明确。",
+            "明确承认软硬法结构失衡与跨域规则衔接困境，并给出可操作的规范协同与利益衡量深化方向。"
+          ],
+          "weaknesses": [
+            "对跨区域利益补偿机制与数据要素流通的法治边界探讨仍偏宏观，缺乏微观检验设计。",
+            "未充分说明不同法域规则冲突下的具体裁判标准演进路径，反驳入口略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“十五五”期间区域法治体系的立法供给、软硬法协同及跨域执法司法协作等未来制度演进方向，而非评判当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 48.051608085632324,
+        "qwen3.6-plus": 63.670047998428345
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 7.2,
+    "max_std": 21.2,
+    "weighted_total": 67.7,
+    "high_confidence_pct": 50.0,
+    "dimension_count": 6,
+    "composite_score": -2.2,
+    "worst_dimension": "literature_insight",
+    "worst_std": 21.2
+  }
+}
