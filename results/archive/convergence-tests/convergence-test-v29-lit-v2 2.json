@@ -1,0 +1,117 @@
+{
+  "framework": "configs/frameworks/law-v2.9-20260423.yaml",
+  "framework_version": "2.9.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "kimi-k2.6",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 63,
+        "moonshotai/kimi-k2.6": 61,
+        "z-ai/glm-5.1": 85
+      },
+      "mean": 69.7,
+      "std": 13.3,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 63,
+          "band": "good",
+          "summary": "论文基本建立了“既有成果—现实困境—本文方案”的研究地图，并识别出若干法学内部对立立场。",
+          "core_judgment": "本维度基本成立：有较清楚的问题定位与切入点，也能辨认形式/实质、规则/情理等法学分歧，但系统综述性仍不足。",
+          "score_rationale": "三要素得分=3，法学流派=2，锚定good档(70-79)；但流派识别仅2个、研究地图更多依赖问题展开而非系统文献史梳理，故保守给63分。",
+          "evidence_quotes": [
+            "“定罪和量刑分立的变革性设想…目前看仍然难以获得共识。”",
+            "“基于上述正义的首要原则…本文认为，有必要引入‘同理心正义’理论。”"
+          ],
+          "strengths": [
+            "明确指出已有方案及其贡献，如被害人参与制度、程序价值。",
+            "能识别规则裁判与情理/实质正义之间的法学张力。"
+          ],
+          "weaknesses": [
+            "既有研究梳理偏散，较少以专题化方式归纳学界结论。",
+            "不少资源来自心理学、现象学，易与法学流派混杂。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分依据文中是否交代既有研究、缺口与切入点，以及是否识别法学内部争论，不评价“同理心正义”本身是否新颖。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 61,
+          "band": "good",
+          "summary": "研究地图三缺其一，识别出一组核心流派对立",
+          "core_judgment": "论文指出了问题缺口并明确以同理心正义切入，但未系统交代既有研究的具体成果与贡献，仅识别出合法律性正义与同理心正义一组对立",
+          "score_rationale": "三要素得分=2（缺少到达点），法学流派=2（合法律性正义与同理心正义对立），锚定good档(60-69)，给61分",
+          "evidence_quotes": [
+            "但由于被害人具有独立的诉求和利益，这一设想目前看仍然难以获得共识",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论"
+          ],
+          "strengths": [
+            "明确指出现行制度与法条主义路径的具体缺口",
+            "将同理心正义与多元诉求整合难题直接对接"
+          ],
+          "weaknesses": [
+            "未系统梳理既有研究的具体成果与贡献",
+            "法学流派识别仅限一对核心对立，深度不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献定位与流派识别，不涉及同理心正义理论本身的新颖性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，精准识别了法学内部的多重流派对立。",
+          "core_judgment": "本维度高度成立，文献梳理形成了完整闭环，且深刻揭示了法学内部的流派分歧。",
+          "score_rationale": "三要素得分=3，法学流派≥3（机械法理学、利益/社会学法学、程序本位论），锚定excellent档(80-100)，给85分。",
+          "evidence_quotes": [
+            "被害人参与刑事诉讼制度...有效地化解了...弊端",
+            "超越机械司法／形式理性，而迈向...社会学司法"
+          ],
+          "strengths": [
+            "研究地图三要素完整，问题意识与切入点衔接紧密。",
+            "精准识别机械法理学与社会学法学、程序与实质的对立。"
+          ],
+          "weaknesses": [
+            "新法律道德主义的对立流派未明确点出。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦文献定位与流派识别，不评价同理心正义理论的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 11.109315156936646,
+        "moonshotai/kimi-k2.6": 303.79429030418396,
+        "z-ai/glm-5.1": 323.3945059776306
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 13.3,
+    "max_std": 13.3,
+    "weighted_total": 10.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 13.3
+  }
+}

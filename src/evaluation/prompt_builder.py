@@ -129,3 +129,60 @@ def build_signal_check_prompt(framework: Framework, paper: ProcessedPaper) -> st
 
     template = "\n".join(prompt_parts)
     return _append_context(template, paper)
+
+
+def build_negative_pattern_prompt(
+    dimension_key: str,
+    patterns: list[dict],
+    paper: ProcessedPaper,
+) -> str:
+    """构建 Stage A 负面模式检测 prompt（短 prompt，~100 行）。
+
+    每个维度独立调用一次，只检测该维度下定义的负面模式。
+    """
+    pattern_checks = []
+    for p in patterns:
+        pattern_checks.append(
+            f"### 模式 {p['pattern_id']}\n"
+            f"描述：{p['description']}\n"
+            f"检测方法：{p['prompt_snippet']}\n"
+            f"严重度标准：\n"
+            f"  - high: {p.get('severity_criteria', {}).get('high', '严重')}\n"
+            f"  - medium: {p.get('severity_criteria', {}).get('medium', '中等')}\n"
+            f"  - low: {p.get('severity_criteria', {}).get('low', '轻微（不触发 ceiling）')}\n"
+        )
+
+    pattern_ids = [p["pattern_id"] for p in patterns]
+    json_template = (
+        '{\n'
+        '  "dimension": "' + dimension_key + '",\n'
+        '  "pattern_flags": [\n'
+    )
+    for pid in pattern_ids:
+        json_template += (
+            '    {\n'
+            f'      "pattern_id": "{pid}",\n'
+            '      "triggered": true/false,\n'
+            '      "severity": "low/medium/high",\n'
+            '      "confidence": 0.0-1.0,\n'
+            '      "evidence_quotes": ["原文证据（直接引用，不超过50字）"],\n'
+            '      "rationale": "判断理由（一句话）"\n'
+            '    },\n'
+        )
+    json_template += '  ]\n}'
+
+    template = (
+        f"你是一位法学论文质量检测专家。请对以下论文的【{dimension_key}】维度进行负面模式检测。\n\n"
+        f"【任务说明】\n"
+        f"你只需要检测以下 {len(patterns)} 个负面模式是否存在，不需要给出维度分数。\n"
+        f"对每个模式，判断是否触发（triggered）、严重程度（severity）和置信度（confidence）。\n"
+        f"只有 severity 为 medium 或 high 时才设置 triggered=true。\n"
+        f"severity 为 low 时设置 triggered=false（存在倾向但不足以触发）。\n\n"
+        f"【检测模式】\n\n"
+        + "\n".join(pattern_checks)
+        + "\n【输出格式】\n"
+        "请严格输出以下 JSON 格式，不要添加任何其他内容：\n\n"
+        + json_template
+    )
+
+    return _append_context(template, paper)

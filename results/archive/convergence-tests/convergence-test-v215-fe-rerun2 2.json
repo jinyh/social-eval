@@ -1,0 +1,140 @@
+{
+  "framework": "configs/frameworks/law-v2.15-20260423.yaml",
+  "framework_version": "2.15.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "gpt-5.4": 61,
+        "qwen/qwen3.6-plus": 50,
+        "z-ai/glm-5.1": 50
+      },
+      "mean": 53.7,
+      "std": 6.4,
+      "confidence": "medium",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 61,
+          "band": "marginal",
+          "summary": "论文结尾承认局限并指出完善方向，但后续延展多停留在原则性层面。",
+          "core_judgment": "有一定前瞻延展，主要表现为围绕“移情偏见”“常识正义局限”“继续完善方向”提出修正线索，但缺少明确、可展开的具体研究问题与反对者路径。",
+          "score_rationale": "延展实质度得分=2/4，正文衔接度得分=4/4，按锚定属marginal档；因理论论文虽有修正方向但缺少更具体后续问题/假设，触发65分上限，给61分。",
+          "evidence_quotes": [
+            "“移情偏见完全是可以得到降低、悬置甚至克服的”",
+            "“并无疑也是我们继续努力完善的基本方向”"
+          ],
+          "strengths": [
+            "主动承认同理心正义的三类局限",
+            "修正方向紧扣正文核心理论展开"
+          ],
+          "weaknesses": [
+            "缺少明确列出的后续研究问题",
+            "未为异议者提供下一轮争论切入口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2；理论论文若无具体后续问题、理论假设或概念修正路径，通常适用65分上限。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "虽谈“降低移情偏见”“继续完善”，但未展开为明确研究问题或可检验假设。"
+            }
+          ],
+          "boundary_note": "本评分仅看论文提出未来理论深化和修正路径的能力，不评价其同理心正义结论当下是否正确可接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文指出了同理心正义的理论局限与完善方向，但延展表述偏宏观，缺乏具体研究问题或概念修正路径。",
+          "core_judgment": "延展方向与正文局限紧密衔接，但因缺乏具体后续争点或理论假设，实质延展度不足。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=4/4，锚定marginal档，给50分。受weak_extension_path规则限制，宏观表述未达具体理论修正要求。",
+          "evidence_quotes": [
+            "移情偏见完全是可以得到降低、悬置甚至克服的，当然，这也非一蹴而就。",
+            "并无疑也是我们继续努力完善的基本方向。"
+          ],
+          "strengths": [
+            "延展路径精准对应正文揭示的“移情偏见”与“常识相对性”局限。",
+            "未脱离同理心正义的核心论域，逻辑回溯清晰。"
+          ],
+          "weaknesses": [
+            "仅以“继续努力完善”作结，未提出可操作的具体研究问题。",
+            "缺乏对理论假设或概念重构路径的明确指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2且无具体后续问题/假设/修正路径",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "结语仅提出“继续努力完善的基本方向”，未给出具体理论争点或概念修正方案。"
+            }
+          ],
+          "boundary_note": "本维度仅评估未来理论深化的具体路径，不评判同理心正义理论当下的学术接受度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "延展仅停留在承认局限与空泛呼吁，缺乏具体研究问题与修正路径。",
+          "core_judgment": "论文虽主动承认同理心正义的偏见局限，但延展仅以“继续努力完善”收尾，前瞻性不足。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=4/4，锚定marginal档，给50分。",
+          "evidence_quotes": [
+            "这显然需要一批具备良好职业素养的法律人和社会大众的宽容作核心支撑，并无疑也是我们继续努力完善的基本方向。"
+          ],
+          "strengths": [
+            "主动揭示同理心正义的偏见局限与相对主义风险"
+          ],
+          "weaknesses": [
+            "延展表述空泛，仅呼吁继续努力完善，无具体后续问题",
+            "未提出克服移情偏见的具体理论假设或概念重构路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2且无具体后续问题或概念修正路径，上限65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "仅提出继续努力完善的基本方向，未指明具体理论修正路径"
+            }
+          ],
+          "boundary_note": "评判的是未来理论深化的具体路径，而非当下同理心正义理论的可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 16.502808094024658,
+        "qwen/qwen3.6-plus": 92.03054785728455,
+        "z-ai/glm-5.1": 105.24045419692993
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 6.4,
+    "max_std": 6.4,
+    "weighted_total": 2.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "forward_extension",
+    "worst_std": 6.4
+  }
+}

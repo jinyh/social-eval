@@ -1,0 +1,561 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "raw/sample/补充负样本/5.李姝卉 - 2025 - 算法伦理的法律表达.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在PDF转文本的OCR残留与排版混入（如页码标记“· 2 5 ·”、脚注编号格式轻微错乱“〔1 〕”）",
+          "部分外文参考文献与英文摘要抽取格式未完全对齐"
+        ],
+        "evidence_quotes": [
+          "〔1 〕其一，算法决策与人类相关，但未提供“解释或追索权”。",
+          "· 2 5 · 当代法学 2025 年第6 期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国已经出台了《数据安全法》《个人信息保护法》《互联网信息服务算法推荐管理规定》……但我国尚未形成系统规制算法技术及其应用的正式法律文件，还未将算法伦理价值内化为法律规范",
+          "笔者试图回答下述两个问题: (1)如何提炼一套具备正当性的算法伦理价值，为算法法律制度提供价值基础和伦理准则; (2)算法立法应如何融合算法伦理价值，引导算法向善，防止算法异化",
+          "在许某某诉杭州阿里妈妈软件服务有限公司网络服务合同纠纷案中，算法伦理的缺失主要体现在，原告提出申诉后，平台未对监测原告不正当竞争行为的算法进行解释，致使原告无法了解算法是否存在黑箱或误差"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR排版残留，但不影响核心论点、制度建构路径与规范命题的定位与评审"
+      ],
+      "evidence_quotes": [
+        "应当将算法伦理价值观念嵌入算法技术活动和算法规制体系，并将基础的、重要的算法伦理规范上升为法律制度表达",
+        "立法应基于算法的价值设计，建立和完善算法开发、设计和运行中的人类监督、伦理义务、伦理责任、权利救济等机制"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径高度契合，具备明确的中国问题意识、可争辩的法学命题（伦理规范的法律化路径）及制度转化尝试。文本仅存低级别OCR排版风险，不影响实质评审。建议直接进入六维评分阶段，评审时聚焦其对中国算法规制体系缺口的诊断与“人类监督机制/分级责任/救济路径”等可复核制度命题的论证质量。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及版面信息混入正文（如'· 2 5 · 当代法学 2025 年第6 期'）",
+          "脚注编号及部分脚注内容穿插在正文中，存在OCR/分栏抽取伪影",
+          "参考文献列表抽取为空，但正文包含大量脚注文献"
+        ],
+        "evidence_quotes": [
+          "· 2 5 · 当代法学 2025 年第6 期",
+          "〔1 〕苏宇: 《算法规制的谱系》，载《中国法学》2020 年第3 期，第165 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国已经出台了《数据安全法》《个人信息保护法》《互联网信息服务算法推荐管理规定》等文件，规定了数据处理活动、算法推荐服务、深度合成技术应用应遵循的法律和道德原则。",
+          "笔者所讨论的“伦理的法律表达”，即通过法定程序将符合现代社会法治理念、具备引领性和可规范性、符合“与社会的完整相协调的个人自由最大化”的伦理道德嵌入法律制度，形成法律制度的基本架构。",
+          "在许某某诉杭州阿里妈妈软件服务有限公司网络服务合同纠纷案中，算法伦理的缺失主要体现在，原告提出申诉后，平台未对监测原告不正当竞争行为的算法进行解释，致使原告无法了解算法是否存在黑箱或误差。",
+          "算法伦理自治的法律表达应将自由选择、透明负责、诚实可信、平等正义嵌入算法规制全过程。立法应基于算法的价值设计，建立和完善算法开发、设计和运营中的人类监督、伦理义务、伦理责任、权利救济等机制。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及脚注内容混入正文需清洗，参考文献列表需重新抽取",
+        "项目口径：完全符合进入六维评价条件，无需额外裁断"
+      ],
+      "evidence_quotes": [
+        "笔者所讨论的“伦理的法律表达”，即通过法定程序将符合现代社会法治理念、具备引领性和可规范性、符合“与社会的完整相协调的个人自由最大化”的伦理道德嵌入法律制度，形成法律制度的基本架构。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在文本工程阶段清洗混入正文的期刊页码及脚注内容，并重新抽取构建参考文献列表。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 65,
+        "glm-5.1": 30
+      },
+      "mean": 47.5,
+      "std": 24.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "good",
+          "summary": "论文聚焦算法伦理的法律转化路径，提出明确立法建构问题，但实质偏向政策倡导。",
+          "core_judgment": "问题具备法学争辩性与制度枢纽性，但研究问题偏向应然立法建构，理论交锋深度受限。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限。锚定excellent档（85分）。因问题实质为政策倡导扣20分，最终得分65。",
+          "evidence_quotes": [
+            "笔者试图回答：(1)如何提炼算法伦理价值为法律制度提供基础；(2)算法立法应如何融合伦理价值。",
+            "我国尚未形成系统规制算法技术的正式法律文件，未将算法伦理价值内化为法律规范。"
+          ],
+          "strengths": [
+            "明确提炼算法伦理法律化的双重核心问题，指向清晰",
+            "问题横跨数据法、行政监管与民事救济，制度关联度高"
+          ],
+          "weaknesses": [
+            "问题句实质为立法建构与政策倡导，缺乏可争辩的法理对立",
+            "对既有规制路径的批判多停留于规范缺失描述，理论交锋不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立度与重要性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以政策倡导替代法学争点，缺乏理论交锋，仅用新概念包装旧问题。",
+          "core_judgment": "问题实质为宏观政策倡导与制度构建，缺乏可争辩的法学争点与理论分歧。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖与宏大问题触发最低上限65分，锚定good档65分。负面扣分60分（新概念20+无交锋20+政策倡导20），底线30分。",
+          "evidence_quotes": [
+            "如何提炼一套具备正当性的算法伦理价值",
+            "应将算法伦理价值观念嵌入算法技术活动和算法规制体系"
+          ],
+          "strengths": [
+            "涉及算法伦理法律化这一长期争点领域，影响范围广"
+          ],
+          "weaknesses": [
+            "全篇无学者观点交锋，仅为单向政策倡导",
+            "问题表述过于宏大，缺乏聚焦的法学争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "核心问题为如何提炼算法伦理价值与如何融合，属宏大制度构建而非聚焦争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "依赖暗黑模式、AI幻觉等新现象推动规制主张，未改变问题设定或解释路径"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 103.4584550857544,
+        "glm-5.1": 97.47418999671936
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 78
+      },
+      "mean": 79,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒算法伦理规制研究现状，准确指出体系化法律表达的缺口，并确立本文切入点。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别达辅助标准，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学界主要聚焦人工智能算法危机及其法律规制……但相对缺乏对算法伦理法律体系的规范化、系统化阐释的研究。",
+            "科技伦理规范仍然只是软性的……难以提供确定和具体的制度回应，需要法律将其上升为法律制度。"
+          ],
+          "strengths": [
+            "三要素完整对应，明确提炼既有研究贡献与立法空白。",
+            "争点结构清晰，有效区分伦理自治与法律强制两条规制路径。"
+          ],
+          "weaknesses": [
+            "流派识别偏少，未充分展开形式法治与实质法治等深层法理对立。",
+            "文献定位偏重政策罗列，对核心学术争点的交锋脉络梳理稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及算法伦理问题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "研究地图基本成立，未竟点明确，但到达点模糊；呈现了制度与路径争点。",
+          "core_judgment": "研究地图基本成立，争点结构清晰，但文献梳理深度一般，流派识别依赖比较法制度对立。",
+          "score_rationale": "三要素=5/6，争点结构=2/2，法学流派=2个，锚定good档，给78分",
+          "evidence_quotes": [
+            "学界主要聚焦人工智能算法危机及其法律规制、算法伦理的内涵、适用领域和具体法制化、场景化路径等层面讨论",
+            "但相对缺乏对算法伦理法律体系的规范化、系统化阐释的研究"
+          ],
+          "strengths": [
+            "未竟点与切入点直接对应，问题意识明确",
+            "呈现了伦理自治局限与法律表达、中美监管标准的争点"
+          ],
+          "weaknesses": [
+            "到达点仅概括学界聚焦层面，贡献描述模糊",
+            "缺乏学界核心理论流派争辩脉络的梳理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点梳理深度，而非算法伦理问题本身的新颖性",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 91.92664003372192,
+        "glm-5.1": 86.80458998680115
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 45,
+        "glm-5.1": 88
+      },
+      "mean": 66.5,
+      "std": 30.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文以四项伦理价值构建论述主线，但缺乏明确定义与可操作步骤，框架偏向宏观规范倡导。",
+          "core_judgment": "框架具备基础结构但可操作性弱，法学转化停留于制度方向，未形成可重复适用的分析工具。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=2/4，锚定marginal档，给45分。核心术语无明确定义且无分析步骤，触发降档上限；制度设计有方向但缺具体规则。",
+          "evidence_quotes": [
+            "笔者所讨论的“伦理的法律表达”，即通过法定程序将符合现代社会法治理念的伦理道德嵌入法律制度",
+            "算法伦理自治的法律表达应将自由选择、透明负责、诚实可信、平等正义嵌入算法规制全过程。"
+          ],
+          "strengths": [
+            "以四项伦理价值为轴心搭建全文结构，逻辑主线清晰",
+            "制度设计部分尝试结合具体场景提出规制路径"
+          ],
+          "weaknesses": [
+            "核心概念缺乏明确定义，分类边界与区分依据模糊",
+            "未提供步骤化分析流程或具体裁判规则，多为规范性倡导"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语无定义且无分析步骤，可操作性得分上限为1",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "自由选择等核心术语仅作价值阐释，无操作化定义与判断步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及论证逻辑严密性或选题创新性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "将算法伦理价值成功转化为分类判断标准与场景化制度方案，框架可操作性与法学转化度均高。",
+          "core_judgment": "论文建构了从伦理价值到法律制度的双向转化框架，且提供了具体的判断标准与制度设计，该维度成立且表现优秀。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "笔者所讨论的“伦理的法律表达”，即通过法定程序将……伦理道德嵌入法律制度，形成法律制度的基本架构。",
+            "应从平台是否让消费者陷入错误认识的角度，来区分欺骗行为与虽运用欺骗手段但属于商家经营策略的行为。"
+          ],
+          "strengths": [
+            "将抽象伦理原则转化为具体的法律判断标准（如算法歧视分级、欺骗行为识别）。",
+            "提供了场景化的制度设计方案与救济路径，法学转化彻底。"
+          ],
+          "weaknesses": [
+            "伦理价值四维度与法律制度四模块的映射逻辑略显平行，缺乏严密推演步骤。",
+            "部分制度方案（如公众可查询数据库）的操作细节与可行性尚需深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的成立与法学转化，不评价制度方案的现实可行性或推理严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 75.98168134689331,
+        "glm-5.1": 56.356362104415894
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了“风险识别—伦理价值提炼—法律制度映射”的完整推理链，结论可由前文充分支撑。",
+          "core_judgment": "推理链条完整且步骤依赖性强，对“伦理自治替代法律规制”的潜在反驳作出了实质性回应，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "科技伦理规范仍然只是软性的、抽象的、注重事前防范的自治规则……难以提供确定和具体的制度回应。",
+            "需要法律区分算法技术伦理问题的具体场景、程度，将具有可执行性、合乎理性的伦理规范上升为法律制度。"
+          ],
+          "strengths": [
+            "推理步骤清晰，价值提炼与制度设计形成严密映射。",
+            "有效回应“伦理自治即可”的观点，论证法律介入的必要性。"
+          ],
+          "weaknesses": [
+            "伦理价值向具体制度的推导偏重规范倡导，缺乏实证约束检验。",
+            "未明确承认自身制度方案在司法适用中的潜在局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的推导质量，而非评价所提制度方案在实务中的可操作性或成本收益。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文从问题出发提炼伦理价值，进而推导制度方案，推理链完整且反驳处理实质。",
+          "core_judgment": "推理链形成充分支撑，核心结论可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "算法固有的伦理问题...此时不应苛求算法设计者和运营者承担伦理责任",
+            "仅强调技术设计伦理化的方案并不可行"
+          ],
+          "strengths": [
+            "推理链层层递进，问题-价值-制度推导完整",
+            "对隐含分歧和例外情形有实质回应与选择理由"
+          ],
+          "weaknesses": [
+            "部分制度细节推导稍显宽泛，如防沉迷通知家长机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判推理链支撑度，不评判防沉迷等具体制度的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 56.01015591621399,
+        "glm-5.1": 51.60400605201721
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应算法伦理法制化争论，提出嵌入四大价值的制度路径，高度契合中国现行法秩序。",
+          "core_judgment": "结论具备强共同体对话能力与制度兼容性，可被学界与实务界严肃对待并回应。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "学界主要聚焦……但相对缺乏对算法伦理法律体系的规范化、系统化阐释的研究。",
+            "立法应基于算法的价值设计，建立和完善……人类监督、伦理义务、伦理责任、权利救济等机制。"
+          ],
+          "strengths": [
+            "精准定位既有研究空白，明确修正纯伦理自治路径的局限。",
+            "制度建议具体到场景分级、责任主体与救济渠道，非空泛表态。"
+          ],
+          "weaknesses": [
+            "对伦理规范上升为法律的具体立法技术门槛论证稍显不足。",
+            "部分跨部门监管协调机制的可行性缺乏成本收益分析。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论系统回应了既有研究与中国制度约束，提出了详实的法律表达方案。",
+          "core_judgment": "结论在共同体对话与制度兼容层面表现优秀，虽缺乏对反对意见的讨论，但制度可接受度高。",
+          "score_rationale": "共同体对话度得分=3/4（未讨论反对意见），制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "学界相对缺乏对算法伦理法律体系的规范化、系统化阐释的研究...应将算法伦理价值观念嵌入算法规制体系",
+            "我国立法尚未明确具体规制路径...既有立法存在算法伦理价值引导和规制制度层面的缺失"
+          ],
+          "strengths": [
+            "结论紧密结合中国现行法秩序与监管实务，制度兼容性强。",
+            "提出了具体的制度转化方向（如人类监督、分级分类责任）。"
+          ],
+          "weaknesses": [
+            "未主动讨论“伦理法律化”可能面临的反对意见或边界局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 61.35452914237976,
+        "glm-5.1": 46.38506007194519
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 70,
+        "glm-5.1": 70
+      },
+      "mean": 70,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文提出算法伦理法律化的具体制度路径与场景化救济方案，延展方向明确但偏重立法建议。",
+          "core_judgment": "存在真实延展路径，聚焦制度完善与场景规则衔接，与正文论证紧密衔接。",
+          "score_rationale": "原始分70，对应bonus=3。论文提出人类监督细化、多场景救济及公共数据库构建等制度延展路径，证据可定位，但未规划后续学术争点。",
+          "evidence_quotes": [
+            "可尝试构建政府、用户和平台间数据共享机制……建立公众可访问的数据库。",
+            "针对图像和文本生成场景……应强化平台企业违法标记和传播的伦理责任。"
+          ],
+          "strengths": [
+            "场景化延展清晰，覆盖医疗、交易等具体适用边界。",
+            "制度衔接路径具体，提出公共数据库构建方案。"
+          ],
+          "weaknesses": [
+            "偏重立法政策建议，未明确后续学术争点。",
+            "伦理规范向法律转化的具体机制探讨不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估算法伦理法律化后的制度细化与场景适用等未来推进方向，非当下结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文为制度/立法型，提出了算法歧视分级分类、多场景救济路径及公众数据库等具体制度完善方向与场景延伸。",
+          "core_judgment": "存在真实延展路径，指明了制度深化方向与实务场景延伸，但未明确作为后续研究议程提出。",
+          "score_rationale": "原始分70，对应bonus档位3（>=60）。论文提出了算法歧视分级分类、多场景救济机制及公众数据库风险控制等具体制度完善方向，符合有效延展信号，但精细度有限且未明示为后续研究议程。",
+          "evidence_quotes": [
+            "可根据算法歧视的成因、对他人的影响程度、选择的道德优劣等因素，对算法歧视进行分级分类，赋予算法设计者和运营者不同层次的伦理责任。",
+            "可尝试构建政府、用户和平台间数据共享机制...平衡保护算法责任主体的商业秘密与用户数据和信息安全的关系。"
+          ],
+          "strengths": [
+            "提出了算法歧视分级分类等具体的制度深化方向。",
+            "给出了算法交易、医疗等多元场景的实务延伸与风险控制。"
+          ],
+          "weaknesses": [
+            "未在结语明确承认自身局限或提出后续研究问题。",
+            "制度构想的精细度（如分级量化标准）仍有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是论文提出的制度完善方向与场景延伸（未来往哪里走），而非当下结论是否可接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.82599186897278,
+        "glm-5.1": 52.511621952056885
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 10.2,
+    "max_std": 30.4,
+    "weighted_total": 69.4,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": -3.53,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 30.4
+  }
+}

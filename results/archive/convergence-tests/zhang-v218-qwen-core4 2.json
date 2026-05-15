@@ -1,0 +1,215 @@
+{
+  "framework": "configs/frameworks/law-v2.18-20260424.yaml",
+  "framework_version": "2.18.0",
+  "paper": "raw/治国理政的法治理念和法治思维_张文显.pdf",
+  "models": [
+    "qwen3.6-plus"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen/qwen3.6-plus": 45
+      },
+      "mean": 45,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文系对权威法治理论的系统阐释，缺乏可争辩的法学问题。",
+          "core_judgment": "问题创新性不成立，因全文无明确争点与理论分歧，仅属既定立场的单向归纳。",
+          "score_rationale": "可争辩性得分=1/4，枢纽性得分=4/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理和中国特色社会主义法治理论，深刻回答了什么是法治",
+            "‘党大还是法大’是一个政治陷阱，是一个伪命题。对这个问题，我们不能含糊其辞"
+          ],
+          "strengths": [
+            "议题覆盖法治核心理论与制度，体系宏大",
+            "深入阐释法理基础与制度逻辑，枢纽性强"
+          ],
+          "weaknesses": [
+            "全文为权威论述的系统归纳，缺乏明确争点",
+            "未呈现学术分歧，属单向阐释而非论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文系对既定理论的系统阐释，无问题句与理论分歧"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 61.37128186225891
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen/qwen3.6-plus": 20
+      },
+      "mean": 20,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "本文系政策理论阐释，缺乏学术文献梳理与研究缺口定位，未构建研究地图。",
+          "core_judgment": "本维度不成立，全文未触及既有学术成果与流派争鸣，缺乏法学论文应有的文献洞察。",
+          "score_rationale": "三要素得分=0/6，法学流派=0个，锚定unacceptable档，给20分。",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理和中国特色社会主义法治理论，深刻回答了什么是法治...",
+            "学术界有人将这一现代化称为“第五现代化”。"
+          ],
+          "strengths": [
+            "政策文本与理论框架梳理系统完整。"
+          ],
+          "weaknesses": [
+            "完全缺失学术文献梳理，未提炼既有研究贡献。",
+            "未识别任何学术争议或研究缺口，无流派对话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未列举学者成果或学术争议，纯为政策理论阐释，研究地图要素全缺。"
+            }
+          ],
+          "boundary_note": "本维度仅评估文献定位与学术对话深度，不评价政策阐释价值或理论本身创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 70.4067530632019
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen/qwen3.6-plus": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文属政策理论专题综述，未建构可操作的分析框架，缺乏法学转化步骤。",
+          "core_judgment": "分析框架不成立，全文为理论归纳与政策阐释，无可循的分析流程与裁判指引。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "中国特色社会主义法治道路是一个管总的东西……归结起来就是开辟了中国特色社会主义法治道路这一条。",
+            "本文仅举若干实例。民主与专政。法治与改革。维稳与维权。活力与秩序。"
+          ],
+          "strengths": [
+            "政策理论梳理全面，系统归纳了法治建设各维度议题。"
+          ],
+          "weaknesses": [
+            "全文为讲话与政策的理论综述，未提出可操作的分析框架。",
+            "核心概念无明确定义，分类仅按主题罗列，缺乏法学转化。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文系法治思想专题综述，无核心概念界定、无步骤流程、无法学转化。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及理论综述的逻辑衔接或政策阐释新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 61.52314305305481
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen/qwen3.6-plus": 48
+      },
+      "mean": 48,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen/qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 48,
+          "band": "marginal",
+          "summary": "结论高度契合本土语境但缺乏学术争鸣，属单向度理论宣示。",
+          "core_judgment": "该维度勉强成立，因高度契合制度语境但共同体对话度严重不足。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定marginal档，因复述既定立场触发上限规则，给48分。",
+          "evidence_quotes": [
+            "“中国特色社会主义法治道路……是建设社会主义法治国家的唯一正确道路。”",
+            "“如果路走错了……那再提什么要求和举措也都没有意义了。”"
+          ],
+          "strengths": [
+            "高度契合中国法治语境，制度兼容性极强。",
+            "宏观框架完整，明确理论对制度建设的指引方向。"
+          ],
+          "weaknesses": [
+            "仅复述既定立场，未转化为可争辩的学术主张。",
+            "未回应反对意见或理论局限，呈单向度宣示特征。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场且对话度≤1，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策理论归纳，无学术争鸣坐标与反方讨论。"
+            }
+          ],
+          "boundary_note": "本维度仅评结论当下可接受性，不涉论证逻辑与前瞻空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen/qwen3.6-plus": 75.50786876678467
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 25.8,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 4,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

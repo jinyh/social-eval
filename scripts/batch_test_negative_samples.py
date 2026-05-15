@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""批量测试 10 篇补充负样本"""
+"""批量测试 10 篇补充负样本
 
-import asyncio
+主分字段：final_score（v0.16 规程）
+诊断参考：weighted_total（legacy，仅供参考）
+"""
+
 import json
 import subprocess
 import sys
@@ -31,8 +34,8 @@ def run_test(paper_name: str, index: int, output_dir: Path) -> dict:
     print(f"输出: {output_path}")
 
     cmd = [
-        "python", "scripts/run_convergence_test.py",
-        "--framework", "configs/frameworks/law-v2.48-optimized.yaml",
+        ".venv/bin/python", "scripts/run_convergence_test.py",
+        "--framework", "configs/frameworks/law-v2.50.2-20260514.yaml",
         "--paper", paper_path,
         "--output", str(output_path),
         "--models", "qwen3.6-plus,glm-5.1"
@@ -47,15 +50,17 @@ def run_test(paper_name: str, index: int, output_dir: Path) -> dict:
         )
 
         if result.returncode == 0:
-            print(f"✅ 完成")
+            print("✅ 完成")
             # 读取结果
             with open(output_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
+            overall = data.get("overall", {})
             return {
                 "index": index,
                 "paper": paper_name,
                 "status": "success",
-                "weighted_total": data.get("weighted_total"),
+                "final_score": overall.get("final_score"),
+                "weighted_total": overall.get("weighted_total"),
                 "dimensions": data.get("dimensions", {}),
             }
         else:
@@ -67,7 +72,7 @@ def run_test(paper_name: str, index: int, output_dir: Path) -> dict:
                 "error": result.stderr
             }
     except subprocess.TimeoutExpired:
-        print(f"⏱️ 超时")
+        print("⏱️ 超时")
         return {
             "index": index,
             "paper": paper_name,
@@ -90,8 +95,9 @@ def main():
 
     print("=" * 60)
     print("批量测试 10 篇补充负样本")
-    print("框架: law-v2.48-optimized.yaml")
+    print("框架: law-v2.50.2-20260514.yaml")
     print("模型: qwen3.6-plus + glm-5.1")
+    print("主分: final_score（v0.16 规程）")
     print("=" * 60)
 
     results = []
@@ -123,16 +129,20 @@ def main():
 
     # 计算平均分
     if success_count > 0:
-        scores = [r["weighted_total"] for r in results if r["status"] == "success" and r.get("weighted_total")]
-        if scores:
-            avg_score = sum(scores) / len(scores)
-            min_score = min(scores)
-            max_score = max(scores)
-            print(f"\n负样本得分统计:")
+        final_scores = [r["final_score"] for r in results if r["status"] == "success" and r.get("final_score") is not None]
+        legacy_scores = [r["weighted_total"] for r in results if r["status"] == "success" and r.get("weighted_total") is not None]
+        if final_scores:
+            avg_score = sum(final_scores) / len(final_scores)
+            min_score = min(final_scores)
+            max_score = max(final_scores)
+            print("\n负样本得分统计（final_score，主分）:")
             print(f"  平均分: {avg_score:.1f}")
             print(f"  最低分: {min_score:.1f}")
             print(f"  最高分: {max_score:.1f}")
-            print(f"  得分 < 75 的比例: {sum(1 for s in scores if s < 75) / len(scores) * 100:.1f}%")
+            print(f"  得分 < 75 的比例: {sum(1 for s in final_scores if s < 75) / len(final_scores) * 100:.1f}%")
+        if legacy_scores:
+            legacy_avg = sum(legacy_scores) / len(legacy_scores)
+            print(f"\n  weighted_total（legacy，仅供参考）: 平均 {legacy_avg:.1f}")
 
     # 保存汇总结果
     summary_path = output_dir / f"batch-test-summary-{datetime.now().strftime('%Y%m%d-%H%M%S')}.json"
@@ -140,7 +150,8 @@ def main():
         json.dump({
             "test_time": start_time.isoformat(),
             "duration_seconds": duration,
-            "framework": "law-v2.48-optimized.yaml",
+            "framework": "law-v2.50.2-20260514.yaml",
+            "score_field": "final_score",
             "models": ["qwen3.6-plus", "glm-5.1"],
             "total": len(results),
             "success": success_count,

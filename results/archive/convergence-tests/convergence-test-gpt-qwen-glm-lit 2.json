@@ -1,0 +1,134 @@
+{
+  "framework": "configs/frameworks/law-v2.8-20260423.yaml",
+  "framework_version": "2.8.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 63,
+        "qwen/qwen3.6-plus": 78,
+        "z-ai/glm-5.1": 82
+      },
+      "mean": 74.3,
+      "std": 10.0,
+      "confidence": "low",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 63,
+          "band": "good",
+          "summary": "论文有一定研究地图雏形，但既有研究梳理偏分散，流派归纳不足。",
+          "core_judgment": "本文能提出既有讨论、指出部分争议并给出切入点，但未系统搭建“到达点—未竟点—本文回应”的清晰文献结构。",
+          "score_rationale": "文中有具体学者观点与若干争议提示，也有“本文认为”式切入；但多为理论铺陈和引证服务于自说自论，缺少对既有成果贡献、核心分歧及本文对应解决路径的集中梳理；可辨识观点群约2类，触发流派覆盖上限。",
+          "evidence_quotes": [
+            "“尽管有学者甚至为此提出了定罪和量刑分立的变革性设想……仍然难以获得共识。”",
+            "“基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论。”"
+          ],
+          "strengths": [
+            "引用多位学者并呈现若干具体主张与争议。",
+            "能从现实困境过渡到本文理论切入。"
+          ],
+          "weaknesses": [
+            "对既有研究成果贡献总结不集中，像资料堆叠。",
+            "未清楚归纳主要学术流派及其分歧边界。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "未覆盖主要学术流派（少于2-3个清晰流派），本维最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "可见法律道德主义/形式法治、移情正义等观点群，但未明确归纳为3个以上流派并系统比较。"
+            }
+          ],
+          "boundary_note": "此处评价的是作者是否交代清学界已有成果、争议与本文定位，不评价“同理心正义”命题本身是否新。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "文献梳理具理论纵深，缺口与切入点严密咬合，但既有成果贡献未集中提炼。",
+          "core_judgment": "研究地图基本成立，要素二与三清晰对应，要素一以理论对话替代了显性成果罗列。",
+          "score_rationale": "识别超3个学术流派且未竟点与切入点逻辑咬合紧密，但既有研究已解决的具体成果缺乏集中归纳与贡献提炼，故未达优秀档。",
+          "evidence_quotes": [
+            "然而，这也意味着现代法治意义上的公正审判将面临着重大挑战。",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入同理心正义理论"
+          ],
+          "strengths": [
+            "精准识别程序正义、传统德治与形式法治等多流派观点",
+            "未竟点与本文切入点逻辑咬合紧密，问题导向明确"
+          ],
+          "weaknesses": [
+            "既有研究已解决的具体成果缺乏集中归纳与贡献提炼",
+            "文献多作为论证素材穿插，未形成独立的研究脉络图"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理的完整性与流派覆盖深度，不涉及同理心正义命题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文识别了多个学术流派并隐含构建了研究地图，但要素呈现较为分散。",
+          "core_judgment": "论文具备现状洞察度，识别了3个以上流派，但研究地图的“到达点”不够显明，逻辑链条隐含在论述中。",
+          "score_rationale": "识别了新法律道德主义、现象学、认知心理学等3个以上流派（符合80-100分档），但研究地图三要素嵌于论述中，缺乏显性梳理，故在档位下限取分。",
+          "evidence_quotes": [
+            "迄今尚未发现一项杰出计划在实现这一目标时能够声称自己体现了“绝对的正义”。",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入“同理心正义”理论。"
+          ],
+          "strengths": [
+            "识别了新法律道德主义、现象学、认知心理学等多流派。",
+            "隐含了从既有研究不足到本文切入的逻辑递进。"
+          ],
+          "weaknesses": [
+            "缺乏专门的文献综述，既有研究成果（到达点）未显性归纳。",
+            "研究地图三要素散见于各处，结构化不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "none",
+              "rule": "未触发上限规则",
+              "score_ceiling": 100,
+              "priority": 0,
+              "evidence": "三要素未全部缺失，且流派覆盖超过2个，未触发降分规则。"
+            }
+          ],
+          "boundary_note": "评价聚焦于文献梳理与流派定位的完整性，而非同理心正义理论本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 15.083147048950195,
+        "qwen/qwen3.6-plus": 87.67103004455566,
+        "z-ai/glm-5.1": 156.57504892349243
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 10.0,
+    "max_std": 10.0,
+    "weighted_total": 11.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 10.0
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "framework": "configs/frameworks/law-v2.9-20260423.yaml",
+  "framework_version": "2.9.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "kimi-k2.6",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 53,
+        "moonshotai/kimi-k2.6": 32,
+        "z-ai/glm-5.1": 65
+      },
+      "mean": 50,
+      "std": 16.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 53,
+          "band": "marginal",
+          "summary": "论文能提出研究缺口与本文方案，但研究地图不完整，流派识别有限。",
+          "core_judgment": "本文有“问题—回应”结构，却未系统梳理既有法学研究谱系，仅识别出少量法学内部对立立场。",
+          "score_rationale": "三要素得分=3，法学流派=1，按锚定规则进入50-55区间；且触发“流派≤1”的上限规则，给53分。",
+          "evidence_quotes": [
+            "“尽管有学者甚至为此提出了定罪和量刑分立的变革性设想…仍然难以获得共识。”",
+            "“基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论。”"
+          ],
+          "strengths": [
+            "明确指出被害人参与诉讼引发的新公正难题",
+            "本文切入点与“整合多元诉求”缺口有衔接"
+          ],
+          "weaknesses": [
+            "既有研究成果多为材料堆叠，缺少系统学术脉络概括",
+            "法学流派仅较清楚呈现形式法治/实质法治一组"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.low_school_identification",
+              "rule": "法学流派识别数量≤1时，最高不超过65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "文中虽提“新法律道德主义”等，但未系统展开其对立面与分歧，仅“形式理性/实质理性”较明确。"
+            }
+          ],
+          "boundary_note": "本评分针对文献定位与流派辨识，不评价“同理心正义”本身是否新颖或可行。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 32,
+          "band": "unacceptable",
+          "summary": "论文未建立研究地图，三要素均缺失，文献定位严重不足。",
+          "core_judgment": "未系统梳理既有研究贡献与缺口，切入点基于国情而非学术史，虽隐含法学流派张力但文献洞察薄弱。",
+          "score_rationale": "三要素得分=0，识别出形式法治与实质正义等约2组对立立场，按锚定规则落入0-39档，得32分。",
+          "evidence_quotes": [
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效",
+            "现代社会所践行的正义，在很大程度上是一种合法律性正义……但这也可能带来了法律与正义的本真分离"
+          ],
+          "strengths": [
+            "触及形式法治与实质正义的潜在张力"
+          ],
+          "weaknesses": [
+            "未明确任何既有研究的具体贡献",
+            "切入点基于国情而非学术缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.zero_research_map",
+              "rule": "三要素得分为0时分数区间0-39",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "到达点、未竟点、切入点三要素均无满足"
+            },
+            {
+              "rule_id": "literature_insight.no_research_map_ceiling",
+              "rule": "三要素得分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 2,
+              "evidence": "三要素得分为0，触发上限"
+            }
+          ],
+          "boundary_note": "仅评价文献地图与流派识别，不涉同理心正义理论创新。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "good",
+          "summary": "论文构建了完整的研究地图，识别了形式与实质理性两大流派，但未展开更丰富的法学流派图谱。",
+          "core_judgment": "论文形成了“既有成果-具体缺口-本文切入点”的闭环，并识别了法学内部对立立场，本维度成立。",
+          "score_rationale": "三要素得分=3，法学流派=2（形式理性派vs实质理性派），锚定good档(60-69)，给65分。",
+          "evidence_quotes": [
+            "被害人参与诉讼制度...有效地化解了...超职权主义诉讼模式的弊端",
+            "其正义的基本形象呈现出超越机械司法／形式理性，而迈向...社会学司法／实践理性的正义"
+          ],
+          "strengths": [
+            "明确指出了多元诉求整合机制缺失的具体未竟点",
+            "清晰识别了形式理性与实质理性这一核心法学对立立场"
+          ],
+          "weaknesses": [
+            "对其他法学流派（如新法律道德主义）的对手方界定不够显明",
+            "跨学科资源与法学流派的边界偶有模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与流派识别，不评价同理心正义理论本身的创新性或可操作性。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 11.716683149337769,
+        "moonshotai/kimi-k2.6": 341.2999141216278,
+        "z-ai/glm-5.1": 195.85558915138245
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 16.7,
+    "max_std": 16.7,
+    "weighted_total": 7.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 16.7
+  }
+}

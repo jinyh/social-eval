@@ -1,0 +1,309 @@
+{
+  "framework": "configs/frameworks/law-v2.17-20260424.yaml",
+  "framework_version": "2.17.0",
+  "paper": "raw/治国理政的法治理念和法治思维_张文显.pdf",
+  "models": [
+    "gpt-5.4"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "gpt-5.4": 42
+      },
+      "mean": 42,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "problem_originality",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文总体是理论综述与价值阐发，未形成可聚焦、可争辩的法学问题。",
+          "core_judgment": "本文虽涉及大量法学主题，但核心呈现方式是总结性陈述而非围绕明确争点展开，问题创新性偏弱。",
+          "score_rationale": "可争辩性得分=1/4，枢纽性得分=3/4，按锚定规则属unacceptable档；因缺少明确可争辩问题，触发上限，给42分。",
+          "evidence_quotes": [
+            "题名为“法治基础理论的创新”，属于主题声明而非问题句。",
+            "全文多为“习近平指出”“其主要观点包括”式归纳，少见对立观点展开。"
+          ],
+          "strengths": [
+            "涉及党法关系、法治与改革等核心法学议题。",
+            "讨论范围广，触及法治体系与国家治理等基础问题。"
+          ],
+          "weaknesses": [
+            "缺少明确的“是否/如何/能否”型中心问题。",
+            "以单向阐释为主，理论分歧与争点结构不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "题目及正文均未提出清晰中心争点，整体为理论总结与政策性阐发。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评价论证质量、材料充分性或政治意义。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 11.245028734207153
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 18
+      },
+      "mean": 18,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 18,
+          "band": "unacceptable",
+          "summary": "文章重在理论阐释与政策梳理，几乎未建立学术文献意义上的研究地图。",
+          "core_judgment": "本维度不成立：缺少既有研究成果、研究缺口与本文回应之间的系统衔接，流派覆盖亦不足。",
+          "score_rationale": "三要素得分=0/6，法学流派=1个，锚定unacceptable档，给18分",
+          "evidence_quotes": [
+            "习近平创造性地发展了法治原理和中国特色社会主义法治理论",
+            "这是对中国特色社会主义法治作为形式法治与实质法治相统一的法治模式的精辟定型"
+          ],
+          "strengths": [
+            "对法治议题覆盖面广",
+            "出现形式法治/实质法治区分"
+          ],
+          "weaknesses": [
+            "无既有研究成果提炼",
+            "无明确研究缺口与本文切入"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文基本为习近平法治思想的系统介绍，未见“已有研究—不足—本文回应”结构"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "法学流派识别≤1，流派覆盖不足，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "仅明确出现形式法治/实质法治一组，对其他学术对立立场缺乏展开"
+            }
+          ],
+          "boundary_note": "此处所扣分在于文献定位与学术对话不足，不涉及文章命题本身是否具有创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 8.97296404838562
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "gpt-5.4": 56
+      },
+      "mean": 56,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "analytical_framework",
+          "score": 56,
+          "band": "marginal",
+          "summary": "论文有较多概念归纳与类型化整理，但缺少统一、可重复适用的分析框架。",
+          "core_judgment": "本文更像理论综述与观点汇编，虽有若干概念界定和分类，但未建构出可按步骤操作并在后文反复调用的法学分析框架。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，且后文未形成统一框架反复适用，给56分",
+          "evidence_quotes": [
+            "“将中国特色社会主义法治道路凝练为‘三个核心要义’”",
+            "“加快建设法治政府，要从…六个方面展开”"
+          ],
+          "strengths": [
+            "部分核心概念有归纳性界定",
+            "存在“三个要义”“六个方面”等分类整理"
+          ],
+          "weaknesses": [
+            "缺少贯穿全文的统一分析步骤",
+            "分类多为内容罗列，难直接转化为裁判规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处仅评框架是否可操作、可调用，不评价论述内容正确性或章节衔接。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 8.328176021575928
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "gpt-5.4": 44
+      },
+      "mean": 44,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "logical_coherence",
+          "score": 44,
+          "band": "unacceptable",
+          "summary": "全文以权威引述和并列罗列为主，论证链条长但推出关系弱。",
+          "core_judgment": "核心结论多依赖宣示性判断与引文堆叠，难由前文材料和规范分析严格推出。",
+          "score_rationale": "按先定band：虽结构完整，但多处仅以领导人论述直接当结论，缺少前提—论证—结论的中介分析，且存在跳跃概括，触发推理链断裂上限。",
+          "evidence_quotes": [
+            "“法治中国”概念是我们党在法治理论上的重大创新，也是…科学定位",
+            "习近平关于党的领导、人民当家作主、依法治国“三统一”…是…独创性贡献"
+          ],
+          "strengths": [
+            "部分段落有“历史经验—战略选择”链条雏形",
+            "若干概念间关系有层级化展开"
+          ],
+          "weaknesses": [
+            "大量结论直接宣告，缺少论证中介",
+            "从引语到学术评价常发生跳跃"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "关键结论不能由已述事实、规范或案例经清晰步骤推出，存在明显推理断裂。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文章反复由领导人表述直接推出“重大创新”“唯一正确道路”“独创性贡献”等评价，未给出独立论证标准与检验过程。"
+            }
+          ],
+          "boundary_note": "问题不在章节安排，而在每节内部多是引述后直接升格为学理结论，缺少可检验的推出过程。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin",
+            "boundary_overlap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 12.54401421546936
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "gpt-5.4": 42
+      },
+      "mean": 42,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文结论性主张能嵌入现行法秩序，但与法学共同体争论的对话性明显不足。",
+          "core_judgment": "该文更像系统阐释与归纳，结论可被制度语境接受，但较少以可争辩方式回应既有学术分歧。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4；按理论/混合论文锚定unacceptable档，并受共同体对话度过低影响，给42分。",
+          "evidence_quotes": [
+            "“习近平创造性地发展了法治原理和中国特色社会主义法治理论”",
+            "“不能把坚持党的领导同人民当家作主、依法治国对立起来”"
+          ],
+          "strengths": [
+            "结论与中国现行法治话语高度兼容",
+            "充分嵌入中国制度与政治法治语境"
+          ],
+          "weaknesses": [
+            "较少直接回应学界既有争论分歧",
+            "几乎未讨论反对意见或论证局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评价的是结论能否进入共同体与制度语境，不评价其论证真伪或研究前景。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 9.7345290184021
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "gpt-5.4": 18
+      },
+      "mean": 18,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 18,
+          "band": "unacceptable",
+          "summary": "论文主要是理论梳理与阐释，几乎未提出可操作的后续拓展议题。",
+          "core_judgment": "前瞻延展性较弱，缺少明确后续研究问题、理论假设、概念修正或争论进入路径。",
+          "score_rationale": "延展实质度得分=0/4，正文衔接度得分=1/4，锚定unacceptable档，且触发仅有空泛拔高式展望上限，给18分。",
+          "evidence_quotes": [
+            "在坚持中国特色社会主义法治道路的同时，还要与时俱进，不断推进理论创新、制度创新、实践创新",
+            "我们的事业越是向纵深发展，就越要不断增强辩证思维能力"
+          ],
+          "strengths": [
+            "文本内部主题高度集中于法治基础理论",
+            "个别处有继续创新、拓展的方向性措辞"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或理论假设",
+            "未说明应修正哪一概念、边界或论证机制"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "延展实质度=0且仅有空泛拔高表述时，分数上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文结尾与相关段落多为“不断推进创新”“增强辩证思维能力”等宏观表述，未给出具体续研对象。"
+            }
+          ],
+          "boundary_note": "本项只评论文是否指出未来理论深化路径，不评价其现有结论是否正确或可接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 12.451006889343262
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 39.8,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

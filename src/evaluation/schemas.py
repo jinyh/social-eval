@@ -21,6 +21,29 @@ class LimitRuleTriggered(BaseModel):
     evidence: str
 
 
+class NegativePatternFlag(BaseModel):
+    """Stage A 单个负面模式检测结果"""
+    pattern_id: str
+    triggered: bool
+    severity: str = Field(description="low / medium / high")
+    score_ceiling: int | None = None
+    confidence: float = Field(ge=0.0, le=1.0)
+    evidence_quotes: list[str] = Field(default_factory=list)
+    rationale: str | None = None
+
+
+class NegativePatternResult(BaseModel):
+    """Stage A 维度级负面模式检测汇总"""
+    dimension: str
+    pattern_flags: list[NegativePatternFlag] = Field(default_factory=list)
+    applied_score_ceiling: int | None = Field(
+        default=None,
+        description="多个 pattern 触发时取最低 ceiling；未触发时为 None",
+    )
+    requires_manual_review: bool = False
+    model_name: str = ""
+
+
 class SignalJudgment(BaseModel):
     signal_key: str
     judgment: str
@@ -76,6 +99,7 @@ class DimensionResult(BaseModel):
     strengths: list[str] = Field(default_factory=list)
     weaknesses: list[str] = Field(default_factory=list)
     limit_rule_triggered: list[LimitRuleTriggered] = Field(default_factory=list)
+    negative_pattern_triggered: list[NegativePatternFlag] = Field(default_factory=list)
     boundary_note: str | None = None
     review_flags: list[str] = Field(default_factory=list)
     model_name: str

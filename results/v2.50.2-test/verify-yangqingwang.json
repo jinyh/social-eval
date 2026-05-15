@@ -1,0 +1,580 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "raw/sample/补充负样本/2.杨清望 - 2025 - 爱国主义法治建设的理论逻辑与实施体系.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码数字混入正文段落（如“4\\n2\\n法制与社会发展”“5\\n2\\n爱国主义法治建设”）",
+          "脚注编号OCR识别乱码（如“ᙨI0”“ᙨ2”“ᙨ4”“ᙨ5”等替代了标准数字上标）",
+          "部分英文参考文献断行与空格异常"
+        ],
+        "evidence_quotes": [
+          "4\n2\n法制与社会发展(双月刊)\n2025 年第2 期(总第182 期)",
+          "ᙨI0 “中国” 作为国家的种概念, 具有现代国家的一般特征",
+          "ᙨ2 具言之, 爱国主义需要通过宪法和法律来得到申明"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“中国” 作为一个历史文化和政治法律概念的综合体, 为人民爱国提供了深层的文化根源和现实的法律依据。",
+          "爱国行为的法律内涵可以被分解为三个方面：维护之爱、服从之爱、参与之爱。",
+          "针对我国爱国主义法律规范缺乏系统性和协调性……可以通过构建‘基础法+专门法+相关法’ 的结构模式健全爱国主义法律规范体系。",
+          "构建刚柔并济的双层爱国主义行政执法机制……拓展‘上下联动’ 的爱国主义司法保障机制"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在页码混排与脚注编号OCR乱码，但不影响核心法理命题与制度建议的定位与评审。"
+      ],
+      "evidence_quotes": [
+        "爱国行为的法律内涵可以被分解为三个方面：维护之爱、服从之爱、参与之爱。",
+        "构建‘基础法+专门法+相关法’ 的结构模式健全爱国主义法律规范体系。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论点清晰，具备明确的中国问题意识与规范法学命题，建议直接进入六维评分。评审时请忽略OCR残留的页码与乱码脚注编号，重点评估其‘爱国行为法律内涵三分法’‘身份义务类型化’及‘立法-执法-司法-守法体系化构建’等制度命题的理论自洽性与实践解释力。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号出现OCR乱码（如ᙨI0, ᙨI1, ᙨ2等）",
+          "期刊页码及栏目名混入正文（如'4 2 法制与社会发展(双月刊) 2025 年第2 期(总第182 期)'）",
+          "参考文献列表抽取失败（提示无，但正文存在大量脚注引用）"
+        ],
+        "evidence_quotes": [
+          "ᙨI0 “中国” 作为国家的种概念, 具有现代国家的一般特征, 也具有自己的独特性。",
+          "4 2 法制与社会发展(双月刊) 2025 年第2 期(总第182 期)"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“中国” 作为一个历史文化和政治法律概念的综合体, 为人民爱国提供了深层的文化根源和现实的法律依据。",
+          "爱国行为的法律内涵包括维护之爱、服从之爱和参与之爱。加强爱国主义法治建设, 具有深刻的法理基础和制度资源: 一方面, 爱国主义法律义务框定了爱国行为的内容及其边界;",
+          "我国爱国主义行政执法已然面临如下问题: 第一, 爱国主义行政执法存在权力空白问题...第二, 爱国主义行政执法存在权力重叠问题。",
+          "从正当性依据来看, 爱国主义法律义务的逻辑起点在于维护个人权利和国家共同利益的一体化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、期刊页码混入正文、参考文献列表缺失；项目口径：无"
+      ],
+      "evidence_quotes": [
+        "“中国” 作为一个历史文化和政治法律概念的综合体, 为人民爱国提供了深层的文化根源和现实的法律依据。",
+        "爱国行为的法律内涵包括维护之爱、服从之爱和参与之爱。",
+        "我国爱国主义行政执法已然面临如下问题: 第一, 爱国主义行政执法存在权力空白问题...第二, 爱国主义行政执法存在权力重叠问题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段注意清理正文中的页码混入和脚注乱码问题，并尝试从正文脚注中重建参考文献列表。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 30,
+        "glm-5.1": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文体系完整但问题意识偏弱，概念包装未突破既有框架，实质为政策阐释。",
+          "core_judgment": "研究问题缺乏实质争辩性，枢纽性虽广但被概念重组与政策倡导稀释，创新性不足。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性已触发上限(70)，锚定excellent档。经负面模式检查扣50分(概念包装旧问题-15/宏观介绍-15/主题声明-20)，按底线规则最终给30分。",
+          "evidence_quotes": [
+            "弘扬爱国主义精神为什么必然诉诸法治？爱国主义与法律及法治之间如何建立起内在关联？",
+            "爱国行为的法律内涵包括维护之爱、服从之爱和参与之爱。"
+          ],
+          "strengths": [
+            "涵盖立法、执法、司法与守法全链条，体系完整。",
+            "结合宪法主权与政治义务理论，法理基础较扎实。"
+          ],
+          "weaknesses": [
+            "核心概念仅为既有理论重组，未阐明解释力跃升。",
+            "问题句实质为政策倡导，缺乏真正可争辩的法学争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "新概念包装未带来实质命题推进",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "“三爱”分类仅为语义重组，未改变规范命题或解释路径"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以新概念包装旧问题，实质为宏观政策倡导而非可争辩的法学研究问题。",
+          "core_judgment": "问题缺乏法学争点与理论交锋，仅为既定立场的阐释与制度建议。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性触发上限65，锚定good档给60分；前置扣分50分（新概念包装15+宏观介绍15+政策倡导20），扣分后10分，底线调整为30分。",
+          "evidence_quotes": [
+            "弘扬爱国主义精神为什么必然诉诸法治？爱国主义法治建设应该如何展开？",
+            "传统观点认为交由政策而非法律解决……但这两点担心都不成立"
+          ],
+          "strengths": [
+            "涉及多制度领域，枢纽性较强"
+          ],
+          "weaknesses": [
+            "问题宏大无聚焦，实质为政策倡导",
+            "缺乏真正的理论分歧与观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "问题句为‘爱国主义法治建设应该如何展开’，极其宏大"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 108.23633408546448,
+        "glm-5.1": 87.40434098243713
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理了爱国主义法治化的理论脉络与制度现状，精准定位研究缺口并明确规范主义进路。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派覆盖充分，文献洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "尽管学界已在此领域取得了一系列研究成果……但是针对爱国主义法治建设这一问题的深入研究和系统推进仍显不足。",
+            "本文试图从规范主义的进路出发……全面梳理爱国主义法治建设的制度资源及其不足，为完善爱国主义法治实施体系提出具体建议。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，理论与制度双重覆盖。",
+            "明确对比中西法治观与义务理论，争点结构立体。"
+          ],
+          "weaknesses": [
+            "部分西方理论引述偏重政治哲学，教义学对话可深化。",
+            "流派识别多集中于宏观理论，部门法具体争点展开稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及爱国主义议题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派覆盖充分，现状洞察度高。",
+          "core_judgment": "论文通过多学派对立与中西路径分歧构建了清晰的学术争点脉络，现状洞察维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "关于政治义务的正当性解释，主要有自愿论、目的论、责任论和关联义务论等观点",
+            "传统观点认为，爱国主义的基本标准和范围应该交由政策而非法律解决...但这两点担心都不成立"
+          ],
+          "strengths": [
+            "明确提炼了政治义务四论及宪法爱国主义等对立流派",
+            "清晰构建了政策vs法律、西方vs中国法治路径的争点结构"
+          ],
+          "weaknesses": [
+            "部分流派仅作引述，未深入展开其与宪法爱国主义的内在张力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非爱国主义法治问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 79.66642689704895,
+        "glm-5.1": 63.79153895378113
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 35,
+        "glm-5.1": 55
+      },
+      "mean": 45,
+      "std": 14.1,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以政策阐释与制度梳理为主，缺乏原创分析框架与可操作步骤，法学转化度极低。",
+          "core_judgment": "该维度不成立，全文未建构可重复适用的法学分析框架，仅完成既有立场与制度资源的归纳。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=0/4，锚定unacceptable档，给35分。全文以梳理、归纳、阐释为主，无原创概念界定与类型化分析步骤，核心术语均来自权威表述，后文未调用框架逻辑，仅提出宏观立法与机制建议，未转化为裁判规则或适用流程。",
+          "evidence_quotes": [
+            "爱国行为的法律内涵可以被分解为三个方面：维护之爱、服从之爱、参与之爱。",
+            "应当健全爱国主义法律规范体系、构建刚柔并济的双层爱国主义行政执法机制、积极拓展上下联动的爱国主义司法保障机制"
+          ],
+          "strengths": [
+            "对爱国主义法治建设的制度资源进行了系统梳理",
+            "提出了立法、执法、司法、守法四个环节的分类框架"
+          ],
+          "weaknesses": [
+            "核心概念无明确定义，缺乏可重复适用的分析步骤",
+            "全文以政策阐释为主，未提供裁判规则或法律适用流程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无明确定义，无分析步骤，全文以政策阐释与制度归纳为主，未转化为法学操作指引。"
+            },
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语后文调用不足触发上限60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "提出的“维护/服从/参与之爱”及“基础法+专门法+相关法”等分类在后文未作为分析工具反复调用。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了类型化框架但未实际调用，且缺乏法学操作转化。",
+          "core_judgment": "框架停留在宏观分类与政策阐释层面，未形成可操作的法学分析步骤或制度方案。",
+          "score_rationale": "框架可操作性得分=2/4（有分类无步骤且后文未调用），法学转化度得分=0/4（无裁判规则或操作指引），锚定marginal档，触发未调用上限60分，给55分。",
+          "evidence_quotes": [
+            "爱国行为的法律内涵包括维护之爱、服从之爱、参与之爱",
+            "应当健全爱国主义法律规范体系、构建刚柔并济的双层爱国主义行政执法机制"
+          ],
+          "strengths": [
+            "对爱国行为和法律义务进行了明确的三分类型化",
+            "系统梳理了爱国主义法治的现有制度资源与不足"
+          ],
+          "weaknesses": [
+            "核心分类框架在后文未被实际调用，论述转为立法执法司法守法",
+            "宏观口号式呼吁多，缺乏可操作的裁判规则或制度设计细节"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "前文提出'维护之爱等三分'与'三种义务'，后文按立法执法司法守法展开，未调用前文分类"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与法学转化，不评理论推演的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 13.568445205688477,
+        "glm-5.1": 71.1343469619751
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 85
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文遵循“概念界定—义务证成—现状检视—制度建构”推演链条，结论可由前文充分支撑。",
+          "core_judgment": "推理链完整且环环相扣，反驳处理兼顾理论分歧与实务边界，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。理论到制度推导连贯，对反对意见有实质回应并承认局限。",
+          "evidence_quotes": [
+            "传统观点认为爱国主义标准应交由政策而非法律解决，本文论证法律能框定标准并提供稳定预期。",
+            "针对司法介入限度，本文主张确立公益保留与司法谦抑原则，避免公益诉讼极端化。"
+          ],
+          "strengths": [
+            "“理论证成—现状诊断—对策提出”推理依赖度高，无断裂。",
+            "对“政策优于法律”“爱国主义易致排外”等反对观点有实质法理回应。"
+          ],
+          "weaknesses": [
+            "部分制度建议的规范依据论证稍显简略。",
+            "对盲目爱国主义的防范机制偏重原则宣示，操作性推演略弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链条支撑度与反驳处理，不涉及制度方案在实务中的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且环环相扣，反驳与局限处理充分，逻辑支撑有力。",
+          "core_judgment": "论文推理链形成充分支撑，核心结论可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "传统观点认为，爱国主义的基本标准和范围应该交由政策而非法律解决……但是这两点担心都不成立，因为法律是社会最大范围和最大程度的共识",
+            "对拓宽爱国主义公益诉讼保护领域这一举措应持审慎态度……避免公益诉讼沦为爱国主义极端化的危险利器"
+          ],
+          "strengths": [
+            "从概念界定到制度设计的五步推理链依赖度高，无关键跳步",
+            "显式回应了“政策优于法律”的反对意见并给出论证"
+          ],
+          "weaknesses": [
+            "局部从“共同善”到“法律义务设定”的过渡偏解释性，推导深度可加强",
+            "实务方案推导部分偏重罗列，逻辑推导的紧凑性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦推理链支撑度，不评判制度方案实操性或结论价值共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.52796196937561,
+        "glm-5.1": 48.76907014846802
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论系统回应爱国主义法治化争议，提出契合中国法秩序的四维实施路径，具备高度可接受性。",
+          "core_judgment": "结论深度嵌入中国法治语境并明确回应反对意见，共同体对话度与制度可接受度均达标。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "加强爱国主义法治建设既是传承和弘扬爱国主义精神……也是确保爱国行为不悖离文明发展的定海神针。",
+            "应当构建自上而下和自下而上的双向爱国主义司法保障机制，进而强化爱国主义司法保障的功能。"
+          ],
+          "strengths": [
+            "精准定位中西理论差异，明确爱国主义法律义务的规范边界。",
+            "对策直指现行立法碎片化与司法依附性痛点，转化路径清晰。"
+          ],
+          "weaknesses": [
+            "“基础法+专门法”立法构想未充分论证与现行法体系的位阶冲突。",
+            "对行政执法“条块冲突”的破解方案仍偏重原则性指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论充分回应学界争论并提出详实制度方案，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话与制度可接受性上均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "囿于西方国家在意识形态上的定见...其解决方案必然具有偏狭性",
+            "构建‘基础法+专门法+相关法’的结构模式健全爱国主义法律规范体系"
+          ],
+          "strengths": [
+            "明确挑战西方宪法爱国主义并提出中国语境方案",
+            "制度设计详实，回应了执法权力空白等实务约束"
+          ],
+          "weaknesses": [
+            "采用立法-执法-司法-守法四分框架略显机械（但有实质内容填充）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被共同体和制度语境接受，不评估论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.41886377334595,
+        "glm-5.1": 61.40459489822388
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 75,
+        "glm-5.1": 65
+      },
+      "mean": 70,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在制度建构基础上，明确指出了公益诉讼边界、执法协同机制及AI时代国家认同冲击等具体延展方向。",
+          "core_judgment": "存在真实延展路径，且与正文提出的“刚柔并济执法”“审慎拓宽公益诉讼”等核心结论紧密衔接。",
+          "score_rationale": "原始分75，对应bonus=3。论文明确指向AI与全球化冲击、违法行为类型化共识构建等具体议题，延展路径清晰可定位，但技术维度的机制推演尚显简略。",
+          "evidence_quotes": [
+            "全球化的发展、互联网和AI等科学技术的发达，正在冲击着国家的边界和国家共同体意识，因此，爱国主义法治建设是一个未尽的话题",
+            "应在对爱国主义领域内的违法行为类型化，且使其达成社会广泛共识的基础上，稳步推进爱国主义公益诉讼"
+          ],
+          "strengths": [
+            "明确指出公益诉讼审慎拓宽与违法行为类型化的后续研究入口",
+            "将AI与全球化冲击纳入国家认同法治保障的未来议程"
+          ],
+          "weaknesses": [
+            "对技术冲击下的具体法律回应机制缺乏细化推演",
+            "部分延展方向仍依附于对策建议，未独立成篇"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于AI时代国家认同冲击、公益诉讼边界等未来制度演进与理论深化方向，而非评判当下结论的规范可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "指明全球化与AI冲击下的爱国主义法治新争点及制度深化方向。",
+          "core_judgment": "存在真实延展路径，指出了技术冲击带来的后续争点及制度适用边界。",
+          "score_rationale": "原始分65，对应bonus档位3（>=60）。结语提出AI与全球化冲击作为后续争点，正文指明宪法与法律义务协同、防范盲目爱国风险等制度深化方向，路径明确但精细度有限。",
+          "evidence_quotes": [
+            "全球化的发展、互联网和AI等科学技术的发达，正在冲击着国家的边界和国家共同体意识，因此，爱国主义法治建设是一个未尽的话题，必须与时俱进，对其展开更加深入的研究。",
+            "爱国主义宪法义务与法律义务之间缺乏协同实施机制。"
+          ],
+          "strengths": [
+            "提出AI与全球化冲击国家边界这一具体后续争点。",
+            "指明宪法义务与法律义务协同、防范盲目爱国风险等制度深化方向。"
+          ],
+          "weaknesses": [
+            "结语对技术冲击的延展仅点到为止，缺乏具体研究路径展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "AI与全球化对国家边界的冲击属于未来法治建设需回应的新场景，而非当下制度可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.68211078643799,
+        "glm-5.1": 47.00372505187988
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 3.9,
+    "max_std": 14.1,
+    "weighted_total": 63.5,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 2.77,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 14.1
+  }
+}

@@ -1,0 +1,533 @@
+{
+  "framework": "configs/frameworks/law-v2.50.3-20260514.yaml",
+  "framework_version": "2.50.3",
+  "paper": "raw/sample/正样本/比例原则位阶秩序的司法适用_蒋红珍.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与分隔符OCR残留（如“· 1 4 ·”）",
+          "脚注编号格式轻微错乱及局部断行"
+        ],
+        "evidence_quotes": [
+          "·\n1\n4\n·\n*",
+          "〔1 〕在位阶秩序构成论上，学界存在不同观点。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文选取能够代表最高人民法院裁判立场的行政判例作为主要的解读文本，试图勾勒比例原则三阶论在我国司法适用中的实际面貌",
+          "位阶秩序的不同适用样态背后，既有基于比例原则分支结构理论的内部成因，也有关涉司法权介入行政判断之意愿强弱的外部成因",
+          "不同的位阶秩序适用模式，代表着司法审查强度的多元选择，它们在深层次上协调着司法权与行政权的边界。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量OCR页码残留与脚注格式错乱，但不影响核心论证定位"
+      ],
+      "evidence_quotes": [
+        "位阶秩序的不同适用样态背后，既有基于比例原则分支结构理论的内部成因，也有关涉司法权介入行政判断之意愿强弱的外部成因"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR与排版残留，建议清洗后进入六维评分。项目口径完全符合，以中国行政审判实践为中心，明确提出了比例原则位阶秩序适用模式与司法审查强度之间的解释命题，具备充分的理论转化与本土实践解释力，可直接进入正式评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "外文参考文献及德文/英文术语存在OCR字体替换乱码（如,,Ｒ等特殊字符）",
+          "期刊页码混入正文（如· 1 4 ·，· 2 4 ·）",
+          "脚注编号格式存在空格异常（如〔1 〕）"
+        ],
+        "evidence_quotes": [
+          "Artur Wolffers，Neue Aspekte des Grundsatzes der Verhltnismigkeit，Zeitschrift des Bernischen Juristenverein 113 ( 1977 ) ，S．298．",
+          "· 1 4 ·",
+          "〔1 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "比例原则在我国行政审判实践中已有超过20 年的发展史，形成了位阶秩序的多样化适用模式，为丰富比例原则的位阶秩序理论提供了鲜活的中国样本。",
+          "位阶秩序的不同适用样态背后，既有基于比例原则分支结构理论的内部成因，也有关涉司法权介入行政判断之意愿强弱的外部成因。",
+          "将比例原则的‘抽象式适用’锁定为狭义比例原则的适用，‘全阶式适用’和‘截取式适用’就代表着广义比例原则的适用。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "外文文献OCR乱码需后续文本工程修复",
+        "页码及脚注编号格式需清洗"
+      ],
+      "evidence_quotes": [
+        "比例原则在我国行政审判实践中已有超过20 年的发展史，形成了位阶秩序的多样化适用模式，为丰富比例原则的位阶秩序理论提供了鲜活的中国样本。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续文本工程阶段修复外文OCR乱码及清洗页码/脚注格式残留。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 75
+      },
+      "mean": 83.5,
+      "std": 12.0,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准捕捉比例原则教义学通说与司法实践的张力，提出适用样态与审查强度关联的核心争点。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将实证现象转化为教义学解释命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给92分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "法官在适用比例原则时，是否会严格遵循“适当性—必要性—均衡性”的操作流程?",
+            "究竟是法院的随兴所至，还是符合比例原则内在机理的合理做法?"
+          ],
+          "strengths": [
+            "精准提炼司法实践的三种适用样态，突破教义学僵化预设。",
+            "将适用模式差异与司法审查强度深度勾连，解释力强。"
+          ],
+          "weaknesses": [
+            "对“抽象式适用”的教义学重构稍显简略。",
+            "审查强度的类型化标准可进一步精细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立度与重要性，不评论证逻辑与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "归纳比例原则位阶秩序的三种司法适用样态，并将其与司法审查强度关联，问题重要且有理论分歧。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，但新概念对理论命题的实质推进稍欠充分。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，因新概念包装旧问题扣15分，给75分。",
+          "evidence_quotes": [
+            "法官在适用比例原则时，是否会严格遵循操作流程？",
+            "这种多样化的适用，究竟是法院的随兴所至，还是符合内在机理的合理做法？"
+          ],
+          "strengths": [
+            "问题直击学理与实践脱节，可争辩性强",
+            "涉及位阶秩序构成论与审查强度的核心分歧"
+          ],
+          "weaknesses": [
+            "新适用样态概念的功能解释强于规范命题推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题创新性，不评案例归纳的实证充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.75045418739319,
+        "glm-5.1": 37.06400680541992
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒比例原则位阶秩序的学理通说与司法实践分歧，精准定位理论预设与本土裁判样态的落差，研究地图完整。",
+          "core_judgment": "文内充分呈现到达点、未竟点与切入点，争点结构清晰且流派识别充分，研究地图维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "然而，将比例原则的内涵层次和适用流程等同于三阶论的观点，还只是立足于学理层面的认识……尚未在我国实体法上明文确立。",
+            "本文选取能够代表最高人民法院裁判立场的行政判例作为主要的解读文本，试图勾勒比例原则三阶论在我国司法适用中的实际面貌……"
+          ],
+          "strengths": [
+            "精准提炼“全阶/截取/抽象”三种司法适用样态，有效衔接理论与实务。",
+            "明确梳理两阶、三阶、四阶论争，争点脉络清晰，文献定位扎实。"
+          ],
+          "weaknesses": [
+            "对比较法上比例原则审查强度的流派演变着墨较少，主要聚焦本土判例。",
+            "未竟点集中于司法适用样态，对立法论层面的制度建构缺口探讨稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及比例原则本土化命题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现了比例原则位阶秩序的学理争论与实践样态分歧，研究地图完整。",
+          "core_judgment": "现状洞察度极高，完整构建了从学理构成论到司法适用样态及审查强度的多维争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学理上存在着两阶论、三阶论和四阶论的争论",
+            "截取式适用和抽象式适用容易遭受流于主观化的质疑，需要进入释义学体系内部探查其合理性成分"
+          ],
+          "strengths": [
+            "清晰梳理两阶、三阶、四阶论的学理争点结构",
+            "精准提炼全阶、截取、抽象三种实践样态的对立分歧"
+          ],
+          "weaknesses": [
+            "对部分比较法流派（如美国最小侵害原则）的梳理稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构构建，而非论证逻辑的严密性或结论创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 79.941153049469,
+        "glm-5.1": 45.36003112792969
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 95
+      },
+      "mean": 91.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文基于最高法判例建构“全阶/截取/抽象”三分框架，并成功映射司法审查强度，具备强可操作性与转化力。",
+          "core_judgment": "框架界定清晰、分类标准明确且贯穿全文实证分析，成功将理论位阶转化为可重复适用的裁判分析工具，维度成立。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。类型化标准精准对应裁判逻辑，有效实现理论向实务的转化。",
+          "evidence_quotes": [
+            "位阶秩序的司法适用至少存在三种典型样态：全阶式适用、截取式适用、抽象式适用。",
+            "全阶式、截取式和抽象式三种比例原则的适用形态，本身对应着司法审查强度从严格到宽松的调整过程。"
+          ],
+          "strengths": [
+            "分类标准清晰，精准提炼司法裁判的三种位阶适用样态。",
+            "框架贯穿全文，成功将抽象位阶秩序转化为可观测的审查强度指标。"
+          ],
+          "weaknesses": [
+            "对“截取式”与“抽象式”的边界在部分边缘案例中可能存在交叉。",
+            "未进一步提供法官选择适用模式的具体触发条件清单。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉逻辑衔接与问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "基于判例提炼出比例原则位阶秩序的三种适用类型及审查强度映射框架，转化度高。",
+          "core_judgment": "框架高度成立，将学理位阶秩序转化为可识别的司法适用类型和审查强度判断要素。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "位阶秩序的司法适用至少存在三种典型样态：全阶式适用、截取式适用和抽象式适用。",
+            "不同的位阶秩序适用模式，代表着司法审查强度的多元选择，它们在深层次上协调着司法权与行政权的边界。"
+          ],
+          "strengths": [
+            "创造性地提出比例原则适用的三种类型化标准，分类边界清晰。",
+            "将适用类型与司法审查强度有效映射，提供了可操作的判断要素。"
+          ],
+          "weaknesses": [
+            "审查强度的具体判断步骤虽提出要素，但未形成严密的先后次序流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的类型化与法学转化，不评价其论证逻辑的严密程度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.40650224685669,
+        "glm-5.1": 36.78340291976929
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过判例类型化与理论回应，严密论证了适用模式与审查强度的关联。",
+          "core_judgment": "推理链完整且具强依赖关系，反驳处理充分，结论可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "位阶秩序的司法适用至少存在三种典型样态：全阶式、截取式与抽象式。",
+            "不同的位阶秩序适用模式，代表着司法审查强度的多元选择，协调权力边界。"
+          ],
+          "strengths": [
+            "推理链条完整，从实证归纳到理论证成再到审查强度关联，层层递进。",
+            "反驳处理充分，明确回应学界分歧并承认论证的相对性与适用边界。"
+          ],
+          "weaknesses": [
+            "截取式与审查强度的对应论证稍显简略，部分依赖经验性推断。",
+            "四阶论反驳部分偏重语义学困境，规范依据支撑可进一步充实。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦判例适用模式与审查强度的推导链条，未越界评价框架可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过内外双视角逐层推导，完整解释了比例原则位阶秩序的司法适用样态，逻辑严密。",
+          "core_judgment": "推理链完整且依赖度高，核心结论由案例类型化与释义学分析充分推出，反驳与局限处理坦诚。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "截取式适用跨越适当性审查……所有授权范围内的手段，都能满足合目的性的要求",
+            "不能反过来说，司法干预行政判断的意愿强弱，就单一地、排他地体现在位阶秩序的类型选择上"
+          ],
+          "strengths": [
+            "内外视角推理链环环相扣，从现象到成因推导无关键跳步",
+            "对两阶论、四阶论及“流于主观”批评的回应实质且充分"
+          ],
+          "weaknesses": [
+            "无明显逻辑弱点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判的是从案例现象到内外成因的推导链条是否充分支撑结论，而非审查强度框架本身的可操作性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 71.29819989204407,
+        "glm-5.1": 60.44411611557007
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 85
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论精准回应比例原则位阶秩序本土化争议，实证与理论结合紧密，高度契合中国行政审判语境。",
+          "core_judgment": "结论深度嵌入中国行政诉讼制度语境，有效回应学界对比例原则适用主观化的质疑，具备高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论直面学理争议与实务样态，明确审查强度与位阶适用的关联，未触发降档规则。",
+          "evidence_quotes": [
+            "位阶秩序的不同适用样态背后，既有基于比例原则分支结构理论的内部成因，也有关涉司法权介入行政判断之意愿强弱的外部成因。",
+            "借助位阶秩序的多元结构和具体标准，对司法审查强度进行调整……将是比例原则实现其功能的重要途径之一。"
+          ],
+          "strengths": [
+            "精准提炼“全阶/截取/抽象”三种司法适用样态，实证基础扎实。",
+            "将位阶适用与审查强度勾连，有效回应“流于主观”的学界批评。"
+          ],
+          "weaknesses": [
+            "对“抽象式适用”的规范化边界论述稍显简略。",
+            "未充分探讨不同法院层级在审查强度选择上的差异。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻回应学界争论与中国司法实践，将适用模式与审查强度挂钩，制度兼容性强。",
+          "core_judgment": "结论成功进入共同体对话并深度契合中国制度语境，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "对于那种简单地将“比例原则等同于位阶秩序”的学理论断，我们应当保持必要的警醒。",
+            "有必要区分不同的案件类型，对位阶秩序的适用提出规范化要求。"
+          ],
+          "strengths": [
+            "修正了三阶论的绝对化教条，回应了比例原则流于主观的批判。",
+            "将适用样态与审查强度关联，为中国司法尊让立场提供了理论解释。"
+          ],
+          "weaknesses": [
+            "对“规范化要求”的具体案件类型区分标准未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受，不评论证严密性及未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.22432827949524,
+        "glm-5.1": 50.70175385475159
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 70,
+        "glm-5.1": 65
+      },
+      "mean": 67.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文基于判例梳理提出按案件类型规范化适用位阶秩序及细化审查标准，为比例原则司法适用指明未来路径。",
+          "core_judgment": "存在真实延展路径，明确指向案件类型化区分与分支原则具体标准的精细化建构。",
+          "score_rationale": "原始分70，对应bonus=3。结语明确指向按案件类型规范化适用及细化分支标准以调控审查强度，路径清晰且与核心结论紧密衔接，但缺乏具体类型划分与标准建构的展开。",
+          "evidence_quotes": [
+            "有必要区分不同的案件类型，对位阶秩序的适用提出规范化的要求。",
+            "借助位阶秩序的多元结构和具体标准，对司法审查强度进行调整……将是比例原则实现其功能的重要途径之一。"
+          ],
+          "strengths": [
+            "明确指向按案件类型规范化适用位阶秩序",
+            "将适用形态与审查强度标准细化相衔接"
+          ],
+          "weaknesses": [
+            "未具体列举需区分的关键案件类型",
+            "对具体标准的调控路径缺乏操作化展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于未来如何通过案件类型化与标准细化推进比例原则的司法适用，而非评价当前结论的学术接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "指明了位阶秩序适用的规范化及审查要素精细化方向，与核心结论衔接明确但展开有限。",
+          "core_judgment": "存在真实延展路径，指明了裁判规则规范化及审查强度标准精细化的后续方向。",
+          "score_rationale": "原始分65，对应bonus档位good(3分)。结语指明区分案件类型对位阶秩序适用提出规范化要求，及审查要素标准的精细化调控，路径明确但精细度有限。",
+          "evidence_quotes": [
+            "有必要区分不同的案件类型，对位阶秩序的适用提出规范化要求。",
+            "在每一种适用样态内部，还有具体而微的审查要素和标准，调控着司法与行政界分的强弱差异。"
+          ],
+          "strengths": [
+            "延展方向紧扣核心结论（适用样态与审查强度的关联）。",
+            "指出了实务改进的具体切入点（规范化要求与审查要素标准）。"
+          ],
+          "weaknesses": [
+            "对如何区分案件类型构建规范化要求的路径展开不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "规范化要求与审查要素精细化属于未来裁判规则延伸，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 49.60558295249939,
+        "glm-5.1": 33.14706110954285
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.0,
+    "max_std": 12.0,
+    "weighted_total": 87.4,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 4.33,
+    "worst_dimension": "problem_originality",
+    "worst_std": 12.0
+  }
+}

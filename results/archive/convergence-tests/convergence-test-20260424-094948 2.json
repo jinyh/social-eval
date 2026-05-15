@@ -1,0 +1,77 @@
+{
+  "framework": "configs/frameworks/law-v2.8-20260423.yaml",
+  "framework_version": "2.8.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "dashscope-kimi-k2.6"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "kimi-k2.6": 45
+      },
+      "mean": 45,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文以同理心正义整合多元司法诉求，但问题边界模糊，理论包装过度。",
+          "core_judgment": "核心争点混杂了法哲学命题与司法政策主张，未形成可检验的法学问题。",
+          "score_rationale": "触发'问题非可争辩'上限（50分）：论文将'同理心正义能否破解司法难题'作为中心，实为价值倡导而非规范分析；同时触发'触及枢纽不足'上限（60分），因其未进入制度解释或规则适用层面。取最低上限50分，再降5分因文献堆砌削弱问题聚焦，得45分。",
+          "evidence_quotes": [
+            "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求",
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效，应转而寻求一种正义的首要原则"
+          ],
+          "strengths": [
+            "试图回应中国司法'情理法'传统与现代法治的张力",
+            "引入移情心理学与现象学资源，跨学科意识明显"
+          ],
+          "weaknesses": [
+            "核心命题为规范性倡导，无可争辩的对立面",
+            "问题悬浮于理念层面，未下沉至任何制度节点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "问题须为可争辩的法学问题，而非政策口号或价值倡导",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文主张同理心正义'可成为这一难题的破解之道'，属单向度价值断言，无反论空间"
+            },
+            {
+              "rule_id": "problem_originality.no_institutional_hub",
+              "rule": "问题须触及制度、规范或解释上的枢纽",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文未锁定任何具体规范解释争议或制度操作节点，停留于正义理念重构"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否新颖且为真法学问题，不评价论证质量或理论深度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "kimi-k2.6": 18.191132068634033
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.0,
+    "max_std": 0.0,
+    "weighted_total": 13.5,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 1,
+    "worst_dimension": "problem_originality",
+    "worst_std": 0.0
+  }
+}

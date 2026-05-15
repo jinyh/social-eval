@@ -1,0 +1,4 @@
+iteration	timestamp	version	action	avg_std	high_confidence_pct	composite_score	keep_discard	notes
+0	20260507-120000	v2.40	baseline	6.20	66.7	0.47	-	Baseline: 4模型(gpt-5.4,glm-5.1,qwen3.6-plus,deepseek-v4-pro), 单篇论文(蒋舸), 前瞻延展性std=16.0(critical), 分析框架建构力std=8.9(low)
+1	20260507-131438	v2.41	keep	7.40	83.3	0.93	DISCARD	前瞻延展性std恶化(16.0→27.1)但高置信度比例大幅提升，复合得分+0.46。DeepSeek给0分，简化标准导致DeepSeek判断更严格，回退。下次尝试：不改标准，增加示例和关键词
+2	20260507-132807	v2.42	keep	7.50	83.3	0.83	KEEP	分析框架建构力std大幅下降(8.9→4.6)，DeepSeek评分提升(75→85)。前瞻延展性std波动(16.0→25.0)可能是随机性

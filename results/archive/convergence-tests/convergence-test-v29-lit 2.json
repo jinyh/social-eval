@@ -1,0 +1,126 @@
+{
+  "framework": "configs/frameworks/law-v2.9-20260423.yaml",
+  "framework_version": "2.9.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "kimi-k2.6",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 61,
+        "moonshotai/kimi-k2.6": 82,
+        "z-ai/glm-5.1": 65
+      },
+      "mean": 69.3,
+      "std": 11.2,
+      "confidence": "low",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 61,
+          "band": "good",
+          "summary": "论文基本搭建了研究地图，并识别出若干法学内部对立立场，但流派梳理仍偏嵌入式。",
+          "core_judgment": "本维度基本成立：有既有研究—现实困境—本文方案链条，也能辨认形式/实质、法律/道德等法学分歧。",
+          "score_rationale": "三要素得分为3：写明既有成果、具体争议与本文切入；可识别流派约2个，如形式法治/实质法治、法律道德主义/无法接受无道德内容法治观所对照的分离立场，依规则落在good区间。",
+          "evidence_quotes": [
+            "“定罪和量刑分立的变革性设想…目前看仍然难以获得共识”",
+            "“那种试图从具体法律条文中寻求回答…应转而寻求一种正义的首要原则”"
+          ],
+          "strengths": [
+            "明确指出既有制度与学说贡献",
+            "本文切入与“整合多元诉求”缺口对应"
+          ],
+          "weaknesses": [
+            "流派对立多靠读者归纳，未系统梳理",
+            "不少论证借重跨学科资源，易冲淡法学内部谱系"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.school_count_le_1_not_triggered",
+              "rule": "法学流派识别≤1才触发65分上限；本文可识别至少2个流派，未触发。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "文中有形式法治/实质理性、法律道德主义/无道德内容法治观等对立"
+            }
+          ],
+          "boundary_note": "此分主要看文献定位与流派辨识，不评价“同理心正义”理论本身是否新颖或可行。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "excellent",
+          "summary": "建立了基本研究地图并识别出多组法学对立立场",
+          "core_judgment": "论文形成了包含到达点、未竟点与切入点的研究地图，并识别出形式法治与实质法治、新法律道德主义等法学内部对立流派。",
+          "score_rationale": "三要素均满足，且识别出形式法治、实质法治与新法律道德主义三个法学内部流派及其分歧，故评定为82分。",
+          "evidence_quotes": [
+            "但由于被害人具有独立的诉求和利益，这一设想目前看仍然难以获得共识",
+            "其正义的基本形象呈现出超越机械司法／形式理性，而迈向现代性反思后的社会学司法／实践理性的正义"
+          ],
+          "strengths": [
+            "研究地图三要素齐备，从程序正义困境到同理心正义切入点逻辑清晰",
+            "识别出形式法治与实质法治、新法律道德主义等内部对立流派"
+          ],
+          "weaknesses": [
+            "既有研究到达点梳理分散，缺少集中系统的文献综述段落",
+            "部分流派分歧隐含于论述，未作显性标签化对立呈现"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献定位与流派识别，不评价同理心正义理论本身创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "good",
+          "summary": "论文识别了形式理性与程序本位等法学流派对立，明确了缺口与切入点，但缺乏对既有成果的梳理。",
+          "core_judgment": "本维度部分成立，建立了缺口到切入点的逻辑链并识别流派，但研究地图的到达点缺失。",
+          "score_rationale": "三要素得2分（缺到达点），识别2个法学流派，依锚定规则落入good档（60-69）。",
+          "evidence_quotes": [
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效",
+            "正义的基本形象呈现出超越机械司法／形式理性，而迈向...实践理性的正义"
+          ],
+          "strengths": [
+            "明确指出了既有研究的缺口（整合多元诉求机制的缺失）",
+            "识别了形式理性与实质理性、程序本位与实质正义的流派对立"
+          ],
+          "weaknesses": [
+            "缺乏对既有研究成果（到达点）的具体梳理，直接进入问题陈述",
+            "流派识别多为背景性陈述，未在文献综述意义上展开学派交锋"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于文献梳理是否形成研究地图及流派识别，不评价同理心正义理论本身的新颖性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 13.787846088409424,
+        "moonshotai/kimi-k2.6": 343.2181189060211,
+        "z-ai/glm-5.1": 141.44652915000916
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 11.2,
+    "max_std": 11.2,
+    "weighted_total": 10.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 11.2
+  }
+}

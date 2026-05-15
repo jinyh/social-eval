@@ -1,0 +1,720 @@
+{
+  "framework": "configs/frameworks/law-v2.8-20260423.yaml",
+  "framework_version": "2.8.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "kimi-k2.6",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "gpt-5.4": {
+      "status": "conditional_pass",
+      "issues": [
+        "写作上总体可定位核心论点，围绕“司法公正与同理心正义”展开，结构基本完整，可进入评审；但文段存在明显版式/扫描残缺与夹杂他文内容现象，影响规范性与可读性。",
+        "文末混入与本文无关的英文摘要和其他文章摘要信息，显示文本边界不清，需人工确认送审版本是否完整、是否为正式定稿。",
+        "参考文献列表标注为“无”，但正文大量使用脚注式引文，属于文后参考文献与正文注释体系不一致，引用规范性存在明显风险。",
+        "引注整体看具有较强学术外观，包含作者、书名、期刊、年份、页码等信息，基本可供追溯；但部分引文为转引、网络链接、二手引述，需后续核验准确性。",
+        "存在若干可能需要核验的引注信号，如‘希普诺维奇’系转引、‘Anna Ronkainen’网络论文链接附访问日期、部分外文人名/书名转写不统一，可能影响引文精确性。",
+        "未见明显捏造案例、伪造数据的直接信号；但文章涉及大量跨学科文献与外文引文，单凭文本无法排除错引、张冠李戴或过度转述风险，建议人工抽查关键引注。",
+        "全文更像已刊论文影印/OCR文本，含页码、栏目名、责任编辑、期刊目录与摘要页内容，不属于规范净稿形态；虽不至于不可评，但应提示评审专家注意版本污染。"
+      ],
+      "evidence_quotes": [
+        "关键词：个案正义　司法公正　同理心正义　公共理性",
+        "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入“同理心正义”理论",
+        "〔责任编辑：赵　磊〕",
+        "参考文献列表：\n（无）",
+        "Ａｎｎａ　Ｒｏｎｋａｉｎｅｎ，“Ｄｕａｌ－Ｐｒｏｃｅｓｓ　Ｃｏｇｎｉｔｉｏｎ　ａｎｄ　Ｌｅｇａｌ　Ｒｅａｓｏｎｉｎｇ，”２０１１．ｈｔｔｐｓ：／／ｐａｐｅｒｓ．ｓｓｒｎ．ｃｏｍ／ｓｏｌ３／ｐａｐｅｒｓ．ｃｆｍ？ａｂｓｔｒａｃｔ＿ｉｄ＝２００４３３６，２０１６年１１月１０日。",
+        "希普诺维奇：《社会主义法律之概念》，转引自童世骏：《社会主义今天意味着什么：近期西方左翼人士的社会主义观》",
+        "（５）Ｔｈｅ　Ｔｏｐｉｃ　ｏｆ　Ｓｏｃｉａｌ　Ｐｏｌｉｃｙ　ｉｎ　ｔｈｅ　Ｎｅｗ　Ｎｏｒｍａｌ　Ｅｃｏｎｏｍｙ",
+        "（６）Ｊｕｄｉｃｉａｌ　Ｉｍｐａｒｔｉａｌｉｔｙ　ａｎｄ　Ｅｍｐａｔｈｅｔｉｃ　Ｊｕｓｔｉｃｅ　Ｄｕ　Ｙａｎｌｉｎ·１０２·"
+      ],
+      "review_flags": [
+        "citation_risk",
+        "writing_risk"
+      ],
+      "recommendation": "建议以“带风险进入六维评分”处理。评分可继续进行，但应在评分后交人工复核以下事项：1）确认当前文本是否为正式送审稿而非OCR拼接稿；2）补齐或核对文后参考文献表，使之与脚注体系一致；3）抽查关键外文引注、转引文献和网络来源的真实性与对应页码；4）删除与本文无关的摘要、目录、页码等污染内容后再归档。当前未见足以直接阻断评审的明确伪造或严重不可读情形。"
+    },
+    "moonshotai/kimi-k2.6": {
+      "error": "[moonshotai/kimi-k2.6] JSON parse failed: Invalid control character at: line 1 column 3 (char 2). Raw: {\"\n\":\";\n  \"}"
+    },
+    "z-ai/glm-5.1": {
+      "status": "conditional_pass",
+      "issues": [
+        "文末混入了同期刊其他文章的英文摘要（如The Topic of Social Policy in the New Normal Economy, The Application of Judicial Methods in Adjudication等），属于文本提取/排版错误，可能干扰自动化分析的连贯性和主题识别",
+        "部分外文文献注释使用了全角字符（如Ｒ．Ｓ．Ｓｕｍｍｅｒｓ，Ｃｏｒｎｅｌｌ　Ｌａｗ　Ｒｅｖｉｅｗ），存在格式瑕疵，可能影响外文引用的自动识别与校验"
+      ],
+      "evidence_quotes": [
+        "（５）Ｔｈｅ　Ｔｏｐｉｃ　ｏｆ　Ｓｏｃｉａｌ　Ｐｏｌｉｃｙ　ｉｎ　ｔｈｅ　Ｎｅｗ　Ｎｏｒｍａｌ　Ｅｃｏｎｏｍｙ　Ｗａｎｇ　Ｓｉｂｉｎ　ａｎｄ　Ｇｕａｎ　Ｘｉｎｐｉｎｇ·８０·",
+        "参见Ｒ．Ｓ．Ｓｕｍｍｅｒｓ，“Ｅｖａｌｕａｔｉｎｇ　ａｎｄ　Ｉｍｐｒｏｖｉｎｇ　Ｌｅｇａｌ　Ｐｒｏｃｅｓｓｅｓ—Ａ　Ｐｌｅａ　ｆｏｒ‘Ｐｒｏｃｅｓｓ　Ｖａｌｕｅｓ’，”Ｃｏｒｎｅｌｌ　Ｌａｗ　Ｒｅｖｉｅｗ，ｖｏｌ．６０，ｎｏ．１，１９７４，ｐｐ．２５－２６．"
+      ],
+      "review_flags": [
+        "writing_risk",
+        "citation_risk"
+      ],
+      "recommendation": "稿件核心论点清晰，结构完整，学术表达规范，可进入六维评分。但建议在评分前对文本进行预处理，清理文末混入的其他文章英文摘要，并修正全角外文字符，以免干扰后续自动化评分的文本连贯性分析与引用规范校验。评分后无需特别人工复核，除非六维评分中引用规范项得分异常。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "gpt-5.4": 68,
+        "moonshotai/kimi-k2.6": 72,
+        "z-ai/glm-5.1": 40
+      },
+      "mean": 60,
+      "std": 17.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "problem_originality",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提出了可争辩且具枢纽性的司法正义解释问题，但创新主要在综合重述。",
+          "core_judgment": "中心问题是多元诉求下司法公正应否及如何以“同理心正义”作为正当化基础，属法理学上可争辩的重要问题。",
+          "score_rationale": "文章明确提出司法公正的解释性争点，触及司法裁量、正义标准与合法性基础等枢纽；但问题表述偏宏大，较多停留于价值宣示与理论嫁接，原创性更多体现为整合而非提出尖锐新难题，故评为良好中上。",
+          "evidence_quotes": [
+            "“应转而寻求一种正义的首要原则…作为公共理性意义上法律责任的基础”",
+            "“有必要引入‘同理心正义’理论”"
+          ],
+          "strengths": [
+            "提出司法公正基础的解释性争点",
+            "关联裁量、合法性与正义标准"
+          ],
+          "weaknesses": [
+            "问题边界较宽，争点聚焦不足",
+            "不少表述偏倡议性而非设问化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评“提出的问题是否新且关键”，不评价论证成败、资料丰富度或结论正确性。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以被害人诉讼参与难题为锚点，将司法公正困境重构为同理心正义的理论证成问题，具有可争辩性与枢纽意义。",
+          "core_judgment": "论文提出了可争辩的司法哲学问题，触及形式理性与实质理性之枢纽，虽属经典议题的视角转换，但具有跨学科的问题重塑力度。",
+          "score_rationale": "论文以被害人参与诉讼的裁决困境为切入点，提出同理心正义作为整合多元诉求的机制，具有现实锚点与跨学科视野；但问题本质仍是司法公正如何实现之经典议题，未能充分揭示现有理论盲区或构成对主流范式的尖锐挑战，创新性中等。",
+          "evidence_quotes": [
+            "随着社会诉求的日趋多元化，司法的公正运作遇到较为复杂的困难局面。",
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效，应转而寻求一种正义的首要原则"
+          ],
+          "strengths": [
+            "以中国被害人参与诉讼制度困境为现实锚点，问题具有本土关怀",
+            "将心理学移情理论引入司法正义，尝试跨学科问题重塑"
+          ],
+          "weaknesses": [
+            "问题从具体制度迅速跃升至正义首要原则，缺乏聚焦的学术争点",
+            "对现有形式法治理论批判对话不足，更像理论阐释而非问题重构"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价问题本身是否新颖、可争辩并触及法学枢纽，不评价论证质量。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "marginal",
+          "summary": "论文探讨同理心正义作为司法公正解法的可能性，问题偏哲学思辨。",
+          "core_judgment": "核心问题为抽象的正义理论建构，非具体可争辩的法学规范或制度问题。",
+          "score_rationale": "问题缺乏法学规范指向与可司法性，触发非具体法学问题上限规则，且理论整合多于原创。",
+          "evidence_quotes": [
+            "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求",
+            "同理心正义尽管发端于心灵或情感体验，但完全能够经受住法律科学性的检验"
+          ],
+          "strengths": [
+            "尝试引入认知心理学资源丰富司法正义理论"
+          ],
+          "weaknesses": [
+            "核心问题过于抽象，缺乏具体规范指向",
+            "本质为法哲学思辨，非可争辩的法学具体问题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "核心问题为抽象哲学或伦理命题，缺乏可司法性",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "探讨同理心正义能否经受法律科学性检验，属哲学思辨而非规范争点"
+            }
+          ],
+          "boundary_note": "仅评估问题的法学创新性与可争辩性，不评估论证的心理学深度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 10.638478994369507,
+        "moonshotai/kimi-k2.6": 191.17495012283325,
+        "z-ai/glm-5.1": 87.18738317489624
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "gpt-5.4": 62,
+        "moonshotai/kimi-k2.6": 45,
+        "z-ai/glm-5.1": 88
+      },
+      "mean": 65,
+      "std": 21.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "good",
+          "summary": "论文有较强问题意识与切入说明，但研究地图主要靠观点铺陈，学术史梳理不够成型。",
+          "core_judgment": "部分建立了研究地图：有既有观点、现实缺口和本文主张，但缺少对既有研究成果的系统归纳及明确流派化整理。",
+          "score_rationale": "文中能指出若干既有研究与争议，并提出“引入同理心正义”回应复杂诉求；但更多是理论资源征引，缺少“谁解决了什么”的集中总结，仅能辨识约2类观点，触发流派覆盖上限。",
+          "evidence_quotes": [
+            "尽管有学者甚至为此提出了定罪和量刑分立的变革性设想，但…仍然难以获得共识。",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论。"
+          ],
+          "strengths": [
+            "能明确指出现有方案未获共识。",
+            "本文切入点与前述困境有直接衔接。"
+          ],
+          "weaknesses": [
+            "既有研究成果多为引述，贡献概括不足。",
+            "缺少清晰的学派/流派分层梳理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_schools",
+              "rule": "未覆盖主要学术流派（少于2-3个明确流派）→ 最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "文中有形式法治/实质理性等对照，但未以明确流派框架系统展开。"
+            }
+          ],
+          "boundary_note": "本评分针对文献定位与学界争议梳理，不评价“同理心正义”命题本身是否新颖。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文缺乏研究地图，以理论建构为主，文献多作论据罗列。",
+          "core_judgment": "本文未建立包含到达点、未竟点与切入点的研究地图，文献仅作为支撑论据而非系统梳理对象。",
+          "score_rationale": "虽标签式识别新法律道德主义、利益法学等若干流派且引用广博，但三要素严重缺失：无具体成果贡献梳理，无明确学术缺口定位，切入点与未竟点对应薄弱，依上限规则酌定45分。",
+          "evidence_quotes": [
+            "有学者甚至为此提出了定罪和量刑分立的变革性设想……这一设想目前看仍然难以获得共识",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入‘同理心正义’理论"
+          ],
+          "strengths": [
+            "引用横跨法学、哲学与认知心理学，理论视野较为开阔",
+            "隐含涉及新法律道德主义、利益法学等多元理论资源"
+          ],
+          "weaknesses": [
+            "未系统梳理既有研究的具体成果与学术贡献",
+            "缺乏明确的学术缺口界定与流派对话定位"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "若3项要素均缺失或只有文献罗列，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未见具体研究成果及贡献的系统梳理，仅罗列赫费、韦伯等学者观点作为建构论据"
+            }
+          ],
+          "boundary_note": "本评聚焦于文献是否形成研究地图，不涉及同理心正义命题本身的新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，跨学科识别多个流派，精准定位缺口并引入同理心正义。",
+          "core_judgment": "本维度成立，论文有效建立了从既有成果到未竟缺口再到本文切入的完整研究地图。",
+          "score_rationale": "识别3个以上学术流派，具备到达点、未竟点和切入点三要素，文献梳理深且广。",
+          "evidence_quotes": [
+            "新法律道德主义头面人物皮特森所发现的那样...迄今尚未发现一项杰出计划...能够声称自己体现了'绝对的正义'",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入'同理心正义'理论"
+          ],
+          "strengths": [
+            "跨学科流派识别精准（新法律道德主义、现象学、认知心理学）",
+            "研究缺口定位明确（多元诉求整合难与情感正义科学性存疑）"
+          ],
+          "weaknesses": [
+            "文献梳理嵌入论证中，缺乏独立的文献综述结构"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于文献定位与缺口识别的完整性，而非同理心正义概念本身的原创性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 14.019580841064453,
+        "moonshotai/kimi-k2.6": 190.07991123199463,
+        "z-ai/glm-5.1": 111.89883208274841
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "gpt-5.4": 72,
+        "moonshotai/kimi-k2.6": 80,
+        "z-ai/glm-5.1": 78
+      },
+      "mean": 76.7,
+      "std": 4.2,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出了较清晰的“同理心正义”概念与运作机理，但框架化程度和贯穿执行力仍有限。",
+          "core_judgment": "本文具有可识别的概念界定、四步运作机制和若干属性分类，且后文多次回扣，但部分概念边界松散、框架与论证存在游离。",
+          "score_rationale": "依统一顺序判断，先定为good：有定义、分类、步骤，且被后文用于展开特征、科学性与局限分析；但“同理心正义”与移情/常识正义等概念切换较多，部分后文偏材料堆砌，未始终按既定框架推进，故不达excellent。",
+          "evidence_quotes": [
+            "“移情有四个基本成分：情绪认知…反应决策”",
+            "“同理心正义的如下司法实践运作机理。第一…第四”"
+          ],
+          "strengths": [
+            "明确提出四步运作机制，具程序性",
+            "后文围绕特征、科学性、局限继续调用核心概念"
+          ],
+          "weaknesses": [
+            "概念在同理心/移情/正义感间切换较频繁",
+            "部分章节转为文献铺陈，框架统摄力下降"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题主要在框架定义与调用不够稳定，不只是段落衔接或论证顺序松散。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 80,
+          "band": "good",
+          "summary": "论文建构了以同理心正义为核心的四步运作与五维特征分析框架。",
+          "core_judgment": "本文具有可识别的概念界定、类型划分与四步分析框架，且被后文反复调用，未触发理论贴标签上限规则。",
+          "score_rationale": "论文以移情认知为基，构建了四步司法运作机理与五维正义特征的分析框架，概念界定清晰且贯穿全文，虽部分子类型未充分展开，但整体框架完整且具操作性。",
+          "evidence_quotes": [
+            "同理心通常在认知心理学中被译为移情、共情……包括了情绪移情和认知移情、完全移情与不完全移情等基本分类。",
+            "同理心的内在意蕴，决定了同理心正义的如下司法实践运作机理：第一，移情联想；第二，位阶排序；第三，反思权衡；第四，理由优化。"
+          ],
+          "strengths": [
+            "构建了四步运作机理与五维特征的完整理论框架。",
+            "核心概念有心理学分类支撑且贯穿全文论证。"
+          ],
+          "weaknesses": [
+            "完全移情等细分类型后文未实际调用。",
+            "五维特征与四步机理逻辑关系不够紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评估的是理论框架的建构与运用，而非段落衔接逻辑。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 78,
+          "band": "good",
+          "summary": "提出了基于移情四要素的四步运作机理框架，并贯穿全文分析。",
+          "core_judgment": "框架建构完整且被后文反复调用，未触发贴标签上限规则。",
+          "score_rationale": "概念界定清晰，四步分析步骤具操作性，在特征与中国语境分析中持续回溯，属良好层级。",
+          "evidence_quotes": [
+            "移情联想，查明事实……位阶排序……反思权衡……理由优化，构筑和巩固共识。",
+            "同理心正义内蕴了将心比心、换位思考的个案公正的作业和情感体验……"
+          ],
+          "strengths": [
+            "建构了“四步运作机理”的清晰分析步骤。",
+            "概念界定借助认知心理学，标准明确。"
+          ],
+          "weaknesses": [
+            "心理学框架向法学规范的转化稍显松散。",
+            "位阶排序的具体法律标准不够清晰。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文问题在于跨学科转化的精细度，而非缺乏框架或逻辑断裂。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 11.868339776992798,
+        "moonshotai/kimi-k2.6": 98.62023282051086,
+        "z-ai/glm-5.1": 293.72118520736694
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "gpt-5.4": 68,
+        "moonshotai/kimi-k2.6": 68,
+        "z-ai/glm-5.1": 65
+      },
+      "mean": 67,
+      "std": 1.7,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "论文有完整的大链条，但关键结论多依赖价值跳跃与类比扩张，严密性中上而未达扎实闭合。",
+          "core_judgment": "其论证能大体推出“应重视同理心正义”，但难充分推出“可成为破解司法公正难题的核心方案”。",
+          "score_rationale": "按顺序看，问题提出—国情前提—同理心机制—属性证明—局限反思链条完整；但多处由文化事实直接跃迁到规范结论，由心理学/现象学证成司法正义，也有外延扩张。",
+          "evidence_quotes": [
+            "因此，那种试图从具体法律条文中寻求回答具体法律问题的方法已失效",
+            "本文认为，有必要引入“同理心正义”理论"
+          ],
+          "strengths": [
+            "先交代司法困境，再提出替代原则，主线清楚",
+            "末尾承认偏见、常识局限，具有限度意识"
+          ],
+          "weaknesses": [
+            "由“中国国情”直接推出“应采同理心正义”缺少排他比较",
+            "由移情可认知他人，跳到可保障司法公正，桥接不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "核心结论若不能由前文事实、规范或案例稳定推出，分数不高于50；但若仅属局部断裂，可不触发封顶。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "存在“法律条文方法失效→须引入同理心正义”的跳跃，但全文仍有后续补强，未达全面断链。"
+            }
+          ],
+          "boundary_note": "问题主要不在章节安排，而在若干关键“因此”缺少必要中介论证，属推理链强度不足。",
+          "review_flags": [
+            "boundary_overlap",
+            "evidence_thin"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "marginal",
+          "summary": "论文构建同理心正义理论框架，但核心推导存在多处跳跃，结论缺乏规范与案例支撑。",
+          "core_judgment": "逻辑严密性不成立：从司法困境到同理心正义的推导缺乏排他性论证，且未通过规范分析或案例验证核心结论。",
+          "score_rationale": "文章虽层次清晰、引证丰富，但问题提出与方案选择间存在断裂，心理学描述无法直接推出司法裁判原则，缺乏案例与规范推导支撑结论。",
+          "evidence_quotes": [
+            "这表明，既要最大限度满足各方的诉求……应转而寻求一种正义的首要原则……",
+            "基于上述正义的首要原则和实践理性的吁求，本文认为，有必要引入'同理心正义'理论"
+          ],
+          "strengths": [
+            "论证层次分明，从国情、理论到运作机理逐层铺展。",
+            "引证跨心理学、哲学与法学，视野较为宏阔。"
+          ],
+          "weaknesses": [
+            "从国情需要直接跳跃至同理心正义，缺乏排他性论证。",
+            "核心结论无规范分析与案例支撑，仅靠理论描述替代推导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "前提与结论间推理链条断裂",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "从'需整合多元诉求'直接引入同理心正义，未论证其唯一性与必要性"
+            }
+          ],
+          "boundary_note": "属于论证链条断裂与跳跃问题，而非文章整体结构框架缺陷。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论证存在从实然到应然的跳跃，且解决方案与问题预设存在逻辑冲突。",
+          "core_judgment": "链条复述测试显示关键步骤可删改；结论推出测试显示同理心正义无法由前文反任意性诉求推导出。",
+          "score_rationale": "虽行文流畅，但核心论证存在自然主义谬误与逻辑自反，未能证明同理心正义何以解决其提出的任意性难题，逻辑严密性不足。",
+          "evidence_quotes": [
+            "那种试图从具体法律条文中寻求回答具体法律问题的方法已失效，应转而寻求一种正义的首要原则",
+            "同理心正义难免有偏见之嫌...完全是有可能的"
+          ],
+          "strengths": [
+            "问题意识清晰，指出了多元诉求下的司法困境。",
+            "跨学科论证丰富，引入心理学与现象学资源。"
+          ],
+          "weaknesses": [
+            "事实与规范混淆，以文化传统证成正义原则。",
+            "逻辑自反：用同理心解决任意性却承认其偏见。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链条断裂：从实然无法推出应然，且方案与问题自相矛盾",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "从司法任意性困境出发，却推导出同样具有偏见风险的同理心正义，未完成逻辑闭环。"
+            }
+          ],
+          "boundary_note": "这是逻辑链问题而非框架问题，因为框架（问题-方案）完整，但方案推导和自洽性存在推理断裂。",
+          "review_flags": [
+            "counterargument_missing",
+            "boundary_overlap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 13.735229015350342,
+        "moonshotai/kimi-k2.6": 169.26108598709106,
+        "z-ai/glm-5.1": 309.1394338607788
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "gpt-5.4": 68,
+        "moonshotai/kimi-k2.6": 58,
+        "z-ai/glm-5.1": 65
+      },
+      "mean": 63.7,
+      "std": 5.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "marginal",
+          "summary": "结论能进入中国法学讨论语境，但对规范约束与实务可操作性的回应仍偏弱。",
+          "core_judgment": "结论并非自说自话，能回应中国语境与部分反对意见，但尚未充分说明其与现行规范体系、裁判约束的衔接方式。",
+          "score_rationale": "先定为marginal：作者能讨论中国制度背景、承认同理心缺陷并作一定辩护，具共同体可讨论性；但结论主要停留在法哲学层面，对成文法、裁判规则、实务边界回应不足，故难入good。",
+          "evidence_quotes": [
+            "同理心正义…并非至善的正义，其操作机制存在一定的缺陷",
+            "现代社会所践行的正义，在很大程度上是一种合法律性正义"
+          ],
+          "strengths": [
+            "明确置于中国法治与司法改革语境",
+            "对偏见、常识局限等反对意见有回应"
+          ],
+          "weaknesses": [
+            "未细化与现行法规范、判例规则的接口",
+            "“破解之道”表述偏大，易弱化约束条件"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处问题主要是结论能否被现有法学共同体认真接纳，不是理论未来还能否继续展开。",
+          "review_flags": [
+            "boundary_overlap",
+            "evidence_thin"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 58,
+          "band": "marginal",
+          "summary": "结论在法哲学层面自洽，但与中国司法制度语境存在明显脱节。",
+          "core_judgment": "结论因缺乏规范体系对接与制度化路径，未能充分进入共同体语境。",
+          "score_rationale": "虽回应了部分理论质疑并承认局限，但以同理心正义作为司法难题“破解之道”存在万能药倾向，且未与现行审判制度、法官责任制形成有效对话，制度脱节明显。",
+          "evidence_quotes": [
+            "同理心正义既能最大限度实现个案的正义裁决，又能正确对待普遍性的正义寻求，显现出一种亲社会性的公共理性，可成为这一难题的破解之道。",
+            "它也并非至善的正义，其操作机制存在一定的缺陷，也会诱发一些不利因素的产生。"
+          ],
+          "strengths": [
+            "主动回应了同理心正义的科学性与客观性质疑",
+            "承认移情偏见与常识局限，避免结论绝对化"
+          ],
+          "weaknesses": [
+            "未论证与依法裁判、司法责任制等制度张力",
+            "操作机制停留于心理描述，缺乏制度嵌入路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.universal_panacea",
+              "rule": "将单一理论作为复杂制度难题的万能药",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "称同理心正义为破解之道，却未论证与现行诉讼法及司法责任制衔接"
+            },
+            {
+              "rule_id": "conclusion_consensus.no_institutional_grounding",
+              "rule": "结论缺乏现行制度与规范基础",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "运作机制仅存于抽象心理过程，未嵌入中国审判制度与法官行为规范"
+            }
+          ],
+          "boundary_note": "本评分针对结论能否被当下中国法学共同体与制度语境接受，非指理论未来延展空间。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 65,
+          "band": "marginal",
+          "summary": "提出同理心正义回应多元诉求，但缺乏制度锚定，有滑向司法擅断之险。",
+          "core_judgment": "结论虽有文化语境支撑，但未回应规范体系约束，缺乏制度操作性，触发脱节规则。",
+          "score_rationale": "哲学论证充分但法学规范性不足，将心理机制直接转化为司法原则，未能解决如何防止恣意的核心诘难。",
+          "evidence_quotes": [
+            "同理心正义……显现出一种亲社会性的公共理性，可成为这一难题的破解之道。",
+            "这种正义也就自然缺乏应有的完整性、系统性……甚至可能异化为画地为牢的正义"
+          ],
+          "strengths": [
+            "深刻结合了中国情理法传统与当下社会诉求。",
+            "诚实承认了同理心正义的局限与偏见风险。"
+          ],
+          "weaknesses": [
+            "未提供防止移情偏见的具体制度约束机制。",
+            "以心理机制替代规范逻辑，与形式法治建设存在张力。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_institutional_grounding",
+              "rule": "结论缺乏制度性支撑",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "将心理移情直接作为司法裁决机制，缺乏程序与规范约束，易致擅断。"
+            }
+          ],
+          "boundary_note": "此为结论在现行法秩序下的可接受性缺陷，而非理论创新性的不足。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "boundary_overlap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 19.39304780960083,
+        "moonshotai/kimi-k2.6": 125.43270874023438,
+        "z-ai/glm-5.1": 49.15222096443176
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "gpt-5.4": 72,
+        "moonshotai/kimi-k2.6": 60,
+        "z-ai/glm-5.1": 50
+      },
+      "mean": 60.7,
+      "std": 11.0,
+      "confidence": "low",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出了若干后续研究与制度完善方向，但制度化细化程度仍有限。",
+          "core_judgment": "本文并非停于价值宣示，而是基于同理心正义的机理、风险与限度，开启了职业素养、程序约束与中国司法哲学重估等后续讨论路径。",
+          "score_rationale": "先定good：结尾明确提出未来努力方向，且与前文关于运作机理、偏见风险、程序关系相衔接；但多数延展仍偏原则性，缺少可直接展开的制度设计与研究方案，故不给高分。",
+          "evidence_quotes": [
+            "“移情偏见完全是可以得到降低、悬置甚至克服的”",
+            "“无疑也是我们继续努力完善的基本方向”"
+          ],
+          "strengths": [
+            "基于正文风险分析提出后续完善方向",
+            "延展围绕法官素养、宽容、程序与实体关系展开"
+          ],
+          "weaknesses": [
+            "后续路径多为原则倡议，缺少操作方案",
+            "未细化为可检验的制度改革或实证议题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处考察的是论文是否打开未来研究/改革路径，而非现有论证本身是否充分成立。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "moonshotai/kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 60,
+          "band": "marginal",
+          "summary": "论文明晰同理心正义局限却未打开具体后续路径",
+          "core_judgment": "论文基于正文论证指出了同理心正义的若干局限，但未清晰打开下一轮具体的研究或制度讨论路径",
+          "score_rationale": "局限性分析提供了一定的延展起点，但后续方向停留在空泛的完善口号与素养呼吁层面，缺乏具体的研究议程或制度设计展开",
+          "evidence_quotes": [
+            "这种正义也就自然缺乏应有的完整性、系统性、前瞻性，甚至在极端情形下，可能异化为画地为牢的正义",
+            "这显然需要一批具备良好职业素养的法律人和社会大众的宽容作核心支撑，并无疑也是我们继续努力完善的基本方向"
+          ],
+          "strengths": [
+            "结尾梳理了三重理论局限，指出常识偏见与形式法治张力等真问题",
+            "基于正文情感认知机制提出道德社会化建设方向"
+          ],
+          "weaknesses": [
+            "未来路径多为努力完善与核心支撑等口号式表达",
+            "未提出可操作的制度方案或具体研究问题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结尾局限分析属于前瞻延展问题而非当下可接受性瑕疵",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文指出了同理心正义的局限，但未提出具体的后续研究或制度路径。",
+          "core_judgment": "论文前瞻性不足，结尾流于口号式拔高，缺乏具体延展路径。",
+          "score_rationale": "虽基于正文指出了移情偏见等缺陷，但仅以“努力完善”和“需要素养”作结，路径空泛。",
+          "evidence_quotes": [
+            "这显然需要一批具备良好职业素养的法律人和社会大众的宽容作核心支撑，并无疑也是我们继续努力完善的基本方向。",
+            "同理心正义理论的建立以现实生活为基础……“召唤逻辑的法则，维护常识的权利。”"
+          ],
+          "strengths": [
+            "诚实指出了同理心正义可能存在的偏见和局限。"
+          ],
+          "weaknesses": [
+            "结尾展望空泛，缺乏具体的制度构建或研究议程。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "口号式展望或延展路径与正文脱节",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "结尾仅提出“继续努力完善的基本方向”，未给出具体操作机制或后续研究切入点。"
+            }
+          ],
+          "boundary_note": "区分“理论局限的承认”与“未来具体研究路径的开启”，前者是总结而非延展。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 10.22809100151062,
+        "moonshotai/kimi-k2.6": 132.9559338092804,
+        "z-ai/glm-5.1": 47.81685519218445
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 10.2,
+    "max_std": 21.7,
+    "weighted_total": 65.4,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "worst_dimension": "literature_insight",
+    "worst_std": 21.7
+  }
+}

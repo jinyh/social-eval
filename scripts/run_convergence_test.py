@@ -29,6 +29,7 @@ from src.evaluation.providers.factory import create_providers
 from src.ingestion.preprocessor import process_file
 from src.knowledge.loader import _normalize_framework_data, DEFAULT_STD_THRESHOLD
 from src.knowledge.schemas import Framework
+from src.reporting.scoring import calculate_weighted_total
 
 import yaml
 import jsonschema
@@ -190,16 +191,25 @@ async def run_convergence_test(
         1 for dr in dimension_results.values() if dr["confidence"] == "high"
     )
 
-    # 加权总分
+    # 加权总分（legacy）
     weighted_total = 0.0
     for dim in dimensions:
         dr = dimension_results[dim.key]
         weighted_total += dr["mean"] * dim.weight
 
+    # final_score（主分）：通过 scoring_protocol 计算
+    dimension_means = {dim.key: dimension_results[dim.key]["mean"] for dim in dimensions}
+    scoring_protocol = framework.raw_config.get("scoring_protocol")
+    final_score = calculate_weighted_total(
+        dimension_scores=dimension_means,
+        scoring_protocol=scoring_protocol,
+    )
+
     result["overall"] = {
         "avg_std": round(statistics.mean(all_stds) if all_stds else 0.0, 1),
         "max_std": round(max(all_stds) if all_stds else 0.0, 1),
         "weighted_total": round(weighted_total, 1),
+        "final_score": final_score,
         "high_confidence_pct": round(
             high_confidence_count / len(dimension_results) * 100 if dimension_results else 0.0, 1
         ),
@@ -260,6 +270,12 @@ def main():
         choices=["standard", "composite"],
         help="输出指标类型：standard=完整JSON，composite=单一复合得分（用于autoresearch）",
     )
+    parser.add_argument(
+        "--score-field",
+        default="final_score",
+        choices=["final_score", "weighted_total"],
+        help="主分字段：final_score（默认，v0.16 规程）或 weighted_total（legacy）",
+    )
 
     args = parser.parse_args()
 
@@ -303,7 +319,8 @@ def main():
     else:
         # 标准模式：完整汇总
         print(f"\n=== 汇总 ===")
-        print(f"加权总分：{overall['weighted_total']}")
+        print(f"final_score：{overall['final_score']}（主分）")
+        print(f"weighted_total：{overall['weighted_total']}（legacy，仅供参考）")
         print(f"平均 std：{overall['avg_std']}")
         print(f"最大 std：{overall['max_std']}")
         print(f"高置信度比例：{overall['high_confidence_pct']}%")

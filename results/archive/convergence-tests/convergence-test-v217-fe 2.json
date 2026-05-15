@@ -1,0 +1,140 @@
+{
+  "framework": "configs/frameworks/law-v2.17-20260424.yaml",
+  "framework_version": "2.17.0",
+  "paper": "raw/司法公正与同理心正义_杜宴林.pdf",
+  "models": [
+    "gpt-5.4",
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "gpt-5.4": 52,
+        "qwen/qwen3.6-plus": 50,
+        "z-ai/glm-5.1": 50
+      },
+      "mean": 50.7,
+      "std": 1.2,
+      "confidence": "high",
+      "raw_outputs": {
+        "gpt-5.4": {
+          "dimension": "forward_extension",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文有基于局限的后续完善方向，但延展路径较原则化，缺少更具体的后续问题或理论假设。",
+          "core_judgment": "前瞻延展性最低限度成立：作者明确指出同理心正义的偏见与系统性不足，并提出继续完善方向，但尚未展开为可操作的深化议程。",
+          "score_rationale": "延展实质度得分=2/4，正文衔接度得分=4/4，锚定marginal档，且触发weak_extension_path上限，给52分。",
+          "evidence_quotes": [
+            "这种正义也就自然缺乏应有的完整性、系统性、前瞻性",
+            "这无疑也是我们继续努力完善的基本方向"
+          ],
+          "strengths": [
+            "明确指出理论局限与待修正对象",
+            "延展方向紧扣全文对同理心正义的论证"
+          ],
+          "weaknesses": [
+            "缺少独立、具体的后续研究问题",
+            "未提出清晰的理论假设或争论切入口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，且无具体后续问题、理论假设或概念修正路径时，最高通常不超过65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "虽指出偏见、系统性不足及需完善方向，但未细化为具体研究议题或可检验命题"
+            }
+          ],
+          "boundary_note": "本评分只看作者是否指出理论还能如何深化或修正，不评价其现有主张是否正确或论证是否严密。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen/qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "明确指出理论局限并指向完善方向，但缺乏具体研究问题或修正路径。",
+          "core_judgment": "延展实质度仅达最低成立锚点，虽与正文高度衔接，但未突破宏观表述上限。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=4/4，锚定marginal档，给50分。触发weak_extension_path规则，理论延展仅停留在指出局限与宏观完善方向，未提出具体后续问题或概念重构路径。",
+          "evidence_quotes": [
+            "这显然需要一批具备良好职业素养的法律人和社会大众的宽容作核心支撑，并无疑也是我们继续努力完善的基本方向。",
+            "移情偏见完全是可以得到降低、悬置甚至克服的，当然，这也非一蹴而就。"
+          ],
+          "strengths": [
+            "主动承认三大理论局限，延展方向与正文核心结论紧密咬合。",
+            "未引入无关新话题，完善路径可精准回溯至文末局限分析段落。"
+          ],
+          "weaknesses": [
+            "仅以“继续努力完善”作结，未提炼具体后续问题或理论假设。",
+            "缺乏对反对者切入路径的指引，未指明概念修正的具体方法。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2触发上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "仅指出局限并给出宏观完善方向，无具体研究问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评估未来理论深化路径，不涉及同理心正义当下在法学共同体的可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "z-ai/glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文指出了同理心正义的具体局限，但延展方向空泛，缺乏具体后续问题或修正路径。",
+          "core_judgment": "前瞻延展性较弱，仅达到最低成立锚点，未提出实质性后续研究指引。",
+          "score_rationale": "延展实质度得分=1/4，正文衔接度得分=4/4，锚定marginal档，给50分",
+          "evidence_quotes": [
+            "不可否认，同理心正义……也有其理论的局限性。",
+            "无疑也是我们继续努力完善的基本方向。"
+          ],
+          "strengths": [
+            "主动承认理论局限，衔接度高。"
+          ],
+          "weaknesses": [
+            "延展表述空泛，缺乏具体后续问题或理论假设。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.weak_extension_path",
+              "rule": "延展实质度≤2，无具体后续问题或理论假设，上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "仅提出继续努力完善的基本方向，无具体问题或修正路径"
+            }
+          ],
+          "boundary_note": "评估的是未来研究方向的明确性，而非当下同理心正义理论的可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "gpt-5.4": 16.056112051010132,
+        "qwen/qwen3.6-plus": 163.96868801116943,
+        "z-ai/glm-5.1": 53.06945586204529
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.2,
+    "max_std": 1.2,
+    "weighted_total": 2.5,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 1,
+    "worst_dimension": "forward_extension",
+    "worst_std": 1.2
+  }
+}
