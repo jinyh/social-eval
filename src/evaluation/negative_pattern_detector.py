@@ -75,7 +75,7 @@ async def detect_negative_patterns(
     patterns: list[dict],
     paper: ProcessedPaper,
 ) -> NegativePatternResult:
-    """对单个维度运行 Stage A 负面模式检测。"""
+    """对单个维度运行 Stage A 负面模式检测（批量模式，兼容旧接口）。"""
     prompt = build_negative_pattern_prompt(dimension_key, patterns, paper)
 
     start = time.time()
@@ -112,27 +112,115 @@ async def detect_negative_patterns(
     )
 
 
+async def _detect_single_pattern(
+    provider: BaseProvider,
+    dimension_key: str,
+    pattern: dict,
+    paper: ProcessedPaper,
+) -> NegativePatternFlag:
+    """对单个 pattern 独立调用 AI 检测（推荐模式）。"""
+    from src.evaluation.prompt_builder import build_single_pattern_prompt
+
+    prompt = build_single_pattern_prompt(dimension_key, pattern, paper)
+
+    try:
+        raw = await provider.generate_json_response(prompt)
+    except Exception:
+        return NegativePatternFlag(
+            pattern_id=pattern["pattern_id"],
+            triggered=False,
+            severity="low",
+            confidence=0.0,
+            rationale="AI 调用失败",
+        )
+
+    if not isinstance(raw, dict):
+        return NegativePatternFlag(
+            pattern_id=pattern["pattern_id"],
+            triggered=False,
+            severity="low",
+            confidence=0.0,
+            rationale="AI 返回格式错误",
+        )
+
+    min_confidence = pattern.get("min_confidence", 0.65)
+    confidence = float(raw.get("confidence", 0.0))
+    triggered = bool(raw.get("triggered", False))
+    severity = str(raw.get("severity", "low"))
+
+    if triggered and confidence < min_confidence:
+        triggered = False
+        severity = "low"
+
+    ceiling = pattern.get("ceiling") if triggered else None
+
+    return NegativePatternFlag(
+        pattern_id=pattern["pattern_id"],
+        triggered=triggered,
+        severity=severity,
+        score_ceiling=ceiling,
+        confidence=confidence,
+        evidence_quotes=raw.get("evidence_quotes", []),
+        rationale=raw.get("rationale"),
+    )
+
+
+async def detect_patterns_individually(
+    provider: BaseProvider,
+    dimension_key: str,
+    patterns: list[dict],
+    paper: ProcessedPaper,
+) -> NegativePatternResult:
+    """对单个维度逐个 pattern 独立检测（推荐模式）。"""
+    import asyncio
+
+    flags = await asyncio.gather(
+        *[_detect_single_pattern(provider, dimension_key, p, paper)
+          for p in patterns],
+        return_exceptions=False,
+    )
+    flags = list(flags)
+    applied_ceiling = _compute_applied_ceiling(flags)
+
+    return NegativePatternResult(
+        dimension=dimension_key,
+        pattern_flags=flags,
+        applied_score_ceiling=applied_ceiling,
+        requires_manual_review=applied_ceiling is not None,
+        model_name=provider.model_name,
+    )
+
+
 async def run_stage_a(
     providers: list[BaseProvider],
     dimension_key: str,
     patterns: list[dict],
     paper: ProcessedPaper,
     mode: str = "dry_run",
+    single_pattern_mode: bool = True,
 ) -> list[NegativePatternResult]:
     """对多个模型并发运行 Stage A 检测。
 
-    返回每个模型的检测结果列表。调用方根据多模型一致性规则决定是否应用 ceiling。
+    single_pattern_mode=True（默认）：每个 pattern 独立调用，避免相互干扰。
+    single_pattern_mode=False：批量模式，一次调用检测所有 pattern。
     """
     import asyncio
 
     if mode == "disabled":
         return []
 
-    results = await asyncio.gather(
-        *[detect_negative_patterns(provider, dimension_key, patterns, paper)
-          for provider in providers],
-        return_exceptions=False,
-    )
+    if single_pattern_mode:
+        results = await asyncio.gather(
+            *[detect_patterns_individually(provider, dimension_key, patterns, paper)
+              for provider in providers],
+            return_exceptions=False,
+        )
+    else:
+        results = await asyncio.gather(
+            *[detect_negative_patterns(provider, dimension_key, patterns, paper)
+              for provider in providers],
+            return_exceptions=False,
+        )
     return list(results)
 
 

@@ -136,10 +136,62 @@ def build_negative_pattern_prompt(
     patterns: list[dict],
     paper: ProcessedPaper,
 ) -> str:
-    """构建 Stage A 负面模式检测 prompt（短 prompt，~100 行）。
+    """构建 Stage A 负面模式检测 prompt（多 pattern 批量模式，兼容旧接口）。"""
+    return _build_multi_pattern_prompt(dimension_key, patterns, paper)
 
-    每个维度独立调用一次，只检测该维度下定义的负面模式。
+
+def build_single_pattern_prompt(
+    dimension_key: str,
+    pattern: dict,
+    paper: ProcessedPaper,
+) -> str:
+    """构建单个 pattern 的检测 prompt（推荐模式）。
+
+    每个 pattern 独立调用一次 AI，避免多 pattern 之间的相互干扰。
     """
+    pid = pattern["pattern_id"]
+    json_template = (
+        '{\n'
+        f'  "pattern_id": "{pid}",\n'
+        '  "triggered": true/false,\n'
+        '  "severity": "low/medium/high",\n'
+        '  "confidence": 0.0-1.0,\n'
+        '  "evidence_quotes": ["原文证据（直接引用，不超过50字）"],\n'
+        '  "rationale": "判断理由（一句话）"\n'
+        '}'
+    )
+
+    severity_criteria = pattern.get("severity_criteria", {})
+    template = (
+        f"你是一位法学论文质量检测专家。请判断以下论文是否存在一个特定的质量问题。\n\n"
+        f"【检测目标】\n"
+        f"模式名称：{pid}\n"
+        f"问题描述：{pattern['description']}\n\n"
+        f"【检测方法】\n"
+        f"{pattern['prompt_snippet']}\n\n"
+        f"【严重度判断标准】\n"
+        f"- high（严重）：{severity_criteria.get('high', '问题非常突出')}\n"
+        f"- medium（中等）：{severity_criteria.get('medium', '问题明显存在')}\n"
+        f"- low（轻微）：{severity_criteria.get('low', '有倾向但不严重')}\n\n"
+        f"【判断规则】\n"
+        f"- 只有 severity 为 medium 或 high 时才设置 triggered=true\n"
+        f"- severity 为 low 时设置 triggered=false\n"
+        f"- evidence_quotes 必须是论文原文的直接引用\n"
+        f"- confidence 表示你对判断的确信程度（0.0-1.0）\n\n"
+        f"【输出格式】\n"
+        f"请严格输出以下 JSON，不要添加任何其他内容：\n\n"
+        + json_template
+    )
+
+    return _append_context(template, paper)
+
+
+def _build_multi_pattern_prompt(
+    dimension_key: str,
+    patterns: list[dict],
+    paper: ProcessedPaper,
+) -> str:
+    """多 pattern 批量检测 prompt（旧模式，保留兼容）。"""
     pattern_checks = []
     for p in patterns:
         pattern_checks.append(
