@@ -1541,7 +1541,7 @@ negative_patterns:
           并检查每个规范性表述是否对应具体的法条引用、程序设计、规则细节或责任配置方案。
           如果超过 60% 的规范性表述没有对应具体展开，则判定为触发。
         ceiling: 60
-        min_confidence: 0.65
+        min_confidence: 0.75
         severity_criteria:
           high: "超过 80% 的规范性表述无具体展开，且全文缺少任何制度细节"
           medium: "60-80% 的规范性表述无具体展开"
@@ -1552,7 +1552,7 @@ negative_patterns:
           请估算论文中"现象描述/概念介绍"部分与"法律分析/制度构建"部分的篇幅比例。
           如果前者占比超过 65% 而后者不足 35%，且法律分析部分缺少独立的论证逻辑，则判定为触发。
         ceiling: 62
-        min_confidence: 0.65
+        min_confidence: 0.75
         severity_criteria:
           high: "法律分析部分不足 25%，且仅为结论性断言"
           medium: "法律分析部分 25-35%，论证逻辑不完整"
@@ -1564,7 +1564,7 @@ negative_patterns:
           检查每个概念是否有：(1) 明确定义或解释，(2) 与论题的逻辑关联论证。
           如果超过 50% 的核心概念缺少上述两项中的任一项，则判定为触发。
         ceiling: 63
-        min_confidence: 0.70
+        min_confidence: 0.80
         severity_criteria:
           high: "超过 70% 的概念无解释且无关联论证"
           medium: "50-70% 的概念缺少解释或关联论证"
@@ -1578,7 +1578,7 @@ negative_patterns:
           程序设计、责任分配、适用条件等）。如果采用固定框架且超过 70% 的分类下
           只有方向性表述而无具体设计，则判定为触发。
         ceiling: 55
-        min_confidence: 0.65
+        min_confidence: 0.75
         severity_criteria:
           high: "完全套用固定框架，所有分类下均为空泛表述"
           medium: "套用固定框架，70-90% 的分类下为空泛表述"
@@ -1591,7 +1591,7 @@ negative_patterns:
           不说怎么做。具体方案：说明了具体的制度安排、规则设计、实施步骤或适用条件。
           如果论文有 3 条或更多建议，且其中 70% 以上是方向性表述，则判定为触发。
         ceiling: 58
-        min_confidence: 0.65
+        min_confidence: 0.75
         severity_criteria:
           high: "所有建议均为方向性表述，无任何具体方案"
           medium: "70-90% 的建议为方向性表述"
@@ -1604,7 +1604,7 @@ negative_patterns:
           (3) 反驳或替代方案有所回应。如果超过 50% 的核心主张缺乏充分论证支撑，
           则判定为触发。
         ceiling: 60
-        min_confidence: 0.70
+        min_confidence: 0.80
         severity_criteria:
           high: "核心主张均缺乏论证，结论与正文严重脱节"
           medium: "50-75% 的核心主张缺乏充分论证"
