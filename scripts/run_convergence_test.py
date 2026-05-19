@@ -168,19 +168,24 @@ async def run_convergence_test(
     else:
         result["precheck"] = None
 
-    # 逐维度评估
-    dimension_results = {}
-    for dim in dimensions:
-        print(f"评估维度：{dim.name_zh} ({dim.key})...")
-        dim_result = await evaluate_single_dimension(
-            providers, dim, paper, framework_path
-        )
-        dimension_results[dim.key] = dim_result
+    # 并发评估所有维度（带并发控制，避免 API rate limiting）
+    semaphore = asyncio.Semaphore(4)
 
+    async def evaluate_with_limit(dim):
+        async with semaphore:
+            return await evaluate_single_dimension(providers, dim, paper, framework_path)
+
+    print(f"评估 {len(dimensions)} 个维度（最多 4 个并发）...")
+    dim_tasks = [evaluate_with_limit(dim) for dim in dimensions]
+    dim_results_list = await asyncio.gather(*dim_tasks)
+
+    dimension_results = {}
+    for dim, dim_result in zip(dimensions, dim_results_list):
+        dimension_results[dim.key] = dim_result
         scores_str = ", ".join(
             f"{k}={v}" for k, v in dim_result["scores"].items()
         )
-        print(f"  分数：{scores_str} | mean={dim_result['mean']} | std={dim_result['std']} | 置信度={dim_result['confidence']}")
+        print(f"  {dim.name_zh} ({dim.key}): {scores_str} | mean={dim_result['mean']} | std={dim_result['std']} | 置信度={dim_result['confidence']}")
 
     result["dimensions"] = dimension_results
 
