@@ -3,7 +3,7 @@ title: 中国自主知识体系研究论文 AI 辅助评审规程
 version: v0.16
 status: 大规模评估候选版
 updated: 2026-05-11
-framework: configs/frameworks/law-v2.46-20260511.yaml
+framework: configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml
 ---
 
 # 中国自主知识体系研究论文 AI 辅助评审规程 v0.16
@@ -308,7 +308,7 @@ v0.16 增加 `recommended` 复核状态。它不同于必须复核，不阻断�
 
 ### 7.1 预检输出
 
-项目口径预检的精确 prompt、字段、枚举值与文本质量旁路字段，以 `configs/frameworks/law-v2.46-20260511.yaml` 的 `precheck.prompt_template` 和 `precheck.output_contract` 为准。本节只说明报告中必须呈现的规程层结构。
+项目口径预检的精确 prompt、字段、枚举值与文本质量旁路字段，以 `configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml` 的 `precheck.prompt_template` 和 `precheck.output_contract` 为准。本节只说明报告中必须呈现的规程层结构。
 
 ```json
 {
@@ -339,7 +339,7 @@ v0.16 增加 `recommended` 复核状态。它不同于必须复核，不阻断�
 
 ### 7.2 六维评分输出
 
-六维评分的精确字段、字数限制、prompt 与 JSON 契约以 `configs/frameworks/law-v2.46-20260511.yaml` 的顶层 `output_contract` 和 `dimensions[].prompt_template` 为准。本节只规定规程层最低输出要求，避免在文档与 YAML 中维护两套可能分叉的细节。
+六维评分的精确字段、字数限制、prompt 与 JSON 契约以 `configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml` 的顶层 `output_contract` 和 `dimensions[].prompt_template` 为准。本节只规定规程层最低输出要求，避免在文档与 YAML 中维护两套可能分叉的细节。
 
 每个维度至少输出：
 
@@ -357,7 +357,7 @@ v0.16 增加 `recommended` 复核状态。它不同于必须复核，不阻断�
 
 ### 7.3 自主知识体系信号输出
 
-自主知识体系信号校验的精确 prompt、输出模板、量化映射和 JSON 契约，以 `configs/frameworks/law-v2.46-20260511.yaml` 的 `autonomous_knowledge_signals.prompt_template`、`autonomous_knowledge_signals.output_template` 和 `autonomous_knowledge_signals.output_contract` 为准。
+自主知识体系信号校验的精确 prompt、输出模板、量化映射和 JSON 契约，以 `configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml` 的 `autonomous_knowledge_signals.prompt_template`、`autonomous_knowledge_signals.output_template` 和 `autonomous_knowledge_signals.output_contract` 为准。
 
 ```json
 {
