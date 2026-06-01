@@ -1,0 +1,1070 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/公序良俗在我国的司法适用研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题。",
+          "我国司法适用中，对这两个方面的问题都未加以重视。公共秩序由哪个机关进行权威认定，如何判断善良风俗是否存在，在法律没有规定情况下，法院也没有总结审判中有益经验来指导不同类型的案件",
+          "建议增加动机要件，控制违背公序良俗法律行为...可以表述为“以违反公序良俗为目的达成的法律行为无效”。",
+          "需确立公序良俗的基本原则地位，系统化、细化相关规则，实现其在民法各个领域的科学控制。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "如学者所忧虑的那样，私人自治在推行醇风美俗的良好心理预期下被践踏的现象频频发生，公序良俗能否承载诸如“恢复固有道德”之类如此神圣的使命其实值得怀疑。",
+        "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题。",
+        "建议增加动机要件，控制违背公序良俗法律行为...可以表述为“以违反公序良俗为目的达成的法律行为无效”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国司法实践中的公序良俗适用为中心，提出具有法学争议性和理论转化潜力的制度命题，完全符合“中国自主知识体系研究”六维评价的进入条件，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留导致部分字词错乱（如'漏}同填补'应为'漏洞填补'，'El本'应为'日本'，'圆'为脚注乱码）",
+          "期刊页码及栏目名混入正文（如'241'、'中国法学 2016年第6期'）",
+          "脚注编号及部分案号存在乱码或格式异常（如'④'、'⑩'、'(2014)玄锁民初字'）"
+        ],
+        "evidence_quotes": [
+          "漏}同填补功能",
+          "El本和我国台湾地区采取该种做法",
+          "参见(2014)玄锁民初字第7O号",
+          "241"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题",
+          "将公序良俗理解为社会一般利益、一般道德，偏离了公序良俗之本意",
+          "建议增加动机要件，控制违背公序良俗法律行为",
+          "公序良俗可作为将宪法中的基本权利体系引入民法的框架性概念"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR错字需人工校对（如'漏}同'、'El本'）",
+        "文本工程：页码及期刊名混入需清洗"
+      ],
+      "evidence_quotes": [
+        "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题",
+        "建议增加动机要件，控制违背公序良俗法律行为"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段清洗混入的页码、期刊名及修复OCR错字（如'漏}同填补'、'El本'等），脚注乱码不影响核心论点定位。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如①②③等符号与正文混排，部分脚注标记位置异常）",
+          "参考文献列表缺失（标注为“无”）",
+          "部分判决书案号存在OCR识别残留（如“沪O2民终”应为“沪02民终”）",
+          "期刊页码信息混入正文（如“241”“242”等页码标记）"
+        ],
+        "evidence_quotes": [
+          "参见(2016)沪O2民终1028号《民事判决书》",
+          "241",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "公序良俗在我国的司法适用研究",
+          "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题",
+          "泸州继承案中法院认为原则在法律适用上有高于法律具体规则适用之效力，判决遗赠行为无效",
+          "形成鲜明对比的是德国情妇遗嘱案中对公序良俗检讨和公序良俗界定之精细化",
+          "建议修改2016《民法总则》草案相关条款，将公序良俗作为独立条款加以规定",
+          "公序良俗可作为将宪法中的基本权利体系引入民法的框架性概念",
+          "我国要在司法实践中大力提倡和践行该方法"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号乱码及位置异常，但不影响核心论点定位",
+        "参考文献列表缺失，需确认是否原文献即如此",
+        "部分判决书案号存在OCR残留（如“O2”应为“02”）",
+        "期刊页码标记混入正文"
+      ],
+      "evidence_quotes": [
+        "公序良俗在我国的司法适用研究",
+        "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题",
+        "建议修改2016《民法总则》草案相关条款"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国司法实践中的公序良俗适用问题为核心研究对象，基于743份裁判文书样本进行实证分析，提出立法完善建议，完全符合项目口径。文本质量风险较低，主要为脚注格式和OCR残留问题，不影响核心评审。建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留导致脚注编号乱码（如④、@、①等）混入正文",
+          "期刊页码、刊名及期号（如“241 中国法学 2016年第6期”）穿插于段落之间",
+          "部分句子因PDF分栏或换行产生非自然断行"
+        ],
+        "evidence_quotes": [
+          "参见(2016)沪O2民终1028号《民事判决书》。",
+          "241 \n\n中国法学 \n2016年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题。",
+          "裁判者对公序良俗一般规定和民法规则关系认识不清，导致向一般条款逃逸。",
+          "建议增加动机要件，控制违背公序良俗法律行为……条款可以表述为‘以违反公序良俗为目的达成的法律行为无效’。",
+          "公序良俗可作为将宪法中的基本权利体系引入民法的框架性概念。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR脚注乱码与页眉页脚混排内容，但不影响核心论证结构。",
+        "项目口径：完全契合，无需额外关注。"
+      ],
+      "evidence_quotes": [
+        "通过对裁判样本的研究，发现对公序良俗司法适用存在诸多问题。",
+        "建议增加动机要件，控制违背公序良俗法律行为",
+        "公序良俗可作为将宪法中的基本权利体系引入民法的框架性概念。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR与排版残留，建议进行基础清洗后直接进入六维评分。论文以中国司法裁判样本与《民法总则》草案为实证基础，深度剖析公序良俗原则在我国司法适用中的界定模糊、向一般条款逃逸、同案不同判等真实难题，并提出‘动机要件控制’‘类型化适用’‘宪法权利间接引致’等具有可复核性的教义学命题，高度契合中国自主知识体系研究口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 32,
+          "band": "unacceptable",
+          "summary": "论文全面梳理了公序良俗的司法适用问题，但全文为体系介绍与既有立场的阐释，未能提出可争辩的法学研究问题。",
+          "core_judgment": "本文属于宏观介绍，无明确的问题句和理论交锋，实质是政策倡导和现状总结，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学层面理论分歧），枢纽性=0/4，材料新颖性未触发上限。锚定 unacceptable 档，扣分合计=68分，最终得分32分。",
+          "evidence_quotes": [
+            "公序良俗能否承载诸如“恢复固有道德”之类如此神圣的使命其实值得怀疑。",
+            "公序良俗的司法适用存在诸多问题……一般道德标准替代公序良俗……向一般条款逃逸……同案不同判现象严重。"
+          ],
+          "strengths": [
+            "对司法实践中的问题进行了较为系统的归纳",
+            "关注了公序良俗适用的现实困境"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为主题声明和现状描述",
+            "缺乏不同学者观点的交锋，仅为单向批判和实践总结"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无问题句，只有主题声明，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文通篇为“公序良俗在我国的司法适用研究”的主题介绍，无“XX是否YY”或“如何ZZ”的问题句。"
+            },
+            {
+              "rule_id": "problem_originality.macro_intro_only",
+              "rule": "宏观介绍非深度分析，全文无学者观点交锋，扣20分",
+              "score_ceiling": null,
+              "priority": 2,
+              "evidence": "论文主要引用司法案例和单向批判，未呈现任何学者间的理论争辩。"
+            },
+            {
+              "rule_id": "problem_originality.new_concept_disguise",
+              "rule": "新概念包装旧问题，未说明解释力提升，扣25分",
+              "score_ceiling": null,
+              "priority": 3,
+              "evidence": "全文用“公序良俗”梳理既有实践，未提出新概念的理论进步或解释力提升。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的争辩性与创新性，不评论证是否严密或材料是否充分。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文聚焦公序良俗司法适用的界定与规范问题，具有高度枢纽性与可争辩性。",
+          "core_judgment": "问题成立且涉及民法核心原则与多制度联动，属经典重要法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "公序良俗能否承载诸如‘恢复固有道德’之类如此神圣的使命其实值得怀疑",
+            "对公序良俗是否民法基本原则认识的分歧...主流观点为基本原则说...也有学者否定其基本原则地位"
+          ],
+          "strengths": [
+            "问题涉及民法多领域制度冲突，枢纽性强",
+            "清晰呈现了学界与实务界的理论分歧"
+          ],
+          "weaknesses": [
+            "问题本身属经典旧题，前沿创新性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "只评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文识别了公序良俗司法适用的实践问题，但缺乏真正的理论争点建构。",
+          "core_judgment": "问题具有现实观察价值，但主要是现象描述与制度建议，未形成可争辩的法学理论命题。",
+          "score_rationale": "可争辩性=2/4（有现象描述和制度分歧，但无明确问题句和理论交锋），枢纽性=2/4（涉及民法多领域但争点非学界核心争论），材料新颖性未触发上限，锚定marginal档，给55分。负面模式检查：检查2扣15分（有学者观点提及但未展开交锋），检查3扣20分（有问题意识但实质是政策倡导型建议），扣分合计35分。",
+          "evidence_quotes": [
+            "公序良俗能否承载诸如'恢复固有道德'之类如此神圣的使命其实值得怀疑",
+            "建议将第8条提前到自愿原则之后，条款行文力求简练，规定'民事活动不得违背公序良俗'即可"
+          ],
+          "strengths": [
+            "基于743份裁判文书的实证分析，问题意识扎根司法实践",
+            "涉及法律行为、侵权、不当得利等多领域，有一定体系视野"
+          ],
+          "weaknesses": [
+            "全文以'发现问题—分析原因—提出对策'展开，属典型对策研究，缺乏理论争点",
+            "学者观点罗列多但交锋少，多为并列介绍而非批判性对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文主题'公序良俗在我国的司法适用'过于宽泛，涵盖界定、适用、类型化等多个层面，未凝练为具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文基于裁判样本揭示公序良俗适用乱象，提出体系化控制与类型化方案，问题聚焦且具理论纵深。",
+          "core_judgment": "该研究问题明确指向民法一般条款的司法控制难题，具备充分的法学争辩性与制度枢纽价值。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。前置检查三项均未触发，扣分合计0分。",
+          "evidence_quotes": [
+            "公序良俗能否承载诸如‘恢复固有道德’之类如此神圣的使命其实值得怀疑。",
+            "裁判中不管强制性规范，直接适用公序良俗一般条款来解决，典型如泸州继承案中抛却继承法。"
+          ],
+          "strengths": [
+            "精准识别向一般条款逃逸与裁判不一的核心症结",
+            "构建跨部门法的体系化控制与类型化适用路径"
+          ],
+          "weaknesses": [
+            "部分对策偏向立法建议，司法操作层面的程序性约束稍弱",
+            "对网络社会新型公序良俗的论证略显前瞻但缺乏实证支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.332342863082886,
+        "glm-5.1": 34.343494176864624,
+        "kimi-k2.6": 14.201717853546143,
+        "qwen3.6-plus": 61.78427171707153
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 32,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 65,
+      "std": 26.6,
+      "strictest": 32,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "论文通过大量裁判样本揭示问题，并引述核心学术争论，但研究地图要素存在缺陷：到达点线索分散、未竟点与本文切入点关联不够明确。",
+          "core_judgment": "论文呈现了可区分的学术争点和对立观点，但研究地图的组织化程度不足，三要素得分不完整。",
+          "score_rationale": "三要素=4/6（到达点1，未竟点1，本文切入点2），争点结构=2/2，法学流派=2个（形式法治/实质法治[通过原则与规则关系讨论体现]；一元论/二元论立场对立），锚定good档（65-74分），给70分。",
+          "evidence_quotes": [
+            "将善良风俗诠释为‘社会一般道德观念’忽略了‘善良’二字的评价功能。",
+            "持‘一元论立场’的国家...将违法与公序良俗并列为一个条款...‘二元论’立场则是将违反法律的强制性规定和违反公序良俗在结构上予以分开。"
+          ],
+          "strengths": [
+            "明确呈现了“一元论 vs. 二元论”等不同制度/解释路径的对立，符合争点结构优先的要求。",
+            "分散式文献定位中引述了多位学者及具体争点，如泸州继承案的多角度批评。"
+          ],
+          "weaknesses": [
+            "到达点依赖个案引述和观点罗列，缺乏对既有研究成果（如学者观点）的具体贡献提炼。",
+            "未竟点散见于问题描述中，与本文主张的切入点缺乏强对应，存在“现象指责”倾向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0 且 法学流派识别≤1 → 最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "争点结构得分为2且法学流派数量为2，不触发此规则，此为记录用。"
+            }
+          ],
+          "boundary_note": "本文重点在司法适用现状与对策，文献定位非核心任务，但梳理深度影响洞察度得分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，呈现多个争点与对立流派，现状洞察度极高。",
+          "core_judgment": "研究地图三要素充分满足，争点结构丰满，流派识别充分，本维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=8个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "主流观点为基本原则说，也有学者否定其基本原则地位，认为只是次级原则",
+            "对公序良俗原则与诚实信用原则关系上，有同一论和区别论"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现地位、关系、适用领域等多重对立",
+            "流派识别充分，涵盖基本原则说、次级原则说、同一论等8个流派"
+          ],
+          "weaknesses": [
+            "文献定位分散在正文各处，缺乏集中梳理的显性地图呈现"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理深度与争点结构，不评问题本身是否新颖或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文通过裁判样本分析公序良俗司法适用问题，呈现了对立学说但未充分构建研究地图。",
+          "core_judgment": "三要素部分满足，争点结构基本成立，但到达点与未竟点分散且缺乏明确文献定位，法学流派识别充分。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=2/2，法学流派=3个，锚定good档，给72分。",
+          "evidence_quotes": [
+            "对公序良俗是否民法基本原则认识的分歧是产生问题因由之一。主流观点为基本原则说……也有学者否定其基本原则地位",
+            "同一论认为两者在功能、价值、适用范围大体相似……区别论者主张两个原则适用不同领域"
+          ],
+          "strengths": [
+            "清晰呈现公序良俗原则地位、与诚信原则关系等多个学术争点",
+            "比较法视角引入德国、法国、日本及英美经验，流派覆盖较广"
+          ],
+          "weaknesses": [
+            "未明确提炼'到达点'与'未竟点'的对应关系，研究地图分散",
+            "缺乏独立文献综述，现有研究贡献与不足未系统总结"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4分，未触发此规则；实际触发三要素4分+争点2分+流派3个，锚定good档75-84"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性；论文问题意识清晰但文献定位分散。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒公序良俗司法适用的理论争点与实践困境，研究地图完整清晰。",
+          "core_judgment": "本维度成立，作者通过分散式文献定位成功构建了多维争点结构与明确的研究切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "主流观点为基本原则说……也有学者否定其基本原则地位。",
+            "对公序良俗原则与诚实信用原则关系上，有同一论和区别论。"
+          ],
+          "strengths": [
+            "分散式文献定位精准覆盖原则地位、体系关系与适用模式等核心争点。",
+            "明确指出现有理论类型化尝试与司法实践严重脱节的具体缺口。"
+          ],
+          "weaknesses": [
+            "部分比较法制度引介偏重规范描述，对学说演进脉络的批判性整合稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及公序良俗议题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.33759117126465,
+        "glm-5.1": 47.45156693458557,
+        "kimi-k2.6": 11.45796513557434,
+        "qwen3.6-plus": 67.77016282081604
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.5,
+      "std": 11.1,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文以裁判乱象归纳为主，未提出可重复适用的原创分析框架，仅罗列问题并提出立法建议，缺乏操作化的判断步骤与法学转化。",
+          "core_judgment": "论文并未建构可供操作的分析框架，主要贡献是梳理司法适用问题并提出完善方向，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（无明确定义、无分类标准、无步骤化流程、后文无框架调用），法学转化度得分=0/4（未转化为裁判步骤或判断标准，仅提出立法建议），属于 unacceptable 档，给 20 分。",
+          "evidence_quotes": [
+            "将公序良俗理解为社会一般利益、一般道德，偏离了公序良俗之本意。",
+            "建议增加动机要件，控制违背公序良俗法律行为……条款可以表述为‘以违反公序良俗为目的达成的法律行为无效’。"
+          ],
+          "strengths": [
+            "对司法实践中的公序良俗适用问题进行了较为系统的现象归纳。",
+            "提出了若干立法论层面的完善建议。"
+          ],
+          "weaknesses": [
+            "未界定公序良俗的操作性定义，也未提供可重复适用的分析步骤或判断标准。",
+            "全文未将问题归纳上升为原创性的类型化分析框架或裁判方法论。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，且无法学转化，触发 no_operational_framework 上限规则",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无核心术语的明确定义、无分类标准、无步骤化分析流程，仅提出概念混用、判断对象错误等问题罗列，未建构可操作的分析框架。"
+            }
+          ],
+          "boundary_note": "本维度仅评分析框架是否可循可操作，不评问题发现是否敏锐或论证是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "框架法学转化度高但可操作性弱，因缺乏操作化定义和具体程序规则受限。",
+          "core_judgment": "框架虽提出立法条款与适用条件，但因核心概念无定义且含口号式呼吁，可操作性严重不足。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档上限1），法学转化度得分=4/4，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "条款表述为‘以违反公序良俗为目的达成的法律行为无效’",
+            "适用条件：第一穷尽法律规则...第四公共利益优先并非必然逻辑"
+          ],
+          "strengths": [
+            "提出具体立法修改条款与裁判适用条件",
+            "将动机要件引入公序良俗判断，转化充分"
+          ],
+          "weaknesses": [
+            "核心术语缺乏‘本文所称’的操作化定义",
+            "对策含大量口号式呼吁，缺乏具体程序规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评框架建构力，不评案例分析的逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 48,
+          "band": "marginal",
+          "summary": "制度型论文，以裁判实证分析为基础，但缺乏原创分析框架，多为问题描述与对策罗列。",
+          "core_judgment": "论文未建构可重复适用的原创分析框架，核心术语沿用通说，分析步骤缺失，后文调用不足。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定部分清晰，无明确分类标准、分析步骤及后文调用），法学转化度得分=2/4（有制度建议但缺乏裁判规则提炼与操作化流程）。锚定marginal档，给48分。",
+          "evidence_quotes": [
+            "公序良俗在我国的司法适用研究",
+            "建议增加动机要件，控制违背公序良俗法律行为"
+          ],
+          "strengths": [
+            "问题意识明确，实证样本丰富"
+          ],
+          "weaknesses": [
+            "缺乏原创概念界定与类型化框架",
+            "对策建议流于宏观口号，未转化为可操作的裁判规则"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语'公序良俗'沿用通说，无'本文所称'式定义；无步骤化分析流程；'应当''建议'等规范性表述超5处但具体规则不足"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了公序良俗司法适用的类型化与控制体系框架，具备较强的实务转化力。",
+          "core_judgment": "框架成立且可用，成功将抽象原则转化为可操作的裁判规则与立法建议。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给88分。概念与分类清晰，但步骤偏规范指引。",
+          "evidence_quotes": [
+            "建议增加动机要件……条款可表述为‘以违反公序良俗为目的达成的法律行为无效’。",
+            "公序良俗类型化适用是通过固定类型进行价值填充，以限制自由裁量权的有效方法。"
+          ],
+          "strengths": [
+            "提出“动机要件+类型化”路径，有效限缩法官自由裁量权。",
+            "将抽象原则拆解为具体民法领域的适用规则与立法方案。"
+          ],
+          "weaknesses": [
+            "适用条件偏重规范指引，缺乏严格的阶梯式裁判流程图。",
+            "部分制度设计与现行法过渡衔接的论证略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉逻辑推演严密性或问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.265405893325806,
+        "glm-5.1": 53.93653917312622,
+        "kimi-k2.6": 9.445157051086426,
+        "qwen3.6-plus": 66.85554027557373
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 45,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 88
+      },
+      "mean": 50.2,
+      "std": 28.1,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文推理链总体完整，但对关键反驳如“基本原则地位说”的回应较弱，且从“制度缺陷”到“方案设计”的衔接存在部分跳步。",
+          "core_judgment": "论文通过对裁判样本的系统分析，基本完成了从问题诊断到成因剖析再到制度方案的推理链，但缺乏对理论争议的实质性反驳，削弱了逻辑严密性。",
+          "score_rationale": "推理链完整性得分=3/4（主要推理步骤可复述，推理链依赖度较好，结论可由前文推出，但成因到对策存在1处关键跳步）。反驳处理度得分=2/3（识别了反对意见并承认局限，但对基本原则说与次级原则说的核心分歧回应不足）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "主流观点为基本原则说...也有学者否定其基本原则地位。有人认为公序良俗只是民法中的次级原则...地位的分歧还见之于公序良俗与其他原则关系上。",
+            "本文无意就各种类型进行概括，仅归纳司法裁判研究基础上认识到的类型化方法运用应注重之因素。"
+          ],
+          "strengths": [
+            "从问题、成因到对策的宏观推理链清晰，裁判样本分析为诊断提供了坚实的事实基础。",
+            "承认了立法建议的局限性，如指出“篇幅原因，不拟详述”，体现了论证的审慎性。"
+          ],
+          "weaknesses": [
+            "对公序良俗地位的核心理论分歧，仅列举观点而未展开论证为何采纳基本原则说，推理有跳步。",
+            "从广泛列举的制度缺陷（如侵权法、不当得利控制阙如）到具体立法建议的衔接不够紧密，部分建议的推出缺乏充分论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2或3，但反驳处理度<2，可能存在局部推理链较弱或回避关键争议的情况，最高分70分。",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "反驳处理度得分=2，但推理链完整性=3，不触发此上限规则。重新评估：推理链完整性=3，反驳处理度=2，分档为excellent(80-100)门槛，但锚定good(70-79)。遵循规则，推理链完整性≥3且反驳处理度≥2应为excellent档，但需根据具体质量在80-100内评估。论文反驳处理度虽满足“识别反对意见”和“承认局限”两个标准，但对核心反对意见的回应仅为观点罗列而无深入论证，实质回应较弱，因此不宜给excellent高分。综合评价归入good档上位，给72分。"
+            }
+          ],
+          "boundary_note": "论文的核心问题在于理论论证部分缺乏对相反观点的实质性回应，这属于逻辑推理链的跳跃，而非单纯框架是否可操作的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了严密的问题-成因-对策推理链，并对反对意见与自身局限作了实质性回应。",
+          "core_judgment": "本维度完全成立，推理链充分支撑核心结论，反驳处理充实。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "也有学者否定其基本原则地位...宜将其规定为民法基本原则...裁判囊括了民法各个部分。",
+            "从裁判中能总结出的公序良俗类型方面的一致内容相对偏少，局限性非常大。"
+          ],
+          "strengths": [
+            "问题-成因-对策推理链高度依赖，环环相扣。",
+            "对分歧路径给出四点选择理由，反驳实质。"
+          ],
+          "weaknesses": [
+            "对否定基本原则地位的反对意见回应稍显诉诸主流，论证深度略欠。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦问题到对策的推导支撑力，不评价类型化方案的具体操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "实务型论文，推理链基本完整但存在局部跳步，反驳处理不足。",
+          "core_judgment": "主要推理步骤可识别且相互依赖，但制度建议部分存在从问题描述到方案设计的跳步，缺乏对反对意见的显式回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4部分成立：从'问题诊断'到'制度建议'存在过渡性跳步，如动机要件的引入缺乏充分推导）；反驳处理度得分=1/3（仅标准1成立：识别了'有学者认为'等少数反对意见，但标准2、3未满足：未对反对意见进行实质性回应，未承认自身局限）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "也有学者否定其基本原则地位……有人认为公序良俗只是民法中的次级原则",
+            "建议增加动机要件……条款可以表述为'以违反公序良俗为目的达成的法律行为无效'"
+          ],
+          "strengths": [
+            "问题-成因-对策的三段论结构清晰，各章内部推理步骤可复述",
+            "比较法分析（德国情妇遗嘱案）与本土问题诊断形成有效支撑"
+          ],
+          "weaknesses": [
+            "制度建议部分从'问题描述'直接跳到'应增加动机要件'，缺乏中间推导",
+            "未回应'动机要件可能过度限制私法自治'等潜在反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否支撑结论，不评估'动机要件'方案本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“司法乱象诊断—多维成因剖析—体系化规制方案”的严密推理链。",
+          "core_judgment": "逻辑严密性成立，核心结论可由案例实证与规范分析充分支撑，反驳处理到位。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。主线环环相扣，对学术分歧与适用边界均有实质性回应。",
+          "evidence_quotes": [
+            "裁判中存在一个普遍现象是不具体界定公序良俗，用抽象的一般道德标准代替公序良俗。",
+            "公序良俗条款是原则性规定，是弥补法律漏洞的工具，其仅在没有规则时起到填补空缺的作用。"
+          ],
+          "strengths": [
+            "问题识别、成因剖析与制度建议形成完整闭环，逻辑递进清晰。",
+            "充分回应学界关于原则地位与适用领域的分歧，论证具有针对性。"
+          ],
+          "weaknesses": [
+            "部分对策建议缺乏对本土司法惯性的充分推演。",
+            "成因分析中“司法政治角力”与核心法律推理的衔接略显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“问题-成因-对策”链条的推导支撑，而非立法建议的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 53.501826763153076,
+        "glm-5.1": 38.14849591255188,
+        "kimi-k2.6": 11.474991798400879,
+        "qwen3.6-plus": 51.47243595123291
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81,
+      "std": 10.5,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "结论基于大量实证素材对公序良俗适用乱象进行了系统诊断，并提出了与民法典编纂相衔接的规范方案，具有清晰的学术对话性和制度回应性。",
+          "core_judgment": "论文结论成功进入法学共同体对话，批判既有实践并提出具体制度完善建议，其改革方案与现行法秩序兼容且指出了明确转化方向。",
+          "score_rationale": "共同体对话度得分=4/4（回应了泸州案等争论，反对者可定位反驳，结合中国实证，承认理论与实践脱节），制度可接受度得分=3/4（与民法典编纂兼容，回应了具体法条约束，指出了类型化等转化方向），锚定理论论文excellent档，给82分。",
+          "evidence_quotes": [
+            "建议增加动机要件，控制违背公序良俗法律行为…条款可以表述为‘以违反公序良俗为目的达成的法律行为无效’。",
+            "在司法的政治角力中，法院以不引起‘政治偏差’为己任，不敢越雷池半步。"
+          ],
+          "strengths": [
+            "深刻批判了司法实践向一般条款逃逸及割裂公序良俗的做法，并直面了司法政治角力等深层原因。",
+            "结论不是空泛呼吁，而是给出了融入民法典体系的动机要件、类型化等具体立法与司法方案。"
+          ],
+          "weaknesses": [
+            "结语部分网络社会的展望略显突兀，与前文论证的结合不够紧密，制度转化方向稍显发散。",
+            "对引入动机要件的反对意见（如增加司法主观性）未作专门防御，略微削弱对话的完备性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评估仅针对结论的可接受性，不评价其逻辑严密性。结论的批判性和改革性不构成扣分理由。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应争论与本土乱象，制度转化方向明确，可接受性极高。",
+          "core_judgment": "结论深度回应学界争论与本土司法约束，提出了兼容现行法秩序的具体制度方案，该维完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，结合其具体的立法与司法改进方案，给90分",
+          "evidence_quotes": [
+            "笔者赞同第三种方式，主张用‘公序良俗’作为公共秩序和善良风俗统称。",
+            "建议增加动机要件，控制违背公序良俗法律行为……条款可表述为‘以违反公序良俗为目的达成的法律行为无效’。"
+          ],
+          "strengths": [
+            "结论精准回应学界争论与本土司法乱象，对话度高。",
+            "制度转化方向明确，提出了动机要件等具体立法建议。"
+          ],
+          "weaknesses": [
+            "对网络社会公序良俗新类型的讨论稍显宽泛。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受及回应，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "制度导向的实证研究，结论明确回应中国公序良俗司法适用问题，提出立法与司法改进方案。",
+          "core_judgment": "论文作为制度论文，结论进入共同体争论语境并回应中国制度条件，但制度转化方案部分表述可更精准。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、考虑中国语境；但主动承认反对意见/局限不足），制度可接受度得分=3/4（不矛盾、回应制度约束、考虑中国语境；但制度转化方向部分建议较概括）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "建议修改2016《民法总则》草案相关条款，将公序良俗作为独立条款加以规定",
+            "我国要在司法实践中大力提倡和践行该方法[类型化适用方法]"
+          ],
+          "strengths": [
+            "结论明确回应中国民法典编纂语境，与现行法秩序兼容",
+            "提出具体制度建议如动机要件、类型化方法，具有制度转化方向"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见或自身方案局限",
+            "部分建议如'加强收集整理制度'偏概括，可更具体"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应司法实践争议，提出具象化制度方案，高度契合中国法秩序与民法典编纂语境。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与制度落地可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "建议增加动机要件……条款可以表述为‘以违反公序良俗为目的达成的法律行为无效’。",
+            "建议《合同法》关于合同无效规定中，扩展社会公共利益为公序良俗，并将违反公序良俗导致合同无效作为兜底条款。"
+          ],
+          "strengths": [
+            "精准批判司法‘向一般条款逃逸’乱象，论证扎实。",
+            "立法与司法建议具体可操作，直指民法典编纂痛点。"
+          ],
+          "weaknesses": [
+            "部分比较法经验移植的本土适配性论证可更充分。",
+            "网络社会新型公序良俗议题仅停留在展望层面。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.97492814064026,
+        "glm-5.1": 39.97438597679138,
+        "kimi-k2.6": 11.784462928771973,
+        "qwen3.6-plus": 72.4288079738617
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84,
+      "std": 9.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出了制度完善与类型化发展的具体方向，但延展路径的精细度不足，多停留在方向性建议层面。",
+          "core_judgment": "存在明确的制度延展方向，尤其是关于类型化方法和特定新类型的关注，但需进一步细化研究方案与操作路径。",
+          "score_rationale": "原始分58分，对应bonus档位为2分。论文提出了未来需关注的三种公序良俗类型及网络社会挑战等具体延展点，但因多为概括性方向，精细度和可操作性有限，未达到高分标准。",
+          "evidence_quotes": [
+            "建议将来关注和完善以下几种类型：第一，关注债务人超出自己预计给付能力的债务违反公序良俗之类型...第二，关注基本权利维护型公序良俗类型...第三，关注保护环境的公序良俗类型。",
+            "网络社会已经并将更为深刻地影响民法的变迁...会不断为公序良俗的界定、判断和运用提出新的课题。"
+          ],
+          "strengths": [
+            "明确提出了三个未来需重点关注的公序良俗具体类型，指出了填补空白的路径。",
+            "将网络社会对公序良俗的影响作为未来研究课题，具有前瞻性指向。"
+          ],
+          "weaknesses": [
+            "延展路径多为方向性建议，缺乏对如何展开研究的具体方法论或操作化方案。",
+            "对于网络社会等新课题的论述仅止于提出，未说明从何处切入或检验，精细度不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估论文提出的未来研究方向与制度完善建议的清晰度和可定位性，而非评判其当下论证结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出了过度负债、基本权利、环保及网络空间等具体的公序良俗新类型与适用场景延展。",
+          "core_judgment": "存在真实延展路径，指明了具体的制度深化方向与场景延伸。",
+          "score_rationale": "原始分85，对应bonus=5档。论文在类型化与体系控制结论基础上，明确提出过度负债、基本权利维护、环境保护及网络社会四个具体延展方向，路径清晰可定位，与正文衔接紧密。",
+          "evidence_quotes": [
+            "建议将来关注和完善以下几种类型：第一，关注债务人超出自己预计给付能力的债务违反公序良俗之类型...",
+            "网络社会的无国界性会为跨越国界的共同的价值观和伦理观的产生提供空间和可能性...已经出现的网络空间特殊'民事法律关系'..."
+          ],
+          "strengths": [
+            "延展方向具体，紧扣正文类型化方法与体系控制核心。",
+            "场景延伸（网络社会）具有时代前瞻性。"
+          ],
+          "weaknesses": [
+            "对网络社会延展的论证稍显简略，仅停留在现象列举。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "网络社会公序良俗的新课题属于未来制度适用场景延伸，而非当下司法实践已成熟的可接受结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度完善和类型化方法方面提出了较明确的后续研究方向，但网络社会部分的展望较为空泛。",
+          "core_judgment": "存在真实延展路径，主要体现在公序良俗类型化完善、各民法领域控制规范细化及比较法深化三个方向，但结尾网络社会展望缺乏具体修正对象。",
+          "score_rationale": "原始分72分，对应bonus=3档。论文在'未来需关注类型'中明确列出三类待发展类型（过度负债、基本权利维护型、环境保护型），并指出'以本土判例为素材'的建构路径；在民法各领域（法律行为、侵权、权利、不当得利）均提出规则衔接方向。但结语中'网络社会'部分仅有现象描述而无具体制度修正路径，精细度不足。",
+          "evidence_quotes": [
+            "建议将来关注和完善的几种类型：第一，关注债务人超出自己预计给付能力的债务违反公序良俗之类型……第二，关注基本权利维护型公序良俗类型……第三，关注保护环境的公序良俗类型",
+            "类型的总结需要作为法院系统常规工作，包括各级法院建立对公序良俗收集、整理、讨论、报告和确认制度"
+          ],
+          "strengths": [
+            "未来类型化方向具体可定位，与正文裁判样本分析紧密衔接",
+            "比较法深化路径明确（德国情妇案、法国原因理论等可继续拓展）"
+          ],
+          "weaknesses": [
+            "网络社会展望仅现象罗列，缺乏具体规则修正对象",
+            "类型化方法未回应与现有司法解释制度的衔接机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究/制度发展指明的方向，而非当下结论是否被接受。文中'类型化''比较法''各民法领域控制规范'等均为未来延展问题，不涉及结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "基于类型化主线提出三项待拓展领域，并指明网络社会场景下的概念演进路径。",
+          "core_judgment": "存在真实可定位的延展路径，与正文类型化建构结论紧密衔接。",
+          "score_rationale": "原始分82，对应bonus=5。明确列出过度负债、基本权利、环保三类拓展方向，并指出网络虚拟人格等新场景界定需求，路径清晰具体。",
+          "evidence_quotes": [
+            "建议将来关注债务人超出预计给付能力的债务违反公序良俗之类型。",
+            "网络社会无国界性为共同价值观产生提供空间，需在确定公序良俗观念时观察。"
+          ],
+          "strengths": [
+            "延展紧扣类型化主线，提出具体制度拓展领域。",
+            "结合网络变迁指明概念演进场景，具备明确研究入口。"
+          ],
+          "weaknesses": [
+            "对新场景仅提示方向，未展开适用边界推演。",
+            "未给出检验新类型的具体实证路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评述类型化向新兴领域延伸的未来议程，非当下结论可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.71557021141052,
+        "glm-5.1": 38.31348466873169,
+        "kimi-k2.6": 12.44353199005127,
+        "qwen3.6-plus": 61.56549620628357
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 82
+      },
+      "mean": 74.2,
+      "std": 12.2,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 72.8,
+      "weighted_total": 71.4
+    },
+    "aggregation_strictest": {
+      "final_score": 48.24,
+      "weighted_total": 51.1
+    },
+    "avg_std": 16.3,
+    "max_std": 28.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.6,
+    "composite_score": -16.3,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 28.1
+  }
+}

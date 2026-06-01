@@ -1,0 +1,1114 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/“南海仲裁案”后续法律应对的关键问题研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文本中混杂大量期刊页码脚注（如“51”、“52”、“53”等），但不影响正文连续阅读。",
+          "部分脚注中的URL链接存在断字换行问题，抽取可能存在微小误差。",
+          "文本中存在少量OCR残留标点（如全角空格、断行连字符等），但核心论点与论证结构完全可定位。"
+        ],
+        "evidence_quotes": [
+          "华东政法大学教授，博士生导师。本文为国家社科基金重大项目“构建中国特色军事法治体系的核心问题研究”...",
+          "51",
+          "http：／／www．fmprc．gov．cn／web／zi\nliao\n_ 674904／1 \n179-674909／tl379490．shtml"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "南海仲裁案仲裁庭的“管辖权裁决”及“最终裁决”在事实认定和法律推理上存在大量瑕疵和争议。本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题...",
+          "中国政府发布《关于菲律宾共和国所提南海仲裁案管辖权问题的立场文件》，详细阐述中国不接受、不参与的严正立场...",
+          "争取大多数《公约》缔约国公开支持中国政府反对仲裁庭管辖的目标...",
+          "南海仲裁案是一场由菲律宾以及某些西方势力导演的披着法律外衣的政治闹剧，其目的是损害中国在南海的领土主权和海洋权益。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "【文本工程】正文中夹杂多处硬分页导致的页码数字，虽不阻断阅读，但影响自动抽取质量。",
+        "【文本工程】部分脚注中的URL和文本因OCR或复制原因断行，可能影响后续参考文献校验。",
+        "【项目口径】文章论证框架基本为国际法批判与政府立场辩护，需注意后续评价中关于“中国自主知识体系”创新性的判断。"
+      ],
+      "evidence_quotes": [
+        "所谓“最终裁决”罔顾《联合国海洋法公约》设置的启动争端强制解决程序的争端方必须履行的前置性义务和仲裁庭受案范围的限制。",
+        "《中国立场文件》在第三部分不仅列举了许多限制菲律宾单方面提起争端强制解决程序的有拘束力协议，而且还分别阐述了拘束力的理由。",
+        "中国若将仲裁庭明显违反管辖权的事实依据通过外交活动诉诸全体缔约国，并获得一致公开支持中国政府立场的话，这种否定仲裁庭管辖权的解释效力就一定优越于“最终裁决”本身的解释。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本因OCR或原始格式遗留少量页码和断行，给予conditional_pass。论文以中国外交实践与南海仲裁案的对抗为核心，具备明确的中国问题导向、可争辩的国际法问题、中国实践解释尝试和建设性的理论/策略命题，完全满足“中国自主知识体系研究”的六维评价入口条件，建议直接进入评分流程。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如'51','52','53'等）",
+          "脚注内容及编号直接穿插在正文中，未作为独立区块抽取",
+          "URL链接存在全角字符、断行及空格乱码",
+          "英文单词及案例名称被断行插入空格（如'Southern Bluef in Tuna'）"
+        ],
+        "evidence_quotes": [
+          "51 \n中国法学 \n2016年第5期",
+          "http：／／www．fmprc．gov．cn／web／zi liao _ 674904／1 179-674909／tl379490．shtml",
+          "See Southern Bluef in Tuna Case(Australia and New Zealand v．Japan)"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "南海仲裁案仲裁庭滥用管辖权、枉法裁断的典型问题",
+          "《南海各方行为宣言》不仅符合《公约》第281条和第282条中“协议”之适用，而且也因为有“通过友好磋商和谈判”的“排除任何其他程序”的措辞...必然限制仲裁庭启动强制仲裁程序",
+          "《公约》第298条1(a)(i)项后半段的“historic titles”性质与此不同，必然包括非主权性质的历史性水域",
+          "争取大多数缔约国公开支持中国立场，形成有权解释以反制仲裁庭滥用管辖权"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码、脚注、URL及英文断行混入正文，需后续清洗",
+        "项目口径：完全满足，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "《南海各方行为宣言》不仅符合《公约》第281条和第282条中“协议”之适用，而且也因为有“通过友好磋商和谈判”的“排除任何其他程序”的措辞...必然限制仲裁庭启动强制仲裁程序",
+        "《公约》第298条1(a)(i)项后半段的“historic titles”性质与此不同，必然包括非主权性质的历史性水域"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本需进行工程清洗（剥离页码、重组脚注、修复URL及英文断行），随后直接进入六维评分流程。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留：部分脚注编号存在乱码（如⑩⑩等重复使用、③⑦等编号跳跃）",
+          "参考文献列表缺失（标注为“无”），但正文引用完整可定位",
+          "少量URL链接存在OCR识别错误（如ht tp分段、an.org等）"
+        ],
+        "evidence_quotes": [
+          "⑩前引⑨。",
+          "③⑦等脚注编号重复使用或跳跃",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题",
+          "作为法律外交的主要后续对策，需要加大力度，持续性地推动反制仲裁裁决",
+          "仲裁庭违反《公约》第十五部分第一节的前置义务",
+          "《公约》第298条1(a)(i)项下的排除",
+          "南海岛屿主权及划界争端的处理应运用区别原则"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留乱码，但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，但正文引用完整"
+      ],
+      "evidence_quotes": [
+        "本文为国家社科基金重大项目“构建中国特色军事法治体系的核心问题研究”(项目批准号：14ZDC035)的阶段性成果",
+        "仲裁庭违反《公约》第十五部分第一节的前置义务",
+        "作为法律外交的主要后续对策，需要加大力度，持续性地推动反制仲裁裁决"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国南海仲裁案为核心研究对象，深入分析《联合国海洋法公约》程序性规定、仲裁庭管辖权滥用问题，并提出中国后续法律应对策略，完全符合项目口径。文本质量风险较低，脚注编号存在OCR残留但不影响评审，可直接进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR断行与换行符残留",
+          "脚注编号符号混用（如①⑧@◎等乱码）",
+          "参考文献URL断裂及期刊页码混入正文"
+        ],
+        "evidence_quotes": [
+          "http：／／www．fmprc．gov．cn／web／zi\nliao\n_ 674904／1 \n179-674909／tl379490．shtml",
+          "51 \n\n中国法学 \n2016年第5期",
+          "⑧\n《中华人民共和国政府关于菲律宾共和国所提南海仲裁案管辖权问题的立场文件》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题",
+          "《宣言》不仅符合《公约》第281条和第282条中“协议”之适用，而且也因为有“通过友好磋商和谈判”的“排除任何其他程序”的措辞，因此在未启动或没有用尽此方法解决争端的前提条件下，就必然限制仲裁庭启动《公约》第十五部分第二节的强制仲裁程序。",
+          "争取大多数《公约》缔约国公开支持中国政府的立场，认定仲裁庭滥用管辖权依然具有可能性。若如此，来自多数缔约国否定仲裁庭管辖权的意思表示足以削弱仲裁庭“最终裁决”权威性。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR断行、统一脚注符号格式、修复断裂URL",
+        "项目口径：无，四项核心信号均明确触发，具备直接进入六维评价的充分条件"
+      ],
+      "evidence_quotes": [
+        "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题",
+        "《宣言》不仅符合《公约》第281条和第282条中“协议”之适用...",
+        "争取大多数《公约》缔约国公开支持中国政府的立场..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR与排版噪声，建议技术清洗后进入六维评分。论文紧扣南海仲裁案管辖权与可受理性争议，深度剖析《联合国海洋法公约》第十五部分程序条款（第281、282、283、298条）的适用边界，提出以法理为基础的外交反制路径与区别对待原则，具有明确的中国问题中心性、可争辩的国际法命题及实践解释力，完全符合项目口径，建议直接进入正式评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文旨在为南海仲裁案后续法律应对提供对策，但未提出可争辩的法学研究问题，全文主要是对中国政府既定立场的法理阐释与政策倡导。",
+          "core_judgment": "问题创新性不成立：论文缺少明确、可争辩的法学问题句，实质是围绕官方立场进行系统辩护与对策建议，未形成法学层面的理论分歧与深度分析。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限。负面检查扣分：检查1扣20分（新概念“法律外交”等只是包装旧政策，未说明解释力提升），检查2扣20分（全文无学者观点交锋，只是系统归纳既定立场），检查3扣30分（全文无问题句，只有主题声明和政策倡导）。正式评分45分，扣分合计70分，扣分后分数为-25分，根据规则不得低于30分，取30分。最终得分30分。",
+          "evidence_quotes": [
+            "“本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题，尚未穷尽仲裁庭其他失职行为。”",
+            "“作为法律外交的主要后续对策，需要加大力度，推动反制仲裁裁决……以法理说服为基础……推动《公约》缔约国公开支持中国立场。”"
+          ],
+          "strengths": [
+            "对《公约》相关条款及仲裁庭裁决进行了系统的程序性梳理。",
+            "提出了通过争取缔约国支持等外交法律途径反制裁决的实务对策。"
+          ],
+          "weaknesses": [
+            "全文无任何可争辩的法学问题句，仅为中国官方立场的系统性辩护。",
+            "缺少不同学者观点交锋，属于宏观介绍与政策倡导，而非深度法学分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明和政策倡导，可争辩性≤1",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现'XX是否YY'或'如何ZZ'等问题句，仅围绕仲裁庭违法性展开立场辩护并提出政策建议。"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦，实质为政策倡导",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文核心为'后续法律应对的关键问题研究'，但未形成具体研究问题，只是系统阐述应对策略。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的争辩性与重要性，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "boundary_overlap",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕南海仲裁庭管辖权滥用及《公约》条款解释提出明确法学争点，枢纽性高。",
+          "core_judgment": "问题成立且重要，涉及国际法核心争端解决机制与海洋权益解释分歧，具有高度枢纽性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "仲裁庭行使管辖权必须符合《公约》第十五部分第一节中第281条的前置义务",
+            "将《公约》第298条1(a)(i)项所能排除的‘历史性海湾或所有权’限定于主权性质的海洋权利的说辞毫无法律依据"
+          ],
+          "strengths": [
+            "争点明确，直击仲裁庭管辖权合法性这一核心法学问题",
+            "涉及《公约》争端解决机制与历史性权利等基础理论，枢纽性强"
+          ],
+          "weaknesses": [
+            "后半部分应对策略偏向政策倡导，法学论证深度减弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文系对南海仲裁案管辖权问题的实务批驳与对策建议，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文为阐释中国官方既定立场的政策倡导型文章，未提出可争辩的法学争点，不满足问题创新性维度的基本要求。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明'仲裁庭滥用管辖权'，无法律层面的理论分歧交锋），枢纽性=2/4（涉及国际海洋法制度，但无理论争议焦点），材料新颖性未触发上限。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'法律外交'等概念未说明理论进步；检查2：宏观介绍非深度分析，无学者观点交锋，扣20分；检查3：主题声明非研究问题，扣30分），合计扣75分，但不得低于30分，最终35分。",
+          "evidence_quotes": [
+            "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题",
+            "作为法律外交的主要后续对策，需要加大力度，持续性地推动反制仲裁裁决"
+          ],
+          "strengths": [
+            "选题涉及国际法重大实践问题"
+          ],
+          "weaknesses": [
+            "全文为立场阐释与政策倡导，无法学争点",
+            "未呈现不同学者观点交锋，仅为单方论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'问题句，仅陈述'仲裁庭滥用管辖权'既定立场"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦南海仲裁庭管辖权争议，提出法理反制与外交应对路径，问题明确且具张力。",
+          "core_judgment": "问题具备明确可争辩性与高枢纽性，紧扣国际法核心争点，成立且重要。",
+          "score_rationale": "负面扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "仲裁庭行使管辖权必须符合《公约》第281条前置义务。",
+            "争取多数缔约国支持以削弱裁决权威性具可行性。"
+          ],
+          "strengths": [
+            "精准锁定管辖权前置义务与例外条款，争点清晰。",
+            "提出缔约国共识反制路径，突破单一司法局限。"
+          ],
+          "weaknesses": [
+            "部分对策偏向外交实务，法学理论纵深稍显不足。",
+            "批驳多依中方立场，与对立观点交锋略单向。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献、论证及材料支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.56095218658447,
+        "glm-5.1": 53.044944286346436,
+        "kimi-k2.6": 15.42318606376648,
+        "qwen3.6-plus": 68.62486386299133
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 60.8,
+      "std": 29.8,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文完全未构建研究地图，未呈现既有研究的到达点、未竟点及本文的学术切入点，也未识别任何法学流派或学术争点结构。",
+          "core_judgment": "本文是一篇政策立场论文，未进行任何学术文献梳理或呈现学术争论脉络，不符合研究地图的基本要求。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定 unacceptable(0-54)档，给40分",
+          "evidence_quotes": [
+            "“中国学术机构和海内外学者也相继发表了很多有深厚学术价值的学术论文。”",
+            "“有学者主张请求其他具有管辖权的司法机构裁定，用一个新的‘最终裁定’来否定前一个‘最终裁定’……其实不然。”"
+          ],
+          "strengths": [
+            "立场明确，对仲裁裁决的程序性违法问题进行了细致的实证分析。"
+          ],
+          "weaknesses": [
+            "未呈现任何既有学术研究的具体成果、贡献、缺陷或分歧，三要素全部缺失。",
+            "仅引述中国官方立场及个别学术观点，未识别法学流派或构建学术争点脉络。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，研究地图完全不存在，触发最严格的上限规则。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文正文未提及任一既有研究的具体成果或学者观点，未指出既有研究的不足，也未将本文定位于学术讨论的缺口。"
+            }
+          ],
+          "boundary_note": "本文仅在对策建议部分引用了极为有限的学者主张，属于论证策略而非学术研究地图构建，因此判定为文献定位缺失。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "论文清晰梳理了仲裁案实务争点与应对分歧，但缺乏学术流派脉络呈现。",
+          "core_judgment": "研究地图完整且争点结构清晰，但法学流派识别为零，依赖实务对立而非学术争论。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=0个，锚定good档，给70分",
+          "evidence_quotes": [
+            "中国学术机构和海内外学者也相继发表了很多有深厚学术价值的学术论文",
+            "反制仲裁裁决以及反制的方法和路径是优先要研究的问题"
+          ],
+          "strengths": [
+            "三要素充分，明确指出既有应对方案局限",
+            "呈现多个可区分的实务争点与解释分歧"
+          ],
+          "weaknesses": [
+            "缺乏法学流派识别，未将争点置于学界争论脉络",
+            "文献定位偏实务驳斥，学术理论对话不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点结构，而非南海主权主张本身的创新性",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本文未建立研究地图三要素，无到达点、未竟点与切入点的学术脉络梳理，争点结构与法学流派识别均缺失。",
+          "score_rationale": "三要素=0/6（到达点0/2：无具体研究成果引述；未竟点0/2：无缺口分析；切入点0/2：未说明与既有研究关系），争点结构=0/2（无对立观点呈现），法学流派=0个（无学派识别），锚定unacceptable档，给48分。",
+          "evidence_quotes": [
+            "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题，尚未穷尽仲裁庭其他失职行为。",
+            "作为法律外交的主要后续对策，需要加大力度，持续性地推动反制仲裁裁决。"
+          ],
+          "strengths": [
+            "正文引用了部分国际法学者观点（如李浩培、贾兵兵）和案例。"
+          ],
+          "weaknesses": [
+            "无到达点：未梳理既有研究解决了什么，仅罗列事实与官方立场。",
+            "无未竟点与切入点：未说明学术争议缺口，也未定位本文在学术脉络中的位置。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，研究地图严重残缺，上限55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未出现'已有研究''学界认为''但尚未解决'等研究地图标识，三要素均为0。"
+            }
+          ],
+          "boundary_note": "本文属政策建议型评论，非学术文献综述问题，但本维度仅评文献梳理完整性，不涉问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文系统梳理南海仲裁案管辖权与实体裁决的学术争鸣，明确既有应对局限并提出法理外交反制路径。",
+          "core_judgment": "研究地图完整，争点脉络清晰，文献定位与本文切入点高度契合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "中国法学会研究小组发表多份报告，学界相关论文规模庞大。",
+            "本文聚焦仲裁庭滥用管辖权等典型问题，尚未穷尽其他失职行为。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，有效提取仲裁庭与中方学者的解释路径对立。",
+            "明确指出现有应对策略局限，直接对应本文法理外交切入点。"
+          ],
+          "weaknesses": [
+            "对国际仲裁庭少数意见及西方主流学派的直接引证相对不足。",
+            "部分学术争点依赖脚注呈现，正文理论对话的显性标识可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及南海问题本身的创新性或政治立场。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.842540979385376,
+        "glm-5.1": 61.992725133895874,
+        "kimi-k2.6": 12.521227836608887,
+        "qwen3.6-plus": 72.76924014091492
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 70,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 80
+      },
+      "mean": 59.5,
+      "std": 18.6,
+      "strictest": 40,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文以系统梳理和驳斥仲裁庭违法之处为主线，未提出原创的分析框架，仅以《公约》条款顺序组织分析，属于政策立场阐述，缺乏可操作的分析框架建构。",
+          "core_judgment": "本文未建构任何原创分析框架，全文是对仲裁裁决的程序违法性进行逐条批驳，缺乏概念界定、分类标准、可循步骤等框架要素。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定 unacceptable 档，触发了政策理论梳理型识别规则和负面模式中的概念堆砌、宏观介绍等降档规则，评分计入上限范围，故得42分。",
+          "evidence_quotes": [
+            "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题……锁定仲裁庭在《公约》程序性规定中突出的违法现象，以实证方式深入辨析。",
+            "仲裁庭行使管辖权必须符合《公约》第十五部分第一节中第281条的前置义务……仲裁庭违反《公约》第十五部分第一节的前置义务……歪曲《公约》第283条规定的交换意见的义务。"
+          ],
+          "strengths": [
+            "对仲裁庭违反《公约》程序的归纳较为系统，结构清晰，便于读者理解中方的核心法律立场。"
+          ],
+          "weaknesses": [
+            "全文无原创分析框架，仅通过“违反前置义务”“排除管辖”等标签进行罗列，缺乏可重复适用的判断标准或分析步骤。",
+            "未将批判性分析转化为法学操作指引，也未提出分类标准或裁判规则，法学转化度为零。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文：框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文主要工作是归纳和阐释仲裁庭的程序违法行为，核心术语来自《公约》条款而非论文原创，无概念界定或类型化建构。"
+            },
+            {
+              "rule_id": "analytical_framework.concept_pileup",
+              "rule": "负面模式B：概念堆砌。核心术语如“前置义务”“交换意见的义务”“任择性例外”等均无明确的“本文所称XX是指…”定义，且超过2个核心术语未定义。",
+              "score_ceiling": 1,
+              "priority": 2,
+              "evidence": "论文未对“前置义务”“选择性失察”“歪曲前置义务”等关键术语给出清晰的操作性定义，仅直接引述《公约》条文。"
+            }
+          ],
+          "boundary_note": "本文的缺陷在于未建构分析框架，而非框架内的推理衔接问题；其结构化论述方式仅服务于政策立场阐释，不具备法学方法论意义上的框架可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文未建构原创分析框架，仅依《公约》条款结构罗列议题并提出外交策略。",
+          "core_judgment": "该文缺乏可操作的分析框架与法学转化步骤，属于议题式批判与政策呼吁。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发no_operational_framework上限规则，给30分。",
+          "evidence_quotes": [
+            "仲裁庭行使管辖权必须符合《公约》第十五部分第一节中第281条的前置义务",
+            "争取大多数《公约》缔约国支持中国的立场"
+          ],
+          "strengths": [
+            "对《公约》管辖权前置义务与例外条款的梳理较为系统"
+          ],
+          "weaknesses": [
+            "无原创分析框架，仅依条文自然结构展开",
+            "后续应对方案为外交呼吁，缺乏法律制度设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创概念界定及分析步骤，应对方案为争取缔约国支持等外交策略而非法学操作"
+            }
+          ],
+          "boundary_note": "评判的是框架建构力而非论证逻辑或立场正确性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为政策理论梳理型国际法实务论文，缺乏原创分析框架，仅有法条阐释与立场归纳。",
+          "core_judgment": "分析框架未成立：无原创概念界定、无类型化分类标准、无可循分析步骤，核心术语均来自《公约》条文及官方表述。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足标准1中法条概念引用清晰，但无本文原创定义；标准2-4均不满足），法学转化度得分=1/4（仅标准1部分满足，将《公约》条文转化为分析对象但未形成新的操作步骤；标准2-4不满足）。锚定unacceptable档，因触发'no_operational_framework'上限规则，给35分。",
+          "evidence_quotes": [
+            "《公约》第十五部分第一节所规定的前置义务和第三节第297条的限制，并且管辖范围受到第三节第298条任择性例外的排除",
+            "反制仲裁裁决以及反制的方法和路径是优先要研究的问题"
+          ],
+          "strengths": [
+            "对《公约》第281-283条、第298条的梳理较为系统"
+          ],
+          "weaknesses": [
+            "全文以阐释既定立场和法条为主，无原创概念或类型化框架",
+            "后文分析未调用任何前置性分析步骤，仅为逐条批驳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语完全来自《公约》条文（第281条、282条、283条、298条），无本文原创定义；无分类标准与分析步骤；后文未调用任何框架步骤，仅按法条顺序逐一批驳仲裁庭"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评国际法论证逻辑或立场正确性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "本文以《公约》程序规则为基准构建管辖权审查逻辑，具备基础转化力但缺乏原创框架设计。",
+          "core_judgment": "框架成立且能有效指导条文适用，但属既有规则演绎而非原创分析模型建构。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=2/4，锚定good档，给65分。概念与审查逻辑在全文反复调用，但未提炼原创分类标准与可重复操作步骤。",
+          "evidence_quotes": [
+            "仲裁庭行使管辖权必须符合《公约》第十五部分第一节中第281条的前置义务。",
+            "若法院或法庭自我裁定‘拥有管辖权’也明显不符合‘在事实上和法庭上均确有根据’时，《公约》对此并未规制救济手段。"
+          ],
+          "strengths": [
+            "严格遵循《公约》条文展开程序与管辖权审查，逻辑链条完整。",
+            "将条约解释规则转化为具体的管辖权否定路径，具备实务指引价值。"
+          ],
+          "weaknesses": [
+            "未提出原创性概念界定或类型化标准，分析框架依附于既有法条。",
+            "反制对策偏向外交策略，缺乏可操作的司法/仲裁程序步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.684154987335205,
+        "glm-5.1": 52.05185079574585,
+        "kimi-k2.6": 12.048772811889648,
+        "qwen3.6-plus": 89.66261887550354
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 65
+      },
+      "mean": 43,
+      "std": 15.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "推理环节有大量事实和证据支撑，但核心结论（如“争取大多数缔约国支持”方案）的推出存在关键跳跃，且严重缺乏对自身主张的反驳性检验。",
+          "core_judgment": "论文能清晰识别仲裁庭的程序违法，但“法律外交”后续对策的推演明显脱离前文的国际法与现实约束，逻辑衔接薄弱。",
+          "score_rationale": "推理链完整性得分=2/4，反驳处理度得分=0/3，锚定marginal档（下限50，上限59），由于反驳处理度为0触发上限70（未触发更低上限），综合考虑推理链的关键跳步，给58分。",
+          "evidence_quotes": [
+            "仲裁庭对《中国立场文件》中列举的所有限制菲律宾提起强制仲裁程序的中菲双边协议名称，只字未提。（选择性失察）",
+            "争取大多数缔约国公开支持中国政府的立场...依然具有可能性。若如此，来自多数缔约国否定仲裁庭管辖权的意思表示足以削弱仲裁庭‘最终裁决’权威性。"
+          ],
+          "strengths": [
+            "对《公约》条文结构与中菲双边文件的对比分析严密，论证了仲裁庭违反前置义务。",
+            "结合国际司法实践（如查戈斯保护区案）批判仲裁庭降低交换意见义务标准，推理有据。"
+          ],
+          "weaknesses": [
+            "从“仲裁庭越权”直接跳到“外交上争取112个缔约国支持”缺乏中间论证，未说明为何缔约国一定会公开支持及如何应对反对票。",
+            "全文未提及任何可能反驳“再次裁定说”或“缔约国多数支持方案”的异议观点，缺乏学术性自我审视。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2但反驳处理度=0，触发最高70分的上限，因论文存在关键跳步且未回应任何反驳观点。",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "反驳处理度得分=0：全文仅单向论证仲裁庭违法，未呈现任何针对后续对策（如‘再次裁定说’‘缔约国多数支持方案’）的反对意见、现实约束或自身局限承认。"
+            }
+          ],
+          "boundary_note": "属实务型论文，国际法适用部分的推理较严密，但后续对策方案的推导缺乏逻辑链，属推理跳步而非框架可操作性不足。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过三步推导批判仲裁庭违法性并提出反制方案，逻辑链完整，对反对意见有实质性回应。",
+          "core_judgment": "推理链形成充分支撑，核心结论可辩护推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，因实务方案推导存在局部跳步给88分。",
+          "evidence_quotes": [
+            "仲裁庭认为该《宣言》为不具有法律拘束力的政治性协议...本文通过文本结构分析论证其排除其他程序",
+            "目前尚无直接证据揭露菲律宾仲裁行为背后与某些大国的关系...不必期望能获得全体一致的认同"
+          ],
+          "strengths": [
+            "对仲裁庭管辖权违法性的三步推导逻辑严密",
+            "对仲裁庭裁决理由的实质性反驳论证充分"
+          ],
+          "weaknesses": [
+            "缔约国多数表决推翻裁决的方案推导缺乏《公约》规范依据跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "缔约国推翻方案的问题属于逻辑推导跳步，而非方案现实可操作性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "论文以《公约》程序条款为规范基础，构建'管辖权违法—后续应对'的论证链条，主线推理可辨识。",
+          "core_judgment": "推理链基本完整但存在关键跳步，反驳处理度不足，整体逻辑可辩护但局部薄弱。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3满足，标准4不满足：从'仲裁庭滥用管辖权'到'应争取缔约国支持'存在政策跳步；从'历史性权利'论证到'整体岛礁主张'存在概念滑移），反驳处理度得分=1/3（仅标准1满足：识别了仲裁庭观点作为反对意见；标准2不满足：对'再次裁定说'的反驳较充分，但对仲裁庭核心法理未作对称回应；标准3不满足：未承认自身政策建议的局限）。锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "《公约》第十五部分第二节强制仲裁程序的适用有着严格的要求...须满足第十五部分第一节所规定的前置义务",
+            "仲裁庭的越权管辖已使其超出了《公约》所赋予的权限与职能"
+          ],
+          "strengths": [
+            "规范分析层层递进，从第281条到第298条形成规范链条",
+            "对仲裁庭'选择性失察'的论证有具体条约文本支撑"
+          ],
+          "weaknesses": [
+            "从法律批判到政策建议的过渡缺乏中间推理环节",
+            "对'争取缔约国支持'方案的可行性未回应潜在反例"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评'外交说服'方案本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以《公约》条款为起点逐层剖析仲裁庭管辖权瑕疵，逻辑链条完整且反驳充分。",
+          "core_judgment": "推理链严密，核心结论可由规范分析与裁决文本对照可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "《公约》第281条第1款第二项要件的法律后果表现于第三项要件中……强制仲裁程序根本无法启动",
+            "仲裁庭在裁决中刻意回避中菲之间存在海域划界问题的客观事实……将原本整体性争议问题进行拆分和放大"
+          ],
+          "strengths": [
+            "规范文本与仲裁裁决逐条对照，推理步骤清晰可复述",
+            "对仲裁庭核心论点进行实质性法理拆解，反驳论证扎实"
+          ],
+          "weaknesses": [
+            "对策部分从法理批判转向外交游说，逻辑衔接略显跳跃",
+            "部分国际法理推演依赖单一学者观点，论证厚度可加强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链条是否充分支撑结论，不评价外交对策的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 88.38670682907104,
+        "glm-5.1": 53.93613886833191,
+        "kimi-k2.6": 11.323859214782715,
+        "qwen3.6-plus": 46.897217988967896
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 88,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 90
+      },
+      "mean": 74.5,
+      "std": 16.8,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文结论几乎完全复述中国官方既定立场，未将其转化为可争辩的学术主张，且未回应反对意见，无法与法学共同体形成有效对话。",
+          "core_judgment": "结论停留在对仲裁裁决的政治与法律否定，缺乏独立学术论证与对反对意见的回应，无法进入学术共同体语境。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4。论文未回应任何反对观点或学术争论，也未主动讨论自身局限，因对话度=0触发上限规则，最高不超50分，综合评定45分。",
+          "evidence_quotes": [
+            "仲裁庭在一些关键问题上做出明显违反国际法的肆意裁决，与仲裁庭上没有中国代言人不无关系。",
+            "争取大多数缔约国公开支持中国政府的立场，认定仲裁庭滥用管辖权依然具有可能性。"
+          ],
+          "strengths": [
+            "结论与中国官方立场及现行国际法秩序的基本逻辑兼容，未主张推翻现行法秩序。",
+            "对制度转化方向有所指向，提出以法律外交争取多数缔约国支持的路径。"
+          ],
+          "weaknesses": [
+            "结论完全复述官方立场，未将主张转化为可被反驳的学术命题，未回应学术界的任何反对或质疑。",
+            "未主动讨论自身结论的局限或可能面临的挑战，缺乏学术论证的开放性与对话性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0时，结论无法被法学共同体认真回应，总分上限为50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分及全文未说明与既有学术争论的关系，也未讨论任何反对意见或自身局限，纯粹重申官方立场，无法构成学术对话。"
+            }
+          ],
+          "boundary_note": "本文为政策立场宣示性论文，非典型学术对话体，结论可接受性受限于学术共同体对话的缺失。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻回应仲裁管辖权争议并提出具体反制路径，与法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话与制度约束层面均高度成立，提出了可争辩的法理主张与实务对策。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，结合其对策实操性稍显理想化及官方立场一致性，给85分。",
+          "evidence_quotes": [
+            "结论修正了仲裁庭对第281、298条的解释，认为《宣言》等具有排除强制管辖的效力",
+            "后续对策明确指出争取不少于112个缔约国支持及推动联合国大会纠正动议"
+          ],
+          "strengths": [
+            "法理反驳与实务对策结合紧密，回应了反对意见",
+            "制度转化方向具体，有明确的缔约国数量与程序路径"
+          ],
+          "weaknesses": [
+            "对策实操性（争取112国）稍显理想化",
+            "结论与中国官方话语高度一致，学术争辩独立性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度可接受性，不评论证严密性与前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文结论明确支持中国官方立场，但缺乏学术对话性，制度建议空泛。",
+          "core_judgment": "论文结论复述既定政治立场，未转化为可争辩的学术主张，共同体对话度不足，制度建议流于空泛。",
+          "score_rationale": "共同体对话度得分=1/4（标准3部分成立，提及中国制度语境；标准1、2、4均不成立），制度可接受度得分=2/4（标准1、2成立，标准3、4不成立）。锚定marginal档，给55分。因'万能药式对策'触发上限规则，但对话度=1已限制在marginal档。",
+          "evidence_quotes": [
+            "作为法律外交的主要后续对策，需要加大力度，持续性地推动反制仲裁裁决……特别是以外交活动为桥梁，积极推动《公约》缔约国公开支持中国立场",
+            "中国在现阶段的任务就是用事实、证据，根据国际法原则、习惯和文本对滥用管辖权等关键问题进行针锋相对的批驳"
+          ],
+          "strengths": [
+            "结论与中国法秩序和官方立场高度兼容",
+            "对中国南海权益维护有明确政策指向"
+          ],
+          "weaknesses": [
+            "对策建议空泛，缺乏具体规则或程序设计",
+            "未回应学界可能的反对意见或理论质疑"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "万能药式对策：对策建议停留在'完善立法、加强监管、健全机制'层面，≥3条且全部为空泛表述",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "结论部分建议'加大力度''持续性地推动''多种途径''积极推动'等，均为空泛表态，无具体法条、程序或规则设计"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论紧扣南海仲裁管辖权争议，提出法理外交与缔约国解释等反制路径，契合中国立场与国际法秩序。",
+          "core_judgment": "结论明确回应学界与实务界核心争议，论证路径与现行国际法及中国外交实践高度兼容，具备强可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准切入管辖权争议，提出缔约国解释与外交反制路径，与现行法秩序及中国语境高度契合。",
+          "evidence_quotes": [
+            "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题，尚未穷尽仲裁庭其他失职行为。",
+            "争取大多数《公约》缔约国公开支持中国政府的立场，认定仲裁庭滥用管辖权依然具有可能性。"
+          ],
+          "strengths": [
+            "精准回应管辖权争议核心，对话度高",
+            "提出缔约国解释与外交反制路径，制度转化明确"
+          ],
+          "weaknesses": [
+            "部分外交策略可行性依赖国际政治博弈",
+            "对仲裁庭反向法理反驳的预判略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.32882571220398,
+        "glm-5.1": 45.12382125854492,
+        "kimi-k2.6": 13.386049032211304,
+        "qwen3.6-plus": 80.35236191749573
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.2,
+      "std": 22.8,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了以法理说服为核心的外交活动、缔约国多数表决等宏观后续对策，但延展路径较概括，缺乏精细化的实施条件与边界分析。",
+          "core_judgment": "存在概括性的未来实务方向，但与正文论证衔接需推断，精细度不足，属于可支持低档弱加分的延展方向。",
+          "score_rationale": "原始分45对应bonus=2档。论文指明了以法律为基础的外交说服活动及争取缔约国支持的方向，属可定位的实务延展，但路径描述宽泛，缺乏对障碍、条件与操作步骤的具体展开，故落在40-59分段。",
+          "evidence_quotes": [
+            "若将仲裁庭明显违反管辖权的事实依据通过外交活动诉诸全体缔约国，并获得一致公开支持中国政府立场的话，这种否定仲裁庭管辖权的解释效力就一定优越于“最终裁决”本身的解释。",
+            "实施以法律为基础的外交层面的说理说服的过程中，须知赢得《公约》缔约国理解、支持的砝码是捍卫国际社会每一个主权国家的合法权益及维护国际法治的严肃性。"
+          ],
+          "strengths": [
+            "明确提出了争取《公约》缔约国公开支持以颠覆裁决权威的后续法律外交路径。",
+            "指出了推动联合国大会动议以获得更多国家支持的宏观方向。"
+          ],
+          "weaknesses": [
+            "延展路径停留在宏观原则层面，未具体说明外交说服活动的法律依据、操作步骤或各国立场协调机制。",
+            "未充分讨论该路径面临的国际关系现实障碍或可能的失败风险。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是从当前论证延伸出去的后续实务方向，而非当前论证本身是否严密或结论是否可接受。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "提出了具体的法律外交反制路径与后续研究争点，延展方向明确但法学制度精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了争取缔约国支持的具体外交策略及仲裁庭其他失职行为的后续研究。",
+          "score_rationale": "原始分70，bonus档位3（>=60）。论文提出争取缔约国支持、运用区别原则等实务改进路径，并承认未穷尽仲裁庭其他失职行为，延展路径明确但法学制度精细度稍弱。",
+          "evidence_quotes": [
+            "本文聚焦仲裁庭罔顾《公约》程序，滥用管辖权、枉法裁断的典型问题，尚未穷尽仲裁庭其他失职行为。",
+            "争取不少于112个缔约国公开支持中国政府反对仲裁庭管辖的目标是有可能做到的。"
+          ],
+          "strengths": [
+            "提出争取缔约国支持的具体数量与操作场景，路径可定位。",
+            "明确承认正文局限，指出后续应研究仲裁庭其他失职行为。"
+          ],
+          "weaknesses": [
+            "外交反制路径偏向宏观政治操作，法学制度层面的延展精细度有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "争取缔约国支持和运用区别原则属于未来实务与制度延展问题，而非当下裁决效力的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文在结语部分提出后续法律应对方向，但缺乏具体可操作的延展路径，多为政策口号式表述。",
+          "core_judgment": "存在少量延展方向，但多为宏观政策建议，缺乏与正文核心结论紧密衔接的具体后续研究问题或制度深化路径。",
+          "score_rationale": "原始分35分，bonus=0。论文提出'推动反制仲裁裁决''争取缔约国支持''区别原则处理争端'等方向，但：①未说明这些路径的具体机制设计；②未承认正文局限并说明如何推进；③未提出可检验的后续研究问题。'以法律为基础的外交说服'等建议停留在政策层面，未形成可定位的学术延展路径。",
+          "evidence_quotes": [
+            "作为法律外交的主要后续对策，需要加大力度，持续性地推动反制仲裁裁决，捍卫《公约》框架下争端解决机制的公正性和权威性",
+            "掌握主动权，在国际层面加大力度追索被菲律宾非法占据的中国领土，为维护我国领土主权和海洋权益，也为国际法治做出贡献"
+          ],
+          "strengths": [
+            "提出法律外交、区别原则等后续应对方向"
+          ],
+          "weaknesses": [
+            "延展路径空泛，缺乏具体机制、场景或研究问题",
+            "未承认正文局限，未说明后续学术推进方向"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "需要加大力度，持续性地推动反制仲裁裁决...为维护我国领土主权和海洋权益，也为国际法治做出贡献"
+            }
+          ],
+          "boundary_note": "本维度评未来延展方向，而非当下结论可接受性。论文结语的政策建议属于未来行动方向，但缺乏学术研究的深化路径，属于典型的口号式展望。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在批判仲裁庭越权管辖后，明确提出争取缔约国支持、区别对待周边国家等实务反制路径。",
+          "core_judgment": "存在真实延展路径，聚焦外交法理说服与差异化应对策略，与正文管辖权批判紧密衔接。",
+          "score_rationale": "原始分72，映射bonus=3。正文承认未穷尽仲裁庭失职行为，并提出争取缔约国支持与外交照会反制路径，方向明确但外交机制论证偏宏观。",
+          "evidence_quotes": [
+            "本文聚焦仲裁庭罔顾《公约》程序……尚未穷尽仲裁庭其他失职行为。",
+            "争取大多数《公约》缔约国支持中国的立场……实施以法律为基础的外交活动。"
+          ],
+          "strengths": [
+            "明确承认研究局限并指出后续应穷尽其他失职行为。",
+            "提出争取缔约国多数支持与区别应对的实务反制路径。"
+          ],
+          "weaknesses": [
+            "外交说服路径的可行性论证偏宏观，缺乏具体机制设计。",
+            "未深入探讨国际法理反驳的具体诉讼或仲裁程序衔接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是裁决后反制策略与后续法理研究方向，而非当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.430846214294434,
+        "glm-5.1": 42.61621880531311,
+        "kimi-k2.6": 12.20518684387207,
+        "qwen3.6-plus": 50.68442225456238
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 70,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 72
+      },
+      "mean": 55.5,
+      "std": 18.4,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 60.58,
+      "weighted_total": 61.2
+    },
+    "aggregation_strictest": {
+      "final_score": 40.71,
+      "weighted_total": 40.9
+    },
+    "avg_std": 20.3,
+    "max_std": 29.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 19.9,
+    "composite_score": -20.3,
+    "worst_dimension": "problem_originality",
+    "worst_std": 29.8
+  }
+}

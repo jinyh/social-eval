@@ -1,0 +1,1145 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/习近平法治思想是马克思主义法治理论中国化的新发展新飞跃.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文本中存在部分OCR/格式化残留，如作者简介行前的'* '和脚注编号缺失或混入正文的'(1)(2)(3)'，但不影响对核心论点、结构和主要论证的定位。"
+        ],
+        "evidence_quotes": [
+          "*  中共中央政治局委员，全国人大常委会副委员长，中国法学会会长。",
+          "(1) 习近平：《在省部级主要领导干部学习贯彻党的十八届四中全会精神全面推进依法治国专题研讨班上的讲话》..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "坚持中国特色社会主义法治道路，最根本的是坚持中国共产党的领导...决不能走西方所谓'宪政''三权鼎立''司法独立'的路子。",
+          "习近平法治思想科学回答了新时代为什么实行全面依法治国、怎样实行全面依法治国等一系列重大问题...",
+          "坚持在法治轨道上推进国家治理体系和治理能力现代化... 法治兴则国家兴，法治衰则国家乱。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本主要为习近平法治思想的理论阐释和官方论述，虽涉及法学问题，但属于高度意识形态化的官方理论总结，需关注其作为'中国自主知识体系研究'对象的独特性。"
+      ],
+      "evidence_quotes": [
+        "习近平法治思想集中体现为... '十一个坚持'...",
+        "坚持党的领导是中国特色社会主义法治之魂，是我们的法治同西方资本主义国家的法治最大的区别",
+        "在法治轨道上推进国家治理体系和治理能力现代化... 立善法于天下则天下治"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文明确以中国法治理论与实践为中心，具备可争辩的法学命题（如党的领导与法治的关系、中国法治道路的独特性），属于'中国自主知识体系研究'范畴。需注意其高度官方性表述可能对学术论证深度带来的影响，建议在六维评分中予以考量。"
+    },
+    "glm-5.1": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及期号混入正文",
+          "分栏抽取导致页码数字与文章小标题散落在段落间"
+        ],
+        "evidence_quotes": [
+          "中国法学 2021 年第2 期 6",
+          "习近平法治思想是马克思主义法治理论中国化的新发展新飞跃 7"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "习近平法治思想的主要内容和理论精髓，集中体现为习近平总书记在中央全面依法治国工作会议上提出的“十一个坚持”",
+          "决不能照搬别国模式和做法，决不能走西方所谓“宪政”“三权鼎立”“司法独立”的路子。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "完全不能定位可争辩法学问题；全篇为对领导人法治思想与官方政策的定论式阐释与复述，缺乏学术争辩性",
+          "未形成独立的理论转化或可复核命题，仅归纳和复述官方既定命题"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：期刊页码与期号混入正文，存在局部OCR抽取瑕疵",
+        "项目口径：缺乏可争辩法学问题，属于纯政策复述与定论式阐释，明显不适格"
+      ],
+      "evidence_quotes": [
+        "习近平法治思想的主要内容和理论精髓，集中体现为习近平总书记在中央全面依法治国工作会议上提出的“十一个坚持”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "完全不能定位可争辩法学问题；全篇为对领导人法治思想与官方政策的定论式阐释与复述，缺乏学术争辩性",
+        "未形成独立的理论转化或可复核命题，仅归纳和复述官方既定命题"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_ineligible"
+      ],
+      "recommendation": "判定为明显不适格（obviously_ineligible），拒绝进入六维评分。文本存在页码及期刊信息混入正文的低风险OCR问题，但不影响核心论点定位与不适格结论的判定。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维",
+          "习近平法治思想是马克思主义法治理论中国化的新发展新飞跃",
+          "习近平法治思想的主要内容和理论精髓，集中体现为习近平总书记在中央全面依法治国工作会议上提出的'十一个坚持'",
+          "习近平法治思想是习近平新时代中国特色社会主义思想的重要组成部分",
+          "我们要认真贯彻落实习近平总书记重要指示精神，坚持以习近平新时代中国特色社会主义思想为指导"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "本文是对习近平法治思想的系统性阐释、宣传与政策解读，而非对可争辩法学问题的学术分析",
+          "全文缺乏可争辩的法律规范、制度或理论问题，属于权威话语复述与政治理论宣讲",
+          "未将中国实践作为需要解释的真实难题进行分析，而是将'中国实践'作为既定成就加以颂扬",
+          "未形成可复核的法学命题、判断标准或解释路径，而是对既定政策框架的系统性重述",
+          "文章性质为政治文献学理化阐释，而非法学学术研究论文"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "项目口径：文章属于政治理论宣传文本，非法学学术论文"
+      ],
+      "evidence_quotes": [
+        "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维",
+        "我们要认真贯彻落实习近平总书记重要指示精神"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "政策复述与宣传阐释性质：全文是对习近平法治思想的系统性、颂扬性阐释，属于政治理论宣传文本，而非对法学问题的学术探讨",
+        "缺乏可争辩法学问题：文章未提出任何可争辩的法律规范、制度或理论问题，'十一个坚持'等均为既定政策主张的复述",
+        "无中国实践解释尝试：未将中国法治实践作为需要解释、分析或反思的真实难题，而是作为既定成就加以展示",
+        "无理论转化或可复核命题：未形成独立的法学概念、判断标准、解释路径或规范命题，全文是对权威论述的学理化整理",
+        "文章发表于《中国法学》但性质为政治文献学理化阐释，不符合'中国自主知识体系研究'六维评价所要求的学术创新标准"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该文为政治理论宣传文献，不属于法学学术研究论文，不应进入'中国自主知识体系研究'六维评价流程。建议直接排除。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "习近平法治思想覆盖改革发展稳定、内政外交国防、治党治国治军等各方面的法治问题，在概念上系统集成、逻辑上有机衔接、话语上自成一体",
+          "全面依法治国是新时代坚持和发展中国特色社会主义的基本方略，在“五位一体”总体布局和“四个全面”战略布局中具有基础性、引领性、支撑性作用",
+          "坚持在法治轨道上推进国家治理体系和治理能力现代化"
+        ],
+        "boundary_reasons": [
+          "文章为权威理论阐释与宏观政策体系化梳理，具有鲜明的中国问题中心性与法治理论建构意图，但侧重于官方论述的系统转译、政治定位与战略宣示，缺乏可争辩的教义学/法理学命题、独立理论转化或针对具体中国司法/治理实践难题的学术论证，需专家裁断其是否符合本项目“可争辩法学问题/可复核命题”的学术评价口径。"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "权威理论阐释类文献的学术争辩性与独立命题性较弱，需专家确认其在自主知识体系评价中的定位、计分权重或是否适用专项评价维度"
+      ],
+      "evidence_quotes": [
+        "习近平法治思想的主要内容和理论精髓，集中体现为……提出的“十一个坚持”",
+        "法治是国家治理体系的依托，是国家治理能力的体现，是国家治理效能的保证"
+      ],
+      "boundary_reasons": [
+        "文章属权威理论阐释与宏观政策体系化梳理，聚焦中国法治宏观方向与政治定位，但缺乏可争辩的规范/教义学命题、独立理论转化或针对具体中国法治实践难题的学术论证，需专家裁断其学术评价口径。"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "进入六维评分流程。建议由法理学/法治理论专家重点评估其理论体系化建构是否构成中国自主法学知识体系的基础性命题，或考虑将其纳入政策阐释/理论宣示类专项评价通道，避免以常规实证/教义学标准直接降权。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "本文是政治纲领的系统阐述，而非提出可争辩的法学研究问题。",
+          "core_judgment": "全文梳理习近平法治思想的理论构成与历史定位，属于权威思想宣讲，无任何法学层面的理论争议或待检验的问题句。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4（因无可争辩的法学问题而不计算），材料新颖性未触发上限。因全文无问题句且属主题阐释，触发no_justiciable_question上限规则，给40分。",
+          "evidence_quotes": [
+            "习近平法治思想科学回答了这些根本性问题……我们要深刻认识到“党的领导是中国特色社会主义法治之魂”",
+            "这是我们的制度优势，也是中国特色社会主义法治区别于资本主义法治的根本所在"
+          ],
+          "strengths": [
+            "系统梳理了习近平法治思想的理论内涵和历史定位。",
+            "材料引证翔实，对理解权威表述有参考价值。"
+          ],
+          "weaknesses": [
+            "全文是既定政治立场的阐释，未提出可争议的法学争点。",
+            "缺失“XX是否YY”“如何ZZ”等问题句，无学者观点交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1（无可争辩的法学问题），触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文由“要坚持”“必须坚持”“我们要深刻认识到”等确定性表述构成，无任何问题句或理论分歧。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要；不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文是对习近平法治思想的系统阐释与立场宣示，无可争辩的法学研究问题。",
+          "core_judgment": "该文缺乏可争辩的法学问题，属于主题声明与政策阐释，问题创新性维度不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档给40分；负面扣分50分，扣分后低于30分，取30分。",
+          "evidence_quotes": [
+            "习近平法治思想是马克思主义法治理论中国化的新发展新飞跃",
+            "深刻回答了新时代为什么实行全面依法治国、怎样实行全面依法治国等一系列重大问题"
+          ],
+          "strengths": [
+            "系统梳理了习近平法治思想的核心内容与理论定位"
+          ],
+          "weaknesses": [
+            "全文无可争辩的法学问题，仅为既定立场阐释",
+            "无学者观点交锋，纯宏观介绍与政策宣示"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明，无可争辩的法学争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖新政策阐释但无实质研究推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "仅阐释官方新表述，未改变问题设定或解释路径"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "主题阐释型文章，无明确法学研究问题。",
+          "core_judgment": "全文为习近平法治思想的系统阐释与体系介绍，未提出可争辩的法学研究问题，不符合学术论文的问题创新性要求。",
+          "score_rationale": "可争辩性=0/4（无问题句、无理论分歧、非法学论证、纯政策阐释），枢纽性=0/4（无制度连锁、无争议焦点），材料新颖性未触发上限，但可争辩性≤1触发上限50分，且负面模式检查扣30分，最终锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维...深刻回答了新时代为什么实行全面依法治国、怎样实行全面依法治国等一系列重大问题",
+            "习近平法治思想的主要内容和理论精髓，集中体现为习近平总书记...提出的'十一个坚持'，从理论逻辑上可以分为六个方面"
+          ],
+          "strengths": [
+            "主题重大，覆盖法治建设多个领域"
+          ],
+          "weaknesses": [
+            "无明确问题句，纯主题声明式结构",
+            "无学者观点交锋，仅单向阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为'十一个坚持'的体系阐释，无任何'XX是否YY'式问题句，无理论分歧讨论"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为权威理论的系统阐释与政策宣示，缺乏可争辩的法学问题与学术交锋。",
+          "core_judgment": "该维度不成立，全文属既定立场的宏观归纳，无实质研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性未触发上限，锚定unacceptable档，正式评分40分。前置扣50分，按规则保底30分。",
+          "evidence_quotes": [
+            "全面依法治国的政治方向集中体现在由谁领导、为了谁依靠谁等问题上",
+            "我们要深刻认识到党的领导是中国特色社会主义法治之魂"
+          ],
+          "strengths": [
+            "体系完整，全面梳理了理论框架与历史脉络"
+          ],
+          "weaknesses": [
+            "无任何学术争点或问题句，纯政策阐释",
+            "缺乏学者观点交锋与规范分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅为主题声明，无争点句"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立且重要，不评文献综述、逻辑严密性与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.50051999092102,
+        "glm-5.1": 38.27454113960266,
+        "kimi-k2.6": 12.14020299911499,
+        "qwen3.6-plus": 89.52559304237366
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 32.5,
+      "std": 5.0,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文未涉及任何法学学术研究脉络的梳理，通篇为习近平法治思想的政治性阐述和政策解读。",
+          "core_judgment": "本文完全没有法学文献综述或研究地图，不符合学术论文的文献定位要求。",
+          "score_rationale": "三要素=0/6（到达点0/2，未竟点0/2，本文切入点0/2），争点结构=0/2，法学流派=0个。触发 no_research_map 上限55分，因基础分极低给0分。",
+          "evidence_quotes": [
+            "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维...",
+            "习近平法治思想覆盖改革发展稳定、内政外交国防、治党治国治军等各方面的法治问题..."
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "缺少任何法学学术文献的引用、评述或对话，无到达点、未竟点与本文切入点的描述。",
+            "全文为政策宣示与领导人讲话引述，未呈现法学领域的理论争点或流派分野。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时，研究地图严重残缺，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点0（未提及任何既有法学研究成果）、未竟点0（未指出任何理论争议或研究缺口）、本文切入点0（仅从政治要求出发阐述习近平法治思想，无学术问题回应）。"
+            }
+          ],
+          "boundary_note": "本文是对领导人思想的阐释性文章，未尝试定位既有法学研究，故属于文献梳理完全缺失而非问题创新性不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "纯政策阐释文，无学术研究地图，未梳理学界既有研究与争点。",
+          "core_judgment": "本维度不成立，论文完全缺失学术文献定位与争点结构。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给10分",
+          "evidence_quotes": [
+            "决不能走西方所谓“宪政”“三权鼎立”“司法独立”的路子",
+            "马克思主义法治理论中国化的百年历程，充分体现了……既一脉相承又与时俱进"
+          ],
+          "strengths": [
+            "系统梳理了马克思主义法治理论中国化的政治脉络"
+          ],
+          "weaknesses": [
+            "完全缺失学术研究地图与文献梳理",
+            "无任何学术争点与流派对立"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无任何学术研究成果梳理、未竟点及切入点"
+            }
+          ],
+          "boundary_note": "评估的是学术文献梳理缺失，而非政治理论宣传本身的价值",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "本文是政治性纲领文献阐释，非学术争论型论文，无研究地图。",
+          "core_judgment": "该文系对习近平法治思想的系统性政治阐释与理论总结，未呈现任何学术争点、对立学派或研究缺口，不构成法学学术文献意义上的研究地图。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [
+            "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维...深刻回答了新时代为什么实行全面依法治国、怎样实行全面依法治国等一系列重大问题",
+            "习近平法治思想的主要内容和理论精髓，集中体现为习近平总书记在中央全面依法治国工作会议上提出的'十一个坚持'"
+          ],
+          "strengths": [
+            "理论脉络梳理完整，呈现马克思主义法治理论中国化的历史演进"
+          ],
+          "weaknesses": [
+            "无任何学术争点或对立观点呈现",
+            "无到达点、未竟点、切入点的研究地图结构"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无'已有研究指出''但''然而''尚未'等任何研究地图标识词，无到达点、未竟点、切入点"
+            }
+          ],
+          "boundary_note": "本文属政治理论阐释文本，非学术争论型论文；本维度仅评文献梳理结构，不评问题新颖性或政治价值。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "本文属权威政治法理阐释，缺乏学术研究脉络梳理与争点建构。",
+          "core_judgment": "未建立学术研究地图，无文献综述、未竟点与学术争点结构，不符合本维度评价标准。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给20分",
+          "evidence_quotes": [
+            "决不能照搬别国模式和做法，决不能走西方所谓“宪政”“三权鼎立”“司法独立”的路子。",
+            "本文系统阐述“十一个坚持”及马克思主义法治理论中国化历程。"
+          ],
+          "strengths": [
+            "理论体系阐述完整，政治定位与历史脉络清晰。"
+          ],
+          "weaknesses": [
+            "完全缺失学术文献定位与既有研究评述。",
+            "未识别任何学术争议或未竟问题，无研究切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无学术文献引用与综述，未提出未竟点与学术切入点"
+            }
+          ],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉政治理论价值或政策创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.999046802520752,
+        "glm-5.1": 26.312074899673462,
+        "kimi-k2.6": 12.019191026687622,
+        "qwen3.6-plus": 175.50740694999695
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 10,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 20
+      },
+      "mean": 7.5,
+      "std": 9.6,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文是对习近平法治思想体系的理论阐释和内容归类，未提出任何原创性分析框架、操作步骤或法学判断标准。",
+          "core_judgment": "本文属于权威政策理论梳理型，核心工作是归纳和阐释'十一个坚持'等既定内容，未建构可重复适用的分析框架，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，触发政策理论梳理型识别规则上限（60分）及无操作框架规则上限（50分），综合评定25分。",
+          "evidence_quotes": [
+            "习近平法治思想的主要内容和理论精髓，集中体现为……'十一个坚持'，从理论逻辑上可以分为六个方面。",
+            "我们要始终把学习研究习近平法治思想与学习研究……联系起来、结合起来、贯通起来。"
+          ],
+          "strengths": [
+            "对习近平法治思想进行了系统化、结构化的归纳和阐释。"
+          ],
+          "weaknesses": [
+            "全文为既定权威论述的梳理与归纳，无原创性概念界定或分析步骤。",
+            "未将政策理论转化为具体、可操作的法学裁判规则、法律适用流程或制度设计标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.v0.7_policy_summary",
+              "rule": "论文主要工作为系统归纳既定政策理论而非提出原创分析框架，框架可操作性得分上限2，法学转化度得分上限1，总分通常不超过60分。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释习近平法治思想的六个方面和'十一个坚持'为主，核心术语均来自权威表述，无原创概念界定或分析框架。"
+            },
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分。本文无清晰概念界定、无分类标准、无分析步骤、后文未调用任何分析框架。",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "未提出任何'本文所称XX是指'等核心术语定义，无步骤化分析流程，全文未具体分析和反复调用一套可操作的分析步骤。"
+            }
+          ],
+          "boundary_note": "本文问题在于未建构分析框架，而非框架与论证的衔接不严，因此不涉及逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "纯政策理论梳理型论文，无原创分析框架建构。",
+          "core_judgment": "论文以阐释权威表述为主，未建构可操作的法学分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（受概念堆砌降档），法学转化度得分=0/4，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "主要贡献是梳理归纳“十一个坚持”和“六个方面”，而非提出原创框架",
+            "全文充斥“必须坚持”“要深刻认识到”等口号式呼吁，缺乏具体操作步骤"
+          ],
+          "strengths": [
+            "对权威政策表述的系统归纳与逻辑梳理较为完整"
+          ],
+          "weaknesses": [
+            "核心术语无学术操作化定义，仅为政策复述",
+            "无可重复适用的分析步骤或判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，核心术语完全无定义+无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文核心术语如“十一个坚持”均为权威表述引用，无明确定义，且无法学转化步骤"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用，不评政策阐释本身的严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以阐释'十一个坚持'既定立场为主，无原创分析框架。",
+          "core_judgment": "分析框架未成立，全文为权威表述的系统归纳与阐释，缺乏可重复适用的分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅'六个方面'分类标准较明确，但无概念界定、分析步骤及后文调用），法学转化度得分=1/4（仅映射到制度层面，无操作化转化），锚定marginal档，因触发政策理论梳理型上限规则，给45分。",
+          "evidence_quotes": [
+            "从理论逻辑上可以分为六个方面",
+            "习近平法治思想的主要内容和理论精髓，集中体现为习近平总书记...提出的'十一个坚持'"
+          ],
+          "strengths": [
+            "'六个方面'分类结构清晰，便于政策要点梳理"
+          ],
+          "weaknesses": [
+            "核心术语均来自权威表述，无论文原创的概念界定",
+            "无分析步骤或判断标准，后文未调用任何框架性术语进行分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释'十一个坚持'既定立场为主，核心术语来自权威表述，主要贡献是'梳理''归纳''阐释'而非'建构''提出'"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "本文属政策理论阐释型论文，以归纳既定立场为主，未建构原创分析框架。",
+          "core_judgment": "框架缺乏可重复适用的分析步骤与法学操作指引，未达学术分析框架标准。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=0/4，锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "从理论逻辑上可以分为六个方面：（一）关于全面依法治国政治方向的理论观点",
+            "这“十一个坚持”是对马克思主义法治理论和中国特色社会主义法治理论的创造性发展"
+          ],
+          "strengths": [
+            "结构清晰，系统归纳了权威论述的六大理论板块。",
+            "逻辑脉络完整，涵盖方向、地位、布局等宏观维度。"
+          ],
+          "weaknesses": [
+            "核心术语均为既定表述，缺乏原创概念界定与操作化定义。",
+            "全文停留于宏观阐释，无具体分析步骤或可重复适用的判断标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1或无原创分析步骤，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策理论梳理，无原创概念界定、分类边界或分析步骤。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力与可操作性，不涉逻辑严密性或政治立场。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 133.63806891441345,
+        "glm-5.1": 44.31604313850403,
+        "kimi-k2.6": 11.959258079528809,
+        "qwen3.6-plus": 170.13760471343994
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 35,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 40
+      },
+      "mean": 36.2,
+      "std": 8.5,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 70,
+          "band": "good",
+          "summary": "论文作为理论型文章，通过历史梳理和体系阐释完成了对习近平法治思想理论定位的论证，逻辑主线清晰，但作为理论文章缺乏对理论争辩或解释分歧的实质回应。",
+          "core_judgment": "核心结论可由前文可辩护地推出，主要推理步骤可复述且形成依赖链，反驳处理仅通过隐含的理论路径选择满足一项标准。",
+          "score_rationale": "推理链完整性得分=3/4（主要步骤可复述、依赖链存在、结论可推出，但从“重要观点”到“科学指引”的某些过渡缺乏论证支撑，存在个别跳步）；反驳处理度得分=1/3（仅隐含回应了为何选择某种理论路径，无显式反对回应、反例处理或局限承认）。锚定good档，结合部分跳步情况给予70分。",
+          "evidence_quotes": [
+            "从思想构成来看，全面依法治国既是“八个明确”之一，又是“十四个坚持”之一。不仅如此，“八个明确”中的其他任何一项都与法治有着紧密的逻辑关联……",
+            "习近平法治思想不仅……是组成部分，而且是其中具有“四梁八柱”意义的重要组成部分。"
+          ],
+          "strengths": [
+            "推理链结构完整：从“六个方面”到“历史演进”再到“组成部分与实践指引”，层层递进，核心结论依赖前文论证。"
+          ],
+          "weaknesses": [
+            "存在个别关键跳步：从简述理论内容直接过渡到“科学指明了…必须坚持”等实践指引时，缺乏解释机制为何是唯一正确的因果论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文框架明确（理论体系阐释），主要问题是理论内部路径选择的论证不足，而非逻辑链断裂，因此不触发broken_inference_chain上限。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "并列板块铺陈观点缺乏串联推理链，反驳处理仅停留在立场宣示层面。",
+          "core_judgment": "推理呈并列结构而非依赖链条，结论可辩护推出但反驳缺乏实质性论证。",
+          "score_rationale": "推理链完整性得分=2/4（结论可推出且无致命跳步，但步骤无依赖度），反驳处理度得分=1/3（仅识别隐含分歧无实质回应），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "决不能走西方所谓“宪政”“三权鼎立”“司法独立”的路子",
+            "厘清了这些问题上的模糊认识和错误观点"
+          ],
+          "strengths": [
+            "核心结论由历史脉络与体系定位板块充分支撑，可辩护推出。"
+          ],
+          "weaknesses": [
+            "四大板块并列，删除前步不影响后步，推理链无依赖度。",
+            "对隐含分歧仅作立场否定，缺乏理论层面的论证回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链是否形成依赖支撑，不评政治法学框架本身的意识形态可接受性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政治阐释文本而非学术论证论文，缺乏可识别的推理链与反驳处理。",
+          "core_judgment": "本文属于政治理论阐释文本，未构建学术性推理链条，不满足法学论文的逻辑严密性评判标准。",
+          "score_rationale": "推理链完整性得分=1/4，反驳处理度得分=0/3。锚定unacceptable档（0-49分），给35分。唯一满足的推理链标准是'主要推理步骤可复述'（存在'历史脉络→核心内涵→实践要求'的叙述结构），但各步骤间无依赖关系；关键结论无法由前文推出，存在多处关键跳步；无任何反驳信号。",
+          "evidence_quotes": [
+            "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维……",
+            "习近平法治思想是马克思主义法治理论中国化的新发展新飞跃"
+          ],
+          "strengths": [
+            "历史脉络叙述清晰，时间线完整"
+          ],
+          "weaknesses": [
+            "无学术论证结构，结论均为断言式表述",
+            "未处理任何反对意见或理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "仅标准1部分成立（步骤可复述但无依赖），标准2-4均不成立，推理链完整性=1"
+            }
+          ],
+          "boundary_note": "本文是政治文献阐释而非法学学术论文，其'逻辑'是宣传话语逻辑而非学术推理逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "理论框架完整，推演链条清晰，但反驳处理偏重立场宣示。",
+          "core_judgment": "推理链完整且结论可由前文体系化论述可辩护地推出，符合理论型论文逻辑标准。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "“十一个坚持”从理论逻辑上可以分为六个方面",
+            "决不能照搬别国模式和做法，决不能走西方所谓“宪政”“三权鼎立”“司法独立”的路子。"
+          ],
+          "strengths": [
+            "推理步骤清晰，历史脉络与理论定位层层递进",
+            "核心结论由权威论述与体系化阐释充分支撑"
+          ],
+          "weaknesses": [
+            "缺乏对自身理论适用边界的明确反思",
+            "反驳处理偏重立场宣示，缺乏深度学理交锋"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属理论阐释型，逻辑严密性体现在体系自洽与政治法理推演，而非实证检验",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.83029508590698,
+        "glm-5.1": 51.61414384841919,
+        "kimi-k2.6": 12.018198013305664,
+        "qwen3.6-plus": 48.218217849731445
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 55,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 85
+      },
+      "mean": 61.2,
+      "std": 21.4,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "本文属于政治宣示性文章，仅复述既定官方立场，未将结论转化为可争辩的学术主张，也无法被学术共同体认真回应。",
+          "core_judgment": "论文未提出任何可供反驳的学术结论，完全不具备进入法学共同体对话的基本条件。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=0/4。作为理论论文，触发了共同体对话度为0的上限规则，结论无法被定位和回应，最高不超过50分，实际给20分。",
+          "evidence_quotes": [
+            "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维...是我们党的历史上最为全面、系统、科学的法治理论体系。",
+            "要深刻认识到...决不能照搬别国模式和做法，决不能走西方所谓'宪政''三权鼎立''司法独立'的路子。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文为官方话语的整理和复述，未提出任何可争辩、可反驳的学术命题。",
+            "未回应任何法学共同体的既有争论或反对意见，完全处于学术讨论的外部。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，结论无法被反对者定位和回应，无法进入学术共同体的讨论语境。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何学术性的结论或主张，只是系统性地阐述习近平法治思想，不存在可供反驳的学术论点。"
+            }
+          ],
+          "boundary_note": "本文属于政治权威文本的阐释，没有提出学术结论，因此不存在跨维度混淆问题。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "复述官方既定立场，缺乏学术争辩与对话，制度兼容性极强但共同体对话度极低。",
+          "core_judgment": "结论仅为政治宣示性复述，未转化为可争辩学术主张，无法进入共同体对话语境。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，给48分。",
+          "evidence_quotes": [
+            "把习近平法治思想转化为做好全面依法治国各项工作的强大动力，转化为推进法治建设的思路举措",
+            "习近平法治思想是马克思主义法治理论中国化的新发展新飞跃"
+          ],
+          "strengths": [
+            "制度兼容性极强，完全契合中国现行法秩序",
+            "明确指出了理论向制度转化的具体方向"
+          ],
+          "weaknesses": [
+            "仅复述官方既定立场，未转化为可争辩学术主张",
+            "完全未回应反对意见或自身论证局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "论文仅复述既定立场无争辩无回应，对话度≤1，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论仅为官方理论阐释，未回应学术争论，无反对意见讨论"
+            }
+          ],
+          "boundary_note": "评估的是结论能否被共同体和制度语境接受回应，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "政治宣传文本，非学术共同体可对话的法学论文。",
+          "core_judgment": "该文本不符合法学论文基本形态，无学术结论可评估，共同体对话度与制度可接受度均极低。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4。该文本为政治理论阐释文本，非学术法学论文；无对法学共同体既有争论的回应，无反对者可定位的学术论点，无对反对意见或自身局限的讨论。虽与现行法秩序无根本矛盾，但锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "习近平法治思想具有科学的理论形态、鲜明的理论风格和辩证的理论思维...指明了全面依法治国的政治方向、重要地位、工作布局、重点任务、重大关系、重要保障。",
+            "习近平法治思想是马克思主义法治理论中国化的新发展新飞跃"
+          ],
+          "strengths": [
+            "与现行法秩序及官方话语高度兼容"
+          ],
+          "weaknesses": [
+            "无学术问题意识，未进入法学共同体对话",
+            "无对反对意见的回应，结论不可被反驳定位"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政治理论阐释，无学术争论回应，无反对者可定位的学术论点"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性；但该文本非学术法学论文，无结论可评。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 50,
+          "band": "marginal",
+          "summary": "本文属权威理论阐释，高度契合现行法秩序，但缺乏学术争辩性。",
+          "core_judgment": "结论与制度语境高度兼容，但未转化为可争辩的学术主张。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定marginal档，因复述既定立场且无学术争辩，触发上限规则，给50分。",
+          "evidence_quotes": [
+            "全面依法治国的政治方向决定法治建设的成败得失，集中体现在由谁领导、为了谁依靠谁、走什么路等问题上。",
+            "这“十一个坚持”是对马克思主义法治理论和中国特色社会主义法治理论的创造性发展，开辟了中国化新境界。"
+          ],
+          "strengths": [
+            "高度契合中国法治语境与现行法秩序逻辑",
+            "系统指明理论向制度转化的宏观方向"
+          ],
+          "weaknesses": [
+            "未回应既有学术争论或反对意见",
+            "结论为既定立场复述，缺乏可争辩性"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.reiteration_cap",
+              "rule": "复述既定立场且无学术争辩，总分不得超过50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为权威理论阐释，未提出可被反对者定位和回应的学术主张"
+            }
+          ],
+          "boundary_note": "本维仅评当下可接受性，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.11366295814514,
+        "glm-5.1": 44.70269179344177,
+        "kimi-k2.6": 55.89223122596741,
+        "qwen3.6-plus": 80.37273907661438
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 48,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 50
+      },
+      "mean": 33.2,
+      "std": 18.3,
+      "strictest": 15,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文展望部分仅停留在口号式号召，未提出任何具体的研究问题、理论深化方向或实践修正路径，缺乏真实延展路径。",
+          "core_judgment": "本文不存在有效的未来研究延展路径，其关于创新发展的论述属于空泛的意义拔高。",
+          "score_rationale": "原始分15分，因该文展望仅为'必须持续深化拓展研究'等无具体对象的套话，触发了slogan_outlook低分规则。对应bonus档位为0。",
+          "evidence_quotes": [
+            "“法治实践永不止步，理论创新永无止境……必然随着中国特色社会主义法治建设实践而不断创新发展”",
+            "“要……更好指导全面依法治国各项工作”"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾段的展望是纯口号式的拔高，无具体待解决问题或概念修正方向。",
+            "全文未指明现有理论的任何具体局限或有待深化的矛盾焦点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "仅包含空泛拔高、意义评价而无具体待修正对象、研究问题或推进路径的，视为无真实延展路径，原始分上限设为39。",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "“法治实践永不止步，理论创新永无止境……必然随着中国特色社会主义法治建设实践而不断创新发展”"
+            }
+          ],
+          "boundary_note": "本文讨论的是未来如何'深化研究'，属于研究议程的空泛展望，而非当前结论的共识度问题，故归入前瞻延展性维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文仅提出构筑法学“三大体系”的宏观方向，缺乏具体理论延展路径。",
+          "core_judgment": "该维度仅存在概括性延展方向，缺乏具体路径与证据支撑。",
+          "score_rationale": "原始分45，bonus档位2（40-59档）。因提出构筑法学“三大体系”的宏观方向未直接压至低分段，但路径极概括、证据薄弱，属口号式展望与宏观方向混合。",
+          "evidence_quotes": [
+            "创新发展中国特色社会主义法治理论，构筑中国特色法学学科体系、学术体系和话语体系",
+            "持续深化、拓展习近平法治思想研究……发展新理论、作出新贡献"
+          ],
+          "strengths": [
+            "指出了构筑中国特色法学三大体系的宏观延展方向"
+          ],
+          "weaknesses": [
+            "缺乏理论深化或概念修正的具体路径",
+            "结尾延展多为口号式拔高与泛泛呼吁"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "构筑法学三大体系属未来理论建设方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文为习近平法治思想的阐释性、总结性文章，缺乏对后续研究路径、理论修正方向或制度深化的具体延展。",
+          "core_judgment": "不存在真实可定位的延展路径，仅存在口号式展望。",
+          "score_rationale": "原始分15分，bonus=0。文末虽出现'法治实践永不止步，理论创新永无止境'等表述，但无具体后续研究问题、理论修正方向或制度边界条件，属于典型口号式展望，未满足有效延展信号任一类。",
+          "evidence_quotes": [
+            "法治实践永不止步，理论创新永无止境。中国特色社会主义法治理论是包容开放的理论体系，必然随着中国特色社会主义法治建设实践而不断创新发展",
+            "持续深化、拓展习近平法治思想研究，为全面依法治国、建设法治中国、实现国家治理体系和治理能力现代化发展新理论、作出新贡献"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无具体后续研究问题或争点",
+            "无理论修正、制度完善或比较框架深化的方向性指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文末'法治实践永不止步，理论创新永无止境''持续深化、拓展习近平法治思想研究'等表述，未说明具体研究问题、对象、机制或路径"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展方向，而非当下结论是否成立。该文核心任务是论证习近平法治思想的理论地位与历史意义，属于总结阐释而非学术探究，其结尾展望未提供可继续推进的具体学术入口。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在涉外法治布局与法学体系建构方面提出了明确的后续推进方向，具备可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，主要体现为制度实务改进方向与理论深化的宏观指引。",
+          "score_rationale": "原始分65，对应bonus=3。文中明确指向涉外法治短板补齐、域外法律适用体系建设及法学三大体系建构等具体方向，与正文“理论指导实践”逻辑衔接，但多为政策部署式表述，缺乏具体研究问题或方法论设计。",
+          "evidence_quotes": [
+            "涉外法治存在不少短板和弱项……加快涉外法治工作战略布局，综合运用立法、执法、司法等手段开展涉外斗争",
+            "持续深化、拓展习近平法治思想研究……创新发展中国特色社会主义法治理论，构筑中国特色法学学科体系、学术体系和话语体系"
+          ],
+          "strengths": [
+            "明确指向涉外法治、域外适用等具体制度完善场景",
+            "将理论指引延伸至学科体系与话语体系建构路径"
+          ],
+          "weaknesses": [
+            "延展表述偏向政策号召，缺乏可检验的学术争点或研究假设",
+            "未明确交代理论局限或后续实证检验的具体切入点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是涉外法治布局与理论体系建构等未来推进方向，而非当下结论的共识接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.16125822067261,
+        "glm-5.1": 50.37433910369873,
+        "kimi-k2.6": 12.977460861206055,
+        "qwen3.6-plus": 71.65740585327148
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 45,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 65
+      },
+      "mean": 35,
+      "std": 24.5,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 34.02,
+      "weighted_total": 34.0
+    },
+    "aggregation_strictest": {
+      "final_score": 23.24,
+      "weighted_total": 22.0
+    },
+    "avg_std": 14.6,
+    "max_std": 24.5,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 10.8,
+    "composite_score": -12.93,
+    "worst_dimension": "forward_extension",
+    "worst_std": 24.5
+  }
+}

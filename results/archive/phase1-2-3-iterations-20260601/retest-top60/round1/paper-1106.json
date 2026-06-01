@@ -1,0 +1,1000 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1106-法学研究-2022-4-债权物权化_之范畴厘定-袁野-武汉大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留：正文和脚注中存在 OCR 识别导致的乱码（如“1 1 1 期”“5 1 1 期”应为“111期”“511期”）。",
+          "脚注编号乱码：脚注编号在OCR后出现格式混乱（如“〔5 〕”与正文文本粘连）。",
+          "参考文献缺失：论文末尾未见参考文献列表，但脚注信息完整，不影响论证结构。"
+        ],
+        "evidence_quotes": [
+          "台湾法学杂志》总第1 1 1 期",
+          "环球法律评论》2016 年第1 期，第15 页以下",
+          "笔者在聚法案例数据库（https：//www.jufaanli.com /）以“预告登记” 为关键词进行检索，并在 此结果下分别以“物权化” 和“准物权” 进行检索，相关案例数分别为35 1 件和1849 件（2021 年12 月14 日 最后检索，下同）。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国司法解释师法德国民法中的期待权理论，赋予虽未取得所有权的买受人类似于所有权人的法律地位，主要见于《最高人民法院关于人民法院办理执行异议和复议案件若干问题的规定》...",
+          "准此，若不及时对其范畴加以厘定，“债权物权化” 将逐步沦为我国民法学说中的集纳箩筐...",
+          "“债权物权化” 的隐含前提在于，在相对的债之关系中，债权人具备部分以标的物为客体的物权特征。",
+          "综上，“债权物权化” 实系相对性面相下的合同债权被赋予对标的物权的处分保护。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "“债权物权化” 实系相对性面相下的合同债权被赋予对标的物权的处分保护。",
+        "本文旨在对“债权物权化” 之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量存在轻微的 OCR 识别乱码和脚注格式风险，但核心论点、论据和结构完全清晰可读。论文以中国实践（预告登记、执行异议等）为中心，系统处理比较法理论并提出了可复核的法学命题，完全符合进入六维评价的标准。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及栏线混入正文（如“· 3 7 ·”、“· 4 7 ·”等）",
+          "期刊名与年份混入正文（如“法学研究 2022 年第4 期”）",
+          "脚注编号格式异常（如“〔1 〕”中间含多余空格）"
+        ],
+        "evidence_quotes": [
+          "民法典第725 条）；〔3 〕（2）经预告登记的债权（原物权法第20 条第1 款/民法典\n·\n3\n7\n·",
+          "法学研究\n2022 年第4 期",
+          "〔1 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国法语境下的预告登记制度旨在规范商品房预售中开发商的“一房数卖”行为...我国现行法采取“限制处分模式”（民法典第221条第1款第2句）",
+          "“债权物权化”的实系相对性面相下的合同债权被赋予对标的物权的处分保护。在此类具体的相对的债之关系中，合同债权本身不是标的，而是作为引导物权发生变动的媒介。",
+          "尤其在我国法语境下，出于特定的法政策考量，标的物权的归属被事先预定于受保护的债权人一方，并通过预告登记乃至免于登记来保障不动产物权受让人对标的物权的取得。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码、栏目分隔符及期号信息混入正文段落，脚注编号存在空格乱码，需在后续阶段清洗"
+      ],
+      "evidence_quotes": [
+        "“债权物权化”的实系相对性面相下的合同债权被赋予对标的物权的处分保护。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续文本工程阶段清理混入正文的页码、期刊信息及脚注编号空格"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留格式问题，部分脚注标记如〔1 〕〔2 〕等存在空格不一致",
+          "参考文献列表未完整抽取，文末仅标注'（无）'",
+          "部分德文文献引用存在分栏或换行导致的格式异常，如'Verdinglichung obligatorischer Rechte，in：Recht und Staat，195 1'中的年份空格问题",
+          "期刊页码混入正文，如'·3 7·'等排版标记残留"
+        ],
+        "evidence_quotes": [
+          "〔1 〕Vgl.Dulckeit，Die Verdinglichung obligatorischer Rechte，in：Recht und Staat，195 1",
+          "·3 7·",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文拟对'债权物权化'之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础",
+          "我国包括台湾地区对'债权物权化'之通解与卡氏见解保持一致",
+          "我国现行法采取'限制处分模式'（民法典第221条第1款第2句）",
+          "'执行异议复议规定'第29条情形下商品房消费者的法律地位",
+          "2003年'商品房买卖合同解释'第7条第1款实系对被拆迁人移转请求权的法定保全"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式不一致，德文文献年份存在OCR空格错误，排版标记残留，参考文献列表缺失",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "本文拟对'债权物权化'之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础",
+        "我国现行法采取'限制处分模式'（民法典第221条第1款第2句）",
+        "'执行异议复议规定'第29条情形下商品房消费者的法律地位"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国民法典时代'债权物权化'范畴厘定为核心议题，深入分析中国民法规范（民法典第221条、第725条、'执行异议复议规定'第28-29条、第30条等），对中国司法实践中的预告登记、网签备案、拆迁安置补偿协议、商品房消费者保护等具体制度进行法教义学分析，并尝试构建'债权物化'与'债权物权化'的区分理论框架，形成可复核的规范命题。文本质量存在轻微OCR和格式问题，但不影响核心论点评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文拟对“债权物权化”之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。",
+          "我国法语境下的预告登记制度旨在规范商品房预售中开发商的“一房数卖”行为……构成“债权物权化”现象。",
+          "“物权化”作为法政策介入私法的调控工具，同样面临管制之下比例原则在私法中的适用问题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "本文拟对“债权物权化”之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。",
+        "“物权化”作为法政策介入私法的调控工具，同样面临管制之下比例原则在私法中的适用问题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文聚焦中国民法教义学核心争议，系统辨析并重构了“债权物权化”理论，紧密结合《民法典》规范与本土司法实践提出明确的界定标准与法政策适用边界，具备充分的理论转化价值与中国问题意识，建议直接进入六维评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文属于概念厘定和现象归类的法教义学综述，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文未能提出“XX是否YY“或”如何ZZ“的明确法争点，仅对既有学说和现象进行分类梳理，导致研究问题缺失。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明），枢纽性=3/4，材料新颖性未触发上限。负面检查扣分：检查1扣25分（新概念未解释力提升），触发no_justiciable_question上限50分，最终扣分后总分30分。",
+          "evidence_quotes": [
+            "本文拟对“债权物权化”之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。",
+            "债权物权化”的范畴厘定，不仅关系到认识论层面若干易混淆的规范现象的澄清，更是民法典时代推动我国民法教义学精细化作业的必然要求。"
+          ],
+          "strengths": [
+            "对“债权物化”、“债之随物化”与“债权物权化”的区分展现了较强的概念辨析能力。",
+            "详细梳理了中德两国的规范现象和学说史，体现了扎实的知识积累。"
+          ],
+          "weaknesses": [
+            "全文无核心研究问题句，仅是对三种现象进行区分和界定，属于主题声明而非研究问题。",
+            "仅对既有理论进行归纳和澄清，未提出或发掘新的理论争点，创新性局限于概念重述。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1（全文无问题句，无法学层面的可争辩问题）",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文均为主题声明，如“本文拟对…范畴加以厘定”，未提出“XX是否属于YY”等可争辩问题句。"
+            }
+          ],
+          "boundary_note": "本维度仅评价问题本身的争辩性与研究价值，不评价论证严密性或文献综述的充分性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准解构泛化概念，提出债物互动三分框架，问题枢纽性极强",
+          "core_judgment": "问题成立且极具枢纽性，成功将泛化现象拆解为异质争点",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "仅因债权具有对抗第三人效力，便与‘债权物权化’划等号，逻辑论证颇显草率",
+            "绝对性在客体保护层面的普遍性难以进一步揭示物权有别于债权的具体特征"
+          ],
+          "strengths": [
+            "精准解构泛化概念，提出三分框架重塑债物互动认知",
+            "争点触及财产法教义体系基石，枢纽性极强"
+          ],
+          "weaknesses": [
+            "问题表述偏向范畴厘定声明，直接问题句略显隐含"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献综述充分度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文以'债权物权化'范畴厘定为题，辨析'债权物化''债之随物化'与'债权物权化'的机理分殊，具有明确理论争点。",
+          "core_judgment": "问题具有可争辩性与理论枢纽性，但核心创新在于概念辨析与体系澄清，而非提出全新理论框架。",
+          "score_rationale": "可争辩性=4/4（明确问题句'债权物权化范畴如何厘定'，涉及法学基本原理，存在中德学说分歧，非政策倡导）；枢纽性=3/4（影响债物二分体系、强制执行法、破产法多个领域，涉及长期核心争点，涉及核心概念，制度连锁效应明确）；材料新颖性未触发上限，锚定good档，给75分。扣分合计=0分。",
+          "evidence_quotes": [
+            "若不及时对其范畴加以厘定，'债权物权化'将逐步沦为我国民法学说中的集纳箩筐",
+            "'债权物化'与'债权物权化'虽一字之差，各自原理及所涉民法现象却判然有别"
+          ],
+          "strengths": [
+            "问题聚焦债物二分核心争点，理论纵深显著",
+            "区分三组易混概念，具有体系澄清价值"
+          ],
+          "weaknesses": [
+            "核心工作为概念辨析与误用纠正，理论推进相对有限",
+            "结论偏向'减法式'澄清而非'建构式'创新"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过教义学重构厘清“债权物权化”范畴，具有显著的理论争辩价值与体系枢纽意义。",
+          "core_judgment": "问题明确聚焦债物二分核心教义争议，具备高度可争辩性与跨制度影响力。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，负面检查扣0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "若不及时对其范畴加以厘定，‘债权物权化’将逐步沦为我国民法学说中的集纳箩筐……",
+            "‘债权物权化’实系相对性面相下的合同债权被赋予对标的物权的处分保护。"
+          ],
+          "strengths": [
+            "精准辨析“债权物化”与“债之随物化”，破除概念泛化迷思。",
+            "以处分保护为核心重构物权特征，教义学论证严密。"
+          ],
+          "weaknesses": [
+            "对“物权化”作为法政策工具的边界探讨稍显简略。",
+            "部分比较法引证未充分结合中国本土司法裁判实证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.00161600112915,
+        "glm-5.1": 66.04743766784668,
+        "kimi-k2.6": 15.86158800125122,
+        "qwen3.6-plus": 73.22957062721252
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 28.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 79,
+          "band": "good",
+          "summary": "论文系统梳理了德国从杜尔凯特到卡纳里斯的学说源流，并呈现了中国语境下的扩张与误用，构建了清晰的争点结构，但未竟点的提出和本文切入点的表达均高度分散于正文论证中，研究地图的三要素整合度存在提升空间。",
+          "core_judgment": "论文通过追溯德国学说史和辨析中国泛化现象，建立了可区分的争点结构，但研究地图的呈现高度分散，削弱了文献位置的清晰度。",
+          "score_rationale": "三要素得分=3/6（到达点2分，未竟点1分，本文切入点0分），争点结构=2/2（至少呈现债权物权化 vs 债权绝对化、卡氏路径 vs 魏氏路径等对立），法学流派=2个（德国形式路径 vs 功能/实质分析路径），锚定good上限79档，给79分。触发上限规则：partial_map_with_schools。",
+          "evidence_quotes": [
+            "“债权物权化”源自德国学说...杜尔凯特和卡纳里斯系该学说的典型代表人物...随后传入我国，历经本土学说和实务的不断发展...现象域的泛化之势尤为突出。",
+            "卡氏将“债权物权化”界定为债权具有特定的物权特征...杜氏未对“债权物权化”作统一的概念界定...魏氏认为此类规范现象属于债权人地位与物权变动结合在一起，谓之“债之关系随物化”。"
+          ],
+          "strengths": [
+            "准确追溯学说源头，区分了杜氏、卡氏、魏氏对Verdinglichung的不同理解和流变，争点结构清晰。",
+            "系统辨析了债权物化、债之随物化与债权物权化的本质区别，揭示了概念泛化的根源。"
+          ],
+          "weaknesses": [
+            "研究缺口和本文切入点的表述过于分散，未形成集中的问题链，削弱了研究地图的完整性。",
+            "中国学说本土化方向的对立观点呈现不足，更多是单向度的批判性梳理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，上限79分",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "三要素总分3分（到达点2分，未竟点1分，本文切入点0分），法学流派2个（德国形式分析路径与实质功能分析路径），触发上限79分。"
+            }
+          ],
+          "boundary_note": "论文核心贡献在于对既有概念的辨析和去伪存真，而非引入全新问题，故属于文献定位的完整性范畴。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文精准梳理德中学说史并区辨多重解释路径，研究地图完整。",
+          "core_judgment": "现状洞察维度高度成立，文献梳理与争点构建极为出色。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "卡氏将归属的绝对性作为物权性的核心特质，并分述为三项具体标准且以此标准对各规范现象进行逐一检视",
+            "学界少有意识到‘债权物化’或者部分学者将‘债权物化’现象误认为‘债权物权化’现象"
+          ],
+          "strengths": [
+            "深入梳理德中学说史，精准提炼各流派解释路径与贡献",
+            "争点结构清晰，有效区辨物化、随物化与物权化三重分歧"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献定位与争点结构，不评估范畴厘定的理论创新性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文构建了清晰的德国法源研究地图，区分了'债权物权化''债权物化''债之随物化'三条理论脉络，争点结构明确。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，法学流派识别充分，但到达点的具体成果提炼可更明确。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+本文切入点1），争点结构=2/2，法学流派=4个（杜尔克特类型化路径、卡纳里斯标准路径、魏特瑙尔'债之随物化'路径、'债权物化'路径），锚定good档，给82分。",
+          "evidence_quotes": [
+            "杜氏根据物权化的强度差异，将'债权物权化'划分为三种类型……卡氏在文章开篇便将'债权物权化'界定为债权具有特定的物权特征……魏氏认为，此类规范现象属于债权人地位或债务人地位基于法律规定而非当事人意定，与物权变动结合在一起",
+            "学界少有意识到'债权物化'或者部分学者将'债权物化'现象误认为'债权物权化'现象的原因在于……'债权物权化'的隐含前提在于，在相对的债之关系中，债权人具备部分以标的物为客体的物权特征"
+          ],
+          "strengths": [
+            "清晰呈现三条理论脉络的对立与分野",
+            "中德比较法视角下的制度方案分歧展开充分"
+          ],
+          "weaknesses": [
+            "到达点多以学说史梳理呈现，具体研究成果的贡献提炼不足",
+            "未明确标示中国学界关于'债权物权化'范围的争论节点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文献定位聚焦于债权物权化范畴的理论梳理，不涉及问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制学说演进地图，清晰剥离多重理论争点。",
+          "core_judgment": "研究地图三要素完整，争点结构严密，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "在“债权物权化”自身机理未明的前提下，上开现象得否确然统归为“债权物权化”，不免存疑。",
+            "本文拟对“债权物权化”之范畴加以厘定，以为民法典时代重新认识债权物权区分理论奠定基础。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，德中学说脉络与贡献提炼清晰。",
+            "明确指出现有研究的概念误用与泛化局限，未竟点具体。"
+          ],
+          "weaknesses": [
+            "部分域外文献引证集中于教义学内部，跨学科视角稍显单一。",
+            "对本土实务裁判的文献梳理略弱于德日学说梳理。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉及命题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.85374188423157,
+        "glm-5.1": 67.62107110023499,
+        "kimi-k2.6": 11.027195930480957,
+        "qwen3.6-plus": 69.19006419181824
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 79,
+        "glm-5.1": 95,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87,
+      "std": 7.7,
+      "strictest": 79,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 68,
+          "band": "good",
+          "summary": "论文构建了“债权物权化—债权物化—债之随物化”的类型化区分框架，并以处分保护为核心标准进行范畴厘定，具有原创性分析框架，但框架的可操作步骤和概念定义不够清晰，法学转化主要停留在理论层面。",
+          "core_judgment": "该维度部分成立：论文提出了原创的分类框架和判断标准，但在概念的操作化定义和分析步骤的可重复性上存在不足，限制了其作为分析工具的刚性。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定不清晰扣1分），法学转化度得分=2/4（标准2满足，标准3不满足），锚定good(60-69)档，综合给68分。",
+          "evidence_quotes": [
+            "本文重点区辨的‘债权物化’和‘债之随物化’，非但与‘债权物权化’的形成机制迥然不同，而且体现了债物关联在理论和规范体系中的其他面相。",
+            "真正的物权特征：物权请求权服务于物权的实现...处分保护一般用于完整物权的无权处分情形。"
+          ],
+          "strengths": [
+            "原创性地构建了“债权物权化—债权物化—债之随物化”的三分类型框架，揭示了被既有学说遮蔽的规范现象。",
+            "检视并重构了物权特征的标准，提出“处分保护”作为真正的债权物权化判断标准，提供了可操作的区分维度。"
+          ],
+          "weaknesses": [
+            "核心分类标准如“处分保护”“继受保护”缺乏明确定义和适用边界，降低了框架的可重复使用性。",
+            "框架的分析步骤不够清晰，缺乏从现象到判断的阶梯式操作指引，后文更多是现象归类而非严格步骤调用。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评估框架建构力，不评价论文的逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构了“债权物化-债之随物化-债权物权化”的三分框架，厘清了概念边界与检视步骤。",
+          "core_judgment": "该维度高度成立，论文提出了原创的概念重构与类型化检视框架，且后文充分调用。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。框架概念界定清晰，分类标准明确，检视步骤可循，且后文实际调用；法学转化提供了概念重构路径与适用边界。",
+          "evidence_quotes": [
+            "本文研讨的‘债权物权化’，系指债权具有特定或部分的物权特征……隐含前提在于，在相对的债之关系中，债权人具备部分以标的物为客体的物权特征。",
+            "结合卡氏所提标准和中德民法规范，有待检视的规范层面的具体物权特征包括侵权保护、物权请求权、处分保护、继受保护……"
+          ],
+          "strengths": [
+            "概念重构极具原创性，将泛化现象解构为物化、随物化、物权化三种机理",
+            "检视步骤清晰，排除了非真正物权特征，确立了处分保护为真正物权特征"
+          ],
+          "weaknesses": [
+            "结语部分对比例原则的引入略显突兀，未完全融入前述分析框架"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不评价比例原则引入的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以'债权物权化'范畴厘定为题，构建'债权物化—债之随物化—债权物权化'三分框架，具有明确的概念界定与类型区分。",
+          "core_judgment": "分析框架基本成立，概念界定清晰、分类标准明确、分析步骤可循，但法学转化度受理论型论文特性限制，未提供裁判规则或制度设计方案。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循，后文实际调用充分；但无步骤化判断流程），法学转化度得分=2/4（跨学科/比较法概念已转化为法学分析步骤，提供概念操作化定义和适用边界，但未提供裁判规则或制度设计），锚定good档(60-69)，因理论型论文适配及框架原创性，上浮至72分。",
+          "evidence_quotes": [
+            "本文研讨的'债权物权化'，系指债权具有特定或部分的物权特征，此种物权特征在既有通说中对应物权的绝对性",
+            "'债权物化'与'债权物权化'虽一字之差，各自原理及所涉民法现象却判然有别"
+          ],
+          "strengths": [
+            "原创性区分'债权物化''债之随物化''债权物权化'三类范畴，概念界定精准",
+            "以德国法起源与中国语境双重维度展开，比较分析框架运用成熟"
+          ],
+          "weaknesses": [
+            "未将范畴区分转化为可重复适用的裁判规则或法律适用流程",
+            "结语部分多为价值呼吁，缺乏具体制度设计方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建三分框架并以处分保护为核心标准，全程贯彻教义学分析。",
+          "core_judgment": "分析框架成立且具备强可操作性与高法学转化度，有效破解概念泛化难题。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，分类标准明确，分析步骤可循且后文高频调用；理论推演完成法学转化，提供明确的操作化定义与适用边界。",
+          "evidence_quotes": [
+            "本文研讨的“债权物权化”，系指债权具有特定或部分的物权特征，此种物权特征在既有通说中对应物权的绝对性。",
+            "“债权物权化”实系相对性面相下的合同债权被赋予对标的物权的处分保护。"
+          ],
+          "strengths": [
+            "构建“物权化/物化/随物化”三分类型学，边界清晰",
+            "提炼“处分保护”为核心判断标准，教义学步骤严密"
+          ],
+          "weaknesses": [
+            "部分规范检视偏重德日理论引介，本土裁判转化可更具体",
+            "对法政策介入的审查标准略显抽象，操作指引可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.454034090042114,
+        "glm-5.1": 64.46728992462158,
+        "kimi-k2.6": 10.987735033035278,
+        "qwen3.6-plus": 64.98914670944214
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 12.8,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 87,
+          "band": "excellent",
+          "summary": "论文推理链完整清晰，通过德国法起源、前提限定和规范特征检视逐层厘清“债权物权化”范畴，反驳处理充分，核心结论可被辩护地推出。",
+          "core_judgment": "论文形成了“现象泛化→概念溯源→排除混淆项（物化/随物化）→规范特征检视→锚定真正现象”的严密推理链，结论由前文充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，依据锚定规则（≥3且≥2）定位到excellent档。在excellent档内，考虑反驳处理度满分且推理链清晰，给予87分。",
+          "evidence_quotes": [
+            "基于“债权物化”与“债权物权化”之间的机理分殊，“债权物化”进一步构成“债权物权化”的前提限定。唯有将债权限定在相对性面相之下，“债权物权化”方具可能和意义。",
+            "继受保护无法作为债权物权区分的特征……不宜仅因前者在表象上与物（权）有关……便将“债之随物化”归入“债权物权化”。"
+          ],
+          "strengths": [
+            "推理链高度连贯：从现象泛化问题出发，经由德国法溯源和范畴分层（物化/随物化/物权化），再到规范特征逐项检视，最终收敛于严格限定的现象清单，每一步依赖前一步的界定。",
+            "反驳处理系统而透彻：论文不仅回应了“债权绝对化”等理论分歧，还逐项论证了取回权、案外人异议之诉等为何不是物权特征，并明确承认“物权化”作为法政策工具的适用边界。"
+          ],
+          "weaknesses": [
+            "网签备案的实然处分功能被认定为非规范现象，但未充分论证此种实然状态为何不能构成“债权物权化”，反驳略有微小缝隙。",
+            "结语部分引入比例原则审视“物权化”必要性，虽为延伸反思，但与前文范畴厘定的逻辑主线衔接稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文对物权请求权、处分保护等特征的论证属于推理链中的规范检验环节，而非框架操作性评价，故属于逻辑严密性考量。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "概念辨析层层递进，通过剥离“物化”与“随物化”精准重构“物权化”范畴。",
+          "core_judgment": "推理链完整且依赖度高，核心结论由前文规范分析与学说辨析充分支撑，逻辑严密性维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理环环相扣，对学说分歧的回应具实质论证。",
+          "evidence_quotes": [
+            "唯有将债权限定在相对性面相之下，‘债权物权化’方具可能和意义",
+            "继受保护难以作为债权物权区分的要素，债权因此‘物权化’更是无从谈起"
+          ],
+          "strengths": [
+            "概念辨析逻辑递进，剥离异质现象后精准推出核心结论",
+            "对德国学说源流多义性的隐含分歧处理深入，给出重构翻译的实质理由"
+          ],
+          "weaknesses": [
+            "结语引入比例原则审视稍显延展，与前文教义学推演的衔接略松"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦于概念推演与结论推出的逻辑链条，不评判三分框架在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了'债权物权化'范畴厘定的完整推理链，从概念辨析到规范检视层层推进。",
+          "core_judgment": "推理链完整且可辩护，核心结论'债权物权化应限定为处分保护'由前文多维度分析支撑，反驳处理充分。",
+          "score_rationale": "推理链完整性得分=4/4（标准1-4均满足：可复述三步推理链；步骤间依赖紧密；核心结论有充分支撑；无关键跳步），反驳处理度得分=2/3（标准1满足：显式呈现'债权物化''债之随物化'等替代理论并辨析；标准2满足：对'物权化'泛化现象有实质性理论回应；标准3未满足：未明确承认自身论证边界），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "本文拟对'债权物权化'之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。",
+            "单以'债权物权化'学说统括庞杂的债权之对抗第三人效力的现象域，无异于一叶障目。"
+          ],
+          "strengths": [
+            "三步推理链清晰：前提限定→特征界定→规范检视，环环相扣。",
+            "对'债权物化''债之随物化'等易混淆概念进行了系统辨析和理论回应。"
+          ],
+          "weaknesses": [
+            "未明确承认自身论证的适用边界或局限条件。",
+            "部分比较法论证（如德国法与中国法的制度差异）可更精细。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的完整性与可辩护性，不涉及'物权化'概念本身是否最优的分析框架问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“概念溯源—概念辨异—特征检视—规范定性”严密推理链，结论获充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理充分，结论可由前文教义分析与规范检视可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论文严格遵循理论型逻辑，逐步排除混淆概念并确立检视标准，最终推导出核心结论，无关键跳步。",
+          "evidence_quotes": [
+            "“债权物权化”实系相对性面相下的合同债权被赋予对标的物权的处分保护。",
+            "基于“债权物化”与“债权物权化”之间的机理分殊，“债权物化”进一步构成“债权物权化”的前提限定。"
+          ],
+          "strengths": [
+            "概念辨析层层递进，有效剥离“债权物化”与“债之随物化”等干扰项。",
+            "规范特征检视紧扣教义学标准，推理步骤依赖度高且逻辑自洽。"
+          ],
+          "weaknesses": [
+            "部分比较法文献引入略显繁复，对主线推理聚焦度有轻微稀释。",
+            "对“物权化”作为法政策工具的必要性论证可进一步结合比例原则展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否形成充分支撑，而非评价理论框架的实务可操作性或结论接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.144829988479614,
+        "glm-5.1": 66.11499285697937,
+        "kimi-k2.6": 14.457299947738647,
+        "qwen3.6-plus": 50.30759119987488
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 87,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.2,
+      "std": 4.8,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "结论通过精细的类型化建构厘清了‘债权物权化’范畴，明确与既有学说对话，回应了中国制度语境，整体可接受度较高。",
+          "core_judgment": "论文结论具备扎实的共同体对话基础和制度兼容性，属于可被学界认真回应的高质量学术主张。",
+          "score_rationale": "共同体对话度得分=4/4（明确挑战并修正通说，反对者可定位回应，回应中国法语境，承认局限），制度可接受度得分=3/4（不与现行法秩序根本矛盾，回应了法条和司法解释，指出了立法论方向），锚定理论论文excellent档，给82分。",
+          "evidence_quotes": [
+            "“债权物权化” 实系相对性面相下的合同债权被赋予对标的物权的处分保护……合同债权本身不是标的，而是作为引导物权发生变动的媒介。",
+            "本文重点区辨的‘债权物化’和‘债之随物化’……体现了债物关联在理论和规范体系中的其他面相，进而构成对债权和物权之间相互关系的有益补充。"
+          ],
+          "strengths": [
+            "结论明确界定了‘债权物权化’的真正特征（处分保护），与既有泛化通说形成显著对立，提供了清晰的反驳锚点。",
+            "通过区分‘债权物化’与‘债之随物化’，结论在理论层面与现行民法体系、中国司法解释高度兼容，增强了制度上的可接受性。"
+          ],
+          "weaknesses": [
+            "结论部分引出的‘物权化作为法政策工具需比例原则审视’观点，从前文范畴厘定跳跃至立法论审视，该延伸的共同体共识基础稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评仅评估结论在共同体内被接受的可能性，不评价其论证逻辑严密性或最终是否被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应学界泛化误区，提出三分框架，与中国制度语境高度兼容。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "单以“债权物权化”学说统括庞杂的债权之对抗第三人效力的现象域，无异于一叶障目。",
+            "若既有的民法规范供给或借助登记等其他配套制度的完善足以承载立法者的法政策考量，便无须借道“物权化”。"
+          ],
+          "strengths": [
+            "精准区辨物化、随物化与物权化，回应学界泛化误区",
+            "反思中国预告登记强保护路径，制度兼容与转化方向明确"
+          ],
+          "weaknesses": [
+            "对部分非典型现象的归类可能仍存争议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "本文对'债权物权化'范畴进行精细厘定，提出'债权物化''债之随物化'等区分，结论具有明确学术对话性和制度回应性。",
+          "core_judgment": "结论在民法学共同体语境中定位清晰，与德国学说及中国法秩序兼容，但制度转化方向表述可更明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分。论文明确回应德国杜尔凯特、卡纳里斯等既有学说，提出'债权物化''债之随物化'等修正性概念；反对者可清晰定位其学术立场；充分结合中国民法典及司法解释展开；主动讨论预告登记、拆迁安置等中国制度语境。制度可接受度方面，结论与现行法秩序兼容，对制度约束有回应，但制度转化方向表述较原则，未充分展开未来立法或司法适用路径。",
+          "evidence_quotes": [
+            "本文拟对'债权物权化'之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。",
+            "'债权物权化'实系相对性面相下的合同债权被赋予对标的物权的处分保护……'物权化'作为法政策介入私法的调控工具，同样面临管制之下比例原则在私法中的适用问题。"
+          ],
+          "strengths": [
+            "明确区分'债权物化''债之随物化'与'债权物权化'，学术主张清晰可辩",
+            "充分回应中国民法典、执行异议复议规定等制度语境，非简单移植德国理论"
+          ],
+          "weaknesses": [
+            "制度转化方向仅原则提及'减少冲击'，具体路径不足",
+            "结语对比例原则在私法中适用问题未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准厘定“债权物权化”范畴，明确其作为法政策工具的适用边界，教义学贡献显著。",
+          "core_judgment": "结论深度嵌入中德民法教义学争论，逻辑自洽且与中国法秩序高度兼容，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准回应教义学争论，与中国法秩序兼容且指明制度适用边界，符合理论论文高标准。",
+          "evidence_quotes": [
+            "本文拟对“债权物权化”之范畴加以厘定，以为民法典时代重新认识债权物权区分理论和稳定债物二分体系奠定基础。",
+            "“物权化”系法教义承载法政策时必须谨慎考量的强化工具，而非可以泛化运用的描述工具。"
+          ],
+          "strengths": [
+            "精准回应学界泛化误用，清晰界分“物化”“随物化”与“物权化”。",
+            "结合中国民法典与司法解释，理论建构具本土规范支撑。"
+          ],
+          "weaknesses": [
+            "对“物权化”工具的司法裁判转化路径着墨较少。",
+            "部分比较法引证未充分展开与中国实务的冲突调适。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.95730185508728,
+        "glm-5.1": 45.36853575706482,
+        "kimi-k2.6": 18.44374918937683,
+        "qwen3.6-plus": 50.08563685417175
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 90
+      },
+      "mean": 87.2,
+      "std": 4.6,
+      "strictest": 82,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在结语中明确指出了“物权化”工具面临的方法论审视方向及“比例原则”等后续研究路径，构成了清晰的延展路径。",
+          "core_judgment": "存在明确的延展路径，与正文核心结论紧密衔接，但路径的精细度与论证展开仍较有限。",
+          "score_rationale": "原始分65分，对应bonus=3档。论文在结语部分提出了具体的后续研究问题（法政策与形式理性的调和、比例原则审视），指明了方法论深化方向，且有对正文局限性的承认（预告登记规范设计与弱者保护脱节），证据充分。",
+          "evidence_quotes": [
+            "“债权物权化”的背后，实为法政策学和形式理性之间的角力和调和，更是功能主义催动下民法回应现实关切的法技术考验。从这个角度而言，“物权化”作为传导法政策的工具，还将面临方法论上的进一步审视。",
+            "若既有的民法规范供给或借助登记等其他配套制度的完善足以承载立法者的法政策考量，便无须借道“物权化”，进而减少对债物二分体系的冲击。"
+          ],
+          "strengths": [
+            "明确提出了“法政策与形式理性调和”及“比例原则适用”等具体、可定位的后续研究方向。",
+            "承认了预告登记“限制处分模式”的规范缺陷，并指明了后续应围绕此局限如何推进检视。"
+          ],
+          "weaknesses": [
+            "对“比例原则”在私法中适用的具体检验框架（如具体审查标准）未作进一步展开，路径精细度尚显不足。",
+            "延展路径集中于结语的宏观方法论层面，未对应然的具体制度改造个案或比较法新维度进行更深入延伸。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评价的是论文在结论部分提出的未来研究方向（如法政策审视、比例原则检视）是否具体可定位，而非评价其现有结论是否被共同体接受（结论可接受性），亦非评价其推演过程是否严密（逻辑严密性）。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "指明物权化工具需受比例原则审视及在其他财产权、执行破产法中的延伸，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了物权化工具的方法论审视（比例原则）及跨领域延伸方向。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。结语明确提出物权化需受比例原则审视及在执行破产法延伸，路径清晰且与核心结论衔接。",
+          "evidence_quotes": [
+            "‘物权化’作为法政策介入私法的调控工具，同样面临管制之下比例原则在私法中的适用问题。",
+            "不仅牵涉债物二分体系的稳定性，也会影响其他财产权益的性质认定，还可能在强制执行法和破产法领域产生延伸效应。"
+          ],
+          "strengths": [
+            "提出比例原则在私法中适用的新理论假设，深化法政策与教义学关系。",
+            "指明强制执行法与破产法领域的具体延伸方向，可定位。"
+          ],
+          "weaknesses": [
+            "对比例原则在私法适用的具体检验标准未展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "比例原则在私法适用及跨领域延伸属未来理论深化方向，非当下范畴厘定结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语部分提出了'物权化'作为法政策工具的方法论审视方向，以及比例原则在私法中的适用问题，但延展路径的精细度和系统性仍有提升空间。",
+          "core_judgment": "存在真实延展路径，主要体现在法政策学与形式理性关系、比例原则适用、登记制度完善等方向，但与正文核心范畴厘定工作的衔接尚需更精细的展开。",
+          "score_rationale": "原始分72分，对应bonus=3档位。论文明确提出了'物权化'工具的方法论审视（比例原则、最小伤害原则）、登记制度配套完善、以及强制执行法/破产法延伸效应等具体延展方向，证据可定位；但'牵一发而动全身'的宏观表述略显笼统，且部分延展（如第121注'其他财产权益的性质认定'）未充分展开，精细度有限。",
+          "evidence_quotes": [
+            "'物权化'作为传导法政策的工具，还将面临方法论上的进一步审视……'物权化'作为法政策介入私法的调控工具，同样面临管制之下比例原则在私法中的适用问题",
+            "对'债权物权化'的正确认识以及'物权化'工具的谨慎运用，不仅牵涉债物二分体系的稳定性，也会影响其他财产权益的性质认定，还可能在强制执行法和破产法领域产生延伸效应"
+          ],
+          "strengths": [
+            "明确指向比例原则、最小伤害原则等具体方法论工具",
+            "提及登记制度完善与法政策目标的替代关系"
+          ],
+          "weaknesses": [
+            "'牵一发而动全身'等表述偏宏观，具体机制展开不足",
+            "财产权益性质认定等延展方向仅一笔带过，缺乏路径设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究或制度发展指明的方向，而非当下结论是否被接受。结语中关于比例原则适用、登记制度替代方案等属于典型的未来延展问题，而非对当前论证可接受性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结语中清晰规划了“物权化”工具的必要性检验路径及向执行、破产法延伸的研究方向。",
+          "core_judgment": "存在真实延展路径，明确指向“物权化”工具的比例原则检验与跨部门法延伸。",
+          "score_rationale": "原始分85，对应bonus=5。结语明确提出以比例原则和必要性检验审视“物权化”工具，并指出向执行法、破产法延伸的具体路径，与正文限缩泛化的核心结论紧密衔接，延展清晰可定位。",
+          "evidence_quotes": [
+            "特定情形下债权人的法律地位能否运用“物权化”工具加以强化，必须首先检视债权自身效力体系内部的规范依托是否已穷尽……",
+            "“物权化”作为法政策介入私法的调控工具，同样面临管制之下比例原则在私法中的适用问题……还可能在强制执行法和破产法领域产生延伸效应"
+          ],
+          "strengths": [
+            "明确提出以比例原则与必要性检验审视“物权化”工具的适用边界。",
+            "精准提示该理论向强制执行法与破产法跨部门延伸的具体研究空间。"
+          ],
+          "weaknesses": [
+            "未具体展开跨部门延伸的教义学衔接难点或实证检验方案。",
+            "对“比例原则私法化”的具体操作标准仅作方向性提示。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“物权化”工具未来适用的比例原则检验及跨部门法延伸路径，属后续研究方向的规划，而非对本文当下教义学结论是否被学界接受的评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.42779803276062,
+        "glm-5.1": 49.84243106842041,
+        "kimi-k2.6": 13.645416021347046,
+        "qwen3.6-plus": 58.107619285583496
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 76.8,
+      "std": 9.9,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 83.86,
+      "weighted_total": 81.3
+    },
+    "aggregation_strictest": {
+      "final_score": 60.47,
+      "weighted_total": 62.9
+    },
+    "avg_std": 11.4,
+    "max_std": 28.8,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "score_gap": 23.4,
+    "composite_score": -8.07,
+    "worst_dimension": "problem_originality",
+    "worst_std": 28.8
+  }
+}

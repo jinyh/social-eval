@@ -1,0 +1,582 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/法典化时代的刑法典修订.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] Connection error."
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注内容与正文段落发生混排，部分脚注编号及完整脚注内容直接插入正文中",
+          "期刊页码及版面信息（如“中国法学 2021 年第5 期 42”、“41”等）混入正文段落",
+          "部分段落开头存在脚注编号残留（如“(1) 主流观点认为...”）"
+        ],
+        "evidence_quotes": [
+          "(3) 王汉斌：《关于〈中华人民共和国刑法〉（修订草案）的说明》，载《中华人民共和国全国人民代表大会常务委员会公报》1997 年第2 期，第220 页。",
+          "中国法学 2021 年第5 期 42",
+          "法典化时代的刑法典修订 41"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国社会治理和法律文化传统决定了统一刑法典被赋予特殊使命。我国历史上的《唐律》是一部统一的刑法典，其内容完备、设计周详，是中国古代法典的代表作...",
+          "如果不规定轻罪，由于法院独立裁判能力弱，抵抗力差，起诉到法院的案件，在没有对应轻罪（如高空抛物罪）时，法院极有可能类推适用重罪（如以危险方法危害公共安全罪）。",
+          "基于法典编纂的理念全面修订刑法典必须注重服务于完善以宪法为统帅的中国社会特色社会主义法律体系，需要仔细推敲其与“周边”相关法律的衔接、协调。",
+          "未来基于法典编纂的理念全面修订刑法典时，对构成要件的设计应当尽可能明确，系统梳理现有规定中的不明确之处，同时要使新设置罪名真正成为现有体系的有益补充..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注与正文混排，页码/期刊信息混入正文，需在后续评审阶段清洗",
+        "项目口径：无特殊问题，完全符合进入六维评审标准"
+      ],
+      "evidence_quotes": [
+        "如果不规定轻罪，由于法院独立裁判能力弱，抵抗力差，起诉到法院的案件，在没有对应轻罪（如高空抛物罪）时，法院极有可能类推适用重罪（如以危险方法危害公共安全罪）。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程，但需在后续阶段对文本进行工程清洗，剥离混入正文的脚注内容及页码/期刊版面信息残留，以确保评审文本的纯净度。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 45
+      },
+      "mean": 66.5,
+      "std": 30.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "本文聚焦刑法典全面修订的立法模式与法理基础，深入探讨统一法典与多元立法之争。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，紧扣刑法立法模式、法益保护与罪刑法定等核心争点，成立。",
+          "score_rationale": "前置扣分0。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "张明楷教授最近对统一刑法典模式提出质疑，认为应当采用多元立法模式……",
+            "持消极刑法观的学者所提出的近年来增设新罪的立法仅具有象征性……"
+          ],
+          "strengths": [
+            "明确呈现统一法典与多元立法、积极与消极刑法观的学理交锋",
+            "问题直指刑法立法模式与法典化核心原理，影响多个部门法协调"
+          ],
+          "weaknesses": [
+            "部分论述偏向立法政策倡导，对具体制度重构的法教义学推演稍显不足",
+            "对“法典化”概念的界定多依赖既有共识，理论突破感略弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以“法典编纂理念”包装刑法大修旧议题，核心属政策倡导而非可争辩法学争点。",
+          "core_judgment": "该维问题成立但创新性弱，核心命题为政策倡导，新概念未带来实质理论推进。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性已触发上限(70分)，负面扣分35分，锚定excellent档(80分)，扣后得45分。",
+          "evidence_quotes": [
+            "未来要提升我国刑法的法典化水平...笔者原则上赞成修订现行刑法典的思路，而不主张笼统地讨论编纂刑法典这一命题。",
+            "张明楷教授最近对统一刑法典模式提出质疑，认为应当采用多元立法模式...这两个理由都是有疑问的。"
+          ],
+          "strengths": [
+            "涉及立法模式等子争点且有学者交锋",
+            "问题影响范围广，涉及多制度协调"
+          ],
+          "weaknesses": [
+            "核心命题为政策倡导而非可争辩法学争点",
+            "新概念包装旧问题且说明不充分"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "以“法典编纂理念”包装刑法大修，实质仍为立法政策倡导"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 80.58766794204712,
+        "glm-5.1": 88.0429139137268
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "文内精准勾勒立法模式与刑法观之争，研究地图完整，争点脉络清晰。",
+          "core_judgment": "本文以分散式文献定位清晰呈现统一法典与多元立法、积极与消极刑法观等核心争点，研究地图三要素充分满足，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "张明楷教授对统一刑法典模式提出质疑，主张多元立法，本文对此展开逐层辨析。",
+            "持消极刑法观的学者认为增设新罪违反谦抑性，本文指出该立场脱离现代治理现实。"
+          ],
+          "strengths": [
+            "精准识别统一法典与多元立法、积极与消极刑法观等核心学术分歧。",
+            "采用分散式文献定位，将既有研究贡献与制度局限自然融入论证脉络。"
+          ],
+          "weaknesses": [
+            "部分域外制度比较偏重结论引述，对理论源流与学派交锋的纵深挖掘稍弱。",
+            "对法益理论内部不同解释路径的对立呈现相对分散。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉立法建议新颖性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，清晰呈现多个学界争点与流派对立，现状洞察度极高。",
+          "core_judgment": "本维度完全成立，分散式文献定位精准，争点结构丰满且流派覆盖充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "持消极刑法观的学者所提出的近年来增设新罪的立法仅具有象征性...是以古典刑法思想为出发点的。",
+            "张明楷教授最近对统一刑法典模式提出质疑，认为应当采用多元立法模式，其主要理由是统一刑法典立法模式肢解了刑法规范..."
+          ],
+          "strengths": [
+            "分散式文献定位精准，到达点、未竟点与切入点对应严密。",
+            "争点结构丰满，立法模式、立法观等对立立场清晰可辨。"
+          ],
+          "weaknesses": [
+            "部分流派对立（如79刑法法典属性之争）仅在开头简略提及，未贯穿全文。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非立法建议本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 63.485878229141235,
+        "glm-5.1": 61.51648688316345
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 40,
+        "glm-5.1": 45
+      },
+      "mean": 42.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文为立法政策论述，缺乏原创分析框架与可操作步骤。",
+          "core_judgment": "本文未建构可重复适用的法学分析框架，核心贡献在于立法方向梳理与宏观政策建议。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给40分。全文以立法议题罗列为主，缺乏明确概念界定、分类标准与步骤化流程；修法建议多为宏观方向，未转化为具体裁判规则或制度方案。",
+          "evidence_quotes": [
+            "未来基于法典编纂的理念全面修订刑法典需要研究现行法的总则性规定，基于问题导向而创新",
+            "应当尽可能明确，系统梳理现有规定中的不明确之处，同时要使新设置罪名真正成为现有体系的有益补充"
+          ],
+          "strengths": [
+            "议题覆盖全面，系统梳理了刑法典修订的核心立法维度",
+            "对罪刑法定与法益保护原则的立法约束有清晰的政策导向"
+          ],
+          "weaknesses": [
+            "核心术语缺乏操作化定义，未形成可重复适用的分析步骤",
+            "修法建议停留于宏观呼吁，缺乏具体法条设计或裁判适用指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限规则",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创概念界定与步骤化流程，大量使用规范性表述且无具体规则支撑"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力与可操作性，不评价立法建议的合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了刑法典全面修订的诸多制度建议，但缺乏原创且可操作的分析框架，核心术语未明确定义且无步骤化分析流程。",
+          "core_judgment": "论文属于制度建构型，但分析框架建构力弱，仅停留在主题罗列和立法建议层面，未形成可重复适用的分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅有分类标准，无定义和步骤），法学转化度得分=2/4（提供了制度设计方案），锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "法典编纂的理念是，通过法典化立法方式厘定、纂修的法律至少应具有现实性、整合性和系统性三大特征。",
+            "应当删除受贿罪中‘为他人谋取利益’的规定，增设事前受贿罪、事后受贿罪、单纯受贿罪、约定受贿罪等新罪。"
+          ],
+          "strengths": [
+            "提出了详尽的刑法典修订制度设计方案",
+            "对统一立法模式与多元立法模式的分类标准明确"
+          ],
+          "weaknesses": [
+            "核心术语缺乏“本文所称”式的明确定义，触发概念堆砌降档",
+            "无步骤化的分析流程，后文按主题展开而非调用框架步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "“现实性、整合性、系统性”仅在第二部分提出，后文按立法模式、罪刑法定等主题罗列，未按此三特征框架逐步检验。"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用，不评立法建议本身是否合理或问题是否新颖。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.98036575317383,
+        "glm-5.1": 75.75111079216003
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文推理链完整，核心结论获充分支撑，反驳处理扎实。",
+          "core_judgment": "逻辑严密性成立，论证链条环环相扣且有效回应了主要学术分歧。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证层层递进，反驳回应充分。",
+          "evidence_quotes": [
+            "张明楷教授对统一刑法典模式提出质疑……笔者认为其并未击中要害。",
+            "法典不应当一步到位地颁布……立法者不可能将所有的事态都考虑进去之后再立法。"
+          ],
+          "strengths": [
+            "历史梳理与理论推演紧密衔接，支撑全面修订结论。",
+            "对多元立法模式质疑及消极刑法观进行了实质性回应。"
+          ],
+          "weaknesses": [
+            "部分轻罪增设论证偏重政策宣示，教义学推演稍显单薄。",
+            "刑罚轻缓化与增设轻罪间的内在张力未作深度调和。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条与反驳处理，不评价立法方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，对核心反对意见有实质性回应并承认自身局限。",
+          "core_judgment": "论文逻辑严密性维度完全成立，核心结论可由前文充分辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "张明楷教授最近对统一刑法典模式提出质疑...但是，这两个理由都是有疑问的",
+            "法典不应当一步到位地颁布...立法者不可能将所有的事态都考虑进去之后再立法"
+          ],
+          "strengths": [
+            "主线推理从问题诊断到方案推出依赖度高",
+            "对张明楷多元立法模式等反对意见有详实反驳"
+          ],
+          "weaknesses": [
+            "局部从法典特征到现行刑法属实质法典的过渡稍快"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于“全面修订刑法典”结论的推理支撑，而非评判该立法方案本身是否可行。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 57.313507080078125,
+        "glm-5.1": 42.66577482223511
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 92
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深度回应立法模式与积极刑法观等核心争议，提出契合中国语境的刑法典全面修订路径。",
+          "core_judgment": "结论明确嵌入中国刑事立法争论语境，系统回应反对意见，且与现行法秩序高度兼容并指明具体转化方向，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "笔者原则上赞成修订现行刑法典的思路，而不主张笼统地讨论编纂刑法典这一命题。",
+            "对于张明楷教授所提出的统一刑法典中的空白刑法规定违反了法律保留原则……我认为还需要仔细辨析。"
+          ],
+          "strengths": [
+            "精准定位并回应统一立法与多元立法、积极/消极刑法观等学界核心争议。",
+            "全面考量与民法典、行政法及司法实务的衔接约束，制度转化路径清晰。"
+          ],
+          "weaknesses": [
+            "部分增设轻罪与削减死刑的建议在现行司法承载力下仍需更细致的成本收益论证。",
+            "对法典化可能带来的司法裁量权收缩风险讨论略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被共同体与制度语境接受，不评价其未来延展性或论证细节严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论充分回应学界争论并提出具体制度修订方案，可接受性高。",
+          "core_judgment": "结论在共同体对话与制度兼容性上均表现优异，提出了可争辩且可落实的修法主张。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "明确反驳张明楷多元立法模式及空白罪状违宪主张，指出其未击中要害",
+            "提出增设暴行罪、见危不救罪，修改受贿罪构成要件等具体制度转化方向"
+          ],
+          "strengths": [
+            "主动回应并反驳张明楷等反对意见，对话度高",
+            "提出具体罪名增设与法条修改方案，制度转化方向明确"
+          ],
+          "weaknesses": [
+            "部分轻罪增设建议（如见危不救罪）仍具争议，但已自承局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被学界和制度语境接受，不评估论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 62.88253617286682,
+        "glm-5.1": 44.919763803482056
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 85
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文系统规划了刑法典全面修订的立法路径、规则衔接与理论更新方向。",
+          "core_judgment": "存在清晰且可定位的真实延展路径，紧密围绕法典化修订提出具体制度完善与风险控制方案。",
+          "score_rationale": "原始分88分，对应bonus=5档。论文清晰提出全面修订刑法典的具体路径（限缩空白罪状、增设轻罪、优化刑罚结构），并指明理论功能主义转向与防范象征性立法的风险控制边界，延展路径与核心结论紧密咬合。",
+          "evidence_quotes": [
+            "未来基于法典编纂的理念全面修订刑法典必须直面……在刑法分则中尽可能减少空白罪状的立法",
+            "笔者的建议是：尽快对基于法典编纂的理念全面修订刑法典进行调研……稳步推进起草、整合以及刑法典大规模修订的工作"
+          ],
+          "strengths": [
+            "提出明确的制度完善路径（如限缩空白罪状、体系化增设轻罪、刑罚结构优化）。",
+            "指明理论更新方向与立法风险控制（警惕象征性立法、理性对待民意）。"
+          ],
+          "weaknesses": [
+            "部分具体罪名增设的实证调研数据支撑略显不足。",
+            "跨部门法衔接的操作性方案仍偏宏观，需进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“法典化修订”的后续立法步骤、规则衔接与理论范式更新，属于对未来制度演进与学术争点的规划，而非对当下结论正当性的评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了清晰可定位的刑法典全面修订的具体制度完善方向与规则衔接路径。",
+          "core_judgment": "该维度存在真实且具体的延展路径，指明了总则增设规定、分则增设轻罪、刑罚轻缓化及部门法衔接等具体修正对象。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。论文指明了增设轻罪（如妨害业务罪）、总则完善（如结果加重犯风险关联）等具体制度修正路径，与核心结论紧密衔接，延展证据扎实。",
+          "evidence_quotes": [
+            "应当考虑在刑法总则中明确规定，加重结果能否归属于基本行为，应当在基本行为与加重结果之间存在直接的风险关联性。",
+            "对于哪些行为需要纳入刑法典，哪些需要留在治安管理处罚法里，不能不认真加以思考。"
+          ],
+          "strengths": [
+            "延展路径具体可定位，提出了增设妨害业务罪、见危不救罪等明确修正对象。",
+            "指出了刑法与治安管理处罚法等部门法的规则衔接问题及实施风险控制。"
+          ],
+          "weaknesses": [
+            "部分延展方向（如削减死刑罪名边界）的精细度仍有限，需后续深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文探讨的“未来刑法典全面修订的具体制度设计”属于未来立法延展问题，而非当下司法解释可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.04259133338928,
+        "glm-5.1": 55.37552809715271
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 6.7,
+    "max_std": 30.4,
+    "weighted_total": 76.1,
+    "final_score": 73.79,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 1.63,
+    "worst_dimension": "problem_originality",
+    "worst_std": 30.4
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "我国现行刑法是一部比较完备、大致能够适应惩罚犯罪需要的刑法典。但是，其是在法典化的立法意识相对薄弱的时代所制定的，因此，需要结合法典化的理念，考虑提升我国现行刑法的法典化水平这一问题。",
+          "在我国废除劳动教养制度之后，有的违法行为被分流到治安管理处罚之中；有的违法行为如果程度严重的，要作为轻罪处理。因此，在基于法典编纂的理念全面修订刑法典过程中，对于哪些行为需要纳入刑法典，哪些需要留在治安管理处罚法里，不能不认真加以思考。",
+          "在中国，如果不规定轻罪，由于法院独立裁判能力弱，抵抗力差，起诉到法院的案件，在没有对应轻罪（如高空抛物罪）时，法院极有可能类推适用重罪（如以危险方法危害公共安全罪）。",
+          "全面修订刑法典应当尊重犯罪防控规律，对症下药，有的放矢……展示民为邦本、本固邦宁的民本理念，追求天下无讼、和为贵的价值目标，贯彻明德慎罚的慎刑思想和罚当其罪的平等观念"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance",
+          "supervision"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "我国地域辽阔，基层司法人员业务能力参差不齐，分散立法导致法条关系复杂，准确“找法”及理解法条竞合关系等，都使得实务中运用起来困难重重。",
+          "在中国，如果不规定轻罪，由于法院独立裁判能力弱，抵抗力差，起诉到法院的案件，在没有对应轻罪（如高空抛物罪）时，法院极有可能类推适用重罪（如以危险方法危害公共安全罪）。",
+          "《德国刑法典》第12条以1年有期徒刑为界对重罪和轻罪进行了区分……很值得我们借鉴。根据法定刑所表现出来的行为危害程度、罪过形式等在我国刑法典中对重罪和轻罪进行区分有诸多好处。",
+          "应当在基本行为与加重结果之间存在直接的风险关联性，或者说基本行为中蕴涵着引起加重结果的内在风险，由此才能够将加重结果评价为基本行为的产物。",
+          "我国历史上的《唐律》是一部统一的刑法典……展示民为邦本、本固邦宁的民本理念，追求天下无讼、和为贵的价值目标，贯彻明德慎罚的慎刑思想和罚当其罪的平等观念，以及保护鳏寡孤独、老幼残疾的恤刑原则。",
+          "与监察法的实施相衔接，对反贪污贿赂的相关犯罪设计进行细致研究，增设一些轻罪，以彰显党中央反腐败的坚强决心。"
+        ],
+        "risks": [
+          "tradition_as_value_claim_without_legal_transformation"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

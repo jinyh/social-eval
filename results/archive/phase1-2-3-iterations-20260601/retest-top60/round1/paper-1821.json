@@ -1,0 +1,1005 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1821-法学研究-2019-3-防卫限度判断中的利益衡量-徐成-北京大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "正文中存在脚注编号分割符（如〔１〕）与少量OCR/分栏混入字符（如ＧＡ、ＳｔＧＢ中的编码），但不影响论点与论证整体理解。",
+          "参考文献列表（References）被完全抽取或缺失，提供了英文摘要与关键词。"
+        ],
+        "evidence_quotes": [
+          "参见高铭暄、马克昌主编：《刑法学》，北京大学出版社、高等教育出版社２０１８年版，第１３５页...",
+          "Ｒｏｘｉｎ，ＳｔｒａｆｒｅｃｈｔＡＴ，Ｂｄ．Ｉ．４．，Ａｕｆｌ．，２００６，Ｃ．Ｈ．Ｂｅｃｋ，§ １５Ｒｄｎ．１..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "判断防卫限度时是否需要进行利益衡量，是两种学说的主要分歧。目前，以基本相适应说为背景的折中说取得了通说地位。",
+          "根据宪法第33条第2款，“中华人民共和国公民在法律面前一律平等”...侵害人与防卫人具有平等的法律地位...运用利益衡量原理，为侵害人和防卫人的权利提供平等保护。",
+          "依照本文的主张...基于宪法和法律对公民权利的规定，寻找利益衡量与防卫限度判断的规范关联。这一论证进路不仅能在逻辑层面避免既有讨论所面临的诸多困境，也有助于构建契合我国本土规范的防卫限度判断标准。",
+          "以法益位阶为核心的二阶层综合判断模式...在孙某平故意伤害案...在邱某某故意伤害案...在邓玉娇故意伤害案...通过个案事实因素判断法益位阶是否发生变化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量风险：文本包含OCR混入字符与不完整脚注引用格式，参考文献实体缺失，但未阻止核心论证识别。",
+        "项目口径：论文以中国正当防卫限度利益衡量为核心法学问题，具有明确的中国实践解释与理论命题转化，完全符合六维评价条件。"
+      ],
+      "evidence_quotes": [
+        "基于宪法第33条第2款平等保护要求，将利益衡量原理导入中国防卫限度判断，形成以法益位阶为核心兼顾个案事实的二阶层综合判断模式，并通过孙某平、邱某某、邓玉娇等中国司法案例进行教义学检验。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在低风险（参考文献缺失、少量 OCR 混入字符），但不影响六维评价。可直接进入 enter_six_dimension_review 并进行后续评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "德语文献及部分标点存在OCR全角字母乱码残留",
+          "期刊页码混入正文（如·８４１·等）",
+          "脚注编号格式存在轻微抽取风险"
+        ],
+        "evidence_quotes": [
+          "Ｒｏｘｉｎ，ＳｔｒａｆｒｅｃｈｔＡＴ，Ｂｄ．Ｉ．４．，Ａｕｆｌ．，２００６，Ｃ．Ｈ．Ｂｅｃｋ，§ １５Ｒｄｎ．１",
+          "·８４１·",
+          "〔１〕参见高铭暄、马克昌主编：《刑法学》..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "判断防卫限度时是否需要进行利益衡量，是两种学说的主要分歧...刑法第20条第2款对防卫过当作了如下规定",
+          "例如，在邓玉娇故意伤害案中...在孙某平故意伤害案中...在邱某某故意伤害案中...",
+          "本文倡导以法益位阶为核心的二阶层综合判断...基于宪法和法律对公民权利的规定，寻找利益衡量与防卫限度判断的规范关联。这一论证进路不仅能在逻辑层面避免既有讨论所面临的诸多困境，也有助于构建契合我国本土规范的防卫限度判断标准。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：德语文献OCR乱码及期刊页码混入需清理",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "本文倡导以法益位阶为核心的二阶层综合判断...有助于构建契合我国本土规范的防卫限度判断标准。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评分条件，但文本存在OCR乱码及页码混入风险，建议在后续评审阶段前进行文本工程清洗，当前状态为有条件通过。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与参考文献存在OCR残留乱码（如〔１〕〔２〕等全角符号与德文文献混排）",
+          "德文文献引用存在字符编码问题（如ｕｎｄ、ü等显示为全角或变体）",
+          "页码标记（如·８４１·）混入正文，系期刊分栏残留"
+        ],
+        "evidence_quotes": [
+          "·８４１·",
+          "Ｒｏｘｉｎ，ＳｔｒａｆｒｅｃｈｔＡＴ，Ｂｄ．Ｉ．４．，Ａｕｆｌ．，２００６，Ｃ．Ｈ．Ｂｅｃｋ，§ １５Ｒｄｎ．１",
+          "〔１〕参见高铭暄、马克昌主编：《刑法学》，北京大学出版社、高等教育出版社２０１８年版，第１３５页"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能",
+          "基于宪法和法律对公民权利的规定，寻找利益衡量与防卫限度判断的规范关联",
+          "刑法第２０条第２款对防卫过当作了如下规定",
+          "宪法第３３条第２款，'中华人民共和国公民在法律面前一律平等'",
+          "在孙某平故意伤害案中……法院认为，……被告人孙某平的行为系正当防卫",
+          "在邓玉娇故意伤害案中……邓玉娇持刀刺击邓贵大，致其左颈、左小臂、右胸、右肩受伤",
+          "这一论证进路不仅能在逻辑层面避免既有讨论所面临的诸多困境，也有助于构建契合我国本土规范的防卫限度判断标准"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：德文脚注OCR残留与页码标记混入，但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，但正文引用完整可追踪"
+      ],
+      "evidence_quotes": [
+        "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能",
+        "基于宪法和法律对公民权利的规定，寻找利益衡量与防卫限度判断的规范关联",
+        "这一论证进路不仅能在逻辑层面避免既有讨论所面临的诸多困境，也有助于构建契合我国本土规范的防卫限度判断标准"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国刑法第20条正当防卫制度为核心，结合中国司法案例（孙某平案、邓玉娇案、邱某某案等），提出'以法益位阶为核心的二阶层综合判断'理论框架，具有明确的中国问题意识和理论转化尝试。文本质量存在轻微OCR风险，但不影响评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入OCR识别的页码分隔符（如“· ８ ４ １ ·”）",
+          "脚注编号格式残留（如“〔１〕”）与正文段落粘连",
+          "德文参考文献部分字符编码异常（如全角/半角混排）"
+        ],
+        "evidence_quotes": [
+          "· ８ ４ １ ·",
+          "〔１〕北京大学法学院博士研究生。",
+          "Ｒｏｘｉｎ，ＳｔｒａｆｒｅｃｈｔＡＴ，Ｂｄ．Ｉ．４．，Ａｕｆｌ．，２００６"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能。",
+          "刑法第２０条第２款对防卫过当作了如下规定：“正当防卫明显超过必要限度造成重大损害的，应当负刑事责任……”",
+          "本文倡导以法益位阶为核心的二阶层综合判断，其基本步骤如下：（１）按照法益类型对需要比较的多种利益进行价值排序；（２）考察低位阶法益的可替代性是否降低，如果可替代性降低，其价值位阶会有提升。",
+          "在邓玉娇故意伤害案中……根据刑法第２０条第３款的规定，针对强奸行为，防卫人可以使用致命手段加以防卫。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在OCR页码与脚注混排，需清洗后进入正式评审",
+        "项目口径：无。四项核心信号均明确触发，具备直接评分条件"
+      ],
+      "evidence_quotes": [
+        "本文并未选择从正当防卫的法理根据出发，直接推导防卫限度条件，而是基于宪法和法律对公民权利的规定，寻找利益衡量与防卫限度判断的规范关联。这一论证进路不仅能在逻辑层面避免既有讨论所面临的诸多困境，也有助于构建契合我国本土规范的防卫限度判断标准。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR排版残留，但不影响核心论点、论证结构与引证定位。论文紧扣中国《刑法》第20条正当防卫限度争议，批判性检视德日法理，提出可复核的“二阶层利益衡量标准”及过失犯处罚根据类推适用方案，具有明确的本土规范解释意图与司法实践指导价值。建议清洗格式后直接进入六维评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文聚焦防卫限度判断中利益衡量的定位问题，有明确争点且涉学界长期分歧，但主要通过引入宪法平等权等规范基础来重构问题框架，创新贡献部分依赖论证体系的重述。",
+          "core_judgment": "问题具有可争辩性且触及理论基础，属于学界持续争论的核心议题，但创新点更多体现为论证路径的重构而非全新问题设定。",
+          "score_rationale": "可争辩性=3/4，枢纽性=2/4，材料新颖性未触发上限，锚定good档，给75分。扣分合计=0分（未触发负面模式）。",
+          "evidence_quotes": [
+            "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能。",
+            "正当防卫的法理根据与防卫限度是不同层面的问题……前者解决定性问题，后者关注定量问题。"
+          ],
+          "strengths": [
+            "问题表述清晰，有明确的理论争点（利益衡量是否必要）",
+            "触及防卫限度判断的核心理论分歧，与既有学说形成对话"
+          ],
+          "weaknesses": [
+            "问题设定部分依赖对既有学说的梳理与批判，原创性主要体现在论证框架的重构",
+            "引入宪法平等权作为新论证基础，但问题本身仍是学界长期讨论的议题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述是否充分、论证是否严密或材料是否支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文聚焦正当防卫限度中利益衡量的定位与功能，重构了定性定量分离的问题设定。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将正当性根据与限度条件剥离，提出二阶层判断模式。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置扣分合计0分。",
+          "evidence_quotes": [
+            "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能。",
+            "正当防卫的法理根据解决的是定性问题，防卫限度则试图回答定量问题。"
+          ],
+          "strengths": [
+            "问题设定重构：将正当性根据与限度条件剥离为定性与定量层面",
+            "争点明确核心：直击学界长期争论的防卫限度判断标准之争"
+          ],
+          "weaknesses": [
+            "二阶层判断模式在极端紧急防卫情境下的适用性仍存疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及案例支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕防卫限度判断中利益衡量的理论定位与规范功能展开，提出正当防卫法理根据与防卫限度属不同层面问题，并构建以法益位阶为核心的二阶层综合判断模式。",
+          "core_judgment": "该论文提出了明确且可争辩的法学问题，涉及刑法核心制度与长期理论分歧，具有显著的枢纽性与创新推进。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。论文明确设问'如何看待利益衡量在防卫限度判断中的理论定位与规范功能'，涉及法学规范解释与制度设计；核心争点为基本相适应说与必需说、整体解决方案与分层面判断的对立，属学界长期争论；结论影响正当防卫制度、裁判标准及过失犯理论多个领域。",
+          "evidence_quotes": [
+            "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能",
+            "正当防卫的法理根据与防卫限度恰恰无法在同一问题层面共存"
+          ],
+          "strengths": [
+            "问题聚焦明确，直接回应学界长期争论的核心争点",
+            "理论建构具有层次性，提出二阶层判断模式推进制度设计"
+          ],
+          "weaknesses": [
+            "部分案例运用可更充分说明理论框架的适用边界",
+            "对'原则—例外'模式的批判可更深入展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身的可争辩性与枢纽性，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦防卫限度利益衡量争议，切割定性法理与定量限度，提出二阶综合判断模型。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，属刑法教义学核心争点，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "判断防卫限度时是否需要进行利益衡量，是两种学说的主要分歧。",
+            "正当防卫的法理根据与防卫限度恰恰无法在同一问题层面共存。前者解决定性问题，后者关注定量问题。"
+          ],
+          "strengths": [
+            "精准切割法理根据与限度判断的定性/定量层级，破解整体推导困境。",
+            "构建以法益位阶为核心的二阶衡量模型，兼顾规范可控性与个案灵活性。"
+          ],
+          "weaknesses": [
+            "宪法平等权向刑法教义学转化的具体论证链条略显跳跃。",
+            "二阶模型中“位阶性理由”的个案识别标准仍需进一步类型化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.21430444717407,
+        "glm-5.1": 57.79266619682312,
+        "kimi-k2.6": 10.964731216430664,
+        "qwen3.6-plus": 57.29902911186218
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 90,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 88
+      },
+      "mean": 84.5,
+      "std": 6.7,
+      "strictest": 75,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文清晰呈现了防卫限度判断标准的核心争点结构（基本相适应说/折中说 vs 必需说），并系统梳理了法确证原理与个人权利保护原理（含权利叠加说、权利内容说）等多个法学流派的理论对立，研究地图三要素完备。",
+          "core_judgment": "本文研究地图清晰、争点结构突出且法学流派识别充分，现状洞察度良好，但未以集中文献综述形式呈现到达点，略有分散。",
+          "score_rationale": "三要素得分=4/6（到达点1，未竟点2，本文切入点1），争点结构=2/2，法学流派=4个（基本相适应说/折中说、必需说、法确证原理、个人权利保护原理），锚定good(75-84)档，因三要素略弱于满分，给82分。",
+          "evidence_quotes": [
+            "防卫限度判断标准的学说主要有两种：基本相适应说和必需说……以基本相适应说为背景的折中说取得了通说地位。",
+            "正当防卫的法理根据源自个人层面的‘保护原则’和超个人层面的‘法确证原则’。"
+          ],
+          "strengths": [
+            "争点结构突出，清晰呈现了基本相适应说/折中说与必需说的分歧。",
+            "法学流派识别充分，覆盖了法确证原理、个人权利保护原理及其内部子学说。"
+          ],
+          "weaknesses": [
+            "到达点（既有研究已解决什么）的提炼稍显模糊，未集中概括既有研究的共识。",
+            "本文切入点与未竟点的对应关系可更明确，以强化研究地图的闭环。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文对学说分歧的梳理属于文献定位与争点呈现，非问题创新性评价；评分仅基于文内证据判断研究地图的完整性与深度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准绘制了防卫限度判断的学术地图，多争点、多流派对立结构清晰。",
+          "core_judgment": "现状洞察度极高，完整呈现了学界在法理根据与限度判断上的多重分歧与误区。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有关防卫限度判断标准的学说主要有两种：基本相适应说和必需说...折中说取得了通说地位。",
+            "试图借助正当防卫的法理根据统一界定所有成立条件，难免有忽视单个条件之特殊性的危险。"
+          ],
+          "strengths": [
+            "精准识别法理根据内部的细分对立（法确证/个人保护，权利叠加/权利内容）。",
+            "明确指出既有“整体解决方案”和“阶层性利益衡量理论”的误区。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非论证逻辑或问题新颖性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了清晰的防卫限度研究地图，呈现基本相适应说与必需说之争，并系统批判整体解决方案。",
+          "core_judgment": "研究地图三要素基本完整，争点结构清晰，但法学流派识别以学说立场为主，未充分呈现学派归属。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+本文切入点1），争点结构=2/2，法学流派=2个（基本相适应说/折中说 vs 必需说，以及支持/反对利益衡量之对立），锚定good档，给78分。",
+          "evidence_quotes": [
+            "有关防卫限度判断标准的学说主要有两种：基本相适应说和必需说",
+            "在基本相适应说遭到批判，利益衡量逐渐虚化的背景下，本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能"
+          ],
+          "strengths": [
+            "清晰呈现基本相适应说与必需说的核心分歧及利益衡量争议",
+            "系统批判'整体解决方案'的研究进路，构建独立分析框架"
+          ],
+          "weaknesses": [
+            "本文切入点与未竟点的对应关系不够明确，未充分说明既有研究的具体缺口",
+            "法学流派以学说立场呈现，未明确标注学派归属或学术脉络"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 3,
+              "evidence": "三要素得分5/6，但切入点与未竟点对应关系较弱，且流派以学说立场而非学派呈现"
+            }
+          ],
+          "boundary_note": "本维度评价文献定位的完整性与争点结构，不涉及问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准锚定利益衡量之争，清晰呈现多派学说对立与本文切入点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，三要素与争点结构均达满分标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "总体来看，有关防卫限度判断标准的学说主要有两种：基本相适应说和必需说。",
+            "在基本相适应说遭到批判，利益衡量逐渐虚化的背景下，本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能。"
+          ],
+          "strengths": [
+            "精准提炼基本相适应说与必需说的核心分歧，清晰勾勒学界争论脉络。",
+            "采用分散式文献定位，将既有学说批判与本文切入点紧密咬合。"
+          ],
+          "weaknesses": [
+            "对德国刑法理论的引介偏重结论转述，缺乏对原始文献争点的深度对话。",
+            "部分批判性论述未充分展开对立学者的具体回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及防卫限度理论本身的创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.48624897003174,
+        "glm-5.1": 54.999594926834106,
+        "kimi-k2.6": 12.745044231414795,
+        "qwen3.6-plus": 88.18695712089539
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85,
+      "std": 6.0,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文建构了清晰可用的防卫限度判断分析框架，并完成了从理论到裁判规则的法学转化。",
+          "core_judgment": "分析框架建构成立：以“必要性+利益衡量”双重判断标准为骨架，以“法益位阶二阶综合判断”为血肉，提供了可重复适用的裁判步骤。",
+          "score_rationale": "框架可操作性得分=4/4（概念界定清晰、分类标准明确、分析步骤可循、后文实际调用），法学转化度得分=3/4（转化为裁判推理步骤、提供操作指引、无独立制度设计方案但给出法律适用流程），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "本文倡导以法益位阶为核心的二阶层综合判断，其基本步骤如下：（１）按照法益类型对需要比较的多种利益进行价值排序；（２）考察低位阶法益的可替代性是否降低。",
+            "判断防卫行为是否过当，首先需要考察防卫行为是否属于能够制止不法侵害的最轻缓的应对措施……即便防卫行为满足了必要性这一条件……应当对防卫人与侵害人的利益状况进行权衡。"
+          ],
+          "strengths": [
+            "独创“必要性+利益衡量”双重步骤，将理论争论转化为可逐步操作的裁判流程。",
+            "利益衡量方法细化为“法益位阶排序—可替代性判断”两阶，并给出法定刑、位阶性理由等具体判断依据。"
+          ],
+          "weaknesses": [
+            "“位阶性理由”的识别标准较为抽象，个案中法官裁量空间仍大，指引的刚性稍显不足。",
+            "仅在法律适用层面提供方案，缺乏具体的制度设计或程序改造建议。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价框架本身是否成立、可用及法学转化程度，不评价其逻辑推演是否严密或结论是否绝对正确。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "构建了“必要性+利益衡量”双重判断框架及二阶层综合衡量模式，法学转化度高。",
+          "core_judgment": "分析框架高度成立且可用，成功将抽象利益衡量转化为具体的裁判规则与操作步骤。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "本文倡导以法益位阶为核心的二阶层综合判断：（1）按法益类型进行价值排序；（2）考察低位阶法益的可替代性是否降低...",
+            "判断防卫行为是否过当，首先考察防卫行为是否属于制止不法侵害的最轻缓应对措施...然后对防卫人与侵害人的利益状况进行权衡"
+          ],
+          "strengths": [
+            "提出了清晰可操作的“必要性+利益衡量”双重判断步骤",
+            "将抽象利益衡量转化为法定刑比对与位阶性理由考察的裁判规则"
+          ],
+          "weaknesses": [
+            "位阶性理由的探寻承认无法全盘概括，部分情形仍需个案裁量"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的成立与可用性，不评价法理根据与限度条件分离论在逻辑上的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了'以法益位阶为核心的二阶层综合判断'框架，具有明确的分析步骤和案例应用。",
+          "core_judgment": "分析框架成立且可用，具备清晰的二阶层判断步骤和法学转化，但核心术语'位阶性理由'界定可更精确。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定较清晰、分类标准明确、分析步骤可循且后文多次调用；但'位阶性理由'未充分展开），法学转化度得分=3/4（跨学科的利益衡量概念转化为法学分析步骤、提供裁判规则层面的双重判断标准、制度设计有具体方案；但过失犯类推部分与框架核心关联可更强），锚定good档，给75分。",
+          "evidence_quotes": [
+            "本文倡导以法益位阶为核心的二阶层综合判断，其基本步骤如下：（1）按照法益类型对需要比较的多种利益进行价值排序；（2）考察低位阶法益的可替代性是否降低",
+            "判断防卫行为是否过当，首先需要考察防卫行为是否属于能够制止不法侵害的最轻缓的应对措施...即便防卫行为满足了必要性这一条件，也不能直接认定不成立防卫过当，而应当对防卫人与侵害人的利益状况进行权衡"
+          ],
+          "strengths": [
+            "二阶层判断步骤清晰可操作，兼具法益位阶的稳定性与个案事实的灵活性",
+            "框架在多个案例中被实际调用，如孙某平案、邱某某案、邓玉娇案等"
+          ],
+          "weaknesses": [
+            "'位阶性理由'作为核心术语，其具体内涵和判断标准可更明确",
+            "过失犯处罚根据的引入与利益衡量框架的衔接可更紧密"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建以法益位阶为核心的二阶利益衡量框架，步骤清晰且具裁判指引价值。",
+          "core_judgment": "分析框架成立且高度可操作，成功将抽象理论转化为可重复适用的司法判断标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文倡导以法益位阶为核心的二阶层综合判断，其基本步骤如下：（1）按法益类型排序；（2）考察低位阶法益可替代性是否降低。",
+            "判断防卫行为是否过当，首先考察是否属最轻缓应对措施；随后进行利益衡量，若保护利益明显小于损害利益则属过当。"
+          ],
+          "strengths": [
+            "提出“二阶综合判断”步骤，将抽象利益衡量转化为可操作的裁判流程",
+            "结合法定刑幅度与个案事实设定法益位阶升降标准，兼具可控性与灵活性"
+          ],
+          "weaknesses": [
+            "低位阶法益位阶提升的具体事实触发条件仍依赖法官自由裁量，边界稍显模糊",
+            "过失犯处罚根据的类推适用与核心利益衡量框架的衔接略显跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评析框架本身的建构质量与转化程度，不涉及论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.91318702697754,
+        "glm-5.1": 47.88285708427429,
+        "kimi-k2.6": 15.96455192565918,
+        "qwen3.6-plus": 56.67940616607666
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 95,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 9.2,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链完整且层层递进，核心结论从法理与规范分析中可辩护地推出，反驳处理充分且具实质深度。",
+          "core_judgment": "论文形成了“定位问题—驳斥法理根据排斥论—从平等权证成利益衡量—构建二阶判断标准”的严密推理链，结论由前文充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4（可清晰复述多步推理，后步依赖前步结论，结论由前文推出，无关键跳步）；反驳处理度得分=3/3（显式反对意见与实质性回应丰富，明确承认理论局限）。锚定 excellent 档，给予88分。",
+          "evidence_quotes": [
+            "正当防卫的法理根据能够解决的问题，仅限于“防卫人能不能发动反击”，而无法决定“反击的强度或范围应当如何”。",
+            "根据宪法第33条第2款...侵害人与防卫人的平等法律地位，构成了适用利益衡量原理的前提条件。"
+          ],
+          "strengths": [
+            "推理链高度结构化：从批判“整体解决方案”入手，逐步证成利益衡量的必要性与具体操作方法，环环相扣。",
+            "反驳处理力度强：对法确证原理、权利叠加说、权利内容说及“法益保护性下降”等观点进行了逐项且实质的回应。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文对“逻辑推导”的评判聚焦于结论是否被前文充分支撑，不涉及该推论在实务中是否具备最优可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，对反对意见回应详实，逻辑严密性极佳。",
+          "core_judgment": "本维度完全成立，论文通过破除既有法理推导谬误、确立平等权规范通路、建构二阶层衡量模式，形成了充分支撑的逻辑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "正当防卫的法理根据解决的是定性问题，防卫限度则试图回答定量问题...前者关注...后者关心...",
+            "只有首先进行利益衡量，才有可能排斥利益衡量...‘例外’的利益衡量，事实上成为普遍适用的‘原则’。"
+          ],
+          "strengths": [
+            "推理链层层递进，从破除法理根据推导到确立平等权基础，再到建构二阶层模式。",
+            "对各类反对意见均给出了实质性的理论回应。"
+          ],
+          "weaknesses": [
+            "从定性定量区分直接推出利益衡量是解决定量问题的方法，过渡稍跳跃。",
+            "二阶层模式中位阶性理由的确定标准较抽象，逻辑闭环稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "定性/定量区分及位阶性理由的抽象性属于框架建构力问题，不影响核心推理链的逻辑自洽与可辩护性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "理论型论文，论证防卫限度判断中利益衡量的正当性，推理链完整，反驳处理充分。",
+          "core_judgment": "论文通过'法理根据与限度条件分层'→'宪法平等权规范通路'→'二阶层利益衡量方法'的递进结构，核心结论可被充分辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。论文呈现三步递进推理：先破'整体解决方案'谬误，再立宪法平等权规范基础，最后建构二阶层衡量模式；每一步依赖前一步结论。对'权利叠加说''权利内容说''原则—例外模式'等反对意见均有显式回应与实质反驳，并承认自身框架'仅具方法论性质'之局限。",
+          "evidence_quotes": [
+            "正当防卫的法理根据与防卫限度恰恰无法在同一问题层面共存。原因在于，正当防卫的法理根据解决的是定性问题，防卫限度则试图回答定量问题",
+            "本文提出的利益衡量的二阶层综合判断模式，也仅仅是一个方法论性质的总体框架"
+          ],
+          "strengths": [
+            "法理根据与限度条件的分层论证清晰，避免整体解决方案误区",
+            "对'原则—例外'模式的反驳具有内在一致性：指出其依赖利益衡量却否认利益衡量的自相矛盾"
+          ],
+          "weaknesses": [
+            "'二阶层综合判断'中第二阶层'法益位阶变化'的具体操作标准仍较抽象，个案适用弹性较大",
+            "引入过失犯处罚根据的论证与主文利益衡量框架的衔接略显突兀"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价二阶层框架本身的可操作性或结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链条完整严密，反驳处理充分，结论可辩护推出。",
+          "core_judgment": "本文推理链完整且层层递进，核心结论由规范分析与理论辩驳充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "正当防卫的法理根据解决的是定性问题，防卫限度则试图回答定量问题。",
+            "判断防卫限度时应当进行利益衡量，是对司法裁判者提出的要求。"
+          ],
+          "strengths": [
+            "三步推理环环相扣，从破到立逻辑连贯。",
+            "对主流反对观点逐一实质回应，论证扎实。"
+          ],
+          "weaknesses": [
+            "宪法平等权向刑法教义学过渡的论证稍显简略。",
+            "二阶衡量中具体事实因素的筛选标准可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的推导严密性，不涉及该利益衡量框架在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 78.24948287010193,
+        "glm-5.1": 70.71448802947998,
+        "kimi-k2.6": 11.518385887145996,
+        "qwen3.6-plus": 49.958168029785156
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.2,
+      "std": 2.9,
+      "strictest": 85,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "本文结论有力回应了防卫限度理论的核心争论，并与中国宪法及刑法规范兼容，学术对话性突出。",
+          "core_judgment": "结论以清晰的理论定位与规范论证进入共同体对话，可被有效回应，且制度兼容性良好。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，属理论论文 excellent 档（A≥3且B≥2）。结论深度回应学界争议并融入中国宪法平等权等规范，故给85分。",
+          "evidence_quotes": [
+            "正当防卫的法理根据与防卫限度是不同层面的问题……前者解决定性问题，后者关注定量问题。",
+            "根据宪法第33条第2款……平等享有各项基本权利……本款规定的平等权，就同样适用于侵害人。"
+          ],
+          "strengths": [
+            "结论精准回应了基本相适应说与必需说的核心分歧，在学界争论中有明确的坐标。",
+            "通过宪法平等权条款阐释利益衡量的规范基础，与中国法秩序高度兼容。"
+          ],
+          "weaknesses": [
+            "制度转化方向（如对司法实践的具体指引）着墨稍少，但作为理论论文已满足最低锚点。",
+            "对“法益位阶二阶层判断”的实践可操作性未充分展开风险说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维只评估结论的可接受性与对话度，不涉及论证逻辑严密性或未来制度转化可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深入回应学界争论，与中国实定法高度兼容，可接受性极强。",
+          "core_judgment": "结论在理论层面清晰回应了必需说与折中说的争论，在制度层面与现行刑法及宪法平等权完全兼容，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文倡导以法益位阶为核心的二阶层综合判断...兼顾可控性与灵活性",
+            "基于宪法和法律对公民权利的规定，寻找利益衡量与防卫限度判断的规范关联"
+          ],
+          "strengths": [
+            "深入回应必需说与折中说争论，定位清晰",
+            "理论框架与中国实定法及判例高度兼容"
+          ],
+          "weaknesses": [
+            "二阶层判断中位阶性理由的确定仍显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "本文在正当防卫限度判断中重构利益衡量理论，提出以法益位阶为核心的二阶层综合判断模式，并主张类推适用过失犯处罚根据。",
+          "core_judgment": "论文结论具有明确的学术对话性，主动回应了既有理论争议，且与中国刑法规范体系高度兼容，制度转化方向清晰。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给82分。论文明确回应基本相适应说与必需说之争，定位自身为修正性理论；反对者可清晰定位其立场并构造反驳；基于中国宪法第33条、刑法第20条展开论证；主动讨论'侵害人法益值得保护性下降'等反对意见。制度层面与现行法秩序兼容，回应了实定法约束，提出了具体的裁判规则与程序衔接方案。",
+          "evidence_quotes": [
+            "本文关注的问题是，如何看待利益衡量在防卫限度判断中的理论定位与规范功能",
+            "根据宪法第33条第2款，'中华人民共和国公民在法律面前一律平等'……利益衡量原理的应用是化解上述困局的关键",
+            "若行为人认识到防卫行为'明显超过必要限度'，其心理状态仍然有可能被进一步区分为以下三种情形"
+          ],
+          "strengths": [
+            "主动回应既有学说，明确学术定位，反对者可清晰反驳",
+            "基于中国宪法与刑法规范建构理论，制度兼容性强"
+          ],
+          "weaknesses": [
+            "对'原则—例外'模式的批判可更充分展开",
+            "二阶层判断模式的操作细节可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性与制度兼容性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应正当防卫限度争议，提出二阶利益衡量模型，高度契合法秩序与本土司法语境。",
+          "core_judgment": "该结论深度嵌入既有学术争论与现行法框架，具备高度的共同体对话能力与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位通说与批判观点之争，主动回应反对意见并承认适用局限；以宪法平等权与刑法第20条为规范基础，提出可操作的教义学判断步骤，完全兼容现行法秩序且指明裁判转化路径。",
+          "evidence_quotes": [
+            "判断防卫限度时是否需要进行利益衡量，是两种学说的主要分歧。",
+            "本文倡导以法益位阶为核心的二阶层综合判断模式，能在总体上均衡保障利益衡量的可控性与灵活性。"
+          ],
+          "strengths": [
+            "精准切入基本相适应说与必需说之争，明确修正整体解决方案。",
+            "以宪法平等权与刑法条文为锚点，构建具可操作性的二阶教义学模型。"
+          ],
+          "weaknesses": [
+            "二阶模型中法益位阶性理由的个案认定仍依赖法官裁量，存在一定不确定性。",
+            "过失犯处罚根据的类推适用在犯罪论体系融贯性上仍需进一步体系化论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论当下能否被学界与制度语境接纳，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.06540608406067,
+        "glm-5.1": 69.62430167198181,
+        "kimi-k2.6": 12.0700364112854,
+        "qwen3.6-plus": 64.18939900398254
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.8,
+      "std": 5.1,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文指明了方法论框架、具体判断步骤及未来可能的争议入口，具备一定的延展路径，但路径展开的精细度和系统性仍较有限。",
+          "core_judgment": "论文存在真实但较为概括的延展方向，例如方法论的细化、法益位阶性理由的确定以及双层次过失构造的体系效应，但未形成具体后续研究问题或系统修正方案。",
+          "score_rationale": "原始分55分，对应bonus=2档。论文指出了二阶层判断模式的框架性延展空间，并提及法益位阶性理由的确定等具体可修正对象，满足延展方向要求，但尚停留在方向性提示，不足以进入60分以上更精细的延展层次。",
+          "evidence_quotes": [
+            "本文提出的利益衡量的二阶层综合判断模式，也仅仅是一个方法论性质的总体框架。利益位阶的探寻与法益位阶的消长，仍然有赖于个案中的具体考量。",
+            "涉及生命法益的利益衡量为范本...其他法益的不可替代性降低，其位阶会因此升高...根据以下三个方面进行判断。"
+          ],
+          "strengths": [
+            "明确承认现有二阶层框架的方法论性质，为后续概念细化（如位阶性理由的确定）提供了可定位的修正入口。",
+            "关于双层次过失构造的类推适用留下了体系衔接的争点，可引发进一步的教义学讨论。"
+          ],
+          "weaknesses": [
+            "延展路径多为方向性提示，未提炼出具体后续研究问题或假说，精细度不足。",
+            "对各法益位阶性理由的确定未给出系统研究纲领，仅以生命法益为例示范，延伸路径较弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是二阶层判断模式未来如何细化、填补抽象标准的问题，属于未来延展方向；而当下提出的判断步骤是否密度足够、能否被接受，属结论可接受性范畴，与本维度无关。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文指明了二阶层判断模式的框架性质及法益位阶性理由的具体化方向，存在真实延展路径。",
+          "core_judgment": "存在真实延展路径，指明了法益位阶性理由的具体化与双层次过失构造的体系融贯性检验方向。",
+          "score_rationale": "原始分75，对应bonus档位3分（>=60）。延展路径明确（法益位阶性理由具体化、过失构造体系融贯），但精细度有限，属good档。",
+          "evidence_quotes": [
+            "本文提出的利益衡量的二阶层综合判断模式，也仅仅是一个方法论性质的总体框架。利益位阶的探寻与法益位阶的消长，仍然有赖于个案中的具体考量。",
+            "由于法益类型的多样性与立法状况的复杂性，确定各种法益的位阶性理由并非易事……利益衡量的影响因素太多，以至于无法用一个简单的公式全盘概括。"
+          ],
+          "strengths": [
+            "明确承认二阶层模式仅为总体框架，指明后续需在个案中探寻法益位阶消长",
+            "提出双层次过失构造，为后续检验犯罪论体系融贯性提供争点"
+          ],
+          "weaknesses": [
+            "对法益位阶性理由的具体化与类型化路径未作进一步展开",
+            "对双层次过失构造的体系定位延展仅停留在初步设想"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "法益位阶性理由的具体化与双层次过失构造的体系融贯性检验属于未来理论深化方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结论部分提出以法益位阶为核心的二阶层综合判断模式，并指出利益位阶的探寻与法益位阶的消长仍有赖于个案具体考量，但未充分展开后续研究方向。",
+          "core_judgment": "存在真实但有限的延展路径，主要体现为方法论框架的开放性承认，但缺乏具体的后续研究问题或理论修正方向的明确指引。",
+          "score_rationale": "原始分55分，对应bonus=2的低档弱加分。论文在文末承认二阶层模式仅为'方法论性质的总体框架'，并指出'利益位阶的探寻与法益位阶的消长，仍然有赖于个案中的具体考量'，这构成可定位的延展方向。但全文未提出具体后续研究问题、下一轮争点或明确的理论深化路径，延展精细度不足，故未达60分以上档位。",
+          "evidence_quotes": [
+            "本文提出的利益衡量的二阶层综合判断模式，也仅仅是一个方法论性质的总体框架。利益位阶的探寻与法益位阶的消长，仍然有赖于个案中的具体考量。",
+            "对于防卫限度判断中的利益衡量，本文倡导以法益位阶为核心的二阶层综合判断……不过，由于法益类型的多样性与立法状况的复杂性，确定各种法益的位阶性理由并非易事。"
+          ],
+          "strengths": [
+            "明确承认理论框架的开放性，为后续研究留出空间",
+            "提出法益位阶性理由的具体化方向，具有方法论延展性"
+          ],
+          "weaknesses": [
+            "未提出具体的后续研究问题或检验路径",
+            "缺乏对不同意见者可进入争论的明确入口说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是未来研究方向与延展可能性，而非当下结论是否被接受。论文提出的二阶层综合判断模式本身是一种理论建构，其'方法论性质的总体框架'定位属于未来可深化的方向，而非结论可接受性问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文承认所提判断模式仅为方法论框架，为后续教义学细化与个案检验指明了理论深化方向。",
+          "core_judgment": "存在真实延展路径，主要体现为对理论框架适用边界的承认及后续个案考量的预留。",
+          "score_rationale": "原始分65，对应bonus=3。论文明确承认二阶模式仅为方法论框架，指出位阶理由的探寻需依赖个案考量，为后续教义学细化提供了清晰方向，但未展开具体检验方案。",
+          "evidence_quotes": [
+            "本文提出的利益衡量的二阶层综合判断模式，也仅仅是一个方法论性质的总体框架。",
+            "利益位阶的探寻与法益位阶的消长，仍然有赖于个案中的具体考量。"
+          ],
+          "strengths": [
+            "明确界定理论框架的方法论属性与适用边界",
+            "为后续教义学细化与案例检验预留清晰接口"
+          ],
+          "weaknesses": [
+            "未列举需优先展开检验的具体法益类型",
+            "缺乏对反对意见后续反驳路径的明确指引"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦该理论框架在后续教义学中如何细化位阶理由及接受检验，属未来研究走向，非当下结论可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 60.897133111953735,
+        "glm-5.1": 49.56555700302124,
+        "kimi-k2.6": 12.587733030319214,
+        "qwen3.6-plus": 64.52671790122986
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 75,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 65
+      },
+      "mean": 62.5,
+      "std": 9.6,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 88.75,
+      "weighted_total": 84.8
+    },
+    "aggregation_strictest": {
+      "final_score": 80.06,
+      "weighted_total": 77.3
+    },
+    "avg_std": 6.6,
+    "max_std": 9.6,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 8.7,
+    "composite_score": -4.93,
+    "worst_dimension": "forward_extension",
+    "worst_std": 9.6
+  }
+}

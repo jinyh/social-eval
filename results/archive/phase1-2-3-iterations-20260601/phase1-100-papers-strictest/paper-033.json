@@ -1,0 +1,1131 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/党内法规的百年演进与治理之道.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "论文为党史梳理与官方政策文件复述，缺乏可争辩的法学问题",
+          "将党内法规建设作为历史成就叙述，未提出任何法律规范冲突、制度争议或理论解释难题",
+          "完全未形成中国法学概念、判断标准、解释路径或可复核的规范命题"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "论文属于官方文件汇编与历史叙事，非学术法学论文"
+      ],
+      "evidence_quotes": [
+        "中共中央办公厅法规局：《中国共产党党内法规体系》",
+        "党内法规从无到有、从少到多、连点成线、连面成体，经过百年努力终于形成一个比较完善的党内法规体系。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "缺乏可争辩法学问题：全文为党史与政策复述，未提出任何可争辩的法律规范、制度或理论问题。",
+        "无中国实践解释尝试：将党内法规建设作为成绩叙述，未解释中国制度实践中的真实难题或张力。",
+        "无理论转化或可复核命题：未形成任何法学概念、判断标准、解释路径或规范命题。"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "本文为历史叙述与政策宣传性质，不属于“中国自主知识体系研究”法学论文，建议退回或要求作者提供有法学问题意识的论证版本。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如数字6、7、8等独立成段）",
+          "大量长脚注内容直接嵌入正文段落中，未作明显分隔标记（如脚注6、15、18、19、24、25、27、33等）",
+          "参考文献列表抽取失败（文末显示“参考文献列表：（无）”，但正文及脚注中存在大量引用）"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2021 年第5 期\n6",
+          "(6) 毛泽东在这次会议上重申了“四个服从”……这是党的历史上首次提出“党内法规”概念。参见《毛泽东选集》……",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "党规之治成为“中国之治”的一个独特治理密码。",
+          "党内法规体系以“1+4”为基本框架……据此一体构建相辅相成的党的组织体系、领导体系、自身建设体系和监督保障体系。",
+          "民主集中制属于“种子制度”，蕴藏着党内法规制度的基因、源代码，包含着认知和创制党内法规制度的核心要素，整个党内法规制度建设都是围绕“在民主基础上的集中和集中指导下的民主相结合”这个核心命题展开，是民主与集中这个基因“双螺旋”的衍生。",
+          "党内法规与国家法律、社会自治制度等相辅相成。党内法规主要规范党的领导和党的建设活动……国家法律主要规范国家机关、公民、法人和其他组织之间的社会关系……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "text_quality_risk: 页码与长脚注混入正文影响阅读体验，但不影响核心论点定位",
+        "text_quality_risk: 参考文献抽取缺失，需后续工程修复"
+      ],
+      "evidence_quotes": [
+        "党规之治成为“中国之治”的一个独特治理密码。",
+        "民主集中制属于“种子制度”……是民主与集中这个基因“双螺旋”的衍生。",
+        "党内法规体系以“1+4”为基本框架"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦党内法规百年演进与党规之治，提出了“1+4”体系框架、民主集中制双螺旋基因、党规之治作为中国之治密码等核心命题，具有明确的中国问题中心性和法学理论转化，完全符合项目口径，建议进入六维评分。文本存在页码与脚注混入正文的工程问题，需在后续阶段进行清洗修复，但不影响当前评审准入。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如(2)(3)等）与正文混排",
+          "期刊页码信息（如'中国法学 2021 年第5 期'）多次混入正文",
+          "参考文献列表缺失，但正文中有大量脚注引用",
+          "部分脚注内容较长，存在OCR分栏残留痕迹"
+        ],
+        "evidence_quotes": [
+          "DOI:10.14111/j.cnki.zgfx.20210909.003",
+          "中国法学\n2021 年第5 期\n6",
+          "(2) 列宁：《论马克思恩格斯及马克思主义》，人民出版社1973 年版，第62 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "如何宣示党的性质宗旨、路线纲领？如何保证党的团结统一、行动一致？这是中国共产党的先驱们在建党时必须回答的问题",
+          "党内法规制度建设是一以贯之的",
+          "一百年来，从发端于党的一大纲领和二大党章到形成一个比较完善的党内法规体系"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "本文属于党史文献综述与政策宣讲，核心任务是对中国共产党党内法规百年演进进行历史梳理和政治总结，而非法学分析",
+          "全文缺乏可争辩的法学问题：未提出任何规范命题、制度判断标准或解释路径，未对党内法规的规范性质、效力位阶、与国家法关系等法学核心问题展开分析",
+          "无中国实践解释尝试：将中国材料作为叙述对象而非分析对象，未解释中国实践中的真实法治难题",
+          "无理论转化或可复核命题：文章属于典型的政策话语复述和制度史描述，未形成任何法学概念、分析框架或规范命题",
+          "文章体裁为政治文献综述与制度史回顾，与法学学术论文的规范分析要求存在本质差异"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：脚注编号与正文混排，期刊页码信息多次插入正文，参考文献列表缺失",
+        "项目口径：本文属于党史文献综述与政策宣讲，缺乏法学问题意识和规范分析，不构成法学论文"
+      ],
+      "evidence_quotes": [
+        "一百年来，从发端于党的一大纲领和二大党章到形成一个比较完善的党内法规体系，无论是建党之时即立规还是与时俱进建章立制，党内法规制度建设是一以贯之的",
+        "党内法规以党的指导思想为理论根基……理性的制度内含着理论的经络",
+        "党内法规制度建设只有进行时，没有完成时……不断开辟依规治党新境界"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "本文属于党史文献综述与政策宣讲，核心任务是对中国共产党党内法规百年演进进行历史梳理和政治总结，而非法学分析",
+        "全文缺乏可争辩的法学问题：未提出任何规范命题、制度判断标准或解释路径，未对党内法规的规范性质、效力位阶、与国家法关系等法学核心问题展开分析",
+        "无中国实践解释尝试：将中国材料作为叙述对象而非分析对象，未解释中国实践中的真实法治难题",
+        "无理论转化或可复核命题：文章属于典型的政策话语复述和制度史描述，未形成任何法学概念、分析框架或规范命题",
+        "文章体裁为政治文献综述与制度史回顾，与法学学术论文的规范分析要求存在本质差异"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "本文应被拒绝进入六维评价。该文虽发表于《中国法学》期刊且主题涉及'党内法规'，但其性质为党史文献综述与政策宣讲文本，属于对中国共产党党内法规制度百年历史的政治性回顾与总结，而非法学学术分析。文章未提出可争辩的法学问题，未形成规范命题或分析框架，未对中国法治实践中的真实难题进行解释，不符合'中国自主知识体系研究'六维评价对法学论文的基本要求。建议直接排除。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "党规之治成为“中国之治”的一个独特治理密码。",
+          "党内法规与国家法律、社会自治制度等相辅相成……凡是涉及创设党组织职权职责、党员义务权利、党的纪律处分和组织处理的，只能由党内法规作出规定。",
+          "每个时期的党内法规制度建设，都是立足那个时代政治经济社会条件，努力解决那个时代社会主要矛盾，引领和保障那个时代政治大局和党的中心工作",
+          "党内法规体系以“1+4”为基本框架……在宏观层面呈现为党的组织法规、党的领导法规、党的自身建设法规、党的监督保障法规等4 大板块"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "党规之治成为“中国之治”的一个独特治理密码。",
+        "党内法规体系以“1+4”为基本框架……在宏观层面呈现为党的组织法规、党的领导法规、党的自身建设法规、党的监督保障法规等4 大板块"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文聚焦中国党内法规制度的百年演进、体系建构与治理逻辑，具有明确的中国问题意识与规范/制度分析框架。文本结构完整、论证清晰，符合六维评价准入标准，建议直接进入正式评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "本文是以百年演进梳理与治理功能阐释为主题的体系介绍，而非以可争辩的法学研究问题驱动的学术论文。",
+          "core_judgment": "全文系主题声明与既成立场阐释，未凝练出可争辩的法学研究问题，严重削弱其作为法学论文的问题创新性。",
+          "score_rationale": "负面模式扣分合计45分（检查1扣20分：新概念'党规之治'等未说明理论进步；检查2扣15分：提及分歧未展开；检查3扣30分：全文无问题句仅主题声明）。正式评分85分（可争辩性0/4、枢纽性4/4，按规则上限为50分）-扣分45分=最终40分（不低于30分）。材料新颖性未单独触发上限。",
+          "evidence_quotes": [
+            "如何宣示党的性质宗旨、路线纲领？如何保证党的团结统一、行动一致？这是中国共产党的先驱们在建党时必须回答的问题。",
+            "党内法规的百年演进与治理之道"
+          ],
+          "strengths": [
+            "覆盖历史纵深与制度全景",
+            "触及民主集中制等基础原理"
+          ],
+          "weaknesses": [
+            "无焦点性法学疑问或对立立场辨析",
+            "多为官方表述的系统归纳而非理论争辩"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，触发最高50分上限。论文无明确法学问题句，仅为制度演进与治理功能的宏观阐释。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未见'XX是否YY'或'如何ZZ'等聚焦性法学问句，以'百年演进与治理之道'为主题声明，无学者观点交锋。"
+            }
+          ],
+          "boundary_note": "只评问题本身是否法学可争辩且重要，不评文献综述、论证严密性或材料支撑结论。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为党内法规百年历史的宏观介绍与既定立场阐释，缺乏可争辩的法学问题与理论交锋。",
+          "core_judgment": "该文仅为体系介绍与政策阐释，未提出可争辩的法学争点，问题创新性不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性已触发上限，锚定unacceptable档，正式评分40分；前置扣分50分，受最低分限制调整后给30分",
+          "evidence_quotes": [
+            "如何宣示党的性质宗旨、路线纲领？如何保证党的团结统一、行动一致？",
+            "党内法规制度建设只有进行时，没有完成时。"
+          ],
+          "strengths": [
+            "梳理了党内法规百年演进脉络，体系介绍完整"
+          ],
+          "weaknesses": [
+            "无可争辩的法学问题，仅为修辞式主题声明",
+            "全文无学者观点交锋，纯政策与历史阐释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无法学争点，开篇仅为修辞式主题声明"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料新颖但无实质研究推进 → 最高 70 分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "依赖百年历史材料梳理与体系归纳，无研究问题推进"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "主题陈述性文章，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文为党内法规百年演进的历史梳理与体系介绍，未提出任何可争辩的法学问题，不符合法学研究问题的基本标准。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发上限，锚定unacceptable档，给30分。负面模式扣分：检查2扣20分（无学者观点交锋），检查3扣30分（无问题句，仅主题声明），合计扣50分，但受最低30分限制。",
+          "evidence_quotes": [
+            "如何宣示党的性质宗旨、路线纲领？如何保证党的团结统一、行动一致？这是中国共产党的先驱们在建党时必须回答的问题。",
+            "党内法规制度建设是一个复杂系统工程，唯有通盘考虑、一体布局才会形成有机统一的党内法规体系。"
+          ],
+          "strengths": [
+            "主题重大，涉及党内法规体系宏观建构。"
+          ],
+          "weaknesses": [
+            "全文为历史梳理与体系介绍，无任何学者观点交锋。",
+            "未提出任何可争辩的法学问题句，仅为主题声明。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY''如何ZZ'等问题句，仅陈述'党内法规百年演进'主题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为党内法规百年演进的历史与体系梳理，缺乏可争辩的法学问题与学术交锋。",
+          "core_judgment": "该维度不成立，因全文属既定立场阐释与宏观介绍，未提出可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限，锚定unacceptable档。前置检查扣50分（宏观介绍扣20+主题声明扣30），按规则保底得30分。",
+          "evidence_quotes": [
+            "开篇设问仅为修辞引导，未转化为可争辩的法学问题句",
+            "全文聚焦历史脉络梳理与体系归纳，缺乏学者观点交锋"
+          ],
+          "strengths": [
+            "系统梳理百年党内法规演进脉络，史料详实",
+            "准确界定党内法规与国家法律的衔接与分工"
+          ],
+          "weaknesses": [
+            "全文无可争辩的法学问题句，仅为主题声明",
+            "未呈现学界对立观点交锋，属单向体系介绍"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文属历史与体系归纳，无可争辩的法学争点"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 1038.9453778266907,
+        "glm-5.1": 1069.3544900417328,
+        "kimi-k2.6": 13.9479238986969,
+        "qwen3.6-plus": 1084.7129249572754
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 32.5,
+      "std": 5.0,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文正文及参考文献列表中未提供任何既有学术研究的梳理与定位，研究地图完全缺失。",
+          "core_judgment": "本维度不成立：论文未呈现任何到达点、未竟点或本文切入点，也未识别出任何法学流派与争点结构。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "论文未引述或评价任何既有学术研究成果，缺少到达点、未竟点与本文切入点，研究地图完全缺失。",
+            "全文未将论述放入学界争论脉络，未识别出任何法学流派或对立观点，争点结构为0。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分为0，无法提取任何到达点、未竟点或本文切入点，研究地图完全缺失。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文及参考文献列表均未出现‘已有研究表明’‘学界争论’‘本文拟解决’等标识性表述，也未引述任何学术文献。"
+            }
+          ],
+          "boundary_note": "评分仅针对文献梳理与研究地图构建，不评价论文所探讨的党内法规演进这一主题本身的价值或创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图，未呈现学界争点与流派，仅为历史叙事与政策解读。",
+          "core_judgment": "本维不成立，论文无学术文献定位，未构建研究地图。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "党内法规制度建设是一以贯之的。",
+            "历经百年日积月累，党内法规已从一个纲领、一部党章发展为一个比较完善的体系。"
+          ],
+          "strengths": [
+            "历史脉络梳理详实，制度演进描述完整。"
+          ],
+          "weaknesses": [
+            "无学术文献梳理，未呈现学界争点与流派对立。",
+            "纯政策叙事，缺乏研究地图三要素。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，研究地图缺失，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无到达点、未竟点、切入点表述，仅罗列领导人讲话与历史文件"
+            }
+          ],
+          "boundary_note": "本维评文献定位而非问题创新性，论文缺文献梳理属本维缺陷。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "该文为党史制度史叙述，缺乏法学学术对话",
+          "core_judgment": "论文未建立研究地图，无到达点、未竟点与切入点的学术脉络梳理，不符合本维度要求",
+          "score_rationale": "三要素得分=0/6（到达点0，未竟点0，本文切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给35分",
+          "evidence_quotes": [
+            "一百年来，从发端于党的一大纲领和二大党章到形成一个比较完善的党内法规体系...党内法规制度建设是一以贯之的",
+            "党内法规制度建设是一个复杂系统工程，唯有通盘考虑、一体布局才会形成有机统一的党内法规体系"
+          ],
+          "strengths": [
+            "历史梳理详尽，史料丰富"
+          ],
+          "weaknesses": [
+            "无学术对话，未呈现任何法学争点或流派分歧",
+            "全文为政策史叙述，未定位任何既有研究成果及其不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未提及任何具体学术研究成果、未指出任何研究缺口、未说明本文问题与学术脉络的关系"
+            }
+          ],
+          "boundary_note": "本文是党内法规制度史叙述，非学术文献综述问题，属于研究地图缺失而非问题新颖性不足",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "本文属历史制度梳理型论述，缺乏学术研究脉络的显性建构与争点提炼。",
+          "core_judgment": "研究地图三要素严重缺失，未呈现学术争点结构或流派对话，本维度不成立。",
+          "score_rationale": "三要素得分=2/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给48分",
+          "evidence_quotes": [
+            "“党内法规在保障新民主主义革命中萌芽扎根……保障‘革命’成为主旋律”",
+            "“从强调发挥党内法规的规范之用发展为突显其战略之要”"
+          ],
+          "strengths": [
+            "历史文献与制度沿革梳理详实，脉络清晰"
+          ],
+          "weaknesses": [
+            "未提炼既有学术研究的具体贡献与理论缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分1-2，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "未明确学术到达点与未竟点，无争点结构与流派识别"
+            }
+          ],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉历史叙事价值或制度创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.216216802597046,
+        "glm-5.1": 1015.798543214798,
+        "kimi-k2.6": 14.241636037826538,
+        "qwen3.6-plus": 1081.4850099086761
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 48
+      },
+      "mean": 32,
+      "std": 22.0,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文以阐释既定政策理论和历史演进为主，未提出或建构可重复适用的原创分析框架。",
+          "core_judgment": "因论文类型属于政策理论梳理，且核心术语未经原创界定、无分析步骤、无后文调用，无法学转化，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、分类标准、分析步骤、后文调用，且触发概念堆砌与宏观介绍负面降档）；法学转化度得分=0/4（无跨学科转化、无裁判或操作指引、无制度方案、无后文调用）。锚定unacceptable档，总分25分。",
+          "evidence_quotes": [
+            "本文主要梳理党内法规制度建设的历史，并从理论、部署、立规三方面归纳百年演进历程。",
+            "论文贡献在于梳理归纳既定立场与政策表述，如“习近平……强调……定位问题……方向问题……根本和核心问题”等系列论述。"
+          ],
+          "strengths": [
+            "对党内法规百年演进的史料梳理和结构化归纳较为系统。"
+          ],
+          "weaknesses": [
+            "全文无原创分析框架，仅按“理论—部署—立规”和“1+4”板块进行主题整理。",
+            "核心术语完全依赖权威表述，无“本文所称XX是指”的界定，也无分析步骤或判断标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "无概念界定、无分类标准、无分析步骤、后文未调用任何框架步骤，触发no_operational_framework上限规则。"
+            }
+          ],
+          "boundary_note": "本维度评的是框架本身的建构力，不评论文的历史梳理贡献或逻辑衔接。该文属于政策理论梳理型，适用v0.7协议上限规则。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，仅归纳阐释既有权威表述与分类，未建构原创分析框架。",
+          "core_judgment": "论文未提出原创分析框架，仅梳理归纳既有政策立场与“1+4”权威分类，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档上限1），法学转化度得分=0/4，锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "党内法规体系以“1+4”为基本框架，这一判断2016年由中共中央…意见首次正式提出",
+            "必须坚持中国共产党坚强领导…必须不断推进党的建设新的伟大工程"
+          ],
+          "strengths": [
+            "对党内法规百年演进的历史梳理较为系统全面"
+          ],
+          "weaknesses": [
+            "仅归纳阐释权威表述与政策框架，无原创分析框架",
+            "充斥口号式呼吁，缺乏法学层面的操作化转化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，核心术语无原创定义且无分析步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创概念界定，仅梳理既有政策分类，无可循分析步骤"
+            }
+          ],
+          "boundary_note": "本维度评价框架是否原创且可用，不评价历史梳理的详实度。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以'理论—部署—立规—沿革—根脉—定型'为叙事线索，无原创分析框架。",
+          "core_judgment": "该文属于典型的政策理论梳理型论文，以阐释既定立场和权威表述为主，未建构可重复适用的原创分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅'1+4'体系有分类功能但无判断步骤），法学转化度得分=1/4（有制度描述但无操作指引），锚定marginal档，给45分。触发政策理论梳理型上限规则。",
+          "evidence_quotes": [
+            "党内法规体系以'1+4'为基本框架，这一判断2016年由中共中央关于加强党内法规制度建设的意见首次正式提出",
+            "制定党内法规必须贯彻落实党的指导思想"
+          ],
+          "strengths": [
+            "历史梳理系统全面，史料丰富详实"
+          ],
+          "weaknesses": [
+            "核心术语均来自权威表述，无原创概念界定",
+            "仅有分类罗列，无可循的分析步骤或判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以'理论指引''决策部署''立规实践''沿革根脉''定型成熟'为结构，核心术语'1+4'框架、'四个服从'等均来自中央文件和权威表述，论文主要贡献为'梳理''归纳''阐释'而非'建构''提出''设计'"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评史料价值或政治意义。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文属政策理论梳理型，以历史归纳与权威表述阐释为主，缺乏原创分析框架与法学操作转化。",
+          "core_judgment": "框架建构力不成立，全文为制度沿革与政策立场的归纳，未提供可重复适用的法学分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=0/4，锚定unacceptable档，给45分。受v0.7政策梳理型规则限制，核心术语无明确定义且无分析步骤，转化度未达操作化标准。",
+          "evidence_quotes": [
+            "党内法规体系以“1+4”为基本框架，这一判断2016年由中共中央意见首次正式提出",
+            "党章作为党的根本大法，其制度构架决定着党内法规体系的框架"
+          ],
+          "strengths": [
+            "历史脉络梳理系统完整，政策依据引用权威详实",
+            "体系分类契合现行党内法规制度实践"
+          ],
+          "weaknesses": [
+            "核心概念缺乏法学层面的操作化定义与边界界定",
+            "全文停留于宏观政策阐释与历史归纳，无裁判规则"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语无定义且无分析步骤，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释既定立场为主，无原创概念界定，核心术语均来自权威表述"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不涉及历史叙事逻辑或政策阐释的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.67276906967163,
+        "glm-5.1": 1073.644121170044,
+        "kimi-k2.6": 13.811697959899902,
+        "qwen3.6-plus": 1045.6235373020172
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 40,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 45
+      },
+      "mean": 38.8,
+      "std": 9.5,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以历史叙述和政策宣示为主，未能形成法学论文所需的逻辑推理链条，核心结论缺少论证支撑。",
+          "core_judgment": "本文属于历史叙事而非论证性法学论文，不存在可识别的推理链，结论无法从文中材料可辩护地推出。",
+          "score_rationale": "推理链完整性得分=1/4（仅勉强满足标准1但无实际逻辑推导），反驳处理度得分=0/3，触发broken_inference_chain上限规则，锚定unacceptable档，给分30分。",
+          "evidence_quotes": [
+            "“党内法规制度建设一直如影随形...党内法规从建党初期的一规多用发展为专规专用”（此段为事实概括，未作为逻辑推理的一环）",
+            "“正是凭借强大的组织体系，党把广大人民群众紧紧团结在自己周围...提供维护政治大局的‘方向盘’”（结论性断言，未从材料中推导得出）"
+          ],
+          "strengths": [
+            "叙事脉络清晰，按时间线和板块展现了党内法规的发展历程和体系框架。"
+          ],
+          "weaknesses": [
+            "通篇为历史叙事和政策宣示，无任何基于论点的逻辑推演",
+            "所有结论均为断言式声明，未回应任何理论或实务层面的反对意见或局限性"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性 ≤ 1，核心结论无法从文中材料推出，触发上限规则。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为历史沿革梳理和制度描述，未提出需要论证的核心论点，更未构建从问题到结论的推理步骤。任何称其为‘治理之道’的结论均无前文逻辑支撑，仅靠直接断言。"
+            }
+          ],
+          "boundary_note": "这不是框架建构力问题，而是全文缺乏论证结构。材料堆砌未能构成任何逻辑推理链，所有结论都是直接抛出而非推导得出。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "历史描述详实但缺乏论证性推理链，反驳处理基本缺失。",
+          "core_judgment": "作为制度史论文，其历史叙事链条完整，但理论建构与制度分析缺乏可辩护的推理链，未处理关键反对意见。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2、4不成立：步骤间多为并列历史陈列而非递进推导，存在从'历史演进'到'治理之道'的显著跳步），反驳处理度得分=0/3（无任何反对意见识别、实质性回应或局限承认），锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "党内法规制度建设是一个复杂系统工程，唯有通盘考虑、一体布局才会形成有机统一的党内法规体系",
+            "党内法规在变革中不断前进、在发展中走向成熟定型，逐步在功能定位、适用范围、体例形态等方面形成比较稳定的认知和实践"
+          ],
+          "strengths": [
+            "历史分期与制度演进脉络清晰，时间线完整",
+            "四大板块分类具有内在逻辑性"
+          ],
+          "weaknesses": [
+            "从'历史演进'到'治理之道'的规范结论缺乏推导，存在关键跳步",
+            "未处理任何反对意见或替代性解释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2但反驳处理度=0，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "反驳处理度0/3，无任何反对意见识别或回应"
+            }
+          ],
+          "boundary_note": "本维度评推理链支撑度，不评框架建构力；论文框架清晰但推理支撑不足。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以百年演进为脉络，构建“理论指引—体系建构—治理功能”推理链，结论由史料与规范充分支撑。",
+          "core_judgment": "本维度成立，推理链条完整且环环相扣，核心结论具备充分的历史与规范依据支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "从发端于党的一大纲领和二大党章到形成一个比较完善的党内法规体系，党内法规制度建设是一以贯之的。",
+            "党内法规与国家法律……经历了从不加区分甚至机械对立的认识转变为寻求相辅相成。"
+          ],
+          "strengths": [
+            "历史演进与制度建构的逻辑递进清晰，形成“沿革-根脉-定型-体系”的严密链条。",
+            "对制度选择的历史动因与规范依据进行了充分论证，无关键推理跳步。"
+          ],
+          "weaknesses": [
+            "反驳处理多依赖历史经验回溯，缺乏对当下学术争议的显式理论交锋。",
+            "部分段落偏向政策阐释与史料铺陈，演绎性推论的密度相对不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估史料与规范能否支撑结论链条，不评价该制度框架在实务中的可操作性或政治可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "glm-5.1": "[glm-5.1] Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For details, see: https://help.aliyun.com/zh/model-studio/error-code#token-limit', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}, 'request_id': '385cd9c9-980d-90df-8127-480023069982'}"
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 1087.2627520561218,
+        "glm-5.1": 1000.0386950969696,
+        "kimi-k2.6": 13.888086080551147,
+        "qwen3.6-plus": 1082.239844083786
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 88
+      },
+      "mean": 58.7,
+      "std": 29.0,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文为官方立场的工作综述与历史叙述，未形成可被学界争辩或回应的独立学术结论，缺乏共同体对话基础。",
+          "core_judgment": "论文几乎未提出需要共同体辩论的学术命题，结论实质上是复述既定政治立场与历史事实，无法进入法学学术对话语境。",
+          "score_rationale": "共同体对话度得分=0/4（未回应已有争论、反对者无法定位、未讨论反对意见），制度可接受度得分=0/4（未涉及具体制度约束或转化方向，但属混合论文且结论与法秩序兼容），因共同体对话度=0触发上限规则，总分不得超50分，综合评定35分。",
+          "evidence_quotes": [
+            "“如何宣示党的性质宗旨、路线纲领？如何保证党的团结统一、行动一致？这是中国共产党的先驱们在建党时必须回答的问题。”",
+            "“党内法规制度建设是一以贯之的……形成以党章为统领的党内法规体系。”"
+          ],
+          "strengths": [
+            "对中国党内法规制度史梳理详尽，可为后续研究提供背景素材。"
+          ],
+          "weaknesses": [
+            "全文复述官方话语与历史文件，未提出需论证的学术命题，亦无与既有理论的对话。",
+            "缺乏对任何反对意见或理论局限的讨论，结论无法被共同体定位和回应。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度得分为0，论文未形成可争辩的学术主张，无法进入法学共同体对话语境。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为官方定调的历史总结与地位宣示，未设定可供反对者反驳的学术命题，也未将结论转化为可争辩的学术主张。"
+            }
+          ],
+          "boundary_note": "本评分仅针对结论的可接受性与对话可能性，不涉及史料准确性与政治立场正确性；该文更接近官方文献而非学术论文。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文复述官方既定立场，缺乏学术争辩与共同体对话。",
+          "core_judgment": "结论仅为政治表态，未转化为可争辩学术主张，无法进入共同体对话。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=2/4，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "结论仅表述为‘科学谋篇布局、建章立制’等宏观方向",
+            "全文未提及任何反对意见或学术争论"
+          ],
+          "strengths": [
+            "结论与中国现行法秩序和制度语境高度兼容"
+          ],
+          "weaknesses": [
+            "结论仅为官方立场复述，缺乏可争辩的学术主张",
+            "未回应任何反对意见或自身局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "论文只是复述既定立场、没有把结论转化为可争辩的学术主张，也没有回应反对意见，总分通常不得超过50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分仅重申‘坚持围绕中心、服务大局’等既定立场，未提出可争辩主张或回应反对意见"
+            }
+          ],
+          "boundary_note": "本维度评价结论能否被共同体和制度语境接受回应，不评论证逻辑或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "党史文献综述，非学术论证，缺乏共同体对话与制度回应。",
+          "core_judgment": "该文为党内法规百年演进的历史梳理与政策阐释，非学术法学论文，结论不具备可争辩性学术主张。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4。锚定unacceptable档，给35分。该文未回应法学共同体任何争论，无反对意见讨论，无理论创新或修正主张；虽与现行法秩序兼容且提及中国制度语境，但本质是政策文件式历史叙述，无法进入学术共同体对话。",
+          "evidence_quotes": [
+            "党内法规制度建设是一个复杂系统工程，唯有通盘考虑、一体布局才会形成有机统一的党内法规体系",
+            "以史为鉴、开创未来，要求站在新的历史起点上的新时代党内法规制度建设，必须主动适应全面建设社会主义现代化国家"
+          ],
+          "strengths": [
+            "全面梳理党内法规百年历史，资料详实",
+            "与现行中国法治话语高度一致"
+          ],
+          "weaknesses": [
+            "无学术问题意识，未与法学界既有研究对话",
+            "结论为复述既定政策立场，非可争辩学术主张"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无学术争论回应，无理论主张提出，无反对意见讨论，属政策阐释而非学术论证"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评资料价值或政治意义。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "结论高度契合中国制度语境，但缺乏学术争论回应与可争辩主张，对话度不足。",
+          "core_judgment": "该维度不成立，结论停留于宏观立场宣示，未转化为可被学界定位与回应的学术命题。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "党内法规制度建设只有进行时，没有完成时。",
+            "必须主动适应全面建设社会主义现代化国家需要科学谋篇布局、建章立制"
+          ],
+          "strengths": [
+            "深度契合中国党政体制，制度兼容性极强",
+            "系统梳理演进脉络，指明制度转化方向"
+          ],
+          "weaknesses": [
+            "未明确回应既有学术争论，缺乏可争辩主张",
+            "未讨论论证局限或反对意见，对话性弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.874409914016724,
+        "glm-5.1": 55.15584397315979,
+        "kimi-k2.6": 14.742720127105713,
+        "qwen3.6-plus": 75.7249071598053
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 35,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 37.5,
+      "std": 5.0,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文结尾部分未提供具体、可定位的延展路径，仅以口号式展望收束，未指明下一步研究问题、待修正的理论概念、或实务制度的具体深化方向。",
+          "core_judgment": "不存在有效的真实延展路径，仅有空泛的宏观号召。",
+          "score_rationale": "原始分35分，落入0-39区间，bonus=0。论文结尾仅提及“适应需要科学谋篇布局、坚持守正创新”等宏大叙事，缺乏具体的后续研究问题、理论修正路径或制度实施的风险控制与边界说明，属于典型的 slogan_outlook。",
+          "evidence_quotes": [
+            "党内法规制度建设只有进行时，没有完成时。以史为鉴、开创未来，要求站在新的历史起点上的新时代党内法规制度建设，必须主动适应全面建设社会主义现代化国家...",
+            "坚持围绕中心、服务大局，坚持与时俱进、守正创新，坚持提质增效、高质量发展，不断开辟依规治党新境界，不断提高党的执政能力和领导水平..."
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾仅提供宏伟目标，未提出具体可操作的制度完善方向或学术争议点，无真实延展路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "若只有空泛拔高且没有具体待修正对象、后续研究问题、概念边界或实务路径，则触发 slogan_outlook 并进入低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论段为“科学谋篇布局、建章立制，坚持围绕中心、服务大局……为中国共产党领导中国人民实现中华民族伟大复兴的中国梦提供更加坚强的制度保障”，未提出任何具体的学术或实务延展方向。"
+            }
+          ],
+          "boundary_note": "论文正文的历史梳理和体系建构是既定的描述性及归纳性工作，结尾的展望属于典型的“未来意义”论述，而非针对论文遗留局限、理论深化空间或制度实施边界的未来研究指引。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅作口号式展望与意义拔高，缺乏具体制度完善方向或规则衔接延展路径。",
+          "core_judgment": "不存在真实延展路径，仅有空泛的“科学谋篇布局”“高质量发展”等口号式展望。",
+          "score_rationale": "原始分30，bonus档位为0。结尾仅空泛拔高“科学谋篇布局”“高质量发展”，未指明具体制度完善方向、规则衔接或研究问题，触发低分约束。",
+          "evidence_quotes": [
+            "必须主动适应全面建设社会主义现代化国家……的需要科学谋篇布局、建章立制，坚持围绕中心、服务大局，坚持与时俱进、守正创新，坚持提质增效、高质量发展",
+            "不断开辟依规治党新境界，不断提高党的执政能力和领导水平，为中国共产党领导中国人民实现中华民族伟大复兴的中国梦提供更加坚强的制度保障"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾展望空泛，仅停留在意义拔高层面",
+            "缺乏对党规国法衔接、实施风险等具体后续研究问题的指明"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "必须主动适应……需要科学谋篇布局、建章立制……坚持提质增效、高质量发展"
+            }
+          ],
+          "boundary_note": "未来如何具体衔接党规与国法、控制实施风险属延展问题，本文未触及；当下体系建构完整性属结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以历史综述为主，结尾仅有口号式展望，缺乏具体延展路径。",
+          "core_judgment": "未形成真实可定位的延展路径，仅存在空泛的政治号召式结语。",
+          "score_rationale": "原始分35分，bonus=0。论文最后一段'党内法规制度建设只有进行时，没有完成时'及后续表述属于典型口号式展望，未提出具体后续研究问题、理论修正方向或制度完善路径。虽提及'适应全面建设社会主义现代化国家、实现第二个百年奋斗目标的需要科学谋篇布局'，但无具体机制、概念边界或制度路径说明，落入0-39低分段。",
+          "evidence_quotes": [
+            "党内法规制度建设只有进行时，没有完成时。以史为鉴、开创未来，要求站在新的历史起点上的新时代党内法规制度建设，必须主动适应全面建设社会主义现代化国家、实现第二个百年奋斗目标的需要科学谋篇布局、建章立制",
+            "坚持围绕中心、服务大局，坚持与时俱进、守正创新，坚持提质增效、高质量发展，不断开辟依规治党新境界"
+          ],
+          "strengths": [
+            "正文对百年演进脉络梳理较完整，为后续研究提供史料基础"
+          ],
+          "weaknesses": [
+            "结尾展望完全空泛，无具体研究问题或制度路径",
+            "全文未承认任何研究局限或提出可检验的反驳入口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "最后一段'不断开辟依规治党新境界，不断提高党的执政能力和领导水平'等表述，无具体问题、对象、机制或路径说明"
+            }
+          ],
+          "boundary_note": "本维度仅评估未来延展可能性。论文结尾的政治号召不涉及当下结论是否被接受，故不触及结论可接受性；但其空泛性导致无法形成真实延展路径，属于前瞻延展性本身的缺陷。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "结论段仅含宏观政策号召，缺乏具体制度衔接路径或可检验的后续研究争点。",
+          "core_judgment": "不存在真实可定位的延展路径，仅为口号式展望。",
+          "score_rationale": "原始分35。结论段仅以宏观表述收尾，未提出具体制度完善方向、概念修正路径或可检验的后续争点，属典型口号式展望，对应bonus=0。",
+          "evidence_quotes": [
+            "“党内法规制度建设只有进行时，没有完成时……必须主动适应全面建设社会主义现代化国家……需要科学谋篇布局、建章立制”",
+            "“坚持围绕中心、服务大局，坚持与时俱进、守正创新，坚持提质增效、高质量发展，不断开辟依规治党新境界”"
+          ],
+          "strengths": [
+            "结尾呼应百年演进脉络，点明制度建设需契合国家现代化战略方向。"
+          ],
+          "weaknesses": [
+            "展望停留于政策口号，未指明具体规则衔接、实施风险或可操作的后续研究路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "仅含空泛拔高与口号式展望，无具体待修正对象或机制路径",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾仅提出‘主动适应……需要科学谋篇布局’‘坚持提质增效’等宏观号召，缺乏具体制度路径或研究争点。"
+            }
+          ],
+          "boundary_note": "本维度专评未来制度演进与研究走向，不涉当下结论的学术共识度或论证逻辑严密性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.9088659286499,
+        "glm-5.1": 56.05924105644226,
+        "kimi-k2.6": 16.81997585296631,
+        "qwen3.6-plus": 70.58410382270813
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 35
+      },
+      "mean": 33.8,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 39.66,
+      "weighted_total": 39.1
+    },
+    "aggregation_strictest": {
+      "final_score": 22.06,
+      "weighted_total": 23.8
+    },
+    "avg_std": 12.2,
+    "max_std": 29.0,
+    "high_confidence_pct": 50.0,
+    "dimension_count": 6,
+    "score_gap": 17.6,
+    "composite_score": -7.2,
+    "worst_dimension": "logical_coherence",
+    "worst_std": 29.0
+  }
+}

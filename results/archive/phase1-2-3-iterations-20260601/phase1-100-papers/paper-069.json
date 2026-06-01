@@ -1,0 +1,606 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/互联网平台处罚权的法律规制.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码标记混入正文（如“· 5 5 ·”“· 6 5 ·”）",
+          "脚注编号格式残留（如“〔2 〕”“〔3 〕”）",
+          "部分段落存在PDF提取导致的异常换行与空格"
+        ],
+        "evidence_quotes": [
+          "· 5 5 ·\n互联网平台处罚权的法律规制\n〔2 〕\n〔3 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "平台可以对违法违规用户进行处罚, 这不仅被广泛规定于平台规则之中, 也是大量行政处罚决定书、司法裁判文书所认定的事实。",
+          "平台处罚权既非来自国家授权, 也非源于政府委托, 而是源于用户让渡的权利和国家赋予的法定义务。",
+          "平台处罚属于新型社会规范设定的制裁措施, 也是平台对违反平台规则行为实施的惩戒。",
+          "需要结合平台处罚的特点和规律, 设计新的规制思路……以公私法融合为路径, 以实体与程序并重为理念, 对平台处罚权进行综合规制。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码与脚注编号OCR残留（低风险，不影响核心论证定位）",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "平台处罚权源于用户让渡的权利和国家赋予的法定义务",
+        "平台处罚属于新型社会规范设定的制裁措施",
+        "以公私法融合为路径, 以实体与程序并重为理念, 对平台处罚权进行综合规制"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微PDF提取排版残留，属低风险，核心论点、结构与论证链条完整清晰。论文聚焦中国数字平台治理实践（如“二选一”“仅退款”、司法裁判分歧），提出“新型社会规范制裁”定性及“公私法融合+正当程序/比例原则”规制路径，具备明确的中国问题中心性、可争辩法学命题与理论转化尝试。建议直接进入六维评分阶段。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及栏目名混入正文段落之间",
+          "脚注编号存在空格乱码（如〔2 〕）"
+        ],
+        "evidence_quotes": [
+          "· 5 5 · 互联网平台处罚权的法律规制",
+          "〔2 〕〔3 〕〔4 〕〔5 〕〔6 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "平台处罚权源于用户让渡的权利和国家赋予的法定义务",
+          "平台处罚属于新型社会规范设定的制裁责任",
+          "规制平台处罚权应以公私法融合为路径，以实体与程序并重为理念",
+          "在'阿里巴巴案'中，法院认定，阿里巴巴集团对不执行'二选一'的商家实施处罚"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及栏目名混入正文需清理",
+        "文本工程：脚注编号空格乱码需修复"
+      ],
+      "evidence_quotes": [
+        "平台处罚属于新型社会规范设定的制裁责任",
+        "规制平台处罚权应以公私法融合为路径，以实体与程序并重为理念"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但在后续文本处理中需清理混入的期刊页码/栏目名及修复脚注编号乱码，以确保评审文本的整洁度。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 62
+      },
+      "mean": 75,
+      "std": 18.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "精准提炼平台处罚权正当性与性质之争，构建公私法融合规制框架，问题意识明确且具理论纵深。",
+          "core_judgment": "该维度成立，问题具有高度可争辩性与枢纽性，未触发负面模式与上限规则。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限。前置检查扣分合计0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "平台为何会像行政机关那样拥有处罚权, 平台处罚何以具有正当性, 就成为一个值得探讨的理论问题。",
+            "平台处罚虽在形式上与违约责任极为相似, 实质上却应归为新型社会规范设定的制裁措施。"
+          ],
+          "strengths": [
+            "明确提炼正当性来源与性质之争，理论交锋充分。",
+            "跨越公私法边界，问题辐射行政、民事与程序多领域。"
+          ],
+          "weaknesses": [
+            "部分规制建议偏向制度建构，法教义学推演可进一步深化。",
+            "对平台规则‘新型社会规范’的定性缺乏更精细的效力层级论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "good",
+          "summary": "论文探讨平台处罚权的正当性与规制，枢纽性强但缺乏核心问题句，偏向政策倡导。",
+          "core_judgment": "问题枢纽性高且涉及理论分歧，但核心表述为主题声明与规制倡导，缺乏可争辩的问题句。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档给82分，前置检查扣20分（主题声明非研究问题），最终62分。",
+          "evidence_quotes": [
+            "探寻规制平台处罚权的法治之道，首先需要厘清平台处罚的内涵、正当性和性质。",
+            "平台处罚属于新型社会规范设定的制裁责任，也是平台对违反平台规则行为实施的惩戒。"
+          ],
+          "strengths": [
+            "涉及平台处罚正当性与性质的实质性理论分歧",
+            "问题影响范围广，涉及多部门法与基本法理"
+          ],
+          "weaknesses": [
+            "缺乏统领性的可争辩问题句，核心表述为主题声明",
+            "整体框架偏向'如何规制'的政策倡导而非法学争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.62408924102783,
+        "glm-5.1": 92.78063321113586
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒平台处罚权正当性与性质的学术争点，清晰提炼既有理论局限并确立公私法融合规制的新路径。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，文献定位与本文论证高度咬合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "不论国家授权说还是国家委托说，都无法充分证成和有效解释平台处罚的正当性。",
+            "传统的违约责任无法概括平台处罚的本质……平台处罚属于新型社会规范设定的制裁措施。"
+          ],
+          "strengths": [
+            "精准提炼授权说与违约说等代表性观点并逐一批判",
+            "分散式文献定位与实体程序规制论证无缝衔接"
+          ],
+          "weaknesses": [
+            "对比例原则向私法场景移植的学理争议着墨稍显不足",
+            "部分裁判观点引述未充分展开学界对立评析"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，不涉及规制方案本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派识别充分，现状洞察度高。",
+          "core_judgment": "本维度完全成立，文献定位精准且争点对立鲜明，有效构建了研究地图。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "关于平台处罚权正当性来源，存在国家授权说和委托说两种代表性观点",
+            "目前关于平台处罚的性质，主要有违约责任说、社团罚说等代表性观点"
+          ],
+          "strengths": [
+            "精准提炼正当性来源与性质两大核心争点",
+            "有效识别并批判既有流派的理论局限"
+          ],
+          "weaknesses": [
+            "未竟点与切入点分散融入正文，缺乏集中显性标识"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献争点梳理深度，而非平台处罚规制方案的创新性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.20933198928833,
+        "glm-5.1": 45.87589693069458
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文构建“实体比例控制+程序正当审查”双轨框架，概念清晰、步骤明确且贯穿全文。",
+          "core_judgment": "分析框架高度成立，成功将公法原则转化为平台治理与司法审查的可操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念界定清晰，分类明确，提出实体审查与六步正当程序流程，并在后文反复调用，转化度高。",
+          "evidence_quotes": [
+            "平台处罚指的就是平台对违反平台管理秩序的用户，以减损权益或者增加义务的方式予以惩戒的行为。",
+            "法院可以根据用户权益的性质与类型、处罚措施的种类与强度、平台所要维护的利益类型等，对平台处罚实施不同强度的司法审查。"
+          ],
+          "strengths": [
+            "实体与程序双轨框架逻辑严密，提供明确的审查步骤。",
+            "将公法比例原则与正当程序精准转化为平台自治与司法审查的操作标准。"
+          ],
+          "weaknesses": [
+            "部分程序性建议在商业平台场景下的落地成本论证稍显不足。",
+            "司法审查强度的具体量化分级标准仍可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文构建了清晰且高度操作化的平台处罚权规制框架，法学转化度极高。",
+          "core_judgment": "框架建构力维度完全成立，提供了概念界定、分类标准、实体与程序的完整操作步骤及司法审查指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "平台处罚指的就是平台对违反平台管理秩序的用户，以减损权益或者增加义务的方式予以惩戒的行为",
+            "法院可以根据用户权益的性质与类型、处罚措施的种类与强度等，对平台处罚实施不同强度的司法审查"
+          ],
+          "strengths": [
+            "实体与程序并重的规制框架步骤清晰，比例原则与正当程序转化彻底",
+            "提供了违规等级分类、处罚等级分类及司法审查强度分层等具体操作指引"
+          ],
+          "weaknesses": [
+            "对比例原则在平台私权力语境下的适用边界论述可进一步精细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的成立与可用性，不评价比例原则论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 71.71581101417542,
+        "glm-5.1": 47.71258282661438
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 92
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以“概念—正当性—性质—风险—规制路径”为主线，逻辑链条完整且层层递进。",
+          "core_judgment": "推理链严密，核心结论可由前文规范分析与案例推导充分支撑，反驳与边界处理到位，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。论证从权力定性自然过渡至规制方案，无关键跳步。",
+          "evidence_quotes": [
+            "不论国家授权说还是国家委托说，都无法充分证成和有效解释平台处罚的正当性。",
+            "平台处罚虽在形式上与违约责任极为相似，实质上却应归为新型社会规范设定的制裁措施。"
+          ],
+          "strengths": [
+            "学说批驳与概念界定形成严密前置论证，为规制方案提供坚实逻辑起点。",
+            "实体比例原则与程序正当机制的推导紧密贴合平台双重属性，衔接顺畅。"
+          ],
+          "weaknesses": [
+            "部分理论过渡（如引入公法原则）论证略简，较多依赖既有学说共识。",
+            "对替代性监管工具的局限性分析可进一步结合具体实证数据以增强说服力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑力与可辩护性，不涉及规制框架的实务可操作性评估。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论证链条层层递进，对分歧观点有实质性回应，逻辑严密性极佳。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可辩护推出，本维完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "平台处罚权既非来自国家授权，也非源于政府委托，而是源于用户让渡的权利和国家赋予的法定义务",
+            "平台毕竟不是公共机构……不能像规范行政权那样对平台处罚权施以过多严格限制"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，从内涵到规制方案推导连贯",
+            "对授权说、违约责任说等分歧均有实质性反驳论证"
+          ],
+          "weaknesses": [
+            "从私权力定性到公私法融合规制路径的过渡略显急促"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于概念至规制方案的推导连贯性，不评价程序方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 82.19779396057129,
+        "glm-5.1": 39.377779960632324
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 92
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应既有学说，提出公私法融合规制路径，高度契合中国法治语境。",
+          "core_judgment": "结论具备强共同体对话性与制度兼容性，可被学界严肃讨论并具实务转化潜力。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "平台处罚权既非来自国家授权，也非源于政府委托，而是源于用户让渡的权利和国家赋予的法定义务。",
+            "要确保平台处罚的设定和实施具有合理性，必须采取公私法融合治理的路径……设定最低限度的正当程序要求。"
+          ],
+          "strengths": [
+            "精准批判既有学说并确立新定性，学术对话度高",
+            "规制建议涵盖实体比例与程序正当，制度转化路径清晰"
+          ],
+          "weaknesses": [
+            "公私法融合的具体立法层级与部门法衔接稍显宏观",
+            "对极端技术场景下理论适用的局限性未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论，提出新型社会规范制裁说及公私法融合规制路径，与中国法秩序高度兼容。",
+          "core_judgment": "结论可接受性极高，成功进入共同体对话并给出兼容现行法秩序的制度转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "平台处罚属于新型社会规范设定的制裁责任...不同于违约责任和社团罚",
+            "对平台处罚的法律规制应当适度...不能像规范行政权那样施以过多严格限制"
+          ],
+          "strengths": [
+            "精准修正既有学说，提出新型社会规范制裁说",
+            "实体与程序并重，给出具体可操作的正当程序机制"
+          ],
+          "weaknesses": [
+            "对平台自治与政府规制边界的划定仍偏原则化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是结论能否被共同体和制度语境接受回应，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.47651505470276,
+        "glm-5.1": 44.79213905334473
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 72,
+        "glm-5.1": 75
+      },
+      "mean": 73.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出立法干预、正当程序构建与差异化司法审查等明确的制度延展路径。",
+          "core_judgment": "存在真实延展路径，聚焦于规则衔接与司法审查强度的后续深化。",
+          "score_rationale": "原始分72，对应bonus=3。论文明确提出立法先行、正当程序构建及差异化司法审查等制度延展路径，与核心论证紧密衔接，但未细化后续研究问题或实证设计。",
+          "evidence_quotes": [
+            "“平台处罚程序的设置不宜‘一刀切’，而是需要综合考虑平台的类型与级别、处罚所减损的权益”",
+            "“应当及时通过人大立法和政府立法，为平台处罚的设定和实施提供相关规则”"
+          ],
+          "strengths": [
+            "明确指向立法干预与正当程序构建",
+            "提出差异化司法审查与分类处罚的延展路径"
+          ],
+          "weaknesses": [
+            "未明确交代本文理论局限或后续实证检验方向",
+            "延展多停留于制度呼吁，缺乏具体研究问题设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是立法与司法审查规则的后续完善方向，而非当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "提出了平台处罚分类规制与算法解释等具体制度深化方向，但精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了平台处罚程序分类设置及算法处罚规制等制度修正方向。",
+          "score_rationale": "原始分75，属good档(60-79)，bonus=3。文章指明程序设置不宜一刀切需分类分级、算法处罚需解释等制度深化方向，与核心结论衔接，但未展开具体分级模型，精细度有限。",
+          "evidence_quotes": [
+            "平台处罚程序的设置不宜‘一刀切’，而是需要综合考虑平台的类型与级别、处罚所减损的权益...等因素。",
+            "基于人工智能系统作出的平台处罚...难免存在算法歧视...等问题，因而平台应当进行必要的算法解释。"
+          ],
+          "strengths": [
+            "指明了程序设置分类分级与算法解释等具体制度深化方向。",
+            "延展路径与正文公私法融合及比例原则的核心结论紧密衔接。"
+          ],
+          "weaknesses": [
+            "延展路径停留在方向指引，未展开具体的分类分级模型或立法方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "分类分级程序设置及算法处罚规制属于未来制度完善方向，而非当下已证成的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 57.331241846084595,
+        "glm-5.1": 44.815892934799194
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.5,
+    "max_std": 18.4,
+    "weighted_total": 85.7,
+    "final_score": 88.79,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 3.83,
+    "worst_dimension": "problem_originality",
+    "worst_std": 18.4
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "平台处罚权既非来自国家授权, 也非源于政府委托, 而是源于用户让渡的权利和国家赋予的法定义务。",
+          "平台处罚属于新型社会规范设定的制裁责任...需要结合平台处罚的特点和规律, 设计新的规制思路。",
+          "以公私法融合为路径, 以实体与程序并重为理念, 对平台处罚权进行综合规制。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "supervision",
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "探寻规制平台处罚权的法治之道, 首先需要厘清平台处罚的内涵、正当性和性质。",
+          "国家市场监督管理总局在针对阿里巴巴集团、美团等的行政处罚决定书中对平台行为的描述多处使用“处罚”一词",
+          "平台建立“仅退款”机制的初衷是优化服务体验以促消费、倒逼平台内经营者提升商品质量, 结果却引发了平台经济的“内卷式”恶性竞争, 且极易损害商家利益",
+          "平台处罚权既非来自国家授权, 也非源于政府委托, 而是源于用户让渡的权利和国家赋予的法定义务。",
+          "平台处罚属于新型社会规范设定的制裁责任, 也是平台对违反平台规则行为实施的惩戒。",
+          "比例原则是公法上保障基本权利的“帝王原则”, 基本权利私人间效力的存在, 决定了比例原则不仅能够有效规范公权力, 也可以用于矫正平台与用户间的不对等关系"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 7.5,
+    "signal_scores": [
+      8,
+      7
+    ]
+  }
+}

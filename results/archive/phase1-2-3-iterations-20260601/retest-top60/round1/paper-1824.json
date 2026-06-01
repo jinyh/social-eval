@@ -1,0 +1,999 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1824-法学研究-2025-2-集体商标和证明商标保护体系的重构-王迁-华东政法大学.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [
+          "OCR or layout extraction may have merged footnote markers such as “〔4〕” “〔5〕” “〔6〕” into running text without distinct line‐breaks; footnotes themselves appear spliced into the body before the reference list, but the core argument, structure, and citation intent remain fully traceable."
+        ],
+        "evidence_quotes": [
+          "〔4〕 并非任何在商业活动中使用的标志都是法律意义上的“ 商标” …",
+          "[ 奥] 博登浩森: 《保护工业产权巴黎公约指南( 附英文文本) 》, 汤宗舜、段瑞林译…"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "由于商标法及其配套法规、规章均没有规定集体商标、证明商标的注册不需要显著性, 显著性的要求被认为当然适用于集体商标、证明商标。",
+          "商标法第3条第2、3款对集体商标和证明商标的定义明确显示其功能并非区分经营者，而是身份表明与特征证明。",
+          "现有理论和司法实践形成了“显著性含义扩大说”“获得显著性说”“标识本身显著性说”，作者逐一驳斥，并借助潼关肉夹馍、舟山带鱼等案例揭示注册要求与侵权认定的脱节。",
+          "论文提出在商标法中设立“特区”，将集体商标、证明商标的注册与显著性脱钩，并以“身份混淆”或“特征误认”重构侵权标准，形成可复核的规范命题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注和文献编号在OCR抽取中混入正文，应确认最终评测版本是否已做分栏/脚注修复，以免影响精确引用",
+        "参考文献列表未抽取，需人工补充或确认原刊原文完整性"
+      ],
+      "evidence_quotes": [
+        "商标法第8条和第9条对显著性的要求是否应一体适用于集体商标、证明商标，构成可争辩的中国法学问题。",
+        "作者以潼关肉夹馍、舟山带鱼、五常大米等中国实践案例，展示注册与侵权认定脱节的真实难题。",
+        "提出商标法设立“特区”，将注册条件改为“表明成员身份”或“证明商品/服务特征”，是与显著性脱钩的可复核制度命题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR/脚注混入风险，但核心论点清晰、结构完整、论证充分，足以进入六维评分。建议在评分前补充参考文献列表。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR页码残留混入正文段落（如'· 2 3 1 ·'）",
+          "脚注编号格式异常（如'〔4 〕'）",
+          "脚注内容与正文段落发生混排（如'在2023 年通过该“ 管理规定”之前...'明显为脚注2、3的内容却混入正文）"
+        ],
+        "evidence_quotes": [
+          "· 2 3 1 ·",
+          "〔4 〕",
+          "在2023 年通过该“ 管理规定”之前, 相关规范依据主要是原国家工商行政管理总局制定的《集体商标、证明商标注册和管理办法》。〔2 〕〔3 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国商标法第3条、第8条、第9条、第11条等规定；'潼关肉夹馍'、'舟山带鱼'、'五常大米'等中国司法实践案例",
+          "集体商标、证明商标是否应当具备显著性？侵权认定是否应以来源混淆为标准？",
+          "解释'潼关肉夹馍'维权乱象的根源在于违反集体商标注册条件的不当注册及显著性要求的错位",
+          "提出集体商标'身份表明功能'与证明商标'特征证明功能'的理论区分，主张在商标法中设立'特区'，将注册条件与显著性脱钩、侵权认定与来源混淆脱钩的制度命题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR页码与脚注内容混入正文，需在后续阶段清理以免影响结构分析",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "对集体商标、证明商标保护体系的重构，应体现在商标法要为集体商标、证明商标设立“特区”，单独规定这两种商标独特的注册条件和侵权认定标准，其核心在于将以区分商品或服务经营者为核心的显著性与集体商标、证明商标脱钩"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本存在OCR页码残留及脚注内容混入正文的风险，但不影响核心论点与论证结构的定位，后续评审阶段需注意对混入正文的脚注段落进行剥离清洗。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与正文内容存在混排，部分脚注标记如〔4〕〔5〕等穿插于正文中，但核心论点仍可定位",
+          "参考文献列表缺失（标注为'（无）'），但正文中的引注信息完整，不影响核心论证定位",
+          "存在期刊页码混入正文的情况（如'·2 3 1·法学研究 2025 年第2 期'），属分栏排版残留"
+        ],
+        "evidence_quotes": [
+          "·2 3 1·法学研究 2025 年第2 期",
+          "〔4 〕",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "商标法第8 条规定……第9 条规定……第11 条规定了因'缺乏显著特征'而'不得作为商标注册'的具体情形",
+          "国家知识产权局制定的《商标审查审理指南》规定……",
+          "最高人民法院在一则商标案件中指出……",
+          "我国加入的国际知识产权条约中……《保护工业产权巴黎公约》第7 条之二规定……",
+          "以'潼关肉夹馍'集体商标维权事件为例……其折射的核心问题在于……",
+          "正确的应对之道，是以商标法第3 条为指引……在立法中建立保护集体商标、证明商标的特殊体系"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：参考文献列表缺失，但正文引注完整，不影响评审",
+        "文本工程：期刊页码和分栏标记残留于正文，属OCR/排版问题，核心内容可读"
+      ],
+      "evidence_quotes": [
+        "商标法第3 条第1 款将经核准注册的商标分为'商品商标、服务商标、集体商标和证明商标'……",
+        "以'潼关肉夹馍'集体商标维权事件为例，其折射的核心问题在于……",
+        "正确的应对之道，是以商标法第3 条为指引，在理论上承认集体商标、证明商标有别于普通商标的特殊性……在立法中建立保护集体商标、证明商标的特殊体系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《商标法》中集体商标、证明商标的显著性要件为核心问题，深入分析中国司法实践（如'潼关肉夹馍''舟山带鱼''五常大米'等典型案例）中的制度困境，提出重构中国商标法保护体系的立法建议。具有明确的中国问题中心性、可争辩的法学理论问题、对中国实践的解释尝试，以及系统的理论转化和制度命题。文本质量存在轻微OCR/排版残留，但不影响核心评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "对集体商标、证明商标要求显著性, 与这两种商标的特殊性不相适应, 无论在理论上还是实务中都导致了混乱。",
+          "比较集体商标、证明商标的注册要求与其司法保护实践可以发现, 国家知识产权局在注册集体商标、证明商标时对显著性的要求, 与法院对来源混淆和商标侵权的认定完全脱节",
+          "对集体商标、证明商标保护体系的重构，应体现在商标法要为集体商标、证明商标设立“特区”……核心在于将以区分商品或服务经营者为核心的显著性与集体商标、证明商标脱钩",
+          "以著作权法对邻接权的设立和保护作为参考, 可以清晰地看出在商标法中设立“特区”保护集体商标、证明商标的正当性。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "对集体商标、证明商标保护体系的重构，应体现在商标法要为集体商标、证明商标设立“特区”……核心在于将以区分商品或服务经营者为核心的显著性与集体商标、证明商标脱钩，不以显著性作为其注册条件，也不以来源混淆作为其侵权认定的标准。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本清晰可读，核心论证完整。论文深度聚焦中国《商标法》实施中的集体商标与证明商标保护乱象（如“潼关肉夹馍”案），明确批判现行“显著性大一统”适用逻辑，并提出“显著性脱钩”与“设立特区”的可复核制度命题，完全符合中国自主知识体系研究的项目口径，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以集体/证明商标不应适用显著性为核心争点，系统地质疑了现行商标法基础理论，提出了具有制度重构意义的问题。",
+          "core_judgment": "问题具有明确的可争辩性、涉及商标法基本概念的理论分歧，且问题的解决将引发注册与侵权认定体系的连锁调整，创新性较强。",
+          "score_rationale": "可争辩性=4/4，枢纽性=3/4，材料新颖性未触发上限（新案例仅作为论据支撑既定争点），锚定excellent档，给85分。扣分前置检查：新概念包装旧问题不成立（论文核心是驳斥旧概念，非包装），宏观介绍非深度分析不成立（有明确观点交锋），主题声明非研究问题不成立（有“XX是否YY”的问题句）。",
+          "evidence_quotes": [
+            "显著性的要求被认为当然适用于集体商标、证明商标。……对集体商标、证明商标要求显著性，与这两种商标的特殊性不相适应，无论在理论上还是实务中都导致了混乱。",
+            "解决之道应当是针对集体商标、证明商标的特殊性，对商标法进行整体上的体系重构。"
+          ],
+          "strengths": [
+            "颠覆了学界通说，将集体/证明商标的本质功能与显著性脱钩，提出了原创性极强的争点。",
+            "问题直接指向商标法注册与侵权标准的逻辑错位，具有坚实的实务基础和理论深度。"
+          ],
+          "weaknesses": [
+            "论点的成立过于依赖“来源识别功能”的严格定义，对功能性理解的法学争论回应稍显不足。",
+            "重构方案涉及的具体制度联动问题（如与反法衔接）有待进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身的争辩性与重要性，不评论证是否严密或文献综述是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 95,
+          "band": "excellent",
+          "summary": "挑战显著性作为集体/证明商标注册条件的教义，提出功能脱钩与体系重构。",
+          "core_judgment": "问题成立且极具枢纽性，精准击中商标法核心概念的逻辑矛盾与制度脱节。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "对集体商标、证明商标要求显著性, 与这两种商标的特殊性不相适应, 无论在理论上还是实务中都导致了混乱。",
+            "集体商标、证明商标无需具有显著性的事实, 与商标法将显著性确定为所有商标获得注册的条件, 形成了强烈反差"
+          ],
+          "strengths": [
+            "精准识别注册要求与侵权标准的逻辑断裂。",
+            "提出与显著性脱钩的体系重构方案，解释力强。"
+          ],
+          "weaknesses": [
+            "体系重构的过渡期实务冲突解决稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立及重要，不评论证严密性或文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出集体商标、证明商标应与普通商标脱钩，重构独立保护体系的核心命题。",
+          "core_judgment": "问题具有明确可争辩性，触及商标法基础理论分歧，但核心争点偏向制度重构而非理论原创。",
+          "score_rationale": "可争辩性=3/4，枢纽性=3/4，材料新颖性未触发上限，锚定good档，给72分。论文明确质疑'显著性'概念对集体商标、证明商标的适用性，形成与主流学界的理论交锋；问题涉及商标注册与侵权认定两大制度领域，具有制度连锁效应。但核心命题本质是对商标法体系内部矛盾的揭示与制度修补，理论创新性有限。",
+          "evidence_quotes": [
+            "集体商标、证明商标的功能与普通商标具有本质差异，不在于区分商品或服务的经营者",
+            "对集体商标、证明商标要求显著性，与这两种商标的特殊性不相适应，无论在理论上还是实务中都导致了混乱"
+          ],
+          "strengths": [
+            "问题聚焦商标法基础概念'显著性'的适用范围，争点清晰",
+            "通过比较法与案例实证，揭示注册标准与司法实践的脱节"
+          ],
+          "weaknesses": [
+            "核心命题偏向制度修补，未提出超越商标法框架的理论创新",
+            "对'显著性含义扩大说'等观点的批判多为既有理论的复述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准识别特殊商标适用显著性要件的理论悖论与司法脱节，提出脱钩重构方案。",
+          "core_judgment": "该研究问题具有高度可争辩性与枢纽性，直击商标法基础概念与制度适用的核心矛盾。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，前置检查扣0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "显著性并非集体商标、证明商标的构成要件和注册条件",
+            "应当规定与显著性无关的注册及其维持条件"
+          ],
+          "strengths": [
+            "精准剥离显著性要件与特殊商标的功能错位",
+            "以邻接权类比论证体系重构的正当性"
+          ],
+          "weaknesses": [
+            "脱钩后行政审查细则论证稍显不足",
+            "未充分评估与地理标志专门立法的衔接成本"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估问题本身的争辩价值与枢纽地位，不涉文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.504801034927368,
+        "glm-5.1": 64.19783306121826,
+        "kimi-k2.6": 11.430890083312988,
+        "qwen3.6-plus": 57.08375310897827
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 10.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "本文对既有研究的呈现极为薄弱，未建立可辨识的研究地图，缺失到达点和未竟点。",
+          "core_judgment": "文献梳理维度不成立。论文仅在第一个脚注和正文中零散提及少数观点，既未对既有研究进行系统梳理，也未清晰指出研究缺口。",
+          "score_rationale": "三要素总分=1/6，争点结构=0/2，法学流派=2个，触发no_research_map上限规则，锚定unacceptable档，给52分。",
+          "evidence_quotes": [
+            "冯术杰：'就识别功能而言，地理标志证明商标或集体商标所识别的是位于特定产区的并且产品符合商标使用规则的生产者群体。…符合商标的识别功能原理'。",
+            "本文：'目前学术研究中出现了通过不同的法律解释途径解决上述矛盾的观点，但均与商标法的基本原理不符，无法成立。'"
+          ],
+          "strengths": [
+            "识别出不同理论解释路径（显著性含义扩大说、获得显著性说、标识本身显著性说），覆盖了2个学术流派。"
+          ],
+          "weaknesses": [
+            "到达点与未竟点基本缺失。未提及任何具体学者的具体研究成果或争议，对'学界'的指涉模糊。",
+            "研究地图几乎空白。全文未提供任何既有研究的完整理论脉络或明确的学术争论点，仅将'学界'作为批判背景板。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2时，研究地图严重残缺，分数上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素总分仅1分（到达点0分，未竟点0分，本文切入点1分），无任何具体研究成果和确切学术争论的呈现。"
+            }
+          ],
+          "boundary_note": "本评价仅针对文献梳理和方法论的完备性，而非论文问题的创新性或论证的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准提炼三种对立学说，争点结构清晰，研究地图完整。",
+          "core_judgment": "现状洞察维度完全成立，文献梳理与争点建构表现卓越。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "目前学术研究中出现了通过不同的法律解释途径解决上述矛盾的观点……本文将其称为‘显著性含义扩大说’。",
+            "另一种认为集体商标、证明商标具有显著性的解释路径……本文将其称为‘获得显著性说’。"
+          ],
+          "strengths": [
+            "精准提炼三种对立学说并系统反驳，争点结构极清晰。",
+            "比较法论据与本土实务案例深度融合，未竟点定位准确。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点建构的完整性，而非重构方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，有效识别并批判三种学术解释路径。",
+          "core_judgment": "论文建立了清晰的研究地图，呈现了三条对立的学术解释路径及其缺陷，争点结构完整。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "目前学术研究中出现了通过不同的法律解释途径解决上述矛盾的观点，但均与商标法的基本原理不符，无法成立。",
+            "本文将这类观点称为'显著性含义扩大说'……'获得显著性说'……'标识本身显著性说'。"
+          ],
+          "strengths": [
+            "系统梳理并批判三种对立学说，争点结构完整。",
+            "比较法素材丰富，美、印、欧盟制度形成有效对照。"
+          ],
+          "weaknesses": [
+            "无独立文献综述，到达点分散于批判性论述中。",
+            "未明确提炼各学说学者的具体学术贡献，侧重批判而非学术史梳理。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位与争点结构，不评价问题本身是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准绘制显著性要件理论争点地图，系统梳理并批判三种主流解释路径，脉络清晰。",
+          "core_judgment": "文内证据充分展现作者对既有学术分歧的精准定位与结构化批判能力，研究地图高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "目前学术研究中出现了通过不同的法律解释途径解决上述矛盾的观点，但均与商标法的基本原理不符，无法成立。",
+            "本文将这类观点称为‘显著性含义扩大说’……另一种认为……本文将其称为‘获得显著性说’。"
+          ],
+          "strengths": [
+            "精准提炼学界三种对立解释路径并逐一批驳，争点脉络清晰。",
+            "将理论争议与司法实务脱节现象对照分析，研究地图立体完整。"
+          ],
+          "weaknesses": [
+            "对境外审查指南的学派归属归纳可进一步显性化。",
+            "部分实务判决的引用未完全对应至具体学者流派。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及本文“脱钩重构”方案本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.00683307647705,
+        "glm-5.1": 51.34873390197754,
+        "kimi-k2.6": 76.20582509040833,
+        "qwen3.6-plus": 84.4696729183197
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 90,
+        "kimi-k2.6": 90,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 19.4,
+      "strictest": 52,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了“异质性—概念扭曲—体系重构”的批判性分析框架，但法学转化停留在立法建议层面，未形成可操作的裁判规则或审查流程。",
+          "core_judgment": "框架成立且逻辑清晰，但作为制度型论文，仅提出立法重构方向，缺乏可重复适用的侵权认定步骤或注册审查清单，操作指引不足。",
+          "score_rationale": "框架可操作性得分=3/4（概念清晰、分类明确、有分析步骤、后文实际调用），法学转化度得分=2/4（转化为功能区分逻辑，但未提供裁判规则或审查流程），锚定good档，给72分。",
+          "evidence_quotes": [
+            "显著性并非集体商标、证明商标的构成要件和注册条件……集体商标的功能在于‘身份表明功能’，证明商标的功能在于‘特征证明功能’。",
+            "核心在于将以区分商品或服务经营者为核心的显著性与集体商标、证明商标脱钩，不以显著性作为其注册条件，也不以来源混淆作为其侵权认定的标准。"
+          ],
+          "strengths": [
+            "概念界定清晰，明确区分了普通商标的‘来源识别功能’与集体商标/证明商标的‘身份表明/特征证明功能’。",
+            "类型化划分标准明确，将错误观点分为‘显著性含义扩大说’‘获得显著性说’‘标识本身显著性说’三类逐一驳斥。"
+          ],
+          "weaknesses": [
+            "法学转化不足：提出了‘身份表明功能’和‘特征证明功能’两个核心概念，但未将其转化为可操作的法律适用步骤或裁判规则。",
+            "重构方案停留在制度立法建议层面，缺乏如‘来源混淆认定标准’那样的可重复适用的分析流程或审查清单。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "这是分析框架的建构力与可操作性问题，非逻辑衔接问题。框架提供了清晰的分析维度和重构路径，但未形成可操作的法学工具。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文构建了以功能区分为核心的商标体系重构框架，操作性与法学转化度极高。",
+          "core_judgment": "该维度的分析框架建构力完全成立，提供了清晰的概念界定与可操作的制度重构方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "集体商标……在于表明经营者是某一特定团体……的成员（‘身份表明功能’），证明商标……在于商品或服务的……特定品质已获认证（‘特征证明功能’）",
+            "对集体商标的侵权，需以容易导致相关公众误认经营者具有……成员身份为标准；对证明商标的侵权，需以容易导致相关公众误认……符合……特定特征为标准"
+          ],
+          "strengths": [
+            "概念界定精准，将商标功能清晰区分为来源识别、身份表明与特征证明。",
+            "提供了完整的制度重构方案与具体的侵权裁判规则。"
+          ],
+          "weaknesses": [
+            "无明显框架建构力缺陷。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是框架建构与法学转化，而非逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出'身份表明功能''特征证明功能'双核心概念，但缺乏可操作的判断步骤与类型化标准，制度设计停留在原则性描述。",
+          "core_judgment": "分析框架基本成立但可操作性不足，核心概念有法学转化但未形成步骤化分析工具，后文调用有限。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程、后文调用不足3次）；法学转化度得分=2/4（跨学科概念已完成法学转化、提供侵权认定标准，但缺乏具体裁判规则或制度操作细节）；锚定marginal档(50-59)，给58分。",
+          "evidence_quotes": [
+            "集体商标、证明商标的功能与普通商标具有本质差异，不在于区分商品或服务的经营者（即'来源识别功能'），而分别在于表明经营者是某一特定团体、协会或者其他组织的成员（'身份表明功能'），以及商品或服务的原产地、原料、制造方法、质量或者其他特定品质已获认证（'特征证明功能'）",
+            "应当在有关集体商标、证明商标的专章中，设置与来源混淆无关的侵权认定标准"
+          ],
+          "strengths": [
+            "核心概念'身份表明功能''特征证明功能'界定清晰，实现了从'显著性'到特殊功能的法学转化",
+            "通过著作权法邻接权类比，为制度重构提供了比较法支撑"
+          ],
+          "weaknesses": [
+            "未提供判断'身份表明'与'特征证明'的具体步骤或边界标准",
+            "侵权认定标准仅原则性提出'误认成员身份''误认特定特征'，缺乏可操作化的构成要件"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "'身份表明功能''特征证明功能'作为核心框架术语，后文主要用于描述性阐释，未形成步骤化分析工具，具体案例应用时未按框架步骤展开"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“显著性脱钩”与“侵权标准重构”的双轨分析框架，逻辑严密且具强立法指引性。",
+          "core_judgment": "分析框架完全成立，成功将理论批判转化为可操作的商标法制度重构方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "对集体商标的侵权，需以容易导致相关公众误认经营者具有集体商标昭示的某特定组织的成员身份为标准",
+            "应当在商标法中专设一章……规定与显著性无关的注册及其维持条件"
+          ],
+          "strengths": [
+            "精准界定集体/证明商标功能边界，提出“特区”立法路径",
+            "侵权认定标准与注册条件完全脱钩，提供明确裁判规则"
+          ],
+          "weaknesses": [
+            "对“特区”与普通商标条款的衔接适用规则论述稍显简略",
+            "部分比较法经验（如欧盟）的本土化适配论证可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估框架本身的建构力与转化度，不涉及论证逻辑的严密性审查。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.504696130752563,
+        "glm-5.1": 64.9735381603241,
+        "kimi-k2.6": 15.437043905258179,
+        "qwen3.6-plus": 57.07151389122009
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 95,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.2,
+      "std": 17.5,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文推理链高度完整，主线清晰且环环相扣，对多种反对观点进行了深入、实质性的回应与反驳，结论可从前文充分辩护地推出。",
+          "core_judgment": "论文推理链完整，反驳处理充分，逻辑严密性极高。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、环环相扣、结论充分支撑、无关键跳步）；反驳处理度得分=3/3（识别了三种扩大解释观点并逐一反驳，也隐含承认了自身方案的立法政策选择基础）。锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "第一步指出显著性要求与集体/证明商标功能异质，第二步分析并逐一否定'显著性含义扩大说'等三种调和观点，第三步基于功能异质性推导出应构建与显著性脱钩的特殊保护体系。",
+            "本文明确讨论并反驳了三种反对观点：'显著性含义扩大说'之谬、'获得显著性说'之谬、'标识本身显著性说'之谬，且均有实质性论证，指出其'从根本上扭曲了显著性公认的含义'或'建立在对显著性的不当认识的基础上'。"
+          ],
+          "strengths": [
+            "推理链非常清晰：从商标基本理论出发，指出规范与实践的矛盾，通过驳斥三种调和学说，导出重构保护体系的结论，每一步都依赖前一步的结论。",
+            "反驳处理极为出色：论文主体部分就是围绕三种反对观点展开的立论与驳论，既有显式的观点引述，又有基于功能原理和比较法经验的实质回应，还通过邻接权类比承认了自身方案的政策性基础。"
+          ],
+          "weaknesses": [
+            "论文未充分回应另一种可能的反对意见：若完全放弃显著性要求，如何确保集体/证明商标不沦为通用名称或无法发挥其应有功能。",
+            "结尾的立法方案设计较摘要，从“应当设立特区”到具体条款设计的推理略显跳跃，更多是建议而非严密推导。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文核心结论（应设立特殊保护体系）完全由前文对理论矛盾、实践脱节的系统分析和驳论推出，是逻辑推理的结果。方案的具体设计属于后续工作，不影响主线推理的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过功能界定、理论反驳与实务乱象揭示，严密推导出集体商标与证明商标应与显著性脱钩的重构方案。",
+          "core_judgment": "推理链完整且层层递进，核心结论可由前文可辩护地推出，本维度高度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "集体商标、证明商标的功能……不在于区分商品或服务的经营者……而分别在于表明经营者是某一特定组织的成员……以及商品或服务的特征已获认证",
+            "显著性含义扩大说……导致普通商标和证明商标共用‘显著性’术语，但该术语对两类商标具有完全不同的含义"
+          ],
+          "strengths": [
+            "推理链依赖度强，功能界定为后续反驳与重构奠定坚实前提",
+            "对三种反对学说的反驳论证详实，指出了概念偷换与逻辑错位"
+          ],
+          "weaknesses": [
+            "未明确承认自身脱钩方案的适用局限或潜在风险"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价从功能差异到制度脱钩的逻辑推导，不评价该立法方案的现实可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了完整的'概念辨析→批判现有学说→提出重构方案'推理链，逻辑主线清晰。",
+          "core_judgment": "推理链完整且相互支撑，反驳处理充分，核心结论可被辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4：①主要步骤可复述（显著性概念界定→三种学说批判→司法实践脱节分析→借鉴著作权法邻接权提出重构方案）；②步骤间依赖紧密，删除前序则后续失据；③核心结论'应建立与显著性脱钩的特殊保护体系'由前文充分支撑；④无关键跳步。反驳处理度得分=3/3：①显式反对意见（'显著性含义扩大说''获得显著性说''标识本身显著性说'）；②实质性回应（逐一论证三说之谬）；③承认局限（隐含于'特区'方案的适用范围限定）。锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "本文将这类观点称为'显著性含义扩大说'",
+            "仿效著作权法对邻接权的保护体系，在商标法中为集体商标、证明商标设立'特区'……具有充分的正当性"
+          ],
+          "strengths": [
+            "三种学说批判形成完整反驳链条，层层递进",
+            "著作权法邻接权类比论证精巧，支撑体系重构的正当性"
+          ],
+          "weaknesses": [
+            "对'获得显著性说'的反驳稍简略，可更充分展开",
+            "结语部分'他国经验'断言缺乏具体比较论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评'特区'方案本身的制度可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链条完整严密，反驳处理充分，结论可辩护推出。",
+          "core_judgment": "本维度成立。论文构建了从功能界定到理论批判再到制度重构的严密逻辑链，核心结论获充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证环环相扣，反驳具实质性。",
+          "evidence_quotes": [
+            "显著性要求商标能够区分商品或服务的来源……而证明商标则‘是为不同于普通服务商标的独特目的而专门创设的’。",
+            "仿效著作权法对邻接权的保护体系，在商标法中为集体商标、证明商标设立‘特区’……具有充分的正当性。"
+          ],
+          "strengths": [
+            "功能界定清晰，三步推理链层层递进无跳步。",
+            "系统枚举并实质性反驳三种主流学说，回应有力。"
+          ],
+          "weaknesses": [
+            "对“特区”立法成本与司法过渡期的实务约束着墨较少。",
+            "部分比较法例证的本土适配性论证略简。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦推理链是否支撑结论，非评价立法建议的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.507272958755493,
+        "glm-5.1": 64.7505087852478,
+        "kimi-k2.6": 10.882085800170898,
+        "qwen3.6-plus": 53.86238193511963
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 95,
+        "glm-5.1": 90,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89.8,
+      "std": 5.6,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 87,
+          "band": "excellent",
+          "summary": "结论有力挑战了主流观点，清晰回应了学界争论，并为制度重构提供了具体路径，具有高度共同体对话价值和制度可行性。",
+          "core_judgment": "论文结论成功地进入并推动了学术对话，对现有制度提出了自洽且具建设性的重构方案，可接受度高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定理论论文excellent档，给87分。",
+          "evidence_quotes": [
+            "本文称为“显著性含义扩大说”...用“显著性含义扩大说”解释证明商标之谬...导致术语混乱。",
+            "正确应对之道...在商标法中为集体商标、证明商标设立“特区”...将显著性...脱钩，也不以来源混淆作为侵权认定标准。"
+          ],
+          "strengths": [
+            "明确回应并系统批驳了“显著性含义扩大说”等主流观点，对话性强。",
+            "以“著作权法邻接权”类比，清晰论证了设立“特区”的正当性及可能的制度框架。"
+          ],
+          "weaknesses": [
+            "未主动提及或回应可能支持统一体系、担忧体系复杂化的反对意见。",
+            "重构方案的法律修正路径描述较原则性，对修法难度和潜在阻力讨论不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评估聚焦结论的学术对话与制度兼容性，不评判其最终是否会被立法采纳。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应学界争议并提出体系重构方案，制度兼容度高。",
+          "core_judgment": "结论挑战主流学说但给出了清晰可反驳的重构路径，与现行法秩序逻辑兼容且提出了具体制度转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "结论明确挑战了“显著性含义扩大说”等三种主流学说，并提出脱钩方案",
+            "结语提出“在立法中建立保护集体商标、证明商标的特殊体系，核心是将其注册条件……与显著性脱钩”"
+          ],
+          "strengths": [
+            "精准回应并反驳了学界与实务界的三种主流学说，对话度高",
+            "提出了设立专章、脱钩显著性等具体制度转化方向，制度回应强"
+          ],
+          "weaknesses": [
+            "对脱钩后侵权认定标准的具体适用条件讨论稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论能否被共同体和制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文主张重构集体商标与证明商标保护体系，将其与显著性脱钩，建立特殊保护制度。",
+          "core_judgment": "结论具有明确的学术对话性和制度回应性，但制度转化方向的具体设计深度有限。",
+          "score_rationale": "共同体对话度得分=3/4（回应了显著性要求的学界争论，能被反对者定位，结合中国语境，但未充分讨论反对意见）；制度可接受度得分=3/4（不与现行法秩序根本矛盾，回应了制度约束，指出了制度转化方向，但具体方案深度有限）；锚定good档，给78分。",
+          "evidence_quotes": [
+            "本文将这类观点称为'显著性含义扩大说'",
+            "正确的应对之道，是以商标法第3条为指引，在理论上承认集体商标、证明商标有别于普通商标的特殊性"
+          ],
+          "strengths": [
+            "明确回应了学界关于显著性要求的既有争论，构建了可辩驳的学术主张",
+            "结合中国商标法具体条文和司法实践展开论证，语境适配性强"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见，如'显著性含义扩大说'支持者的可能反驳",
+            "制度转化方案较为原则，专章设计的具体规则细节不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确挑战主流显著性理论，提出构建商标法内“特区”保护体系，理论与制度兼容性极强。",
+          "core_judgment": "结论深度嵌入中国商标法争议语境，理论自洽且具备明确的立法转化路径，高度可接受。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准回应既有学说并系统反驳，与中国现行法秩序逻辑兼容且指明修法方向。",
+          "evidence_quotes": [
+            "本文结论修正了主流‘显著性含义扩大说’，主张集体商标、证明商标应与显著性及来源混淆脱钩。",
+            "建议在商标法中专设‘集体商标、证明商标的注册申请、管理和保护’一章，建立特殊保护体系。"
+          ],
+          "strengths": [
+            "精准定位并系统反驳三种主流学说，学术对话度高。",
+            "提出‘特区’立法模式，理论建构与制度转化路径清晰。"
+          ],
+          "weaknesses": [
+            "对修法可能面临的行政审查成本增加等实务阻力讨论稍显不足。",
+            "未充分展开新侵权认定标准在司法裁判中的具体举证规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被共同体与制度语境接受，非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.54605579376221,
+        "glm-5.1": 49.616554975509644,
+        "kimi-k2.6": 9.341779947280884,
+        "qwen3.6-plus": 70.81021809577942
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 87,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.2,
+      "std": 6.6,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "文章指明了制度重构的整体方向，但延展路径较为概括，操作化细节展开不足。",
+          "core_judgment": "存在真实但相对宏观的制度重构延展方向，与正文核心结论紧密衔接，但具体实施细节和修正路径展开有限。",
+          "score_rationale": "得分45分，属 marginal 段，对应 bonus=2。文章明确提出在商标法内设立“特区”并重构注册与侵权标准，延展路径可定位，但多为宏观描述，缺少具体的条文设计、衔接方案或实施风险控制论证。",
+          "evidence_quotes": [
+            "应对之道……是在立法中建立保护集体商标、证明商标的特殊体系，核心是将其注册条件分别设定为标志能够发挥表明经营者在特定组织中的成员身份和证明商品或服务特定特征的功能……其侵权认定则以破坏这两种商标的上述独特功能为标准。"
+          ],
+          "strengths": [
+            "明确提出在商标法中专设“特区”并重构注册与侵权标准的制度完善方向。",
+            "以“潼关肉夹馍”为例，指明了识别不当注册及功能错位的修正入口。"
+          ],
+          "weaknesses": [
+            "延展路径多为方向性阐述，缺少具体的条文设计、修法操作步骤或衔接方案。",
+            "对制度重构可能引发的实施风险、过渡期安排或不同意见竞争论证缺乏展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论未来制度如何重构、注册与侵权标准如何脱钩，属未来延展问题；当下结论（现制度存在逻辑错位等）是否可接受属于结论可接受性维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出清晰的立法重构路径与制度衔接方案，延展性极佳。",
+          "core_judgment": "存在真实且可定位的制度完善与规则衔接延展路径。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。论文指明了商标法专章设立、绝对理由条款筛选及普通商标滥用纠偏等具体立法延展路径，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "应当在有关集体商标、证明商标的专章中，规定与显著性无关的注册及其维持条件……列举商标法第一章中规定的哪些不予注册的绝对理由条款适用于……",
+            "对集体商标的侵权，需以容易导致相关公众误认经营者具有……成员身份为标准；对证明商标的侵权，需以容易导致相关公众误认……符合……特定特征为标准。"
+          ],
+          "strengths": [
+            "提出设立商标法“特区”及专章的具体立法完善方向。",
+            "指明对普通商标滥用（如兰州牛肉拉面）的纠偏场景延伸。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "专章设计及侵权标准重构属于未来立法延展路径，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度重构部分提出了清晰的延展方向，包括专章立法设计、注册条件与侵权认定标准的特殊化，以及国际比较维度的深化空间。",
+          "core_judgment": "存在真实延展路径，主要体现在制度完善方向、规则衔接问题和比较法维度的延伸。",
+          "score_rationale": "原始分72分，对应bonus=3（>=60档）。论文明确提出了'在商标法中专设一章'的立法方向，具体规定了注册条件与显著性脱钩、侵权认定与来源混淆脱钩的细化路径，并指出'为其他国家商标法的科学化提供有益经验'的比较法延伸空间。但部分延展内容已融入正文论证，独立的前瞻性段落有限，且未充分展开后续研究的具体争点。",
+          "evidence_quotes": [
+            "在商标法中专设一章'集体商标、证明商标的注册申请、管理和保护'，以对集体商标、证明商标有别于普通商标的各个方面作出不同于一般条款的特别规定",
+            "还可为其他国家商标法的科学化提供有益经验，是本次商标法修改中应当考虑的对策"
+          ],
+          "strengths": [
+            "提出专章立法、脱钩显著性的具体制度完善方向",
+            "以著作权法邻接权为比较框架，预留了比较法深化空间"
+          ],
+          "weaknesses": [
+            "未明确列出后续研究的具体争点或待检验命题",
+            "对'潼关肉夹馍'等案例的延伸分析已融入正文，独立前瞻段落不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文在结语和制度重构部分提出的立法建议属于未来延展方向，而非对当下结论可接受性的论证；其关于国际经验的提及也指向比较法维度的延伸，而非当下结论的证成。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出商标法“特区”专章设置及注册与侵权标准双脱钩的具体修法路径，延展方向清晰且具可操作性。",
+          "core_judgment": "存在真实延展路径，明确指向立法重构与司法裁判规则的具体修正方向。",
+          "score_rationale": "原始分85，对应bonus=5。论文精准提出设立专章、注册与侵权标准双脱钩的具体修法路径，延展方向与核心论证紧密咬合，具备明确的制度落地指向。",
+          "evidence_quotes": [
+            "应当在有关集体商标、证明商标的专章中，规定与显著性无关的注册及其维持条件。",
+            "对集体商标的侵权，需以容易导致相关公众误认经营者具有集体商标昭示的某特定组织的成员身份为标准。"
+          ],
+          "strengths": [
+            "提出设立商标法“特区”专章的具体立法路径，制度重构方向清晰可操作。",
+            "明确侵权认定与来源混淆脱钩的标准，并预判普通商标滥用的纠偏机制。"
+          ],
+          "weaknesses": [
+            "对修法后的行政执法衔接与过渡期风险控制着墨较少。",
+            "未深入探讨国际条约协调对本土制度重构的潜在制约。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦修法后的制度演进与规则衔接路径，而非评判当前“脱钩”结论在学界的接受度或论证过程的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.925789833068848,
+        "glm-5.1": 51.19147801399231,
+        "kimi-k2.6": 10.433876991271973,
+        "qwen3.6-plus": 65.45119190216064
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 71.8,
+      "std": 18.9,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 87.52,
+      "weighted_total": 84.2
+    },
+    "aggregation_strictest": {
+      "final_score": 69.18,
+      "weighted_total": 67.2
+    },
+    "avg_std": 13.0,
+    "max_std": 19.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 18.3,
+    "composite_score": -13.0,
+    "worst_dimension": "literature_insight",
+    "worst_std": 19.4
+  }
+}

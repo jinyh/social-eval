@@ -1,0 +1,541 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/数据何以确权.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码标记与正文混排（如‘· 7 5 ·’、‘· 8 5 ·’）",
+          "脚注编号格式残留及异常断行（如‘〔4 〕’、‘〔5 〕’）",
+          "部分英文参考文献存在OCR断行与空格异常"
+        ],
+        "evidence_quotes": [
+          "例如, 2021 年《上海市数据条例》虽然回避了数据权的概念, 但单设第2 章规定了“ 数据权益保障” ;",
+          "〔4 〕这就使得对于数据的取得和利用难以通过物理方式加以阻隔, 而必须依靠对数据进行确权等法律手段"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从国家层面推动数据产权或数据权益保护相关立法, 势在必行。数据保护立法需要研究解决的基本问题是数据是否需要确权以及如何确权。",
+          "“数据二十条”在放弃了所有权的确权方式的基础上, 转而采用了一种三权分置方案... 但是, 应当看到, “数据二十条” 主要采用的还是一种经济学的话语表达, 仍需转化为法律层面的规范表达...",
+          "所谓双重权益结构, 是指在同一数据之上, 区分数据来源者和数据处理者而确认不同的权利。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR/排版残留（页码混排、脚注乱码），但不影响核心论证定位；项目口径完全符合，无边界争议。"
+      ],
+      "evidence_quotes": [
+        "数据确权有利于激励数据生产... 数据确权有利于促进数据流通... 数据确权有利于解决“数据孤岛”困境",
+        "反不正当竞争法保护不能替代数据确权... 知识产权保护不能替代数据确权... 个人信息保护不足以替代数据确权",
+        "需要结合民法典的规定, 找到更为准确的法律表达, 用以解释数据财产权的完整内容。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国数据要素市场化改革与立法需求为核心，明确回应中国司法实践与政策文件（“数据二十条”）中的确权难题，具备充分的理论转化与可复核命题。文本存在轻微OCR与排版残留，属低风险，不影响实质评审。建议直接进入六维评分流程。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR局部残缺导致个别字缺失（如首段'务院'应为'国务院'）",
+          "期刊页码混入正文（如'· 7 5 ·'、'· 8 5 ·'）",
+          "脚注编号格式存在空格异常（如'〔4 〕'）",
+          "参考文献列表抽取失败（正文有大量脚注但列表显示为无）"
+        ],
+        "evidence_quotes": [
+          "务院《关于构建数据基础制度更好发挥数据要素作用的意见》",
+          "· 7 5 ·",
+          "〔4 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2021 年《上海市数据条例》虽然回避了数据权的概念, 但单设第2 章规定了“ 数据权益保障”",
+          "所谓数据确权, 是通过对数据处理者等赋权, 使其对数据享有相应的法律控制手段, 从而在一定程度或范围内针对数据具有排除他人侵害的效力",
+          "数据确权实际上是确认对数据投入一定资金和劳动的人的权益",
+          "双重权益结构, 是指在同一数据之上, 区分数据来源者和数据处理者而确认不同的权利"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR局部残缺与页码混入，需在后续评分中注意清洗",
+        "文本工程：参考文献列表抽取缺失，需通过脚注还原",
+        "项目口径：完全满足，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "双重权益结构, 是指在同一数据之上, 区分数据来源者和数据处理者而确认不同的权利",
+        "数据确权实际上是确认对数据投入一定资金和劳动的人的权益"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段注意OCR残缺和页码混入对文本工程的影响，并尝试从脚注中补充参考文献抽取。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦数据确权核心争点，系统回应替代论并提出民法财产权建构路径。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，明确回应学界长期分歧并推进规范命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。前置检查扣0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "数据保护立法需要研究解决的基本问题是数据是否需要确权以及如何确权。",
+            "反对数据确权的学者认为，如果各方都对数据主张权利，就会形成‘数据孤岛’。"
+          ],
+          "strengths": [
+            "明确提炼‘是否确权及如何确权’核心争点，非主题声明。",
+            "系统梳理并反驳反法、知产、个保法替代路径，展现理论交锋。"
+          ],
+          "weaknesses": [
+            "对数据财产权具体权能边界的教义学论证可进一步精细化。",
+            "部分论述偏向政策话语转化，法教义学原创性可再深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "数据确权必要性及路径的核心法学争点，枢纽性极强。",
+          "core_judgment": "问题成立且重要，触及数据法治基础争议，与反确权立场有实质交锋。",
+          "score_rationale": "前置扣0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "数据保护立法需要研究解决的基本问题是数据是否需要确权以及如何确权",
+            "反对确权学者所持重要理由是，现有法律制度已足以实现对数据上各种权益的保护"
+          ],
+          "strengths": [
+            "争点明确且触及数据法治核心争议",
+            "与反确权观点有直接交锋，非单向陈述"
+          ],
+          "weaknesses": [
+            "部分论证偏向制度构建，问题设定略显常规"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "只评问题成立性与重要性，不评权能构建的逻辑严密性与文献充分性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 1040.0217862129211,
+        "glm-5.1": 1008.3353359699249
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒数据确权领域的学术争点，系统梳理反对派与替代路径，精准锚定立法转化切入点。",
+          "core_judgment": "研究地图完整，争点结构严密，流派覆盖充分，文献定位与论证深度融合，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "反对数据确权的学者认为，如果各方都对数据主张权利，就会形成‘数据孤岛’。",
+            "有观点认为可通过反不正当竞争法保护数据……然而该路径存在明显缺陷。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将既有研究融入必要性论证与替代方案批驳中。",
+            "明确区分反对确权派、现有制度替代派与用户赋权派，争点脉络清晰。"
+          ],
+          "weaknesses": [
+            "对政策话语向法律规范转化的既有学说梳理略显单薄。",
+            "部分外部文献引用未充分展开其理论分歧的深层法理逻辑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及数据确权问题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，呈现多个核心争点与对立流派，现状洞察充分。",
+          "core_judgment": "论文通过分散式文献定位完整呈现了数据确权的必要性、主体与路径争点，洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "反对数据确权的学者所持的一个重要理由是，现有法律制度已经足以实现对数据上各种权益的保护",
+            "有学者提出了数据确权的新思路，即数据确权不应当是对数据处理者确权，而应当是对用户财产权进行确权"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了反对确权、替代路径等核心未竟点",
+            "争点结构清晰，涵盖是否确权、确权主体、替代方案三重分歧"
+          ],
+          "weaknesses": [
+            "无明显缺陷，文献梳理与争点展开深度融合"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构呈现，而非数据确权理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 1018.1627039909363,
+        "glm-5.1": 1015.1924469470978
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了清晰的数据确权双重结构与四权能体系，转化度高。",
+          "core_judgment": "框架成立且高度可用，成功将政策话语转化为可操作的民法制度设计。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "所谓数据确权，是通过对数据处理者等赋权，使其对数据享有相应的法律控制手段，从而在一定程度或范围内针对数据具有排除他人侵害的效力。",
+            "所谓双重权益结构，是指在同一数据之上，区分数据来源者和数据处理者而确认不同的权利。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，双重权益结构分类标准明确。",
+            "将政策经济学话语成功转化为民法权能体系，制度设计具可操作性。"
+          ],
+          "weaknesses": [
+            "部分权能边界在实务裁判中仍需细化适用标准。",
+            "合理使用与反垄断限制的衔接机制缺乏具体判断流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估框架建构与转化能力，不涉及逻辑推演严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了数据确权的“双重权益结构”与“四项权能”框架，可操作性与法学转化度均高。",
+          "core_judgment": "框架建构力强，成功将经济学激励与交易成本理论转化为清晰的法学制度设计方案与权能体系。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "所谓双重权益结构,是指在同一数据之上,区分数据来源者和数据处理者而确认不同的权利。",
+            "数据财产权包括持有权、使用权、收益权、处置权以及停止侵害等消极权能。"
+          ],
+          "strengths": [
+            "概念界定清晰，分类标准明确，构建了完整的制度设计步骤。",
+            "成功将经济学理论转化为具体的法学权能体系与裁判指引。"
+          ],
+          "weaknesses": [
+            "对数据来源者权益的界定仍偏重原则，具体操作标准稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构力而非逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 1028.8972651958466,
+        "glm-5.1": 1004.2337610721588
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑链条严密，反驳处理充分，结论可由前文可辩护地推出。",
+          "core_judgment": "逻辑严密性成立，推理步骤环环相扣，核心结论具备充分的前文支撑与可辩护性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从确权必要性、既有法不足到双重结构构建层层递进，无关键跳步；对反对意见与替代路径回应实质且承认理论边界。",
+          "evidence_quotes": [
+            "反对数据确权的学者认为，如果各方都对数据主张权利，就会形成‘数据孤岛’。笔者认为，此种观点值得商榷。",
+            "‘数据二十条’主要采用的还是一种经济学的话语表达，仍需转化为法律层面的规范表达，满足立法技术上的概念周延性要求。"
+          ],
+          "strengths": [
+            "推理链条完整，从确权必要性、替代方案缺陷到双重权益结构层层递进。",
+            "对反不正当竞争法、知识产权等替代路径的批驳具有针对性，逻辑闭环严密。"
+          ],
+          "weaknesses": [
+            "政策话语向民法教义学转化的具体规范构造略显宏观，部分权能界定可更精细。",
+            "对‘数据孤岛’反驳的经济学实证支撑稍弱，主要依赖规范推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链条与反驳处理，不评价数据确权方案在实务中的可操作性或立法可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论证链条完整连贯，反驳处理充分，核心结论可辩护推出。",
+          "core_judgment": "推理链严密成立，反驳与路径构建逻辑支撑强劲。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "反对数据确权的学者认为...就会形成‘数据孤岛’...笔者认为，此种观点值得商榷...数据确权不仅不会妨碍流通，反而更有助于流通。",
+            "我们所说的数据确权，并不是要像有体物所有权那样赋予数据处理者绝对独占和排他的权利。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，必要性、反驳替代、路径构建环环相扣。",
+            "对反对意见和自身局限有实质性回应与论证。"
+          ],
+          "weaknesses": [
+            "从劳动价值论到具体数据财产权权能的映射稍显跳跃，但未达关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑严密性仅评推理支撑与推出，不评数据财产权方案在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 1019.6934139728546,
+        "glm-5.1": 1000.5445439815521
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论明确回应数据确权争议，提出双重权益结构与四权分置方案，高度契合中国立法语境与制度需求。",
+          "core_judgment": "该结论深度嵌入学术争论与本土制度语境，具备高度的共同体对话能力与制度转化可行性，维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准定位既有争论，系统回应反对意见，并在中国法秩序内提出具象化的立法转化路径。",
+          "evidence_quotes": [
+            "“数据确权有利于激励数据生产……促进数据流通……解决‘数据孤岛’困境”",
+            "“需要结合民法典的规定，找到更为准确的法律表达，用以解释数据财产权的完整内容”"
+          ],
+          "strengths": [
+            "精准回应反法、知产、个保替代论等核心争议",
+            "提出双重权益结构与四权分置，制度转化路径清晰"
+          ],
+          "weaknesses": [
+            "对数据登记制度的具体程序衔接论证稍显简略",
+            "部分经济学概念向法教义学转化的技术细节可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论并提出与中国法秩序兼容的双层权益确权方案，可接受性极高。",
+          "core_judgment": "结论在共同体对话与制度兼容层面均高度成立，提出了可争辩且可转化的具体方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "反对数据确权的学者所持的一个重要理由是，现有法律制度已经足以实现对数据上各种权益的保护……笔者认为，由于数据本身是一种新型财产，现有法律规则难以全面保护数据权益。",
+            "数据确权最终必须获得立法表达……通过立法对数据进行确权，并且对数据交易的法律规则作出规定，可以实现数据流转的制度化和秩序化。"
+          ],
+          "strengths": [
+            "深度回应反对意见并主动承认局限",
+            "提出与现行法兼容的具体双层权益结构"
+          ],
+          "weaknesses": [
+            "对非个人信息数据来源者权益的合同保护路径略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容性，不评估论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 80.27006483078003,
+        "glm-5.1": 38.3954439163208
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确指向数据确权立法的概念转化、权利内容细化及配套制度构建，延展路径清晰且与核心论证紧密衔接。",
+          "core_judgment": "存在真实延展路径，具体指向政策话语的法律转化、权利束的立法表达及合理使用与登记制度的构建。",
+          "score_rationale": "原始分85，映射bonus=5档。论文精准指出政策表述的法律转化缺口，明确立法需细化权利内容并构建合理使用与登记制度，延展路径清晰可定位。",
+          "evidence_quotes": [
+            "“数据二十条”主要采用的还是一种经济学的话语表达，仍需转化为法律层面的规范表达，满足立法技术上的概念周延性要求。",
+            "将来立法需要规定数据合理使用制度……落实“数据二十条”明确强调的数据登记制度建设"
+          ],
+          "strengths": [
+            "精准识别政策文本的法律转化缺口，指明立法概念重构的具体方向。",
+            "将理论框架延伸至合理使用、反垄断规制与数据登记等配套制度，路径完整。"
+          ],
+          "weaknesses": [
+            "对数据登记制度的具体法律构造与公示效力未作深入展开。",
+            "比较法借鉴仅提及欧盟法案，未进一步说明本土化移植的潜在冲突。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦立法转化与配套制度构建的未来路径，而非评价当前确权理论在学界的接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了数据确权立法的具体概念修正与制度深化方向，延展路径清晰可定位。",
+          "core_judgment": "存在真实延展路径，指明了数据财产权法律表达的转化方向及权利限制的具体规则构建。",
+          "score_rationale": "原始分85，bonus档位为5（excellent）。论文明确指出政策“三权分置”需转化为法律规范表达，并提出构建数据合理使用与反垄断限制的具体规则，延展路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "‘数据二十条’主要采用经济学话语表达，仍需转化为法律层面的规范表达，满足立法技术上的概念周延性要求。",
+            "将来立法需要规定数据合理使用制度……应当通过反垄断法上的措施对相应行为予以矫正，包括在必要时强制缔约。"
+          ],
+          "strengths": [
+            "明确指出了政策术语向法律概念转化的具体修正方向（如收益权、处置权的系统确立）。",
+            "为数据财产权的实施指明了风险控制路径（合理使用与反垄断的具体限制规则）。"
+          ],
+          "weaknesses": [
+            "对数据登记制度等规则衔接问题的延展展开稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "数据财产权具体权能的法律概念转化及限制规则的细化，属于未来立法的制度完善方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.8794538974762,
+        "glm-5.1": 40.45757007598877
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.7,
+    "max_std": 1.4,
+    "weighted_total": 90.2,
+    "final_score": 95.53,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 9.3,
+    "worst_dimension": "problem_originality",
+    "worst_std": 1.4
+  }
+}

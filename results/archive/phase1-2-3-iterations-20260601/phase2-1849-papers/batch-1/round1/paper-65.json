@@ -1,0 +1,1037 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/个人信息处理中的“同意“与“同意撤回“.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "OCR/文本质量问题：第一页正文起始处出现以'*'字符标记的作者脚注，可能是PDF识别残留，但未影响正文阅读。",
+          "脚注编号问题：第二段末尾的脚注编号‘(2)’之前出现换行符或格式异常，可能造成与参考文献关联的轻微困难，但不影响定位核心论点。",
+          "参考文献列表缺失：论文末尾注明“参考文献列表：（无）”，缺少完整参考文献列表，但脚注中已包含关键文献信息，尚不影响对论文学术贡献的初步判断。"
+        ],
+        "evidence_quotes": [
+          "* 北京外国语大学法学院副教授，法学博士。本文系2018 年度国家社科基金重大项目“大数据时代个人数据保护与数据权利体系研究”（项目批准号：18ZDA146）的阶段性成果。",
+          "(2) See Jack M. Balkin, Information Fiduciaries and the First Amendment, UC Davis Law Review, Vol. 49(4), p.1183(2016).\nDOI:10.14111/j.cnki.zgfx.2021.01.011",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国制定了《信息安全技术个人信息安全规范》并在各企业中推广适用，随着国家各项治理的深入，用户对于企业数据收集的标准会有更为明确和集中的认识，而各行业的隐私协议也将逐渐模板化、统一化。因此，个人信息主体对信息处理者的信赖并不建立在其所阅读的隐私协议之上，而是基于对个人信息的处理标准的统一适用，换而言之，其信赖从根本而言是出于信息主体对国家治理能力的信任。",
+          "笔者认为，对同意的性质判定要联系相关规定中“告知同意原则”进行梳理。",
+          "我国《民法典》虽然对格式合同的效力作出了有利于消费者的限定，但是仍然无法消除在个人信息处理场景之下对个人信息主体的不利影响。",
+          "“同意撤回权”实际上属于人格权体系下的撤销权。",
+          "同意撤回权是否属于形成权……具有强烈的人格利益特性……行使规则包括：更偏重保护行权便利性、不受除斥期间限制、不具有溯及力、不以损害为前提。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "[文本工程] 参考文献列表缺失（正文脚注可部分弥补）",
+        "[文本工程] 少量OCR残留符号及异常换行"
+      ],
+      "evidence_quotes": [
+        "“告知”实际融合了公法和私法的双重属性，而“同意”属于受限的私权处分。",
+        "同意撤回权实际上属于人格权体系下的撤销权。",
+        "对人格权益的许可撤销不应受到过多限制，应以人格利益优先。",
+        "我国《个人信息保护法（草案）》第16条明确采用“撤回”概念……同意撤回权可实现对人格利益许可的撤销。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国个人信息保护立法（《草案》）及司法实践为核心，提出“同意”及“同意撤回”为本土化的人格权体系下撤销权，并建构了相应行使规则，明显涉及中国问题、可争辩法学问题及中国实践解释尝试，且存在理论转化与可复核命题。文本质量存在OCR残留及参考文献列表缺失风险，但核心论证与结构完整，可正式进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及期刊名年份混入正文段落",
+          "作者简介与基金项目说明混入正文开头",
+          "脚注编号及文献引用内容直接穿插在正文中"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2021 年第1 期\n168",
+          "*   北京外国语大学法学院副教授，法学博士。本文系2018 年度国家社科基金重大项目...",
+          "(1) 参见刘召成：《人格商业化利用权的教义学构造》..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国制定了《信息安全技术个人信息安全规范》并在各企业中推广适用……其信赖从根本而言是出于信息主体对国家治理能力的信任。",
+          "同意撤回权实际上属于人格权体系下的撤销权。",
+          "在我国对于个人信息的行政化治理力度持续加强的背景之下，更有可能存在‘理性个人信息主体’。",
+          "《草案》正式纳入了同意撤回权，但在制度设计上就同意撤回及删除权的相关规定仍有待完善"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码、作者简介、脚注内容混入正文，需在后续阶段清洗",
+        "项目口径：完全符合进入六维评价条件，无边界问题"
+      ],
+      "evidence_quotes": [
+        "同意撤回权实际上属于人格权体系下的撤销权。",
+        "在我国对于个人信息的行政化治理力度持续加强的背景之下，更有可能存在‘理性个人信息主体’。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程，但在后续文本工程处理中需对混入正文的期刊页码、作者简介及脚注内容进行清洗剥离。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留格式问题，如部分脚注编号显示为(1)(2)等，但核心内容可辨识",
+          "参考文献列表缺失，但文中引用信息完整可定位",
+          "期刊页码混入正文（如'中国法学 2021 年第1 期 168'等），但不影响核心论点阅读"
+        ],
+        "evidence_quotes": [
+          "中国法学 2021 年第1 期 168",
+          "(1) 参见刘召成：《人格商业化利用权的教义学构造》",
+          "DOI:10.14111/j.cnki.zgfx.2021.01.011"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国制定了《信息安全技术个人信息安全规范》并在各企业中推广适用",
+          "我国《个人信息保护法（草案）》（以下简称《草案》）中的告知义务可知",
+          "我国《民法典》虽然对格式合同的效力作出了有利于消费者的限定",
+          "《2019 年App 违法违规收集使用个人信息专项治理报告》中提及",
+          "橘生淮南则为橘, 生于淮北则为枳...但考虑到中国的市场更为成熟...",
+          "《草案》正式纳入了同意撤回权，但在制度设计上就同意撤回及删除权的相关规定仍有待完善"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式不统一，部分为(1)(2)格式，部分为上标；参考文献列表缺失；期刊页码信息混入正文段落",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "笔者认为，对同意的性质判定要联系相关规定中“告知同意原则”进行梳理。我国制定了《信息安全技术个人信息安全规范》并在各企业中推广适用...",
+        "《草案》第16 条明确采用了“撤回”的概念...",
+        "笔者认为，数据产业发展固然能产生巨大的经济和社会效应，但是个人的人格性利益也需要得到合理的保护...",
+        "橘生淮南则为橘, 生于淮北则为枳...西方学者的眼中个人信息主体经常被描绘为缺乏认知...但实际上，随着信息不对称问题的逐渐解决，个人信息主体在日常生活之中逐渐形成了自己的隐私偏好"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国《个人信息保护法（草案）》为核心研究对象，深入分析'告知—同意'模式的制度缺陷及'同意撤回权'的法学构造，具有明确的中国问题中心性和法学理论深度。论文将中国实践问题与比较法（欧盟GDPR、美国CCPA等）相结合，形成了具有中国特色的个人信息保护理论命题，包括'人格权体系下的撤销权''理性个人信息主体'等原创性概念。文本质量方面存在轻微的OCR格式问题（脚注编号、期刊页码混入），但不影响评审。建议直接进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在期刊页眉页脚混排（如“中国法学 2021 年第1 期 168”）及脚注编号残留，但核心论点、论证结构与引注清晰可辨，不影响评审。"
+        ],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "细致梳理我国《个人信息保护法（草案）》（以下简称《草案》）中的告知义务可知……",
+          "同意撤回权体现了主体对于个人信息的自决处分，带有强烈的人格利益特性，可以被定性为人格权体系下的撤销权。",
+          "在个人信息处理的语境之下，信息主体本身存在对于信息处理者的服务依赖，导致信息主体缺乏表意自由……例如，在网约车的适用场景下……",
+          "基于人格权特性出发，人格权体系下的撤销权具有区别于一般合同处分财产性权益下的撤销权的特点……同意撤回权不具有溯及既往的效力。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "细致梳理我国《个人信息保护法（草案）》……",
+        "同意撤回权体现了主体对于个人信息的自决处分，带有强烈的人格利益特性，可以被定性为人格权体系下的撤销权。",
+        "在我国对于个人信息的行政化治理力度持续加强的背景之下，更可能存在“理性个人信息主体”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，建议直接进入六维评分。文章以中国《个人信息保护法（草案）》及本土司法/行政实践为中心，围绕“同意”与“同意撤回”展开民法教义学分析，成功将传统意思表示撤销权理论转化为个人信息保护场景下的人格权体系撤销权命题，并提出无溯及力、不受除斥期间限制、与删除权/反悔权相区分等可复核规范命题，具备鲜明的中国自主知识体系建构特征。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了“同意撤回权”的定性与规则构建问题，但核心是将已有讨论归入“人格权体系下的撤销权”这一新概念，未充分说明其理论进步，且问题锚定较弱。",
+          "core_judgment": "问题聚焦于“同意撤回权”的私法定性，有一定可争辩性，但主要贡献在于概念统合而非提出新争点，且属新概念包装旧问题，创新性受限。",
+          "score_rationale": "前置扣分：新概念包装旧问题，仅统合已有讨论未说明解释力提升，扣15分。可争辩性=2/4（有问题句但属解释路径选择，政策倡导色彩重），枢纽性=2/4（涉及民法、行政法多领域，但制度连锁论证偏弱），材料新颖性未触发上限。锚定marginal档，给58分，扣分后55分。",
+          "evidence_quotes": [
+            "“同意撤回权实际上属于人格权体系下的撤销权”",
+            "“对同意的性质判定要联系相关规定中‘告知同意原则’进行梳理……告知逐渐成为信息处理者的一种公法上的义务，而同意则仍属于私法上个人信息自决权益的核心”"
+          ],
+          "strengths": [
+            "明确界定了“同意撤回”的私法性质及其与人权体系撤销权的关联，为规则构建提供了教义学基础。",
+            "区分了“同意撤回”与“删除权”“消费者反悔权”等类似制度，澄清了概念边界。"
+          ],
+          "weaknesses": [
+            "核心创新点“人格权体系下的撤销权”主要是用新概念统合既有论述，未能清晰说明其相较于“持续性代理”“信托授权”等已有路径的解释力提升。",
+            "问题多侧重于制度完善与规则设计，实质性的学者观点交锋较少，争点深度受限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.check1_concept_repackaging",
+              "rule": "新概念包装旧问题",
+              "score_ceiling": null,
+              "priority": 1,
+              "evidence": "提出“人格权体系下的撤销权”作为核心创新，但主要是用新术语统合和总结已有关于撤回权性质的论述，未充分说明相对于既有解释路径的理论进步或解释力提升。"
+            }
+          ],
+          "boundary_note": "本维度仅评价问题本身的可争辩性、枢纽性与创新推进，不评论文献综述的充分性、论证的严密性或材料的最终支撑力。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕“同意撤回权”的性质与行使规则展开，争辩性强且枢纽性高。",
+          "core_judgment": "论文提出了可争辩的法学争点（同意撤回权的定性及规则），且涉及核心法学理论与多制度领域，问题创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "学界对于个人信息处理中信息主体的“同意”之性质认识存在差异……另有学者认为“同意”的性质应当视其情景而定",
+            "笔者认为，同意撤回权实际上属于人格权体系下的撤销权……此种安排将个人视为其信息的最佳处分权人"
+          ],
+          "strengths": [
+            "争点明确且呈现了丰富的理论分歧（同意性质、撤回权定性）",
+            "枢纽性强，涉及人格权与个人信息保护多制度联动"
+          ],
+          "weaknesses": [
+            "问题句表述偏主题声明，缺乏典型“是否”问题句式",
+            "对“理性个人信息主体”的预设论证稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文围绕个人信息处理中'同意'的性质与'同意撤回权'展开分析，但核心问题偏向制度阐释与规则设计，缺乏真正的法学理论争点交锋。",
+          "core_judgment": "主题声明明确但可争辩性不足，问题表述偏向'如何完善制度'的政策倡导，而非不可化约的法学争点。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质为政策倡导；有学者观点介绍但无真正交锋），枢纽性=2/4（涉及个人信息保护法与民法制度，但制度连锁论证不足），材料新颖性未触发上限，锚定marginal档，给52分。负面模式扣分：检查1不扣，检查2扣15分（有提及分歧但未展开交锋），检查3扣20分（问题句实质是政策倡导）。扣分合计35分，但按规则不低于30分。",
+          "evidence_quotes": [
+            "笔者认为，对同意的性质判定要联系相关规定中'告知同意原则'进行梳理",
+            "同意撤回权作为人格权体系下的撤销权，其行使应遵循对人格利益的许可撤销的规则"
+          ],
+          "strengths": [
+            "涉及个人信息保护法与民法交叉领域，有一定制度关联性",
+            "对欧盟、美国路径有比较分析，素材较丰富"
+          ],
+          "weaknesses": [
+            "学者观点罗列多但无真正交锋，未形成不可化约的争点",
+            "核心问题偏向'如何设计制度'，属政策倡导而非法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文标题'个人信息处理中的同意与同意撤回'为宏大主题，核心问题游移于性质分析、缺陷批判、规则设计、比较法借鉴之间，未凝聚为具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦个人信息处理中同意与撤回的法理性质与制度构造，提出具争辩性的教义学命题。",
+          "core_judgment": "该研究问题成立且具高度理论价值，精准切入数据法治核心争点，创新性突出。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，负面检查扣0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "学界对于个人信息处理中信息主体的“同意”之性质认识存在差异。",
+            "同意撤回权体现了主体对于个人信息的自决处分，可以被定性为人格权体系下的撤销权。"
+          ],
+          "strengths": [
+            "精准提炼同意撤回权的人格权撤销权属性，突破传统合同框架。",
+            "系统梳理并回应学界四大理论质疑，构建清晰教义学路径。"
+          ],
+          "weaknesses": [
+            "对理性个人信息主体预设的实证支撑略显单薄。",
+            "部分比较法制度介绍偏多，本土规范转化可更聚焦。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.600862979888916,
+        "glm-5.1": 40.327434062957764,
+        "kimi-k2.6": 13.99912691116333,
+        "qwen3.6-plus": 64.31161689758301
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 21.2,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文对“同意”性质、告知同意缺陷及撤回权有清晰的学术脉络梳理，研究地图三要素完整，并呈现多个可区分的法学流派和争点。",
+          "core_judgment": "论文通过分散式文献定位，构建了包含到达点、未竟点和本文切入点的清晰研究地图，争点结构丰富，流派识别充分，现状洞察度很高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "学界对个人信息处理中信息主体的‘同意’之性质认识存在差异。有的学者认为…界定为法律行为性的许可…也有学者遵循信托法保护的路径…还有学者主张…应当被视为一种对信息主体的持续性代理行为…亦有学者认为‘同意’的性质应当视其情景而定…另有学者认为…不能完全从私法上获得理解。",
+            "虽然告知同意有上述诸多缺陷…学界目前对此尚未展开深入讨论，因此，有必要对‘同意撤回权’的性质及其与其他相近制度的关系进行细致梳理。"
+          ],
+          "strengths": [
+            "研究地图三要素极其完整，从同意性质到撤回权性质均清晰提炼了既有研究贡献、缺口与本文定位。",
+            "争点结构丰富，不仅呈现了同意性质的多种学说，还展示了比较法路径分歧与对撤回权的理论质疑及回应。"
+          ],
+          "weaknesses": [
+            "参考文献列表缺失，无法进行外部文献库复核。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评估的是既有研究梳理的深度和争点呈现能力，并非论证严密性或问题新颖性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "文献梳理详实，争点结构清晰，多流派对立充分呈现。",
+          "core_judgment": "论文通过分散式文献定位完整构建了研究地图，现状洞察度极高。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=7个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界对于个人信息处理中信息主体的“同意”之性质认识存在差异...亦有学者认为不能完全从私法上获得理解",
+            "但学界目前对此尚未展开深入讨论，因此，有必要对“同意撤回权”的性质...进行细致梳理"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了同意性质的五种学术立场",
+            "比较法部分清晰呈现了欧盟自决路径与美国隐私路径的对立"
+          ],
+          "weaknesses": [
+            "部分未竟点（同意撤回研究不足）的表述略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点梳理深度，不评同意撤回权制度构建的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了较完整的个人信息'同意'性质与'同意撤回权'研究地图，呈现多学派观点与比较法争点，但三要素衔接有松散之处。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但'本文切入点'与未竟点对应不够紧密，法学流派识别充分。",
+          "score_rationale": "三要素=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=4个，锚定good档，给72分。到达点充分：梳理了'法律行为性许可''信托路径''持续性代理''情景论'等至少4种学说；未竟点明确指出'学界目前对此尚未展开深入讨论'；但切入点仅说'有必要对同意撤回权的性质及其与其他相近制度的关系进行细致梳理'，与未竟点对应不够直接。争点结构呈现'欧盟路径vs美国路径'、'删除权vs同意撤回权'、'家长主义保护vs理性个人信息主体'等≥2个争点。流派涵盖：私法自治派、信托法保护派、持续性代理理论派、公法治理派、比较法上的欧盟个人自决权派与美国消极隐私保护派。",
+          "evidence_quotes": [
+            "目前，学界对于个人信息处理中信息主体的'同意'之性质认识存在差异。有的学者认为本人同意为人格法益商业化的行权模式……也有学者遵循信托法保护的路径……还有学者主张……亦有学者认为……另有学者认为……",
+            "但学界目前对此尚未展开深入讨论，因此，有必要对'同意撤回权'的性质及其与其他相近制度的关系进行细致梳理。"
+          ],
+          "strengths": [
+            "到达点丰富，系统梳理至少4种'同意'性质学说及其代表学者",
+            "比较法争点结构清晰，欧盟与美国路径形成制度方案对立"
+          ],
+          "weaknesses": [
+            "本文切入点表述泛化，未明确回应前述具体未竟点",
+            "分散式文献定位导致部分流派归属未明确归入'学界争论'脉络"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；三要素总分≥4且争点结构≥1时不触发流派不足上限",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分5分，争点结构2分，法学流派4个，未触发任何降档规则"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评问题新颖性；论文对'同意撤回权'的立法建议属问题创新性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理“同意”性质与撤回权学术分歧，精准定位立法空白，研究地图完整。",
+          "core_judgment": "文内证据充分展现完整文献定位与争点脉络，三要素与争点结构均达满分标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "目前，学界对于个人信息处理中信息主体的“同意”之性质认识存在差异。",
+            "但学界目前对此尚未展开深入讨论，因此，有必要对“同意撤回权”的性质进行梳理。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰勾勒同意性质的多元解释路径。",
+            "未竟点与切入点直接咬合，比较法争点结构完整。"
+          ],
+          "weaknesses": [
+            "部分流派归类偏向制度描述，深层法理交锋可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.628497838974,
+        "glm-5.1": 53.41159391403198,
+        "kimi-k2.6": 17.7077157497406,
+        "qwen3.6-plus": 58.422552824020386
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85,
+      "std": 8.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文缺乏原创分析框架，主要工作是对“同意”和“同意撤回权”的性质进行学理梳理和比较法介绍，未提出可重复使用的分析步骤或判断标准。",
+          "core_judgment": "本文属于制度/实务型论文，但未建构任何可操作的分析框架，全文以阐释既有制度和学说为主。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=1/4，锚定unacceptable档。因触发no_operational_framework上限规则，总分不超过50分，最终给42分。",
+          "evidence_quotes": [
+            "对同意的性质判定要联系相关规定中‘告知同意原则’进行梳理。",
+            "同意撤回权作为人格权体系下的撤销权，其行使应遵循...规则：首先，应当更偏重保护意思表示主体的行权之便利性...其次，应当摒除除斥期限对权利主体的时间限制..."
+          ],
+          "strengths": [
+            "对同意撤回权的四条件分析（便利性、无除斥期、无溯及力、不以损害为前提）在结论部分有一定操作化倾向。"
+          ],
+          "weaknesses": [
+            "全文无原创概念界定或类型化，核心术语如“同意”“告知同意”均来自立法和既有学说，属于政策理论梳理型。",
+            "提出的“人格权体系下撤销权”四条规则仅在结语简要提及，缺乏步骤化分析流程，后文也未实际调用为分析工具。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤1，触发no_operational_framework上限规则，最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语均无原创定义；无分类标准与可循步骤；绪论未提出任何分析框架，仅承诺梳理性质和比较制度，符合政策理论梳理型论文特征。"
+            }
+          ],
+          "boundary_note": "本文缺乏分析框架是建构力缺失问题，不是逻辑衔接问题。该评价不涉及文章说理是否严密或问题是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建了“同意撤回权”作为人格权体系下撤销权的分析框架，提供了清晰的性质界定与操作规则。",
+          "core_judgment": "框架建构力成立，将信息处理中的同意瑕疵转化为可操作的法学行使规则与制度方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "同意撤回权属于人格权体系下的撤销权……行使应当遵循以下规则：首先，应当更偏重保护意思表示主体的行权之便利性……",
+            "受托人及第三方之权利义务的确定应符合以下规则：授权递减原则……撤回同意之时，受托人及第三方也应当同时停止收集及处理"
+          ],
+          "strengths": [
+            "概念界定清晰，将同意撤回定性为人格权体系下的撤销权，区分于反悔权与删除权",
+            "提供4项行使规则与3项第三方效力规则，法学转化与可操作性极强"
+          ],
+          "weaknesses": [
+            "比较法部分对欧盟与美国路径的框架映射稍显宏观，未完全嵌入前述行使规则体系"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的可操作性与法学转化度，不评价其逻辑推理的严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文对个人信息'同意'与'同意撤回'进行了制度分析，但缺乏原创分析框架，以既有理论梳理和制度介绍为主。",
+          "core_judgment": "分析框架建构力未充分成立：核心概念未明确定义，分类标准模糊，分析步骤不可循，后文调用不足。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定部分清晰但无'本文所称'式定义，分类标准隐含但不明示，无步骤化分析流程，后文调用分散），法学转化度得分=2/4（跨学科概念未充分转化，未提供裁判规则，有制度设计方案但操作性不足，后文未系统使用转化步骤），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "笔者认为，对同意的性质判定要联系相关规定中'告知同意原则'进行梳理。",
+            "作为人格权体系下的同意撤销权，对个人信息处理许可的同意撤回权之行使应当遵循以下规则：首先，应当更偏重保护意思表示主体的行权之便利性……其次，应当摒除除斥期限对权利主体的时间限制……再次……最后……"
+          ],
+          "strengths": [
+            "对欧盟、美国路径的比较分析有一定类型化整理。",
+            "对同意撤回权的行使规则提出了四项具体规则。"
+          ],
+          "weaknesses": [
+            "核心术语'同意''同意撤回'缺乏'本文所称'式明确定义，边界不清。",
+            "分析以现象描述和制度介绍为主，未形成可重复适用的判断步骤或评价标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "论文提出'人格权体系下的撤销权'框架，但后文未系统按此框架展开分析，多为现象描述和比较法介绍，框架术语调用分散且未形成步骤化操作。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构力，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“同意撤回权作为人格权体系下撤销权”的教义学框架，并提炼出四项可操作的行权规则。",
+          "core_judgment": "框架概念界定清晰、分类标准明确、分析步骤可循且后文充分调用，具备高度的法学转化力与制度建构价值。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，提炼四项行权规则，直接转化为立法与裁判指引。",
+          "evidence_quotes": [
+            "同意撤回权属于人格权体系下的撤销权，具有形成权属性且行使不应当受到过多限制。",
+            "具体而言……应当更偏重保护行权便利性；应当摒除除斥期限；不具有溯及力；行使不以受到损害为前提。"
+          ],
+          "strengths": [
+            "提出“人格权体系下撤销权”定性，精准对接民法教义学体系。",
+            "提炼四项行权规则与第三方处理原则，具备直接裁判适用价值。"
+          ],
+          "weaknesses": [
+            "对“理性主体”缺省设定的论证略偏宏观，缺乏实证数据支撑。",
+            "无溯及力规则在复杂数据流转场景下的技术落地细节可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的建构力与转化度，不涉及逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 93.47294688224792,
+        "glm-5.1": 55.051668882369995,
+        "kimi-k2.6": 13.271283149719238,
+        "qwen3.6-plus": 70.4911859035492
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.8,
+      "std": 25.1,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕“同意”性质、缺陷、撤回权展开完整推理链，结论有充分支撑，反驳处理较扎实。",
+          "core_judgment": "论文推理链清晰且层层递进，结论可由前文辩护地推出，反驳回应增强了逻辑严密性，属理论推演扎实的佳作。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。因论文对理论分歧、制度缺陷和域外路径争议均予实质性回应，给85分。",
+          "evidence_quotes": [
+            "对同意的性质判定要联系相关规定中“告知同意原则”进行梳理……“告知”实际融合了公法和私法的双重属性，而“同意”属于受限的私权处分。",
+            "从人格权特性出发，人格权体系下的撤销权具有区别于一般合同处分财产性权益下的撤销权的特点……不应当受到过多限制。"
+          ],
+          "strengths": [
+            "推理链完整：从“同意”性质→告知同意缺陷→撤回权概念/性质/规则→比较法→回应质疑，逐层推进。",
+            "反驳处理严密：明确列举并逐条回应“无法得知撤销权”“数据泥潭”“粒度化风险”等四项质疑。"
+          ],
+          "weaknesses": [
+            "“告知”的公私法双重属性与“同意”受限处分的推导依赖宏观政策判断，局部推理稍显跳跃。",
+            "比较法部分的“路径选择”结论偏重价值预设，与规范分析的衔接可更紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分关注推理链能否可辩护地推出结论，而非评判“撤回权”制度设计本身的可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整依赖度高，反驳处理详尽且坦诚局限，逻辑严密",
+          "core_judgment": "本维度成立，论文从缺陷分析到性质界定再到规则推导形成充分支撑链条，结论可辩护推出",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "同意撤回权属于形成权...可以被定性为人格权体系下的撤销权",
+            "让主体以自身的个人信息自决权随着信息流转可能仅仅只是一种美好的愿景"
+          ],
+          "strengths": [
+            "从缺陷到性质到规则的推导环环相扣，依赖度高",
+            "对四种显式质疑逐一实质性回应，并坦诚承认局限"
+          ],
+          "weaknesses": [
+            "将请求权不受时效推导至形成权不受除斥期间，教义学过渡稍跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链推演严密，不评价“人格权撤销权”框架在实务中的可操作性或学界共识度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了从'同意'性质分析到'告知—同意'缺陷、再到同意撤回权定性与规则设计的完整推理链，但部分关键过渡存在论证跳跃。",
+          "core_judgment": "主要推理链可识别且相互依赖，核心结论可被辩护地推出，但反驳处理度不足，对反对意见的回应多为列举式而非实质性论证。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'告知—同意模式有缺陷'到'应引入同意撤回权'的过渡缺乏充分制度比较论证）；反驳处理度得分=2/3（标准1、2成立，标准3不成立）。锚定good(70-79)档，给75分。",
+          "evidence_quotes": [
+            "虽然告知同意有上述诸多缺陷，但至今仍为各国广泛采用……对于个人信息主体保护最为直接有效的方式即是赋予个人信息主体以同意撤回权",
+            "有学者认为……另有学者主张……如果基于合同的原理……但笔者认为，对人格利益的许可的撤销规则应当与一般合同处分财产性权益的撤销规则作出区分"
+          ],
+          "strengths": [
+            "从'同意'性质分析到同意撤回权定性的三步推理链清晰可辨",
+            "对欧盟、美国路径的比较分析为制度选择提供了支撑材料"
+          ],
+          "weaknesses": [
+            "从制度缺陷到同意撤回权引入的过渡存在论证跳跃，未充分比较替代方案",
+            "对'理性个人信息主体'假设的反驳处理不足，未回应认知偏差批评"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的充分性，不评价'同意撤回权'制度本身是否最优。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“同意性质—模式缺陷—撤回权建构—本土路径”的完整推理链，结论可辩护推出。",
+          "core_judgment": "推理链条完整递进且反驳处理全面，核心结论由前文规范分析与案例推导充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。主线推理环环相扣，结论可辩护推出；对四项质疑均作实质性回应并承认适用边界。",
+          "evidence_quotes": [
+            "虽然告知同意有上述诸多缺陷，但至今仍为各国广泛采用……对于个人信息主体保护最为直接有效的方式即是赋予个人信息主体以同意撤回权。",
+            "第一，学者对同意撤回制度最猛烈的抨击在于：用户无法得知自己享有撤销权……对此，国家作为超然利益关系的治理者……承担着普及个人信息保护知识……的责任。"
+          ],
+          "strengths": [
+            "推理链呈“问题诊断—权利定性—规则设计”递进，逻辑衔接紧密。",
+            "系统枚举并实质性回应四项核心质疑，论证闭环完整。"
+          ],
+          "weaknesses": [
+            "从“告知同意缺陷”至“撤回权最优解”的替代方案比较略显单薄。",
+            "“理性主体”预设缺乏实证支撑，存在一定理想化跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链条支撑力与反驳处理，不涉及制度可操作性或结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.64057993888855,
+        "glm-5.1": 50.30630826950073,
+        "kimi-k2.6": 11.383657932281494,
+        "qwen3.6-plus": 51.47289204597473
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 88
+      },
+      "mean": 85.8,
+      "std": 8.3,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文结论嵌入既有争论，创新地提出“同意撤回”为人格权体系下的撤销权，并与中国立法草案、司法实践及治理语境充分对接，具有较高的共同体对话度和制度可接受度。",
+          "core_judgment": "结论既能够被学术反对者定位和回应，又与中国现行法秩序及立法趋势相兼容，属于高创新性且可进入共同体讨论的理论主张。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4。论文为理论/混合类，对话度≥3且制度度≥2，锚定excellent档(80-100)，结合对本土草案、判例和治理实践的深度回应，给85分。",
+          "evidence_quotes": [
+            "因此，“告知”实际融合了公法和私法的双重属性，而“同意”属于受限的私权处分。",
+            "同意撤回权实际上属于人格权体系下的撤销权……不具有溯及既往的效力，行使不以主体受到实际损害为前提。"
+          ],
+          "strengths": [
+            "结论明确回应了学界关于同意性质、同意撤回与删除权关系的多种争论，并清晰定位自身主张。",
+            "紧密结合《个人信息保护法（草案）》条文、中国司法判例及专项治理报告，使理论主张具备现实的制度对话可能。"
+          ],
+          "weaknesses": [
+            "对“反对人格权撤销权构造”或“同意撤回会增加企业负担”等潜在反对意见的直接讨论稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下的学术与制度可接受性，不预测未来学界最终共识，也不评价论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "结论精准回应学界争论与中国制度语境，可接受性极高。",
+          "core_judgment": "结论在共同体对话与制度兼容层面均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "同意撤回权作为人格权体系下的撤销权，其行使应遵循对人格利益的许可撤销的规则，不仅不应受到过多限制...",
+            "在行政监督与行政执法已经相当有力的前提之下，要注意避免对信息处理者进行'一刀切'式的强制性立法，将同意撤回与删除权清晰分离..."
+          ],
+          "strengths": [
+            "结论精准修正既有学说，主动回应4大理论质疑，对话度极高。",
+            "紧扣《草案》与《民法典》，制度转化方向清晰且具实操性。"
+          ],
+          "weaknesses": [
+            "对“理性个人信息主体”的预设可能略显乐观，但已在文中回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论的共同体与制度可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出同意撤回权作为人格权体系下撤销权的理论定位，回应了既有学术争论并融入中国法秩序语境。",
+          "core_judgment": "结论具备共同体对话基础与制度兼容性，但理论创新性相对有限，主要系对既有理论的整合与细化。",
+          "score_rationale": "共同体对话度得分=3/4（回应了许可论、信托论等既有争论，定位清晰可被反驳，承认中国语境但未充分讨论本土局限，主动回应了反对意见）；制度可接受度得分=3/4（与现行法秩序兼容，回应了《草案》制度约束，指出了制度转化方向，考虑了中国行政治理特色）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者认为，对同意的性质判定要联系相关规定中'告知同意原则'进行梳理",
+            "同意撤回权实际上属于人格权体系下的撤销权"
+          ],
+          "strengths": [
+            "明确回应并批判性整合了许可论、信托论、代理论等既有学说",
+            "结合《个人信息保护法（草案）》展开分析，制度语境意识明确"
+          ],
+          "weaknesses": [
+            "理论主张相对稳健，未充分彰显相对于既有理论的独特优势",
+            "对中国本土法学传统局限的讨论不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应既有学说争议，构建人格权撤销权框架，并与中国立法及执法语境高度兼容。",
+          "core_judgment": "该维度成立，结论具备高度的共同体对话能力与制度语境适配性，无自说自话或机械套用。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "同意撤回权体现了主体对于个人信息的自决处分，可以被定性为人格权体系下的撤销权。",
+            "在行政监督与行政执法已经相当有力的前提之下，要注意避免对信息处理者进行“一刀切”式的强制性立法。"
+          ],
+          "strengths": [
+            "精准定位既有学说分歧并系统回应四项理论质疑",
+            "将同意撤回权嵌入中国民法典人格权体系，逻辑自洽"
+          ],
+          "weaknesses": [
+            "对“理性个人信息主体”假设的实证支撑稍显薄弱",
+            "未深入探讨撤回权与数据可携带权的制度衔接细节"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.1105899810791,
+        "glm-5.1": 44.52256512641907,
+        "kimi-k2.6": 10.265033960342407,
+        "qwen3.6-plus": 60.10385203361511
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85.5,
+      "std": 9.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰指明了未来研究的多个具体方向，包括细化撤回权与受托人/第三方关系、回应四项理论质疑、比较法深化与本土化立法路径选择，延展路径具体、可定位，并与正文核心结论紧密衔接。",
+          "core_judgment": "本文存在真实、具体且可定位的延展路径，明确提出了未来研究需解决的理论争议、制度衔接问题和本土化思路，而非口号式展望。",
+          "score_rationale": "原始分85分，对应bonus档位为5分。证据显示作者提出了撤回权与第三方关系、回应四项理论质疑、比较法路径选择等具体延展点，与正文衔接紧密，延展路径清晰且具可操作性。",
+          "evidence_quotes": [
+            "厘清所有参与信息处理主体的权利义务关系就成为保护个人信息安全的关键。受托人及第三方之权利义务的确定应符合以下规则...",
+            "有学者担心...必须履行告知弱势消费者具有个性化撤回的义务...可通过...增强公正对隐私认识的法律责任...消除顾虑"
+          ],
+          "strengths": [
+            "提出受托人/第三方授权递减、行权通知义务等具体制度延展方向，路径清晰可定位。",
+            "对四项理论质疑的逐条回应实质构成了未来研究的争论入口和检验点，延展性强。"
+          ],
+          "weaknesses": [
+            "比较法延伸部分对新兴法域（如印度、巴西）的分析仅停留在立法列举，未展开深层比较维度。",
+            "“理性个人信息主体”假设的实证检验条件未进一步说明，延展路径的精细度略有欠缺。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文所探讨的未来制度完善方向（如撤回权与第三方关系厘清、理论质疑的实证回应）属于前瞻延展性问题，而非当下对结论可接受性的论证。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在制度完善、规则衔接与技术挑战方面提出了清晰可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，指明了授权递减原则、区块链技术挑战及隐形侵权场景下的企业告知义务等具体深化方向。",
+          "score_rationale": "原始分85，对应bonus档位为5（>=80）。论文提出了授权递减原则、区块链对删除权限制等具体制度完善与风险控制方向，与核心结论紧密衔接，路径清晰可定位。",
+          "evidence_quotes": [
+            "随着区块链技术的发展，删除权的适用将会受到越来越多的限制，因为，删除某个区块的数据意味着后续整个区块无法进行哈希链接...",
+            "所有其他从信息处理者处获得信息的受托方或第三方都应当遵从授权递减原则，即其处理信息的权限不得超出信息处理者处理的范畴。"
+          ],
+          "strengths": [
+            "指出区块链技术对删除权与撤回权分离制度的未来挑战。",
+            "提出授权递减原则以解决撤回权在多方流转场景的规则衔接。"
+          ],
+          "weaknesses": [
+            "结语部分展望稍显空泛，缺乏对后续争点的进一步提炼。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "区块链技术挑战与授权递减原则属于未来制度适用边界与规则衔接问题，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在比较法分析和制度构建基础上，提出了'理性个人信息主体'假设及本土化路径选择方向，并指出《草案》待完善之处，存在可辨识的延展路径。",
+          "core_judgment": "存在真实延展路径，主要体现在比较法框架深化、本土化理论假设及制度实施细节三个层面，但部分展望仍较概括。",
+          "score_rationale": "原始分62分，对应bonus=3（>=60档）。论文提出'理性个人信息主体'作为本土化理论创新点，并指出《草案》中撤回权与删除权分离、受托人连带责任等具体制度待完善方向；但'理性个人信息主体'的论证较初步，缺乏后续检验路径的明确设计，且结语部分'推出真正适合中国的个人信息保护立法'偏口号化。",
+          "evidence_quotes": [
+            "若能适度认可信息主体的决策理性，那么可以尽量使得立法趋于克制……以维持个人信息主体对自身合法权益的保障与大数据应用的动态平衡。",
+            "《草案》正式纳入了同意撤回权，但在制度设计上就同意撤回及删除权的相关规定仍有待完善，相关权利行使过程中各相对人的权利义务关系也需进一步厘清。"
+          ],
+          "strengths": [
+            "提出'理性个人信息主体'本土化假设，为理论深化提供新入口。",
+            "明确区分同意撤回与删除权，指出制度衔接的具体技术难题。"
+          ],
+          "weaknesses": [
+            "'理性个人信息主体'缺乏后续检验标准或反驳入口的设计。",
+            "结语部分'真正适合中国的个人信息保护立法'表述空泛，未指明具体修正对象。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究或制度发展指明的方向，而非当下结论是否被接受。'理性个人信息主体'及制度衔接问题属于未来可深化议题，符合前瞻延展性定位。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文明确指出了《草案》中同意撤回权与删除权界分、下游处理者义务衔接及避免“一刀切”立法的具体完善方向。",
+          "core_judgment": "存在真实延展路径，紧密围绕立法草案的制度细化、规则衔接与实施风险控制展开。",
+          "score_rationale": "原始分75，对应bonus=3档。论文明确指出撤回权与删除权界分、下游主体义务衔接及结合我国执法背景的差异化立法路径，方向具体且紧扣核心结论，但技术落地细节待展开。",
+          "evidence_quotes": [
+            "《草案》正式纳入了同意撤回权，但在制度设计上就同意撤回及删除权的相关规定仍有待完善，相关权利行使过程中各相对人的权利义务关系也需进一步厘清。",
+            "在行政监督与行政执法已经相当有力的前提之下，要注意避免对信息处理者进行“一刀切”式的强制性立法，将同意撤回与删除权清晰分离……"
+          ],
+          "strengths": [
+            "明确指出立法草案中权利界分与下游主体义务衔接的具体待完善领域。",
+            "结合我国强行政执法背景提出避免“一刀切”的差异化制度建构路径。"
+          ],
+          "weaknesses": [
+            "对区块链等新技术场景下撤回权行使的技术障碍与规则适配缺乏深入推演。",
+            "未具体说明“替代解决方案”的实务操作机制或试点验证路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于立法草案落地后的规则细化、权利衔接与实施风险控制等未来制度演进方向，而非评判当前结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.16870999336243,
+        "glm-5.1": 37.45898389816284,
+        "kimi-k2.6": 11.887893915176392,
+        "qwen3.6-plus": 50.261958837509155
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 75
+      },
+      "mean": 76.8,
+      "std": 10.9,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 80.85,
+      "weighted_total": 78.6
+    },
+    "aggregation_strictest": {
+      "final_score": 60.35,
+      "weighted_total": 61.6
+    },
+    "avg_std": 14.0,
+    "max_std": 25.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.5,
+    "composite_score": -14.0,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 25.1
+  }
+}

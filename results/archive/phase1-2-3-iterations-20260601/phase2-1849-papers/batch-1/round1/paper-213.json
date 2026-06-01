@@ -1,0 +1,1008 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/共犯处罚根据论的反思与修正_新混合惹起说的提出.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法采取的是限缩的正犯概念，分则的构成要件原则上规定的是单独犯（单独正犯）的既遂类型，共犯规定属于处罚扩张事由",
+          "湖南省汨罗市人民法院判定叶某的行为构成帮助信息网络犯罪活动罪……该案典型地反映了新型网络共同犯罪的特征",
+          "按照混合惹起说……由于对共犯张某而言，张某本人遭受强奸这一事实不可能具有强奸罪的违法性，因而张某不能成立强奸罪既遂的教唆犯",
+          "倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提，这既是刑法理论发展的结果,更能回应司法实务的要求"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "我国刑法采取的是限缩的正犯概念",
+        "湖南省汨罗市人民法院判定叶某的行为构成帮助信息网络犯罪活动罪",
+        "由于对共犯张某而言，张某本人遭受强奸这一事实不可能具有强奸罪的违法性，因而张某不能成立强奸罪既遂的教唆犯",
+        "倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国司法案例与实践困境为出发点，构建并提出\"新混合惹起说\"这一本土化理论命题，完全符合项目口径，文本质量良好，可直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如238、239、240等）",
+          "脚注编号及引用标记存在OCR乱码（如®、©等非标准脚注符号）",
+          "部分标点符号异常（如全角半角混用、异常空格）"
+        ],
+        "evidence_quotes": [
+          "238",
+          "239",
+          "®",
+          "©",
+          "o（应为句号或列表标记）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "案例4：被害人李某因患脑中风致半身不遂……广州市番禺区人民法院判定邓明建成立故意杀人罪。在此案中……在我国司法实务中，目前主流观点是帮助自杀行为构成故意杀人罪",
+          "案例3：被告人叶某通过互联网租用香港VPS服务器……湖南省汨罗市人民法院判定叶某的行为构成帮助信息网络犯罪活动罪……该案典型地反映了新型网络共同犯罪的特征",
+          "基于最小从属性的视角，对当下的共犯处罚根据论进行修正：即处罚共犯不以正犯违法为前提，以切实解决上述问题",
+          "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果（正犯行为属于实行行为）"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文、脚注编号乱码需清洗",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "在我国司法实务中，目前主流观点是帮助自杀行为构成故意杀人罪……司法实务已经不太可能接受限制从属性说的这种结论，也基本不会改变判定有罪的一贯做法。在此意义上，司法实务的态度也在倒逼学界反思限制从属性说的合理性",
+        "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果（正犯行为属于实行行为）"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本工程需进行页码剔除与脚注乱码清洗，但不影响核心论点与论证结构的提取与评审。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表缺失（标注为“无”）",
+          "脚注编号存在OCR残留风险（如①②③等符号）",
+          "部分日文文献引用存在OCR识别风险（如「」『』等符号）"
+        ],
+        "evidence_quotes": [
+          "参考文献列表：\n（无）",
+          "① 参见孙广智：《奇葩案之说...",
+          "⑤ 山口厚「刑法総論（第3版）J（有斐阁,2016年）312頁参照。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法采取的是限缩的正犯概念，分则的构成要件原则上规定的是单独犯（单独正犯）的既遂类型，共犯规定属于处罚扩张事由",
+          "湖南省汨罗市人民法院（2018）湘0681刑初288号判决书",
+          "广州市番禺区人民法院判定邓明建成立故意杀人罪",
+          "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果（正犯行为属于实行行为）",
+          "基于最小从属性说，对当下的混合惹起说进行修正，倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，需确认是否为OCR抽取失败",
+        "脚注编号及日文文献符号存在OCR残留风险，但不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "新混合惹起说要求共犯行为具有违法性,但不要求正犯行为也具有违法性",
+        "我国刑法采取的是限缩的正犯概念...共犯规定属于处罚扩张事由",
+        "湖南省汨罗市人民法院（2018）湘0681刑初288号判决书"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文进入六维评分。文本质量风险较低，核心论点、理论框架和论证结构清晰可定位。建议评分前确认参考文献完整性，但不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码数字（如238、239、240等）混入正文段落间隙",
+          "部分脚注标记OCR识别异常或替换为非常规符号（如®、@、㉓、㉔等）",
+          "参考文献列表未完整提供/抽取失败"
+        ],
+        "evidence_quotes": [
+          "238\n\n共犯处罚根据论的反思与修正：新混合惹起说的提出",
+          "® 参见前注⑩，周光权书，第343页。",
+          "@ 参见曽根威彦I■刑法重要問題〔総論〕（補訂版）J"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在该案中，如何评价张某指使流氓乙强奸女生甲，结果自己反遭强奸这一事实,既涉及错误论，更涉及共犯处罚根据论。",
+          "近年来，随着网络技术的迅猛发展，网络共同犯罪呈现出不同于传统共同犯罪的特性，传统的共犯从属性理论面临极大挑战。",
+          "基于最小从属性说，对当下的混合惹起说进行修正，倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提，这既是刑法理论发展的结果,更能回应司法实务的要求。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量OCR页码混入及脚注符号乱码，但不影响核心论证定位；参考文献列表未完整抽取。"
+      ],
+      "evidence_quotes": [
+        "基于最小从属性说，对当下的混合惹起说进行修正，倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留风险，但核心法学命题清晰、中国问题意识明确、理论转化完整。建议直接进入六维评分阶段，评审时忽略格式噪声。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 44,
+          "band": "unacceptable",
+          "summary": "论文以新概念“新混合惹起说”包装旧争论，全文主要是对共犯处罚根据论的体系介绍与立场宣示，未提出可争辩的法学问题。",
+          "core_judgment": "论文虽涉及“共犯处罚根据”这一经典争议，但未将其转化为明确的问题句，实质上是对既定立场的阐释与修正，缺乏法学层面的可争辩研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有理论分歧，缺乏明确问题句、法学层面聚焦及论证），枢纽性=3/4（争议焦点、理论基础、制度连锁均涉及），材料新颖性未触发上限。前置检查扣分合计=45分（检查1扣15分，检查2扣20分，检查3扣20分），最终得分=89-45=44分。",
+          "evidence_quotes": [
+            "我们就需要对既往的理论进行反思，追根溯源至共犯的本质与共犯的从属性问题，并基于最小从属性的视角，对当下的共犯处罚根据论进行修正：即处罚共犯不以正犯违法为前提。",
+            "因此，以最小从属性说作为理论基础的新混合惹起说的基本立场是: 共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果。"
+          ],
+          "strengths": [
+            "问题涉及共犯处罚根据这一刑法学长期核心争议，具有枢纽性",
+            "提出的“新混合惹起说”尝试回应网络共同犯罪等新现象"
+          ],
+          "weaknesses": [
+            "“新混合惹起说”作为创新点，未充分说明其相比既有“混合惹起说”的解释力提升",
+            "全文主要是体系介绍与立场修正，缺乏“XX是否YY”等明确的问题句"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1，全文无可争辩的法学研究问题，主要是主题声明和立场宣示",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未找到“XX是否YY”或“如何ZZ”等问题句，核心是提出并论证“新混合惹起说”这一修正方案。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否可争辩及重要，不评论证严密性、文献综述或材料支撑。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文提出共犯处罚根据的核心争点，理论分歧明确，枢纽性极强。",
+          "core_judgment": "问题高度成立且极具枢纽性，触及刑法共犯论长期核心争议，非单纯政策倡导。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置扣分0分。",
+          "evidence_quotes": [
+            "为何可以处罚共犯以及在何种条件下可以处罚共犯？",
+            "处罚共犯是否必须以正犯行为具有违法性为前提？"
+          ],
+          "strengths": [
+            "争点明确且触及刑法共犯理论核心分歧",
+            "问题枢纽性极强，影响共同犯罪定罪全局"
+          ],
+          "weaknesses": [
+            "案例引出问题虽生动但略显分散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 78,
+          "band": "good",
+          "summary": "论文以共犯处罚根据论为切入点，提出'新混合惹起说'，回应网络共犯与自损型共犯等疑难案件。",
+          "core_judgment": "论文提出了明确的可争辩法学问题，涉及共犯从属性程度的核心理论分歧，具有显著的刑法学理论枢纽性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=3/4（影响范围广、争议焦点、理论基础满足，制度连锁因法哲学论文适配而部分满足但未完全论证），材料新颖性未触发上限，锚定good档，给78分。负面模式检查：检查1不满足（新概念'新混合惹起说'有明确理论推进，说明了解释力提升）；检查2不满足（有充分的学者观点交锋）；检查3不满足（有明确问题句）。扣分合计=0分。",
+          "evidence_quotes": [
+            "为何可以处罚共犯以及在何种条件下可以处罚共犯？",
+            "处罚共犯不以正犯违法为前提，以切实解决上述问题"
+          ],
+          "strengths": [
+            "问题聚焦共犯从属性核心争点，理论交锋充分",
+            "以疑难案例驱动，问题具有现实紧迫性"
+          ],
+          "weaknesses": [
+            "制度连锁效应论证偏理论推演，具体制度调整未充分展开",
+            "新混合惹起说与既有混合惹起说的边界可更清晰"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身的可争辩性与枢纽性，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准提炼共犯处罚根据教义学争点，以最小从属性重构理论，问题高度可争辩且具核心枢纽价值。",
+          "core_judgment": "问题成立且直击刑法基础理论核心，理论分歧清晰，符合优秀档标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。负面模式扣分合计0分。锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "处罚共犯是否必须以正犯行为具有违法性为前提？",
+            "新混合惹起说的基本立场是：共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果"
+          ],
+          "strengths": [
+            "明确提炼限制从属性与最小从属性的教义学对立",
+            "以违法相对性为核心重构处罚根据，逻辑自洽"
+          ],
+          "weaknesses": [
+            "网络共犯异化的规范应对略显宏观，具体教义转化可更细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与理论枢纽价值，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.403079986572266,
+        "glm-5.1": 39.35950708389282,
+        "kimi-k2.6": 12.630823850631714,
+        "qwen3.6-plus": 52.94764709472656
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 44,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76.5,
+      "std": 22.6,
+      "strictest": 44,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文通过多个案例深度嵌入既有争论，清晰呈现了共犯处罚根据论的流派对立和发展脉络，研究地图完整且有层次，但法学流派集中在大陆刑法理论内部，跨学派覆盖略窄。",
+          "core_judgment": "论文有效建立了清晰的研究地图，争点结构鲜明，虽法学流派数量约5个且集中于刑法教义学内部，但仍达到良好文献洞察标准。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=5个（纯粹惹起说、修正惹起说、混合惹起说、犯罪共同说、行为共同说），锚定good档，给82分。",
+          "evidence_quotes": [
+            "修正惹起说与混合惹起说之所以均要求犯罪结果对正犯而言是具有违法性的事态，是因其理论基础是有关共犯从属性的限制从属性说。但是，在某些案件中，这种理论也受到质疑。",
+            "随着网络技术的迅猛发展，网络共同犯罪呈现出不同于传统共同犯罪的特性，传统的共犯从属性理论面临极大挑战。"
+          ],
+          "strengths": [
+            "研究地图三要素完整：到达点明确梳理了因果共犯论内部修正惹起说、混合惹起说的立场，未竟点清晰指出网络犯罪及利益冲突案件对限制从属性说的挑战，本文切入点与未竟点高度对应。",
+            "争点结构极具层次，系统呈现了纯粹惹起说、修正惹起说、混合惹起说之间的对立，以及犯罪共同说与行为共同说、限制从属性说与最小从属性说的分歧。"
+          ],
+          "weaknesses": [
+            "法学流派覆盖集中于大陆刑法教义学内部，缺少与其他法系（如英美共犯理论）或跨学科研究（如认知心理学与司法裁判）的实质性对话。",
+            "未竟点主要源于网络犯罪等实务挑战，对理论内部逻辑矛盾的挖掘可更深入，本文切入点的创新层次可进一步拔高。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文的创新点在于提出修正理论，评分的核心是对已有研究地图和流派争论的洞察力，而非评价其理论创新本身。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了完整的三层争点结构，精准定位既有理论缺口并提出针对性修正方案。",
+          "core_judgment": "本维度高度成立，论文呈现了丰满的争点结构与清晰的研究地图，流派识别充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=7个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "修正惹起说与混合惹起说是相互对立的学说，这种对立集中体现于下述情形下的帮助人、教唆人是否构成相应犯罪的认定。",
+            "我们就需要对既往的理论进行反思……并基于最小从属性的视角，对当下的共犯处罚根据论进行修正：即处罚共犯不以正犯违法为前提"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现了处罚根据、共犯本质、从属性程度三重对立。",
+            "研究地图完整，精准定位既有理论缺口并提出针对性修正方案。"
+          ],
+          "weaknesses": [
+            "无明显缺陷，本维度表现极佳。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构深度，不评新混合惹起说理论本身的逻辑严密性与创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文系统梳理了共犯处罚根据论的三大学说演变，建立了清晰的争点结构。",
+          "core_judgment": "研究地图三要素基本完整，争点结构充分，但法学流派识别因未明确标注'学界争论'而受限。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=3个（纯粹惹起说、修正惹起说、混合惹起说），锚定good档，给78分。扣分因切入点与未竟点对应关系未充分显明。",
+          "evidence_quotes": [
+            "学界历经了责任共犯论、违法共犯论、因果共犯论的演变，现在，因果共犯论已经是大陆法系的通说。",
+            "纯粹惹起说过于强调共犯固有的违法性……修正惹起说则过于强调违法的连带性……混合惹起说……成为共犯处罚根据的通说。但是……我们更应该思考：对以违法连带性与限制从属性说作为理论基础的这种混合惹起说是否有必要进行修正？"
+          ],
+          "strengths": [
+            "系统呈现三大学说对立，争点结构清晰完整。",
+            "结合案例1-4将理论争议与司法实践紧密对接。"
+          ],
+          "weaknesses": [
+            "未明确标注'学界争论'，流派识别依赖读者推断。",
+            "本文切入点表述分散，与未竟点的对应关系不够显明。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分5分，但切入点与未竟点对应关系不够显明，接近部分满足边界"
+            }
+          ],
+          "boundary_note": "本维度评价文献定位与争点结构，不评价问题新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制共犯处罚根据理论地图，清晰呈现惹起说内部对立与从属性程度之争，脉络完整。",
+          "core_judgment": "研究地图三要素完备，争点结构清晰，流派覆盖充分，文献定位与理论切入高度契合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "学界历经了责任共犯论、违法共犯论、因果共犯论的演变，现在因果共犯论已经是大陆法系的通说。",
+            "当下的混合惹起说面临不能有效应对网络共同犯罪的困境，因而需要以行为共同说、最小从属性说作为理论基础提出修正。"
+          ],
+          "strengths": [
+            "精准梳理惹起说三分法与从属性程度之争，理论脉络清晰。",
+            "明确指出现有通说在网络犯罪与自杀帮助案中的适用困境，未竟点具体。"
+          ],
+          "weaknesses": [
+            "部分比较法文献仅列于脚注，正文未充分展开跨法域对话。",
+            "对‘共犯行为正犯化’替代路径的文献回应略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现深度，不涉及新混合惹起说本身的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.27240014076233,
+        "glm-5.1": 40.07283401489258,
+        "kimi-k2.6": 14.708565711975098,
+        "qwen3.6-plus": 75.00394701957703
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 83,
+          "band": "excellent",
+          "summary": "论文通过类型化案例对比，构建了“新混合惹起说”的法教义学分析框架，具有清晰的步骤和可操作性。",
+          "core_judgment": "该框架成立且可用：论文原创性地提出以最小从属性说为基础修正共犯处罚根据，并提供了明确的构成要件和判断标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4，锚定excellent档，给83分。框架概念清晰、分类明确、步骤可循且后文反复调用，法学转化度高。",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果。",
+            "基于最小从属性说，对当下的混合惹起说进行修正，倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提。"
+          ],
+          "strengths": [
+            "原创性提出“新混合惹起说”分析框架，从正反两面界定共犯处罚前提。",
+            "通过四个典型案例贯穿全文，将理论框架转化为可重复适用的法学判断步骤。"
+          ],
+          "weaknesses": [
+            "对“正犯行为属于实行行为但无违法性”的边界界定略显抽象。",
+            "未就新框架在立法或司法程序层面提出具体的制度设计方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价框架本身的可操作性与法学转化度，不评价其逻辑严密性或观点创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "提出并验证了“新混合惹起说”，框架概念清晰、步骤可循且法学转化度高。",
+          "core_judgment": "该维度高度成立，论文成功建构了基于最小从属性与违法相对性的原创分析框架。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。框架概念界定清晰，分类标准明确，提供了可循的判断步骤并在案例中实际调用，法学理论转化充分。",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果",
+            "下面通过如何评价共犯创造‘利益冲突状态’的行为……对新混合惹起说的适用进行检验"
+          ],
+          "strengths": [
+            "概念界定与分类标准极其清晰，区分了四种惹起说的违法相对性态度。",
+            "提供了明确的判断步骤（共犯违法性+正犯实行行为），并在案例中有效调用。"
+          ],
+          "weaknesses": [
+            "框架在网络共犯（案例3）的适用检验略显简略，未如案例2、4般深入展开步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的成立与可用性，不评价理论推演的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'新混合惹起说'，以最小从属性说修正传统混合惹起说，构建了具有明确理论边界的共犯处罚根据分析框架。",
+          "core_judgment": "分析框架成立：'新混合惹起说'以'违法相对性'为核心，将共犯处罚根据重构为'共犯行为违法性+正犯实行行为'双要件，具有清晰的理论操作步骤。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循，但后文调用集中于案例检验而非步骤化展开）；法学转化度得分=3/4（跨学科概念已转化为刑法学分析步骤、提供裁判规则层面的操作指引、理论修正路径明确，但制度设计方案不足）；锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是：共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果",
+            "处罚共犯不以正犯违法为前提，以切实解决上述问题"
+          ],
+          "strengths": [
+            "原创性提出'新混合惹起说'，明确区分于纯粹惹起说、修正惹起说与传统混合惹起说",
+            "以最小从属性说为理论根基，构建了'共犯行为违法性+正犯实行行为'的双层分析结构"
+          ],
+          "weaknesses": [
+            "后文案例分析未严格按框架步骤逐步展开，多为结论验证而非步骤化操作",
+            "制度设计层面缺乏具体立法建议或司法程序方案，停留于理论修正"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及限制从属性说与最小从属性说之辩的实体正当性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的教义学分析框架，理论转化充分，具备优秀的框架建构力。",
+          "core_judgment": "框架成立且高度可用，理论推演成功转化为可操作的刑法教义学判断标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。理论型论文转化标准适配，概念重构路径清晰。",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果",
+            "处罚共犯不以正犯行为违法为前提，以切实解决上述问题。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，构建了“最小从属性+违法相对性”的分析框架",
+            "框架贯穿全文，有效应用于自杀帮助、网络共犯等疑难案例检验"
+          ],
+          "weaknesses": [
+            "理论推演偏重教义学移植，本土裁判规则转化提炼略显不足",
+            "对处罚范围扩张风险缺乏程序性限缩设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与法学转化度，不涉及逻辑衔接与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 74.65424084663391,
+        "glm-5.1": 42.42180919647217,
+        "kimi-k2.6": 12.758985996246338,
+        "qwen3.6-plus": 57.88340401649475
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 83,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.2,
+      "std": 9.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文从案例困境出发，沿“问题—反思—修正—检验”主线形成完整推理链，结论可由前文推出，反驳回应较为充分。",
+          "core_judgment": "推理链清晰可复述，对反对观点的实质回应强化了论证强度，属于逻辑严密的法学理论论文。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给82分。论文未明确承认自身局限，故反驳处理度未达满分。",
+          "evidence_quotes": [
+            "混合惹起说……既满足了共犯从属性的要求，又符合责任主义，还符合刑法的谦抑性……但是，在案例4中……仅仅凭借不存在‘正犯的不法’这一理由，能否直接得出邓明建的行为不成立帮助犯的结论是存在很大疑问的。",
+            "我们更应该正面承认违法的相对性，不仅承认正犯违法并不必然导致共犯违法，还应承认正犯合法并不必然带动共犯合法。"
+          ],
+          "strengths": [
+            "主要推理步骤均可复述：从案例暴露的通说困境，到理论基础反思（部分犯罪共同说/限制从属性说），再到基于行为共同说和最小从属性说提出新混合惹起说，最后用案例检验，环环相扣。",
+            "对反对观点做了实质性回应：明确批评修正惹起说及其理论根基，正面回应了对最小从属性说“扩大处罚范围”的质疑，体现了理论争辩层面的处理。"
+          ],
+          "weaknesses": [
+            "论文未明确承认新混合惹起说自身的适用边界或可能局限，如“共犯行为本身违法性”在复杂因果关系中的判定标准。",
+            "对纯粹惹起说的否定相对简略，主要依赖其“走向共犯独立性说”的标签化后果，而未详细展开对该说内部论证的逐层驳斥。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文对根本立场的分歧（部分犯罪共同说与行为共同说、限制从属性与最小从属性）进行了辩驳，属于理论框架内部的证成，不能误判为推理链断裂。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文推理链完整且高度依赖，反驳处理充分，逻辑严密性极佳。",
+          "core_judgment": "本维度完全成立。论文通过层层递进的理论推演和充分的反驳处理，可辩护地推出了新混合惹起说。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理链层层依赖无跳步，对修正惹起说等反对路径均有实质回应并承认自身局限。",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果，并且，对正犯而言，该结果也属于构成要件的结果",
+            "采取最小从属性说既能坚持共犯的从属性，防止因'帮助行为正犯化'而过度扩大共犯成立范围的弊病，还能有效地解决这种由网络共犯异化变形所带来的...困境"
+          ],
+          "strengths": [
+            "推理链层层递进，从问题到根源再到修正方案，依赖度极高。",
+            "对各派学说及潜在质疑均有实质性回应，反驳处理充分。"
+          ],
+          "weaknesses": [
+            "局部理论争辩密集，对'实行行为'的独立界定稍显仓促。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评的是理论推演链条是否充分支撑结论，不评新混合惹起说在实务中是否可操作或被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了从案例引入到理论反思再到新说提出的完整推理链，但反驳处理存在局部薄弱。",
+          "core_judgment": "推理链基本完整可复述，但反驳处理中对最小从属性说核心质疑的回应论证深度不足，且未充分回应行为共同说扩大处罚范围的批评。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'违法相对性应被承认'到'应采取最小从属性说'的推导中，对'构成要件行为'与'实行行为'的区分论证不足）；反驳处理度得分=2/3（标准1、2成立：识别了限制从属性说、部分犯罪共同说的反对意见并做了实质性回应；标准3不成立：未明确承认新混合惹起说自身的适用边界）。锚定good档，给78分。",
+          "evidence_quotes": [
+            "一边采取行为共同说，主张共同犯罪是'行为'的共同，一边却坚持限制从属性说，要求正犯行为还必须具有违法性，这之间是否存在理论上的一致性与逻辑上的自洽性？不能说没有疑问。",
+            "对最小从属性说的最大质疑在于：若成立共犯不要求正犯具有违法性，则建议医师实施正当外科手术的行为……也可能构成教唆犯，这不仅不合常理，更会不适当地扩大共犯的成立范围"
+          ],
+          "strengths": [
+            "案例-理论-修正的三层推理链清晰可复述，每一步依赖前一步结论",
+            "对修正惹起说、混合惹起说的理论批判形成递进式反驳"
+          ],
+          "weaknesses": [
+            "对最小从属性说'扩大处罚范围'质疑的回应以'比较优势'替代直接论证，存在跳步",
+            "未承认新混合惹起说在'正犯行为不符合构成要件'时的适用边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不评'新混合惹起说'本身是否被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以限制从属性说缺陷为起点，经违法相对性论证过渡，严密推导出新混合惹起说，逻辑链条完整。",
+          "core_judgment": "推理链环环相扣，核心结论可由前文理论批判与规范分析充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。理论推演步骤清晰，对潜在质疑进行了实质性回应，无关键跳步。",
+          "evidence_quotes": [
+            "处罚共犯不以正犯违法为前提，以切实解决上述问题。",
+            "对最小从属性说的最大质疑在于……但是，两相比较，我们倒可以说，采取最小从属性说既能坚持共犯的从属性……"
+          ],
+          "strengths": [
+            "理论推演呈递进结构，从旧说批判到根基重构再到新说检验，逻辑衔接紧密。",
+            "对反对观点不仅罗列，更通过比较替代方案进行实质性反驳，论证充分。"
+          ],
+          "weaknesses": [
+            "网络犯罪入罪困境的论证稍显宏观，与最小从属性说的直接勾连可更细化。",
+            "实务裁判逻辑的援引多作论据，缺乏对判决说理的深层规范检验。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的充分支撑性，而非新说在司法中的操作框架或结论接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 78.28401899337769,
+        "glm-5.1": 47.64153695106506,
+        "kimi-k2.6": 13.8438081741333,
+        "qwen3.6-plus": 53.321346044540405
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出了新混合惹起说这一修正性理论主张，有意识地挑战通说并回应了网络犯罪等实践难题，具有进入共同体对话的潜力，但在主动承认理论局限和充分回应批评意见方面尚有不足。",
+          "core_judgment": "结论能与既有理论争论对话且与法秩序不根本矛盾，但未能充分承认和回应可能的反对意见，共同体对话深度受限。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，理论论文锚定good档，考虑到对话度接近满分且理论兼容性较好，给78分。",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是:共犯的处罚根据在于,引起了对共犯本身而言能够被谓为符合构成要件且违法的结果,并且,对正犯而言,该结果也属于构成要件的结果（正犯行为属于实行行为）。",
+            "我们应该正面承认违法的相对性,不仅承认正犯违法并不必然导致共犯违法,还应承认正犯合法并不必然带动共犯合法。"
+          ],
+          "strengths": [
+            "结论清晰回应了混合惹起说、修正惹起说等既有学说的争论，共同体定位明确。",
+            "理论修正紧密结合案例和网络犯罪等中国制度语境，兼容性较强。"
+          ],
+          "weaknesses": [
+            "结论部分未主动讨论新混合惹起说可能面临的挑战（如处罚边界、证明困难等），对话度受限。",
+            "未明确承认自身理论的局限或适用条件，削弱了结论的可争辩性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论在共同体和制度语境中的可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论提出新混合惹起说，深度回应既有争论与中国实务，可接受性高。",
+          "core_judgment": "结论深度融入共同体对话并有效回应中国实务约束，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "新混合惹起说的基本立场是:共犯的处罚根据在于，引起了对共犯本身而言能够被谓为符合构成要件且违法的结果...",
+            "这样就可以回应司法实务的需求,避免理论研究与司法实践的脱节。"
+          ],
+          "strengths": [
+            "深度回应既有学说争论并提出明确修正方案",
+            "紧密结合中国司法实务（如帮助自杀、网络犯罪）"
+          ],
+          "weaknesses": [
+            "新说对传统通说的颠覆可能面临较大阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出新混合惹起说，修正传统共犯处罚根据论，具有明确理论主张和学术对话性。",
+          "core_judgment": "结论具备共同体对话基础，但制度转化方向表述不够充分，整体处于良好水平。",
+          "score_rationale": "共同体对话度得分=3/4（回应修正惹起说/混合惹起说之争，定位清晰；承认行为共同说批判并回应；中国语境通过案例3网络犯罪及司法实务需求体现；但未主动讨论反对意见或自身局限），制度可接受度得分=2/4（不与现行法秩序根本矛盾；对实务约束有回应如案例3、帮助信息网络犯罪活动罪；但制度转化方向仅提及'可为未来立法提供方向'较笼统；中国语境通过案例体现但外国理论移植痕迹明显）。锚定good档，给78分。",
+          "evidence_quotes": [
+            "处罚共犯不以正犯违法为前提，以切实解决上述问题",
+            "基于最小从属性说，对当下的混合惹起说进行修正，倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提，这既是刑法理论发展的结果，更能回应司法实务的要求"
+          ],
+          "strengths": [
+            "明确挑战修正惹起说与混合惹起说，学术对话定位清晰",
+            "结合网络犯罪等中国司法实务需求论证理论修正必要性"
+          ],
+          "weaknesses": [
+            "未主动承认新混合惹起说可能面临的理论反驳或自身局限",
+            "制度转化方向表述笼统，缺乏具体制度衔接的明确指向"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确修正通说混合惹起说，提出新理论，定位清晰且契合中国司法语境。",
+          "core_judgment": "结论高度成立，深度嵌入刑法教义学争论并有效回应本土实务困境。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "处罚共犯不以正犯违法为前提，以切实解决上述问题。",
+            "基于最小从属性说对混合惹起说进行修正，倡导新混合惹起说。"
+          ],
+          "strengths": [
+            "精准定位既有学说争议，明确挑战限制从属性说与通说。",
+            "紧密结合中国司法实务，理论回应具有本土针对性。"
+          ],
+          "weaknesses": [
+            "新理论对极端情形的处罚边界仍需更精细限定。",
+            "部分论证对实务判决依赖较强，理论自洽性可深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.37779307365417,
+        "glm-5.1": 32.58947491645813,
+        "kimi-k2.6": 11.4894540309906,
+        "qwen3.6-plus": 68.39136099815369
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.5,
+      "std": 7.5,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在结语部分基于新混合惹起说的理论修正，指出了“最小从属性”视角下教唆犯/帮助犯可独立于正犯违法性进行评价的未来适用方向，并给出了网络共同犯罪和“利益冲突状态”两类可检验的延伸场景，延展路径清晰但尚未细化成体系化的后续研究问题。",
+          "core_judgment": "存在真实可定位的延展路径，与正文核心结论紧密衔接，但路径的精细度和证据展开仍有限。",
+          "score_rationale": "原始分75分，对应bonus=3档位。主要依据：论文结尾明确提出了新混合惹起说可检验的两类场景（共犯创造“利益冲突状态”及网络共同犯罪），并给出了独立于正犯违法性进行违法性评价的理论方向，属于具体可定位的延伸路径，但缺乏明确列出待修正的边界条件或后续研究问题清单。",
+          "evidence_quotes": [
+            "按照新混合惹起说，此类情形下，可以独立于正犯而直接认定共犯行为具有违法性，进而认定成立教唆犯或者帮助犯。",
+            "如何评价共犯创造“利益冲突状态”的行为，以及如何应对网络共同犯罪这两个典型问题，对新混合惹起说的适用进行检验，以证成新混合惹起说的可行性与妥当性。"
+          ],
+          "strengths": [
+            "明确将“利益冲突状态”和网络共同犯罪场景作为新混合惹起说的检验实例，延展路径具体可操作。",
+            "从最小从属性角度提出了独立于正犯违法性的共犯违法性评价方向，为未来理论深化和实务适用提供了切入点。"
+          ],
+          "weaknesses": [
+            "未将检验场景提炼为系统的后续研究问题或理论修正议题，延伸的体系性不足。",
+            "对两类延展场景中可能出现的边界条件或反驳意见未作进一步说明，路径精细度待加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是新混合惹起说在未来的理论适用与检验场景，属于理论深化方向和司法实务延伸问题，而非论证当下结论的可接受性，故归入前瞻延展性维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文指明了新混合惹起说在“利益冲突状态”与网络共犯中的适用检验方向，并给出了具体场景延伸与反驳入口。",
+          "core_judgment": "存在真实延展路径，指明了理论适用检验场景与概念边界延伸。",
+          "score_rationale": "原始分70，bonus档位为3（good）。论文指明新理论需在利益冲突与网络共犯中检验，并给出利用合法行为的场景延伸，但缺乏专门展望段落且正文截断，精细度受限。",
+          "evidence_quotes": [
+            "下面通过如何评价共犯创造‘利益冲突状态’的行为，以及如何应对网络共同犯罪这两个典型问题，对新混合惹起说的适用进行检验",
+            "通过虚构事实,让警察合法地羁押清白之人……也有可能构成非法拘禁罪的教唆犯"
+          ],
+          "strengths": [
+            "提出了具体的理论适用检验场景（利益冲突、网络共犯）。",
+            "给出了可继续检验的反驳入口与场景延伸（利用合法行为的违法性）。"
+          ],
+          "weaknesses": [
+            "正文截断导致网络共犯适用检验未完整展开。",
+            "缺乏专门的未来研究展望或局限承认段落。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判新理论在新型网络犯罪与利益冲突场景中的适用边界，属于未来延展问题，而非当下理论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在提出新混合惹起说后，通过典型案例检验了理论适用，并指明了网络共犯、利益冲突状态等具体延展方向。",
+          "core_judgment": "存在真实延展路径，主要体现在网络共犯应对、利益冲突状态处理等具体场景的进一步展开，以及最小从属性说与违法相对性理论的深化空间。",
+          "score_rationale": "原始分62分，对应bonus=3档位。论文在结尾部分明确提出了两个典型检验场景（利益冲突状态、网络共同犯罪），并指出新混合惹起说可回应'共犯行为正犯化'的替代路径讨论，延展路径可定位且与核心结论紧密衔接；但缺乏对'下一轮争点'的明确提炼，对比较法维度（如德国最小从属性说的最新发展）的展开不足，精细度有限。",
+          "evidence_quotes": [
+            "下面通过如何评价共犯创造'利益冲突状态'的行为，以及如何应对网络共同犯罪这两个典型问题，对新混合惹起说的适用进行检验",
+            "限制从属性说面临的入罪上的困境还引起了所谓'共犯从属性理论的危机'：有观点主张……应该承认'共犯行为正犯化'"
+          ],
+          "strengths": [
+            "明确列出两个具体检验场景，延展路径可定位",
+            "与'共犯行为正犯化'立法趋势形成对话，具有制度回应性"
+          ],
+          "weaknesses": [
+            "未提炼下一轮理论争点或待检验的具体假设",
+            "缺乏比较法或实证维度的延伸讨论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是理论提出后还可向哪些具体场景和方向推进，而非新混合惹起说本身能否被学界接受。后者属于结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提出“新混合惹起说”并明确理论修正路径，为共犯归责与网络犯罪适用提供了可检验的延展方向。",
+          "core_judgment": "存在真实延展路径，以最小从属性说为基础的理论修正与场景检验指向明确。",
+          "score_rationale": "原始分68，对应bonus=3。论文明确指向理论深化方向（违法相对性、最小从属性说），并结合网络共犯与利益冲突案例划定适用边界，路径清晰且与核心结论紧密衔接，但未展开具体后续研究设计，精细度有限。",
+          "evidence_quotes": [
+            "基于最小从属性说，对当下的混合惹起说进行修正，倡导新混合惹起说，主张处罚共犯不以正犯行为违法为前提",
+            "下面通过如何评价共犯创造“利益冲突状态”的行为，以及如何应对网络共同犯罪这两个典型问题，对新混合惹起说的适用进行检验"
+          ],
+          "strengths": [
+            "理论修正路径明确，直接回应限制从属性说在网络时代的适用困境",
+            "提出新理论并设定具体检验场景，延展方向可定位且与正文论证衔接紧密"
+          ],
+          "weaknesses": [
+            "未明确列出后续待解决的具体争点或实证检验方案",
+            "对理论适用边界的精细化控制论述仍停留在原则层面"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是新理论提出后如何进一步深化概念边界与检验场景，而非当下结论能否被学术共同体接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.73140287399292,
+        "glm-5.1": 44.03166174888611,
+        "kimi-k2.6": 12.05990195274353,
+        "qwen3.6-plus": 67.62910485267639
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 70,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 68
+      },
+      "mean": 68.8,
+      "std": 5.4,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.33,
+      "weighted_total": 81.9
+    },
+    "aggregation_strictest": {
+      "final_score": 64.94,
+      "weighted_total": 66.1
+    },
+    "avg_std": 9.8,
+    "max_std": 22.6,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.4,
+    "composite_score": -9.8,
+    "worst_dimension": "problem_originality",
+    "worst_std": 22.6
+  }
+}

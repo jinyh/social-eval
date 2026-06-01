@@ -1,0 +1,1067 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国律例统编的传统与现代民法体系中的指导性案例.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国律例统编的传统与现代民法体系中的指导性案例",
+          "明清律例统编体系逐步确立：律典简约化理念与体系框架，统编的律文与条例，以及条例修订的制度化。",
+          "明确指导性案例在民法体系中的地位与效力，是审视现有的指导性案例制度的前提。",
+          "在民法典正式实施后，分批发布的指导性案例应当与民法典在体系结构上实现一体化，指导性案例与民法典条文形成对应的解释关系。",
+          "目前最高人民法院分批发布的指导性案例……在参照时必然需要论证裁判案件与指导案例的类似性……从民法体系构造的角度来看，指导性案例应与被解释的法律规范建立直接而紧密的联系，将‘条文化’的裁判要点统编在相应法律条文之后……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国律例统编的传统与现代民法体系中的指导性案例",
+        "明清律例统编体系逐步确立：律典简约化理念与体系框架，统编的律文与条例，以及条例修订的制度化。",
+        "明确指导性案例在民法体系中的地位与效力，是审视现有的指导性案例制度的前提。",
+        "在民法典正式实施后，分批发布的指导性案例应当与民法典在体系结构上实现一体化，指导性案例与民法典条文形成对应的解释关系。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量良好，论文以中国古代律例统编传统为历史资源，围绕中国当代民法典体系下指导性案例的定位、统编与制度完善展开论证，形成了明确的规范命题和制度设想，完全符合进入六维评价的项目口径。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号存在大量OCR乱码（如⑪识别为@，⑫识别为®，㉜识别为®，㊷识别为@等）",
+          "期刊页眉（如“中国法学 2020年第3期”、“中国律例统编的传统与现代民法体系中的指导性案例”）和页码（31-47）混入正文",
+          "表格内容被OCR打散为纯文本行，格式结构丢失"
+        ],
+        "evidence_quotes": [
+          "@ 据《旧唐书•刑法志》所载...",
+          "® 清代在顺治四年（1647年）颁行《大清律集解附例》...",
+          "31",
+          "中国法学 2020年第3期",
+          "律名 篇目数 条文数 晋《泰始律》 20 620或630⑩"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从《唐律疏议》《大明律》到《大清律例》，律典条文在减少，以律典为核心的法律体系却不断复杂化。",
+          "目前最高人民法院分批发布的指导性案例...未实现条文化、未能与法典紧密统编，现有的检索方式与制定法相脱节，指导性案例在法律体系中定位不清晰。",
+          "在第一种“全要素汇编”的基础上，对应“相关条文”，将指导性案例的“编号”和“裁判要点”附列在对应解释的民法条文之后，将抽象化条文化的裁判要点纳入到民法体系之中。",
+          "简约化的民法典可以通过其开放性设计，来解决规范供给不足的问题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、页眉页码混入、表格结构丢失",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "以民法典为纲，以指导性案例为目"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分。文本工程质量存在中等风险（脚注乱码、页眉页码混入、表格打散），需在后续阶段进行文本清洗与结构恢复，但不影响核心论点与论证的定位。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉛等）",
+          "部分参考文献信息混入正文（如'参见前注⑪，钱大群书，第1页'）",
+          "期刊页码标记混入（如'31'、'32'、'33'、'34'、'35'、'36'、'37'、'38'、'39'、'40'、'41'、'42'、'43'、'44'、'45'、'46'、'47'等）",
+          "表格格式在OCR转换中可能受损",
+          "部分脚注内容在正文中以括号形式残留"
+        ],
+        "evidence_quotes": [
+          "⑬ 参见张生：《唐律五百条：规范技术、法律体系与治平理念的融贯统一》，载《中国社会科学院研究生院学报》2016年第2期。",
+          "31",
+          "32",
+          "⑱ 参见《宋刑统》，薛梅卿点校，法律出版社1999年版，第2页。",
+          "中国法学 2020年第3期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国律例统编的传统与现代民法体系中的指导性案例",
+          "2020年5月，第十三届全国人民代表大会第三次会议表决通过了《中华人民共和国民法典》",
+          "民法典共7编1260条...这无疑是一部简约化的民法",
+          "指导性案例是民法体系的规范末梢，能够最灵敏地反映社会变化",
+          "从民法体系构造的角度来看，指导性案例应与被解释的法律规范建立直接而紧密的联系",
+          "以民法典为纲，以指导性案例为目",
+          "民法典与民事指导性案例形成一个融贯统一的规范体系"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码但内容可辨识，期刊页码标记混入正文但不影响核心阅读，表格格式需人工复核",
+        "项目口径：论文核心命题清晰，无边界问题"
+      ],
+      "evidence_quotes": [
+        "中国律例统编的传统与现代民法体系中的指导性案例",
+        "民法典共7编1260条，与《法国民法典》《德国民法典》各自的两千多个条文相比，这无疑是一部简约化的民法",
+        "指导性案例是民法体系的规范末梢，能够最灵敏地反映社会变化...也是民法体系实现自我发展的重要途径"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量风险可控，核心论点、结构和主要论证均可定位。建议进入六维评分，评分时需注意脚注引用的准确性，但不应因文本工程问题影响项目口径评价。论文以中国古代律例统编传统为历史资源，以当代民法典与指导性案例制度为现实关切，提出了'以民法典为纲、以指导性案例为目'的统编体系构造方案，具有明确的中国问题意识和理论转化尝试。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别乱码（如®、@、㉑等替代标准圈码）",
+          "部分表格数据与正文段落存在混排断行现象",
+          "文末参考文献列表标注为“（无）”，引证核查需依赖正文脚注"
+        ],
+        "evidence_quotes": [
+          "® 参见《清史稿•职官志》（一）。",
+          "@ ［德］佛朗茨•维亚克尔：《近代私法史—以德意志的发展为观察重点》,陈爱娥、黄建辉译，五南图书出版公司2004年版.第310页。",
+          "㉑《大明律》之律文终明一代未曾修改；《大清律例》自乾隆五年（ 1740年）颁行..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从《睡虎地秦墓竹简》中能看到《秦律十八种》《秦律杂抄》...至《大清律例》中的律文更是精简到436条。可见，“简约化”是律典编纂所秉承的制度理念。",
+          "目前与民法典相关的指导性案例仅30多件，与民法典1260个条文存在着极大的数量差距，这表明指导案例的供给严重不足...发挥的作用较为有限。",
+          "明确指导性案例在民法体系中的地位与效力，是审视现有的指导性案例制度的前提。",
+          "“以民法典为纲，以指导性案例为目”的统编形态，符合演绎推理的法律适用过程,法律与指导性案例共同构成逻辑大前提,指导性案例定位清晰，便于引用发挥指导功能。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注OCR乱码不影响实质阅读与论证逻辑定位",
+        "参考文献缺失需后续人工补全引证信息",
+        "论文核心命题明确，具备直接进入六维评价的充分条件"
+      ],
+      "evidence_quotes": [
+        "简约化的民法典可以通过其开放性设计，来解决规范供给不足的问题。",
+        "建立“从法律规范一指导性案例一待裁判案件”的涵摄推理过程；“类似案件类似裁判”是对自由裁量权进行评价，对裁判进行公正性检验，并不能建立“从案件到案件”的独立证成推理。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR脚注乱码及参考文献缺失，但核心论点、历史比较脉络与制度建构方案清晰可辨，不影响实质评审。论文高度契合中国自主知识体系评价口径，以中国律例统编传统与近代判例成文化经验为镜鉴，直面当代指导性案例“供给不足、定位模糊、参照困难”的实践难题，提出“以民法典为纲、指导性案例为目”的体系化统编命题与变更清理机制，具备明确的法学争辩性与可复核的制度设计。建议直接进入六维评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文是对“中国传统律例统编经验与现代指导性案例体系化构想”的宏观制度介绍，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文主要是阐释既定立场和政策构想，缺乏需要理论辩论的法学争点，本质上属于制度设计倡议而非法学理论问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、无理论分歧、无法学论证），枢纽性=1/4（涉及≥2制度），材料新颖性未触发上限。锚定unacceptable档，扣除负面模式检查90分（检查1扣25分，检查2扣20分，检查3扣30分），原始分125分，扣分后不低于30分，给35分。",
+          "evidence_quotes": [
+            "中国律例统编的传统与现代民法体系中的指导性案例",
+            "建立“以民法典为纲，以指导性案例为目”的统编体系……建立指导性案例的变更与清理制度"
+          ],
+          "strengths": [
+            "对传统律例统编和近代判例时代的历史梳理较为详实",
+            "提出了指导性案例与民法典条文体系化统编的具体操作方案"
+          ],
+          "weaknesses": [
+            "全文仅提出制度构想，未形成“如何统编是否可行”等理论争点",
+            "缺乏不同学者观点的实质性交锋，仅列举少数争议但未展开"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无问题句，只有主题声明",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文标题为“中国律例统编的传统与现代民法体系中的指导性案例”，全文无“XX是否YY”“如何ZZ”等可争辩的问题句，主要是阐释律例统编的历史经验并提出指导性案例统编的制度倡议。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评历史梳理是否充分、制度构想是否合理或论证是否严密。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "宏大历史梳理与制度设计倡导，缺乏可争辩的核心法学争点。",
+          "core_judgment": "问题实质为制度设计倡导而非可争辩的法学争点，宏观介绍缺乏深度理论交锋。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料未触发上限，锚定good档给65分；前置扣分45分（宏观介绍15分，主题声明30分），强制最低30分。",
+          "evidence_quotes": [
+            "这似乎违背了法律发展的一般规律",
+            "指导性案例应与被解释的法律规范建立直接而紧密的联系"
+          ],
+          "strengths": [
+            "枢纽性强，涉及民法典体系与法源理论核心争点"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的问题句，实质为政策倡导",
+            "宏观历史梳理为主，学者观点交锋未展开"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "跨越千年法制史与当代民法体系，核心问题不聚焦"
+            }
+          ],
+          "boundary_note": "本维度只评问题成立性与重要性，不评史料梳理充分性与论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文梳理中国律例统编传统并建议现代指导性案例制度，但缺乏可争辩的法学问题句。",
+          "core_judgment": "全文为历史梳理与制度建议，未提出可争辩的法学争点，不符合研究问题的基本标准。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明无问题句），枢纽性=2/4（涉及民法体系与案例制度，但非因问题驱动），材料新颖性未触发上限。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'律例统编'为旧有概念包装；检查2：宏观介绍非深度分析，全文无学者观点交锋），最终35分。",
+          "evidence_quotes": [
+            "从《唐律疏议》《大明律》到《大清律例》，律典条文在减少，以律典为核心的法律体系却不断复杂化",
+            "建议建立'以民法典为纲，以指导性案例为目'的统编体系"
+          ],
+          "strengths": [
+            "历史梳理跨度大，材料丰富",
+            "对现代案例制度有具体建议"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅有主题声明",
+            "无学者观点交锋，只是系统归纳既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，只有'中国律例统编的传统与现代民法体系中的指导性案例'主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，因可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以“律例统编”传统为参照，提出民法典与指导性案例体系化统编构想，问题明确且具制度价值。",
+          "core_judgment": "研究聚焦指导性案例规范定位与编纂技术，具备明确可争辩性与核心枢纽地位。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“从民法体系构造的角度来看，指导性案例应与被解释的法律规范建立直接而紧密的联系”",
+            "“以民法典为纲，以指导性案例为目”的统编形态符合演绎推理过程"
+          ],
+          "strengths": [
+            "问题直指指导性案例定位模糊与适用脱节痛点",
+            "历史比较与体系建构结合提升理论纵深"
+          ],
+          "weaknesses": [
+            "核心争点偏重建构，对反对立场交锋略显不足",
+            "统编技术方案的现实司法阻力论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评论证逻辑与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.4972710609436,
+        "glm-5.1": 57.6587860584259,
+        "kimi-k2.6": 13.340292930603027,
+        "qwen3.6-plus": 71.44396734237671
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 47,
+      "std": 27.4,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "论文通过分散式文献定位构建了比较清晰的研究地图，呈现了律典简约化与判例/条例扩展之间的历史争点，但未明确引入现代法学流派争论。",
+          "core_judgment": "论文有较好的研究地图（三要素齐全），争点结构成立且涉及多个制度路径分歧，但缺失明确的法学流派标识，整体位于good档。",
+          "score_rationale": "三要素得分=5/6(到达点2+未竟点1+本文切入点2)，争点结构=2/2，法学流派=0个，锚定good档(75-84区间)，给75分。",
+          "evidence_quotes": [
+            "明清条例由回应现实法律问题而产生...在法律没有明文规定或既有规定已明显不符合现实需要的，对此类典型案件的裁判规范...可以转变为条例。",
+            "从民法体系的角度来看，我国的指导性案例制度当然不是英美国家的判例法...也与大陆法系国家的非法源性的判例有所不同，应该属于具备一定规范拘束力的准法源。"
+          ],
+          "strengths": [
+            "到达点充分：详细梳理了从秦汉至近代的律典与条例/判例统编史，并明确引证了多位学者的具体研究成果（如钱大群、杨一凡、苏亦工等）。",
+            "争点结构清晰：论文核心围绕'简约化律典 vs 灵活扩展性条例/判例'这一贯穿制度史的张力展开，呈现了不同时期对同一问题的对立解决方案。"
+          ],
+          "weaknesses": [
+            "未竟点稍显模糊：虽指出了现有指导性案例制度'数量少''定位不清晰'等问题，但未系统归纳学界对指导性案例法源地位、拘束力等核心争议的具体对立学派。",
+            "法学流派缺失：论文主要在制度史和规范建构层面展开，未将既有研究归入形式法治/实质法治、法源论等明确的法学流派或理论阵营。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分5且争点结构≥2但无明确法学流派识别，三要素有缺口但不触发流派上限，可给到good档上限79以下。",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "争点结构清晰（指#代律例统编与现代指导性案例统编的对应与演化），但论文未明确提及形式法治/实质法治、法源理论等现有法学流派争论。"
+            }
+          ],
+          "boundary_note": "本评分仅基于论文正文呈现的文献梳理深度和争点结构，不评价指导性案例制度方案本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派识别充分，洞察度极佳。",
+          "core_judgment": "论文精准定位既有研究缺口，构建了历史、比较与当代三重争点脉络，本维高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "从实现‘同案同判’去讨论指导性案例……偏离了民法体系的构造与指导性案例定位这一核心问题。",
+            "《瑞士民法典》淋漓尽致地体现了自由法学‘法官可以造法’的理论……突破了《法国民法典》中法官不能以一般规则性笼统条款进行判决的分权界限。"
+          ],
+          "strengths": [
+            "三要素完整，精准指出既有研究偏离体系构造核心。",
+            "争点结构清晰，横跨律例统编史、法典理念演变与当代制度建构。"
+          ],
+          "weaknesses": [
+            "无独立文献综述，部分历史考证与当代争点的过渡稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评文献梳理与争点结构，不评民法典与指导案例统编方案的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏对现代法学研究地图的系统呈现，未建立到达点、未竟点与切入点的清晰结构。",
+          "core_judgment": "本文虽详述中国古代律例统编传统与大陆法系民法典编纂史，但未呈现当代法学界关于指导性案例制度的主要学术争论与流派分歧，研究地图三要素严重缺失。",
+          "score_rationale": "三要素得分=1/6（仅到达点部分满足：梳理了历史制度演变，但缺乏对现代研究成果的具体引述；未竟点=0，未指出学界具体争议；切入点=0，未说明本文问题与学术缺口的对应关系），争点结构=0/2（未呈现可区分的学术争点），法学流派=0个（未识别出任何现代法学流派），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "从古代和近代的经验教训来看，灵活而实用的'例'……有'愈滋繁碎'的发展趋势",
+            "也有学者从'同案同判''类似案件类似审判''司法义务理论'的角度，提出加强参照指导性案例的强制性"
+          ],
+          "strengths": [
+            "历史文献梳理详尽，制度史脉络清晰"
+          ],
+          "weaknesses": [
+            "未引述任何现代学者的具体研究成果及其贡献",
+            "对当代指导性案例制度的学术争论仅一笔带过，未形成争点结构"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时，最高55分（研究地图严重残缺）",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文未建立到达点、未竟点、切入点的结构，仅描述历史制度而未定位现代学术争论"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位而非问题创新性，其历史比较视角本身具有价值，但未在学术对话中定位自身。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰勾勒“法典-判例”统编传统演进与当代指导性案例定位。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰，流派识别达标，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“从实现‘同案同判’去讨论……偏离了民法体系的构造与指导性案例定位这一核心问题。”",
+            "“将‘条文化’的裁判要点统编在相应法律条文之后，建立涵摄推理过程”"
+          ],
+          "strengths": [
+            "历史与比较法脉络交织，清晰呈现制度演进的到达点与局限。",
+            "准确识别既有研究聚焦“同案同判”而忽视体系定位的未竟点。"
+          ],
+          "weaknesses": [
+            "对当代指导性案例的实证数据引用较旧，缺乏最新司法动态。",
+            "跨学科或法理学流派对话可进一步深化，偏重制度史梳理。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及制度建议的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.735011100769043,
+        "glm-5.1": 52.07498788833618,
+        "kimi-k2.6": 14.225460052490234,
+        "qwen3.6-plus": 70.56859397888184
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 92,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 90
+      },
+      "mean": 75.5,
+      "std": 21.7,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以律例统编的历史经验为参照，对指导性案例嵌入民法典体系提出了统编建议，但框架的原创性和可操作性不足，法学转化停留在宏观方案层面。",
+          "core_judgment": "论文完成了一次有意义的古今经验对应梳理，但对“指导性案例体系化”这一核心并未建构出可重复适用的分析步骤或判断标准，框架建构力有限。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal(50-59)档，给予55分。后文虽调用部分历史框架要素，但宏观介绍多于深度分析，且部分制度建议未提供裁判规则层面的操作指引。",
+          "evidence_quotes": [
+            "“简约而稳定的律文与成文化却不失灵活性的条例相互结合，这是中国古代律例统编的重要经验。”",
+            "“第二种汇编形态，‘以民法典为纲，以指导性案例为目’的统编体系。”"
+          ],
+          "strengths": [
+            "历史经验与现代问题的对应意识较强，提供了律典-条例/民法典-指导性案例的结构化对比。",
+            "制度设计方案明确，如条文化汇编、清理变更制度等，具有现实指向性。"
+          ],
+          "weaknesses": [
+            "核心概念如“统编”“简约化”缺乏法学操作化定义，未转化为裁判规则或法律适用流程。",
+            "后文调用历史框架时多为经验叙述，缺少对指导性案例规范拘束力判断的标准或步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.macro_intro_not_deep_analysis",
+              "rule": "宏观介绍非深度分析：全文以历史梳理和宏观方案描述为主，未就具体法律适用问题进行深入分析",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "论文大篇幅叙述律典演变与民法编纂历史，结尾的制度建议多为原则性方案，缺少对具体条文适用或裁判标准的分析。"
+            }
+          ],
+          "boundary_note": "评价限于框架本身的可操作性与法学转化度，不涉及历史梳理的完整性或建议的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "从律例统编传统提炼出民法典与指导案例统编的分析框架，转化度高。",
+          "core_judgment": "框架成立且极具操作性，成功将历史比较概念转化为现代制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "将抽象化条文化的裁判要点纳入到民法体系之中...以民法典为纲，以指导性案例为目",
+            "建立从法律规范一指导性案例一待裁判案件的涵摄推理过程"
+          ],
+          "strengths": [
+            "统编框架操作步骤清晰（条文附列裁判要点）",
+            "制度设计方案具体（变更清理四方面规定）"
+          ],
+          "weaknesses": [
+            "统编框架对案例冲突的解决步骤稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与法学转化，不评价历史考证的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "历史梳理型论文，以'律例统编'传统为线索串联古今，提出'以民法典为纲、指导性案例为目'的统编方案，但缺乏可操作的判断步骤与分析框架。",
+          "core_judgment": "论文以'律例统编'为核心隐喻进行历史制度描述，但未建构可重复适用的分析框架，法学转化停留在制度建议层面，未形成裁判规则或法律适用流程。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰但无分类标准与分析步骤，后文调用为历史叙述而非框架应用）；法学转化度得分=1/4（跨学科概念无转化，未提供裁判规则，制度设计较笼统，后文未实际使用分析步骤）；锚定marginal档(50-59)，给52分。",
+          "evidence_quotes": [
+            "简约而稳定的律文与成文化却不失灵活性的条例相互结合，这是中国古代律例统编的重要经验",
+            "第一种汇编形态实现案例的抽象化、成文化……第二种汇编形态，'以民法典为纲，以指导性案例为目'的统编体系"
+          ],
+          "strengths": [
+            "历史线索清晰，'律例统编'概念具有贯穿古今的解释力",
+            "对古代律例、近代判例要旨、现代指导性案例的梳理较为系统"
+          ],
+          "weaknesses": [
+            "核心概念'统编'仅为描述性隐喻，未转化为可操作的判断标准或分析步骤",
+            "制度建议停留在汇编形式层面，未涉及裁判规则提炼或法律适用流程设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文核心术语'统编'为历史描述性概念，无'本文所称统编是指…'的明确定义，未提供类型化标准或步骤化分析流程，后文历史叙述未调用任何分析框架"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及历史考证的准确性或制度建议的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“法典为纲、案例为目”统编框架及动态清理机制，操作性强。",
+          "core_judgment": "框架清晰界定历史经验与现代制度映射，提供可落地的案例统编与适用方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将指导性案例的‘编号’和‘裁判要点’附列在对应解释的民法条文之后",
+            "建立‘指导性案例的整理与变更制度’，明确定期清理、替代程序与冲突处理办法"
+          ],
+          "strengths": [
+            "提出双轨汇编形态，检索与适用路径清晰",
+            "配套设计定期清理与层级体系，制度闭环完整"
+          ],
+          "weaknesses": [
+            "对“类似案件”识别的具体操作步骤着墨较少",
+            "统编体系在司法实务中的技术对接细节可细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及论证逻辑严密性或史料考证准确性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 78.97304391860962,
+        "glm-5.1": 42.22852420806885,
+        "kimi-k2.6": 14.642551898956299,
+        "qwen3.6-plus": 69.86360669136047
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 72.2,
+      "std": 21.7,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文通过清晰的历史比较与制度推演，为“律例统编”及当代指导性案例统编方案构建了较完整的推理链。",
+          "core_judgment": "推理主线完整，结论可由前文推出；对传统局限有所回应，但对当代制度竞争方案的反驳处理不足，削弱了逻辑闭合度。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、链式依赖、结论可推出、无关键跳步），反驳处理度得分=2/3（识别传统缺陷且承认局限，但缺乏对当代竞争方案的实质性反驳），锚定 excellent 档，给 82 分。",
+          "evidence_quotes": [
+            "明清律例统编体系逐步确立：律典简约化理念与体系框架，统编的律文与条例，以及条例修订的制度化。",
+            "在民法体系中，指导性案例可以将简约抽象的制定法具体化，可以弥补法律的漏洞；由指导性案例积累的实践经验，可以上升为更普遍的司法解释，可以为制定法的修订提供规范素材。"
+          ],
+          "strengths": [
+            "推理步骤完整：从传统律例演进的规律，到域外法典简约化经验，再到当代方案，形成可复述的推导链条。",
+            "明确回应并吸取了传统条例滋繁破律的历史教训，并将其作为当代制度设计的反思基础，形成有质量的内部反驳。"
+          ],
+          "weaknesses": [
+            "缺少对竞争性方案的实质性反驳：未有效回应“为何非要统编而不是强化类案检索或判例制度”的替代路径挑战。",
+            "从传统经验直接推出当代统编方案时，对指导性案例参照效力的制度性障碍（如隐性引用的根源）处理不足，构成局部跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "对竞争方案缺乏反驳属于逻辑封闭度不足，而非框架本身不可操作；推理链本身的连续性仍然成立。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过历史与比较法经验，逻辑严密地推导出民法典简约化与指导性案例统编的制度方案。",
+          "core_judgment": "推理链完整且层层递进，对反对意见有实质性回应，核心结论可辩护推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "从实现‘同案同判’去讨论...偏离了民法体系的构造与指导性案例定位这一核心问题...应属于具备一定规范拘束力的准法源。",
+            "指导性案例不是完全独立的法律渊源，是适用法律、解释制定法而产生的指引规则，其效力的基础是制定法。"
+          ],
+          "strengths": [
+            "历史经验到现代制度的推理链依赖度高，删去前步则后步失据。",
+            "对学界质疑（如周少华等）有实质性理论回应而非仅罗列。"
+          ],
+          "weaknesses": [
+            "从传统律例统编直接推导现代指导案例统编，跨度较大但属可辩护推出。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑严密性仅评推理链条支撑度，不评统编方案的现实可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "历史制度比较型论文，主线推理链完整但反驳处理不足。",
+          "core_judgment": "从传统律例统编到现代指导性案例的类比推理链可辨识，但缺乏对制度差异性的充分回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处关键跳步：从'律例统编'直接类比到'指导性案例统编'未充分回应两者在法源性质、效力层级上的根本差异）；反驳处理度得分=1/3（仅标准3隐含承认局限，标准1-2均未满足）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "从古代和近代的经验教训来看，灵活而实用的'例'……有'愈滋繁碎'的发展趋势……因而建议，作为全国统一的'指导性案例'应当保持规范的普遍性和数量的适当性",
+            "指导性案例不是完全独立的法律渊源，是适用法律、解释制定法而产生的指引规则，其效力的基础是制定法"
+          ],
+          "strengths": [
+            "历史演进脉络清晰，从秦汉律到明清律例再到民国判例的链条完整",
+            "比较法部分对法、德、日、瑞的梳理为结论提供了制度背景支撑"
+          ],
+          "weaknesses": [
+            "未回应'律例统编'中'例'具有正式法源地位，而指导性案例仅为'准法源'的核心差异",
+            "对'同案同判'质疑的引用仅罗列学者观点，未实质回应周少华、张骐的批评"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属制度设计型论文，核心逻辑问题是比较结论的推出而非框架建构。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以历史经验与比较法为基，严密推演出指导性案例与民法典统编的制度方案。",
+          "core_judgment": "推理链完整且依赖性强，核心结论可由前文历史教训与比较趋势可辩护地推出，反驳处理充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。历史脉络与比较分析形成递进支撑，有效回应学界分歧并划定法源边界。",
+          "evidence_quotes": [
+            "从古代和近代的经验教训来看，灵活而实用的'例'有'愈滋繁碎'的发展趋势",
+            "以民法典为纲，以指导性案例为目'的统编体系符合演绎推理的法律适用过程"
+          ],
+          "strengths": [
+            "历史比较与制度推演链条完整，结论有充分经验支撑。",
+            "有效回应“同案同判”争议，明确指导性案例的体系定位。"
+          ],
+          "weaknesses": [
+            "历史经验向现代制度移植的类比论证略显直接，缺乏教义学过渡。",
+            "对制度落地可能面临的司法资源与审级约束回应不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否闭环支撑结论，不评价统编方案的操作成本或实务接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.787692070007324,
+        "glm-5.1": 37.66975712776184,
+        "kimi-k2.6": 12.8869948387146,
+        "qwen3.6-plus": 66.02539992332458
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 82.5,
+      "std": 7.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "结论以法律史脉络论证民法典与指导性案例的统编路径，虽具创新性但与现行法秩序根本兼容，共同体对话充分。",
+          "core_judgment": "论文结论提出了‘以民法典为纲、以指导性案例为目’的具体统编方案并回应制度约束，被学界认真回应的可能性高。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定理论论文excellent档（A≥3且B≥2），给82分。",
+          "evidence_quotes": [
+            "“以民法典为纲，以指导性案例为目”的统编体系……将抽象化条文化的裁判要点纳入到民法体系之中。",
+            "“实施细则”的第12条规定了指导性案例“不再具有指导作用”……有必要建立“指导性案例的整理与变更制度”。"
+          ],
+          "strengths": [
+            "结论与民法典条文、法院组织法、实施细则高度兼容，制度转化路径明确。",
+            "主动讨论反对意见（如‘同案同判虚构神话’说），承认自身方案局限并给出补强路径。"
+          ],
+          "weaknesses": [
+            "对统编后‘裁判要点’愈滋繁碎的风险仅援引历史教训，未给出当代量化控制方案。",
+            "制度可接受度讨论集中于编纂技术，对指导性案例宪法正当性、司法权边界等深层争论回应有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评估只关注结论在共同体和制度语境中能否被接受，不评价论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论充分回应学界争论，提出具体的律例统编制度方案，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话与制度可接受性上均表现优异，提出了可争辩且可操作的制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "从实现‘同案同判’……去讨论指导性案例……偏离了民法体系的构造与指导性案例定位这一核心问题",
+            "建立‘以民法典为纲，以指导性案例为目’的统编体系"
+          ],
+          "strengths": [
+            "回应了同案同判等核心争论，定位清晰",
+            "提出了具体的统编形态与变更清理制度方案"
+          ],
+          "weaknesses": [
+            "统编体系可能面临裁判要点条文化后的僵化风险"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是结论能否被共同体与制度语境接受，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'以民法典为纲、指导性案例为目'的统编方案，结论具有明确制度指向且回应中国法秩序。",
+          "core_judgment": "结论进入法学共同体关于案例指导制度与民法体系关系的既有争论，可被定位回应，但制度转化方案的具体操作性仍可进一步展开。",
+          "score_rationale": "共同体对话度得分=3/4（回应案例指导制度功能、法典简约化等既有争论，可被反对者定位，承认古代律例'愈滋繁碎'的教训；但全文未明确讨论反对意见如'同案同判'质疑的具体回应，标准4部分满足）。制度可接受度得分=3/4（与现行法秩序兼容，回应《民法典》第10条等制度约束，提出两种汇编形态的具体方向，考虑中国案例指导制度语境；但'变更与清理制度'的具体程序设计仍可细化）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "从民法体系构造的角度来看，指导性案例应与被解释的法律规范建立直接而紧密的联系，将'条文化'的裁判要点统编在相应法律条文之后",
+            "从古代和近代的经验教训来看，灵活而实用的'例'……有'愈滋繁碎'的发展趋势，造成规则的碎片化"
+          ],
+          "strengths": [
+            "结论明确回应中国民法典简约化与案例指导制度的张力",
+            "提出'统编体系'的具体制度转化方向，非空泛对策"
+          ],
+          "weaknesses": [
+            "未直接回应周少华、张骐等学者对案例指导制度的质疑性观点",
+            "变更清理制度的程序设计仍较原则，操作性待加强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 86,
+          "band": "excellent",
+          "summary": "结论立足本土律例传统，提出指导性案例与民法典统编方案，具较高可接受性。",
+          "core_judgment": "结论明确嵌入中国法秩序与既有学术争论，制度转化路径清晰，符合共同体对话与制度兼容要求。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给86分。结论有效回应案例效力争议，统编方案契合现行法秩序且具转化方向。",
+          "evidence_quotes": [
+            "将“条文化”的裁判要点统编在相应法律条文之后，建立“从法律规范—指导性案例—待裁判案件”的涵摄推理过程",
+            "最高人民法院审判委员会应该定期对指导性案例进行清理，避免裁判要点之间的交叉重叠、相互矛盾"
+          ],
+          "strengths": [
+            "精准回应“同案同判”与案例效力争议，学术定位清晰。",
+            "提出“法典为纲、案例为目”统编方案，具制度可操作性。"
+          ],
+          "weaknesses": [
+            "对统编后司法检索成本与法官工作负荷的实证评估不足。",
+            "未充分论证统编体系与现行司法解释体系的权限边界。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.84683322906494,
+        "glm-5.1": 36.14948296546936,
+        "kimi-k2.6": 12.92195987701416,
+        "qwen3.6-plus": 66.66162729263306
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 86
+      },
+      "mean": 82.5,
+      "std": 7.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在制度/立法型维度上提出了具体的民法典与指导性案例统编路径及清理机制，延展信号真实，但制度设计的精细度与风险分析仍有深化空间。",
+          "core_judgment": "存在真实的延展路径，提出“以民法典为纲，以指导性案例为目”的统编体系及变更清理制度，与正文核心结论紧密衔接。",
+          "score_rationale": "原始分75，进入60-79档，对应bonus=3。延展路径清晰且可定位，提出了两种汇编形态和四方面清理制度，但部分路径（如区域典型性案例的层级）展开较概括。",
+          "evidence_quotes": [
+            "“以民法典为纲，以指导性案例为目”的统编体系...附列在对应解释的民法条文之后。",
+            "为此，有必要建立“指导性案例的整理与变更制度”...应明确规定四方面问题。"
+          ],
+          "strengths": [
+            "明确提出了指导性案例与民法典条文统编的具体方案，并区分了全要素汇编与条文统编两种形态。",
+            "基于历史教训（如清例“愈滋繁碎”），提出变更清理制度的四项具体内容，衔接古籍与当下问题。"
+          ],
+          "weaknesses": [
+            "对指导性案例数量膨胀与区域层级扩散可能导致规范冲突的边界控制尚缺乏精细设计。",
+            "清理制度中交叉重叠/冲突的处理程序仅提及方向，未展开具体协调标准或冲突裁决规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文提出的制度完善方向与实务改进路径（未来往哪里走），而非正文结论是否被接受。文中具体方案属于延展性设计。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出指导性案例统编体系、变更清理制度及层级化案例体系等清晰可定位的制度延展路径。",
+          "core_judgment": "存在真实延展路径，指明了指导性案例与民法典统编的具体制度完善方向及实施风险控制。",
+          "score_rationale": "原始分85，对应bonus=5档。论文基于律例统编历史教训，提出“法典为纲、案例为目”统编形态、变更清理四项制度及层级化案例体系，延展路径清晰可定位。",
+          "evidence_quotes": [
+            "第二种汇编形态，“以民法典为纲，以指导性案例为目”的统编体系...将抽象化条文化的裁判要点纳入到民法体系之中。",
+            "有必要建立“指导性案例的整理与变更制度”...应明确规定四方面问题。第一...定期清理...第二...替代程序...第三...定期整理...第四...提出立法建议。"
+          ],
+          "strengths": [
+            "延展路径与正文历史教训紧密衔接，将“愈滋繁碎”风险转化为定期整理制度。",
+            "提出了层级化案例体系的具体适用边界延伸。"
+          ],
+          "weaknesses": [
+            "对统编体系的具体技术实现（如电子信息库检索逻辑）未进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "统编形态设计与变更清理程序属于未来制度完善方向，而非当下指导性案例是否具有法源效力的可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'以民法典为纲、指导性案例为目'的统编体系及案例清理变更制度，具有明确制度完善方向，但部分延展路径仍较概括。",
+          "core_judgment": "存在真实延展路径，主要体现在指导性案例汇编形态改革、层级化案例体系构建及案例清理变更制度三方面，但部分路径的精细化操作方案仍有待展开。",
+          "score_rationale": "原始分72分，对应bonus=3档位。论文明确提出了'以民法典为纲，以指导性案例为目'的第二种汇编形态（第46页），并具体设计了四级清理变更制度（第47页），还提出省级'典型性案例'作为第二层级裁判标准的层级化构想（第47页），延展路径可定位且与正文'律例统编'历史经验紧密衔接。但'定期整理制度'的具体周期、标准等操作细节未展开，部分仍停留在方向性描述。",
+          "evidence_quotes": [
+            "在民法典正式实施后，分批发布的指导性案例应当与民法典在体系结构上实现一体化，指导性案例与民法典条文形成对应的解释关系（第46页）",
+            "有必要建立'指导性案例的整理与变更制度'，保证指导性案例与法律、指导案例之间保持体系性统一（第47页）"
+          ],
+          "strengths": [
+            "提出'以民法典为纲、指导性案例为目'的具体统编方案，具有可操作性",
+            "设计四级清理变更制度，回应了'例愈滋繁碎'的历史教训"
+          ],
+          "weaknesses": [
+            "定期整理制度的具体周期、标准等操作细节未充分展开",
+            "省级'典型性案例'与最高院指导性案例的效力层级关系论证较概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是'未来还能往哪里走'，即指导性案例制度如何完善；而非当下结论是否被接受。论文提出的统编方案、清理制度等均为未来制度建构方向，属于典型的前瞻延展问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "基于律例统编历史经验，清晰提出民法典与指导性案例统编架构及定期清理机制。",
+          "core_judgment": "存在真实且具体的制度延展路径，与历史比较论证紧密衔接。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确指向“以法典为纲、案例为目”的统编形态与四级变更清理程序，路径清晰可定位，非空泛展望。",
+          "evidence_quotes": [
+            "建议建立“以民法典为纲，以指导性案例为目”的统编体系，将裁判要点附列于对应条文之后。",
+            "应建立指导性案例整理与变更制度，定期清理失效案例，避免裁判要点交叉重叠与数量过于庞大。"
+          ],
+          "strengths": [
+            "提出具体的统编架构与清理程序，制度设计具可操作性。",
+            "结合历史教训明确案例数量控制与层级分工，风险控制意识强。"
+          ],
+          "weaknesses": [
+            "对统编后的电子检索技术实现与法官适用负担未作细化论证。",
+            "省级典型案例与最高法指导案例的效力冲突解决机制仍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦未来制度建构与规则衔接路径，而非当下结论的学理可接受性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.62345814704895,
+        "glm-5.1": 38.00026893615723,
+        "kimi-k2.6": 12.276007890701294,
+        "qwen3.6-plus": 46.76943302154541
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 79.2,
+      "std": 6.8,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 66.51,
+      "weighted_total": 68.7
+    },
+    "aggregation_strictest": {
+      "final_score": 47.29,
+      "weighted_total": 51.0
+    },
+    "avg_std": 15.5,
+    "max_std": 27.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 19.2,
+    "composite_score": -15.5,
+    "worst_dimension": "problem_originality",
+    "worst_std": 27.4
+  }
+}

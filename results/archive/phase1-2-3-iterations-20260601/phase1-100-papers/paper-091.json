@@ -1,0 +1,651 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/论中国法治评估的转型.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码标记与正文混排（如‘· 84 ·’、‘R5 ·’、‘·  86 ·’）",
+          "OCR识别残留与错字（如‘人手’应为‘入手’，‘1 O0’应为‘100’，‘1 O1’应为‘101’）",
+          "脚注编号与段落断行交叉干扰阅读",
+          "部分英文参考文献作者名断行异常"
+        ],
+        "evidence_quotes": [
+          "本文试图从定位、机制、量化以及理论升华几方面人手，分析法治评估转型的原因和路径",
+          "·  86 ·",
+          "1 O0 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "法治评估转型的重点在于法治评估的正确定位、法治评估机制的创新、法治量化难题的破解和法治评估经验总结和理论升华的实现。",
+          "围绕法治量化的分歧和争论，反映出传统法学与现代法学研究思维和方法的交锋。",
+          "笔者探讨性地提出‘中国法治实践学派’这个学术概念。",
+          "法治评估在中国经历了实验探索、推广、成为改革方向这样一个发展历程。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR页码混入及少量识别错字，建议入库前进行基础清洗，但不影响核心论证提取与六维评分。"
+      ],
+      "evidence_quotes": [
+        "《改革决定》提出‘建立科学的法治建设指标体系和考核标准’，这对全国范围内的法治评估提出了总方向。",
+        "法治评估的转型，将突出地表现在法治量化难题的克服上。",
+        "中国法治实践学派，或者称为‘法治实践的中国学派’，是以中国法治实践为研究对象，以探寻中国法治发展道路为目标..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR干扰，建议清洗页码与乱码后进入六维评分。论文聚焦中国法治评估转型，具备明确的本土问题意识、可争辩的量化法学命题及‘中国法治实践学派’理论建构尝试，完全符合项目口径，直接纳入正式评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码及分栏符混入正文（如·84·, R5·, ·9O·, ·1O0·）",
+          "OCR字符识别错误（如2o14年, 3O年, 王梦字/王梦宇混用）",
+          "全角标点符号残留（如http：／／info．worldbank．org）",
+          "脚注编号及内容直接嵌入正文段落流中，未作为独立脚注区抽取"
+        ],
+        "evidence_quotes": [
+          "· 84 ·",
+          "2O世纪80年代以来",
+          "http：／／info．worldbank．org／governance／wgi／index．asp"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "论中国法治评估的转型",
+          "法治评估存在一些亟须解决的问题...套用内部政绩考核方式，停留在宣传层面，法治评估作为一项制度创新的效应没有得到充分发挥",
+          "法治是否能够被量化...学术界就展开了持续的讨论",
+          "中国法治实践学派，或者称为“法治实践的中国学派”，是以中国法治实践为研究对象，以探寻中国法治发展道路为目标，以创新中国法律制度和构建中国法治理论为具体任务"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码、OCR乱码及脚注混入正文，需在后续阶段清洗",
+        "项目口径：完全符合，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "中国法治实践学派，或者称为“法治实践的中国学派”，是以中国法治实践为研究对象，以探寻中国法治发展道路为目标，以创新中国法律制度和构建中国法治理论为具体任务"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续文本工程阶段对正文进行OCR清洗、页码剥离及脚注结构化抽取处理。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 30,
+        "glm-5.1": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "论文以政策文件为纲梳理法治评估转型路径，缺乏可争辩的法学核心命题。",
+          "core_judgment": "问题设定偏向政策阐释与经验总结，未形成具有理论交锋深度的法学研究问题。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性触发上限(65)。锚定good档初评65分。负面检查：新概念包装扣20，宏观介绍扣15，主题声明扣20，合计扣55分。按保底规则计30分。",
+          "evidence_quotes": [
+            "本文试图从定位、机制、量化以及理论升华几方面人手，分析法治评估转型的原因和路径，提出建设性思路。",
+            "法治评估转型的重点在于法治评估的正确定位、法治评估机制的创新、法治量化难题的破解和理论升华的实现。"
+          ],
+          "strengths": [
+            "触及法治量化与实证研究范式转型等基础法学方法论议题。",
+            "问题辐射行政考评、司法公开与国家治理现代化等多个制度领域。"
+          ],
+          "weaknesses": [
+            "全文以政策阐释与经验归纳为主，缺乏明确的法学争点与对立观点交锋。",
+            "核心概念的提出未充分论证其相对既有理论的实质解释力提升。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大或偏向政策倡导，缺乏聚焦的可争辩命题",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文围绕中央决定展开路径规划，实质为政策倡导与工作总结。"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_overclaim",
+              "rule": "依赖新概念/新实践但无实质理论命题推进",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "以余杭指数等新材料包装转型路径，未改变核心问题设定。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以政策倡导和概念包装为主，缺乏可争辩的法学核心问题。",
+          "core_judgment": "问题实质为政策倡导与主题声明，新概念未带来解释力提升，创新性不成立。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性触发上限(70分)，锚定excellent档但受上限截断为70分；负面扣分55分(新概念包装20+宏观介绍15+主题声明20)，最终30分",
+          "evidence_quotes": [
+            "法治评估学是一个崭新的跨学科的创新领域...为理论研究提供了丰富、真切的现实素材",
+            "对法治量化问题的认识一直存在分歧...一些学者提出...法治不能量化的主要理由是法治定义本身的不确定性"
+          ],
+          "strengths": [
+            "触及法治量化这一法学方法论层面的长期争点",
+            "法治评估问题枢纽性强，影响立法、行政、司法等多领域"
+          ],
+          "weaknesses": [
+            "核心问题实为政策倡导（如何转型），缺乏可争辩的法学争点",
+            "新概念（法治评估学、实践学派）仅填补空白，无解释力提升"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "提出'法治评估学'和'中国法治实践学派'为核心创新，但仅声称填补空白，未说明解释力提升"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 116.53792405128479,
+        "glm-5.1": 85.11258816719055
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 80
+      },
+      "mean": 80,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒法治评估研究的实践演进与理论缺口，准确锚定量化学术争点，研究地图完整。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰，流派识别达标，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分。",
+          "evidence_quotes": [
+            "学术界对法治评估的认识有分歧……讨论的焦点，集中在‘法治是否能够被量化’这个问题上。",
+            "本文试图从定位、机制、量化以及理论升华几方面人手，分析法治评估转型的原因和路径……"
+          ],
+          "strengths": [
+            "明确提炼既有研究在量化方法与理论升华上的具体缺口",
+            "将规范思辨与量化实证的方法论交锋置于学术脉络中"
+          ],
+          "weaknesses": [
+            "对第三方评估机制的学术理论溯源稍显薄弱",
+            "部分实践案例描述多于学理争鸣的纵深对比"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及评估机制创新本身的价值判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文构建了清晰的研究地图，呈现了多个争点与范式对立，现状洞察充分。",
+          "core_judgment": "现状洞察维度成立，文献定位与未竟点明确，争点结构完整且呈现了法学方法论的范式交锋。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学术界对法治评估的认识有分歧…有“全国法治试验田”之称的余杭法治指数实验就曾引发争议",
+            "围绕法治量化的分歧和争论，反映出传统法学与现代法学研究思维和方法的交锋"
+          ],
+          "strengths": [
+            "明确指出既有评估四大缺陷及量化争论未竟点",
+            "呈现了内部考评与第三方评估、规范与实证等多重争点"
+          ],
+          "weaknesses": [
+            "未提供独立参考文献列表，文献溯源略有不便"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构，不评判法治评估转型问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 66.50059390068054,
+        "glm-5.1": 42.724693059921265
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 42,
+        "glm-5.1": 40
+      },
+      "mean": 41,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文属政策梳理型，缺乏原创分析框架与可操作步骤，法学转化度低。",
+          "core_judgment": "框架未提供可重复适用的判断标准或裁判规则，建构力不足。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给42分。",
+          "evidence_quotes": [
+            "“法治评估转型的重点在于法治评估的正确定位、法治评估机制的创新……”",
+            "“应当由中央出面，成立法治指标体系和考核标准课题组……”"
+          ],
+          "strengths": [
+            "结构清晰，按定位、机制、量化、理论四方面展开论述。",
+            "紧密结合中央政策文件，具有明确的政策导向性。"
+          ],
+          "weaknesses": [
+            "核心概念缺乏明确定义，无分类边界与可操作步骤。",
+            "多为宏观政策呼吁，未转化为具体裁判规则或制度设计方案。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无定义且无可循步骤，多为政策呼吁，触发概念堆砌与口号降档。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，仅对法治评估进行主题归纳与分类，缺乏可操作的分析框架与法学转化。",
+          "core_judgment": "本文分析框架未成立，仅为政策阐释与宏观方向呼吁，无可重复适用的分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=1/4（仅有分类标准），法学转化度得分=0/4（无操作化转化），锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "根据评估内容，可分为综合评估和专项评估…根据评估方式，可分为内部考评和第三方评估",
+            "法治评估转型的重点在于法治评估的正确定位、法治评估机制的创新、法治量化难题的破解和法治评估经验总结和理论升华"
+          ],
+          "strengths": [
+            "对法治评估实践有明确的类型划分（综合/专项、内部/第三方等）"
+          ],
+          "weaknesses": [
+            "核心术语缺乏明确定义，转型四维度仅为主题提纲而非可操作分析步骤",
+            "法学转化停留在宏观方向呼吁，无具体制度设计方案或裁判规则"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无定义，无可循分析步骤，无法学转化步骤"
+            }
+          ],
+          "boundary_note": "评价的是框架可操作性与法学转化度，而非政策梳理的全面性或逻辑严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 67.29957699775696,
+        "glm-5.1": 69.51489400863647
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 88
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以中央文件为逻辑起点，依“定位—机制—量化—理论”递进推演，结论由前文充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，对量化争议与实务约束的回应使核心结论具备充分可辩护性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "《改革决定》提出建立科学的法治建设指标体系……法治评估的定位、实践机制、指标设计、理论导向都会出现转型。",
+            "一些学者提出法治不能量化……不能因为法治定义的不确定性就否定法治的可量化性。"
+          ],
+          "strengths": [
+            "政策依据与实务问题紧密咬合，推理步骤清晰递进",
+            "直面量化争议并给出相对客观性回应，逻辑闭环完整"
+          ],
+          "weaknesses": [
+            "部分机制转型建议（如第三方独立性保障）论证略显简略",
+            "理论升华部分与量化实务的衔接稍显跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦制度转型路径的推导与政策回应，属逻辑链严密性评价，非框架可操作性评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕法治评估转型构建了从问题定位到路径设计的完整推理链，并有效回应了量化质疑等反对意见。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可辩护推出，反驳处理实质性且承认局限，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。主线从问题定位推导至机制与量化路径，无关键跳步；对量化质疑有实质回应并承认相对客观性局限。",
+          "evidence_quotes": [
+            "学术界对法治评估的认识有分歧……法治不能量化的主要理由是法治定义本身的不确定性",
+            "法治的量化和客观性也是以特定方式呈现出来的‘相对的客观性’，而非‘绝对客观性’"
+          ],
+          "strengths": [
+            "主线推理从定位到路径层层递进，依赖度强",
+            "对量化不可行论点作了实质性反驳，论证有力"
+          ],
+          "weaknesses": [
+            "机制创新部分并列论点较多，局部依赖度稍弱",
+            "从一把手关键变量到责任制的推导略显跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于定位到路径的推理支撑是否充分，而非评估指标体系本身是否具备实操性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 53.479063749313354,
+        "glm-5.1": 45.246967792510986
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应量化争议与评估机制转型，深度契合中国治理语境并提出可操作的制度转化路径。",
+          "core_judgment": "结论具备高度的共同体对话能力与制度兼容性，符合优秀标准。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "法治量化需要理顺真实和虚假、绝对和相对的问题……法治指数不可能是绝对准确的，只能是相对的",
+            "第三方评估是法治评估的必由之路……逐步扩大专家学者的参与程度，在学者的独立性和其与政府的契合性之间寻求最优化模式"
+          ],
+          "strengths": [
+            "精准定位中央政策与地方实践的张力，回应量化可行性核心争议。",
+            "提出“顶层设计+地方创新”及第三方评估路径，制度转化方向清晰。"
+          ],
+          "weaknesses": [
+            "部分对策（如责任制、竞争机制）仍偏宏观，缺乏具体程序衔接设计。",
+            "“法治实践学派”概念的理论优势论证稍显简略，需更多学理交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被学界与制度语境接纳，非论证逻辑或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论在制度与理论层面均具高可接受性，充分回应学界争论与实务约束。",
+          "core_judgment": "结论成功进入共同体对话并给出可行的制度转化方向，维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "不能因为法治定义的不确定性就否定法治的可量化性",
+            "第三方评估以政府委托为主，这是由实际情况所决定的"
+          ],
+          "strengths": [
+            "充分回应法治量化争议与第三方评估独立性约束",
+            "提出第三方评估、责任制等具体制度转化方向"
+          ],
+          "weaknesses": [
+            "结论与官方法治话语高度同构，批判性张力稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度兼容性，不涉论证严密性或未来延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.08410692214966,
+        "glm-5.1": 53.07620096206665
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 75,
+        "glm-5.1": 75
+      },
+      "mean": 75,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文系统规划了法治评估向第三方机制、跨学科量化方法及新理论学派转型的未来路径。",
+          "core_judgment": "存在真实延展路径，涵盖制度演进、方法论转型与理论建构三个明确方向。",
+          "score_rationale": "原始分75，对应bonus=3档。论文明确提出创立“法治评估学”与跨学科团队构建，规划“顶层设计+地方试点”指标演进路径，并指出“实践学派”概念需实践检验，延展路径清晰且与转型结论紧密衔接。",
+          "evidence_quotes": [
+            "中国法治实践学派这个学术概念是否科学……有待学术界深入讨论，更有待中国法治实践的发展来证明。",
+            "在法治评估学领域……要尽早实现法学、统计学、评估学、计算机科学等领域的团队合作研究。"
+          ],
+          "strengths": [
+            "明确指向跨学科团队构建与“法治评估学”创立",
+            "提出“顶层设计+地方试点”的指标体系演进路径"
+          ],
+          "weaknesses": [
+            "部分延展方向偏宏观规划，缺乏具体实证检验方案",
+            "对第三方评估独立性的制度保障机制论述较简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于评估机制演进、量化方法跨学科融合及新学派构建的未来路径，而非当下结论的共识度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文指明了第三方评估独立性保障、法治评估学跨学科建构及法治实践学派发展等明确延展路径。",
+          "core_judgment": "存在真实延展路径，指明了具体的制度完善方向与后续理论争点。",
+          "score_rationale": "原始分75，属good档，bonus=3。文章提出了第三方评估独立性、跨学科法治评估学建构、学派发展等明确延展路径，与正文论证衔接，但路径精细度与证据展开仍有限。",
+          "evidence_quotes": [
+            "第三方评估以政府委托为主……难题是如何确保第三方独立公正，政府不干涉评估。",
+            "中国法治实践学派这个学术概念是否科学……如何推进学派的形成和发展，有待学术界深入讨论。"
+          ],
+          "strengths": [
+            "指明了第三方评估独立性保障等具体制度完善方向",
+            "提出了法治实践学派发展等后续理论争点"
+          ],
+          "weaknesses": [
+            "部分理论延展（如跨学科建构）偏向宏观呼吁，精细度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "第三方评估独立性保障机制属于未来制度完善方向，而非当下评估模式是否可接受的结论问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 60.01406288146973,
+        "glm-5.1": 33.56769299507141
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.9,
+    "max_std": 2.8,
+    "weighted_total": 61.7,
+    "final_score": 57.59,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 9.1,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 2.8
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "《改革决定》提出‘建立科学的法治建设指标体系和考核标准’，这就从顶层意义上明确了法治评估是实现治理现代化这个总目标的一种有效机制。",
+          "中国的法治评估更多采用的是‘因地制宜’的个性化制定方案，结合中国法治现状创新出中国特色的法治指标体系以及‘专家主导、政府支持’的第三方法治评估模式。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "partial",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 1
+        },
+        "autonomous_signal_score": 6,
+        "autonomous_signal_strength": "medium",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance",
+          "supervision",
+          "intra_party_regulation"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "法治评估转型的分界线是2013年《中共中央关于全面深化改革若干重大问题的决定》和2014年《中共中央关于全面推进依法治国若干重大问题的决定》的出台。",
+          "内部考评缺乏独立性，公信力低，被考核对象容易陷入“既是裁判又是运动员”的角色冲突中去，局限性较为明显。",
+          "在世界银行全球治理指数中，对法治这一下位变量的指标设计采用定性和定量相结合的方式……余杭的法治指标和考核标准是从定性逐步转化为量化指标的。这个转换过程可分为一次量化方法和二次量化方法。",
+          "笔者探讨性地提出“中国法治实践学派”这个学术概念……是以中国法治实践为研究对象，以探寻中国法治发展道路为目标，以创新中国法律制度和构建中国法治理论为具体任务，以实践、实证、实验为研究方法。"
+        ],
+        "risks": [
+          "slogan_inflation_without_legal_argument"
+        ],
+        "triggers_review": true,
+        "review_reason": "论文提出了“中国法治实践学派”等标识性概念，但其理论内核（实践、实证、实验）主要移植西方实证主义与实验法学，本土理论转化深度不足，存在slogan_inflation_without_legal_argument风险，需复核其法学命题的实质创新性。"
+      }
+    },
+    "avg_signal_score": 7.0,
+    "signal_scores": [
+      8,
+      6
+    ]
+  }
+}

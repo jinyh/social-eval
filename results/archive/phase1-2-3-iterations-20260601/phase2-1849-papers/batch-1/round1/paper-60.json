@@ -1,0 +1,1048 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/不确定鉴定意见的证据属性及功能.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "DOI:10.14111/j.cnki.zgfx.2023.05.015",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "最高人民法院于2019年12月25日修改的《关于民事诉讼证据的若干规定》对“鉴定意见不明确的”规定了“出庭费用”由鉴定人“自行负担”",
+          "《最高人民法院关于人民法院民事诉讼中委托鉴定审查工作若干问题的规定》对“同一认定”鉴定意见“使用不确定性表述的”，采用了带有惩罚性的“视为未完成委托鉴定事项”",
+          "最高法对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？",
+          "不确定鉴定意见作为“非典型意义上”的鉴定意见，可视为鉴定意见的另外一种表达，在证明功能上与作为补强性证据的侦查实验笔录具有相似性",
+          "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表为空，无法验证引注完整性"
+      ],
+      "evidence_quotes": [
+        "最高法对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？",
+        "不确定鉴定意见作为“非典型意义上”的鉴定意见，可视为鉴定意见的另外一种表达，在证明功能上与作为补强性证据的侦查实验笔录具有相似性",
+        "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国司法鉴定规范冲突为中心，提炼出“不确定鉴定意见的证据属性”这一可争辩法学命题，具有明确的中国问题意识、制度解释尝试和理论转化（如“可证实的不确定性”），完全满足六维评价入口条件，建议直接进入评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号存在严重乱码（如㉛、㊿、■等），原应为连续数字编号",
+          "期刊页码（如290, 291, 297等）混入正文段落",
+          "参考文献列表抽取显示为无，但正文脚注包含大量文献，抽取可能失败"
+        ],
+        "evidence_quotes": [
+          "㉛ 参见全国人大常委会法制工作委员会刑法室",
+          "■ 参见司法部《生物学全同胞关系鉴定技术规范》（SF/T 0117-2021）。",
+          "290 中国法学 2023 年第5 期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "最高人民法院对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？",
+          "这种“可证实的不确定性”又可视为“不可证伪的确定性”。",
+          "采用梯度式不确定性定量表述并附之释明性理由不失为可选择的路径。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号乱码需后续清洗修复",
+        "参考文献列表抽取缺失需从正文脚注重构补全",
+        "混入的期刊页码需在文本清洗阶段剔除"
+      ],
+      "evidence_quotes": [
+        "最高人民法院对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？",
+        "这种“可证实的不确定性”又可视为“不可证伪的确定性”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，进入六维评分；但文本工程质量存在风险，需在后续阶段修复脚注编号乱码、剔除混入的页码，并从正文脚注中重构参考文献列表。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如㉛、㉜、㉝等）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "部分引注格式为混合中英文，存在OCR残留痕迹"
+        ],
+        "evidence_quotes": [
+          "㉛ 参见全国人大常委会法制工作委员会刑法室...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "作为我国法定证据种类之一，鉴定意见虽然与其他证据具有共通性...",
+          "近年来，司法实践不断暴露出因鉴定酿成冤假错案的事例...引起了理论界对其作为独立法定证据种类的不同认识...",
+          "最高人民法院于2019年12月25日修改的《关于民事诉讼证据的若干规定》对'鉴定意见不明确的'规定了'出庭费用'由鉴定人'自行负担'...",
+          "我国司法实践中，不确定鉴定意见引起的当事人上诉率远高于其他类型鉴定意见...",
+          "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号乱码：正文出现㉛、㉜、㉝等非标准编号，但核心内容可辨识",
+        "参考文献列表缺失：文末标注'（无）'，但文内引注完整，不影响核心论证定位",
+        "OCR残留：部分英文引注存在格式混杂，但不影响阅读"
+      ],
+      "evidence_quotes": [
+        "作为我国法定证据种类之一，鉴定意见虽然与其他证据具有共通性，但因其固存科学性的特质...",
+        "近年来，司法实践不断暴露出因鉴定酿成冤假错案的事例...",
+        "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文符合项目口径，可直接进入六维评分。文本质量风险较低，脚注编号乱码和参考文献缺失不影响核心评审，建议在评分时关注其理论命题的完整性和论证深度。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表未完整抽取（末尾仅显示‘（无）’），但正文脚注引用完整，核心论点、论证结构与主要引证均可清晰定位，不影响实质评审。"
+        ],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "最高人民法院对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？法律规范要求的证据“确实”与不确定鉴定意见是否存在实质性矛盾？",
+          "我国司法实践中，不确定鉴定意见引起的当事人上诉率远高于其他类型鉴定意见。最高人民法院要求“同一认定”鉴定意见采用“确定性表述”。",
+          "承认不确定鉴定意见的证据属性是对其科学性的尊重，也是实践理性的使然。",
+          "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性，将不确定鉴定意见放置于鉴定技术及其规范的全景下判断，才能充分发挥其固有价值。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表未完整抽取（末尾仅显示‘（无）’），但正文脚注引用完整，核心论点、论证结构与主要引证均可清晰定位，不影响实质评审。"
+      ],
+      "evidence_quotes": [
+        "法律规范要求的证据“确实”与不确定鉴定意见是否存在实质性矛盾？作为法定证据种类的鉴定意见的不确定表述是否具有证据属性及其功能？",
+        "承认不确定鉴定意见的证据属性是对其科学性的尊重，也是实践理性的使然。",
+        "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国司法鉴定实践中的“不确定鉴定意见”为核心，直面最高法证据规范与鉴定技术标准的现实冲突，具有明确的中国问题意识与可争辩的法学命题。文中提出“可证实的不确定性”概念及鉴定人附随说明/论证义务等制度命题，理论转化清晰且具可复核性。完全符合项目口径，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文识别了司法规范与鉴定科学在不确定鉴定意见上的冲突，但核心争点多停留在制度介绍层面，问题表述偏宏观，缺乏深入的理论分歧展示。",
+          "core_judgment": "问题虽具现实争议性，但可争辩性较弱，问题句指明冲突后未能充分展示不同学者或流派的交锋，更多是阐释既定立场。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限（主要依赖规范与案例冲突而非纯新材料），锚定marginal档。扣分合计=30分（检查1扣15分，检查2扣20分，检查3不扣分），最终得分=55。",
+          "evidence_quotes": [
+            "最高人民法院对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？",
+            "法律规范要求的证据“确实”与不确定鉴定意见是否存在实质性矛盾？"
+          ],
+          "strengths": [
+            "准确把握了司法鉴定领域规范冲突的现实痛点，问题具有强烈的实践导向。",
+            "明确了法律确定性要求与科学不确定性之间的根本矛盾，论题比较聚焦。"
+          ],
+          "weaknesses": [
+            "问题句后缺少不同学者观点的直接交锋，主要是作者对规范冲突的解读，深度不足。",
+            "引入'科学性'、'理性认识'等概念时，未充分说明对既有证据法理论带来了何种实质性的解释力提升。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，虽指出了冲突，但未能提炼出更精炼、可证伪的法学理论争点。",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文主要围绕规范冲突和鉴定科学性展开体系介绍，缺少围绕'A vs B'理论分歧的深度讨论。"
+            }
+          ],
+          "boundary_note": "本维只评问题的可争辩性和枢纽性，不评论证逻辑严密性和文献综述充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "探讨不确定鉴定意见的证据属性与功能，纾解法律与科学的规范冲突。",
+          "core_judgment": "问题成立且极具枢纽性，触及证据法与科学证据的核心争点，非单纯政策倡导。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置扣分0分。",
+          "evidence_quotes": [
+            "法律规范要求的证据‘确实’与不确定鉴定意见是否存在实质性矛盾？",
+            "最高人民法院对不确定性表述的限制与鉴定技术规范的冲突如何解决？"
+          ],
+          "strengths": [
+            "精准捕捉法律确定性需求与鉴定科学性规律的深层冲突",
+            "将不确定鉴定意见从被排斥的异类还原为具有证明功能的证据"
+          ],
+          "weaknesses": [
+            "对不确定鉴定意见证明力的量化梯度标准论证稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立及重要，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 68,
+          "band": "good",
+          "summary": "论文聚焦不确定鉴定意见的证据属性与功能，提出规范冲突与科学本质之间的张力问题。",
+          "core_judgment": "问题具有可争辩性与制度关联性，但核心争点偏向阐释性整合，理论分歧展开不足。",
+          "score_rationale": "可争辩性=3/4（有问题句且属法学层面、非纯政策倡导，但学者观点交锋不充分），枢纽性=3/4（影响范围广、涉及核心概念、制度连锁明显，但学界长期争论的展示不足），材料新颖性未触发上限，锚定good档，给68分。负面模式检查：检查2部分满足（有规范冲突但学者交锋不足），扣15分；检查3不满足（存在明确问题句）。扣分后不低于30分，最终68分。",
+          "evidence_quotes": [
+            "那么，最高人民法院对'同一认定'鉴定意见'使用不确定性表述'的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？法律规范要求的证据'确实'与不确定鉴定意见是否存在实质性矛盾？作为法定证据种类的鉴定意见的不确定表述是否具有证据属性及其功能？",
+            "我国司法实践中，不确定鉴定意见引起的当事人上诉率远高于其他类型鉴定意见。最高人民法院要求'同一认定'鉴定意见采用'确定性表述'。从严格规范鉴定意见的制度视角来看，这一要求不失积极意义，但从鉴定技术、鉴定规律、鉴定原理和鉴定科学性等层面来分析，却有强制鉴定放弃遵循技术规范转求制度规范的嫌疑，有违鉴定的科学性。"
+          ],
+          "strengths": [
+            "问题聚焦规范冲突与科学本质的张力，具有明确制度关联。",
+            "涉及证据法核心概念，对鉴定制度有连锁影响。"
+          ],
+          "weaknesses": [
+            "学者观点交锋不足，多为制度介绍与立场阐释。",
+            "问题句虽多但部分转化为对策倡导，理论推进有限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "部分问题句如'如何解决''如何理解'等偏向宏观阐释，核心争点可更聚焦"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦司法鉴定中“不确定意见”的证据属性与规范冲突，提出兼具科学性与可采性的理论命题。",
+          "core_judgment": "问题具有明确的法学争点与理论纵深，成立且重要。",
+          "score_rationale": "扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "最高人民法院对“同一认定”鉴定意见“使用不确定性表述”的限制与现有鉴定技术规范允许鉴定出具不确定意见表述的冲突如何解决？",
+            "不确定鉴定意见作为“非典型意义上”的鉴定意见，可视为鉴定意见的另外一种表达，在证明功能上发挥着重要的释疑解惑作用。"
+          ],
+          "strengths": [
+            "明确提炼规范冲突与证据属性争点，问题意识强",
+            "贯通诉讼法理与鉴定科学规律，理论枢纽性突出"
+          ],
+          "weaknesses": [
+            "对跨法域比较的本土化转化论证可进一步深化",
+            "部分规范冲突的实证数据支撑略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.934751987457275,
+        "glm-5.1": 119.71945405006409,
+        "kimi-k2.6": 14.81441617012024,
+        "qwen3.6-plus": 71.44915723800659
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 88
+      },
+      "mean": 75.2,
+      "std": 16.8,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文未建立清晰的研究地图，缺乏对既有研究的争点结构梳理，法学流派识别不足，三要素严重残缺。",
+          "core_judgment": "本文未呈现可区分的学术争点或对立观点脉络，缺乏对已有研究成果的具体定位，未竟点和本文切入点模糊，不符合现状洞察度的基本要求。",
+          "score_rationale": "三要素得分=1/6（到达点1分，未竟点0分，本文切入点0分），争点结构=0/2，法学流派=0个，触发no_research_map规则，上限55分，给45分。",
+          "evidence_quotes": [
+            "参见裴苍龄：《论证据资料》，载《中外法学》1997年第6期，第107页。（仅提及单一学者观点，未形成学派对立）",
+            "我国理论界对鉴定意见作为独立法定证据种类有不同认识。（未具体展开不同认识的内容和代表人物）"
+          ],
+          "strengths": [
+            "引用了国内外多个司法实践案例，展示了实务中的分歧。"
+          ],
+          "weaknesses": [
+            "未系统梳理理论界对不确定鉴定意见的既有研究，缺少到达点、未竟点和本文切入点的明确表述。",
+            "未呈现任何可区分的法学流派或学术争点结构（如规范主义与功能主义、形式法治与实质法治等）。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素得分仅1分（到达点部分提及一位学者，未竟点和本文切入点均缺失），全文未形成研究地图。"
+            }
+          ],
+          "boundary_note": "本文的问题在于未对既有研究进行定位和梳理，而非问题本身缺乏新颖性。",
+          "review_flags": [
+            "no_research_map",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰构建了研究地图，呈现了多维争点结构与流派对立。",
+          "core_judgment": "现状洞察度充分成立，三要素完备，争点结构清晰，流派对立明确。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "司法对不确定鉴定意见的排斥性规定催生了诉讼法学界对其能否作为证据的关注及对其科学性的诘问，诱发了司法鉴定界对司法规范的批评。",
+            "针对上述问题，本文以鉴定科学性及其本质作为分析进路，考察不确定鉴定意见与证据之间的关系，探讨不确定鉴定意见对案件事实以及其他证据的功能"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了到达点与未竟点，三要素闭环完整",
+            "清晰呈现了诉讼法学界与司法鉴定界的核心争点及制度分歧"
+          ],
+          "weaknesses": [
+            "比较法流派脉络梳理偏历史事实描述，法学理论提炼稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构，不评价鉴定科学性问题的创新度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文对不确定鉴定意见进行了系统性理论建构，但研究地图呈现不足。",
+          "core_judgment": "研究地图三要素严重残缺，未建立清晰的学术对话脉络，争点结构模糊。",
+          "score_rationale": "三要素=2/6（到达点1分+未竟点1分+切入点0分），争点结构=0/2，法学流派=1个，锚定unacceptable档，因主题深度和比较法素材上浮至marginal档，给58分。",
+          "evidence_quotes": [
+            "司法对不确定鉴定意见的排斥性规定催生了诉讼法学界对其能否作为证据的关注及对其科学性的诘问，诱发了司法鉴定界对司法规范的批评。",
+            "这些问题均聚焦在不确定鉴定意见是否符合鉴定科学性的本质问题上。针对上述问题，本文以鉴定科学性及其本质作为分析进路。"
+          ],
+          "strengths": [
+            "比较法素材丰富，呈现美国司法态度转变历程。",
+            "对鉴定类型学有细致分类，体现理论深度。"
+          ],
+          "weaknesses": [
+            "未提炼具体学术成果及其贡献，到达点模糊。",
+            "未明确标识学界争点结构，缺乏对立观点的系统梳理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及'诉讼法学界关注''司法鉴定界批评'等笼统表述，未列明任何具体学者、成果及其贡献；未竟点未明确标识'争议的具体内容'；切入点未与未竟点建立对应关系。"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文未呈现可区分的学术流派或对立解释路径，仅存在'司法规范派'与'鉴定科学派'的实务立场差异，未上升为法学理论流派。"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性；论文主题具有创新性，但研究地图构建不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒了鉴定意见确定性与科学性之争的学术脉络，研究地图完整。",
+          "core_judgment": "文内充分呈现了司法规范与鉴定技术之间的对立争点及演进路径，研究地图三要素完备。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "冲撞了现有鉴定技术规范对鉴定意见表述方式的规定，致使鉴定与司法实然关系的紧张转化为应然规范层面的对立。",
+            "针对上述问题，本文以鉴定科学性及其本质作为分析进路，考察不确定鉴定意见与证据之间的关系"
+          ],
+          "strengths": [
+            "精准提炼司法确定主义与科学盖然主义的规范对立，争点脉络清晰。",
+            "采用分散式文献定位，有效串联中外制度演进与学者观点支撑研究缺口。"
+          ],
+          "weaknesses": [
+            "对国内证据法学界关于证明力层级的细分争论覆盖略显单薄。",
+            "流派识别主要依赖实务与学界立场对立，纯理论学派交锋可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献梳理与争点呈现，不涉及鉴定意见功能论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 119.71333193778992,
+        "glm-5.1": 141.0063281059265,
+        "kimi-k2.6": 15.646813154220581,
+        "qwen3.6-plus": 70.60678482055664
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 88,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 80
+      },
+      "mean": 67.8,
+      "std": 19.8,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文主要通过阐释和梳理既有观点与规范为不确定鉴定意见正名，未构建可重复适用的原创性分析框架。",
+          "core_judgment": "未提出具有明确概念界定、分类标准和分析步骤的原创分析框架，所谓'鉴定科学性本质'进路仅是一种论证视角。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定勉强清晰），法学转化度得分=0/4（未提供任何裁判规则或操作化转化），触发无操作框架上限规则，给25分。",
+          "evidence_quotes": [
+            "本文以鉴定科学性及其本质作为分析进路，考察不确定鉴定意见与证据之间的关系...",
+            "不确定鉴定意见在拥有科学性的基础上与可靠性存在着共生性，其表述上的不确定是其科学性的另外一种呈现。"
+          ],
+          "strengths": [
+            "对不确定鉴定意见的生成机理（检验型/经验型）进行了较细致的类型化描述。"
+          ],
+          "weaknesses": [
+            "核心术语如'鉴定科学性本质'缺乏可操作的定义，更接近一种论证主张而非分析工具。",
+            "全文以归纳现有规范、案例和技术标准为主，未形成可重复适用的分析步骤或裁判判断标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发无操作框架上限规则",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语'鉴定科学性本质'未转化为可操作的分析步骤；四种标准检查仅概念界定勉强满足，分类标准和分析步骤缺失。"
+            }
+          ],
+          "boundary_note": "本文问题在于未建构可操作的分析框架，而非框架内部的逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了多维分类框架并转化为附条件采信的裁判指引，建构力强。",
+          "core_judgment": "框架概念清晰、分类明确，且成功转化为可操作的司法审查与制度修正方案，维度完全成立。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "不确定鉴定意见是指鉴定人…无法断然肯定或否定而作出倾向性结论的一种鉴定结果。",
+            "经验型不确定鉴定意见…具有事实性证据的属性。检验型不确定鉴定意见…具有推理性证据的属性。"
+          ],
+          "strengths": [
+            "分类标准明确，按专门知识、认定类型和倾向性多维划分。",
+            "法学转化度高，将科学不确定性转化为附说明义务的裁判指引。"
+          ],
+          "weaknesses": [
+            "分析步骤的递进式流程稍弱，更多依赖分类比对展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构与法学转化，不评估论证逻辑衔接或问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文以鉴定科学性为核心进路，对不确定鉴定意见进行类型化分析，但缺乏可重复适用的分析步骤与操作标准。",
+          "core_judgment": "框架以'鉴定科学性'为统摄概念，完成了概念界定与类型划分，但未转化为可操作的法学判断步骤，后文分析未调用既定框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程且后文未实际调用框架），法学转化度得分=1/4（跨学科概念未转化为裁判规则或操作指引，仅停留在理论阐释层面），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "本文以鉴定科学性及其本质作为分析进路，考察不确定鉴定意见与证据之间的关系，探讨不确定鉴定意见对案件事实以及其他证据的功能，厘清不同类型鉴定、不同不确定鉴定意见及其对不同举证主体产生的作用",
+            "不确定鉴定意见是指鉴定人对委托或者聘请、指派鉴定的专门性问题进行检验、鉴别和评定后，无法断然肯定或否定而作出倾向性结论的一种鉴定结果。这种结果可分为倾向肯定的意见和倾向否定的意见"
+          ],
+          "strengths": [
+            "核心概念'不确定鉴定意见'界定清晰，类型划分标准明确",
+            "区分检验型/经验型/同一认定型/种属认定型鉴定，分类体系较完整"
+          ],
+          "weaknesses": [
+            "缺乏'第一步…第二步…'式分析步骤，未形成可重复适用的判断流程",
+            "后文未调用前文提出的类型框架，各章节独立展开，框架沦为背景介绍"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分，但本框架概念界定与分类标准较清晰，未触发此上限",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "论文提出'鉴定科学性'分析进路，但后文未按此进路逐步展开，而是直接进入历史比较与制度批评"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及论文对鉴定意见证明力的实质论证是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建了不确定鉴定意见的类型化分类与司法审查评价框架，有效弥合科学不确定性与法律确定性之间的规范张力。",
+          "core_judgment": "分析框架成立且具备较强的实务可操作性与法学转化力。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。核心概念界定清晰，分类标准明确，提出“科学基础+附随说明义务+梯度表达+证明责任差异化”的审查逻辑，并贯穿全文分析。",
+          "evidence_quotes": [
+            "本文所称不确定鉴定意见是指……无法断然肯定或否定而作出倾向性结论的一种鉴定结果。",
+            "通过增设不确定鉴定意见的附属义务，使鉴定人承担更多的论证、说明与解释义务……"
+          ],
+          "strengths": [
+            "分类标准清晰，按鉴定方法与倾向性构建类型化矩阵。",
+            "将科学不确定性转化为附随说明义务与梯度表达的裁判规则。"
+          ],
+          "weaknesses": [
+            "审查步骤的递进性可进一步细化为法官可直接套用的流程图。",
+            "对“倾向性”概率区间的司法量化标准仍依赖学理建议。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与转化度，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 76.06472969055176,
+        "glm-5.1": 135.31523394584656,
+        "kimi-k2.6": 14.475262880325317,
+        "qwen3.6-plus": 72.67965507507324
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 92,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 64.2,
+      "std": 31.8,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文从科学本质出发，严密推导出不确定鉴定意见应被赋予证据属性的核心结论，推理链条清晰有力。",
+          "core_judgment": "论文推理链完整，核心结论获得了充分的支撑，但反驳处理较为隐含，且自身局限的承认不够显式，因此未达极高分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档。考虑到反驳处理中“自身局限承认”一项依赖隐含推断，未达满分标准，给88分。",
+          "evidence_quotes": [
+            "科学“所能提供的只是可能性而不是确定性”，不确定意见仅在结论表述上体现了不确定性，但本质上与确定鉴定意见没有实质性差异，只是判断程度上的不同。",
+            "强制鉴定人违反科学性表述的基本要求，会造成不确定意见转化为确定性的表达，继而诱发鉴定意见陷入不可求的陷阱，衍生出规范要求与目的相悖的反噬效应。"
+          ],
+          "strengths": [
+            "主线推理环环相扣：从界定概念与类型，到剖析科学本质，再到批判规范冲突并导出应然属性，形成了一个分步递进、相互依赖的论证体系。",
+            "对司法实践中的对立观点（如最高法的规范）进行了实质性的反驳与回应，分析了其违反科学性的内在矛盾与“反噬效应”，构成了有效的论辩闭环。"
+          ],
+          "weaknesses": [
+            "反驳处理多聚焦于实务部门的规范冲突，对学界可能存在的、支持排除不确定意见的理论观点，缺乏显式的、点对点的列举与回应。",
+            "论文仅在结论段隐晦地承认了结论依赖于“科学规律”这一前提，未能以独立篇幅明确承认自身论证的适用边界或局限条件。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文未能独立成段地承认自身局限，这属于推理的严谨性问题而非框架本身的缺陷，因为它没有压缩后续分析的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳处理充分，核心结论可辩护推出。",
+          "core_judgment": "论文从科学性本质出发，经比较法佐证，严密推导出应承认不确定鉴定意见证据属性及附加释明义务，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分。推理链依赖度高，无关键跳步，对最高法排斥立场及学界质疑有实质性回应。",
+          "evidence_quotes": [
+            "最高法对同一认定意见使用不确定性表述采用惩罚性规定，本文回应此有违鉴定科学性且易诱发反噬效应。",
+            "有学者认为可能性不确定意见需印证才具证据能力，本文回应其虽不能单独证明但能发挥强化或弱化证明作用。"
+          ],
+          "strengths": [
+            "推理链层层递进，从科学本质到制度建议推导严密。",
+            "直面最高法规范冲突与学界质疑，反驳论证有力。"
+          ],
+          "weaknesses": [
+            "局部制度建议（梯度式表述）的过渡略显简略，但未构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价推理链支撑度，不评价“梯度式表述”方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'鉴定科学性→不确定意见合理性→证据属性→证明功能'的完整推理链，但反驳处理不足。",
+          "core_judgment": "推理链完整但反驳处理薄弱，核心结论可被辩护地推出，整体逻辑 coherence 良好。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'科学不确定性原理'到'应承认不确定鉴定意见证据属性'的规范推导缺乏充分过渡）；反驳处理度得分=1/3（仅标准1识别反对意见，标准2无实质性回应，标准3未承认局限）。锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "只要鉴定意见符合技术规范的科学性……则无论该意见是确定的还是不确定的，均属于'可以用于证明案件事实的材料'",
+            "法律规范对鉴定意见提出了更高的要求，存在将不确定意见等同于有缺陷的意见或者错误意见的偏误"
+          ],
+          "strengths": [
+            "类型化分析严谨：区分检验型/经验型、同一认定/种属认定、倾向肯定/倾向否定，构建多层分类框架",
+            "历史比较论证有力：美国从'确定性陷阱'到'附条件不确定意见'的演变，支撑制度建议"
+          ],
+          "weaknesses": [
+            "关键跳步：科学哲学层面的'不确定性原理'与规范层面的'应承认证据属性'之间缺乏制度转化论证",
+            "反驳处理形式化：仅罗列'有学者认为''法院认为'等反对观点，未展开实质性回应论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度，不评'梯度式不确定性定量表述'方案本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“规范冲突—科学证成—功能定位—制度调适”的完整推理链，结论可辩护推出。",
+          "core_judgment": "推理链条完整且环环相扣，对司法排斥立场与科学局限进行了实质性回应，结论具备充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "最高人民法院对同一认定意见使用不确定性表述的限制与现有鉴定技术规范允许出具不确定意见的冲突如何解决？",
+            "承认不确定鉴定意见的证据属性是对其科学性的尊重，也是实践理性的使然。"
+          ],
+          "strengths": [
+            "推理步骤清晰，从规范冲突到科学本质再到制度调适层层递进",
+            "对司法排斥立场与学界争议进行了实质性回应与法理辨析"
+          ],
+          "weaknesses": [
+            "中美制度语境转换的论证略显简略，规范移植的逻辑衔接可更严密",
+            "部分概率性表述的法学转化缺乏更精细的教义学推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文材料与规范推导支撑，而非评价所提制度方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.53865194320679,
+        "glm-5.1": 39.63909673690796,
+        "kimi-k2.6": 11.694294691085815,
+        "qwen3.6-plus": 151.88652515411377
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 85.8,
+      "std": 9.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 80,
+          "band": "excellent",
+          "summary": "结论挑战了司法实践排斥不确定鉴定意见的立场，基于科学本质论证其证据属性，在理论层面与现行法秩序兼容，并积极回应了制度与学理争议。",
+          "core_judgment": "结论提出了一个与司法实践对立但于法秩序可兼容的学术主张，清晰地回应了反对意见，具备进入共同体严肃对话的条件。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=2/4。论文为理论论文，对话度≥3且制度度≥2，锚定excellent档，给80分。结论有力挑战了制度现状，但未深入设计具体制度转化路径。",
+          "evidence_quotes": [
+            "“制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性。”",
+            "“不确定鉴定意见……作为‘非典型意义上’的鉴定意见，可视为鉴定意见的另外一种表达……发挥着重要的释疑解惑作用。”"
+          ],
+          "strengths": [
+            "结论明确挑战司法排斥立场，精准定位了科学与规范的冲突，可被学界清晰反驳或支持。",
+            "通过承认自身结论的盖然性并指出制度风险，主动回应了潜在的反对意见。"
+          ],
+          "weaknesses": [
+            "未充分讨论若承认不确定意见，法官心证应如何具体约束，制度转化方向稍显笼统。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度不评价论证严密性或未来研究空间，仅评判结论在当前共同体和制度语境下的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论充分回应学界与实务争论，提出具体的制度修正方向，与中国法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话和制度兼容上均表现优异，能被反对者定位回应且不与法秩序根本矛盾。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性",
+            "采用梯度式不确定性定量表述并附之释明性理由不失为可选择的路径"
+          ],
+          "strengths": [
+            "对策具体，提出附加说明义务与梯度式表述的制度转化方向",
+            "充分回应最高法规范与鉴定界冲突，对话度高"
+          ],
+          "weaknesses": [
+            "对现行最高法刚性规定的挑战可能面临实务阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论的可接受性与制度兼容，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文主张承认不确定鉴定意见的证据属性，建立附条件采纳规则，结论在理论与制度层面均具可对话性。",
+          "core_judgment": "结论明确回应了鉴定科学与司法制度之间的张力，提出了可被反驳和进一步发展的学术主张，制度兼容性良好。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、考虑中国语境，但未充分讨论反对意见）；制度可接受度得分=3/4（不矛盾、回应制度约束、指出转化方向、考虑中国语境）。锚定good档，给78分。",
+          "evidence_quotes": [
+            "最高人民法院的这种规范或者做法需要作出适当的改变或者调整——尊重鉴定的科学本质，直面鉴定现实，承认不确定鉴定意见的合理性和可接受性",
+            "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性，将不确定鉴定意见放置于鉴定技术及其规范的全景下判断"
+          ],
+          "strengths": [
+            "明确挑战并修正了最高人民法院相关司法解释的立场",
+            "结合中国司法鉴定技术规范与比较法经验展开论证"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见，如法官滥用不确定意见的风险",
+            "对'梯度式不确定性定量表述'的具体操作缺乏深入展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论主张接纳不确定鉴定意见并附加释明义务，契合科学规律与本土司法语境。",
+          "core_judgment": "结论明确回应学界与实务争议，在现行证据法秩序内具有高度兼容性与可对话性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准切入科学证据确定性争议，理论主张与现行法秩序兼容且具明确转化方向。",
+          "evidence_quotes": [
+            "承认不确定鉴定意见的证据属性是对其科学性的尊重，也是实践理性的使然。",
+            "制度规范应尊重技术规范，承认合理不确定意见的证据属性，采用梯度表述并附释明理由。"
+          ],
+          "strengths": [
+            "精准回应司法实践与科学规范的冲突，理论重构具有强解释力。",
+            "紧密结合中国案例与司法解释，论证扎实且具本土关怀。"
+          ],
+          "weaknesses": [
+            "对法官心证形成机制的具体操作指引略显抽象。",
+            "概率量化标准在实务中的统一适用难度未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接纳，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 46.161760091781616,
+        "glm-5.1": 42.08049488067627,
+        "kimi-k2.6": 9.619635820388794,
+        "qwen3.6-plus": 60.76289200782776
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 80,
+        "glm-5.1": 88,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.5,
+      "std": 6.6,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提出了具体的制度调整方向与附义务的延展路径，但路径精细度有限。",
+          "core_judgment": "存在明确的延展路径，与正文衔接可解释，但路径展开仍较概括。",
+          "score_rationale": "延展路径清晰，提出制度规范应尊重技术规范、增设说明论证义务及梯度式表述，但与结论紧密衔接的后续研究争点或具体深化步骤展开不足。原始分68对应60-79档，bonus=3。",
+          "evidence_quotes": [
+            "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性。",
+            "弥补其局限性的方法是附加相应的论证和充足的理由说明，诠释不确定鉴定意见蕴含哪些确定性的构成要素。"
+          ],
+          "strengths": [
+            "明确指向制度规范与技术规范冲突的解决路径，延展方向可定位。",
+            "提出附加强解释论证义务、采用梯度式不确定性定量表述等具体路径。"
+          ],
+          "weaknesses": [
+            "未提出下一阶段的具体研究问题或可检验的反驳入口。",
+            "延展路径缺乏对实施风险控制、程序衔接等精细展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "延展问题聚焦制度规范未来如何调整以尊重鉴定科学性，属于前瞻性建议而非当下结论可接受性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出梯度式定量表述及释明义务的具体制度完善路径，延展清晰。",
+          "core_judgment": "存在真实延展路径，指明了制度规范与技术规范的衔接方向及风险控制。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。文章指明“梯度式不确定性定量表述并附之释明性理由”的制度完善路径，与正文核心结论紧密衔接，无空泛拔高。",
+          "evidence_quotes": [
+            "采用梯度式不确定性定量表述并附之释明性理由不失为可选择的路径。",
+            "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性"
+          ],
+          "strengths": [
+            "延展路径具体可定位，提出梯度式定量表述与释明义务",
+            "清晰指明制度规范与技术规范的衔接方向及反噬风险控制"
+          ],
+          "weaknesses": [
+            "未明确承认自身研究局限及后续实证检验方向"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "探讨制度规范应如何尊重技术规范及未来表述路径，属于未来制度延展，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结论部分提出了不确定鉴定意见的梯度式表述路径及制度调整方向，并指出需警惕一概排除的做法，但延展深度有限。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向与理论修正路径，但缺乏具体后续研究问题的明确展开。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文提出'梯度式不确定性定量表述并附之释明性理由'的制度路径，以及'法律学必须果断地把属于科学支配的领域让给科学去承担'的理论修正方向，但后续研究问题未充分展开，路径精细度不足。",
+          "evidence_quotes": [
+            "采用梯度式不确定性定量表述并附之释明性理由不失为可选择的路径",
+            "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性"
+          ],
+          "strengths": [
+            "提出梯度式表述的具体制度完善方向",
+            "明确理论修正路径：区分法律与科学的边界"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "对比较法维度（如美国经验）的本土化延伸不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文对未来研究或制度走向的指引，而非当下结论是否被接受。论文提出的'梯度式表述'属于未来延展问题，而非结论可接受性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文针对不确定鉴定意见的司法适用困境，提出了制度规范调整与理论认知修正的具体延展路径。",
+          "core_judgment": "存在真实延展路径，明确指向司法审查标准调整、梯度表述机制构建及鉴定人释明义务强化。",
+          "score_rationale": "原始分72，对应bonus=3。文末明确提出梯度定量表述、释明义务强化及最高法规范调整等制度完善方向，与核心结论紧密衔接，但未细化配套程序与实证检验路径。",
+          "evidence_quotes": [
+            "采用梯度式不确定性定量表述并附之释明性理由不失为可选择的路径。",
+            "制度规范在鉴定问题上应当尊重技术规范，承认科学、合理的不确定鉴定意见的证据属性。"
+          ],
+          "strengths": [
+            "明确指出司法规范应转向尊重科学不确定性，提出梯度表述与释明义务的具体修正方向。",
+            "结合比较法经验与本土实务痛点，为后续规则衔接与实施风险控制提供清晰切入点。"
+          ],
+          "weaknesses": [
+            "未进一步细化梯度概率区间的具体划分标准及配套质证程序设计。",
+            "对释明义务违反后的程序性制裁与救济机制缺乏前瞻性推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于不确定鉴定意见规则未来的制度调适与理论深化方向，而非当下结论的司法可接受性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.411810636520386,
+        "glm-5.1": 28.62329411506653,
+        "kimi-k2.6": 9.166470766067505,
+        "qwen3.6-plus": 61.29552698135376
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 72
+      },
+      "mean": 71.8,
+      "std": 9.7,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 77.01,
+      "weighted_total": 75.0
+    },
+    "aggregation_strictest": {
+      "final_score": 51.35,
+      "weighted_total": 54.6
+    },
+    "avg_std": 15.7,
+    "max_std": 31.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 25.7,
+    "composite_score": -15.7,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 31.8
+  }
+}

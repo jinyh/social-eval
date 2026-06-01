@@ -1,0 +1,987 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/商标权行使与姓名权保护的冲突与规制.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文通过对这种两种情形的讨论，得出了以下结论：第一，关于使用名人的姓名作商标使用，是司法实务中最为普遍的侵权行为之一。...但将名人姓名的财产利益抽离出并以“商品化权”进行救济不仅有违民法体系化的思维方式，而且难以实现对名人受到的人格利益损害的完全救济；",
+          "在互联网快速发展的社会背景下，信息传播的速度加快，从一个普通人到成为名人的时间成本和物质成本在不断降低...现有对名人利益的保护模式，使得消费者不被混淆的利益为名人的独占利益服务，而在何种程度上法律制度不适用于名人的垄断保护，关系到个人与社会公众之间的利益平衡。该问题是传统名人姓名利益保护所未曾遇到的，是在互联网环境中面临的新事项。",
+          "我国司法实践的形成的判决对名人姓名利益的保护采取了两种模式：一是“商标化权”...模式。例如，在“披头士乐队案”中...二是“姓名权”模式。在“乔丹案”中...在“扎克·波森诉商标评审委员会商标行政纠纷案”中...",
+          "在诚实信用原则条款适用过程中...比例原则在此的作用是诚实信用原则所无法替代的。...运用比例原则得出了这样一种结论...在避免混淆发生的条件下保留双方权利的平行行使成为可能的解决方案。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "在互联网快速发展的社会背景下...现有对名人利益的保护模式，使得消费者不被混淆的利益为名人的独占利益服务...该问题是传统名人姓名利益保护所未曾遇到的，是在互联网环境中面临的新事项。",
+        "我国司法实践的形成的判决对名人姓名利益的保护采取了两种模式...上述认知分歧产生的根源在于法院对姓名权的权利性质认识上的摇摆...",
+        "“全有或全无”的效果状态并不是彻底解决权利冲突的理性之策...通过运用比例原则的论证，双方权利并不存在一方对另一方的优先地位，因而，在避免混淆发生的条件下保留双方权利平行行使成为可能的解决方案。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国司法实践中的名人姓名商标抢注与权利冲突为明确对象，深入分析了中国制度实践中的法律难题，提炼出“姓名权/商品化权”保护模式分歧及比例原则适用等可争辩命题，具有中国自主法学知识建构的潜质。建议直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留导致部分外文文献名、作者名及年份存在乱码或拼写错误（如'2o12', 'Pers6nlichkeisreehte', '妇 Samsung'等）",
+          "期刊页码混入正文（如179-193）",
+          "脚注编号及标点符号存在乱码或格式异常（如'@', '◎', '⑩'）"
+        ],
+        "evidence_quotes": [
+          "2o12年第3期",
+          "妇 Samsung Electronics American",
+          "179",
+          "⑩"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在“乔丹案”中，最高院认为，依据《商标法》第31条的规定，自然人就特定名称主张姓名权保护时，该特定名称应具有一定知名度、为相关公众所知悉并用于指代该自然人。",
+          "若在知识产权问题的研究中一味地从域外法领域引入新鲜词汇，且对其是否能够适应我国现有的民法体系不加检验，其本身便是一种违背民法体系化思维的做法……利用民法的理论成果处理将他人姓名注册为商标的纠纷，是唯一符合民法规范体系要求的做法。",
+          "法律上的名人范围显然小于生活中名人的范围，其排除了那部分具有一定名气但未从事过任何商业行为的名人，这就为不赋予名人对其姓名的垄断权利保留了一定的空间。",
+          "比例原则的核心是狭义比例原则……在商标权与姓名权之间进行与个案相关联的权衡……双方权利并不存在一方对另一方的优先地位，因而，在避免混淆发生的条件下保留双方权利的平行行使成为可能的解决方案。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "OCR残留及外文乱码需后续清洗",
+        "页码混入需剥离"
+      ],
+      "evidence_quotes": [
+        "在“乔丹案”中，最高院认为，依据《商标法》第31条的规定……",
+        "比例原则的核心是狭义比例原则……双方权利并不存在一方对另一方的优先地位，因而，在避免混淆发生的条件下保留双方权利的平行行使成为可能的解决方案。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，进入六维评分；文本存在OCR乱码及页码混入，需在后续阶段进行文本工程清洗。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码（如③④⑤⑥⑦⑧⑨⑩⑩⑩等编号重复或格式异常）",
+          "部分英文引用存在OCR识别错误（如'See 妇 Samsung Electronics American'应为'See White v. Samsung Electronics America'）",
+          "德文引用存在字符编码问题（如'Pers6nlichkeisreehte'应为'Persönlichkeitsrechte'）",
+          "参考文献列表标注为'（无）'，但实际文内存在大量注释引用，存在参考文献抽取失败风险"
+        ],
+        "evidence_quotes": [
+          "See 妇 Samsung Electronics American，23USPQ2d1583(9th．cir．1992)",
+          "Vg1．Horst—Peter Gstting，Pers6nlichkeisreehte als Vermogensrechte，Tubingen，1995，S．87-88",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "将名人的姓名注册为商标的问题在于，在现有法律体系内，如何实现对名人受损姓名权益的充分救济",
+          "我国司法实践的形成判决对名人姓名利益的保护采取了两种模式",
+          "一是'商标化权'（或'形象权''公开权'）模式",
+          "二是'姓名权'模式。在'乔丹案'中，最高院认为...",
+          "德国法以'姓名权'统一对姓名权中的人格利益和财产利益进行保护的模式，是我国民法学者较为肯认的范式",
+          "在我国司法实务中，此种保护模式则呈现出了认知分歧",
+          "《商标审查及审理标准》规定...",
+          "本文认为，当冒用他人姓名侵犯的财产利益尚未上升到民法上的权利时，由姓名权加以保护较为科学"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR乱码、英文引用识别错误、德文特殊字符编码问题、参考文献列表抽取失败",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "将名人的姓名注册为商标的问题在于，在现有法律体系内，如何实现对名人受损姓名权益的充分救济",
+        "我国司法实践的形成判决对名人姓名利益的保护采取了两种模式：一是'商标化权'模式；二是'姓名权'模式",
+        "德国法以'姓名权'统一对姓名权中的人格利益和财产利益进行保护的模式，是我国民法学者较为肯认的范式。然而，在我国司法实务中，此种保护模式则呈现出了认知分歧",
+        "设置不同于生活中名人的法律名人概念、规定直接与商业行为相关的名人姓名才可享受独占利益，才能维持社会利益结构的均衡",
+        "在使用自己与名人相同之姓名作商标使用的情形，作为协调权利冲突方法的比例原则在该商标权与姓名权冲突中存在适用空间"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国商标法与民法体系中的姓名权保护为核心问题，深入分析了'乔丹案'等中国司法实践，对比德国法与美国法，提出'法律名人'概念及比例原则的适用方案，具有明确的中国问题意识、法学理论深度和制度建构价值。文本质量风险较低，主要集中于脚注编号OCR乱码和参考文献抽取问题，不影响核心评审。建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 52,
+          "band": "marginal",
+          "summary": "问题涉及姓名权与商标权冲突，但偏向实务救济模式归纳，缺乏紧密聚焦的法学争点，扣分后居于 marginal 档。",
+          "core_judgment": "论文提出‘如何充分救济名人姓名权益及平衡利益’，但通篇以阐释、归纳为主，未形成清晰可辩的法学理论争点，可争辩性不足。",
+          "score_rationale": "可争辩性=2/4（问题句存在但偏向政策与利益平衡，缺乏理论分歧；法学层面部分涉及），枢纽性=2/4（影响≥2制度，但理论基础与争议焦点表现偏弱）；负面检查扣分合计35（检查1扣15，检查3扣20）；材料新颖性未触发上限；锚定 marginal 档原可50-59分，扣分后不低于30分，综合考虑给52分。",
+          "evidence_quotes": [
+            "“在将名人的姓名注册为商标情形中，探求何种模式能够充分实现对名人的损害救济……”",
+            "“如何平衡名人个人利益和社会公众利益之间的关系，以避免因对名人权益的过度保护致使社会利益结构失衡，成为了不可回避的话题。”"
+          ],
+          "strengths": [
+            "问题涉及姓名权与商标权交叉领域，具有现实意义和社会关注度。"
+          ],
+          "weaknesses": [
+            "问题过于宏大，缺乏可辩的理论争点，仅为立法与实务模式归纳。",
+            "全文以既定立场阐释为主，未展现学者观点的实质交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性仅达2，问题表述过于宏大无法聚焦，上限65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题句为‘如何实现充分救济’和‘如何平衡利益’，属于宏观政策倡导性提问，缺乏明确的理论分歧点。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性、文献充分性及结论正确性。",
+          "review_flags": [
+            "weak_problem_formulation",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文围绕名人姓名商标抢注及同名使用的保护模式与权利冲突解决展开，问题具体且具理论分歧。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，法学争点明确且触及核心理论分歧。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "可否以“目的吸收手段”方式借“商品化权”既实现对目的——财产利益的救济，又可对手段——人格利益损害的填补?",
+            "适用诚实信用原则的局限并非其内容的概括性而是其规则属性所造成的，比例原则在此的作用是诚实信用原则所无法替代的。"
+          ],
+          "strengths": [
+            "争点明确，聚焦保护模式与权利冲突解决路径分歧。",
+            "枢纽性强，横跨商标法与民法人格权、基本原则适用。"
+          ],
+          "weaknesses": [
+            "部分问题表述偏向宏观利益平衡，但后文有具体法学争点支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文围绕商标权与姓名权冲突展开，提出比例原则适用方案，但核心问题为制度阐释型，创新性有限。",
+          "core_judgment": "问题具有可争辩性和一定枢纽性，但实质是对既有制度框架的阐释与适用，而非提出新的法学争点。",
+          "score_rationale": "可争辩性=3/4（有问题句、法学层面、有理论分歧，但非政策倡导型论证），枢纽性=2/4（影响商标法与民法≥2制度，涉及比例原则核心争点，但制度连锁论证不足），材料新颖性未触发上限，锚定marginal档，给55分。负面模式检查：检查2扣15分（有提及分歧但未充分展开交锋），检查3不扣（存在可争辩问题句）。扣分后不低于30分。",
+          "evidence_quotes": [
+            "如何平衡名人个人利益和社会公众利益之间的关系，以避免因对名人权益的过度保护致使社会利益结构失衡，成为了不可回避的话题。",
+            "在将与名人相同之姓名作商标使用所形成的权利冲突中，适用诚实信用原则的局限并非其内容的概括性而是其规则属性所造成的，比例原则在此的作用是诚实信用原则所无法替代的。"
+          ],
+          "strengths": [
+            "问题涉及商标法与民法交叉，制度影响面较广。",
+            "引入比例原则权衡权利冲突，具有一定方法论意识。"
+          ],
+          "weaknesses": [
+            "核心问题实为对既有保护模式的比较与选择，非真正新的法学争点。",
+            "比例原则的适用分析偏向制度介绍，未与既有学说形成深度交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题涉及'名人姓名权益保护'整体，但核心论证集中于比例原则适用，问题聚焦不足"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦姓名商标冲突，以比例原则重构权利平衡路径，争辩性与枢纽性俱佳。",
+          "core_judgment": "问题设定明确触及民法与商标法交叉争点，理论分歧清晰，具备高可争辩性与制度辐射力。",
+          "score_rationale": "可争辩性4/4，枢纽性4/4，材料/方法校验未触发上限，前置负面扣分0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "在现有法律体系内，如何实现对名人受损姓名权益的充分救济?",
+            "将比例原则视为诚实信用原则的下位原则的做法，实乃是对诚实信用原则的规范性质和比例原则的性质的误解。"
+          ],
+          "strengths": [
+            "明确提炼姓名权人格与财产双重利益，破解“商品化权”体系冲突。",
+            "引入阿列克西原则理论，为民法权利冲突提供精细化比例原则路径。"
+          ],
+          "weaknesses": [
+            "“法律名人”与“生活名人”界分标准在司法举证中仍显抽象。",
+            "混淆规避义务的具体履行方式缺乏本土化判例的充分验证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题争辩性与枢纽价值，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.12877011299133,
+        "glm-5.1": 42.07997488975525,
+        "kimi-k2.6": 13.913527011871338,
+        "qwen3.6-plus": 66.0212128162384
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 71.2,
+      "std": 20.5,
+      "strictest": 52,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "论文以分散式文献定位呈现了姓名权保护中的争点分歧，研究地图三要素基本成立，但法学流派覆盖稍显单薄。",
+          "core_judgment": "论文形成了“商品化权模式 vs 姓名权模式”的核心争点结构，并引入德美比较法对立，文献梳理深度满足研究地图要求。",
+          "score_rationale": "三要素=4/6（到达点1，未竟点2，切入点1），争点结构=2/2，法学流派=2个，锚定good(65-74)档，给70分。",
+          "evidence_quotes": [
+            "我国司法实践的形成判决对名人姓名利益的保护采取了两种模式：一是“商标化权”(或“形象权”“公开权”)模式。……二是“姓名权”模式。",
+            "然而，在互联网快速发展的社会背景下，……现有对名人利益的保护模式……该问题是传统名人姓名利益保护所未曾遇到的，是在互联网环境中面临的新事项。"
+          ],
+          "strengths": [
+            "清晰呈现了司法实务中“商品化权模式”与“姓名权模式”的对立，构成有效争点结构。",
+            "指出现有保护模式在互联网时代面临利益失衡的新挑战，未竟点具体明确。"
+          ],
+          "weaknesses": [
+            "对“商品化权”与“姓名权”之争的学理流派归属未作更系统的学派梳理，法学流派识别略显不足。",
+            "比较法参照主要提及德美范式，未展开其他法域学说体系，流派覆盖广度有提升空间。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评的是文献定位是否形成研究地图与争点结构，不评价姓名权问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，清晰呈现多个争点与对立流派，现状洞察深刻。",
+          "core_judgment": "研究地图三要素充分，争点结构完整，流派识别丰富，洞察度极佳。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "结合我国民法学者的研究成果，本文认为...名人受侵害的利益主要有如下四类",
+            "我国司法实务...对名人姓名利益的保护采取了两种模式：一是‘商标化权’...二是‘姓名权’模式"
+          ],
+          "strengths": [
+            "清晰梳理了名人姓名保护的两种对立模式及请求权竞合争点",
+            "深入辨析比例原则与诚信原则、利益衡量的规范性质分歧"
+          ],
+          "weaknesses": [
+            "部分比较法文献（如德国姓名权范式）未在正文充分展开其学界争论脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点结构深度，而非问题本身是否新颖或论证严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了商标权与姓名权冲突的研究地图，但三要素呈现分散且部分模糊。",
+          "core_judgment": "研究地图三要素部分满足，争点结构清晰但法学流派覆盖有限，整体处于good档。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了'商品化权'与'姓名权'两种保护模式及德国法比较；未竟点1分：指出'商品化权'模式有违民法体系化且难以救济人格利益，但未明确学界既有争议缺口；本文切入点1分：提出比例原则适用方案但与未竟点对应不够紧密），争点结构=2/2（'商品化权'vs'姓名权'、权利冲突解决方法之争），法学流派=2个（'商品化权'财产权路径 vs '姓名权'人格权路径），锚定good档，给72分。",
+          "evidence_quotes": [
+            "我国司法实务中，此种保护模式则呈现出了认知分歧：一是将'姓名权'视为一种纯粹人格权……二是仅强调姓名权对姓名中财产利益的救济……上述认知分歧产生的根源在于法院对姓名权的权利性质认识上的摇摆",
+            "而'商品化权'模式源于以美国的公开权制度……'商品化权'模式引起的争论集中于，可否以'目的吸收手段'方式借'商品化权'既实现对目的——财产利益的救济，又可对手段——人格利益损害的填补"
+          ],
+          "strengths": [
+            "清晰呈现'商品化权'与'姓名权'两种保护模式的对立结构",
+            "引入德国法比较法视角增强论证深度"
+          ],
+          "weaknesses": [
+            "未竟点表述分散，未集中提炼学界既有争论的具体缺口",
+            "比例原则作为本文切入点的创新性论证不足，与未竟点衔接松散"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4分，未触发此规则；实际触发三要素4分+争点2分+流派2个，锚定good(65-84)"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献梳理与争点呈现，不涉及比例原则适用方案本身的理论创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准绘制名人姓名商标保护研究地图，清晰呈现模式分歧、利益平衡与比例原则适用争点。",
+          "core_judgment": "本维度高度成立，文内充分展现既有研究脉络、明确学术缺口并精准锚定本文切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "我国司法实务中，此种保护模式则呈现出了认知分歧：一是将姓名权视为纯粹人格权，二是仅强调财产利益救济。",
+            "将比例原则视为诚实信用原则的下位原则，实乃对两者规范性质的误解。"
+          ],
+          "strengths": [
+            "精准提炼“商品化权”与“姓名权”保护模式的学理与实务分歧。",
+            "明确界定“法律名人”与“生活名人”，填补互联网时代利益平衡研究空白。"
+          ],
+          "weaknesses": [
+            "部分比较法引证偏重判例描述，对域外学说演进脉络的梳理稍显分散。",
+            "比例原则与利益衡量的界限论证可进一步结合本土实证数据增强说服力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦文献梳理与争点结构，未涉问题新颖性或论证逻辑评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.439258098602295,
+        "glm-5.1": 47.0708441734314,
+        "kimi-k2.6": 16.422160863876343,
+        "qwen3.6-plus": 67.93852186203003
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 11.6,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文梳理了四类受损利益并引入比例原则，但未将其转化为可重复遵循的分析步骤，后文未按步骤实际调用框架。",
+          "core_judgment": "框架可操作性不足：核心术语缺乏操作化定义，分析步骤缺失，后文未按预定框架逐步展开分析。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定基本清晰），法学转化度得分=1/4（仅将利益分类映射到制度层面），锚定marginal档，未触发强制上限，给52分。",
+          "evidence_quotes": [
+            "当他人擅自将名人姓名作商标时，名人受侵害的利益主要有如下四类：1．姓名的自由决定利益。2．姓名的同一性利益。3．姓名的个性化利益。4．姓名的财产利益。",
+            "比例原则所权衡的对象是不具有确定效力的法律原则...权衡的过程中共可分解为三个步骤：第一是确认一方权利受侵害或受限制的程度；第二是确认与之相对的权利被满足的重要性程度；第三是证成..."
+          ],
+          "strengths": [
+            "对名人姓名受损利益做了清晰的类型划分，为后续讨论提供了概念基础。",
+            "引入比例原则作为权利冲突协调方法，具有一定的理论深度和逻辑起点。"
+          ],
+          "weaknesses": [
+            "四类利益分类仅作为介绍性归纳，后文未将其作为案例分析或裁判推理的步骤反复调用。",
+            "比例原则的“三步权衡”缺乏可量化的判断标准（如侵害密度等级如何确定），无法直接转化为裁判规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文困在框架可操作性与法学转化度不足，而非逻辑衔接问题；论文有分类和原则引入，但未完成从原则到操作步骤的转化。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "提出清晰的姓名利益分类与比例原则适用步骤，法学转化度高。",
+          "core_judgment": "框架概念清晰、步骤可循且提供具体裁判指引，建构力强。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "权衡的过程共可分解为三个步骤：第一是确认一方权利受侵害或受限制的程度；第二是确认与之相对的权利被满足的重要性程度...",
+            "义务的履行仍需付诸于添加以读音为主要功能的文字标识...文字的内容必须起到减弱公众对所标示商品或服务与在先姓名者之间的联系"
+          ],
+          "strengths": [
+            "姓名利益四分法及法律名人概念界定清晰，分类标准明确。",
+            "比例原则转化为三步权衡步骤，并提供混淆规避义务的具体操作方案。"
+          ],
+          "weaknesses": [
+            "比例原则在同名善意使用案中得出“平手”结论，稍显抽象。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力而非逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出'四重利益分析+比例原则权衡'框架，但核心分类缺乏操作边界，比例原则适用步骤未转化为可重复的裁判标准。",
+          "core_judgment": "框架具有类型化尝试但操作性不足，比例原则的三步权衡未形成可重复适用的判断标准，法学转化停留在理论阐释层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但分析步骤不可循、后文调用不充分）；法学转化度得分=1/4（比例原则未转化为裁判规则或操作指引，无制度设计方案）。锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "权衡的过程中共可分解为三个步骤：第一是确认一方权利受侵害或受限制的程度；第二是确认与之相对的权利被满足的重要性程度；第三是证成满足相对立之权利而对另一个权利的不满足是否符合理性",
+            "针对规避义务具体采取何种方式予以履行在具体案件中的体现不同，但一般性的混淆避免义务履行规则是可以探寻的"
+          ],
+          "strengths": [
+            "四重利益分类具有理论创新性，为姓名权保护提供结构化分析基础",
+            "引入比例原则回应权利冲突，体现问题意识和方法论自觉"
+          ],
+          "weaknesses": [
+            "比例原则三步权衡缺乏判断标准，'侵害密度''重要性程度'无操作化定义",
+            "混淆规避义务规则未形成明确的行为指引，'合适且必要措施'表述模糊"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "比例原则三步权衡中'侵害密度''重要性程度'等核心术语无操作化定义，未形成可重复判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的可操作性与法学转化，不涉及比例原则理论推导的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“利益四分法”与“比例原则三步权衡”框架，衍生混淆规避规则，体系严密且具裁判指引价值。",
+          "core_judgment": "框架成立且高度可用，核心概念界定清晰，分析步骤可循，并成功转化为民事权利冲突的裁判适用流程。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。比例原则已转化为民事裁判三步权衡与混淆规避规则，后文充分调用。",
+          "evidence_quotes": [
+            "权衡的过程中共可分解为三个步骤：第一是确认一方权利受侵害或受限制的程度；第二是确认与之相对的权利被满足的重要性程度；第三是证成……",
+            "添加的文字内容必须足以与在先他人姓名相区别……所添加的文字内容需至少具有同该姓名相异的突出性。"
+          ],
+          "strengths": [
+            "利益类型化清晰，精准剥离人格与财产利益，为司法定性提供明确标准。",
+            "比例原则成功本土化，提炼出可操作的三步权衡流程与混淆规避义务。"
+          ],
+          "weaknesses": [
+            "“法律名人”举证标准在实务中可能面临证据获取难与成本高的问题。",
+            "混淆规避义务的具体履行方式仍依赖法官个案裁量，统一性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 75.74645400047302,
+        "glm-5.1": 39.798932790756226,
+        "kimi-k2.6": 13.314290285110474,
+        "qwen3.6-plus": 62.77325510978699
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 92,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 73.5,
+      "std": 21.5,
+      "strictest": 52,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文推理链主线清晰，但核心论证存在关键跳步，且反驳回应不充分，整体属于有缺陷但可辩护的论证。",
+          "core_judgment": "论证主线从“利益界定”到“模式选择”再到“利益平衡与冲突解决”基本连贯，但“仅姓名权模式可行”和“比例原则适用性”的推导存在跳步，且几乎未回应可能的反驳。",
+          "score_rationale": "推理链完整性得分=3/4，反驳处理度得分=1/3，锚定good档，但反驳处理度极弱拉低分数，给72分。",
+          "evidence_quotes": [
+            "“人格利益损害”概念并不等同于“人格损害赔偿”概念，仅通过“商品化权”这一纯粹财产权的救济途径，是无法实现对人格利益损害充分救济的。",
+            "在确定相冲突的两项原则何者优先时，便由比例原则加以权衡...比例原则的核心价值在于权衡；诚实信用原则作为规则中的概括条款...不涉及法律上的价值评价和选择。"
+          ],
+          "strengths": [
+            "推理步骤完整：从界定四类具体利益损害出发，依次评价“商品化权”与“姓名权”两种救济模式的优劣，链条清晰。",
+            "概念区分有力：对诚实信用原则的“规则”属性与比例原则的“权衡”功能进行了有论证深度的区分，支撑了比例原则的适用论证。"
+          ],
+          "weaknesses": [
+            "存在关键跳步：从“商品化权模式无法充分救济”直接推出“仅有姓名权模式符合体系要求”，未充分论证是否存在其他救济组合或改良方案。",
+            "反驳回应严重缺失：全文几乎未出现对“反对比例原则适用”“批评利益平衡方案”等关键潜在反驳的显式或隐含回应，使论证在严密性上显著减损。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于推理步骤间的衔接是否充分，而非结论本身的可接受性。跳步问题属于逻辑链断裂，而非分析框架的可操作性不足。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，反驳处理充分，逻辑严密性极佳。",
+          "core_judgment": "论文推理链形成充分支撑链条，核心结论可由前文可辩护地推出，本维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "最后的证成，仍然无法排除适用比例原则者的主观决断…至于如何克服这一主观性偏见仍需进一步研究。",
+            "将比例原则视为诚实信用原则的下位原则的做法，实乃是对诚实信用原则的规范性质和比例原则的性质的误解。"
+          ],
+          "strengths": [
+            "推理链层层递进，从利益界定到模式评价再到冲突解决，依赖度高。",
+            "对显式反对意见有实质性回应论证，而非仅罗列。"
+          ],
+          "weaknesses": [
+            "从“双方平手”到“混淆规避义务”的过渡稍依赖比较法借鉴，内在推导略弱。",
+            "对“法律名人”界定标准的论证稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评推理链是否充分支撑结论，不评比例原则框架是否具可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从利益类型分析到保护模式评价，再到比例原则适用的完整推理链，但比例原则适用部分存在关键跳步。",
+          "core_judgment": "推理链整体可复述且步骤相互依赖，但比例原则具体适用部分的权衡论证存在关键跳步，反驳处理基本充分。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4因比例原则适用部分的权衡论证存在跳步而不完全成立），反驳处理度得分=2/3（识别了反对意见并做了实质性回应，但未明确承认自身论证局限），锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "在将与名人相同之姓名作商标使用所形成的权利冲突中，适用诚实信用原则的局限并非其内容的概括性而是其规则属性所造成的，比例原则在此的作用是诚实信用原则所无法替代的。",
+            "适用比例原则得出了这样一种结论，双方出现了一种平手的情形，没有任何一方具有优先实现的地位。"
+          ],
+          "strengths": [
+            "利益类型四分法为后续保护模式评价提供了清晰基础",
+            "对'商品化权'模式的批判性分析较为深入，论证了姓名权模式的体系优势"
+          ],
+          "weaknesses": [
+            "比例原则具体适用中，从'权衡平手'到'保留双方权利平行行使'的过渡缺乏充分论证",
+            "对比例原则权衡过程中的主观性偏见问题仅提及未解决，却未承认此为论证局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "比例原则适用部分的程序性描述与实质权衡结论之间存在张力，属于推理链问题而非框架设计问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“利益界定—保护模式选择—利益平衡—比例原则权衡”的严密推理链，结论可辩护推出。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论均获前文规范与学理充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "将比例原则适用于权利与权利之间的冲突，该权衡法则可表述为‘一个权利的不满足程度或受损害程度越高，另一个权利被满足的重要性就越大’",
+            "最后的证成，仍然无法排除适用比例原则者的主观决断，而此种主观决断很可能来自于适用者的偏见"
+          ],
+          "strengths": [
+            "四步推理链（利益类型化→模式批判→法律名人界定→比例权衡）层层递进且强依赖",
+            "对商品化权模式、诚信原则下位说等反对观点均作实质性法理回应"
+          ],
+          "weaknesses": [
+            "比例原则“平手”结论向“平行行使+避混淆义务”的过渡略依赖比较法经验",
+            "主观决断局限的承认较简略，未展开程序性制约方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否形成充分支撑，不评价比例原则操作框架的实务可落地性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.7619252204895,
+        "glm-5.1": 40.48295617103577,
+        "kimi-k2.6": 12.74984884262085,
+        "qwen3.6-plus": 71.49555730819702
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81,
+      "std": 10.5,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文结论形成可争辩的学术主张，回应了现有保护模式争议，并在中国民法体系化语境下展开，具有较高的共同体对话度和制度兼容性。",
+          "core_judgment": "结论明确挑战了商品化权模式并主张以姓名权统一保护，同时提出法律上名人概念和比例原则协调方案，能被共同体有效回应。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4。论文为理论/混合论文，对话度≥3且制度度≥3，锚定excellent档，基于三者均达标的稳定表现给82分。",
+          "evidence_quotes": [
+            "利用民法的理论成果处理将他人姓名注册为商标的纠纷，是唯一符合民法规范体系要求的做法…不会引起任何规范体系上的不适应。",
+            "设置不同于生活中名人的法律名人概念、规定直接与商业行为关联的名人姓名才可享受独占利益，才能维持社会利益结构的均衡。"
+          ],
+          "strengths": [
+            "结论明确回应了商品化权与姓名权模式的争论，挑战主流观点并提供修正方案，对话性强。",
+            "法律上名人概念的提出，直接回应了互联网时代名人培育成本降低带来的利益失衡问题，具有制度回应意识。"
+          ],
+          "weaknesses": [
+            "比例原则适用结论得出双方平手，但未充分讨论反对者可能提出的质疑与局限，自我批判稍显不足。",
+            "对规避混淆义务的具体方案仍较抽象，制度转化方向虽已指出，但操作性指引尚有欠缺。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价结论的可接受性与对话度，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻回应既有争论并提出精细制度方案，可接受性高。",
+          "core_judgment": "结论在共同体对话与制度兼容层面均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "将名人姓名的财产利益抽离出并以“商品化权”进行救济不仅有违民法体系化的思维方式，而且难以实现对名人受到的人格利益损害的完全救济",
+            "在避免混淆发生的条件下保留双方权利的平行行使成为可能的解决方案"
+          ],
+          "strengths": [
+            "精准回应商品化权与姓名权模式之争，对话度高",
+            "提出混淆规避义务等精细制度转化方向"
+          ],
+          "weaknesses": [
+            "比例原则适用仍存主观偏见风险，论文自身亦承认"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以姓名权统一保护模式替代商品化权模式，并引入比例原则协调商标权与姓名权冲突，结论具有理论创新性且回应了中国司法实践。",
+          "core_judgment": "结论能够进入法学共同体对话，对既有理论分歧和司法实践争议有明确回应，制度兼容性良好，但部分制度转化方向尚待细化。",
+          "score_rationale": "共同体对话度得分=3/4（回应了姓名权与商品化权之争、比例原则适用之争，承认诚实信用原则与比例原则关系之复杂性，但未充分讨论反对意见）；制度可接受度得分=3/4（与现行法秩序兼容，回应了《商标法》第31条等制度约束，提出德国法参考方案，但比例原则的具体适用方案对中国法官操作性指导有限）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "若在知识产权问题的研究中一味地从域外法领域引入新鲜词汇，且对其是否能够适应我国现有的民法体系不加检验，其本身便是一种违背民法体系化思维的做法",
+            "适用比例原则得出了这样一种结论，双方出现了一种平手的情形，没有任何一方具有优先实现的地位"
+          ],
+          "strengths": [
+            "明确回应商品化权与姓名权保护模式之争，提出统一保护路径",
+            "结合中国司法实践（乔丹案、披头士案）展开分析，语境适配性强"
+          ],
+          "weaknesses": [
+            "比例原则的具体适用方案对中国法官操作性指导有限",
+            "未充分讨论比例原则适用可能面临的反对意见或理论质疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确回应学界争议，提出比例原则权衡与权利平行行使方案，兼具理论深度与司法指引价值。",
+          "core_judgment": "该结论深度嵌入中国民法与商标法语境，逻辑自洽且具高度可争辩性，完全满足可接受性标准。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准定位保护模式之争，主动回应比例原则局限；紧密契合中国司法实践，提出举证责任与混淆规避等转化方向。",
+          "evidence_quotes": [
+            "将名人姓名的财产利益抽离出并以‘商品化权’进行救济不仅有违民法体系化的思维方式",
+            "在避免混淆发生的条件下保留双方权利的平行行使成为可能的解决方案"
+          ],
+          "strengths": [
+            "精准定位并修正“商品化权”保护模式的体系缺陷",
+            "提出比例原则权衡与混淆规避义务的具体适用路径"
+          ],
+          "weaknesses": [
+            "比例原则权衡中主观决断的克服路径论证稍显薄弱",
+            "对“法律名人”财产利益举证标准的具体化可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 61.554696798324585,
+        "glm-5.1": 41.37777304649353,
+        "kimi-k2.6": 11.339268207550049,
+        "qwen3.6-plus": 73.3390998840332
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81.8,
+      "std": 6.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "结尾段落仅以口号式语言归纳全文结论，未提出具体的未来研究方向、理论修正路径或制度完善课题。",
+          "core_judgment": "论文缺乏真实、可定位的前瞻延展路径，仅以空泛总结收束全文。",
+          "score_rationale": "原始分30分，触发slogan_outlook规则，缺失具体后续研究问题或深化方向，仅概括性提及“问题”，对应bonus=0。",
+          "evidence_quotes": [
+            "在互联网快速发展的背景下，商标权与姓名权的冲突汇集了这个时代两个鲜明的特征：名人崇拜和名人效应。",
+            "本文通过对这种两种情形的讨论，得出了以下结论：……"
+          ],
+          "strengths": [
+            "结论部分呼应了互联网背景下利益平衡的宏观议题。"
+          ],
+          "weaknesses": [
+            "未来展望完全缺失，没有指明理论修正、制度完善或新的争议焦点。",
+            "结论仅浓缩前文成果，未提任何可操作的后续研究入口或细分课题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论段仅以“商标权与姓名权的冲突汇集了这个时代……特征”等口号式语言收束，未指明下一步研究的方向、对象、方法或边界。"
+            }
+          ],
+          "boundary_note": "本维度只评估论文是否为未来研究给出了具体路标，不涉及原有结论是否可被接受；该文结论虽概括完整，但缺少前瞻性路径设计。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在比例原则主观性克服及混淆规避义务具体标准上提出了清晰可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，指明了比例原则适用中主观偏见克服及混淆规避文字标识的具体深化方向。",
+          "score_rationale": "原始分82，对应bonus档位为5分（>=80）。论文在核心论证中明确指出比例原则适用克服主观偏见、混淆规避义务文字标准等后续深化方向，路径清晰可定位，与正文结论紧密衔接。",
+          "evidence_quotes": [
+            "至于如何克服这一主观性偏见仍需进一步研究。",
+            "至于所添加的文字内容为何，是否任何意义者均可，学界和实务界对此并没有提供可供参考的观点。"
+          ],
+          "strengths": [
+            "延展点嵌入核心论证，自然且具体",
+            "指明了比例原则主观偏见与混淆规避标准两个深化方向"
+          ],
+          "weaknesses": [
+            "未设专节系统规划未来研究路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "克服比例原则主观偏见及细化混淆规避文字标准属于未来制度与实务深化方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结论部分提出了比例原则适用中的主观偏见难题、混淆规避义务的具体化以及'法律名人'概念的制度延伸等方向，但多数延展停留在问题揭示层面，缺乏对后续研究路径的明确勾画。",
+          "core_judgment": "存在可定位的延展方向，但精细度和证据支撑有限，部分路径与正文衔接需推断。",
+          "score_rationale": "原始分55分，对应bonus=2的40-59档。论文在结尾提出比例原则适用中'主观偏见克服'的未决问题（第190页）、德国法混淆规避义务的本土化参考（第191-192页），以及'法律名人'概念的举证标准延伸，均属可定位路径。但'主观偏见仍需进一步研究'等表述较笼统，且未形成下一轮争点的清晰框架，精细度不足。",
+          "evidence_quotes": [
+            "至于如何克服这一主观性偏见仍需进一步研究。",
+            "此种必要性是由于在注册商标之前，自然人既以该姓名作商标性使用，并承担了一定的商品声誉……若同姓名之人将其姓名注册为商标，并未承担任何商誉或者微小的商誉时……可将其认定为不具有明显受保护的利益"
+          ],
+          "strengths": [
+            "提出德国法混淆规避义务的本土化适用路径",
+            "揭示比例原则主观偏见的方法论难题"
+          ],
+          "weaknesses": [
+            "'主观偏见克服'仅停留于问题宣告，未指明具体研究入口",
+            "未回应互联网背景下名人'培育成本降低'对制度设计的动态影响"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文讨论的是比例原则适用、混淆规避义务等'未来如何深化'的问题，而非主张当下结论已被接受；'主观偏见''必要性判断'等均指向后续研究空间，属于典型的前瞻延展议题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在比例原则适用主观性、混淆规避标识标准及“法律名人”举证边界上提出明确的后续研究缺口。",
+          "core_judgment": "存在真实延展路径，具体指向教义学精细化与裁判规则补充。",
+          "score_rationale": "原始分75，对应bonus=3。论文明确指出比例原则主观偏见克服、混淆规避标识标准空白及商业利益举证细化，路径清晰且与正文紧密衔接，但后续研究设计精细度有限。",
+          "evidence_quotes": [
+            "至于如何克服这一主观性偏见仍需进一步研究。",
+            "至于所添加的文字内容为何……学界和实务界对此并没有提供可供参考的观点。"
+          ],
+          "strengths": [
+            "精准定位比例原则权衡中的主观偏见克服难题",
+            "明确揭示混淆规避义务中附加标识标准的实务空白"
+          ],
+          "weaknesses": [
+            "延展多聚焦微观裁判技术，缺乏宏观制度衔接推演",
+            "未提供后续实证检验或比较法深化的具体操作方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估比例原则主观性克服、混淆规避标准细化等未来可推进的教义学与实务议题，不涉当下结论的共识度评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.38370513916016,
+        "glm-5.1": 33.478415966033936,
+        "kimi-k2.6": 11.639333963394165,
+        "qwen3.6-plus": 70.67322111129761
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 82,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 75
+      },
+      "mean": 60.5,
+      "std": 23.3,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 79.22,
+      "weighted_total": 76.0
+    },
+    "aggregation_strictest": {
+      "final_score": 60.94,
+      "weighted_total": 60.5
+    },
+    "avg_std": 15.7,
+    "max_std": 23.3,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 18.3,
+    "composite_score": -15.7,
+    "worst_dimension": "forward_extension",
+    "worst_std": 23.3
+  }
+}

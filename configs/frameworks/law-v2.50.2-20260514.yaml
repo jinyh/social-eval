@@ -6,7 +6,14 @@ metadata:
   created: '2026-05-14'
   previous_version: 2.50.1
   status: research
-  changelog: 'v2.50.2 变化（2026-05-14，负面模式嵌入评分锚定）：
+  changelog: 'v2.50.2 维度命名更新（2026-05-22）：
+
+    - 统一维度中文名称：研究创新性、理论建构力、逻辑连贯性、学术共识度
+
+    - 与 v2.55 标准命名对齐
+
+
+    v2.50.2 变化（2026-05-14，负面模式嵌入评分锚定）：
 
     【目标】修复 v2.50.1 中分析框架和结论维度扣分指令被忽略的问题。
 
@@ -800,7 +807,7 @@ final_report_contract:
   - 触发 mandatory_expert_review 时，最终报告不得写成自动录用或自动拒稿
 dimensions:
 - key: problem_originality
-  name_zh: 问题创新性
+  name_zh: 研究创新性
   name_en: Problem Originality
   weight: 0.3
   position: 1
@@ -1001,7 +1008,7 @@ dimensions:
     \ 且 法学流派≤1 时，才降到 marginal\n\n① 三要素总分4但争点结构≤1且法学流派≤1：上限65分（触发insufficient_school_coverage）\n② 三要素总分3但法学流派≥2：上限79分（三要素有缺口但流派识别充分，不触发insufficient_school_coverage）\n【v0.8 对齐】如果三要素总分≥4且争点结构≥1，即使法学流派≤1，也不触发insufficient_school_coverage\n③ 三要素总分1-2：研究地图严重残缺，上限55分（触发no_research_map）\n④ 三要素总分0：无研究地图，上限55分（触发no_research_map）\n\n【上限规则】：\n1. 三要素总分 ≤ 1 → 最高55分（no_research_map：研究地图严重残缺）\n2. 争点结构=0 且 法学流派识别≤1 → 最高65分（insufficient_school_coverage：缺少争点结构且流派覆盖不足）\n3. 三要素总分 ≤ 3 且法学流派 ≥ 2 → 最高79分（partial_map_with_schools：三要素有缺口但不触发流派上限）\n4. 外部文献库/RAG 显示可能遗漏关键争点，且文内研究地图较弱 → 不直接改分，但必须返回 external_context_conflict 或 needs_external_context 供专家复核\n多个上限规则同时触发时，取最低上限。\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n第四步：维度边界\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n- 本维度评：文献梳理的完整性和深度（研究地图是否清晰、争点结构是否成立、法学流派是否提供辅助锚定）\n- 不评：问题本身是否新颖（问题创新性）\n- 不评：论证是否严密（逻辑严密性）\n\n不要使用\"顶刊近5年覆盖率\"等无法从文内验证的伪量化标准。\n不要凭模型记忆裁定文献遗漏；没有外部检索上下文时，只能标记 needs_external_context。\n\n【字数要求】（本维度总计不超过500字）：\n- evidence_quotes：最多2条，每条不超过80字\n- strengths/weaknesses：各最多2条，每条不超过50字\n\
     - limit_rule_triggered：每条不超过60字\n- boundary_note：不超过60字\n- summary：不超过50字\n- core_judgment：不超过80字\n- score_rationale：不超过120字，必须包含\"三要素得分=X/6，争点结构=Z/2，法学流派=Y个，锚定___档，给___分\"\n\n请输出 JSON：\n{\n  \"dimension\": \"literature_insight\",\n  \"score\": <0-100整数>,\n  \"band\": \"excellent|good|marginal|unacceptable\",\n  \"summary\": \"一句话摘要\",\n  \"core_judgment\": \"一句话说明本维是否成立\",\n  \"score_rationale\": \"三要素=X/6，争点结构=Z/2，法学流派=Y个，锚定___档，给___分\",\n  \"evidence_quotes\": [\"引用1\", \"引用2\"],\n  \"strengths\": [\"优势1\"],\n  \"weaknesses\": [\"缺陷1\"],\n  \"limit_rule_triggered\": [\n    {\n      \"rule_id\": \"literature_insight.no_research_map\",\n      \"rule\": \"规则描述\",\n      \"score_ceiling\": 55,\n      \"priority\": 1,\n      \"evidence\": \"触发该规则的具体证据\"\n    }\n  ],\n  \"boundary_note\": \"说明为什么这是文献定位问题而不是问题创新性\",\n  \"review_flags\": [\"needs_external_context|external_context_conflict|boundary_overlap|evidence_thin|mandatory_expert_review|none\"]\n}\n"
 - key: analytical_framework
-  name_zh: 分析框架建构力
+  name_zh: 理论建构力
   name_en: Analytical Framework Construction
   weight: 0.15
   position: 3
@@ -1103,7 +1110,7 @@ dimensions:
     \n- 本维度评：分析框架本身是否成立、可用、有法学转化\n- 不评：框架在推理中的衔接是否严密（逻辑严密性）\n- 不评：问题本身是否新颖（问题创新性）\n\n不要因为术语高级、标签新潮就给高分。\n不要把跨学科概念直接等同于\"理论贴标签\"——关键是看是否有法学转化步骤。\n\n【字数要求】（本维度总计不超过500字）：\n- evidence_quotes：最多2条，每条不超过80字\n- strengths/weaknesses：各最多2条，每条不超过50字\n- limit_rule_triggered：每条不超过60字\n- boundary_note：不超过60字\n- summary：不超过50字\n- core_judgment：不超过80字\n- score_rationale：不超过120字，必须包含框架可操作性得分和法学转化度得分\n\n输出必须满足 output_contract：\n- score 不得缺失\n- review_flags 无触发时返回 [\"none\"]\n- limit_rule_triggered 无触发时返回 []\n\n请输出 JSON：\n{\n  \"dimension\": \"analytical_framework\",\n  \"score\": <0-100整数>,\n  \"band\": \"excellent|good|marginal|unacceptable\",\n  \"summary\": \"一句话摘要\",\n  \"core_judgment\": \"一句话说明该维是否成立\",\n  \"score_rationale\": \"框架可操作性得分=X/4，法学转化度得分=Y/4，锚定___档，给___分\",\n  \"evidence_quotes\": [\"引用1\", \"引用2\"],\n  \"strengths\": [\"优势1\"],\n  \"weaknesses\": [\"缺陷1\"],\n  \"limit_rule_triggered\": [\n    {\n      \"rule_id\": \"analytical_framework.no_operational_framework\",\n      \"rule\": \"\
     规则描述\",\n      \"score_ceiling\": 50,\n      \"priority\": 1,\n      \"evidence\": \"触发该规则的具体证据\"\n    }\n  ],\n  \"boundary_note\": \"说明这是框架建构力问题而不是逻辑衔接问题\",\n  \"review_flags\": [\"concept_instability|boundary_overlap|evidence_thin|none\"]\n}\n"
 - key: logical_coherence
-  name_zh: 逻辑严密性
+  name_zh: 逻辑连贯性
   name_en: Logical Coherence
   weight: 0.2
   position: 4
@@ -1180,7 +1187,7 @@ dimensions:
     \n┌────────────┬────────────┬─────────────────┐\n│ 推理链完整性 │ 反驳处理度  │ 分档             │\n├────────────┼────────────┼─────────────────┤\n│ ≥3         │ ≥2         │ excellent(80-100)│\n│ ≥3         │ 1          │ good(70-79)      │\n│ ≥2         │ ≥2         │ good(60-69)      │\n│ ≥2         │ ≤1         │ marginal(50-59)  │\n│ ≤1         │ 任意       │ unacceptable     │\n│            │            │ (0-49，触发上限) │\n└────────────┴────────────┴─────────────────┘\n\n【上限规则】：\n1. 推理链完整性 ≤ 1 → 最高 50 分（broken_inference_chain）\n2. 推理链完整性 = 2 但反驳处理度 = 0 → 最高 70 分（weak_local_reasoning）\n多个上限规则同时触发时，取最低上限。\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n第四步：维度边界\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n- 本维度评：推理链是否形成充分支撑链条，结论是否可由前文可辩护地推出\n- 不评：框架本身是否可操作（分析框架建构力）\n- 不评：结论是否可被共同体接受（结论可接受性）\n\n不要把\"写得顺\"误判为\"论证严\"。不要把结论是否讨喜替代推理质量。\n\n【字数要求】（本维度总计不超过500字）：\n- evidence_quotes：最多2条，每条不超过80字\n- strengths/weaknesses：各最多2条，每条不超过50字\n- limit_rule_triggered：每条不超过60字\n- boundary_note：不超过60字\n- summary：不超过50字\n- core_judgment：不超过80字\n\
     - score_rationale：不超过120字，必须包含推理链完整性得分和反驳处理度得分\n\n输出必须满足 output_contract：\n- score 不得缺失\n- review_flags 无触发时返回 [\"none\"]\n- limit_rule_triggered 无触发时返回 []\n\n请输出 JSON：\n{\n  \"dimension\": \"logical_coherence\",\n  \"score\": <0-100整数>,\n  \"band\": \"excellent|good|marginal|unacceptable\",\n  \"summary\": \"一句话摘要\",\n  \"core_judgment\": \"一句话说明本维是否成立\",\n  \"score_rationale\": \"推理链完整性得分=X/4，反驳处理度得分=Y/3，锚定___档，给___分\",\n  \"evidence_quotes\": [\"引用1\", \"引用2\"],\n  \"strengths\": [\"优势1\"],\n  \"weaknesses\": [\"缺陷1\"],\n  \"limit_rule_triggered\": [\n    {\n      \"rule_id\": \"logical_coherence.broken_inference_chain\",\n      \"rule\": \"规则描述\",\n      \"score_ceiling\": 50,\n      \"priority\": 1,\n      \"evidence\": \"触发该规则的具体证据\"\n    }\n  ],\n  \"boundary_note\": \"说明为什么这是逻辑链问题而不是框架问题\",\n  \"review_flags\": [\"counterargument_missing|boundary_overlap|evidence_thin|none\"]\n}\n"
 - key: conclusion_consensus
-  name_zh: 结论可接受性
+  name_zh: 学术共识度
   name_en: Conclusion Acceptability
   weight: 0.1
   position: 5

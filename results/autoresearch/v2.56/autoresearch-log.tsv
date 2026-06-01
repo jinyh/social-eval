@@ -1,0 +1,11 @@
+iteration	timestamp	version	action	baseline_std	optimized_std	delta	keep_discard	notes
+0	20260522-1253	v2.56	baseline	28.16 (5p avg)	-	-	BASELINE	Phase 2 测试 5 篇：problem_originality=27.8, analytical_framework=21.6
+0b	20260522-1253	v2.56	baseline	13.97 (4m)	-	-	BASELINE	单篇（杜宴林）4 模型：problem_originality=24.5, analytical_framework=8.1
+0c	20260522-1307	v2.56	baseline	8.23 (2m)	-	-	BASELINE	单篇（杜宴林）2 模型（glm+qwen）：analytical_framework=30.4（最高）
+1	20260522-1330	v2.56.1	keep	-	13.57	-14.59	KEEP	AF 增加理论型论文强制锚定规则；测试 5 篇 x 4 模型
+1h	20260522-1342	v2.56.1	holdout	-	13.59	-	PASS	Holdout 4 篇验证通过，无过拟合（13.59 ≈ 13.57）
+2	20260522-1344	v2.56.2	keep	-	14.05	-14.11	KEEP	PO 增加法哲学论文强制锚定规则；PO std 24.9→13.6；但 LI std=24.4 新高
+3	20260522-1355	v2.56.3	keep	-	10.77	-3.28	KEEP	LI 增加分散式文献定位强制锚定规则；LI std 24.4→6.2；LC std=20.3 新瓶颈
+4	20260522-1406	v2.56.4	keep	-	11.17	+0.40	KEEP	LC 增加理论推演=推理链强制锚定；LC std 20.3→4.7；CC std=26.0 新瓶颈
+5	20260522-2015	v2.56.5	keep	-	7.30	-3.87	KEEP	CC 增加理论贡献=共同体对话强制锚定；CC std 26.0→4.3；FE std=18.9 最后瓶颈
+6	20260522-2025	v2.56.6	keep	-	6.22	-1.08	KEEP	FE 增加理论深化=有效延展强制锚定；FE std 18.9→1.0；整体 6.22（-77.9%）

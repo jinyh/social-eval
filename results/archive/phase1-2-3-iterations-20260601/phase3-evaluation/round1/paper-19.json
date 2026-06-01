@@ -1,0 +1,1028 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/FXYJ2025005007_法学研究_2025_人工智能侵权的过错责任.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "页首残留英文引注(Gaske文)和页脚英文注释与本文核心论证分离，已通过正文论证结构确认其辅助地位。",
+          "存在OCR标引痕迹如〔3〕〔4〕等，但编号清晰且与正文对应，不影响论点和结构定位。"
+        ],
+        "evidence_quotes": [
+          "p. 7. See Matthew R. Gaske, Regulation Priorities for Artificial Intelligence Foundation Models... (2023)",
+          "〔3〕See OpenAI, GPT-4 Technical Report, 2023, p. 44...",
+          "〔4〕See Expert Group on Liability and New Technologies- New Technologies Formation, Liability for Artificial Intelligence..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "如何设计一套妥当的人工智能侵权责任规则，既充分救济被侵权人的损害，又无碍于人工智能中小企业发展，实为人工智能治理的荦荦大端。",
+          "本文将在分析既有人工智能侵权规范设想的基础上，尝试借助侵权法基本原理，建立既符合人工智能人机构造与技术特性，又可桥接现行侵权责任分类体系、归责体系的人工智能侵权责任框架，以期实现鼓励创新与权益保护之间的动态平衡。",
+          "在过错责任模式下，原告应举证证明被告具有过错。源于人工智能侵权的自主性与网络性特征，原告要证明被告具有过错并不容易，需要立法配置专门的举证便利性规则。",
+          "我国人工智能治理应借助实体性的权利义务规则与程序性的证据开示规则，平衡两造诉讼力量，既不过度干涉人工智能提供者的经营自由，又能有效减轻被侵权人的举证压力，保护被侵权人的合法权益。",
+          "使用者还可能实质性地更改人工智能系统设计，直接影响甚至改变系统输出结果。",
+          "开源大模型提供者原则…上只应对故意或重大过失造成的损害承担侵权责任。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本侧：脚注和OCR尚未破坏论证，但存在跨页和编号残留，后续评审时可稍加注意。",
+        "项目口径侧：论文以比较法资源为分析工具，但始终面向中国民法典侵权体系、中小企业保护和中国证据规则设计，属于进入六维评审的中国自主知识体系研究。"
+      ],
+      "evidence_quotes": [
+        "人工智能侵权责任框架，以期实现鼓励创新与权益保护之间的动态平衡。",
+        "我国民法典将产品责任主体限定为生产者与销售者（第1203条）。",
+        "我国人工智能治理应规定特定条件下的证据开示规则，为法院作出人工智能书证提出命令提供明确的规范依据。",
+        "如果我国未来出台关于人工智能的决定或制定人工智能法，均应确立人工智能侵权的一般过错责任。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量可评，论文以中国民法典、中国人工智能产业政策和证据规则为重心，系统解释中国侵权实践难题并提出可复核的制度命题，可直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文本开头存在前文参考文献OCR残留片段",
+          "正文段落间混入期刊页码数字（如'· 4 1 1 ·'、'· 5 1 1 ·'等）",
+          "脚注内容与正文穿插，部分外文脚注存在断行与空格残留"
+        ],
+        "evidence_quotes": [
+          "p. 7. See Matthew R. Gaske, Regulation Priorities for Artificial Intelligence Foundation Models...",
+          "· 4 1 1 · 法学研究 2025 年第5 期",
+          "· 5 1 1 · 人工智能侵权的过错责任"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "面对人工智能侵权带来的责任分配难题, 法律人可以借助革新民法典中的交通事故侵权责任、医疗侵权责任等规则调整自动驾驶汽车、医疗人工智能等特定人工智能应用侵权。",
+          "我国民法典将产品责任主体限定为生产者与销售者( 第1203 条)。",
+          "我国个人数据交易之所以不畅, 个人信息侵权采过错推定责任是重要原因。",
+          "人工智能风险是中性的……只有当风险转换为危险, 如人工智能应用引发侵犯名誉权、生命健康权等纠纷时, 个别的、具体的危险才进入侵权法的关注视野。",
+          "本文强调人工智能侵权应适用过错侵权责任……借助实体性的权利义务规则与程序性的证据开示规则, 以及精细剖析使用者行为对人工智能侵权的影响, 完全可以建立既不过度限制人工智能技术的研发与应用, 又能充分保护民事主体合法权益的人工智能侵权责任框架。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码数字与分隔符混入正文段落间，需在后续清洗中去除",
+        "文本工程：首段存在前页参考文献OCR残留，需截断处理",
+        "文本工程：脚注与正文交错抽取，外文文献断行需结构化重组"
+      ],
+      "evidence_quotes": [
+        "我国个人数据交易之所以不畅, 个人信息侵权采过错推定责任是重要原因。",
+        "厘清风险与危险的不同内涵与评价机制后, 重新审视既有法律规则, 会发现一些概念混用。",
+        "开源大模型提供者原则上只应对故意或重大过失造成的损害承担侵权责任。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文明确以中国民法典、中国司法实践与本土AI治理规范为语境，提出了'风险与危险二分'的理论分析工具，并构建了以过错责任为核心的人工智能侵权责任框架（含说明请求权、注意义务、证据开示等可复核命题），完全符合进入六维评价的口径。文本存在页码混入与OCR残留等低风险工程问题，不影响核心论点定位，建议进入阶段2评分，同时进行正文清洗去噪。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号乱码残留（如〔3〕〔4〕等编号格式异常）",
+          "部分外文文献引用格式混杂（中英文混排）",
+          "参考文献列表缺失（标注为“无”）",
+          "页码标记存在OCR残留（如·4 1 1·等）"
+        ],
+        "evidence_quotes": [
+          "p. 7. See Matthew R. Gaske...",
+          "·4 1 1·法学研究 2025 年第5 期",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民法典第1236 条以下高度危险责任之适用",
+          "我国正在推广自动驾驶汽车试点运行",
+          "我国2022 发布的《互联网信息服务深度合成管理规定》第16、17 条及2025 年发布的《人工智能生成合成内容标识办法》",
+          "我国个人信息保护法第24 条第3 款也规定了算法说明请求权",
+          "我国可借鉴欧盟立法经验",
+          "如果我国未来出台关于人工智能的决定或制定人工智能法，均应确立人工智能侵权的一般过错责任"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式异常，部分页码标记为OCR残留格式，参考文献列表缺失但正文引用完整可定位",
+        "项目口径：论文以中国法为中心，系统建构人工智能侵权过错责任框架，具有明确的中国问题意识和理论转化"
+      ],
+      "evidence_quotes": [
+        "面对人工智能侵权带来的责任分配难题，法律人可以借助革新民法典中的交通事故侵权责任、医疗侵权责任等规则调整自动驾驶汽车、医疗人工智能等特定人工智能应用侵权",
+        "本文将在分析既有人工智能侵权规范设想的基础上，尝试借助侵权法基本原理，建立既符合人工智能人机构造与技术特性，又可桥接现行侵权责任分类体系、归责体系的人工智能侵权责任框架",
+        "如果我国未来出台关于人工智能的决定或制定人工智能法，均应确立人工智能侵权的一般过错责任"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《民法典》及相关法律法规为核心，系统论证人工智能侵权应适用过错责任原则，并提出了具体的实体性权利义务规则与程序性证据开示规则设计。虽存在脚注格式、页码标记等文本工程问题，但核心论点、结构和主要论证完整可定位，建议进入六维评价。参考文献列表缺失不影响正文评审，可在后续阶段补充核查。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR断行与连字符残留（如“Entertain-\\nment”“hu-\\nman”）",
+          "脚注编号与正文混排及空格异常（如“〔3 〕”“〔4 〕”）",
+          "期刊页码与刊名标记嵌入正文段落（如“· 4 1 1 ·\\n法学研究\\n2025 年第5 期”）"
+        ],
+        "evidence_quotes": [
+          "无法判断输出结果是相关主体违反义务所致, 还是人工智能系统自我进化的结果, 因为算法完\\n全可以从海量数据中挖掘新的语言规律以进行合乎逻辑的“ 捏造” , 即产生所谓“ 幻觉” 。 〔3 〕",
+          "·\\n4\\n1\\n1\\n·\\n法学研究\\n2025 年第5 期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文将在分析既有人工智能侵权规范设想的基础上, 尝试借助侵权法基本原理, 建立既符合人工智能人机构造与技术特性, 又可桥接现行侵权责任分类体系、归责体系的人工智能侵权责任框架",
+          "我国人工智能治理应规定特定条件下的证据开示规则, 为法院作出人工智能书证提出命令提供明确的规范依据",
+          "我国将形成“ 一般过错侵权责任+特殊性规则+特殊侵权责任” 的人工智能侵权责任体系"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量OCR断行、脚注编号格式异常及页码嵌入，但不影响核心论证定位与评审"
+      ],
+      "evidence_quotes": [
+        "本文将在分析既有人工智能侵权规范设想的基础上, 尝试借助侵权法基本原理, 建立既符合人工智能人机构造与技术特性, 又可桥接现行侵权责任分类体系、归责体系的人工智能侵权责任框架",
+        "我国将形成“ 一般过错侵权责任+特殊性规则+特殊侵权责任” 的人工智能侵权责任体系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留风险，但核心论点、中国问题意识与法学命题清晰可辨。项目口径完全符合进入六维评价标准，建议直接进入六维评分流程，评审时忽略格式噪声即可。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 60,
+          "band": "good",
+          "summary": "论文提出了“人工智能侵权应适用一般过错责任”这一相对明确的法学争点，具有一定的可争辩性和制度连锁效应，但问题设定主要来自对既有路径的梳理与反驳，理论交锋深度有限。",
+          "core_judgment": "问题具有可争辩性且涉及多层次制度，但主要依赖对产品责任等现有设想的批判来确立自身命题，材料新颖性仅起支持作用而未改变问题设定。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质论证偏政策倡导），枢纽性=3/4（涉及侵权法、产品责任、合同法等多个制度），材料新颖性未触发上限。锚定good档(60-69)，综合给60分。扣分合计=0分。",
+          "evidence_quotes": [
+            "如何设计一套妥当的人工智能侵权责任规则，既充分救济被侵权人的损害，又无碍于人工智能中小企业发展，实为人工智能治理的荦荦大端。",
+            "本文反对的是一般性地对人工智能应用侵权适用无过错责任或过错推定责任。"
+          ],
+          "strengths": [
+            "明确提出了“过错责任一般适用”的竞争性命题，区别于产品责任路径和民事主体资格路径。",
+            "问题涉及侵权归责原则、注意义务配置、证据规则等多个制度的连锁调整，枢纽性较高。"
+          ],
+          "weaknesses": [
+            "问题设定主要源于对现有方案（产品责任、电子人格）的否定，缺乏深层的理论分歧展示。",
+            "部分论证偏向政策倡导（平衡创新与保护），法学层面的可争辩性略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评价问题本身的成立性与重要性，不评价文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准设定AI侵权归责原则之争，问题枢纽性强且具理论深度。",
+          "core_judgment": "论文提出了可争辩的法学核心问题（AI侵权归责原则），且该问题影响范围广、理论根基深，问题创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "如何设计一套妥当的人工智能侵权责任规则, 既充分救济被侵权人的损害, 又无碍于人工智能中小企业发展",
+            "除非人工智能活动引发异常危险, 否则应对人工智能侵权适用一般过错归责原则"
+          ],
+          "strengths": [
+            "争点明确且重大，直击AI侵权归责原则这一核心法学分歧。",
+            "通过风险与危险二分重构归责基础，问题设定具有理论深度。"
+          ],
+          "weaknesses": [
+            "无明显弱点，问题设定精准且枢纽性极强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 78,
+          "band": "good",
+          "summary": "论文围绕人工智能侵权归责原则展开，主张过错责任并构建配套规则，问题明确且具有理论争辩性。",
+          "core_judgment": "论文提出'人工智能侵权应否适用过错责任'这一可争辩的法学问题，并展开系统论证，问题成立。",
+          "score_rationale": "可争辩性=4/4（明确问题句'如何设计妥当的人工智能侵权责任规则'；涉及法学规范层面；存在产品责任/无过错责任/过错推定/过错责任等理论分歧；非纯政策倡导，有法学论证），枢纽性=3/4（影响侵权法归责体系、产品责任、网络服务责任等多制度；涉及过错责任与无过错责任长期争论；涉及法学基本原理；制度连锁效应明确），材料新颖性未触发上限。锚定good档，给78分。",
+          "evidence_quotes": [
+            "如何设计一套妥当的人工智能侵权责任规则，既充分救济被侵权人的损害，又无碍于人工智能中小企业发展，实为人工智能治理的荦荦大端",
+            "本文反对的是一般性地对人工智能应用侵权适用无过错责任或过错推定责任"
+          ],
+          "strengths": [
+            "问题聚焦明确，直接回应人工智能侵权归责原则的核心争点",
+            "理论交锋充分，系统批判产品责任、民事主体资格等替代方案"
+          ],
+          "weaknesses": [
+            "部分论证偏向制度设计，问题本身的创新性挖掘可更深入",
+            "对'风险与危险'的概念辨析虽有新意，但与核心问题的关联可更紧密"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "明确聚焦AI侵权归责原则之争，系统证成过错责任并配套证据规则，问题具高度可争辩性与枢纽性。",
+          "core_judgment": "该研究问题成立且重要，精准切入AI侵权归责核心争议，具备扎实的法学争点与理论纵深。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，前置扣分合计0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何设计一套妥当的人工智能侵权责任规则，既充分救济被侵权人的损害，又无碍于人工智能中小企业发展",
+            "除非人工智能活动引发异常危险，否则应对人工智能侵权适用一般过错归责原则"
+          ],
+          "strengths": [
+            "精准提炼归责原则争议，理论交锋充分",
+            "配套证据开示与实体义务规则，论证闭环完整"
+          ],
+          "weaknesses": [
+            "对过错客观化在AI场景的具体裁量标准仍显抽象",
+            "部分比较法引证偏重欧盟指令，本土司法实证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.27631616592407,
+        "glm-5.1": 66.81116104125977,
+        "kimi-k2.6": 14.36098575592041,
+        "qwen3.6-plus": 60.27836608886719
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 88
+      },
+      "mean": 79.5,
+      "std": 14.3,
+      "strictest": 60,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了一个清晰的问题域地图，系统呈现了既有解决方案的对立与局限，并明确了自己的理论贡献。",
+          "core_judgment": "研究地图完整且具有极强的争点意识，通过批判性对话确立了本文的切入点，展现了作者对既有研究路径的深入洞察。",
+          "score_rationale": "三要素=6/6（到达点2+未竟点2+切入点2），争点结构=2/2，法学流派=4个，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "当下学界存在两种试图解决人工智能侵权纠纷的通行路径：一是通过扩张产品责任的适用范围...二是设想直接赋予人工智能民事主体资格...",
+            "然而，无过错责任、过错推定责任等设想虽有助于填补被侵权人的损失，但若不加限制地适用，将加重人工智能企业的负担..."
+          ],
+          "strengths": [
+            "清晰识别并深入批判了“产品责任路径”与“民事主体资格模式”两大学术方案，争点结构突出。",
+            "研究缺口定位精准，直指现有方案无法平衡救济与创新、难以回应人工智能网络性与自主性的核心困境。"
+          ],
+          "weaknesses": [
+            "对“过错责任如何具体操作”的既有研究梳理相对薄弱，尤其是关于过错客观化标准的学术争论。",
+            "对域外不同过错认定标准（如合理替代设计、风险-效益测试）的内部争议点挖掘可更深入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评价作者对研究现状的梳理与批判是否到位，不评价其提出的‘过错责任框架’本身是否创新。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理并批判了学界多种归责设想，构建了清晰的过错责任争点脉络。",
+          "core_judgment": "研究地图完整，争点结构丰满，流派识别充分，本维度高分成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "当下学界存在两种通行路径：一是扩张产品责任适用范围...二是赋予人工智能民事主体资格...",
+            "无过错责任、过错推定责任等设想虽有助于填补损失，但若不加限制适用，将加重企业负担..."
+          ],
+          "strengths": [
+            "系统呈现并批判了产品责任、电子人格、危险责任等多种对立路径。",
+            "分散式文献定位精准，未竟点与切入点对应严密。"
+          ],
+          "weaknesses": [
+            "比较法制度分歧的流派归类稍显隐含，但不影响整体洞察。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非过错责任原则本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了人工智能侵权责任的研究地图，呈现了产品责任与民事主体资格两条路径的争论，并引入风险/危险二分等理论资源，但三要素呈现分散且部分模糊。",
+          "core_judgment": "研究地图三要素基本可辨识但分散，争点结构成立（≥2个），法学流派识别为2个（产品责任路径 vs 民事主体资格路径），满足good档条件。",
+          "score_rationale": "三要素得分=4/6（到达点2：既有产品责任、民事主体资格等研究；未竟点1：指出路径不足但分散；切入点1.5：本文立场明确但对应关系稍弱），争点结构=2/2（产品责任vs民事主体资格、过错责任vs无过错/过错推定责任），法学流派=2个，锚定good档，给72分。",
+          "evidence_quotes": [
+            "当下学界存在两种试图解决人工智能侵权纠纷的通行路径：一是通过扩张产品责任的适用范围...二是设想直接赋予人工智能民事主体资格",
+            "如何设计一套妥当的人工智能侵权责任规则，既充分救济被侵权人的损害，又无碍于人工智能中小企业发展，实为人工智能治理的荦荦大端"
+          ],
+          "strengths": [
+            "清晰呈现产品责任与民事主体资格两条对立路径",
+            "引入欧盟立法、美国重述等比较法资源增强争点厚度"
+          ],
+          "weaknesses": [
+            "未竟点与切入点分散于正文各处，缺乏集中提炼",
+            "对既有研究的具体贡献提炼不足，多为观点罗列"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；三要素总分4且争点结构≥2、流派=2时锚定good(65-74)",
+              "score_ceiling": 74,
+              "priority": 2,
+              "evidence": "三要素总分4，争点结构=2，流派=2，按表锚定good(65-74)，取72分"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献梳理的完整性与争点结构，不评价过错责任主张本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒AI侵权归责的学术争点，精准定位既有路径局限并确立过错责任框架切入点。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，流派识别充分，文献洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "当下学界存在两种试图解决人工智能侵权纠纷的通行路径: 一是扩张产品责任, 二是赋予AI民事主体资格。",
+            "如何设计妥当规则既充分救济损害又无碍中小企业发展, 实为治理荦荦大端。"
+          ],
+          "strengths": [
+            "精准提炼两大通行路径及其局限，文献定位清晰。",
+            "风险与危险二分法有效厘清归责原则分歧脉络。"
+          ],
+          "weaknesses": [
+            "部分比较法制度描述偏多，理论交锋提炼可更凝练。",
+            "对过错推定的批判偏重政策考量，教义学对话略欠。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉问题本身新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.195220947265625,
+        "glm-5.1": 83.44088816642761,
+        "kimi-k2.6": 15.495774030685425,
+        "qwen3.6-plus": 71.20769095420837
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.8,
+      "std": 9.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文未建立可重复适用的分析框架，仅通过论证主张过错责任应作为一般归责原则，核心步骤与分类标准模糊。",
+          "core_judgment": "分析框架建构力不成立，论文未提出原创、可操作的分析框架，主要工作为证成既有过错责任原则的适用性。",
+          "score_rationale": "框架可操作性得分=0/4（核心术语无明确定义、无分析步骤），法学转化度得分=1/4（提出了实体和程序规则但缺乏框架性建构），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "本文将……尝试借助侵权法基本原理，建立……人工智能侵权责任框架（摘要）",
+            "确定人工智能侵权的归责原则，是建构人工智能侵权规则体系的前提与基础。（正文）"
+          ],
+          "strengths": [
+            "对过错责任、过错推定等方案进行了比较分析"
+          ],
+          "weaknesses": [
+            "未提出具有明确步骤或分类标准的原创分析框架，核心工作为论证过错责任原则的合理性",
+            "未将“过错责任”主张化为可重复适用的判断标准或分析步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 时，最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "框架可操作性得分为0/4，核心术语无定义，无步骤化分析流程，仅以“应采过错责任”为结论。"
+            }
+          ],
+          "boundary_note": "此处评估的是分析框架是否成立，而非论文的逻辑论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文建构了“风险与危险二分”归责框架及“实体权利+程序开示”的过错认定框架，操作性极强。",
+          "core_judgment": "框架建构高度成立，提供了完整的归责原则选择步骤与过错认定操作指引，法学转化彻底。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。框架概念清晰、步骤可循且后文深度调用，转化出具体裁判规则与制度方案。",
+          "evidence_quotes": [
+            "法律上的风险是抽象、延迟与不确定的……危险则是具体、紧迫与相对确定的",
+            "借助实体性的权利义务规则与程序性的证据开示规则……平衡两造诉讼力量"
+          ],
+          "strengths": [
+            "风险与危险二分框架精准转化为归责原则选择步骤",
+            "过错认定框架提供实体请求权与程序开示双重操作指引"
+          ],
+          "weaknesses": [
+            "开源责任减免规则的分类谱系稍显复杂，司法适用门槛较高"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不评归责原则选择的价值妥当性或逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出人工智能侵权过错责任框架，但核心分析工具为既有侵权法概念，原创框架建构有限。",
+          "core_judgment": "分析框架以'风险/危险二分'和'过错责任'为核心，但多为既有法学概念的重新组织，缺乏原创性操作化步骤。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但分析步骤不够步骤化、后文调用分散），法学转化度得分=2/4（侵权法概念本身即为法学步骤，但跨学科概念转化不足，制度设计较具体），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "本文将在分析既有人工智能侵权规范设想的基础上，尝试借助侵权法基本原理，建立既符合人工智能人机构造与技术特性，又可桥接现行侵权责任分类体系、归责体系的人工智能侵权责任框架",
+            "我国人工智能治理应借助实体性的权利义务规则与程序性的证据开示规则，平衡两造诉讼力量"
+          ],
+          "strengths": [
+            "风险与危险的概念区分具有分析价值，为归责原则选择提供理论支撑",
+            "实体性规则与程序性规则的双轨设计具有制度操作性"
+          ],
+          "weaknesses": [
+            "核心框架术语（如'过错责任''注意义务'）均为侵权法既有概念，缺乏原创性概念重构",
+            "后文分析未严格遵循前文提出的框架步骤展开，框架调用较为松散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“一般过错责任+实体/程序配套规则”的AI侵权框架，逻辑严密且具强可操作性。",
+          "core_judgment": "框架成立且高度可用，成功将归责理论转化为可重复适用的裁判与立法指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念与分类清晰，配套规则实现深度转化。",
+          "evidence_quotes": [
+            "风险与危险对应不同规范模式……风险触发事前制度安排，危险引发紧迫救济需求",
+            "借助实体权利义务与程序证据开示规则，形成‘一般过错+特殊规则+特殊侵权’责任体系"
+          ],
+          "strengths": [
+            "风险/危险二分精准划定归责边界，避免无过错责任泛化",
+            "配套说明权与证据开示规则，有效破解AI侵权举证难题"
+          ],
+          "weaknesses": [
+            "注意义务调整依赖司法裁量，缺乏量化阈值",
+            "开源减免的“商业目的”界定在API场景下易生争议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 53.069336891174316,
+        "glm-5.1": 53.682518005371094,
+        "kimi-k2.6": 11.579708099365234,
+        "qwen3.6-plus": 59.473938941955566
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 95,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 25.5,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了一条从问题诊断到方案证成的完整逻辑链，论证环环相扣，反驳处理充分，结论可被辩护地推出。",
+          "core_judgment": "论文通过‘否定既有路径→确立过错归责原则→配置便利举证规则→精细处理使用者行为’的递进式结构，完整支撑了其核心结论，逻辑严密性高。",
+          "score_rationale": "推理链完整性得分为4/4，所有主要推理步骤均可复述且环环相扣；反驳处理度得分为3/3，系统识别并实质性回应了产品责任说、主体资格说、过错推定说等关键反对意见。锚定 excellent 档，给予 88 分。",
+          "evidence_quotes": [
+            "面对人工智能侵权带来的责任分配难题，法律人可以借助革新民法典中的交通事故侵权责任...然而...挂一漏万...学者由此强调应创设新的人工智能侵权一般规则。如何设计一套妥当的人工智能侵权责任规则...实为人工智能治理的荦荦大端。",
+            "本文将在分析既有人工智能侵权规范设想的基础上...检视这两种路径的合理性与可行性...下文将首先廓清风险与危险的内涵与外延...建立既不过度限制...又能充分保护...的人工智能侵权责任框架。"
+          ],
+          "strengths": [
+            "核心推理链严密：从指出现有路径缺陷到提出风险/危险二分法，再从证成过错责任到配置辅助规则，每一步都依赖前一步的结论，逻辑清晰。",
+            "反驳系统且深入：逐一检视了产品责任、主体资格、过错推定等主要替代方案，并对每项反驳给出了实质性的论证（而非仅仅否定），显示了高度的理论自觉。"
+          ],
+          "weaknesses": [
+            "在‘风险 vs 危险’的转接处，从宏观法理层面直接过渡到具体规则，链接略薄，但未使核心结论失去支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论型与立法论结合的法学论文，评价其逻辑链的充分支撑性和可辩护推出性。规则的实务可操作性属于‘分析框架建构力’或‘结论可接受性’维度，本维度不予评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论证链条完整，对替代方案反驳充分，结论可辩护推出。",
+          "core_judgment": "推理链形成充分支撑，核心结论由前文可辩护地推出，本维完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "一种观点认为...应对人工智能活动适用危险责任。但是，风险不同于危险...法秩序不能仅因人工智能活动可能带来高风险就对之适用危险责任。",
+            "本文强调人工智能侵权应适用过错侵权责任，并不影响既有特殊侵权责任规则的适用。"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，破立结合无关键跳步。",
+            "对多种反对路径均有实质性论证回应。"
+          ],
+          "weaknesses": [
+            "风险与危险二分到过错原则的过渡略偏法理，实务约束论证稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评推理链支撑度与结论推出逻辑，不评注意义务等规则的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了完整的'批判现有路径→确立过错归责原则→设计配套规则'三段论推理链，反驳处理较为充分，但部分环节存在论证跳跃。",
+          "core_judgment": "推理链完整性3/4，反驳处理度2/3，锚定good(70-79)档，给78分。",
+          "score_rationale": "推理链完整性得分=3/4：主要步骤可复述（批判产品责任/民事主体资格→风险危险二分论证→过错责任证成→配套规则设计），且步骤间有依赖关系；但'风险与危险二分'到'应适用过错责任'的推导存在跳步，未充分论证为何风险活动就不能适用无过错责任。反驳处理度得分=2/3：显式处理了产品责任扩张的反对意见（欧盟争议、学者批评）和过错推定/区分企业规模的反驳，但'人工智能特殊性不构成否定过错责任的理由'这一关键回应不够充分，且未明确承认自身论证在强人工智能出现后的适用边界。",
+          "evidence_quotes": [
+            "并非只要风险转换为危险，就要适用作为无过错责任的危险责任……若抽象地认为'对高风险人工智能活动适用危险责任'，将因无法界定高风险人工智能活动的类型与范围而在事实上欠缺可执行性。",
+            "目前存在一种值得关注的设想，即对人工智能系统使用者适用过错责任，对提供者适用无过错责任……要求人工智能系统提供者对不可控的结果承担无过错责任，实属强人所难。"
+          ],
+          "strengths": [
+            "对两种通行路径的批判层层递进，产品责任部分从缺陷认定、主体识别、体系后果三个维度展开。",
+            "风险与危险的概念史梳理为归责原则论证提供了理论基础。"
+          ],
+          "weaknesses": [
+            "从'风险与危险二分'到'应适用过错责任'存在关键跳步，未充分回应'风险预防为何不能导向无过错责任'。",
+            "对'过错推定责任之弊端'的反驳集中于中小企业负担，但未充分回应'举证不能时如何救济被侵权人'的核心质疑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价过错责任方案本身是否最优。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“批判既有路径—区分风险危险—确立过错归责—配套举证规则”的严密推理链。",
+          "core_judgment": "逻辑严密性成立，核心结论由前文规范分析与理论推演充分支撑，推理链完整且无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证链条环环相扣，反驳回应实质且明确承认制度适用边界。",
+          "evidence_quotes": [
+            "除非人工智能活动引发异常危险, 否则应对人工智能侵权适用一般过错归责原则。",
+            "本文强调人工智能侵权应适用过错侵权责任, 并不影响既有特殊侵权责任规则的适用。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从路径批判到归责证成再到配套规则，逻辑闭环完整。",
+            "对无过错责任、主体资格等反对观点逐一实质回应，论证扎实。"
+          ],
+          "weaknesses": [
+            "风险与危险的概念史梳理稍显冗长，与核心归责推导的衔接可更紧凑。",
+            "部分配套规则（如证据开示）的司法可行性论证略偏理想化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑力与结论可辩护性，而非制度方案的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 78.4389340877533,
+        "glm-5.1": 48.279524087905884,
+        "kimi-k2.6": 15.497095108032227,
+        "qwen3.6-plus": 70.68684816360474
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 95,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.2,
+      "std": 7.4,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "结论主张对人工智能侵权一般性地适用过错责任，但与既有制度路径的对话和周全性不足，且缺乏对自身方案的深度反思。",
+          "core_judgment": "结论明确提出了过错责任框架，但未能充分回应无过错责任路径的批评，也缺乏对自身方案的反对意见讨论，共同体对话度较低。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=2/4，锚定marginal档。论文回应了既有争论，但未主动讨论自身局限，制度转化方向明确但可接受性一般，给55分。",
+          "evidence_quotes": [
+            "当下学界存在两种试图解决人工智能侵权纠纷的通行路径：一是通过扩张产品责任的适用范围，借助作为无过错责任的产品责任规则调整人工智能研发与应用活动；二是设想直接赋予人工智能民事主体资格。",
+            "人工智能侵权应适用过错侵权责任，并不影响既有特殊侵权责任规则的适用。……本文反对的是一般性地对人工智能应用侵权适用无过错责任或过错推定责任。"
+          ],
+          "strengths": [
+            "结论明确反对主流路径并提出基于过错责任的一般性框架，立场鲜明且具有挑战性。",
+            "结论注意到了与中国民法典过错责任一般条款的兼容性，并指出了制度转化方向。"
+          ],
+          "weaknesses": [
+            "结论未主动承认并讨论反对意见或自身局限，如在开源、避风港等场景下过错责任的实施困境。",
+            "整体上仍在“完善立法/制度”层面构建框架，对理论自身在共同体中的争议性反思不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "论文结论未能进入可被认真回应的共同体对话，整体上复述既定立场未转化为可争辩的学术主张，共同体对话度不足",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论虽提及两种通行路径并予以驳斥，但全文未设专章或段落讨论过错责任路径可能面临的系统性质疑或学界反对意见，缺乏对自身方案局限的自省，整体上削弱了共同体的可对话性。"
+            }
+          ],
+          "boundary_note": "本维仅评估结论的可接受性，不涉及论证严密性或后续研究空间，且不因结论挑战主流而直接扣分。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应学界争论，提出与现行法秩序高度兼容的过错责任框架及具体制度方案。",
+          "core_judgment": "结论在共同体对话与制度兼容层面均表现优异，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文结论修正了产品责任与民事主体资格两种通行路径，主张过错归责",
+            "结论构建了说明请求权、证据开示等具体规则，与民法典第1165条高度兼容"
+          ],
+          "strengths": [
+            "精准回应学界既有争论，反对者可定位反驳",
+            "制度方案具体且与现行法秩序逻辑完全兼容"
+          ],
+          "weaknesses": [
+            "对过错证明难题的程序性破解方案在实务中可能仍面临阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话度与制度可接受度，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文主张人工智能侵权应适用一般过错责任，并通过实体性权利义务规则与程序性证据开示规则破解举证难题，结论具有明确的学术对话性与制度回应性。",
+          "core_judgment": "结论在共同体对话度上表现优秀，主动回应了产品责任扩张论与民事主体资格论等既有争论；制度可接受度上与中国现行法秩序逻辑兼容，但制度转化方向的具体性尚有提升空间。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定good档，给78分。论文明确修正了产品责任路径与民事主体资格路径，提出过错责任框架，回应了既有争论；结论与民法典第1165条兼容，并指向未来人工智能法立法方向，但具体制度转化方案（如过错认定标准、证据开示程序细节）仍可进一步展开。",
+          "evidence_quotes": [
+            "本文将在分析既有人工智能侵权规范设想的基础上，尝试借助侵权法基本原理，建立既符合人工智能人机构造与技术特性，又可桥接现行侵权责任分类体系、归责体系的人工智能侵权责任框架",
+            "如果我国未来出台关于人工智能的决定或制定人工智能法，均应确立人工智能侵权的一般过错责任"
+          ],
+          "strengths": [
+            "主动回应并批判了产品责任扩张与民事主体资格两种主流路径，学术对话性强",
+            "结论明确指向中国未来立法方向，与现行法秩序逻辑兼容"
+          ],
+          "weaknesses": [
+            "对反对意见的讨论集中于正文，结论部分未充分展开可能的反驳与回应",
+            "制度转化方向较为原则，具体规则设计（如过错认定标准）仍可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性与未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应既有归责路径争议，提出“一般过错责任+特殊规则”框架，高度契合中国法秩序与实务约束。",
+          "core_judgment": "该维度完全成立，结论具备强共同体对话能力与制度落地可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位并修正产品责任与主体资格路径，主动回应证明难题与中小企业负担，提出实体义务与程序开示规则，与中国现行侵权法及诉讼法逻辑高度兼容。",
+          "evidence_quotes": [
+            "本文反对的是一般性地对人工智能应用侵权适用无过错责任或过错推定责任。",
+            "我国将形成‘一般过错侵权责任+特殊性规则+特殊侵权责任’的人工智能侵权责任体系。"
+          ],
+          "strengths": [
+            "精准批判主流路径并清晰定位自身主张，反对意见可明确反驳",
+            "提出证据开示与说明请求权等具体规则，有效回应证明难题"
+          ],
+          "weaknesses": [
+            "对过错责任下精神损害赔偿与纯粹经济损失的边界讨论稍显简略",
+            "未深入论证证据开示规则与现行商业秘密保护的潜在冲突细节"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论当下可接受性，不涉及论证严密性与未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.46595311164856,
+        "glm-5.1": 47.452880859375,
+        "kimi-k2.6": 15.744348764419556,
+        "qwen3.6-plus": 64.97851800918579
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 78.8,
+      "std": 17.0,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在余论与正文多处指明了具体的制度深化方向、适用边界和需进一步研究的议题，构成了清晰的延展路径。",
+          "core_judgment": "存在明确的延展路径，与正文论证紧密衔接，但路径精细度仍有提升空间。",
+          "score_rationale": "原始分72，对应bonus=3档。论文提出了'一般过错侵权责任+特殊性规则+特殊侵权责任'的体系构建方向，并指明了证据开示规则、开源责任边界等具体后续研究课题，延展路径可定位且与结论衔接紧密。但部分路径如不同领域特殊规则的设计仍较概括，尚未展开精细方案。",
+          "evidence_quotes": [
+            "我国将形成'一般过错侵权责任+特殊性规则+特殊侵权责任'的人工智能侵权责任体系。",
+            "如何设计一套妥当的人工智能侵权责任规则...不妨碍中小企业发展...是人工智能治理的荦荦大端。"
+          ],
+          "strengths": [
+            "清晰提出了多层次的特殊侵权责任体系架构作为未来立法方向。",
+            "在开源责任、证据开示规则等部分指出了具体的适用边界和未尽议题。"
+          ],
+          "weaknesses": [
+            "对'特殊性规则'的具体内容仅停留在示例层面，未展开系统化的制度设计路径。",
+            "不同应用场景下的特殊责任规则有待进一步细化，延展路径精细度稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文探讨建立过错责任框架及配套规则属于制度发展方向，是对未来'往哪里走'的解答，而非论证当下结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了开源谱系责任边界、注意义务动态调整及原则冲突协调等具体延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，指明了制度适用边界与深化方向。",
+          "score_rationale": "原始分85，落入>=80的5分bonus档。论文提出了开源谱系责任减免边界、注意义务司法动态调整等具体制度完善方向，与正文过错归责结论紧密衔接，路径清晰可定位。",
+          "evidence_quotes": [
+            "开源存在一个过渡性谱系……受限的开源程度将影响他人对大模型的理解与应用……就不能免除大模型提供者的法律责任",
+            "人工智能输出阶段注意义务的不确定性，也可为注意义务的发展提供空间。司法实践可以结合技术发展……不断调整注意义务内容"
+          ],
+          "strengths": [
+            "给出了开源谱系不同开放程度下的责任减免边界条件。",
+            "指明了注意义务的动态调整与司法控制路径。"
+          ],
+          "weaknesses": [
+            "余论对原则冲突的延展稍显宏观，未给出具体协调机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "开源谱系责任边界与注意义务动态调整属于未来制度完善与实务改进方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结论部分提出'一般过错责任+特殊性规则+特殊侵权责任'的体系构想，并指出立法可基于特殊政策考虑在特定领域规定无过错责任或过错推定责任，存在可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，主要体现在制度完善方向（过错责任框架的具体展开）和规则衔接问题（与现有特殊责任规则的协调），但精细度和证据展开有限。",
+          "score_rationale": "原始分62分，对应bonus=3（>=60档）。论文在'余论'明确提出未来可形成'一般过错侵权责任+特殊性规则+特殊侵权责任'的体系，并指出立法可在特定应用领域规定无过错责任或过错推定责任，属于制度完善方向。但延展多集中于结论性概括，对'特殊性规则'的具体内容、与民法典现有规则的衔接机制、以及特定领域例外的判断标准等，缺乏更精细的展开。",
+          "evidence_quotes": [
+            "立法可以基于特殊的政策考虑，在特定人工智能应用领域规定无过错责任或过错推定责任。由此，我国将形成'一般过错侵权责任+特殊性规则+特殊侵权责任'的人工智能侵权责任体系。",
+            "如果我国未来出台关于人工智能的决定或制定人工智能法，均应确立人工智能侵权的一般过错责任。"
+          ],
+          "strengths": [
+            "提出清晰的制度完善方向，构建三层责任体系框架。",
+            "明确过错责任框架下需配套实体性规则与程序性规则，指向具体制度设计。"
+          ],
+          "weaknesses": [
+            "对'特殊性规则'的内涵与边界缺乏具体展开，精细度不足。",
+            "未充分回应不同意见者可能的反驳入口或下一轮争点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是未来研究或制度完善的可能方向，而非当下结论是否被接受。论文提出的三层责任体系属于'未来还能往哪里走'的制度构想，而非对现有规则的论证是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确提出“一般过错责任+特殊规则+特殊侵权”的立法体系构想，并指明司法动态调整注意义务与特定场景例外规则的具体延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接正文核心结论并指向立法与司法实践的具体推进方向。",
+          "score_rationale": "原始分85，对应bonus=5。论文在余论中清晰勾勒未来立法采纳路径、司法动态调整机制及特定领域无过错责任的例外空间，延展方向具体且与核心论证高度咬合。",
+          "evidence_quotes": [
+            "如果我国未来出台关于人工智能的决定或制定人工智能法, 均应确立人工智能侵权的一般过错责任。",
+            "司法实践可以结合技术发展、商业实践等不断调整注意义务内容, 逐步形成一套具有指引性的规则。"
+          ],
+          "strengths": [
+            "明确指向未来立法体系建构与司法动态适用路径",
+            "精准划定特定高风险场景适用无过错责任的例外边界"
+          ],
+          "weaknesses": [
+            "对证据开示规则在跨域数据场景下的具体操作成本未作进一步推演",
+            "开源模型商业与非商业界分的实务裁判标准仍需细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于立法采纳、司法规则动态演进及特定场景责任例外的未来推进路径，而非评价当下过错责任框架本身的学术共识度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.71392583847046,
+        "glm-5.1": 54.334593057632446,
+        "kimi-k2.6": 11.762752056121826,
+        "qwen3.6-plus": 51.28999185562134
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "mean": 76,
+      "std": 11.2,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 84.44,
+      "weighted_total": 80.9
+    },
+    "aggregation_strictest": {
+      "final_score": 64.41,
+      "weighted_total": 63.4
+    },
+    "avg_std": 14.1,
+    "max_std": 25.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.0,
+    "composite_score": -14.1,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 25.5
+  }
+}

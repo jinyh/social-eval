@@ -1,0 +1,1070 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/个人所得税纳税义务的法律建构.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文中存在OCR残留/脚注编号乱码（如“①”“⑳”等），但未影响核心论点提取。",
+          "参考文献列表缺失，未在文末附录，但脚注中有大量引用，不影响论证定位。"
+        ],
+        "evidence_quotes": [
+          "参见陈清秀：《税法总论》（第7 版）,元照出版公司2012年版，第2 8 页。①",
+          "参见《大法官会议解释汇编》（第7 版）,三民书局2008年版，第9 9 页。⑭"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国1982年《宪法》第56条——中华人民共和国公民有依照法律纳税的义务，是唯一的涉税条款……虽然税收法定主义尚未得到宪法充分诠释，但已植根于国民的基本权利（特别是财产权）中。",
+          "2018年修正案确立了居民个人取得综合所得的应纳税所得额确定规则……综合所得范畴的引入，使得核心课税要素转向纳税人，更能实现量能课税原则。",
+          "我国《个人所得税法》侧重于细化个人所得税纳税义务……税法文本上的纳税义务……分为税款缴纳的主给付义务和纳税申报的从给付义务。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：OCR编码残留，参考文献列表缺失。",
+        "项目口径：无。"
+      ],
+      "evidence_quotes": [
+        "现代宪法规定国民有依照法律纳税的基本义务，相应地，影响着国民的财产权，也限制着国家的征税权。笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务……"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本可评，但存在脚注编号乱码和参考文献缺失等轻度工程风险，六维评分中需注意不因此低估文本质量。项目口径完全符合，直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号及部分脚注内容直接混入正文段落",
+          "期刊页码（如222、223等）混入正文文本中",
+          "参考文献列表抽取缺失（文末标注无）"
+        ],
+        "evidence_quotes": [
+          "① 参见陈清秀：《税法总论》（第7 版）,元照出版公司2012年版，第2 8 页。",
+          "222",
+          "223"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国,个人所得税于1980年通过制定法律开征……1980年法案及其后的修正案都是从细化宪法上的抽象纳税义务开始的",
+          "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务，后两者分别取决于法定课税要素和应税法律事实。",
+          "宪法上的抽象纳税义务和财产权的社会义务，分别为个人所得税纳税义务的建立及其构造提供了形式和实质上的宪法依据。",
+          "2018年修正案引入综合所得的范畴，使核心课税要素由征税客体转向纳税人，更能实现量能课税原则。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注内容与页码严重混入正文，需在后续阶段清洗",
+        "项目口径：完全符合进入六维评价条件，以中国个人所得税法及宪法规范为中心，提出了系统的法学解释命题"
+      ],
+      "evidence_quotes": [
+        "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+        "宪法上的抽象纳税义务和财产权的社会义务，分别为个人所得税纳税义务的建立及其构造提供了形式和实质上的宪法依据"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分阶段。文本存在脚注与页码混入正文的工程风险，需在后续评分前进行文本清洗，但不影响核心论点与结构的定位，不改变项目口径预检结论。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑬⑮⑯⑰⑱⑳㉗等符号混用，部分编号重复或异常）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "部分引注格式不规范（如'参见前注⑳,维克多•瑟仁伊书'中间标点混用）",
+          "个别网络链接残留（http://*!xinhuanet.com...）"
+        ],
+        "evidence_quotes": [
+          "⑬⑮⑯⑰⑱⑳㉗等脚注编号异常",
+          "参考文献列表：（无）",
+          "http://*!xinhuanet.com/politics/2015-03/25/c_1114763794.htm"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《宪法》第56条—中华人民共和国公民有依照法律纳税的义务",
+          "在我国,个人所得税于1980年通过制定法律开征，堪称税收立法史上的重要里程碑",
+          "1980年法案及其后的修正案都是从细化宪法上的抽象纳税义务开始的",
+          "2018年修正案将原本使用的纳税义务人的概念调整为纳税人",
+          "分类综合税制改革将所得税收负担能力的衡量标准从传统上关注所得的客观给付能力调整到兼顾纳税人的主观给付能力",
+          "个人所得税纳税义务是在所得分项基础上经由法律创设的，分为税款缴纳的主给付义务和纳税申报的从给付义务",
+          "宪法上的抽象纳税义务和财产权的社会义务，分别为个人所得税纳税义务的建立及其构造提供了形式和实质上的依据"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号存在乱码和符号混用，但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，但正文引注信息足以定位主要文献",
+        "文本工程：个别网络链接存在OCR残留，但链接文本可辨识"
+      ],
+      "evidence_quotes": [
+        "我国《宪法》第56条—中华人民共和国公民有依照法律纳税的义务",
+        "在我国,个人所得税于1980年通过制定法律开征，堪称税收立法史上的重要里程碑",
+        "分类综合税制改革将所得税收负担能力的衡量标准从传统上关注所得的客观给付能力调整到兼顾纳税人的主观给付能力",
+        "宪法上的抽象纳税义务和财产权的社会义务，分别为个人所得税纳税义务的建立及其构造提供了形式和实质上的依据"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国个人所得税法的历史演进（1980年至2018年修正案）为核心研究对象，深入分析纳税义务的法律建构问题，具有明确的中国问题中心性和法学理论深度。论文提出'宪法上的抽象纳税义务''税法文本上的纳税义务''税收稽征中的具体纳税义务'三分框架，以及'分类综合税制改革''核心课税要素由客体转向主体'等理论命题，属于典型的中国法学自主知识生产。建议进入六维评价。文本质量方面存在脚注编号乱码、参考文献列表缺失等低风险问题，但不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与特殊符号乱码（如®、Xf、⑳、㉑等）",
+          "期刊页码数字（222-239）混入正文段落",
+          "参考文献列表缺失/未成功抽取"
+        ],
+        "evidence_quotes": [
+          "①\n参见陈清秀：《税法总论》（第7 版）,元照出版公司2012年版，第2 8 页。",
+          "222\n个人所得税纳税义务的法律建构",
+          "Xf财产权的限制"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+          "我国《宪法》第56条仅仅是税收法定主义的不完整表达",
+          "2018年修正案引人综合所得的范畴，使核心课税要素由征税客体转向纳税人，更能实现量能课税原则",
+          "植入权利因素后，应本于纳税人的所得税收负担能力来重构纳税义务"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在局部OCR乱码与页码混入，但核心法理逻辑与论证结构完整可辨",
+        "参考文献未随正文提供，需在后续环节补充引注规范性核查"
+      ],
+      "evidence_quotes": [
+        "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+        "2018年修正案引人综合所得的范畴，使核心课税要素由征税客体转向纳税人"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "符合进入六维评价标准。论文以中国个人所得税法修订与税收法定原则为核心，具备明确的法学争点（纳税义务的三分法建构、扣缴义务人独立第三人地位、核心课税要素由客体向主体转向）与中国实践解释。文本质量存在轻微OCR风险，不影响实质法理评审，建议以conditional_pass状态进入下一阶段评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文主要系统介绍了纳税义务的三个层次及其建构，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文以阐释和归纳既定法律框架为主，未能提出或聚焦一个可争辩的法学理论或实践争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4。材料新颖性未触发上限但无实质推进。触发no_justiciable_question上限(50分)。扣分合计：检查3扣30分。最终得分=50-30=20分后调整为45分。",
+          "evidence_quotes": [
+            "“笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务”",
+            "“个人所得税纳税义务是在所得分项基础上经由法律创设的”"
+          ],
+          "strengths": [
+            "对纳税义务的多层次结构进行了较为系统的梳理"
+          ],
+          "weaknesses": [
+            "通篇为主题声明和制度介绍，未发现“XX是否应YY”或“如何ZZ”等研究问题句",
+            "主要为既定制度和学者观点的归纳，缺乏不同学者观点的交锋与深层次理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1：全文无问题句，只有主题声明和制度梳理，触发无可争辩研究问题上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕纳税义务的三种形态展开叙述，是对法律条款和学理的体系化介绍，未提出可争辩的法学问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性或材料的真实支撑程度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文仅为体系梳理与制度解读，缺乏核心争点。",
+          "core_judgment": "问题维度不成立，全文无问题句仅有主题声明，属体系阐释而非争点研究。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性触发上限70分，前置检查3（主题声明非研究问题）扣30分，最终给40分。",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+            "个人所得税纳税义务是在所得分项基础上经由法律创设的"
+          ],
+          "strengths": [
+            "涉及宪法至稽征的多层次规范分析",
+            "梳理了纳税义务成立等理论分歧"
+          ],
+          "weaknesses": [
+            "缺乏核心可争辩的法学问题句",
+            "仅为结合新修法的体系梳理无实质推进"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "围绕2018修法展开体系解读，未改变问题设定或解释路径"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文系统阐释个人所得税纳税义务的三层结构，但缺乏可争辩的法学争点。",
+          "core_judgment": "主题声明型论文，无可争辩的法学问题句，未触及学界理论分歧。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明，无法学争点），枢纽性=3/4（涉及宪法、税法、征管多制度，但无争议焦点），材料新颖性未触发上限，锚定marginal档，给55分。扣分合计=25分（检查2：宏观介绍非深度分析扣15分；检查3：主题声明非研究问题扣20分，但扣分后不低于30分，取25分）。正式评分80分-25分=55分。",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+            "个人所得税纳税义务的法律建构"
+          ],
+          "strengths": [
+            "主题涉及宪法财产权与税法交叉，制度覆盖面较广",
+            "对域外立法例有比较梳理"
+          ],
+          "weaknesses": [
+            "全文为体系介绍，无学者观点交锋",
+            "缺乏'XX是否YY'式问题句，仅为阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅有'纳税义务的法律建构'主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "主题宏大但无具体争点，不符合此条但可争辩性更低"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文系统建构个税纳税义务规范体系，枢纽性强但缺乏明确争点与深度交锋。",
+          "core_judgment": "问题具备较强制度枢纽性，但缺乏明确可争辩的法学争点，偏重规范阐释而非命题交锋，创新性受限。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限。前置扣分合计35分，锚定excellent档，给50分。",
+          "evidence_quotes": [
+            "关于这一条款的法律性质为何，财税法学界主要有两大观点：税收法定主义的宪法表达和宪法上的抽象纳税义务条款。",
+            "关于扣缴义务人的法律地位，学界主要有如下三种观点：视同征税主体说、视同纳税主体说、税收征纳主体以外的第三人说。"
+          ],
+          "strengths": [
+            "枢纽性强，贯通宪法财产权、税收法定与征管程序，影响多领域制度。",
+            "理论脉络清晰，系统梳理纳税义务从抽象到具体的规范演进路径。"
+          ],
+          "weaknesses": [
+            "缺乏明确争点句，多为体系化阐释与立场归纳，交锋不足。",
+            "偏向教义学梳理，未深入剖析制度冲突或提出可辩驳的核心命题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.73129916191101,
+        "glm-5.1": 54.14705991744995,
+        "kimi-k2.6": 14.094621896743774,
+        "qwen3.6-plus": 115.68521213531494
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 40,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 50
+      },
+      "mean": 47.5,
+      "std": 6.5,
+      "strictest": 40,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位构建了清晰的研究地图，呈现了多个可区分的学术争点和法学流派，为纳税义务的法律建构提供了扎实的文献基础。",
+          "core_judgment": "研究地图三要素完备且争点结构清晰，法学流派识别充分，现状洞察度卓越。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个（税收法定主义宪法表达 vs 抽象纳税义务条款流派；扣缴义务人法律地位三流派；纳税义务发生时间两流派；财产权绝对权利 vs 社会义务流派），锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "财税法学界主要有两大观点：税收法定主义的宪法表达和宪法上的抽象纳税义务条款。",
+            "关于扣缴义务人的法律地位，学界主要有如下三种观点：视同征税主体说、视同纳税主体说、税收征纳主体以外的第三人说。"
+          ],
+          "strengths": [
+            "争点结构清晰，明确呈现了税收法定主义与抽象纳税义务条款、扣缴义务人法律地位等两大核心争辩。",
+            "法学流派覆盖充分，涵盖宪法解释路径、义务发生理论和财产权社会义务等多流派对立。"
+          ],
+          "weaknesses": [
+            "未提供独立参考文献列表，文内引用的部分学术文献无法核实具体出处。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献梳理的完整性和争点脉络，不涉及纳税义务建构本身的创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰构建了多个法学争点结构，充分梳理了既有研究到达点与未竟点，切入点精准对应。",
+          "core_judgment": "研究地图完整，争点结构清晰且≥2，流派识别充分，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=9个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "关于这一条款的法律性质为何，财税法学界主要有两大观点：税收法定主义的宪法表达和宪法上的抽象纳税义务条款。",
+            "关于税法上的纳税义务如何离开文本……税法发展史上主要有两种观点。其一，传统的主流观点认为……其二，1919年制定的《德国租税通则》……"
+          ],
+          "strengths": [
+            "分散式文献定位精准，多处明确提炼学界争议与对立观点。",
+            "未竟点与切入点对应严密，如对宪法56条性质争议提出自身定位。"
+          ],
+          "weaknesses": [
+            "部分比较法文献呈现偏向制度罗列，理论对话深度可进一步加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评纳税义务重构之问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文对税收法定主义、抽象纳税义务等理论有较多引述，但缺乏系统的研究地图建构。",
+          "core_judgment": "三要素部分满足，但争点结构模糊、法学流派识别不足，研究地图呈现分散且缺乏明确的问题意识。",
+          "score_rationale": "三要素得分=3/6（到达点1+未竟点1+切入点1），争点结构=1/2，法学流派=1个（税收法定主义vs抽象纳税义务条款可算对立立场但未明确为学派争论），锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "关于这一条款的法律性质为何，财税法学界主要有两大观点：税收法定主义的宪法表达和宪法上的抽象纳税义务条款。",
+            "笔者认为，我国《宪法》第56条仅仅是税收法定主义的不完整表达，完整的税收法定主义应包括如下内容"
+          ],
+          "strengths": [
+            "引述了德日美等多国宪法比较材料，文献覆盖面较广",
+            "对2018年修法前后的制度演变有清晰梳理"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的未竟点，'笔者认为'多但缺乏与学术对话的自觉",
+            "未将'税收法定主义vs抽象纳税义务'建构为学界争点，流派识别模糊"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分3/6，仅识别1个潜在流派，未达≥2流派条件"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构≤1且法学流派≤1时，上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "争点结构=1，法学流派仅1个（税收法定主义vs抽象纳税义务条款未明确为学派争论），触发上限65分"
+            }
+          ],
+          "boundary_note": "本文献定位问题而非问题创新性：论文未清晰呈现学术对话脉络，但研究主题本身具有实践意义。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰勾勒了个税纳税义务建构的学术脉络，精准定位宪法解释、扣缴义务性质与税制模式三大争点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学者们的看法莫衷一是。主要观点有：其一，税收法定主义在我国宪法上规定并不明确……其二，它虽然没有直接规定课税权……",
+            "关于扣缴义务人的法律地位，学界主要有如下三种观点：视同征税主体说、视同纳税主体说、税收征纳主体以外的第三人说。"
+          ],
+          "strengths": [
+            "精准提炼宪法第56条性质与扣缴义务人地位的学界对立观点。",
+            "分散式文献定位有效串联了税制变迁与量能课税原则的学术共识。"
+          ],
+          "weaknesses": [
+            "对比较法文献的梳理偏重制度描述，理论交锋的批判性提炼稍弱。",
+            "部分未竟点与本文切入点的逻辑衔接可进一步显性化表述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及税制改革方案本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.527987957000732,
+        "glm-5.1": 53.71739077568054,
+        "kimi-k2.6": 14.405066967010498,
+        "qwen3.6-plus": 66.66871809959412
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 90,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83,
+      "std": 14.0,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文以梳理阐释既有制度与理论为主，未提出可重复适用的原创分析框架，核心术语缺乏明确定义，后文亦未围绕统一框架展开分析。",
+          "core_judgment": "分析框架建构不成立：全文是对纳税义务的制度性阐释与现状梳理，无原创操作化分析步骤或可复用的法学判断标准。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定基本清晰），法学转化度得分=0/4（无跨学科概念转化也未提供裁判规则或操作方案），触发no_operational_framework规则，上限50分，综合评定38分。",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务。",
+            "2018年修正案增设了个人所得税反避税条款...包括关联交易不符合独立交易原则且无正当理由..."
+          ],
+          "strengths": [
+            "对纳税义务进行了三层次划分（宪法、税法文本、税收稽征），形成了一定的论述结构。"
+          ],
+          "weaknesses": [
+            "三层次划分仅为分类罗列，未转化为可逐步操作的判断标准或分析步骤。",
+            "全文以梳理法律条文和学说为主，缺乏原创的概念操作化定义与法学转化。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分，触发了最高50分的上限规则。论文核心术语无明确定义，无任何可循的分析步骤，无法学转化。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "三层次划分未定义判断标准，后文仅进行制度描述，未形成可重复适用的分析步骤。"
+            }
+          ],
+          "boundary_note": "仅评估分析框架本身的建构力与可操作性，不评价论文对制度梳理的完整性和描述准确性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "将纳税义务三层分解，建构了从宪法到稽征的完整分析框架。",
+          "core_judgment": "框架概念清晰、分类明确、步骤可循且贯穿全文，法学转化度高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+            "具体纳税义务发生与否取决于是否发生了应税法律事实，而不是税务机关和纳税人的意志"
+          ],
+          "strengths": [
+            "三层分解法将抽象宪法义务转化为可操作的税法适用步骤",
+            "提供了扣缴与申报的递进结构等具体制度设计方案"
+          ],
+          "weaknesses": [
+            "部分制度设计的操作性细节（如反避税协调）稍显宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构与法学转化，不评价税制改革背景的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出'三层纳税义务'分析框架但缺乏可操作的判断步骤与类型化标准，法学转化停留在制度描述层面。",
+          "core_judgment": "该框架属于制度/实务型论文中的政策理论梳理型，核心贡献是'梳理''阐释'而非'建构'原创分析框架，分析框架建构力未充分成立。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰、分类标准明确，但无步骤化分析流程、后文调用不足3次核心术语），法学转化度得分=1/4（跨学科概念未涉及，但仅提供制度描述性操作指引，未形成裁判规则或法律适用流程），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+            "个人所得税纳税义务是在所得分项基础上经由法律创设的，分为税款缴纳的主给付义务和纳税申报的从给付义务"
+          ],
+          "strengths": [
+            "三层分类标准明确，形成'抽象—文本—具体'的递进结构",
+            "贯穿宪法、税法、征管程序的多维度制度描述较完整"
+          ],
+          "weaknesses": [
+            "缺乏'第一步…第二步…'式判断步骤，框架不可重复操作",
+            "后文未以三层框架为核心展开逐层分析，术语调用碎片化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文框架可操作性得分上限为2，法学转化度得分上限为1",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释税收法定主义、量能课税等既定立场为主，核心术语'抽象纳税义务''具体纳税义务'来自学界通说而非论文原创，主要贡献是'梳理''阐释'三层结构而非提出可重复适用的分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建三阶纳税义务框架，理论推演严密且贯穿全文。",
+          "core_judgment": "框架具备清晰类型划分与概念操作化能力，符合理论型论文建构标准。",
+          "score_rationale": "框架可操作性得分3/4，法学转化度得分3/4，锚定excellent档，给85分。理论推演与概念重构明确，但缺裁判步骤。",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务",
+            "分类综合税制改革将所得税收负担能力的衡量标准从传统上关注所得的客观给付能力调整到兼顾纳税人的主观给付能力"
+          ],
+          "strengths": [
+            "构建“抽象-文本-具体”三阶义务框架，逻辑层次清晰",
+            "框架贯穿全文，有效统摄宪法依据与稽征程序分析"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的司法裁判或法律适用操作指引",
+            "核心概念依赖学理阐释，未作严格形式化定义"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 93.60488390922546,
+        "glm-5.1": 39.410802125930786,
+        "kimi-k2.6": 13.82871389389038,
+        "qwen3.6-plus": 66.2229471206665
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 66.2,
+      "std": 25.3,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文建立了“宪法依据→文本建构→稽征实现”的三层递进框架，主线清晰，但对扣缴义务人性质和反避税条款等关键节点的论证存在局部跳步。",
+          "core_judgment": "核心推理链完整，结论可从“抽象义务到具体义务”的递进分析中推出，但部分关键论断依赖断言而非充分推导，反驳性论证较弱。",
+          "score_rationale": "推理链完整性得分=3/4（可复述三步、依赖前序结论、结论可推出，但存在至少1处主观判断跳步），反驳处理度得分=1/3（隐含呈现了税法学界观点分歧但未实质回应，无明确反对意见处理、无自我局限承认），锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者认为，我国《宪法》第56条仅仅是税收法定主义的不完整表达……国民享有无税收法律依据不纳税的权利。",
+            "笔者认为，尽管扣缴义务人……既不是税务机关的代表，也不是纳税人的法定代理人，而是独立于税收征纳双方的第三人。"
+          ],
+          "strengths": [
+            "推理链层层递进：宪法抽象义务→税法文本义务→稽征具体义务，每一步依赖前步结论，架构清晰。",
+            "充分运用比较法素材支撑“财产权社会义务”等概念论证，为纳税义务建构提供规范性依据。"
+          ],
+          "weaknesses": [
+            "扣缴义务人“第三人”地位、手续费“经济法上的褒奖”等论断以“笔者认为”形式直接断言，缺乏法律逻辑推导。",
+            "未实质处理学界反对观点（如税收法定主义的分歧），仅罗列后径直给出自身主张，降低论证强度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "扣缴手续费褒奖性质等属于逻辑跳步（从行政给付直接定性为褒奖而无论证），非框架可操作性问题；反对观点仅罗列不回应，属反驳处理缺失。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整连贯，反驳处理充分，逻辑严密性极佳。",
+          "core_judgment": "本维度完全成立，论文构建了从宪法依据到稽征程序的完整推导链，且有效回应了反对意见与局限。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "笔者认为，我国《宪法》第56条仅仅是税收法定主义的不完整表达……如果不制定具体的税收单行法……纳税义务根本无从发生",
+            "分类综合税制更能实现量能课税原则，然而，后者对立法技术和税收征管能力的要求很高"
+          ],
+          "strengths": [
+            "推理链层层递进，从宪法依据到稽征程序推导连贯",
+            "对学界分歧和制度例外有实质性回应与论证"
+          ],
+          "weaknesses": [
+            "局部制度过渡稍快，如综合所得引入的具体论证略简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链关注推导连贯性，不评价税制方案的现实可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'宪法抽象义务→税法文本义务→具体稽征义务'的三层推理链，主线清晰但局部存在跳步。",
+          "core_judgment": "推理链基本完整，核心结论可从前文推出，但反驳处理薄弱，缺乏对关键反对意见的实质性回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处关键跳步：从'财产权社会义务'到'重构纳税义务复合结构'的推导缺乏中间环节）；反驳处理度得分=1/3（仅标准1满足，识别了'税收法定主义是否明确'的学术分歧但未充分回应，标准2-3不满足）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "笔者认为，我国《宪法》第56条仅仅是税收法定主义的不完整表达，完整的税收法定主义应包括如下内容：国民有依照法律纳税的权利和义务",
+            "宪法上的抽象纳税义务和财产权的社会义务，分别为个人所得税纳税义务的建立及其构造提供了形式和实质上的宪法依据"
+          ],
+          "strengths": [
+            "三层推理结构清晰：从宪法抽象义务到税法文本义务再到具体稽征义务，层层递进",
+            "核心概念'纳税义务'的分解具有逻辑一致性，贯穿全文"
+          ],
+          "weaknesses": [
+            "从'财产权社会义务'到'重构纳税义务复合结构'的推导缺乏中间论证环节",
+            "对'税收法定主义是否明确'的学术分歧仅罗列观点，未实质性回应反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否充分支撑结论，不评估'纳税义务三分法'框架本身的理论创新性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链完整严密，反驳处理充分，结论可由规范分析可辩护地推出。",
+          "core_judgment": "逻辑严密性成立，核心结论具备充分的规范依据与递进推理支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "关于这一条款的法律性质为何，财税法学界主要有两大观点：税收法定主义的宪法表达和宪法上的抽象纳税义务条款。",
+            "分类税制难以全面反映纳税人的主客观给付能力，综合税制更能实现量能课税原则，然而，后者对立法技术和税收征管能力的要求很高。"
+          ],
+          "strengths": [
+            "推理链呈“宪法依据→文本建构→稽征程序→要素转向”递进，环环相扣。",
+            "对宪法条款定性等学界分歧有明确回应，论证路径选择理由充分。"
+          ],
+          "weaknesses": [
+            "规范分析至制度建议的过渡稍显紧凑，实务约束论证可进一步展开。",
+            "反避税条款与量能原则的衔接论证略简，逻辑支撑密度稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度与结论可辩护性，不涉制度可操作性或结论接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 61.032167196273804,
+        "glm-5.1": 35.601500272750854,
+        "kimi-k2.6": 11.515973091125488,
+        "qwen3.6-plus": 64.61327481269836
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 80.5,
+      "std": 9.8,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论在中国宪法与税法语境中对主流观点进行了合法修正，形成了可被学界认真回应的学术主张，法秩序兼容性较强。",
+          "core_judgment": "结论通过重构纳税义务的理论与制度结构，有效回应了共同体争论，并与中国法秩序逻辑兼容，具备较高的可接受度。",
+          "score_rationale": "共同体对话度得分=4/4（回应主流税法理论争论，反对者可定位，承认中国宪法语境，讨论了局限性），制度可接受度得分=3/4（与法秩序根本兼容，回应了制度约束，指出了转化方向）。锚定理论论文excellent档，给85分。",
+          "evidence_quotes": [
+            "笔者将纳税义务分解为宪法上的抽象纳税义务、税法文本上的纳税义务和税收稽征中的具体纳税义务，后两者分别取决于法定课税要素和应税法律事实。",
+            "与其将我国《宪法》第56条界定为税收法定主义的宪法表达，不如定位于抽象纳税义务条款。"
+          ],
+          "strengths": [
+            "结论明确修正了主流观点，将宪法第56条定位为抽象纳税义务条款，形成了可被反对者辩驳的学术主张。",
+            "理论重构紧密回应了中国个人所得税法从分类制向分类综合制演进的制度现实，具备制度转化方向。"
+          ],
+          "weaknesses": [
+            "对纳税义务中“权利因素”的具体法理基础和潜在反对意见的回应可以更加深入。",
+            "结构仍带有一定的宏大叙事色彩，对制度具体衔接的细节论证略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价结论的可接受性，不涉及论证过程的严密性及未来研究空间的延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论紧扣中国税法制度语境，有效回应学界争论并提出纳税义务重构的具体方向。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，成功将理论主张转化为可争辩的制度改进方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "与其将我国《宪法》第56条界定为税收法定主义的宪法表达，不如定位于抽象纳税义务条款",
+            "综合所得范畴的引入，使得核心课税要素转向纳税人，更能实现量能课税原则"
+          ],
+          "strengths": [
+            "结论明确修正了宪法56条等既有主流观点，对话性强",
+            "将纳税义务重构与2018修法制度语境深度结合"
+          ],
+          "weaknesses": [
+            "结语未专门设段承认自身论证局限或潜在反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度可接受度，不评论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以纳税义务分层理论重构个人所得税法建制，结论具有理论对话性但制度转化指向可更明确。",
+          "core_judgment": "理论贡献明确且嵌入中国法秩序语境，但结论对反对意见的回应不足，制度转化方向表述较为笼统。",
+          "score_rationale": "共同体对话度得分=3/4（回应税收法定主义争论、定位中国宪法第56条、承认财产权社会义务，但未充分讨论反对意见）；制度可接受度得分=2/4（与现行法秩序兼容、回应中国制度语境，但制度转化方向不够具体、对实务约束回应有限）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者认为，我国《宪法》第56条仅仅是税收法定主义的不完整表达，完整的税收法定主义应包括如下内容：国民有依照法律纳税的权利和义务",
+            "宪法上的抽象纳税义务和财产权的社会义务，分别为个人所得税纳税义务的建立及其构造提供了形式和实质上的宪法依据"
+          ],
+          "strengths": [
+            "主动介入税收法定主义宪法表达的理论争论并提出修正观点",
+            "结论紧扣2018年《个人所得税法》修正案，中国语境意识明确"
+          ],
+          "weaknesses": [
+            "未充分回应'纳税义务权利化'可能面临的理论挑战",
+            "制度转化方向仅停留在'提高立法质量'等概括表述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论立足中国税法语境，明确回应税收法定与量能课税争议，提出纳税义务重构方向。",
+          "core_judgment": "该维度完全成立，结论深度嵌入中国现行税法秩序与学术争论，具备高度的共同体对话与制度兼容价值。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准回应学界争议，紧密契合中国个税法修订与征管实践，无逻辑冲突或空泛对策。",
+          "evidence_quotes": [
+            "我国《宪法》第56条仅仅是税收法定主义的不完整表达，完整的税收法定主义应包括国民享有无税收法律依据不纳税的权利。",
+            "综合所得范畴的引入，使得核心课税要素转向纳税人，更能实现量能课税原则。"
+          ],
+          "strengths": [
+            "深度对接中国个税法历次修订与征管实践",
+            "明确修正税收法定条款的学理解释，立场清晰"
+          ],
+          "weaknesses": [
+            "结语部分对策表述略偏宏观，缺乏具体程序衔接",
+            "对反避税条款的实务落地挑战着墨较少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.38024926185608,
+        "glm-5.1": 45.25701689720154,
+        "kimi-k2.6": 10.233512878417969,
+        "qwen3.6-plus": 63.483283042907715
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 84.2,
+      "std": 8.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文结语多为规范现状重述与价值宣示，缺乏具体、可定位的后续研究问题、理论修正方向或制度完善路径。",
+          "core_judgment": "结语中未提出真实、可定位的未来延展路径，仅存在对既有结论的重述性拔高。",
+          "score_rationale": "结语仅概括正文结论，呼吁“不断提高立法质量”，未指明具体待修正的问题、对象或路径，缺乏真实延展证据。原始分35，对应bonus=0。",
+          "evidence_quotes": [
+            "个人所得税法的改进应当贯彻实质上的税收法治理念……以促进收人公平分配和有效筹集财政收人为核心要旨,不断提高立法质量。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "缺乏具体后续研究问题或下一轮争点。",
+            "未说明正文局限及后续推进方向，仅有空泛价值倡导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "论文仅提出空泛拔高性语句（如“继续完善”“提高立法质量”）而未说明具体问题、对象或路径，进入低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅呼吁“不断提高立法质量”，未指明具体待修正的制度、概念边界或实务场景。"
+            }
+          ],
+          "boundary_note": "本维度仅评未来延展路径，不评结论可接受性与论证严密性；结语提出的“贯彻实质法治理念”等属于对正文结论的重述，并非新的延展方向。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了财产权限制边界、税收法定主义的度及反避税规则衔接等延展方向，但结语展望偏概括。",
+          "core_judgment": "存在明确但精细度有限的制度完善与规则衔接延展路径。",
+          "score_rationale": "原始分65，对应bonus档位3（>=60）。正文指出了财产权限制极限、税收法定主义之度及个税与企业所得税反避税衔接等具体延展路径，但结语偏概括，展开有限。",
+          "evidence_quotes": [
+            "限制财产权的法律依据以及范围、极限，是我们应该深入探讨的一个重要课题。",
+            "个人所得税的转让定价规则和受控外国公司规则的适用，应注重与企业所得税法相协调。"
+          ],
+          "strengths": [
+            "正文散落了具体的制度完善与规则衔接延展点",
+            "指出了税收法定主义之度等可继续检验的理论争点"
+          ],
+          "weaknesses": [
+            "结语缺乏集中且精细的后续研究设计",
+            "部分展望如“不断提高立法质量”偏口号式"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "财产权限制的边界与反避税规则衔接属于未来制度完善与规则延伸问题，而非当下纳税义务建构结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出个人所得税法应贯彻实质税收法治理念、提高立法质量等方向，但缺乏具体后续研究问题或明确的理论深化路径。",
+          "core_judgment": "存在概括性延展方向，但缺乏具体可定位的后续研究问题或理论修正路径，精细度不足。",
+          "score_rationale": "原始分55分，属40-59档，bonus=2。论文提出'不断提高立法质量''促进收入公平分配'等方向，并指出分类综合税制下核心课税要素转向纳税人，但多为宏观制度完善方向，未形成具体后续争点或理论假设。",
+          "evidence_quotes": [
+            "个人所得税法的改进应当贯彻实质上的税收法治理念，以促进收入公平分配和有效筹集财政收入为核心要旨，不断提高立法质量。",
+            "综合所得范畴的引入，使得核心课税要素转向纳税人，更能实现量能课税原则。"
+          ],
+          "strengths": [
+            "提出核心课税要素从客体转向主体的制度演进方向",
+            "指出分类综合税制下纳税义务复合结构的递进特征"
+          ],
+          "weaknesses": [
+            "缺乏具体后续研究问题或下一轮争点",
+            "未承认正文局限并说明如何推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结语提出的改进方向属于未来延展问题，而非当下结论是否可被接受的问题；但因其过于宏观，未能形成可操作的后续研究路径。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文指出了个税法反避税规则衔接与居民身份判定漏洞等制度完善方向，具备可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，主要体现为规则衔接与实务漏洞的修正方向。",
+          "score_rationale": "原始分70，对应bonus=3。属制度型论文，明确指向反避税规则跨法域衔接及183天标准规避漏洞，路径清晰且与正文衔接，但缺乏实施风险细化与具体研究设计，故定良好档。",
+          "evidence_quotes": [
+            "个人所得税的转让定价规则和受控外国公司规则的适用，应注重与企业所得税法相协调。",
+            "无住所而需要依据居住时间来判断居民身份时，纳税人可以通过调整居住时间的方法来改变其居民身份，从而实现规避承担纳税义务的目的。"
+          ],
+          "strengths": [
+            "精准指出个税法反避税条款与企业所得税法的规则衔接需求。",
+            "揭示183天居住标准在实务中可能被策略性规避的具体漏洞。"
+          ],
+          "weaknesses": [
+            "对制度完善路径的论述偏重宏观立法质量提升，缺乏细化方案。",
+            "未明确给出后续实证检验或比较法深化的具体研究问题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于反避税规则衔接与身份判定漏洞等未来修法与实务应对方向，而非评价当下结论在学理上的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 61.12569308280945,
+        "glm-5.1": 37.16222810745239,
+        "kimi-k2.6": 9.72215986251831,
+        "qwen3.6-plus": 67.57751607894897
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 70
+      },
+      "mean": 56.2,
+      "std": 15.5,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 66.92,
+      "weighted_total": 68.1
+    },
+    "aggregation_strictest": {
+      "final_score": 52.35,
+      "weighted_total": 53.5
+    },
+    "avg_std": 13.3,
+    "max_std": 25.3,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 14.6,
+    "composite_score": -13.3,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 25.3
+  }
+}

@@ -1,0 +1,1051 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/论大数据时代的个人数据权利.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注和参考文献列表缺失，但不影响核心论点识别",
+          "英文摘要页混入其他论文摘要，不影响正文评审"
+        ],
+        "evidence_quotes": [
+          "(4) OrientalSociety intheConstructionoftheModernConceptoftheCitizen GuoZhonghua·66·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "个人数据权利涉及自然人的民事权益保护与数据企业的数据活动自由关系的协调",
+          "自然人对个人数据的权利旨在保护其对个人数据的自主决定利益",
+          "数据企业对个人数据的权利来自于其合法收集、存储,并支付了对价这一事实行为",
+          "数据企业的数据权利是一种新型的财产权,不能仅仅通过反不正当竞争法给予保护,而应同时作为绝对权给予更系统的保护",
+          "《民法总则》第111条也对自然人的个人信息受法律保护作出了规定",
+          "我国现行司法实践中,就他人侵害数据企业数据权利的侵权案件,则是通过《反不正当竞争法》加以保护"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，需后续确认脚注与参考文献对应关系"
+      ],
+      "evidence_quotes": [
+        "个人数据可以成为民事权利的客体,并应当通过私权制度对其加以规范和保护。",
+        "自然人对个人数据的权利并非物权等可以积极利用的绝对权,只有在该权利被侵害而导致其他民事权利被侵害时,才能得到侵权法的保护。",
+        "数据企业的数据权利是一种新型的财产权,不能仅仅通过反不正当竞争法给予保护,而应同时作为绝对权给予更系统的保护。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量整体可用于评分，参考文献列表缺失不影响核心论证识别；论文以中国制度与司法实践为中心，提出有明确可争辩的法学命题，建议进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码数字混入正文（如·2 0 1 ·、·3 0 1 ·）",
+          "脚注内容直接穿插在正文中，破坏段落连贯性",
+          "英文参考文献及部分标点存在OCR乱码或空格缺失（如􀆵、􀆶、AndrewMcAfeeandErikBrynjolfsson􀆵BigDataTheManagementRevolution）",
+          "文末混入英文摘要（ABSTRACTS）及无关其他论文标题"
+        ],
+        "evidence_quotes": [
+          "·2 0 1 ·",
+          "Andrew McAfeeand Erik Brynjolfsson 􀆵Big Data The ManagementRevolution  HarvardBusinessReview vol 90 no 10 2012 pp 60-66 68 128",
+          "It􀆶sPersonalButIsItMine TowardPropertyRightsinPersonalInformation",
+          "(4)􀆵OrientalSociety intheConstructionoftheModernConceptoftheCitizen"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《民法总则》第111条也对自然人的个人信息受法律保护作出了规定...《网络安全法》第42条第1款第2句也对数据的匿名化提出了相应的要求",
+          "自然人对个人数据的权利并非物权等可以积极利用的绝对权,只有在该权利被侵害而导致其他民事权利被侵害时,才能得到侵权法的保护",
+          "数据企业给消费者的选择项只有两个:留下或离开...自然人在个人数据的所谓经济利益根本就没有谈判议价的可能性",
+          "自然人对个人数据的自主利益本质上是防御性或消极性的利益,而非积极性的人格利益或财产利益",
+          "数据企业只要是合法地收集并存储数据,就可以基于这种行为取得对数据的权利...此种权利的产生是基于法律行为的权利的原始取得"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：页码、脚注乱码及英文摘要混入，需在后续评审中剥离噪音",
+        "项目口径无问题，完全符合中国自主知识体系法学评价标准"
+      ],
+      "evidence_quotes": [
+        "自然人对个人数据的自主利益本质上是防御性或消极性的利益",
+        "数据企业对合法收集的包括个人数据在内的全部数据享有支配的权利,性质上属于独立于人格权、物权、债权、知识产权的新型财产权"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程。评审时需注意剔除混入正文的脚注文献、页码乱码及文末无关英文摘要，核心论点与论证结构清晰可辨，不受文本工程噪音影响。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文末混入英文摘要及无关论文摘要（Oriental Society/Changing Social Attitudes等），属于期刊排版残留，非正文内容",
+          "参考文献列表标注为'（无）'，实际正文中有大量脚注引用，存在参考文献抽取不完整风险",
+          "部分脚注编号存在OCR残留格式（如'①②③'混排），但不影响核心阅读"
+        ],
+        "evidence_quotes": [
+          "文末混入：(4)OrientalSociety intheConstructionoftheModernConceptoftheCitizen...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《民法总则》第111条也对自然人的个人信息受法律保护作出了规定",
+          "我国《网络安全法》第42条第1款第2句也对数据的匿名化提出了相应的要求",
+          "本文认为，为了既能保护个人的民事权益，又可以促进数据的流动与利用，从而实现社会福利的最大化，数据应当作为民事权利的客体",
+          "我国法上应当明确规定数据企业的数据权利，即数据企业对合法收集的包括个人数据在内的全部数据享有支配的权利，性质上属于独立于人格权、物权、债权、知识产权的新型财产权",
+          "《民法总则》第127条规定：'法律对数据、网络虚拟财产的保护有规定的，依照其规定。'"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：文末混入英文摘要及无关论文索引，需确认是否为正文组成部分",
+        "文本工程：参考文献列表缺失，正文脚注引用丰富但抽取不完整",
+        "项目口径：论文核心命题清晰，中国法制度分析充分，无边界争议"
+      ],
+      "evidence_quotes": [
+        "本文将首先分析数据能否成为民事权利的客体及个人数据的界定，进而研究大数据时代个人数据的权利问题...希望本文的研究能够为我国民事法律应对大数据时代的挑战，构建一个既可以有效地保护个人权益，又能充分维护数据活动自由、发挥数据经济价值的权利体系提供参考"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文完全符合项目口径，应进入六维评价。建议评分时忽略文末英文摘要残留，正文脚注引用可通过原始期刊核对，不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码标记混入正文（如“· 2 0 1 ·”、“· 3 0 1 ·”）",
+          "脚注编号与参考文献格式存在OCR残留及断行",
+          "末尾英文摘要与正文排版混杂"
+        ],
+        "evidence_quotes": [
+          "· 2 0 1 ·\n①\n②\n❋ 感谢匿名评审专家以及熊丙万...",
+          "中国社会科学 2018年第3期\n①\n②\n③\n王利明:《民法总则研究》..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文研究表明:一方面,在围绕着个人数据这一稀缺资源的争夺中,将自然人对该个人数据的权利限制在适度的范围内,为其提供防御性的保护...另一方面,不应当将数据企业对其合法收集的个人数据的权利建立在自然人对个人数据权利的基础之上...而应当立足于大数据时代的数据活动的实际情况,肯定这种权利是原始取得的权利,并将之作为绝对权",
+          "我国《民法总则》第127条规定: “法律对数据、网络虚拟财产的保护有规定的,依照其规定。”显然,立法者在紧接着人格权、物权、债权和知识产权之后规定,对数据的保护,实际上等于认同了数据的权利是一种新型的财产权利。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：常规OCR页码混入与脚注格式干扰，建议评分前做基础清洗；",
+        "项目口径：无边界争议，完全符合中国自主知识体系六维评价准入标准。"
+      ],
+      "evidence_quotes": [
+        "自然人对个人数据的权利旨在保护其对个人数据的自主决定利益,从而防御因个人数据被非法收集和利用而侵害既有的人格权与财产权。",
+        "数据企业的数据权利是一种新型的财产权,不能仅仅通过反不正当竞争法给予保护,而应同时作为绝对权给予更系统的保护。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国大数据时代个人数据权利配置为核心，明确回应中国《民法总则》《网络安全法》及司法实践中的规范空白与裁判分歧，提出“自然人防御性自主利益+数据企业原始取得绝对财产权”的可复核命题。文本存在常规OCR页码混入与脚注格式干扰，属低风险，不影响实质评审。建议直接纳入六维评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文围绕个人数据权利配置进行宏观体系论述，但缺乏可供争辩的核心法学问题，实质是将“赋权”作为既定立场展开阐释。",
+          "core_judgment": "全文未提出可争辩的法学研究问题，主要是对“应赋予自然人和数据企业何种权利”这一既定立场进行体系化建构与阐释，不符合学术研究问题创新性的基本要求。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料/方法校验未触发上限。因可争辩性≤1，触发no_justiciable_question上限规则（50分），再经负面模式检查：主题声明非研究问题（扣30分）、新概念包装旧问题（扣20分）、宏观介绍非深度分析（扣20分），最终得分28分。",
+          "evidence_quotes": [
+            "本文将首先分析数据能否成为民事权利的客体及个人数据的界定，进而研究大数据时代个人数据的权利问题。",
+            "希望本文的研究能够为我国民事法律应对大数据时代的挑战，构建一个既可以有效地保护个人权益，又能充分维护数据活动自由、发挥数据经济价值的权利体系提供参考。"
+          ],
+          "strengths": [
+            "涉及个人数据权利这一当代重要议题，具有一定的现实关怀。"
+          ],
+          "weaknesses": [
+            "全文以“赋权”为既定结论展开阐释，未提出可争辩的法学研究问题（如“个人数据权利的性质是否可为绝对权”这一实质争点被转化为单向主张）。",
+            "引入“数据企业原始取得”等新概念，但未论证其相较于“授权许可说”在解释力上的实质进步，仅作立场宣示。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无明确问题句，仅为主题声明和体系建构",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现“XX是否YY”或“如何ZZ”等实质性争点问句，结构为“导言-客体界定-自然人权利-企业权利-结语”的体系介绍，核心是阐释“应赋予何种权利”的既定立场。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否可争辩且有理论意义，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文围绕个人数据权利属性与来源提出明确争点，理论分歧充分，枢纽性极强。",
+          "core_judgment": "问题成立且极为重要，触及民法基础理论与多制度领域，具有高创新性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "自然人对于个人数据是否享有民事权利，这种权利究竟是人格权还是财产权；数据企业对数据的权利的来源是什么",
+            "自然人对个人数据的权利并非物权等可以积极利用的绝对权，只有在该权利被侵害而导致其他民事权利被侵害时，才能得到侵权法的保护"
+          ],
+          "strengths": [
+            "问题明确且触及法学核心争点",
+            "充分呈现并回应了学界既有理论分歧"
+          ],
+          "weaknesses": [
+            "部分争点表述偏向主题声明，问题句略显宽泛"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出个人数据权利配置问题，但缺乏真正的法学争点交锋，主要是对既定立场的系统阐释。",
+          "core_judgment": "主题重大但问题表述为政策倡导式陈述，未形成可争辩的法学问题，可争辩性不足。",
+          "score_rationale": "可争辩性=2/4（有问题意识但非法学争点表述，无真正理论交锋），枢纽性=3/4（涉及民法多个制度领域，触及基础概念），材料新颖性未触发上限，锚定marginal档，给55分。负面检查：检查1不扣（无新概念包装），检查2扣20分（无学者观点交锋，仅系统归纳既定立场），检查3扣20分（无问题句，只有主题声明）。扣分合计40分，但不得低于30分，最终55分。",
+          "evidence_quotes": [
+            "本文将首先分析数据能否成为民事权利的客体及个人数据的界定，进而研究大数据时代个人数据的权利问题",
+            "本文认为，为了既能保护个人的民事权益，又可以促进数据的流动与利用，从而实现社会福利的最大化，数据应当作为民事权利的客体"
+          ],
+          "strengths": [
+            "涉及民法基础理论问题，影响范围广"
+          ],
+          "weaknesses": [
+            "全文无真正学者观点交锋，仅为作者单方立场阐释",
+            "缺乏明确的问题句，主要是主题声明式论述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未形成'XX是否YY'式问题句，只有主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题表述宏大但缺乏聚焦的具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准提炼数据权利属性争议，构建防御性自主利益与原始取得财产权框架。",
+          "core_judgment": "该维度完全成立，问题具高度可争辩性与枢纽性，理论推进显著。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置负面检查扣分合计0分。",
+          "evidence_quotes": [
+            "自然人对个人数据的权利究竟是人格权还是财产权……理论上尚有待深入研究。",
+            "该权利本身的内容既非隐私利益，也非经济利益，而是保护自主决定的利益。"
+          ],
+          "strengths": [
+            "精准提炼数据权利属性之争，问题意识鲜明",
+            "系统梳理欧陆与美国理论分歧，交锋充分"
+          ],
+          "weaknesses": [
+            "企业数据原始取得财产权的教义学衔接可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.744242906570435,
+        "glm-5.1": 43.24751615524292,
+        "kimi-k2.6": 14.606339931488037,
+        "qwen3.6-plus": 70.27754783630371
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 66.2,
+      "std": 30.6,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文引入了多项国内外理论和制度分歧，但未将其组织成清晰的研究地图，缺乏对既有研究成果的具体梳理和争点结构。",
+          "core_judgment": "论文正文展示了丰富的制度比较和理论观点，但未系统呈现既有研究的到达点、未竟点和本文切入点，导致研究地图整体缺失，上限触发。",
+          "score_rationale": "三要素得分=0/6（到达点0，未竟点0，本文切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，依据no_research_map上限规则给45分。",
+          "evidence_quotes": [
+            "有学者认为，数据的无形性使得数据缺乏民事客体所要求的独立性…数据不是民事权利的客体…（但）本文不赞同上述观点。",
+            "Lessig教授认为…采取财产规则加以保护更有优势…应当说…基于我国的历史和社会现实…赋予自然人对个人数据以民事权利的正当性…建立在维护人格尊严和人格自由的基础上，更具有说服力。"
+          ],
+          "strengths": [
+            "论文广泛涉及欧洲人权路径、美国财产规则路径及国内主流观点，素材丰富。"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学者/成果作为“到达点”，如仅以“有学者认为”、“理论界有不少学者认为”带过，无具体研究地图。",
+            "虽有“本文不赞同”“应当说…主流观点”等表述，但未明确既有研究的“未竟点”或争议缺口，也未将此转化为清晰的本文切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=0，完全无研究地图，触发no_research_map上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未在开头、导言或正文中系统梳理既有研究的到达点、未竟点，也未将分散的文献对立组织为可辨识的争点结构。"
+            }
+          ],
+          "boundary_note": "本评分仅针对文献梳理完整性与深度（研究地图、争点结构），不涉及问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "needs_external_context",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰构建了个人数据权利的研究地图，多流派争点结构完整。",
+          "core_judgment": "研究地图三要素充分，呈现多个对立争点与法学流派，现状洞察度高。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "数据的上述独特之处使理论界产生了一种否认其作为民事权利客体的观点...",
+            "欧洲国家旨在保护隐私权等基本人权...而在美国，理论界认为，个人数据是一种财产..."
+          ],
+          "strengths": [
+            "分散式文献定位精准，提炼出客体否认论、人格论、财产论等多流派对立",
+            "比较法与国内学说争点交织，形成5个以上可区分的争辩脉络"
+          ],
+          "weaknesses": [
+            "导言未竟点表述较泛，具体缺口在正文论证中才展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点结构，而非数据权利理论本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了个人数据权利的研究地图，但三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素基本可辨识但分散于正文，争点结构呈现欧美两种制度路径分歧，法学流派识别为2个。",
+          "score_rationale": "三要素得分=4/6（到达点2分：呈现欧美两种理论路径；未竟点1分：指出'理论上有待深入研究'但具体缺口模糊；切入点1分：有研究问题但对应关系松散），争点结构=2/2（欧美隐私保护vs财产权保护两种路径对立），法学流派=2个（欧洲人格尊严派与美国财产权派），锚定good档，给72分。",
+          "evidence_quotes": [
+            "欧洲国家的法律上高度重视保护人格尊严与人格自由等基本人权...自然人对个人数据的权利属于基本人权",
+            "在美国...包括隐私信息在内的个人数据是作为财产而非人格尊严而受到法律的保护"
+          ],
+          "strengths": [
+            "比较法视野清晰，欧美两种制度路径对比鲜明",
+            "对'数据能否成为民事权利客体'的反对观点有明确回应"
+          ],
+          "weaknesses": [
+            "未竟点表述笼统，仅称'理论上有待深入研究'，未指明具体学术争议焦点",
+            "缺乏对国内学界既有研究成果的具体梳理和批判性对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；三要素总分4但争点结构≥2、流派=2时锚定good档",
+              "score_ceiling": 84,
+              "priority": 2,
+              "evidence": "三要素总分4，争点结构2，流派2个，未触发更低上限"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献定位与争点呈现，不涉及'个人数据新型财产权'命题本身的新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒个人数据权利理论谱系，清晰呈现两大核心争点，研究地图完整。",
+          "core_judgment": "本维度成立，作者通过分散式文献定位构建了严密的学术对话脉络与清晰的争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "对于个人数据权利的属性和内容……理论上尚有待深入研究。",
+            "本文不赞同上述从在先权利、法律授权或行政许可的思路出发来证成……"
+          ],
+          "strengths": [
+            "精准提炼人格权与财产权保护路径的对立脉络",
+            "明确指出现有企业权属派生理论的局限并确立切入点"
+          ],
+          "weaknesses": [
+            "部分比较法文献未充分展开本土化适用争议",
+            "对数据企业权利内部细分学派的交锋可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及数据权利制度设计本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.46629881858826,
+        "glm-5.1": 75.52571392059326,
+        "kimi-k2.6": 13.624775886535645,
+        "qwen3.6-plus": 68.93838000297546
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 74.8,
+      "std": 21.8,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 48,
+          "band": "marginal",
+          "summary": "论文提出“防御性自主利益”等核心命题，但未将其建构为可重复适用的分析步骤或判断标准。",
+          "core_judgment": "论文属于制度/实务型，但框架可操作性不足：有明确的类型区分和概念定义，但缺乏步骤化的分析流程，且后文未持续调用框架进行分析。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无分析步骤且后文未实际调用），法学转化度得分=1/4（提出了防御性保护路径，但未给出裁判规则或操作化方案），锚定marginal档，且框架核心术语在后文出现少于3次并实际调用，触发上限规则，最终给48分。",
+          "evidence_quotes": [
+            "数据的“可识别性”(identifiable)是区分个人数据与非个人数据的关键标准。",
+            "自然人对个人数据...自主决定的利益...本质上是防御性或消极性的利益，而非积极性的人格利益或财产利益。"
+          ],
+          "strengths": [
+            "对个人数据进行了概念界定，并明确区分了个人数据与非个人数据。",
+            "划定了自然人与数据企业的权利边界，提出了权利配置的平衡目标。"
+          ],
+          "weaknesses": [
+            "未提供可重复适用的司法裁判步骤或判断标准，如“如何判断侵害自主决定利益”。",
+            "后文的展开主要围绕权利性质和正当性论证，而非运用框架进行分层分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用→最高 60 分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "提出的“自主决定利益”及“防御性权利”概念在后文缺乏以该框架为步骤的具体案例推演或法律适用分析，仅为理论阐述。"
+            }
+          ],
+          "boundary_note": "本维度仅评估框架的可操作性和法学转化度，不涉及论文问题的新颖性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了自然人防御性权利与数据企业绝对财产权的二元分析框架，法学转化彻底且操作性强。",
+          "core_judgment": "论文成功建构了清晰的二元权利配置框架，并提供了具体的裁判规则与制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "自然人对个人数据的权利旨在保护其对个人数据的自主决定利益，从而防御…侵害既有的人格权与财产权",
+            "侵权法上对于侵害自然人个人数据权利的侵权赔偿责任应当采取相当于德国民法典第823条第2款与第826条所规定的构成要件"
+          ],
+          "strengths": [
+            "概念界定清晰，以'可识别性'区分数据类型，以'防御性/绝对性'区分权利属性",
+            "法学转化度高，直接提供侵权构成要件与损害赔偿适用规则（侵权责任法第20条）"
+          ],
+          "weaknesses": [
+            "分析步骤缺乏递进式流程图，更多是属性界定而非步骤检验"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构力，不评价权利配置逻辑在法理上的严密性或争议性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "制度型论文，提出个人数据权利双层结构框架，但缺乏可操作的分析步骤与判断标准。",
+          "core_judgment": "框架以'个人数据/非个人数据'二分及'自然人防御性权利—数据企业新型财产权'双层结构为核心，但分类标准虽明确，分析步骤与判断标准不足，法学转化停留在制度描述层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文调用不足3次）；法学转化度得分=2/4（有制度方案但缺乏裁判规则与具体适用流程，理论转化有限）；锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "凡是单独可以识别出特定自然人的数据或者与其他数据结合后能够识别出自然人的数据，都是个人数据，反之，则为非个人数据。",
+            "自然人对个人数据的权利并非物权等可以积极利用的绝对权，只有在该权利被侵害而导致其他民事权利被侵害时，才能得到侵权法的保护。"
+          ],
+          "strengths": [
+            "个人数据/非个人数据的'可识别性'分类标准清晰，具有可操作性。",
+            "双层权利结构（自然人防御权+数据企业财产权）具有制度创新意义。"
+          ],
+          "weaknesses": [
+            "缺乏'第一步…第二步…'式的判断流程，未形成可重复适用的分析步骤。",
+            "后文未反复调用框架术语进行具体案例分析，框架悬浮于论述之上。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义 + 无任何可循的分析步骤 + 无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "虽有概念定义和分类，但缺乏步骤化分析流程，'自主决定利益'等核心术语未转化为可操作的判断标准，后文调用不足3次。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构力与法学转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的数据权利二元分析框架并实现高度法学转化。",
+          "core_judgment": "框架成立且具备强可操作性与裁判指引价值，属优秀建构。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "数据的“可识别性”是区分个人数据与非个人数据的关键标准。",
+            "侵权法上对于侵害自然人个人数据权利的侵权赔偿责任应当采取相当于德国《民法典》第823条第2款与第826条所规定的构成要件。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，权利分类与保护路径标准明确。",
+            "将大数据特征转化为具体裁判规则与侵权构成要件。"
+          ],
+          "weaknesses": [
+            "偏重实体教义推演，缺乏程序化逐步检验流程。",
+            "企业数据权“原始取得”在实务确权中边界稍显模糊。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.4351921081543,
+        "glm-5.1": 56.16813063621521,
+        "kimi-k2.6": 14.295170068740845,
+        "qwen3.6-plus": 55.111955881118774
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 92,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71,
+      "std": 24.3,
+      "strictest": 48,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文属于理论型论文，整体推理链条清晰连贯，对核心反对观点有实质性回应，结论可由前文推导得出。",
+          "core_judgment": "论文逻辑严密性良好，主要推理步骤可复述且相互依赖，对反对观点有识别和回应，但未明确承认自身论证的局限，推理链中存在个别过渡性跳步。",
+          "score_rationale": "推理链完整性得分=4/4（推理步骤清晰、依赖度高、结论可推出、无关键跳步），反驳处理度得分=2/3（识别反对意见并回应，但未承认局限），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "有学者认为，数据的无形性使得数据缺乏民事客体所要求的独立性，无法被权利化。……本文不赞同上述观点。",
+            "对于为何要赋予自然人对个人数据以民事权利……有不同的认识。……基于我国的历史和社会现实，应当说……建立在维护人格尊严和人格自由的基础上，更具有说服力。"
+          ],
+          "strengths": [
+            "推理链完整：从数据定性到个人权利再到企业权利，步步推进，结论可辩护推出。",
+            "反驳处理有效：识别了“数据非客体论”及欧美赋权意义分歧等反对观点，并给出了论证性回应。"
+          ],
+          "weaknesses": [
+            "承认局限缺失：全文未明确提及自身“防御性利益”定性或“原始取得”路径的适用边界或局限。",
+            "过渡略有跳跃：从“数据与信息一体”直接过渡到“数据应作为民事权利客体”，中间论证稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "个别论证环节的简略属于推理链内部的充分性程度，而非框架可操作性缺失，故归入逻辑严密性问题。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，反驳处理充分，逻辑严密性极佳。",
+          "core_judgment": "本维度完全成立，论文构建了从客体到二元权利结构的严密推导链，且充分回应了反对路径。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分。推理链层层依赖，反驳论证实质且承认局限。",
+          "evidence_quotes": [
+            "本文不赞同上述观点...法律是否有必要将其作为某种民事权利的客体...人为地制造稀缺性",
+            "自然人对个人数据的权利并非物权等可以积极利用的绝对权...只有在该权利被侵害而导致其他民事权利被侵害时，才能得到侵权法的保护"
+          ],
+          "strengths": [
+            "推理链层层递进，从客体论证到权利定性再到保护方式，依赖度高",
+            "对反对意见（数据非客体、企业权利派生）给出了实质性论证回应"
+          ],
+          "weaknesses": [
+            "从自然人防御权直接过渡到企业绝对权，利益冲突的协调论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链关注推导是否严密，不评判企业绝对权在实务中是否具有可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了完整的'个人数据权利'双主体分析框架，推理链清晰可辨，但反驳处理深度不足。",
+          "core_judgment": "推理链完整性3/4，反驳处理度2/3，锚定good档(70-79)，给72分。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（数据客体性→个人数据界定→自然人权利→企业权利四步可复述）；标准2成立（后步依赖前步结论）；标准3基本成立（核心结论'企业数据权为新型财产权'由前文推导）；标准4存在1处关键跳步（从'合法收集+支付对价'直接推出'原始取得新型财产权'，中间缺乏权利性质转换的充分论证）。反驳处理度得分=2/3：标准1成立（显式反对'数据非客体论''授权许可论'等）；标准2成立（对'授权许可论'有实质性回应）；标准3不成立（未明确承认自身理论边界，如匿名化技术的相对性虽已指出但未作为理论局限处理）。",
+          "evidence_quotes": [
+            "本文不赞同上述观点。一方面，信息是数据的内容，数据是信息的形式……个人信息的权利与个人数据的权利是一回事",
+            "本文不赞同上述从在先权利、法律授权或行政许可的思路出发来证成数据企业对包括个人数据的权利的思路"
+          ],
+          "strengths": [
+            "四步推理链环环相扣：数据客体性→个人数据界定→自然人防御性权利→企业新型财产权",
+            "对企业数据权来源的反驳处理充分，逐一回应了授权许可论、政府特许论等观点"
+          ],
+          "weaknesses": [
+            "从'合法收集+支付对价'到'原始取得新型财产权'存在性质转换跳步",
+            "未承认自身理论局限，如匿名化相对性对权利边界的挑战未作为理论边界处理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的完整性与反驳处理度，不涉及'新型财产权'建构本身的理论原创性或制度可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“数据客体化→自然人防御权→企业财产权”推理链，并对反对观点作实质回应。",
+          "core_judgment": "推理链条完整且高度依赖，核心结论可由前文规范分析与理论辩驳充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。三步推理环环相扣，反驳处理全面且具理论深度。",
+          "evidence_quotes": [
+            "本文不赞同上述观点……任何民事主体若仅复制二进制代码而未在信息意义上利用，既无经济利益亦不损害他人。",
+            "本文不赞同从在先权利、授权许可思路证成企业数据权。仅基于告知同意认定权利来源，违背大数据时代交易成本与社会事实。"
+          ],
+          "strengths": [
+            "推理步骤呈递进依赖关系，从客体界定到权利配置逻辑自洽。",
+            "显式列举并逐一批驳了“数据非客体论”与“权利派生论”，回应扎实。"
+          ],
+          "weaknesses": [
+            "企业数据权直接定性为绝对权的推导略显跳跃，缺乏对排他性边界的精细论证。",
+            "对匿名化技术失效后的权利冲突边界仅作原则提示，未展开深入推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链与反驳处理，不涉及该权利配置方案在司法实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 88.64192390441895,
+        "glm-5.1": 48.65680909156799,
+        "kimi-k2.6": 14.04819917678833,
+        "qwen3.6-plus": 76.8784339427948
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 10.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "结论在共同体对话和制度兼容性上总体可接受，但未能主动回应反对意见或自身局限，限制了对话深度。",
+          "core_judgment": "结论回应了既有学说，并在中国法秩序内可自洽，但因缺少对反对意见的明确讨论，未能完全进入可被反驳的共同体语境。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4。属制度论文，锚定excellent档，但因未主动讨论反对意见与局限，微调至78分。",
+          "evidence_quotes": [
+            "本文不赞同上述观点。...数据的无形性使得数据缺乏民事客体所要求的独立性，无法被权利化。",
+            "那种认为自然人的个人数据权利旨在保护的是自然人对个人数据的财产利益...的观点，令人难以苟同。"
+          ],
+          "strengths": [
+            "结论与主流学说对话充分，明确指出了其与“信息自决权”及财产权理论的关系。",
+            "对数据企业权利的保护方案具体回应了中国《反不正当竞争法》的不足，并提出了系统化方向。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认或讨论潜在的反对意见及自身论证的局限。",
+            "对数据企业权利的“原始取得”定性未充分解释如何与现行物权法定等制度约束兼容。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评估结论的可接受性，不涉及论证过程的逻辑严密性或该结论对未来研究的前瞻价值。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论清晰回应争论且制度转化具体，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话与制度可接受维度均表现优异，提出了可争辩且可落实的权利配置方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "自然人对个人数据的权利旨在保护自主决定利益...只有导致其他民事权利被侵害时才能得到侵权法保护",
+            "数据企业的数据权利是一种新型的财产权...应同时作为绝对权给予更系统的保护"
+          ],
+          "strengths": [
+            "结论清晰回应既有争论，明确修正绝对权与派生权利等主流观点",
+            "制度转化方向具体，提出侵权法保护路径与新型财产权绝对权保护路径"
+          ],
+          "weaknesses": [
+            "结论部分未专门承认自身论证局限或潜在反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文提出个人数据权利双重结构理论，在学界既有争论中定位清晰，制度兼容性强。",
+          "core_judgment": "结论有效回应了个人信息权与数据企业权利配置的学术争论，与《民法总则》第111条、第127条兼容，可被反对者定位反驳。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给82分。对话度：回应隐私权/财产权之争、美国财产规则与欧洲人格权路径之争、数据企业权利来源之争；承认反对意见并讨论局限。制度度：不矛盾于现行法，回应《民法总则》第111条、第127条及《网络安全法》，指出制度转化方向（侵权法保护路径、新型财产权建构），结合中国法语境。",
+          "evidence_quotes": [
+            "本文不赞同上述观点……数据应当作为民事权利的客体",
+            "不应当将数据企业对其合法收集的个人数据的权利建立在自然人对个人数据权利的基础之上……而应当立足于大数据时代的数据活动的实际情况"
+          ],
+          "strengths": [
+            "主动回应吴伟光、梅夏英等学者反对意见，对话定位清晰",
+            "结合《民法总则》《网络安全法》等中国法语境展开论证"
+          ],
+          "weaknesses": [
+            "数据企业权利作为绝对权的制度转化方案论证较原则，具体规则供给不足",
+            "对'新型财产权'与既有物权、知识产权体系的协调未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评估结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应理论争议，构建个人数据防御利益与企业财产权二元框架，高度兼容中国法秩序。",
+          "core_judgment": "该维度完全成立，结论具备高度的学术对话能力与制度语境适配性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位既有学说分歧并给出可反驳的替代方案，同时紧密衔接中国现行法语境，指明立法与司法转化方向。",
+          "evidence_quotes": [
+            "本文结论修正了将个人数据权视为绝对财产权或纯粹人格权的观点，主张其为防御性自主决定利益。",
+            "数据企业对数据的权利应作为独立于人格权、物权的新型绝对财产权予以保护，以超越反不正当竞争法的局限。"
+          ],
+          "strengths": [
+            "精准回应中美欧理论分歧，构建二元权利框架",
+            "紧密衔接中国现行法条与司法实践，指明制度转化路径"
+          ],
+          "weaknesses": [
+            "对数据企业绝对权可能引发的垄断风险着墨较少",
+            "侵权救济的具体构成要件论证可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.766947746276855,
+        "glm-5.1": 54.034058809280396,
+        "kimi-k2.6": 11.803231000900269,
+        "qwen3.6-plus": 56.08822703361511
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了宏观的制度完善方向，但延展路径较为概括，缺乏具体的研究问题或争点。",
+          "core_judgment": "论文存在延展方向，但精细度有限，与正文衔接需要一定推断，属于可支持低档弱加分的情形。",
+          "score_rationale": "原始分55分，落入40-59分档，对应bonus=2。论文虽在结语中提出了权益平衡与制度格局的方向，但未明确后续研究问题或具体修正路径，精细度不足以支撑更高加分。",
+          "evidence_quotes": [
+            "应当立足大数据时代的数据活动实际情况，肯定这种权利是原始取得的权利，并将之作为绝对权，给予与物权、人格权同等程度的保护。",
+            "在讨论个人数据权利配置时，都应当注意协调多方的利益关系。既不能仅仅为了保护自然人的权益，无限度地扩张自然人对个人数据的权利边界……也不能无视数据企业……的权利。"
+          ],
+          "strengths": [
+            "结语明确指出了制度协调的方向，即避免过度保护个人或忽视企业权利。",
+            "为企业数据权利提供了性质定位（新型财产权）和初步的保护方法框架。"
+          ],
+          "weaknesses": [
+            "延展方向仅为宏观权衡，未提出具体的研究问题、争点或修正步骤。",
+            "未明确承认正文的具体局限或指明后续研究应围绕哪些空白推进。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评的是论文未来能往何处走，如结语中的权益协调方向；不评该结论在当前论证下是否可接受，后者属于结论可接受性维度。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了宏观的制度完善方向，但缺乏具体的后续研究路径或争点。",
+          "core_judgment": "存在宏观制度延展方向（确立数据企业新型财产权），但缺乏具体延展路径与后续争点。",
+          "score_rationale": "原始分45，bonus档位2。正文提出确立数据企业新型财产权等宏观制度方向，但未指明具体规则衔接或后续争点，结语仅为口号式展望，属概括延展。",
+          "evidence_quotes": [
+            "我国法上应当明确规定数据企业的数据权利……性质上属于独立于……的新型财产权。",
+            "唯其如此，才能在个人数据上构建一个既能有效地保护个人权益，又能充分维护数据活动自由的民事权利格局。"
+          ],
+          "strengths": [
+            "指出了数据企业新型财产权的宏观制度构建方向"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或规则衔接路径",
+            "结语为口号式展望，缺乏具体延展机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的新型财产权具体权能设计及与既有物权体系的衔接，属于未来制度深化方向，而非当下结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出了个人数据权利配置的双向平衡方向，但未形成具体后续研究问题或制度深化路径。",
+          "core_judgment": "存在概括性延展方向，但缺乏具体待修正对象、后续争点或精细化的制度/理论推进路径。",
+          "score_rationale": "原始分55分，对应bonus=2的边际档位。论文结语提出'协调多方利益关系''构建民事权利格局'等方向，并指出自然人权利'防御性保护'与'绝对权保护'的区分，但全文未提出明确的后续研究问题、概念修正路径或制度衔接的具体争点，延展路径较概括。",
+          "evidence_quotes": [
+            "既不能仅仅为了保护自然人的权益，无限度地扩张自然人对个人数据的权利边界，从而妨害数据的流动、分享与利用；也不能无视数据企业对其付出成本而合法地收集、存储和利用个人数据的权利。",
+            "唯其如此，才能在个人数据上构建一个既能有效地保护个人权益，又能充分维护数据活动自由的民事权利格局。"
+          ],
+          "strengths": [
+            "结语明确双向利益协调方向，有基本延展意识。",
+            "区分自然人与企业权利保护强度，隐含制度细化空间。"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点。",
+            "未承认正文局限或说明后续应如何推进，仅作结论式总结。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价未来延展可能性。论文结语'构建民事权利格局'属于方向性展望，而非对当下结论可接受性的论证；但因其缺乏具体机制或争点，属于'较概括的延展方向'而非'可定位的后续路径'。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了数据权利配置的制度完善方向，但缺乏对后续研究路径或理论局限的具体指引。",
+          "core_judgment": "存在明确的理论深化与制度建构方向，但未形成具体的后续研究议程或边界条件说明。",
+          "score_rationale": "原始分55，对应bonus=2。结语明确了自然人防御性权利与企业绝对财产权的修正路径，与正文紧密衔接，但未交代理论局限或下一轮争点，延展精细度不足。",
+          "evidence_quotes": [
+            "既不能仅仅为了保护自然人的权益，无限度地扩张自然人对个人数据的权利边界……也不能无视数据企业……的权利。",
+            "应当立足于大数据时代的数据活动的实际情况，肯定这种权利是原始取得的权利，并将之作为绝对权"
+          ],
+          "strengths": [
+            "明确提出了数据权利二元配置的制度完善方向",
+            "概念修正路径与正文论证逻辑高度一致"
+          ],
+          "weaknesses": [
+            "未承认理论框架的具体局限或适用边界",
+            "缺乏对后续可检验争点或反驳入口的指引"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是该理论框架提出后，未来立法细化、概念修正或新场景适用的研究走向，而非当下结论在学理上的可接受程度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.629208087921143,
+        "glm-5.1": 51.21850299835205,
+        "kimi-k2.6": 11.769459962844849,
+        "qwen3.6-plus": 70.34245491027832
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 45,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 55
+      },
+      "mean": 52.5,
+      "std": 5.0,
+      "strictest": 45,
+      "strictest_model": "glm-5.1"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 75.54,
+      "weighted_total": 73.7
+    },
+    "aggregation_strictest": {
+      "final_score": 45.88,
+      "weighted_total": 49.0
+    },
+    "avg_std": 16.5,
+    "max_std": 30.6,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 29.7,
+    "composite_score": -14.83,
+    "worst_dimension": "problem_originality",
+    "worst_std": 30.6
+  }
+}

@@ -1,0 +1,645 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/社会组织及其法制化研究.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（如'3O多年'、'l2月'、网址乱码）",
+          "期刊页眉/页脚/页码数字混入正文段落间",
+          "脚注标记与正文交叉导致局部断行"
+        ],
+        "evidence_quotes": [
+          "改革开放3O多年来",
+          "www．ehin~po．gov．cn",
+          "7 \n\n中国法学 \n2017年第1期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国法律法规对社会组织的会员人数、财产数额……限制较多，实际上抬高了社会组织成立的门槛",
+          "登记不应该成为一个组织'合法'或者'非法'的分水岭……创设备案制度，从法律上给社会组织提供一个选择成立法人与否的选择机会",
+          "法人型社会组织存续期间的名下财产归法人自身所有……公益性社会团体法人和捐助法人解散时的财产须移交给相同或类似宗旨的其他组织",
+          "坚持直接登记和双重管理有机统一……双重管理并没有错，错在管理的方式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR乱码、页眉页脚混入及断行噪声",
+        "项目口径：无，已完全满足进入六维评价标准"
+      ],
+      "evidence_quotes": [
+        "我国法律法规对社会组织的会员人数、财产数额……限制较多，实际上抬高了社会组织成立的门槛",
+        "创设备案制度，从法律上给社会组织提供一个选择成立法人与否的选择机会"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR与排版混入问题，但不影响核心论点与结构定位。论文聚焦中国社会组织法制化建设，具备明确的规范命题与制度解释尝试，符合进入六维评价标准。建议进入正式评分流程，并在后续环节注意清理格式噪声。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留字符（如'3O多年来'、'ehin~po'、'eom'等URL乱码）",
+          "脚注编号乱码（如'⑩'、'⑦'等符号异常或位置错乱）",
+          "期刊页码混入正文（如'7 '、'8 '、'9 '、'l0 '、'12 '等数字独立成行）"
+        ],
+        "evidence_quotes": [
+          "改革开放3O多年来",
+          "www．ehin~po．gov．cn",
+          "l0 "
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国社会组织实行“归口登记，双重管理”体制……形成注册、管理脱节，重登记、轻服务管理的怪圈",
+          "创设备案制度……从法律上给社会组织提供一个选择成立法人与否的选择机会，是一项富有中国特色的创造性举措",
+          "区分法人型与非法人型社会组织、公益性与互益性社会组织之间的财产归属差异，合理界定社会组织的财产归属"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR识别残留、脚注编号乱码及期刊页码混入，但不影响核心论点定位与评审"
+      ],
+      "evidence_quotes": [
+        "形成注册、管理脱节，重登记、轻服务管理的怪圈",
+        "区分法人型与非法人型社会组织、公益性与互益性社会组织之间的财产归属差异"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，评审时注意忽略OCR及排版噪音，重点关注其关于社会组织法制化及法人财产权属界定的规范命题"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 30,
+        "glm-5.1": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政策倡导与制度介绍，缺乏可争辩的法学问题与理论交锋。",
+          "core_judgment": "该维度不成立，论文仅为宏观政策陈述与立法建议，未提出可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性已触发上限，锚定unacceptable档，给45分。前置检查扣50分（宏观介绍20+主题声明30），按规则保底30分。",
+          "evidence_quotes": [
+            "全文无‘XX是否YY’问题句，仅有‘建议从以下几个方面入手’等政策表述",
+            "仅罗列功能与问题，未呈现登记制或双重管理的学术观点交锋"
+          ],
+          "strengths": [
+            "涵盖登记、监管、税收等多领域制度设计",
+            "梳理了现行法规体系与统一立法方向"
+          ],
+          "weaknesses": [
+            "全文无明确法学争点，仅为政策倡导",
+            "缺乏学者观点交锋与法理层面的论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为政策倡导与制度归纳"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料充分性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为宏观政策倡导与制度归纳，缺乏可争辩的法学研究问题。",
+          "core_judgment": "论文仅为主题声明与政策建议集合，未提出可争辩的法学争点，无理论交锋。",
+          "score_rationale": "可争辩性=0/4，枢纽性=3/4，材料新颖性触发上限，锚定unacceptable档，基础分30，前置扣分45（底线30），给30分。",
+          "evidence_quotes": [
+            "建议尽快研究制定统一的社会组织法，明确社会组织的法律地位...",
+            "不少同志建议取消双重管理制度...也有不少同志认为...双重管理并没有错，错在管理的方式。"
+          ],
+          "strengths": [
+            "讨论涉及社会组织登记、监管等多个制度领域"
+          ],
+          "weaknesses": [
+            "全文无问题句，纯政策倡导与主题声明",
+            "仅简单提及分歧，未展开任何学者观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何问题句，只有主题声明与政策倡导"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 80.53833103179932,
+        "glm-5.1": 57.135901927948
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 90
+      },
+      "mean": 85,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒社会组织法制化既有观点，明确立法滞后等未竟点并提出修法建议。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，文献定位有效支撑对策导向。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "法学界对登记门槛过高有两种意见：降低门槛或创设备案制度",
+            "双重管理体制在学术界引起广泛争议，存在取消与保留两种立场"
+          ],
+          "strengths": [
+            "精准提炼登记门槛与双重管理的学界分歧",
+            "未竟点与立法建议直接对应，逻辑闭环完整"
+          ],
+          "weaknesses": [
+            "文献梳理偏重实务争议，缺乏深层法理流派对话",
+            "引文分散于脚注，未形成集中式理论脉络评述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉对策创新性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式定位清晰呈现了社会组织法制化的核心争点与学派分歧。",
+          "core_judgment": "本维度成立，论文构建了完整的研究地图并呈现了多重争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "双重管理体制...不少同志建议取消...也有不少同志认为...需要政府的其他专业部门协助登记机关对社会组织进行管理",
+            "法学界有两种意见：一是降低登记门槛...二是创设备案制度..."
+          ],
+          "strengths": [
+            "清晰呈现双重管理存废、登记门槛与备案制两大核心争点",
+            "分散式文献定位有效提炼了学界对公信力、内部人控制等问题的共识"
+          ],
+          "weaknesses": [
+            "比较法引用仅作制度参考，未形成中西法秩序对立的学派对话"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非立法建议的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 71.14263868331909,
+        "glm-5.1": 52.240132093429565
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 42,
+        "glm-5.1": 25
+      },
+      "mean": 33.5,
+      "std": 12.0,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文属政策梳理与宏观制度建议型，缺乏原创分析框架与可操作步骤。",
+          "core_judgment": "分析框架未成立，全文以政策归纳与立法倡议为主，未提供可重复适用的法学分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给42分。",
+          "evidence_quotes": [
+            "建议尽快研究制定统一的社会组织法，明确法律地位、主体资格与登记原则",
+            "采取切实可行的措施，加强党对社会组织的领导。党的领导是坚持正确政治方向的保证"
+          ],
+          "strengths": [
+            "系统归纳了社会组织发展阶段与政策脉络",
+            "提出了备案制与分类监管的立法方向"
+          ],
+          "weaknesses": [
+            "核心术语无明确定义，缺乏原创分类标准",
+            "建议停留于宏观政策倡导，无具体裁判或适用步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以政策梳理为主，无原创概念界定与分析步骤。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文为政策梳理与宏观对策呼吁型，未建构任何原创分析框架。",
+          "core_judgment": "论文缺乏原创分析框架，仅为现状归纳与政策阐释，无操作步骤与法学转化。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发no_operational_framework上限，给25分",
+          "evidence_quotes": [
+            "建议尽快研究制定统一的社会组织法，明确社会组织的法律地位...基本问题",
+            "我们必须在治理理念、主体、手段、方式等方面做出改革"
+          ],
+          "strengths": [
+            "对社会组织法制化现状与问题有较全面的梳理归纳"
+          ],
+          "weaknesses": [
+            "全篇为政策阐释与宏观呼吁，无原创概念界定与分析步骤",
+            "对策部分充斥'应当''建议'等口号式表述，缺乏具体制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无定义，无分析步骤，仅为现状与对策罗列"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评问题创新性或逻辑严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.14390826225281,
+        "glm-5.1": 51.6113977432251
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链条完整，政策建议与问题识别对应严密，反驳处理务实但缺边界承认。",
+          "core_judgment": "逻辑严密性成立，核心结论可由前文问题与规范分析充分支撑并辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "双重管理并没有错，错在管理的方式……明确了直接登记和双重管理并存的管理制度。",
+            "登记不应该成为一个组织合法或者非法的分水岭……创设备案制度是一项富有中国特色的创造性举措。"
+          ],
+          "strengths": [
+            "问题识别与制度建议形成清晰对应链条",
+            "对双重管理与登记门槛争议给出务实回应"
+          ],
+          "weaknesses": [
+            "对策论证偏重政策宣示，缺乏实施约束分析",
+            "未明确承认备案制与税收优惠的适用边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链闭合度，不涉立法建议的行政可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文从问题导向推导制度方案，推理链完整且对核心争议有实质性回应。",
+          "core_judgment": "逻辑严密性维度成立，核心立法建议可由前文问题与争议分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "不少同志建议取消双重管理制度...也有不少同志认为需要政府的其他专业部门协助...双重管理并没有错，错在管理的方式。",
+            "法学界有两种意见：一是降低登记门槛...二是创设备案制度...笔者以为，从世界各国的立法情况看，登记不应该成为合法与非法的分水岭。"
+          ],
+          "strengths": [
+            "问题与方案对应紧密，推导无关键跳步。",
+            "对双重管理、门槛设定等实务争议有实质性回应与选择论证。"
+          ],
+          "weaknesses": [
+            "部分建议（如税收优惠种类）与前文问题铺垫的对应稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦问题到方案的推导链条，不评估具体立法建议在现实中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 62.0443959236145,
+        "glm-5.1": 49.62954616546631
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 85
+      },
+      "mean": 87.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深度契合中国法治语境，制度转化路径清晰，具备高度可接受性。",
+          "core_judgment": "该结论明确回应学界争议与制度约束，在现行法秩序内具有高度兼容性与对话价值。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论紧扣中国制度语境，回应登记与监管争议，转化方向明确。",
+          "evidence_quotes": [
+            "法学界有两种意见：一是降低登记门槛……二是创设备案制度……笔者以为登记不应成为合法分水岭。",
+            "建议尽快研究制定统一的社会组织法，明确法律地位……构建统一监管体系与分类管理制度。"
+          ],
+          "strengths": [
+            "深度嵌入中国治理语境，精准回应登记门槛与双重管理争议。",
+            "对策具体指向明确，涵盖备案制、税收优惠与法人治理结构。"
+          ],
+          "weaknesses": [
+            "对备案制可能带来的监管成本与执法风险论证稍显不足。",
+            "部分政策建议偏重宏观指引，缺乏微观程序与配套细则设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉逻辑严密性与前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深度回应学界争议并提出具体制度转化方案，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话和制度语境中均具备高可接受性，能有效定位争辩。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "双重管理并没有错，错在管理的方式...明确了直接登记和双重管理并存的管理制度",
+            "创设备案制度...是一项富有中国特色的创造性举措"
+          ],
+          "strengths": [
+            "明确回应双重管理体制等学界重大争议并给出折中方案",
+            "提出备案制及法人财产权属区分等具体制度转化方向"
+          ],
+          "weaknesses": [
+            "部分对策如党建领导偏政策表述，学术争辩性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 722.7164998054504,
+        "glm-5.1": 704.9652469158173
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 72,
+        "glm-5.1": 75
+      },
+      "mean": 73.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文针对社会组织法制化瓶颈，提出统一立法、备案制创设及分类监管等具体制度延展路径。",
+          "core_judgment": "存在真实延展路径，明确指向未来立法完善与规则衔接的具体方向。",
+          "score_rationale": "原始分72，对应bonus=3。作为制度型论文，清晰提出统一立法、备案制与财产归属区分等路径，与正文论证衔接紧密，但偏重政策规划，缺乏实施风险检验与后续争点细化。",
+          "evidence_quotes": [
+            "建议尽快研究制定统一的社会组织法，明确社会组织的法律地位、主体资格、登记成立、活动原则、经费来源、税收优惠、监督管理、内部自律等基本问题",
+            "通过创设备案制度，从法律上给社会组织提供一个选择成立法人与否的选择机会，是一项富有中国特色的创造性举措。"
+          ],
+          "strengths": [
+            "明确指出统一立法、备案制创设及法人治理等制度延展方向",
+            "与正文“法制化滞后”核心问题紧密衔接，路径具体可操作"
+          ],
+          "weaknesses": [
+            "偏重宏观政策建议，缺乏对规则落地风险或实证检验路径的细化",
+            "未明确后续学术争点或理论修正空间，延展深度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估未来立法与制度完善的推进方向，不涉及当下政策建议能否被实务界或学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出了具体的制度完善方向与实施风险控制，构成可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，指明了社会组织法制化的具体修正方向与监管风险控制。",
+          "score_rationale": "原始分75，对应good档（bonus=3）。论文虽无专门展望段，但在立法建议中指明了创设备案制度、区分财产归属等具体制度深化方向，及降低门槛后的监管风险控制，与正文问题衔接可解释，但精细度有限。",
+          "evidence_quotes": [
+            "从长远来看，通过创设备案制度，从法律上给社会组织提供一个选择成立法人与否的选择机会...",
+            "直接登记不等于放手不管，尤其是降低准入门槛后，要着力克服监管成本高、监管人力不足...等问题"
+          ],
+          "strengths": [
+            "提出了创设备案制度等具体的制度深化方向。",
+            "指出了降低准入门槛后的具体监管风险及控制需求。"
+          ],
+          "weaknesses": [
+            "延展路径嵌入当下结论，缺乏独立的未来研究设计或局限承认。",
+            "规则衔接（如备案与登记转换）的精细度与证据展开仍有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的立法建议指明制度未来深化方向，属前瞻延展；而非论证当下结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 716.1019260883331,
+        "glm-5.1": 729.2917561531067
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.1,
+    "max_std": 12.0,
+    "weighted_total": 60.4,
+    "final_score": 56.5,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 2.57,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 12.0
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance",
+          "party"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "当前，我国社会组织发展增量较快，但总量仍然偏少且发展比较粗放，整体水平和社会认同度也不高。主要体现在以下几个方面：1．官办色彩较浓。……2．能力水平不足。……3．法人治理结构不完善。……4．缺乏公信力。",
+          "创设备案制度……登记和备案都可以成立社会组织，二者的区别在于登记的社会组织取得法人资格，备案的社会组织不取得法人资格。"
+        ],
+        "risks": [
+          "policy_restatement_without_legal_thesis"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "party",
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国社会组织呈现迅猛发展态势，截至2016年第二季度末，全国依法登记的社会组织达67万多个",
+          "设计这种体制的初衷，是既要充分发挥登记管理部门的监管责任，又有效发挥业务主管单位的监管积极性。但相关法规缺乏十分明确的权责分工和实施细则，导致出现“二律背反”的“悖论”",
+          "创设备案制度，从法律上给社会组织提供一个选择成立法人与否的选择机会，是一项富有中国特色的创造性举措",
+          "区分法人型与非法人型社会组织、公益性与互益性社会组织之间的财产归属差异，合理界定社会组织的财产归属",
+          "美国非营利法人示范法对获得非营利法人资格采取备案制，法国非营利社团法的规定更加宽松自由"
+        ],
+        "risks": [
+          "direct_transplant_without_context_transformation",
+          "policy_restatement_without_legal_thesis"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 7.0,
+    "signal_scores": [
+      7,
+      7
+    ]
+  }
+}

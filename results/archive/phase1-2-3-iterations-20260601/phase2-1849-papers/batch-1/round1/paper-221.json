@@ -1,0 +1,1049 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/减税、减负与预算法变革.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR导致的个别形近字错误（如'元疑'应为'无疑'、'剌激'应为'刺激'、'创由于'应为'创'或'创制'、'昕取'应为'听取'、'曹如'应为'诸如'、'苟燕楠'应为'苟燕楠'、'伤然楠'应为'苟燕楠'、'张f＇｛－武'应为'张晋武'、'黄茂荣'的著作信息有错字'顶'应为'预'），但不影响核心论点识别",
+          "脚注编号与正文混入，部分引注格式因OCR可能丢失信息（如'载'后的期刊名、网址被截断），但不影响论证结构",
+          "参考文献列表缺失，但脚注可追溯，不影响核心论证"
+        ],
+        "evidence_quotes": [
+          "减税元疑是税制变迁中彰显这一改革图景的重要内容",
+          "大规模经济剌激计划",
+          "各地在选择参与预算的具体机制上不尽一致,创由于社会民生支出相对于税收以更大的幅度增加",
+          "张念明、庞凤喜．《稳定税负约束条件下我国现代税制体系的构建与完善机",
+          "参／，＼！. CM斗占］美洲汗发银行：《面向发蜒的公共财政一一一加强收入与支出的联系》．知识产权出版社20 1 3 勾二版",
+          "黄茂荣：《法学方法与现代税法》，北京大学出版社20 门年版，第53 页"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以结构性减税为目标的税法调整频繁进行。从修订《增值税暂行条例》，对“营改增”这一标志性减税成果予以立法确认；到新近修订《个人所得税法》，建立多层次费用扣除体系...",
+          "然而，一个不容回避的问题是减税效果如何？减税是否真正减负？",
+          "迄今为止的减税行动几乎都呈现出税收削减的单边运作轨迹，缺乏支出面的考量。",
+          "通过预算法上的制度构造将税收调控权力纳入预算法视域，使预算权力对税收征收的约束规范化",
+          "预算法确立的纳税人预算权利首先应当明确的是，其性质是征收与使用相统一的新型权利。",
+          "绩效预算的法权构造可以从行政主体内部与外部预算权力配置两个角度展开。",
+          "跳出“就税减税”的制度逻辑，寻求新的路径选择。",
+          "在现代财税法治理念中，收入与支出本身就是不可分割的两级...而具体落实这一理念的最重要的法律形式即为预算法。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "存在多处OCR识别错误或格式混入（形近字、脚注编号、参考文献缺失），但主干论证与核心命题清晰可辨"
+      ],
+      "evidence_quotes": [
+        "一个不容回避的问题是减税效果如何？减税是否真正减负？...迄今为止的减税行动几乎都呈现出税收削减的单边运作轨迹，缺乏支出面的考量。",
+        "跳出“就税减税”的制度逻辑，寻求新的路径选择。",
+        "预算法确立的纳税人预算权利首先应当明确的是，其性质是征收与使用相统一的新型权利。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR/格式局部风险，但核心论点明确，属于以中国实践为中心的法学理论转化研究，建议进入六维评分；后续评审中注意OCR错误，但不应因此降低项目口径判断。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致部分字词错乱或乱码，如“西南政ft大学”、“税种减井”、“剌激”、“决t)：表”、“口｜姗”、“｛r 版”、“｛r 确”等",
+          "期刊页码混入正文（如163、164、165等页码标记）",
+          "脚注编号及部分内容存在乱码或截断（如①、②、③、⑩等编号后内容混杂，网址断裂如“http: // www . chin a！削 gov. e r讪”）",
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "西南政ft大学经济法学院教授",
+          "税种减井、要素调整",
+          "2017 年全国非税收入占一般公共预算财政收入的比重从18 % 下降到16 % . ~ ，，税收入诀窍：预算比首次下降到100 %",
+          "｛r 版｛r 确｛r 确｛r 确",
+          "http: // www . chin a！削 gov. e r讪"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从修订《增值税暂行条例》，对“营改增”这一标志性减税成果予以立法确认；到新近修订《个人所得税法》……可以说，通过税法层面的税种减井、要素调整、优惠调节，合理分配纳税人负担，成为当前税制改革的中心任务。",
+          "然而，一个不容回避的问题是减税效果如何？减税是否真正减负？……在这种“就税减税”的法治路径中，往往陷入减税一实施一再减税一再实施的循环。",
+          "减税措施与减负效果之间之所以会出现偏离，除了收入制度本身的原因之外，与支出面的因素密切相关。……这就需要跳出“就税减税”的制度逻辑，寻求新的路径选择。",
+          "预算法为解决减税问题提供了新的路径选择。……预算法是一个预算权力（利）、义务与责任的分配法，它旨在通过一系列的分配性规则规范分配行为、保障分配权益，以期形成一个合理有序的公共资源分配格局，最终致力于追求正当的分配结果。",
+          "预算法确立的纳税人预算权利首先应当明确的是，其性质是征收与使用相统一的一种新型权利。……通过对纳税人参与预算权利与预算权力主体义务的规定，形成预算法新的二元法权结构。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR乱码及错字影响局部阅读体验，但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，需后续补充核对",
+        "项目口径：论文完全符合中国自主知识体系评价口径，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "在这种“就税减税”的法治路径中，往往陷入减税一实施一再减税一再实施的循环。……这就需要跳出“就税减税”的制度逻辑，寻求新的路径选择。",
+        "预算法确立的纳税人预算权利首先应当明确的是，其性质是征收与使用相统一的一种新型权利。……通过对纳税人参与预算权利与预算权力主体义务的规定，形成预算法新的二元法权结构。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国减税减负实践难题为中心，提出了“收支统合”的法学解释路径与“预算法法权二元构造”等可复核命题，完全符合进入六维评价的口径。文本存在中等风险的OCR乱码、页码混入及参考文献缺失，核心论证仍清晰可辨，建议在后续评分阶段对文本进行局部清洗修复，并补充参考文献信息。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR乱码（如①⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳等编号格式不统一，部分为圆圈数字，部分为方框数字）",
+          "参考文献列表抽取失败（标注为“无”）",
+          "部分引文标注存在格式残留（如“参见”“载”等字样混杂）",
+          "个别页面页码混入正文（如“163”“164”等）"
+        ],
+        "evidence_quotes": [
+          "① 参见国家发改委经济研究所课题组：《我国宏观税负研究》，载《经济研究参考》2014 年第2 期。",
+          "⑩ 参见蔡茂寅：《预算法原理》．台湾元照出版有限公司2008 年版．第82 页。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "伴随着税制变迁从行政主导下的建章立制逐步迈向税收法定下的现代法治建构",
+          "减税并非是近年来才提出的主张。事实上，分税制改革之后，税收收入持续性高于国内生产总值的增速问题就已经引发了社会对税负过重的担忧",
+          "预算法对税收征收形成具有一定刚性的指标性压力，这种压力在收入预算的执行过程中反映出来，并与阶段性经济周期运作相互作用",
+          "预算法框架下的减税路径实质为通过预算法权力（利）、义务与责任的配置与调整，降低纳税人税收成本",
+          "有必要重新审视预算法在减税法治化中的功能，同时也须认识到现有的预算法制度还并不是促进税收成本收益及税收使用绩效最优化的制度安排"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR格式不统一，存在乱码风险；参考文献列表缺失；部分页码混入正文。但核心论点、结构和主要论证可定位，不影响评审。",
+        "项目口径：无异常，论文明确以中国税制改革和预算法变革为中心，具有可争辩的法学问题和理论转化。"
+      ],
+      "evidence_quotes": [
+        "预算法框架下的减税路径实质为通过预算法权力（利）、义务与责任的配置与调整，降低纳税人税收成本",
+        "有必要重新审视预算法在减税法治化中的功能"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文进入六维评价。建议后续评分时注意核对脚注引文准确性，因OCR残留可能导致个别引文信息失真。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在少量OCR识别错误（如‘减井’应为‘减并’、‘元疑’应为‘无疑’、‘剌激’应为‘刺激’）",
+          "脚注编号格式错乱及期刊页码混入正文（如‘163’‘164’等孤立数字）",
+          "部分参考文献链接与标点符号抽取不完整"
+        ],
+        "evidence_quotes": [
+          "税制减井",
+          "减税元疑",
+          "经济剌激计划"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文聚焦中国结构性减税政策在实践中的‘减税不减负’困境，指出局限于收入面的税法路径存在边际效应递减问题",
+          "提出跳出‘就税减税’逻辑，转向预算法‘收支统合’维度的法权构造分析",
+          "构建预算权力与税收调控权兼容协调、预算权利二元构造、绩效预算激励与问责匹配等可复核的规范命题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在局部OCR残留与脚注格式错乱，但不影响核心法理命题与论证结构的定位"
+      ],
+      "evidence_quotes": [
+        "跳出‘就税减税’的制度逻辑，寻求新的路径选择",
+        "预算法是一个预算权力（利）、义务与责任的分配法",
+        "构建纳税人需求与反馈的规范机制，确立税收与使用相统一的纳税人权利"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR干扰，但项目口径完全符合‘中国自主知识体系’六维评价标准。论文以中国税制改革与预算法治实践为中心，具有明确的可争辩法学问题（税法与预算法的法权交叉、纳税人预算参与权构造、绩效预算的权责配置），并提出了‘收支统合’‘税式支出预算审查’‘预算权利二元构造’等可复核的理论命题。建议直接进入六维评分阶段，评审时忽略格式噪点，聚焦其对中国财政法治实践的解释力与制度建构价值。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文提出了“通过预算法变革实现减税减负”的主题，但未能将其转化为一个可争辩的法学研究问题。",
+          "core_judgment": "全文压倒性地阐释既定立场（应从税法转向预算法），缺乏明确的问题句和不同理论路径的交锋，更像是宏观体系介绍与政策倡导。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限但无实质推进。可争辩性≤1触发no_justiciable_question上限50分。问题实质为政策倡导，且可争辩性极弱，锚定unacceptable档，扣分合计25分（新概念包装旧问题扣20分，宏观介绍非深度分析扣15分，主题声明非研究问题扣30分，取扣分后不低于30分原则，最终38分）。",
+          "evidence_quotes": [
+            "减税法治化的路径转换既是跳出税法减税路径依赖的必然要求，也为预算法进一步的改革完善提供了契机。",
+            "在预算法框架下，预算过程通过综合考察收支两方面信息……实现‘对可得资源的有效配置’。"
+          ],
+          "strengths": [
+            "研究视角跨越税法与预算法，尝试打通收支关系，具有宏观视野。"
+          ],
+          "weaknesses": [
+            "通篇为体系介绍与应然主张，未形成可争辩的法学问题句，缺乏学者观点交锋。",
+            "核心概念“收支统合维度”仅在旧有讨论上更换表述，未说明相较既有研究的解释力提升。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明，且实质是政策倡导而非学术争辩，可争辩性≤1，触发上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文未见“XX是否YY”“如何ZZ”等明确研究问题句，以“寻求新的路径选择”等立场声明代替学术设问，属于政策倡导而非可辩驳的法学争点。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立、是否可争辩且重要；不评论述是否充分、文献是否翔实、论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出预算法视角下减税减负的法学争点，跨越税法与预算法两大领域，枢纽性极强。",
+          "core_judgment": "问题成立且枢纽性极强，成功将减税效果不佳的现实困境转化为预算法法权构造的法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。扣分合计=0分。",
+          "evidence_quotes": [
+            "究竟还有什么原因制约减税效果？局限于收入面的改革能否找到全部答案？",
+            "如何调节预算法收支平衡、赤字控制与减税减负的关系...能否借助预算法平衡制度的调适达致两者的兼容？"
+          ],
+          "strengths": [
+            "问题跨越税法与预算法，枢纽性极强",
+            "将政策问题转化为法权构造的法学争点"
+          ],
+          "weaknesses": [
+            "部分问题句偏向政策效果追问，法学争点稍显隐晦"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证逻辑严密性与文献综述充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出'收支统合'视角下预算法变革以促进减税减负，但核心问题缺乏明确争点表述与理论交锋。",
+          "core_judgment": "主题重大但问题创新性不足，全文以制度阐释与政策倡导为主，未形成可争辩的法学核心争点。",
+          "score_rationale": "可争辩性=2/4（有问题意识但无明确问题句，无学者观点交锋），枢纽性=2/4（涉及预算法与税法交叉，但制度连锁论证不足），材料新颖性未触发上限，锚定marginal档，给55分。负面模式：检查2扣15分（有提及分歧但未展开），检查3扣20分（有问题意识但实质是政策倡导），合计扣35分；正式评分90分→扣35分=55分。",
+          "evidence_quotes": [
+            "减税效果如何？减税是否真正减负？",
+            "有必要重新审视预算法在减税法治化中的功能"
+          ],
+          "strengths": [
+            "主题具有现实关怀，触及财税法交叉领域",
+            "提出'收支统合'分析框架有一定新意"
+          ],
+          "weaknesses": [
+            "缺乏明确的问题句，全文以主题声明和制度描述为主",
+            "无学者观点交锋，主要是单向度的制度阐释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题散见于'减税效果如何''能否找到全部答案'等，未凝练为具体法学争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "突破单一税法视角，以预算法收支统合机制破解减税减负效果偏离命题。",
+          "core_judgment": "问题具备明确法学争点与跨制度枢纽价值，理论推进清晰，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。前置检查扣分合计0分。",
+          "evidence_quotes": [
+            "那么，究竟还有什么原因制约减税效果？局限于收入面的改革能否找到全部答案？",
+            "预算法是一个预算权力（利）、义务与责任的分配法，旨在通过分配性规则规范分配行为"
+          ],
+          "strengths": [
+            "突破就税减税局限，构建收支统合的预算法分析框架",
+            "将宏观税负转化为预算法权构造与纳税人权利配置命题"
+          ],
+          "weaknesses": [
+            "部分对策偏向财政管理技术，规范论证锋利度可提升",
+            "预算与税收权力协调机制的论述稍显理想化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评文献、逻辑与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 77.82550120353699,
+        "glm-5.1": 38.96762800216675,
+        "kimi-k2.6": 12.88881802558899,
+        "qwen3.6-plus": 69.23683500289917
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 67.8,
+      "std": 25.5,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文正文零散引用了部分学术观点和政策文件，但缺乏系统的研究地图构建，未呈现可区分的争点结构，也未将对立立场置于既有学术争论脉络中。",
+          "core_judgment": "文内证据显示论文未建立清晰的研究地图，既无集中的文献综述，也未分散定位既有研究的到达点、未竟点和本文切入点，法学流派识别和争点结构均不支持高分。",
+          "score_rationale": "三要素总分=1/6（到达点1分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，触发no_research_map上限，给55分。",
+          "evidence_quotes": [
+            "实证研究发现，实施“结构性减税”以来，全国税收长年高于GDP增幅的发展态势出现扭转。",
+            "经济学界一般基于财政收入与国内生产总值的比值标准衡量……（脚注引用了国家发改委课题组2014年研究）"
+          ],
+          "strengths": [
+            "零星提及经济学界关于宏观税负的实证研究（如“营改增”减税效果），构成极有限的到达点信息。"
+          ],
+          "weaknesses": [
+            "未提取并组织既有法学文献的核心争点或对立路径，全篇仅调用经济学和官方数据支撑论证。",
+            "未明确说明未竟点（既有研究缺口）和本文切入点的学术定位，三要素严重缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺或缺失",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅举出经济研究参考和税务研究等极少成果且未提炼贡献；未竟点缺失；本文切入点仅陈述研究意图，未与既有学术缺口关联。"
+            }
+          ],
+          "boundary_note": "评分只依据论文呈现的文献梳理完整性与争点结构判断，不涉及问题本身是否新颖或论证是否严密。",
+          "review_flags": [
+            "needs_external_context",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的收支统合研究地图，精准定位减税路径缺口，争点立体。",
+          "core_judgment": "研究地图完整，未竟点与切入点高度对应，争点结构丰满，流派对立鲜明。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "迄今为止的减税行动几乎都呈现出税收削减的单边运作轨迹，缺乏支出面的考量。",
+            "究竟我国的绩效预算制度是适宜建立偏集权的投入控制模式还是注重放权的结果导向模式，学理上存在分歧。"
+          ],
+          "strengths": [
+            "未竟点定位精准，直击“就税减税”路径依赖缺口。",
+            "争点结构立体，呈现收支统合、预算模式等多维对立。"
+          ],
+          "weaknesses": [
+            "比较法制度例证丰富但未提炼为显性法秩序流派对立。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献定位与争点梳理深度，不评判预算法变革方案本身创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文构建了预算法视角的减税分析框架，但研究地图呈现分散化、隐含化特征，三要素识别不足。",
+          "core_judgment": "研究地图三要素总分4/6，争点结构1/2，法学流派2个，锚定marginal档，上限65分。",
+          "score_rationale": "三要素=4/6（到达点2：梳理了税法减税路径的既有实践与理论；未竟点2：指出'就税减税'路径依赖及预算法功能缺失；切入点1：提出预算法变革路径但对应关系不够聚焦），争点结构=1/2（呈现'就税减税'vs'收支统合'一对核心争点，但未充分展开对立学派或解释路径的学术对话），法学流派=2个（预算权力控制派与纳税人权利派，或曰投入控制模式与结果导向模式）。锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "依托税法展开的减税法治化路径依然侧重收入层面……缺乏从收支统合的维度对税收负担进行合理评估与调节",
+            "迄今为止的减税行动几乎都呈现出税收削减的单边运作轨迹，缺乏支出面的考量"
+          ],
+          "strengths": [
+            "问题意识清晰，从'减税不减负'现象切入，构建收支统合分析框架",
+            "制度分析深入，涵盖预算平衡、决策模式、绩效预算等多维度"
+          ],
+          "weaknesses": [
+            "缺乏对既有学术争论的明确梳理，'到达点'分散于政策描述而非学术史",
+            "未明确标识学界对立观点，预算法改革路径的学术对话不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "三要素总分4但争点结构≤1且法学流派≤1时上限65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "争点结构仅1分（单一核心争点），法学流派2个但学术对话不充分，三要素总分4分"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位分散而非问题本身不新颖，预算法视角具有创新性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒税法单边减税局限，精准定位收支统合缺口，系统展开预算法权构造争点。",
+          "core_judgment": "研究地图三要素充分满足，争点结构完整，流派识别达标，文献洞察维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "迄今为止的减税行动几乎都呈现出税收削减的单边运作轨迹，缺乏支出面的考量。",
+            "学理上存在分歧。如有的学者认为‘中国目前仍处在预算发展的初级阶段’……也有的学者认为……并不排斥绩效预算制度的引人。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼既有税法路径局限与预算法研究空白。",
+            "争点结构严密，从征收约束、规模适度到使用绩效层层递进，逻辑自洽。"
+          ],
+          "weaknesses": [
+            "流派识别多集中于预算技术路径分歧，对深层法理学派对话稍弱。",
+            "部分比较法引介偏重实务描述，未完全升格为规范命题层面的学理对立。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉预算法改革方案创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.944703817367554,
+        "glm-5.1": 57.765730142593384,
+        "kimi-k2.6": 14.982720136642456,
+        "qwen3.6-plus": 83.94183707237244
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 80
+      },
+      "mean": 71.8,
+      "std": 16.1,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文从收支统合视角阐释预算法对减税效果的影响，但未提出可重复适用的原创分析框架，以既有概念梳理和阐释为主。",
+          "core_judgment": "论文未建构原创分析框架，主要对预算法制度与税收效应的关联进行系统性阐释，缺乏清晰的概念界定和可循的分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（唯一的概念界定来自既有理论），法学转化度得分=1/4（仅在制度层面给出改进方向），锚定unacceptable至marginal档，因无触发no_operational_framework上限规则给45分。",
+          "evidence_quotes": [
+            "减税不仅要从形式上减少纳税人付出的税收，更须着眼于在分配利用公共资源的过程中，通过收支统合的制度规范，促进税负的公平分配。",
+            "预算法是一个预算权力(利)、义务与责任的分配法……预算权力对税收成本进而对税负调节的影响反映在三个层面…"
+          ],
+          "strengths": [
+            "系统梳理了预算法中收支平衡、绩效预算等制度对减税效果的传导机理。"
+          ],
+          "weaknesses": [
+            "核心术语如'预算权力''收支统合'等无明确的操作化定义，分类和步骤均非可重复适用的分析框架。",
+            "缺乏可循的分析步骤或裁判规则，全文以阐释既有制度逻辑为主，未提出新的法律关系认定标准或判断方法。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属制度/实务型论文，但未提供裁判规则、法律适用流程或制度设计方案，分析框架建构力不足。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了“收支统合”视角下预算法税收效应的三维分析框架，并转化为法权构造改革方案。",
+          "core_judgment": "分析框架成立且可用，法学转化度高，将跨学科概念成功转化为具体的法权配置与制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "基于收支统合维度审视税负问题是将收入与支出关联起来，既考察征收面纳税人的付出，亦考察支出面纳税人的获得",
+            "预算法框架下的减税路径实质为通过预算法权力（利）、义务与责任的配置与调整，降低纳税人税收成本"
+          ],
+          "strengths": [
+            "概念界定清晰，分类标准明确（征收、规模、使用三维效应）",
+            "法学转化彻底，将经济学概念转化为具体的法权构造与制度设计方案"
+          ],
+          "weaknesses": [
+            "分析步骤偏宏观制度逻辑推演，缺乏微观裁判层面的操作指引"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力而非逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出'收支统合'分析视角，但框架以制度描述和政策梳理为主，缺乏可操作的判断步骤。",
+          "core_judgment": "分析框架建构力未有效成立：核心概念'收支统合'未转化为可重复适用的法学分析步骤，后文以制度介绍和域外经验描述为主。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰、分类有层次，但无步骤化分析流程，后文调用不足3次有效对应）；法学转化度得分=1/4（'收支统合'有制度映射意图，但未转化为裁判规则或法律适用流程，仅停留在政策建议层面）；锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "基于收支统合维度审视税负问题是将收入与支出关联起来，既考察征收面纳税人的付出，亦考察支出面纳税人的获得",
+            "预算法框架下的减税路径实质为通过预算法权力（利）、义务与责任的配置与调整，降低纳税人税收成本"
+          ],
+          "strengths": [
+            "提出'收支统合'新视角，突破'就税减税'局限",
+            "法权构造分析有层次，涵盖权力-权利-责任三维"
+          ],
+          "weaknesses": [
+            "核心术语'收支统合'无操作化定义，未转化为可重复判断标准",
+            "后文以制度描述和域外经验堆砌为主，未实际调用分析框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分，但本论文核心概念有制度映射，未完全无定义，故不触发硬性上限，仅作marginal档处理",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "'收支统合'有概念界定但无操作步骤，后文未按框架步骤展开分析"
+            }
+          ],
+          "boundary_note": "本维度评框架本身是否成立可用，不评逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建收支统合三维分析框架，逻辑严密且具强制度转化力。",
+          "core_judgment": "框架成立且高度可用，成功将财政学概念转化为预算法权配置与程序规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。三维框架清晰界定、步骤可循且全文深度调用，制度设计具体可操作。",
+          "evidence_quotes": [
+            "基于收支统合维度审视税负问题是将收入与支出关联起来，既考察征收面纳税人的付出，亦考察支出面纳税人的获得",
+            "第一层是最基础的纳税人付出税收的维度，第二层进入成本与收益关系分析框架，第三层则是关注获得支出的质量和效果"
+          ],
+          "strengths": [
+            "三维框架边界清晰，后文严格按征收、规模、使用逻辑逐层展开",
+            "成功将财政概念转化为预算法权配置、税式支出审查等具体规则"
+          ],
+          "weaknesses": [
+            "部分制度建议（如预算公益诉讼）缺乏具体程序法条支撑",
+            "跨年度平衡机制的司法审查标准与救济路径未作细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 95.63738989830017,
+        "glm-5.1": 55.92572021484375,
+        "kimi-k2.6": 14.403494119644165,
+        "qwen3.6-plus": 77.99262285232544
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.8,
+      "std": 24.7,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文以收支统合为分析框架，推理链条完整，但反驳处理可进一步充实。",
+          "core_judgment": "核心结论'预算法需进行收支统合改革以提升减税减负效果'由三大税收效应的分析可辩护地推出，推理链完整。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给82分。论文主线推理清晰，但多数篇幅为建构性论证，对反对观点的实质性回应相对有限。",
+          "evidence_quotes": [
+            "迄今减税行动几乎都呈现税收削减的单边运作轨迹，缺乏支出面的考量…收支统合维度审视税负问题是将收入与支出关联起来。",
+            "预算法…相关制度安排对减税效果产生的影响…征收率、预算法收支平衡制度…形成从支出到收入的传导机理。"
+          ],
+          "strengths": [
+            "从'收入面税收削减'到'支出面预算法效应'的推理主线环环相扣，逻辑层层递进。",
+            "结尾部分将三大税收效应明确对应三项制度改革，前后呼应，形成闭环论证。"
+          ],
+          "weaknesses": [
+            "对'反对收支统合路径'或'坚持税法单一主导'的潜在反驳缺少显式、实质性回应。",
+            "局部论证（如预算权利二元构造的救济机制）与前文税收负担问题的直接关联稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论建构与制度分析结合的实务型论文，局部缺乏反驳处理属于论证策略选择，不影响主线推理链的完整性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳与局限处理充分，逻辑严密性极高。",
+          "core_judgment": "论文构建了从现象到法权重构的严密推导链，逻辑维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "减税措施与减负效果偏离，除了收入制度本身原因，与支出面因素密切相关。",
+            "预算法对税收问题介入始终偏程序性而非实质性，不能强制性取消税收优惠。"
+          ],
+          "strengths": [
+            "推理链依赖度高，效应分析直接支撑法权重构结论。",
+            "反驳处理实质，对参与式预算负面效应及预算法局限有明确回应。"
+          ],
+          "weaknesses": [
+            "从收支统合理念到具体法权构造的过渡略显宽泛。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦现象到制度重构的推导支撑，不评判预算法变革方案的现实可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建'收支统合'分析框架，推理链完整但反驳处理不足。",
+          "core_judgment": "主要推理步骤可识别且相互依赖，核心结论可由前文推出，但缺乏对反对意见的显式回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处非关键跳步：从'预算法功能未受重视'到'需转向预算法路径'的过渡中，对'税法路径已穷尽'的论证不够充分；反驳处理度得分=1/3（仅标准3'承认局限'成立，标准1-2的反对意见识别与实质性回应均缺失）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "减税措施与减负效果之间之所以会出现偏离，除了收入制度本身的原因之外，与支出面的因素密切相关。",
+            "预算法对税收问题的介入相对于税法本身始终是偏程序性而非实质性的，它可以授权建立协调收入与支出的方法，但不能强制性取消税收优惠。"
+          ],
+          "strengths": [
+            "从'减税效果有限'现象到'收支统合'理论建构再到具体制度方案，三步推理环环相扣。",
+            "预算法法权构造的三层次分析（征收效应、规模效应、使用效应）形成清晰的类型化框架。"
+          ],
+          "weaknesses": [
+            "未显式回应'预算法可能无力承载减税功能'的潜在批评，理论争辩不足。",
+            "从'预算法有功能'到'预算法应成为主要路径'的跳跃缺乏对替代方案的比较论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否充分支撑结论，不涉及'收支统合'框架本身的理论原创性或制度可操作性评价。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以收支统合为主线，严密推演预算法改革支撑减税减负的制度路径。",
+          "core_judgment": "逻辑严密性成立，核心结论由规范分析与制度推演充分支撑，无关键跳步且反驳处理到位。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "减税措施与减负效果之间之所以会出现偏离，除了收入制度本身的原因之外，与支出面的因素密切相关。",
+            "预算法对税收问题的介入相对于税法本身始终是偏程序性而非实质性的，它可以授权建立协调收入与支出的方法"
+          ],
+          "strengths": [
+            "推理链条完整，从“减税失效”到“预算法效应”再到“法权重构”层层递进。",
+            "充分回应传统“就税减税”路径局限，实质性论证收支统合的必要性。"
+          ],
+          "weaknesses": [
+            "部分制度建议（如税式支出审查）的落地路径论证稍显理想化。",
+            "纳税人权利救济机制的论述偏重理论建构，实务约束回应略弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评推理链支撑度，不涉预算法框架的实务可操作性或结论的政治可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 72.02344799041748,
+        "glm-5.1": 40.43834710121155,
+        "kimi-k2.6": 14.084820032119751,
+        "qwen3.6-plus": 58.45469689369202
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 10.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文提出从预算法收支统合角度解决减税效果困境，挑战了税法侧重收入的传统路径，并系统回应了制度约束与共同体争论。",
+          "core_judgment": "结论可接受度高：论文将减税问题置于预算法与税法交叉领域，形成了可争辩的学术主张，并提供了制度转化方向，能与现行法秩序及学术对话兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4。论文为理论论文，触发理论论文excellent档（A≥3且B≥2），结合制度创新与理论反思，给予80分。",
+          "evidence_quotes": [
+            "减税元疑是税制变迁中彰显这一改革图景的重要内容...迄今为止的减税行动几乎都呈现出税收削减的单边运作轨迹，缺乏支出面的考量。",
+            "预算法为解决减税问题提供了新的路径选择...通过收支统合的制度规范，促进税负的公平分配，最终实现社会公共需要的最优化满足。"
+          ],
+          "strengths": [
+            "结论明确回应了税法路径的局限，提出预算法框架下的替代方案，形成了可对话的学术主张。",
+            "结论不仅与现行预算法制度兼容，还具体指出了税式支出、参与式预算、绩效预算等制度转化方向。"
+          ],
+          "weaknesses": [
+            "论文对反对意见或自身论证局限的直接讨论稍显不足，但整体已嵌入共同体争论脉络。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评估结论的可接受性，不涉及其论证严密性或未来延展性，后者由其他维度评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论跳出“就税减税”路径，提出收支统合的预算法变革进路，对话度与制度兼容性极高。",
+          "core_judgment": "结论明确修正既有争论，提出具体法权构造方案，主动回应反对意见且高度兼容现行法秩序，维度完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "有必要重新审视预算法在减税法治化中的功能...通过预算权力与预算权利的二元构造，搭建纳税人需求反馈的参与式预算决策模式",
+            "参与的扩大，使得公共利益的界定和保护处于不确定和成问题的状态...纳税人容易陷入短期的‘福利幻象’"
+          ],
+          "strengths": [
+            "结论提出三个具体法权构造进路，制度转化方向明确",
+            "主动承认预算参与可能导致狭隘私利与福利幻象的负面效应"
+          ],
+          "weaknesses": [
+            "纳税人预算权利救济机制论述偏向宏观原则，具体程序稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'收支统合'的预算法变革路径以优化减税效果，结论具有明确的问题意识和制度指向。",
+          "core_judgment": "结论回应了中国减税法治化的核心争论，能与既有税法研究对话，且提出了可定位的学术主张，但制度转化方向的具体操作性有待加强。",
+          "score_rationale": "共同体对话度得分=3/4（回应了'就税减税'局限的学界讨论，能被反对者定位，承认纳税人参与可能的负面效应；但对外国理论的本土转化讨论深度有限），制度可接受度得分=2/4（与现行法秩序兼容，回应了预算法制度约束，但制度转化方向较原则，未充分讨论与中国预算法具体条款的衔接），锚定good档，给72分。",
+          "evidence_quotes": [
+            "有必要重新审视预算法在减税法治化中的功能，同时也须认识到现有的预算法制度还并不是促进税收成本收益及税收使用绩效最优化的制度安排",
+            "通过促进预算权力与税收调控权力的兼容协调……通过预算权力与预算权利的二元构造……通过预算权力放权激励与问责约束的机制匹配"
+          ],
+          "strengths": [
+            "明确挑战'就税减税'主流路径，提出替代性理论框架",
+            "主动讨论纳税人参与的负面效应，体现自我反思"
+          ],
+          "weaknesses": [
+            "制度转化方向较原则，缺乏与《预算法》具体条款的对接分析",
+            "对外国预算法经验的讨论未充分回应中国制度语境的适配性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文突破“就税减税”局限，主张以预算法收支统合视角重构减税路径，结论兼具理论对话与制度回应。",
+          "core_judgment": "结论明确回应减税效果争议，提出预算法改革的具体方向，高度契合中国财税语境，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论直面减税悖论，制度建议具体且具可操作性。",
+          "evidence_quotes": [
+            "这就需要跳出“就税减税”的制度逻辑，寻求新的路径选择。",
+            "通过促进预算权力与税收调控权力的兼容协调，搭建纳税人需求反馈的参与式预算决策模式。"
+          ],
+          "strengths": [
+            "精准定位“减税不减负”痛点，构建收支统合分析框架。",
+            "制度建议紧扣《预算法》修订实践，具明确转化路径。"
+          ],
+          "weaknesses": [
+            "纳税人预算参与权的司法救济路径论述稍显薄弱。",
+            "跨部门权力协调机制的立法成本评估可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 54.91912603378296,
+        "glm-5.1": 57.802897930145264,
+        "kimi-k2.6": 11.206686973571777,
+        "qwen3.6-plus": 77.26359128952026
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 80,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 82.5,
+      "std": 8.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出从预算法收支统合角度推进减税减负的制度进路，并在结语中明确了权力协调、权利构造与激励约束三大调整方向，具备可定位的延展路径。",
+          "core_judgment": "存在真实、可定位的制度深化与修正方向，与正文核心结论紧密衔接。",
+          "score_rationale": "原始分72，对应bonus=3档。论文明确指向预算法上预算权力与税收调控权力协调、预算权利二元构造、激励问责匹配三个具体制度调整方向，延展路径可定位且与结论衔接，但缺乏更精细的后续研究问题或反驳入口。",
+          "evidence_quotes": [
+            "通过预算权力与税收调控权力的兼容协调，将预算法的税收征收效应控制在规范化的约束通道之内。",
+            "通过预算权力与预算权利的二元构造，搭建纳税人需求反馈的参与式预算决策模式。"
+          ],
+          "strengths": [
+            "延展方向具体可定位，直接对应预算法上的制度供给，而非空泛展望。",
+            "三大调整方向与正文对税收征收效应、规模适度性、使用有效性的分析层层对应，衔接清晰。"
+          ],
+          "weaknesses": [
+            "未明确指出后续研究的具体问题、争议焦点或可检验的反驳入口，精细度有限。",
+            "对每一方向的操作条件或边界风险的说明仍较概括。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的是预算法制度应当往哪里调整，属于未来完善方向，而非当下结论能否被接受的问题。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文为预算法变革指明了具体的制度深化路径与实施风险控制。",
+          "core_judgment": "存在真实延展路径，指明了税式支出审查、预算权利救济及绩效问责等具体深化方向与风险边界。",
+          "score_rationale": "原始分85，对应bonus档位5（>=80）。文章提出了税式支出审查机制的渐进构建路径，并揭示了预算参与扩大可能引发的公共利益界定风险与福利幻象，延展路径清晰可定位。",
+          "evidence_quotes": [
+            "随着人大预算监督制度的完善……再逐步建立对税式支出预算报告的审查程序与调整机制。",
+            "参与的扩大，使得公共利益的界定和保护处于不确定和成问题的状态……纳税人容易陷入短期的‘福利幻象’。"
+          ],
+          "strengths": [
+            "指明了税式支出审查机制的渐进式制度深化路径。",
+            "揭示了预算权利扩张的潜在实施风险（福利幻象）。"
+          ],
+          "weaknesses": [
+            "对预算公益诉讼等权利救济延展路径探讨稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "预算权利司法化救济（公益诉讼）属于未来制度延展探索，而非当下预算法已确立的可接受结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度/立法型框架下提出了预算法改革的明确延展路径，包括税式支出预算报告审查制度、预算权力与税收调控权协调机制、纳税人预算权利二元构造及绩效预算法权重构等方向。",
+          "core_judgment": "存在真实延展路径，具体包括税式支出预算报告审查制度构建、跨年度预算平衡机制完善、纳税人预算权利法权构造及绩效预算内部放权与外部问责匹配等制度深化方向。",
+          "score_rationale": "原始分72分，对应bonus=3档（60-79）。论文在结语及第四部分明确提出了税式支出预算报告审查、预算权力与税收调控权协调、纳税人预算权利二元构造、绩效预算法权重构等具体制度完善方向，与正文核心结论紧密衔接；但部分路径（如法国/英国模式）的本土化转换精细度不足，且对'逐步建立'的时间节点缺乏说明。",
+          "evidence_quotes": [
+            "随着人大预算监督制度的完善，尤其是内部机构及其关系定位更为明晰，再逐步建立对税式支出预算报告的审查程序与调整机制。",
+            "通过促进预算权力与税收调控权力的兼容协调……通过预算权力与预算权利的二元构造……通过预算权力放权激励与问责约束的机制匹配"
+          ],
+          "strengths": [
+            "提出税式支出预算报告审查等具体制度建构方向",
+            "明确预算权力与税收调控权协调的三种路径"
+          ],
+          "weaknesses": [
+            "部分比较法经验（法英模式）的本土化转换精细度不足",
+            "对'逐步建立'的时间节点与阶段目标缺乏说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文提出的预算法改革未来路径（如税式支出审查制度、权利二元构造等），而非当前结论是否被学界接受；后者属于结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文立足收支统合视角，系统提出预算法权力协调、纳税人权利构造与绩效问责匹配的后续制度完善路径。",
+          "core_judgment": "存在真实延展路径，明确指向预算法具体规则衔接与法权结构调适方向。",
+          "score_rationale": "原始分75，对应good档（bonus=3）。文本提出税式支出报告审查、纳税人参与权配置及绩效集权/放权风险平衡等具体延展方向，与核心论证紧密咬合，但未展开实证检验设计与局限反思。",
+          "evidence_quotes": [
+            "如何调节预算法收支平衡、赤字控制与减税减负的关系……能否借助预算法平衡制度的调适达致两者的兼容，需要进一步考量。",
+            "究竟我国的绩效预算制度是适宜建立偏集权的投入控制模式还是注重放权的结果导向模式……关键是处理改革收益及其相关风险的抵消影响。"
+          ],
+          "strengths": [
+            "明确指向税式支出审查、纳税人参与权等具体制度衔接方向。",
+            "将绩效预算模式之争转化为风险收益平衡的后续研究入口。"
+          ],
+          "weaknesses": [
+            "未交代实证检验路径或数据局限，延展偏重规范构想。",
+            "纳税人权利救济机制缺乏具体程序场景推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦预算法制度调适与法权结构优化的未来演进方向，而非评判当下“收支统合”结论是否已被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.02407193183899,
+        "glm-5.1": 32.04636096954346,
+        "kimi-k2.6": 13.59567904472351,
+        "qwen3.6-plus": 61.49918270111084
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 75
+      },
+      "mean": 76,
+      "std": 6.2,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 76.19,
+      "weighted_total": 74.3
+    },
+    "aggregation_strictest": {
+      "final_score": 51.24,
+      "weighted_total": 54.4
+    },
+    "avg_std": 15.2,
+    "max_std": 25.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.9,
+    "composite_score": -15.2,
+    "worst_dimension": "problem_originality",
+    "worst_std": 25.5
+  }
+}

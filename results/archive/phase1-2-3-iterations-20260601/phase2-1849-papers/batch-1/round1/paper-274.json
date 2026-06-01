@@ -1,0 +1,1062 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法裁判中的意义分歧及其消解路径.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号与正文混杂：例如文中的“③”“⑩”“⑨”等编号直接嵌入正文，且脚注引用格式极不规范（如“参见前引⑨，哈特书，第123页”），影响阅读流畅性。",
+          "参考文献列表缺失：论文末尾标注“参考文献列表：（无）”，但正文引用了大量中外文献，缺乏完整参考文献列表将影响其学术规范性的评审。",
+          "OCR残留与排版错乱：文中存在“载《中国社会科学报) )2013年9月18日B02版”等明显OCR/排版错误，以及部分期刊名、书名标识混乱。"
+        ],
+        "evidence_quotes": [
+          "载《中国社会科学报) )2013年9月18日B02版",
+          "③ 郭凤海：《世纪之思—— 写在“意义哲学”的终极处》，载《理论探讨》1998年第1期。",
+          "⑩ 参见前引⑨，哈特书，第123页。",
+          "参考文献列表： （无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究，以更好地明证司法实践中的意义阐释的分歧。",
+          "我国现行的司法体制决定了法官的主体地位，独断性是其根本特征...",
+          "法官在个案中所表达的意思不是个人的意思，而是依据法律教义学原理早被假定存在于法律中...",
+          "在对《专利法》第47条、书证、术语（《公司法》第16条）以及刘某伤熊案的具体分析中，均深入展开了对中国司法裁判中意义分歧的实证调查与理论解释。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "[文本工程] 脚注格式严重混乱、参考文献缺失，影响评审的规范性基础，需在后续阶段核对或补充。",
+        "[文本工程] 存在OCR残留字符和排版错误，但不影响核心论点定位。",
+        "[后续评审注意] 论文尝试将西方哲学/语言学意义理论转化为中国司法裁判中的“意义分歧消解”分析框架，属于“中国自主知识体系研究”的候选对象，需在六维评价中重点检验其理论转化是否成功、命题是否可复核。"
+      ],
+      "evidence_quotes": [
+        "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究...",
+        "现实中的法官虽然可以依照独断解释消解文义分歧，但阐释的客观性就难以衡量...寄希望于法官人人都能处于理想状态，遵循整体性原则，也常常只会是一厢情愿。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文明确以中国司法实践中的意义分歧与消解为研究对象，结合实证调查与理论分析，符合进入六维评价的条件。文本工程风险（脚注混乱、参考文献缺失）未严重到阻断评审，但建议在评分阶段提醒评审人关注其规范性缺陷。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR页码数字乱码混入正文（如2l0、2l2、2l3、2l6、2l7、2l8等）",
+          "脚注编号及内容格式错乱，部分脚注文字及外文文献残片混入正文（如①、⑩、@、＆e Max Weber等）",
+          "部分期刊年份存在OCR识别错误（如2oo9年第l期）"
+        ],
+        "evidence_quotes": [
+          "2l0",
+          "＆e Max Weber，Bureaucracy，in From Ma",
+          "2oo9年第l期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究，以更好地明证司法实践中的意义阐释的分歧。",
+          "《专利法》第47条规定，宣告无效的专利权视为自始即不存在……不具有追溯力。",
+          "2013年……修正的《公司法》第十六条第二项……公司为公司股东或者实际控制人提供担保的，必须经股东会或者股东大会决议。",
+          "本文以刘某伤熊案为例。",
+          "集体认知有助于消解个体阐释的分歧，是一条合理的路径。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR页码、脚注及年份乱码需在后续阶段清洗",
+        "项目口径：完全满足进入六维评审条件，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究，以更好地明证司法实践中的意义阐释的分歧。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程，但需在后续文本工程阶段对OCR残留乱码、页码混入及脚注格式错乱进行清洗修复，以保障评审阅读体验。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩⑩⑩等重复编号）",
+          "参考文献列表缺失（标注为“无”）",
+          "部分引注格式存在OCR残留痕迹（如“See David P. Ausubel”等英文混排）"
+        ],
+        "evidence_quotes": [
+          "①\n王林清：《调整信息获取顺序可消解裁判偏见》",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "司法裁判中的意义分歧及其消解路径",
+          "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究",
+          "通过法官们对《专利法》第47条规定的不同理解，我们从中发现了错觉与理性的冲突",
+          "为了弄清这个问题，笔者又以48位民事法官为研究对象，进行了调查研究",
+          "笔者就此案，对刑法专业人员进行了个别访谈",
+          "集体认知有助于消解个体阐释的分歧，是一条合理的路径"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号系统混乱，存在重复编号现象，但不影响核心论点定位",
+        "参考文献列表缺失，需关注是否影响引证复核",
+        "部分外文引注保留英文原文，属正常学术格式"
+      ],
+      "evidence_quotes": [
+        "司法裁判中的意义分歧及其消解路径",
+        "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究",
+        "集体认知有助于消解个体阐释的分歧，是一条合理的路径"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国司法实践中的意义分歧问题为核心，通过实证调查（48名法官的问卷与访谈）检验理论命题，具有明确的中国问题意识和法学理论转化尝试。文本质量风险较低，脚注编号问题不影响评审，建议直接进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文仅将哲学意义理论挪用于司法场域，未提出可争辩的法学研究问题，实质是对既有立场的主题声明式描述。",
+          "core_judgment": "全文无明确问题句，缺乏法学层面的理论交锋，主要依赖概念搬运而非研究创新，不构成合格的法学论文问题。",
+          "score_rationale": "可争辩性=1/4（无问题句，无法学层面可证伪争点），枢纽性=1/4（仅涉及法律解释一般概念），材料新颖性未实质推进问题设定。锚定unacceptable档，基础分45分。前置检查：检查1扣20分（新概念包装旧问题，解释力提升不充分），检查2扣20分（无学者观点交锋），检查3扣30分（全文无问题句）。最终得分=45-20-20-30，不低于30分，取38分。",
+          "evidence_quotes": [
+            "文本意义不是先于阅读和读者之间的理解而独立存在的东西，文本意义是读者在阅读过程中与文本相互作用而构建成的。",
+            "意义应当如何定义？在汉语系统中，它近乎于意思或含义。"
+          ],
+          "strengths": [
+            "对司法情境中的意义分歧现象进行了初步描述。",
+            "尝试引入认知心理学和阐释学理论拓展讨论视角。"
+          ],
+          "weaknesses": [
+            "无明确法学问题句，仅是主题声明和立场阐释。",
+            "全文未呈现不同学者观点交锋，无理论分歧展开。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明，可争辩性≤1",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'意义应当如何定义'开篇，后续均为阐释立场，未提出'XX是否YY'或'如何ZZ'等可争辩问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题创新性与可争辩性，不评文献综述完整度、论证严密性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为主题声明式阐释，无可争辩法学争点，创新性低。",
+          "core_judgment": "问题非可争辩法学争点，仅为主题阐释，无问题句。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限，锚定good档(65分)，前置扣分45分，最终30分",
+          "evidence_quotes": [
+            "标题“司法裁判中的意义分歧及其消解路径”为主题声明，无问题句。",
+            "全文阐释意义分歧及消解路径，未提出可争辩法学争点。"
+          ],
+          "strengths": [
+            "涉及法学理论分歧（哈特与德沃金）。",
+            "有实证研究展示现实分歧。"
+          ],
+          "weaknesses": [
+            "无明确可争辩的问题句。",
+            "消解路径论证不充分。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明“意义分歧及其消解路径”"
+            }
+          ],
+          "boundary_note": "本维度只评问题创新性，不评论证严密性或文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文讨论司法裁判中的意义分歧及其消解，但缺乏明确可争辩的法学问题句，实为理论综述与实证描述。",
+          "core_judgment": "主题声明清晰，但未提炼为'XX是否YY'式的可争辩法学问题，可争辩性不足。",
+          "score_rationale": "可争辩性=2/4（有理论分歧涉及哈特/德沃金，但无明确问题句；非纯政策倡导），枢纽性=2/4（涉及法律解释、司法制度等≥2领域，属学界长期争论），材料新颖性未触发上限。锚定marginal档，给55分。负面检查：主题声明非研究问题扣20分，宏观介绍非深度分析扣15分，合计扣35分；但按规则不低于30分，最终55分。",
+          "evidence_quotes": [
+            "司法场域中的阐释既需要有主观解释来满足追求立法原意的宗旨，又需要有客观解释以满足契合社会需要的宗旨",
+            "哈特将这种分歧的消解交给了法官的自由裁量，德沃金则寄希望法官的有责与整体性原则的遵循"
+          ],
+          "strengths": [
+            "涉及哈特与德沃金理论交锋，有一定理论深度",
+            "结合专利法、公司法等实证材料，覆盖多领域"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'式问题句，仅为'论...'式主题声明",
+            "重理论介绍轻争点聚焦，未推进规范命题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文以'司法裁判中的意义分歧及其消解路径'为题，涵盖语言学、哲学、法学多领域，但未凝练为具体可争辩问题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 70,
+          "band": "good",
+          "summary": "论文以意义阐释理论切入裁判分歧，结合实证与法理争辩，问题明确且具理论纵深。",
+          "core_judgment": "问题具备明确可争辩性与枢纽性，但新概念理论推进说明不足，经扣分后落入良好档。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。锚定excellent档（85分），因新概念包装旧问题扣15分，最终得分70分。",
+          "evidence_quotes": [
+            "意义应当如何定义?在汉语系统中，它近乎于意思或含义。",
+            "如何客观性地予以消解呢？"
+          ],
+          "strengths": [
+            "明确呈现哈特与德沃金解释立场对立，理论交锋充分。",
+            "结合实证问卷与典型案例，将抽象法理争点落地于司法实践。"
+          ],
+          "weaknesses": [
+            "引入哲学‘意义’概念，未充分论证其对传统解释学的解释力提升。",
+            "部分段落偏重理论引介，分歧消解的具体制度路径论证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、逻辑严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 82.80678677558899,
+        "glm-5.1": 60.928152084350586,
+        "kimi-k2.6": 14.317837715148926,
+        "qwen3.6-plus": 80.26099109649658
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 30,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 70
+      },
+      "mean": 48.2,
+      "std": 17.9,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 60,
+          "band": "marginal",
+          "summary": "论文在哲学和司法理论层面有一定文献梳理，但法学内部的争点结构和学派脉络较为模糊，缺少清晰的未竟点和明确指向法学流派的识别。",
+          "core_judgment": "研究地图部分建立，有到达点和本文切入点，但未竟点模糊，争点结构较弱，法学流派识别不足。",
+          "score_rationale": "三要素得分4/6（到达点2分，未竟点1分，本文切入点1分），争点结构=1/2，法学流派=2个（哈特 vs 德沃金），锚定good(65-74)档，但争点结构仅1分且流派覆盖仍显薄弱，综合给60分。",
+          "evidence_quotes": [
+            "哈特从语言的开放结构着手探讨了法律的不确定问题……德沃金则认为解释理论同样适用于法律领域。",
+            "但遗憾的是，人们常常忽略那种方法……对于司法领域意义分歧消解的具体技术却鲜有探究。"
+          ],
+          "strengths": [
+            "梳理了哈特与德沃金两种司法理论立场，构成一对争点。",
+            "通过实证调查揭示了司法实践中存在意义分歧的现象。"
+          ],
+          "weaknesses": [
+            "未竟点表述模糊，仅指出“鲜有探究”，未展开既有研究的具体空白。",
+            "法学流派识别限于哈特/德沃金二元对立，核心争点结构单一。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0 且 法学流派≤1 → 最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "争点结构仅1分，未呈现两个以上可区分的争点，且法学流派仅识别出哈特与德沃金的对立。"
+            }
+          ],
+          "boundary_note": "本文问题在于文献梳理深度和对法学内部争论脉络的呈现不足，而非问题本身缺乏新颖性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，呈现多重争点与丰富流派对立。",
+          "core_judgment": "现状洞察度极高，通过分散式文献定位完整呈现了意义阐释的学术脉络与分歧。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "哈特的法律实证主义和德沃金的法律解释理论提出了法律理论中两种最有代表性的阐释立场",
+            "但对于司法领域意义分歧消解的具体技术却鲜有探究"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了各流派贡献与局限",
+            "争点结构层次分明，从哲学到司法理论层层递进"
+          ],
+          "weaknesses": [
+            "实证部分与理论流派对话稍显松散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点呈现，不评价实证调查方法本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现法学学术争论脉络。",
+          "core_judgment": "本文虽梳理了哲学、语言学、心理学中的意义理论，但未将其组织为法学内部的学术争论，也未建立到达点—未竟点—切入点的研究地图。",
+          "score_rationale": "三要素得分=1/6（到达点1，未竟点0，切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "哈特的法律实证主义和德沃金的法律解释理论提出了法律理论中两种最有代表性的阐释立场",
+            "对于司法领域意义分歧消解的具体技术却鲜有探究"
+          ],
+          "strengths": [
+            "涉及哈特与德沃金两种理论立场对比"
+          ],
+          "weaknesses": [
+            "未说明哈特与德沃金之争是学界既有争论，仅作为作者自行介绍的理论工具",
+            "全文无参考文献列表，无法验证文献覆盖，且未提炼任何具体学术成果及其贡献"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1时，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及哈特、德沃金等理论，无具体学术成果及贡献提炼；未竟点与切入点完全缺失，全文无'本文旨在解决XX学术争议'式表述"
+            }
+          ],
+          "boundary_note": "本文问题涉及司法裁判中的意义分歧，但文献梳理停留在哲学理论介绍层面，未进入法学学术争论脉络。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理意义哲学、阐释学与法理学流派，精准定位司法意义分歧的技术空白，研究地图完整清晰。",
+          "core_judgment": "文内充分呈现到达点、未竟点与切入点，争点脉络分明，流派识别达标，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "哈特将分歧消解交予自由裁量，德沃金寄望整体性原则，但对具体消解技术鲜有探究。",
+            "学界存在作者中心论、文本中心论与读者中心论的对立，司法场域需契合稳定与分歧并存局面。"
+          ],
+          "strengths": [
+            "分散式文献定位精准嵌入论证，三要素逻辑闭环严密。",
+            "跨学科引入认知心理学与法理学对立立场，争点结构立体。"
+          ],
+          "weaknesses": [
+            "部分哲学语言学理论铺垫略长，与法学争点的直接咬合可更紧凑。",
+            "未竟点向切入点的过渡稍显跳跃，实证数据与理论消解路径衔接需强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点地图构建，不涉及裁判技术本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.94135499000549,
+        "glm-5.1": 44.48544001579285,
+        "kimi-k2.6": 12.311099290847778,
+        "qwen3.6-plus": 55.04558801651001
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 90,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 23.1,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文止于对意义分歧现象的宏观描述和既有理论的梳理，未提出任何可重复适用或可具体操作的分析框架。",
+          "core_judgment": "全文无核心分析框架。论文对哲学、心理学和法学理论进行拼盘式介绍，却未提出自己的概念界定、分类标准或分析步骤，后文亦无框架可调用。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4。论文未定义核心概念，无分类标准，无可循步骤，后文无框架调用，且触发概念堆砌和宏观介绍非深度分析负面模式。",
+          "evidence_quotes": [
+            "意义应当如何定义?在汉语系统中，它近乎于意思或含义。在哲学上，意义指的是与自然、社会相连的非实体世界...",
+            "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究，以更好地明证司法实践中的意义阐释的分歧。"
+          ],
+          "strengths": [
+            "对意义生成的哲学、语言学和心理学理论有较多引述。",
+            "通过法官调查揭示司法实践中的理解分歧，具一定实证意识。"
+          ],
+          "weaknesses": [
+            "缺乏核心分析框架：论文没有界定‘意义分歧’的操作化定义，也无分析步骤或分类标准。",
+            "全文为理论梳理和现象例举，未将任何理论转化为可循的司法分析流程或裁判规则。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文无任何分析步骤、分类标准或后文可调用的框架核心术语，完全不具备可操作性。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构力与可操作性，不涉及论文对意义分歧现象的描述是否真实或全面。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以理论梳理为主，缺乏原创分析框架，跨学科概念未转化为法学操作步骤。",
+          "core_judgment": "该维不成立，论文仅归纳既有哲学/语言学立场，未建构可操作的法学分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅有分类但受概念堆砌降档），法学转化度得分=0/4（纯理论移植无操作转化），锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "意义生成系统和意义沟通系统...有时会由于共同遵循的逻辑关系...易于获得一致意见",
+            "只有依靠法官意义阐释的权威性才能消解意义上的分歧"
+          ],
+          "strengths": [
+            "对意义阐释的理论流派梳理较为系统"
+          ],
+          "weaknesses": [
+            "核心术语缺乏操作化定义，未转化为法学分析步骤",
+            "实证调查部分未按前文理论框架进行步骤化分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无操作化定义，无分析步骤，无法学转化"
+            },
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用 → 最高 60 分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "意义生成/沟通系统在后文实证分析中未被调用"
+            }
+          ],
+          "boundary_note": "评价的是框架建构与法学转化，而非理论梳理的全面性或逻辑衔接。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文梳理意义哲学与法律解释理论，但未建构可操作的司法裁判分析框架。",
+          "core_judgment": "分析框架未成立：核心术语未界定，无类型化标准与分析步骤，后文未调用任何框架性术语。",
+          "score_rationale": "框架可操作性得分=0/4（无核心术语定义、无分类标准、无分析步骤、后文无框架调用）；法学转化度得分=0/4（无跨学科概念转化、无裁判规则、无制度方案、无转化步骤使用）。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "司法场域不同于普通的文本范畴，而是意义世界中的特殊领域",
+            "多元化的意义阐释模式更符合现实需要，更能契合司法实践中意义阐释所具备的稳定与分歧兼备的特点"
+          ],
+          "strengths": [
+            "对哈特、德沃金等理论梳理较为系统"
+          ],
+          "weaknesses": [
+            "核心术语'意义''阐释'等未作操作化界定",
+            "后文实证部分完全脱离前文理论框架，各节独立"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'本文所称XX是指'式定义，无分析步骤，无类型化标准，后文未调用任何框架术语"
+            }
+          ],
+          "boundary_note": "本维度仅评框架本身是否成立，不评理论梳理质量或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文系统梳理意义哲学与法律解释理论，但框架停留于理论归纳与实证描述，缺乏原创性操作工具。",
+          "core_judgment": "分析框架以既有理论阐释与现象分类为主，未建构出可重复适用的法学分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。分类明确且后文有调用，但核心概念缺乏法学操作化定义，无具体判断步骤，转化仅停留于理论映射。",
+          "evidence_quotes": [
+            "意义的意向论本质是意识的意向性……决定了意向性指的正是人的意向对某物的关系。",
+            "司法场域中的意义阐释模式，所追求的旨趣是依据立法原意的主观解释，以及符合社会需要的客观解释。"
+          ],
+          "strengths": [
+            "类型化清晰，将意义阐释划分为一元与多元模式，并对应四类司法实证对象。",
+            "结合问卷与访谈数据，有效验证了司法场域中意义分歧的客观存在与普遍性。"
+          ],
+          "weaknesses": [
+            "核心术语多直接移植哲学/语言学表述，缺乏明确的法学内涵界定与适用边界。",
+            "未提供消解意义分歧的可循分析步骤或裁判规则，理论推演未转化为操作指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估框架本身的可操作性与法学转化度，不涉及逻辑衔接严密性与问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 72.45234799385071,
+        "glm-5.1": 55.925150871276855,
+        "kimi-k2.6": 11.416462182998657,
+        "qwen3.6-plus": 88.81526613235474
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 35,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 55
+      },
+      "mean": 36.2,
+      "std": 14.4,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文堆砌了大量哲学、语言学理论与经验调查，但未能形成一条清晰、递进的推理链，导致核心结论“如何消解司法裁判中的意义分歧”失去了有效支撑。",
+          "core_judgment": "论文从“哲学意义”讨论到“多元阐释模式”，再到孤立的数据统计，各板块之间严重断裂，缺乏将材料串联为统一论证的逻辑链条，结论无法从前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=1/4（仅能识别出分散的讨论主题，但无法串联成连贯的递进推理链），反驳处理度得分=0/3（未识别或回应任何反对意见、反例或自身局限）。根据评分锚定规则，推理链完整性≤1，触发broken_inference_chain上限规则，最高50分。鉴于推理链基本断裂，结论无法推出，给30分。",
+          "evidence_quotes": [
+            "意义应当如何定义?在汉语系统中，它近乎于意思或含义。在哲学上，意义指的是与自然、社会相连的非实体世界……",
+            "笔者在北京某基层法院随机邀请了48名法官参与问题形式的调查研究，以更好地明证司法实践中的意义阐释的分歧。"
+          ],
+          "strengths": [
+            "论文引入了丰富的跨学科材料，展现了研究的广度。"
+          ],
+          "weaknesses": [
+            "哲学/心理学理论基础与司法裁判问题之间缺乏有效嫁接，推理严重跳跃。",
+            "经验调查仅作为孤立数据报告，未能有机嵌入论证逻辑以推导出消解分歧的路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性 ≤ 1 → 最高 50 分，论文核心推理步骤无法串联为一条连贯的递进链条，结论难以从前文推出。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文从哲学意义的指称论、意向论大幅跳转到一元/多元阐释模式，又突然转入4个独立的小型经验调查，最后将消解路径归结为“人的神化”和“集体认知”，各部分之间缺乏逻辑过渡，未能形成“理论选择→调查验证→结论”的完整推理链。"
+            }
+          ],
+          "boundary_note": "本文的问题在于论证结构上的断裂，属于逻辑严密性缺陷，而非分析框架的可操作性不足。各部分内容虽可独立存在，但未能围绕“消解路径”这一核心结论进行递进式推导。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过理论梳理与实证调查推导出意义分歧及消解路径，主线推理完整，反驳处理充分。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "不少法律人误认为这种主体间的对话和交流并不具有客观性……而在笔者看来，虽然意义阐释模式不具有工具性……但我们不得不承认该模式真实地描述了意义生成的实际机制",
+            "寄希望于法官人人都能处于理想状态，遵循整体性原则，也常常只会是一厢情愿"
+          ],
+          "strengths": [
+            "理论模式与实证调查形成双重支撑，主线推理链完整",
+            "对反对意见与自身局限有实质性回应与承认"
+          ],
+          "weaknesses": [
+            "心理学机制向司法场域的过渡缺乏规范转译论证",
+            "实证得出的权威独断与理论得出的理想路径未有效整合"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦推理链支撑度，不评判多元化阐释模式是否具可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文呈现理论综述与实证调查，但核心推理链断裂，消解路径未充分论证。",
+          "core_judgment": "论文提出'意义分歧—消解路径'框架，但消解路径的推导缺乏充分支撑，关键结论无法由前文推出。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2依赖度不足、标准4存在关键跳步），反驳处理度得分=1/3（仅标准1识别反对意见，标准2无实质性回应、标准3未承认局限），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "多元化的意义阐释模式更符合现实需要，更能契合司法实践中意义阐释所具备的稳定与分歧兼备的特点。",
+            "集体认知有助于消解个体阐释的分歧，是一条合理的路径。"
+          ],
+          "strengths": [
+            "理论综述部分呈现了从指称论到意向论再到认知心理学的演进链条。",
+            "实证调查部分以数据支撑了司法实践中意义分歧的客观存在。"
+          ],
+          "weaknesses": [
+            "从'意义分歧存在'到'集体认知消解分歧'的推导缺乏中间环节，关键跳步明显。",
+            "提出的'理想路径：人的神化'未回应德沃金理论遭到的经典批评，反驳处理薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评'集体认知'方案本身是否可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了“理论界定—实证检验—路径回应”的推理链，结论可由前文充分支撑。",
+          "core_judgment": "本维度成立，推理链条完整且反驳处理充分，核心结论具备可辩护性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。理论推演与实证数据形成闭环，反驳回应实质且承认局限。",
+          "evidence_quotes": [
+            "司法场域中的意义阐释模式，所追求的旨趣是依据立法原意的主观解释，以及符合社会需要的客观解释。",
+            "现实中的法官虽然可以依照独断解释消解文义分歧，但阐释的客观性就难以衡量，防止滥用自由裁量权也是需要正视的一个问题。"
+          ],
+          "strengths": [
+            "理论梳理与实证调查形成有效互证，推理依赖度高。",
+            "对一元/多元阐释模式及哈特/德沃金分歧进行了实质性回应。"
+          ],
+          "weaknesses": [
+            "结尾“理想路径”部分论证略显跳跃，未充分展开技术细节。",
+            "部分实证数据到理论结论的过渡稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链支撑力与结论可辩护性，不涉及解释框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 80.79440474510193,
+        "glm-5.1": 70.24744129180908,
+        "kimi-k2.6": 10.797038078308105,
+        "qwen3.6-plus": 69.1427550315857
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 63,
+      "std": 26.9,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "结论将分歧消解寄托于法官独断、集体认知等泛化路径，未转化为可争辩的学术主张，无法与共同体有效对话。",
+          "core_judgment": "结论停留在描述分歧现象和复述既有理论，没有提出明确的学术论断，反对者无法定位和回应，对话度严重不足。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=1/4，锚定unacceptable档，给42分。对话度极低（仅略微提及中国语境），制度度仅提及法官主体地位但无具体制度回应，且结论空泛无学术争辩点。",
+          "evidence_quotes": [
+            "要么通过妥协达成共识，要么通过权威的独断压倒对方。",
+            "集体认知有助于消解个体阐释的分歧，是一条合理的路径。"
+          ],
+          "strengths": [
+            "通过法官调查和个案访谈展示了司法实践中存在意义分歧的现象。"
+          ],
+          "weaknesses": [
+            "结论未提出可检验的学术主张，仅复述'法官独断'、'集体认知'等空泛路径。",
+            "全文未回应任何反对意见或承认自身论证局限，缺乏共同体对话意识。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论只是复述既定立场、没有把结论转化为可争辩的学术主张，也没有回应反对意见，共同体对话度≤1，总分通常不得超过50。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分仅列举'理想路径'和'合理路径'，未形成可被反对者定位和反驳的明确学术立场，未回应任何相反观点，整体呈自说自话状态。"
+            }
+          ],
+          "boundary_note": "本维度仅评估结论在学术共同体中的可接受性和对话可能，不评估论证严密性或研究创新性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论在对话与制度语境中高度可接受，提出了契合司法实践的阐释与消解路径。",
+          "core_judgment": "结论明确回应既有争论并承认局限，深度结合中国实证与法条，制度兼容性强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "寄希望于法官人人都能处于理想状态，遵循整体性原则，也常常只会是一厢情愿。",
+            "我国现行的司法体制决定了法官的主体地位，独断性是其根本特征。"
+          ],
+          "strengths": [
+            "明确回应哈特与德沃金争论并指出其缺乏具体技术。",
+            "深度结合中国法条与法官实证调查，制度语境扎实。"
+          ],
+          "weaknesses": [
+            "理想路径（人的神化）与现实路径（集体认知）的衔接略显断裂。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体和制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出司法裁判中意义分歧的消解路径，但结论缺乏明确学术主张，未充分进入共同体对话。",
+          "core_judgment": "论文结论停留在描述现象和复述理论，未形成可争辩的学术主张，也未回应既有争论中的反对意见。",
+          "score_rationale": "共同体对话度得分=2/4（回应了哈特/德沃金之争，但结论未明确与既有争论的关系，也未承认自身局限），制度可接受度得分=2/4（不矛盾法秩序，有中国语境，但未回应制度约束），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "哈特将这种分歧的消解交给了法官的自由裁量，德沃金则寄希望法官的有责与整体性原则的遵循，但对于司法领域意义分歧消解的具体技术却鲜有探究。",
+            "集体认知有助于消解个体阐释的分歧，是一条合理的路径。"
+          ],
+          "strengths": [
+            "梳理了哈特与德沃金的理论对立，触及法解释学核心争论。",
+            "结合中国司法实践进行了实证调查，有本土语境意识。"
+          ],
+          "weaknesses": [
+            "结论仅为'集体认知有助于消解分歧'，未形成可争辩的替代理论。",
+            "未讨论反对意见或自身论证局限，如集体认知如何操作化。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论只是复述既定立场、没有把结论转化为可争辩的学术主张，也没有回应反对意见，共同体对话度通常≤1，总分通常不得超过50。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分仅陈述'集体认知有助于消解个体阐释的分歧'，未说明与德沃金/哈特方案的关系，未承认局限，未回应'集体认知'可能面临的质疑。"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论明确回应解释学争论，立足中国司法实证，提出多元阐释与权威裁量结合路径。",
+          "core_judgment": "该结论具备充分的共同体对话基础与制度兼容性，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "司法场域中的意义阐释也必须遵循这一规律，但同时我们必须考虑到司法场域中意义阐释的独特性",
+            "我国现行的司法体制决定了法官的主体地位，独断性是其根本特征"
+          ],
+          "strengths": [
+            "精准定位解释学争论，明确修正一元模式立场",
+            "结合本土法官实证与现行法条，语境契合度高"
+          ],
+          "weaknesses": [
+            "实证样本量偏小且方法较简，削弱结论普适性",
+            "结论部分因文本截断未完整呈现最终转化方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 101.08316016197205,
+        "glm-5.1": 42.50179409980774,
+        "kimi-k2.6": 14.010337829589844,
+        "qwen3.6-plus": 62.6705219745636
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 88,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 67.5,
+      "std": 22.6,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文仅在结尾处以极为空泛的措辞提及“集体认知有助于消解个体阐释的分歧”等方向，未形成任何具体、可定位的延展路径。",
+          "core_judgment": "不存在真实延展路径，仅出现口号式展望。",
+          "score_rationale": "原始分25，对应bonus=0。论文未提出具体后续研究问题、制度完善方向或理论修正路径，结尾的“集体认知”提法缺乏精细展开，属于空泛拔高，落入低分段。",
+          "evidence_quotes": [
+            "集体认知有助于消解个体阐释的分歧，是一条合理的路径。",
+            "将一般法律个别化，将抽象正义变为具体正义是司法裁判者的主要任务。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾只给出“集体认知”这一概括方向，无具体操作、条件或机制设计。",
+            "通篇未见对理论深化、制度完善或实务改进路径的具体说明。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾段仅称“集体认知有助于消解个体阐释的分歧，是一条合理的路径”，未说明集体认知的具体构建方式、适用边界或后续检验问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评价论文是否指明了未来可推进的方向、问题或路径；结论是否被接受或论证是否严密属于其他维度。该文未提供具体延展路径，故评为低分。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "提出了“集体认知”作为消解分歧的延展方向，并指出了理想路径的局限与后续争点。",
+          "core_judgment": "存在明确但精细度有限的延展路径，即通过集体认知消解分歧及防范自由裁量权滥用。",
+          "score_rationale": "原始分65，对应bonus档位3分（>=60）。作者指出了德沃金理想路径的局限及防范自由裁量权滥用的后续方向，并提出“集体认知”为合理路径，与实证衔接但精细度有限。",
+          "evidence_quotes": [
+            "现实中的法官虽然可以依照独断解释消解文义分歧，但阐释的客观性就难以衡量，防止滥用自由裁量权也是需要正视的一个问题。",
+            "从访谈中，我们可以发现，集体认知有助于消解个体阐释的分歧，是一条合理的路径。"
+          ],
+          "strengths": [
+            "从实证访谈中提炼出“集体认知”这一可定位的延展方向",
+            "明确指出理想路径局限，为后续研究自由裁量权控制留下入口"
+          ],
+          "weaknesses": [
+            "延展路径缺乏精细度，未展开“集体认知”如何制度化",
+            "文本截断导致缺乏系统性的未来展望或局限承认章节"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "“集体认知”如何制度化及自由裁量权如何约束属于未来实务与理论的延展问题，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文提出意义分歧消解路径后未指明后续研究方向，结尾以理想化法官形象收束，缺乏具体延展。",
+          "core_judgment": "不存在真实延展路径，仅以对法官理想能力的呼吁作结，未形成可定位的后续研究或制度深化方向。",
+          "score_rationale": "原始分35分，bonus=0。论文在提出'集体认知有助于消解分歧'后未展开后续机制设计，'人的神化'理想路径无具体制度转化方向；结尾呼吁法官'最大可能地接近'整体性原则，属口号式展望，未满足有效延展信号任一类。",
+          "evidence_quotes": [
+            "集体认知有助于消解个体阐释的分歧，是一条合理的路径。",
+            "虽然现实中的法官是无法完成这种追究到底的终极式结论的质询，但是，法官可以通过对法律的理性理解和研究，最大可能地接近"
+          ],
+          "strengths": [
+            "正文对哈特、德沃金理论有比较分析，为延展提供潜在基础。"
+          ],
+          "weaknesses": [
+            "未承认正文实证局限或提出下一轮争点。",
+            "理想路径缺乏从理想到制度的具体转化机制。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾以法官'最大可能地接近'整体性原则作结，未说明如何接近、需克服何种制度障碍或比较何种替代方案。"
+            }
+          ],
+          "boundary_note": "本维度关注未来研究方向而非当下结论可接受性。论文结尾对法官能力的呼吁属于结论层面的价值期许，未转化为可检验的研究议程或制度完善路径。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "指出自由裁量权约束与集体认知路径，但受文本截断影响延展论述未充分展开。",
+          "core_judgment": "存在真实延展路径，聚焦于裁量权客观化衡量与集体认知机制的程序化建构。",
+          "score_rationale": "原始分45，对应bonus=2。原文虽截断，但已明确指向“防止滥用自由裁量权”与“集体认知消解分歧”的具体深化方向，与实证发现衔接，然缺乏系统论证与边界条件设定。",
+          "evidence_quotes": [
+            "现实中的法官虽然可以依照独断解释消解文义分歧，但阐释的客观性就难以衡量，防止滥用自由裁量权也是需要正视的一个问题。",
+            "从访谈中，我们可以发现，集体认知有助于消解个体阐释的分歧，是一条合理的路径。"
+          ],
+          "strengths": [
+            "精准定位自由裁量权客观化衡量的实务痛点",
+            "提出集体认知作为消解分歧的可行深化方向"
+          ],
+          "weaknesses": [
+            "受文本截断限制，未展开具体制度衔接或程序控制方案",
+            "延展路径偏宏观，缺乏可检验的反驳入口或实证设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估“未来如何深化裁量权约束与集体认知机制”，不涉及当下结论是否被法学共同体接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.38592791557312,
+        "glm-5.1": 41.93544101715088,
+        "kimi-k2.6": 12.847376823425293,
+        "qwen3.6-plus": 72.23421001434326
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 65,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 42.5,
+      "std": 17.1,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 55.12,
+      "weighted_total": 55.7
+    },
+    "aggregation_strictest": {
+      "final_score": 31.76,
+      "weighted_total": 32.5
+    },
+    "avg_std": 20.3,
+    "max_std": 26.9,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 23.4,
+    "composite_score": -20.3,
+    "worst_dimension": "logical_coherence",
+    "worst_std": 26.9
+  }
+}

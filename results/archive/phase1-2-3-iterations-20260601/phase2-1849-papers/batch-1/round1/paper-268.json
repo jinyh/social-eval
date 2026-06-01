@@ -1,0 +1,1162 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法大数据在中国法院的应用与前景展望.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "司法大数据是一个处于不断发展变化之中的新生事物。...本文所探讨的司法大数据主要是指面向法院的司法大数据...",
+          "一是有助于提升司法质效。...裁判文书辅助生成系统...减少了30%的工作量。",
+          "二是有利于维护司法公正。同案不同判预警是对法官裁判结果偏离度的分析提醒...",
+          "通过司法大数据在裁判文书自动生成、文书自动纠错等领域的运用极大地提高了审判效率；司法大数据在类案推送、量刑辅助、偏离预警、判决结果预测等领域的运用提高了办案质量...",
+          "司法大数据在中国法院最基础的应用, 在于通过对案件的前审后续关联...",
+          "解决执行难问题的第二大难题，在于应对当事人逃避执行、隐匿财产行为。...建立跨地区、跨部门、跨领域的联合惩戒机制...",
+          "司法大数据还能建立司法纠错预警系统，对法官进行‘业务体检’和‘廉政体检’...",
+          "在矛盾应对方面，司法大数据将实现社会治理从矛盾应对到风险预防的飞跃..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "text_quality_risk: 正文中存在一处明显OCR/排版残留（“台等系统中。从法院内部来看...”段落开头不完整，疑似漏句），但核心论点、结构和主要论证清晰可辨，不影响整体评审。"
+      ],
+      "evidence_quotes": [
+        "本文所探讨的司法大数据主要是指面向法院的司法大数据，即全国3500多家法院、1万多个人民法庭在司法工作中形成的审判流程、执行信息、法律文书...",
+        "司法大数据在中国法院最基础的应用, 在于...为法官全过程研讨案情、掌握案件脉络提供支持。...智能辅助办案系统...提高了审判效率...促进了公平正义...",
+        "建立覆盖全国、基本囊括被执行人主要财产形式的网络化、自动化的查控系统...充分体现了中国的体制优势...",
+        "司法大数据应用还要遵循司法规律，明确其工具性定位。...我们不应将裁判的决定权让渡给机器或人工智能..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国法院司法大数据为明确的研究对象，系统梳理了中国法院在这一领域的制度建设、实践发展和具体应用，深刻解释了中国司法实践中的真实难题（如'案多人少'、'执行难'、'虚假诉讼'等），并尝试形成了关于大数据辅助司法、技术工具定位与司法规律等可复核的法学命题。文本质量良好，可直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR截断导致部分段落开头缺失或语义断裂（如'台等系统中。'、'流地位，'、'据，既要'等）",
+          "期刊页码混入正文（如125、126、127等）",
+          "脚注编号及内容格式乱码，部分脚注内容直接插入正文段落中"
+        ],
+        "evidence_quotes": [
+          "台等系统中。从法院内部来看，司法大数据的生产者和使用者并非同一个群体...",
+          "流地位，大数据的分析虽然越来越多，而且应用得越来越广，但仍处于无法足够“独当一面”的尴尬境地。",
+          "据，既要科学合理利用，还要严格管理，充分发挥大数据资源的效能。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "司法大数据在法院的应用也得到了蓬勃发展，在诉前、诉中、诉后提供了全流程的智能化辅助和决策支持。",
+          "司法的本质在于它是一种依靠人类理性通过争辩和对话获致裁判结论的过程，在其中起主导和决定作用的永远是人。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "完全不能定位可争辩法学问题：全文为司法大数据应用场景的政策复述与材料堆砌（列举系统名称、统计数据、政策文件），缺乏对法律规范、制度或理论的争辩与反思。",
+          "未形成理论转化或可复核命题：仅陈述“大数据是辅助工具”等常识性结论，未形成法学概念、判断标准、解释路径或规范命题。"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：OCR段落截断与页码混入",
+        "项目口径：纯政策描述与材料堆砌，缺乏法学争辩与理论命题"
+      ],
+      "evidence_quotes": [
+        "司法的本质在于它是一种依靠人类理性通过争辩和对话获致裁判结论的过程，在其中起主导和决定作用的永远是人。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "纯政策复述与材料堆砌，完全不能定位可争辩法学问题，且未形成理论转化或可复核命题"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "因纯政策复述与材料堆砌、缺乏可争辩法学问题与理论转化，判定为明显不适格，建议拒绝进入六维评审。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码残留，如'(3)'、'(4)'等编号后注释内容混杂于正文",
+          "期刊页码信息混入正文，如'125'、'126'等页码标记散见于段落间",
+          "参考文献列表缺失，文末标注'（无）'",
+          "部分段落存在OCR分栏残留痕迹，如'中国法学 2021 年第4 期'重复出现"
+        ],
+        "evidence_quotes": [
+          "司法大数据在中国法院的应用与前景展望\n125",
+          "中国法学\n2021 年第4 期\n126",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "司法大数据是一个处于不断发展变化之中的新生事物",
+          "本文所探讨的司法大数据主要是指面向法院的司法大数据，即全国3500 多家法院、1 万多个人民法庭在司法工作中形成的审判流程、执行信息、法律文书、庭审活动信息、司法政务、司法人事、外部协查等数据的总和及其关联关系",
+          "面向实践，司法大数据发展将践行以人民为中心的发展思想，秉持'服务司法实践、服务公众需求、服务社会发展'理念"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "文章为纯粹的技术应用综述与政策报告文体，缺乏可争辩的法学理论问题或规范命题",
+          "全文以描述性、介绍性、展望性内容为主，未形成任何可检验、可反驳的法学判断或解释框架",
+          "虽涉及中国司法实践，但仅将中国法院作为技术应用场域进行经验性描述，未将中国实践作为需要理论解释的难题加以分析",
+          "无理论转化或可复核命题：未提出任何法学概念、判断标准、解释路径或制度命题，仅有政策倡导和技术方案罗列"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、期刊页码混入、参考文献缺失，但核心内容可读",
+        "项目口径：文章属于技术应用综述与政策报告，非学术性法学论文，缺乏可争辩法学问题和理论命题"
+      ],
+      "evidence_quotes": [
+        "本文所探讨的司法大数据主要是指面向法院的司法大数据",
+        "积极拥抱信息技术革命与创新发展，通过司法大数据与人工智能的有机结合'让社会更健康'，或许是未来司法大数据的发展趋势"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "文章为纯粹的技术应用综述与政策报告文体，缺乏可争辩的法学理论问题或规范命题",
+        "全文以描述性、介绍性、展望性内容为主，未形成任何可检验、可反驳的法学判断或解释框架",
+        "虽涉及中国司法实践，但仅将中国法院作为技术应用场域进行经验性描述，未将中国实践作为需要理论解释的难题加以分析",
+        "无理论转化或可复核命题：未提出任何法学概念、判断标准、解释路径或制度命题，仅有政策倡导和技术方案罗列"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "该文为典型的技术应用综述与政策工作报告，虽涉及中国法院司法实践，但属于经验性描述和政策倡导，不具备学术性法学论文的基本特征。建议直接排除，不进入六维评价。若项目口径允许纳入'法治实践报告'类文本，可考虑作为边界案例复核，但当前项目口径明确要求'可争辩法学问题'和'理论转化或可复核命题'，故应判定为obviously_ineligible。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页眉页脚及期刊名称、期号、页码混入正文（如‘中国法学\\n2021 年第4 期\\n126’）",
+          "脚注编号与正文存在断行粘连",
+          "部分段落因PDF分栏提取导致非自然换行"
+        ],
+        "evidence_quotes": [
+          "司法大数据在中国法院的应用与前景展望\\n125\\n券、网络资金等信息...",
+          "中国法学\\n2021 年第4 期\\n126\\n升级，平台可从审判业务数据自动生成..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "本文所探讨的司法大数据主要是指面向法院的司法大数据，即全国3500 多家法院、1 万多个人民法庭在司法工作中形成的审判流程、执行信息、法律文书...数据的总和及其关联关系。",
+          "司法大数据在司法领域的应用与定位只能是辅助工具...不应将裁判的决定权让渡给机器或人工智能，司法的本质在于它是一种依靠人类理性通过争辩和对话获致裁判结论的过程",
+          "依托司法大数据支撑的失信被执行人名单制度...是我国社会诚信体系建设的重大突破，是推进国家治理体系和治理能力现代化的重要举措和重大创新"
+        ],
+        "boundary_reasons": [
+          "文章高度聚焦中国法院司法大数据建设与应用实践，具有明确的中国问题指向与详实的本土实践解释；但整体行文偏向政策梳理、技术应用成效总结与宏观展望，缺乏明确的可争辩法学命题或规范分析；关于‘算法辅助裁判的正当性边界’‘司法数据权属与公开规制’‘技术赋能与司法规律冲突’等议题仅停留在原则性/政策性论述，尚未形成可复核的法学概念或解释路径，需专家裁断其理论深度是否达到自主知识体系构建标准。"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "文本工程：页眉页脚/期刊信息混排、脚注断行粘连、分栏换行异常，但不影响核心论点定位",
+        "项目口径：需专家评估其‘技术辅助司法’论述是否隐含可争辩的教义学或法理学命题，以及是否具备理论转化潜力"
+      ],
+      "evidence_quotes": [
+        "本文所探讨的司法大数据主要是指面向法院的司法大数据，即全国3500 多家法院...数据的总和及其关联关系。",
+        "司法大数据在司法领域的应用与定位只能是辅助工具...不应将裁判的决定权让渡给机器或人工智能"
+      ],
+      "boundary_reasons": [
+        "文章高度聚焦中国法院司法大数据建设与应用实践，具有明确的中国问题指向与详实的本土实践解释；但整体行文偏向政策梳理、技术应用成效总结与宏观展望，缺乏明确的可争辩法学命题或规范分析；关于‘算法辅助裁判的正当性边界’‘司法数据权属与公开规制’‘技术赋能与司法规律冲突’等议题仅停留在原则性/政策性论述，尚未形成可复核的法学概念或解释路径，需专家裁断其理论深度是否达到自主知识体系构建标准。"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议进入六维评分流程。请评审专家重点考察：1. 文中关于‘司法大数据定位只能是辅助工具’‘不应将裁判决定权让渡给机器’等论述，是否可进一步提炼为具有可争辩性的法理学或程序法学命题；2. 结合中国司法数字化改革实践，评估其是否具备转化为中国自主法学知识体系（如数字法学、智慧司法理论）的潜力；3. 文本格式问题不影响实质评审，可正常推进。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "全文是对司法大数据应用现状与前景的系统介绍，未提出可争辩的法学研究问题。",
+          "core_judgment": "论文仅为主题声明和宏观介绍，缺乏法学层面的理论分歧与可辩驳的核心命题，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性未单独触发上限但无研究推进。触发no_justiciable_question规则，上限50分，综合扣分后得35分。",
+          "evidence_quotes": [
+            "本文所探讨的司法大数据主要是指面向法院的司法大数据…",
+            "习近平总书记多次强调…要运用大数据提升国家治理现代化水平。"
+          ],
+          "strengths": [
+            "对司法大数据发展历程及应用场景的梳理较为全面系统。"
+          ],
+          "weaknesses": [
+            "全文无问题句，只有主题声明和政策倡导，缺乏法学争点。",
+            "未呈现学者观点交锋，仅系统归纳既定立场和应用情况。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何可争辩的问题句，只有主题声明和政策倡导，无法学分歧与论证。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "通篇为发展历程、应用成效、挑战与前景的介绍，无“XX是否YY”或“如何ZZ”等研究问题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否构成可争辩的法学争点，不评材料丰富度或政策价值。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为司法大数据应用的宏观介绍与政策倡导，缺乏法学争点与理论分歧。",
+          "core_judgment": "该文仅为主题声明与政策归纳，未提出可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性已触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档，基础分30扣50分，受最低限制给30分",
+          "evidence_quotes": [
+            "司法大数据在中国法院最基础的应用,在于通过对案件的前审后续关联...",
+            "未来，应进一步丰富数据的应用场景，加强对数据的分析利用..."
+          ],
+          "strengths": [
+            "覆盖了司法大数据在法院应用的多个场景与最新数据"
+          ],
+          "weaknesses": [
+            "无核心法学争点与问题句",
+            "全文为单向政策倡导，无理论交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为'推进XX'的主题声明与政策归纳"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以新系统与新数据统计作为主要创新，未改变法学命题"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为司法大数据应用现状的介绍性综述，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文无明确问题句，仅有主题声明与政策倡导，不满足法学研究问题的可争辩性要求。",
+          "score_rationale": "可争辩性=0/4（无问题句、非法学层面争议、无理论分歧、纯政策倡导），枢纽性=0/4（未聚焦任何争点），材料新颖性未触发上限。负面模式扣分：检查1不扣分（无新概念包装），检查2扣20分（无任何学者观点交锋，纯系统归纳），检查3扣30分（无问题句，仅主题声明）。扣分合计50分，但规则要求扣分后不低于30分，故取30分。",
+          "evidence_quotes": [
+            "司法大数据在中国法院的应用与前景展望",
+            "推进审判工作的高效化、智能化与精细化"
+          ],
+          "strengths": [
+            "主题具有现实关注度"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的法学问题句",
+            "全文为政策介绍与经验总结，无理论交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，仅陈述'司法大数据的应用与前景'这一主题"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "标题为'司法大数据在中国法院的应用与前景展望'，涵盖六大应用领域，无具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文系司法大数据应用现状与政策展望的宏观综述，缺乏可争辩的法学研究问题。",
+          "core_judgment": "问题维度不成立，全文为政策陈述与系统介绍，无可争辩的法学争点。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性已触发上限，锚定unacceptable档，给40分；前置检查扣70分，保底30分。",
+          "evidence_quotes": [
+            "司法大数据是一个处于不断发展变化之中的新生事物。",
+            "司法大数据在人民法院的应用，是一个长期探索并不断优化的过程。"
+          ],
+          "strengths": [
+            "全面梳理了司法大数据在法院各环节的应用场景。"
+          ],
+          "weaknesses": [
+            "全文无明确问题句与理论交锋，仅为政策与现状归纳。",
+            "依赖新数据与概念包装，缺乏规范命题与解释路径推进。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无“是否/如何”问题句，仅为宏观介绍与政策倡导"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性与材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.252394914627075,
+        "glm-5.1": 46.900532960891724,
+        "kimi-k2.6": 14.624088048934937,
+        "qwen3.6-plus": 66.10310912132263
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 31.2,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文全景式介绍司法大数据应用实践，但未梳理既有学术研究脉络，无任何法学流派或争点展开，构成一份技术报告而非学术问题对话。",
+          "core_judgment": "全文缺乏学术文献梳理与研究地图构建，未能将实践叙述置于既有的法学理论／制度争论中，文献综述完全缺位，因此本维度评分大幅度受限。",
+          "score_rationale": "三要素总分=0/6（到达点0，未竟点0，本文切入点0），争点结构=0/2，法学流派=0个，锚定 unacceptable 档，上限55分，综合考虑文内完全无文献定位和研究缺口呈现，给30分。",
+          "evidence_quotes": [
+            "关于司法大数据的概念，目前并没有达成充分共识。",
+            "本文所探讨的司法大数据主要是指面向法院的司法大数据，即全国3500多家法院……产生的数据总和及其关联关系。"
+          ],
+          "strengths": [
+            "对司法大数据发展历程与应用场景的描述翔实、系统。"
+          ],
+          "weaknesses": [
+            "全文无任何学术文献引用或批判性梳理，无法定位现有研究到达点与未竟点。",
+            "未识别或呈现任何法学流派、理论分歧或争点结构，研究地图完全缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无到达点、无未竟点、无本文切入点，未建立研究地图，上限55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文仅一处非学术性脚注引文（孙海波2020），参考文献列表为空，无学派/争点呈现，研究地图完全缺失。"
+            }
+          ],
+          "boundary_note": "本文主要进行经验描述与前瞻展望，缺乏对既有法学研究的定位与批判，属于文献定位缺失而非问题创新性不足。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏学术研究地图，仅罗列实践成效与挑战，未梳理学界争点。",
+          "core_judgment": "现状洞察维度不成立，文章为工作报告体，无学术文献定位与争点结构。",
+          "score_rationale": "三要素得分=2/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "孙海波...反思智能化裁判...起主导和决定作用的永远是人",
+            "数据安全等制度建设还滞后于应用等"
+          ],
+          "strengths": [
+            "详实呈现了司法大数据在法院的应用现状与数据"
+          ],
+          "weaknesses": [
+            "无学术文献梳理，未呈现学界争点与流派",
+            "未竟点仅为实践挑战，缺乏学术缺口定位"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分1-2：研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素仅得2分，未梳理学界研究成果与缺口，仅罗列实践挑战"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理深度，不评大数据应用本身的新颖性",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本文属于政策实践报告型文章，未建立'到达点—未竟点—切入点'的研究地图，也未识别任何法学流派或学术争点。",
+          "score_rationale": "三要素得分=0/6（到达点0+未竟点0+切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给35分",
+          "evidence_quotes": [
+            "司法大数据是一个处于不断发展变化之中的新生事物。关于司法大数据的概念，目前并没有达成充分共识",
+            "司法大数据在中国法院的应用与前景展望"
+          ],
+          "strengths": [
+            "实践数据详实，覆盖法院信息化建设的多个维度"
+          ],
+          "weaknesses": [
+            "无任何学术文献综述，未定位既有研究",
+            "未识别任何法学理论争点或解释路径分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1分，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未提及任何学术研究成果、理论争议或研究缺口，仅有政策文件与实践数据堆砌"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理与学术定位，不评问题新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "本文侧重实务经验总结，缺乏学术文献梳理与争点建构。",
+          "core_judgment": "研究地图三要素存在缺口，未形成学术争点脉络，文献定位功能较弱。",
+          "score_rationale": "三要素得分=3/6，争点结构=0/2，法学流派=1个，锚定marginal档，给58分",
+          "evidence_quotes": [
+            "关于司法大数据的概念，目前并没有达成充分共识。",
+            "对数据的统计分析仍停留在较为浅层次的局面。"
+          ],
+          "strengths": [
+            "明确指出了数据孤岛、检索技术局限等实践未竟点。",
+            "结合法院信息化建设历程，提供了详实的实务数据支撑。"
+          ],
+          "weaknesses": [
+            "未梳理具体学术成果与理论贡献，到达点缺失。",
+            "全文为线性实务综述，未提炼对立学术观点或解释路径分歧。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构为0且流派≤1触发上限",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文呈政策报告体例，无学术争辩脉络"
+            }
+          ],
+          "boundary_note": "本文属实务应用梳理，未构建学术文献对话脉络，系文献定位问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.43505883216858,
+        "glm-5.1": 53.78875398635864,
+        "kimi-k2.6": 10.680134057998657,
+        "qwen3.6-plus": 92.85377097129822
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 58
+      },
+      "mean": 42,
+      "std": 12.4,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "本文是对中国法院司法大数据实践的系统梳理，未建构可操作的分析框架，缺少原创性概念、分类标准和可循的分析步骤。",
+          "core_judgment": "论文属于政策理论梳理型，基本工作是归纳既有实践与权威表述，没有提出可重复适用的法学分析框架，框架建构力严重不足。",
+          "score_rationale": "论文为实务描述型，触发政策理论梳理型上限规则。概念界定、分类、分析步骤、后文调用均不满足，框架可操作性得分=1，法学转化度得分=0，总分受限于60分上限，结合规则给20分。",
+          "evidence_quotes": [
+            "本文所探讨的司法大数据主要是指面向法院的司法大数据……这些数据既包括审判执行活动中……结构化信息，也包括……半结构化……还包括……非结构化数据。",
+            "司法大数据在中国法院最基础的应用, 在于通过对案件的前审后续关联……"
+          ],
+          "strengths": [
+            "对司法大数据的概念、发展历程和应用领域进行了较为全面的分类梳理。",
+            "提供了丰富的应用实例和统计数据，具有一定的资料整理价值。"
+          ],
+          "weaknesses": [
+            "仅将司法大数据划分为内部/外部、六类来源，未提出可操作的分析维度或判断标准。",
+            "全文以归纳、阐释既有实践为主，无原创分析步骤或裁判规则，无法学转化。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文框架可操作性上限为2，法学转化度上限为1，总分不超过60分。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文集中梳理司法大数据概念、发展历程、应用实践和前景展望，核心术语来自实务表述，无原创分析框架。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架建构力，论文在资料梳理和实务介绍上的价值不属于本维度评价范围。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文为政策梳理型，仅罗列分类与现状，缺乏原创分析框架与法学转化。",
+          "core_judgment": "论文未建构可操作的分析框架，亦未将大数据概念转化为法学分析步骤，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅有数据分类，受概念堆砌降档），法学转化度得分=0/4（无裁判规则或操作指引），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "本文所探讨的司法大数据主要是指面向法院的司法大数据，即...数据的总和及其关联关系。",
+            "应进一步丰富数据的应用场景，加强对数据的分析利用...使得数据能够更好地支撑分析结论。"
+          ],
+          "strengths": [
+            "对司法大数据的来源与面向对象进行了清晰的分类。"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的分析步骤或判断标准，仅为主题整理。",
+            "跨学科概念未转化为法学操作步骤，停留在应用场景描述。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无操作化定义，无分析步骤，无法学转化步骤，仅描述应用场景。"
+            }
+          ],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价大数据应用现状梳理的全面性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型综述论文，无原创分析框架，仅有现象描述与政策归纳。",
+          "core_judgment": "该文未建构可重复适用的分析框架，属于典型的政策阐释与现状综述，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅有'内部/外部数据'分类，无分析步骤或判断标准；核心术语'司法大数据'有定义但后文未形成操作框架），法学转化度得分=0/4（无跨学科概念转化、无裁判规则/程序指引、无制度设计方案、无操作步骤调用），触发'no_operational_framework'上限规则，最终35分。",
+          "evidence_quotes": [
+            "从数据的面向对象看，司法大数据可分为面向内部的全量数据仓库和面向外部可公开信息形成的较全量数据仓库",
+            "司法大数据在中国法院的应用与前景展望"
+          ],
+          "strengths": [
+            "对司法大数据应用场景进行了较全面的梳理"
+          ],
+          "weaknesses": [
+            "全文以政策阐释和现状描述为主，无原创分析框架",
+            "无步骤化分析流程或判断标准，'三个服务''六个方面'仅为内容提纲"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语'司法大数据'有定义但无操作化步骤；仅有'内部/外部''结构化/半结构化/非结构化'等分类，无分析步骤或判断标准；全文为政策梳理与现象描述，无原创框架"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "本文属政策实务综述型，侧重既有实践归纳，未建构原创分析框架。",
+          "core_judgment": "框架建构力较弱，属政策实务综述，缺乏原创分析步骤与法学转化。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=0/4，锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "本文所探讨的司法大数据主要是指面向法院的司法大数据，即全国3500多家法院……数据的总和及其关联关系。",
+            "司法大数据在法院的应用也得到了蓬勃发展，在诉前、诉中、诉后提供了全流程的智能化辅助和决策支持。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，数据分类标准明确。",
+            "系统归纳了司法大数据在审判执行等场景的应用。"
+          ],
+          "weaknesses": [
+            "全文以宏观介绍与政策阐释为主，缺乏分析步骤。",
+            "未将技术概念转化为可操作的裁判规则或适用流程。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_review_cap",
+              "rule": "政策理论梳理型识别规则：归纳既有立场为主，无原创框架",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以归纳既有立场为主，无原创分析步骤，触发政策梳理型上限。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉逻辑衔接与问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.06423211097717,
+        "glm-5.1": 54.96746802330017,
+        "kimi-k2.6": 12.099398851394653,
+        "qwen3.6-plus": 71.7588381767273
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 52
+      },
+      "mean": 38,
+      "std": 13.9,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 65,
+          "band": "good",
+          "summary": "论文为实务型综述报告，缺乏核心论证命题，各板块独立成章，推理链依赖度不足。",
+          "core_judgment": "论文作为全景式实务报告，以现象枚举与效果展示替代了推理论证，缺乏一个由中心论点驱动、逐步推演的严密逻辑链条。",
+          "score_rationale": "推理链完整性得分=2/4（可复述主线但步骤多为并列，缺乏依赖关系），反驳处理度得分=1/3（仅承认若干技术挑战，缺乏对反对观点的识别与实质性回应），锚定good档，给65分。",
+          "evidence_quotes": [
+            "司法大数据是一个处于不断发展变化之中的新生事物。关于司法大数据的概念，目前并没有达成充分共识。",
+            "司法大数据在法院的应用也得到了蓬勃发展...但也面临数据来源不足、智能化不足、数据的应用不够等挑战。"
+          ],
+          "strengths": [
+            "文章“概念界定—发展历程—应用成效—挑战展望”的主线可被复述，结构完整。",
+            "结尾部分明确承认了数据安全、人才匮乏等现行局限，避免了武断的全能论宣称。"
+          ],
+          "weaknesses": [
+            "全文为并列式“成果罗列”，六大应用板块各自独立，删除任何一块均不影响他处，缺乏层层推进的依赖式推理。",
+            "通篇未识别或回应任何理论或制度上的反对意见，仅将外部意见归为需克服的“技术挑战”。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度≤1时，逻辑严密性上限为70分。",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "全文以并列方式展开应用场景，未形成层层依赖的推理链，且无实质性反驳回应，触发了局部推理薄弱的上限规则。"
+            }
+          ],
+          "boundary_note": "本文的问题在于将“应用场景的归纳”等同于“逻辑论证”，未形成推导唯一核心结论的论证链条，属于逻辑结构缺陷而非框架可操作性不足。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文依“概念-应用-挑战-对策”主线推进，逻辑链条完整，反驳与局限承认充分。",
+          "core_judgment": "推理链完整且结论可辩护推出，反驳处理到位，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。主线推导充分，局部对策（如AI手环）跳步未动摇核心结论，给85分。",
+          "evidence_quotes": [
+            "警惕司法大数据万能论……司法的本质在于它是一种依靠人类理性通过争辩和对话获致裁判结论的过程",
+            "数据的生产、使用和加工无法形成一个闭环……一定程度影响到数据质量的提升"
+          ],
+          "strengths": [
+            "主线“现状-挑战-对策”推理依赖度高，层层递进",
+            "明确回应了“大数据万能论”并承认自身工具性局限"
+          ],
+          "weaknesses": [
+            "局部对策推导跳步，如“AI手环监测预警”缺乏合法性论证",
+            "从“法官压力”直接推出“大数据心理体检”逻辑牵强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "局部对策的实操性与伦理争议属框架可操作性，不扣逻辑分；主线支撑充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "综述性描述文，缺乏论证型论文的推理链条。",
+          "core_judgment": "本文属于政策描述/工作报告型文本，非论证型论文，无法形成可检验的推理链与反驳处理。",
+          "score_rationale": "推理链完整性得分=1/4（仅能识别'描述现状→列举应用→展望未来'三步描述链，但各步之间为并列堆砌而非逻辑推导；无依赖关系，删除任一部分不影响其他），反驳处理度得分=0/3（无任何反对意见、分歧路径或局限承认），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "司法大数据在中国法院的应用与前景展望",
+            "当然，司法大数据应用还要遵循司法规律，明确其工具性定位"
+          ],
+          "strengths": [
+            "结构清晰，按应用领域分块陈述",
+            "部分段落内部有事实到功能的归纳"
+          ],
+          "weaknesses": [
+            "无核心论题与可辩护结论，全文为描述性堆砌",
+            "无反驳处理与自我局限承认，'当然'段仅为政策宣示"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文是政策报告而非学术论证，逻辑严密性维度对其不适配，但按规则仍需评分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“应用成效-现实挑战-治理对策”的完整实务推理链，逻辑自洽。",
+          "core_judgment": "核心结论可由前文实证材料与挑战分析充分支撑，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "司法大数据在司法领域的应用与定位只能是辅助工具……不应将裁判的决定权让渡给机器",
+            "数据的生产、使用和加工无法形成一个闭环，从某种程度上来说，这种状况一定程度影响到数据质量的提升"
+          ],
+          "strengths": [
+            "应用现状到挑战再到对策的推理链条完整，层层递进",
+            "明确回应“大数据万能论”，承认数据质量与人才短板"
+          ],
+          "weaknesses": [
+            "部分对策建议偏宏观，与具体挑战的对应论证稍显简略",
+            "技术实现路径的规范性推演不足，依赖经验描述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估“现状-问题-对策”的推导逻辑，不评价技术方案的落地可行性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.76024293899536,
+        "glm-5.1": 44.21106767654419,
+        "kimi-k2.6": 11.062734842300415,
+        "qwen3.6-plus": 62.68703007698059
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 73.2,
+      "std": 15.9,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文主要复述政策立场和应用现状，其结论缺乏可供学术界争辩的核心论点，难以形成有效的学术对话。",
+          "core_judgment": "结论停留在政策倡导层面，未转化为可被辩驳的学术主张，共同体对话度严重不足。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=4/4，适用理论/制度论文的对话度上限规则，结论无法进入共同体语境，上限50分。但因全文几乎无学术对话且结论空泛，实际给48分。",
+          "evidence_quotes": [
+            "积极拥抱信息技术革命与创新发展，通过司法大数据与人工智能的有机结合‘让社会更健康’，或许是未来司法大数据的发展趋势。",
+            "司法大数据在人民法院的应用会进一步丰富和深化...依靠我们的制度优势，构建具有中国特色的司法大数据应用体系..."
+          ],
+          "strengths": [
+            "全面汇总了中国法院司法大数据的实践成就",
+            "在制度语境上与现行政策和法治原则高度兼容"
+          ],
+          "weaknesses": [
+            "结论仅为方向性展望，未回应法学界关于算法黑箱、程序正义等学术争论",
+            "全文未承认任何反对意见或论证局限，缺乏学术共同体对话的姿态"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，结论未进入学术共同体语境，无法被认真回应。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分只表态‘前景展望’，未提出任何可与既有法学观点争辩、修正或挑战的具体论点。"
+            }
+          ],
+          "boundary_note": "本文的问题在于结论缺乏可争辩的学术内核，而非仅未来延展不足。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "结论复述官方立场，缺乏学术争辩，制度兼容度高但共同体对话度极低。",
+          "core_judgment": "结论仅为政策愿景描绘，未转化为可争辩学术主张，无法进入共同体对话。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "司法大数据应用还要遵循司法规律，明确其工具性定位",
+            "使法院更健康，使法官更健康，使社会更健康"
+          ],
+          "strengths": [
+            "制度语境融合度高，详述中国法院应用现状",
+            "明确指出大数据辅助定位，不与现行法秩序矛盾"
+          ],
+          "weaknesses": [
+            "复述官方立场，缺乏学术争辩性",
+            "未回应隐私权、算法偏见等学术反对意见"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场、无争辩主张、不回应反对意见，总分通常≤50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论全为政策愿景描绘，未回应隐私权、算法偏见等学术反对意见"
+            }
+          ],
+          "boundary_note": "本维评结论能否被共同体接受，不评论证严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "该文为政策报告型综述，缺乏学术性结论，未进入法学共同体对话。",
+          "core_judgment": "论文无明确学术结论，仅为现状描述与政策展望，不满足结论可接受性的基本前提。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4。论文无学术主张，未回应任何法学争论，对话度为0；虽描述中国制度实践，但无理论或制度层面的规范性结论，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "司法大数据在中国法院的应用与前景展望",
+            "积极拥抱信息技术革命与创新发展，通过司法大数据与人工智能的有机结合'让社会更健康'，或许是未来司法大数据的发展趋势"
+          ],
+          "strengths": [
+            "详细描述中国法院司法大数据实践，具有制度资料价值"
+          ],
+          "weaknesses": [
+            "无明确学术结论，仅为政策报告式描述与展望",
+            "未与任何法学理论或制度争论发生对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无学术主张，无对既有法学争论的回应，结论部分仅为政策口号式展望"
+            }
+          ],
+          "boundary_note": "本维度评结论能否被共同体接受，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 65,
+          "band": "good",
+          "summary": "结论高度契合中国司法实务语境，但缺乏学术对话与可争辩命题。",
+          "core_judgment": "该结论在制度层面高度可接受，但在共同体学术对话维度存在明显缺失。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=4/4，锚定good档，给65分。",
+          "evidence_quotes": [
+            "司法大数据在法院的应用，是一个长期探索并不断优化的过程。",
+            "司法大数据的应用与定位只能是辅助工具……不可能、也不应该取代人的思想和意志。"
+          ],
+          "strengths": [
+            "深度契合中国智慧法院建设实践，制度转化路径清晰。",
+            "充分回应数据安全、人才短缺等实务约束，具备较强操作性。"
+          ],
+          "weaknesses": [
+            "未明确对接法学共同体既有学术争论，缺乏可争辩的理论命题。",
+            "结论偏重政策描述与趋势展望，反对者难以定位反驳路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论当下能否被共同体与制度语境接受，不涉未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.09392523765564,
+        "glm-5.1": 49.40458583831787,
+        "kimi-k2.6": 11.34273886680603,
+        "qwen3.6-plus": 67.42692112922668
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 65
+      },
+      "mean": 48.2,
+      "std": 12.5,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在展望部分提出了清晰的实务延展方向，但部分论述偏宏观，精细度不足，整体达到3分弱加分标准。",
+          "core_judgment": "存在明确的未来应用场景延伸与具体挑战回应，构成真实的实务延展路径。",
+          "score_rationale": "原始分68分，根据评分协议，原始分≥60对应bonus=3。论文明确提出了数据质量与闭环、语义检索、数据中台与人才培养等具体延展点，衔接正文，但部分路径如‘事前评估’仍较概括，未进入80分段。",
+          "evidence_quotes": [
+            "通过司法大数据可长期追踪诉讼当事人的心理状态和行为模式，开展基于个案的诉讼类型化分析……提供更有针对性的诉讼服务。",
+            "未来，司法大数据应用重点将不断前移，更多参与社会风险预防与制度的事前、事中评估……"
+          ],
+          "strengths": [
+            "提出了数据闭环、语义检索等可定位的实务改进方向，延展路径与正文问题分析衔接紧密。",
+            "明确了适用边界与工具理性，避免‘大数据万能论’，为未来争论提供了切入口。"
+          ],
+          "weaknesses": [
+            "部分展望如‘制度事前评估’‘廉政体检’尚停留在宏观设计层面，缺乏更精细的机制说明。",
+            "对比较法或理论概念的修正方向着墨极少，延展类型较为单一。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有口号式展望、意义拔高和泛泛‘继续研究’，未给出具体问题或修正对象时，触发此规则。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "本文展望段存在大量具体路径，并非纯粹空泛拔高，故未触发该规则。此处列明仅用于结构合规。",
+              "note": "实际未触发，系统会在汇总层强制置空。"
+            }
+          ],
+          "boundary_note": "论文建议通过大数据实现‘前瞻性评估’与‘源头治理’等属于未来应用场景延展，而非当下结论可接受性问题，区分维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "提出了数据治理制度完善、应用场景前移及辅助工具边界等延展路径。",
+          "core_judgment": "存在明确延展路径，指明了数据分类分级治理、交换标准等制度完善方向及风险预防场景延伸。",
+          "score_rationale": "原始分70，bonus档位为3（>=60）。论文指明了数据分类分级治理、数据交换标准等制度完善方向及辅助工具边界，但部分展望略显宏大，精细度有限。",
+          "evidence_quotes": [
+            "建立一套数据分类分级治理制度，规范数据的采集、使用、公开以及所有权、使用权等问题。",
+            "司法大数据在司法领域的应用与定位只能是辅助工具……不应将裁判的决定权让渡给机器或人工智能。"
+          ],
+          "strengths": [
+            "指明了数据治理与交换标准等具体制度完善方向。",
+            "明确了司法大数据辅助工具的定位边界与风险预防场景延伸。"
+          ],
+          "weaknesses": [
+            "部分“健康”展望（法官心理体检等）略显宏大，精细度不足。",
+            "结尾存在一定口号式拔高（“构建中国特色应用体系”）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文探讨的“不应让渡裁判决定权”属于未来应用边界与风险控制，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在制度/立法型框架下提出了较为明确的未来发展方向，但部分展望偏宏观，精细度不足。",
+          "core_judgment": "存在真实延展路径，包括数据治理制度完善、智能语义检索升级、跨学科人才培养、社会风险前移预防等具体方向，但部分展望与正文衔接需推断，且存在口号式表述。",
+          "score_rationale": "原始分55分，对应bonus=2的边际档位。论文在'加强司法大数据管理和运营''提升司法大数据应用效能'两部分提出了数据分类分级治理、语义检索替代关键词检索、跨学科人才培养、社会风险预防前移等可定位的延展方向，但部分展望如'让社会更健康'等偏口号化，且对正文局限的回应深度有限。",
+          "evidence_quotes": [
+            "未来，应进一步丰富数据的应用场景，加强对数据的分析利用，将定量分析和定性研究更有效的结合，使得数据能够更好地支撑分析结论。",
+            "未来，司法大数据将在提升法官司法能力、保障法官人身安全和心理健康方面发挥更重要的作用，使法官'更健康'。"
+          ],
+          "strengths": [
+            "提出数据治理、智能检索、人才培养等具体制度完善方向。",
+            "明确社会风险预防从事后向事前事中前移的应用场景延伸。"
+          ],
+          "weaknesses": [
+            "部分展望如'让社会更健康'偏口号化，缺乏具体修正对象。",
+            "对正文所述数据质量、智能化不足等局限的回应深度不够。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来发展方向的展望，而非当下结论是否被接受。论文提出的'司法数据中台''智慧法院大脑'等建设方向属于未来延展问题，不涉及结论可接受性判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在系统梳理司法大数据应用现状与瓶颈基础上，清晰勾勒出数据治理、智能检索升级、复合人才培养及社会治理前端延伸的具体路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接正文揭示的数据闭环断裂与智能化不足等局限，并给出制度与技术双重修正方向。",
+          "score_rationale": "原始分85，对应bonus=5。证据在于明确指出“关键词检索推向语义检索”“建立数据分类分级治理制度”“应用重点前移至风险预防与制度事前评估”等具体路径，非空泛展望。",
+          "evidence_quotes": [
+            "将传统的关键词检索推向智能的语义检索，将传统的手工知识库制作转变为机器学习生成知识库。",
+            "司法大数据将有效提高制度的事前评估能力，不再局限于从诉讼端评估制度运行效果，全面服务于制度的事前、事中和事后评估。"
+          ],
+          "strengths": [
+            "精准定位数据生产使用脱节、检索智能化不足等具体局限。",
+            "延展路径涵盖技术升级、数据治理、人才培育与场景前移，体系完整。"
+          ],
+          "weaknesses": [
+            "部分技术路径（如黑盒互操作、AI手环预警）缺乏法学规范性论证。",
+            "对数据权属与隐私保护的制度衔接探讨仍偏宏观。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于突破现有数据治理瓶颈与拓展社会治理前端场景的未来路径，而非评价当前智慧法院建设结论的学术可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 65.16741514205933,
+        "glm-5.1": 37.9928297996521,
+        "kimi-k2.6": 11.922586917877197,
+        "qwen3.6-plus": 66.35772514343262
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 70,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 69.5,
+      "std": 12.3,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 44.82,
+      "weighted_total": 46.4
+    },
+    "aggregation_strictest": {
+      "final_score": 34.12,
+      "weighted_total": 35.2
+    },
+    "avg_std": 11.6,
+    "max_std": 15.9,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 10.7,
+    "composite_score": -9.93,
+    "worst_dimension": "logical_coherence",
+    "worst_std": 15.9
+  }
+}

@@ -1,0 +1,605 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/从合理原则走向统一的比例原则.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与乱码（如'Ofo~ University Press'、'Pieture Houses'、'kgal Transplant'等）",
+          "期刊页码（92、93、94等）与正文段落混排",
+          "脚注编号格式混乱及重复（如⑩、⑩等错位）",
+          "部分英文文献引用存在断行与拼写错误"
+        ],
+        "evidence_quotes": [
+          "Ofo~ University Press．2008．",
+          "Associated Provincial Pieture Houses v．Wednesbury",
+          "中国法学 \n 2016年第3期 \n 合理原则发端于16世纪末的英国。@ 之后，这一原则不断得到补充和发展，⑩最终 \n 在1948年的韦德内斯伯里案④中得到较为完整的阐述"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国应否以比例原则替代合理原则关键还取决于我国人权保障的任务、人权思想的内容以及司法审查政策等因素。",
+          "在我国当下“国情”下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更“合理”。",
+          "2004年宪法修正案更是将“国家尊重和保障人权”写进了宪法。……切实保障人权，遏制不当侵害人权的行政现象，才是我国行政司法所担负的恒久任务",
+          "以比例原则替代合理原则后，如要有所调整，则可将内涵于“适当性”要求中的“合目的性”要求独立、凸现出来，作为其审查的第一项内容。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR噪声与排版残留，需在评分前进行基础清洗；项目口径高度契合，无需额外人工复核边界。"
+      ],
+      "evidence_quotes": [
+        "在我国当下“国情”下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更“合理”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR与排版噪声，建议清洗后进入六维评分；项目口径完全契合中国自主知识体系研究导向，具备明确的规范命题与本土化理论转化，可直接进入正式评审流程。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码与特殊符号替代（如⑩、@、圆等）",
+          "英文文献与案例名称存在OCR拼接错误、断行残留与字符残缺",
+          "期刊页码（如92、93等）混入正文段落",
+          "参考文献列表抽取为空，但文内脚注包含大量文献信息"
+        ],
+        "evidence_quotes": [
+          "⑩&e R．V·Oakes，[1986]1 S．C．R．103，135-42；S．V．Zuma＆Others 1995(2)SA 642(CC)(S．Aft．)",
+          "M~git Cohn文",
+          "92",
+          "S~ tary of Statef0rthe Home Department"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国当下‘国情’下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更‘合理’。",
+          "人权保障是我国的国际义务和宪法任务",
+          "我国人权思想的特殊性不会影响比例原则的适用",
+          "我国人民法院应积极承担和履行人权保障职责"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、外文案例/文献OCR残缺及页码混入需在后续阶段清洗修复",
+        "项目口径：中国实践解释部分偏重规范与理论推演，比较法篇幅较大，对本土司法实况的深描稍显薄弱，但不影响核心命题的成立"
+      ],
+      "evidence_quotes": [
+        "在我国当下‘国情’下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更‘合理’。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程。后续评审阶段需对脚注乱码、外文文献OCR错误及混入的页码进行文本工程修复；评审时注意考量其比较法推演向中国制度命题转化的论证厚度。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦行政审查基准的规范选择，系统论证以比例原则统一替代合理原则的法理与制度路径。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，明确提炼审查基准替换的法学争点，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限。前置检查扣分合计0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "源自禁止越权原则且服务于司法克制主义的合理原则能够胜任这一新的时代使命吗？",
+            "我国应否以比例原则替代合理原则关键还取决于我国人权保障的任务、人权思想的内容以及司法审查政策等因素。"
+          ],
+          "strengths": [
+            "明确提炼“合理原则能否胜任人权保障”等可争辩问题句。",
+            "深度勾连行政审查基准、宪法任务与司法政策三大枢纽。"
+          ],
+          "weaknesses": [
+            "对“统一适用”可能引发的司法审查负荷激增论证稍显不足。",
+            "中西人权差异对比例原则具体适用的微观影响分析略泛。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论证比例原则替代合理原则作为统一审查基准的必要性与可行性，问题明确且枢纽性强。",
+          "core_judgment": "论文提出了可争辩的法学争点且涉及行政法核心审查基准之争，问题创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "对于不涉及人权的案件，适用比例原则与合理原则所得结果是否相同？",
+            "我国人权思想的内容与西方人权思想之间的差异是否会对比例原则的适用产生负面影响？"
+          ],
+          "strengths": [
+            "问题设定从人权领域扩展至非人权领域，推进有力",
+            "回应中西人权差异是否排斥比例原则适用的理论分歧"
+          ],
+          "weaknesses": [
+            "部分论证仍带有政策倡导色彩（如强调能动司法）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.31474184989929,
+        "glm-5.1": 38.516658782958984
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理了英德比例原则与合理原则的演进脉络，精准定位既有研究在规范比较与中国本土化适用上的缺口，研究地图完整清晰。",
+          "core_judgment": "文内证据充分构建了从历史溯源、比较法辨析到本土规范建构的完整研究地图，三要素与争点结构均高度契合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "对于合理原则之合目的性要求与“相关考虑”要求之间的关系，国内外法学文献鲜有深入、清晰的阐述。",
+            "源自禁止越权原则且服务于司法克制主义的合理原则能够胜任这一新的时代使命吗?"
+          ],
+          "strengths": [
+            "分散式文献定位精准，历史脉络与比较法素材深度融合于论证过程。",
+            "明确提炼既有学说局限，未竟点与本文切入点逻辑闭环严密。"
+          ],
+          "weaknesses": [
+            "对比例原则内部“三阶”与“四阶”的当代教义学分歧着墨较少。",
+            "中西人权观对比偏重宏观政策表述，规范层面的流派交锋可再深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及比例原则替代合理原则的实质创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰构建了合理原则与比例原则的演进及适用争点，洞察度极高。",
+          "core_judgment": "研究地图三要素完备，呈现多个核心争点与流派对立，现状洞察维度完全成立。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "对于合理原则之合目的性要求与‘相关考虑’要求之间的关系，国内外法学文献鲜有深入、清晰的阐述。",
+            "我国应否以比例原则替代合理原则关键还取决于我国人权保障的任务、人权思想的内容以及司法审查政策等因素。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将判例发展与学术观点有效融入论证。",
+            "争点结构清晰，合理原则与比例原则的功能及审查强度对比深入。"
+          ],
+          "weaknesses": [
+            "中西人权观差异的文献引述稍显单薄，仅概括性引用。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评比例原则替代合理原则这一主张的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 67.62521696090698,
+        "glm-5.1": 48.32500600814819
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建三维比较框架，清晰论证比例原则替代合理原则的法理与操作路径。",
+          "core_judgment": "框架成立且具强可操作性，比较维度与审查步骤已有效转化为司法适用指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。框架提供明确比较维度与审查步骤，并直接映射至制度重构方案。",
+          "evidence_quotes": [
+            "比例原则则不仅要求行政措施能够实现法律目的……更要求损害须最小，须得失平衡",
+            "明显性审查标准主要适用于关涉经济政策……强力审查标准主要适用于干预或限制人权的案件"
+          ],
+          "strengths": [
+            "比较维度边界清晰，提供可重复适用的司法审查步骤",
+            "将比较结论直接转化为中国行政审查的统一基准与操作方案"
+          ],
+          "weaknesses": [
+            "对本土司法实践中的程序配套与法官裁量约束论证稍显简略",
+            "审查强度分级依赖域外判例，本土化适配的具体阈值可细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了“审查内容-审查强度”的双维比较框架，并提出以比例原则替代合理原则的制度方案。",
+          "core_judgment": "框架建构力极强，将比较法维度成功转化为具体的司法审查操作指引与制度替代方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "通常认为，这一原则大致包含审查内容和审查强度两个方面的内容。",
+            "在我国当下‘国情’下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更‘合理’。"
+          ],
+          "strengths": [
+            "比较维度（审查内容与强度）清晰且可操作",
+            "提供了明确的制度替代方案与裁判审查层级指引"
+          ],
+          "weaknesses": [
+            "比例原则的“四阶”重构仅作为引述，未展开独立论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架的比较维度与制度转化，不评价中西人权差异论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 67.61493492126465,
+        "glm-5.1": 45.52207088470459
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "以英国原则演进为基准，经功能比较与本土适配，严密推导出我国应统一适用比例原则的结论。",
+          "core_judgment": "推理链条完整递进，反驳处理充分，核心结论可由前文比较分析与规范论证可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。历史溯源、功能比较与本土化论证三步递进，无关键跳步；对中西差异等反对意见作实质回应并明确边界。",
+          "evidence_quotes": [
+            "我国应否以比例原则替代合理原则关键还取决于我国人权保障的任务……换言之，它取决于我国人权思想的内容与西方人权思想之间的差异是否会对比例原则的适用产生负面影响",
+            "比例原则本质上是一种价值权衡，对特定人权的价值没有固定的排位……适用这一原则与我国强调民族的生存权、发展权等集体性人权的优先性并不矛盾"
+          ],
+          "strengths": [
+            "历史演进与功能比较构成递进式推理链，逻辑衔接紧密",
+            "主动预设中西人权差异等反驳点，并以方法论属性进行实质性化解"
+          ],
+          "weaknesses": [
+            "从“国外经验优势”到“我国应当采用”的规范推导略依赖司法能动政策的应然预设"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链条支撑力与反驳处理，不评判制度方案的可操作性或结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过比较分析与国情适配推导出制度替代方案，推理链完整且反驳处理充分。",
+          "core_judgment": "推理链完整成立，核心结论可由前文可辩护地推出，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "上述评述是中肯的，但我们应注意以下几点：首先，比例原则虽然以保护人权为目的，但它不是保护某种特定人权的原理...",
+            "统一适用比例原则并不是要排斥平等原则的适用。平等原则仍应为衡量裁量行政行为合理性的重要依据。"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，从比较优势到国情适配推导制度方案。",
+            "对中西人权差异的反对意见给出了三点实质性回应。"
+          ],
+          "weaknesses": [
+            "从“司法能动”到“保障人权是根本大局”的过渡略带政策性断言。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是替代方案的推导逻辑，而非比例原则在司法中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.20965886116028,
+        "glm-5.1": 47.09332489967346
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论主张以比例原则替代合理原则，契合中国法治语境。",
+          "core_judgment": "结论深度嵌入中国行政法话语，具备明确制度转化指向，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "在我国当下国情下，以比例原则替代合理原则作为统一审查基准更合理。",
+            "我国人权保障宪法任务明确，法院须积极承担保障公民基本权利的任务。"
+          ],
+          "strengths": [
+            "明确回应学界原则之争，立场清晰可辩。",
+            "深度结合中国宪法与司法政策语境。"
+          ],
+          "weaknesses": [
+            "对基层法院适用新标准的司法能力论证不足。",
+            "未充分展开司法过度干预行政的风险防范。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论明确主张以比例原则替代合理原则，充分回应学界争论与中国制度语境。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，提出了可争辩且可转化的制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "在我国当下‘国情’下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更‘合理’。",
+            "可将内涵于‘适当性’要求中的‘合目的性’要求独立、凸现出来，作为其审查的第一项内容。"
+          ],
+          "strengths": [
+            "结论明确回应合理原则与比例原则之争，提出替代方案",
+            "深入结合中国宪法人权条款与能动司法政策论证"
+          ],
+          "weaknesses": [
+            "对替代后具体裁判规则的衔接未作更细致展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.48003625869751,
+        "glm-5.1": 40.78662300109863
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 78,
+        "glm-5.1": 85
+      },
+      "mean": 81.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文在结语提出比例原则本土化后的教义学修正方向及与平等原则的适用边界，具备明确的后续研究路径。",
+          "core_judgment": "存在真实延展路径，聚焦于审查要件独立化与原则竞合场景的边界划分。",
+          "score_rationale": "原始分78，对应bonus=3。主要证据为结语提出的“合目的性”要件独立化及比例原则与平等原则的适用边界划分。路径清晰紧扣结论，但未展开本土实施风险。",
+          "evidence_quotes": [
+            "以比例原则替代合理原则后……可将内涵于‘适当性’要求中的‘合目的性’要求独立、凸现出来，作为其审查的第一项内容。",
+            "平等原则只能适用于本质相同的两个案件之间……如果是对新型案件的第一次审查……则只能适用比例原则。"
+          ],
+          "strengths": [
+            "提出审查要件独立化的具体教义学修正方向",
+            "明确比例原则与平等原则的适用边界与场景"
+          ],
+          "weaknesses": [
+            "延展集中于结语，未展开本土化实施的风险控制",
+            "缺乏对司法审查强度分级操作的后续检验设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是比例原则引入后的教义学重构与适用场景延伸，属于制度演进与未来研究议程，不涉及对本文当下论证结论的正当性评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在主张比例原则替代合理原则的核心结论上，清晰指出了替代后的制度完善方向与规则衔接路径。",
+          "core_judgment": "存在真实延展路径，明确提出了替代后的内部结构调整与外部原则衔接方向。",
+          "score_rationale": "原始分85，bonus档位为5分（>=80）。结语明确指出了比例原则替代后的“合目的性独立化”调整方向及与“平等原则”的适用分工衔接，路径清晰可定位，紧密衔接核心结论。",
+          "evidence_quotes": [
+            "以比例原则替代合理原则后，如要有所调整，则可将内涵于‘适当性’要求中的‘合目的性’要求独立、凸现出来，作为其审查的第一项内容。",
+            "统一适用比例原则并不是要排斥平等原则的适用……如果是对新型案件的第一次审查，或者是要对不同案件作不同的处理，则只能适用比例原则。"
+          ],
+          "strengths": [
+            "提出了替代后的具体制度内部结构调整方向（合目的性独立）。",
+            "指明了比例原则与平等原则的外部适用分工与衔接路径。"
+          ],
+          "weaknesses": [
+            "对中国本土审查强度的具体构建未作进一步延展说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "比例原则与平等原则的适用分工属于未来制度建构的规则衔接问题，而非当下比例原则替代合理原则的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.29309391975403,
+        "glm-5.1": 44.60590982437134
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.3,
+    "max_std": 4.9,
+    "weighted_total": 90.2,
+    "final_score": 95.71,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 8.7,
+    "worst_dimension": "forward_extension",
+    "worst_std": 4.9
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "综上可以看出，在我国当下'国情'下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更'合理'。",
+          "我国人权思想的特殊性不会影响比例原则的适用……比例原则本质上是一种价值权衡，对特定人权的价值没有固定的排位……适用这一原则与我国强调民族的生存权、发展权等集体性人权的优先性并不矛盾。",
+          "切实保障人权，遏制不当侵害人权的行政现象，才是我国行政司法所担负的恒久任务，所服务的根本大局。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "partial",
+        "china_practice_explanation_attempted": "no",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 1,
+          "china_practice_explanation_attempted": 0,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 5,
+        "autonomous_signal_strength": "medium",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国应否以比例原则替代合理原则关键还取决于我国人权保障的任务、人权思想的内容以及司法审查政策等因素。",
+          "在我国当下“国情”下，至少在行政法领域，以比例原则替代合理原则，将其作为审查所有裁量性行政行为的统一基准更“合理”。",
+          "将内涵于“适当性”要求中的“合目的性”要求独立、凸现出来，作为其审查的第一项内容。"
+        ],
+        "risks": [
+          "china_material_as_background_only"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 6.5,
+    "signal_scores": [
+      8,
+      5
+    ]
+  }
+}

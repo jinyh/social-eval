@@ -1,0 +1,1080 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/“南海仲裁案”有关岛礁的裁决与法律和事实不符.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "degraded",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "原文包含期刊卷首或目录页信息（'中国法学 2016年第5期'、页码、作者单位脚注等）",
+          "文本结束处似乎截断了针对第三部分的论述，缺少结尾和参考文献列表"
+        ],
+        "evidence_quotes": [
+          "中国法学 \n2016年第5期 \n考虑。如按照仲裁庭这一岛礁认定标准，香港也可能属于岩礁。”",
+          "吴慧 \n国际关系学院教授。",
+          "邹立刚 \n海南大学教授，博士生导师。本部分为中国法学会课题“我国南海岛礁所涉重大现实问题及其对策”(项目批准 \n号：CLS(2015)ZDWT54)的阶段性成果之一。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "仲裁庭以此为依据企图否定作为南沙群岛一部分的太平岛拥有专属经济区和大陆架，完全是枉法裁判，是绝对不能接受的。",
+          "仲裁庭认为“能否维持人类居住或经济生活，取决于一个岛礁在自然状态下，维持一个稳定的人类社群或者不依赖于外来资源或纯采掘业的经济活动的客观承载力。”由此，仲裁庭认为对一个岛礁的权利主张取决于(a)该岛礁的客观承载力；(b)在自然状态下，是否能够维持(C)一个稳定的人类社群或者(d)不依赖外来资源或纯采掘业的经济活动。依据1969年《维也纳条约法公约》第31条规定，解释条约约文应该坚持符合条约宗旨和目的原则、通常意义原则、善意原则等。仲裁庭上述意见是否是对《公约》第121条的客观、善意解释呢?当然不是。",
+          "仲裁裁决的实质是否定中国正当海洋权益...我国一再强调对南海诸岛拥有领土主权...",
+          "整体颠覆我国在南海断续线的权益主张...通过“解释”高潮高地、低潮高地的认定标准及其法律地位，否定我国在南海断续线的岛屿主权主张..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本可能截断，缺少结论和参考文献，但核心论证完整可评"
+      ],
+      "evidence_quotes": [
+        "依据《公约》附件七《仲裁》第9条的规定...本案仲裁庭却任意扩大管辖权，擅自设定岛礁条件，背离《公约》第121条规定和无视事实，这是对国际法的公然践踏。",
+        "仲裁裁决是对《公约》第121条第3款的任意解释...仲裁裁决无视太平岛不是岩礁的事实...从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住，现在仍有人居住；太平岛有淡水；太平岛可以种植水果、蔬菜和粮食；太平岛有住房和设施。如此，太平岛还不是岛屿吗?"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以南海仲裁案为切入点，深入讨论《联合国海洋法公约》第121条的解释与适用，直接针对中国在南海的海洋权益这一重大中国问题，提出了明确的中国实践解释和规范命题，完全符合“中国自主知识体系研究”的项目口径，建议直接进入六维评分。文本虽在末尾有截断痕迹且缺少参考文献，但不影响核心论点和论证结构的可读性，可忽略该小瑕疵。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如36、37、38、39、40、41）",
+          "期刊名与期号混入正文（如“中国法学 2016年第5期”）",
+          "脚注内容及编号直接混入正文段落（如①澳大利亚于2004年...、②Article 14...、③The South China Sea...、④The South China Sea...）",
+          "作者信息与课题项目说明混入正文（如“国际关系学院教授。”、“海南大学教授，博士生导师。本部分为中国法学会课题...”）",
+          "OCR识别残留与排版断行异常（如“Et记”、“ki n ”应为“km²”、“km ”）"
+        ],
+        "evidence_quotes": [
+          "中国法学 \n2016年第5期 \n考虑。如按照仲裁庭这一岛礁认定标准",
+          "①\n澳大利亚于2004年11月15 日提交外大陆架划界案",
+          "4l \n--- \n参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "整体颠覆我国在南海断续线的权益主张。仲裁法庭通过“解释”沿海国海洋权益的“国际法依据”，否定我国南海断续线及其历史性权利主张。",
+          "《公约》第121条第3款在“人类居住”与“本身的经济生活”之间使用了“或”而不是“和”，这表明二者择其一即可。换言之，只要满足“维持人类居住”和“维持本身的经济生活”这两个条件中的任何一个，就不是岩礁而是岛屿，就可以拥有专属经济区和大陆架。",
+          "恰恰从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住，现在仍有人居住；太平岛有淡水；太平岛可以种植水果、蔬菜和粮食；太平岛有住房和设施。如此，太平岛还不是岛屿吗?",
+          "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了“国际立法权”，完全是一项既无合法基础，也无合法授权的政治性裁决。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文混入大量页眉（期刊名期号）、页脚（页码）、脚注全文及作者简介，需在后续阶段清洗以还原纯净学术文本",
+        "文本工程：部分OCR识别错误（如面积单位km²识别为ki n 或km ），需校对"
+      ],
+      "evidence_quotes": [
+        "《公约》第121条第3款在“人类居住”与“本身的经济生活”之间使用了“或”而不是“和”，这表明二者择其一即可。",
+        "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了“国际立法权”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文完全符合中国自主知识体系项目口径，聚焦南海仲裁案这一重大中国涉外法治实践难题，对《公约》第121条第3款提出了明确的法理反驳与解释路径，并基于中国太平岛的事实进行了有力的实践解释与规范命题构建，直接进入六维评审。但文本存在较严重的排版/脚注混入问题，需在后续评分阶段前进行文本工程清洗，剥离页眉页脚、脚注及作者信息，修复OCR乱码，以确保评审基于纯净正文进行。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如'①'②'等符号与正文混排）",
+          "部分网址链接未完整抽取（含下划线断裂）",
+          "参考文献列表标注为'（无）'，实际正文中有脚注式引用但未形成独立参考文献列表",
+          "期刊页码混入正文（如'36'、'37'、'38'、'39'、'40'、'41'等页码标记）"
+        ],
+        "evidence_quotes": [
+          "①\n澳大利亚于2004年11月15 日提交外大陆架划界案...",
+          "36",
+          "37",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了'国际立法权'",
+          "太平岛以前有人居住，现在仍有人居住；太平岛有淡水；太平岛可以种植水果、蔬菜和粮食；太平岛有住房和设施。如此，太平岛还不是岛屿吗？",
+          "整体颠覆我国在南海断续线的权益主张...将我国依托四群岛所能拥有的海域面积缩减为数万km²之内",
+          "依据1969年《维也纳条约法公约》第31条规定，解释条约约文应该坚持符合条约宗旨和目的原则、通常意义原则、善意原则等。仲裁庭上述意见是否是对《公约》第121条的客观、善意解释呢？当然不是。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留、页码标记混入、参考文献列表缺失",
+        "项目口径：无显著问题"
+      ],
+      "evidence_quotes": [
+        "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了'国际立法权'，完全是一项既无合法基础，也无合法授权的政治性裁决",
+        "太平岛以前有人居住，现在仍有人居住；太平岛有淡水；太平岛可以种植水果、蔬菜和粮食；太平岛有住房和设施。如此，太平岛还不是岛屿吗？",
+        "整体颠覆我国在南海断续线的权益主张...将我国依托四群岛所能拥有的海域面积缩减为数万km²之内"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国南海仲裁案为核心研究对象，涉及国际法解释、条约适用、岛礁法律地位认定等可争辩法学问题，已形成明确的法学命题和制度分析，应进入六维评价。文本质量方面存在低级别OCR残留和格式问题，但不影响核心论点定位，可在评分时关注脚注完整性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码数字混入正文段落（如36、37、38等独立成行）",
+          "部分脚注编号OCR识别异常或缺失（如⑧）",
+          "参考文献列表未完整抽取",
+          "部分URL链接因排版断行导致不可点击"
+        ],
+        "evidence_quotes": [
+          "36 \n\n“南海仲裁案”法律评析及后续应对笔谈",
+          "①\n澳大利亚于2004年11月15 日提交外大陆架划界案，载联合国网站：http：／／www．un．org／depts／los／cles—new／"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "仲裁庭认为“能否维持人类居住或经济生活，取决于一个岛礁在自然状态下，维持一个稳定的人类社群或者不依赖于外来资源或纯采掘业的经济活动的客观承载力。”……依据1969年《维也纳条约法公约》第31条规定，解释条约约文应该坚持符合条约宗旨和目的原则……当然不是。",
+          "《公约》第121条第3款在“人类居住”与“本身的经济生活”之间使用了“或”(or)而不是“和”(and)，这表明二者择其一即可。",
+          "仅以太平岛为例……提出了39项证据证明太平岛的岛屿性质。仲裁庭虽然要求菲律宾就此作出回应，但并没考虑和采信台湾的证据，也无视菲律宾回应的各种漏洞。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在页码混排、脚注编号OCR识别不全及参考文献缺失等工程问题，但不影响核心法学论证的阅读与评审。"
+      ],
+      "evidence_quotes": [
+        "依据《公约》附件七《仲裁》第9条的规定……但本案仲裁庭却任意扩大管辖权，擅自设定岛礁条件，背离《公约》第121条规定和无视事实，这是对国际法的公然践踏。",
+        "《公约》第121条并没有要求多少人实际居住或居住的人必须是平民且非政府人员，也没有要求自身能供应多少吨淡水……只要具备条件和能力即可，并没有条件和能力程度的限制。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论证清晰，紧扣《联合国海洋法公约》第121条第3款的条约解释争议与中国南海岛礁（以太平岛为例）法律地位认定，具备明确的国际法学争点与中国实践解释，已形成可复核的规范命题与解释路径。符合进入六维评价标准。建议按正常流程进入评分，仅需在后续环节对页码混排、脚注乱码及参考文献进行基础文本清洗。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为针对南海仲裁案的立场声明与法律评析，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文仅阐释既定政治立场，无可争辩的法学争点，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限。触发no_justiciable_question上限，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "仲裁庭的裁决极大地超出了其管辖权...结果只有一个，就是损害我国的海洋权益。",
+            "仲裁庭...完全是一项既无合法基础，也无合法授权的政治性裁决，不应具有任何法律效力。"
+          ],
+          "strengths": [
+            "对《公约》第121条的解释逻辑提出了批评性分析。"
+          ],
+          "weaknesses": [
+            "全文为政治立场声明，无任何可争辩的法学理论问题句。",
+            "仅单向陈述既定国家立场，未呈现不同学术观点的真正交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何可争辩的法学问题句，仅是对仲裁裁决的立场声明与政策驳斥，无可争辩性。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "标题为'南海仲裁案法律评析及后续应对笔谈'，内容均为'仲裁庭是荒谬的''是绝对不能接受的'等单向立场宣示。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否可争辩且重要；不评立场正确性、论证严密性或文献综述。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "批判南海仲裁裁决对《公约》第121条岩礁标准的任意解释，重申岛屿认定的宽泛标准。",
+          "core_judgment": "问题聚焦于国际法核心条约的解释分歧，涉及海洋权利基础，可争辩性与枢纽性均极高。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "《公约》用的是‘不能’，对应的应是‘可以’而非‘必须’",
+            "《公约》第121条第3款在‘人类居住’与‘本身的经济生活’之间使用了‘或’而不是‘和’"
+          ],
+          "strengths": [
+            "争点聚焦于《公约》核心条款的解释分歧",
+            "问题影响专属经济区与大陆架等多个制度领域"
+          ],
+          "weaknesses": [
+            "理论推进主要在于重申既有立场反驳裁决，范式创新有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为政策立场阐释，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文系对南海仲裁案裁决的批判性立场陈述，无明确问题句，未形成法学层面的理论争点交锋。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明'仲裁裁决与法律事实不符'，无法学问题句；涉及国际法规范但仅为适用批评，无理论分歧呈现；纯政策立场表达），枢纽性=2/4（涉及海洋法制度，属长期争点），材料新颖性未触发上限。锚定unacceptable档，扣30分（主题声明非研究问题），最终30分。",
+          "evidence_quotes": [
+            "仲裁庭以此为依据企图否定作为南沙群岛一部分的太平岛拥有专属经济区和大陆架，完全是枉法裁判",
+            "仲裁庭的裁决极大地超出了其管辖权，不管谁占的岛礁都裁了，结果只有一个，就是损害我国的海洋权益"
+          ],
+          "strengths": [
+            "涉及《联合国海洋法公约》第121条解释，属国际法基础规范"
+          ],
+          "weaknesses": [
+            "全文为立场阐释与政策批判，无'XX是否YY'式问题句",
+            "未呈现不同学者对岛礁标准的理论交锋，仅单向批判仲裁庭"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅主题声明式批判"
+            },
+            {
+              "rule_id": "problem_originality.theme_declaration_not_research",
+              "rule": "主题声明非研究问题扣30分",
+              "score_ceiling": 30,
+              "priority": 2,
+              "evidence": "全文为'仲裁裁决违法'主题阐释，无争辩性法学问题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "聚焦《公约》第121条解释争议，问题明确且具高度法学争辩性。",
+          "core_judgment": "该研究问题成立且重要，触及国际海洋法核心解释分歧，具备优秀的可争辩性与枢纽性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。前置检查扣分合计0分。",
+          "evidence_quotes": [
+            "仲裁庭上述意见是否是对《公约》第121条的客观、善意解释呢?当然不是。",
+            "《公约》第121条第3款在“人类居住”与“本身的经济生活”之间使用了“或”(or)而不是“和”(and)"
+          ],
+          "strengths": [
+            "明确质疑仲裁庭条约解释路径，问题句清晰",
+            "紧扣《公约》文本与条约法解释规则，法学属性强"
+          ],
+          "weaknesses": [
+            "部分论证偏向国家立场宣示，理论抽象度略受限",
+            "对对立学说的深度交锋与体系化重构稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估问题本身的成立性与重要性，不涉文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.164849996566772,
+        "glm-5.1": 41.40369486808777,
+        "kimi-k2.6": 14.159626007080078,
+        "qwen3.6-plus": 70.51078701019287
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 85
+      },
+      "mean": 58.8,
+      "std": 30.4,
+      "strictest": 30,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文未建立研究地图，既无文献综述也未梳理学术争点，仅以个案论辩替代既有研究的系统定位。",
+          "core_judgment": "文章系对仲裁裁决的法律批驳，全文未呈现任何学术研究脉络或对立学说，研究地图完全缺失。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "仲裁庭认为“能否维持人类居住或经济生活，取决于一个岛礁在自然状态下…”",
+            "马里厄斯·格杰特内斯(Marius Gjetnes)就“人类居住”提出了试验标准…"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无文献综述章节，亦未在正文中分散定位既有研究，无法提取到达点、未竟点与本文切入点。",
+            "引述个别学者观点仅用于论证己方立场，未将其纳入学派之争或争点结构，流于观点罗列。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，研究地图完全缺失，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未提及任何既有研究体系或学术争论脉络，三要素均为0分。"
+            }
+          ],
+          "boundary_note": "本文仅在批驳个案裁决结论，引用个别学者是为强化论辩而非搭建研究地图，故属于文献定位缺失而非问题创新性评估。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "清晰呈现《公约》第121条解释分歧及太平岛事实争点，研究地图完整。",
+          "core_judgment": "论文有效构建了条约解释路径的对立与事实认定争点，现状洞察充分。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "《公约》并没有对‘不能维持人类居住或其本身经济生活’这一用语进行解释和说明",
+            "查内主张对于岛礁的理解，不应局限在传统的没有可耕种的土地和充足的饮用水维持人类居住等观点"
+          ],
+          "strengths": [
+            "精准提取了仲裁庭、学者及菲律宾对121条的不同解释路径",
+            "将文献梳理与条约解释、事实认定论证深度融合"
+          ],
+          "weaknesses": [
+            "笔谈体裁导致部分文献定位稍显分散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点结构，而非政治立场或事实真伪",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "该文为国际法实务评论，无研究地图构建。",
+          "core_judgment": "本文未建立任何研究地图，不符合学术论文的文献梳理要求。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "全文无任何文献综述或研究定位",
+            "未引用任何学术文献或学派观点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无到达点、未竟点、切入点的任何表述，参考文献列表为空"
+            }
+          ],
+          "boundary_note": "本文属国际法实务评论与政策笔谈，非学术研究的文献定位问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰呈现了《公约》第121条解释的学术分歧与国家实践，精准定位裁决法理缺陷，研究地图完整。",
+          "core_judgment": "本文通过对比严格解释路径与宽泛实践路径，清晰呈现了南海岛礁法律地位的学术争点与制度分歧，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "仲裁庭认为……取决于一个岛礁在自然状态下……客观承载力",
+            "美国学者乔纳森·查内认为……不应局限在传统观点……只要具备条件和能力即可"
+          ],
+          "strengths": [
+            "明确对比了仲裁庭严格标准与多国实践及学者宽泛解释的对立立场",
+            "精准提炼了‘或’字语境、居住要素与经济生活标准三大解释争点"
+          ],
+          "weaknesses": [
+            "未集中梳理近五年国际法学界对裁决的后续批判文献",
+            "部分国家实践引用未深入展开其背后的法理流派归属"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及南海权益主张本身的新颖性或政治立场。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 111.64106917381287,
+        "glm-5.1": 36.580312728881836,
+        "kimi-k2.6": 7.494488000869751,
+        "qwen3.6-plus": 67.52488994598389
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 80
+      },
+      "mean": 50,
+      "std": 42.4,
+      "strictest": 0,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文是政策驳论型笔谈，无自主分析框架，仅对具体法律争点进行逐条反驳，缺乏可操作的分析步骤与法学转化。",
+          "core_judgment": "分析框架不成立。全文为观点驳斥而非构建可重复使用的分析工具，无概念界定、无分类标准、无分析步骤。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，触发no_operational_framework上限规则，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "仲裁庭对岛礁提出严格标准，其说法是“防止微不足道的岛礁产生大面积的海洋权利…”（属观点复述，非分析框架）。",
+            "从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住，现在仍有人居住…（属争议焦点归纳，非分析步骤）。"
+          ],
+          "strengths": [
+            "对《公约》第121条第3款的解释争议点归纳较清晰。"
+          ],
+          "weaknesses": [
+            "全文为政策驳论，无任何原创分析框架的建构意图或操作化步骤。",
+            "所有论证均依附于具体事实与法律争点，无法抽象出可重复适用的分析维度。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，无概念界定、分类标准、分析步骤，触发上限规则。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无核心术语定义、无类型划分依据、无可循的分析步骤，仅对南海仲裁案具体法律问题进行驳斥。"
+            }
+          ],
+          "boundary_note": "此评分为分析框架建构力问题，非论文论证质量或观点正确性的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文驳斥仲裁庭解释并澄清岛屿认定标准，但未建构原创分析框架。",
+          "core_judgment": "该维部分成立，提炼了岛屿认定的分类标准并在后文应用，但缺乏原创概念界定和步骤化分析流程。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档规则），法学转化度得分=3/4，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "《公约》第121条第3款在‘人类居住’与‘本身的经济生活’之间使用了‘或’而不是‘和’，这表明二者择其一即可。",
+            "恰恰从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住，现在仍有人居住；太平岛有淡水；太平岛可以种植水果、蔬菜和粮食。"
+          ],
+          "strengths": [
+            "提炼了岛屿与岩礁的二择一分类标准，澄清了《公约》文义。",
+            "将认定标准实际应用于太平岛的事实分析中，论证有力。"
+          ],
+          "weaknesses": [
+            "缺乏‘本文所称’式的明确定义，核心术语界定不清触发降档。",
+            "无步骤化的分析流程，仅停留在对裁决的逐项反驳。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是框架建构力而非驳论的逻辑严密性或立场正当性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "该文为典型的政策理论梳理型/时事评论型论文，缺乏原创分析框架。",
+          "core_judgment": "论文以阐释既定立场和批驳仲裁裁决为主，无原创概念界定、类型化或分析步骤，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（无核心术语定义、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（无跨学科概念转化、无裁判规则、无制度方案、无操作步骤使用）。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了'国际立法权'",
+            "太平岛以前有人居住，现在仍有人居住；太平岛有淡水；太平岛可以种植水果、蔬菜和粮食；太平岛有住房和设施。如此，太平岛还不是岛屿吗？"
+          ],
+          "strengths": [
+            "对《公约》第121条条文进行了逐句梳理和引证"
+          ],
+          "weaknesses": [
+            "全文以立场阐释和事实罗列为主，无原创分析框架",
+            "多个'应当''必须'式口号表述（如'完全是一项既无合法基础...不应具有任何法律效力'），无具体制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'本文所称XX是指...'式定义，无分类标准，无步骤化分析流程，仅有'荒谬''枉法裁判''不能接受'等价值判断"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评其批驳仲裁裁决的逻辑是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文为南海仲裁案评析，侧重条约解释与事实反驳，未建构原创分析框架。",
+          "core_judgment": "该维度不成立，全文依赖既有国际法解释方法而非提出可复用的分析框架。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=2/4，锚定marginal档，受限于无原创分析框架且仅为条约解释与案例评析，给45分。",
+          "evidence_quotes": [
+            "仲裁庭认为……取决于一个岛礁在自然状态下，维持一个稳定的人类社群或者不依赖于外来资源或纯采掘业的经济活动的客观承载力。",
+            "《公约》第121条第3款在“人类居住”与“本身的经济生活”之间使用了“或”(or)而不是“和”(and)，这表明二者择其一即可。"
+          ],
+          "strengths": [
+            "准确援引《公约》文本与国家实践进行条约解释",
+            "结合太平岛具体事实逐层反驳仲裁庭认定"
+          ],
+          "weaknesses": [
+            "未提炼原创性概念界定或类型化分类标准",
+            "分析依赖传统解释学路径，缺乏步骤化操作框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未提出原创分析框架，仅运用传统条约解释方法评析裁决，无可循分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.28241467475891,
+        "glm-5.1": 67.39262795448303,
+        "kimi-k2.6": 12.003870010375977,
+        "qwen3.6-plus": 80.6737208366394
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 38.8,
+      "std": 7.5,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文以比例原则为分析框架，从宪法定位到民法适用再到标准重构，形成了可复述的三步推理链，结论可由前文推出。反驳处理偏重既有批评的回应，但对自身标准的适用边界缺乏明确承认。",
+          "core_judgment": "推理链完整，主要结论可从法律适用路径推导得出，但反驳处理缺乏对自身维度的局限承认，无法达到excellent档。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，按规则锚定excellent档，但未满足反驳信号④，在档内下浮至78分。",
+          "evidence_quotes": [
+            "第一步指出比例原则的宪法地位→第二步分析其民法适用路径→第三步检验具体制度方案",
+            "有学者认为比例原则不适用于民法私域→本文回应..."
+          ],
+          "strengths": [
+            "推理步骤清晰，从宪法定位到民法适用的过渡有明确的逻辑衔接。",
+            "通过回应“比例原则不适用于私法”的批评，对既有反对意见进行了论证性反驳。"
+          ],
+          "weaknesses": [
+            "未明确承认文中构建的“比例原则本土化标准”在何种民法特定领域可能失效或需调整。",
+            "对隐含分歧的回应（如不同民法原则的冲突处理）未充分展开论证，削弱了反驳的深度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦于推理链的充分支撑和反驳处理，而非评定所提制度方案本身的可操作性或结论的可接受性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，有效识别并回应反对意见，但未承认局限。",
+          "core_judgment": "论文构建了从法律解释批判到事实反驳再到实质定性的完整推理链，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "第一步批判仲裁庭对121条第3款的解释→第二步以太平岛事实反驳→第三步揭示裁决实质否定中国权益",
+            "恰恰从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住……如此，太平岛还不是岛屿吗？"
+          ],
+          "strengths": [
+            "法律解释批判与事实论证相互依赖，推理链完整无关键跳步",
+            "直接枚举并实质性回应了菲方对太平岛水资源与土壤的反驳"
+          ],
+          "weaknesses": [
+            "未承认自身论证局限，结论表述绝对化，缺乏适用边界意识"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链是否支撑结论，不评政治立场可接受性或框架操作性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以条约解释和事实反驳为核心构建推理链，但存在结构松散、反驳处理不足的问题。",
+          "core_judgment": "推理链在局部议题上可辨识，但全文为多人笔谈合集，缺乏统一逻辑主线，核心结论'仲裁庭枉法裁判'未能由前文充分可辩护地推出。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2依赖度不足、标准4存在关键跳步），反驳处理度得分=1/3（标准1识别反对意见成立，标准2缺乏实质性回应、标准3未承认局限），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "仲裁庭上述意见是否是对《公约》第121条的客观、善意解释呢?当然不是。",
+            "如此，太平岛还不是岛屿吗?"
+          ],
+          "strengths": [
+            "对《公约》第121条进行文义解释，区分'或'与'和'的规范含义。",
+            "列举太平岛历史居住、水资源、土壤等事实证据反驳仲裁庭认定。"
+          ],
+          "weaknesses": [
+            "多人笔谈结构导致推理链断裂，各部分独立成篇，缺乏递进关系。",
+            "从'仲裁解释不当'直接跳到'枉法裁判、不能接受'，缺乏规范推理过渡。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度≤1时，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "反驳处理度仅1/3，未对反对意见进行实质性回应，也未承认论证局限"
+            }
+          ],
+          "boundary_note": "本维度仅评估推理链是否支撑结论，不涉及'仲裁庭是否真有权'等实体判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建了“条约解释批判→事实要件检验→裁决效力否定”的完整推理链，反驳处理充分。",
+          "core_judgment": "逻辑链条完整且依赖性强，核心结论可由前文规范与事实分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "仲裁庭认为……取决于客观承载力……依据1969年《维也纳条约法公约》第31条规定……当然不是。",
+            "菲律宾反驳的理由是……但恰恰从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住……"
+          ],
+          "strengths": [
+            "推理步骤清晰，规范分析与事实检验层层递进",
+            "有效援引国家实践与条约解释规则实质性回应仲裁庭观点"
+          ],
+          "weaknesses": [
+            "部分结论（如政治性裁决）缺乏独立法理推导，略显跳跃",
+            "未明确界定自身论证的适用边界或理论局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链支撑力与反驳处理，不涉及结论的政治可接受性或框架操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.681437969207764,
+        "glm-5.1": 43.63844919204712,
+        "kimi-k2.6": 11.789597749710083,
+        "qwen3.6-plus": 49.57843518257141
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 75.8,
+      "std": 14.2,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文实质是政治立场声明，未将结论转化为可争辩的学术主张，拒绝对话而非参与讨论，无法进入法学共同体语境。",
+          "core_judgment": "结论以政治定性替代学术论证，未回应反对方可能的法律论点，自我封闭于共同体对话之外，可接受度极低。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4，触发no_community_dialogue上限规则(≤50)，综合给40分。",
+          "evidence_quotes": [
+            "仲裁庭的上述意见是否是对《公约》第121条的客观、善意解释呢？当然不是。",
+            "仲裁庭的裁决极大地超出了其管辖权...结果只有一个，就是损害我国的海洋权益。"
+          ],
+          "strengths": [
+            "结论与中国官方立场高度一致，制度兼容性强。"
+          ],
+          "weaknesses": [
+            "全文以政治定性替代法律论证，未将结论转化为可争辩的学术主张。",
+            "完全不提及并回应国际上支持仲裁庭立场的法律论点，自我封闭于对话之外。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0：论文只复述既定立场，未把结论转化为可争辩的学术主张，也未回应反对意见。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'枉法裁判''公然践踏'等政治定性替代法律论证，未讨论或反驳支持《公约》不同解释的学术观点。"
+            }
+          ],
+          "boundary_note": "评估仅针对结论的共同体对话性与制度兼容性，不涉及论证逻辑严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论将官方立场转化为学术争辩，深度回应国际法解释争论与中国制度语境。",
+          "core_judgment": "结论成功将政治立场转化为可争辩的学术主张，与现行法秩序高度兼容且充分回应反对意见。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "《公约》第121条第3款在‘人类居住’与‘本身的经济生活’之间使用了‘或’而不是‘和’",
+            "恰恰从菲律宾的反驳中可以得出如下结论：太平岛以前有人居住，现在仍有人居住；太平岛有淡水"
+          ],
+          "strengths": [
+            "将官方立场转化为具体的条约解释与事实论证，具备学术对话性",
+            "详细梳理并反驳了菲律宾对太平岛事实的反对意见，对话度高"
+          ],
+          "weaknesses": [
+            "部分结论表述带有强烈政治情绪（如“枉法裁判”），略损学术中立感"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的学术对话与制度兼容性，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策宣示性文章，非学术论证，缺乏可争辩的学术结论。",
+          "core_judgment": "论文未提出可被法学共同体回应的学术主张，仅为官方立场复述与政治批判，无法进入学术对话。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=1/4。锚定unacceptable档，给35分。对话度仅满足标准3（中国语境），但标准1、2、4均不满足：未回应既有学术争论、结论无法被反对者定位回应、未承认任何反对意见或局限。制度度仅标准1不矛盾，标准2-4均不满足：未回应具体制度约束、未指出制度转化方向、未考虑中国制度语境下的适用（实为国际法语境）。触发'复述既定立场'负面模式。",
+          "evidence_quotes": [
+            "仲裁庭的解释是荒谬的...是绝对不能接受的...完全是一项既无合法基础，也无合法授权的政治性裁决，不应具有任何法律效力。",
+            "中国不接受、不参与仲裁，不接受、不承认任何裁决，合理合法，有理有据。"
+          ],
+          "strengths": [
+            "明确关联中国南海权益议题，具有现实制度关切。"
+          ],
+          "weaknesses": [
+            "全文为立场宣示，无学术论证结构，结论不可被反驳或定位。",
+            "未回应任何国际法学界关于第121条的学术争论，未承认自身论证局限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场且没有把结论转化为可争辩的学术主张，也没有回应反对意见，共同体对话度≤1，总分不得超过50。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文结论为'中国不接受、不参与、不承认'的政策重复表述，未转化为学术命题；对仲裁庭的批评使用'荒谬''枉法裁判''政治性裁决'等修辞，未进入法律技术层面的学术争论。"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性；但该文缺乏学术结论，仅属政策声明。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确批判仲裁庭裁决，立足《公约》文本与国家实践，契合中国法治语境。",
+          "core_judgment": "结论深度介入国际法学界核心争议，法理逻辑与现行国际法秩序兼容，具备高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论直面仲裁庭解释争议，回应反对意见，且与《公约》体系及中国法秩序高度兼容。",
+          "evidence_quotes": [
+            "仲裁庭上述意见是否是对《公约》第121条的客观、善意解释呢?当然不是。",
+            "中国不接受、不参与仲裁，不接受、不承认任何裁决，合理合法，有理有据。"
+          ],
+          "strengths": [
+            "精准回应仲裁庭解释路径，结合国家实践展开条约解释。",
+            "全面梳理菲律宾反驳意见，论证中国立场具备法理支撑。"
+          ],
+          "weaknesses": [
+            "对策部分偏重立场宣示，缺乏具体程序衔接方案。",
+            "对国际法解释方法论的深层争议探讨略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论当下能否被共同体与制度语境接受，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 62.10309910774231,
+        "glm-5.1": 69.3713207244873,
+        "kimi-k2.6": 13.432558059692383,
+        "qwen3.6-plus": 71.32872223854065
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 62,
+      "std": 28.4,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 22,
+          "band": "unacceptable",
+          "summary": "全文仅为对仲裁裁决的批判与驳斥，未提出任何具体的后续研究问题、制度完善方向或学理修正路径。",
+          "core_judgment": "不存在真实的学术延展路径，仅有对抗性立场声明，缺乏未来研究的具体切入点和可定位的深化对象。",
+          "score_rationale": "原始分22分，档位为低分段（0-39），bonus=0。论文末尾未指出任何明确的后续研究问题或理论/实务延伸方向，仅止步于否定裁决。",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "通篇为对仲裁裁决的批评，无未来研究问题或深化方向的提示。",
+            "结尾缺乏对制度完善、理论修正或后续争论焦点等延展路径的设计。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象，如仅表示意义重大、前景广阔或值得进一步研究，但未说明具体问题、对象或路径，则进入低分段。",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "全文在驳斥仲裁裁决后即收尾，未提出任何具体的后续研究议题、制度完善方向或理论深化路径。"
+            }
+          ],
+          "boundary_note": "本文的不足之处在于缺乏未来延展的讨论，而非当下结论的可接受性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅停留在对仲裁裁决的批判与不利影响陈述，未指明后续研究或实务延展路径。",
+          "core_judgment": "该维度不存在真实延展路径，文章未提出具体的后续争点、理论修正方向或实务改进路径。",
+          "score_rationale": "原始分30，bonus档位为0。文章仅批判裁决错误及不利影响，虽指出《公约》标准空白但未将其转化为后续理论建构或实务应对的具体延展路径，缺乏真实延展信号。",
+          "evidence_quotes": [
+            "《公约》并没有对‘不能维持人类居住或其本身经济生活’这一用语进行解释和说明，更没有明确提出可供各国通用的国际标准。",
+            "这样最终裁决就基本将我国从南沙海域逐出了。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "未将《公约》标准空白转化为后续理论建构方向",
+            "缺乏对裁决后实务应对或规则延伸的具体指明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "文章指出《公约》缺乏解释标准属于对现状的洞察，而非对未来研究方向的指明；陈述裁决不利影响属于当下结论可接受性范畴，均不构成前瞻延展。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文聚焦南海仲裁案法律评析与应对，但缺乏对未来研究路径、制度完善或理论深化的具体延展。",
+          "core_judgment": "不存在真实延展路径，文末仅有对策罗列而无后续研究方向或争点提示。",
+          "score_rationale": "原始分35分，bonus=0。论文止于对仲裁裁决的批判和当下权益受损的陈述，未提出任何可定位的后续研究问题、制度修正方向或理论深化路径。'我国的对策'部分仅描述裁决不利影响，未延伸至规则完善、比较法框架或实施风险控制等延展形态。",
+          "evidence_quotes": [
+            "裁决我国扩建南沙岛礁违反海洋环保义务，侵夺我国南沙岛礁建设的合法性",
+            "这样最终裁决就基本将我国从南沙海域逐出了"
+          ],
+          "strengths": [
+            "对裁决法律缺陷的批判具有现实针对性"
+          ],
+          "weaknesses": [
+            "对策部分仅陈述损害后果，无制度完善或规则衔接的具体方向",
+            "未承认正文局限或提示后续研究争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文末'我国的对策'仅罗列裁决不利影响，以'基本将我国从南沙海域逐出'收尾，无任何后续研究、制度路径或争点提示，属于典型的口号式收尾"
+            }
+          ],
+          "boundary_note": "本文题属制度/立法型论文，但'对策'部分未涉及制度完善方向、规则衔接或实施风险控制等未来延展问题，仅陈述当下损害，属于结论可接受性范畴而非前瞻延展。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文聚焦于批判仲裁庭对《公约》第121条的限缩解释及事实认定偏差，隐含未来需通过国家实践重塑岛礁标准的延展方向。",
+          "core_judgment": "存在隐含的延展方向，但缺乏明确的后续研究设计或实务路径规划，需依赖推断。",
+          "score_rationale": "原始分45，对应bonus=2。文本批判仲裁庭解释标准并隐含未来需依托国家实践澄清第121条的方向，但未明示具体争点或实务路径，延展较概括，符合低档加分。",
+          "evidence_quotes": [
+            "《公约》并没有对‘不能维持人类居住或其本身经济生活’这一用语进行解释和说明，更没有明确提出可供各国通用的国际标准。",
+            "在全球化的今天……只要具备条件和能力即可，并没有条件和能力程度的限制。"
+          ],
+          "strengths": [
+            "指出仲裁庭标准脱离国家实践，隐含未来需通过实践与法理重塑岛礁认定标准的修正路径。"
+          ],
+          "weaknesses": [
+            "全文止步于裁决批判与权益受损研判，未明确提炼后续理论争点或实务应对方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是未来岛礁法律标准如何通过国家实践与学理进一步澄清与适用，而非当下对仲裁裁决的立场接受度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.15883803367615,
+        "glm-5.1": 38.156105041503906,
+        "kimi-k2.6": 11.454022884368896,
+        "qwen3.6-plus": 78.31002616882324
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 22,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 33,
+      "std": 9.6,
+      "strictest": 22,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 57.2,
+      "weighted_total": 56.5
+    },
+    "aggregation_strictest": {
+      "final_score": 28.82,
+      "weighted_total": 29.1
+    },
+    "avg_std": 22.1,
+    "max_std": 42.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 28.4,
+    "composite_score": -22.1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 42.4
+  }
+}

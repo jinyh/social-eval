@@ -1,0 +1,369 @@
+{
+  "paper": "raw/fullpaper/1852-法学研究-2025-5-司法人工智能的理由模式及其功能限度-徐舒浩-上海交通大学凯原法学院.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 92,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 82,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 35,
+          "revised": 30,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 35,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 37,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 4,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 35,
+          "revised_score": 30,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "本维度的评价核心是该文是否提出并论证了明确的研究问题。再度审视后，文章仅在主题范围内进行体系建构和辩护，未正面回应学理争议，缺乏可争辩的核心问题。",
+          "revision_rationale": "接受对方关于问题和争点提炼方面的部分意见，促使我更严格地审视了文章问题意识。但文章主体仍为立论辩护，缺失对立的学派观点交锋。前置检查再度确认问题句缺失、无明确争点，触发扣分项，故维持unacceptable档位。",
+          "accepted_points": [
+            "论文触及AI可解释性与裁判正当性的法理关系，主题具有实践意义"
+          ],
+          "rejected_points": [
+            "认为问题成立且具高度可争辩性：文章实际仅从己方“理由模式”出发单向阐释，未设置可争辩的学术问题，也未回应批评者论据以形成交锋，因此不能认定为有核心争点的研究。",
+            "认为引入“理由优先性秩序”构成重大创新：该框架是对霍尔蒂理论的改写和应用，理论本身非作者原创，文章未在此基础上挑战或发展该理论，仅用于解释现有现象，创新性不足。"
+          ],
+          "new_evidence_found": [
+            "全文结构为介绍、复述、辩护模型，未发现集中论述或解决特定问题的章节。作者将‘解释机理’作为主题而非问题，全文缺乏明确的、可证伪的研究问题句。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "excellent",
+          "revised_core_judgment": "理论框架新颖且极具枢纽性，但问题表述隐没于技术描述，可争辩性呈现不足。",
+          "revision_rationale": "接受专家B关于问题句隐没于技术描述的批评，论文前期技术细节过多，开篇缺乏显性争点，削弱了可争辩性的直观呈现，故适度下调分数。但拒绝专家A的极端负面评价，论文后半部分对主流批评的系统性回应及“数据vs理论”的根本分歧揭示具有深刻的法理创新与学派交锋，绝非单向阐释，枢纽性极强，仍应维持excellent档。",
+          "accepted_points": [
+            "专家B关于“问题句隐没于技术描述中，开篇缺乏明确争点”的观点，这确实削弱了论文可争辩性的形式呈现。"
+          ],
+          "rejected_points": [
+            "专家A关于“无学派交锋、仅单向阐释辩护”的判断，论文在回应批评意见部分明确与塞尔、雷磊等学者观点交锋，并提出根本分歧；专家A关于枢纽性1/4的判断过低，该问题触及AI裁判正当性核心。"
+          ],
+          "new_evidence_found": [
+            "论文在“对几种批评意见的回应与澄清”部分，明确反驳了“机器不能理解语义”“机器不能价值判断”等学界主流批评；通过“1633年隐喻”和“正当防卫2020年隐喻”生动论证了AI缺乏创新能力的结构性缺陷，证明了内部存在实质性的理论交锋。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 35,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 37,
+          "revised_band": "good",
+          "revised_core_judgment": "论文以'理由优先性秩序'为核心框架，成功将技术黑箱问题转化为法哲学层面的理由习得之争，枢纽性强，但问题表述的清晰度与材料新颖性的转化效率仍可提升。",
+          "revision_rationale": "重新审视后，我接受专家A、B的核心洞见：论文并非仅作技术描述，而是以霍尔蒂先例理论为枢纽，构建了'机器从数据中学习理由vs人类从理论中学习理由'这一深层法理争点。'理由优先性秩序'的提出具有实质理论推进，并非简单套用新材料。但我仍坚持原评的部分关切：开篇问题句确实隐没于技术描述中，需读者自行提炼；上海检察机关材料的运用虽具实证价值，但理论命题的独立贡献度被部分稀释。综合而言，论文应属good档偏上，而非excellent。",
+          "accepted_points": [
+            "论文精准识别了AI与人类在理由识别上的根本分歧，具有高度可争辩性",
+            "'理由优先性秩序'框架成功将技术黑箱争议转化为法理层面的理由习得之争",
+            "枢纽性强，触及司法裁判正当性与AI可解释性的核心",
+            "论文并非停留在技术描述，而是实质推进了法哲学理论"
+          ],
+          "rejected_points": [
+            "专家A、B给出的92分过高：论文开篇缺乏明确争点陈述，问题句需读者从大量技术细节中自行提炼，不符合excellent档'问题表述清晰'的要求",
+            "材料新颖性虽存在，但上海检察机关材料的运用方式更接近'以新材料验证旧框架'，而非'以新材料催生新命题'",
+            "专家B所称'材料校验未触发上限'与事实不符：论文确实大量依赖上海检察机关一手材料，material_novelty_without_thesis的触发条件应当成立"
+          ],
+          "new_evidence_found": [
+            "论文明确提出'司法人工智能所面临的真正困境，并非不能应对疑难个案，而是缺乏创新能力'，这一命题具有高度原创性",
+            "'人工智能可以理解什么是旧的完整性，但它无法理解什么是新的完整性'这一表述精准概括了机器学习的结构性缺陷",
+            "论文对'1633年隐喻'和'2020年隐喻'的运用，展示了理论框架对具体司法场景的穿透力",
+            "理由模式的三重机制（发现、分量划定、巩固）具有清晰的理论层次，并非简单套用霍尔蒂框架"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 4,
+          "revised_band": "excellent",
+          "revised_core_judgment": "研究成功将技术黑箱争议转化为法理层面的“理由习得”之争，理论建构扎实，但核心问题句隐没于技术铺陈中，制度建议略显理想化。",
+          "revision_rationale": "采纳专家B关于“问题句隐没于技术描述”的合理批评，开篇缺乏明确争点导致论证节奏稍显拖沓；但坚决反对专家A“无学者交锋”的误判，文中对塞尔语义论、价值判断质疑及人机合谋等均有实质性回应与批驳。理论创新性与枢纽性依然突出，故微调分数但仍锚定excellent档。",
+          "accepted_points": [
+            "核心问题句在开篇不够显性，隐没于技术机理描述中，影响争点聚焦",
+            "过度依赖单一地区（上海）实践样本，理论命题的普适性推进受限"
+          ],
+          "rejected_points": [
+            "专家A认为‘无学者观点交锋’属误读，论文实质回应并批驳了塞尔语义论、AI无价值判断能力及人机合谋等多重学术批评",
+            "专家A‘仅主题声明无问题句’的扣分过重，论文通过‘理由优先性秩序’已实质构建出可争辩的法理命题"
+          ],
+          "new_evidence_found": [
+            "论文将霍尔蒂先例理由模式与神经网络反向传播/梯度下降算法进行精准映射，论证了‘理由发现-分量划定-理由巩固’的习得机制",
+            "提出‘数据与信念对称性’约束，以‘1633/2020隐喻’深刻揭示AI缺乏理论创新能力与应对法律变革的结构性缺陷"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.5298330783844,
+        "glm-5.1": 69.32903599739075,
+        "kimi-k2.6": 19.61166477203369,
+        "qwen3.6-plus": 62.778685092926025
+      },
+      "round1_mean": 63.5,
+      "round2_mean": 68,
+      "round1_std": 32.9,
+      "round2_std": 26.2,
+      "convergence_improvement": 6.7
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 90
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 82,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 88
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 65,
+          "revised": 65,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 8,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 58,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 20,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 90,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 2,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 65,
+          "revised_score": 65,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "marginal",
+          "revised_core_judgment": "本文到达点和未竟点明确，但缺乏宏观法学流派系统识别，争点结构对学术谱系的勾勒仍显笼统，不符合excellent档对深刻洞察的要求。",
+          "revision_rationale": "重新阅读论文后确认，原文虽精准识别了“再描述谬误”并引入理由模式，但文献评述以分散引用为主，未将批评者归纳为可辨认的法学理论流派（如法律形式主义、现实主义或特定批判学派）。评审专家A、B将微观学术立场对立等同于“法学流派”，降低了流派识别的标准。争点虽涉及技术可解释性与理由可解释性，但缺乏学派性对立框架，故未能达到优秀档位的系统性与深刻性。",
+          "accepted_points": [
+            "“再描述谬误”未竟点识别精准，论证切入有力。"
+          ],
+          "rejected_points": [
+            "将“技术公开派vs理由功能派”认定为三个法学流派，属于将微观学术观点误判为宏观法学理论流派。",
+            "认为三要素满分，但到达点仅为散点罗列，缺乏对研究传统的归纳性建构，未达满分标准。"
+          ],
+          "new_evidence_found": [
+            "论文第四部分采用约翰·霍尔蒂的理由模式进行理论推演，属于实质性理论建构，而非文献综述中的流派识别，未改变对文献综述部分缺乏系统学派回应的判断。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 8,
+          "revised_band": "good",
+          "revised_core_judgment": "未竟点与切入点精准，争点清晰，但到达点偏微观罗列，缺乏宏观法学流派归纳。",
+          "revision_rationale": "接受专家A关于到达点缺乏学派归纳的批评，论文文献综述确实偏重分散学者观点和技术描述，缺少宏观理论传统的系统梳理；但坚持认为未竟点（再描述谬误）和切入点（理由模式）识别精准，争点结构（技术机制vs功能等价）在后文清晰呈现，拒绝专家B关于三要素残缺的过低评价。综合调整至82分。",
+          "accepted_points": [
+            "到达点主要依靠罗列单一学者观点，缺少对学派或系统性研究传统的归纳",
+            "流派多为微观学术立场对立，宏观法学理论流派覆盖较少"
+          ],
+          "rejected_points": [
+            "研究地图三要素严重残缺（论文明确提出了'再描述谬误'的未竟点和'理由模式'的切入点）",
+            "未呈现可区分的学术争点结构（论文区分了技术可解释性与裁判理由可解释性，以及数据学习与理论学习的对立）"
+          ],
+          "new_evidence_found": [
+            "论文对既有批评的归纳虽分散，但明确拆解为'缺乏推理思维'和'无法给出理由说服'两个层次，具有一定的提炼",
+            "论文在后续论证中引入了卢曼系统论和刑法教义学（正当防卫相适应说vs防卫人立场）作为微观流派对立的支撑"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 58,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 20,
+          "revised_band": "good",
+          "revised_core_judgment": "三要素基本完整，争点结构清晰，但法学流派识别以微观立场为主，宏观理论覆盖不足。",
+          "revision_rationale": "重新审读后发现，论文明确识别了既有研究的'再描述谬误'缺口，清晰区分'技术可解释性'与'裁判理由可解释性'的对立，并以霍尔蒂理由模式作为切入点，三要素和争点结构均较完整。但'法学流派'更多是技术公开派、批评派等微观学术立场，而非宏观法学理论流派，且早期专家系统路径梳理单薄，故上调至good档而非excellent。",
+          "accepted_points": [
+            "精准识别既有批评陷入'再描述谬误'的缺口",
+            "争点结构清晰，区分'技术可解释性'与'裁判理由可解释性'",
+            "三要素较为完整，到达点、未竟点、切入点均有明确呈现"
+          ],
+          "rejected_points": [
+            "法学流派覆盖'丰富'的说法：论文识别的主要是技术公开派、规范批评派等微观立场，而非法教义学、社科法学等宏观法学流派，'3个流派'的认定略有夸大"
+          ],
+          "new_evidence_found": [
+            "论文明确使用'再描述谬误'概念界定未竟点（'遗憾的是，上述推论逻辑似乎陷入了再描述谬误的困境'）",
+            "论文将可解释性批评拆解为两个层次：'人工智能缺乏推理的思维'和'人工智能无法通过给出理由的方式实现对人的说服'",
+            "霍尔蒂理由模式的引入作为切入点，明确回应了'基于要素而非基于规则'的技术现实"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 90,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 2,
+          "revised_band": "excellent",
+          "revised_core_judgment": "研究地图三要素实质完整，争点呈递进式展开，跨学科理论脉络清晰，文献整合度高，本维度高度成立。",
+          "revision_rationale": "采纳A、B关于文献呈现偏技术化、学派归纳不够显性化的合理提醒。但重读原文发现，论文并非缺乏争点与流派，而是将“规则/案例推理”“形式逻辑/功能等价”“数据依赖/理论创新”等对立脉络内化于论证中。三要素虽未单列但逻辑闭环严密，故仅微调分数，维持优秀档。",
+          "accepted_points": [
+            "文献梳理偏重技术机制描述，对传统法学流派的显性归纳可加强",
+            "争点结构未采用传统的‘赞同/反对’罗列，而是递进式内化于论证中，易被误读为结构不清"
+          ],
+          "rejected_points": [
+            "认为缺乏法学流派识别（论文实质梳理了计算法学中的规则派与案例派、法哲学中的形式推理派与功能主义派）",
+            "认为三要素严重残缺（原文清晰界定了技术公开派的到达点、再描述谬误的未竟点及理由模式的切入点）"
+          ],
+          "new_evidence_found": [
+            "明确引用Horty先例理由模式、Bench-Capon等案例推理传统，形成清晰的AI法学理论谱系",
+            "通过‘1633年隐喻’与正当防卫教义学变迁的对比，显性化了‘数据对称性’与‘理论前瞻性’的学术争点",
+            "对‘再描述谬误’的批判直接锚定了认知科学与法教义学的交叉争点，非单纯技术描述"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.536489963531494,
+        "glm-5.1": 79.45638275146484,
+        "kimi-k2.6": 28.546140909194946,
+        "qwen3.6-plus": 82.72790312767029
+      },
+      "round1_mean": 75.8,
+      "round2_mean": 78.2,
+      "round1_std": 16.7,
+      "round2_std": 9.7,
+      "convergence_improvement": 7.0
+    }
+  },
+  "dimension_confidence": {
+    "problem_originality": {
+      "confidence": "low",
+      "se": 13.09,
+      "mean": 68,
+      "ci_lo": 42.34,
+      "ci_hi": 93.66,
+      "ci_width": 51.31,
+      "n_dims": 4
+    },
+    "literature_insight": {
+      "confidence": "low",
+      "se": 4.87,
+      "mean": 78.25,
+      "ci_lo": 68.7,
+      "ci_hi": 87.8,
+      "ci_width": 19.1,
+      "n_dims": 4
+    }
+  },
+  "selective": true,
+  "target_dims": [
+    "problem_originality",
+    "literature_insight"
+  ],
+  "overall": {
+    "round1_avg_std": 24.8,
+    "round2_avg_std": 17.95,
+    "std_improvement": 6.85,
+    "round1_max_std": 32.9,
+    "round2_max_std": 26.2,
+    "dimensions_converged": 0,
+    "total_dimensions": 2,
+    "round1_final_score_mean": 69.62,
+    "round2_final_score_mean": 73.12,
+    "confidence": {
+      "confidence": "low",
+      "se": 4.05,
+      "mean": 36.05,
+      "ci_lo": 28.12,
+      "ci_hi": 43.98,
+      "ci_width": 15.86,
+      "n_dims": 2
+    }
+  }
+}

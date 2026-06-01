@@ -1,0 +1,602 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/行政执法和解的模式及其运用.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "PDF页眉页脚与页码混入正文（如“· ４ ８ · 法学研究 ２０１９年第５期”打断段落）",
+          "脚注编号采用全角括号〔〕且部分英文参考文献存在OCR断行与连字符乱码",
+          "部分段落首行缩进与换行符残留"
+        ],
+        "evidence_quotes": [
+          "· ４ ８ · 法学研究 ２０１９年第５期",
+          "〔５〕有学者将其表述为：“在行政执法过程中，当事实、法律观点不明确且这种不确定状态不能查明或者非经重大支出不能查明时……”"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国学者对于行政执法和解的界定，大致可以归结为两种类型……两者的分歧聚焦在和解的适用前提上",
+          "在事实或法律状态已经查明的情况下适用执法和解，也有其重要的法理基础……在法律授权行政机关进行“行政裁量”的法理基础上，执法机关与相对人得以在后一种情形下开展和解",
+          "本文以“和解适用前提—和解表意形式—和解实现方法”为分析框架，提出了八种执法和解模式，论证了不同模式的理论原理与实践可行性",
+          "上海市、新余市、青岛市等地近来推出的轻微违法行为免罚清单制度就是此类和解模式的具体运用"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理页码混排与脚注格式噪声，但不影响核心论证定位",
+        "项目口径：无边界争议，完全符合中国自主知识体系评价入口标准"
+      ],
+      "evidence_quotes": [
+        "本文以“和解适用前提—和解表意形式—和解实现方法”为分析框架，提出了八种执法和解模式，论证了不同模式的理论原理与实践可行性，目的在于将和解机制充分引入行政执法"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文紧密围绕中国行政执法和解的制度争议与实践展开，明确批判了现行“限定条件和解”的局限性，并基于行政裁量法理与本土执法场景（如证监会和解、反垄断承诺、税务诚信报告、免罚清单等）构建了“八种和解模式”的类型化分析框架。具备清晰的中国问题意识、可争辩的法学命题与理论转化能力。建议直接进入六维评分阶段；评审时请忽略页码混排等格式噪声，聚焦其类型化框架的规范解释力与制度建构价值。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文段落中间（如“·４８·法学研究２０１９年第５期”）",
+          "脚注编号及完整脚注内容直接插入正文段落流中，造成正文与引注边界模糊",
+          "英文摘要及关键词存在全角字母及异常间距（如Ａｄｍｉｎｉｓｔｒａｔｉｖｅ）"
+        ],
+        "evidence_quotes": [
+          "·４８·法学研究２０１９年第５期",
+          "〔５〕〔６〕〔７〕参见赵银翠：《行政执法和解制度探讨》……",
+          "Ａｄｍｉｎｉｓｔｒａｔｉｖｅｌａｗｅｎｆｏｒｃｅｍｅｎｔｒｅｃｏｎｃｉｌｉａｔｉｏｎ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国学者对于行政执法和解的界定，大致可以归结为两种类型……两者的分歧聚焦在和解的适用前提上。",
+          "本文以“和解适用前提—和解表意形式—和解实现方法”为分析框架，提出了八种执法和解模式，论证了不同模式的理论原理与实践可行性。",
+          "在事实或法律状态已经查明的情况下适用执法和解，也有其重要的法理基础……处罚法定原则与行政处罚中行政机关享有自由裁量权并不矛盾。",
+          "我国当前的执法实践中，已经出现了此类模式，以珠海市横琴区的税务诚信报告免责制度为典型。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码、脚注内容与编号混入正文，英文摘要全角字符需清洗",
+        "项目口径：无风险"
+      ],
+      "evidence_quotes": [
+        "本文以“和解适用前提—和解表意形式—和解实现方法”为分析框架，提出了八种执法和解模式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本工程存在页码与脚注混入正文、全角字符等风险，需在后续评审阶段进行文本清洗与结构化处理，但不影响核心论点与论证结构的定位。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 85
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文突破传统“限定条件和解”框架，提出八种执法和解模式，拓展了行政和解的适用边界。",
+          "core_judgment": "问题具有明确的可争辩性与枢纽性，聚焦行政和解适用前提与实现方式的理论分歧，研究命题成立且具重要规范价值。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。前置检查扣分合计0分。",
+          "evidence_quotes": [
+            "执法和解是否只能适用于事实或法律状态难查的情形？是否能为“限定条件和解”的定义所包涵？",
+            "构建执法和解的多样模式旨在适应纷繁复杂的执法情形……不同内容的基本要素及其组合能够生成不同的和解类型。"
+          ],
+          "strengths": [
+            "明确提炼“适用前提—表意形式—实现方法”三维分析框架，问题聚焦。",
+            "深度回应形式法治与执法效率的理论张力，争点清晰。"
+          ],
+          "weaknesses": [
+            "八种模式分类偏重类型学归纳，部分模式边界可进一步厘清。",
+            "对“公示回应”模式的程序正当性论证略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不涉文献综述、论证逻辑与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文重构了行政执法和解的分析框架，提出多元模式以回应既有界定的局限。",
+          "core_judgment": "问题成立且枢纽性强，通过重构解释路径推进了学界长期争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "执法和解是否只能适用于事实或法律状态难查的情形？是否能为“限定条件和解”的定义所包涵？",
+            "两者的分歧聚焦在和解的适用前提上。"
+          ],
+          "strengths": [
+            "争点明确，呈现了限定条件与宽松条件的理论分歧",
+            "问题影响行政处罚、强制执行等多个制度，枢纽性强"
+          ],
+          "weaknesses": [
+            "核心争点为学界既有争论，非全新创制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.03366875648499,
+        "glm-5.1": 47.91732883453369
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 88
+      },
+      "mean": 84,
+      "std": 5.7,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰梳理学界两种对立界定，精准指出理论局限，并构建八模式分析框架。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别达标，文献定位充分支撑本文切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "我国学者对于行政执法和解的界定，大致可以归结为两种类型……两者的分歧聚焦在和解的适用前提上。",
+            "目前有关执法和解的理论界定尚存缺陷，不利于引导执法和解在实践中获得广泛、灵活的运用"
+          ],
+          "strengths": [
+            "精准提炼学界‘限定条件’与‘宽松条件’和解的适用前提分歧，文献梳理聚焦。",
+            "将既有观点局限与本文‘三要素组合八模式’的切入点严密对应，逻辑闭环完整。"
+          ],
+          "weaknesses": [
+            "对‘宽松条件和解’内部不同学者的细分观点整合略显笼统，未充分展开次级争点。",
+            "跨法域比较多作为制度例证，未深入提炼其背后的法理流派交锋脉络。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及和解制度本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准勾勒学界在和解前提与方法上的分歧，构建三要素框架填补研究缺口，洞察度极佳。",
+          "core_judgment": "本维完全成立，研究地图清晰，争点结构丰满，流派识别充分。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "我国学者对于行政执法和解的界定，大致可以归结为两种类型...两者的分歧聚焦在和解的适用前提上。",
+            "目前有关执法和解的理论界定尚存缺陷，不利于引导执法和解在实践中获得广泛、灵活的运用"
+          ],
+          "strengths": [
+            "精准识别限定条件与宽松条件两派对立及各自局限",
+            "分散式文献定位清晰，三要素框架有效填补模式单一缺口"
+          ],
+          "weaknesses": [
+            "公示回应与单方决定更多是作者自身建构，学界争论引述稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评模式建构本身的新颖性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 61.06707525253296,
+        "glm-5.1": 50.56356716156006
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“前提-表意-实现”三要素八模式矩阵，清晰界定边界并贯穿全文实证分析。",
+          "core_judgment": "框架具备高度可操作性与明确的法学转化路径，完全成立且有效指导制度适用。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。三要素分类清晰，八种模式矩阵提供明确适用指引，后文逐一对应展开制度分析与风险防范，转化彻底。",
+          "evidence_quotes": [
+            "以“和解适用前提—和解表意形式—和解实现方法”为分析框架，提出了八种执法和解模式",
+            "若将上述分析框架中的各个部分视为变量，再将不同变量进行排列组合，理论上能够形成八种类型的和解模式"
+          ],
+          "strengths": [
+            "三要素变量组合形成八模式矩阵，分类标准严密且边界清晰",
+            "后文严格按框架展开类型化分析，紧密结合现行法条与执法实践"
+          ],
+          "weaknesses": [
+            "部分模式在现行法中的规范依据仍显薄弱，需进一步立法确认",
+            "公示回应模式的程序正当性保障机制论述略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与转化度，不涉及论证逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文创设三要素组合框架，生成八种和解模式，法学转化彻底且后文完全调用。",
+          "core_judgment": "分析框架高度成立且可用，将抽象和解概念转化为可操作的八种制度模式，法学转化度极高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "在这个‘和解前提—和解表意—和解实现’的分析框架中，各个制度要素所对应的具体内容，可因实践需求不同而有所差别。",
+            "若将上述分析框架中的各个部分视为变量，再将不同变量进行排列组合，理论上能够形成八种类型的和解模式"
+          ],
+          "strengths": [
+            "创设“前提-表意-实现”三要素框架，分类标准明确且可操作",
+            "将框架完全转化为8种制度模式，后文逐一调用分析，转化彻底"
+          ],
+          "weaknesses": [
+            "无明显框架建构弱点，部分模式组合的实践实例稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构力与法学转化度，不评价推理逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.64114880561829,
+        "glm-5.1": 58.964065074920654
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑链条严密，要素解构与模式推演层层递进，结论获充分支撑。",
+          "core_judgment": "推理链完整且高度依赖，核心结论可由前文规范分析与比较法材料可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从概念辨析到框架建构再到模式验证，环环相扣，反驳回应实质且承认适用边界。",
+          "evidence_quotes": [
+            "两者的分歧聚焦在和解的适用前提上……前者可称为“限定条件和解”，后者可称为“宽松条件和解”。",
+            "限制和解适用的前提条件与降低滥用和解的风险二者之间并非完全的对应关系……本质上却是一种因噎废食的风险控制方式。"
+          ],
+          "strengths": [
+            "推理链条完整，从概念批判到要素解构再到模式组合层层递进。",
+            "对“滥用风险”反驳回应充分，提出替代性风控机制而非简单限缩。"
+          ],
+          "weaknesses": [
+            "八种模式推演偏重理论排列，部分模式实务衔接论证稍显简略。",
+            "对“公示回应”的公法合意属性论证可进一步深化以增强逻辑厚度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否闭环支撑结论，不评价八种模式在实务中的操作成本或制度落地难度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过批判现有单一模式，构建三要素框架，严密推导出八种和解模式，逻辑闭环完整。",
+          "core_judgment": "推理链条高度完整，反驳处理充分，核心结论可由前文可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "限制和解适用的前提条件与降低滥用和解的风险二者之间并非完全的对应关系",
+            "一个较完整的执法和解模式，至少包括和解的适用前提、和解的表意形式、和解的实现方法这三项基本要素"
+          ],
+          "strengths": [
+            "批判旧模式缺陷与构建新框架之间依赖度极高，无关键跳步",
+            "对“限定条件和解”的反对意见给出了基于实定法的实质性回应"
+          ],
+          "weaknesses": [
+            "八种模式的排列组合推导略显机械，部分模式间边界有重叠"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判重点在于三要素推导八模式的逻辑链条是否成立，而非八模式在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 62.240926027297974,
+        "glm-5.1": 46.772053956985474
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应学界争议，构建八种模式并嵌入中国执法语境，兼具对话性与制度可行性。",
+          "core_judgment": "结论高度契合共同体争论脉络，且与现行行政法秩序及本土执法实践深度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文修正了‘限定条件和解’的僵化界定，主张以三要素组合生成八种模式",
+            "模式化的理论只能提供方法论指引，需结合实际情况选择调适"
+          ],
+          "strengths": [
+            "精准定位学术争论并给出可反驳的具体模型",
+            "深度结合中国行政法规范与地方试点经验"
+          ],
+          "weaknesses": [
+            "八种模式的程序衔接与适用边界仍需细化",
+            "对和解侵蚀处罚法定原则的风险论证稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出行政执法和解的八种模式，有效回应学界争论与中国制度语境，制度兼容性强。",
+          "core_judgment": "结论成功进入共同体对话，修正既有理论，且与中国现行法秩序高度兼容，制度转化方向明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "“限定条件和解”的认识比“宽松条件和解”的认识更能适应执法和解的实际状况",
+            "无论是中央层面的制度创新，还是地方层面的试点经验，都是激发制度活力、创新执法机制的重要尝试"
+          ],
+          "strengths": [
+            "明确修正既有两种界定，回应反对意见",
+            "结合《行政强制法》《反垄断法》等中国制度语境"
+          ],
+          "weaknesses": [
+            "结语部分对理论局限的主动承认稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受、回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 66.47018790245056,
+        "glm-5.1": 15.053372859954834
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 78,
+        "glm-5.1": 65
+      },
+      "mean": 71.5,
+      "std": 9.2,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建“三要素八模式”框架，明确未来需结合具体执法场景进行模式适配、风险防控与规则细化。",
+          "core_judgment": "存在真实延展路径，为后续场景化适用与制度完善提供了可操作的变量组合与风控方向。",
+          "score_rationale": "原始分78，落入60-79档对应bonus=3。论文构建“三要素八模式”框架，明确后续需结合具体执法场景进行模式适配与风险防控，路径清晰且与核心论证紧密衔接，但结语略宏观，未细化实证检验设计。",
+          "evidence_quotes": [
+            "要具体回答何种模式适用于何种领域、何种情形、何种对象的问题，还应结合实际情况的需要作出选择，进行调适，或者变通、发展地运用。",
+            "防范和解滥用的根本途径应是从和解权限和内容设定、和解效益评估、和解程序构建等多方面加强风险防范措施，而不是简单地压缩和解适用的空间。"
+          ],
+          "strengths": [
+            "提出“三要素八模式”框架，为后续场景适配提供明确路径",
+            "指明各模式的风险控制与制度衔接方向"
+          ],
+          "weaknesses": [
+            "结语延展表述偏宏观，未给出具体实证检验方案",
+            "部分模式边界仍需实务判例进一步廓清"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦该“八模式”框架在未来执法场景中的适配、检验与规则细化方向，而非评价当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指明了和解模式在具体执法领域的调适方向及风险防范的制度完善路径，但结语延展较概括。",
+          "core_judgment": "存在明确延展路径，指出了模式适用需结合实践调适及风险防范机制需多方面构建，但精细度有限。",
+          "score_rationale": "原始分65，对应bonus=3档。论文指明了和解模式在具体领域的调适方向及风险防范的制度完善路径，但结语未深入展开具体机制或争点，精细度有限。",
+          "evidence_quotes": [
+            "防范和解滥用的根本途径应是从和解权限和内容设定、和解效益评估、和解程序构建等多方面加强风险防范措施",
+            "要具体回答何种模式适用于何种领域、何种情形、何种对象的问题，还应结合实际情况的需要作出选择，进行调适"
+          ],
+          "strengths": [
+            "指明了风险防范的具体制度完善方向（权限、程序等）。",
+            "明确了模式理论需向具体执法场景延伸调适。"
+          ],
+          "weaknesses": [
+            "结语延展较概括，未提出具体的下一轮争点。",
+            "对风险防范机制的延展未在结论部分深化展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "模式在具体领域的适用调适属于未来延展问题，而非当下模式建构结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 84.4133689403534,
+        "glm-5.1": 42.611716747283936
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 3.5,
+    "max_std": 9.2,
+    "weighted_total": 87.4,
+    "final_score": 91.0,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 3.17,
+    "worst_dimension": "forward_extension",
+    "worst_std": 9.2
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "一个较完整的执法和解模式，至少包括和解的适用前提、和解的表意形式、和解的实现方法这三项基本要素。",
+          "德国法上这种受到严格限定的执法和解，现已被我国证券执法所移植。……但是，执法和解是否只能适用于事实或法律状态难查的情形？结论似应为否定性的。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国学者对于行政执法和解的界定，大致可以归结为两种类型……两者的分歧聚焦在和解的适用前提上。",
+          "德国法上这种受到严格限定的执法和解，现已被我国证券执法所移植……但是，执法和解是否只能适用于事实或法律状态难查的情形？是否能为“限定条件和解”的定义所包涵？结论似应为否定性的。",
+          "一个较完整的执法和解模式，至少包括和解的适用前提、和解的表意形式、和解的实现方法这三项基本要素……在这个“和解前提—和解表意—和解实现”的分析框架中……理论上能够形成八种类型的和解模式。",
+          "在我国的执法实践中，前文提到的珠海市横琴新区的税务诚信报告免责制度即是这一模式的具体运用。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

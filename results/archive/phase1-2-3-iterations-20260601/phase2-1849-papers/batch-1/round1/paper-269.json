@@ -1,0 +1,1042 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法审查图景中行政协议主体的适格.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "局部OCR残留数字混入（如正文中的④⑤等非标准脚注编号）",
+          "部分脚注格式不规范，未影响核心论点定位"
+        ],
+        "evidence_quotes": [
+          "适格④订约人判定更容易出现分歧",
+          "职责法定原则。⑤(2)政府主管部门是适格订约主体"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以政府特许经营协议为例，梳理司法裁判的有关观点",
+          "行政协议诉讼中，谁是适格被告的确定与民事合同诉讼完全不同",
+          "我国行政主体理论采用'诉讼主体'模式，即将实体上的行政主体资格和诉讼主体资格互相等同",
+          "订约属于具体'实施'环节，'订约权'相对于'特许'授予职权本身而言，可被称为'实施权'",
+          "援引民事合同效力待定理论在此处有其合理性",
+          "追认制度为行政协议效力提供缓冲空间"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "订约权与行政职权的关系",
+        "诉讼法上的主体资格，一般被表述为当事人能力",
+        "行政协议诉讼中，沿用行政诉讼被告确定规则，似乎突破了合同相对性原则",
+        "主体资格缺乏影响法律行为效力是行政法、民法共同的原理",
+        "讨论诉讼法和实体法上主体关系的意义，并不限于确认谁是适格主体，更在于判断行为效力"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量整体可接受，核心论点明确围绕中国行政协议订约权司法审查中的主体适格问题展开，形成可复核的理论命题，适合进入六维评价。建议后续关注OCR残留数字和脚注格式微瑕。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致个别字词错误（如'圆出现'应为'等出现'、'隋形下'应为'情形下'、'第l4条'应为'第14条'）",
+          "脚注编号乱码及位置错乱（如'④'、'⑤'、'⑩'等符号散落正文）",
+          "期刊页码混入正文（如'136'、'137'等）",
+          "参考文献列表抽取失败（正文有大量引用标注但列表为空）"
+        ],
+        "evidence_quotes": [
+          "适格④订约人判定更容易出现分歧",
+          "136",
+          "第l4条",
+          "隋形下"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以政府特许经营协议为例，梳理司法裁判的有关观点...赤水市政府作为一级人民政府，签订本案合同违反职责法定原则",
+          "我国行政实践中，特许用于不同的语境...获得特许权的对象即获得在许可范围内的权利",
+          "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定，有权主体有追认权，同时相对人有催告权和撤销权"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR乱码、页码混入及脚注错位需后续清洗",
+        "文本工程：参考文献列表缺失需复核补全"
+      ],
+      "evidence_quotes": [
+        "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定，有权主体有追认权，同时相对人有催告权和撤销权"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR残留、页码混入及脚注乱码，但不影响核心论点与论证结构的定位；项目口径完全符合中国自主知识体系研究要求，建议进入六维评分，并在后续阶段进行文本清洗与参考文献补全。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩、⑮等编号不连续或重复）",
+          "部分引用标注如'前引⑩'、'前引②'等存在交叉引用混乱",
+          "页码标记（136-146）混入正文"
+        ],
+        "evidence_quotes": [
+          "③文章本部分的适格主体仍指实体上的适格",
+          "⑤参见贵州省高级人民法院(2o13)黔高民商初字第6号民事判决书",
+          "⑩参见《政治与法律12016年第lO期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "司法审查图景中行政协议主体的适格",
+          "一级政府、政府主管部门、下属事业单位都可能签订行政协议，对其是否适格，观点各异",
+          "我国行政实践中，特许用于不同的语境...目前特许的基本法是《行政许可法》",
+          "行政协议诉讼中，谁是适格被告的确定...与民事合同诉讼完全不同",
+          "民庭、行政庭对该问题的不同进路折射出不同部门法对主体资格的不同诠释",
+          "被告转换技术是否是弥补主体资格缺陷的通行证呢",
+          "援引民事合同效力待定理论在此处有其合理性"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号和交叉引用标记存在OCR残留或排版问题，但不影响核心论点定位",
+        "参考文献列表缺失，但正文引用充分"
+      ],
+      "evidence_quotes": [
+        "司法审查图景中行政协议主体的适格——以行政协议主体与行政协议效力的关系为中心",
+        "行政协议诉讼中，谁是适格被告的确定与民事合同诉讼完全不同",
+        "被告转换技术是否是弥补主体资格缺陷的通行证呢",
+        "援引民事合同效力待定理论在此处有其合理性"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文完全符合项目口径，应进入六维评价。文本质量总体良好，仅存在脚注编号乱码等轻微OCR问题，不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注标记与正文混排（如④、@、⑩等符号错位或乱码）",
+          "期刊页码（136、137、138等）嵌入段落中间",
+          "部分换行符异常（如“第 \n 一”）"
+        ],
+        "evidence_quotes": [
+          "适格④订约人判定更容易出现分歧。",
+          "136 \n\n司法审查图景中行政协议主体的适格",
+          "第 \n一，有无对订约权的直接规定"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以政府特许经营协议为例，梳理司法裁判的有关观点，大致有以下几种...",
+          "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定，有权主体有追认权，同时相对人有催告权和撤销权。",
+          "行政协议立法不发达、行政协议诉讼历时尚短，使行政协议诉讼呈现出特有的冲突和困惑，有待更多契合我国实际的解释进路和解决方案。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR/排版残留（脚注编号、页码混入），但不影响核心论证定位；项目口径四项信号完整，具备进入六维评价条件。"
+      ],
+      "evidence_quotes": [
+        "将内设机构、派出机构的订约权视为“隐性订约权”，将“授权”视为一种“追认”形式，从而使转换被告弥补主体资格之思路获得逻辑上的自洽。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦中国行政协议司法实践中的主体适格难题，成功将民事合同效力待定与追认理论转化为行政协议效力审查的解释路径，具备明确的理论转化与可复核命题。文本存在少量OCR脚注乱码与页码混入，属低风险工程问题，不影响实质评审。建议以conditional_pass状态进入六维评分流程，评审时注意自动过滤页码与脚注干扰。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了行政协议订约权与主体适格的判断难题，但问题框架仍属围绕“谁有权签约”的既定讨论范畴，未形成明确、可争辩的理论进阶。",
+          "core_judgment": "论文界定了一个问题域（订约主体适格与权限争议），但未将其提炼为能推动理论发展的可争辩法学命题。",
+          "score_rationale": "可争辩性=2/4（有笼统问题但缺乏明确争点句），枢纽性=3/4（影响特许经营、房屋征收等多个制度领域，涉及职权、主体资格等核心概念），材料新颖性未触发上限（案例与规范梳理用于展示分歧，但未带来命题层面推进）。锚定marginal档，给55分。前置扣分：检查1（新概念包装旧问题）未触发，检查2（宏观介绍）扣15分（全文以归纳司法分歧和规范矛盾为主，缺乏学者观点交锋），检查3（主题声明）扣20分（主要围绕“谁有签约权”的既定立场展开，缺乏明确的争点句）。扣分后最终45分，不低于30分。",
+          "evidence_quotes": [
+            "“在田阳新山新能燃气有限责任公司等诉平果华商清洁能源有限公司等侵权责任纠纷案中，法院在一审判决书中指出，当事人应当知道只有合法的一级政府才有权授权签订《管道燃气特许经营协议》。”",
+            "“正是由于签约主体规范不一，导致政府特许经营协议签约主体适格条件难下定论。”"
+          ],
+          "strengths": [
+            "通过系统梳理司法裁判分歧和规范冲突，清晰地展示了订约权判断的实践难题。",
+            "问题涉及行政职权、主体资格等行政法基础概念，具备一定的制度连锁效应。"
+          ],
+          "weaknesses": [
+            "未能将实践分歧转化为一个明确、可争辩的理论问题，研究问题停留在“观点归纳”层面。",
+            "全文以介绍和阐述既定立场为主，缺乏学者观点间的深度交锋或理论路径的比较分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大而无法聚焦于一个具体争点，触发上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文标题和核心论述围绕“行政协议主体的适格”这一宽泛主题，但未设置“XX是否YY”“如何ZZ”等明确的问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评论文的论证严密性或文献综述的充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准揭示行政协议实体适格与诉讼被告资格的错位冲突，提出追认解释路径。",
+          "core_judgment": "问题具强可争辩性与枢纽性，横跨实体与诉讼法，非纯政策倡导。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置扣分合计0分。",
+          "evidence_quotes": [
+            "对订约权与职权的关系，仍有争议...适格订约人判定更容易出现分歧",
+            "被告转换技术是否是弥补主体资格缺陷的通行证呢?"
+          ],
+          "strengths": [
+            "精准识别实体适格与诉讼被告资格的错位冲突",
+            "提出效力待定与追认的解释路径，具法理深度"
+          ],
+          "weaknesses": [
+            "对追认制度在行政协议中的具体适用标准论述稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文聚焦行政协议主体适格性这一实务争点，但问题表述偏向制度描述与规则归纳，缺乏明确的理论争点建构。",
+          "core_judgment": "主题明确但问题创新性不足：全文以'谁有订约权'为线索展开制度梳理，未形成可争辩的法学理论问题，属于主题声明型研究。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质是制度梳理，无理论交锋；涉及法学层面但非理论分歧），枢纽性=2/4（影响行政协议诉讼制度与行政主体理论，但未触发多制度连锁调整），材料新颖性未触发上限，锚定marginal档，给55分。负面模式扣分：检查2扣15分（有提及分歧但未展开理论交锋），检查3扣20分（有问题句但实质是制度阐释），合计扣35分；但扣分后不得低于30分，最终取55分。",
+          "evidence_quotes": [
+            "司法实践中上述判断仍面临一定困难，对订约权与职权的关系，仍有争议",
+            "民庭、行政庭对该问题的不同进路折射出不同部门法对主体资格的不同诠释"
+          ],
+          "strengths": [
+            "聚焦行政协议诉讼实务痛点，具有现实针对性",
+            "梳理民行审判分歧，有一定比较视角"
+          ],
+          "weaknesses": [
+            "缺乏理论争点建构，全文以制度归纳为主",
+            "未与行政主体理论、合同效力理论形成深层对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦，可争辩性=2但缺乏理论交锋",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文以'谁有订约权'为线索展开制度描述，未形成'XX是否YY'式理论争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦行政协议订约权与职权关系及诉讼主体资格冲突，提出效力待定与追认的解释路径。",
+          "core_judgment": "问题具有明确争点与深厚法理基础，跨部门法视角有效统合实体与程序分歧，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，负面模式扣分合计0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "对订约权与职权的关系，仍有争议。尤其是职权主体依法律、法规、规章将订约权授予另一主体时，适格订约人判定更容易出现分歧。",
+            "民庭、行政庭对该问题的不同进路折射出不同部门法对主体资格的不同诠释。"
+          ],
+          "strengths": [
+            "精准提炼司法裁判与立法规范中的主体适格分歧",
+            "跨部门法视角统合实体订约权与程序被告资格"
+          ],
+          "weaknesses": [
+            "追认制度的具体适用标准与程序衔接仍需细化",
+            "对行政协议特殊性导致的效力审查边界探讨稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.53327703475952,
+        "glm-5.1": 33.98140907287598,
+        "kimi-k2.6": 15.158109903335571,
+        "qwen3.6-plus": 63.88539409637451
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 72,
+      "std": 19.6,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文未建立明确的研究地图，缺乏对既有研究的系统梳理和争点呈现。",
+          "core_judgment": "论文正文未呈现任何可区分的研究成果、未竟点或对立学派，导致研究地图完全缺失，本维度不成立。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给30分",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "全文未引用或评述任何既有学术研究成果，未建立研究地图",
+            "未呈现任何法学流派或可区分的学术争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-2：研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点、未竟点、本文切入点均为0分，全文无任何既有研究引用或综述"
+            }
+          ],
+          "boundary_note": "论文问题在于未进行文献梳理和定位，而非问题本身缺乏创新性，故属文献洞察维度。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰呈现多重争点，研究地图完整，洞察度高。",
+          "core_judgment": "论文有效建立了从适格主体分歧到效力待定方案的完整研究地图，现状洞察维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "纯粹的被告转换无法为主体资格缺乏提供充分说理依据…有待更多契合我国实际的解释进路和解决方案。",
+            "援引民事合同效力待定理论在此处有其合理性…由有权机关追认协议有利于稳定法律关系，保护相对人的合理信赖"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现了适格主体、诉讼/实体资格分离、效力影响等多重分歧。",
+            "分散式文献定位有效，精准提取了行政主体重构、民事主体统一等学术脉络。"
+          ],
+          "weaknesses": [
+            "缺乏集中式文献综述，部分学术脉络仅以单篇文献支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评估文献定位与争点梳理的深度，不评价效力待定方案的创新性或论证严密度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "研究地图严重残缺，缺乏对既有学术研究的系统梳理。",
+          "core_judgment": "论文虽涉及行政协议主体适格问题，但未建立清晰的研究地图，三要素均未能充分满足。",
+          "score_rationale": "三要素=2/6（到达点1分+未竟点1分+切入点0分），争点结构=1/2，法学流派=0个，锚定unacceptable档，给52分。",
+          "evidence_quotes": [
+            "有学者撰文指出，大体而言，特许存在的空间往往为……参见胡敏洁：《特许、行政法与规制工具》……于立深：《给付行政中的警察权力》……",
+            "有学者认为……有学者也认为行政协议效力状态可以包括效力待定……参见前引⑩，步兵书"
+          ],
+          "strengths": [
+            "正文分散提及部分学者观点"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究到达点与贡献",
+            "未指出研究缺口与本文切入点的对应关系"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分1-2，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及胡敏洁、于立深等个别学者观点但未提炼贡献；未竟点仅隐含在立法矛盾描述中；切入点未与未竟点建立明确对应"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位薄弱，而非问题本身不新颖；作者实际提出了行政协议主体适格的解释路径。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "系统梳理行政协议主体适格的司法分歧与理论争议，精准切入效力待定与追认机制。",
+          "core_judgment": "研究地图完整，清晰呈现实体与程序主体资格分离的学术争点及立法司法分歧，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "民庭、行政庭对该问题的不同进路折射出不同部门法对主体资格的不同诠释。",
+            "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定"
+          ],
+          "strengths": [
+            "精准提炼司法裁判与立法规范的多元分歧，到达点扎实。",
+            "明确指出现有被告转换技术的局限，未竟点与切入点逻辑严密。"
+          ],
+          "weaknesses": [
+            "跨学科或比较法流派引入相对有限，主要聚焦国内行政法内部争论。",
+            "部分裁判观点梳理偏重实务归纳，理论流派对话可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现深度，不涉及该选题本身的新颖性或论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.399460077285767,
+        "glm-5.1": 58.13354802131653,
+        "kimi-k2.6": 11.478265762329102,
+        "qwen3.6-plus": 68.67732501029968
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 90
+      },
+      "mean": 65.5,
+      "std": 29.7,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文通过司法裁判、立法规定和理论学说进行归纳，但未建构可重复适用的分析框架，提出'订约权判断两步法'后未进行步骤化操作设计，法学转化不足。",
+          "core_judgment": "论文主要贡献在于'梳理'和'归纳'既有的裁判观点与立法规定，而非提出原创、可操作的分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅有'两步法'的初步概念，但无明确概念界定、分类标准、分析步骤且后文未实际调用），法学转化度得分=1/4（仅提出'追认'解释路径，但未转化为裁判规则或操作指引），锚定 unacceptable 档，给45分。",
+          "evidence_quotes": [
+            "判断谁有行政协议订约权分两步进行：第一，有无对订约权的直接规定...第二，对订约权无明确规定时，寻找职权主体。",
+            "以政府特许经营协议为例，梳理司法裁判的有关观点，大致有以下几种：(1)负有特许经营事项管理职权的主管部门是适格签约主体..."
+          ],
+          "strengths": [
+            "系统归纳了司法实践中关于签约主体的三种不同观点。",
+            "注意到了行政主体理论与诉讼实践之间的张力。"
+          ],
+          "weaknesses": [
+            "提出的'两步法'缺乏明确的适用边界和步骤化操作指引。",
+            "核心属于政策理论梳理型论文，原创性分析框架缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语'订约权''职权主体'等无明确定义，'两步法'未被后文实际调用为分析步骤。"
+            }
+          ],
+          "boundary_note": "本文为实务型论文（制度/判例分析），需要提供裁判规则或制度设计方案作为分析框架，但其未满足此要求。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了清晰的适格订约权两步判断法及追认制度，法学转化度高。",
+          "core_judgment": "分析框架成立且高度可操作，为司法审查提供了具体的裁判规则与制度方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "判断谁有行政协议订约权分两步进行：第一，有无对订约权的直接规定…第二，对订约权无明确规定时，寻找职权主体",
+            "将内设机构的订约权视为隐性订约权，将授权视为一种追认形式"
+          ],
+          "strengths": [
+            "提出了清晰的两步判断法，分类标准明确",
+            "建构了效力待定与追认制度的操作方案"
+          ],
+          "weaknesses": [
+            "隐性订约权概念的界定稍显推演，实定法依据偏弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不评价追认制度在法理上的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出'两步判断+职权分析'的行政协议订约权框架，但核心步骤界定模糊，缺乏类型化标准与可重复操作步骤。",
+          "core_judgment": "框架具有问题意识但操作性不足，'两步判断'仅为描述性归纳而非建构性分析工具，后文未形成步骤化调用。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定部分清晰但分类标准不明、分析步骤未步骤化、后文调用零散）；法学转化度得分=2/4（有裁判规则归纳和制度建议但缺乏司法程序层面的操作指引、转化步骤后文使用不充分）；锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "判断谁有行政协议订约权分两步进行：第一，有无对订约权的直接规定……第二，对订约权无明确规定时，寻找职权主体",
+            "在立法明确被授权的实施主体和一级政府都有订约权限时……在立法规定只有一级政府有订约权限时……在立法只规定被授权的实施主体有订约权时"
+          ],
+          "strengths": [
+            "问题意识明确，聚焦行政协议订约权与职权的关系这一实务难点",
+            "结合大量案例和比较法素材，裁判规则归纳有一定参考价值"
+          ],
+          "weaknesses": [
+            "'两步判断'仅为描述性归纳，未转化为可重复适用的类型化标准或判断步骤",
+            "后文分析以案例罗列和学说综述为主，未按框架步骤展开系统论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'两步判断'仅为描述性流程，'适格''职权主体'等核心术语未作操作化定义，缺乏'第一步检验XX、第二步检验YY'的明确判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力，不涉及案例论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“职权溯源—效力待定—追认补正”的行政协议主体适格分析框架，兼具教义学严密性与实务可操作性。",
+          "core_judgment": "框架成立且高度可用，成功将民事效力理论转化为行政协议审查的裁判规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。两步职权判断与追认机制步骤清晰，后文案例与制度分析均严格调用，实现跨部门法概念的裁判规则转化。",
+          "evidence_quotes": [
+            "判断谁有行政协议订约权分两步进行：第一，有无对订约权的直接规定；第二，无明确规定时寻找职权主体。",
+            "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定，有权主体有追认权。"
+          ],
+          "strengths": [
+            "两步职权判断标准边界清晰，可直接用于适格主体筛查",
+            "引入效力待定与追认机制，为司法裁判提供缓冲与操作路径"
+          ],
+          "weaknesses": [
+            "追认的具体程序要件（如备案是否构成追认）界定仍留白",
+            "未充分展开相对人撤销权行使期限等配套程序规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及论证逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.18156909942627,
+        "glm-5.1": 36.60880422592163,
+        "kimi-k2.6": 15.036418914794922,
+        "qwen3.6-plus": 58.15629601478577
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.8,
+      "std": 24.7,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文围绕行政协议订约权主体适格问题，形成了“司法分歧→规范矛盾→理论重构→效力与救济解释”的清晰推理链，结论可由前文充分支撑。",
+          "core_judgment": "逻辑严密性成立。论文推理链完整且依赖度高，核心结论由前文的规范分析与理论推演可辩护地推出，并有效回应了司法实务中的反对观点和自身方案的适用边界。",
+          "score_rationale": "推理链完整性得分=4/4（所有推理步骤均可复述、相互依赖、结论可推出且无≥2处关键跳步），反驳处理度得分=3/3（识别了实务反对意见、进行了实质回应且承认为“非常态”局限），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "“有学者撰文指出...特许存在的空间往往为...”(识别反对意见之规范来源) VS “不能以主管部门具有...主管权而否认一级政府的‘特许’权。...一级政府作为上位授权主体转而自己实施授出的权力，不宜被认定为僭越被授权人权力。”(实质回应)",
+            "“既然纯粹的被告转换无法为主体资格缺乏提供充分说理依据...‘效力待定’理论在此处有其合理性...由有权机关追认协议有利于稳定法律关系...”(回应局限并提供替代解释路径)"
+          ],
+          "strengths": [
+            "推理链高度依赖：从“司法观点分歧”到“规范矛盾”，再到“订约权与职权关系”的理论拆解，最后引出“效力待定”解释方案，环环相扣。",
+            "反驳处理充分：不仅呈现了司法实务的三种对立观点，还针对“被告转换技术”的局限性提出了具有逻辑自洽性的“追认”替代方案。"
+          ],
+          "weaknesses": [
+            "从“地方规范不统一”到“一级政府与实施主体均有订约权”的普适性结论，部分跳过了对不同授权模式下权力来源的严格规范位阶分析。",
+            "引入“效力待定”作为补充解释时，对其在行政诉讼中与“视为委托”的程序法衔接论证稍显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文对“被告转换”缺乏说理依据的批评，属于对现有司法审查逻辑缺陷的论证，而非逻辑推演断裂，故不纳入推理链断裂规则。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链层层递进，从实务分歧推导出追认方案，反驳与局限处理充分。",
+          "core_judgment": "论文逻辑严密性维度成立，核心结论可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“订约属于具体‘实施’环节，‘订约权’相对于‘特许’授予职权本身而言，可被称为‘实施权’。”",
+            "“以‘视为委托’的被告转换技术消解主体资格缺陷应属一种‘非常态’。”"
+          ],
+          "strengths": [
+            "推理链依赖度高，实体职权分析与诉讼主体冲突环环相扣。",
+            "反驳处理实质，对“视为委托”局限的回应推导出追认方案。"
+          ],
+          "weaknesses": [
+            "从民事效力待定直接平移至行政协议，理论衔接稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价关注追认方案是否从前文推出，不评价该方案在实务中是否可操作。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'职权—授权—订约权—效力'的完整推理链，但反驳处理存在明显薄弱。",
+          "core_judgment": "推理链完整但反驳处理不足：主要步骤可复述且相互依赖，核心结论可由前文推出，但对反对意见的回应多为描述性罗列，缺乏实质性论证。",
+          "score_rationale": "推理链完整性得分=4/4（标准1-4均满足：三步判断逻辑清晰；步骤间依赖紧密；结论可由前文推出；无明显关键跳步）。反驳处理度得分=1/3（标准1满足：识别了'有学者认为'等反对意见；标准2不满足：对'行政主体理论重构'等反对意见仅描述性呈现，未实质回应其论证；标准3不满足：未承认自身'追认制度'方案的适用边界）。锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "有学者认为'行政诉讼被告问题的种种争议和确定被告的困难，必须从理论上重新建设行政主体理论'",
+            "学者大体认为实体法上行政主体的确定应以分权为基础...而诉讼法上的主体资格应以诉讼便宜、及时解决纠纷为主要目的"
+          ],
+          "strengths": [
+            "三步推理结构清晰：'直接规定→职权主体→授权关系'层层递进",
+            "从'订约权'到'效力'再到'追认制度'的推导链条完整"
+          ],
+          "weaknesses": [
+            "对'行政主体理论重构'的反对意见仅罗列学者观点，未回应其核心理由",
+            "未讨论'追认制度'在紧急行政、公共利益场景下的适用局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'追认制度'方案本身的制度可行性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文逻辑严密，推理链完整且有效回应了实务分歧与理论争议。",
+          "core_judgment": "核心结论可由前文案例梳理、职权理论分析及现行司法技术批判充分支撑，逻辑成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "司法实践中上述判断仍面临一定困难，对订约权与职权的关系，仍有争议。",
+            "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定"
+          ],
+          "strengths": [
+            "推理链条完整，从实务分歧到理论溯源再到制度建构层层递进。",
+            "有效回应了民行审判思路差异及“视为委托”技术的理论缺陷。"
+          ],
+          "weaknesses": [
+            "部分规范依据的效力层级分析略显简略，未深入展开立法冲突解决。",
+            "追认制度的具体程序要件与边界论证可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文规范与案例推导支撑，而非评价追认方案的操作细节。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 69.58487915992737,
+        "glm-5.1": 43.44484281539917,
+        "kimi-k2.6": 11.843082904815674,
+        "qwen3.6-plus": 60.155744791030884
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83.5,
+      "std": 8.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 63,
+          "band": "good",
+          "summary": "结论提出了区分订约权判断标准并引入追认制度的技术方案，具有明确的学术主张，但未与已有争论展开有效对话，且对策建议停留在原则层面。",
+          "core_judgment": "结论提出了具体的技术方案，但未回应反对意见，也未定位既有学术争论，共同体对话度较低，削弱了结论当下被接受的基础。",
+          "score_rationale": "共同体对话度得分=2/4（结论有明确主张，但未回应已有争论和反对意见），制度可接受度得分=3/4（结论与现行法秩序兼容，回应了实务约束并指明转化方向）。理论论文锚定good(60-69)档，综合给63分。",
+          "evidence_quotes": [
+            "适格的签约主体包括一级政府本身和实施主体。在立法只规定被授权的实施主体有订约权时，则一级政府本身和实施主体都有订约权限。",
+            "既然纯粹的被告转换无法为主体资格缺乏提供充分说理依据……援引民事合同效力待定理论在此处有其合理性……由有权机关追认协议有利于稳定法律关系，保护相对人的合理信赖。"
+          ],
+          "strengths": [
+            "结论提出了清晰的判断步骤和具体的解释方案（如效力待定、追认），具备可争议性。",
+            "制度回应性强：方案紧密结合了《基础设施和公用事业特许经营管理办法》等现行规范与司法实践。"
+          ],
+          "weaknesses": [
+            "结论未明确与既有学术争论（如行政主体理论、被告资格讨论）的关系，近乎自说自话。",
+            "未主动承认或讨论可能的反对意见（如追认说可能架空职权法定原则的风险）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "不评价方案是否最终被接受或是否具有前瞻性，仅判断其当下在共同体和制度语境中的可接受基础。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论提出效力待定与追认解释路径，有效回应实务分歧与理论争论。",
+          "core_judgment": "结论深度回应共同体争论并给出兼容现行法秩序的具体解释方案，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "由有权机关追认协议有利于稳定法律关系，保护相对人的合理信赖",
+            "行政协议立法不发达……有待更多契合我国实际的解释进路和解决方案"
+          ],
+          "strengths": [
+            "提出效力待定与追认制度作为替代方案，具制度转化指向",
+            "主动承认现实约束与自身局限，对话度高"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出以'批准、事后追认'等制度补充行政协议主体资格审查，结论具有明确的学术对话性和制度回应性。",
+          "core_judgment": "结论回应了行政协议诉讼中被告认定与合同相对性冲突的学术争论，提出了可被反对者定位和回应的具体解释路径，在中国法语境中具有可接受性。",
+          "score_rationale": "共同体对话度得分=3/4（回应了行政主体理论与合同相对性的学术争论，可被反对者定位回应，考虑了中国制度语境，但未主动讨论反对意见或自身局限）；制度可接受度得分=3/4（不与现行法秩序根本矛盾，回应了诉讼法与实体法的制度约束，指出了批准、追认等制度转化方向，考虑了中国行政协议诉讼实践）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "对行政协议签约方的权限审查导致在行政诉讼被告认定框架下出现与合同相对性原理不符的特别现象，需要以批准、事后追认等制度进行补充解释",
+            "行政协议诉讼中对主体资格的审查只是协议合法性与效力审查中的一个环节，但行政诉讼注重权限审查的传统使该问题的分量不可小觑"
+          ],
+          "strengths": [
+            "结论明确回应了行政协议诉讼中民行分野的实务困境",
+            "提出的'效力待定+追认'路径具有制度可操作性"
+          ],
+          "weaknesses": [
+            "未充分讨论追认制度与行政法上职权法定原则的潜在张力",
+            "对反对意见（如追认可能纵容越权订约）回应不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应行政协议主体适格争议，提出效力待定与追认解释路径，兼具理论对话与制度兼容性。",
+          "core_judgment": "该维度完全成立，结论深度嵌入中国行政审判语境且具备明确的可争辩性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论明确回应司法分歧与学说争议，提出追认路径，高度契合现行法秩序。",
+          "evidence_quotes": [
+            "援引民事合同效力待定理论在此处有其合理性，订约主体缺乏完全的订约权，可视为效力待定",
+            "需要以批准、事后追认等制度进行补充解释，以符合主体资格影响行为效力这一公、私法的共通原理"
+          ],
+          "strengths": [
+            "精准定位民行审判分歧，提出效力待定与追认的教义学缓冲方案",
+            "结论明确嵌入中国行政协议诉讼语境，具备高度可争辩性"
+          ],
+          "weaknesses": [
+            "追认制度在行政法上的具体程序要件与审查标准仍需细化",
+            "对相对人撤销权行使期限与行政效率的潜在冲突未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被共同体与制度语境接受，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.79826498031616,
+        "glm-5.1": 37.1855947971344,
+        "kimi-k2.6": 13.395088195800781,
+        "qwen3.6-plus": 70.120689868927
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 63,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.2,
+      "std": 14.1,
+      "strictest": 63,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文在结尾部分结合既有分析提出了追认、效力待定等可操作的解释方案，形成可定位的延展路径，但后续研究问题的精细度与独立研究框架仍可加强。",
+          "core_judgment": "存在明确的延展路径，与正文论证紧密衔接，但路径展开尚欠精细。",
+          "score_rationale": "原始分78落入60-79档，对应bonus=3。论文明确指认追认、批准等解释方案可继续深化，未来行政主体理论重构将推动实体与诉讼主体资格分离，延展方向具体可辨。",
+          "evidence_quotes": [
+            "可否将审核、备案等程序视为一种“追认”不应一概而论，审核、备案只是由政府法制机构作出，则不宜认定为适格行政主体的追认行为。",
+            "相信在不受行政主体理论过分限制的情况下会有新的发展，未来若行政主体理论获得重构，行政主体和行政诉讼主体适度分离将成为趋势。"
+          ],
+          "strengths": [
+            "提出追认、效力待定等可操作的解释方案，衔接实体法与程序法。",
+            "明确行政主体理论重构将成为关键变量，指明制度演进方向。"
+          ],
+          "weaknesses": [
+            "对“法典化”或程序立法如何回应已发现的适格主体争议未给予足够描述。",
+            "延展路径未区分理论深化的不同学术阵营或竞争性解释方案，留白较多。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处聚焦论文指明的解释方案深化方向和理论重构趋势，属于未来研究推进问题，而非当下结论是否被接受的评价范畴。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "提出了追认制度细化、行政主体理论重构等清晰延展路径。",
+          "core_judgment": "存在真实延展路径，指明了理论修正与实务改进的具体方向及适用边界。",
+          "score_rationale": "原始分82，对应bonus=5档。正文明确指出了“行政主体理论重构”的理论修正路径及“名与权、责一致”的实务改进方向，并提出追认制度的适用边界，路径清晰可定位，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "名与权、责一致始终是未来应努力促成的方向，以“视为委托”的被告转换技术消解主体资格缺陷应属一种“非常态”。",
+            "未来若行政主体理论获得重构，行政主体和行政诉讼主体适度分离将成为趋势。"
+          ],
+          "strengths": [
+            "指明了行政主体理论重构与诉讼主体分离的理论深化方向",
+            "明确了追认制度的适用边界与名权责一致的实务改进路径"
+          ],
+          "weaknesses": [
+            "结语“有待更多解释进路”稍显空泛"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "追认制度的细化与行政主体理论重构属于未来立法与学理延展问题，而非当下司法裁判可直接完全接受的结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语和局部提出了行政协议主体理论的延展方向，但多为概括性指向，缺乏具体后续研究问题或明确的理论深化路径。",
+          "core_judgment": "存在真实但较概括的延展路径，主要体现为对行政主体理论重构、追认制度细化等方向的提示，但精细度不足。",
+          "score_rationale": "原始分55分，对应bonus=2档。论文提出'行政主体理论获得重构''追认制度配套'等方向，并指出'有待更多契合我国实际的解释进路和解决方案'，但多为问题式收尾，未形成具体后续研究问题或概念修正路径。",
+          "evidence_quotes": [
+            "未来若行政主体理论获得重构，行政主体和行政诉讼主体适度分离将成为趋势",
+            "行政协议立法不发达、行政协议诉讼历时尚短，使行政协议诉讼呈现出特有的冲突和困惑，有待更多契合我国实际的解释进路和解决方案"
+          ],
+          "strengths": [
+            "指出行政主体理论与诉讼主体分离的趋势性方向"
+          ],
+          "weaknesses": [
+            "结语多为概括性展望，未提出具体后续研究问题或争点",
+            "追认制度、被告转换技术等仅作初步论证，未指明深化路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文是否指明未来可继续推进的研究方向或制度完善路径，而非当下结论是否被接受。论文结语中的'有待更多解释进路'属于典型的未来延展表述，但其空洞程度限制了高分。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文指明行政主体理论重构与诉讼主体适度分离趋势，并提出追认制度配套的具体延展方向。",
+          "core_judgment": "存在真实延展路径，明确指向理论重构方向与制度细化空间。",
+          "score_rationale": "原始分72，对应bonus=3。论文指明行政主体理论重构与诉讼主体分离趋势，并提出追认制度配套方向，路径清晰且与核心论证衔接，但结语偏宏观，精细度有限。",
+          "evidence_quotes": [
+            "未来若行政主体理论获得重构，行政主体和行政诉讼主体适度分离将成为趋势。",
+            "行政协议立法不发达、行政协议诉讼历时尚短，使行政协议诉讼呈现出特有的冲突和困惑，有待更多契合我国实际的解释进路和解决方案。"
+          ],
+          "strengths": [
+            "明确指出行政主体理论重构与诉讼主体适度分离的未来趋势。",
+            "提出追认制度需配套相对人催告权与撤销权的具体延展方向。"
+          ],
+          "weaknesses": [
+            "结语表述偏宏观，未细化追认程序的具体审查标准。",
+            "对立法规范冲突的后续解决路径缺乏实证检验设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于行政主体理论重构、追认制度细化及立法衔接等未来研究方向，而非评判当下追认路径在现行法下的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 42.067166805267334,
+        "glm-5.1": 42.53842306137085,
+        "kimi-k2.6": 11.49367094039917,
+        "qwen3.6-plus": 56.285075187683105
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 82,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 72
+      },
+      "mean": 71.8,
+      "std": 11.9,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 75.79,
+      "weighted_total": 73.4
+    },
+    "aggregation_strictest": {
+      "final_score": 51.35,
+      "weighted_total": 52.7
+    },
+    "avg_std": 18.1,
+    "max_std": 29.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.4,
+    "composite_score": -18.1,
+    "worst_dimension": "literature_insight",
+    "worst_std": 29.7
+  }
+}

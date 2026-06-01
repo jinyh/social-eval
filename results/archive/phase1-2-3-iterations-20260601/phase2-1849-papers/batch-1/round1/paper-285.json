@@ -1,0 +1,1062 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/员额法官遴选机制改革实证研究_以A省为样板.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注/参考文献字段缺失（论文末尾无参考文献列表），但文中引用标注可辨识，不影响核心论证定位"
+        ],
+        "evidence_quotes": [
+          "参见左卫民、全亮、黄掰等：《中基层法院法官任用机制研究》，北京大学出版社2014年版.第28页。",
+          "参见李浩：《院庭长办案与员额制改革》，载《江海学刊》2018年第5期，第159页。",
+          "参见陈文兴、詹素娟：《论我国法官遴选制度之再优化》.载《法学评论》2007年第3期，第105贞。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。",
+          "根据中央有关部门的政策与指导性意见，在省高级人民法院的主导下，A省于2016年上下半年分别开展了一场试点遴选与正式遴选。",
+          "当前的法官遴选，尽管从形式上增加了遴选程序的统一性、标准化要素，但是本质上仍然是基于诸多考虑，在地方中基层法院实际支配下、以办案为主、兼顾其他的法官任用机制改革。",
+          "这种'隐秘的逻辑'或许更真实地反映了法官遴选的真正'套路'。在推进员额制改革的过程中，法官遴选的全过程似乎都受到员额指标'稀缺性'的深刻影响...",
+          "未来如何科学地评价法官的职业能力，避免陷入'唯职务论' '唯资历论'的窠臼，使能够办案的年轻法官脱颖而出，无疑值得更多的思考。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "论文末尾无参考文献列表，正文引用较为规范，可后续补充"
+      ],
+      "evidence_quotes": [
+        "员额制改革后究竟什么样的人入额担任法官？",
+        "当前的法官遴选，尽管从形式上增加了遴选程序的统一性、标准化要素，但是本质上仍然是基于诸多考虑，在地方中基层法院实际支配下、以办案为主、兼顾其他的法官任用机制改革。",
+        "通过数据可以发现差异化的情况与特征... 改革主体试图通过构建'三位一体'的综合评价机制来增强遴选程序的民主性、科学性、专业化，但本文的数据却显示笔试、素能、民主测评三要素之间的指向性并不完全一致，甚至存在一定的矛盾、冲突。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在无参考文献列表的风险，但核心论点、实证法学问题与中国实践解释均清晰可辨，建议直接进入六维评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致图表标签严重乱码（如'家枣'应为'家事','速哉'应为'速裁','派H;法応'应为'派出法庭'等）",
+          "脚注编号存在乱码及特殊符号异常（如⑩⑪⑬⑭⑮⑯⑰⑱⑲⑳㉒㉚㉘㉙㉛等非标准编码）",
+          "期刊页码混入正文（如263, 264, 265等）",
+          "部分表格因OCR抽取导致列对齐和内容完整性受损"
+        ],
+        "evidence_quotes": [
+          "图3员额法官遴选前的工作部门（%）...■未成 年及家枣(少审)庭■纪检监察部门■办公室■政治部(处)■研究室■审监辽■立案庭■执行庭(屈)■刑庭派H;法応",
+          "⑩ 根据2016年发布的GDP统计数据...⑪ 笔者也统计了C市全部法院的人额情况...263"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。",
+          "在推进员额制改革的过程中，法官遴选的全过程似乎都受到员额指标“稀缺性”的深刻影响，这种“稀缺性”进一步影响到了任用策略。",
+          "当前的制度设计整体上亲和于年龄较大、资历较深、具有行政职务的法官，年轻人的上升通道受到影响。",
+          "遴选机制的地方化、差异性的问题...遴选标准之间的冲突性问题...民主测评机制的充分性问题...遴选程序“头重脚轻”的问题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：图表OCR乱码影响数据细节复核，但不影响核心论点定位",
+        "文本工程：脚注编号乱码及页码混入需后续清洗",
+        "项目口径：论文属于典型的中国司法改革实证研究，完全符合项目口径"
+      ],
+      "evidence_quotes": [
+        "当前的制度设计整体上亲和于年龄较大、资历较深、具有行政职务的法官，年轻人的上升通道受到影响。因此，未来如何科学地评价法官的职业能力，避免陷入“唯职务论”“唯资历论”的窠臼...无疑值得更多的思考。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段对图表OCR乱码及脚注编号进行文本工程修复，以确保数据类论据的精确复核。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码（如⑩⑪⑫等符号混杂）",
+          "部分表格数据因分栏排版导致列对齐异常",
+          "参考文献列表缺失（标注为'无'）"
+        ],
+        "evidence_quotes": [
+          "⑩ 根据2016年发布的GDP统计数据...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。",
+          "作为中国司法改革的重要内容，员额法官遴选机制改革基本上是一场在中央宏观规范与指导下,适当发挥地方（省、市两级）主动性而展开的活动",
+          "当前的遴选机制可能并非如其表现上呈现的那般公正、光鲜，也是存在诸多不足甚至缺陷的",
+          "法官遴选机制建立了一套综合化的法官评价机制...实现了遴选机制的'精密化'",
+          "遴选方案的地方化、差异性的问题...遴选标准之间的冲突性问题...民主测评机制的充分性问题...遴选程序'头重脚轻'的问题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留（⑩⑪⑫等符号），但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，但正文论证完整可定位",
+        "文本工程：部分表格因分栏排版导致数据列对齐异常，但核心数据可辨识"
+      ],
+      "evidence_quotes": [
+        "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。",
+        "当前的遴选机制可能并非如其表现上呈现的那般公正、光鲜，也是存在诸多不足甚至缺陷的"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国法官员额制改革为核心研究对象，基于A省实证数据，对法官遴选机制进行了系统的法学分析，提出了'遴选机制的地方化''标准冲突''民主测评形式化''程序头重脚轻'等可争辩的法学命题，完全符合项目口径。文本质量风险较低，脚注编号乱码和参考文献缺失不影响核心评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR换行符残留与断句异常",
+          "脚注编号出现乱码或符号替换（如®、㉒、㉕等）",
+          "期刊页眉页脚及页码混入正文（如“263”“中国法学 2020年第4期”）",
+          "部分表格数据与表头对齐错位"
+        ],
+        "evidence_quotes": [
+          "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。",
+          "⑩ 根据2016年发布的GDP统计数据.A省18个城市的经济发展水平大致可以划分为四个梯度...",
+          "263\n\n中国法学\n2020年第4期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以A省员额法官遴选数据为样本，实证剖析‘笔试+素能考核+民主测评’三位一体遴选机制的运作逻辑与成绩悖离现象",
+          "揭示遴选政策中‘隐秘的逻辑’：决策主体通过指标权重与考核内容设计，平衡考试能力与办案资历，实质偏向‘老姜’法官与中层干部",
+          "提出遴选标准地方化、指标维度冲突、民主测评权力集中化及程序‘头重脚轻’等制度命题，并给出统一标准、优化权重、调整测评时机等规范改革路径"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程层面存在OCR排版噪声与脚注符号乱码，但不影响核心论点、数据论证与制度批判的定位；项目口径完全满足进入六维评价标准"
+      ],
+      "evidence_quotes": [
+        "员额法官遴选机制改革实证研究：以A省为样板",
+        "决策主体为了平衡候选法官考试能力、办案能力以及群众口碑对此采取了有所取舍的遴选政策...天平一定程度上已经‘有意无意’地偏向了‘老姜’法官",
+        "当前的法官遴选，尽管从形式上增加了遴选程序的统一性、标准化要素，但是本质上仍然是基于诸多考虑，在地方中基层法院实际支配下、以办案为主、兼顾其他的法官任用机制改革"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR噪声，但项目口径高度契合‘中国自主知识体系研究’标准。论文聚焦中国司法人事制度改革核心议题，以扎实实证数据解释中国法院遴选实践中的真实张力，并提炼出具有可复核性的制度命题与规范改革建议。建议直接进入六维评分阶段，评审时自动过滤页眉页脚及脚注乱码干扰，重点考察其理论转化深度与制度解释力。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 32,
+          "band": "unacceptable",
+          "summary": "论文仅有“员额法官遴选机制改革实证研究”这一主题声明，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文是对A省员额法官遴选情况的描述性统计与运行机制介绍，属于宏观介绍而非以法学理论分歧或争点为核心的研究。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未实质推进问题设定，触发no_justiciable_question上限50分。前置检查扣18分（检查1扣15分，检查3扣15分，检查2不触发），最终得32分。",
+          "evidence_quotes": [
+            "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。",
+            "如何评价上述改革呢？必须指出，作为一种颇具颠覆性的人事变革，员额法官遴选机制改革既继承也突破了传统法官任用机制..."
+          ],
+          "strengths": [
+            "提供了较丰富的A省员额法官遴选实证数据。"
+          ],
+          "weaknesses": [
+            "未提炼可争辩的法学研究问题，全文仅围绕改革运行状况做描述与评价。",
+            "无学者观点交锋，实质是单方面阐释既定改革立场与成效局限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无明确法学问题句，仅为主题声明与现状描述，可争辩性为0，触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'或'如何ZZ'等法学问题句，开头仅以'究竟什么样的人入额'引入，随即展开数据报告与改革评价。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评数据丰富性、论证严密性或文献综述。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文揭示了法官遴选标准的内在冲突，触及司法职业化核心争点。",
+          "core_judgment": "问题成立且枢纽性强，虽初始问题偏事实描述，但实证推进了制度正当性争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "降低笔试权重的最终结果是否也反映了一种考虑—让非年轻法官群体更易脱颖而出呢？",
+            "基于院长等法院特权阶层在员额法官遴选中具有更大的话语权...最后的结果是以牺牲部分年轻、优秀法官的利益为代价"
+          ],
+          "strengths": [
+            "揭示了遴选标准内在冲突的法学争点",
+            "问题涉及司法职业化与行政化的长期核心争论"
+          ],
+          "weaknesses": [
+            "核心问题句偏向事实描述而非规范争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评实证数据可靠性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "实证描述法官员额遴选现状，缺乏可争辩的法学理论问题。",
+          "core_judgment": "全文为数据描述与政策评估，未提出具有理论张力的法学争点，不构成研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有事实描述无理论争点），枢纽性=2/4（涉及司法制度但无理论连锁），材料新颖性未触发上限，锚定unacceptable档，扣25分（检查1：新概念包装旧问题，实为'三位一体'包装传统人事考察；检查2：宏观介绍非深度分析，无学者观点交锋；检查3：主题声明非研究问题，仅描述现状无争辩），给35分。",
+          "evidence_quotes": [
+            "员额制改革后究竟什么样的人入额担任法官？这无疑是一个引人关注的问题。对此,通过数据分析可以发现差异化的情况与特征。",
+            "总之，A省法院为了促进法官遴选的科学化、民主化、规范化而推出'三位一体'的遴选机制改革，这一改革初衷是极好的"
+          ],
+          "strengths": [
+            "数据详实，覆盖性别、年龄、资历等多维度"
+          ],
+          "weaknesses": [
+            "无明确问题句，仅有主题声明式标题",
+            "无学者观点交锋，仅为数据归纳与政策评述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1则最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'式问题句，仅描述'什么样的人入额'事实"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦则最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评论证严密性与材料充分性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "基于A省实证数据揭示员额法官遴选机制中指标悖离与隐性资历偏向，问题明确且具现实张力。",
+          "core_judgment": "研究问题聚焦遴选机制的实际运作与制度预设的冲突，具备明确的法学争点与理论纵深，问题创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "员额制改革后究竟什么样的人入额担任法官？",
+            "分项成绩总体上呈现出一定的‘悖离’现象……暗含着‘隐秘的逻辑’"
+          ],
+          "strengths": [
+            "以实证数据精准定位制度预设与实际运作的张力",
+            "问题意识明确，直击司法人事改革核心痛点"
+          ],
+          "weaknesses": [
+            "问题聚焦于单一省份数据，普适性争点稍弱",
+            "对遴选委员会实质审查缺位的法理剖析可更深"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.86726093292236,
+        "glm-5.1": 49.2284882068634,
+        "kimi-k2.6": 14.639571905136108,
+        "qwen3.6-plus": 77.00139331817627
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 32,
+        "glm-5.1": 88,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 90
+      },
+      "mean": 61.2,
+      "std": 32.1,
+      "strictest": 32,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文未进行任何文献综述或学术研究地图构建，缺少对既有研究的到达点、未竟点和本文切入点的交代，也未识别任何法学流派或争点结构。",
+          "core_judgment": "本文为纯实证数据分析报告，未呈现任何对既有学术研究的定位、梳理或批判，完全缺失研究地图三要素。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "文章从“员额制改革后究竟什么样的人入额担任法官？”直接进入数据分析，全文未引用或讨论任何既有学术文献。",
+            "参考文献列表为空，正文无任何“XX研究指出”“学界认为”“既有研究表明”等典型文献定位表述。"
+          ],
+          "strengths": [
+            "数据呈现详实，提供了性别、年龄、资历等多维度实证图景。"
+          ],
+          "weaknesses": [
+            "完全缺失对既有法学研究或学术争论的梳理，未构建研究地图。",
+            "未说明本文研究问题在已有学术讨论中的位置或贡献。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无任何研究地图构建，触发no_research_map上限",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无文献引用，无学术研究到达点、未竟点和本文切入点的任何交代，参考文献列表为空。"
+            }
+          ],
+          "boundary_note": "本文属于纯实证数据描述与分析，缺乏对既有学说的交代，属于文献定位缺失而非问题创新性不足。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "实证数据有效反拨学界预设，呈现多重制度冲突争点",
+          "core_judgment": "分散式文献定位清晰反拨既有认知，争点结构成立",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给78分",
+          "evidence_quotes": [
+            "与学者预设有所不同，员额法官的法科教育背景不错",
+            "破除了传统法官任用中两种相互区隔的任用理念（即“党政干部选拔理念”和“司法职业遴选理念”）"
+          ],
+          "strengths": [
+            "数据反拨学界预设与业界感觉，未竟点明确",
+            "揭示笔试与素能/民主测评的“悖离”争点"
+          ],
+          "weaknesses": [
+            "法学流派仅停留在任用理念对立，理论深度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评文献定位与争点结构，不评实证数据本身的新颖性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "实证研究论文，以数据描述为主，缺乏系统的文献梳理与研究地图构建。",
+          "core_judgment": "本维度不成立：论文未建立清晰的研究地图，三要素严重缺失，争点结构与法学流派识别均不足。",
+          "score_rationale": "三要素得分=1/6（到达点1分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，但上限55分，给55分。",
+          "evidence_quotes": [
+            "与在都会区女性法官很多的业界感觉相反，入额法官总体上是'男多女少'",
+            "与学者预设有所不同，员额法官的法科教育背景不错"
+          ],
+          "strengths": [
+            "提及个别学者观点作为对比参照"
+          ],
+          "weaknesses": [
+            "无文献综述，未呈现学术争论脉络",
+            "未明确研究缺口与本文理论贡献"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文仅零星提及'学者预设''有论者指出'等，无具体研究成果、未竟点及切入点的系统表述"
+            }
+          ],
+          "boundary_note": "本文献定位问题是研究地图缺失，而非问题本身不新颖；数据实证不等于文献梳理。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文通过实证数据有效对接既有学术预设，清晰勾勒员额制遴选机制的研究地图与争点脉络。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别达标，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "与学者预设有所不同，员额法官的法科教育背景不错...",
+            "笔者将通过剖析遴选政策及其运作来揭示...缘何有些群体受益更大、受损更多"
+          ],
+          "strengths": [
+            "实证数据精准回应学界预设，到达点与未竟点提炼扎实",
+            "分散式文献定位有效融入论证，三要素对应严密"
+          ],
+          "weaknesses": [
+            "流派讨论偏重实务理念对立，纯理论学派交锋较少",
+            "部分文献引述未深入展开跨流派对话"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦既有研究预设与实证数据的张力，属文献定位与争点梳理，非问题创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.741370916366577,
+        "glm-5.1": 41.212000131607056,
+        "kimi-k2.6": 11.387793064117432,
+        "qwen3.6-plus": 70.02374315261841
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 78,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "mean": 57,
+      "std": 30.2,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 22,
+          "band": "unacceptable",
+          "summary": "论文为实证报告，未建构可操作的分析框架，仅对遴选数据进行描述性统计与分组比较。",
+          "core_judgment": "全文无原创概念界定、无分类标准、无可循的分析步骤，不具备分析框架建构力。",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（非理论型论文且无制度设计方案），锚定unacceptable档，给22分。",
+          "evidence_quotes": [
+            "笔试考察作用：女性入额法官的平均笔试成绩为83.1分，男性为81.9分",
+            "素能考核普遍是'男高女低'：男性法官平均素能成绩79.4分，女性77.5分"
+          ],
+          "strengths": [
+            "数据描述详实，分组维度清晰（性别、年龄、资历、区域）"
+          ],
+          "weaknesses": [
+            "全文为按人口学变量展开的统计描述，未提出任何分析框架",
+            "余论的政策建议仅以'应当'式呼吁收尾，无制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发no_operational_framework上限规则",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无概念定义、无分类标准、无分析步骤，核心术语如'三位一体遴选机制'仅为政策现象描述而非分析框架。"
+            }
+          ],
+          "boundary_note": "本文属于实证调查研究，其贡献在于数据呈现而非框架建构；本维度不评价数据质量或问题重要性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "借用官方“三位一体”政策框架进行实证阐释，无原创分析框架建构。",
+          "core_judgment": "论文核心框架来自权威政策表述，主要贡献为数据梳理与现象归纳，而非原创框架建构。",
+          "score_rationale": "框架可操作性得分=2/4（受政策梳理型上限2限制），法学转化度得分=1/4（受上限1限制），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "确定了“笔试考察+素能考核+民主测评”三位一体的遴选政策",
+            "指标之“悖离”及其原因探寻"
+          ],
+          "strengths": [
+            "实证分类标准明确，对法官群体与地域梯度划分清晰",
+            "分析步骤可循，按三环节逐一展开数据验证"
+          ],
+          "weaknesses": [
+            "核心框架借用官方表述，无原创概念界定与类型化",
+            "法学转化停留在现象解释，缺乏具体制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_summary",
+              "rule": "政策理论梳理型识别规则：框架核心术语来自权威表述而非论文原创，主要贡献为梳理归纳",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "核心术语“三位一体”来自中央政策，全文为数据梳理与现象阐释"
+            }
+          ],
+          "boundary_note": "评估的是框架是否原创且可操作，而非实证数据是否详实或逻辑是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "实证描述有余，分析框架建构不足，缺乏可重复适用的理论模型或判断标准。",
+          "core_judgment": "该文以数据描述和现象归纳为主，未形成独立的分析框架，属于典型的实证描述型论文而非框架建构型论文。",
+          "score_rationale": "框架可操作性得分=1/4（仅分类标准较明确，无核心概念界定、无步骤化分析流程、框架术语未在后文系统调用），法学转化度得分=1/4（仅对既有制度进行描述性归纳，未将实证发现转化为可操作的裁判规则或制度设计步骤，也未形成理论型论文的概念操作化）。锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "在笔者看来,这种现象可能实际上暗含着'隐秘的逻辑'。这种'隐秘的逻辑'或许更真实地反映了法官遴选的真正'套路'",
+            "当前的法官遴选，尽管从形式上增加了遴选程序的统一性、标准化要素，但是本质上仍然是基于诸多考虑，在地方中基层法院实际支配下、以办案为主、兼顾其他的法官任用机制改革"
+          ],
+          "strengths": [
+            "数据分类细致，按性别、年龄、资历等多维度呈现员额法官特征",
+            "对'三位一体'遴选机制各要素权重设置有系统梳理"
+          ],
+          "weaknesses": [
+            "核心概念如'隐秘的逻辑''数目字管理'等缺乏明确定义与操作化",
+            "全文无步骤化分析框架，后文分析未调用前文提出的任何理论工具"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以'数据分析—现象描述—问题归纳'为主线，'隐秘的逻辑''数目字管理'等术语未定义，无分析步骤，后文未调用任何框架性术语进行分析"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身是否成立，不涉及数据真实性或论证逻辑严密性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建“三位一体”遴选指标框架，结合人口学变量交叉实证检验，有效支撑制度诊断。",
+          "core_judgment": "框架具备明确的可操作性与制度转化路径，能精准识别机制缺陷并导出优化方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。指标分类清晰、分析步骤可循且贯穿全文；针对制度型论文要求，提供了权重调整、测评时机优化及省级统筹等具体制度设计方案。",
+          "evidence_quotes": [
+            "确定了“笔试考察+素能考核+民主测评”三位一体的遴选政策",
+            "决策主体为了平衡候选法官考试能力、办案能力以及群众口碑对此采取了有所取舍的遴选政策"
+          ],
+          "strengths": [
+            "“三位一体”指标与人口学变量交叉，形成可重复的实证分析路径",
+            "精准识别指标“悖离”现象，直接导出权重调整与程序优化的制度方案"
+          ],
+          "weaknesses": [
+            "框架偏重行政管理与实证统计，对司法裁判规律的教义学转化稍显不足",
+            "部分制度建议缺乏配套的组织法或程序法具体条文设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及数据相关性分析的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.13047909736633,
+        "glm-5.1": 72.98692297935486,
+        "kimi-k2.6": 13.717962980270386,
+        "qwen3.6-plus": 56.55036973953247
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 22,
+        "glm-5.1": 55,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 52.5,
+      "std": 27.4,
+      "strictest": 22,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 80,
+          "band": "excellent",
+          "summary": "实证描述与制度分析衔接紧密，核心结论由分层数据充分支撑，整体推理链完整且可复述。",
+          "core_judgment": "论文以‘数据呈现→政策机制剖析→制度评价’为主线，推导过程清晰，结论可由前文辩护地推出，逻辑严密性基本成立。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、链依赖、结论有支撑、无关键跳步），反驳处理度得分=2/3（隐含分歧回应、承认局限），锚定excellent档，给80分。",
+          "evidence_quotes": [
+            "在笔者看来,这种现象可能实际上暗含着‘隐秘的逻辑’......天平一定程度上已经‘有意无意’地偏向了‘老姜’法官，偏向了任职资历。",
+            "基于以上分析，笔者认为......整体上是成功的。但也有若干问题......如遴选方案的地方化、差异性,遴选标准的协调性......值得进一步地思考和研究。"
+          ],
+          "strengths": [
+            "数据→政策→评价的递进路径清晰，每步推理依赖前步结论，形成完整的逻辑闭环。",
+            "在提出‘逆反’发现时自觉处理了与学界预判的分歧，并给出基于数据的解释。"
+          ],
+          "weaknesses": [
+            "对‘方案地方化何以合理’的潜在辩护仅一句带过，未展开论证，使该处的反驳回应稍显单薄。",
+            "从‘存在不足’到‘仍须进一步研究’的收束略依赖呼吁语气，但未使核心结论失去支撑，不构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文属于实证分析型，以数据推导实务特征。此处评分只针对推理链条，不评价定量方法本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "实证数据支撑的推理链完整，对常识与学界观点的反驳有力，逻辑严密。",
+          "core_judgment": "推理链完整且层层递进，核心结论可由数据与机制分析辩护推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4（现象→机制→隐秘逻辑→评价建议，层层依赖），反驳处理度得分=3/3（显式反驳多个认知并用数据回应，承认机制局限），锚定excellent档，给90分",
+          "evidence_quotes": [
+            "与在都会区女性法官很多的业界感觉相反，入额法官总体上是‘男多女少’",
+            "决策主体为了平衡候选法官考试能力、办案能力以及群众口碑对此采取了有所取舍的遴选政策"
+          ],
+          "strengths": [
+            "现象-机制-逻辑-评价的推理链层层依赖，无关键跳步",
+            "用详实数据实质性反驳了多个学界预设与通常认知"
+          ],
+          "weaknesses": [
+            "部分机制评价的因果推断（如维护等级秩序）偏解释性，非唯一必然",
+            "余论建议与前文深层逻辑揭示的衔接稍显松散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是数据到机制再到隐秘逻辑的推导链条，而非遴选方案本身是否可操作",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "实证描述链条完整，但规范结论推导存在薄弱环节。",
+          "core_judgment": "作为实证研究论文，数据呈现与描述性推理链完整，但'评价—建议'环节的规范推导缺乏充分支撑。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4部分成立：从'数据悖离'到'隐秘逻辑'的推断存在跳步，但核心描述性结论可由数据支撑；'评价—建议'环节规范推导不足），反驳处理度得分=1/3（标准1成立：提及'有学者认为''有论者指出'等反对声音；标准2部分成立：对'地方化''差异性'有回应但不够深入；标准3不成立：未明确承认研究局限）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "在笔者看来,这种现象可能实际上暗含着'隐秘的逻辑'。这种'隐秘的逻辑'或许更真实地反映了法官遴选的真正'套路'",
+            "有论者甚至认为：'基于院长等法院特权阶层在员额法官遴选中具有更大的话语权...'"
+          ],
+          "strengths": [
+            "数据描述链条清晰：从性别、年龄、资历到岗位分布形成完整画像",
+            "三项指标对比分析形成有效张力，支撑'悖离'发现"
+          ],
+          "weaknesses": [
+            "从'数据悖离'到'有意偏向'的因果推断缺乏直接证据，存在解释跳跃",
+            "规范建议部分（'应当统一标准'）与实证发现之间的推导链条薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评价实证方法本身的科学性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "以实证数据为起点，经机制拆解与指标悖离分析，严密推导出遴选政策隐性偏向资历的核心结论。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论由数据与制度分析充分支撑，反驳与局限处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。数据到结论推导闭环完整，无关键跳步。",
+          "evidence_quotes": [
+            "与学者预设有所不同，员额法官法科教育背景不错，与部分学者认为法考通过者为主力的认知不同。",
+            "在笔者看来，指标悖离暗含隐秘逻辑，决策主体为平衡考试与办案能力，采取了有所取舍的遴选政策。"
+          ],
+          "strengths": [
+            "数据呈现与制度剖析紧密咬合，推导路径清晰",
+            "主动回应学界预设并揭示指标冲突背后的实务逻辑"
+          ],
+          "weaknesses": [
+            "部分相关性分析未控制混杂变量，因果推断略单薄",
+            "对发达城市样本的差异化处理仅一笔带过，论证未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦数据到结论的推导严密性，而非遴选框架本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.42786717414856,
+        "glm-5.1": 41.067508935928345,
+        "kimi-k2.6": 10.914644956588745,
+        "qwen3.6-plus": 74.97293472290039
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 80,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83.5,
+      "std": 9.3,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 75,
+          "band": "good",
+          "summary": "论文通过实证数据揭示了员额法官遴选机制的运作逻辑与内在偏向，结论具备可争辩性并对制度改进提出了方向性建议。",
+          "core_judgment": "结论回应了中国员额制改革的制度语境，承认现有改革的积极面并指出具体缺陷，构成可被学界认真对待和反驳的学术主张。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，锚定good(70-79)档，给75分。论文未机械套用对策模板，亦未与现行法秩序根本矛盾。",
+          "evidence_quotes": [
+            "在推进员额制改革的过程中，法官遴选的全过程似乎都受到员额指标“稀缺性”的深刻影响...",
+            "决策主体为了平衡候选法官考试能力、办案能力以及群众口碑对此采取了有所取舍的遴选政策..."
+          ],
+          "strengths": [
+            "结论明确指出了遴选机制在性别、年龄、资历上的结构性偏向，构成可被反对者定位和回应的学术主张。",
+            "论文主动讨论了改革的正功能与局限，承认其“程式化”优势，同时批评方案的地方化及权重设置问题。"
+          ],
+          "weaknesses": [
+            "余论中的对策建议如“遴选方案的协调和统一”较为原则性，未提供具体的制度转化路径。",
+            "未充分回应反对意见，如为何容忍部分地方性差异或“头重脚轻”程序在当前改革阶段具有合理性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评价结论可接受性，不涉及论证过程严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "实证揭示员额遴选隐秘逻辑，结论深度回应争论且制度兼容性强。",
+          "core_judgment": "结论修正了遴选机制认知，指出具体制度缺陷并提出可行微调方向，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“天平一定程度上已经‘有意无意’地偏向了‘老姜’法官，偏向了任职资历”",
+            "“民主测评偏离预设初衷，可能异化为平衡成绩差距的杠杆”"
+          ],
+          "strengths": [
+            "实证揭示悖离现象，修正既有认知",
+            "对策具体（调整权重、测评时机），非空泛万能药"
+          ],
+          "weaknesses": [
+            "对省级统管与地方化张力仅提统一方向，未深论阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "实证研究揭示员额法官遴选机制存在地方化差异与标准冲突，结论具有明确政策指向。",
+          "core_judgment": "论文结论进入法学共同体关于司法改革与法官遴选的既有争论，能被定位与回应，且对中国制度语境有充分回应。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，锚定good档，给72分。对话度：回应了员额制改革中'考试vs资历''形式公平vs实质公平'等学界争论（标准1）；结论可被反对者定位（如支持年轻法官精英化者可直接反驳其'资历偏向'判断）（标准2）；基于中国A省实证数据，充分回应中国语境（标准3）；但未明确讨论反对意见或自身局限（标准4未满足）。制度度：结论不主张推翻现行法秩序，而是在肯定改革基础上提出完善建议（标准1）；回应了具体制度约束（笔试权重、素能考核、民主测评设计）（标准2）；指出了协调统一遴选方案、优化权重设置等制度转化方向（标准3）；基于中国省级统管改革背景展开，非简单移植（标准4）。",
+          "evidence_quotes": [
+            "当前的遴选机制也并非'完美无缺'，也是存在诸多不足甚至缺陷的。虽然大规模的法官遴选目前业已结束，但与法官遴选机制改革相伴生的相关问题仍值得我们进一步地思考和研究。",
+            "当前的制度设计整体上亲和于年龄较大、资历较深、具有行政职务的法官，年轻人的上升通道受到影响。"
+          ],
+          "strengths": [
+            "基于A省大样本实证数据，结论扎根中国司法改革语境。",
+            "明确回应了员额制改革中'考试能力'与'办案资历'的张力这一核心争论。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认研究局限或预设反对意见。",
+            "对策建议'完善立法、加强监管'色彩较轻，但'统一标准'建议仍偏原则性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证过程严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文基于A省实证数据，精准揭示员额遴选机制的内在张力与地方化局限，并提出具操作性的制度优化路径。",
+          "core_judgment": "结论深度嵌入中国司法改革语境，有效回应既有学术争论，且制度优化建议具现实可行性与法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论直面遴选标准冲突，与现行改革逻辑高度兼容。",
+          "evidence_quotes": [
+            "考虑到司法权的‘中央事权’属性，法官的遴选标准不应过于地方化、分散化，而应在一定范围内保持协调和统一",
+            "未来如何科学地评价法官的职业能力，避免陷入‘唯职务论’‘唯资历论’的窠臼，使能够办案的年轻法官脱颖而出"
+          ],
+          "strengths": [
+            "实证数据扎实，精准揭示遴选指标间的内在张力与“隐秘逻辑”。",
+            "对策直指权重设置与测评时机等程序痛点，具强制度转化潜力。"
+          ],
+          "weaknesses": [
+            "样本仅局限于A省，结论的全国普适性需更多跨区域数据验证。",
+            "对遴选委员会实质审查权受限的破解路径论述稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被共同体与制度语境接纳，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.408601760864258,
+        "glm-5.1": 34.19525599479675,
+        "kimi-k2.6": 13.60557508468628,
+        "qwen3.6-plus": 70.09336376190186
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.2,
+      "std": 10.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在余论中提出了若干未来完善方向，但多停留在宏观建议层面，缺乏具体、可定位的研究问题或深化路径。",
+          "core_judgment": "存在延展方向，但较为概括，与正文核心结论的衔接尚需推断，未形成精细化的后续研究路径。",
+          "score_rationale": "原始分55分，对应bonus档位为2分。余论虽指出地方化、权重设置、民主测评时机等问题，但多为原则性呼吁，缺少具体问题分解或可检验的深化框架。",
+          "evidence_quotes": [
+            "未来如何科学地评价法官的职业能力，避免陷入“唯职务论”“唯资历论”的窠臼……无疑值得更多的思考。",
+            "与法官遴选机制改革相伴生的相关问题仍值得我们进一步地思考和研究。"
+          ],
+          "strengths": [
+            "明确指出了协调统一标准、权重再设置等几个可延伸的制度修正方向。",
+            "承认当前遴选机制并非“完美无缺”，为后续争论留下了入口。"
+          ],
+          "weaknesses": [
+            "延展路径大多停留在原则性呼吁，缺乏具体研究问题或概念边界说明。",
+            "结尾“进一步思考和研究”等表述空泛，未定位具体推进对象或方法。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的标准统一、权重调整等属于制度完善方向，是未来研究议题，而非对当下结论可接受性的判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "余论提出三个具体制度完善方向，与正文局限性紧密衔接。",
+          "core_judgment": "存在真实延展路径，指明了遴选方案统一、权重科学化及测评时机等具体制度修正方向。",
+          "score_rationale": "原始分85，对应bonus档位5分。余论指明三项具体制度修正方向（方案统一、权重科学化、测评时机），与正文发现的“悖离”现象及局限性紧密衔接，路径清晰可定位。",
+          "evidence_quotes": [
+            "法官的遴选标准不应过于地方化、分散化,而应在一定范围内保持协调和统一",
+            "未来如何科学地评价法官的职业能力，避免陷入“唯职务论”“唯资历论”的窠臼，使能够办案的年轻法官脱颖而出"
+          ],
+          "strengths": [
+            "延展路径具体，直接回应正文发现的制度缺陷。",
+            "提出了可操作的规则修正方向（如民主测评时机）。"
+          ],
+          "weaknesses": [
+            "结尾存在轻微口号式拔高（“唯有如此...日臻完善”）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "民主测评时机与权重设置属于未来制度完善与实施风险控制问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在余论部分提出了制度完善方向，但延展路径较概括，缺乏具体后续研究问题或精细化深化方案。",
+          "core_judgment": "存在真实延展路径，但精细度和证据支撑有限，主要体现为制度完善方向的宏观列举。",
+          "score_rationale": "原始分55分，对应bonus=2的低档弱加分。论文在余论中明确提出了三项未来改进方向（遴选方案统一、权重设置优化、民主测评时机调整），并指出'相关问题仍值得我们进一步地思考和研究'，属于可定位的延展。但三项建议较为概括，未形成具体研究问题或操作化路径，且未承认正文局限（如单省样本的普适性约束），精细度不足。",
+          "evidence_quotes": [
+            "未来如何科学地评价法官的职业能力，避免陷入'唯职务论''唯资历论'的窠臼，使能够办案的年轻法官脱颖而出，无疑值得更多的思考",
+            "虽然大规模的法官遴选目前业已结束，但与法官遴选机制改革相伴生的相关问题仍值得我们进一步地思考和研究"
+          ],
+          "strengths": [
+            "余论明确列出三项制度完善方向，与正文核心结论衔接",
+            "指出民主测评时机等具体程序问题，有可定位的实务改进空间"
+          ],
+          "weaknesses": [
+            "三项建议较宏观，未转化为具体后续研究问题或操作方案",
+            "未承认单省样本局限，未说明该局限如何影响结论外推及后续应如何推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估未来研究方向，而非当下结论是否被接受。论文提出的制度完善方向属于'未来还能往哪里走'，但因其概括性而得分受限。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "基于实证发现的指标悖离，精准提出标准统一、权重优化与测评时机调整三项制度延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接正文实证结论。",
+          "score_rationale": "原始分80，对应bonus=5。余论精准提炼标准统一、权重优化与测评时机调整三项路径，与正文“指标悖离”结论紧密咬合，方向明确可定位。",
+          "evidence_quotes": [
+            "未来如何科学地评价法官的职业能力，避免陷入“唯职务论”“唯资历论”的窠臼，使年轻法官脱颖而出，值得更多思考。",
+            "目前的民主测评在笔试、素能成绩后展开，易异化为平衡成绩差距的杠杆，增加程序不公平性。"
+          ],
+          "strengths": [
+            "精准提炼三项制度优化路径，与实证发现的指标冲突紧密呼应。",
+            "明确指出测评时机与权重设置的实操改进方向，具政策参考价值。"
+          ],
+          "weaknesses": [
+            "延展停留于方向性建议，未提供具体权重测算模型或程序重构方案。",
+            "对省级统管与地方差异的张力缺乏进一步的理论深化或比较法延伸。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是员额遴选制度未来的规则衔接与实施风险控制方向，而非当下遴选结论的正当性，故属前瞻延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.75402593612671,
+        "glm-5.1": 30.8298499584198,
+        "kimi-k2.6": 11.868767976760864,
+        "qwen3.6-plus": 59.510945081710815
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "mean": 68.8,
+      "std": 16.0,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 66.92,
+      "weighted_total": 66.0
+    },
+    "aggregation_strictest": {
+      "final_score": 35.65,
+      "weighted_total": 40.2
+    },
+    "avg_std": 20.9,
+    "max_std": 32.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 31.3,
+    "composite_score": -20.9,
+    "worst_dimension": "problem_originality",
+    "worst_std": 32.1
+  }
+}

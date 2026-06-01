@@ -1,0 +1,1063 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国法域外适用法律体系_现状、问题与完善.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文所讨论的国内法域外适用的范围...中国现行域外适用规则散见于各类法律和行政法规之中...",
+          "中国法域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则。",
+          "在目前国际法日益受到国内法制约...中国可以在目前国内法规则中，尽可能地确立以保护管辖权为基础的域外效力规则。",
+          "完善中国法域外适用法律体系，既需要针对上述两部分规则进行查漏补缺,也需要采取其他措施促使两部分规则实现融合。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国法域外适用法律体系：现状、问题与完善",
+        "总体来看，现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守...",
+        "完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分,也是实现国内法与国际法良性互动的必然要求。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国法域外适用法律体系为核心，系统梳理现状、问题与完善路径，具有明确的中国问题意识、可争辩的法学命题和理论建构尝试，文本质量清晰完整，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留字符错误：多处出现形近字误识，如'女口'应为'如'，'岀'应为'出'，'欣盟'应为'欧盟'，'嗯起'应为'崛起'，'侏杰'应为'宋杰'，'苓兆琦'应为'？兆琦'",
+          "脚注编号抽取为非标准特殊符号（如㉑至㉿系列），存在乱码风险",
+          "期刊页码混入正文（如'21','22','23'等数字独立成段或混入行首）"
+        ],
+        "evidence_quotes": [
+          "女口《中华人民共和国深海海底区域资源勘探开发法》第2条就规定",
+          "欣盟于2018年6月6日宣布重新激活第2271/6号条例",
+          "参见蔡从燕:《中国嗯起、对外关系法与法院的功能再造》",
+          "参见前引⑬侏杰文"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国法域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则",
+          "现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守，防御性色彩浓厚但进攻性略显不足",
+          "中国法院可以通过'私法路径'和'公法路径'对域外适用作用予以适当强化",
+          "国内法域外适用既不等于国际关系中的霸权主义，适度的国内法域外适用也是推动国际法规则发展的有力工具"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR形近字误识需在后续评分中人工校对还原",
+        "文本工程：脚注编号乱码及页码混入需清洗，但不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守，防御性色彩浓厚但进攻性略显不足",
+        "中国法域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，直接进入六维评分。但文本存在多处OCR字符识别错误及脚注乱码，建议在后续评分阶段进行文本清洗或人工校对，以免影响细粒度指标评判。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如㉑㉒㉓等圆圈数字编号在正文中穿插，部分脚注内容已融入正文但标识混乱）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "部分英文文献引用存在格式不统一（如大小写、标点符号）"
+        ],
+        "evidence_quotes": [
+          "㉑参见《行政处罚法》第3条、第20条，《行政强制法》第2条等。",
+          "㉒事实上，中国行政机关曾试图对域外有损于“一个中国”政策的行为进行规制...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国法域外适用法律体系：现状、问题与完善",
+          "完善中国法域外适用的法律体系，既需要针对上述两部分规则进行查漏补缺,也需要采取其他措施促使两部分规则实现融合",
+          "上海市工商局机场分局对注册地在荷兰的Booking.com B.V.公司做出罚款20万元的行政处罚决定",
+          "习近平总书记明确指出：'中国将继续发挥负责任大国作用,积极参与全球治理体系改革和建设，不断贡献中国智慧和力量。'"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留（㉑㉒㉓等），但核心内容可读；参考文献列表缺失，但正文引用完整",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "中国法域外适用法律体系：现状、问题与完善",
+        "完善中国法域外适用的法律体系，既需要针对上述两部分规则进行查漏补缺,也需要采取其他措施促使两部分规则实现融合"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文完全符合项目口径，应进入六维评价。文本质量风险较低，脚注编号OCR残留和参考文献列表缺失不影响核心评审，可在评分时关注引用完整性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与错字（如‘女口’应为‘例如’，‘丄G’应为‘LG’，‘髙级’应为‘高级’，‘岀口’应为‘出口’，‘嗯起’应为‘崛起’）",
+          "PDF排版残留（页码数字‘21’‘22’‘23’及期刊名‘中国法学 2019年第6期’混入正文段落间）",
+          "部分脚注URL格式断裂或包含乱码字符"
+        ],
+        "evidence_quotes": [
+          "女口《中华人民共和国深海海底区域资源勘探开发法》第2条就规定",
+          "韩国的三星丄G等6家企业协调产品价格的行为",
+          "云南省髙级人民法院做出终审判决"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国现行域外适用规则散见于各类法律和行政法规之中，所涉领域较为广泛，管辖连接点呈多样化态势",
+          "现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守，防御性色彩浓厚但进攻性略显不足",
+          "完善中国法域外适用的法律体系，既需要针对上述两部分规则进行查漏补缺，也需要采取其他措施促使两部分规则实现融合",
+          "确立域外效力条款时，可以考虑以效果原则等体现保护管辖权性质的连接点为基础，将境外特定行为纳入域外效力范围"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需人工校对OCR错字及混入的页码/刊名，但不影响核心论证定位",
+        "项目口径：完全契合中国自主知识体系评价标准，无边界争议"
+      ],
+      "evidence_quotes": [
+        "中国法域外适用法律体系：现状、问题与完善",
+        "确立域外效力条款时，可以考虑以效果原则等体现保护管辖权性质的连接点为基础，将境外特定行为纳入域外效力范围"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在少量OCR识别错误与排版残留，但不影响核心论点、规范分析与制度建构命题的定位。论文以中国法域外适用体系为中心，深入剖析现行立法分散、责任配置失衡、司法参与不足等真实实践难题，并提出‘确立效力规则+保障实施规则’的双层体系建构路径及具体修法建议，具备明确的法学可争辩性与理论转化价值。符合进入六维评价标准，建议直接转入正式评分阶段，后续流程中注意引文与法条序号的自动校对。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文系统梳理了中国法域外适用规则现状并提出完善建议，但整体属于主题声明与政策倡导，缺乏可争辩的法学问题。",
+          "core_judgment": "全文以阐释既定立场和完善体系为目标，未提出可争辩的法学争点，问题创新性不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性未触发上限。可争辩性≤1触发no_justiciable_question上限50分，因完全是框架性罗列，最终给40分。扣分合计：检查1不扣分，检查2扣20分（无观点交锋），检查3扣30分（无问题句）。",
+          "evidence_quotes": [
+            "中国法域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则。",
+            "完善中国法域外适用法律体系，既需要针对上述两部分规则进行查漏补缺,也需要采取其他措施促使两部分规则实现融合。"
+          ],
+          "strengths": [
+            "梳理了刑法、反垄断法、出口管制法等域外适用规则现状。"
+          ],
+          "weaknesses": [
+            "全文无明确法学问题句，只有主题声明。",
+            "未展现任何学者观点交锋，均为单向归纳与建议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无明确问题句或可争辩的法学争点，仅为主题声明与政策倡导",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未见“XX是否YY”“如何ZZ”等问题句，均为“引言-现状-问题-完善建议”的体系介绍结构。"
+            }
+          ],
+          "boundary_note": "只评问题本身是否成立且重要，不评文献综述、论证严密性或结论是否成立。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅作体系梳理与对策倡导，缺乏可争辩的法学问题。",
+          "core_judgment": "问题维度不成立，全文为主题声明与政策倡导，无核心法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档，前置扣分45分，底线30分。",
+          "evidence_quotes": [
+            "总体来看，现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守...",
+            "完善中国法域外适用的法律体系，既需要针对上述两部分规则进行查漏补缺..."
+          ],
+          "strengths": [
+            "涉及领域广泛，制度连锁效应明显"
+          ],
+          "weaknesses": [
+            "无核心法学争点，纯政策倡导",
+            "宏观梳理为主，缺乏理论交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，无核心法学争点，上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅主题声明“现状、问题与完善”"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_overclaim",
+              "rule": "依赖新案例/新政策但无实质研究推进，上限70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "大量列举Booking案、出口管制法草案等，但仅复述应完善体系"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立重要，不评对策是否可行或论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "主题宏大但缺乏可争辩的法学争点，实为制度现状描述与政策建议。",
+          "core_judgment": "论文主题重大但仅为'中国法域外适用法律体系'的主题声明与制度完善建议，未提出具有理论张力的法学问题。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明，无明确问题句；无学者观点交锋；无理论分歧；纯政策倡导），枢纽性=3/4（涉及多制度领域、属长期议题、涉及核心概念），材料新颖性未触发上限，但可争辩性≤1触发上限50分，锚定unacceptable档，给45分。负面模式扣分：检查2扣20分（无学者观点交锋），检查3扣30分（全文无问题句，只有主题声明），合计扣50分，但扣分后不低于30分。",
+          "evidence_quotes": [
+            "完善中国法域外适用法律体系，在现今国际新形势下已迫在眉睫",
+            "中国法域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则"
+          ],
+          "strengths": [
+            "主题涉及国际法与国内法交叉，具有制度重要性",
+            "涵盖立法、执法、司法多维度，视野较宽"
+          ],
+          "weaknesses": [
+            "全文为'现状-问题-完善'结构，无明确可争辩的法学问题句",
+            "缺乏不同学者观点的交锋与理论分歧讨论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'类问题句，仅有'中国法域外适用法律体系：现状、问题与完善'主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "主题涵盖整个域外适用法律体系，但未提炼出具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "论文为宏观体系归纳与政策倡导，缺乏明确可争辩的法学问题，经强制扣分后得分受限。",
+          "core_judgment": "问题属既定立场阐释而非可争辩争点，枢纽性虽高但可争辩性不足，触发多项负面扣分。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性未触发上限，锚定good档。触发负面扣分：宏观介绍(15)+主题声明(30)=45分。按保底规则，最终给30分。",
+          "evidence_quotes": [
+            "总体来看，现行中国法域外适用规则尚未形成完整的法律体系",
+            "完善中国法域外适用法律体系，在现今国际新形势下已迫在眉睫。"
+          ],
+          "strengths": [
+            "系统梳理了域外适用规则的连接点分类与实施现状",
+            "横跨刑行民与国际法，制度连锁效应显著"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为主题声明与政策倡导",
+            "缺乏实质性的学者观点交锋与理论深度辨析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文为现状-问题-对策的宏观归纳"
+            }
+          ],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评论证逻辑与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 123.90902924537659,
+        "glm-5.1": 140.70409607887268,
+        "kimi-k2.6": 15.277990818023682,
+        "qwen3.6-plus": 107.926833152771
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 30
+      },
+      "mean": 36.2,
+      "std": 7.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文正文虽涉及多位学者观点引述，但未形成清晰的研究地图：到达点模糊，未明确指出既有研究的未竟点，也缺乏与未竟点对应的本文切入点，争点结构缺失，法学流派识别为零。",
+          "core_judgment": "本文缺乏可辨识的既有研究到达点、未竟点及本文切入点，未将既有学术讨论组织为可区分的争点或流派，不符合研究地图建立的基本要求。",
+          "score_rationale": "三要素总分=0/6，到达点=0，未竟点=0，本文切入点=0，争点结构=0/2，法学流派=0个，锚定unacceptable档，触发no_research_map上限规则，给48分。",
+          "evidence_quotes": [
+            "参见廖诗评:《国内法域外适用及其应对—以美国国内法域外适用措施为例》，载《环球法律评论》2019年第3期。",
+            "参见蔡从燕:《中国崛起、对外关系法与法院的功能再造》，载《武汉大学学报》（哲学社会科学版）2018年第5期。"
+          ],
+          "strengths": [
+            "正文引用了多位学者对国内法域外适用的概念界定和具体制度分析，素材丰富。"
+          ],
+          "weaknesses": [
+            "未提炼既有研究的系统争论、共识或缺口，引文多为概念支持而非建立研究地图。",
+            "缺失对既有研究不足的明确说明，未说明本文相对于既有研究的切入点和创新所在。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-2分时触发，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素到达点=0、未竟点=0、本文切入点=0，均缺失具体表述。"
+            }
+          ],
+          "boundary_note": "本维度仅评估研究地图建立情况，不评价问题本身的新颖性或对策合理性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文详实梳理域外适用现状与问题，清晰呈现管辖权边界与法院角色等争点。",
+          "core_judgment": "研究地图完整，争点结构清晰，现状洞察度维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "陈一峰反思荷花号原则，指出国家实践主张域外管辖需国际法明确允许",
+            "宋杰指出刑法第8条保护管辖与消极属人管辖存在错位，两者置于同条款不协调"
+          ],
+          "strengths": [
+            "现状梳理极为详实，分类归纳6类域外适用规则",
+            "问题诊断精准，直指规则缺失与法院作用不足"
+          ],
+          "weaknesses": [
+            "法学流派识别稍弱，主要依赖制度对比而非学术流派脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点梳理深度，而非制度创新性或对策可行性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文呈现了中国法域外适用的制度现状，但缺乏对既有学术研究的系统梳理和争点结构。",
+          "core_judgment": "研究地图三要素严重缺失，未建立清晰的到达点、未竟点和本文切入点，争点结构与法学流派识别均不足。",
+          "score_rationale": "三要素=2/6（到达点1/2，未竟点1/2，本文切入点0/2），争点结构=0/2，法学流派=0个，锚定marginal档，给55分",
+          "evidence_quotes": [
+            "总体来看，现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守，防御性色彩浓厚但进攻性略显不足",
+            "美国是世界上国内法域外适用规则最为完备的国家，完善中国法域外效力的规则，不可避免会参考借鉴美国的相关经验"
+          ],
+          "strengths": [
+            "对美国、欧盟等域外适用实践有具体制度描述",
+            "对现行法律规则的分类梳理较为系统"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学术成果及其贡献",
+            "未呈现学界对域外适用问题的争议或分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1或研究地图严重残缺时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未引用任何学术文献作为研究基础，无到达点、未竟点和切入点的学术脉络梳理"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理完整性，不评问题新颖性；论文问题意识清晰但学术对话不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文系统梳理域外适用规则现状，精准定位立法与实施缺口，并构建对策框架。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "总体来看，现行中国法域外适用规则尚未形成完整的法律体系，且整体趋于保守",
+            "针对中国法域外适用部分领域缺乏域外管辖权规定的现状，中国法域外适用法律体系需要在重点领域中确立"
+          ],
+          "strengths": [
+            "三要素完整，现状梳理与缺口定位精准对应",
+            "争点结构清晰，有效整合比较法经验与规范分歧"
+          ],
+          "weaknesses": [
+            "文献综述呈分散式嵌入，缺乏集中式学术脉络回溯",
+            "部分争点的学界对立观点展开稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献定位与争点梳理，非评价域外适用问题本身的新颖性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 123.29044461250305,
+        "glm-5.1": 168.54335522651672,
+        "kimi-k2.6": 10.850513935089111,
+        "qwen3.6-plus": 90.1309859752655
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 80,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "mean": 65.8,
+      "std": 16.7,
+      "strictest": 48,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 62,
+          "band": "good",
+          "summary": "论文构建了以管辖权连接点为基础的“确立效力—保障实施”分类框架，但在操作步骤和法学转化上仍有提升空间。",
+          "core_judgment": "框架可操作性与法学转化度均处于中等水平，具备基本分类能力和制度完善方向提示，但未形成可重复适用的法律适用流程或裁判标准。",
+          "score_rationale": "框架可操作性得分=2/4（概念清晰、分类明确），法学转化度得分=2/4（提供制度完善方向、有原则性指引），锚定good档，给62分。",
+          "evidence_quotes": [
+            "中国法的域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则。",
+            "以属人连接点为基础的域外适用规则...以属地连接点为基础的域外适用规则...以保护管辖权为基础的域外适用规则..."
+          ],
+          "strengths": [
+            "概念界定清晰：对“域外适用”“域外管辖”等核心术语有明确定义和区分。",
+            "分类标准明确：按属人、属地、保护管辖等连接点对域外适用规则进行了类型化梳理。"
+          ],
+          "weaknesses": [
+            "分析步骤缺失：框架仅停留在分类归纳层面，未提炼出可逐步操作的判断步骤或适用流程。",
+            "法学转化不足：虽提出立法完善方向，但未给出具体的裁判规则、法律适用程序或制度设计模板。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的可操作性和法学转化度，不评价论文的问题创新性或逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文概念界定与分类标准清晰，但缺乏可操作的分析步骤，法学转化停留在宏观对策层面。",
+          "core_judgment": "框架建构力部分成立，分类框架有效支撑现状梳理，但未提炼出可重复适用的法学操作步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=3/4（满足概念、分类、调用，缺步骤），法学转化度得分=1/4（仅提供宏观制度方案，缺操作指引），锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文所讨论的“域外”，指的是管辖领域之外……但不包括国内法院适用双方当事人意思自治所选择的国内法律规则",
+            "中国法域外适用规则散见于各类法律……管辖连接点呈多样化态势，国籍、住所、效果等连接点在各类立法中均有体现"
+          ],
+          "strengths": [
+            "核心概念界定清晰，排除了冲突规范指引的情形，边界明确",
+            "以管辖权基础为分类标准梳理现状，逻辑层次分明"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的分析步骤或检验标准，仅有主题提纲",
+            "法学转化度不足，未提炼裁判规则或适用流程，对策偏宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的可操作性与法学转化，不评价对策建议的政治正确性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "制度型论文，以现状描述和政策建议为主，缺乏原创分析框架。",
+          "core_judgment": "论文未建构可重复适用的分析框架，核心贡献为制度梳理与政策归纳。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰但无分析步骤，后文未调用原创框架），法学转化度得分=1/4（有制度建议但无裁判规则或操作指引），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "中国法的域外适用法律体系至少应包括两个部分:确立中国法域外效力的规则和实施中国法域外适用的规则",
+            "完善中国法域外适用的法律体系，既需要针对上述两部分规则进行查漏补缺,也需要采取其他措施促使两部分规则实现融合"
+          ],
+          "strengths": [
+            "对'域外适用''域外管辖'等核心概念有明确界定"
+          ],
+          "weaknesses": [
+            "无原创分类标准或分析步骤，'两部分规则'仅为描述性归纳",
+            "后文建议以'应当''需要'为主，缺乏具体制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文以'现状-问题-完善'为结构，核心贡献是梳理既有立法和域外实践，未提出可重复适用的判断标准或分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了以管辖连接点为核心的域外适用分析框架，并提出具象化制度完善方案。",
+          "core_judgment": "分析框架成立且具备较强的制度转化力，但司法裁判步骤的精细化程度有待提升。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给85分。概念界定与类型化标准清晰且贯穿全文，制度设计方案具体可操作，唯缺裁判步骤化指引。",
+          "evidence_quotes": [
+            "本文所讨论的“域外”，指的是管辖领域之外……“国内法”，并非当事人合意选择或由冲突规范指引适用的法律规范。",
+            "以属人连接点为基础的域外适用规则……以属地连接点为基础……以保护管辖权为基础……"
+          ],
+          "strengths": [
+            "核心概念界定清晰，排除意思自治情形，边界明确。",
+            "以管辖连接点为分类标准，系统梳理现行法并精准诊断漏洞。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的裁判适用流程或司法审查标准，操作性偏重立法建议。",
+            "部分完善建议缺乏配套的司法解释或程序细则支撑，落地路径待细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 105.4585599899292,
+        "glm-5.1": 44.94871497154236,
+        "kimi-k2.6": 11.980933904647827,
+        "qwen3.6-plus": 183.39282608032227
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 72,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 67.8,
+      "std": 14.1,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链条完整、清晰，结论有充分的材料支撑，反驳处理较为充分，仅存在个别可加强之处。",
+          "core_judgment": "本文属于实务型论文，推理链从概念界定到现状分析再到问题诊断与方案提出，层层递进，核心结论可由前文充分推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。论文完整地构建了“概念界定→现状梳理→问题分析→价值论证→原则与措施”的推理链，并对美国等国的实践进行了实质性回应，承认了完善过程的渐进性，仅未明确呈现对核心理论路径的反对意见。",
+          "evidence_quotes": [
+            "域外管辖与国内法域外适用密切相关……域外管辖权是国内法域外适用的前提，域外适用则是国家行使域外管辖的过程和结果。",
+            "完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分，也是实现国内法与国际法良性互动的必然要求。"
+          ],
+          "strengths": [
+            "推理链完整：从“概念→规范”到“现状→不足”再到“价值→完善”，所有步骤环环相扣。",
+            "实质性回应反驳：在原则部分系统回应了“国际法是否允许”的反对声音，并对美国法经验进行了批判性借鉴。"
+          ],
+          "weaknesses": [
+            "反驳处理略偏单一：主要通过回应国际法争议来体现反驳，缺少对国内法学界（如保守派或激进派）不同观点的显性回应。",
+            "局部衔接可强化：对私法与公法路径的区分与后文法院作用的论述之间，过渡稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的逻辑严密性体现为从事实与规范出发，一步步推导出制度完善建议，属于推理链建构问题，而非仅仅评估框架的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且环环相扣，对分歧路径有实质回应并承认局限，逻辑严密。",
+          "core_judgment": "本维度完全成立，论文构建了从概念界定到制度完善的充分支撑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "从‘荷花号案’判决至今…是否需要以国际法明确规定作为依据,则应根据具体情况进行个案分析。",
+            "目前仍不宜过分强调中国法院在域外适用中的作用…法院过分介入域外适用，可能会引发与政府之间的紧张关系。"
+          ],
+          "strengths": [
+            "推理链完整，现状-问题-意义-方案环环相扣。",
+            "对国际法依据分歧路径有实质性回应与选择论证。"
+          ],
+          "weaknesses": [
+            "部分具体措施引入稍显突兀，与前文问题衔接略弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评推理链是否充分支撑完善方案，不评方案政治可行性或国际接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "制度设计型论文，推理链完整但反驳处理薄弱。",
+          "core_judgment": "论文构建了'现状描述→问题诊断→完善建议'的完整推理链，但缺乏对反对意见的显式回应。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=1/3，锚定good(70-79)档，给72分。论文三步推理环环相扣：概念界定→类型化分析→制度完善建议，每一步依赖前一步结论；但仅通过隐含方式呈现不同路径选择（如比较美国模式时说明中国不能照搬），未显式处理反对意见或承认局限。",
+          "evidence_quotes": [
+            "完善中国法域外效力的规则，不可避免会参考借鉴美国的相关经验，但这并不意味着对美国法规则的全盘接受，而是要根据中国现行国内法、所承担的国际义务以及相关对外事务的政策立场进行可行性研究论证。",
+            "完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分，也是实现国内法与国际法良性互动的必然要求。"
+          ],
+          "strengths": [
+            "概念界定→类型化分析→制度建议三步推理环环相扣，删除前一步后续即失据。",
+            "域外适用规则六分法与问题两部分对应，结构对称性强。"
+          ],
+          "weaknesses": [
+            "未显式回应'域外适用等于霸权主义'等潜在反对意见，仅于结语间接提及。",
+            "未承认自身建议的适用边界，如法院作用强化建议的局限性分析不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度，不评'完善建议是否可操作'这一框架设计问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“概念-现状-问题-证成-对策”递进链条，结论获充分支撑。",
+          "core_judgment": "推理链环环相扣且无关键跳步，反驳处理有效回应实务约束，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "域外管辖权是国内法域外适用的前提，域外适用则是国家行使域外管辖的过程和结果。",
+            "中国法并未赋予法院参与行政机关行政处罚程序的权力……无法通过简单借鉴美国法院做法凸显功能。"
+          ],
+          "strengths": [
+            "推理呈递进结构，现状分类直接导向问题诊断与对策设计。",
+            "对比较法经验采取批判性吸收，明确排除不适配中国体制的路径。"
+          ],
+          "weaknesses": [
+            "部分对策的法理推演略偏实务经验，可进一步深化规范论证。",
+            "国际法合规性边界讨论较宏观，未展开具体冲突解决机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑力与反驳回应，不涉制度方案可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.95277118682861,
+        "glm-5.1": 48.81343603134155,
+        "kimi-k2.6": 12.10866379737854,
+        "qwen3.6-plus": 54.15982794761658
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 9.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文结论充实、建设性强，与现有法治话语兼容，但未将对策转化为可争辩的学术主张，也基本没有回应反对意见，对话度偏低。",
+          "core_judgment": "结论在制度和实务层面可接受度高，但在与学界既有争论形成对话方面明显不足，属于有实践价值但学术争辩性较弱的研究。",
+          "score_rationale": "共同体对话度得分=2/4（回应争论弱、未讨论反对意见），制度可接受度得分=3/4（对制度约束和转化方向回应较好）。理论论文锚定 good(60-69) 档，因制度根基扎实微调至72分。",
+          "evidence_quotes": [
+            "完善中国法域外适用法律体系，既需要针对上述两部分规则进行查漏补缺，也需要采取其他措施促使两部分规则实现融合。",
+            "适度的国内法域外适用也是推动国际法规则发展的有力工具。"
+          ],
+          "strengths": [
+            "对现行法律体系和制度实践的梳理非常扎实，结论与立法、执法、司法实践连通性强。",
+            "结论清晰指出了制度转化的可能方向，如效果原则引入、法律责任多元化、法院作用定位等。"
+          ],
+          "weaknesses": [
+            "结论多呈现为政策建议或立法倡议，未明确回应学界关于域外适用的理论争议或反对意见。",
+            "对话度较低，缺少与其他学术观点的交锋或对自身局限的讨论，更像政策建言而非学术对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价结论的可接受性和对话度，不评价论证过程是否严密以及是否打开后续研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论在共同体对话与制度兼容上表现优异，提出了适度扩张域外适用的明确主张及具体制度路径。",
+          "core_judgment": "结论充分回应既有争论并考虑中国制度约束，可被反对者定位反驳，制度可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "国内法域外效力和域外适用并不等于国际关系中的霸权主义",
+            "中国无法按照美元结算模式赋予域外适用效力，且不宜盲目增加人权制裁域外适用"
+          ],
+          "strengths": [
+            "主动承认过度域外适用的强权政治风险及自身实践局限",
+            "对策具体回应了引渡条约少、无官告民制度等实务约束"
+          ],
+          "weaknesses": [
+            "部分对策（如扩大解释属地连接点）的合法性边界探讨稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文系统构建中国法域外适用法律体系框架，结论具有明确制度指向和本土语境回应。",
+          "core_judgment": "结论进入法学共同体既有争论（域外适用/管辖权理论），可被定位回应；主动承认中国制度约束并讨论适配路径，制度可接受度良好。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、考虑中国语境，但缺乏对反对意见的充分讨论）；制度可接受度得分=3/4（不矛盾、回应制度约束、考虑中国语境，但制度转化方向较原则）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "完善中国法域外适用法律体系，既需要针对上述两部分规则进行查漏补缺,也需要采取其他措施促使两部分规则实现融合",
+            "中国应兼采上述模式的优势，并尽快出台贸易调整援助制度"
+          ],
+          "strengths": [
+            "结论明确回应域外适用/管辖权理论争论，定位清晰",
+            "结合中国宪法体制、现行法条讨论制度适配性"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见或自身理论局限",
+            "制度转化方向较原则，具体规则设计不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论立足中国制度语境，回应学界争论，提出渐进式完善路径。",
+          "core_judgment": "该结论高度契合现行法秩序逻辑，具备明确的制度转化指向与共同体对话基础。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "“完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分”",
+            "“在不违反国际法的基础上适度采取国内法域外适用措施，可以起到保护本国企业和公民利益的作用”"
+          ],
+          "strengths": [
+            "精准定位中国法域外适用制度空白与执法约束",
+            "提出兼顾国际法合规与中国体制特征的渐进路径"
+          ],
+          "weaknesses": [
+            "部分执法建议依赖行政机关扩大解释，司法保障路径仍显薄弱",
+            "反制立法与贸易援助制度的程序衔接论证稍欠具体"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展空间",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.30963611602783,
+        "glm-5.1": 40.47223401069641,
+        "kimi-k2.6": 53.33688688278198,
+        "qwen3.6-plus": 71.91247892379761
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81.5,
+      "std": 11.0,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文指出了宏观的完善方向，但缺乏具体可定位的后续研究问题、明确的理论修正路径或对正文局限的自觉说明，延展路径较为概括。",
+          "core_judgment": "存在延展方向，但较概括、证据较少且与正文核心结论的衔接需要推断，基本属于宏观制度建议而非可操作的前瞻路径。",
+          "score_rationale": "原始分45分，落入40-59区间，可对应bonus=2的低档弱加分。论文在结语及措施部分给出了制度完善和路径建议，但未提出具体的后续研究问题或明确的理论深化方向，延展路径精细度不足。",
+          "evidence_quotes": [
+            "完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分,也是实现国内法与国际法良性互动的必然要求。",
+            "在未来的立法中，中国应兼采上述模式的优势，并尽快出台贸易调整援助制度。"
+          ],
+          "strengths": [
+            "指明了制度层面可着手完善的几个概括方向（法律责任强化、程序规则设置、法院作用调整）。",
+            "提及未来立法模式（一般性反制立法与保护本国私人的反制立法）的兼采思路。"
+          ],
+          "weaknesses": [
+            "延展多停留在宏观对策层面，缺少具体后续研究问题、可检验假设或明确的概念修正路径。",
+            "未系统识别正文的局限并说明此后应围绕哪些局限推进研究，延展与核心结论的衔接较为疏散。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分关注的是论文是否给出了真实的具体延展路径（后续研究问题、可检验的反驳入口或制度试错边界），而非评价当下的对策建议是否能被共同体接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文指明了反制立法、法院作用及程序规则等具体制度完善方向，延展路径明确但精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了可定位的制度完善方向与实施风险控制。",
+          "score_rationale": "原始分75，属good档(>=60)，bonus=3。论文提出了反制立法模式成型、法院公私法路径、不可靠实体清单程序设置等明确延展路径，但未深入展开下一轮争点或具体设计，精细度有限。",
+          "evidence_quotes": [
+            "中国应兼采上述模式的优势，并尽快出台贸易调整援助制度……从实体和程序两方面完善现行贸易救济法律规则",
+            "该制度除明确列入清单的实体条件外，还应设置豁免或例外规则，赋予利害关系人要求公开听证和进行申辩的权利"
+          ],
+          "strengths": [
+            "提出了可定位的制度完善方向（反制立法、法院路径）。",
+            "对制度适用给出了边界条件（不宜过分强调法院作用）。"
+          ],
+          "weaknesses": [
+            "延展路径精细度有限，未展开具体设计或下一轮争点。",
+            "结语局限承认较泛，缺乏围绕局限的具体推进机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "制度完善方向（如反制立法成型、程序规则设置）属于未来立法与实务延展问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在制度完善方向、规则衔接和实务改进路径上提出了较明确的延展方向，但部分展望仍显概括。",
+          "core_judgment": "存在真实延展路径，主要体现在制度完善的具体方向（如贸易调整援助制度、法院作用强化路径）和规则衔接问题上，但部分建议的精细度和证据展开有限。",
+          "score_rationale": "原始分65分，对应bonus=3档位。论文在结语及完善措施部分明确提出了'循序渐进''贸易调整援助制度''法院私法/公法路径'等可定位的后续方向，并承认'不宜过分强调法院作用'等局限，符合60-79分特征。",
+          "evidence_quotes": [
+            "在未来的立法中，中国应兼采上述模式的优势，并尽快出台贸易调整援助制度",
+            "完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分，也是实现国内法与国际法良性互动的必然要求"
+          ],
+          "strengths": [
+            "提出贸易调整援助、法院双路径等具体制度完善方向",
+            "承认法院作用有限等局限，形成可继续推进的争点"
+          ],
+          "weaknesses": [
+            "部分措施较概括，如'循序渐进'缺乏阶段划分",
+            "未明确下一轮核心争点或检验反驳的具体入口"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是'未来还能往哪里走'，论文提出的制度完善方向和路径属于前瞻延展；而'国际社会对中国法域外适用主张的认同度'等属于结论可接受性问题，不在本维度评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文针对制度缺位与实施短板，提出立法补缺、责任强化、程序构建及反制立法等具体延展路径。",
+          "core_judgment": "存在真实延展路径，明确指向制度完善方向与规则衔接机制。",
+          "score_rationale": "原始分80，映射bonus=5。论文清晰勾勒立法补缺、责任强化与反制规则等深化方向，与正文问题诊断紧密衔接，路径具体可定位。",
+          "evidence_quotes": [
+            "完善中国法域外适用法律体系是一个循序渐进的过程，既构成深化国内法制改革工作的有机组成部分，也是实现国内法与国际法良性互动的必然要求。",
+            "应采取转移支付、技术援助等方式，为那些因美国启动‘301调查’而遭受损失的出口企业提供帮助和补偿，并借此完善现行贸易救济法律规则。"
+          ],
+          "strengths": [
+            "明确指向证券法等重点领域的立法补缺与连接点拓展。",
+            "提出行政责任强化、程序听证设置及法院公私法路径等具体实施机制。"
+          ],
+          "weaknesses": [
+            "对域外执法跨境协作与国际法冲突的风险控制论述较简略。",
+            "反制立法与贸易援助制度的衔接路径缺乏具体操作层面的推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于现行体系完善后的制度演进、规则衔接与实施风险控制等未来议题，而非评判当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.47875213623047,
+        "glm-5.1": 43.07323217391968,
+        "kimi-k2.6": 10.915281057357788,
+        "qwen3.6-plus": 67.88741135597229
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 75,
+        "kimi-k2.6": 65,
+        "qwen3.6-plus": 80
+      },
+      "mean": 66.2,
+      "std": 15.5,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 60.27,
+      "weighted_total": 62.7
+    },
+    "aggregation_strictest": {
+      "final_score": 48.0,
+      "weighted_total": 50.2
+    },
+    "avg_std": 12.4,
+    "max_std": 16.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 12.3,
+    "composite_score": -12.4,
+    "worst_dimension": "literature_insight",
+    "worst_std": 16.7
+  }
+}

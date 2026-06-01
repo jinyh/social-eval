@@ -1,0 +1,540 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/我国公共卫生法治的理论坐标与制度构建.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码（如26、27等）混入正文段落间",
+          "脚注编号乱码（如®、⑧、⑨等符号）",
+          "OCR识别错误导致术语变形（如“痒气模式”应为“瘴气模式”，“彳了为模式”应为“行为模式”，“分泛”应为“See”，“V〇1.”应为“Vol.”，“斥水处理设施”应为“污水处理设施”）"
+        ],
+        "evidence_quotes": [
+          "26",
+          "®",
+          "痒气模式",
+          "彳了为模式",
+          "分泛 Lindsay F. Wiley"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国公共卫生法治的理论坐标与制度构建",
+          "我国公共卫生法律规范缺乏完备性、自洽性和融贯性",
+          "如何合理地在权力与权利之间进行平衡，构成了公共卫生法的永恒主题",
+          "通过规划制定中华人民共和国公共卫生法典的方式实现我国公共卫生法律规范体系的现代化",
+          "可以考虑通过公益诉讼的制度设计，突破诉讼构成要件的利益直接相关原则"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文、脚注编号乱码、关键术语OCR识别错误",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国公共卫生法治的理论坐标与制度构建",
+        "我国公共卫生法律规范缺乏完备性、自洽性和融贯性"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，但需在后续阶段注意OCR乱码和页码混入对文本抽取的干扰，必要时人工校对关键引文与概念（如瘴气模式、行为模式）。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "glm-5.1": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文缺乏可争辩的法学问题，仅为宏观体系介绍与政策倡导。",
+          "core_judgment": "全文无明确问题句与理论交锋，属主题声明与宏观介绍，问题创新性不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性已触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档，给基础分45分；前置负面扣分65分（受底线30分限制），最终30分。",
+          "evidence_quotes": [
+            "如何合理地在权力与权利之间进行平衡，构成了公共卫生法的永恒主题",
+            "我国公共卫生法律规范缺乏完备性、自洽性和融贯性"
+          ],
+          "strengths": [
+            "梳理了公共卫生法的历史模式与价值追求，覆盖面广"
+          ],
+          "weaknesses": [
+            "无核心法学争点与问题句，沦为体系介绍",
+            "后半部分为纯政策倡导，缺乏法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无XX是否YY等问题句，仅为主题声明与体系构建"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "依赖新概念/模式但无实质研究推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以公卫模式分类作为核心框架，但未改变问题设定或命题推进"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {
+        "qwen3.6-plus": "[qwen3.6-plus] Connection error."
+      },
+      "elapsed_times": {
+        "qwen3.6-plus": 5444.560763120651,
+        "glm-5.1": 3691.548227071762
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "glm-5.1": 80
+      },
+      "mean": 80,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "分散式文献定位构建清晰研究地图，呈现多维度争点结构。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰，流派识别满足辅助锚定。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "有学者基于‘自治优先’的政治伦理原则……强调公共卫生法中的个人自主优先",
+            "我国公共卫生法律规范缺乏完备性、自洽性和融贯性"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了公卫模式演进与法律作用的关联",
+            "未竟点明确指出了我国公卫法治体系的三重缺陷"
+          ],
+          "weaknesses": [
+            "法学流派识别主要依赖跨学科理论，法学内部流派覆盖稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献定位与争点结构，不评判制度构建方案的创新性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "qwen3.6-plus": "[qwen3.6-plus] Connection error."
+      },
+      "elapsed_times": {
+        "qwen3.6-plus": 5444.558265209198,
+        "glm-5.1": 3684.982050180435
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 55,
+        "glm-5.1": 50
+      },
+      "mean": 52.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以梳理公共卫生法演进模式与制度资源为主，框架偏向宏观政策归纳，缺乏可重复适用的法学分析步骤。",
+          "core_judgment": "框架具备基础分类与体系组织功能，但未转化为可操作的裁判规则或具体法律适用流程。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。受政策梳理型规则限制，核心术语多为既有理论映射，缺乏原创操作化定义与步骤化流程。",
+          "evidence_quotes": [
+            "公共卫生模式划分为瘴气、病原、行为、生态四阶段，代表不同法律调整认知。",
+            "提出以常规法治为基本点、紧急法治为指向标的体系建构方向。"
+          ],
+          "strengths": [
+            "清晰划分紧急与常规公共卫生法治二元结构",
+            "系统整合立法执法司法守法四维制度资源"
+          ],
+          "weaknesses": [
+            "核心概念依赖域外理论归纳，缺乏本土操作定义",
+            "制度建议停留宏观倡导，未细化为裁判适用规则"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型规则：归纳既有立场，无原创框架与操作步骤",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释公共卫生模式演进与价值追求为主，框架核心术语均来自权威表述，未提供可重复适用的分析步骤"
+            }
+          ],
+          "boundary_note": "仅评框架建构力与法学转化，不涉逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文以梳理归纳既有公卫理论与政策为主，缺乏原创分析框架与可操作的法学转化步骤。",
+          "core_judgment": "论文属政策理论梳理型，核心术语缺乏明确定义且无步骤化分析流程，框架建构力较弱。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档），法学转化度得分=1/4（触发政策梳理型上限），锚定marginal档，给50分。",
+          "evidence_quotes": [
+            "全文以阐释既定立场为主，如梳理瘴气、病原等四种公卫模式及高斯汀的六种调整手段",
+            "提出'应当''需要'等规范性表述超5处，如'应先制定专门的《公共卫生法》'但缺乏具体法条设计"
+          ],
+          "strengths": [
+            "对公共卫生法治的历史模式与调整方式进行了系统的类型化梳理",
+            "清晰区分了紧急与常规公共卫生法治两种状态"
+          ],
+          "weaknesses": [
+            "核心术语如'理论坐标'缺乏操作化定义，仅为隐喻式提纲",
+            "制度建议多为口号式呼吁，缺乏具体的裁判规则或法律适用流程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语如'理论坐标''共同善'无明确定义，且无可循的分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架的可操作性与法学转化，不评理论梳理的全面性或逻辑衔接。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 3689.08265709877,
+        "glm-5.1": 3690.7714290618896
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“理论坐标—现状检视—制度建构”推理链，结论获充分支撑并有效回应核心反驳。",
+          "core_judgment": "推理链条完整闭合，结论可由前文规范分析与现实检视可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。理论演进为制度检视提供前提，现状缺陷直接推导法典化等方案，无关键跳步；对司法限度与可诉性困境均作实质回应。",
+          "evidence_quotes": [
+            "如果说将表现为模式更迭与内容扩张的公共卫生法演进定位于公共卫生法治的动态理论坐标，则其价值追求与调整方式等共时性定义要素则贡献于公共卫生法治的静态理论坐标。",
+            "不过，个案裁判取向的司法治理功能在公共卫生法治实践中可能会遭遇巨大挑战……可以考虑通过公益诉讼的制度设计，突破诉讼构成要件的利益直接相关原则"
+          ],
+          "strengths": [
+            "理论演进与制度建构呈强依赖递进",
+            "对司法限度与权利可诉性困境作实质回应"
+          ],
+          "weaknesses": [
+            "执法协同推导略偏政策宣示",
+            "常规与紧急法治转换条件论证稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链闭合度与结论推导充分性，不涉法典化等方案在实务中的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整且环环相扣，反驳与局限处理到位，结论可辩护推出。",
+          "core_judgment": "论文逻辑严密性维度成立，推理链形成充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "前述公共卫生法治的动静理论坐标……更是择取公共卫生法治体系建构之制度资源的智识依据",
+            "个案裁判取向的司法治理功能……可能会遭遇巨大挑战……面临社会权可诉性困境的诘难"
+          ],
+          "strengths": [
+            "理论坐标与制度构建形成强推导依赖",
+            "对健康定义分歧给出了选择理由"
+          ],
+          "weaknesses": [
+            "对“自治优先”反对意见仅脚注提及未展开回应"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦理论到方案的推导支撑，不评价法典化等方案的操作可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 3696.8340167999268,
+        "glm-5.1": 3670.8590960502625
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确回应公共卫生法范式转型争论，提出契合中国语境的法典化与协同治理路径，制度兼容性与对话度俱佳。",
+          "core_judgment": "结论深度嵌入中国法治语境与既有学术争论，提出的制度转化方向具体且与现行法秩序高度兼容，本维度完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "我国公共卫生法亟待完成从‘突发防控’向‘常规建设’的范式转型",
+            "通过公益诉讼的制度设计，突破诉讼构成要件的利益直接相关原则"
+          ],
+          "strengths": [
+            "精准定位常规与紧急公共卫生法治的张力与互补关系",
+            "制度建议（法典化、健康融入所有政策）具明确转化路径"
+          ],
+          "weaknesses": [
+            "跨部门协同执法在现行体制下的落地阻力论证稍显不足",
+            "健康权可诉性困境的突破路径仍偏宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确回应学界争论，提出具体制度构建方案，与中国法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话和制度兼容上均表现优异，提出了可争辩且可操作的制度主张。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "我国公共卫生法亟待完成从'突发防控'向'常规建设'的范式转型",
+            "可以考虑通过公益诉讼的制度设计，突破诉讼构成要件的利益直接相关原则"
+          ],
+          "strengths": [
+            "结论提出法典化、HiAP等具体制度转化方向",
+            "主动承认健康权可诉性困境等反对意见"
+          ],
+          "weaknesses": [
+            "制度构建采用传统立法-执法-司法-守法框架，略显机械"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容性，不评估论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 1619.8476922512054,
+        "glm-5.1": 1588.511356830597
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 82
+      },
+      "mean": 75,
+      "std": 9.9,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文基于理论坐标与制度短板，提出法典化、协同执法、公益诉讼与健康促进等明确的制度延展路径。",
+          "core_judgment": "存在真实延展路径，具体指向公共卫生法典化、跨部门协同机制与集体健康司法救济的深化方向。",
+          "score_rationale": "原始分68，对应bonus=3。主要证据为文末提出的法典化路径、HiAP协同执法、公益诉讼突破及健康促进机制。路径与正文问题诊断衔接紧密，但社会权可诉性证成与法典化技术细节展开有限，故落入60-79档。",
+          "evidence_quotes": [
+            "我国目前的公共卫生法律体系不仅缺乏一部作为一般法的“公共卫生法”……为此，一种法典化的思路是必要的。",
+            "可以考虑通过公益诉讼的制度设计，突破诉讼构成要件的利益直接相关原则，赋予相关主体基于公众健康受侵害之事实请求司法救济的权利"
+          ],
+          "strengths": [
+            "明确指出法典化、跨部门协同执法、公益诉讼与健康促进四大制度延展路径",
+            "延展方向与正文揭示的规范缺失、执法失序等痛点紧密衔接"
+          ],
+          "weaknesses": [
+            "对公益诉讼突破社会权可诉性困境的法理证成较简略",
+            "法典化与现有部门法的规则衔接风险未作深入推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是公共卫生法从“应急防控”向“常规建设”转型后的制度完善与理论深化方向，属于未来立法与研究的推进路径，而非评判本文当下结论的学术共识度或逻辑自洽性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "提出法典化、HiAP协同执法、公益诉讼突破等清晰可定位的制度延展路径。",
+          "core_judgment": "存在真实延展路径，指明了公共卫生法治从突发向常规转型的具体制度修正与深化方向。",
+          "score_rationale": "原始分82，对应bonus档位>=80（bonus=5）。论文提出法典化步骤、公益诉讼突破直接利益相关原则等清晰延展路径，与正文范式转型结论紧密衔接，并指明司法介入的边界风险。",
+          "evidence_quotes": [
+            "可以考虑通过公益诉讼的制度设计，突破诉讼构成要件的利益直接相关原则，赋予相关主体基于公众健康受侵害之事实请求司法救济的权利",
+            "应先制定专门的《公共卫生法》作为法典的总则，再逐步通过分编汇纂的方式整合目前的紧急公共卫生法律和常规公共卫生法律"
+          ],
+          "strengths": [
+            "延展路径与正文诊断的规范供给、执法协同等缺陷精准对应。",
+            "指明了公益诉讼突破利益直接相关原则这一具体后续争点。"
+          ],
+          "weaknesses": [
+            "结语部分存在轻微口号式展望（“越走越远”）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "公益诉讼原告资格突破、公共卫生法典总则设计属于未来立法与制度建构的延展方向，而非当下实证法可直接接受之结论。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 78.89655876159668,
+        "glm-5.1": 1599.405158996582
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.7,
+    "max_std": 9.9,
+    "weighted_total": 63.4,
+    "final_score": 59.85,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 5.63,
+    "worst_dimension": "forward_extension",
+    "worst_std": 9.9
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国目前的公共卫生法律体系不仅缺乏一部作为一般法的‘公共卫生法’……导致公共卫生立法呈现出‘被动回应型’的特征",
+          "完善我国公共卫生法治体系的核心要义在于，以常规公共卫生法治理念为基本点，以紧急公共卫生法治要求为指向标，实现公共卫生治理体系与治理能力的现代化"
+        ],
+        "risks": [
+          "direct_transplant_without_context_transformation"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "我国公共卫生法律规范缺乏完备性、自洽性和融贯性，公共卫生基本法律规范的供给不足",
+          "将西方公共卫生演进模式及Gostin的调整方式理论转化为‘紧急公共卫生法治’与‘常规公共卫生法治’的二元区分框架及六种规制工具，并以此作为中国制度建构的智识依据",
+          "爱国卫生运动是一项促进健康意识和健康水平提高的群众运动机制，‘是我们党把群众路线运用于卫生防病工作的成功实践’",
+          "通过规划制定中华人民共和国公共卫生法典的方式实现我国公共卫生法律规范体系的现代化"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 7.5,
+    "signal_scores": [
+      7,
+      8
+    ]
+  }
+}

@@ -1,0 +1,1059 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/上市公司私有化的监管逻辑与路径选择.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "文内引注部分存在OCR导致的乱码或编号脱落（如“⑩”反复出现，部分引注显示为“m note④”等）。",
+          "参考文献列表完全缺失，无法核验引证来源。"
+        ],
+        "evidence_quotes": [
+          "See Jensen and Meckling，Theory ofthe nm ：Managerial Behavior，Agency Costs and 0w Structure，3 J．Fin．Econ 305，312 (1976)．",
+          "Christopher R．Gannon，m note④，P．58．",
+          "Borden，supra note⑩，987，1006—1007．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "上市公司私有化监管保护的法益，除了交易各方利益平衡，还有资本市场的安全、信心和资源配置。",
+          "借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定，以实现主动退市监管的开放性与闭合性的统一、监管成本与效益的兼顾。",
+          "《证券法》第97条涉及到主动退市一种情形……这种制度设计与国际上通行的余股强制挤出权差距较大，不利于私有化的实现和主动退市制度改革。",
+          "建议借鉴美国13e-3规则，明确信息披露的内容和证监会审核要求与要点，以引导上市公司私有化交易的公平与效率。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量存在OCR乱码和引注缺失/错位风险，可能影响部分核心论据的精确性校验。",
+        "参考文献列表缺失，需在进入六维评分前确认出处完整性和引证可靠性。"
+      ],
+      "evidence_quotes": [
+        "上市公司私有化监管保护的法益，除了交易各方利益平衡，还有资本市场的安全、信心和资源配置。因此，上市公司私有化交易的监管决不能仅仅局限于交易主体之间的利益平衡……",
+        "我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定。",
+        "在现行制度体系下，我国主动退市的市场需求不旺。……必须首先改革证券发行制度，实现以信息披露为中心的注册制。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在OCR残留与参考文献缺失的工程风险（risk），但论文核心论点、理论建构与制度命题均聚焦中国问题与法学实践转化，建议标记text_quality_risk后直接进入六维评分，无需边界复核。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "大量脚注内容（包括中外文参考文献、案例引注）直接混入正文段落中间，打断正常阅读流",
+          "部分英文文献存在OCR识别错误或字符残缺（如'nm'应为'firm'，'F／duc／ary'应为'Fiduciary'，'actw~t'应为'activist'）",
+          "期刊页码（如198, 199, 204, 207, 208）混入正文文本中"
+        ],
+        "evidence_quotes": [
+          "⑩Brudney and Chirelstein，A Restatement ofCorporate Freezeout s，87 Yale L．J．1354，1366(1976)．",
+          "Anabtawi，Iman and Lynn Stout，F／duc／ary duties for actw~t shareholders，60 Stan．L．Rev．1255，1265(2008)．",
+          "198"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国自股市建立近30年来，退市总量不过78家，年均退市率比例不到0.3％...主动退市仅有个别几家，且主要目的是为了满足监管要求、消除同业竞争、实现大股东整体上市或产业整合，少有真正典型意义主动退市案例。",
+          "在我国，由于证券发行的限量控制的影响，IPO市场长期供不应求...市场化资源配置失灵，借壳上市盛行...使上市公司“朽”而不倒。",
+          "修改《证券法》...借鉴美国13e一3规则，《证券法》在证券交易章节中针对上市公司私有化情形，构建特定的信息披露规则；修订《证券法》的余股收购请求权为强制的余股挤出权(Squeeze—out)制度...",
+          "明确控股股东的信义义务，使小股东受到大股东欺压而寻求救济时有法可依；借鉴现行《公司法》中上市公司关联交易由关联董事回避表决机制...明确上市公司私有化交易的关联股东回避表决..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注与参考文献大量混入正文且存在OCR乱码，需后续清洗",
+        "项目口径：论文以比较法为切入点，但最终落脚于中国制度命题，符合口径"
+      ],
+      "evidence_quotes": [
+        "修改《证券法》...构建特定的信息披露规则",
+        "明确控股股东的信义义务，使小股东受到大股东欺压而寻求救济时有法可依"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段对混入正文的脚注、页码和OCR乱码进行文本清洗，以免影响细粒度评分的论点提取与逻辑链分析。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR乱码（如⑩⑩⑩等重复编号）",
+          "部分英文文献引用格式混杂，存在页码信息残留",
+          "参考文献列表缺失（标注为'（无）'）"
+        ],
+        "evidence_quotes": [
+          "⑩Brudney and Chirelstein，A Restatement ofCorporate Freezeout s，87 Yale L．J．1354，1366(1976)．",
+          "See Weinberger ．UOP，457 A．2d 701(1983)．",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "长期以来，我国资本市场实行总量控制的上市制度……主动退市将不断涌现",
+          "笔者建议我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定",
+          "《退市意见》首次以部门规章的方式提出主动退市制度……本文无意提出退市制度系统性框架，而是希望针对该《退市意见》提出相应的完善意见和建议",
+          "美国上市公司私有化交易的绝对禁止与受损者补足理论之辩、实质公平审查与法定信息披露之辩为我国主动退市制度构建提供法理基础与监管逻辑"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR识别存在重复和乱码，但核心论证脉络清晰可辨",
+        "参考文献列表未抽取，但不影响正文核心论点定位",
+        "建议在六维评分时关注其中国制度建议的具体可操作性"
+      ],
+      "evidence_quotes": [
+        "我国自股市建立近30年来，沪深两个交易所仅有78家上市公司股票终止上市……主动退市仅有个别几家",
+        "建议我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定",
+        "《退市意见》首次以部门规章的方式提出主动退市制度"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国主动退市制度改革为核心问题意识，系统比较中美私有化监管制度差异，提出联动修改《证券法》《公司法》的具体立法建议，具备明确的中国问题中心性、法学理论深度和制度建构价值。文本质量风险较低，可直接进入六维评价。建议评分时重点关注其'类型化证券监管'理论框架的原创性以及制度建议的可操作性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与脚注编号乱码（如⑩、⑩混入正文）",
+          "参考文献与页码混排（如198、199、201等页码及英文文献直接插入段落）",
+          "部分英文单词断裂或乱码（如nm ：Managerial Behavi、0w Structure）"
+        ],
+        "evidence_quotes": [
+          "⑩Brudney and Chirelstein，A Restatement ofCorporate Freezeouts...",
+          "198 \n\n上市公司私有化的监管逻辑与路径选择",
+          "nm ：Managerial Behavi\nor，Agency Costs and 0w \nStructure"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国主动退市远远低于成熟市场的水平。",
+          "建议修订《公司法》相关规定：(1)明确控股股东的信义义务...",
+          "借鉴美国13e一3规则，《证券法》在证券交易章节中针对上市公司私有化情形，构建特定的信息披露规则"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR识别噪声与脚注/页码混排，但不影响核心论点定位与评审。"
+      ],
+      "evidence_quotes": [
+        "我国主动退市远远低于成熟市场的水平。",
+        "修订《证券法》的余股收购请求权为强制的余股挤出权(Squeeze—out)制度..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR噪声，建议进入六维评分。核心聚焦中国上市公司私有化/主动退市监管制度，具有明确的比较法转化与本土立法建议，符合项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文将上市公司私有化监管归结为“投资者保护与公司自由/效率”的平衡，但核心问题是已被讨论的“实质审查vs信息披露”之争，新材料主要起介绍作用，未改变问题设定。",
+          "core_judgment": "问题本身可成立，但更偏向于域外制度的系统介绍和中国立法建议，缺少可争辩的法学理论构建，导致创新性受限。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限。问题虽有法学层面，但偏向介绍而非聚焦一个可争辩的理论争点，且问题表述宏大，技术制度建议多于法学理论推进，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "“证券监管有无必要介入上市公司私有化交易?应介入到何种程度?这是上市公司私有化交易的证券监管必须回答的问题。”",
+            "“核心问题是证券监管机构是否拥有交易实质公平的审查权。美国SEC对私有化交易的证券监管经历了以下几个发展阶段……”"
+          ],
+          "strengths": [
+            "提出了“效率与投资者保护并重”的分析框架，尝试平衡两种价值。",
+            "梳理了美中两套监管逻辑的演变，提供了比较法视野。"
+          ],
+          "weaknesses": [
+            "核心问题更接近对既有域外制度演变的归纳与介绍，而非提出新争点。",
+            "问题表述过于宏大，涵盖了实质审查、信息披露、法律联动修改等多个层面，未能聚焦于一个单一可争辩的法理问题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性为2，且问题表述过于宏大无法聚焦于一个法学争点，例如同时涵盖实质审查、信息披露、立法修改等多个层面。",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文同时讨论公司法公平性审查、证券法信息披露逻辑、中美制度比较及立法建议，问题陈述跨度大，未聚焦于例如‘公平性审查与信息披露的边界’这一具体法理争点。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述是否充分或论证是否严密。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕私有化监管中实质审查与信息披露之争，提出了明确的法学争点，枢纽性强。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，涉及公司法与证券法双重制度调整，法理分歧明确。",
+          "score_rationale": "前置扣分0分；可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "证券监管有无必要介入上市公司私有化交易?应介入到何种程度?",
+            "核心问题是证券监管机构是否拥有交易实质公平的审查权。"
+          ],
+          "strengths": [
+            "争点明确：实质审查抑或信息披露，触及监管权合法性边界",
+            "枢纽性强：联动公司法信义义务与证券法信息披露，影响≥2制度"
+          ],
+          "weaknesses": [
+            "本土化问题设定稍弱，核心争点主要依赖美国法历史演变引出"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及比较法材料支撑度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文主题为上市公司私有化监管路径，但缺乏可争辩的法学问题句，实为政策建议型主题声明。",
+          "core_judgment": "全文以'监管逻辑与路径选择'为主题，系统介绍域外经验并提出中国制度建议，但未提出具有理论分歧的法学争点，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。扣分合计=30分（检查3：主题声明非研究问题，扣30分）。锚定unacceptable档，给35分（扣分后不低于30分）。",
+          "evidence_quotes": [
+            "鉴于此，证券监管有无必要介入上市公司私有化交易？应介入到何种程度？这是上市公司私有化交易的证券监管必须回答的问题。",
+            "为此，笔者建议我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定"
+          ],
+          "strengths": [
+            "涉及证券法与公司法交叉领域，制度影响面较广。",
+            "对美国13e-3规则的历史演变有较为系统的梳理。"
+          ],
+          "weaknesses": [
+            "全文无真正可争辩的'XX是否YY'问题句，只有主题声明和政策建议。",
+            "域外经验介绍后直接进入制度建议，未呈现不同学术观点的交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "主题声明非研究问题，全文主要是阐释既定立场，无可争辩的法学争点",
+              "score_ceiling": 30,
+              "priority": 1,
+              "evidence": "论文标题'监管逻辑与路径选择'及全文结构均为'介绍域外经验—提出中国建议'，结语明确'笔者建议'，无任何理论分歧的学术争点呈现。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "聚焦私有化监管中实质审查与信息披露的路径之争，提出公司法与证券法联动改革方案。",
+          "core_judgment": "问题明确且具高度可争辩性，触及证券监管权边界与信义义务核心法理，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "证券监管有无必要介入上市公司私有化交易?应介入到何种程度?",
+            "美国SEC对私有化交易的证券监管经历了由实质审查到法定信息披露的发展历程。"
+          ],
+          "strengths": [
+            "精准提炼实质审查与信息披露的核心监管逻辑之争",
+            "明确揭示公司法信义义务与证券法披露规则的联动需求"
+          ],
+          "weaknesses": [
+            "对策部分偏向立法建议，理论原创性突破有限",
+            "中美制度比较偏重规范移植，本土司法实践回应稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评问题争点与重要性，不涉文献综述、论证逻辑与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.68107509613037,
+        "glm-5.1": 47.395413875579834,
+        "kimi-k2.6": 13.760395050048828,
+        "qwen3.6-plus": 59.91939902305603
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 88,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 85
+      },
+      "mean": 65.8,
+      "std": 25.3,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 79,
+          "band": "good",
+          "summary": "论文通过深入梳理美国上市公司私有化监管的司法审查与证券监管历史脉络，构建了清晰的双轨制研究地图，但对中国既有研究的定位较为薄弱。",
+          "core_judgment": "论文具备扎实的域外文献定位和清晰的争点结构，分散于正文中的到达点、未竟点与切入点明确，但法学流派识别的理论标签化不足。",
+          "score_rationale": "三要素得分=5/6（到达点2，未竟点2，本文切入点1），争点结构=2/2，法学流派=2个（公司法实质公平审查 vs. 证券法信息披露监管），锚定good档上限，给予79分。",
+          "evidence_quotes": [
+            "美国 SEC 对私有化交易的证券监管经历了由“实质审查”到“法定信息披露”的发展历程...核心问题是证券监管机构是否拥有交易实质公平的审查权。",
+            "公司法通过对上市公司私有化的“交易公平性”和“交易目的”司法审查，来保护小股东利益...证券监管有无必要介入上市公司私有化交易?应介入到何种程度?"
+          ],
+          "strengths": [
+            "对域外（美国）监管演变的文献梳理极为细致，完整呈现了从“实质审查”到“信息披露”的争点变迁过程。",
+            "精准提炼了“公司法信义义务审查”与“证券法信息披露监管”两条对立且互补的规制路径，形成了结构化的研究地图。"
+          ],
+          "weaknesses": [
+            "对中国本土关于主动退市、私有化监管的既有学术研究和观点分歧几乎未作任何梳理，仅在中美数据对比后才简要提及本土问题。",
+            "法学流派识别主要基于域外制度路径的对立，缺乏对国内法学理论流派（如实质法治与形式法治在此问题上的映射）的明确归类。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=5但本文切入点与本土未竟点的对应关系稍弱，未触发硬性上限。",
+              "score_ceiling": null,
+              "priority": 0,
+              "evidence": "本文仅暗示需联动修改证券法与公司法，未明确针对中国学界的具体研究缺口提出切入。"
+            }
+          ],
+          "boundary_note": "本文评的是文献梳理的完整性与争点结构，而非域外经验借鉴本身的新颖性。对中国研究现状的定位缺失是其主要短板。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，呈现多重争点结构，流派识别充分。",
+          "core_judgment": "现状洞察度维度完全成立，文献定位与争点展开深度兼备。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "由于小股东诉讼昂贵、无效...证券监管有无必要介入上市公司私有化交易?应介入到何种程度?",
+            "美国SEC制定的13e-3规则与州公司法都以保障交易公平为目标，但两者的理论基础与规制方法却不同。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰勾勒出公司法与证券法双重规制脉络",
+            "争点结构丰满，实质审查与信息披露之辩展开充分"
+          ],
+          "weaknesses": [
+            "参考文献列表缺失，影响文内证据的完整回溯验证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点呈现深度，不评价退市制度建议本身的创新性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文呈现了美国私有化监管的历史演变与制度分歧，但研究地图分散，三要素未充分结构化。",
+          "core_judgment": "研究地图三要素部分满足，争点结构可识别但法学流派覆盖有限，整体处于good档中等偏下。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=2个，锚定good档，给72分。",
+          "evidence_quotes": [
+            "美国SEC对私有化交易的证券监管经历了以下几个发展阶段：第一阶段，审查交易的公平性……第二阶段……第三阶段，放弃实质公平监管，选择法定信息披露",
+            "上市公司私有化的监管逻辑之辩：实质审查抑或信息披露"
+          ],
+          "strengths": [
+            "系统梳理美国SEC监管三阶段演变，呈现制度史脉络",
+            "明确区分公司法公平审查与证券法信息披露两种路径"
+          ],
+          "weaknesses": [
+            "未明确提炼'既有研究已解决什么'，缺乏对国内学界的具体成果引述",
+            "未竟点与本文切入点表述模糊，未形成'针对XX争议，本文拟解决'的清晰结构"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 3,
+              "evidence": "三要素总分4，争点结构1，法学流派2个，未触发更严格上限"
+            }
+          ],
+          "boundary_note": "本维度评文献定位完整性，不评问题新颖性；论文制度比较充分但学术对话不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文系统梳理了中美私有化监管的演进脉络与理论争点，研究地图完整清晰。",
+          "core_judgment": "本维度高度成立，作者精准锚定既有监管逻辑分歧并构建了对应研究框架。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "美国SEC对私有化交易的证券监管经历了由“实质审查”到“法定信息披露”的发展历程。",
+            "公司法通过对上市公司私有化的“交易公平性”和“交易目的”司法审查，来保护小股东利益。"
+          ],
+          "strengths": [
+            "精准提炼实质审查与信息披露的监管逻辑对立",
+            "分散式文献定位有效串联了中美制度比较脉络"
+          ],
+          "weaknesses": [
+            "对国内本土学说的直接引述相对较少",
+            "部分争点演进的历史细节可进一步凝练"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及问题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 108.8247721195221,
+        "glm-5.1": 44.32721304893494,
+        "kimi-k2.6": 12.031493902206421,
+        "qwen3.6-plus": 62.00135397911072
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 79,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81.8,
+      "std": 7.8,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文属于比较法制度梳理型，梳理了中美监管逻辑但未建构原创分析框架，概念界定模糊，后文未调用所谓框架。",
+          "core_judgment": "论文以归纳和梳理域外经验与政策建议为主，未提出可重复适用的原创分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅分类标准明确，概念堆砌负面模式触发上限），法学转化度得分=0/4（无跨学科转化、无裁判规则、无制度设计方案），锚定unacceptable档，上限规则触发no_operational_framework上限50分，因内容偏梳理降为42分。",
+          "evidence_quotes": [
+            "上市公司私有化监管保护的法益，除了交易各方利益平衡，还有资本市场的安全、信心和资源配置。",
+            "具体建议如下：(1)修改《证券法》，明确证券交易所决定(强制退市)或同意(主动退市)终止上市……"
+          ],
+          "strengths": [
+            "域外制度演进梳理较为详尽，时间线清晰。"
+          ],
+          "weaknesses": [
+            "核心术语无明确定义，'监管逻辑'等关键概念内涵不清。",
+            "后文以政策建议罗列为主，未使用任何分析框架进行推导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分，论文无明确定义、无分析步骤，后文未调用框架。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语如'投资者保护'、'公司自由'未转化为判断标准，后文制度建议未依托分析框架展开。"
+            }
+          ],
+          "boundary_note": "本文属于比较法制度梳理与政策建议文，框架建构力得分低是因为无原创分析框架，不涉及逻辑衔接评价。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了公司法与证券法双轨监管框架，并成功转化为具体的制度修改方案。",
+          "core_judgment": "框架分类维度清晰且法学转化度高，虽分析步骤偏论述结构，但提供了详实的制度操作方案。",
+          "score_rationale": "框架可操作性得分=3/4（缺可重复判断步骤），法学转化度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "先从公司法的‘交易公平’和‘商业目的’司法审查路径着手考查，而后考查证券法‘信息披露’的证券监管",
+            "修订《证券法》的余股收购请求权为强制的余股挤出权制度，收购超过90％的，有权以要约条件挤出剩余股东"
+          ],
+          "strengths": [
+            "双轨监管框架分类标准明确，逻辑清晰",
+            "法学转化度高，提出了具体的法条修改与制度设计方案"
+          ],
+          "weaknesses": [
+            "分析步骤偏篇章论述结构，缺乏可重复适用的判断步骤",
+            "框架原创性一般，主要依赖域外经验梳理与映射"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价制度建议的实践可行性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "制度型论文，梳理域外监管逻辑后提出立法建议，但缺乏原创分析框架。",
+          "core_judgment": "论文以政策理论梳理和制度介绍为主，未建构可重复适用的原创分析框架，法学转化停留在规范呼吁层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文未调用原创框架），法学转化度得分=1/4（有制度建议但多为方向性呼吁，缺乏具体裁判规则或操作流程），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "美国SEC制定的13e-3证券法规则与州公司法都以保障交易公平为目标，但两者的理论基础与规制方法却不同。",
+            "具体建议如下：(1)修改《证券法》……(2)借鉴美国13e-3规则……(3)修订《证券法》的余股收购请求权……"
+          ],
+          "strengths": [
+            "域外制度梳理系统，比较维度清晰。",
+            "立法建议涉及多部法律联动，有一定体系性。"
+          ],
+          "weaknesses": [
+            "建议多为'应当完善''建议借鉴'式口号，缺乏具体法条设计和程序规则。",
+            "未将'双峰理论'等概念转化为可操作的法学分析步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以'监管逻辑''路径选择'等描述性表述展开，未提出如'三步审查法'等可操作框架；'双峰理论'仅作为背景理论提及，未转化为分析工具。"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及比较法梳理的准确性或立法建议的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建“公司法公平审查+证券法信息披露”双轨框架，并提出具体修法路径。",
+          "core_judgment": "分析框架成立，具备清晰的类型划分与较强的制度转化能力。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给88分。框架贯穿全文且转化方案具体。",
+          "evidence_quotes": [
+            "域外各国均通过公司法的司法审查和证券法的证券监管两种法律和路径对上市公司私有化交易实施监管",
+            "建议修订《公司法》……明确涉及私有化交易应由‘代表2/3表决权的非关联股东通过’"
+          ],
+          "strengths": [
+            "双轨监管框架边界清晰，有效统摄公司法与证券法规制逻辑",
+            "制度转化具体，提出独立委员会、强制挤出权等可操作修法方案"
+          ],
+          "weaknesses": [
+            "核心概念缺乏形式化定义，依赖比较法案例间接阐释",
+            "部分监管建议未充分论证与中国现行法体系的衔接成本"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及具体修法论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 102.80486178398132,
+        "glm-5.1": 68.67824196815491,
+        "kimi-k2.6": 12.314442873001099,
+        "qwen3.6-plus": 66.32194709777832
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 66.8,
+      "std": 23.2,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文建立了从法理基础到监管逻辑再到本土制度建议的宏观框架，但关键推理步骤存在明显跳步，且几乎未对反对意见或自身局限进行识别与回应。",
+          "core_judgment": "论文的宏观推理链基本完整，但核心结论（中国应借鉴美国模式）的推出依赖于对域外制度的理想化描述，且完全缺乏对反对观点或自身方案局限的实质性回应，限制了结论的推出力度。",
+          "score_rationale": "推理链完整性得分=2/4，反驳处理度得分=0/3。根据锚定规则，推理链完整性=2且反驳处理度=0，触发上限规则weak_local_reasoning，最高70分。结合推理跳步和反驳完全缺失的严重程度，在50-59分档内评为58分。",
+          "evidence_quotes": [
+            "鉴于此，证券监管有无必要介入上市公司私有化交易?应介入到何种程度?这是上市公司私有化交易的证券监管必须回答的问题。",
+            "因此，上市公司私有化交易的有效监管符合证券监管的两大价值目标。"
+          ],
+          "strengths": [
+            "推理路径清晰：先确立公司法审查基准，再过渡到证券监管逻辑，最后提出中国法修改建议。",
+            "比较法框架一致：对中美退市数据的比较，旨在为制度差异分析提供事实基础。"
+          ],
+          "weaknesses": [
+            "核心推理存在跳步：从“美国SEC放弃实质审查”直接断言“中国也应借鉴此信息披露路径”，但未论证该路径在中国司法与监管弱环境下为何有效。",
+            "反驳处理完全缺失：全文未提及任何对“借鉴美国模式”或“证券监管介入程度”的反对意见或潜在风险，也未承认自身建议的适用边界。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "规则描述：当推理链完整性=2且反驳处理度=0时触发，最高分70分。论文虽能串联起域外考察与本土建议，但缺乏对反对意见的识别与回应，整体论证是单线推演，削弱了结论的深度与稳固性。",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "全文未出现任何反对信号（如中国现行制度为何不能解决、域外模式本土化可能遇到的阻力等），从‘域外模式’直接跳跃到‘中国应借鉴’，论证链条脆弱。"
+            }
+          ],
+          "boundary_note": "论文的缺陷在于论证链的跳跃和反驳的缺失，属于逻辑推演环节不严密，而不是其提出的监管分析框架本身不可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文从监管法益出发，经域外路径演变分析，推导出中国制度建议，逻辑闭环严密。",
+          "core_judgment": "推理链完整且层层依赖，核心结论可由前文充分辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "质疑SEC审查实质公平的合法性...国会并未授权SEC实质监管交易公平的权力",
+            "我国的资本市场结构、法制环境和诚信基础等均与美国存在较大差距...仍任重道远"
+          ],
+          "strengths": [
+            "比较法演变逻辑推导清晰，反驳处理深入",
+            "从法理到制度建议形成完整逻辑闭环"
+          ],
+          "weaknesses": [
+            "比较法移植适配性论证稍弱，本土约束回应不够深"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑维度仅评推理链条支撑度，不评制度建议的具体可操作性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'域外经验→中美比较→制度建议'的完整推理链，但反驳处理不足。",
+          "core_judgment": "推理链完整但反驳处理薄弱，核心结论可从前文推出但缺乏对反对意见的实质性回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处关键跳步：从'美国放弃商业目的审查'到'我国应借鉴'未充分论证制度移植的适配性）；反驳处理度得分=1/3（仅标准1成立，识别了'信息披露vs实质审查'的分歧，但标准2-3未满足：未回应'我国注册制未完全落地时移植13e-3是否可行'的反对意见，未承认自身建议的适用边界）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "美国SEC对私有化交易的证券监管经历了以下几个发展阶段：第一阶段，审查交易的公平性...第二阶段...第三阶段，放弃实质公平监管，选择法定信息披露",
+            "我国退市制度市场化改革以及上市公司私有化制度的建设与完善仍任重道远"
+          ],
+          "strengths": [
+            "历史演进分析清晰，从'实质审查'到'信息披露'的演变逻辑完整",
+            "中美数据对比为制度建议提供了经验基础"
+          ],
+          "weaknesses": [
+            "制度建议部分存在'美国经验→中国适用'的跳跃，未论证法治环境差异的调和",
+            "未处理'注册制未落地时强制挤出权可能滥用'的反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评建议本身是否可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“问题识别→域外路径剖析→本土环境比对→制度联动建议”的完整推理链。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理充分，核心结论具备充分的前文支撑与实务辩护空间。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "小股东诉讼昂贵无效，故公共执法的行政监管尤为必要和关键",
+            "SEC放弃实质公平审查，选择要求披露对公平的合理信赖以实现间接监管"
+          ],
+          "strengths": [
+            "推理步骤清晰，从法理分析到制度建议层层递进",
+            "对实质审查与信息披露之争的回应具有实务针对性"
+          ],
+          "weaknesses": [
+            "中美制度移植的本土适配性论证稍显简略",
+            "部分监管建议的可行性成本分析可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅检视前提至结论的推导严密性与反驳回应度，不涉及制度框架的实操可行性或结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.36332607269287,
+        "glm-5.1": 34.57008504867554,
+        "kimi-k2.6": 11.129179000854492,
+        "qwen3.6-plus": 53.72226285934448
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 75.8,
+      "std": 13.7,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 65,
+          "band": "good",
+          "summary": "论文结论回应了域外监管争论并指向中国制度改良，具备共同体对话基础，但直接移植域外制度且未正面讨论反对意见与本土适配挑战，削弱了结论的可接受性。",
+          "core_judgment": "结论有学术对话意识，并与中国改革语境兼容，但未充分回应本土适配反对意见，可进入共同体讨论但留有较大争议空间。",
+          "score_rationale": "共同体对话度得分=3/4（回应争论、可定位、中国语境说得通，但未主动讨论反对意见），制度可接受度得分=2/4（与法秩序不根本矛盾、考虑中国语境，但对制度约束回应不足且转化方向较笼统），按混合论文锚定good档，给65分。",
+          "evidence_quotes": [
+            "美国SEC对私有化交易的证券监管放弃了实质公平的审查，选择要求披露‘对公平的合理信赖’的法定信息披露制度，实现对交易的实质公平的间接监管。",
+            "我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定。"
+          ],
+          "strengths": [
+            "结论清晰定位了域外监管争论，形成可争辩的学术主张。",
+            "结论指向《证券法》《公司法》联动修改，具备制度对话意识。"
+          ],
+          "weaknesses": [
+            "未主动讨论借鉴美国13e-3规则可能面临的监管权力合法性或本土适应性反对意见。",
+            "制度建议多为方向性列举，如‘类型化研究’‘周密设计’，对法条、程序约束回应不够具体。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦于结论能否被共同体和制度语境接受，不涉及论证严密性或后续研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论在制度层面提出了具体的修法建议，充分回应了共同体争论与中国制度语境。",
+          "core_judgment": "结论可接受性高，既与现行法秩序改革方向兼容，又给出了明确的制度转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "借鉴美国13e-3规则，《证券法》在证券交易章节中针对上市公司私有化情形，构建特定的信息披露规则",
+            "由于我国的资本市场结构、法制环境和诚信基础等均与美国存在较大差距，我国退市制度市场化改革...仍任重道远"
+          ],
+          "strengths": [
+            "提出了具体的法条修改建议（如余股挤出权、关联股东回避表决），制度转化方向明确。",
+            "明确承认了中美法制环境差异，回应了理论移植的局限性。"
+          ],
+          "weaknesses": [
+            "制度建议偏重移植美国13e-3规则，对中国行政监管主导下的执行约束讨论稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评判结论能否被共同体与制度语境接受，不评判论证逻辑严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出我国应借鉴域外经验构建上市公司私有化监管路径，结论具有制度对话性但理论原创性有限。",
+          "core_judgment": "结论作为制度论文，回应了证券监管与公司法交叉的既有争论，提出了具体的法律修改建议，但核心主张多为域外经验移植，理论创新不足。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，锚定good档，给72分。论文明确回应了'实质审查vs信息披露'的学术争论，定位清晰；提出了《证券法》《公司法》联动修改的具体方案，制度可接受度较高。但结论未充分回应'关联股东回避表决'等建议在中国法下的可行性争议，且部分建议（如余股强制挤出权）与现行法秩序存在张力但未充分论证。",
+          "evidence_quotes": [
+            "美国上市公司私有化交易的绝对禁止与受损者补足理论之辩、实质公平审查与法定信息披露之辩为我国主动退市制度构建提供法理基础与监管逻辑",
+            "建议我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定"
+          ],
+          "strengths": [
+            "明确回应证券监管介入程度的核心理论争论",
+            "提出具体的法律修改建议与制度衔接方案"
+          ],
+          "weaknesses": [
+            "核心主张多为域外经验移植，理论创新有限",
+            "未充分回应建议与现行法秩序的张力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准对接监管逻辑之争，提出具象化修法路径，制度兼容性强。",
+          "core_judgment": "结论深度嵌入既有学术争论，且提出契合中国注册制改革语境的制度方案，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "美国SEC放弃实质公平审查，选择要求披露“对公平的合理信赖”的法定信息披露制度",
+            "建议采用“少数股东中多数”表决机制，改良我国现有《公司法》中的自我交易表决机制"
+          ],
+          "strengths": [
+            "精准回应实质审查与信息披露之争，学术定位清晰",
+            "修法建议具体至表决机制与披露标准，非空泛对策"
+          ],
+          "weaknesses": [
+            "对本土司法救济局限的配套应对论证稍显单薄",
+            "强制挤出权与资本维持原则的潜在冲突未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.18093490600586,
+        "glm-5.1": 48.18496584892273,
+        "kimi-k2.6": 11.009444952011108,
+        "qwen3.6-plus": 75.5053551197052
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 78,
+      "std": 11.5,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文具备明确的制度型延展路径，提出了联动修改《证券法》《公司法》和完善《退市意见》的具体建议，但延展深度主要停留在规则罗列层面。",
+          "core_judgment": "存在真实延展路径，主要指向制度完善方向，与正文核心结论紧密衔接。",
+          "score_rationale": "原始分72分，对应bonus=3档。论文类型为制度/立法型，明确提出了修改余股挤出权、信义义务、表决机制、信息披露规则等具体制度建议，并指出研究局限及后续应围绕配套衔接推进，符合60-79分段特征。",
+          "evidence_quotes": [
+            "建议我国应借鉴域外上市公司私有化交易的类型化证券监管与公司法公平性审查并重的监管路径，联动修改《证券法》和《公司法》相关规定。",
+            "尽管美国已有上市公司私有化交易监管的成功经验，但是由于我国的资本市场结构、法制环境和诚信基础等均与美国存在较大差距，我国退市制度市场化改革以及上市公司私有化制度的建设与完善仍任重道远。"
+          ],
+          "strengths": [
+            "延展路径清晰：明确指向联动修法和具体条文修改，与正文制度比较分析紧密衔接。",
+            "承认适用局限：指出中美法制环境差异，点明后续本土化制度建设需持续推进。"
+          ],
+          "weaknesses": [
+            "延展路径精细化不足：部分建议仍较为概括，未详细展开各制度模块可能面临的实施风险或进一步研究设计。",
+            "理论深化尚缺：前瞻部分侧重移植域外规则，对中国特色监管逻辑的深层理论修正着墨不多。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评的是论文提出的具体制度修改方向及未来研究切入点，而非这些建议在当下是否被共同体接受，后者属于结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指明了私有化监管的类型化深化方向与法律衔接路径，但精细度有限。",
+          "core_judgment": "存在真实延展路径，指出了制度完善与规则衔接的具体方向。",
+          "score_rationale": "原始分65，bonus档位为3（>=60）。论文提出私有化类型化研究、证券法与公司法联动修改及备案制等明确制度深化方向，但结语较空泛，路径精细度有限。",
+          "evidence_quotes": [
+            "加强上市公司私有化类型化研究，修改上市公司收购制度，针对不同的并购形态，提出分类监管的信息披露要求",
+            "注重不同层级的法律法规的衔接，在《证券法》和《公司法》联动修改的前提下，优化相关配套制度"
+          ],
+          "strengths": [
+            "指明了类型化监管与分类披露的深化方向",
+            "明确了证券法与公司法联动修改的规则衔接路径"
+          ],
+          "weaknesses": [
+            "结语仅泛泛称“任重道远”，缺乏对本土局限的后续推进设计",
+            "延展路径多为当下立法建议，对未来实施风险控制展开不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "类型化研究与法律衔接属于未来制度演进的延展方向，而非当下结论能否被接受的范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度完善方向提出明确路径，但部分延展仍较概括。",
+          "core_judgment": "存在真实延展路径，包括证券法与公司法联动修改、类型化监管、注册制配套等具体方向。",
+          "score_rationale": "原始分72分，bonus=3档。论文在结语及建议部分提出《证券法》与《公司法》联动修改、类型化信息披露规则、余股强制挤出权、独立董事独立委员会等具体制度完善方向，并与美国13e-3规则形成对照，延展路径可定位。但部分建议（如'制定专门上市公司并购法律规范'）仍较宏观，精细度有限。",
+          "evidence_quotes": [
+            "联动修改《证券法》和《公司法》相关规定，以实现主动退市监管的开放性与闭合性的统一",
+            "加强上市公司私有化类型化研究，修改上市公司收购制度，针对不同的并购形态，提出分类监管的信息披露要求"
+          ],
+          "strengths": [
+            "明确指向《证券法》《公司法》联动修改及注册制配套，制度路径具体",
+            "提出类型化监管、独立委员会等可操作的实务改进方向"
+          ],
+          "weaknesses": [
+            "部分建议如'制定专门法律规范'较宏观，缺乏后续推进机制",
+            "对'类型化研究'的展开维度说明不足，精细度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是'未来还能往哪里走'——即制度完善方向与规则衔接问题；而非当下结论是否被接受（属结论可接受性），也非论证是否严密（属逻辑严密性）。论文提出的联动修法、类型化监管等均为未来延展方向。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于中美监管逻辑比较，清晰指向我国《证券法》《公司法》联动修改及退市配套制度完善的具体路径。",
+          "core_judgment": "存在真实且高度具体的制度延展路径，与正文论证紧密衔接。",
+          "score_rationale": "原始分85，对应bonus=5档。论文明确指向《证券法》信息披露重构、《公司法》信义义务与表决机制改良及《退市意见》细化，路径清晰可定位，紧密承接核心结论。",
+          "evidence_quotes": [
+            "建议修订《公司法》相关规定：明确控股股东的信义义务，改良我国现有上市公司自我交易表决机制。",
+            "加强上市公司私有化类型化研究，针对不同的并购形态，提出分类监管的信息披露要求。"
+          ],
+          "strengths": [
+            "制度完善方向具体，直指《证券法》《公司法》联动修改。",
+            "明确承认中外法制环境差异，指出司法救济缺失下的监管衔接路径。"
+          ],
+          "weaknesses": [
+            "对注册制全面推行后的动态监管风险预判略显不足。",
+            "未详细展开分类监管信息披露的具体指标设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是制度修订与监管规则衔接的未来推进方向，而非当下立法建议的学术共识度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.733155727386475,
+        "glm-5.1": 43.979132890701294,
+        "kimi-k2.6": 54.59094500541687,
+        "qwen3.6-plus": 56.3132700920105
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 65,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 73.5,
+      "std": 8.3,
+      "strictest": 65,
+      "strictest_model": "glm-5.1"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 75.09,
+      "weighted_total": 72.8
+    },
+    "aggregation_strictest": {
+      "final_score": 50.35,
+      "weighted_total": 52.6
+    },
+    "avg_std": 15.0,
+    "max_std": 25.3,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.7,
+    "composite_score": -15.0,
+    "worst_dimension": "problem_originality",
+    "worst_std": 25.3
+  }
+}

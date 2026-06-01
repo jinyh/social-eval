@@ -1,0 +1,529 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/逮捕社会危险性条件中犯罪嫌疑人逃跑风险评估研究.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "虽然2018 年《刑事诉讼法》第81 条和2019 年《人民检察院刑事诉讼规则》第128 条至第133 条等对逮捕社会危险性条件作了一些具体规定，但是该条件仍然比较模糊、缺乏客观标准。",
+          "要解决我国刑事司法中客观评估犯罪嫌疑人的社会危险性问题，必须以我国的案件样本为基础进行独立研究。",
+          "运用统计学方法对逮捕社会危险性条件进行分类评估...构建的犯罪嫌疑人逃跑风险的评估模型具有较好的预测能力。",
+          "该评估工具不能否定检察官的裁量权，在使用该评估工具时亦需要保障辩方的知情权和提出意见权。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "虽然2018 年《刑事诉讼法》第81 条...但是该条件仍然比较模糊、缺乏客观标准。",
+        "要解决我国刑事司法中客观评估犯罪嫌疑人的社会危险性问题，必须以我国的案件样本为基础进行独立研究。",
+        "运用统计学方法对逮捕社会危险性条件进行分类评估...构建的犯罪嫌疑人逃跑风险的评估模型具有较好的预测能力。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文聚焦中国刑事诉讼法中的逮捕社会危险性条件评估难题，以本土司法大数据为基础构建统计学风险评估模型，并深入探讨算法工具与检察官裁量权、辩护权保障的程序衔接问题。完全符合中国自主知识体系研究的口径，具备明确的法学争点、实践解释力与可复核的制度命题，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落之间（如“中国法学 2023 年第4 期 282”等）",
+          "带圈数字脚注编号（如①、②、㉑、㉝等）可能存在OCR解析异常或排版粘连"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2023 年第4 期\n282",
+          "㉑ See Sandra G. Mayson, supra note 4, 512-516."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2018年《刑事诉讼法》第81条和2019年《人民检察院刑事诉讼规则》第128条至第133条等对逮捕社会危险性条件作了一些具体规定，但是该条件仍然比较模糊、缺乏客观标准。正因如此，社会危险性条件的评估成为逮捕、延长侦查羁押期限和羁押必要性审查中的难题，司法实践中一定程度上存在着对其认定随意化、虚置化的情况。",
+          "要解决我国刑事司法中客观评估犯罪嫌疑人的社会危险性问题，必须以我国的案件样本为基础进行独立研究。",
+          "将该模型转化为计算机运算程序，可以作为犯罪嫌疑人逃跑风险的评估工具。该评估工具不能否定检察官的裁量权，在使用该评估工具时亦需要保障辩方的知情权和提出意见权。",
+          "关于变量的设置，首先要符合无罪推定原则的要求。如果犯罪后的有罪表现被作为评估变量，则会与无罪推定原则相冲突。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及带圈脚注编号混入正文，需在后续评分阶段清洗",
+        "项目口径：完全符合进入六维评价的信号，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "要解决我国刑事司法中客观评估犯罪嫌疑人的社会危险性问题，必须以我国的案件样本为基础进行独立研究。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；后续评审需注意清洗文本中混入的期刊页码与脚注编号残留，以确保论证结构分析的准确性。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 60
+      },
+      "mean": 74,
+      "std": 19.8,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以统计学方法重构逮捕社会危险性评估路径，问题明确且具实证与规范双重价值。",
+          "core_judgment": "问题成立且重要，成功将实证模型与程序法理结合，突破传统经验评估局限。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何客观地对其进行评估是当前亟需解决的重要问题。",
+            "运用统计学方法评估未被羁押的犯罪嫌疑人的逃跑风险是为了确定当未被羁押的犯罪嫌疑人逃跑时，哪些因素倾向于存在。"
+          ],
+          "strengths": [
+            "明确区分经验与统计、综合与分类评估路径，争点清晰。",
+            "将大数据实证模型嵌入刑事诉讼程序，兼具方法论与规范创新。"
+          ],
+          "weaknesses": [
+            "对算法黑箱与正当程序冲突的法学理论回应略显单薄。",
+            "变量选择受裁判文书局限，部分关键行为特征未能纳入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 60,
+          "band": "good",
+          "summary": "论文运用统计方法构建逃跑风险评估模型，改变评估路径，但缺乏法学争点。",
+          "core_judgment": "问题属于实证方法应用而非法学争点论证，枢纽性高但可争辩性受限。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档给80分，因主题声明非研究问题扣20分，最终60分。",
+          "evidence_quotes": [
+            "如何客观地对其进行评估是当前亟需解决的重要问题",
+            "统计学方法优于经验方法...分类评估方法优于综合评估方法"
+          ],
+          "strengths": [
+            "改变了评估路径，从经验转向统计，论证了方法优劣。",
+            "涉及逮捕、取保候审等多制度，枢纽性广。"
+          ],
+          "weaknesses": [
+            "核心问题是实证技术操作而非可争辩的法学争点。",
+            "主要创新依赖新数据和方法，法学理论创新较弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评实证模型的科学性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.05410099029541,
+        "glm-5.1": 89.87197017669678
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 90
+      },
+      "mean": 85,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒了逮捕社会危险性评估的既有成果与局限，构建了经验与统计、综合与分类的方法论争点脉络。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰，流派识别达标，符合良好标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "我国关注逮捕社会危险性条件评估的研究成果较少……引入统计学方法……样本数量较少，且样本的代表性不足",
+            "以评估的根据为标准：经验方法和统计学方法……以评估的对象为标准：综合评估方法和分类评估方法"
+          ],
+          "strengths": [
+            "明确提炼既有研究的样本局限与定性评估不足",
+            "系统对比经验与统计、综合与分类路径的优劣"
+          ],
+          "weaknesses": [
+            "流派识别偏重方法论路径，缺乏深层法理立场交锋",
+            "对域外工具的批判性文献对话可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，不涉及实证模型本身的创新性或逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，清晰呈现了评估方法与评估对象两大争点结构。",
+          "core_judgment": "现状洞察度极高，通过对比经验与统计、综合与分类评估，精准定位国内研究缺口并提出切入方案。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "运用统计学方法构建逮捕社会危险性条件评估模型的学术论文仅有2篇...纳入分析的样本数量较少，且样本的代表性不足",
+            "统计学方法优于经验方法...分类评估方法优于综合评估方法"
+          ],
+          "strengths": [
+            "未竟点定位精准，明确指出国内既有统计研究样本少、代表性不足及域外工具不适用。",
+            "争点结构完整，清晰对比了经验/统计、综合/分类两对评估路径分歧。"
+          ],
+          "weaknesses": [
+            "无明显缺陷，研究地图三要素与争点结构均充分满足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估方法之争属于文献定位与争点结构，非问题创新性本身。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 75.43435311317444,
+        "glm-5.1": 48.16575312614441
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建统计预测模型并转化为分级阈值与裁量指引，实现实证数据向司法操作规则的有效转化。",
+          "core_judgment": "框架成立且高度可操作，成功将统计学模型转化为具约束力的司法适用流程与程序保障方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将预测值0.8作为高风险等级的阈值……0.2作为低风险等级的阈值。",
+            "对于低风险的犯罪嫌疑人，在没有其他社会危险性的情况下，原则上应当适用取保候审。"
+          ],
+          "strengths": [
+            "统计模型与风险分级阈值设定清晰，具备高度可重复操作性。",
+            "将算法输出精准映射为检察官裁量规则与听证程序指引。"
+          ],
+          "weaknesses": [
+            "变量选取受裁判文书公开范围限制，部分关键动态因素未纳入。",
+            "算法黑箱与正当程序的张力仅提出原则性保障，缺乏细化规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化，不涉及统计模型严谨性或逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "构建了基于统计学方法的逃跑风险评估模型，并转化为可操作的司法评估工具与适用规则。",
+          "core_judgment": "分析框架高度成立，将统计学概念成功转化为具有明确步骤和判断标准的法学评估流程及制度方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "将预测值0.2、0.5、0.8作为阈值，划分四个风险等级并对应不同强制措施适用原则",
+            "建议将模型转化为计算机运算程序，并设计听证程序与辩方权利保障机制"
+          ],
+          "strengths": [
+            "评估步骤清晰，从变量设置到模型验证流程完整可循",
+            "法学转化彻底，将统计模型转化为具体的司法判断标准和程序设计"
+          ],
+          "weaknesses": [
+            "变量选取受裁判文书局限，缺失部分重要变量（如逃跑经历）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于框架的可操作性与法学转化，不评价模型统计推理的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 48.345449924468994,
+        "glm-5.1": 41.11801218986511
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“方法比较→变量筛选→实证建模→工具转化→程序规制”的严密推理链，结论获数据与规范双重支撑。",
+          "core_judgment": "推理链条完整且环环相扣，反驳与局限处理充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "运用统计学方法评估未被羁押的犯罪嫌疑人的逃跑风险是为了确定当未被羁押的犯罪嫌疑人逃跑时，哪些因素倾向于存在",
+            "该评估工具不能否定检察官的裁量权，在使用该评估工具时亦需要保障辩方的知情权和提出意见权。"
+          ],
+          "strengths": [
+            "方法选择与变量筛选逻辑严密，有效排除多重共线性与价值冲突变量。",
+            "实证建模至工具转化的推导链条完整，阈值设定与程序规制论证充分。"
+          ],
+          "weaknesses": [
+            "裁判文书样本存在固有局限，部分关键行为变量缺失影响模型全面性。",
+            "风险阈值设定虽结合政策导向，但缺乏更精细的本土化实证校准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦数据推导与制度转化的逻辑衔接，而非评估框架本身的实操性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文从方法论选择到实证模型构建再到制度运用，推理链完整严密，且有效回应了实务约束与自身局限。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文可辩护地推出，本维度高度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。方法论比较、变量筛选、模型构建与运用环环相扣；对价值冲突变量的排除及局限承认充分。",
+          "evidence_quotes": [
+            "统计学方法优于经验方法...分类评估方法优于综合评估方法",
+            "受样本收集手段的限制...无法将那些裁判文书未能载明的变量纳入研究...这也是本研究的局限性所在"
+          ],
+          "strengths": [
+            "方法论选择与实证推导环环相扣，无关键跳步",
+            "对价值导向冲突变量的排除论证有力回应实务约束"
+          ],
+          "weaknesses": [
+            "风险等级阈值选择（0.8/0.2）的论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估模型在实务中的可操作性属框架建构力维度，本维度仅评其逻辑推导是否充分支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.51178002357483,
+        "glm-5.1": 51.83053493499756
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论基于本土实证数据构建风险评估模型，明确回应方法之争，并与现行法秩序及“少捕慎诉慎押”政策高度兼容。",
+          "core_judgment": "该维完全成立，结论具备高度的学术对话能力与制度落地可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "统计学方法优于经验方法，分类评估方法优于综合评估方法。",
+            "该评估工具不能否定检察官的裁量权，在使用该评估工具时亦需要保障辩方的知情权和提出意见权。"
+          ],
+          "strengths": [
+            "精准定位经验评估与统计评估之争，结论可被明确反驳与检验。",
+            "模型设计严格遵循无罪推定，并与“少捕慎诉慎押”政策深度契合。"
+          ],
+          "weaknesses": [
+            "未充分论证算法黑箱可能引发的司法责任分配难题。",
+            "样本仅依赖裁判文书，部分关键变量缺失可能影响模型外推效度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论在方法之争中立场鲜明，且提供了高度契合中国制度语境的评估模型与工具转化方案。",
+          "core_judgment": "结论充分回应既有争论并兼容现行法秩序，具有极高的共同体对话度与制度可接受度。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "统计学方法优于经验方法，分类评估方法优于综合评估方法",
+            "将该模型转化为计算机运算程序，可以作为犯罪嫌疑人逃跑风险的评估工具"
+          ],
+          "strengths": [
+            "明确回应了评估方法之争并论证了自身优势",
+            "提供了具体的模型转化方向与程序保障方案"
+          ],
+          "weaknesses": [
+            "模型变量的选择受限于裁判文书，部分变量缺失"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价结论的当下可接受性与制度兼容性，而非统计学论证的严密性或模型的前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 49.56805992126465,
+        "glm-5.1": 46.61328315734863
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在文末系统规划了模型迭代、变量扩充、定期重验及向其他风险类型延伸的具体路径，延展性优异。",
+          "core_judgment": "存在真实且高度具体的延展路径，紧密围绕实证局限与工具落地场景展开。",
+          "score_rationale": "原始分85，对应bonus=5档。文末明确规划样本扩容、变量补充、五年重验及向其他风险情形延伸的路径，与实证局限紧密衔接，路径清晰可定位，达最高加分标准。",
+          "evidence_quotes": [
+            "第一，进一步增加样本量。第二，进一步丰富纳入统计学分析的变量。",
+            "应当每5年对评估工具进行重新验证……还需要开展对犯罪嫌疑人再犯罪风险和实施其他妨碍刑事诉讼顺利进行行为风险评估的研究。"
+          ],
+          "strengths": [
+            "明确列出样本扩容、变量补充、五年重验等具体后续路径。",
+            "延展方向与实证模型局限及工具应用场景紧密衔接。"
+          ],
+          "weaknesses": [
+            "未深入探讨算法透明度与正当程序冲突的具体化解机制。",
+            "跨地域司法差异对模型泛化能力的影响未作细化延展。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦模型迭代、变量扩充与工具长期验证等未来研究议程，而非当下评估结论的司法可接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结尾清晰列出了4项具体的模型与工具完善路径，以及向其他社会危险性情形延伸的宏观方向。",
+          "core_judgment": "存在真实且具体的延展路径，指明了模型优化、变量扩充、实践检验与周期验证的具体方向。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。论文明确指出增加样本量、丰富变量、观察实践效果、每5年重新验证4条具体深化路径，并指出需向再犯罪等其他情形延伸，路径清晰可定位。",
+          "evidence_quotes": [
+            "第一，进一步增加样本量...第二，进一步丰富纳入统计分析的变量...第三，观察评估工具在实践中的运用效果...第四，定时对评估工具进行重新验证。",
+            "逃跑只是逮捕社会危险性条件的一种情形。要实现全面评估，还需开展对再犯罪风险和妨碍诉讼行为风险评估的研究。"
+          ],
+          "strengths": [
+            "延展路径具体可操作，如提出“每5年重新验证”的时间周期。",
+            "延展方向与正文构建的评估模型紧密衔接，直指模型局限。"
+          ],
+          "weaknesses": [
+            "对评估工具实践运用的深层风险控制（如算法偏见防范）延展稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估工具的实践检验与周期验证属于未来制度完善方向，而非当下模型结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.10208892822266,
+        "glm-5.1": 39.47625708580017
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 5.3,
+    "max_std": 19.8,
+    "weighted_total": 84.7,
+    "final_score": 88.79,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 1.37,
+    "worst_dimension": "problem_originality",
+    "worst_std": 19.8
+  }
+}

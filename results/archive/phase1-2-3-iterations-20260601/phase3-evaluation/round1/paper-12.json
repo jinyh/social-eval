@@ -1,0 +1,1015 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/FXYJ2025004012_法学研究_2025_宪法秩序下如何安放法典——从“基础性法律”的适用切入.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文本中存在少量脚注编号乱入正文（如“5,0,2”应为页码“205”的OCR残留）",
+          "原文引用部分无参考文献列表，但不影响核心论点定位"
+        ],
+        "evidence_quotes": [
+          "法典编纂为开端, 我国立法进入法典化时代。生态环境法典、教育法典、行政基本法典等法典编纂已列入立法工作计划并稳步推进……",
+          "·5·0·2·∗北京大学法学院教授。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "伴随法典化进程, 我国实践话语中出现了“基础性法律”的表述。……一些法学学者对此概念展开实质化建构，即试图赋予法典乃至其他基础性法律以特殊的法体系地位。",
+          "然而, 在我国宪法确立的法制体系中……并不存在某些法律是上位法、某些法律是下位法……遑论某法律可以具有宪法效力。",
+          "本文的设问是: 宪法(学)能为法典化做什么? ……聚焦于法律规范的适用规则本身, 探讨法典编纂以后的体系解释以及宪法之下的法秩序统一。",
+          "基础性法律优先适用说难以成立, 其却具有这样的学理意义: 将法适用的问题指向了宪法层面……",
+          "现代国家的法秩序是合宪性法秩序，而现代国家的法释义学，也应是宪法指引下各部门法融贯的整体法释义学。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "PDF抽取出的部分脚注编号乱码（如5,0,2），需确认页码位置不影响正文拼合"
+      ],
+      "evidence_quotes": [
+        "伴随法典化进程, 我国实践话语中出现了“基础性法律”的表述。……一些法学学者对此概念展开实质化建构，即试图赋予法典乃至其他基础性法律以特殊的法体系地位。",
+        "本文的设问是: 宪法(学)能为法典化做什么? ……聚焦于法律规范的适用规则本身, 探讨法典编纂以后的体系解释以及宪法之下的法秩序统一。",
+        "在笔者看来, 真正关键的并非根本性, 而在于现代宪法所独有的、任何其他法律所不能具有的特殊规范性: 最高性, 或者说, 至上性。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国法典化进程中的“基础性法律优先适用”主张为问题起点，构建了宪法秩序下法典如何安放的法学理论框架，完全满足进入六维评价的条件。文本质量整体可读，仅存在极少量OCR/脚注残留（如页码数字乱码），不影响评审。建议进入完整六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入期刊页码标记（如'· 5 0 2 ·'、'· 6 0 2 ·'）",
+          "脚注编号存在空格乱码或格式异常（如'〔1 〕'）",
+          "参考文献列表抽取为空，但正文包含大量脚注文献"
+        ],
+        "evidence_quotes": [
+          "· 5 0 2 ·",
+          "〔1 〕",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国宪法确立的法制体系中，更具体地说，在全国人大及其常委会制定的“法律”的阶层内，并不存在某些法律是上位法、某些法律是下位法",
+          "基础性法律并不当然是一般法",
+          "法体系的无矛盾性作为宪法诫命",
+          "宪法之下的法秩序统一，发挥着法律解释上的指引作用"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文页码混入及脚注编号乱码需清洗，参考文献需从脚注中重新抽取",
+        "项目口径：完全符合进入六维评价的候选信号"
+      ],
+      "evidence_quotes": [
+        "在我国宪法确立的法制体系中...并不存在某些法律是上位法、某些法律是下位法",
+        "基础性法律并不当然是一般法"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审；建议在后续文本工程中清洗正文页码标记（如'· 5 0 2 ·'）与脚注编号空格乱码，并从正文脚注中补全参考文献抽取"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如〔1〕〔2〕等方括号格式，但可识别）",
+          "参考文献列表缺失（标注为'（无）'，但正文引用完整）",
+          "部分德文文献引用存在排版格式问题（如换行、空格异常）"
+        ],
+        "evidence_quotes": [
+          "〔1〕胡建淼: 《论“基础性法律” 的地位及其适用———以〈行政处罚法〉为例》",
+          "Vgl. Paul Oertmann, Ueber den Satz ,, lex posterior generalis non derogat priori speciali “ und seine Bedeutung für das Bürgerliche Gesetzbuch"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以民法典编纂为开端, 我国立法进入法典化时代",
+          "在我国宪法确立的法制体系中……不存在某些法律是上位法、某些法律是下位法",
+          "本文的设问是: 宪法( 学) 能为法典化做什么?",
+          "法典承担着'宪法性'功能, 从而可以获得宪法位阶( 或者相对于普通法律的高位阶) 。那么,这个命题成立吗?",
+          "我国立法法第5章中关于'规定不一致'的适用规则的多项规范,也都可以看作是宪法平等权的规范要求",
+          "现代国家的法释义学, 也应是宪法指引下各部门法融贯的整体法释义学"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：德文文献引用存在OCR排版异常，但不影响核心内容识别",
+        "文本工程：参考文献列表未抽取，但正文脚注引用完整可定位"
+      ],
+      "evidence_quotes": [
+        "以民法典编纂为开端, 我国立法进入法典化时代。生态环境法典、教育法典、行政基本法典等法典编纂已列入立法工作计划并稳步推进",
+        "本文的设问是: 宪法( 学) 能为法典化做什么?",
+        "现代国家的法释义学, 也应是宪法指引下各部门法融贯的整体法释义学"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文完全符合项目口径，应进入六维评价。文本质量风险较低，德文文献引用格式异常和参考文献列表缺失不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留页码与脚注编号混入正文（如“· 5 0 2 ·”“〔1 〕”）",
+          "部分段落存在非常规换行与空格",
+          "文末参考文献列表缺失（仅显示“参考文献列表：（无）”）"
+        ],
+        "evidence_quotes": [
+          "· 5 0 2 · ∗北京大学法学院教授。",
+          "〔1 〕 民法典颁布后修订的民法权威教材中增加了“基础性法律优先于一般性法律”的适用规则",
+          "〔2 〕 至于基础性法律何以被赋予适用上的通常优先性"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "伴随法典化进程, 我国实践话语中出现了“基础性法律”的表述。",
+          "本文的设问是: 宪法(学)能为法典化做什么? ... 聚焦于法律规范的适用规则本身, 探讨法典编纂以后的体系解释以及宪法之下的法秩序统一。",
+          "基础性法律优先适用说难以成立... 必须基于我国宪法上国家权力配置的原理予以分析。",
+          "现代国家的法秩序是合宪性法秩序, 而现代国家的法释义学, 也应是宪法指引下各部门法融贯的整体法释义学。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR页码与脚注混排残留，但不影响核心论证定位与评分"
+      ],
+      "evidence_quotes": [
+        "伴随法典化进程, 我国实践话语中出现了“基础性法律”的表述。",
+        "本文的设问是: 宪法(学)能为法典化做什么? ... 聚焦于法律规范的适用规则本身, 探讨法典编纂以后的体系解释以及宪法之下的法秩序统一。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留，但核心论点清晰、中国问题意识明确、法学争辩性强，已具备理论转化与可复核命题。符合进入六维评价标准，建议直接进入正式评分流程。评分时请忽略页码与脚注乱码干扰。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出“以纵向位阶解决横向规范适用是否正当”这一核心法学争点，批判“基础性法律优先适用说”，并以宪法视角重构解决路径，问题具有可争辩性和理论意义。",
+          "core_judgment": "问题本身成立且重要：论文将法典化时代的规范竞合难题上升为宪法层面的法秩序统一问题，而非简单复述既定立场，但枢纽性中的制度连锁效应论证偏限于方法论与宪法层面，跨制度影响稍显间接。",
+          "score_rationale": "可争辩性=4/4（明确问题句、法学层面、理论分歧、有论证），枢纽性=3/4（影响范围广、争议焦点、理论基础成立，制度连锁仅间接涉及裁判与立法两领域），材料新颖性未触发上限，锚定excellent档，因制度连锁论证偏弱下调至good档，给75分。",
+          "evidence_quotes": [
+            "宪法（学）能为法典化做什么？...聚焦于法律规范的适用规则本身，探讨法典编纂以后的体系解释以及宪法之下的法秩序统一。",
+            "从基础性法律具有部分宪法功能不能推导出其具有宪法位阶...此种方案使特别法优于一般法和新法优于旧法规则被实质性取消。"
+          ],
+          "strengths": [
+            "直接回应“基础性法律优先适用”这一新兴且具颠覆性的主张，形成明确的学术争议点。",
+            "将部门法方法论难题成功转化为宪法教义学问题，提升了问题的法学理论层次。"
+          ],
+          "weaknesses": [
+            "问题解决主要依赖方法论改良，制度连锁效应的论证偏重法律适用层面，对立法权配置等制度环节的直接影响着墨较少。",
+            "在区分“根本性”与“最高性”时，对“基础性法律”的学理重构批判有余，替代性制度建构稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且具有法学创新性，不评论证是否严密、文献是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准提出法典化下基础性法律位阶与适用之争，枢纽性极强。",
+          "core_judgment": "问题高度成立且极具枢纽性，直击法秩序统一的核心争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，前置扣分0，材料未触发上限，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "宪法(学)能为法典化做什么?...聚焦于法律规范的适用规则本身, 探讨法典编纂以后的体系解释以及宪法之下的法秩序统一。",
+            "基础性法律与其他法律处于同一效力位阶...以纵向的位阶设定来解决横向的规范适用的思路, 恐难免治丝益棼"
+          ],
+          "strengths": [
+            "问题直击法典化时代规范适用的核心痛点",
+            "争点清晰且存在明确的学者观点交锋"
+          ],
+          "weaknesses": [
+            "初始设问略显宏大，但后文成功聚焦于适用规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以'宪法能为法典化做什么'为核心问题，批判'基础性法律优先适用'主张，论证法典不可具有宪法位阶，主张回归既有适用规则并以宪法统一作为法秩序整合路径。",
+          "core_judgment": "问题具有明确的可争辩性、涉及宪法与法体系核心争点，且对法典化时代的规范适用具有枢纽意义。",
+          "score_rationale": "可争辩性=4/4（明确问题句'宪法(学)能为法典化做什么'，涉及法学层面规范位阶争点，呈现'基础性法律优先说'与'同一位阶说'的理论交锋，含法学论证而非政策倡导）；枢纽性=4/4（影响法典与单行法适用关系≥2个制度，系学界长期争论的核心问题，涉及宪法最高性/根本性的基础概念，结论隐含调整立法法适用规则及司法解释权限≥2个制度）；材料新颖性未触发上限。锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "本文的设问是：宪法(学)能为法典化做什么？……聚焦于法律规范的适用规则本身，探讨法典编纂以后的体系解释以及宪法之下的法秩序统一",
+            "从基础性法律具有部分宪法功能不能推导出其具有宪法位阶，从基础性法律具有根本性，不能推导出其具有最高性"
+          ],
+          "strengths": [
+            "问题聚焦且具有明确争点，直接回应法典化时代的核心规范适用难题",
+            "理论层次丰富，贯通法哲学概念辨析与制度适用分析"
+          ],
+          "weaknesses": [
+            "部分论证依赖对既有法学方法论的重述，原创性推进空间仍可挖掘",
+            "对'整体法释义学'的正面建构相对薄弱，批判性多于建设性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“基础性法律优先适用”争议为切入点，精准提炼出法典位阶与宪法秩序关系的可争辩命题。",
+          "core_judgment": "问题设定具有明确的法学争点与理论交锋，且深刻触及宪法与部门法交叉的核心枢纽，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，负面模式扣0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "法典承担着‘宪法性’功能，从而可以获得宪法位阶……那么，这个命题成立吗？",
+            "引入基础性法律优先适用的新规则不仅不必要，还会导致更多问题。"
+          ],
+          "strengths": [
+            "精准识别“基础性法律优先适用”背后的位阶混淆谬误",
+            "将规范竞合问题成功升维至宪法秩序与法学方法论层面"
+          ],
+          "weaknesses": [
+            "对“基础性法律”政治话语向法学概念转化的批判可更前置",
+            "部分宪法教义学工具的引入略显宏大，需更紧密对接具体部门法场景"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽价值，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.291171073913574,
+        "glm-5.1": 65.20310616493225,
+        "kimi-k2.6": 16.62389612197876,
+        "qwen3.6-plus": 69.55601501464844
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 8.0,
+      "strictest": 75,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以“基础性法律优先适用”之争为核心，清晰锚定了支持与反对两大对立立场及其代表人物，形成了富有层次的研究地图。",
+          "core_judgment": "论文对既有学说进行了高度结构化的梳理，将分散的文献定位融入正文论证，争点结构完整且法学流派丰富，研究地图清晰有力。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=7个，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "胡建淼认为“当基础性法律与非基础性法律规定上不一致时，应当优先适用基础性法律...”；王利明则认为民法典“强调的是...统率地位，而不是指其地位高于单行法”。",
+            "黄忠提出了“赋予民法典以效力等同于宪法的根本法地位”的方案，而本文指出此种主张“具有对整个法律体系乃至宪法秩序的颠覆性”。"
+          ],
+          "strengths": [
+            "争点结构极为清晰，明确区分了“基础性法律优先适用说”与“同位阶规范适用说”两大对立立场。",
+            "流派识别充分，涵盖了形式法治/实质法治、法律道德主义/分离论、不同宪制传统等多维度法学流派。"
+          ],
+          "weaknesses": [
+            "对于“新的一般法与旧的特别法”冲突的既有解决方案梳理稍显分散，可进一步体系化。",
+            "在论述宪法统一性原则时，对不同法秩序统一理论的流派对立呈现略有不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评估聚焦于文献梳理的完整性与争点结构，不涉及论证是否严密或问题本身是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准定位基础性法律适用与宪法秩序的争点，文献梳理深透。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，本维度高度成立。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "一些法学学者对此概念展开实质化建构……出现了‘基础性法律优先适用’的主张",
+            "现代宪法具备了人类法律史上没有过的独特规范性……此种最高性的承载形式，只能是形式宪法"
+          ],
+          "strengths": [
+            "精准提炼‘基础性法律优先适用’与‘同位阶适用规则’的核心争点",
+            "深入梳理形式宪法与实质宪法、法学方法宪法理由等多重流派对立"
+          ],
+          "weaknesses": [
+            "部分比较法文献引述偏历史梳理，未充分展开与当代中国争点的直接对话"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点建构的深度，而非法秩序统一方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了清晰的学术争论地图，围绕'基础性法律优先适用'主张展开批判，但法学流派识别偏少。",
+          "core_judgment": "研究地图三要素基本完整，争点结构明确，但法学流派识别仅2个，未达excellent档。",
+          "score_rationale": "三要素得分=5/6（到达点2分：梳理了'基础性法律优先适用'的多位学者观点及历史宪法功能研究；未竟点2分：明确指出既有规则可解决适用难题、引入新规则会导致消极后果；本文切入点2分：提出从宪法视角和法学方法论精细适用既有规则），争点结构=2/2（'基础性法律优先适用'vs'同位阶适用规则'、'形式宪法'vs'实质宪法'），法学流派=2个（法典宪法功能论vs规范法学派、形式主义宪法观vs实质主义宪法观），锚定good档，给78分。",
+          "evidence_quotes": [
+            "学者们之所以构想出上述方案，其出发点在于解决'新的一般规定与旧的特别规定不一致'等无可避免的规范竞合难题",
+            "从基础性法律具有部分宪法功能不能推导出其具有宪法位阶，从基础性法律具有根本性，不能推导出其具有最高性"
+          ],
+          "strengths": [
+            "争点结构清晰，正反双方论证充分，历史比较与规范分析结合",
+            "文献定位分散融入正文，到达点具体且有贡献提炼"
+          ],
+          "weaknesses": [
+            "法学流派仅识别2个，未充分呈现宪法学内部的理论分歧谱系",
+            "对'解法典化'等域外学派引介不足，比较法深度有限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素5分但法学流派仅2个，未触发此规则；实际触发good档上限约束"
+            }
+          ],
+          "boundary_note": "本文聚焦法典适用规则之争，文献梳理服务于规范论证，未涉及问题创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒法典适用位阶之争与宪法解释路径分歧，研究地图完整清晰。",
+          "core_judgment": "文内充分呈现对立学术立场与未竟缺口，争点结构严密，三要素与流派识别均达优秀标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "有学者认为基础性法律是上位法……赋予民法典以效力等同于宪法的根本法地位",
+            "以纵向的位阶设定来解决横向的规范适用的思路，恐难免治丝益棼……甚至具有颠覆性"
+          ],
+          "strengths": [
+            "分散式文献定位精准提取了优先适用派与传统规则派的核心分歧",
+            "明确指出现有位阶设想的体系性风险并自然导出宪法教义学切入点"
+          ],
+          "weaknesses": [
+            "对德国法教义学流派的引介偏重结论，未充分展开其内部方法论争议脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现深度，不涉及宪法教义学论证本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.08014798164368,
+        "glm-5.1": 80.23041296005249,
+        "kimi-k2.6": 16.222867012023926,
+        "qwen3.6-plus": 72.55254101753235
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.5,
+      "std": 6.6,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 68,
+          "band": "good",
+          "summary": "论文建构了“形式宪法最高性”与“法学方法论宪法化”的双层分析框架，但在操作步骤的细化上稍显不足。",
+          "core_judgment": "框架通过区分“根本性”与“最高性”并为既有法学方法赋予宪法理由而成立，但缺乏可直接套用的判断步骤。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=2/4，锚定good(60-69)档，因框架后文被反复调用且有明确的判断标准，但法学转化偏向理论指引而非具体制度方案，给68分。",
+          "evidence_quotes": [
+            "“根本性与至上性毕竟是两种属性，不应混为一谈……赋予宪法典以外的法律或者别的什么事物以法效力上的最高性，都是不可能的。”",
+            "“体系解释上的评价矛盾，可以找到借助宪法平等律的解决方案……违反体系的规范，可能因为其所包含的评价矛盾而违反宪法的平等律，并因此无效。”"
+          ],
+          "strengths": [
+            "设定了清晰的判断标准：通过区分“根本性”与“最高性”来驳回“基础性法律优先适用说”，具有可复现的论证逻辑。",
+            "法学转化度高，将规范冲突的适用规则转化为宪法平等权、权力分工等具体的宪法教义学审查框架。"
+          ],
+          "weaknesses": [
+            "分析步骤略显宏观：虽然引入“恣意公式”“功能适当”原理，但未形成“第一步/第二步”式的固定操作流程。",
+            "未能提供制度设计层面的操作方案，更多是理论层面的论证与外围指引，缺乏具体的裁判或立法建议清单。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论型/制度型论文，框架建构力评估侧重于概念区分与法学转化，而非纯实务操作流程。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构了以“根本性-最高性”区分为核心、以合宪性解释为操作路径的分析框架，法学转化度高。",
+          "core_judgment": "框架概念清晰、步骤可循且被后文实际调用，成功将宪法理论转化为法学方法论操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "根本性与至上性毕竟是两种属性，不应混为一谈",
+            "宪法之下的法秩序统一，发挥着法律解释上的指引作用"
+          ],
+          "strengths": [
+            "概念界定清晰，根本性与最高性的区分极具解释力",
+            "将宪法理论有效转化为合宪性解释等法学方法论操作步骤"
+          ],
+          "weaknesses": [
+            "部分分析步骤（如合位阶性解释）的适用边界可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价推理逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以'根本性≠最高性'为核心命题，批判'基础性法律优先适用'主张，但分析框架以理论阐释和制度介绍为主，缺乏可重复适用的操作步骤。",
+          "core_judgment": "分析框架属于理论批判型建构，核心区分'根本性'与'最高性'具有概念澄清价值，但未能转化为可操作的规范适用判断标准或法学方法论步骤。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文未形成框架性调用）；法学转化度得分=2/4（有宪法视角的转化，但主要停留在理论阐释层面，未形成裁判规则或司法程序指引）。锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "从根本性(或基础性、重要性)并不能当然导出最高性；即使存在实质宪法,其也不具有形式宪法的法律位阶",
+            "宪法之下的法秩序统一,发挥着法律解释上的指引作用"
+          ],
+          "strengths": [
+            "核心概念'根本性'与'最高性'的区分具有理论穿透力",
+            "引入宪法平等权、权力分工等视角拓展了讨论维度"
+          ],
+          "weaknesses": [
+            "缺乏'如何判断某法律是否基础性法律'的操作标准",
+            "后文分析未形成步骤化调用，多为理论铺陈而非框架应用"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文核心术语'根本性''最高性'有定义，但无'如何判断根本性''如何适用区分'的操作步骤；全文以理论批判和制度介绍为主，未形成可重复适用的分析框架"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评理论说服力或逻辑严密性。论文的理论贡献在于澄清概念，但非建构可操作的法学分析框架。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“规范精细解释+宪法原则指引”框架，有效回应法典化时代规范竞合难题。",
+          "core_judgment": "框架成立且高度可用，成功将宪法教义与法学方法论转化为可操作的规范适用指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，步骤可循且后文充分调用；理论推演直接转化为裁判解释规则。",
+          "evidence_quotes": [
+            "不应简单地认定某部法律是‘一般法’或是‘特别法’，而是需要分析待适用的具体规范。",
+            "宪法平等权教义所发展出的审查框架，有助于形成规范竞合时选择适用的标准。"
+          ],
+          "strengths": [
+            "将宪法原则精准转化为规范竞合的解释标准",
+            "以具体案例演示合宪性解释的操作路径"
+          ],
+          "weaknesses": [
+            "部分宪法教义工具的本土化适用边界可细化",
+            "跨部门法冲突整合框架略显宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不涉逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.15551805496216,
+        "glm-5.1": 63.637876987457275,
+        "kimi-k2.6": 15.319268703460693,
+        "qwen3.6-plus": 58.291203022003174
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 92,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76.8,
+      "std": 18.4,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文推理链条完整严密，核心结论可充分辩护地推出，且完成了对反对观点的实质性回应。",
+          "core_judgment": "推理链高度完整，从'基础性法律优先适用'的逻辑起点出发，经'根本性≠最高性'的论证，最终导出'既有规则+合宪性解释'的解决方案，结论成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。论文从识别对立观点入手，逐步驳斥其逻辑跳跃，并构建了从宪法逻辑到方法论的完备推理链条，故给95分。",
+          "evidence_quotes": [
+            "从基础性法律具有部分宪法功能不能推导出其具有宪法位阶，从基础性法律具有根本性，不能推导出其具有最高性或者“高位阶”。",
+            "基础性法律优先适用说的出发点，与最终的法效果南辕北辙。……引入基础性法律优先适用的新规则，本质上属于创制新的法规范，这在权力分工原则上也是不被允许的。"
+          ],
+          "strengths": [
+            "反驳处理极为充分：明确呈现了“基础性法律优先适用说”的论证链条，并逐点进行实质性驳斥。",
+            "推理链依赖度高：从“根本性≠最高性”的哲学辨析，到既有规则的技术化解构，再到宪法框架的指引，环环相扣。"
+          ],
+          "weaknesses": [
+            "“整体法释义学”的结论部分偏重瞭望式收束，粗线条强调了方向，对具体操作性路径的微观逻辑闭环稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的核心逻辑在于推理链条的推出而非框架本身的可操作性，此维度不评价所提方案在实践中是否便于操作。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整严密，反驳充分且承认局限，逻辑质量极高。",
+          "core_judgment": "本维完全成立，论文通过概念辨析与反面后果论证，可辩护地推出了反对优先适用并回归既有规则的结论。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "真正关键的并非根本性，而在于现代宪法所独有的、任何其他法律所不能具有的特殊规范性：最高性",
+            "如无必要，勿增实体，如果既有规则能够解决问题，引入基础性法律优先适用的新规则就是不必要的"
+          ],
+          "strengths": [
+            "概念辨析精准，根本性与最高性的区分有效瓦解了对手前提",
+            "反面论证充分，清晰揭示优先适用规则导致的体系崩溃后果"
+          ],
+          "weaknesses": [
+            "从既有规则到宪法诫命的过渡略显跳跃，合宪性解释的实操性论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价根本性至最高性及既有规则的逻辑推演，不评价整体法释义学框架的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了从'宪法位阶不可僭越'到'既有规则足敷适用'再到'宪法统一作为解释原则'的完整推理链，逻辑严密。",
+          "core_judgment": "主要推理步骤可复述、步骤间依赖紧密、核心结论可由前文推出，且对反对意见有实质性回应，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。论文识别了'基础性法律优先适用说'及其理论根基，通过历史考察区分'根本性'与'最高性'，再论证既有适用规则的技术可行性，最后升维至宪法统一解释原则，每一步均依赖前一步结论；对'法典宪法功能论'的反驳有明确回应，且承认实质宪法概念的讨论空间。",
+          "evidence_quotes": [
+            "从基础性法律具有部分宪法功能不能推导出其具有宪法位阶，从基础性法律具有根本性，不能推导出其具有最高性或者'高位阶'",
+            "如果能在具体规范的层面充分运用法律解释……特别法优于一般法、新法优于旧法的规则，就足以解决法典或者基础性法律的适用难题"
+          ],
+          "strengths": [
+            "三步核心论证环环相扣：历史概念辨析→现代规范性确立→适用规则技术化解",
+            "对'例外条款解法典化'的反讽式归谬有力揭示对方内在矛盾"
+          ],
+          "weaknesses": [
+            "第三部分'宪法能为法秩序统一做什么'中实例与核心论题的关联可更紧密",
+            "对'整体法释义学'的展望略超前文铺垫，存在轻微跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不评'合宪性解释'框架本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑链条完整严密，核心结论由历史概念辨析、既有规则检视与宪法方法论建构层层推导而出。",
+          "core_judgment": "推理链充分支撑结论，反驳处理实质且全面，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "从根本性并不能当然导出最高性；即使存在实质宪法，其也不具有形式宪法的法律位阶。",
+            "引入基础性法律优先适用规则不仅不必要，还会导致更多问题，如实质性取消既有适用规则。"
+          ],
+          "strengths": [
+            "概念辨析与历史考察为否定“优先适用”奠定坚实前提。",
+            "逐层推演既有规则适用与引入新规则的负面后果，逻辑闭环完整。"
+          ],
+          "weaknesses": [
+            "宪法方法论部分理论密度高，与具体部门法适用场景的衔接略显抽象。",
+            "对“新一般法与旧特别法”冲突的实务裁决机制着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的充分支撑与结论可辩护性，而非评价宪法解释框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.36551284790039,
+        "glm-5.1": 50.15541219711304,
+        "kimi-k2.6": 14.038978815078735,
+        "qwen3.6-plus": 67.3001389503479
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 95,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 91,
+      "std": 4.2,
+      "strictest": 85,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 84,
+          "band": "excellent",
+          "summary": "结论明确反对赋予基础性法律特殊位阶，主张回到宪法框架下的既有适用规则与合宪性解释，形成了可辩驳的学术主张。",
+          "core_judgment": "结论在强烈问题意识下与学界既有主张形成鲜明对话，锚定宪法秩序与法学方法论，共同体对话度充分且制度回应有力。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定理论论文excellent档，结合创新性较高的对话贡献，给84分。",
+          "evidence_quotes": [
+            "从基础性法律具有根本性，不能推导出其具有最高性或者“高位阶”……已然转化为规范性的宪法诫命",
+            "特别法优于一般法和新法优于旧法规则被实质性取消……法律体系也会就此失去回应特殊规整需求和新的时代要求的能力"
+          ],
+          "strengths": [
+            "明确反对赋予法典宪法位阶或优先适用地位，与多位学者观点交锋，形成可被定位和回应的争论",
+            "结论在坚守宪法最高性的前提下，提出合宪性法秩序统一与整体法释义学方向，对制度约束有原则性回应"
+          ],
+          "weaknesses": [
+            "宪法平等权、合宪性解释等技术路径的操作细节有待进一步展开，制度转化方向尚欠具体化",
+            "对主张基础性法律优先适用的深层焦虑（如解法典化风险）的回应集中在方法层面，未充分处理实证层面的适用成本"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评估结论在共同体对话和制度语境中的可接受性，不评价论证严密性及未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论有力挑战“基础性法律优先适用”说，提出宪法秩序下的合宪性解释方案，对话度与制度兼容度极高。",
+          "core_judgment": "结论清晰回应学界争论并给出可反驳的替代方案，与中国现行法秩序高度兼容且指明合宪性解释方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "主张基础性法律优先适用……甚至具有对整个法律体系乃至宪法秩序的颠覆性",
+            "宪法之下的法秩序统一……合宪性解释成为了“最崇高的”解释原则"
+          ],
+          "strengths": [
+            "精准定位并挑战既有争论，反对者可清晰反驳",
+            "结论捍卫现行法秩序逻辑，指出合宪性解释的具体制度转化方向"
+          ],
+          "weaknesses": [
+            "对合宪性解释在各部门法具体适用中的操作细节尚待展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评估结论能否被共同体及制度语境接受回应，不评论证严密性与前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在宪法学框架下系统回应了法典化时代'基础性法律优先适用'的学术主张，结论具有明确的共同体对话性和制度兼容性。",
+          "core_judgment": "论文结论明确挑战了民法学界关于'基础性法律优先适用'的主流观点，将其置于宪法秩序框架下予以回应和修正，具有清晰的学术定位和可回应性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分。论文明确回应了胡建淼、王利明、龙卫球、黄忠等学者的具体主张（标准1）；反对者可清晰定位其'宪法位阶不可由根本性导出'的核心论点并构造反驳（标准2）；充分结合中国民法典编纂、立法法第103条等本土语境（标准3）；主动讨论了'实质宪法'概念的反对意见及自身论证边界（标准4）。制度层面与现行法秩序兼容，指出合宪性解释的操作路径（标准1、2、4），但未明确指向具体制度转化方向（标准3未完全满足，理论论文可作为加分项）。",
+          "evidence_quotes": [
+            "从基础性法律具有部分宪法功能不能推导出其具有宪法位阶，从基础性法律具有根本性，不能推导出其具有最高性或者'高位阶'",
+            "宪法之下的法秩序统一，发挥着法律解释上的指引作用"
+          ],
+          "strengths": [
+            "明确回应并修正了民法学界'基础性法律优先适用'的具体学术主张",
+            "将宪法平等权、权力分工等教义引入法典适用问题，具有方法论创新"
+          ],
+          "weaknesses": [
+            "未充分讨论'整体法释义学'在司法实务中的具体操作障碍",
+            "对'形式宪法与实质宪法'的反对意见回应可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论在当下学术共同体和制度语境中的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应法典化时代规范竞合争议，提出以合宪性解释替代位阶重构的理论方案。",
+          "core_judgment": "该结论高度契合中国法秩序逻辑，具备充分的共同体对话基础与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位既有“基础性法律优先适用”争论，提出以宪法解释与既有冲突规则精细化适用替代位阶重构，逻辑自洽且深度嵌入中国立法法与宪法语境。",
+          "evidence_quotes": [
+            "本文结论修正了“基础性法律优先适用”的主张，认为应回归既有适用规则并引入宪法视角。",
+            "宪法之下的法秩序统一，意味着宪法规范作为解释次级法律规范的实质指导原则。"
+          ],
+          "strengths": [
+            "精准回应法典化适用难题，对话既有学说。",
+            "以合宪性解释统合法秩序，理论自洽且具操作性。"
+          ],
+          "weaknesses": [
+            "对合宪性解释在司法实践中的具体启动机制着墨较少。",
+            "部分宪法教义学移植的本土适配性可进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被学界与制度语境接受，非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.779085874557495,
+        "glm-5.1": 62.565962076187134,
+        "kimi-k2.6": 17.621135234832764,
+        "qwen3.6-plus": 53.547797203063965
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 84,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.2,
+      "std": 4.3,
+      "strictest": 84,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在余论部分提出了“内部体系与整体法释义学”的理论深化和规则衔接方向，但延展路径较概括，缺乏对后续研究问题或具体修正对象的清晰勾勒。",
+          "core_judgment": "存在延展方向，但与正文论证的衔接需要推断，路径精细度有限。",
+          "score_rationale": "原始分55落入40-59区间，对应bonus=2档位。论文在结语指明了转向“解释论”和“整体法释义学”的方向，属于可定位的延展，但未提出具体的下一轮争点或操作化路径。",
+          "evidence_quotes": [
+            "基础性法律优先适用说也应当被看作法典化之后建构法学体系的努力。然而，其创设新的法律位阶的思维，本质上依然是立法论的，而非解释论的，从而也无法构成法典实施的正确的法学方案。（余论部分）",
+            "在宪法之下安置法典的另一种理论方案：整体法释义学。这在法学方法层面的体现之一，就是以“合位阶性解释”（核心是法律的合宪性解释）来为法体系内在矛盾的解决寻找来自宪法层面的价值和技术助力。（余论部分）"
+          ],
+          "strengths": [
+            "明确指出了未来应从“立法论”转向“解释论”的宏观方向。",
+            "提出了“整体法释义学”作为在宪法之下安置法典的理论方案，点明了可能的深化路径。"
+          ],
+          "weaknesses": [
+            "延展方向较为概括，未给出“整体法释义学”的具体理论假设或制度接口。",
+            "未指明后续研究的具体争议焦点或可进一步检验的反驳入口，精细度不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文为制度/立法型论文，评的是“未来还能往哪里走”（如整体法释义学、解释论转向），而非当下结论能否被接受，后者属于结论可接受性维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出从宪法统合构建“整体法释义学”的理论深化方向，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了宪法指引下各部门法融贯的整体法释义学建构方向。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。论文提出“整体法释义学”的理论深化方向及合宪性解释在各部门法的具体展开路径，与正文“宪法秩序统一”结论紧密衔接，非空泛拔高。",
+          "evidence_quotes": [
+            "现代国家的法释义学，也应是宪法指引下各部门法融贯的整体法释义学。",
+            "距离所有难题的解决还很远（这有赖于各部门法释义学的持续作业）。"
+          ],
+          "strengths": [
+            "1. 提出了“整体法释义学”这一可定位的理论深化方向。",
+            "2. 明确了合宪性解释在各部门法适用中的具体展开路径。"
+          ],
+          "weaknesses": [
+            "1. 对“整体法释义学”的内部建构机制仅作宏观勾勒，未展开具体理论假设。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "“整体法释义学”的体系建构属于未来理论深化方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结论部分明确提出了'整体法释义学'的理论深化方向，并具体阐述了宪法与部门法融贯的体系建构路径，延展路径清晰可定位。",
+          "core_judgment": "存在真实延展路径，主要体现在'整体法释义学'的理论建构方向及宪法与部门法关系的具体技术路径上。",
+          "score_rationale": "原始分72分，对应bonus=3的'good'档位。论文在余论中明确提出'整体法释义学'作为未来方向，指出宪法价值纳入部门法体系建构的具体路径（如合宪性解释、基本权利客观价值秩序等），并列举民法社会原则化、刑法法益概念宪法化等可操作的部门法实例，延展与正文核心结论'宪法秩序下安放法典'紧密衔接。但延展主要集中于文末余论，篇幅有限，且对'整体法释义学'的具体方法论操作细节展开不足。",
+          "evidence_quotes": [
+            "现代国家的法释义学，也应是宪法指引下各部门法融贯的整体法释义学",
+            "来自宪法的'社会原则'会与私法自治原则共同成为建构民法体系的基本原则……并导出债法中强调对合同相对方增加注意义务，在合同法中以社会典型行为来替代意思表示等理论主张"
+          ],
+          "strengths": [
+            "提出'整体法释义学'明确理论深化方向，非空泛口号",
+            "列举民法、刑法等部门法具体实例，路径可定位"
+          ],
+          "weaknesses": [
+            "延展内容集中于文末余论，篇幅占比有限",
+            "对'整体法释义学'的操作方法和技术细节展开不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究指明的方向（整体法释义学、宪法与部门法融贯路径），而非当下结论是否被接受；后者属于结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确指向部门法释义学的持续作业与宪法指引下的整体法释义学建构，延展路径清晰且与核心论证紧密衔接。",
+          "core_judgment": "存在真实且具体的延展路径，聚焦于规范竞合的精细化解释与宪法教义在部门法中的具体应用。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确提出部门法释义学持续作业、宪法平等权与权力分工教义在规范竞合中的具体应用，以及“整体法释义学”建构方向，路径清晰可定位。",
+          "evidence_quotes": [
+            "虽然距离所有难题的解决还很远( 这有赖于各部门法释义学的持续作业)",
+            "现代国家的法释义学, 也应是宪法指引下各部门法融贯的整体法释义学。"
+          ],
+          "strengths": [
+            "明确提出部门法释义学与宪法教义结合的具体深化方向",
+            "指出合宪性解释与权力分工原理在解决新型规范冲突中的操作路径"
+          ],
+          "weaknesses": [
+            "对“整体法释义学”的具体建构步骤与跨部门法协调机制着墨较少",
+            "部分宪法教义本土化适用的实证检验路径尚未展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是法典化背景下规范适用规则与宪法教义融合的未来研究走向，而非当下结论的学术共识度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.51460099220276,
+        "glm-5.1": 47.94901704788208,
+        "kimi-k2.6": 12.333680152893066,
+        "qwen3.6-plus": 58.4038507938385
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 74.2,
+      "std": 14.2,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 88.91,
+      "weighted_total": 85.5
+    },
+    "aggregation_strictest": {
+      "final_score": 76.53,
+      "weighted_total": 74.5
+    },
+    "avg_std": 9.3,
+    "max_std": 18.4,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "score_gap": 12.4,
+    "composite_score": -5.97,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 18.4
+  }
+}

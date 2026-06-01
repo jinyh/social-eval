@@ -1,0 +1,1077 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/家庭法与民法知识谱系的分立.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在多处 OCR 残留/脚注编号混入正文，如'(263)'、'[30]'、'[47]'等。",
+          "部分引注格式不完全规范，例如德文文献夹杂，但均在正文中提供了可定位的信息，不影响核心论点的提取。"
+        ],
+        "evidence_quotes": [
+          "费希特对女性屈从地位的描述—— '未婚妇女受父母支配，已婚妇女受男人支配'，[25]与盖尤斯在《法学阶梯》中的论述—— '女性即便达到了 成熟年龄，由于其心灵的轻浮，均应受到监护'，(263如出一辙。",
+          "See Max Weber，Max Weber's Complete Writings on Academic and Political Vocations，trans., Gordon C. Wells., New York: Algora Publishing, 2008, P.35.",
+          "参见[德] 罗尔夫•克尼佩尔：《法律与历史：论 <德国民法典> 的形成与变迁》，朱岩译，法律出版社 2003年版，第103页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在中国，由朱苏力、强世功等人所倡导的“社科法学”对家庭法的研究同样产生了极大的影响。",
+          "一个显著的证据是，所有的联合国会员国均签署了《儿童权利公约》。这一公约对缔约国内国家庭法的改革产生了明显的影响。从学者对我国司法判决的实证考察来看，与家庭相关的宪法第49条成为公民基本权利和义务一章援引频率最高的条款。",
+          "当下，中国民法之范式逐渐摆脱了苏联的影响，逐步回归大陆法系民法的整体语境之中。与民法相比，中国家庭法知识体系的整体转型则大为逊色。家庭法的特殊性已经不能再作为我国学界固守成规的借口。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注/OCR存在多处编号与正文夹杂的痕迹，但正文论证流畅，可完整抽取核心命题。",
+        "论文提出了'家庭法与民法知识谱系分立'这一能够被复核的法学命题，并试图解释中国家庭法的知识体系转型困境及其'中国问题'。"
+      ],
+      "evidence_quotes": [
+        "家庭法的独立范式成型于潘得克吞的学说中，建立在家庭法与财产法理念世界的差异之上。这一理念世界的差异引致家庭法的权威性来源与言说方式完全不同于民法。",
+        "在中国，民法和家庭法皆属舶来品，二者均经历了继受和革命的洗礼。当下，中国民法之范式逐渐摆脱了苏联的影响，逐步回归大陆法系民法的整体语境之中。与民法相比，中国家庭法知识体系的整体转型则大为逊色。",
+        "从学者对我国司法判决的实证考察来看，与家庭相关的宪法第49条成为公民基本权利和义务一章援引频率最高的条款。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本整体论证清晰，具有明确的中国问题意识和可复核的法学命题，建议进入六维评价。文本中存在局部 OCR 残留和格式失范，须在评审中关注，但不影响评分资格。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号存在大量OCR乱码（如(23]、(263、(44]、(493、(55 7、(1叨、(1OS3等）",
+          "正文混入期刊页码标记（如· 60 ·、· 6l ·等）",
+          "参考文献列表抽取为空，但正文包含大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "(263 [古罗马]盖尤斯：《法学阶梯》",
+          "· 6l ·",
+          "(1OS3 同上文，第4页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在中国，民法和家庭法皆属舶来品，二者均经历了继受和革命的洗礼。当下，中国民法之范式逐渐摆脱了苏联的影响，逐步回归大陆法系民法的整体语境之中。与民法相比，中国家庭法知识体系的整体转型则大为逊色。家庭法的特殊性已经不能再作为我国学界固守成规的借口。",
+          "在中国，由朱苏力、强世功等人所倡导的“社科法学”对家庭法的研究同样产生了极大的影响。",
+          "从学者对我国司法判决的实证考察来看，与家庭相关的宪法第49条成为公民基本权利和义务一章援引频率最高的条款。我国法院在审理婚姻家庭纠纷案件时，已经出现了直接援引相关国际公约作为说理依据的情况。",
+          "家庭法形成与民法相分立的两种实证主义。民法教义体系所形成的是法学内的实证体系，而现代家庭法所主张的实际上是法学外的实证体系。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR乱码及期刊页码混入需后续清洗，但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，需从脚注中重建"
+      ],
+      "evidence_quotes": [
+        "在中国，民法和家庭法皆属舶来品……与民法相比，中国家庭法知识体系的整体转型则大为逊色。家庭法的特殊性已经不能再作为我国学界固守成规的借口。",
+        "民法教义体系所形成的是法学内的实证体系，而现代家庭法所主张的实际上是法学外的实证体系。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文明确以中国家庭法知识体系转型滞后为落脚点，具备可争辩的法学问题（家庭法与民法知识谱系分立、法学内外实证体系之分）和理论转化命题，完全符合进入六维评价的口径。文本存在脚注乱码和页码混入等工程质量风险，需在后续阶段进行清洗修复，但不影响当前项目口径判定，建议进入正式评分流程。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如'(263'应为'[26]'，'(34]'应为'[34]'，'(58]'应为'[58]'等）",
+          "部分德文、英文文献引用存在格式混排",
+          "文末参考文献列表缺失，但文内引注完整可定位",
+          "期刊页码混入正文（如'· 60 ·'、'· 61 ·'等）"
+        ],
+        "evidence_quotes": [
+          "(263 [古罗马]盖尤斯",
+          "(34] Motive ZU dem Entwurfe",
+          "(58] 参见[美]约翰·菲尼斯",
+          "· 60 ·",
+          "· 72 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在中国，由朱苏力、强世功等人所倡导的'社科法学'对家庭法的研究同样产生了极大的影响。这些学者对家庭法的实际运行的观察和分析很明显地受到韦伯的理解社会学和费孝通人类学研究进路的影响。",
+          "在中国，现行家庭法的框架基本上是由宪法和我国加入的相关人权公约所组成的价值秩序所决定的。",
+          "我国法院在审理婚姻家庭纠纷案件时，已经出现了直接援引相关国际公约作为说理依据的情况。如罗某、谢某与陈某监护权纠纷案，(2015)沪一中少民初字第56号民事判决书；张某甲与张某乙抚养费纠纷案，(2016)沪0112民初18286号民事判决书。",
+          "在中国，民法和家庭法皆属舶来品，二者均经历了继受和革命的洗礼。当下，中国民法之范式逐渐摆脱了苏联的影响，逐步回归大陆法系民法的整体语境之中。与民法相比，中国家庭法知识体系的整体转型则大为逊色。",
+          "我国台湾地区家庭法的彻底改革则是在21世纪才完成。",
+          "我国最近进行的家事审判改革，均指向了建立在社会科学基础之上的专业化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留（如'(263'、'(34]'等），需人工核对",
+        "文本工程：期刊页码标记混入正文（· 60 ·等），不影响核心内容阅读",
+        "文本工程：文末参考文献列表缺失，但文内引注体系完整，核心文献可定位"
+      ],
+      "evidence_quotes": [
+        "在中国，由朱苏力、强世功等人所倡导的'社科法学'对家庭法的研究同样产生了极大的影响。",
+        "在中国，现行家庭法的框架基本上是由宪法和我国加入的相关人权公约所组成的价值秩序所决定的。",
+        "我国法院在审理婚姻家庭纠纷案件时，已经出现了直接援引相关国际公约作为说理依据的情况。",
+        "中国民法之范式逐渐摆脱了苏联的影响，逐步回归大陆法系民法的整体语境之中。与民法相比，中国家庭法知识体系的整体转型则大为逊色。",
+        "我国最近进行的家事审判改革，均指向了建立在社会科学基础之上的专业化。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国问题为落脚点，将德国/日本/台湾地区的家庭法理论与中国实践相结合，提出了关于中国家庭法知识体系转型的规范性命题，具备明确的法学理论贡献。建议进入六维评价。文本质量风险较低，主要涉及脚注编号OCR残留和页码标记问题，不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR识别残留与脚注编号乱码（如“(263”、“[473”、“、i 卯 l”）",
+          "期刊页码标记混入正文段落（如“· 60 ·”、“· 61 ·”）",
+          "部分外文参考文献排版断裂或字符错位",
+          "文末参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "(263 [古罗马]盖尤斯：《法学阶梯》...",
+          "· 60 · \n\n家庭法与民法知识谱系的分立",
+          "[473现实的变化(特别是家庭结构的调整..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "partial",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在中国，民法和家庭法皆属舶来品，二者均经历了继受和革命的洗礼。当下，中国民法之范式逐渐摆脱了苏联的影响... 与民法相比，中国家庭法知识体系的整体转型则大为逊色。",
+          "家庭法的权威性来源经历了从自然伦理专制到由人权和基本权利所构成的客观价值秩序的祛魅。",
+          "现代家庭法立法的科学性不在于它是否经由“法学家”之手，而在于它是否存在经验性论据的支撑。"
+        ],
+        "boundary_reasons": [
+          "论文核心论证聚焦于德、日及我国台湾地区家庭法与民法知识谱系的分立，中国问题仅于文末作为结语背景简要提及，缺乏中国问题中心性与中国本土实践的深度解释；",
+          "文章提出了家庭法“经验主义转向”与“价值秩序重构”的明确法理命题，具备较强的理论争辩性，需专家裁断该比较法/法理框架是否具备直接转化为中国自主知识体系分析工具或解释中国家事司法/立法难题的潜力。"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "partial",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR乱码、规范脚注格式并补全参考文献列表",
+        "项目口径：中国问题中心性不足，需确认理论框架的本土转化路径"
+      ],
+      "evidence_quotes": [
+        "在中国，民法和家庭法皆属舶来品... 家庭法的特殊性已经不能再作为我国学界固守成规的借口。"
+      ],
+      "boundary_reasons": [
+        "核心论证以比较法与法理学为主，中国元素仅具提示性，未形成针对中国实践的解释或命题转化。"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议进入人工复核。文本需进行基础OCR清洗与脚注规范化；项目口径上，该文为高质量比较法理研究，但中国问题仅作为结语背景，未展开本土实践解释或理论转化。请专家评估其‘家庭法经验主义与价值秩序’框架是否具备对接中国家事审判改革或民法典婚姻家庭编解释的潜力，再决定是否进入六维评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文论证了家庭法与民法知识谱系分立的历史、规范与经验表现，但未提出可争辩的法学问题，主要是对既定立场的系统性阐释。",
+          "core_judgment": "全文无明确的问题句，主要是对‘家庭法独立于民法’这一既定立场的体系化介绍，缺乏可争辩的法学争点。",
+          "score_rationale": "可争辩性=0/4，枢纽性=3/4，材料新颖性未触发上限。因可争辩性为0，触发no_justiciable_question规则，上限50分。另经负面模式检查，触发新概念包装旧问题扣20分、宏观介绍非深度分析扣20分、主题声明非研究问题扣30分，合计扣分后总分低于30分，最终给30分。",
+          "evidence_quotes": [
+            "家庭法的权威来源于“存在”。照此观点，我们无需证成家庭法的合理性，因为它在诞生之初就被仅仅界定为对自然生活秩序的单纯映射。",
+            "现代家庭法的科学性诉求表现为其经验主义转向。这种转向不仅发生在学术研究领域，而且主导了整个立法、行政和司法机构的行为模式。"
+          ],
+          "strengths": [
+            "对家庭法知识谱系的梳理较为系统，展现了丰富的历史与比较法材料。",
+            "问题涉及家庭法与民法之关系这一具有枢纽性的理论争点。"
+          ],
+          "weaknesses": [
+            "全文未提出可争辩的法学问题，主要是对‘家庭法独立’立场的阐释。",
+            "多为宏观介绍，缺乏不同学者观点的实质性交锋与深度分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未找到‘XX是否YY’或‘如何ZZ’等明确的问题句，主要是对家庭法与民法分立史实的系统介绍。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的创新性与可争辩性，不评价文献综述、论证严密性或材料支撑结论的充分性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "阐释家庭法与民法分立的理论逻辑，但缺乏显性问题句，实质为阐释既定立场的主题声明。",
+          "core_judgment": "问题枢纽性极强，涉及多制度与基础理论，但缺乏显性可争辩问题句，全文实质为阐释既定立场的主题声明。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档基础85分；前置检查3（无显性问题句，只有主题声明）扣30分，最终55分。",
+          "evidence_quotes": [
+            "家庭法的权威不可能来自教义",
+            "家庭法从一开始就没有形成类似于民法的自足体系"
+          ],
+          "strengths": [
+            "理论分歧展示充分，涉及自然法、教义学与社科法学交锋",
+            "枢纽性极强，横跨家庭法、民法、宪法与人权法"
+          ],
+          "weaknesses": [
+            "缺乏显性可争辩问题句，核心问题为阐释性主题声明",
+            "全文实质是在论证家庭法独立的既定立场"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文揭示家庭法与民法知识谱系分立的深层结构，具有明确理论争点。",
+          "core_judgment": "问题具有可争辩性与理论枢纽性，但材料新颖性未转化为问题层面的实质推进。",
+          "score_rationale": "可争辩性=3/4（明确争点：家庭法能否/为何不能纳入民法教义体系；涉及法学原理争议；存在自然伦理秩序vs客观价值秩序vs经验主义三种路径的理论分歧；非纯政策倡导），枢纽性=3/4（影响家庭法与民法两大制度领域；涉及法学核心争论持续百年以上；触及法律科学性、价值秩序等基础概念；结论隐含裁判方法与立法模式的双重调整），材料新颖性未触发上限。锚定good档，给72分。",
+          "evidence_quotes": [
+            "家庭法的价值主导性决定了其权威不可能来自教义",
+            "家庭法形成与民法相分立的两种实证主义"
+          ],
+          "strengths": [
+            "问题聚焦知识谱系分立的结构性根源，非简单主题描述",
+            "呈现自然伦理、基本权利、经验主义三种论证范式的理论交锋"
+          ],
+          "weaknesses": [
+            "核心问题句不够凝练，散落于历史叙述中",
+            "经验主义转向部分材料堆砌，未充分转化为规范命题推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以知识谱系分立为线索，论证家庭法权威与范式向经验主义转型，问题意识清晰。",
+          "core_judgment": "该问题成立且重要，成功将家庭法与民法的方法论分歧上升为法哲学与知识论层面的可争辩命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。前置检查扣0分。",
+          "evidence_quotes": [
+            "家庭法的权威来源于“存在”……不可能成为民法中‘不为时间、情形和地点所左右的一种单纯的法律数学’。",
+            "现代家庭法立法的科学性不在于它是否经由‘法学家’之手，而在于它是否存在经验性论据的支撑。"
+          ],
+          "strengths": [
+            "清晰呈现自然法祛魅至人权框架及经验主义转向的理论脉络。",
+            "深刻揭示家庭法与民法在规则思维与原则思维上的方法论分歧。"
+          ],
+          "weaknesses": [
+            "问题设定偏宏大，对具体教义学争点的聚焦稍显不足。",
+            "部分经验主义转向的论述偏向现象归纳，批判性交锋可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.54410696029663,
+        "glm-5.1": 97.57732725143433,
+        "kimi-k2.6": 10.605398893356323,
+        "qwen3.6-plus": 71.99275732040405
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 55,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 61.2,
+      "std": 24.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文分散式定位了既有研究并构建争点，但未形成术语化的流派对立结构，未竟点批判性有限。",
+          "core_judgment": "论文具备研究地图意识，在批判自然法学说和描述经验主义转向时提取了到达点与争点，但未将对立立场明确归入学派脉络。",
+          "score_rationale": "三要素得分=4/6，争点结构=1/2，法学流派=2个，锚定 good(65-74) 档，给 72 分。",
+          "evidence_quotes": [
+            "家庭法的权威来源于“存在”……家庭法在诞生之初就被仅仅界定为对自然生活秩序的单纯映射。",
+            "家庭法源于包含了必然性的“自然理性”，然而这种所谓的“自然理性”却又受本地化的风俗、宗教和道德所支配。"
+          ],
+          "strengths": [
+            "清晰呈现‘自然伦理秩序决定论’的到达点，并通过历史比较揭示既有学术判断的偏误。",
+            "梳理了从自然法到人权/基本权利的权威来源更迭，形成可区分的解释路径分歧。"
+          ],
+          "weaknesses": [
+            "未将‘血缘论 vs 社会功能论’等对立立场明确归入学派脉络，争点结构未完整展开。",
+            "对社科法学、法经济学等路径的流派分类意识不足，未点明其与规范分析的对立属性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "未触发 no_research_map",
+              "score_ceiling": 55,
+              "priority": 0,
+              "evidence": "none"
+            }
+          ],
+          "boundary_note": "论文主要在批判既有理论偏见和描述研究范式转型，属于文献定位范畴而非问题创新性评价。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理了家庭法权威来源与论证模式的演进，呈现了多个清晰的学术争点与流派对立，研究地图完整。",
+          "core_judgment": "现状洞察维度成立，论文通过分散式文献定位构建了完整的学术脉络与争点结构。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "在以德沃金等人为代表新自然法学派眼里，婚姻家庭是注重情感治理的法律领域，将效率等同于正义是值得怀疑的。",
+            "这种争论集中表现在血缘论和社会功能论两种观点之间的交锋。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰揭示了自然法、人权与经验主义等路径的局限与争议。",
+            "争点结构丰满，呈现了教义学vs原则思维、血缘论vs功能论等多重对立。"
+          ],
+          "weaknesses": [
+            "部分理论梳理偏重历史叙事，未竟点提示稍显隐晦。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点结构，不评价家庭法与民法分立这一命题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文呈现家庭法与民法知识谱系分立的宏大叙事，但研究地图三要素呈现不足，争点结构模糊。",
+          "core_judgment": "本文以历史演进和比较法视角勾勒家庭法独立性，但未建立清晰的学术对话结构，缺乏对既有研究到达点、未竟点和本文切入点的明确交代。",
+          "score_rationale": "三要素得分=2/6（到达点1分：提及自然法学派、历史法学派、潘德克吞法学派但未提炼具体学术贡献；未竟点1分：指出家庭法未走向民法教义学但未明确学术缺口；切入点0分：未清晰说明本文要解决的学术问题），争点结构=0/2（未呈现可区分的学术争点），法学流派=3个（自然法学派、历史法学派、潘德克吞法学派，但仅作为历史背景而非学术争论呈现），锚定marginal档，给62分",
+          "evidence_quotes": [
+            "无论民法是否达到实证主义的巅峰，在家庭法中起决定性作用的始终是'自然的理性'而非'技艺的理性'",
+            "家庭法形成与民法相分立的两种实证主义。民法教义体系所形成的是法学内的实证体系，而现代家庭法所主张的实际上是法学外的实证体系"
+          ],
+          "strengths": [
+            "历史脉络梳理清晰，涵盖德、日、台等多法域",
+            "跨学科视野较广，涉及社会学、经济学、心理学"
+          ],
+          "weaknesses": [
+            "未建立与当代学术研究的直接对话，三要素严重缺失",
+            "流派识别停留于历史背景介绍，未呈现学术争论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分2分，识别3个历史学派但未形成学术争点结构"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派未形成有效学术对话",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文未呈现可区分的学术争点或对立立场，历史学派仅作为背景叙述"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位而非问题新颖性，作者对历史材料的组织能力强，但未转化为学术对话。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制家庭法与民法知识谱系分立的研究地图，争点清晰且流派覆盖充分。",
+          "core_judgment": "研究地图三要素完整，争点结构严密，法学流派识别充分，文献洞察度达到优秀标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "“学者们通过成本一收益的法经济学分析路径……引发了激烈的争论。”",
+            "“中国家庭法知识体系的整体转型则大为逊色……不能再作为固守成规的借口。”"
+          ],
+          "strengths": [
+            "文献脉络梳理清晰，准确提炼自然法、实证主义与社科法学的演进与对立。",
+            "争点结构严密，多维度呈现教义学与经验主义的路径分歧。"
+          ],
+          "weaknesses": [
+            "部分跨学科流派的法学转化论证稍显简略。",
+            "对中国本土家庭法既有研究的直接对话可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献定位与争点梳理，不涉及家庭法独立范式本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 126.55437397956848,
+        "glm-5.1": 65.76883792877197,
+        "kimi-k2.6": 16.763102054595947,
+        "qwen3.6-plus": 72.2331919670105
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.5,
+      "std": 15.0,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文系统梳理了家庭法权威来源的历史演变与经验主义转向，但未提出明确的原创分析框架。",
+          "core_judgment": "该论文为典型的历史梳理与理论阐释型研究，未建构可供后文反复调用的分析框架。",
+          "score_rationale": "框架可操作性得分=0/4（无核心概念定义、无分类标准、无分析步骤、后文亦无框架调用）；法学转化度得分=1/4（仅涉及宏观制度差异对比，无操作化转化）。锚定unacceptable档，触发上限规则，给25分。",
+          "evidence_quotes": [
+            "家庭法的权威经历了从自然伦理专制到由人权和基本权利所构成的客观价值秩序的祛魅。",
+            "论证范式的经验主义转型……家庭法的科学性诉求表现为其经验主义转向。"
+          ],
+          "strengths": [
+            "对家庭法从自然法、人权法到经验科学的权威来源演变进行了详尽的谱系学梳理。"
+          ],
+          "weaknesses": [
+            "全文以“梳理”“归纳”“阐释”既有立场和学说为主，未提出“本文所称XX是指”的原创概念定义。",
+            "缺乏可重复适用的分析步骤或判断标准，如人权/经验主义转向后，法官或立法者如何具体操作的模型。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1，触发无操作框架上限规则，总分最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无核心术语的明确定义，无类型化分类标准，无分步骤的分析流程，后文也未对某个明确的“分析框架”进行重复调用，仅进行历史描述和趋势归纳。"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_based",
+              "rule": "论文属政策理论梳理型，识别规则要求框架可操作性上限为2，法学转化度上限为1，总分通常不超过60分。",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "论文主要贡献在于“梳理”和“归纳”家庭法权威来源的祛魅过程及论证范式的转向，而非“建构”或“设计”新的分析框架。"
+            }
+          ],
+          "boundary_note": "问题在于论文未建构框架本身，而非其内部逻辑衔接不严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文构建了家庭法与民法分立的历史演变框架，但缺乏可操作的分析步骤与原创概念界定。",
+          "core_judgment": "框架为描述性演变梳理而非可操作分析工具，核心术语无明确定义且未提出新转化步骤。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档上限1），法学转化度得分=2/4（仅提供适用边界与重构路径），锚定marginal档，给45分",
+          "evidence_quotes": [
+            "家庭法的权威从一种形而上转向了另一种形而上……比例原则和利益平衡原则在家庭法中的普遍性适用",
+            "功能型方法的关键性特征就是检视家庭在我们社会中所实际扮演的功能"
+          ],
+          "strengths": [
+            "清晰划分了家庭法权威来源与方法论的演变阶段",
+            "指明了比例原则在家庭法与财产法中的适用边界差异"
+          ],
+          "weaknesses": [
+            "核心术语（自然伦理秩序、客观价值秩序）无‘本文所称’式明确定义",
+            "框架为历史叙事型梳理，缺乏可重复适用的判断步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无定义+无步骤化分析流程+仅归纳既有转化步骤"
+            }
+          ],
+          "boundary_note": "本维度评价框架的可操作性与法学转化，不评价其历史叙事的逻辑连贯性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "marginal",
+          "summary": "历史阐释型论文，梳理家庭法与民法知识谱系分立脉络，无原创分析框架。",
+          "core_judgment": "论文以'祛魅''经验主义转向'等描述性概念串联历史叙事，未建构可重复适用的分析框架，法学转化度不足。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰、分类标准隐含但无明确步骤），法学转化度得分=1/4（有历史脉络梳理但无裁判规则或制度操作指引），锚定marginal档，给42分。触发政策理论梳理型上限规则。",
+          "evidence_quotes": [
+            "家庭法的权威来源于'存在'……它不可能成为民法中'不为时间、情形和地点所左右的一种单纯的法律数学'",
+            "家庭法形成与民法相分立的两种实证主义。民法教义体系所形成的是法学内的实证体系，而现代家庭法所主张的实际上是法学外的实证体系"
+          ],
+          "strengths": [
+            "历史脉络梳理清晰，自然伦理秩序到客观价值秩序再到经验主义的转型线索明确",
+            "比较视角丰富，德、日、我国台湾地区等素材运用得当"
+          ],
+          "weaknesses": [
+            "核心术语如'祛魅''经验主义转向'均为描述性概念，未转化为可操作的法学分析步骤",
+            "全文以'梳理''阐释'为主，无原创概念界定或类型化框架，后文未调用前置框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释家庭法权威来源的历史演变为主，核心术语'祛魅''经验主义转向'来自韦伯等经典理论，无原创概念界定或类型化；框架未转化为裁判规则、法律适用流程或制度设计方案"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评历史叙事逻辑或文献综述质量。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "构建“权威来源祛魅-经验主义转向”双维框架，有效阐释家庭法与民法的知识谱系分立。",
+          "core_judgment": "框架在理论层面成立且具较强解释力，但缺乏可重复适用的裁判步骤，属典型理论型分析框架。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=4/4，锚定good档，给65分。理论型论文适配下，概念映射与范式转换构成有效转化，但缺步骤化指引。",
+          "evidence_quotes": [
+            "家庭法的权威从一种形而上转向了另一种形而上，不过这种转换是具有颠覆性的。",
+            "现代家庭法立法的科学性不在于它是否经由法学家之手，而在于它是否存在经验性论据的支撑。"
+          ],
+          "strengths": [
+            "双维框架清晰划分家庭法演进脉络与论证范式。",
+            "成功将社科经验与权利话语转化为家庭法独立论证路径。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化分析流程或可操作的裁判规则。",
+            "核心概念依赖历史哲学阐释，未作严格教义学界定。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 68.3881368637085,
+        "glm-5.1": 173.8606400489807,
+        "kimi-k2.6": 15.867311000823975,
+        "qwen3.6-plus": 59.535821199417114
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 45,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 65
+      },
+      "mean": 44.2,
+      "std": 16.4,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链清晰完整，从权威来源祛魅到客观价值秩序确立，再到经验主义转型，层层推进且善于回应理论争议，结论可被有力辩护。",
+          "core_judgment": "逻辑严密性成立。论文的每一步关键结论均有前文史料与规范分析作为充分支撑，推理链无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。鉴于全文逻辑架构宏大且局部过渡可更紧密，微调至85分。",
+          "evidence_quotes": [
+            "家庭法的权威从一种形而上转向了另一种形而上，不过这种转换是具有颠覆性的。人权和基本权利站在旧有家庭自然伦理的对立面。",
+            "现代家庭法的科学性诉求表现为其经验主义转向。这种转向不仅发生在学术研究领域，而且主导了整个立法、行政和司法机构的行为模式。"
+          ],
+          "strengths": [
+            "推理链高度依赖：先证否自然伦理权威，再确立基本权利权威，最后转入经验实证，环环相扣。",
+            "反驳处理极其充分：通过识别自然法、实证法与基本权利范式间的理论分歧，并逐一给出回应理由，论证立体。"
+          ],
+          "weaknesses": [
+            "从形而上的价值秩序论证直接过渡到经验主义转型时，两者在‘实证性’概念上的关联论证可进一步强化。",
+            "局部援引的哲学与史学材料丰富，但个别段落对核心论点的支撑紧密度略有稀释。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链的自洽性与反驳充分度，不涉及论证框架本身在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过三步递进推理论证家庭法与民法知识谱系的分立，逻辑严密，反驳与局限处理充分。",
+          "core_judgment": "推理链完整且层层依赖，核心结论可辩护地推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理从祛魅到人权再到经验主义层层递进，结论可辩护推出。",
+          "evidence_quotes": [
+            "家庭法的权威从一种形而上转向了另一种形而上...这种转换是具有颠覆性的",
+            "功能主义本身无法准确回答法律在界定家庭关系的类型时将哪些功能作为标准"
+          ],
+          "strengths": [
+            "推理链层层递进，从祛魅到人权再到经验主义，依赖度高",
+            "充分承认功能主义与人权框架的局限，反驳处理实质"
+          ],
+          "weaknesses": [
+            "对德沃金质疑法经济学的批评仅罗列观点，缺乏实质回应论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价聚焦推理支撑度，不评判家庭法与民法分立框架的操作性或结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了家庭法与民法知识谱系分立的论证链条，推理主线清晰但局部存在跳步。",
+          "core_judgment": "推理链完整性3/4，反驳处理度2/3，锚定good档，给75分。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立，可识别'自然伦理秩序祛魅→客观价值秩序确立→经验主义转型'三步推理；标准2成立，后续步骤依赖前一步结论；标准3基本成立，'家庭法与民法分立'结论由前文谱系差异推导而来；标准4不成立，从'自然伦理秩序崩溃'到'转向人权和基本权利'存在关键跳步，未充分论证为何必然转向人权而非其他路径。反驳处理度得分=2/3：标准1成立，呈现了自然法路径与人权路径的对立；标准2成立，对两种路径的选择有论证；标准3不成立，未明确承认自身论证的适用边界。",
+          "evidence_quotes": [
+            "家庭法的权威来源于'存在'……它不可能成为民法中'不为时间、情形和地点所左右的一种单纯的法律数学'",
+            "家庭法形成与民法相分立的两种实证主义。民法教义体系所形成的是法学内的实证体系，而现代家庭法所主张的实际上是法学外的实证体系"
+          ],
+          "strengths": [
+            "历史演进脉络清晰，从自然法到人权再到经验主义的转型链条完整",
+            "比较论证贯穿全文，家庭法与财产法的对照贯穿始终"
+          ],
+          "weaknesses": [
+            "从'旧秩序崩溃'到'转向人权'缺乏充分过渡，未排除其他可能路径",
+            "经验主义转向部分对'为何必然导致与民法分立'的论证不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'家庭法与民法分立'这一框架本身的学术价值。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“权威来源祛魅→权利框架确立→经验主义转向”为主线，严密推演出家庭法与民法知识谱系分立的结论。",
+          "core_judgment": "推理链条完整且环环相扣，反驳与局限处理充分，核心结论可由前文历史与规范分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。历史演进与范式转换逻辑严密，对教义学批评及功能主义局限均有实质性回应。",
+          "evidence_quotes": [
+            "家庭法的权威从一种形而上转向了另一种形而上，不过这种转换是具有颠覆性的。",
+            "社会功能视角的研究也面临诸多批评……但无论如何，功能性视角开启了家庭法经验性研究的新视角。"
+          ],
+          "strengths": [
+            "历史-概念推演链条完整，三步递进逻辑清晰。",
+            "对教义学批评与功能主义局限的回应具有理论纵深。"
+          ],
+          "weaknesses": [
+            "形而上转向与经验主义转向的衔接略显跳跃。",
+            "部分反驳仅作学术现象罗列，缺乏深度交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否支撑结论，而非评价“知识谱系分立”框架本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.85039210319519,
+        "glm-5.1": 46.99827003479004,
+        "kimi-k2.6": 14.463196992874146,
+        "qwen3.6-plus": 52.98173213005066
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 8.0,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 62,
+          "band": "good",
+          "summary": "结论有学术主张，但未将论证转化为可争辩对话，对反对意见和制度语境回应不足。",
+          "core_judgment": "结论提出了可争辩的主张，但未主动回应反对意见，且对中国家庭法制度语境的回应较为薄弱，致其在共同体对话度上受限。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=2/4，理论论文锚定good档(60-69)，给62分。",
+          "evidence_quotes": [
+            "在家庭法诞生之初，其权威性来源于形而上的理性…但其实质却为历史性的偏见。",
+            "但只要人们塑造价值体系，无论是基本权利还是人权，都无法摆脱与自然法的某种联系。"
+          ],
+          "strengths": [
+            "结论明确挑战了将家庭法权威完全归于自然伦理的传统观点。",
+            "论证了家庭法知识谱系与民法分立的独立性，有明确学术立场。"
+          ],
+          "weaknesses": [
+            "未主动讨论或回应可能的反对意见或自身论证局限。",
+            "对中国家庭法制度语境（如民法典婚姻家庭编）的回应几乎缺失。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅针对结论的可接受性与对话度，不评价其论证深度或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻回应家庭法与民法关系争论，兼容中国制度语境。",
+          "core_judgment": "结论在理论层面高度可接受，与共同体对话充分且不悖法秩序。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "家庭法的特殊性已经不能再作为我国学界固守成规的借口",
+            "在我国，现行家庭法的框架基本上是由宪法和我们加入的相关人权公约所组成的价值秩序所决定的"
+          ],
+          "strengths": [
+            "深刻回应家庭法与民法教义学之争",
+            "主动讨论功能主义等反对意见"
+          ],
+          "weaknesses": [
+            "制度转化方向稍显宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容性，非论证严密性或前瞻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "家庭法与民法知识谱系分立的理论建构具有学术对话性，但对中国语境回应不足。",
+          "core_judgment": "理论框架清晰且能与既有学说对话，但结论未充分回应中国制度语境，共同体对话度受限。",
+          "score_rationale": "共同体对话度得分=3/4（回应了家庭法与民法关系的既有争论，能被反对者定位，但对中国语境回应薄弱；承认自然法批判的局限但未充分讨论反对意见）；制度可接受度得分=2/4（不根本矛盾于现行法秩序，对制度约束有原则性回应，但未指出制度转化方向，中国语境讨论不足）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "家庭法的独立范式成型于潘得克吞的学说中，建立在家庭法与财产法理念世界的差异之上。",
+            "在中国，民法和家庭法皆属舶来品，二者均经历了继受和革命的洗礼。当下，中国民法之范式逐渐摆脱了苏联的影响，逐步回归大陆法系民法的整体语境之中。"
+          ],
+          "strengths": [
+            "明确挑战家庭法应纳入民法体系的主流观点，理论定位清晰",
+            "对德国家庭法史、自然法批判的梳理具有学术纵深"
+          ],
+          "weaknesses": [
+            "结论未充分回应中国家庭法具体制度语境，本土化论证薄弱",
+            "未讨论反对意见，如家庭法统一于民法的可能优势"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论明确主张家庭法与民法知识谱系分立，契合现代宪法与人权框架，具有高度理论自洽与制度兼容性。",
+          "core_judgment": "结论深度回应教义学与社科法学之争，明确中国语境下的范式转型方向，共同体对话度与制度可接受度均充分成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。理论主张清晰回应既有范式之争，且与中国法治语境及现行宪法秩序高度兼容。",
+          "evidence_quotes": [
+            "在中国，民法和家庭法皆属舶来品……中国家庭法知识体系的整体转型则大为逊色。",
+            "家庭法从一开始就没有形成类似于民法的自足体系，它必须求助于外在的体系。"
+          ],
+          "strengths": [
+            "精准定位家庭法与民法的范式差异，回应教义学核心争论。",
+            "结合中国立法司法现状，指出经验主义与宪法框架的转型方向。"
+          ],
+          "weaknesses": [
+            "结论部分对中国本土制度转化的具体路径着墨较少。",
+            "对教义学可能提出的体系整合反驳回应可更直接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 81.06783509254456,
+        "glm-5.1": 31.592500925064087,
+        "kimi-k2.6": 12.284952163696289,
+        "qwen3.6-plus": 70.42030429840088
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 77.2,
+      "std": 12.7,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结尾处指出了较为明确的宏观性制度与研究方向，但具体路径、方法和待修正对象尚显概括，属于方向性提示而非细化延展。",
+          "core_judgment": "存在可定位的延展方向，但精细度不足，与正文核心结论的衔接需要一定推断。",
+          "score_rationale": "原始分55分对应bonus档位2分。文末提出中国家庭法知识体系转型滞后及‘不应固守成规’的方向，构成有效延展信号，但未说明具体研究问题、方法或制度路径，精细度有限。",
+          "evidence_quotes": [
+            "在中国，民法和家庭法皆属舶来品，二者均经历了继受和革命的洗礼。当下，中国民法之范式逐渐摆脱了苏联的影响……与民法相比，中国家庭法知识体系的整体转型则大为逊色。",
+            "家庭法的特殊性已经不能再作为我国学界固守成规的借口。"
+          ],
+          "strengths": [
+            "明确提出“中国家庭法知识体系整体转型”这一可继续深化的本土化方向。",
+            "提示不应以“特殊性”作为固守成规的借口，为后续批判性研究提供了入口。"
+          ],
+          "weaknesses": [
+            "延展路径较为概括，未指明具体的研究问题、方法或制度修正的切入点。",
+            "缺乏对正文已承认的具体局限的说明及其推进方式。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评价的是论文为后续研究指出的方向及路径是否存在，而非其结论是否成立或被接受。此处仅判断“未来还能往哪里走”，不涉及结论的可接受性问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "指明中国家庭法知识体系转型方向及功能主义、比例原则的理论深化争点。",
+          "core_judgment": "存在真实延展路径，指明中国家庭法知识体系需摆脱固守成规及功能主义标准界定等后续理论深化方向。",
+          "score_rationale": "原始分75，bonus档位为3（>=60）。正文指出了功能主义界定标准与比例原则适用边界的理论深化方向，结尾点明中国家庭法知识体系转型需求，路径明确但精细度有限。",
+          "evidence_quotes": [
+            "功能主义本身无法准确回答法律在界定家庭关系的类型时将哪些功能作为标准……对于功能主义的贯彻可能引发多重身份现象。",
+            "中国家庭法知识体系的整体转型则大为逊色。家庭法的特殊性已经不能再作为我国学界固守成规的借口。"
+          ],
+          "strengths": [
+            "明确指出了功能主义和比例原则在家庭法适用中的理论深化争点。",
+            "结合中国语境指出了家庭法知识体系转型的后续方向。"
+          ],
+          "weaknesses": [
+            "结尾对中国家庭法转型的具体路径或机制未作进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "中国家庭法知识体系如何具体转型属于未来理论建构与制度完善方向，而非当下结论是否可接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分隐含了家庭法与民法知识谱系分立的持续性张力，但未明确展开后续研究路径。",
+          "core_judgment": "存在可辨识的延展方向，但缺乏明确的后续研究问题或具体修正路径的表述。",
+          "score_rationale": "原始分55，对应bonus=2档。论文指出家庭法'必须求助于外在的体系'、'从未形成类似于民法的自足体系'，暗示了经验主义转向的持续必要性；提及中国家庭法'整体转型则大为逊色'，隐含本土化比较维度。但这些延展信号分散于结语，未形成清晰的后续研究议程，精细度不足。",
+          "evidence_quotes": [
+            "在中国，民法和家庭法皆属舶来品……与民法相比，中国家庭法知识体系的整体转型则大为逊色",
+            "家庭法从一开始就没有形成类似于民法的自足体系，它必须求助于外在的体系"
+          ],
+          "strengths": [
+            "指出中国家庭法转型的本土化比较空间"
+          ],
+          "weaknesses": [
+            "未提出明确的后续研究问题或下一轮争点",
+            "结语以总结为主，延展方向较概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结语关于'持续性分立'的判断属于对未来研究方向的暗示，而非对当下结论可接受性的论证；其关于中国家庭法转型滞后的观察指向比较法维度的延展可能，属于本维度评价范围。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文结尾明确指向中国家庭法知识体系转型的滞后性，提出摒弃“特殊性”借口、推进经验范式与本土化重构的延展方向。",
+          "core_judgment": "存在真实延展路径，明确指向中国家庭法知识谱系的本土化转型与经验范式深化。",
+          "score_rationale": "原始分68，对应bonus=3档。结尾明确指出中国家庭法转型滞后，需摒弃“特殊性”借口并推进知识体系重构，方向明确但缺乏具体机制设计。",
+          "evidence_quotes": [
+            "与民法相比，中国家庭法知识体系的整体转型则大为逊色。",
+            "家庭法的特殊性已经不能再作为我国学界固守成规的借口。"
+          ],
+          "strengths": [
+            "延展路径与“知识谱系分立”核心命题紧密咬合。",
+            "明确指向本土语境下的理论转型，具有现实针对性。"
+          ],
+          "weaknesses": [
+            "仅停留在方向性呼吁，未提供具体修正路径或研究设计。",
+            "对经验主义转型的本土适用风险缺乏预判与边界设定。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“中国家庭法知识体系如何转型”的未来研究路径与理论深化方向，而非当下结论的学术共识度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 78.85825896263123,
+        "glm-5.1": 39.62682795524597,
+        "kimi-k2.6": 10.147236824035645,
+        "qwen3.6-plus": 64.43903398513794
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 75,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 68
+      },
+      "mean": 63.2,
+      "std": 9.9,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 68.34,
+      "weighted_total": 69.0
+    },
+    "aggregation_strictest": {
+      "final_score": 47.24,
+      "weighted_total": 49.1
+    },
+    "avg_std": 14.5,
+    "max_std": 24.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 21.1,
+    "composite_score": -14.5,
+    "worst_dimension": "problem_originality",
+    "worst_std": 24.8
+  }
+}

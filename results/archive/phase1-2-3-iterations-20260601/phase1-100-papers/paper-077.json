@@ -1,0 +1,651 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/从国家构建到共建共享的法治转向——基于社会组织与法治建设之间关系的考察.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在少量OCR识别错误与脚注编号乱码（如'(2O]'、'[263'、'{281'、'(33 3'等）",
+          "期刊页码与栏目名称混入正文段落间（如'· 28 ·'、'法学研究 2017年第3期'）",
+          "部分参考文献标注因排版断裂，但不影响正文逻辑连贯性"
+        ],
+        "evidence_quotes": [
+          "(2O] 同上书，第122以下。",
+          "· 28 ·",
+          "法学研究 2017年第3期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国的社会组织发展，是一种典型的“政府主导” 模式...存在包括宏观鼓励与微观约束、分级登记与特权豁免、双重管理与多头管理...等方面的困难与问题。",
+          "当下中国法治进程中所出现的规划主义、普遍主义、工具主义、法条主义等问题，跟这一因素有直接关系。",
+          "推进双强互动构架，塑造共建共享型法治，就必须摒弃以往的国家构建主义策略...以社会组织为支撑来打造共建共享型法治建设的社会动力机制。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR残留与脚注乱码，已归入旁路字段，不影响项目口径判断",
+        "论文聚焦中国社会组织法治化转型与共建共享治理格局，具备明确的自主知识体系构建意图"
+      ],
+      "evidence_quotes": [
+        "从国家构建到共建共享的法治转向",
+        "法治建设不可能是来自于国家的或者民间的单边行动，而是立足于国家与社会的多元力量的互动推进过程。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR干扰，但核心论证完整、中国问题意识明确、法学命题清晰。建议直接进入六维评分阶段，评分时忽略脚注乱码与页码混入干扰。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR乱码并直接混入正文段落中（如(2O]、{281、[293、{31]等），打断句子连贯性",
+          "期刊页码及刊名信息混入正文（如· 28 ·、法学研究 2017年第3期）",
+          "参考文献列表抽取缺失"
+        ],
+        "evidence_quotes": [
+          "(2O] 同上书，第122以下。",
+          "{281",
+          "· 28 ·",
+          "法学研究 2017年第3期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从国家构建到共建共享的法治转向",
+          "社会组织功能性‘不在场’",
+          "两极结构的怪圈",
+          "汲取性机制的风险",
+          "强国家强社会的双强互动构架"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR乱码及正文混入需清洗",
+        "文本工程：期刊页码及刊名混入正文需剥离",
+        "文本工程：参考文献列表缺失需补充抽取"
+      ],
+      "evidence_quotes": [
+        "从国家构建到共建共享的法治转向",
+        "两极结构的怪圈",
+        "汲取性机制的风险"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评审条件（以中国社会组织法治困境为中心，提出了从国家构建到共建共享的理论转化命题）。但文本工程存在OCR乱码及排版元素混入风险，需在后续评分阶段对正文进行清洗（剔除乱码脚注、页码及刊名），以还原纯净的论证结构。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 43,
+        "glm-5.1": 30
+      },
+      "mean": 36.5,
+      "std": 9.2,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 43,
+          "band": "good",
+          "summary": "论文探讨社会组织在国家构建中的功能缺失及向共建共享转型的法治路径，属宏观政策倡导。",
+          "core_judgment": "问题具备法理深度与制度关联，但缺乏明确争点且偏向政策宣示，问题创新性受限。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性未触发上限，锚定good档，触发宏大表述上限(65)，前置扣20分(政策倡导非争点)，最终给43分。",
+          "evidence_quotes": [
+            "法治建设不可能是来自于国家的或者民间的单边行动，而是立足于国家与社会的多元力量的互动推进过程。",
+            "中共十八届四中全会之后，在法治建设中适时改变国家构建主义策略，充分发挥社会组织的民间治理功能……成为大势所趋。"
+          ],
+          "strengths": [
+            "触及国家与社会关系核心法理争点，理论视野开阔。",
+            "结合登记制度、公信力危机等现实困境展开规范分析。"
+          ],
+          "weaknesses": [
+            "缺乏明确可争辩的问题句，实质为宏观政策倡导。",
+            "论述过于宏大，未聚焦具体法律规范或裁判争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文以宏观转向为主题声明，缺乏明确法学争点句，实质偏向政策倡导。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文提出国家构建转向共建共享的主题声明，但缺乏可争辩的法学问题，实质为政策倡导。",
+          "core_judgment": "问题缺乏可争辩性，仅为宏观政策倡导而非法学争点，维度不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性未触发上限，锚定unacceptable档，上限50分；前置扣分50分，最终30分。",
+          "evidence_quotes": [
+            "改革传统监管体制，走向“社会合作主义”并塑造发展型制度环境，或正是大势所趋。",
+            "推进双强互动构架，塑造共建共享型法治，就必须摒弃以往的国家构建主义策略"
+          ],
+          "strengths": [
+            "议题涉及国家与社会关系，枢纽性较强，影响范围广"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的法学问题句，核心论点为主题声明",
+            "实质为政策倡导，缺乏法学层面的深度论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确法学争点问题句，只有“从国家构建到共建共享”的主题声明"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 100.54316401481628,
+        "glm-5.1": 50.492252826690674
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 88
+      },
+      "mean": 84,
+      "std": 5.7,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒国家构建与社会自治分野，指出现有管控缺口，系统提出共建共享转型路径。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰，流派识别达标，符合良好档标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "国家构建策略限制了社会组织对自主自律秩序的构建能力与构建空间",
+            "摒弃国家构建主义策略，扭转社会组织功能性不在场局面，推动民间治理"
+          ],
+          "strengths": [
+            "三要素完整，准确提炼管控模式局限与理论缺口",
+            "争点结构严密，系统呈现国家主导与社会自治路径分歧"
+          ],
+          "weaknesses": [
+            "流派识别偏重政治社会学，纯法学理论对话稍弱",
+            "文献定位分散于正文，缺乏集中式综述梳理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉命题新颖性或论证严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "研究地图完整，呈现多重争点与对立流派，现状洞察深刻。",
+          "core_judgment": "论文清晰构建了从国家构建到共建共享的争点结构，文献定位充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "有学者呼吁，要平衡‘管理’和‘确权’两种立法取向，实现从控制型管理转向培育服务型管理。",
+            "国家构建策略限制了社会组织对自主自律秩序的构建能力……导致社会组织功能性‘不在场’。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼了合法性困境与功能性不在场等未竟点。",
+            "呈现了控制型与确权型、国家构建与民间构建等多重对立争点。"
+          ],
+          "weaknesses": [
+            "部分对立路径的学界争论脉络呈现稍弱，偏重作者自身论证推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评文献定位与争点结构，不评法治转向主张的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 87.25276589393616,
+        "glm-5.1": 92.04656910896301
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 40,
+        "glm-5.1": 30
+      },
+      "mean": 35,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，缺乏原创分析框架与法学转化，核心概念未操作化且无分析步骤。",
+          "core_judgment": "分析框架未成立，全文以宏观阐释与政策倡导为主，未提供可重复适用的法学判断标准或操作流程。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给40分。受v0.7政策梳理型规则及负面模式降档限制，总分未超50分上限。",
+          "evidence_quotes": [
+            "“共建共享”“国家构建”“功能性不在场”等核心术语缺乏明确定义与适用边界",
+            "全文大量使用“应当”“亟需”“需要完善”等规范性表述，但无具体裁判规则或制度设计方案"
+          ],
+          "strengths": [
+            "宏观视野开阔，系统梳理了国家与社会组织关系的演进脉络",
+            "问题意识明确，准确指出了社会组织功能性缺失的法治困境"
+          ],
+          "weaknesses": [
+            "核心概念仅停留在政策话语层面，未转化为可操作的法学分析步骤",
+            "对策建议多为宏观倡导，缺乏具体的法律适用流程或制度设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1或触发负面模式降档",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无明确定义，全文充斥宏观呼吁而无具体分析步骤，触发v0.7上限规则"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力与可操作性，不涉及论证逻辑严密性或问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，缺乏原创分析框架与法学转化步骤。",
+          "core_judgment": "该维不成立，全文为宏观立场阐释与现象归纳，无可操作分析框架。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发政策梳理型及口号式呼吁降档，给30分。",
+          "evidence_quotes": [
+            "需要深化社会组织体制改革和加大制度建设...作出相应制度安排",
+            "运用'汲取性机制'描述社会风险，未转化为法学分析步骤"
+          ],
+          "strengths": [
+            "对社会组织困境的类型化归纳较为全面（如合法性、独立性、公信力）。"
+          ],
+          "weaknesses": [
+            "核心术语缺乏操作化定义，仅为宏观理论移植与政策阐释。",
+            "充斥'应当''需要'等口号式呼吁，缺乏具体制度方案与裁判规则。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "v0.7_policy_theory_summary",
+              "rule": "政策理论梳理型识别规则",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文阐释'国家构建转向共建共享'的权威表述，无原创框架"
+            },
+            {
+              "rule_id": "analytical_framework.slogan_appeal",
+              "rule": "口号式呼吁降档规则",
+              "score_ceiling": 2,
+              "priority": 2,
+              "evidence": "出现≥5处'需要''应当'且无具体法条或程序方案"
+            }
+          ],
+          "boundary_note": "评估的是框架建构力而非逻辑衔接，宏观理论主张不等同于可操作框架。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 63.114461183547974,
+        "glm-5.1": 66.31985402107239
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“现实困境—法治影响—共建共享转向”的完整推理链，结论推导充分且有效回应了实务约束与改革局限。",
+          "core_judgment": "推理链条环环相扣，核心结论可由前文制度分析与现实困境充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。主线推导连贯，对管控逻辑的合理性及改革落地的实践复杂性均有实质回应。",
+          "evidence_quotes": [
+            "基于这种特殊的空间环境，社会组织在顺应国家构建策略……积极开展可能的社会自我构建行动",
+            "这一理想图景如何变成现实，是一个很复杂的实践问题。首先，要纠正激活措施受制于政策偏好。"
+          ],
+          "strengths": [
+            "问题诊断、影响分析与对策建议三段式推理链完整，步骤间依赖度高",
+            "明确承认国家管控的阶段性合理性及改革落地的实践复杂性，反驳处理到位"
+          ],
+          "weaknesses": [
+            "部分宏观论断（如汲取性机制风险）缺乏微观规范或实证数据支撑",
+            "制度建议偏宏观倡导，具体操作路径的逻辑衔接与优先级论证稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否充分支撑结论，不评价“共建共享”框架本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文从现状问题推导至深层影响，再推出共建共享法治转向，推理链完整。",
+          "core_judgment": "逻辑严密性维度成立，推理链形成充分支撑，结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。推理层层递进，隐含分歧有回应，承认局限。",
+          "evidence_quotes": [
+            "中国不可能走对抗型西方式道路，而只能走国家鼓励扶持、社会组织自主发展的合作型道路",
+            "构建国家与社会的良性互动关系模式，对政府和社会组织来说，都尚需一个学习、适应和磨合的探索过程"
+          ],
+          "strengths": [
+            "推理链从问题到根源再到方案，依赖度高",
+            "对中西路径分歧给出基于国情的选择理由"
+          ],
+          "weaknesses": [
+            "宏观理论套用（如汲取性机制）到具体法治转向略显生硬",
+            "显式反对意见处理较少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "宏观框架的可操作性不强属于框架建构力问题，不属逻辑严密性评价范围。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 50.93848705291748,
+        "glm-5.1": 50.25692629814148
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应国家构建与社会自治之争，立足中国语境提出共建共享型法治转向，兼具理论对话与制度转化指向。",
+          "core_judgment": "该维度完全成立，结论深度嵌入中国法治与治理语境，具备高度的共同体可对话性与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位既有争论，直面中国监管体制约束，提出多层次制度转化路径，且无空泛对策或机械套用。",
+          "evidence_quotes": [
+            "结论明确主张摒弃国家构建主义策略，转向国家与社会双向构建、共建共享的治理法治化思维。",
+            "提出建立政府智库、确立人大代表社会组织界别、完善民主协商机制等具体制度转化方向。"
+          ],
+          "strengths": [
+            "精准切入国家-社会关系核心争论，立场清晰可辩。",
+            "制度建议紧扣中国现行登记管理与脱钩改革实践，转化路径明确。"
+          ],
+          "weaknesses": [
+            "部分对策仍偏宏观政策倡导，缺乏具体程序与法条衔接设计。",
+            "对党建嵌入与社会组织自主性张力的制度化解方案论述稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论在共同体对话和制度语境中均高度可接受，提出了具体的制度转化方向。",
+          "core_judgment": "结论有效回应既有争论并兼容现行法秩序，提出了共建共享的法治转向及具体转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "结论修正了单纯国家构建主义，提出“从国家构建走向共建共享”的法治转向",
+            "指出制度转化方向：“适时增加人大代表中的社会组织界别”、“建立政府智库”等"
+          ],
+          "strengths": [
+            "深刻回应了国家构建与民间构建的争论，对话度高",
+            "结合中国双重管理等制度约束，给出了具体转化方向"
+          ],
+          "weaknesses": [
+            "部分对策建议（如探索关系模式）仍偏宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.74175977706909,
+        "glm-5.1": 43.45044207572937
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 72,
+        "glm-5.1": 75
+      },
+      "mean": 73.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结论部分明确指向政策落地瓶颈、党建边界与利益俘获风险，提出具体制度平台构建方向。",
+          "core_judgment": "存在真实延展路径，精准识别了从理论倡导转向制度实操的具体待修正对象与风险节点。",
+          "score_rationale": "原始分72，属good档（bonus=3）。结论精准指出政策偏好制约、党建越位、利益俘获等具体风险，并提出智库与界别代表等平台构建方向，路径清晰且与核心论证紧密咬合，但未细化操作机制。",
+          "evidence_quotes": [
+            "这一理想图景如何变成现实，是一个很复杂的实践问题。首先，要纠正激活措施受制于政策偏好……其次，要防止社会组织‘党建’变身为‘婆婆’。",
+            "只有以社会组织为载体，建立起发挥实际作用的政府智库、确立人大代表的社会组织界别、建立公共政策的民主协商机制……"
+          ],
+          "strengths": [
+            "明确指出政策落地瓶颈与“党建越位”“利益俘获”等具体风险，延展路径与正文核心结论紧密衔接。"
+          ],
+          "weaknesses": [
+            "平台构建与赋权路径偏宏观，缺乏对具体制度衔接规则或实证检验方案的细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“共建共享”治理格局落地后的制度衔接、风险防控与平台构建等未来演进方向，而非对当下国家构建策略批判结论的规范可接受性评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "指明了共建共享法治转向的具体实施风险控制与机制构建延展路径。",
+          "core_judgment": "存在真实延展路径，指明了制度修正方向与实施风险控制。",
+          "score_rationale": "原始分75，对应bonus档位3（60-79档）。延展路径明确可定位（如防范党建越位、被俘获风险），与核心结论衔接，但精细展开有限。",
+          "evidence_quotes": [
+            "要纠正激活措施受制于政策偏好…要防止社会组织‘党建’变身为‘婆婆’…要消弭社会组织面临的‘被俘获’的风险。",
+            "这些举措大多还都限于政策倡导层面，并未进入实践操作层面。只有以社会组织为载体，建立起发挥实际作用的政府智库…"
+          ],
+          "strengths": [
+            "指明了共建共享转向中的具体实施风险（如党建越位、被俘获）。",
+            "提出了从政策倡导走向实践操作的具体机制构建方向。"
+          ],
+          "weaknesses": [
+            "对指出的风险控制路径缺乏更精细的制度设计展开。",
+            "结尾部分存在轻微的愿景式拔高表述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "探讨如何防范党建越位、被俘获等实施风险，属于未来制度完善与风险控制方向，而非当下结论是否可接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.52248787879944,
+        "glm-5.1": 44.76321601867676
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.8,
+    "max_std": 9.2,
+    "weighted_total": 63.1,
+    "final_score": 59.53,
+    "high_confidence_pct": 50.0,
+    "dimension_count": 6,
+    "composite_score": 0.2,
+    "worst_dimension": "problem_originality",
+    "worst_std": 9.2
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "中国的社会组织发展，是一种典型的“政府主导”模式，具有明显的官民双重性，存在包括宏观鼓励与微观约束、分级登记与特权豁免、双重管理与多头管理、政府法规与党的政策、制度剩余与制度匮乏等方面的困难与问题",
+          "当下中国法治进程中所出现的规划主义、普遍主义、工具主义、法条主义等问题，跟这一因素有直接关系。"
+        ],
+        "risks": [
+          "slogan_inflation_without_legal_argument",
+          "policy_restatement_without_legal_thesis"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "party",
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "中国的社会组织发展，是一种典型的“政府主导”模式，具有明显的官民双重性，存在包括宏观鼓励与微观约束、分级登记与特权豁免、双重管理与多头管理、政府法规与党的政策、制度剩余与制度匮乏等方面的困难与问题",
+          "社会组织功能性“不在场”",
+          "从汲取性机制走向多元平等、公正自由、共建共享的包容性机制",
+          "从国家构建走向共建共享的法治转向"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 7.5,
+    "signal_scores": [
+      7,
+      8
+    ]
+  }
+}

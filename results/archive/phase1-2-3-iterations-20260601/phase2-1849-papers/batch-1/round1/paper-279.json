@@ -1,0 +1,1030 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法认定无效行政协议的标准.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号格式混乱（如‘①’‘②’等符号混用），但不影响正文论点识别",
+          "参考文献列表完全缺失，但不影响论文主体论证结构的可读性"
+        ],
+        "evidence_quotes": [
+          "2014 年修改的《中华人民共和国行政诉讼法》( 以下简称《行政诉讼法》) 明确将行政协议纳入行政诉讼受案范围。",
+          "参见王贵松: 《行政协议无效的认定》，载《北京航空航天大学学报》2018 年第5 期。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2014 年修改的《中华人民共和国行政诉讼法》明确将行政协议纳入行政诉讼受案范围。",
+          "行政协议无效将私法和公法规则之间的矛盾置于对极，从而成为行政协议诉讼中的难题。",
+          "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径，并在协议主体、协议内容和协议订立程序等事由上探讨无效标准的具体适用。",
+          "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，无法核对引注完整性，但正文论证清晰可评审。"
+      ],
+      "evidence_quotes": [
+        "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径。",
+        "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国行政协议司法实践为切入点，建构独立的无效认定标准，具备明确的中国问题和法学命题，可直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码及栏目页码混入正文段落间（如“4 6”、“5 6”、“6 6”、“0 7”等）",
+          "脚注编号严重乱码（如“瑏瑠”、“瑐瑤”、“瑑瑠”等特殊字符组合）",
+          "参考文献列表抽取失败或缺失（文末仅显示“（无）”）"
+        ],
+        "evidence_quotes": [
+          "为，公私合作的趋势恰是行政协议得以产生并发展的背景，行政协议的合意过程和外在\n4\n6\n*",
+          "［德］哈特穆特·毛雷尔: 《行政法学总论》，高家伟译，法律出版社2000 年版，第379 页。\n8\n6\n中国法学\n2019 年第3 期",
+          "瑏瑠公法上对单方行政行为无效规则的确定处于变动之中",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2014 年修改的《中华人民共和国行政诉讼法》...明确将行政协议纳入行政诉讼受案范围。基于契约自由与依法律行政在本质上存在难以调和的矛盾...行政协议无效将私法和公法规则之间的矛盾置于対级",
+          "理论上需要进一步研究的是公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准。",
+          "理论研究不足和成文法缺失造成司法实践中裁判规则游移不定。法院常用两套标准，同时或者单独适用《行政诉讼法》和《中华人民共和国合同法》判断行政协议的效力，并未形成稳定的司法裁判规则。",
+          "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径...无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文、脚注编号严重乱码、参考文献列表缺失",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分流程。但文本工程质量存在中等风险，建议在后续评审阶段前进行文本清洗，剔除混入的页码字符并修复脚注编号乱码，以保障评分准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码残留（如瑏瑢、瑐瑤等Unicode字符替代正常脚注编号）",
+          "部分判决书案号、期刊信息夹杂正文中，存在分栏/排版残留痕迹",
+          "文末参考文献列表缺失，但正文引用信息完整可定位"
+        ],
+        "evidence_quotes": [
+          "瑏瑢参见程明修: 《行政法之行为与法律关系理论》，台湾地区新学林出版股份有限公司2005 年版，第290 页。",
+          "瑐瑠江苏省高级人民法院( 2016) 苏行终1007 号判决书。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2014 年修改的《中华人民共和国行政诉讼法》明确将行政协议纳入行政诉讼受案范围",
+          "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径",
+          "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准",
+          "我国现行法律体系中，无效行政协议的认定标准在实定法上主要有《行政诉讼法》第75 条、《合同法》第52 条、《民法总则》第144 条规定"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号乱码残留（瑏瑢、瑐瑤等），但不影响核心论点定位",
+        "部分判决书案号、期刊页码信息存在排版残留，核心论证可识别",
+        "参考文献列表缺失，但正文引用完整，不影响评审"
+      ],
+      "evidence_quotes": [
+        "2014 年修改的《中华人民共和国行政诉讼法》明确将行政协议纳入行政诉讼受案范围",
+        "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径",
+        "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国行政协议无效认定标准为研究对象，核心论题明确，理论框架清晰，司法实践解释充分，可直接进入六维评价。建议评审时忽略脚注编号乱码等文本工程问题。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码数字与正文混排（如“4\\n6\\n*”、“5\\n6\\n司法认定...”）",
+          "脚注编号存在OCR乱码或特殊字符（如“瑏瑠”、“瑐瑠”）",
+          "部分段落因PDF分栏抽取导致换行符异常"
+        ],
+        "evidence_quotes": [
+          "4\\n6\\n*",
+          "司法认定无效行政协议的标准\\n③\\n④\\n⑤"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径",
+          "理论研究不足和成文法缺失造成司法实践中裁判规则游移不定。法院常用两套标准，同时或者单独适用《行政诉讼法》和《中华人民共和国合同法》判断行政协议的效力，并未形成稳定的司法裁判规则。",
+          "无效行政协议的标准介于单方行政行为无效标准和民事合同无效标准之间，虚线表示无效的边界并不清晰和确定，对协议订立所希望实现的公共利益、违法可能损害的公共利益，以及试图通过行政协议实现的私主体利益进行衡量的结果。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量OCR页码混排与脚注乱码，但不影响核心论证定位；项目口径完全符合，可直接进入六维评分"
+      ],
+      "evidence_quotes": [
+        "本文意在论说公私法规则在无效行政协议认定中的适用逻辑...",
+        "无效行政协议的标准介于单方行政行为无效标准和民事合同无效标准之间"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留，建议清洗后进入六维评分。论文聚焦中国行政协议司法实践中的公私法适用冲突，提出明确的无效认定标准与理论框架，完全符合“中国自主知识体系研究”项目口径，建议直接进入正式评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 50,
+          "band": "unacceptable",
+          "summary": "论文主题为行政协议无效的公私法适用逻辑，但主要是在阐释既定立场与系统归纳现有标准，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文围绕“公私法规则融通”这一主题进行体系介绍，缺乏“XX是否YY”或“如何ZZ”的问题句，属主题声明而非研究问题，且无真正的学者观点交锋。",
+          "score_rationale": "可争辩性=1/4（无问题句、无法学理论分歧、无交锋），枢纽性=3/4（影响多个制度、争议焦点、制度连锁成立），材料新颖性未触发上限。因可争辩性≤1触发no_justiciable_question规则，上限50分，给50分。",
+          "evidence_quotes": [
+            "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径。",
+            "行政协议的无效既不能完全等同于行政行为的无效，也无法因循民事合同无效的判断标准。理论上需要进一步研究的是公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准。"
+          ],
+          "strengths": [
+            "系统梳理了公私法规则在行政协议无效认定中的冲突与融通可能性。",
+            "从缔约主体、权限、内容、程序等多角度探讨了无效标准的具体适用。"
+          ],
+          "weaknesses": [
+            "全文为体系介绍与政策倡导，未提出可争辩的法学问题。",
+            "无不同学者观点的交锋，只是归纳既有立场。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明；无学者观点交锋；问题表述过于宏大无法聚焦。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性、文献综述充分性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出了行政协议无效认定中公私法规则适用的明确争点与独立标准。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，横跨公私法，触及法学基本原理。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，扣分0分，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "理论上需要进一步研究的是公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准。",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+          ],
+          "strengths": [
+            "争点明确：公法优先、私法优先与独立标准三种路径交锋清晰。",
+            "枢纽性强：横跨公私法两大领域，触及依法行政与意思自治核心原理。"
+          ],
+          "weaknesses": [
+            "无明显弱点，问题设定精准且具重大理论与实践价值。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出行政协议无效认定中公私法规则如何适用的问题，具有明确争点和制度意义。",
+          "core_judgment": "问题具有可争辩性和枢纽性，但主要呈现制度建构框架而非理论分歧的深层交锋。",
+          "score_rationale": "可争辩性=3/4（有问题句、法学层面、非纯政策倡导，但理论分歧呈现为制度介绍而非深层交锋），枢纽性=3/4（影响行政法与民法制度、涉及长期争点、涉及核心概念、制度连锁成立），材料新颖性未触发上限，锚定good档，给72分。负面模式检查：检查1不成立（无新概念包装）；检查2扣15分（有学者观点提及但未展开交锋，如公法优先/私法优先/融合三种路径仅作介绍）；检查3不成立（存在可争辩问题句）。扣分合计=15分。",
+          "evidence_quotes": [
+            "理论上需要进一步研究的是公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准。",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+          ],
+          "strengths": [
+            "问题聚焦行政协议无效这一公私法交叉难题，具有明确争点。",
+            "从概念模型、法律原则、成文法规范三层面展开，体系性强。"
+          ],
+          "weaknesses": [
+            "学者观点交锋不足，三种路径仅作并列介绍未深入辩驳。",
+            "问题创新性受限于制度建构导向，理论突破有限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题虽明确但涉及面过宽，主体、内容、程序三方面标准并列，焦点分散"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准提炼行政协议无效认定中公私法规则冲突的核心争点，提出独立标准建构路径。",
+          "core_judgment": "问题具有明确的法学争辩性与理论纵深，符合优秀档标准。",
+          "score_rationale": "前置检查扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准。",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+          ],
+          "strengths": [
+            "精准识别公私法规则适用顺位与独立标准之争",
+            "以司法裁判分歧为切入点，问题意识鲜明"
+          ],
+          "weaknesses": [
+            "部分案例援引偏重现象描述，理论交锋可更聚焦",
+            "独立标准的具体边界论证稍显理想化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.707683086395264,
+        "glm-5.1": 35.424203872680664,
+        "kimi-k2.6": 13.95203423500061,
+        "qwen3.6-plus": 72.7472870349884
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 50,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76,
+      "std": 19.5,
+      "strictest": 50,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "论文呈现了公法规则优先 vs 私法规则优先 vs 独立标准等对立路径，争点结构清晰，但研究地图三要素的到达点与未竟点提炼尚不够集中。",
+          "core_judgment": "论文将既有研究组织为公私法规则适用顺位的争辩脉络，流派识别充分，但研究起点和缺口的提炼略有分散。",
+          "score_rationale": "三要素得分=4/6（到达点1，未竟点1，切入点2），争点结构=2/2，法学流派=2个（公法优先派、私法准用派构成对立），锚定good档，给70分。",
+          "evidence_quotes": [
+            "有学者提出行政协议诉讼应当优先适用《行政诉讼法》关于无效行政行为的规定。",
+            "有学者主张也可以准用民事合同的无效标准。"
+          ],
+          "strengths": [
+            "明确区分了公法优先、私法准用与独立标准三种立场，构成了可辨析的争点结构。",
+            "对司法实践中裁判规则混乱的揭示，强化了问题意识的现实基础。"
+          ],
+          "weaknesses": [
+            "到达点提炼较为模糊，仅列举个别学者观点，未充分概括既有研究的共识性成果。",
+            "未竟点以“理论上需要进一步研究”一笔带过，未具体说明既有解释路径的实质缺陷。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文的争议点提炼属于文献梳理与问题定位，非在评判问题创新性。研究地图虽有分散，但核心立场对立明显。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文清晰呈现了行政协议无效认定的公私法适用之争及审批效力之争，研究地图完整。",
+          "core_judgment": "论文充分构建了研究地图，呈现了多个可区分的争点与对立流派，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "理论上需要进一步研究的是...公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准",
+            "未经审批合同的法律效力在民法学界争论颇多...合同无效说...合同未生效说...合同有效说"
+          ],
+          "strengths": [
+            "未竟点明确指向公私法适用顺位与特殊标准的理论缺口",
+            "呈现公法优先、私法准用及审批效力等多重对立学说"
+          ],
+          "weaknesses": [
+            "理论流派梳理分散于案例评析中，集中性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评无效标准创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了公私法规则适用逻辑的研究地图，但三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素部分满足，争点结构呈现公私法优先顺位之争，但缺乏对既有研究缺口的明确提炼。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=2个（公法优先说vs私法优先说），锚定good档，给72分",
+          "evidence_quotes": [
+            "理论上存在三种选择，公法规则优先，私法规则优先，或者从二者的共性原则为基础，面临冲突时再通过利益衡量确定",
+            "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径"
+          ],
+          "strengths": [
+            "明确呈现公法优先、私法优先、共性原则三种理论立场",
+            "以德国法、日本法及比较法素材支撑制度分析"
+          ],
+          "weaknesses": [
+            "未竟点模糊，未明确指出既有研究的具体不足或争议焦点",
+            "到达点分散于正文，缺乏对具体学者研究成果的贡献提炼"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4分，争点结构1分，未触发此规则；实际触发三要素4分+争点1分+流派2分的good档"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献定位完整性，不评价问题本身新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准勾勒公私法适用顺位与效力模型之争，研究地图完整，争点脉络清晰。",
+          "core_judgment": "本维度成立，作者已构建清晰的文献定位与对立争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "理论上需要进一步研究的是公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是寻找特殊标准。",
+            "未经审批合同的法律效力在民法学界争论颇多，并形成合同无效说、未生效说与有效说。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼公法优先、私法准用与独立标准三派。",
+            "未竟点与切入点高度咬合，直接回应司法裁判规则游移的实践痛点。"
+          ],
+          "weaknesses": [
+            "部分裁判案例引证未充分关联至具体学者观点，文献对话略显单向。",
+            "对德日行政协议无效理论的比较法脉络着墨较少，流派广度可拓展。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及问题本身新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.09648084640503,
+        "glm-5.1": 64.30858182907104,
+        "kimi-k2.6": 12.501240015029907,
+        "qwen3.6-plus": 68.29671597480774
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 80,
+      "std": 10.5,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 68,
+          "band": "good",
+          "summary": "论文建构了以“公私法规则融通”为核心的分析框架，但框架的可操作性与法学转化度均有提升空间。",
+          "core_judgment": "分析框架在宏观思辨层面成立，但缺乏可重复适用的操作步骤与清晰的裁判规则转化，限制了其作为分析工具的实用性。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、后文实际调用），法学转化度得分=2/4（提供了制度设计路径，但跨学科概念转化为法学分析步骤及裁判规则指引不足），锚定good档，但因未提供清晰操作流程，最终给68分。",
+          "evidence_quotes": [
+            "“正是由于公私法元素并存于行政协议中...公法规则和私法规则针对协议无效问题上的冲突和融通至少可以在三个层面上展开。”",
+            "“无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。”"
+          ],
+          "strengths": [
+            "成功建构了公私法规则在无效行政协议认定中的三层融通框架（概念模型、法律原则、成文法规范），分类维度清晰。",
+            "框架在后文被实际调用，用以分析主体资格、权限瑕疵、内容违法、程序瑕疵等具体问题，具备结构引导力。"
+          ],
+          "weaknesses": [
+            "核心分析步骤（如利益衡量的具体流程）缺乏可循的步骤化指引，多呈现为类型罗列和因素考量。",
+            "法学转化主要停留在制度设计建议层面，未将融通逻辑转化为可操作的裁判规则或法律适用流程图。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此为框架建构力维度的评价，不涉及框架内部逻辑推演是否严密，亦不评价公私法融通理论的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了公私法融通框架，并将之转化为具体的行政协议无效认定步骤。",
+          "core_judgment": "分析框架高度成立且可用，法学转化彻底，提供了极具操作性的裁判规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "根据超越职权的程度不同可以分为多种情况...(1)超越法定权限幅度...(8)行政机关超越国家机关的权能",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准"
+          ],
+          "strengths": [
+            "提出了公私法融通的三层面分析框架及效力模型",
+            "将抽象标准转化为具体的主体、权限、内容、程序判断步骤"
+          ],
+          "weaknesses": [
+            "效力模型中“合法无效”与“未生效”的区分稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价推理严密性与问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 62,
+          "band": "good",
+          "summary": "论文提出'公私法规则融通'的三层分析框架，并在主体、内容、程序维度展开具体标准，但框架缺乏步骤化操作指引。",
+          "core_judgment": "分析框架基本成立，属于制度/实务型论文，提供了类型化分析结构和裁判规则方向，但可操作性不足，法学转化停留在规范列举层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文调用为类型化展开而非步骤操作）；法学转化度得分=2/4（跨学科概念无，但提供了裁判规则方向和制度方案雏形，未形成可重复适用的判断步骤）。锚定good档(60-69)，给62分。",
+          "evidence_quotes": [
+            "公法规则和私法规则针对协议无效问题上的冲突和融通至少可以在三个层面上展开：'合法—无效'的概念模型、公私法不同的法律原则、成文法规范",
+            "分别从缔约主体、权限瑕疵、内容瑕疵、程序瑕疵等方面探讨建立无效行政协议的具体标准"
+          ],
+          "strengths": [
+            "三层分析框架（概念模型-法律原则-成文法规范）具有清晰的类型化结构",
+            "主体/内容/程序三维度的具体标准对司法实践有参考价值"
+          ],
+          "weaknesses": [
+            "缺乏'第一步-第二步-第三步'式可重复判断步骤，仅为规范列举",
+            "'重大且明显违法'与民事无效标准的衔接未转化为可操作的比例规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及具体案例论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了公私法融通的无效行政协议认定框架，并细化为可操作的裁判审查步骤。",
+          "core_judgment": "框架具备清晰的类型化标准与司法适用指引，法学转化充分，分析框架高度成立。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "“违法是导致无效的必要条件……公私法之间效力模型的可融通为成文法体系中针对无效行政协议的认定标准具备相互包容的可能提供了前提条件。”",
+            "“对于行政协议的程序标准可以参照行政行为的程序标准进行判断……若程序违法对相对人实体权益产生实质影响，符合‘重大且明显’的无效认定标准时，适用利害衡量与价值衡量规则。”"
+          ],
+          "strengths": [
+            "构建了“主体-权限-内容-程序”四维审查模型，边界清晰且逻辑自洽。",
+            "将抽象的公私法冲突转化为具体的裁判衡量步骤与效力判断规则。"
+          ],
+          "weaknesses": [
+            "部分规范层级（如规章）的效力判断仍依赖法官自由裁量，操作指引的刚性稍弱。",
+            "对“追认可能性”的司法认定程序缺乏更细化的举证责任分配说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与转化度，不涉及逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.764487981796265,
+        "glm-5.1": 34.519710063934326,
+        "kimi-k2.6": 12.476587057113647,
+        "qwen3.6-plus": 53.872891902923584
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 78,
+      "std": 15.2,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文通过“公私法融通”命题构建了清晰的推理主干，但关键环节存在论证跳步，且缺乏对反对意见和自身局限的实质性回应。",
+          "core_judgment": "推理链主体可靠，核心结论可从公私法融通的分析中推出，但因缺少反驳处理与局部论证跳步，未达到优秀档。",
+          "score_rationale": "推理链完整性得3/4分（融通分析、民事与行政无效对比、具体标准探讨构成主线，但公私法融通与具体标准间的衔接有1处关键跳步）；反驳处理度得1/3分（仅识别隐含分歧路径并给出选择理由），锚定good档，基于局部推理链脆弱给78分。",
+          "evidence_quotes": [
+            "理论上虽然普遍认同行政协议的法律适用不限于行政法律规范，民事法律规范同样适用。因此，行政协议的无效既不能完全等同于行政行为的无效，也无法因循民事合同无效的判断标准。",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+          ],
+          "strengths": [
+            "主推理链结构完整：从公私法冲突切入，提出融通命题，再析出独立标准，最后分要素展开具体判断。",
+            "结论可从前文推出：独立无效标准的结论，由公私法效力模型融通、原则共通和规范兼容三层面分析支撑。"
+          ],
+          "weaknesses": [
+            "公私法融通层面转向具体制度标准时，跳跃了“融通如何必然导出独立标准”的论证，使核心过渡不够坚实。",
+            "全文未处理任何显式反对意见或正视自身理论局限，反驳处理严重不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度=0时，最高70分。本评分为推理链完整性=3且反驳处理度=1，故未触发此硬上限，但据此逻辑给78分。",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "反驳处理度仅得1分，且局部存在关键跳步，推理链在“融通分析→独立标准”环节缺少论证支撑。"
+            }
+          ],
+          "boundary_note": "局部从“公私法可融通”到“应创立独立标准”的过渡依赖默认，缺少推导，属于逻辑链断裂而非框架建构力不足。",
+          "review_flags": [
+            "counterargument_missing",
+            "boundary_overlap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过公私法冲突与融通的分析，严密推导出行政协议无效的独立认定标准及具体适用路径。",
+          "core_judgment": "本维度成立，推理链完整且结论可辩护推出，对反对意见与例外情形处理充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。主线推理依赖度高，局部发散未断裂核心结论推出。",
+          "evidence_quotes": [
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。",
+            "有学者提出行政协议诉讼应当优先适用行政诉讼法关于无效行政行为的规定……但是行政协议毕竟不同于单方行政行为"
+          ],
+          "strengths": [
+            "从问题到理论框架再到具体适用的三步推理链依赖度高，无关键跳步。",
+            "对公法优先与私法优先两种显式反对意见均给出了实质性的融通论证回应。"
+          ],
+          "weaknesses": [
+            "在具体适用（如规章效力判定）部分局部论证稍显发散，但未断裂主线。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑严密性仅评价推理链支撑度，不评价所提“独立无效标准”在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'公私法规则融通→具体标准建构'的推理链，主线清晰但局部存在跳步。",
+          "core_judgment": "推理链完整性3/4，反驳处理度2/3，锚定good档(70-79)。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（问题提出→公私法融通分析→具体标准建构→实现路径）；标准2成立（'合法—无效'模型为后续类型分析奠基）；标准3基本成立（核心结论'应创立独立行政协议无效标准'由前文推出）；标准4不成立（从'公私法可融通'直接跳到'应创立独立标准'存在关键跳步，未充分论证为何不能通过适用顺位解决）。反驳处理度得分=2/3：标准1成立（明确写出'有学者主张准用民事合同无效标准'等）；标准2成立（对'优先适用公法/私法'路径有实质回应）；标准3不成立（未承认自身'独立标准'方案的局限）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。",
+            "虽然如前所述，公私法在确定协议效力时，存在共通性，但是不可否认行政协议和民事协议在性质、功能等方面存在诸多差异。"
+          ],
+          "strengths": [
+            "三步分析框架（概念模型—法律原则—成文法规范）层层递进，支撑'公私法可融通'结论。",
+            "对'优先适用公法''优先适用私法''并列适用'三种路径有明确回应和排除论证。"
+          ],
+          "weaknesses": [
+            "从'公私法可融通'到'应创立独立标准'的跳跃缺乏过渡，未解释为何融通性不导向适用顺位方案。",
+            "对'独立标准'方案的潜在批评（如增加法律适用不确定性）未予回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'独立标准'方案本身是否最优。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了公私法融通的无效认定逻辑，推理完整且有效回应了裁判分歧。",
+          "core_judgment": "推理链完整可复述，核心结论由前文规范分析与案例推导充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。主线推导严密，反驳与局限处理充分。",
+          "evidence_quotes": [
+            "“违法是导致无效的必要条件……公私法之间效力模型的可融通为成文法体系提供了前提条件。”",
+            "“无效行政协议的认定标准不是选择法律适用顺位的结果，而是创立独立的标准。”"
+          ],
+          "strengths": [
+            "推理链呈“问题提出-三维分析-标准建构”递进结构，环节紧密。",
+            "对司法裁判分歧与学说对立进行了实质性回应与利益衡量。"
+          ],
+          "weaknesses": [
+            "部分规范层级与效力判断的过渡依赖抽象利益衡量，论证密度不均。",
+            "对“重大且明显违法”的具体化标准仍留有一定裁量空间。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦前提至结论的推导链条是否闭合，而非评价所提制度框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.024827003479004,
+        "glm-5.1": 39.36561894416809,
+        "kimi-k2.6": 15.081773042678833,
+        "qwen3.6-plus": 42.642229080200195
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81.5,
+      "std": 7.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "论文结论在公私法融通的基础上提出构建独立的行政协议无效标准，回应了理论争论，并对制度语境有所回应，但对话度与制度回应的具体性存在改进空间。",
+          "core_judgment": "结论可被共同体在学理层面认真回应，未自说自话，但对中国制度语境下的具体适用逻辑探讨尚可深化。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=2/4，属于理论论文锚定 good 档(60-69)，因对话度较强且结论兼容现行法秩序，给68分。",
+          "evidence_quotes": [
+            "无效行政协议的认定标准不是在单方行政行为和民事合同无效标准之间选择法律适用顺位，而是创立独立的行政协议无效标准。",
+            "对于法律和行政法规、地方性法规中的禁止性规定，违反该规定即达成重大且明显之法律后果，因此违反即无效。"
+          ],
+          "strengths": [
+            "结论明确挑战了公法或私法优先的窠臼，提出了独立标准，可被反对者定位和回应。",
+            "结论在原则层面回应了现行法秩序，指出《行政诉讼法》与《合同法》的兼容路径，非简单移植。"
+          ],
+          "weaknesses": [
+            "对反对意见或自身论证局限的承认主要隐含在论述中，缺乏单独的明确回应段落。",
+            "制度转化方向的指向较抽象，未具体说明独立标准如何与《行政诉讼法》第75条等实定法条文衔接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的可接受性与回应性，不评价论证严密性或后续研究空间，部分不足属其他维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论提出独立的行政协议无效标准，有效回应公私法适用争论并高度兼容现行法秩序。",
+          "core_judgment": "结论成功进入共同体对话，提出兼容现行法秩序的独立无效标准，制度可接受度高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准",
+            "从实体法上为行政协议建立系统的法律规范才是最终的方向"
+          ],
+          "strengths": [
+            "回应了公私法适用顺位的核心争论并提出替代方案",
+            "结论与现行法秩序兼容且给出了具体制度转化方向"
+          ],
+          "weaknesses": [
+            "结论对自身提出的中间标准之弹性局限未在结尾显明总结"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出行政协议无效标准应介于单方行政行为与民事合同之间，为制度建构提供理论框架，但结论对反对意见回应不足。",
+          "core_judgment": "论文结论进入共同体对话且与法秩序兼容，但理论主张的独创性与优势说明不够充分，限制在good档。",
+          "score_rationale": "共同体对话度得分=3/4（回应了公法优先/私法优先/融合论争，定位清晰；中国语境充分；但未明确承认并讨论反对意见），制度可接受度得分=2/4（不矛盾，回应制度约束，指出制度转化方向，但未深入讨论中国制度语境适配性），锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文意在论说公私法规则在无效行政协议认定中的适用逻辑，为通过制度建构方式明晰无效行政协议的认定标准提供理论框架和实现路径",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准"
+          ],
+          "strengths": [
+            "明确回应公法优先、私法优先与融合论三种理论立场",
+            "结合《行政诉讼法》《民法总则》等实定法展开，中国语境充分"
+          ],
+          "weaknesses": [
+            "未明确承认并讨论反对意见或自身理论局限",
+            "新理论相对既有理论的优势说明不够突出"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应公私法适用争议，提出融合型无效标准，高度契合中国司法实践。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论明确挑战“非此即彼”旧范式，提出独立无效标准，充分回应中国司法乱象与成文法约束。",
+          "evidence_quotes": [
+            "理论上需要进一步研究的是公法和私法原则在无效行政协议的认定中是公法亦或私法优先的顺位选择还是在公法和私法之间寻找适合行政协议的特殊标准。",
+            "无效行政协议的认定标准不是选择法律适用顺位的结果，而是在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。"
+          ],
+          "strengths": [
+            "精准定位并回应了公私法适用顺位的核心理论争议。",
+            "结合大量中国本土判例提出具象化认定事由，制度转化路径清晰。"
+          ],
+          "weaknesses": [
+            "结论对理论框架的潜在适用边界与司法裁量风险着墨稍显不足。",
+            "部分程序瑕疵的效力判断仍依赖个案衡量，规则确定性可进一步强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下能否被学界与实务接受，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.263158082962036,
+        "glm-5.1": 38.26521968841553,
+        "kimi-k2.6": 11.73564600944519,
+        "qwen3.6-plus": 74.73930501937866
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 79.5,
+      "std": 11.1,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文在多处指明了未来制度建构方向与具体待修正问题，延展路径清晰并与核心结论紧密衔接。",
+          "core_judgment": "该文存在真实的未来延展路径，涉及独立标准创建、法律规范体系化和利益衡量等具体方向，并非空泛展望。",
+          "score_rationale": "延展路径明确且可定位，但精细度仍限于宏观制度方向且未充分展开后续研究问题设计，故原始分70分，对应bonus=3档位。",
+          "evidence_quotes": [
+            "在单方行政行为和民事合同无效标准之间，创立独立的行政协议无效标准。",
+            "从实体法上为行政协议建立系统的法律规范才是最终的方向。"
+          ],
+          "strengths": [
+            "明确提出创立独立无效标准的具体制度路径，并与前文论证衔接。",
+            "在主体、内容、程序等事由上给出了可后续深化的规范要素。"
+          ],
+          "weaknesses": [
+            "未进一步提出针对独立标准的具体后续研究问题或下一轮争点。",
+            "未在制度建构延展上主动说明本文的局限及后续应围绕何种具体问题推进。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评的是论文指出的未来制度建构方向与具体待修正问题，而非当下结论能否被接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "指明行政协议无效需创立独立标准及实体法建构方向，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了制度完善方向与规则衔接问题。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。论文作为制度/立法型，指明实体法建构方向与公私法规则衔接路径，并提出程序违法的利益衡量与风险控制机制，延展清晰可定位。",
+          "evidence_quotes": [
+            "从实体法上为行政协议建立系统的法律规范才是最终的方向。",
+            "理论上需要进一步研究的是公法和私法原则……寻找适合行政协议的特殊标准。"
+          ],
+          "strengths": [
+            "明确提出实体法系统建构的制度完善方向",
+            "给出程序违法利益衡量与风险控制的具体场景"
+          ],
+          "weaknesses": [
+            "结尾展望稍简略，未展开立法路径的具体步骤"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "实体法建构与规则衔接属于未来制度完善方向，而非当下裁判规则可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结尾提出建立行政协议无效实体法规范的方向，但缺乏具体后续研究问题的展开。",
+          "core_judgment": "存在真实但较概括的延展路径，主要指向制度立法方向，但未提出可定位的后续研究争点或具体修正对象。",
+          "score_rationale": "原始分62，对应bonus=3。论文结尾指出'从实体法上为行政协议建立系统的法律规范才是最终的方向'，属于制度完善方向的明确信号；但全文未提出具体后续研究问题、下一轮争点或概念修正路径，延展精细度有限，处于60-79区间下限。",
+          "evidence_quotes": [
+            "通过对于'重大且明显'进行法律解释虽然可以在一定程度上缓解诉讼问题，但是从实体法上为行政协议建立系统的法律规范才是最终的方向。",
+            "我国现行《行政诉讼法》虽然将行政协议纳入受案范围，但是该法的总体构造仍然延循单方行政行为的格局设置，并无多少条文可以应用于行政协议。"
+          ],
+          "strengths": [
+            "明确指向实体法系统建构的立法方向",
+            "指出现行法延循单方行政行为格局的结构性局限"
+          ],
+          "weaknesses": [
+            "未提出可定位的后续研究问题或争点",
+            "缺乏对'系统的法律规范'具体内涵的展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "这是关于未来研究应走向'实体法系统建构'的方向指引，而非对当下结论能否被接受的判断；当下结论的可接受性属于另一维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在结尾明确指出实体法规范缺失的局限，并提出构建行政协议系统实体规范的未来立法与理论深化方向。",
+          "core_judgment": "存在真实延展路径，明确指向实体法体系建构与立法完善，与正文论证逻辑紧密衔接。",
+          "score_rationale": "原始分68分，对应bonus=3档。依据结尾“从实体法上建立系统规范”的明确指向，延展路径与正文公私法融通结论紧密衔接，但未细化立法技术，精细度有限。",
+          "evidence_quotes": [
+            "通过对于“重大且明显”进行法律解释虽然可以在一定程度上缓解诉讼问题，但是从实体法上为行政协议建立系统的法律规范才是最终的方向。",
+            "我国现行《行政诉讼法》虽然将行政协议纳入受案范围，但是该法的总体构造仍然延循单方行政行为的格局设置，并无多少条文可以应用于行政协议。"
+          ],
+          "strengths": [
+            "明确指出实体法规范缺失的局限",
+            "提出构建系统实体规范的清晰延展方向"
+          ],
+          "weaknesses": [
+            "延展路径偏宏观，未细化立法技术或具体制度衔接方案",
+            "缺乏对实施风险或场景边界的进一步推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“实体法规范体系建构”这一未来立法与理论深化方向，而非评价当前提出的公私法融通标准在当下司法实践中的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 42.69690704345703,
+        "glm-5.1": 35.053731203079224,
+        "kimi-k2.6": 10.471999883651733,
+        "qwen3.6-plus": 51.71652317047119
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 68
+      },
+      "mean": 71.2,
+      "std": 9.8,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 81.59,
+      "weighted_total": 78.3
+    },
+    "aggregation_strictest": {
+      "final_score": 65.0,
+      "weighted_total": 62.6
+    },
+    "avg_std": 12.3,
+    "max_std": 19.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 16.6,
+    "composite_score": -12.3,
+    "worst_dimension": "problem_originality",
+    "worst_std": 19.5
+  }
+}

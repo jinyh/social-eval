@@ -1,0 +1,922 @@
+{
+  "paper": "法学三大刊论文/补充论文/ZGFX2025005002_中国法学_2025_中国刑事司法治理的传统范式及其现代意蕴.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 35,
+        "kimi-k2.6": 40,
+        "qwen3.6-plus": 30
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 30,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 30,
+          "revised": 35,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 35,
+          "revised": 40,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 30,
+          "revised": 30,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 30,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文仍为宏观介绍与主题声明，缺乏可争辩的法学问题句与理论交锋，研究创新性维度不成立。",
+          "revision_rationale": "重新审视后认为，其他专家意见与我的初始判断一致，均指出无明确问题句、仅为政策倡导等致命缺陷。论文材料丰富但未触发材料新颖性上限，且缺乏可争辩性，不符合法学论文创新性要求。前置检查扣分与可争辩性、枢纽性评分为0的判断合理，无需要修正之处。",
+          "accepted_points": [
+            "缺乏可争辩的问题句与理论分歧",
+            "实质为政策倡导与旧现象的新概念归纳"
+          ],
+          "rejected_points": [
+            "评审专家A枢纽性=4/4的判断过高，本文仅是跨制度领域介绍而非提出枢纽性理论命题；材料新颖性触发上限的判断亦有偏差，因材料仅为梳理而非提炼出新理论视角。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 30,
+          "revised_score": 35,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文无明确问题句与理论分歧，仅为旧现象的新概念归纳与政策倡导，无实质法学争点。",
+          "revision_rationale": "接受其他专家关于“新概念未说明解释力提升”及“无学者观点交锋”的精准判断，进一步确认全文缺乏可争辩的法学争点。但考虑到论文对传统刑事司法治理体系的归纳较为系统、史料丰富，在unacceptable档位内适当上调至35分，与专家B评分趋同。",
+          "accepted_points": [
+            "新概念（治道治制治术）未说明解释力提升，仅为旧现象的新包装",
+            "无学者观点交锋，仅为单向体系介绍与政策倡导"
+          ],
+          "rejected_points": [
+            "无明显需拒绝的观点，专家意见与原判断方向一致，仅在底线分值上略有分歧"
+          ],
+          "new_evidence_found": [
+            "论文脚注㉛显示“治道、治制、治术”框架引自严复译《法意》的思想探析，证实该框架并非作者原创的理论突破，而是借用既有概念对传统现象进行重新包装，缺乏理论进步的说明"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 35,
+          "revised_score": 40,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "主题声明型论述，无明确问题句与学者交锋，但'治道治制治术'框架具一定整合性，枢纽性较此前认知稍强。",
+          "revision_rationale": "经重新审读，接受专家A、B关于枢纽性判断的部分合理性：论文以'治国-治民-治吏'三维与'治道-治制-治术'三层构建分析框架，涉及中央集权、死刑复核、运动型司法、社区共治等多制度联动，制度覆盖面较广，枢纽性应提升至3/4。但核心缺陷仍未改变：全文无'XX是否YY'类问题句，无学者观点交锋，'现代意蕴'部分仅为政策倡导与传统资源的现代对应，未形成可争辩的法学争点。材料新颖性触发上限但无实质问题推进，新概念包装旧问题的情况依旧存在。评分从35分微调至40分，仍处于unacceptable档。",
+          "accepted_points": [
+            "枢纽性涉及多制度领域，覆盖面较广",
+            "'治道治制治术'框架具有一定整合传统资源的尝试",
+            "制度连锁（如中央-地方、正式-非正式）有一定展开"
+          ],
+          "rejected_points": [
+            "专家A枢纽性4/4过高：制度连锁未经充分论证，多为并列描述而非因果机制分析",
+            "专家B'系统梳理''尝试衔接'作为优点不足以提升可争辩性",
+            "材料新颖性触发上限不成立：历史材料为法学界常见素材，'治道治制治术'借自严复译介，非原创概念"
+          ],
+          "new_evidence_found": [
+            "论文第30页明确'治道'概念借自蔡维力对严复《法意》的阐释，非作者原创框架",
+            "'运动型司法治理''集权的简约治理'等概念有既有学术来源，作者未充分发展",
+            "现代意蕴部分（第37-40页）均为'应当'式政策倡导，无反事实论证或理论张力"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 30,
+          "revised_score": 30,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文为历史经验梳理与政策倡导，缺乏明确法学争点与理论交锋，未提出可检验或可辩驳的命题，创新性维度不成立。",
+          "revision_rationale": "经复核，论文确无明确问题句，仅以既有框架进行单向度历史归纳与现代政策比附。虽结构完整，但未触及刑事司法理论核心分歧（如程序正义与治理效能的张力），属宏观阐释而非学术争鸣。依规维持30分。",
+          "accepted_points": [
+            "认同全文缺乏明确问题句与学者观点交锋的判断",
+            "认可‘治道治制治术’框架属既有概念移植，未带来解释力实质性提升"
+          ],
+          "rejected_points": [
+            "未采纳专家B给予35分的微调意见，因材料新颖性未转化为实质理论推进，枢纽性虽涉及多制度但无争议焦点，仍不符合创新性最低门槛"
+          ],
+          "new_evidence_found": [
+            "论文明确将刑事司法治理限定为‘治理手段’层面，回避了司法权独立运行与行政化治理的内在张力",
+            "现代意蕴部分仅做政策比附（如认罪认罚对应慎刑、社区矫正对应宗族共治），缺乏教义学或实证层面的机制论证"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.533469915390015,
+        "glm-5.1": 53.5161509513855,
+        "kimi-k2.6": 15.339600801467896,
+        "qwen3.6-plus": 68.73076581954956
+      },
+      "round1_mean": 31.2,
+      "round2_mean": 33.8,
+      "round1_std": 2.5,
+      "round2_std": 4.8,
+      "convergence_improvement": -2.3
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 70,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 75
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 20,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 40
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 15,
+          "revised": 70,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 55,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 70,
+          "revised": 20,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 50,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 42,
+          "revised": 55,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 75,
+          "revised": 40,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 35,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 15,
+          "revised_score": 70,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 55,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图部分成立，到达点较充分，但未竟点模糊且争点结构在思想史对立与学界争论间存在错位，法学流派对话缺失。",
+          "revision_rationale": "经重新阅读及审视其他专家意见，承认原评价对“分散式文献定位”的忽略。论文确实引用了陈景良、卜宪群、高汉成、于明等学者观点建构论证基线，使“到达点”要素部分成立。但“未竟点”仍偏向现实治理需求而非学术缺口，“争点结构”依托经义与权变等思想史对立，缺乏明确法学流派对话，故锚定good档70分更为公允。",
+          "accepted_points": [
+            "论文存在分散式文献定位，通过引用陈景良、卜宪群、高汉成等学者观点，勾勒了研究基线。",
+            "高汉成(2024)关于经义原则与权变思维的论述，可视为一种思想史层面的争点萌芽。"
+          ],
+          "rejected_points": [
+            "专家B认为三要素得5/6分、切入点明确，但本文用“治道、治制、治术”作为分析框架是本文自身的理论工具，并非对既有学术争议的回应，故其“切入点明确”的判断过高。"
+          ],
+          "new_evidence_found": [
+            "脚注中高汉成(2024)对董仲舒春秋决狱司法功能的重新定性，虽非严格法学流派对立，但形成思想史争辩脉络。",
+            "脚注中于明(2011)关于上控与审转逻辑出发点的区别论述，提供了制度功能层面的学术观点铺垫。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 70,
+          "revised_score": 20,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 50,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "本文属史实梳理与规范阐释型研究，文献仅作史实佐证，未构建学术研究地图，完全缺失学界争点与流派对话。",
+          "revision_rationale": "原评误将思想史对立（如儒法观念）当作学术争点，误将文献佐证当作到达点。经复审，文中引用均属史实陈述，未指明既有研究缺口或学术争议，切入点自说自话，未从学术脉络推导。接受专家A、B意见，判定研究地图缺失，下调至unacceptable档。",
+          "accepted_points": [
+            "文献仅作为史实陈述佐证或概念解释引注，未形成研究地图",
+            "完全缺失到达点：未说明既有研究已解决什么问题或形成何种共识",
+            "完全缺失未竟点：未指出既有研究有何不足或本文拟解决何种学术争议",
+            "争点结构应为学界争论脉络，而非思想史上的观念对立"
+          ],
+          "rejected_points": [
+            "专家B认为切入点可得1分（因提出'治道、治制、治术'框架），但我认为该切入点完全脱离学术脉络与未竟点推导，属于自说自话，不应赋分"
+          ],
+          "new_evidence_found": [
+            "文中明确提出'本文选取治道、治制、治术的分析框架，挖掘和提炼中国古代刑事司法治理的范式'，但并未指明既有研究在分析框架上的缺陷或缺口，证实切入点与学术脉络脱节",
+            "文中大量引用如陈景良、卜宪群等文献，确如专家A所言仅用于史实佐证和概念解释，未呈现学术争辩"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 42,
+          "revised_score": 55,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文存在隐性研究地图与分散式文献定位，但三要素仍显模糊，争点结构与法学流派对话不足，处于marginal档。",
+          "revision_rationale": "重新审阅后，承认论文存在可辨识的研究脉络：以'治道—治制—治术'框架回应法律史学界关于传统司法治理模式的讨论，对高汉成、于明、黄文艺等具体成果有引用和对话。但'到达点'仍呈散点状未系统提炼，'未竟点'多为现实需求而非学术缺口，'切入点'与既有研究脉络的衔接不够紧密。争点结构依赖思想史对立（如德刑关系、礼法之争）而非当代法学流派或解释路径的交锋。整体从'unacceptable'上调至'marginal'，因论文确有文献定位意识，但未达到'good'档要求的清晰研究地图。",
+          "accepted_points": [
+            "评审专家A指出的'分散式文献定位扎实'——论文引用了高汉成(2024)、于明(2011)、黄文艺(2022)等具体成果",
+            "评审专家B指出的'切入点明确'——'治道、治制、治术'框架具有分析工具功能",
+            "评审专家A指出的'思想史对立支撑'——论文确实存在德刑关系、礼法之争等思想史脉络"
+          ],
+          "rejected_points": [
+            "评审专家A'到达点充分'的判断——论文引用成果但未系统提炼为学术对话的'到达点'，多数引用服务于制度描述而非学术定位",
+            "评审专家B'三要素基本成立'的判断——未竟点模糊且非学术性，切入点与学术脉络脱节问题未解决",
+            "两位专家'good'档的锚定——争点结构未呈现学界争论脉络，法学流派识别为零，不符合good档标准"
+          ],
+          "new_evidence_found": [
+            "第30页脚注㉛明确引用蔡维力《治道 治制 治术——严复译〈法意〉之思想探析》，显示分析框架有学术渊源而非完全自创",
+            "第34页引用于明《司法审级中的信息、组织与治理》并讨论'审转'与'上控'的功能差异，存在具体学术对话",
+            "第28页引用高汉成(2024)关于'经义原则'还是'权变思维'的争论，显示对学术争议的触及但浅尝辄止"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 75,
+          "revised_score": 40,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 35,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "本文属历史阐释与政策建议型研究，完全缺失“到达点—未竟点—切入点”学术地图，未呈现实质性法学争点或流派对话，文献仅作史实佐证，该维度不合格。",
+          "revision_rationale": "重读确认，本文虽引注丰富，但全篇未系统梳理既有研究，未提炼学术共识或争议缺口，无明确理论对话对象。“治道、治制、治术”系自设框架而非学术争点切入。文献均用于史实陈述，未构建研究地图。原评分高估了分散引注价值，低估了争点缺失硬伤，故下调。",
+          "accepted_points": [
+            "完全缺失“到达点—未竟点—切入点”的研究地图",
+            "文献引用仅作为史实陈述或概念解释佐证，未形成学术争辩脉络",
+            "未识别既有研究缺口或争议，缺乏法学流派识别与争点结构"
+          ],
+          "rejected_points": [
+            "拒绝专家A触发no_research_map规则直接给15分的极端处理；本文历史梳理与框架自洽性尚可，在现状洞察维度不应直接触底，保留基础分以体现其文献征引的扎实度。"
+          ],
+          "new_evidence_found": [
+            "全文无独立文献综述或学术问题提出部分，直接切入历史背景与政策语境",
+            "所有脚注（如陈景良、卜宪群、瞿同祖等）均用于支撑制度描述，未出现“既有研究认为…但本文指出…”的对话句式",
+            "现代意蕴部分直接对接现行政策与法条，未与当代刑诉法学界核心争点建立理论连接"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 150.68740367889404,
+        "glm-5.1": 223.43285012245178,
+        "kimi-k2.6": 16.23583674430847,
+        "qwen3.6-plus": 197.04170608520508
+      },
+      "round1_mean": 50.5,
+      "round2_mean": 46.2,
+      "round1_std": 27.8,
+      "round2_std": 21.4,
+      "convergence_improvement": 6.4
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 55,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 55
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 52,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 52
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 52,
+          "revised": 52,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 55,
+          "revised": 52,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 52,
+          "revised": 55,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 55,
+          "revised": 52,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 52,
+          "revised_score": 52,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架仍为有价值的主题分类，但未提供可重复适用的法学分析步骤，法学操作化仅停留在宏观映射层面，维持原判。",
+          "revision_rationale": "其他专家意见与我的初始评价高度一致，均认定框架仅为梳理型结构而缺乏操作指引，差异仅在细微的分数档位（52 vs 55）。重新审视论文后，我依然未发现任何将其转化为裁判规则或分析步骤的说明。鉴于该缺陷是根本性的，且框架可操作性与法学转化度的低分不可调和，坚持52分更能准确反映其建构力严重受限的程度。",
+          "accepted_points": [
+            "框架本质上是对史料的主题分类而非可操作的分析工具",
+            "概念界定清晰但缺乏区分边界和重复适用的分析步骤"
+          ],
+          "rejected_points": [
+            "将分数微调至55分以体现对体系性的肯定。我认为在缺乏任何操作化演示的情况下，52分已足以认可其文献梳理价值，不宜再凭主观呼应度加分。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 55,
+          "revised_score": 52,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架仅为历史描述分类且后半段闲置，无分析步骤；法学转化仅停留在宏观理念映射，缺乏操作指引。",
+          "revision_rationale": "接受专家B关于“现代意蕴部分未调用框架，框架闲置”的关键观点，这严重削弱了框架的统摄力与建构力；同时将法学转化度从0/4微调至1/4，认可论文存在宏观理念映射（如认罪认罚对应慎刑观），但远未达到操作化。框架可操作性维持2/4（有概念界定但无步骤）。因框架未贯穿全文且无操作转化，综合下调至52分。",
+          "accepted_points": [
+            "框架仅为描述性分类，无判断步骤或评价标准",
+            "现代意蕴部分未调用'治道-治制-治术'框架进行对应分析，框架闲置",
+            "法学转化度勉强有宏观理念映射（1/4），但无操作化转化"
+          ],
+          "rejected_points": [
+            "专家A认为'核心框架术语未给出定义与区分边界'——论文第30页明确给出了治道、治制、治术的定义，只是属于宏观描述性界定而非操作性界定，因此框架可操作性仍维持2/4的判定"
+          ],
+          "new_evidence_found": [
+            "第三部分现代意蕴的小标题（调节刑罚、矫治教育、塑造共治）完全脱离了'治道-治制-治术'框架，证实了框架闲置",
+            "现代意蕴部分仅将认罪认罚从宽、社区矫正等现代制度与传统慎刑、共治理念作宏观对接，未生成任何基于原框架的裁判规则或适用流程"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 52,
+          "revised_score": 55,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架为历史描述性分类，有清晰概念界定与三维结构，但缺乏可操作的法学分析步骤，现代转化未调用框架展开，法学转化度有限。",
+          "revision_rationale": "经重新审读，接受专家A、B关于'框架可操作性得分=2/4'的共识性判断，调整法学转化度得分从1/4至0/4（或维持1/4但认可上限约束），总分上调3分至55分。原评52分偏低，主要因：论文'治道-治制-治术'框架确有明确概念界定与历史维度划分，且统摄了治国、治民、治吏三重场域，结构完整性优于原评认知；但坚持原判核心——框架仍为描述性分类而非分析工具，现代意蕴部分未按框架步骤展开（如未对应分析当代'治道''治制''治术'的具体表现），'调节刑罚''矫治教育''共治格局'三部分实为并列主题论述，框架闲置问题成立。",
+          "accepted_points": [
+            "框架有清晰概念界定与分类标准，结构完整具历史纵深感",
+            "框架可操作性得分2/4的共识，受梳理型上限约束",
+            "现代转化停留于宏观映射与政策倡导层面，未形成裁判规则或适用流程"
+          ],
+          "rejected_points": [
+            "专家B称'核心术语源自既有表述，缺乏原创界定'——论文对'治道-治制-治术'有明确再界定，此点过苛",
+            "专家A'法学转化度0/4'的绝对化判断——论文现代部分仍有传统与当代的映射关系，非完全无转化"
+          ],
+          "new_evidence_found": [
+            "论文第30页明确'治道'包含'天命观、人道观、秩序观、人伦观、教化观'等多层内涵，概念层次较原评丰富",
+            "现代意蕴部分'调节刑罚实现犯罪治理''借助司法促进矫治教育''动员社会塑造共治格局'虽为并列主题，但暗含与'治道-治制-治术'的松散对应（刑罚宽平对应治道、司法制度对应治制、共治格局对应治术），框架调用不充分但非完全闲置",
+            "第37-38页提及认罪认罚从宽制度与传统'刑教兼施'的关联，存在具体制度对接的尝试"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 55,
+          "revised_score": 52,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架属历史描述性分类，未转化为可操作的法学分析工具；现代意蕴部分脱离该框架展开，建构力与转化度均显不足。",
+          "revision_rationale": "采纳专家B“框架闲置”观点。重读发现，现代意蕴部分并未调用“治道-治制-治术”进行对应分析，仅做政策倡导与历史现象的平行对照。框架缺乏可重复的法学分析步骤与裁判转化指引，故微调分数以更准确反映其理论建构局限。",
+          "accepted_points": [
+            "现代意蕴部分未实际调用分析框架，导致框架在规范分析层面闲置",
+            "核心术语缺乏可操作的定义边界与判断步骤，更接近主题分类而非分析工具"
+          ],
+          "rejected_points": [
+            "无明确拒绝点。双方核心判断高度一致，仅在对框架结构呼应程度的初始评价上存在细微差异，经核实确属描述性归纳而非工具性调用。"
+          ],
+          "new_evidence_found": [
+            "论文第三部分“现代意蕴”的三个子标题与“治道、治制、治术”无显性逻辑映射，未体现框架的分析功能",
+            "文中对框架三要素的界定仅停留在宏观哲学层面，未提供法学维度的操作化标准或适用流程"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 21.84830594062805,
+        "glm-5.1": 77.96213912963867,
+        "kimi-k2.6": 21.126972913742065,
+        "qwen3.6-plus": 58.4783079624176
+      },
+      "round1_mean": 53.5,
+      "round2_mean": 52.8,
+      "round1_std": 1.7,
+      "round2_std": 1.5,
+      "convergence_improvement": 0.2
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 88,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 90
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 70,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 76
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 68,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 88,
+          "revised": 70,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 18,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 58,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 14,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 90,
+          "revised": 76,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 14,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 68,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "论文在“历史资源→现代建议”的推导中存在跳步，但已对传统与现代张力做出有限回应，逻辑主线清晰，同意小幅上调评分。",
+          "revision_rationale": "接受专家B指出的论文对传统与现代张力有明确回应的观点。论文摘要和结论部分强调了“依照现代社会治理原则和标准进行调适”，表明作者意识到并初步处理了古今差异，反驳处理度可从1分上调至2分。但核心跳步问题（如宗族共治到平台共治）未解决，推理链完整性仍存不足，故维持good档，上调至78分。",
+          "accepted_points": [
+            "论文在摘要和结论中确实承认了传统范式需要经过现代原则调适，构成了对古今张力的有限回应，反驳处理度不应仅计1分。"
+          ],
+          "rejected_points": [
+            "专家A/B将推理链完整性评为4/4过高，因从宗族共治到网络平台共治的推导仍属类比跳步，缺乏中间论证环节支撑。",
+            "专家B将反驳处理度评为3/3过高，论文虽承认需调适，但未具体展开现代法治原则如何约束古代范式的转化，处理仍不充分。"
+          ],
+          "new_evidence_found": [
+            "摘要中“在依照现代社会治理的原则和标准进行调适后，依然可以发挥不可替代的功效”一句，表明作者对古今适用性差异有自觉意识和边界界定，属于此前评价时未充分考虑的论证成分。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 88,
+          "revised_score": 70,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 18,
+          "revised_band": "good",
+          "revised_core_judgment": "传统部分推理完整，但古今转化因果链跨越过大，缺乏现代法治约束回应，反驳处理不足。",
+          "revision_rationale": "原评分过高忽略了古今转化逻辑断裂的严重性。接受A、B专家意见，论文从古代治理事实直接推导现代应当采纳，缺乏中间论证环节（如宗族共治到平台共治跳步）；且未处理古今异质的核心反驳，对严刑峻法、专制教化与现代人权、程序正义的兼容性避而不谈，反驳处理严重不足。虽传统部分框架清晰，但宏观推理链不充分，下调至good档。",
+          "accepted_points": [
+            "宏观上从古代治理事实推出现代应当采纳的因果链条跨越过大",
+            "缺乏对现代人权标准、程序正义等反向约束的实质回应",
+            "未处理古今异质的核心反驳，传统制度与现代法治兼容性论证缺失"
+          ],
+          "rejected_points": [
+            "专家B将反驳处理度评为0/3过于严苛，论文在提及'皇权不下乡'及'集权的简约治理'时轻微触及了古今差异，算作隐含承认局限，可给1/3"
+          ],
+          "new_evidence_found": [
+            "论文将古代'弃市'公审与现代'庭审直播'直接类比，未论证专制威慑与现代法治教育的本质区别，进一步印证了古今转化跳步的严重性",
+            "论文将古代宗族管束训诫直接等同于现代社区矫正，忽略了国家刑罚权与宗族私权力的根本性质差异"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 58,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 14,
+          "revised_band": "good",
+          "revised_core_judgment": "传统部分推理链完整，现代转化有中间环节但古今张力论证仍显不足，反驳处理有改善但未充分。",
+          "revision_rationale": "重新审读论文后，发现现代转化部分并非完全缺乏中间推理：作者在'调节刑罚实现犯罪治理''借助司法促进矫治教育''动员社会塑造共治格局'三部分分别建立了从传统到现代的对应关系——'世轻世重'对应认罪认罚从宽、'刑教兼施'对应裁判文书释法说理与法治教育、'多元共治'对应社区矫正与网络平台共治。这些对应论证构成了可辨识的推理链条，并非'直接跳跃'。但专家A指出的'从宗族共治直接推导网络平台共治'的跳步确实存在，且作者对'传统人治色彩与现代法治原则的潜在冲突'回应有限，'依照现代社会治理的原则和标准进行调适'一语过于笼统。反驳处理度得分应从0提升至1/3，推理链完整性从2/4提升至3/4，锚定good档。",
+          "accepted_points": [
+            "专家A指出'德主刑辅与明刑弼教的隐含分歧并给出历史选择理由'，论文确实在治道部分详细梳理了从'德主刑辅'到'明刑弼教'的演变及朱熹、朱元璋的不同选择，这一历史脉络的呈现具有论证深度。",
+            "专家B指出的'历史归纳到理论提炼再到现代映射的推导严密'有一定道理，论文在'治道-治制-治术'框架下确实形成了从传统到现代的映射结构。",
+            "专家A、B均提到'传统与现代的张力'问题，这一批评成立，但论文并非完全未回应，'依照现代社会治理的原则和标准进行调适'可视为有限回应。"
+          ],
+          "rejected_points": [
+            "专家A、B将反驳处理度评为2-3/3过高：论文对'古今异质'的核心反驳处理仍显薄弱，'调适'一语未展开具体如何调适，传统司法的行政化、人治化色彩与现代司法独立、程序正义原则的张力未充分展开。",
+            "专家B认为'对传统与现代的张力及适用边界有明确回应'不准确，论文仅在结语处笼统提及'调适'，缺乏系统的兼容性论证。",
+            "专家A的'推理链完整性4/4'评价过高，从'宗族共治'到'网络平台共治'的推导缺乏中间环节，数字时代网络平台的公共属性与传统宗族的组织逻辑存在本质差异。"
+          ],
+          "new_evidence_found": [
+            "论文第37-38页明确将'认罪认罚从宽制度'与'刑罚宽平'传统对接，第38-39页将'裁判文书释法说理'与'刑教兼施'传统对接，第39-40页将'社区矫正''网络平台共治'与'多元共治'传统对接，形成三对明确的古今映射。",
+            "论文第37页引用'法与时转则治，治与世宜则有功'作为古今贯通的方法论依据，虽简短但构成了转化论证的纲领性表述。",
+            "论文第40页'在依照现代社会治理的原则和标准进行调适后，依然可以发挥不可替代的功效'一句，可视为对古今张力问题的有限回应，尽管论证不充分。"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 90,
+          "revised_score": 76,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 14,
+          "revised_band": "good",
+          "revised_core_judgment": "历史归纳与理论框架建构严密，但“传统→现代”的转化论证存在规范性跳步，对古今法治底层逻辑冲突的回应不足，整体逻辑连贯性良好但未达严密。",
+          "revision_rationale": "采纳A、B专家关于“古今转化跳步”及“现代法治约束回应不足”的合理批评。原文历史部分推理扎实，但现代映射多依赖功能类比与文化延续性断言，缺乏制度转译的中间论证与对程序正义/人权保障等现代法治核心原则的实质性对话。故下调评分至良好档，但肯定其历史逻辑的完整性，不采纳过低评分。",
+          "accepted_points": [
+            "从古代治理事实直接推导现代制度建议存在宏观逻辑跨越，缺乏现代程序正义与人权标准的约束性论证",
+            "传统→现代的转化缺少中间推理环节，对古今异质性及潜在冲突（如皇权恩赦与现代权利本位）的处理过于简略"
+          ],
+          "rejected_points": [
+            "完全否定其逻辑连贯性（评分58）：原文历史部分的“治国-治民-治吏”到“治道-治制-治术”的嵌套推理链条完整，史料支撑充分，内部逻辑自洽，不应因现代转化部分的薄弱而全盘否定其整体论证价值"
+          ],
+          "new_evidence_found": [
+            "原文第40页明确提出“在依照现代社会治理的原则和标准进行调适后，依然可以发挥不可替代的功效”，但全文仅以“认罪认罚从宽”“社区矫正”等制度作功能类比，未展开“如何调适”的具体法理推演",
+            "现代建议部分将古代“慎刑恤罚”直接等同于现代“认罪认罚从宽”的人文关怀，忽略了前者基于君主恩赦与道德教化，后者基于程序权利与契约精神的本质差异"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.246861219406128,
+        "glm-5.1": 45.252419233322144,
+        "kimi-k2.6": 17.80946111679077,
+        "qwen3.6-plus": 57.45944595336914
+      },
+      "round1_mean": 76,
+      "round2_mean": 74,
+      "round1_std": 15.6,
+      "round2_std": 3.7,
+      "convergence_improvement": 11.9
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 42,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 42,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 56
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 42,
+          "revised": 42,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 52,
+          "revised": 62,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 88,
+          "revised": 56,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 32,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 42,
+          "revised_score": 42,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "结论仍停留在复述官方法治话语，未进入学术争辩，未形成可被反驳的明确主张，缺乏共同体对话基础。",
+          "revision_rationale": "对方专家认为结论具备明确学术对话指向，但论文结论部分仅提出“重视调节作用”“借助矫治教育”“形塑多元共治格局”等政策倡导，并“提出刑事司法治理的中国模式”。这些表述未与任何现有学术争论进行定位，也未提出可被反驳的具体命题，本质上仍是复述法治话语，不构成实质性学术对话。因此，共同体对话度得分仍为0，触发上限规则，维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "结论具备明确的学术对话指向——论文结论缺乏对现有学术争论的回应和可被反驳的主张，实质为政策复述而非学术对话。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 52,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文具备较明确的本土制度对话指向，但现代转化论证仍显空泛，学术争辩性不足。",
+          "revision_rationale": "重新审阅后，承认论文存在我之前忽略的合理维度：一是'中国模式'的明确学术主张具有对话指向，并非完全复述；二是附条件不起诉拓展、'认罪认罚+公益服务'等具体制度建议具有现实操作性，非完全空泛。但专家A评分过高（88分），论文仍未回应潜在反对意见（如传统资源现代转化的法治风险），且'形塑''借助'等表述仍大量存在。综合判断，从52分上调至62分，仍属marginal档上限。",
+          "accepted_points": [
+            "论文提出'刑事司法治理的中国模式'，具有明确的学术主张定位",
+            "附条件不起诉适用主体拓展、'认罪认罚+公益服务'等建议具有具体制度指向",
+            "对认罪认罚从宽、社区矫正等当代制度的勾连较为具体"
+          ],
+          "rejected_points": [
+            "专家A认为'制度转化方向明确且具现实操作性'——但'形塑多元共治格局''借助司法进行矫治'等表述仍属政策话语复述，缺乏对制度约束条件的分析",
+            "专家A认为'深度回应本土法治话语'——回应官方话语不等于真正的学术对话，论文未与反对'传统法律文化现代转化'的学术观点交锋"
+          ],
+          "new_evidence_found": [
+            "第39页明确提出'刑事诉讼法应当扩大不起诉的范围，特别是将附条件不起诉的适用主体从未成年人拓展到成年人'",
+            "第39页提及地方醉驾案件中'认罪认罚+公益服务'的不起诉模式探索",
+            "第40-41页论及网络平台在'全链条'犯罪控制中的义务，具有一定现实针对性"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 88,
+          "revised_score": 56,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 32,
+          "revised_band": "marginal",
+          "revised_core_judgment": "结论高度契合本土政策与法秩序，但缺乏对既有学术争议的回应与批判性对话，制度建议具体与空泛并存，未达优秀档的学术争辩门槛。",
+          "revision_rationale": "采纳A、B专家关于“学术对话度缺失”的批评。重读发现，论文虽提出附条件不起诉扩围等具体建议，但未定位学术靶点，未回应检察权扩张、程序正义等潜在争议，亦无自我设限。论证偏向政策阐释，共同体可争辩性不足，故下调。",
+          "accepted_points": [
+            "结论缺乏与既有学术争论的明确对接与可反驳主张",
+            "部分对策表述偏空泛，未充分回应具体制度约束与程序风险",
+            "未主动预判反对意见或进行理论自我设限"
+          ],
+          "rejected_points": [
+            "完全否定制度转化方向（论文实际提出了附条件不起诉扩围、公益服务不起诉等具象路径，非纯空泛）",
+            "评分过低至unacceptable（论文对现行法秩序兼容度高且具明确制度落点，未达不可接受标准）"
+          ],
+          "new_evidence_found": [
+            "明确提出将附条件不起诉拓展至成年人及‘认罪认罚+公益服务’地方探索",
+            "提出建立逮捕社会危险性评估与社区矫正调查评估机制",
+            "提出网络犯罪治理中‘政府管平台、平台管个人’的公私合作共治模式"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.164828062057495,
+        "kimi-k2.6": 12.28580927848816,
+        "qwen3.6-plus": 68.07100892066956
+      },
+      "round1_mean": 60.7,
+      "round2_mean": 53.3,
+      "round1_std": 24.2,
+      "round2_std": 10.3,
+      "convergence_improvement": 13.9
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 60,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 80
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 0,
+          "revised": 65,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 65,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 65,
+          "revised": 60,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 62,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 85,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 0,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 65,
+          "revised_band": "good",
+          "revised_core_judgment": "存在真实延展路径，指明了不起诉拓展、网络共治及风险评估等具体制度完善方向，但精细度有限且缺乏专门规划。",
+          "revision_rationale": "重新审视发现，论文结语部分确实提出了附条件不起诉扩围至成年人、网络平台共治、建立社会危险性评估等具体制度延伸，这些是对‘传统智慧现代转化’的实质性延展，有明确制度入口，并非全部流于口号。虽结尾仍有空泛拔高，但整体已满足good档位标准，原0分评价过于严苛。",
+          "accepted_points": [
+            "论文提出了附条件不起诉扩展至成年人等具体制度完善方向",
+            "传统共治逻辑延伸至网络空间形成了可操作的路径",
+            "轻度犯罪风险评估等建议为后续争点提供了检验入口"
+          ],
+          "rejected_points": [
+            "专家B的excellent档位（85分）评价偏高，论文未交代伦理化取向与程序正义冲突时的修正边界，精细度不足以进入excellent"
+          ],
+          "new_evidence_found": [
+            "结语部分明确建议刑事诉讼法扩大附条件不起诉至成年人，并有地方探索实例支撑",
+            "提出在网络空间中奉行‘政府管平台、平台管个人’的共治格局，构成对传统合作共治范式的具体延展",
+            "提及建立逮捕社会危险性评估、社区矫正调查评估等机制，指向可操作的研究与实践入口"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 65,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "存在具体制度延展方向（不起诉拓展、网络共治），但多为政策呼吁，缺乏学术争点提炼与理论修正路径，结尾空泛拔高。",
+          "revision_rationale": "接受专家B关于延展方向多为政策呼吁而非可操作学术路径、缺乏学术争点与反驳入口的观点。正文虽提出不起诉拓展至成年人、网络平台共治等具体方向，但未深入探讨传统范式与现代法治的张力，未指明后续学术争点，且结尾口号式拔高削弱了学术延展性，故下调分数至60分。",
+          "accepted_points": [
+            "专家B：延展方向更多是政策呼吁而非可操作的学术延展路径。",
+            "专家B：缺乏对学术异议者反驳入口的说明，未形成可检验的研究议程。",
+            "专家A：结尾存在口号式意义拔高，仅有价值宣示而无具体修正对象（针对结语部分）。"
+          ],
+          "rejected_points": [
+            "专家A：不存在真实延展路径，延展建议完全泛化。理由：正文第三部分明确提出了不起诉拓展至成年人、网络平台共治等具体制度完善方向和检验场景，并非完全泛化。"
+          ],
+          "new_evidence_found": [
+            "论文在'借助司法促进矫治教育'部分提到了地方探索的'认罪认罚+公益服务'不起诉模式，这是具体的制度检验场景。",
+            "论文在'动员社会塑造共治格局'部分提到了社区矫正工作、基层组织参与机制，这也是具体的延展应用场景。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "存在可定位的具体延展路径，与正文'传统智慧现代转化'核心结论有衔接，但研究局限承认与未来规划仍显不足。",
+          "revision_rationale": "重新审读论文后，发现正文第三部分'调节刑罚''矫治教育''共治格局'确实包含较具体的制度延伸：附条件不起诉扩围至成年人、'认罪认罚+公益服务'模式、逮捕社会危险性评估机制、网络平台'政府管平台、平台管个人'的共治逻辑等。这些并非泛泛的政策呼吁，而是与'治道''治制''治术'框架形成对应转化关系。但论文结尾仍缺乏对研究局限的明确承认，且'提升国家文化软实力'等表述存在空泛拔高，精细度与可检验性仍有提升空间。",
+          "accepted_points": [
+            "评审专家A指出的'附条件不起诉拓展至成年人'是具体制度方向",
+            "评审专家B强调的'传统范式与现代制度衔接自然'确有文本依据",
+            "三位专家均认可的'网络共治'场景具有真实前沿性"
+          ],
+          "rejected_points": [
+            "评审专家B的85分'excellent'档过高：论文未明确'治道''治制''治术'框架在现代语境下的修正边界，也未回应传统伦理化取向与现代程序正义的潜在冲突",
+            "专家B所称'转化路径具备可操作性'偏乐观：多数制度建议仍停留在应然层面，缺乏实证基础或试点评估"
+          ],
+          "new_evidence_found": [
+            "第39页'认罪认罚+公益服务'的不起诉模式具操作细节",
+            "第39-40页逮捕社会危险性评估、社区矫正调查评估等机制设计",
+            "第40页'政府管平台、平台管个人'的网络共治逻辑与传统'官-绅-民'共治形成历史呼应"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 85,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "延展路径具象且紧扣正文，但偏重政策倡导与制度设计，缺乏实证检验框架与理论争点预设，学术对话性稍弱。",
+          "revision_rationale": "采纳专家B意见，确认论文延展方向虽明确，但多停留于宏观政策呼吁与制度构想，未构建可操作的实证检验路径，亦未厘清传统伦理与现代程序正义冲突时的理论修正边界。专家A“空泛口号”之评与正文第四部分具体制度建议不符，予以驳回。故微调分数，肯定其制度延展价值，但指出学术精细化不足。",
+          "accepted_points": [
+            "延展路径偏重政策呼吁，缺乏可检验的实证研究议程与学术争点预设",
+            "未明确传统伦理化取向在现代程序正义语境下的理论修正边界"
+          ],
+          "rejected_points": [
+            "专家A认为结语仅存空泛口号、无具体延展路径（理由：论文第四部分已明确提出附条件不起诉扩围、风险评估机制、网络平台共治等具体制度建议，并非空泛宣示）"
+          ],
+          "new_evidence_found": [
+            "正文第四部分（一）明确提出“将附条件不起诉的适用主体从未成年人拓展到成年人”及醉驾案件“认罪认罚+公益服务”模式",
+            "正文第四部分（二）指出需“建立和完善逮捕社会危险性评估、社区矫正调查评估等刑事司法风险评估机制”",
+            "正文第四部分（三）提出数字时代网络犯罪治理应奉行“政府管平台、平台管个人”的公私合作逻辑"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.956442832946777,
+        "glm-5.1": 61.325199842453,
+        "kimi-k2.6": 11.281182050704956,
+        "qwen3.6-plus": 141.6047809123993
+      },
+      "round1_mean": 51.2,
+      "round2_mean": 66.8,
+      "round1_std": 36.4,
+      "round2_std": 9.1,
+      "convergence_improvement": 27.3
+    }
+  },
+  "overall": {
+    "round1_avg_std": 18.03,
+    "round2_avg_std": 8.47,
+    "std_improvement": 9.57,
+    "round1_max_std": 36.4,
+    "round2_max_std": 21.4,
+    "dimensions_converged": 3,
+    "total_dimensions": 6,
+    "round1_final_score_mean": 53.57,
+    "round2_final_score_mean": 54.52
+  }
+}

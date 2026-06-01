@@ -1,0 +1,1024 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/刑事职能管辖错位的程序规制.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "论文出现多处脚注编号断点（如“(2)参见张曙...”、“(3)参见程军伟...”）及文献引用散落，但未提供参考文献列表，可能影响引证抽取但未阻断核心论点"
+        ],
+        "evidence_quotes": [
+          "参见张曙：《刑事诉讼管辖制度研究》，法律出版社2020年版",
+          "参见龙宗智：《新〈人民检察院刑事诉讼规则〉若干问题评析》",
+          "笔者统计裁判文书发现，共有13个案件辩方提出职能管辖错位的辩护意见"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑事诉讼管辖遵循管辖法定原则...对公权力约束不够的背景下具有重要意义",
+          "监察体制改革后，职能管辖错位可能造成更大的问题...破坏改革精神",
+          "应当将以下因素纳入职能管辖错位程序规制的考量视野...综合利益权衡",
+          "对于恶意违法的应当否定诉讼行为效力，而不是以办案机关的意见作为后续处理依据"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，仅见注释，但未影响正文论证识别",
+        "文本含少量 OCR 数字/页码残留（如“272”“273”等），不影响阅读"
+      ],
+      "evidence_quotes": [
+        "我国侦查管辖主体具有多元化和分散性特征...管辖错位的现象并不罕见",
+        "监察体制改革后...规则难以适用涉监察委员会管辖案件",
+        "在明确职能管辖错位的制裁标准之后，需要构建职能管辖错位的制裁程序"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量良好，可直接进入六维评分；论文以中国问题为中心，提出可复核的管辖错位规制命题，且涉及监察体制改革后的法学制度重构，满足项目口径"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如'271', '272', '中国法学 2021 年第1期'等）",
+          "脚注编号以括号数字形式混入正文（如'(2)', '(3)', '(4)'等）"
+        ],
+        "evidence_quotes": [
+          "刑事职能管辖错位的程序规制\n271",
+          "(2) 参见张曙：《刑事诉讼管辖制度研究》，法律出版社2020 年版，第11 页。",
+          "中国法学\n2021 年第1 期\n272"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑事诉讼管辖遵循管辖法定原则，管辖权由法律直接规定，不允许非法介入其他机关管辖的案件。",
+          "监察体制改革后，职能管辖错位可能造成更大的问题……如果将公安机关管辖的案件归于监察机关管辖，则犯罪嫌疑人可能无法获得律师辩护，而这是犯罪嫌疑人宪法基本权利——辩护权的重要保障。",
+          "职能管辖错位作为严重的程序违法行为，也应当予以程序性制裁。然而，职能管辖错位的原因多种多样，其危害后果也各不相同。",
+          "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权。",
+          "基于管辖法定原则，应当将职能管辖错位作为违法行为予以规制……采取相对无效行为理论，认定其程序形成行为无效，给予瑕疵补正的机会，即退回查办阶段，由有权机关重新查办。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及栏目名混入正文段落，脚注编号残留，需在后续阶段清洗",
+        "项目口径：无特殊问题，完全符合进入六维评审标准"
+      ],
+      "evidence_quotes": [
+        "监察体制改革后，职能管辖错位可能造成更大的问题……如果将公安机关管辖的案件归于监察机关管辖，则犯罪嫌疑人可能无法获得律师辩护，而这是犯罪嫌疑人宪法基本权利——辩护权的重要保障。",
+        "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分。文本存在页码和脚注混入的局部格式风险，但不影响核心论点定位，建议在后续文本工程阶段进行清洗处理。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如'(2)'、'(3)'等格式不统一，部分为'前注⑫'等混合编号）",
+          "参考文献列表缺失，文末标注'（无）'，但文内大量引用通过脚注呈现",
+          "期刊页码混入正文（如'刑事职能管辖错位的程序规制\\n271'等页眉/页码残留）"
+        ],
+        "evidence_quotes": [
+          "刑事职能管辖错位的程序规制\n271",
+          "中国法学\n2021 年第1 期\n272",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑事诉讼管辖遵循管辖法定原则，管辖权由法律直接规定，不允许非法介入其他机关管辖的案件",
+          "监察体制改革后，职能管辖错位可能造成更大的问题，上述职能管辖错位的规制规则难以适用涉监察委员会管辖案件",
+          "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权",
+          "刑事诉讼中需要创设因职能管辖错位而退回人民检察院这一新类型程序制裁方式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式不统一，存在OCR残留；页眉页码混入正文；参考文献列表未抽取但文内引用完整",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国刑事诉讼管辖遵循管辖法定原则，管辖权由法律直接规定，不允许非法介入其他机关管辖的案件",
+        "监察体制改革后，职能管辖错位可能造成更大的问题，上述职能管辖错位的规制规则难以适用涉监察委员会管辖案件",
+        "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权",
+        "刑事诉讼中需要创设因职能管辖错位而退回人民检察院这一新类型程序制裁方式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量风险较低，核心论点、结构和主要论证均可定位，可直接进入六维评分。建议评分时关注脚注引用完整性，但无需因文本工程问题退回。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑事诉讼管辖遵循管辖法定原则，管辖权由法律直接规定，不允许非法介入其他机关管辖的案件。",
+          "监察体制改革后，职能管辖错位可能造成更大的问题，上述职能管辖错位的规制规则难以适用涉监察委员会管辖案件。",
+          "笔者统计裁判文书发现，共有13 个案件辩方提出职能管辖错位的辩护意见，所有案件中法院都对职能管辖问题进行审查，审查后都认为职能管辖错位的辩护意见不成立...",
+          "考量上述标准，对于职能管辖错位是否需要予以程序制裁可以采取“综合利益权衡”的方式。...我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "我国刑事诉讼管辖遵循管辖法定原则...",
+        "考量上述标准，对于职能管辖错位是否需要予以程序制裁可以采取“综合利益权衡”的方式。",
+        "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评分。该文以中国刑事诉讼职能管辖错位为核心议题，紧密结合监察体制改革背景与本土司法裁判实证，系统剖析了现行规制规则的实体依赖倾向与程序制裁缺失，并明确提出了“综合利益权衡”标准、“相对无效行为理论”及审判阶段“复合性审查”等可复核的规范命题，理论转化清晰，完全符合中国自主知识体系研究的候选信号。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了职能管辖错位程序规制的重要实践课题，但问题设定偏重制度梳理与对策建议，缺乏可争辩的法学理论命题。",
+          "core_judgment": "研究问题具有现实意义，但主要是对既有规则的归纳和应然层面的完善建议，未能提炼出存在理论分歧的法学争点。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限，但问题表述过于宏大，触发weak_problem_formulation上限65分。综合评定扣减后得分55分。",
+          "evidence_quotes": [
+            "对于职能管辖错位是否需要予以程序制裁可以采取“综合利益权衡”的方式。",
+            "我国刑事诉讼中，至今没有发展出因为程序违法而直接终结诉讼的制度。"
+          ],
+          "strengths": [
+            "敏锐捕捉到监察体制改革后职能管辖错位的程序规制真空，问题意识明确。",
+            "梳理了不同诉讼阶段的实践规则，展现了问题涉及多制度领域的枢纽性。"
+          ],
+          "weaknesses": [
+            "全文主要是对现状的归纳和应然建议，缺乏“XX是否YY”式的可争辩法学问题句。",
+            "虽有提及学者分歧，但将其作为制度完善的背景而非展开理论交锋的核心。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "问题设定为职能管辖错位的程序规制，但未凝练为具体可辩驳的法学命题，整体倾向于制度完善方案。"
+            }
+          ],
+          "boundary_note": "本维度只评价问题本身是否成立、是否可争辩、是否具枢纽性，不评价文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "职能管辖错位的程序规制争点明确，理论分歧丰富，枢纽性极强。",
+          "core_judgment": "问题成立且重要，聚焦管辖错位的程序制裁模式选择，具有高度可争辩性与制度枢纽性。",
+          "score_rationale": "强制前置检查扣分合计=0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "对职能管辖错位采取何种程序制裁并未形成明确的规则",
+            "职能管辖错位是否需要予以程序制裁可以采取‘综合利益权衡’的方式"
+          ],
+          "strengths": [
+            "争点明确，聚焦程序制裁模式选择",
+            "呈现善意/恶意、绝对/相对排除等多重理论分歧"
+          ],
+          "weaknesses": [
+            "部分问题表述隐含在论述中，未在开篇集中凸显"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "good",
+          "summary": "论文聚焦刑事职能管辖错位的程序规制，提出监察体制改革后管辖错位规制的新问题，但核心争点聚焦不足。",
+          "core_judgment": "问题具有可争辩性和一定枢纽性，但存在主题声明倾向，问题聚焦度不够，材料新颖性未触发上限。",
+          "score_rationale": "可争辩性=3/4（有问题句'职能管辖错位如何程序规制'，涉及法学层面，有理论分歧如'知法犯法论'vs'善恶二元论'，非纯政策倡导），枢纽性=2/4（影响侦查/审查起诉/审判多阶段，涉及管辖法定原则，但制度连锁论证不足），材料新颖性未触发上限，锚定good档，给62分。扣分合计=0分。",
+          "evidence_quotes": [
+            "职能管辖错位作为严重的程序违法行为，也应当予以程序性制裁",
+            "我国并未建立完备的职能管辖错位的程序规制规则"
+          ],
+          "strengths": [
+            "监察体制改革后新问题的提出具有现实针对性",
+            "对'知法犯法论'与'善恶二元论'的辨析体现理论分歧"
+          ],
+          "weaknesses": [
+            "问题表述偏宏观，'程序规制'作为主题声明多于精确问题句",
+            "核心争点'如何规制'过于宽泛，缺乏聚焦的理论交锋"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准锚定刑事职能管辖错位的程序制裁空白，提出利益权衡规制路径。",
+          "core_judgment": "问题具备高度可争辩性与制度枢纽性，属优秀法学研究问题。",
+          "score_rationale": "前置扣分0分。可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "当前，对职能管辖错位采取何种程序制裁并未形成明确的规则，有必要讨论规制职能管辖错位时，其内在的价值基础以及考量因素。",
+            "职能管辖错位作为严重的程序违法行为，也应当予以程序性制裁。然而，职能管辖错位的原因多种多样，其危害后果也各不相同。"
+          ],
+          "strengths": [
+            "精准聚焦监察体制改革后的管辖错位制裁空白，问题意识明确。",
+            "构建“综合利益权衡”模型，有效统合程序法定、诉讼效率与权利保障。"
+          ],
+          "weaknesses": [
+            "审判阶段退回机制的具体操作程序论证稍显简略。",
+            "对“恶意”管辖的主观证明标准缺乏可操作的证据规则设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.13870406150818,
+        "glm-5.1": 43.338216066360474,
+        "kimi-k2.6": 10.24209213256836,
+        "qwen3.6-plus": 66.57709121704102
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 88,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 88
+      },
+      "mean": 73.2,
+      "std": 17.3,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文将文献梳理分散融于正文论证，呈现出清晰的研究地图和争点脉络，但未独立列出参考文献列表，形式上有缺憾。",
+          "core_judgment": "论文通过分散式文献定位清晰勾勒出职能管辖错位程序规制的学术争论和制度分歧，研究地图较为完整。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+本文切入点1），争点结构=2/2，法学流派=2个（实体决定程序派、程序独立制裁派），锚定excellent与good交界档，因未竟点对应关系略显松散给78分。",
+          "evidence_quotes": [
+            "有学者批评管辖错位案件以实体确定不同处置程序不适当，其未区分善意违法与恶意违法。",
+            "职能管辖错位是否影响之前的诉讼行为以及证据效力…很难认为其属于程序规制。"
+          ],
+          "strengths": [
+            "分散式文献定位清晰，学界争论脉络完整嵌入正文。",
+            "明确呈现了实体决定程序与程序独立制裁两种对立的解释路径。"
+          ],
+          "weaknesses": [
+            "本文切入点与未竟点的对应关系稍显松散，削弱了研究地图的聚焦度。",
+            "缺少独立的参考文献列表，部分文献引用的完整性难以核验。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 3,
+              "evidence": "三要素合计5分，此处该规则未实质触发，但对本文情形限制上限为79分。"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理的完整性与研究地图，未评问题创新性；文中关于监察管辖与侦查管辖的冲突属学科内制度分歧。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式定位清晰呈现研究地图，争点结构丰满，流派识别充分。",
+          "core_judgment": "现状洞察度极高，研究地图三要素完备，多争点与多流派交织论证。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界将否定职能管辖错位效力的理论聚焦于主观方面，已经形成两种不同观点",
+            "英美法系形成了制裁滥用诉讼程序理论，大陆法系形成了诉讼行为无效理论"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了多位学者贡献与未竟点",
+            "争点结构清晰，呈现主观标准、比较法路径等多重对立"
+          ],
+          "weaknesses": [
+            "部分争点仅作引述未深入展开其法理根基"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献梳理与争点呈现，不评判管辖规制方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了较为完整的职能管辖错位规制研究地图，梳理了立法演变与学术观点，但三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素基本成立但分散于正文各处，争点结构清晰，法学流派识别因主题特性而有限，整体达到良好水平。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了立法沿革与学者观点；未竟点1分：指出规则不足但分散；切入点2分：明确构建制裁标准与程序），争点结构=2/2（程序制裁vs实体效率、绝对无效vs相对无效等多组对立），法学流派=2个（程序法定主义/制裁滥用诉讼程序理论、诉讼行为无效理论），锚定good档，给72分。",
+          "evidence_quotes": [
+            "有学者批评管辖错位案件以实体确定不同处置程序不适当……违反了程序法制原则",
+            "目前，学界将否定职能管辖错位效力的理论聚焦于主观方面，已经形成两种不同观点。一种观点属于'知法犯法论'……另一种观点属于'善恶二元论'"
+          ],
+          "strengths": [
+            "系统梳理了1979年至2019年职能管辖错位规则的立法演变",
+            "清晰呈现了'绝对无效'与'相对无效'、'程序制裁'与'实体效率'等对立立场"
+          ],
+          "weaknesses": [
+            "未竟点分散于各节，缺乏集中提炼的'研究缺口'表述",
+            "比较法分析薄弱，仅提及英美法系'制裁滥用诉讼程序理论'和大陆法系'诉讼行为无效理论'而未展开"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素得分4/6，未触发此规则；实际触发三要素4分+争点2分+流派2个，锚定good档"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献定位完整性，不涉及问题新颖性判断；论文主题属制度建构型，流派数量有限属主题特性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理管辖错位既有规则与学说分歧，精准定位制度缺口，构建完整研究地图。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "目前学界将否定职能管辖错位效力的理论聚焦于主观方面，已经形成两种不同观点。",
+            "英美法系形成了制裁滥用诉讼程序理论，大陆法系形成了诉讼行为无效理论。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将规则梳理与学说争鸣融入各阶段分析。",
+            "明确提炼知法犯法论与善恶二元论、绝对与相对排除等对立路径。"
+          ],
+          "weaknesses": [
+            "部分比较法理论仅作引介，未深入展开本土化争点对话。",
+            "对监察体制改革后管辖冲突的实证数据支撑略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构呈现，不涉及管辖错位问题本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.094788074493408,
+        "glm-5.1": 38.83604693412781,
+        "kimi-k2.6": 14.305394172668457,
+        "qwen3.6-plus": 73.6025059223175
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 68,
+          "band": "good",
+          "summary": "论文通过系统梳理职能管辖错位程序规制的现状与问题，提出了以“违法程度-侵权程度-实体对错”为主线的多因素权衡框架，具备一定的分析结构和法学转化。",
+          "core_judgment": "分析框架建构力基本成立，但框架操作步骤不够明确，法学转化主要停留在学说提炼和鉴别因素罗列层面，而非严密的程序操作指引。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=1/4，锚定good档，给68分。",
+          "evidence_quotes": [
+            "应当将职能管辖错位作为违法行为予以规制，需要评判其行为的违法程度，对严重的违法行为程序制裁。",
+            "对于职能管辖错位是否需要予以程序制裁可以采取“综合利益权衡”的方式……实体正确与否可以作为程序制裁的一个权衡因素。"
+          ],
+          "strengths": [
+            "清晰界定了职能管辖错位类型（侦查阶段、审查起诉阶段、审判阶段）及监察体制改革后的新问题。",
+            "提炼出主观心态（善意/恶意）、违法位阶、权利侵害程度等多项具体权衡因素，形成了多因素分析框架。"
+          ],
+          "weaknesses": [
+            "未形成明确的“步骤式”操作流程（如判断顺序、权重分配），停留在因素罗列与政策呼吁层面。",
+            "法学转化不足：跨学科的“综合利益衡量”理论未转化为裁判规则或明确的程序启动/判断标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于制度型实务论文，但法学转化度较低，框架多为权衡因素列举，而非可重复适用的严格操作规程。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "建构了基于利益权衡的职能管辖错位程序规制与证据排除框架。",
+          "core_judgment": "框架成立且法学转化度高，将理论成功转化为程序制裁方式与裁判规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "恶意违法是想突破法定管辖满足其他‘不正当目的’...善意违法是立案时认为案件应属自己管辖",
+            "采取相对排除规则...实物证据作为瑕疵证据补正，言词证据不具有证据资格需重新收集"
+          ],
+          "strengths": [
+            "提出完整的利益权衡框架，考量因素明确且类型化清晰",
+            "法学转化彻底，将理论转化为复合性审查模式与相对排除规则"
+          ],
+          "weaknesses": [
+            "利益权衡的步骤化稍弱，未给出严格的先后适用顺位"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与法学转化，不评利益权衡逻辑的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "制度型论文，以规范梳理和比较分析为主，缺乏原创分析框架。",
+          "core_judgment": "论文未建构可重复适用的原创分析框架，核心贡献在于规范梳理与制度归纳。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文未实际调用原创框架）；法学转化度得分=2/4（提供了裁判规则层面的操作指引和制度设计方案，但跨学科概念转化不足，后文调用有限）；锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "基于管辖法定原则，应当将职能管辖错位作为违法行为予以规制……需要评判其行为的违法程度，对严重的违法行为程序制裁",
+            "对于职能管辖错位是否需要予以程序制裁可以采取'综合利益权衡'的方式"
+          ],
+          "strengths": [
+            "分类标准明确，按侦查、审查起诉、审判三阶段梳理规则",
+            "提出了'综合利益权衡'的规制思路，具有一定操作性"
+          ],
+          "weaknesses": [
+            "核心术语如'综合利益权衡'未转化为可重复判断的具体步骤",
+            "后文分析以规范描述为主，未实际调用前文提出的分析框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "'综合利益权衡'等核心术语仅作为结论性表述出现，后文未形成步骤化操作，三阶段分析沿用传统规范描述而非原创框架"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“综合利益权衡”框架，明确管辖错位制裁的考量因素与程序路径。",
+          "core_judgment": "框架具备清晰的概念界定、类型划分与可操作的裁判指引，法学转化充分。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "考量主观心态、规范位阶、权利侵害程度及实体正确与否进行综合利益权衡。",
+            "创设因职能管辖错位而退回查办机关的新类型程序制裁，并区分言词与实物证据的排除规则。"
+          ],
+          "strengths": [
+            "提出四要素权衡标准，为裁判提供明确分析步骤。",
+            "设计“退回查办+相对证据排除”规则，具强实务操作性。"
+          ],
+          "weaknesses": [
+            "部分权衡因素（如主观恶意）证明标准仍偏抽象，需进一步细化。",
+            "审判阶段复合审查的具体程序衔接可更详尽。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑推演严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 21.303690910339355,
+        "glm-5.1": 52.8030059337616,
+        "kimi-k2.6": 12.874653100967407,
+        "qwen3.6-plus": 68.316654920578
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 75.5,
+      "std": 19.1,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕核心问题展开，从现状梳理到制度比较，再到价值权衡与方案构建，推理链清晰完整，结论可从前文充分推出。",
+          "core_judgment": "论文逻辑严密性强，主要推理步骤可复述且环环相扣，关键结论均有前文材料支撑，对潜在反驳和自身局限有充分回应。",
+          "score_rationale": "推理链完整性得分=4/4：三大步骤（现状与问题→价值基础与权衡因素→制裁标准与程序构建）逻辑衔接明确，推理链高度依赖，结论由权衡因素推出，无关键跳步。反驳处理度得分=3/3：显式回应龙宗智、程军伟、张曙等学者反对意见（信号①），回应了实体决定论的批评（信号②），承认自身制裁方案的温和性与适用边界（信号④）。锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "有学者批评管辖错位案件以实体确定不同处置程序不适当……因此违反了程序法制原则。（参见龙宗智：《新〈人民检察院刑事诉讼规则〉若干问题评析》）",
+            "笔者基本赞同，只是恶意违法需要更加严格的认定标准，一方面，明知违法不宜直接推定为恶意，还应有主观恶意的其他事实。"
+          ],
+          "strengths": [
+            "推理链从现象描述→法理批判→价值基础→制度方案层层推进，每一步都依赖前一步结论。",
+            "充分枚举反驳观点（如效率优先说、实体决定说）并给予论证性回应，且承认自身方案限于'相对无效'而非绝对制裁。"
+          ],
+          "weaknesses": [
+            "'实体+听取意见'审查模式的批评可更直接地与后文'综合权衡'方案衔接，局部过渡稍显跳跃。",
+            "对域外制度（英国滥用程序理论）的引入与本土方案构建之间的推导关系可更紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文对'实体决定论'的批评及'综合权衡'标准的提出均属于逻辑推演，而非评判框架可操作性。关于规制因素是否完全穷尽属于框架建构力问题，不在本维度评价范围。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳处理充分，核心制度方案可辩护推出。",
+          "core_judgment": "论文逻辑严密性维度成立，推理链与反驳处理均达优秀标准。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。推理链从现状揭示到价值权衡再到制度构建依赖度高；反驳显式回应且承认局限。",
+          "evidence_quotes": [
+            "有学者批评管辖错位案件以实体确定不同处置程序不适当...违反了程序法制原则",
+            "退回查办阶段之后，还有一系列的程序问题没有解决...之前取证行为是否有效"
+          ],
+          "strengths": [
+            "从问题揭示到价值权衡再到制度方案，推理链依赖度高",
+            "显式回应学界批评并坦诚自身方案局限"
+          ],
+          "weaknesses": [
+            "部分制度细节（如退回程序的具体衔接）论证稍薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "退回查办的操作细节属于框架建构力，不影响逻辑推出本身的严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "制度分析型论文，推理链完整但反驳处理存在不足。",
+          "core_judgment": "主要推理步骤可识别且相互依赖，核心结论可由前文推出，但反驳处理仅部分完成。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=1/3，锚定good(70-79)档，给72分。论文完整呈现'规范梳理→实践问题→价值权衡→制度构建'四步推理链，且步骤间依赖紧密；但仅对'绝对证据排除'等少数观点有显式反驳，未充分回应'诉讼效率优先论'等核心反对意见，也未承认自身制度建议的适用边界。",
+          "evidence_quotes": [
+            "有学者批评管辖错位案件以实体确定不同处置程序不适当，其未区分善意违法与恶意违法...违反了程序法制原则。",
+            "绝对排除所有证据的效力在我国不具有合理性。其一，理论上对非法定主体收集证据是否应排除尚存争议...其二，这种做法并不符合我国非法证据排除规则的立法。"
+          ],
+          "strengths": [
+            "四步推理链完整：规范梳理→实践问题→价值权衡→制度构建，每步有明确衔接。",
+            "对'绝对证据排除'的反驳有理论、立法、实践三重论证。"
+          ],
+          "weaknesses": [
+            "未显式回应'诉讼效率优先、应容忍管辖错位'的核心反对意见。",
+            "未承认自身'综合利益权衡'标准在操作层面的模糊性与适用边界。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链与反驳处理，不评'综合利益权衡'框架本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“现状检视—理论证成—规则构建”为主线，推理链条完整，对反对观点与实务约束回应充分。",
+          "core_judgment": "核心结论可由前文规范分析与价值权衡充分支撑，逻辑推导严密，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论文从管辖错位现状切入，逐阶段剖析规则缺陷，引入监察体制改革变量，进而以利益权衡与程序法定为基点推导出相对无效与证据相对排除规则，各环节依赖紧密，反驳处理扎实。",
+          "evidence_quotes": [
+            "如果所有职能管辖错位案件都绝对否定其程序效力，不符合诉讼效率的原则，因此不应当采取绝对无效规则。",
+            "基于管辖法定原则，应当将职能管辖错位作为违法行为予以规制，即将目标指向办案机关的‘诉讼行为’，而不仅是‘实体、效率’等外在因素。"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，从问题检视到规则构建依赖度高。",
+            "对“绝对排除”与“机关意志决定”等反对观点进行了实质性法理回应。"
+          ],
+          "weaknesses": [
+            "主观恶意认定标准在实务中的证明路径略显理想化。",
+            "审判阶段复合审查模式的具体程序衔接细节可进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文规范与案例推导可辩护地推出，而非评价所提制度框架在司法实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.80533719062805,
+        "glm-5.1": 38.316965103149414,
+        "kimi-k2.6": 11.742299795150757,
+        "qwen3.6-plus": 71.2316358089447
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.2,
+      "std": 8.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 62,
+          "band": "good",
+          "summary": "论文结论在程序规制设计上具有本土问题意识和制度回应性，但未将自身方案充分放置于既有学说对话中，且部分对策建议未给出具体制度转化。",
+          "core_judgment": "结论在制度兼容性上基本成立，但共同体对话度较弱，属于可以进入讨论但尚未完全打开对话空间的类型。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=3/4，理论-制度混合论文轨锚定good档（60-69），给62分。",
+          "evidence_quotes": [
+            "对于职能管辖错位是否需要予以程序制裁可以采取“综合利益权衡”的方式。",
+            "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权。"
+          ],
+          "strengths": [
+            "结论紧密贴合监察体制改革后管辖错位的新问题，制度语境回应性强",
+            "提出了区分违法程度、权衡实体与程序价值的规制思路，具有理论包容性"
+          ],
+          "weaknesses": [
+            "结论未清晰说明自身方案与龙宗智、张曙等既有观点的具体关系，对话性不足",
+            "部分建议如“综合利益权衡”仍较抽象，未转化为可操作的裁判规则或程序标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅针对结论当下在共同体与制度语境中的可接受性，不涉及论证严密性或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文结论深度回应学界争论与中国制度语境，提出了精细的程序规制方案，高度可接受。",
+          "core_judgment": "结论在共同体对话与制度兼容层面均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "主张区分善意与恶意违法，并对恶意违法予以程序制裁",
+            "创设因职能管辖错位而退回查办阶段的新类型程序制裁方式"
+          ],
+          "strengths": [
+            "深度回应学界关于善恶二元论、取证主体合法性的争论",
+            "紧密结合监察体制改革语境提出差异化规制方案"
+          ],
+          "weaknesses": [
+            "对恶意违法认定标准的讨论稍显简略，可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦结论的共同体对话与制度回应，不评价论证严密性或研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文系统提出职能管辖错位程序规制的理论框架，结论具有明确学术对话性和制度回应性。",
+          "core_judgment": "结论在共同体对话度和制度可接受度上均表现良好，属于可接受的学术主张。",
+          "score_rationale": "共同体对话度得分=3/4（回应了既有争论、可被反对者定位、结合中国语境，但未充分讨论反对意见或自身局限），制度可接受度得分=3/4（不矛盾于现行法秩序、回应制度约束、考虑中国语境，但制度转化方向可更明确），锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者也认为对于职能管辖错位，检察机关应当依据违法程度等因素，采取相应的程序制裁，而不能基于管辖争议机关的意思采取应对措施",
+            "对于公安机关与检察机关的管辖错位，监察委员会与其他侦查机关的管辖错位，在违法程度、对当事人权利影响程度上完全不一样，应当采取不同的规则"
+          ],
+          "strengths": [
+            "明确回应并修正了龙宗智、张曙等学者观点",
+            "结合监察体制改革等中国制度语境展开论证"
+          ],
+          "weaknesses": [
+            "未充分讨论自身理论框架可能面临的反对意见",
+            "制度转化方向（如具体程序规则设计）可更具体"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度嵌入中国刑诉与监察语境，提出具可操作性的程序制裁与证据规则方案。",
+          "core_judgment": "结论明确回应既有争论且具备制度转化路径，高度契合现行法秩序逻辑。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我国应当将以下因素纳入职能管辖错位程序规制的考量视野……采取相对无效行为理论",
+            "我国对职能管辖错位应当采取相对排除规则……考量管辖错位对‘事实认定准确性’的影响"
+          ],
+          "strengths": [
+            "深度回应学界管辖制裁与证据排除争议，立场清晰可辩。",
+            "提出“相对无效+复合审查+证据相对排除”的具体制度路径。"
+          ],
+          "weaknesses": [
+            "审判阶段“退回查办”的具体程序衔接与期限规定仍显模糊。",
+            "主观恶意“自由证明”标准在实务中可能面临举证困难。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.509454250335693,
+        "glm-5.1": 34.197107791900635,
+        "kimi-k2.6": 10.31005311012268,
+        "qwen3.6-plus": 61.898898124694824
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.2,
+      "std": 15.9,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在识别现行规制缺陷后，明确提出了以违法程度、主观心态、权利侵害等要素构建综合权衡制裁体系的深化方向，但具体制度路径和操作细节尚未展开。",
+          "core_judgment": "存在明确的延展路径，与正文论证紧密衔接，但路径精细度与证据展开仍有限，处于良好区间。",
+          "score_rationale": "原始分65分，对应bonus档位3分。主要证据是：论文明确提出了‘综合利益权衡’的程序制裁考量框架（实体真实、违法者主观心态、违反法律位阶及权利侵害程度），并指出审判阶段需创设新类型程序制裁方式，这些构成了可定位的后续制度完善方向，但多停留在方向层面，具体构建展开不足。",
+          "evidence_quotes": [
+            "应当基于实体真实、程序法定与法律和谐价值之间的平衡，采取相对无效行为理论，认定其程序形成行为无效，给予瑕疵补正的机会。",
+            "我国对职能管辖错位应当采取相对排除规则，赋予办案机关一定的裁量权……考量管辖错位对‘事实认定准确性’的影响，决定是否排除。"
+          ],
+          "strengths": [
+            "清晰指出了从单一依附实体转向多元因素权衡的程序规制延展路径。",
+            "明确将被追诉人权利影响、主观恶意等作为未来制度考量的变量，提供了可讨论的延展接口。"
+          ],
+          "weaknesses": [
+            "对‘综合利益权衡’的具体操作标准、权衡步骤及补救程序仍未形成精细刻画。",
+            "审判阶段程序制裁的具体制度设计（如退回程序、效力认定）仍处于方向性指示，缺乏详细路径推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文提出的‘未来应如何完善程序制裁规则’这一延展方向，属于制度完善路径问题；而不评估‘综合权衡方案能否被共同体接受’，后者属于结论可接受性维度。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了具体的制度完善方向与后续规则创设问题，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了审判阶段规则创设、恶意违法认定标准及退回后程序衔接等具体制度深化方向。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。论文指出了审判阶段程序规制创设、恶意违法认定标准细化、退回后证据与程序衔接等具体制度完善方向，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "仅适用审查起诉阶段，缺乏审判阶段职能管辖错位的程序规制……是否可以遵循上述规则，还是需要创设新的规则，也是尚未解决的问题。",
+            "恶意违法是想突破法定管辖满足其他‘不正当目的’……通过违法管辖满足惩罚犯罪的目标是否属于恶意有待区分。"
+          ],
+          "strengths": [
+            "明确指出了审判阶段规制规则创设的后续研究问题。",
+            "揭示了退回查办后证据效力与程序衔接的具体制度深化方向。"
+          ],
+          "weaknesses": [
+            "对相对排除规则在实务中的风险控制与场景延伸稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "退回后程序衔接与审判阶段规则创设属于未来制度完善方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文在制度完善方向上有明确延展意识，但多数延展内容分散于正文论证中，未形成集中的前瞻展望，部分关键制度节点仅点到为止。",
+          "core_judgment": "存在真实延展路径，但路径较分散、证据支撑有限，与正文核心结论的衔接需推断。",
+          "score_rationale": "原始分52分，对应bonus=2档。论文提出审判阶段'复合性审查模式'、被追诉人管辖异议权、相对排除规则等制度方向，但多嵌入正文而非独立展望；监察体制改革后的程序衔接、证据效力分层等议题有明确待修正对象，但'退回查办阶段'的具体程序设计未充分展开。整体属于'有方向、有对象，但精细度不足'。",
+          "evidence_quotes": [
+            "法院在审判阶段应当采取'复合性'审查模式，先审查自身是否有管辖权，再审查之前职能管辖是否错位，是否需要程序制裁",
+            "对于监察委员会超越其职责范围，越权查办其他机关管辖的案件应当认定为职能管辖错位，根据上述权衡标准，决定是否采取相应制裁措施"
+          ],
+          "strengths": [
+            "提出'复合性审查模式'等具体制度完善方向，有可定位的修正对象",
+            "对监察体制改革后的特殊程序衔接有明确问题意识"
+          ],
+          "weaknesses": [
+            "多数延展分散于正文，未形成独立集中的前瞻部分",
+            "被追诉人管辖异议权、言词/实物证据分层排除等议题展开不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估'未来还能往哪里走'，不评估当下结论是否被接受。论文对审判阶段程序设计、证据排除规则的分层构建等提出待解决问题，属于未来延展议题；其关于'相对排除规则优于绝对排除'的结论是否被接受，属于结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文精准定位管辖错位制裁规则在立法与司法适用中的后续完善方向，提出具体制度建构路径。",
+          "core_judgment": "存在真实且清晰的延展路径，紧密衔接正文核心结论。",
+          "score_rationale": "原始分85，对应bonus=5。文本明确指向退回程序、证据资格与审判审查等制度空白，提出相对无效与相对排除规则，路径清晰。",
+          "evidence_quotes": [
+            "退回查办阶段之后，还有一系列的程序问题没有解决。比如……之前取证行为是否有效，所获证据是否具有证据资格。",
+            "为此，刑事诉讼中需要创设因职能管辖错位而退回人民检察院这一新类型程序制裁方式……应当完善法律。"
+          ],
+          "strengths": [
+            "延展路径具体且与核心论证紧密衔接",
+            "明确指向立法完善与证据规则细化"
+          ],
+          "weaknesses": [
+            "审判阶段复合审查的操作程序展开不足",
+            "未充分探讨跨机关协调的配套机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦管辖错位制裁规则在立法与司法适用中的后续完善方向，而非评判现有结论的当下可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 83.80179786682129,
+        "glm-5.1": 36.32905602455139,
+        "kimi-k2.6": 12.259464025497437,
+        "qwen3.6-plus": 61.821089029312134
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 71.8,
+      "std": 16.2,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 81.5,
+      "weighted_total": 78.3
+    },
+    "aggregation_strictest": {
+      "final_score": 64.47,
+      "weighted_total": 61.9
+    },
+    "avg_std": 14.5,
+    "max_std": 19.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 17.0,
+    "composite_score": -14.5,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 19.1
+  }
+}

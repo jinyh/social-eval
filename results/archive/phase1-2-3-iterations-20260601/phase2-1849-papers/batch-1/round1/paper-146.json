@@ -1,0 +1,1089 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/人民调解员的制度角色考.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留：部分脚注编码连续但存在混入期刊页码和分栏标记（如“中国法学2021年第4期270”）",
+          "参考文献列表缺失，无法验证参考文献抽取完整性"
+        ],
+        "evidence_quotes": [
+          "转型社会的人民调解是法治化的“贤治”，它的展开必须附着于人民调解员所承载的",
+          "270\\n背景底色，或是相关主体由于工作、职业经历而与这一场域产生了深广的交集，",
+          "中国法学\\n2021 年第4 期\\n270"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "转型社会的人民调解是法治化的“贤治”，它的展开必须附着于人民调解员所承载的一系列重要的社会资本。",
+          "人民调解员非但不能像韦伯所描述的“司法自动售货机”那样机械地适用法律解决争端，相反，在诸多必要的时候，还必须实施某种程度的韦伯意义上的传统/长老治理",
+          "在人民调解的制度实践运行中，调解员以法律规范为认知轴心梳理所涉纷争的来龙去脉，展开说理过程。",
+          "人民调解员的制度角色考，其实质与核心意涵就是着眼于“人的主体性”“人的主体意识”，为这一政法治理战略的深入实施详尽地勾勒出角色的复合制度图谱及其运行机理，书写作为制度因应的机制建构话语",
+          "社会资本主要以符号形式存在和运行，调解技艺的操作与运行，则是符号资本在人民调解制度实践中的具体展现……相应的激励制度设计应当围绕声誉效应展开。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：OCR抽取导致部分段落混入期刊分页标记和页码，参考文献完全缺失，但核心论证与结构完整可辨。",
+        "项目口径：论文以中国制度（人民调解）为中心，有明确法学问题和理论建构尝试，完全进入六维评审。"
+      ],
+      "evidence_quotes": [
+        "转型社会的人民调解是法治化的“贤治”，它的展开必须附着于人民调解员所承载的一系列重要的社会资本。",
+        "人民调解员在运用其调解技艺的过程中，通常采取哪些彰显实践理性的工作方法？……对我国人民调解生动实践中所涌现的模范人民调解员的出色调解技艺进行知识社会学的分型",
+        "社会资本主要以符号形式存在和运行……相应的激励制度设计应当围绕声誉效应展开。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR和参考文献缺失风险，但正文核心论点清晰，建议进入六维评分；后续评审需注意参考文献未能导出可能影响引证追溯，但不阻断正常评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号及内容直接混入正文段落中，打断行文连贯性",
+          "期刊页码及栏目名混入正文（如'人民调解员的制度角色考 269'、'中国法学 2021 年第4 期 270'）",
+          "参考文献列表抽取为空，但脚注已在文中体现"
+        ],
+        "evidence_quotes": [
+          "(4) 结合布迪厄的“场域的逻辑”理论，(5) 这一范畴可以在更为语境化的操作层面进一步界定为...",
+          "人民调解员的制度角色考 269",
+          "中国法学 2021 年第4 期 270"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "转型社会的人民调解是法治化的“贤治”，它的展开必须附着于人民调解员所承载的一系列重要的社会资本",
+          "人民调解追求依法调解框架之下“和”的价值目标，强调“案结事了人和”",
+          "以“枫桥经验”等为代表的先进典型事例表明，人民调解作为我国政法战略的重要组成部分",
+          "构筑社会资本—调解技艺的生动活泼而又科学可行的扩大再生产机制"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注与页码混入正文，参考文献列表抽取为空",
+        "项目口径：完全满足，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "转型社会的人民调解是法治化的“贤治”...附着于人民调解员所承载的一系列重要的社会资本",
+        "以“枫桥经验”等为代表的先进典型事例表明，人民调解作为我国政法战略的重要组成部分"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段清洗文本中的脚注混入及页码混入问题，并补全/校对参考文献抽取。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在少量乱码（如㉑、㉔等）",
+          "参考文献列表缺失",
+          "期刊页码信息偶有混入正文"
+        ],
+        "evidence_quotes": [
+          "参见前注㉑，刘星书，第172-173 页。",
+          "参见前注㉔，汪世荣、褚宸舸书，第364 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "人民调解员是人民调解制度运行中的行动者，是组织、主导人民调解在纷争化解场域中顺利展开的核心主体要素",
+          "开辟制度角色的分析视角，细致深入考察人民调解员的'人像图'，从知识社会学、组织社会学的进路对之给出制度角色的复合图谱",
+          "以'枫桥经验'等为代表的先进典型事例表明，人民调解作为我国政法战略的重要组成部分",
+          "社会资本以及附着其上的调解技艺是人民调解员制度角色的有机构成",
+          "人民调解制度是我国政法治理重大战略的重要一环"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号存在少量OCR残留乱码，但不影响核心论点定位",
+        "参考文献列表缺失，需确认完整性"
+      ],
+      "evidence_quotes": [
+        "人民调解员是人民调解制度运行中的行动者，是组织、主导人民调解在纷争化解场域中顺利展开的核心主体要素",
+        "开辟制度角色的分析视角，细致深入考察人民调解员的'人像图'，从知识社会学、组织社会学的进路对之给出制度角色的复合图谱"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文以中国人民调解员制度为核心研究对象，运用社会资本理论、知识社会学、组织社会学等理论工具，深入分析中国基层社会治理中的法治化'贤治'实践，具有明确的中国问题意识、法学理论深度和制度建构命题，完全符合项目口径。建议直接进入六维评价。文本质量总体良好，仅存在少量脚注编号乱码和参考文献缺失问题，不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "转型社会的人民调解是法治化的“贤治”……揭示究竟是哪些作为社会资本的因素，推动着人民调解制度实践情、理、法的兼容并蓄，真正落实釜底抽薪式的“诉源治理”。",
+          "如何从制度的进路，有效克服人民调解员队伍建设中出现的局部的实践之失……构筑社会资本—调解技艺的生动活泼而又科学可行的扩大再生产机制？",
+          "社会资本主要以符号形式存在和运行，调解技艺的操作与运行，则是符号资本在人民调解制度实践中的具体展现……激励其进行有效扩大再生产的重要指引应当是同为符号资本的声誉要素，相应的激励制度设计应当围绕声誉效应展开。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "社会资本主要以符号形式存在和运行，调解技艺的操作与运行，则是符号资本在人民调解制度实践中的具体展现……激励其进行有效扩大再生产的重要指引应当是同为符号资本的声誉要素，相应的激励制度设计应当围绕声誉效应展开。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文聚焦中国基层人民调解制度转型中的主体角色困境，以社会资本与声誉机制为分析工具，系统论证了职业准入、评级、品牌工作室及司法确认等制度建构路径。具备鲜明的中国问题意识、可争辩的法学/法社会学命题及明确的理论转化与制度设计能力，完全符合进入六维评价的标准，建议直接评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文完成的是对人民调解员社会资本及调解技艺的系统性介绍与政策归纳，但未提出可争辩的法学研究问题。",
+          "core_judgment": "全文属于主题声明与既定阐释的集合，缺乏可辨识的法学争点和理论分歧，创新性不成立。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学层面争点、无理论交锋、非政策倡导转述），枢纽性=1/4（仅理论基础沾边），材料新颖性未实质推进问题。负面扣分触发检查3：无问题句，扣30分。上限50分，给48分。",
+          "evidence_quotes": [
+            "人民调解员的制度角色考，其实质与核心意涵就是着眼于“人的主体性”“人的主体意识”，为这一政法治理战略的深入实施详尽地勾勒出角色的复合制度图谱及其运行机理。",
+            "本文所作的智识探索与努力的意义所在。"
+          ],
+          "strengths": [
+            "对人民调解员的各类社会资本及调解技艺进行了系统归纳。"
+          ],
+          "weaknesses": [
+            "全文无“XX是否YY”“如何ZZ”等可争辩的问题句，仅表现为主题声明。",
+            "内容为描述性介绍与既有经验的再梳理，无法学理论上不同立场的交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明与系统介绍，触发 no_justiciable_question，上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文标题为“制度角色考”，内容是对人民调解员要素的系统介绍，未提出可争辩的法学问题句。"
+            }
+          ],
+          "boundary_note": "本维度评问题本身是否成立且重要，不评文献综述、论证严密性与材料支撑结论的程度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以新概念包装旧问题，缺乏可争辩的法学争点，纯属政策倡导与体系介绍。",
+          "core_judgment": "问题维度不成立，全文无理论分歧与法学争辩，仅为主题声明与政策建议。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性已触发上限，锚定unacceptable档，给45分；扣分55分，底线30分。",
+          "evidence_quotes": [
+            "有助于深化对于人民调解员的主体性的认知，有助于揭示调解中法治化的“贤治”得以有效运行的内在机理",
+            "如何从制度的前瞻性设计的角度，构筑社会资本—调解技艺的生动活泼而又科学可行的扩大再生产机制？"
+          ],
+          "strengths": [
+            "引入社会资本等理论提供了新的描述视角"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的法学争点",
+            "无学者观点交锋，单向陈述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无可争辩法学争点，问题句实为政策倡导"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖新概念但无实质研究推进 → 最高 70 分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "引入社会资本等概念仅作描述，未改变规范命题"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "主题阐释型论文，缺乏可争辩的法学问题。",
+          "core_judgment": "全文为对人民调解员社会资本与调解技艺的系统阐释，无明确问题句，未触及法学理论分歧。",
+          "score_rationale": "可争辩性=1/4（无问题句，仅有主题声明；非法学层面争点，实为政策/制度描述；无理论分歧；非政策倡导但有政策建议），枢纽性=2/4（影响范围广、涉及理论基础，但无争议焦点、无制度连锁），材料新颖性未触发上限，锚定unacceptable档，给35分。前置扣分：检查2扣20分（无学者观点交锋），检查3扣30分（无问题句，只有主题声明），合计扣50分，但不得低于30分。",
+          "evidence_quotes": [
+            "开辟制度角色的分析视角，细致深入考察人民调解员的'人像图'，从知识社会学、组织社会学的进路对之给出制度角色的复合图谱",
+            "人民调解员的制度角色考，其实质与核心意涵就是着眼于'人的主体性''人的主体意识'，为这一政法治理战略的深入实施详尽地勾勒出角色的复合制度图谱及其运行机理"
+          ],
+          "strengths": [
+            "主题具有现实关怀，涉及基层治理重要制度"
+          ],
+          "weaknesses": [
+            "全文为描述性阐释，无'是否''如何'等问题句",
+            "未呈现任何学术争论或理论分歧，仅为单向制度介绍"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY''如何ZZ'等问题句，仅有'人民调解员的制度角色考'主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分（此处不适用，因可争辩性仅1）",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "论文以社会资本重构调解员角色，但核心为制度设计与政策倡导，缺乏可争辩法学命题。",
+          "core_judgment": "问题设定偏向宏观政策与机制建构，未触及实质法学争点，理论推进有限。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性已触发上限。锚定good档(65分)，触发负面扣分50分，按底线规则计30分。",
+          "evidence_quotes": [
+            "如何从制度的进路，有效克服人民调解员队伍建设中出现的局部的实践之失",
+            "社会资本及其生发化育的调解技艺对于人民调解员的制度角色塑造具有不言而喻的重要意蕴"
+          ],
+          "strengths": [
+            "触及调解与司法确认等多重制度联动",
+            "引入社会学视角分析调解员信任基础"
+          ],
+          "weaknesses": [
+            "核心问题实为政策倡导而非法律争点",
+            "新概念未阐明相对既有理论的实质解释力提升"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述宏大",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "聚焦队伍建设机制，缺具体法学争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "依赖新概念无实质命题推进",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "以社会资本重构旧问题，未改变解释路径"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.66413903236389,
+        "glm-5.1": 53.300899028778076,
+        "kimi-k2.6": 13.283766746520996,
+        "qwen3.6-plus": 114.86662173271179
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 35.8,
+      "std": 8.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文未形成任何研究地图，无文献综述、无既有研究到达点、未竟点及本文切入点，缺乏争点结构和法学流派识别。",
+          "core_judgment": "本文从知识社会学角度分析人民调解员的社会资本与调解技艺，但完全未呈现该领域的既有研究脉络或理论争辩，不具备研究地图基础。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给35分",
+          "evidence_quotes": [
+            "论文正文无“张三(2020)通过实证研究证明了XX”等到达点表述，也无“但尚未解决XX问题”等未竟点表述。",
+            "参考文献列表为空，无法确认作者是否阅读过相关研究。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "完全缺失研究地图：无到达点、未竟点和本文切入点，无任何既有研究成果的具体描述。",
+            "无争点结构和法学流派识别：论文未呈现任何学术争论、对立观点或不同解释路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=0，研究地图完全缺失，论文未呈现任何既有研究的到达点、未竟点和本文切入点。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "正文无任何具体研究成果引用与其贡献描述，无研究缺口表述，无本文切入点与未竟点的对应关系。"
+            }
+          ],
+          "boundary_note": "本文属于描述性建构而非文献定位，其缺失在于没有呈现既有研究脉络，而非问题本身不够新颖。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图，未提炼既有研究贡献与缺口，无争点结构。",
+          "core_judgment": "文献定位严重残缺，仅堆叠引文支撑自身论点，未呈现学界争点与流派对立。",
+          "score_rationale": "三要素得分=1/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "具备专业优势的知识权威型的人民调解员将在基层社会治理中扮演越来越重要的能动角色。(15)",
+            "局部区域中人民调解员的制度角色培育也隐藏着不容忽视的缺失"
+          ],
+          "strengths": [
+            "切入点明确，提出从知识社会学观察图谱"
+          ],
+          "weaknesses": [
+            "无学术缺口定位，混淆实践问题与理论未竟点",
+            "引文仅作论点支撑，未提炼既有研究贡献"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素总分仅1分（到达点0+未竟点0+切入点1），未提炼既有研究贡献与学术缺口"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理深度，不评人民调解制度创新性或论证严密性",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏系统的研究地图构建，未呈现既有研究的到达点、未竟点与本文切入点的清晰结构。",
+          "core_judgment": "本文未建立有效的研究地图，三要素严重缺失，争点结构与法学流派识别均不足。",
+          "score_rationale": "三要素得分=1/6（仅要素1部分满足，提及韦伯、波斯纳等理论但未提炼为具体研究成果；要素2、3缺失），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "参见［德］韦伯：《经济与历史 支配的类型》……第307-322页",
+            "参见［美］理查德·A.波斯纳：《衰老与老龄》……第80-81、230-240页"
+          ],
+          "strengths": [
+            "正文引用了韦伯、波斯纳、布迪厄等理论资源"
+          ],
+          "weaknesses": [
+            "未提炼任何具体研究成果及其贡献，无到达点",
+            "未指出任何研究缺口或学术争议，无未竟点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未出现'已有研究''学界争论''但''然而''尚未'等研究地图标识词，三要素严重残缺"
+            }
+          ],
+          "boundary_note": "本文属制度建构型论文，侧重对策建议而非学术对话，但本维度仅评文献定位完整性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "研究地图完整，三要素充分咬合，争点结构清晰，流派识别达辅助标准。",
+          "core_judgment": "文内证据充分支撑研究地图构建，到达点、未竟点与切入点逻辑闭环成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "局部区域中人民调解员的制度角色培育也隐藏着不容忽视的缺失",
+            "本文所作的智识探索与努力的意义所在，着眼于人的主体性书写机制建构话语"
+          ],
+          "strengths": [
+            "分散式文献定位精准，理论工具与实证观察深度融合",
+            "明确指出现实困境并构建声誉激励机制，未竟点与切入点高度咬合"
+          ],
+          "weaknesses": [
+            "未显性梳理学界对立流派，争点结构偏重实务对策而非理论交锋",
+            "外部文献覆盖度依赖脚注，缺乏集中式学术史脉络回溯"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及调解制度创新性的实质评判",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.720377206802368,
+        "glm-5.1": 72.0674819946289,
+        "kimi-k2.6": 10.106580972671509,
+        "qwen3.6-plus": 56.81382393836975
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 45,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 80
+      },
+      "mean": 51.2,
+      "std": 19.7,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 59,
+          "band": "marginal",
+          "summary": "论文系统梳理了人民调解员的社会资本要素与调解技艺类型，但仅完成主题归纳，未提出可重复适用的分析框架。",
+          "core_judgment": "框架构建不成立：全文是对既有经验的现象归类与制度建议，缺乏原创的分析步骤、判断标准或类型化操作方案。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定与分类标准部分满足，但无分析步骤且后文未调用），法学转化度得分=0/4（未转化为法学操作步骤），锚定marginal档给59分。因论文核心工作为“梳理”与“归纳”，非原创框架构建。",
+          "evidence_quotes": [
+            "调解员的社会资本类型、特性、功能等随着社会结构...呈现繁复多样的图谱。",
+            "从制度的进路...如何构筑社会资本—调解技艺的...扩大再生产机制？...制度设计应当围绕声誉效应展开。"
+          ],
+          "strengths": [
+            "对社会资本要素（年龄、知识、经历等）进行了清晰归类，概念界定明确。"
+          ],
+          "weaknesses": [
+            "调解技艺部分仅列举经验做法，未形成可操作的裁判规则或法律适用步骤。",
+            "制度化建议停留在宏观层面，缺乏可重复适用的判断标准或流程设计。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心为政策理论梳理型，仅归纳既有立场与现象，无原创分析步骤，法学转化度上限1，可操作性得分上限2。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释社会资本要素与调解技艺为主，结构为平行罗列，未提出判断步骤或操作流程。"
+            }
+          ],
+          "boundary_note": "本文缺陷在于缺乏分析框架的操作性构建，而非逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "以社会资本为核心建构调解员角色图谱，分类清晰但法学转化偏弱，主要停留于社会学映射与制度描述。",
+          "core_judgment": "框架概念界定与分类明确，但缺乏可重复的法学分析步骤，法学转化仅体现于末端制度方案设计，未形成裁判或适用指引。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定、分类标准、后文调用均满足，但无步骤化分析流程），法学转化度得分=1/4（仅满足制度设计方案，未转化为法学操作步骤或裁判规则），锚定good档，给72分。",
+          "evidence_quotes": [
+            "所谓社会资本……是指行动者……所能动员和使用的、嵌入社会网络中的各种资源总和",
+            "资格审查—笔试/面试考核—岗前培训—持证上岗"
+          ],
+          "strengths": [
+            "核心概念'社会资本'界定清晰，并有效映射至调解员的五类角色要素",
+            "末端提出了职业准入、评级制度等具可操作性的制度设计方案"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的法学分析流程，调解技艺仅为实践描述而非判断标准",
+            "跨学科概念未转化为法学操作步骤，主要作社会学阐释之用"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架是否成立及法学转化，不评社会学理论本身的自洽性或推理严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出社会资本分析框架阐释人民调解员制度角色，但框架可操作性不足，法学转化度有限。",
+          "core_judgment": "分析框架建构力未充分成立：核心术语虽有界定，但分类标准模糊、分析步骤不清，且框架在后文调用不足，法学转化停留在理论映射层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰，但分类标准不明确、分析步骤不可循、后文调用不足），法学转化度得分=1/4（社会资本概念未转化为法学操作步骤，未提供裁判规则或制度设计方案，理论映射为主），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "所谓社会资本，其社会学意义上的核心意涵是指行动者在特定的社会结构中展开行动时所能动员和使用的、嵌入社会网络中的各种资源总和。",
+            "社会资本主要以符号形式存在和运行，调解技艺的操作与运行，则是符号资本在人民调解制度实践中的具体展现"
+          ],
+          "strengths": [
+            "核心术语'社会资本'有明确定义，引入布迪厄场域理论增强学理性",
+            "从知识社会学视角系统梳理人民调解员角色类型，有一定理论纵深感"
+          ],
+          "weaknesses": [
+            "五种社会资本类型（年龄阅历、地方性知识等）仅为并列罗列，缺乏可重复适用的判断标准或分析步骤",
+            "后文制度建议部分未调用前文框架术语，框架与分析脱节"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "绪论提出'社会资本'框架后，后文制度建议部分（表彰、品牌工作室、职业准入、评级、司法确认）未再使用'社会资本'或'场域逻辑'等核心术语进行分析，框架被悬置"
+            }
+          ],
+          "boundary_note": "本维度仅评判分析框架本身的建构与转化，不涉及论文对人民调解制度的实证描述是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建“社会资本—调解技艺—制度激励”框架，类型化清晰且转化度高。",
+          "core_judgment": "框架成立且具备高度可操作性与法学转化度，成功将社会学概念转化为具体制度设计。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "结合布迪厄的“场域的逻辑”理论……进一步界定为：作为社会主体的行动者展开特定行动时所能动员和使用的……各类符号性要素的总和",
+            "由“资格审查—笔试/面试考核—岗前培训—持证上岗”等一系列环节构成的选拔流程，织就了一个行之有效的甄选机制"
+          ],
+          "strengths": [
+            "核心概念“社会资本”界定清晰并类型化为五类基础要素",
+            "成功将社会学理论转化为职业准入、评级与司法确认等具体制度方案"
+          ],
+          "weaknesses": [
+            "分析框架偏向静态要素罗列，缺乏显性步骤化裁判或适用流程",
+            "部分制度设计（如品牌工作室）的规范转化与程序细节略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与转化度，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 53.94790601730347,
+        "glm-5.1": 73.39674282073975,
+        "kimi-k2.6": 11.9983549118042,
+        "qwen3.6-plus": 83.33769083023071
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 59,
+        "glm-5.1": 72,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 67,
+      "std": 14.6,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了“社会资本→调解技艺→制度激励”的清晰推理链，结论可由前文充分支撑，但反驳处理仅隐含于路径选择，未直面实质反对意见。",
+          "core_judgment": "本文作为理论型论文，其概念推演和制度分析逻辑链条完整，但缺乏对潜在理论争辩或实务约束的显式回应，稍欠论辩严密性。",
+          "score_rationale": "推理链完整性得分=4/4，可复述出“社会资本五大要素→调解技艺四种分型→制度角色三种缺失→声誉机制五种制度”的完整步骤，无关键跳步。反驳处理度得分=2/3，识别了隐含分歧路径（社会资本界定）并说明选择理由，承认了局部区域局限，但未对核心论点设置显式反对意见。锚定excellent(80-100)档，因反驳处理未满3，给82分。",
+          "evidence_quotes": [
+            "所谓社会资本...这一范畴可以在更为语境化的操作层面进一步界定为...各类符号性要素的总和。",
+            "由于各地经济、社会、文化发展不平衡...局部区域中人民调解员的制度角色培育也隐藏着不容忽视的缺失。"
+          ],
+          "strengths": [
+            "从社会资本五要素到调解技艺四分型再到制度完善五措施，推理步骤环环相扣，依赖度强。",
+            "对制度缺失的分析直接引出以“声誉效应”为核心的激励方案，结论有充分前文支撑。"
+          ],
+          "weaknesses": [
+            "论证未设显式理论对手，如“贤治”与“法治”的张力、社会资本适用私域的批评未得到直接回应。",
+            "对“声誉机制”作为唯一解决方案的潜在局限未做自我检视，如商业化调解对公共性的冲击。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否可辩护地推出结论，不评“声誉机制”框架的可操作性（属分析框架建构力）。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链闭环完整，隐含回应分歧并承认局限，逻辑严密性高。",
+          "core_judgment": "本维度成立：论文构建了从理论界定到问题诊断再到制度方案的连贯推导链，结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "社会资本主要以符号形式存在...激励其进行有效扩大再生产的重要指引应当是同为符号资本的声誉要素",
+            "由于各地经济、社会、文化发展不平衡...部分人民调解员的制度角色塑造出现了实践之失"
+          ],
+          "strengths": [
+            "从社会资本到技艺再到缺失与激励，形成闭环推导链条。",
+            "隐含回应了调解与诉讼的知识分型分歧并给出整合理由。"
+          ],
+          "weaknesses": [
+            "司法确认作为声誉激励机制的推导稍显曲折，局部论证偏诠释。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链关注推导连贯性，不评价声誉激励方案在基层的实操落地难度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "论文构建了社会资本→调解技艺→制度激励的三层推理结构，主线可辨识，但反驳处理薄弱。",
+          "core_judgment": "推理链基本完整但反驳处理不足，核心结论可被辩护推出，局部存在概念循环与跳步。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4部分成立：'社会资本'概念界定与后续运用存在循环论证风险，且从'实践之失'到'声誉机制'的制度设计有跳步），反驳处理度得分=1/3（仅标准3隐含承认局限，标准1-2均未满足）。锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "社会资本主要以符号形式存在和运行，调解技艺的操作与运行，则是符号资本在人民调解制度实践中的具体展现，就它们的内在规定性而言，激励其进行有效扩大再生产的重要指引应当是同为符号资本的声誉要素",
+            "由于各地经济、社会、文化发展不平衡，以及制度变迁中螺旋式发展规律的缘故，我国人民调解员队伍建设在取得突出成就的同时，局部区域中人民调解员的制度角色培育也隐藏着不容忽视的缺失"
+          ],
+          "strengths": [
+            "三层结构递进清晰：社会资本类型学→调解技艺分型→声誉激励机制，步骤可复述",
+            "从布迪厄场域理论到调解实践的分析框架具有理论自洽性"
+          ],
+          "weaknesses": [
+            "未处理核心反驳：社会资本理论用于中国调解场景是否存在语境错位",
+            "从'实践之失'到'声誉机制'制度设计的推导缺乏中间环节，存在功能性论证跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价社会资本理论本身的解释力强弱。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“社会资本—调解技艺—实践困境—声誉激励机制”的严密推理链，结论推导充分且回应了实务约束。",
+          "core_judgment": "推理链条完整闭环，核心结论可由前文的社会资本分析与制度缺陷诊断可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。四步推导严密，结论由前文充分支撑。",
+          "evidence_quotes": [
+            "社会资本主要以符号形式存在和运行……激励其进行有效扩大再生产的重要指引应当是同为符号资本的声誉要素",
+            "由于各地经济、社会、文化发展不平衡……局部区域中人民调解员的制度角色培育也隐藏着不容忽视的缺失"
+          ],
+          "strengths": [
+            "“资本—技艺—困境—机制”四步推理环环相扣，依赖度高。",
+            "明确承认区域发展不平衡与制度探索的阶段性局限。"
+          ],
+          "weaknesses": [
+            "部分制度建议（如评级标准）的推导略偏宏观，微观操作论证稍弱。",
+            "对“声誉机制可能异化”的潜在风险未作充分防御性论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与结论可推导性，不评价制度方案的具体可操作性或学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.09553098678589,
+        "glm-5.1": 42.727327823638916,
+        "kimi-k2.6": 10.850988149642944,
+        "qwen3.6-plus": 71.44476699829102
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.2,
+      "std": 12.9,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "结论部分仅以结语形式复述全文内容，既未凝练为可争辩的学术主张，也未回应任何已有争论或反对意见，未能进入法学共同体的对话语境。",
+          "core_judgment": "论文将调解员角色描述与社会资本理论相结合，但未将结论转化为可争辩的学术命题，也未回应异见，共同体对话度低。",
+          "score_rationale": "共同体对话度得分=0/4：结论未回应已有争论、反对者无法定位回应、未主动讨论反对意见。制度可接受度得分=2/4：结论不与法秩序根本矛盾且考虑了中国制度语境，但未指出制度转化方向且对制度约束仅有粗略回应。受‘共同体对话度=0’上限规则限制，最高50分，因对话度完全缺失严重偏离学术规范，最终评30分，归为unacceptable档。",
+          "evidence_quotes": [
+            "“开辟制度角色的分析视角...具有重要的学理意义和实践价值...本文所作的智识探索与努力的意义所在。”",
+            "“社会资本及其生发化育的调解技艺对于人民调解员的制度角色塑造...具有不言而喻的重要意蕴。”"
+          ],
+          "strengths": [
+            "对人民调解员队伍建设的现行实践（如评级制度、司法确认等）进行了细致梳理，体现了对中国制度语境的理解。"
+          ],
+          "weaknesses": [
+            "结语仅笼统重申研究意义，未提炼出明确、可被挑战的核心结论主张。",
+            "全文未指明自身观点在既有法学理论或调解研究争论中的位置，也未回应潜在的反对意见或学术批评。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，结论未回应已有争论、未使反对者能定位回应、未主动讨论反对意见，无法进入对话语境。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结语仅复述内容与意义，未与任何既有法学家观点或学术争论对话，也未形成可被反驳的命题。"
+            }
+          ],
+          "boundary_note": "本评分仅评价结论当下的共同体对话性与制度可接受性，不评价论证过程的逻辑严密性或其理论洞见对未来研究的启示。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足中国语境提出法治化“贤治”与声誉机制，对话与制度兼容度高。",
+          "core_judgment": "结论成功回应既有争论并提出具体制度转化方案，共同体对话与制度可接受性均成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "结语：人民调解员的制度角色考，其实质与核心意涵就是着眼于“人的主体性”...书写作为制度因应的机制建构话语",
+            "由于各地发展不平衡...部分人民调解员的制度角色塑造出现了实践之失..."
+          ],
+          "strengths": [
+            "结论提出法治化“贤治”理论，修正了纯规范视角",
+            "给出了五个具体制度转化方向，非空泛对策"
+          ],
+          "weaknesses": [
+            "结语稍显冗长，理论主张与制度方案的区分可更清晰"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论在共同体与制度语境中的可接受性，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "理论导向的制度分析论文，结论具有较强对话性但制度转化路径偏泛。",
+          "core_judgment": "共同体对话度3/4，制度可接受度2/4，锚定good档，给72分。",
+          "score_rationale": "共同体对话度得分=3/4：明确回应了人民调解员角色塑造的既有研究（标准1），反对者可定位其'社会资本—调解技艺'分析框架（标准2），结合中国'枫桥经验'等本土语境（标准3），但未主动讨论反对意见或自身局限（标准4）。制度可接受度得分=2/4：结论不与现行法秩序矛盾（标准1），回应了《人民调解法》等制度约束（标准2），但制度转化方向偏泛，未明确具体制度衔接（标准3），虽考虑中国语境但部分建议（如品牌工作室、评级制度）的本土适配性论证不足（标准4）。锚定good档，取72分。",
+          "evidence_quotes": [
+            "人民调解员是人民调解制度运行中的行动者，是组织、主导人民调解在纷争化解场域中顺利展开的核心主体要素",
+            "先进典型的宣传推广、品牌人民调解工作室的建立与运行、人民调解员职业准入制度的试行与探索、人民调解员评级制度的确立与实践、调解协议司法确认的探索与推广等制度设计，则是以声誉效应为核心"
+          ],
+          "strengths": [
+            "理论框架清晰，社会资本与调解技艺的分析具有学术创新性",
+            "紧密结合'枫桥经验'等中国本土治理实践"
+          ],
+          "weaknesses": [
+            "未主动承认理论局限或回应可能的反对意见",
+            "制度建议偏泛，缺乏具体法条或程序衔接方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足中国调解实践，提出以声誉机制为核心的社会资本再生产路径，兼具理论对话与制度可操作性。",
+          "core_judgment": "该维度完全成立，结论深度嵌入中国法治语境且具备明确的制度转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准回应调解专业化与本土化张力，提出的声誉激励与司法确认等方案高度契合现行法秩序与基层治理需求。",
+          "evidence_quotes": [
+            "人民调解员应当在年龄及阅历、‘地方性知识’……等层面达到相应的标准，形成支撑人民调解平滑运行的必要的社会资本",
+            "先进典型的宣传推广、品牌人民调解工作室的建立与运行……等制度设计，则是以声誉效应为核心，共同构筑了社会资本—调解技艺的扩大再生产激励机制"
+          ],
+          "strengths": [
+            "精准定位中国基层治理语境，回应调解法治化与本土化张力",
+            "制度建议具体可操作，突破空泛对策，直指声誉激励与职业化路径"
+          ],
+          "weaknesses": [
+            "结论部分对理论适用边界与潜在制度摩擦的反思略显不足",
+            "对中西部资源匮乏地区落实职业准入的财政约束讨论不够深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被共同体与制度语境接纳，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.920427083969116,
+        "glm-5.1": 34.31253504753113,
+        "kimi-k2.6": 12.558637857437134,
+        "qwen3.6-plus": 77.87512493133545
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 69.5,
+      "std": 27.4,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文结语部分仅以高度抽象的口号式表述收束全文，未能提出任何具体的后续研究问题、理论修正方向、制度完善路径或实务延伸场景。",
+          "core_judgment": "论文不存在真实、可定位的延展路径，仅有空泛的意义拔高和口号式展望。",
+          "score_rationale": "原始分为0分，低于40分，对应bonus为0。整篇论文未出现任何有效延展信号，结语仅以‘人的主体性’等空泛话语概括贡献，完全缺乏具体待修正对象或未来研究切入点。",
+          "evidence_quotes": [
+            "“人民调解员的制度角色考，其实质与核心意涵就是着眼于‘人的主体性’‘人的主体意识’……而这恰恰正是本文所作的智识探索与努力的意义所在。”"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无任何具体后续研究问题、争点或修正方向。",
+            "仅以空泛的意义宣告结束，未指明理论、制度或实务的推进路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅反复强调‘人的主体性’‘主体意识’等抽象概念，声称‘勾勒出角色的复合制度图谱及其运行机理’即为智识贡献，未提出任何具体局限或未来可深入之处。"
+            }
+          ],
+          "boundary_note": "此处讨论的是论文是否指出了未来可进一步推进的方向，而非其结论能否被学术界或实务界接受。论文结论在内部或许自洽，但完全没有给出未来延展的具体指向。",
+          "review_flags": [
+            "evidence_thin",
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出了具体的制度完善方向与适用边界，存在真实延展路径。",
+          "core_judgment": "存在真实延展路径，指明了职业准入、评级制度等制度完善方向及司法确认适用边界。",
+          "score_rationale": "原始分65，对应bonus档位3分。论文在正文中指明了职业准入、评级制度等制度完善方向，并给出了司法确认的适用边界，存在明确延展路径；但结语偏向总结拔高，未提出具体后续争点或理论深化路径，精细度有限。",
+          "evidence_quotes": [
+            "在行业性、专业性的人民调解工作中勇于尝试人民调解员职业准入制度……并在时机成熟之时将职业准入作为一项法律规范性要求推广到全体人民调解员",
+            "科学界定调解协议司法确认的适用范围，对于赔偿金需要延时或分期支付的……积极引导双方当事人申请司法确认"
+          ],
+          "strengths": [
+            "提出了职业准入、评级制度等可定位的制度完善方向",
+            "给出了司法确认的具体适用边界与场景延伸"
+          ],
+          "weaknesses": [
+            "结语偏向意义拔高，未提出具体后续研究争点",
+            "缺乏对所提制度完善方向实施风险控制的深入延展"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "职业准入推广时机与评级制度实施风险属于未来制度完善与实施风险控制问题，而非当下调解员角色图谱能否被接受的结论问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文在结语部分提出制度角色塑造的'实践之失'及五项制度设计方向，但缺乏对后续研究争点或理论修正路径的明确展开。",
+          "core_judgment": "存在可辨识的延展方向，但路径较概括，与正文核心结论的衔接需推断，精细度有限。",
+          "score_rationale": "原始分58分，对应bonus=2的边际档位。论文指出'人的主体性''人的主体意识'可进一步展开，且五项制度设计（表彰推广、品牌工作室、职业准入、评级制度、司法确认）构成制度完善方向，但均未超越'题中应有之义'的概括表述，未形成下一轮争点或具体修正路径。",
+          "evidence_quotes": [
+            "在这个意义上，人民调解员的制度角色考，其实质与核心意涵就是着眼于'人的主体性''人的主体意识'，为这一政法治理战略的深入实施详尽地勾勒出角色的复合制度图谱及其运行机理",
+            "先进典型的宣传推广、品牌人民调解工作室的建立与运行、人民调解员职业准入制度的试行与探索、人民调解员评级制度的确立与实践、调解协议司法确认的探索与推广等制度设计，则是以声誉效应为核心"
+          ],
+          "strengths": [
+            "五项制度设计构成较完整的制度完善方向",
+            "提出'人的主体性'可作为理论深化入口"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "制度方向停留在概括列举，缺乏边界条件或风险控制的场景延伸"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结语强调'人的主体性'的智识意义，属于未来可深化的理论方向，而非当下结论能否被接受的问题；五项制度设计属于制度完善方向，但尚未形成可检验的具体方案，属于前瞻延展而非结论可接受性范畴。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文基于社会资本与调解技艺的互动逻辑，提出了职业准入、评级与司法确认等制度完善路径，延展方向明确但缺乏实施边界与风险探讨。",
+          "core_judgment": "存在真实的制度延展路径，但未明确转化为学术争点或后续研究设计。",
+          "score_rationale": "原始分68，对应bonus=3。论文针对角色塑造缺陷提出职业准入、评级等具体制度完善方向，路径清晰可定位；但未深入探讨机制适用边界、实施风险或后续检验入口，精细度有限。",
+          "evidence_quotes": [
+            "如何从制度的前瞻性设计的角度，构筑社会资本—调解技艺的生动活泼而又科学可行的扩大再生产机制？",
+            "在行业性、专业性的人民调解工作中勇于尝试人民调解员职业准入制度……并在时机成熟之时将职业准入作为一项法律规范性要求推广"
+          ],
+          "strengths": [
+            "制度完善方向具体可定位，与正文缺陷分析紧密衔接。"
+          ],
+          "weaknesses": [
+            "缺乏对拟议机制实施边界、潜在风险或后续实证检验路径的明确交代。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于制度机制的后续深化方向与潜在研究空间，而非评判当前结论在学理或实务中的可接受程度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 92.61111998558044,
+        "glm-5.1": 36.16051721572876,
+        "kimi-k2.6": 11.632236003875732,
+        "qwen3.6-plus": 69.05799865722656
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 65,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 68
+      },
+      "mean": 47.8,
+      "std": 32.1,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 55.38,
+      "weighted_total": 56.4
+    },
+    "aggregation_strictest": {
+      "final_score": 42.59,
+      "weighted_total": 39.2
+    },
+    "avg_std": 19.2,
+    "max_std": 32.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 12.8,
+    "composite_score": -19.2,
+    "worst_dimension": "forward_extension",
+    "worst_std": 32.1
+  }
+}

@@ -1,0 +1,1135 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国法治主体性的文化向度.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "正文存在 OCR 残留乱码（如 '核 l、g'、'孑L子'、'孑L'、'@' 等），但不影响核心论点定位",
+          "脚注编号与正文引用符号存在混排/识别错误（如 '⑨' '@' '⑩' 等），但不影响论证结构判断",
+          "参考文献列表缺失，但论文各节论证自足，核心命题与结论可独立判断"
+        ],
+        "evidence_quotes": [
+          "儒家思想的核 l、g'概念是“仁”。",
+          "当年孑L子面对叶公的“其父攘羊，而子证之”炫耀，孑L子提出了“父为子隐，子为父隐，直在其中矣”的论断。",
+          "2Ol 1年l0月18日中国共产党第十七届中央委员会第六次全体会议通过的《中共中央关于深化文化体制改革的决"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "这些文化基因塑造了中国人的独特性，同时也塑造了中国法治的主体性，是现代中国为世界法治贡献力量的源泉。",
+          "中国提出并一直奉行的“和平共处五项原则”是世界公认的国际法准则。……这正是中国传统的“仁”的理念和“天下”思想在国际法治领域的继承和发展。",
+          "在法治中国的建设中，无论是在政治层面、民间层面还是在国际层面，应对各种分歧与冲突，这种机制都是必不可少的。",
+          "传统社会“仁”与“礼”相连，而在现代社会，与“礼”分开后，“仁”完全可以与外在的民主法治进行整合，使之成为型塑有中国特色社会治理方式的资源。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本 OCR 质量存在局部缺陷，需在后续评分时注意原文还原，但不构成项目口径障碍",
+        "参考文献列表缺失可能影响学术规范性判断，但论文核心论证可独立评估"
+      ],
+      "evidence_quotes": [
+        "中国法治主体性的文化向度",
+        "正因如此，在人际关系上，传统中国人反对极端地处理人际关系，强调相互谦让和包容，即使出现纠纷，其对纠纷的解决也不是强调明确区分对错曲直，而是在宽容的意义上强调对关系的修复，强调关注关系的未来指向性。",
+        "中国法治的主体性是建立在民主、人权、自由意义上的主体性。也就是说，中国法治的价值目标是全人类的，但具体的表达方式则是民族的、地方的。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在 OCR 残留乱码、脚注编号混排及参考文献缺失等工程质量风险，但不影响项目口径认定。论文以中国法治主体性为核心，从传统“仁”“天下”“天人合一”“中庸和合”“性善论”“亲伦传统”“民本人本”等文化资源出发，系统解释中国法治实践并提出创造性转化命题，具有明确的法学问题意识与可复核的理论主张，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致年代及字词乱码（如'2Ol 1年l0月18日'、'2o16年版'、'核 l、g'概念'）",
+          "脚注编号及内容直接混入正文段落中，打断阅读连贯性",
+          "期刊页码（如26-39）混入正文行间"
+        ],
+        "evidence_quotes": [
+          "2Ol 1年l0月18日中国共产党第十七届中央委员会第六次全体会议通过的《中共中央关于深化文化体制改革的决定》。",
+          "儒家思想的核 l、g'概念是“仁”。",
+          "27",
+          "28"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国法治主体性的文化向度",
+          "将传统的“仁”与外在的民主法治进行整合，使之成为型塑有中国特色社会治理方式的资源",
+          "传统的“性善”论可以经过创造转化，使之成为法治的人性论基础，从而使“法制”变成“法治”",
+          "把社会主义核心价值观视为现代中国的“高级法”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR乱码、脚注/页码混入正文需清洗",
+        "项目口径：论文完全符合中国自主知识体系评价口径，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "传统的“性善”论可以经过创造转化，使之成为法治的人性论基础，从而使“法制”变成“法治”",
+        "把社会主义核心价值观视为现代中国的“高级法”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需先对OCR乱码、脚注混入及页码混入等文本工程问题进行清洗，以保障后续评审的准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑨⑩⑧等符号混用，部分编号不连续）",
+          "参考文献列表缺失（标注为'无'）",
+          "部分引文出处标注格式不统一（如'前引①'与直接标注混用）",
+          "存在OCR残留痕迹（如'2Ol 1年'应为'2011年'，'2o17年'应为'2017年'）"
+        ],
+        "evidence_quotes": [
+          "2Ol 1年l0月18日中国共产党第十七届中央委员会第六次全体会议通过的《中共中央关于深化文化体制改革的决定》",
+          "2o17年1月中共中央办公厅、国务院办公厅印发的《关于实施中华优秀传统文化传承发展工程的意见》",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国法治主体性的文化向度",
+          "中国法治主体性的文化向度，是现代中国为世界法治贡献力量的源泉",
+          "中国提出并一直奉行的'和平共处五项原则'是世界公认的国际法准则……这正是中国传统的'仁'的理念和'天下'思想在国际法治领域的继承和发展",
+          "承继传统的'天人合一'理念重塑人与自然的关系、在平衡人与自然关系的视角下构建新型环境法治是摆脱当下环境危机的必由之路",
+          "当下中国的人民调解、司法调解以及其它的非讼纠纷解决机制之所以能够获得广泛应用且收到很好的效果，很大程度上是因为它契合了中国人的思维方式和行为习惯……这些经验与实践非但不应该成为中国法治实现的障碍，相反应该成为支持当代中国法治主体性构建的资源",
+          "传统的民本思想并不是现代的民主思想……挖掘这些思想中的有益成分，实现创造性转化，完全能够为当下有中国特色的民主、法治的理论与实践服务",
+          "中国法治的主体性是建立在民主、人权、自由意义上的主体性。也就是说，中国法治的价值目标是全人类的，但具体的表达方式则是民族的、地方的"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号符号混用、OCR数字识别残留、参考文献列表缺失，但核心论点可定位",
+        "项目口径：论文核心命题明确——'中国法治主体性'的建构，属典型的中国法学理论问题"
+      ],
+      "evidence_quotes": [
+        "中国法治主体性的文化向度",
+        "中国法治主体性的文化向度，是现代中国为世界法治贡献力量的源泉",
+        "中国法治的主体性是建立在民主、人权、自由意义上的主体性。也就是说，中国法治的价值目标是全人类的，但具体的表达方式则是民族的、地方的"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文进入六维评价。文本质量风险较低，主要涉及脚注编号格式和OCR残留问题，不影响核心评审。建议评审时关注其'创造性转化'命题的理论深度与可复核性，以及文化资源向法学理论转化的论证充分性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留导致部分数字与字母混淆（如'2Ol 1年'、'2o17年'、'l5岁以下'）",
+          "期刊页码与脚注编号混入正文段落间",
+          "部分换行符与标点异常（如'核 l、g'概念'）",
+          "参考文献列表未完整抽取"
+        ],
+        "evidence_quotes": [
+          "2Ol 1年l0月18日中国共产党第十七届中央委员会第六次全体会议",
+          "儒家思想的核 l、g'概念是“仁”",
+          "26 \n\n中国法治主体性的文化向度"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国法治主体性的文化向度，是现代中国为世界法治贡献力量的源泉",
+          "创造性转化就是将一些中国文化传统中的符号与价值系统加以改造，使经过创造地转化的符号与价值系统，变成有利于变迁的种子",
+          "中国法治的价值目标是全人类的，但具体的表达方式则是民族的、地方的",
+          "将传统民本、天人合一、中庸和合、性善论、亲伦传统等文化资源转化为现代国际法治、环境法治、协商调解、刑罚人道主义及权利保障的法学分析工具"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在OCR噪声与页码/脚注混排，需清洗后进入精读",
+        "项目口径：论文属法理学/法文化宏观论述，理论转化路径清晰但具体规范命题的实证支撑较弱，六维评分需重点考察其‘可复核命题’的教义学或制度建构落地性"
+      ],
+      "evidence_quotes": [
+        "中国法治主体性的文化向度",
+        "创造性转化就是将一些中国文化传统中的符号与价值系统加以改造",
+        "中国法治的价值目标是全人类的，但具体的表达方式则是民族的、地方的"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版噪声，但不影响核心法理命题与论证结构的定位。论文高度契合‘中国自主知识体系’项目口径，以中国传统文化资源为中心，系统论证其向现代法治主体性及具体部门法理（国际法、环境法、纠纷解决、刑法、民法/家事法、宪法/民主）的创造性转化。建议直接进入六维评分，评审时重点关注其文化命题向可争辩法学规范命题转化的逻辑严密性与制度解释力。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "本文是阐释中国法治主体性文化向度的宏观叙述，仅提出主题声明而未形成可争辩的法学研究问题。",
+          "core_judgment": "全文无明确问题句、无法学层面理论分歧，属于政策阐述与既定立场阐释，不符合研究问题创新性评价的基本要件。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4（无争点故枢纽性不适用），材料新颖性未触发。触发 no_justiciable_question 规则，上限50分，因纯阐释无任何论证推进，最终给40分。",
+          "evidence_quotes": [
+            "“中国法治主体性的文化向度”——全文标题即主题声明，非研究问题。",
+            "“中华文化重视家庭，强调伦理……这些文化基因塑造了中国人的独特性，同时也塑造了中国法治的主体性”——单向阐释既定立场，无争辩空间。"
+          ],
+          "strengths": [
+            "对传统文化与法治关系的梳理具有资料价值。"
+          ],
+          "weaknesses": [
+            "无明确法学争点或问题句，无法学层面理论分歧。",
+            "全文为政策倡导与既定立场阐释，缺乏可争辩的论证结构。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明和政策阐释，无可争辩的法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现'XX是否YY''如何ZZ'等问题句；各部分均为'（一）天下观念与现代国际法治'等主题式展开，实质是政策话语的体系化叙述。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评材料丰富度或论证严密性。本文无研究问题，故无法进入创新性评价。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文仅为主题声明与宏观介绍，缺乏可争辩的法学问题与理论交锋。",
+          "core_judgment": "论文无明确法学争点，仅为传统文化对接现代法治的应然阐释与政策倡导。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料校验未触发上限，锚定unacceptable档，给40分；前置扣分50分，最终取下限30分。",
+          "evidence_quotes": [
+            "承继传统的“天人合一”理念重塑人与自然的关系……是摆脱当下环境危机的必由之路",
+            "中国法治的主体性是建立在民主、人权、自由意义上的主体性"
+          ],
+          "strengths": [
+            "涉及多个法学制度领域，影响范围广"
+          ],
+          "weaknesses": [
+            "全文无问题句，仅为主题声明与政策倡导",
+            "无学者观点交锋，单向陈述传统文化优势"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何问题句，只有主题声明与应然主张"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为传统文化阐释与政策倡导，无可争辩的法学研究问题。",
+          "core_judgment": "论文仅有主题声明（'中国法治主体性的文化向度'），未提出任何可争辩的法学问题句，不满足问题创新性维度的最低要求。",
+          "score_rationale": "可争辩性=0/4（无问题句、非法学层面问题、无理论分歧、纯政策倡导），枢纽性=0/4（无具体制度影响、非学界争点、未触及法学核心概念、无制度连锁），材料新颖性未触发上限但无关；锚定unacceptable档，扣30分（主题声明非研究问题）后给30分。",
+          "evidence_quotes": [
+            "中国法治主体性的文化向度，是现代中国为世界法治贡献力量的源泉",
+            "要推动协商民主广泛、多层、制度化发展"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无'XX是否YY'类问题句，仅为主题阐释",
+            "六节均为文化特征描述与政策主张，无学者观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅有'中国法治主体性的文化向度'主题声明，无问题句，六节分别阐述'天下'观念、'天人合一'、'中庸和合'、性善论、亲伦传统、民本思想，均为单向文化阐释"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性为0"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "marginal",
+          "summary": "论文以传统文化对接法治，但缺争点与论证，属宏观阐述。",
+          "core_judgment": "问题设定宏大但缺乏可争辩法学命题，理论推进不足，创新性受限。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性触发上限。锚定good档(62分)，负面模式扣65分，依规保底给35分。",
+          "evidence_quotes": [
+            "全文以‘天下’‘天人合一’等文化概念平行对接现代法治领域",
+            "承继传统理念构建新型环境法治是必由之路"
+          ],
+          "strengths": [
+            "覆盖多部门法领域，问题辐射范围广",
+            "触及中西法理根基差异，具理论纵深"
+          ],
+          "weaknesses": [
+            "无明确法学问题句，属主题声明式阐述",
+            "依赖概念包装，未实质推进规范命题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述宏大无法聚焦，上限65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文以六大文化维度平行展开，缺乏核心争点聚焦"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立重要，不评论证与综述。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 42.28381109237671,
+        "glm-5.1": 53.339497089385986,
+        "kimi-k2.6": 13.920521259307861,
+        "qwen3.6-plus": 381.2975070476532
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 35
+      },
+      "mean": 33.8,
+      "std": 4.8,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文完全缺失研究地图，无任何对既有法学研究的梳理、定位或对话，大量引用古代经典和领导人讲话，但未呈现任何学者观点、学术争论或本文的学术切入点。",
+          "core_judgment": "论文正文中不存在对法学既有研究的到达点、未竟点和本文切入点的任何论述，研究地图三要素全部缺失，因此本维度不成立。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给20分",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "全文无任何对已有法学研究成果的引用或述评，到达点完全缺失。",
+            "未指出任何学术争议或既有研究不足，也未阐明本文相对于既有研究的学术贡献定位。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0分，研究地图完全缺失",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文全文未提及任何具体法学研究者、著作或学术观点，无学术史梳理，无研究缺口与本文学术切入点。"
+            }
+          ],
+          "boundary_note": "本文未展开任何法学学术文献定位，属于文献梳理完整性问题，而非仅问题创新性不足。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 79,
+          "band": "good",
+          "summary": "论文呈现了丰富的中西法秩序对立争点，但研究地图三要素存在缺口，缺乏对既有学术脉络的清晰梳理。",
+          "core_judgment": "争点结构与流派识别充分，但三要素残缺，依规则上限79分。",
+          "score_rationale": "三要素=3/6，争点结构=2/2，法学流派=2个，锚定good上限79档，给79分",
+          "evidence_quotes": [
+            "赵汀阳先生所说，它不仅是一个地域的概念，更是一个价值体系，还是一种世界制度",
+            "马克斯·韦伯认为，东方的儒教不具有西方的清教那样的理性和物质欲望，因而不会产生形式理性法治"
+          ],
+          "strengths": [
+            "系统呈现中西法秩序多维对立争点",
+            "引述麦克尼尔、韦伯等代表性学术立场"
+          ],
+          "weaknesses": [
+            "缺乏对学界既有研究脉络的清晰梳理",
+            "未竟点与切入点对应关系松散"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，上限79分",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "三要素得分3，法学流派识别2个"
+            }
+          ],
+          "boundary_note": "评估的是文献定位与争点梳理，而非文化哲学命题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文缺乏对既有法学研究的系统梳理，未建立研究地图。",
+          "core_judgment": "本文以文化阐释和政策宣导为主，未呈现法学学术争论脉络，三要素严重缺失。",
+          "score_rationale": "三要素=1/6（到达点1+未竟点0+切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "论文通篇未出现'学界认为''已有研究''但''然而'等研究地图标识词",
+            "正文仅引用经典文献和领导人讲话，未引用任何法学学术研究成果"
+          ],
+          "strengths": [
+            "引用较丰富的经典文献和跨学科材料"
+          ],
+          "weaknesses": [
+            "完全未呈现法学学术争论，无到达点、未竟点和切入点",
+            "将文化描述等同于法学论证，混淆了学术研究与文化阐释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅1分（有经典引述但无学术成果），未竟点0分，切入点0分，总分1/6"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理而非问题新颖性，本文问题虽具现实意义但学术定位模糊。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文系统梳理中西法治文化范式分歧，明确传统资源转化缺口与本文切入点，研究地图完整。",
+          "core_judgment": "成立。文内充分呈现中西法治路径对立与形式/实质法治之争，分散式文献定位清晰勾勒出研究脉络与理论缺口。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "林语堂先生认为……其实这是对法治的一种误解，真正意义上的法治不仅仅追求形式上的'合法律'，还要追求实质上的'合情理'。",
+            "挖掘这些思想中的有益成分，实现创造性转化，完全能够为当下有中国特色的民主、法治的理论与实践服务。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，中西法治范式对比脉络清晰。",
+            "明确指出现代法治建构忽视传统资源的理论缺口。"
+          ],
+          "weaknesses": [
+            "部分引证偏重哲学历史描述，法学教义学对话稍弱。",
+            "未竟点与切入点的对应可进一步聚焦具体制度争议。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "侧重既有学术脉络与范式分歧的梳理，非评价选题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.13958406448364,
+        "glm-5.1": 53.35454821586609,
+        "kimi-k2.6": 10.192990064620972,
+        "qwen3.6-plus": 68.93614482879639
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 79,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 55.5,
+      "std": 33.1,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文是对传统文化概念如何映射到现代法治领域的宏观阐释，未提出可操作的分析框架，也无清晰的法学转化步骤。",
+          "core_judgment": "该文属于政策理论梳理型论文，仅对既有文化理念和官方表述进行归纳阐释，缺乏原创的可重复适用的分析框架。",
+          "score_rationale": "框架可操作性得分=0/4（核心术语无明确定义，无分类标准，无可循步骤，仅为内容提纲），法学转化度得分=0/4（未将文化概念转化为裁判规则或法律适用步骤），锚定unacceptable档，给予25分。",
+          "evidence_quotes": [
+            "“(一)‘天下’观念与现代国际法治…(二)‘天人合一’理念与现代环境法治…(三)‘中庸和合’思想与现代协商调解机制”",
+            "“中华传统文化是伦理文化、责任文化…中华传统文化的核心就是‘八德’：孝悌忠信礼义廉耻。”"
+          ],
+          "strengths": [
+            "对传统法律文化资源进行了系统的主题归纳，覆盖国际法、环境法、纠纷解决等多个领域。"
+          ],
+          "weaknesses": [
+            "框架仅为分主题罗列（六个方面），既无概念的操作化定义，也无分析步骤或判断标准。",
+            "全文以阐释既定政策立场和引述权威论述为主，未提出具有法学转化价值的原创分析工具。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "论文主要工作是系统归纳既有立场和权威表述，核心术语无明确定义且无分析步骤，框架可操作性≤1分，触发不可操作上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语如“天下”“天人合一”“中庸和合”“亲伦传统”均无‘本文所称XX是指…’的定义，全文无可重复适用的分析步骤或裁判规则。"
+            }
+          ],
+          "boundary_note": "论文的文化梳理和议题整合不构成分析框架建构，本评分仅针对框架建构力，不评价议题本身的重要性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以政策阐释和传统文化梳理为主，缺乏原创分析框架与法学操作转化。",
+          "core_judgment": "该维度不成立，论文仅为主题整理与理念映射，无可操作的分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档上限1），法学转化度得分=1/4（受政策梳理型上限1限制），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "“文化基因塑造了中国法治的主体性”，无操作化定义",
+            "“需要健全自然资源资产管理体制……需要加强思想教育”，口号式呼吁无具体方案"
+          ],
+          "strengths": [
+            "指出了传统文化与现代法治的宏观映射关系"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的分析步骤与判断标准",
+            "大量口号式呼吁缺乏具体制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无操作化定义，无分析步骤，仅作宏观理念映射"
+            },
+            {
+              "rule_id": "v0.7_policy_theory_review",
+              "rule": "政策理论梳理型识别规则：总分不超过60分，法学转化度上限1",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释既定立场与传统文化观念为主，无原创分析框架"
+            }
+          ],
+          "boundary_note": "评价的是框架建构力而非逻辑严密性或文化阐释的合理性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型论文，无原创分析框架，仅对传统文化与法治关系进行阐释性归纳。",
+          "core_judgment": "分析框架未成立：核心术语来自权威表述，无原创概念界定或类型化，无可循分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅'天下''天人合一'等概念罗列，无定义边界、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（无跨学科概念转化、无裁判规则、无制度方案、无操作步骤使用）。触发v0.7政策理论梳理型上限规则，总分不超过60分；同时触发'宏观介绍非深度分析'负面模式，可操作性上限为2。综合判定35分。",
+          "evidence_quotes": [
+            "这些文化基因塑造了中国人的独特性，同时也塑造了中国法治的主体性",
+            "中国法治的主体性是建立在民主、人权、自由意义上的主体性"
+          ],
+          "strengths": [
+            "六个方面结构清晰，便于政策梳理"
+          ],
+          "weaknesses": [
+            "核心术语均为既有权威表述，无原创界定",
+            "无具体问题的深入分析，仅宏观框架描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释'天下''天人合一''中庸和合'等既定立场为主，无原创概念界定或类型化，核心术语来自权威表述"
+            },
+            {
+              "rule_id": "analytical_framework.no_deep_analysis",
+              "rule": "宏观介绍非深度分析：全文无任何具体问题的深入分析，只有宏观框架描述",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "六部分均为传统文化概念与现代法治的对应性描述，无具体制度问题或案例的深入分析"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文属法文化理论阐释型，以传统概念与现代法治领域的对应映射为主，缺乏原创分析框架与可操作步骤。",
+          "core_judgment": "该维度不成立，全文仅为文化理念与法治领域的主题式对应，未建构可重复适用的法学分析框架。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给35分。触发政策理论梳理型识别规则及无操作框架上限规则。",
+          "evidence_quotes": [
+            "全文以‘天下’‘天人合一’等传统文化概念为线索进行主题式铺陈",
+            "未提供‘本文所称XX是指…’的明确定义或可重复适用的裁判步骤"
+          ],
+          "strengths": [
+            "文化资源梳理系统，传统理念与现代法治领域的对应关系清晰"
+          ],
+          "weaknesses": [
+            "核心概念缺乏法学操作化定义，无分类标准与分析步骤",
+            "停留于价值倡导与政策引述，未转化为裁判规则或制度设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确定义、分类标准与操作步骤，核心术语未转化为法学分析流程"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及文化论证的逻辑严密性或选题价值。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.34319305419922,
+        "glm-5.1": 63.31406903266907,
+        "kimi-k2.6": 14.52736520767212,
+        "qwen3.6-plus": 81.5983681678772
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 35
+      },
+      "mean": 35,
+      "std": 8.2,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文有清晰的总分结构和文化对比主线，但各板块多为并列罗列，缺乏环环相扣的推理推进，且对核心反对意见无实质性回应。",
+          "core_judgment": "论文逻辑更接近并列式的文化阐释，而非层层推进的论证，导致核心结论的可辩护性不足。",
+          "score_rationale": "推理链完整性得分=2/4（可识别3个以上推理步骤但多为并列关系，删除某步不影响后续，存在从“文化理念”直接跳到“现代法治制度”的关键跳步），反驳处理度得分=1/3（隐含承认转化局限，但未实质性回应“传统与现代/中西”的根本性反对意见）。锚定marginal档，因推理链依赖度弱且反驳不足，给55分。",
+          "evidence_quotes": [
+            "“正因为‘天下’是一套在国家之上的价值体系，所以它又是一套以遵循人类共同的‘善’为标准的世界制度和法治秩序。”",
+            "“虽然创造性转化、创新性发展的目的是使传统融入现代，但这样的转化和发展不是让中国的特殊性融于西方的普世性之中。”"
+          ],
+          "strengths": [
+            "全文结构清晰，围绕多个文化向度展开，每个板块均有明确的传统理念到现代法治主张的叙述路径。",
+            "多处引用中西对比，试图为自身立场提供文化层面的支撑材料。"
+          ],
+          "weaknesses": [
+            "推理链依赖度弱：各文化向度的论证多为并列关系，删除某一板块不影响其他部分，未能形成层层递进的逻辑链。",
+            "关键跳步明显：从传统理念到具体现代法治制度方案的推导，常以“因此”“于是”一笔带过，缺乏法理或制度层面的严密嫁接论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度≤1，最高70分。实际得分55分，未超出上限。",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "推理链依赖度不足（标准2未满足）且存在关键跳步，同时反驳处理仅承认转化局限但未实质性回应反对观点。"
+            }
+          ],
+          "boundary_note": "本文问题在于从文化阐释到法治制度建议的推理链条断裂，而非框架本身不可操作，故属于逻辑链问题而非分析框架建构力问题。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "主线推理完整且反驳充分，局部文化比附不影响核心结论的可辩护推出。",
+          "core_judgment": "本维度成立。论文构建了从文化资源识别到创造性转化的完整推理链，核心结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。主线推理连贯，对反对意见与自身局限回应充分，给85分。",
+          "evidence_quotes": [
+            "林语堂先生认为，因为中国人太讲中庸和人情，所以刚性的制度建立不起来，法治不可能实现。其实这是对法治的一种误解……",
+            "传统的民本思想并不是现代的民主思想……但是不可否认，这些思想中所蕴含的惠民、利民……体现了对民众的重视"
+          ],
+          "strengths": [
+            "主线推理链完整，从文化资源识别到创造性转化的推导连贯。",
+            "反驳处理充分，对林语堂等反对意见及传统局限有实质性回应。"
+          ],
+          "weaknesses": [
+            "局部推演偏文化比附，如从“仁”直接推出国际法准则缺法理中介。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文局部文化比附的可操作性弱，属框架建构力问题，不纳入逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 52,
+          "band": "marginal",
+          "summary": "文化特征描述丰富，但缺乏向法治命题的严谨推导。",
+          "core_judgment": "论文呈现为文化阐释与政治话语的拼贴，未形成'传统文化→法治主体性'的有效推理链。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2、4不成立），反驳处理度得分=0/3（无任何反驳信号）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "这些文化基因塑造了中国人的独特性，同时也塑造了中国法治的主体性，是现代中国为世界法治贡献力量的源泉。",
+            "承继传统的'天人合一'理念重塑人与自然的关系、在平衡人与自然关系的视角下构建新型环境法治是摆脱当下环境危机的必由之路。"
+          ],
+          "strengths": [
+            "各小节内部有历史材料到现代政策的过渡。",
+            "部分段落有中西对比的平行结构。"
+          ],
+          "weaknesses": [
+            "从文化特征到法治命题多为断言式跳跃，缺乏机制性推导。",
+            "未处理'传统资源为何能直接转化为现代法治'的核心质疑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评逻辑链问题：'文化存在'到'应当作为法治资源'的规范推导缺失，非框架设计问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了传统文化至现代法治的完整理论推导链，反驳处理充分。",
+          "core_judgment": "推理链完整且结论可由前文可辩护地推出，符合理论型论文的逻辑严密性要求。",
+          "score_rationale": "推理链完整性得分=3/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "诚然，传统的民本思想并不是现代的民主思想……其中缺乏民众对政治的有效参与。",
+            "不是传统的就都应该得到继承。我们需要继承的只是传统文化中优秀的部分……"
+          ],
+          "strengths": [
+            "宏观推理链完整，文化基因至法治主体性的推导路径清晰。",
+            "有效回应林语堂、韦伯等反对观点，论证具有理论纵深。"
+          ],
+          "weaknesses": [
+            "六个文化维度呈并列结构，内部逻辑依赖度较弱。",
+            "部分文化概念向现代法制的映射存在理论跳跃，缺乏规范教义学衔接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文化前提至法治结论的推导链条，不评价文化框架本身的实证可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.0593912601471,
+        "glm-5.1": 47.89161276817322,
+        "kimi-k2.6": 10.085660934448242,
+        "qwen3.6-plus": 69.87657070159912
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 69.2,
+      "std": 18.2,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅将官方政策话语与传统典籍概念进行比附，其结论无法转化为可被法学共同体争辩的学术主张，且对反对意见和自身论证局限未作任何回应。",
+          "core_judgment": "该论文结论以复述既定立场为主，未形成可被学术共同体定位与回应的争议性论点，且未主动讨论任何反对意见或局限，共同体对话度严重不足。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4，但触发了“共同体对话度=0 → 最高50分”的上限规则，且因复述既定立场、回应反对意见完全缺失，总分从严控制在30分。",
+          "evidence_quotes": [
+            "“中国提出并一直奉行的‘和平共处五项原则’是世界公认的国际法准则……这正是中国传统的‘仁’的理念和‘天下’思想在国际法治领域的继承和发展。”",
+            "“中庸和合……十九大报告指出……协商民主是实现党的领导的重要方式……其中的思想既源于中国‘执中致和’的传统的承继，也源于对人类社会治理规律的科学把握。”"
+          ],
+          "strengths": [
+            "结论明确指向中国法治主体性可从传统文化资源中创造性转化，方向清晰。"
+          ],
+          "weaknesses": [
+            "全文仅以官方文件与传统经典互释来证成结论，未将结论转化为可被学界反对或修正的学术主张。",
+            "结论完全未提及任何反对意见或自身论证的局限，反对者无法定位对话切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，结论既未说明与既有法学争论的关系，也未允许反对者清晰定位与回应，最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论像宣言一样宣称传统文化可转化为现代法治资源，但未指出与既有法学观点的分歧、修正或挑战，也没有构造反对者可反驳的具体论点。"
+            }
+          ],
+          "boundary_note": "本评分仅评价结论在法学共同体内的可接受性与对话可能性，不评价论证是否严密或是否具有未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论通过创造性转化主张回应了既有争论与制度语境，可接受性强。",
+          "core_judgment": "结论成功进入共同体对话并与中国法秩序原则兼容，维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "传统的‘性善’论可以经过创造转化，使之成为法治的人性论基础",
+            "东亚地区现代化经验不但颠覆了韦伯的命题"
+          ],
+          "strengths": [
+            "主动承认传统局限并提出创造性转化路径",
+            "明确挑战韦伯命题等既有学术争论"
+          ],
+          "weaknesses": [
+            "部分制度转化方向仍偏原则层面"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容性，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文复述官方文化立场，未形成可争辩学术主张。",
+          "core_judgment": "结论未进入法学共同体对话，无反对意见回应，制度可接受度因缺乏具体制度关联而薄弱。",
+          "score_rationale": "共同体对话度得分=1/4（仅标准3部分成立，提及中国语境但无具体制度关联），制度可接受度得分=1/4（标准1成立，不与法秩序根本矛盾；标准2-4均不成立）。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "中国法治主体性的文化向度，是现代中国为世界法治贡献力量的源泉。",
+            "因此说来，悠久的‘家’文化、深厚的亲伦传统以及当下中国发达的亲属实践，这些都是当今中国建设法治无法超越的现实。"
+          ],
+          "strengths": [
+            "结合中国传统文化资源进行论述，有一定本土语境意识。"
+          ],
+          "weaknesses": [
+            "结论仅为政策话语复述，未与法学界既有争论建立明确关联。",
+            "无反对意见讨论，无法被反对者定位回应。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论未说明与法学界既有争论的关系，未回应任何反对意见，仅为单向文化 affirm 论述。"
+            }
+          ],
+          "boundary_note": "本维评结论可接受性，不评论证严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论明确回应中西法治现代化争论，在理论层面高度兼容现行法秩序并指出制度转化方向。",
+          "core_judgment": "该维度成立，结论具备充分的共同体对话能力与制度语境兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "诚然，传统的民本思想并不是现代的民主思想……但是不可否认，这些思想中所蕴含的惠民、利民……体现对民众的重视",
+            "承继传统的“天人合一”理念重塑人与自然的关系、在平衡人与自然关系的视角下构建新型环境法治是必由之路"
+          ],
+          "strengths": [
+            "明确回应全盘西化与反传统争论，立场清晰可辩",
+            "理论框架与现行法治原则及政策话语高度兼容"
+          ],
+          "weaknesses": [
+            "部分论述偏向宏观文化阐释，具体法教义学衔接较弱",
+            "对传统资源转化的制度性障碍讨论略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.56059503555298,
+        "glm-5.1": 44.19543409347534,
+        "kimi-k2.6": 11.137736797332764,
+        "qwen3.6-plus": 76.17404294013977
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 85
+      },
+      "mean": 58.8,
+      "std": 30.4,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结论部分明确提出了传统文化“创造性转化”的具体路径，并与法治主体性构建相衔接，形成了可定位的延展方向。",
+          "core_judgment": "该维度存在真实、具体的延展路径，并非空泛的口号式展望。",
+          "score_rationale": "原始分85分，对应bonus档位为最高档（+5）。论文在结论部分具体指明了“仁”与民主法治整合、“民本”加“民选”等概念修正与制度创新方向，延展路径清晰，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "“仁”完全可以与外在的民主法治进行整合，使之成为型塑有中国特色社会治理方式的资源。",
+            "“民本”并不是民主，但是在其中加入“民选”，通过民众来制约公权力便是现代的民主政治。"
+          ],
+          "strengths": [
+            "明确提出了多个传统文化概念的“创造性转化”具体路径，如“仁”与法治整合、“民本”加“民选”。",
+            "延展路径直接服务于“中国法治主体性”的核心结论，衔接自然且具有可操作性。"
+          ],
+          "weaknesses": [
+            "未进一步说明这些转化路径可能面临的理论挑战或制度障碍。",
+            "对“创造性转化”后的法治形态如何与现有法律体系具体衔接缺乏精细阐述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "所评内容属于“未来还能往哪里走”的范畴（即传统文化如何经创造性转化支撑法治主体性），而非评价当前结论是否被接受或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了传统文化概念向现代法治转化的具体理论深化方向，但未明确展开后续研究设计。",
+          "core_judgment": "存在真实延展路径，指明了“仁”、“民本”等概念与现代法治整合的修正方向。",
+          "score_rationale": "原始分65，对应bonus档位3（>=60）。论文提出了“性善论转化为人性论基础”“民本加入民选”“核心价值观作为高级法”等具体概念修正路径，属明确延展方向，但精细度与未来研究展开有限。",
+          "evidence_quotes": [
+            "传统的‘性善’论可以经过创造转化，使之成为法治的人性论基础，从而使‘法制’变成‘法治’。",
+            "‘民本’并不是民主，但是在其基础上加入‘民选’，通过民众来制约公权力便是现代的民主政治。"
+          ],
+          "strengths": [
+            "给出了传统文化概念创造性转化的具体理论修正路径"
+          ],
+          "weaknesses": [
+            "延展路径仅作为论证例证提出，缺乏明确的后续研究问题或局限承认"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "传统文化概念如何具体制度化属于未来延展问题，而非当下理论主张可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以文化阐释为主，缺乏对未来研究或理论发展的具体延展路径。",
+          "core_judgment": "未提出真实延展路径，仅停留在传统文化价值的重复宣示与政策话语援引。",
+          "score_rationale": "原始分35分，bonus=0。论文虽在结尾提及'创造性转化'，但仅泛论'择善明用''融入现代'，未指明具体理论修正方向、制度衔接问题或后续研究问题；全文无对正文局限性的承认，亦无下一轮争点或反驳入口。属于空泛拔高，落入0-39低分段。",
+          "evidence_quotes": [
+            "创造性转化就是将一些中国文化传统中的符号与价值系统加以改造，使经过创造地转化的符号与价值系统，变成有利于变迁的种子",
+            "符合人类共同价值的和发展方向的才是进步的。这样的民族文化才是值得弘扬的"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅泛论'创造性转化'，无具体修正对象或路径",
+            "未承认正文局限，也未提出后续研究问题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾段'创造性转化''择善明用''融入现代'等表述，缺乏具体理论假设、制度路径或比较框架深化方向"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展空间，而非当下结论是否被接受。论文的问题不在于结论不可接受，而在于未为后续研究或理论发展留下可操作的入口。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提出传统文化需经“创造性转化”融入现代法治，指明了理论深化与概念修正的具体方向。",
+          "core_judgment": "存在真实延展路径，聚焦于传统法文化符号向现代法治理论转化的具体机制与边界。",
+          "score_rationale": "原始分68分，对应bonus=3档。论文明确“创造性转化”路径，将传统概念与现代法治对接，延展方向清晰且紧扣结论，但缺乏具体教义学设计，精细度有限。",
+          "evidence_quotes": [
+            "创造性转化就是将一些中国文化传统中的符号与价值系统加以改造，变成有利于变迁的种子",
+            "中国法治的价值目标是全人类的，但具体的表达方式则是民族的、地方的。"
+          ],
+          "strengths": [
+            "明确“创造性转化”路径，指向具体概念修正方向。",
+            "界定研究边界，强调普遍价值与本土表达结合。"
+          ],
+          "weaknesses": [
+            "停留于宏观倡导，缺教义学转化步骤与反驳入口。",
+            "对转化可能引发的制度冲突缺乏风险控制设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估传统法文化向现代法治演进的下一步空间，非当下结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 53.699177980422974,
+        "glm-5.1": 48.70007514953613,
+        "kimi-k2.6": 59.825178146362305,
+        "qwen3.6-plus": 64.04151773452759
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 65,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 68
+      },
+      "mean": 63.2,
+      "std": 20.8,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 47.45,
+      "weighted_total": 49.4
+    },
+    "aggregation_strictest": {
+      "final_score": 31.94,
+      "weighted_total": 31.9
+    },
+    "avg_std": 19.2,
+    "max_std": 33.1,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 15.5,
+    "composite_score": -17.53,
+    "worst_dimension": "literature_insight",
+    "worst_std": 33.1
+  }
+}

@@ -91,11 +91,10 @@ src/
   web/             # F7: Web 前端（开发中)
 configs/
   frameworks/      # 各学科知识体系 YAML 配置文件
-    law-v2.50.2-20260514.yaml # 嵌入评分步骤的负面模式检测（实验最佳）
-    law-v2.47-20260511.yaml # forward_extension 纠偏版本（生产推荐）
-    law-v2.46-20260511.yaml # v0.16 大规模评估候选
-    law-v2.45-20260510.yaml # 全链路对齐基线
-    archive/                 # 历史版本归档（v2.0 ~ v2.44）
+    law-v2.56.6-20260522.yaml   # Phase 2 Round 1 生产 prompt（六维锚定规则）
+    law-v2.55-cross-review.yaml # 交叉评审版本（Round 2 用）
+    law-v2.50.2-20260514.yaml   # 嵌入评分步骤（历史基线）
+    archive/                    # 历史版本归档（v2.0 ~ v2.54）
 docs/
   requirements/    # 需求文档
   architecture/    # ADR（架构决策记录）
@@ -213,6 +212,8 @@ SMTP_FROM=noreply@socialeval.local
 
 新增样本时必须先说明用途并归入明确分组；不要把已经参与调参的样本重新标记为验证集。
 
+- `raw/fullpaper/`：全量评审集。当前 1920 篇 PDF，用于 Phase 2 大规模评审。元数据见 `results/merged-metadata.csv`（1962 条记录，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）。
+
 ---
 
 ## 评价框架快速参考
@@ -229,16 +230,34 @@ SMTP_FROM=noreply@socialeval.local
 
 | 版本 | 状态 | 说明 |
 |------|------|------|
-| v2.50.2 | **生产推荐**（嵌入评分步骤） | 负样本均值 76.1；正样本 91.1；正负差距 15.0；识别率 44% |
-| v2.47 | 备选（forward_extension 纠偏版本） | 修正前瞻延展性系统性低分；14 篇样本验证均值 75.7；正样本稳定性好 |
-| v2.51 | ❌ **Phase 0 失败**（两阶段架构） | 经 7 次迭代，最佳 metric = -0.778（命中率 22%，误报率 50%），远低于 v2.50.2 |
-| v2.50.3 | 🧪 实验（锚定表内嵌） | v2.50.2 的变体；对杨清望有效但整体不如 v2.50.2 |
-| v2.50.1 | 🧪 实验（扣分制前置） | 真负样本均值 65.6；但分析框架/结论维度扣分被忽略 |
-| v2.49 | ❌ 失败（ceiling_rules 路线无效） | 新增 6 个负面模式规则全部未触发（0%） |
-| v2.48 | ⚠️ 测试未通过 | 正负样本区分度不足（7.8 分） |
-| v2.46 | v0.16 大规模评估候选 | 预检分层 + 信号量化 + 聚合层暴露自主信号 |
+| v2.50.2 | 嵌入评分步骤（历史基线） | 负样本均值 76.1；正样本 91.1；正负差距 15.0；识别率 44% |
+| v2.55 | 交叉评审版本（Round 2 用） | 基于 v2.50.2，维度命名已更新为标准命名 |
+| v2.56.6 | **Phase 2 Round 1 生产 prompt** | v2.56 + 6 轮锚定规则优化，std 28.16→6.22（-77.9%） |
 
-历史版本（v2.0 ~ v2.44）见 `configs/frameworks/` 和 `configs/frameworks/archive/`。
+历史版本（v1.0 ~ v2.54）已归档至 `configs/frameworks/archive/v2.0-v2.54-20260522/`。
+
+**维度命名更新**（2026-05-22）：
+- 统一六维度中文名称：研究创新性、现状洞察度、理论建构力、逻辑连贯性、学术共识度、前瞻延展性
+- v2.50.2 和 v2.55 已更新为标准命名
+- 历史版本归档前已同步更新 v2.47、v2.52、v2.53、v2.54 的命名
+
+**v2.56 Prompt 语义对齐**（2026-05-22）：
+- ❌ **问题诊断**：v2.55 维度 name_zh 已更新，但 prompt_template 仍使用旧名称（问题创新性、分析框架建构力、逻辑严密性、结论可接受性）
+- ✅ **修复内容**：
+  1. 研究创新性（原：问题创新性）：扩展评价范围，不只看问题，还看方法、材料、理论贡献
+  2. 现状洞察度：保持不变
+  3. 理论建构力（原：分析框架建构力）：扩展评价范围，不只看框架可操作性，还看理论体系完整性
+  4. 逻辑连贯性（原：逻辑严密性）：调整评价标准，从"无漏洞"改为"前后一致、论证流畅"
+  5. 学术共识度（原：结论可接受性）：保持不变
+  6. 前瞻延展性：保持不变
+
+**v2.56.6 锚定规则迭代**（2026-05-22，autoresearch 6 轮）：
+- ✅ 每轮针对 std 最高的维度添加强制锚定规则（针对法哲学/理论型论文）
+- ✅ 迭代路径：AF→PO→LI→LC→CC→FE，逐维度收敛
+- ✅ 最终结果：整体 avg std 6.22（从 28.16 降低 77.9%）
+- ✅ Holdout 验证通过（iter1h: 13.59 ≈ 13.57，无过拟合）
+- 📋 **定位**：Phase 2 Round 1 生产 prompt
+- 📋 **文件**：`configs/frameworks/law-v2.56.6-20260522.yaml`
 
 **v2.51 Phase 0 失败总结**（2026-05-15 ~ 2026-05-17）：
 - ❌ Stage A 负面模式检测器无法达到生产要求（命中率 22% vs 目标 70%，误报率 50% vs 目标 10%）
@@ -286,6 +305,123 @@ SMTP_FROM=noreply@socialeval.local
 ### 可靠性阈值
 
 - High：std ≤ 5 | Medium：5 < std ≤ 8 | Low：8 < std ≤ 12 | Critical：std > 12
+
+### Phase 2 测试结果（10 篇，2026-05-22）
+
+**测试配置**：
+- 框架：v2.55（交叉评审版本）
+- 模型：4 个（deepseek-v4-pro, glm-5.1, kimi-k2.6, qwen3.6-plus）
+- 模型分组：A 组（glm-5.1, qwen3.6-plus，宽松）、B 组（deepseek-v4-pro, kimi-k2.6，严格）
+- 交叉评审机制：A 组看 B 组的严格评价后重新评分，B 组看 A 组的宽松评价后重新评分
+- 并发策略：论文级（3 篇）+ 维度级（6 维度）+ 模型级（4 模型）
+
+**关键发现**：
+- Round 1 完成率：10/10 篇
+- Round 2 完成率：9/10 篇（论文 7 因内容审查问题未完成）
+- Round 1 平均 std：29.06（高于前 100 篇的 17.59）
+- Round 2 平均 std：14.43（显著下降，进入可接受范围）
+- std > 8 的维度比例：75.0% → 20.4%（Round 1 → Round 2）
+- 收敛率：100%（所有完成 Round 2 的论文均收敛）
+- 平均 std 下降：14.71 分
+
+**内容审查处理**：
+- 阿里云 API 对部分法学论文触发内容审查（`data_inspection_failed`）
+- 自动追踪机制：记录到 `content_inspection_issues.jsonl` 和 markdown 报告
+- 容错策略：当对方组全部失败时，自动复用 Round 1 结果
+
+**验证结论**：
+- ✅ 测试通过：Round 2 交叉评审机制非常有效
+- ✅ Round 1 标准差偏高可接受：交叉评审后显著收敛
+- ✅ 可进入 Phase 2 完整评审（1836 篇）
+
+**对比前 100 篇**：
+- 前 100 篇：Round 1 平均 std 17.59，Round 2 部分维度收敛率 80%+
+- 10 篇测试：Round 1 平均 std 29.06（+65%），Round 2 收敛率 100%
+- 分析：10 篇样本可能包含更多争议性论文，但交叉评审机制依然有效
+
+**脚本位置**：
+- 论文选择：`scripts/select_10_papers_for_test.py`
+- 评审执行：`scripts/phase2_test_10_papers.py`
+- 结果分析：`scripts/analyze_test_10_results.py`
+- 测试报告：`results/phase2-test-10/test-report.md`
+
+### Round 2 机制单篇验证（2026-05-22）
+
+对 `032_我国民事庭审阶段化构造再认识` 执行完整 R1→R2 流程，验证脚本正确性。
+
+**收敛效果**：
+
+| 指标 | R1 | R2 |
+|------|----|----|
+| 平均 std | 9.3 | 4.62（↓50%）|
+| 收敛维度（≤8）| 1/6 | 5/6 |
+| 最大 std | 16.0 | 10.3 |
+
+**模型行为差异（R2 变化幅度）**：
+
+| 模型 | 组别 | R2 平均变化 | 行为特征 |
+|------|------|------------|----------|
+| deepseek-v4-pro | B（严格）| +1.0 | 高度锚定，3/6 维度分数不变 |
+| glm-5.1 | A（宽松）| -5.0 | 向 B 组意见靠拢，普遍下调 |
+| kimi-k2.6 | B（严格）| +7.8 | 愿意上调，变化最大 |
+| qwen3.6-plus | A（宽松）| -4.3 | 普遍下调，与 glm 行为一致 |
+
+**DeepSeek 顽固性的根因（已确认，非 bug）**：
+- 属于 B 组（严格组），R2 中看到 A 组的宽松评价后，系统性地认为 A 组"过于宽松"，拒绝调整
+- `rejected_points` 质量高：能给出具体理由（如"论文是制度介绍而非理论争辩"），不是无脑拒绝
+- 这是**锚定效应**，是交叉评审设计的预期行为——防止所有模型向均值漂移
+- 对比 kimi（同 B 组）平均上调 +7.8，说明是模型特性而非 prompt 问题
+
+**未收敛维度（研究创新性，std 10.3）**：
+- DeepSeek 给出实质性学术分歧（论文是否提出可争辩的法学理论问题），不是评分随机波动
+- 属于**真实学术判断差异**，prompt 无法修复，应由专家终审介入
+
+**不需要 autoresearch 迭代 R2 的理由**：
+1. Phase 2 的 10 篇测试已验证 R2 收敛率 100%（R1 avg std 29 → R2 14.43）
+2. 单篇验证进一步确认 R2 机制工作正常，50% std 降幅是实打实的
+3. 剩余分歧是真实学术分歧，不是 prompt 问题
+4. autoresearch 迭代的是 Round 1 的锚定规则（v2.56.6），R2 机制是独立的
+
+**R2 耗时**：1103s ≈ 18分钟/篇（4 模型 × 6 维度 = 24 次 API 调用，每次需读全文）。1849 篇大规模运行时需考虑此成本。
+
+**脚本位置**：`scripts/test_single_paper_two_rounds.py`，结果：`results/single-paper-test-032/`
+
+### Phase 2 全量评审完成情况（2026-05-27）
+
+全量评审已完成，结果存放在 `results/fullevaluation/`。
+
+**执行配置**：
+- 框架：v2.55（交叉评审版本）
+- 模型：4 个（deepseek-v4-pro, glm-5.1, kimi-k2.6, qwen3.6-plus）
+- 原始论文：`raw/fullpaper/`（1920 篇 PDF）
+- 元数据：`results/merged-metadata.csv`（1962 条，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）
+
+**结果目录结构**：
+
+```
+results/fullevaluation/
+├── round2/            # 1913 篇完整评审结果（paper-{id}.json）
+│   └── paper-{id}.json  # 自包含 R1+R2：round1_scores, round2_scores, changes, raw_outputs
+└── round1-err/        # Round 1 问题论文分类（64 篇，已排除空状态）
+    ├── 2-all-reject/      # 4 模型全拒（5 篇）
+    ├── 3-majority-reject/ # 多数拒绝（19 篇）
+    ├── 4-single-reject/   # 单模型拒绝（15 篇）
+    ├── 5-boundary-only/   # 仅边界判断（25 篇）
+    └── error-summary.json # 错误汇总
+```
+
+**单篇结果 JSON 字段**：
+- `paper`：论文 PDF 路径
+- `framework`：使用的框架版本（configs/frameworks/law-v2.55-cross-review.yaml）
+- `models`：参与评审的模型列表
+- `dimensions`：六维度评分，每维度含 round1_scores, round2_scores, changes, raw_outputs
+- `overall`：汇总指标（round1_avg_std, round2_avg_std, std_improvement, dimensions_converged 等）
+
+**问题论文处理**：
+- ~~空状态（90 篇）~~：已全部补测完成，结果已纳入 round2，原始文件已清理
+- 全拒论文（5 篇）：可直接排除，不进入后续评审
+- 多数/单模型拒绝（34 篇）：需人工复核决定是否纳入
+- 边界论文（25 篇）：需人工确认项目口径归属
 
 ---
 
@@ -341,6 +477,15 @@ SMTP_FROM=noreply@socialeval.local
 
 详细分析见 `docs/evaluation/std-analysis-summary-20260423.md`
 
+### 来自 Round 2 机制验证（2026-05-22，已冻结）
+
+- **框架版本**：v2.55（交叉评审版本）+ R2 逻辑，不再用 autoresearch 迭代 R2 prompt
+- **DeepSeek 顽固性是设计正确行为**：B 组严格模型看到 A 组宽松评价后系统性拒绝调整，属锚定效应，防止模型向均值漂移；不是 bug，不需要修
+- **未收敛维度（std > 8）的处理**：剩余分歧多为真实学术判断差异（如"论文是否提出可争辩理论问题"），prompt 无法修复，交由专家终审
+- **Phase 2 大规模执行**：已完成（2026-05-27）。v2.55 + R2 逻辑，1913 篇完整结果存于 `results/fullevaluation/round2/`；64 篇 Round 1 问题论文已分类存于 `round1-err/`（空状态 90 篇已全部补测完成并清理）
+
+详细分析见 `results/single-paper-test-032/`
+
 ---
 
 ## 待澄清事项（来自需求 v0.4)
@@ -373,6 +518,13 @@ SMTP_FROM=noreply@socialeval.local
   - 文件：`agent-skills/socialeval-project-context/SKILL.md`
   - 触发场景：在本仓库里做功能开发、修复、测试、方案设计时
   - 作用：统一加载项目背景、领域约束、目录约定与实现边界
+  - 最后更新：2026-06-01（更新框架版本为 v2.56.6）
+
+### 已废弃
+
+- `socialeval-convergence-report-export`（2026-06-01 归档）
+  - 原因：convergence-test 格式已被 Phase 2 fullevaluation 替代
+  - 归档位置：`agent-skills/archive/deprecated-20260601/`
 
 ### 使用约定
 
@@ -384,42 +536,91 @@ SMTP_FROM=noreply@socialeval.local
 
 ## 归档管理
 
-### 归档策略（2026-05-11 更新）
+### 归档策略（2026-06-01 大规模清理）
 
-为保持项目目录清晰，历史测试结果和临时脚本已按以下规则归档：
+为保持项目目录清晰，**仅保留最终成果**，所有中间迭代已归档。
+
+#### 配置文件归档（configs/frameworks/archive/）
+- **v2.0-v2.54-20260522/**：59 个历史版本（law_v1.yaml + law-v2.0 至 law-v2.54）
+  - 包含所有实验版本、失败版本和被替代的稳定版本
+  - 保留完整的版本演进历史和测试数据
+  - 归档说明：`configs/frameworks/archive/v2.0-v2.54-20260522/README.md`
+- **schemas/**：历史 schema 文件
+  - `schema.json`（v1，已废弃）
+  - `schema_v3.json`（v3 实验版本，未启用）
+  - 归档说明：`configs/frameworks/archive/schemas/README.md`
+
+#### 原始数据归档（raw/archive/）
+- **phase1-papers-20260601/**：Phase 1 原始论文（已有评审结果）
+  - `phase1-100-papers/` - 100 篇论文
+  - `phase1-30-papers/` - 30 篇论文
+  - `sample/` - 样本论文
 
 #### 测试结果归档（results/archive/）
-- **convergence-tests/**：v2.8 - v2.31 收敛性测试、诊断测试、基线测试（56 个文件）
-- **model-tests/**：DeepSeek、GPT-5.4、Kimi 等模型测试、端到端管道测试、回归测试（11 个文件）
-- **v0.14-tests/**：v0.14 版本批量测试、烟雾测试、分层测试（8 个文件/目录）
-- **v0.15-tests/**：v0.15 版本批量测试、烟雾测试（2 个文件/目录）
+- **phase1-2-3-iterations-20260601/**：Phase 1/2/3 所有中间迭代（~70MB）
+  - Phase 1：6 个迭代版本（100-papers, 100-papers-cross-review, 100-papers-strictest, 30-papers 等）
+  - Phase 2：被 fullevaluation 完全替代的迭代（1849-papers, test-10, metadata 等）
+  - Phase 3：evaluation 迭代
+  - 重测：retest-7papers, retest-top60, single-paper-test-032
+  - 临时文件：cross-review 分析、round2 报告、PDF 评价报告（6 个）
+- **autoresearch-history-20260601/**：autoresearch 历史迭代（~2.7MB）
+  - v2.47 测试结果（~30 个 JSON）
+  - quick-verify, verify-v2.*, autoresearch-log, stability-test
+  - autoresearch-v2.51（失败版本）
+- **convergence-tests/**：v2.8 - v2.31 收敛性测试（56 个文件）
+- **model-tests/**：模型测试、端到端管道测试（11 个文件）
+- **v0.14-tests/**：v0.14 版本测试（8 个文件/目录）
+- **v0.15-tests/**：v0.15 版本测试（2 个文件/目录）
 
 #### 脚本归档（scripts/archive/）
-- **model-tests/**：模型对比、诊断、稳定性测试脚本（7 个）
-- **provider-tests/**：供应商诊断、配置、追踪脚本（11 个）
+- **iterations-and-tests-20260601/**：迭代和测试脚本（~80 个）
+  - 分析脚本：analyze_autoresearch_progress, analyze_cross_review, analyze_high_*, analyze_precheck_*, compare_v2.*, 等
+  - 测试脚本：test_*, check_*, debug_*, diagnose_*, find_*, extract_*, benchmark_*
+  - Phase 脚本：phase1_*, phase2_test_10_papers, run_convergence_test, run_cross_review, 等
+  - 生成脚本：export_phase1_100_report, generate_phase2_summary, generate_phase3_summary, 等
+- **experiments-20260601/**：实验脚本（15 个）
+- **model-tests/**：模型测试脚本（7 个）
+- **provider-tests/**：供应商测试脚本（11 个）
 
-#### 文档归档
-- **docs/evaluation/archive/v0.8-v0.14/**：法学 AI 辅助评审规则 v0.8 - v0.14 版本及专家反馈（10 个文件）
-- **docs/archive/**：临时分析文档、供应商测试总结、历史需求文档
-- **results/autoresearch/archive/**：快速验证测试（22 个）、v2.32-v2.40 历史版本测试（40 个）
+#### 文档归档（docs/）
+- **evaluation/archive/v0.1-v0.15-iterations-20260601/**：v0.1-v0.15 评审规则和评分规则
+- **evaluation/archive/v2.19-v2.51-iterations-20260601/**：v2.19-v2.51 版本文档
+  - 版本对比、测试报告、实现计划、优化报告
+  - v0.14, v2.47, v2.48, v2.49, v2.51 相关文档
+  - 一致性验证、收敛性测试、稳定性测试
+- **evaluation/archive/reference-20260601/**：参考文档
+  - validation-sample-plan, pattern-redesign-analysis, citalaw-paper-analysis
+  - scite-api-evaluation, sample-papers-database-schema, legal-paper-six-dimensions-guide
+  - law-framework-v2.2-research-notes, how-to-use-law-v2-config, README-20260423
+- **evaluation/archive/autoresearch-20260601/**：autoresearch 配置文档（6 个）
+- **evaluation/archive/v0.8-v0.14/**：v0.8-v0.14 评审规则（10 个文件）
+- **archive/completed-projects-20260601/**：已完成项目文档
+  - design/, discussion/, presentations/, specs/, superpowers/
+  - SocialEval-current-user-manual-2026-04-21.md
+- **archive/**：历史需求、规划、分析文档
 
-#### 归档原则
-1. **测试结果**：v2.8 - v2.40 的历史测试结果全部归档
-2. **临时脚本**：供应商和模型诊断脚本归档，保留核心工具脚本
-3. **文档版本**：v0.8 - v0.14 的评审规则归档，保留当前活跃版本（v0.15, v0.16）
-4. **保留标准**：
-   - 当前活跃版本（v0.15, v0.16, v2.45, v2.46）
-   - 核心工具脚本（analyze, dashboard, export, verify, run）
-   - 最终评价报告 PDF
+#### 归档原则（2026-06-01 更新）
+1. **配置文件**：仅保留 3 个生产版本（v2.56.6, v2.55, v2.50.2）+ schema_v2.json
+2. **原始数据**：仅保留 fullpaper + 3 个测试集 + top30_paper + validation
+3. **评审结果**：仅保留 fullevaluation（Phase 2 最终成果）+ merged-metadata.csv + autoresearch/v2.56
+4. **脚本**：仅保留 17 个核心工具（analyze, generate, evaluate, verify, dashboard, rubric_reflector 等）
+5. **文档**：仅保留当前活跃版本（v0.16, concept-operationalization-v1.0, std-analysis-summary, v0.15-test-report）
+6. **保留标准**：只保留最终成果，所有中间迭代全部归档
 
 #### 查找归档文件
 ```bash
 # 查看归档目录结构
-tree -L 2 results/archive/ scripts/archive/ docs/evaluation/archive/
+tree -L 2 results/archive/ scripts/archive/ docs/evaluation/archive/ configs/frameworks/archive/
+
+# 搜索特定版本的配置文件
+find configs/frameworks/archive/ -name "*v2.47*"
 
 # 搜索特定版本的测试结果
 find results/archive/ -name "*v2.30*"
 
 # 搜索特定模型的测试脚本
 find scripts/archive/ -name "*deepseek*"
+
+# 查看 schema 演进历史
+ls -lh configs/frameworks/archive/schemas/
 ```

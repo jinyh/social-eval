@@ -1,0 +1,1062 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国“宪法实施“的话语体系与演变脉络.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号(1)(2)等为简写格式，未影响正文理解。",
+          "文末‘参考文献列表’显示为‘（无）’，但正文脚注已提供完整引证信息。"
+        ],
+        "evidence_quotes": [
+          "“话语体系离不开语言，但又不等于语言。”(1)",
+          "DOI:10.14111/j.cnki.zgfx.2021.03.005",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“宪法实施”不仅是全面依法治国的首要任务和基础性工作，而且是我国宪法理论和实践中的一个基石性概念与范畴……几乎涵摄了认识、观察和解释中国宪法问题的所有视角与议题。",
+          "对宪法实施话语体系的研究……最终都必须指向如何获得关于当代中国宪法实施的正确认知与科学概括……深入考察宪法实施在学术话语与政治话语中的意涵变迁及其相互关联。",
+          "我国宪法实施呈现出一种多元主体、多条路径和多种方式有机结合、相互促进、高效协同的基本形态……是一种具有中国特色、中国气派、中国风格的立体化全方位复合型实施模式。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文末参考文献列表标记为‘（无）’，但正文脚注完整，属于抽取格式问题，不影响内容评审。"
+      ],
+      "evidence_quotes": [
+        "对‘宪法实施’核心要义的追问、宪法实施的法律化与政治化路径争论、宪法实施主体与模式等，构成贯穿全文的法学争议。",
+        "将‘宪法实施’从中国政治实践与学术史中提炼为具有解释力的本土概念群与问题域，提出‘政治化实施与法律化实施同步进行的双轨运行格局’及‘复合型实施模式’。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国宪法实施的本土概念、制度演进与话语体系为核心，形成可复核的法学命题，文本质量可读，直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码及栏目名混入正文段落之间（如“中国法学 2021年第3期 72”）",
+          "脚注引用标记存在特殊字符乱码（如“前注㉚”、“前注㉛”、“前注㉜”等）",
+          "参考文献列表抽取失败，显示为“（无）”，但正文包含大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "中国法学 2021年第3期 72",
+          "前注㉚，习近平文，第214 页。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“宪法实施”是一个根植中国本土、深具中国特色的宪法学基本范畴",
+          "我国的宪法实施绝非某种单一的宪法观念所能覆盖，而需要从建构和规范的双重视角去分析其逻辑构造与运作实践",
+          "宪法实施呈现出一种多元主体、多条路径和多种方式有机结合、相互促进、高效协同的基本形态……是一种具有中国特色、中国气派、中国风格的立体化全方位复合型实施模式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码与栏目名混入正文段落间，需在后续阶段清洗",
+        "文本工程：脚注引用标记存在特殊字符乱码，影响文献溯源复核",
+        "文本工程：参考文献列表抽取为空，需从正文脚注中重建",
+        "项目口径：论文完全符合中国自主知识体系评价口径，无口径边界问题"
+      ],
+      "evidence_quotes": [
+        "我国的宪法实施绝非某种单一的宪法观念所能覆盖，而需要从建构和规范的双重视角去分析其逻辑构造与运作实践",
+        "前注㉚，习近平文，第214 页。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程。在后续评审阶段前，需对正文进行文本工程清洗，剥离混入的期刊页码与栏目名，修复脚注乱码标记，并基于正文脚注重建参考文献列表以备复核。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如“前注㉚”“前注㉛”等编号乱码）",
+          "参考文献列表缺失（标注为“无”）",
+          "期刊页码信息混入正文（如“71”“72”等页码标记）"
+        ],
+        "evidence_quotes": [
+          "前注㉚，习近平文，第213 页。",
+          "前注㉛，习近平书，第201 页。",
+          "中国法学 2021 年第3 期 72"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "‘宪法实施’不仅是全面依法治国的首要任务和基础性工作，而且是我国宪法理论和实践中的一个基石性概念与范畴，处于整个宪法学知识结构和话语体系的枢纽位置，几乎涵摄了认识、观察和解释中国宪法问题的所有视角与议题，也贡献了最具中国本土特色的宪法学核心命题和关键术语。",
+          "在中国语境下，深入考察宪法实施在学术话语与政治话语中的意涵变迁及其相互关联，对于理解和分析宪法实施的内在机理与发展规律、观察和阐释宪法学理论的生长路径与演变轨迹，有着独特的价值和意义。",
+          "我国宪法实施呈现出一种多元主体、多条路径和多种方式有机结合、相互促进、高效协同的基本形态，具有显著的优越性、鲜明的实效性和强大的生命力。这一模式绝非传统意义上的立法机关实施制、司法机关实施制、特设专门机构实施制等范畴类型所能涵盖，而是一种具有中国特色、中国气派、中国风格的立体化全方位复合型实施模式",
+          "政治话语和学术话语在‘知识’上的互补和‘意义’上的交融，不仅从一个侧面折射着我国宪法实施跌宕起伏的不平凡历程，也昭示着中国宪法学在学术与政治的深度交融和良性互动中走向了‘新时代’。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号存在OCR残留（如“前注㉚”“前注㉛”等），但不影响核心内容理解",
+        "文本工程：参考文献列表缺失，但正文引用信息基本完整可辨",
+        "文本工程：期刊页码标记（如“71”“72”）混入正文，属分栏排版残留"
+      ],
+      "evidence_quotes": [
+        "‘宪法实施’不仅是全面依法治国的首要任务和基础性工作，而且是我国宪法理论和实践中的一个基石性概念与范畴，处于整个宪法学知识结构和话语体系的枢纽位置，几乎涵摄了认识、观察和解释中国宪法问题的所有视角与议题，也贡献了最具中国本土特色的宪法学核心命题和关键术语。",
+        "我国宪法实施呈现出一种多元主体、多条路径和多种方式有机结合、相互促进、高效协同的基本形态……而是一种具有中国特色、中国气派、中国风格的立体化全方位复合型实施模式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文完全符合项目口径，应进入六维评价。论文以中国宪法实施为核心议题，系统梳理学术话语与政治话语的交融互动，提炼中国特色宪法实施模式，具有明确的中国问题意识、法学理论深度、实践解释力和理论转化成果。文本质量风险较低，脚注编号乱码和页码残留不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“宪法实施”不仅是全面依法治国的首要任务和基础性工作，而且是我国宪法理论和实践中的一个基石性概念与范畴，处于整个宪法学知识结构和话语体系的枢纽位置",
+          "宪法实施路径不可能是非此即彼的排他性选择，而是呈现出一种政治化实施与法律化实施同步进行的双轨运行格局",
+          "我国宪法实施采用的并不是某种单一的路径或方式，而是政治化实施与法治化实施、立法性实施与监督性实施、事先防范与事后审查等相互衔接、交织并行、同向发力，从而形成了目标优化、分工合理的宪法实施结构体系。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "“宪法实施”不仅是全面依法治国的首要任务和基础性工作，而且是我国宪法理论和实践中的一个基石性概念与范畴",
+        "宪法实施路径不可能是非此即彼的排他性选择，而是呈现出一种政治化实施与法律化实施同步进行的双轨运行格局",
+        "政治话语和学术话语之间的良性互动并非简单地源自于一种学术自觉或政治态度，更重要的是内生于根本的宪法共识和宪法实施的中国逻辑。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "建议直接进入六维评价阶段。本文以中国宪法实施为核心议题，系统梳理了规范宪法学与政治宪法学的理论争鸣，深入剖析了中国语境下政治话语与学术话语的互动演变，并提炼出“双轨运行格局”“立体化全方位复合型实施模式”等具有本土解释力的理论命题。文本结构完整、论证清晰，完全符合“中国自主知识体系研究”的项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "全文仅为主题声明和话语体系描述，未提出可争辩的法学研究问题，属于宏观介绍而非深度分析。",
+          "core_judgment": "论文无明确的问题句或法学争点，纯粹是阐释既定立场和梳理话语演变，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性未触发上限。扣分：新概念包装旧问题扣25分，宏观介绍无交锋扣20分，主题声明无问题句扣30分，合计75分。扣分后低于30分，按30分计。",
+          "evidence_quotes": [
+            "“宪法实施”不仅是全面依法治国的首要任务和基础性工作，而且是我国宪法理论和实践中的一个基石性概念与范畴。",
+            "对宪法实施话语体系的研究有多重维度和多种方法，但不管采用哪种视角或方法，最终都必须指向如何获得关于当代中国宪法实施的正确认知与科学概括。"
+          ],
+          "strengths": [
+            "系统梳理了宪法实施在政治话语与学术话语中的变迁，材料详实。",
+            "关注中国本土宪法实践，试图提炼中国特色话语体系。"
+          ],
+          "weaknesses": [
+            "全文无“XX是否YY”“如何ZZ”等可争辩问题句，仅为主题声明。",
+            "无不同学者观点的实质交锋，仅平铺直叙介绍学术史，未触及理论分歧。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无可争辩的法学争点，仅为主题声明",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以“宪法实施的话语体系与演变脉络”为主线，无任何问题句或理论分歧，只是阐释既定立场和梳理话语演变。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述是否充分、论证是否严密或材料是否支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 60,
+          "band": "good",
+          "summary": "论文梳理宪法实施既有争点与话语演变，但后半部分实质偏向政策倡导与既定立场阐释。",
+          "core_judgment": "问题成立且枢纽性强，但研究实质包含大量既定立场阐释而非深度争辩，创新性受限。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，基础分80分；前置检查3因问题句实质含政策倡导扣20分，最终60分。",
+          "evidence_quotes": [
+            "对‘宪法’的不同认识，直接决定着关于宪法实施的不同学术立场和研究进路",
+            "如何消解宪法规范与社会现实之间的冲突与张力，是坚守宪法规范...还是沿袭‘先行先试’的制度变迁逻辑"
+          ],
+          "strengths": [
+            "触及规范宪法学与政治宪法学的核心理论分歧",
+            "宪法实施问题辐射范围广，涉及多重制度领域"
+          ],
+          "weaknesses": [
+            "后半部分大量阐释政治话语既定立场，偏向政策倡导",
+            "未提出超越既有争点的新研究问题或新解释路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文系对'宪法实施'话语体系的宏观梳理与系统归纳，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文无明确问题句，仅有主题声明；无学者观点交锋，仅为既定立场的阐释与整合。",
+          "score_rationale": "可争辩性=1/4（仅有'规范宪法学vs政治宪法学'一处分歧提及但未展开交锋），枢纽性=2/4（涉及宪法学基础概念、多制度领域，但无制度连锁论证），材料新颖性未触发上限。锚定unacceptable档，扣35分。",
+          "evidence_quotes": [
+            "构建中国特色宪法实施话语体系，首先就需要对相关的理论观点进行认真梳理和分析",
+            "政治话语和学术话语之间的良性互动并非简单地源自于一种学术自觉或政治态度"
+          ],
+          "strengths": [
+            "主题重大，涉及宪法学核心范畴"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'类问题句，仅为主题阐释",
+            "学者分歧仅被介绍性提及，未形成真正学术交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅'规范宪法学vs政治宪法学'一处分歧，且为介绍性陈述，未形成可争辩问题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "本文系统梳理“宪法实施”话语演进，但缺乏明确争点，偏向主题阐释与立场归纳。",
+          "core_judgment": "问题创新性不足，全文以话语梳理与政策阐释为主，未提出具有实质交锋的法学争点。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性未触发上限。锚定good档(65分)。前置检查扣35分（宏观介绍15，主题声明20），最终得分30分。",
+          "evidence_quotes": [
+            "“宪法实施”不仅是全面依法治国的首要任务……几乎涵摄了认识、观察和解释中国宪法问题的所有视角",
+            "政治话语和学术话语之间的良性互动并非简单地源自于一种学术自觉，更重要的是内生于宪法共识"
+          ],
+          "strengths": [
+            "系统整合了规范与政治宪法学的核心观点",
+            "清晰勾勒了学术与政治话语的互动脉络"
+          ],
+          "weaknesses": [
+            "缺乏明确的法学争点与问题句，偏向主题声明",
+            "对既有分歧仅作归纳陈述，未展开深度交锋"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.398690223693848,
+        "glm-5.1": 53.1880521774292,
+        "kimi-k2.6": 11.017184019088745,
+        "qwen3.6-plus": 100.11653995513916
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 60,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 40,
+      "std": 13.5,
+      "strictest": 30,
+      "strictest_model": "qwen3.6-plus"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文未建立可验证的研究地图，三要素（到达点、未竟点、本文切入点）均严重缺失，无法清晰定位本文相对于既有研究的贡献边界。",
+          "core_judgment": "论文采用宏观叙事的"
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现宪法实施的多重争点与流派对立，研究地图完整。",
+          "core_judgment": "本维成立，论文通过分散式定位完整构建了研究地图与争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "规范宪法学的宪法概念与政治宪法学的宪法概念...影响最为持久和深入",
+            "如何在倡导理论研究的主体意识...形成对现实具有足够解释力和影响力的话语体系，仍然是一项未竟的学术事业"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了规范与政治宪法学的核心分歧",
+            "明确指出了学术话语与政治话语良性互动的未竟课题"
+          ],
+          "weaknesses": [
+            "部分争点（如宪法实施主体）的流派对立展开稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点结构，而非宪法实施问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了学术话语与政治话语双重视角的研究地图，呈现了规范宪法学与政治宪法学等对立立场，但三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素部分满足，争点结构可识别但法学流派识别受分散式写作影响，整体处于good档中游。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了规范宪法学、政治宪法学、宪法社会学等多派观点及制度演进；未竟点1分：指出学术与政治话语关系是'未竟的学术事业'但具体缺口模糊；切入点1分：提出'话语体系构建'但未明确对应未竟点），争点结构=2/2（规范vs政治宪法学、法律化vs政治化实施路径、宪法遵守vs宪法执行等≥2个争点），法学流派=3个（规范宪法学、政治宪法学、宪法社会学），锚定good档，给72分",
+          "evidence_quotes": [
+            "规范宪法学的宪法概念与政治宪法学的宪法概念对宪法实施话语体系的影响最为持久和深入",
+            "政治宪法学认为中国宪法实施的方式主要是政治机制而非法律机制，从而指向了中国宪法的政治化实施道路"
+          ],
+          "strengths": [
+            "分散式文献定位有效呈现了学术史脉络",
+            "规范宪法学与政治宪法学的对立结构清晰"
+          ],
+          "weaknesses": [
+            "未竟点与本文切入点对应关系不明确",
+            "缺乏独立文献综述段落，三要素需从正文提取"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理完整性，不评问题创新性；论文问题意识明确但文献定位分散。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理宪法实施话语演进，精准锚定核心争点，研究地图完整。",
+          "core_judgment": "文内证据充分展现完整文献脉络与明确争点结构，研究地图构建扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "规范宪法学的宪法概念与政治宪法学的宪法概念对宪法实施话语体系的影响最为持久和深入。",
+            "如何通过与政治话语既有机结合、相互促进又适度分离、协调发展，从而形成对现实具有足够解释力和影响力的话语体系，仍然是一项未竟的学术事业。"
+          ],
+          "strengths": [
+            "精准提炼规范宪法学与政治宪法学等对立解释路径，争点脉络清晰。",
+            "明确指出现有研究在话语整合与解释力上的未竟之处，切入点直接对应。"
+          ],
+          "weaknesses": [
+            "部分历史脉络梳理偏重政治话语引述，学术争点的法理交锋可进一步深化。",
+            "对宪法社会学等流派的具体文献贡献提炼略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献梳理与争点呈现，不涉及宪法实施理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 17.662594079971313,
+        "glm-5.1": 156.10651898384094,
+        "kimi-k2.6": 10.681695222854614,
+        "qwen3.6-plus": 63.85526895523071
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 70.5,
+      "std": 29.7,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "本文是对中国宪法实施话语体系的系统梳理与脉络归纳，未提出原创分析框架。",
+          "core_judgment": "论文的工作是“梳理”“归纳”“阐释”既有政治与学术话语，而非建构可供他人重复适用的分析步骤或判断标准，因此不满足分析框架建构力的基本要求。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定相对清晰），法学转化度得分=0/4（无裁判规则或操作化指引），锚定unacceptable档，触发政策理论梳理型上限，给25分。",
+          "evidence_quotes": [
+            "“构建中国特色宪法实施话语体系，首先就需要对相关的理论观点进行认真梳理和分析。”",
+            "“本文……主要是围绕有关宪法实施的不同主题进行聚焦式地讨论……”"
+          ],
+          "strengths": [
+            "对宪法实施的政治与学术话语演变脉络的梳理非常详实、系统。",
+            "明确区分了宪法实施在学术与政治两个层面的表意，分类整理贡献突出。"
+          ],
+          "weaknesses": [
+            "全文以归纳既有的政策理论和学者观点为主，未提出原创性分析步骤或判断标准。",
+            "缺乏可重复适用的分析框架，后文也未调用任何由作者建构的操作步骤进行论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "v0.7_policy_theory_identification",
+              "rule": "论文主要工作是系统归纳既有立场、权威表述或政策理论，而非提出原创分析框架，触发政策理论梳理型上限。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释宪法实施的学术话语和政治话语脉络为核心，核心术语均来自权威表述，无原创的类型化或分析步骤。"
+            }
+          ],
+          "boundary_note": "这是框架建构力缺失的问题，不涉及逻辑衔接或问题创新性的评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，仅有主题分类而无可操作分析框架与法学转化。",
+          "core_judgment": "该维不成立，论文未建构可重复适用的分析框架，仅完成话语体系的归纳与阐释。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足分类标准），法学转化度得分=0/4（无操作化转化），锚定unacceptable档，结合负面降档与政策梳理型上限，给45分。",
+          "evidence_quotes": [
+            "“宪法实施的话语体系实际上就是关于宪法实施的一系列理论言说、制度规则、实践经验的系统化集成”",
+            "“呈现出一种政治化实施与法律化实施同步进行的双轨运行格局”"
+          ],
+          "strengths": [
+            "对宪法实施路径与主体进行了明确分类",
+            "梳理了学术与政治话语的互动脉络"
+          ],
+          "weaknesses": [
+            "核心概念缺乏操作化定义与分析步骤",
+            "充斥口号式呼吁而缺乏具体制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无操作化定义，无分析步骤，无法学转化步骤"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文，框架可操作性上限2，法学转化度上限1，总分通常≤60",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释既定立场与权威表述为主，主要贡献为梳理归纳而非建构"
+            }
+          ],
+          "boundary_note": "本维仅评判框架建构力与法学转化，不评判话语演变梳理的逻辑严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型论文，以阐释既定立场为主，无原创分析框架。",
+          "core_judgment": "该论文属于典型的政策理论梳理型，核心术语来自权威表述，无原创概念界定或类型化，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅'核心要义—路径选择—主体类别'有分类罗列，无明确边界和可重复判断步骤；后文虽有调用但属主题展开而非框架操作），法学转化度得分=1/4（仅将政治话语映射到制度层面，无新的操作化转化；无裁判规则、法律适用流程或制度设计方案）。触发v0.7协议上限规则，总分不超过60分；同时框架核心术语后文调用属主题性重复而非框架性操作，综合判定45分。",
+          "evidence_quotes": [
+            "构建中国特色宪法实施话语体系，首先就需要对相关的理论观点进行认真梳理和分析，提炼出相对固定并具有思想内涵且能够支撑话语体系的核心概念与基本原理。",
+            "宪法实施的话语体系实际上就是关于宪法实施的一系列理论言说、制度规则、实践经验的系统化集成、逻辑化凝练、总体性认知。"
+          ],
+          "strengths": [
+            "历史脉络梳理清晰，政治话语与学术话语的互动关系呈现较为系统。"
+          ],
+          "weaknesses": [
+            "核心概念'宪法实施'无原创界定，'立体化全方位复合型实施模式'等表述为描述性归纳而非可操作的判断框架。",
+            "全文以'梳理''归纳''阐释'为主，无'建构''提出''设计'等原创性框架工作。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "v0.7协议对齐——政策理论梳理型识别规则：框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释既定立场为主，核心术语'宪法实施''立体化全方位复合型实施模式'等均来自权威表述而非论文原创；主要贡献是'梳理''归纳''阐释'学术史与政治话语，而非'建构''提出''设计'分析框架"
+            },
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用则最高60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "虽'核心要义''路径选择''主体类别'等分类在后文反复出现，但均属主题内容展开，而非作为可重复适用的分析步骤被调用；无'第一步…第二步…'式操作，无判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构与法学转化，不涉及政治话语与学术话语互动逻辑是否严密的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，侧重话语演变归纳，未建构可操作的原创分析框架。",
+          "core_judgment": "框架建构力不成立，全文以既有立场与权威表述的梳理为主，缺乏可重复适用的分析步骤与法学转化。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "本文并没有严格按照传统研究范式进行分阶段条分缕析，而主要是围绕有关宪法实施的不同主题进行聚焦式讨论",
+            "宪法实施的话语体系实际上就是关于宪法实施的一系列理论言说、制度规则、实践经验的系统化集成"
+          ],
+          "strengths": [
+            "系统梳理了学术与政治话语的互动脉络，具有较好的理论史视野。",
+            "对规范宪法学与政治宪法学的分歧进行了清晰归纳。"
+          ],
+          "weaknesses": [
+            "核心概念缺乏原创性操作化定义，仅停留在既有观点综述。",
+            "未提供可重复适用的分析步骤或裁判与制度适用指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释既定立场与话语演变为主，无原创概念界定、分类边界或可循分析步骤。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及理论史梳理的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 140.49152517318726,
+        "glm-5.1": 61.8056697845459,
+        "kimi-k2.6": 17.657761096954346,
+        "qwen3.6-plus": 67.52505493164062
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 45,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 45
+      },
+      "mean": 40,
+      "std": 10.0,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文以“话语体系与演变脉络”为双线主轴，推理链可复述但存在多处依赖弱化和概念跃迁，反驳处理限于隐含分歧回应而缺乏对替代路径的实质性对话。",
+          "core_judgment": "推理链较完整且能支撑总体论述框架，但关键转折处依赖修辞过渡而非严密推导，反驳处理仅满足隐含分歧回应。",
+          "score_rationale": "推理链完整性得分=3/4（主要步骤可复述，部分依赖弱但核心结论可推出，关键跳步<2），反驳处理度得分=1/3（仅满足隐含分歧回应），锚定good档，给78分。",
+          "evidence_quotes": [
+            "在学术脉络中，宪法实施的话语重心……以“宪法实施的怎么样”为起点……话语体系的演变轨迹刚好与认知逻辑逆向而行。这虽然不符合“理论指导实践”的理性主义思路，却符合“实践是理论之源”的经验主义法则。",
+            "政治话语和学术话语之间的良性互动并非简单地源自于一种学术自觉或政治态度，更重要的是内生于根本的宪法共识和宪法实施的中国逻辑。"
+          ],
+          "strengths": [
+            "主线清晰：政治话语与学术话语的“重合—分离—再接近”演化脉络贯穿全文，构成可复述的三段式推理链。",
+            "隐含分歧回应：在规范宪法学与政治宪法学的“实施什么”之争中，明确选择了整合平衡的立场并给出理由。"
+          ],
+          "weaknesses": [
+            "“逆向逻辑”跳步：从“实践是理论之源”直接跳到“符合经验主义法则”，缺少对“实践—理论”反哺机制如何支撑话语体系建构的论证。",
+            "反驳处理单薄：全文未出现显式反对意见回应或反例/局限承认，仅靠隐含路径分歧维持反驳信号，致使论证闭环不够强韧。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度=0时触发。本文推理链完整性=3，不触发该上限。但反驳处理度=1，不适用unacceptable档上限。",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "反驳处理度仅1分，仅满足隐含分歧回应，未涉及反驳信号①③④。"
+            }
+          ],
+          "boundary_note": "“逆向演进”属于逻辑链路中依赖弱的环节，系推理衔接问题而非分析框架本身无法操作化，故归入逻辑严密度而非框架建构力。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且对理论分歧有实质回应，结论可辩护推出。",
+          "core_judgment": "本维度成立，论文构建了从话语剖析到互动融合的完整推理链，并有效处理了理论争辩。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "我国宪法的价值目标从来都不是单向度的...需要从建构和规范的双重视角去分析其逻辑构造",
+            "如何通过与政治话语既有机结合又适度分离、协调发展...仍然是一项未竟的学术事业"
+          ],
+          "strengths": [
+            "推理链清晰，从双重话语剖析到互动融合结论可辩护推出",
+            "对规范/政治宪法学分歧及司法化困境有实质性理论回应"
+          ],
+          "weaknesses": [
+            "学术与政治话语两部分并列论述，局部依赖度稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评推理链是否充分支撑结论，不评话语体系框架本身是否可操作。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "话语体系梳理完整，但缺乏明确结论推导链条。",
+          "core_judgment": "论文以描述性梳理为主，核心命题'构建话语体系'未形成严格论证链条，推理链完整性不足。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2、4不成立：步骤间多为并列铺陈而非递进推导，且从'梳理演变'到'构建话语体系'存在关键跳步）；反驳处理度得分=2/3（标准1、2成立：呈现了规范宪法学与政治宪法学的分歧并说明选择理由，标准3不成立：未承认自身局限）。锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "宪法实施话语体系不是抽象的理论归纳或逻辑演绎，而必须以当代中国生动鲜活的宪法实践为基础...",
+            "政治话语和学术话语在'知识'上的互补和'意义'上的交融，不仅从一个侧面折射着我国宪法实施跌宕起伏的不平凡历程，也昭示着中国宪法学...走向了'新时代'"
+          ],
+          "strengths": [
+            "清晰呈现了规范宪法学与政治宪法学的理论分歧及选择理由",
+            "历史脉络梳理具有时间序列上的逻辑层次"
+          ],
+          "weaknesses": [
+            "核心结论'构建话语体系'未由前文充分推出，多为描述性总结",
+            "学术话语与政治话语'重新接近'的因果机制论证不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题在于结论是否由前文推出，而非框架是否完整。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链完整，有效整合学术分歧并回应局限，逻辑严密性优秀。",
+          "core_judgment": "理论推演链条清晰，核心结论可由前文概念分析与话语演进充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。概念推演与话语互动分析层层递进，无关键跳步，且对学术分歧有实质性回应与边界承认。",
+          "evidence_quotes": [
+            "只有整合各种宪法概念中的有益资源与合理成分，实现宪法的政治性与法律性之间的平衡，才能使宪法实施发挥出最大效用。",
+            "学术话语和政治话语之间的良性互动并非简单地源自于一种学术自觉或政治态度，更重要的是内生于根本的宪法共识和宪法实施的中国逻辑。"
+          ],
+          "strengths": [
+            "概念辨析到话语互动的推理链条完整，层层递进。",
+            "对规范与政治宪法学之争作出实质性整合回应。"
+          ],
+          "weaknesses": [
+            "部分历史阶段过渡依赖政策表述，法理推演稍显薄弱。",
+            "结论偏向经验归纳，规范逻辑的必然性论证可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条是否自洽可辩护，不评价话语体系建构的实务可操作性或结论的政治接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 68.13224482536316,
+        "glm-5.1": 42.814260959625244,
+        "kimi-k2.6": 10.584267139434814,
+        "qwen3.6-plus": 65.95117974281311
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 88
+      },
+      "mean": 78.2,
+      "std": 11.6,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文是对主流政治话语的复述与梳理，未能将结论转化为可争辩的学术主张，缺乏独立的学术对话立场。",
+          "core_judgment": "结论不成立为学术主张，实质是政治话语的学术版复述，无法被学术共同体定位和回应。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=3/4，属 unacceptable 档。因对话度为0触发上限规则，总分≤50。但论文本质上是对既定立场的复述而非独立主张，无对话度，故给20分。",
+          "evidence_quotes": [
+            "政治话语和学术话语的良性互动并非简单地源自于一种学术自觉或政治态度，更重要的是内生于根本的宪法共识和宪法实施的中国逻辑。",
+            "我国宪法实施呈现出以党的领导为根本、以人民力量为基础、以宪法监督机关为专责主体……立体化全方位复合型实施模式。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "论文仅复述既定政治话语和学术发展脉络，未提出可被反对者定位和回应的独立学术主张。",
+            "全篇无一处主动讨论或回应可能的反对意见，亦未承认自身论述的局限性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文是对政治话语与既有学术脉络的描述与综合，结论部分无独立主张，反对者无法定位与回应。"
+            }
+          ],
+          "boundary_note": "此评分针对结论可接受性，不关乎论证的严密性或研究的史料价值。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论有效回应学术争论并高度契合中国制度语境，可接受性强。",
+          "core_judgment": "结论在理论层面成功回应共同体争论且与现行法秩序兼容，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "既不能简单地用政治话语取代学术话语...也不能刻意地用学术话语置换政治话语",
+            "我国宪法实施呈现出一种多元主体、多条路径和多种方式有机结合...立体化全方位复合型实施模式"
+          ],
+          "strengths": [
+            "有效回应规范宪法学与政治宪法学的核心争论",
+            "深刻结合中国宪法体制与政治-学术话语互动语境"
+          ],
+          "weaknesses": [
+            "结论高度契合官方话语，理论批判性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文系统梳理中国宪法实施话语体系，但结论缺乏可争辩的学术主张，多为复述既定政治话语。",
+          "core_judgment": "共同体对话度不足：论文结论未与既有学术争论形成有效对话，未承认自身局限，也未提供反对者可回应的具体论点；制度可接受度尚可，但理论贡献有限。",
+          "score_rationale": "共同体对话度得分=1/4（回应了规范宪法学与政治宪法学之争，但未说明自身立场与既有争论的关系；无反对意见讨论；无自身局限承认），制度可接受度得分=3/4（与现行法秩序兼容，回应制度约束，考虑中国语境，但未指出制度转化方向），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "政治话语和学术话语在'知识'上的互补和'意义'上的交融，不仅从一个侧面折射着我国宪法实施跌宕起伏的不平凡历程，也昭示着中国宪法学在学术与政治的深度交融和良性互动中走向了'新时代'",
+            "宪法实施的话语体系应当既具有科学精神、理论品格，也具有政治情怀、实践价值"
+          ],
+          "strengths": [
+            "系统梳理学术话语与政治话语互动关系，体现中国制度语境",
+            "对宪法实施路径、主体、模式等制度要素有较为全面的经验性描述"
+          ],
+          "weaknesses": [
+            "结论多为复述官方话语和既有共识，未转化为可争辩的学术主张",
+            "未讨论任何反对意见或自身理论局限，反对者无从进入对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0或1时，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论未明确与既有争论的关系，未承认局限，未提供反对者可回应的具体论点，共同体对话度仅1分"
+            }
+          ],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证过程严密性或未来研究空间的评价。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度融入中国宪法语境，有效回应规范与政治宪法学之争，与现行法秩序高度兼容。",
+          "core_judgment": "该维度成立，结论具备充分的共同体对话基础与制度逻辑兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "只有整合各种宪法概念中的有益资源与合理成分，实现宪法的政治性与法律性之间的平衡，才能使宪法实施发挥出最大效用。",
+            "政治话语和学术话语在“知识”上的互补和“意义”上的交融……昭示着中国宪法学在学术与政治的深度交融和良性互动中走向了“新时代”。"
+          ],
+          "strengths": [
+            "精准定位规范与政治宪法学争论并提出整合路径",
+            "深度契合中国宪制实践与政治话语逻辑"
+          ],
+          "weaknesses": [
+            "对学术话语独立性的边界探讨略显保守",
+            "未明确列举具体反对意见的回应细节"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.966161012649536,
+        "glm-5.1": 45.353209018707275,
+        "kimi-k2.6": 57.54687285423279,
+        "qwen3.6-plus": 67.72319102287292
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 61.2,
+      "std": 32.0,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文结语仅提出空泛的建构方向与意义拔高，未形成具体、可定位的后续研究问题、概念修正路径或制度深化方向，缺乏有效延展信号。",
+          "core_judgment": "不存在真实、具体的延展路径。",
+          "score_rationale": "论文结尾虽提出构建话语体系及学术与政治话语良性互动，但仅止于“加快构建”“不断深化”“努力构建”等口号式展望，未指明具体问题、概念边界或下一步检验入口，属于低分段。原始分20，bonus=0。",
+          "evidence_quotes": [
+            "新时代‘坚持依宪治国、依宪执政’的有效推进，迫切需要加快构建中国特色宪法实施话语体系，以清晰、准确地表达中国宪法及宪法实施的核心要义……",
+            "就需要认真聆听时代声音、把握时代脉搏、回应时代呼唤，努力构建具有感召力、影响力、说服力的宪法学思想体系和知识体系……"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅有“加快构建”“不断深化”“努力构建”等宏观口号，未提出具体待修正对象、概念边界或制度路径。",
+            "未指明理论深化方向、实证检验命题或可操作的后续研究问题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语部分整体为意义拔高和宏观号召，例如‘加快构建中国特色宪法实施话语体系’‘努力构建具有感召力、影响力、说服力的宪法学思想体系和知识体系’，缺乏具体问题、对象、机制、概念边界或制度路径。"
+            }
+          ],
+          "boundary_note": "论文结语谈论的是话语体系未来建构方向，属于未来延展问题；但因缺乏具体路径，已触发slogan_outlook规则，故评分低。这不涉及当下结论可接受性的问题。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "指明了规范与现实互动、话语体系重构等宏观但可定位的理论深化方向，精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了学术与政治话语互动及规范与现实调适的具体深化方向。",
+          "score_rationale": "原始分65，属good档(60-79)，bonus=3。主要证据：明确提出规范与现实、政治性与法律性调适的永恒话题，以及学术与政治话语互动的未竟事业，但精细度有限。",
+          "evidence_quotes": [
+            "如何妥当地调适社会变革与宪法变迁、宪法的政治性与法律性之间的关系，将会是伴随我国宪法学发展的一个常说常新的永恒话题。",
+            "如何通过与政治话语既有机结合、相互促进又适度分离、协调发展，从而形成对现实具有足够解释力和影响力的话语体系，仍然是一项未竟的学术事业。"
+          ],
+          "strengths": [
+            "明确提出规范与现实、政治性与法律性调适的后续争点。",
+            "指出学术与政治话语互动的深化方向，与正文核心衔接紧密。"
+          ],
+          "weaknesses": [
+            "延展路径偏向宏观议题，缺乏具体可检验的理论假设或机制。",
+            "末尾夹杂提升话语权等口号式拔高，削弱学术延展锐度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "规范与现实互动的后续研究属于未来理论深化问题，而非当下话语体系演变结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出了学术话语与政治话语互动关系的未来走向，但延展路径较为概括，缺乏具体后续研究问题或明确的理论修正方向。",
+          "core_judgment": "存在真实但较为概括的延展路径，主要体现为对学术话语与政治话语未来关系的方向性指引，但精细度不足。",
+          "score_rationale": "原始分55分，对应bonus=2的边际档位。论文在结尾处提出'如何在倡导理论研究的主体意识和本土关怀时，不断增强学术反思能力和建构能力'等未来方向，以及'中国的宪法学'向'中国宪法学'转变的命题，但多为宏观方向性表述，未形成具体可操作的后续研究问题或理论修正路径。",
+          "evidence_quotes": [
+            "如何在倡导理论研究的主体意识和本土关怀时，不断增强学术反思能力和建构能力；如何通过与政治话语既有机结合、相互促进又适度分离、协调发展，从而形成对现实具有足够解释力和影响力的话语体系，仍然是一项未竟的学术事业",
+            "这就需要准确阐释我国宪法实施的历史逻辑、政治逻辑、法理逻辑和实践逻辑，善于运用具有说服力的学术话语讲好中国宪法故事，并用具有标志性的研究成果为宪法实施的制度创新和实践探索提供坚实的学理论证与支撑"
+          ],
+          "strengths": [
+            "明确提出了学术话语与政治话语关系的未来走向问题",
+            "指出'中国宪法学'建构的具体学术使命方向"
+          ],
+          "weaknesses": [
+            "缺乏具体的后续研究问题或争点设计",
+            "未承认正文具体局限并说明如何推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结语部分讨论的是未来研究方向和学术使命，属于'未来还能往哪里走'的延展性问题，而非当下结论能否被接受的判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在理论型框架下明确指出了宪法实施话语体系建构的后续争点与学术/政治话语互动的深化路径。",
+          "core_judgment": "存在真实延展路径，聚焦于规范与现实调适、政治性与法律性平衡及话语体系解释力提升等具体理论深化方向。",
+          "score_rationale": "原始分68，对应bonus=3。文中明确将规范与现实调适、政治与法律关系列为后续争点，指出话语体系解释力提升为未竟事业。路径与核心结论衔接紧密，但偏宏观理论导向，缺具体教义学设计。",
+          "evidence_quotes": [
+            "如何妥当地调适社会变革与宪法变迁、宪法的政治性与法律性之间的关系，将会是伴随我国宪法学发展的一个常说常新的永恒话题。",
+            "如何通过与政治话语既有机结合、相互促进又适度分离、协调发展，从而形成对现实具有足够解释力和影响力的话语体系，仍然是一项未竟的学术事业。"
+          ],
+          "strengths": [
+            "精准提炼规范与现实、政治与法律的张力作为后续核心争点。",
+            "分别对学术话语与政治话语的未来任务作出明确分工与深化指引。"
+          ],
+          "weaknesses": [
+            "延展方向停留于宏观话语建构层面，未下沉至具体教义学命题。",
+            "缺乏对后续研究可操作的方法论或实证检验路径的细化说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是理论话语体系未来的深化方向与学科演进路径，而非当下结论在学理共同体中的可接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.25730991363525,
+        "glm-5.1": 49.71399283409119,
+        "kimi-k2.6": 11.88794231414795,
+        "qwen3.6-plus": 71.65565800666809
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 68
+      },
+      "mean": 52,
+      "std": 22.0,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 56.16,
+      "weighted_total": 56.5
+    },
+    "aggregation_strictest": {
+      "final_score": 36.18,
+      "weighted_total": 33.8
+    },
+    "avg_std": 19.8,
+    "max_std": 32.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.0,
+    "composite_score": -19.8,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 32.0
+  }
+}

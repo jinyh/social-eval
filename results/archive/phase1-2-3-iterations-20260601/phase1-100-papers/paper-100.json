@@ -1,0 +1,601 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/公序良俗原则与诚实信用原则的区分.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在少量OCR识别残留与排版噪声（如页码混入“· 1 46 ·”、个别字符错漏“f 京”、引证码乱码“I I．C．”）",
+          "参考文献列表未随正文提供，需后续人工核对"
+        ],
+        "evidence_quotes": [
+          "· 1 46 ·",
+          "f 京：中国政法大学出版社，2002年",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民法理论尚未对“为什么民法同时需要诚实信用与公序良俗两个原则”作出根本的回答，实践中在这两个原则的裁判适用上还存在严重的模糊和混淆。",
+          "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”，两原则在适用范围、保护对象、标准设立、法律效果上有重大差异。",
+          "联系中国当下正在制订“民法总则”的立法背景，“民法总则”的第一步就是“基本原则”部分；而在此次重大立法活动中，我们还要不要同时确认这两个原则？",
+          "在我国，无论在立法、司法还是理论上，都是诚信原则发展较早，公序良俗原则发展较迟。那么，可否以一个诚信原则在全体民法领域统一发挥“内容审查”和“行使审查”两种功能？本文认为不妥。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR排版噪声与参考文献缺失，属工程旁路问题，不影响实质评审",
+        "项目口径信号完整，具备直接进入六维评分条件"
+      ],
+      "evidence_quotes": [
+        "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文高度契合“中国自主知识体系”项目口径。以中国民法基本原则的司法适用混乱与立法选择为切入点，系统提出“内容审查/行使审查”的教义学区分框架，并针对中国格式条款规制提出规范命题。理论转化清晰，本土解释力强。文本存在轻微OCR噪声与参考文献缺失，属旁路工程风险，不影响核心论证定位。建议直接进入六维评分阶段。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "局部OCR乱码（如参考文献中的'f 京'应为'北京'，'IHN'可能为'惯性'或'传统'的误识，'戟后判例'应为'战后判例'，'主糯'应为'主编'，'秤 社'应为'出版社'等）",
+          "期刊页码混入正文（如'·1 46 ·'、'·1 47 ·'等）"
+        ],
+        "evidence_quotes": [
+          "f 京：中国政法大学出版社",
+          "在这个问题上除了因循IHN之外",
+          "参见中舍宽树：《戟后判例中的公序良俗》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民法理论尚未对“为什么民法同时需要诚实信用与公序良俗两个原则”作出根本的回答，实践中在这两个原则的裁判适用上还存在严重的模糊和混淆。",
+          "联系中国当下正在制订“民法总则” 的立法背景……我们还要不要同时确认这两个原则?在这个问题上除了因循IHN之外，我们还有没有足以说服自己的理由?",
+          "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”，两原则在适用范围、保护对象、标准设立、法律效果上有重大差异。",
+          "我国格式条款的内容审查规范是《合同法》第40条。但是，该条仅仅规定了提供格式条款一方“免除其责任”、“加重对方责任”、“排除对方主要权利”三种特殊的无效情形。这里至少存在两个重要缺陷……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "局部OCR乱码需人工校对（如'f 京'、'IHN'、'戟后判例'、'主糯'等）",
+        "期刊页码混入正文需清洗"
+      ],
+      "evidence_quotes": [
+        "我国民法理论尚未对“为什么民法同时需要诚实信用与公序良俗两个原则”作出根本的回答，实践中在这两个原则的裁判适用上还存在严重的模糊和混淆。",
+        "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”，两原则在适用范围、保护对象、标准设立、法律效果上有重大差异。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段对局部OCR乱码及页码混入进行文本清洗校对。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文以“为何民法需并存两原则”为争点，构建“内容审查”与“行使审查”的教义学区分框架，有效回应司法混淆与理论碎片化问题。",
+          "core_judgment": "问题具有高度可争辩性与体系枢纽价值，非主题声明或材料堆砌，研究命题成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置检查无扣分。",
+          "evidence_quotes": [
+            "为什么民法同时需要诚实信用与公序良俗两个原则？",
+            "公序良俗原则针对法律行为的内容进行‘内容审查’，诚实信用原则针对权利的具体行使行为进行‘行使审查’"
+          ],
+          "strengths": [
+            "精准提炼司法适用混淆痛点，问题意识鲜明",
+            "构建双阶审查框架，实现教义学体系化突破"
+          ],
+          "weaknesses": [
+            "本土案例类型化填充留待后续，实证支撑稍显不足",
+            "部分德日理论引介较深，对初学者门槛较高"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准提出民法为何需并存两原则的争点，枢纽性极强。",
+          "core_judgment": "问题直击民法内在体系根基，具有高度可争辩性与体系枢纽性，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "如果两者覆盖范围相同，发挥的功能又如此相似，民法中有其一足矣，为什么同时要规定两个呢?",
+            "既有诸说各持标准，彼此之间缺乏关联与印照，一个能容纳诸合理因素的整体理论框架未能建立"
+          ],
+          "strengths": [
+            "问题直击民法内在体系根基，精准且可争辩",
+            "呈现了既有六种区分说及司法实践的分歧与不足"
+          ],
+          "weaknesses": [
+            "问题本身属学界长期讨论的经典议题，全新性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.15797781944275,
+        "glm-5.1": 40.170756816864014
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准梳理既有学说与德日教义学分歧，构建“内容/行使审查”框架，研究地图完整。",
+          "core_judgment": "本维度充分成立，作者以分散式文献定位清晰勾勒理论缺口与本文切入点，争点脉络严密。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "我国学者分别提出了适用领域区分说、特别关联区分说……以上诸说中均包含有合理因素，但也存在明显的缺陷",
+            "本文的目的，在于建立一个妥当的理论结构或分析框架……公序良俗对应内容审查，诚实信用对应行使审查"
+          ],
+          "strengths": [
+            "精准提炼国内六大学说缺陷，明确指向整体理论框架缺失的未竟点。",
+            "巧妙融合德日教义学分歧，以审查类型对立构建清晰的争点结构。"
+          ],
+          "weaknesses": [
+            "未竟点与本土案例类型化的衔接仅停留在引言，正文未充分展开实证检验。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及本文提出的审查框架是否具创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位既有六种学说缺陷，构建“内容/行使审查”争点结构，洞察度极高。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "我国学者分别提出了适用领域区分说、特别关联区分说、义务类型区分说、标准高低区分说、保护对象区分说、与法律效果区分说",
+            "各说常常是某一角度、某一局部的观察...一个能容纳诸合理因素的整体理论框架未能建立"
+          ],
+          "strengths": [
+            "精准提炼既有六种学说及其局部性缺陷",
+            "构建“内容审查vs行使审查”的核心争点结构"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非原则区分理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 63.47886300086975,
+        "glm-5.1": 74.87330889701843
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“内容审查/行使审查”二元框架，清晰界分两原则的适用逻辑与裁判路径。",
+          "core_judgment": "框架概念界定清晰、分类标准明确、分析步骤可循且全文深度调用，理论转化度高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。理论型论文中概念操作化与适用边界界定完备。",
+          "evidence_quotes": [
+            "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”",
+            "违反公序良俗(内容审查)应当优先检验……对权利的“行使审查”以基础法律行为通过了“内容审查”为前提"
+          ],
+          "strengths": [
+            "核心概念“内容审查/行使审查”界定清晰，提供明确的裁判检验次序",
+            "四维度分类标准严密，全文深度调用框架分析具体制度与案例"
+          ],
+          "weaknesses": [
+            "对本土案例的类型化填充明确留白，框架的实证检验略显不足",
+            "格式条款例外情形的法政策论证稍显跳跃，与主框架衔接可更紧密"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "建构了“内容审查-行使审查”的二元区分框架，概念清晰、步骤可循且法学转化度高。",
+          "core_judgment": "该维完全成立，框架将抽象原则差异转化为可操作的裁判审查步骤与制度设计指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”",
+            "违反公序良俗(内容审查)应当优先检验"
+          ],
+          "strengths": [
+            "核心概念“内容/行使审查”界定清晰，区分标准明确",
+            "框架有效转化为裁判规则与格式条款制度设计方案"
+          ],
+          "weaknesses": [
+            "框架在极端竞合情形下的适用步骤略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是框架本身的成立与可用性，而非原则推理的严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 57.02192783355713,
+        "glm-5.1": 40.12144064903259
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文推理链完整严密，有效回应理论分歧与反例，结论可辩护推出。",
+          "core_judgment": "逻辑严密性成立，核心结论由概念辨析、四维度推演及反例检验充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”",
+            "本文的目的，在于建立一个妥当的理论结构或分析框架……已超出本文的旨趣，尚待以后研究。"
+          ],
+          "strengths": [
+            "核心推理链完整，四维度分析紧密支撑二分结论。",
+            "主动引入格式条款反例并给出法政策层面的实质性回应。"
+          ],
+          "weaknesses": [
+            "本土案例类型化验证明确留白，实务落地支撑稍弱。",
+            "部分德日文献转译较多，本土规范衔接推导可更紧凑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的推导与支撑关系，非评价理论框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链环环相扣，正面迎击实在法反例并成功转化，逻辑严密性极佳。",
+          "core_judgment": "本维完全成立，核心结论可由前文充分辩护地推出，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理链从建构区分框架到检验格式条款反例层层递进；对德民307条反例的实质性回应极强。",
+          "evidence_quotes": [
+            "德民第307条……以诚信原则进行了‘内容审查’……对本文前述观点形成强大的挑战。",
+            "格式条款在合意度上的满足度太低，因此必须在均衡度上高度满足……以‘行使审查’标准进行了‘内容审查’作业。"
+          ],
+          "strengths": [
+            "推理链依赖度极高，格式条款反例检验依赖前文区分框架。",
+            "对实在法反例的回应不仅消解了挑战，还转化为支撑自身理论的论据。"
+          ],
+          "weaknesses": [
+            "局部过渡依赖外部理论预设（合意度与均衡度互补），但未达关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评判的是从区分框架到检验反例的逻辑推出链条，而非该区分框架在个案中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.95176601409912,
+        "glm-5.1": 59.25158500671387
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论清晰区分两原则功能，回应既有学说与司法混淆，理论自洽且契合中国民法语境。",
+          "core_judgment": "结论具备高度共同体对话度与制度兼容性，理论贡献明确，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文结论修正了既有诸说，提出公序良俗对应内容审查、诚信对应行使审查的分析框架。",
+            "针对格式条款特殊领域，指出以诚信原则进行内容审查的正当性，为立法完善提供方向。"
+          ],
+          "strengths": [
+            "精准定位既有理论缺陷，构建清晰可辩的教义学框架。",
+            "紧密结合中国司法乱象与立法背景，理论落地性强。"
+          ],
+          "weaknesses": [
+            "未提供具体裁判规则或类型化案例指引。",
+            "对反对意见的回应多集中于比较法，本土实证稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论提出两原则区分的清晰理论框架，回应既有争论与反例，与中国制度语境高度兼容。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，主动回应反例并给出制度转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的行使行为进行“行使审查”",
+            "更妥当的做法，似应首先明确诚信原则为格式条款效力审查的概括标准"
+          ],
+          "strengths": [
+            "主动承认并回应了格式条款领域以诚信进行内容审查的强大挑战",
+            "明确指出了理论对格式条款审查及裁判适用的制度转化方向"
+          ],
+          "weaknesses": [
+            "承认理论框架尚非直接得出结论的个案标准，类型化梳理待后续研究"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 50.728089809417725,
+        "glm-5.1": 45.05150485038757
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确指向本土案例类型化研究与格式条款立法完善两条具体延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接正文理论框架的落地需求。",
+          "score_rationale": "原始分85，对应bonus=5档。明确承认理论框架需本土案例类型化填充，并提出格式条款审查的立法改进方向，路径清晰具体。",
+          "evidence_quotes": [
+            "这样的个案标准只能在本土案例类型化研究中追寻。……向该框架中填充材料的努力……尚待以后研究。",
+            "更妥当的做法，似应首先明确诚信原则为格式条款效力审查的概括标准，然后就典型应予审查的情形予以列举。"
+          ],
+          "strengths": [
+            "精准定位理论落地缺口，指明案例类型化研究方向。",
+            "结合比较法经验，提出格式条款审查的立法完善路径。"
+          ],
+          "weaknesses": [
+            "未提供案例类型化的具体分类维度或方法论指引。",
+            "立法建议停留于原则层面，缺乏条文衔接的技术论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦理论框架落地所需的后续研究步骤（案例填充、立法细化），而非评判当前理论结论本身的学术接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确指出了理论框架的本土实证填充路径及格式条款审查标准的立法完善方向。",
+          "core_judgment": "存在真实且清晰的延展路径，具体指向本土案例类型化研究与格式条款概括审查标准的立法建构。",
+          "score_rationale": "原始分85，对应bonus=5档（>=80）。延展路径清晰可定位，与“内容/行使审查”核心框架紧密衔接，指明了本土案例类型化与格式条款立法完善两个具体方向。",
+          "evidence_quotes": [
+            "向该框架中填充材料的努力——即前述本土案例类型化梳理，已超出本文的旨趣，尚待以后研究。",
+            "更妥当的做法，似应首先明确诚信原则为格式条款效力审查的概括标准……这也是德民第307-309条的立法经验。"
+          ],
+          "strengths": [
+            "明确承认理论框架需本土案例类型化填充，指明后续实证方向。",
+            "基于格式条款审查缺陷，提出具体的立法完善与规则衔接路径。"
+          ],
+          "weaknesses": [
+            "对原则交叉适用场景的延展仅以格式条款为例，其他场景延伸稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本土案例类型化属于未来实证研究范畴，格式条款概括标准的立法明确属于未来制度完善方向，均非当下理论框架本身的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.34669017791748,
+        "glm-5.1": 40.858174085617065
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 0.5,
+    "max_std": 1.4,
+    "weighted_total": 91.3,
+    "final_score": 96.76,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 9.5,
+    "worst_dimension": "literature_insight",
+    "worst_std": 1.4
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "no",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国民法理论尚未对“为什么民法同时需要诚实信用与公序良俗两个原则”作出根本的回答，实践中在这两个原则的裁判适用上还存在严重的模糊和混淆。",
+          "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”",
+          "联系中国当下正在制订“民法总则”的立法背景……对民法根基上的含混不清之处的厘清尤其意义重大",
+          "在我国，无论在立法、司法还是理论上，都是诚信原则发展较早，公序良俗原则发展较迟。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国民法理论尚未对“为什么民法同时需要诚实信用与公序良俗两个原则”作出根本的回答，实践中在这两个原则的裁判适用上还存在严重的模糊和混淆。",
+          "公序良俗原则针对法律行为的内容进行“内容审查”，诚实信用原则针对权利的具体行使行为进行“行使审查”，两原则在适用范围、保护对象、标准设立、法律效果上有重大差异。",
+          "联系中国当下正在制订“民法总则”的立法背景，“民法总则”的第一步就是“基本原则”部分；而在此次重大立法活动中，我们还要不要同时确认这两个原则?",
+          "以上案例均暴露出我国司法在诚信原则与公序良俗原则的适用上存在混淆。我们不能放任司法在援引原则裁判上的随意现象，唯此才能形成裁判上确定可靠的法律推理以及学说上科学清晰的解释论体系。",
+          "更妥当的做法，似应首先明确诚信原则为格式条款效力审查的概括标准，然后就典型应予审查的情形予以列举；对于逸出列举之外的情形，法官可基于诚信原则（任意法为具体化标准）进行概括控制，由此可避免法律控制上的遗漏，这也是德民第307—309条的立法经验。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

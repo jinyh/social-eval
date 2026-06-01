@@ -1,0 +1,606 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/文书真伪认定的中国路径.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与期刊信息混入正文段落（如“· ６ １ １ ·”“法学研究 ２０１９年第６期”）",
+          "部分德文/日文参考文献及脚注存在OCR全角字符转换与乱码",
+          "文末参考文献列表抽取失败（显示为“（无）”）"
+        ],
+        "evidence_quotes": [
+          "· ６ １ １ ·\n法学研究\n２０１９年第６期",
+          "ＢＧＨＺ６８，３３１＝ＮＪＷ１９７７，１２８８，１２９０ｆ．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国立法没有明文规定这种独立之诉，司法实践对一般的确认之诉亦持谨慎态度的背景下，尤其需要进一步考察改变裁判技术的实际收益和必要性。",
+          "申请鉴定的必要应当以证明责任分配的规范说为标准，对于书证真伪的辅助事实也能适用证明责任，在理论上应当区分待证事实本身和书证真伪的主、客观证明责任。",
+          "我国法应当明确要求相对方对文书真伪表态……从立法论上看并结合前述笔者对书证证明力理论体系的认识，应当对书证这两种指向不同内容的证明力予以分别规定。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码/刊名混排及脚注OCR乱码需清洗，但不影响核心论证定位与评分。"
+      ],
+      "evidence_quotes": [
+        "文书真伪认定的中国路径",
+        "申请鉴定的必要应当以证明责任分配的规范说为标准，对于书证真伪的辅助事实也能适用证明责任"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国民事诉讼文书真伪认定为核心，深度结合本土司法实践（如鉴定滥用、虚假诉讼防范、司法解释适用），并将德日证明责任规范说与证明力理论转化为可操作的中国裁判规则。项目口径完全符合“中国自主知识体系研究”标准，具备明确的理论转化与可复核命题。文本存在轻微OCR与排版残留风险，建议直接进入六维评分阶段，评分时自动过滤页码混排与脚注乱码干扰。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码及栏目名混入正文（如“·６１１·法学研究２０１９年第６期”）",
+          "脚注编号及内容夹杂在正文段落中，打断阅读流",
+          "德文参考文献存在全角字母及特殊字符OCR乱码（如、等）",
+          "日文作者名存在OCR识别错误或乱码（如“伊藤/”、“川0四郎”）"
+        ],
+        "evidence_quotes": [
+          "·６１１·法学研究２０１９年第６期",
+          "Ｋｌａｓｓ，ＲｅｆｏｒｍａｎｓｔｚｅｉｍｚｉｖｉｌｒｅｃｈｔｌｉｃｈｅｎＰｅｒｓｎｌｉｃｈｋｅｉｔｓｓｃｈｕｔｚｕｎｔｅｒｂｅｓｏｎｄｅｒｅｒＢｅｒüｃｋｓｉｃｈｔｉｇｕｎｇｄｅｒｐｅｒｓｎｌｉｃｈｋｅｉｔｓｒｅｃｈｔｌｉｃｈｅｎＦｅｓｔｓｔｅｌｌｕｎｇｓｋｌａｇｅ",
+          "参见伊藤/：《民事诉讼法》",
+          "川0四郎：《民事诉讼法》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者认为，我国没有必要引入独立的文书真伪之诉。",
+          "在我国法上也应当强调文书真伪判断必须以文书提出的相对方就文书真伪明确表态为前提。",
+          "对于文书真伪这样的辅助事实同样适用规范说。",
+          "从解释论出发，也可以认为这一规定实际上同时推定了公文书的形式证明力。",
+          "我国部分法官也可能在当下的开庭审理中，直接指出当事人提交的文书中的明显瑕疵……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码、脚注编号混入正文及外文/日文文献OCR乱码，需后续清洗",
+        "项目口径：完全符合，无边界问题"
+      ],
+      "evidence_quotes": [
+        "笔者认为，我国没有必要引入独立的文书真伪之诉。",
+        "对于文书真伪这样的辅助事实同样适用规范说。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但在评分前需对正文中的期刊页码混入、脚注编号错位及外文/日文文献OCR乱码进行文本工程清洗修复。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦文书真伪认定路径与证明责任分配，争点清晰且具理论纵深。",
+          "core_judgment": "问题成立且重要，兼具教义学争议与实践指导价值，符合优秀档标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分合计0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "文书真伪之诉的例外属性使基本理论也必须相应地设置例外……论证引入这种例外的独立之诉的说理义务应当在主张移植的学者。",
+            "承担客观证明责任的一方相应地也应当承担提出证据的主观证明责任……对于文书真伪这样的辅助事实同样适用规范说。"
+          ],
+          "strengths": [
+            "争点明确，直击文书真伪是否独立成诉及证明责任分配两大核心争议。",
+            "理论纵深足，系统辨析规范说与心证说，并厘清形式与实质证明力关系。"
+          ],
+          "weaknesses": [
+            "对本土司法实践中鉴定滥用的成因剖析稍显单薄，对策偏重教义学推演。",
+            "部分比较法引证未充分结合中国诉讼构造差异进行本土化调适论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出了明确的法学争点，涉及核心理论分歧，问题枢纽性强。",
+          "core_judgment": "论文围绕文书真伪之诉的引入与证明责任分配展开，问题成立且重要，理论分歧显著。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，前置扣分0分，给88分。",
+          "evidence_quotes": [
+            "笔者认为，我国没有必要引入独立的文书真伪之诉。",
+            "有学者反对把以规范说为标准的客观证明责任分配作为依据，认为申请鉴定的责任应当根据法官心证程度来分配。"
+          ],
+          "strengths": [
+            "争点明确且具可争辩性，驳论与立论结合。",
+            "问题触及证明责任与确认之诉核心理论。"
+          ],
+          "weaknesses": [
+            "部分争点（如规范说适用）属既有理论延伸，绝对原创性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立性与重要性，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.21010303497314,
+        "glm-5.1": 38.617284059524536
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "系统梳理大陆法系文书真伪认定理论，精准定位我国立法与实务空白，构建清晰的比较法与本土化研究地图。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰，流派识别充分，文献定位与论证深度融合，维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "实务中长期困惑和争议的现实问题是……仍需确定应当由哪一方申请诸如书证笔迹鉴定和预交鉴定费用",
+            "大陆法系书证证明力的理论体系有三分模式和二分模式……两者的区别在于书证真实是否具有独立的理论地位"
+          ],
+          "strengths": [
+            "分散式文献定位精准，比较法脉络与本土争点深度融合。",
+            "明确提炼规范说与心证说、三分与二分模式的理论对立。"
+          ],
+          "weaknesses": [
+            "部分比较法文献未充分交代其在我国语境下的适用局限。",
+            "对国内实证数据的引用相对薄弱，偏重教义学推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及文书真伪认定问题本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "文内分散定位充分，呈现多组对立争点与解释路径，研究地图完整。",
+          "core_judgment": "论文通过分散式文献定位清晰构建了包含多组对立争点的研究地图，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者反对把以规范说为标准的客观证明责任分配作为依据，认为……应当根据法官在个案中对待证事实形成的心证程度来分配",
+            "我国主流观点更倾向于日本和我国台湾地区的理解，仅区分形式证明力和实质证明力"
+          ],
+          "strengths": [
+            "分散式文献定位精准，到达点、未竟点与切入点对应严密",
+            "争点结构清晰，呈现规范说vs心证分配说、三分vs二分模式等多组对立"
+          ],
+          "weaknesses": [
+            "比较法流派对立虽充分，但未显式标明为“学界争论”标签"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.50907111167908,
+        "glm-5.1": 75.42433786392212
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了文书真伪审查的程序框架与证明力规则体系。",
+          "core_judgment": "分析框架具备高度可操作性与明确的法学转化路径，成立且优秀。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我国法应当明确要求相对方对文书真伪表态……申请鉴定的必要应当以证明责任分配的规范说为标准",
+            "应当对书证这两种指向不同内容的证明力予以分别规定，以便明确形式证明力作为实质证明力的前提地位"
+          ],
+          "strengths": [
+            "构建了“表态要求+规范说分配”的清晰裁判步骤",
+            "将比较法三分/二分模式转化为本土证明力审查规则"
+          ],
+          "weaknesses": [
+            "对新技术手段的司法转化路径略显简略",
+            "部分比较法引证未完全对应中国程序的具体衔接"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了以“表态要求-规范说-现实手段-证明力推定”为核心的文书真伪认定框架，操作性与法学转化度极高。",
+          "core_judgment": "该维度完全成立，框架提供了清晰的裁判规则与司法适用流程。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "相对方拒绝表态的，文书将直接被认定为真……例外在于法官认为可能存在虚假诉讼",
+            "对于文书真伪这样的辅助事实同样适用规范说……需要证明法律要件对应的待证事实的一方当事人，也应当证明指向该事实的书证能够成为定案根据"
+          ],
+          "strengths": [
+            "提供了完整的司法适用流程与裁判规则（表态、规范说、推定）",
+            "将比较法理论有效转化为中国本土的制度设计与解释论方案"
+          ],
+          "weaknesses": [
+            "新技术手段部分仅作展望，未纳入核心操作步骤"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力而非逻辑严密性，框架的裁判规则转化极为成功。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.63226103782654,
+        "glm-5.1": 45.45641303062439
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“原理—驳论—本土方案—证明力体系”推理链，核心结论获充分支撑。",
+          "core_judgment": "推理链条完整且高度依赖，反驳处理深入实质，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "文书真伪本身的争议仅发生在事实层面……裁判技术也应当避免不必要的繁琐。",
+            "有学者反对把以规范说为标准的客观证明责任分配作为依据……笔者……认为文书真伪可作为例外适用客观证明责任。"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，从否定独立之诉到构建本土争点处理模式逻辑顺畅",
+            "对规范说适用的理论批评进行了逐层辩护，有效化解了心证转移说的挑战"
+          ],
+          "weaknesses": [
+            "技术革新部分与诉讼法理主线的逻辑衔接略显跳跃，论证深度稍弱",
+            "部分比较法经验向本土规则转化的推导过程可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链支撑度与反驳处理，不评价比较法框架的操作性或结论的实务接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整闭环，反驳处理扎实，核心结论可辩护推出。",
+          "core_judgment": "本维度成立，论文构建了从驳斥独立之诉到确立普通诉讼替代规则的严密逻辑链条，结论充分可辩护。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。推理链依赖度高，反驳有实质性论证，无关键跳步。",
+          "evidence_quotes": [
+            "有学者反对以规范说分配证明责任，认为应依法官心证程度分配；本文通过区分待证事实与书证真伪的证明责任予以反驳。",
+            "文书真伪本身的争议仅发生在事实层面，并不涉及实体权利的实现或者纠纷的实际解决，例外提升地位须充分说理。"
+          ],
+          "strengths": [
+            "推理链闭环：从否定独立之诉到构建普通诉讼争点处理规则，逻辑递进严密。",
+            "反驳扎实：对规范说适用辅助事实的批评进行了场景化反驳，论证有力。"
+          ],
+          "weaknesses": [
+            "局部分散：现实手段部分（勘验、新技术）与主线推理依赖度稍弱，偏并列罗列。",
+            "理论选择论证稍简：选择二分模式而非三分模式的理由偏实用主义，理论推演稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评估的是从否定独立之诉到构建替代方案的逻辑支撑链条，而非替代方案本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 66.73011493682861,
+        "glm-5.1": 66.2466230392456
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应既有争议，契合中国诉讼制度语境，具备高度可接受性。",
+          "core_judgment": "结论深度嵌入中国民事诉讼语境，能与共同体有效对话且制度兼容性强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我国可以坚持事实问题不能成为确认之诉对象的一般原理，并在普通程序中将文书真伪问题作为争点进行认定。",
+            "申请鉴定的必要应当以证明责任分配的规范说为标准...在立法论上应当规定形式证明力推定的独立规则。"
+          ],
+          "strengths": [
+            "明确回应是否引入独立文书真伪之诉的学界争议。",
+            "结合中国司法实践提出具体的证明责任与表态规则。"
+          ],
+          "weaknesses": [
+            "对新技术手段（如区块链）的落地路径论述稍显简略。",
+            "部分比较法经验向本土转化的程序衔接细节可进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论，拒绝盲目移植，提出契合中国实务的规范说路径。",
+          "core_judgment": "结论明确反对引入独立确认之诉并主张规范说，与反对者形成清晰对话，且给出具体解释与立法方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准驳论且指明解释论与立法论方向。",
+          "evidence_quotes": [
+            "笔者认为，我国没有必要引入独立的文书真伪之诉...在普通程序中将文书真伪问题作为争点进行认定。",
+            "在立法论上应当规定形式证明力推定的独立规则...通过解释'民诉法解释'第114条...也可以认为我国既推定公文书为真，又推定公文书具有形式证明力。"
+          ],
+          "strengths": [
+            "结论明确挑战有力学说，反对移植德国文书真伪之诉，对话度高。",
+            "提供了基于规范说的具体解释论与立法论转化方向，制度兼容性强。"
+          ],
+          "weaknesses": [
+            "结论部分对新技术手段（区块链等）的制度转化论述略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受并回应，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 59.05200481414795,
+        "glm-5.1": 56.809985876083374
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 80
+      },
+      "mean": 74,
+      "std": 8.5,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文明确指向立法解释优化、证明责任理论精细化及新技术证据衔接等具体延展方向。",
+          "core_judgment": "存在真实延展路径，具体落脚于立法论规则单设、理论体系二分化改造及实务技术场景延伸。",
+          "score_rationale": "原始分68，对应bonus=3。文中明确指向公文书形式证明力单独立法、证明责任主客观区分及区块链存证衔接等路径，与核心结论紧密衔接，但未展开后续实证检验设计。",
+          "evidence_quotes": [
+            "如果未来重新思考……单独规定其形式证明力的推定规则更为恰当。",
+            "这些手段虽然已经超出民事诉讼法的核心范围，但是同样可能……成为连接诉讼法理价值与律师执业智慧的真实存在。"
+          ],
+          "strengths": [
+            "明确指出立法论上应单设公文书形式证明力推定规则。",
+            "为新技术存证与诉讼程序衔接提供可操作的场景延伸。"
+          ],
+          "weaknesses": [
+            "延展路径多集中于结论段的概括性提示。",
+            "缺乏对后续实证检验或理论争点的具体展开设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估“未来制度完善与理论深化的可行路径”，不涉及当下结论在证据法学界的接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文清晰指明了立法论上确立形式证明力推定独立规则及二分模式的制度完善方向，并延伸至虚假诉讼风险控制与区块链技术革新场景。",
+          "core_judgment": "存在真实延展路径，明确提出了具体的制度完善方向与实务/技术场景延伸。",
+          "score_rationale": "原始分80，对应bonus档位5（>=80）。论文明确指明立法论上应规定形式证明力推定独立规则与二分模式，并延伸至区块链存证与虚假诉讼风险控制，路径清晰可定位且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "在立法论上应当规定形式证明力推定的独立规则。",
+            "如果当事人达成的电子合同……内嵌可信时间戳……认定书证真伪的问题就迎刃而解。"
+          ],
+          "strengths": [
+            "立法论延展具体，指明形式证明力推定独立规则与二分模式。",
+            "实务与技术延展具场景性，涵盖虚假诉讼例外与区块链存证。"
+          ],
+          "weaknesses": [
+            "延展路径散见于论证中，未在结论部分系统化展开前瞻设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "形式证明力推定规则的立法落实与区块链技术的适用场景，属于未来制度完善与技术延伸问题，而非当下解释论结论的可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.89469575881958,
+        "glm-5.1": 79.01387119293213
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.8,
+    "max_std": 8.5,
+    "weighted_total": 89.0,
+    "final_score": 92.71,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 5.53,
+    "worst_dimension": "forward_extension",
+    "worst_std": 8.5
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "笔者认为，我国没有必要引入独立的文书真伪之诉。",
+          "申请鉴定的必要应当以证明责任分配的规范说为标准，对于书证真伪的辅助事实也能适用证明责任，在理论上应当区分待证事实本身和书证真伪的主、客观证明责任。",
+          "我国法应当认为书证的形式证明力包含了书证本身为真的判断和书证中的表示确实由其署名人发出的双重效果。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "no",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "在我国，实务中长期困惑和争议的现实问题是，文书真伪的判定固然可以采取鉴定或物证勘验的方法解决，但是法官只能认定个案中存在诸如鉴定笔迹的必要，而仍需确定应当由哪一方申请诸如书证笔迹鉴定和预交鉴定费用，进而在无人申请或者鉴定的客观条件不具备时，确定由哪一方对出现的证明不能状况承担不利的证明后果。",
+          "笔者认为，我国没有必要引入独立的文书真伪之诉。表面上看，文书真伪之诉提高了事实问题在民事诉讼分析框架中的理论层次……然而，正如一般原则所揭示的，文书真伪本身的争议仅发生在事实层面，并不涉及实体权利的实现或者纠纷的实际解决，例外地提升其地位必须加以充分说理，裁判技术也应当避免不必要的繁琐。",
+          "我国法应当明确要求相对方对文书真伪表态，实务中通常也只会在有异议时审查书证真伪，其例外主要源于现实中虚假诉讼的存在可能性和法官在个案中就此产生的怀疑。申请鉴定的必要应当以证明责任分配的规范说为标准，对于书证真伪的辅助事实也能适用证明责任，在理论上应当区分待证事实本身和书证真伪的主、客观证明责任。",
+          "大陆法系书证证明力的理论体系有三分模式和二分模式……我国法应当认为书证的形式证明力包含了书证本身为真的判断和书证中的表示确实由其署名人发出的双重效果。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

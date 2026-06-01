@@ -1,0 +1,1046 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/既判力相对性原则：根据、例外与制度化.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [
+          "脚注编号混入正文（如【4]、[7]、C2o3 等），但不影响核心论点定位与全文理解",
+          "参考文献列表完全缺失，无法校验引证完整性"
+        ],
+        "evidence_quotes": [
+          "有的判决如可以上诉的一审判决成立后不会立即确定，只有在上诉期限届满，当事人没有上诉的情形下才会确定。有的判决如终审判决一旦成立便同时确定。【4]",
+          "既判力作为一种国家强制力也就具有了正当化根据。C2o3",
+          "【7] 既判力具有使当事人无法在后诉中再提出标准时以前存在的事实主张的后果……"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民事诉讼既判力的制度建构还相当不完善，其中就包括关于既判力主体范围的原则建构。甚至可以说，在民事诉讼法规范层面，我们还没有既判力制度。这一缺失导致民事诉讼立法中其他诉讼制度建构的紊乱和冲突，也导致了民事诉讼实务中法院审判的迷茫。",
+          "对于许多原则问题，我们还没有基本概念和认识。这种差异是法治阶段的差异所致。总体上我们还处于原则建构的初级阶段。本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题，解决立法和实务中的基本理念和原则问题。",
+          "在民事诉讼实践中，与既判力主观（主体）范围直接联系的，且实践中十分突出的问题是，当他人之间诉讼的判决涉及到第三人利益时，该第三人能否就此向前诉的原告或被告就前诉诉讼标的相关的事项提起诉讼。",
+          "第三人撤销之诉制度的唐突在于，其是在我国法律没有明确规定既判力制度，更没有关于既判力相对性的原则规定的前提下设置的。……制度设计者并没有既判力相对性原则的概念和认识，孤立地看待域外第三人撤销之诉制度的设置，仅仅从应对虚假诉讼的现实需求出发而出台了该项制度。",
+          "既判力相对性原则是既判力制度的一个基本内容。因此，既判力相对性原则的确立离不开既判力制度化。型塑科学有序的判决效力制度体系，必须确立既判力制度，确立既判力相对性原则，并使该原则制度化，为法官、法律行业和一般公众提供权威性判断依据。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注和尾注存在多处 OCR/抽取错误（如 C2o3、[E1] 等），但未阻断全文理解",
+        "参考文献列表缺失，后续评价时需注意引证完整性"
+      ],
+      "evidence_quotes": [
+        "我国民事诉讼既判力的制度建构还相当不完善，其中就包括关于既判力主体范围的原则建构。甚至可以说，在民事诉讼法规范层面，我们还没有既判力制度。",
+        "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题，解决立法和实务中的基本理念和原则问题。",
+        "第三人撤销之诉制度的唐突在于，其是在我国法律没有明确规定既判力制度，更没有关于既判力相对性的原则规定的前提下设置的。……制度设计者并没有既判力相对性原则的概念和认识……"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量总体良好，虽有脚注/OCR残留但核心论证清楚；论文围绕中国民事诉讼既判力制度缺失、第三人撤销之诉与既判力相对性冲突等问题展开，明确提出制度建构命题，完全进入六维评价。建议在评审中注意引证完整性问题。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文混入期刊页码（如· 68 ·）",
+          "脚注编号格式异常（如【4]、[10)）",
+          "脚注中日文书名、学者姓名及法学术语存在大量OCR乱码（如《民事拆 法》、《重点耩羲民事拆 法》、上田徼一郎、《判泱 効果 钝曰——簏团 泱定 樽造 樽成》等）",
+          "网址存在OCR残缺与乱码"
+        ],
+        "evidence_quotes": [
+          "【4] 在我国民事诉讼法文本和民事诉讼实务中，将裁判确定的情形笼统地称为“生效”。",
+          "高橘宏志：《重点耩羲民事拆 法(上)》，有斐阁2011年版，第585页。",
+          "上田徼一郎：《判泱 効果 钝曰——簏团 泱定 樽造 樽成》，有斐阁1985年版，第l页"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "应当承认，我国民事诉讼既判力的制度建构还相当不完善……甚至可以说，在民事诉讼法规范层面，我们还没有既判力制度。这一缺失导致民事诉讼立法中其他诉讼制度建构的紊乱和冲突，也导致了民事诉讼实务中法院审判的迷茫。",
+          "在民事诉讼实践中……当他人之间诉讼的判决涉及到第三人利益时，该第三人能否就此向前诉的原告或被告就前诉诉讼标的相关的事项提起诉讼。在笔者的多次调查中，无论是法官还是律师，对此都十分茫然……",
+          "第三人撤销之诉制度的唐突在于，其是在我国法律没有明确规定既判力制度，更没有关于既判力相对性的原则规定的前提下设置的。",
+          "既判力制度化需要明确规定以下要素性规范是：1．明确规定只有确定判决主文中关于诉讼标的的判断才有既判力……3．明确规定确定判决仅对诉讼的当事人有效力，即既判力相对性原则……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注中日文书名及术语存在较多OCR乱码，但不影响正文核心论点定位",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "第三人撤销之诉制度的唐突在于，其是在我国法律没有明确规定既判力制度，更没有关于既判力相对性的原则规定的前提下设置的。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本工程质量存在中等风险（脚注中日文文献及术语OCR乱码严重），但正文核心论点、结构及主要论证清晰可定位，不影响项目口径判断与后续学术评价。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码，如[1]、[2]等编号后偶有日文或繁体混入，但不影响核心内容识别",
+          "部分日文文献作者名、书名存在OCR识别误差（如'三月章'、'川岛四郎'等）",
+          "期刊页码标记（如'·68·'）混入正文，属分栏残留",
+          "参考文献列表未抽取到，但文内脚注完整可定位"
+        ],
+        "evidence_quotes": [
+          "·68·",
+          "[1] 三月章：《民事新 法》，弘文堂1986年版，第31页。",
+          "http：／／WWW．court．gov．cn／zgcpwsw／zgrmfy／zscq／201403／t20140320_566195．htm"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文研究的主题属于既判力效力主观(主体)范围中的问题，重点在既判力主观范围中的相对性原则。",
+          "应当承认，我国民事诉讼既判力的制度建构还相当不完善，其中就包括关于既判力主体范围的原则建构。甚至可以说，在民事诉讼法规范层面，我们还没有既判力制度。",
+          "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题，解决立法和实务中的基本理念和原则问题。",
+          "2012年修改后的民事诉讼法第56条第3款规定了第三人撤销之诉。",
+          "第三人撤销之诉制度的唐突在于，其是在我国法律没有明确规定既判力制度，更没有关于既判力相对性的原则规定的前提下设置的。",
+          "既判力制度化需要明确规定以下要素性规范",
+          "既判力制度化最好是通过再次修改民事诉讼法予以实现。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注OCR残留、日文文献识别误差、期刊页码标记混入，但核心论点可定位",
+        "项目口径：论文明确以中国问题为中心，聚焦中国民事诉讼法既判力制度的缺失与建构，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题，解决立法和实务中的基本理念和原则问题。",
+        "应当承认，我国民事诉讼既判力的制度建构还相当不完善，其中就包括关于既判力主体范围的原则建构。甚至可以说，在民事诉讼法规范层面，我们还没有既判力制度。",
+        "既判力制度化需要明确规定以下要素性规范是：1．明确规定只有确定判决主文中关于诉讼标的的判断才有既判力...2.作为例外...3.明确规定确定判决仅对诉讼的当事人有效力...4.作为既判力相对性原则的例外...5.对法院在诉讼口头辩论...",
+        "既判力制度化最好是通过再次修改民事诉讼法予以实现。不过由于刚进行了修改，按照我们修法的习惯，恐怕在近期内再次修改不太现实。比较可行的方法是尽快通过最高人民法院的司法解释予以制度化。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文完全符合项目口径，应进入六维评价。文本质量风险较低，主要涉及脚注OCR残留和日文文献识别误差，不影响核心评审。建议评审时关注其提出的中国既判力制度化方案（五要素规范）的理论贡献与可行性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别乱码（如C2o3、【4]、[3o]、[163等）",
+          "页眉页脚及期刊信息混入正文（如“· 68 ·”、“法学研究 2015年第1期”）",
+          "部分外文/日文文献名称OCR识别有误（如“El本”应为“日本”）"
+        ],
+        "evidence_quotes": [
+          "C2o3",
+          "【4]",
+          "El本",
+          "· 68 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题",
+          "在民事诉讼实践中，与既判力主观(主体) 范围直接联系的，且实践中十分突出的问题是，当他人之间诉讼的判决涉及到第三人利益时，该第三人能否就此向前诉的原告或被告就前诉诉讼标的相关的事项提起诉讼",
+          "既判力制度化需要明确规定以下要素性规范是：1．明确规定只有确定判决主文中关于诉讼标的的判断才有既判力...3．明确规定确定判决仅对诉讼的当事人有效力，即既判力相对性原则...",
+          "第三人撤销之诉制度的唐突在于，其是在我国法律没有明确规定既判力制度，更没有关于既判力相对性的原则规定的前提下设置的。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程层面存在少量OCR脚注乱码与页眉页脚混入，不影响核心论点定位与评审；项目口径四项信号均明确触发，符合六维评审准入标准"
+      ],
+      "evidence_quotes": [
+        "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题",
+        "既判力制度是现代民事诉讼的基本和基础性制度之一，只有完成了既判力制度的建构，我国的民事判决制度和民事诉讼制度才能升级换代"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR与排版残留风险，但核心论证完整、中国问题意识明确、理论命题清晰，建议直接进入六维评分阶段。评审时注意忽略页眉页脚及脚注编号乱码干扰。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文系统介绍了既判力相对性原则，但整体是宏观制度介绍而非提出可争辩的法学研究问题，缺乏学者观点交锋，主要阐释既定立场。",
+          "core_judgment": "论文虽有明确的制度建设主张，但全文无明确的问题句，缺少可争辩的法学争点，不符合学术论文的问题创新性要求。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发上限。负面模式扣分：检查1扣15分（新概念包装旧问题），检查2扣20分（无观点交锋），检查3扣30分（无问题句）。锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "本文研究的主题属于既判力效力主观(主体) 范围中的问题，重点在既判力主观范围中的相对性原则。",
+            "既判力制度建构的缺失与我国民事诉讼的理论研究不足有密切关系。"
+          ],
+          "strengths": [
+            "论文对既判力相对性原则进行了系统梳理，涵盖原理、例外与制度化建议。",
+            "论文结合中国立法和司法实务，说明了既判力制度建构的现实迫切性。"
+          ],
+          "weaknesses": [
+            "全文无明确的问题句或可争辩的法学争点，实质是主题声明和制度介绍。",
+            "缺少不同学者观点的交锋，整体是既定立场的阐释而非深度分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无问题句，只有主题声明，触发上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文未提出如“既判力相对性原则在中国应如何制度化”等可争辩问题句，而是系统介绍原则内容。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文聚焦既判力相对性原则及其与第三人撤销之诉的冲突，问题明确且枢纽性极强。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，牵动多个诉讼制度，属民事诉讼核心争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "当他人之间诉讼的判决涉及到第三人利益时，该第三人能否就此向前诉的原告或被告就前诉诉讼标的相关的事项提起诉讼？",
+            "既判力是作用于形式上的当事人还是实质上的当事人，是一个学界争议的问题。"
+          ],
+          "strengths": [
+            "问题聚焦且极具现实与理论张力",
+            "牵动判决效力体系及多项诉讼制度"
+          ],
+          "weaknesses": [
+            "部分问题表述隐含在宏观论述中"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文系统阐释既判力相对性原则及其例外，但缺乏可争辩的法学争点。",
+          "core_judgment": "主题声明型论文，无明确问题句与理论交锋，未提出可争辩的法学问题。",
+          "score_rationale": "可争辩性=1/4（无明确问题句，仅有主题声明；无法学层面争点交锋），枢纽性=3/4（涉及基础制度、多制度关联），材料新颖性未触发上限。因可争辩性≤1，锚定unacceptable档，最高50分，扣负面模式15分（检查2：有提及分歧但未展开），最终45分。",
+          "evidence_quotes": [
+            "本文研究的主题属于既判力效力主观(主体)范围中的问题，重点在既判力主观范围中的相对性原则。",
+            "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题。"
+          ],
+          "strengths": [
+            "选题涉及民事诉讼基础制度，具有制度重要性。",
+            "对大陆法系理论有系统梳理，材料较丰富。"
+          ],
+          "weaknesses": [
+            "全文为阐释性论述，无明确问题句与理论交锋。",
+            "未提出可争辩的法学争点，仅为制度介绍与立法建议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'类问题句，仅声明'重点在既判力相对性原则'，属主题声明而非研究问题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦既判力相对性原则的本土化建构与第三人撤销之诉的制度冲突，问题明确且具核心理论价值。",
+          "core_judgment": "该问题具备高度可争辩性与枢纽性，准确切中我国民事诉讼基础理论缺失与制度冲突的核心。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "当他人之间诉讼的判决涉及到第三人利益时，该第三人能否就此向前诉的原告或被告就前诉诉讼标的相关的事项提起诉讼。",
+            "如果第三人可以另行提起诉讼获得实体权益的保障，那么第三人撤销之诉在何种程度上还有必要"
+          ],
+          "strengths": [
+            "精准提炼既判力相对性原则与第三人救济制度的规范冲突",
+            "清晰呈现形式当事人与实质当事人的理论分歧"
+          ],
+          "weaknesses": [
+            "对本土司法实践复杂性的实证挖掘略显不足",
+            "部分比较法借鉴的语境转换论证可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 62.35693407058716,
+        "glm-5.1": 44.78775095939636,
+        "kimi-k2.6": 13.142482042312622,
+        "qwen3.6-plus": 71.17078709602356
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 95,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.2,
+      "std": 28.0,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "good",
+          "summary": "论文构建了以“大陆法系成熟理论vs中国制度缺失”为核心的研究地图，三要素基本完备，但未将既有研究组织为可区分的争点结构，学术流派呈现为单一的比较法脉络。",
+          "core_judgment": "论文有清晰的研究地图，但主要是中外法制现状的对照，缺乏对既有学术争论脉络的梳理和不同法学流派的明确识别。",
+          "score_rationale": "三要素得分=4/6（到达点1+未竟点2+本文切入点1），争点结构=1/2，法学流派=1个（大陆法系既判力理论），锚定三要素总分4且争点结构1档，给65分。",
+          "evidence_quotes": [
+            "在大陆法系国家，如德国、奥地利、日本、韩国等国，既判力相对性原则都不是问题，无论是教科书还是专著，都是一笔带过，他们的研究重点和兴趣在于既判力范围的扩张。",
+            "国内理论界虽然在一定程度上对其有所了解，但由于没有针对具体语境…使得这些理论成为了纯粹的法律“外语”，既判力制度建构也缺乏相应的认知基础。"
+          ],
+          "strengths": [
+            "明确指出了既有研究的“未竟点”：大陆法系理论在中国语境下悬空，无法回应实践需求。",
+            "通过对比中外制度与研究现状，呈现出具体的研究缺口，为本文切入点提供了有力支撑。"
+          ],
+          "weaknesses": [
+            "对国内既有研究仅作整体性评价，未呈现具体学者或学术流派的争论脉络，争点结构单一。",
+            "研究地图主要基于“中外对比”，缺乏对不同解释路径或理论立场（如诉讼法说vs实体法说）的深入分歧梳理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=1且法学流派识别≤1，论文缺少对既有学术争论脉络的体系化梳理，上限65分。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文仅识别了大陆法系既判力理论这一主流脉络，未将其视为与其他流派或解释路径对立的学术立场进行争论脉络呈现。"
+            }
+          ],
+          "boundary_note": "本文维度仅评文献梳理完整性，不评论文提出的“本土化制度建构”问题本身是否新颖（属问题创新性维度）。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派识别充分，现状洞察度高。",
+          "core_judgment": "论文完整构建了从大陆法系理论到中国语境缺失的研究地图，并呈现了多重争点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "上世纪80年代，始有学者对既判力作用于形式上的当事人的观点提出有力质疑，认为...应当是实质上的当事人",
+            "由于没有针对具体语境...无法结合中国现实问题...使得这些理论成为了纯粹的法律‘外语’"
+          ],
+          "strengths": [
+            "研究地图三要素完整，未竟点与切入点高度对应",
+            "争点结构丰富，涵盖本质、主体范围、制度定位等多重分歧"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点梳理深度，而非既判力制度建构方案本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以大陆法系理论为参照，系统建构我国既判力相对性原则，但研究地图呈现分散化特征。",
+          "core_judgment": "三要素部分满足，争点结构单一，法学流派识别以域外理论为主，缺乏国内学术争论的充分呈现。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了德日理论及我国立法缺失；未竟点1分：指出第三人撤销之诉与既判力制度的冲突但未充分展开学术争议；切入点1分：提出制度化方案但对应关系松散），争点结构=1/2（仅呈现'形式当事人vs实质当事人'一个争点），法学流派=2个（大陆法系通说vs少数说），锚定good档，给72分。",
+          "evidence_quotes": [
+            "大陆法系国家关于既判力有一整套制度和理论。国内理论界虽然在一定程度上对其有所了解，但由于没有针对具体语境……使得这些理论成为了纯粹的法律'外语'",
+            "上世纪80年代，始有学者对既判力作用于形式上的当事人的观点提出有力质疑，认为民事诉讼法上既判力相对性所指的当事人应当是实质上的当事人，但至今仍未成为通说"
+          ],
+          "strengths": [
+            "系统引介德日理论，到达点清晰",
+            "结合2012年民诉法修改，问题意识明确"
+          ],
+          "weaknesses": [
+            "未呈现国内学界关于既判力相对性的学术争论",
+            "未竟点与本文切入点对应关系松散"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2：上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4分，未触发此规则；但争点结构仅1分，法学流派2个，处于good档中位"
+            }
+          ],
+          "boundary_note": "本评分仅评价文献梳理的完整性和争点结构，不涉及问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒既判力理论源流与中国本土化困境，三要素完整，争点明确。",
+          "core_judgment": "研究地图构建扎实，准确锚定制度缺失与理论脱节的未竟点并确立切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "国内理论界虽然在一定程度上对其有所了解……使得这些理论成为了纯粹的法律“外语”",
+            "该当事人究竟应当是形式上的当事人，还是实质上的当事人，是一个学界争议的问题。"
+          ],
+          "strengths": [
+            "三要素完整对应，精准指出我国既判力制度缺失与理论脱节困境",
+            "争点结构清晰，围绕相对性原则的根据、例外及制度冲突展开"
+          ],
+          "weaknesses": [
+            "对既判力本质（实体法说/诉讼法说）的深层学理交锋着墨较少",
+            "文献定位偏重比较法与规范分析，对本土实证研究的覆盖稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评价问题新颖性或论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.95319604873657,
+        "glm-5.1": 59.3221173286438,
+        "kimi-k2.6": 16.012561082839966,
+        "qwen3.6-plus": 92.31897497177124
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 80
+      },
+      "mean": 76.8,
+      "std": 10.8,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文以“既判力相对性原则”为中心，建构了“原则—例外—制度化”三层分析框架，并赋予明确的制度操作指引。",
+          "core_judgment": "分析框架成立且可用：概念界定清晰，分类标准明确，分析步骤可循，后文实际调用充分，并完成了法学转化。",
+          "score_rationale": "框架可操作性得分=4/4（满足全部4项标准，无负面模式触发），法学转化度得分=3/4（跨学科概念转化、操作指引、后文调用均满足），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "既判力相对性原则：既判力原则上只对该诉讼的当事人双方有约束力，如果不是该诉讼的当事人，就不受该判决中判断的约束。",
+            "制度化建议：明确规定确定判决仅对诉讼的当事人有效力，即既判力相对性原则（主观范围原则规范）；明确诉讼系属后的承继人等例外（主观范围例外规范）。"
+          ],
+          "strengths": [
+            "核心概念“既判力相对性”内涵外延明确，并区分了法理根据与制度表现。",
+            "制度构建部分提供了具体的条文要素（原则规范、例外规范、标准时规范），操作性强。"
+          ],
+          "weaknesses": [
+            "法学转化在制度设计方案上给出条文要素，但未细化具体裁判流程步骤。",
+            "第三人撤销之诉的冲击分析偏重批判，可进一步融合进“原则-例外”框架形成完整制度协调方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评的是框架的可操作性与法学转化度，不评框架内部推理的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "框架建构力强，概念清晰、分类明确且提供了完整的制度化方案。",
+          "core_judgment": "该维度完全成立，论文构建了清晰的既判力相对性原则分析框架，并有效转化为制度设计方案与裁判指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。概念界定与分类标准清晰，提供了5点要素规范作为制度方案与裁判指引，且后文实际调用。",
+          "evidence_quotes": [
+            "这种仅对当事人双方具有的约束力就是所谓既判力的相对性。",
+            "既判力制度化需要明确规定以下要素性规范是：1…2…3…4…5…"
+          ],
+          "strengths": [
+            "概念界定清晰，对既判力相对性及其例外（扩张）的类型化边界明确。",
+            "提供了5点要素规范作为具体的制度设计方案与裁判判断指引。"
+          ],
+          "weaknesses": [
+            "分析步骤稍显要素化，缺乏更精细的司法适用流程推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架本身是否成立可用且有法学转化，不评推理逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "该文为制度/实务型论文，对既判力相对性原则进行理论梳理与制度建构，但缺乏原创分析框架，以阐释既有大陆法系理论为主。",
+          "core_judgment": "论文未建构可重复适用的原创分析框架，核心术语来自域外理论引介，缺乏转化为本土裁判规则或操作步骤的框架设计。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰但无原创分类标准，无步骤化分析流程，后文未调用原创框架），法学转化度得分=1/4（有制度建议但缺乏裁判规则或司法程序层面的操作指引，未将理论转化为本土可操作的法律适用流程），锚定marginal档，给45分。触发政策理论梳理型识别规则。",
+          "evidence_quotes": [
+            "本文研究的主题属于既判力效力主观(主体)范围中的问题，重点在既判力主观范围中的相对性原则",
+            "既判力制度化需要明确规定以下要素性规范是：1．明确规定只有确定判决主文中关于诉讼标的的判断才有既判力"
+          ],
+          "strengths": [
+            "对大陆法系既判力理论梳理系统全面，概念界定清晰",
+            "结合第三人撤销之诉等本土制度进行问题分析"
+          ],
+          "weaknesses": [
+            "核心术语均为域外引介，无原创概念或分类框架",
+            "制度建议停留在立法论层面，未转化为裁判规则或司法适用步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型识别规则：框架可操作性得分上限2，法学转化度得分上限1，总分通常不超过60",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释大陆法系既定立场为主，核心术语'既判力''自我约束力''羁束力'等均来自域外理论，主要贡献是'梳理''归纳'而非'建构''提出'"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文构建了既判力相对性原则的“原则-例外-制度化”分析框架，逻辑严密且具强操作性。",
+          "core_judgment": "框架成立且高度可用，成功将大陆法系既判力理论转化为契合中国语境的裁判标准与立法方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，分类标准明确，后文高频调用，并转化为5项具体制度规范。",
+          "evidence_quotes": [
+            "既判力原则上只在当事人之间发生，符合既判力作为诉讼法制度设置的本质要求。",
+            "既判力制度化需要明确规定以下要素性规范：明确判决主文既判力、相对性原则及例外情形。"
+          ],
+          "strengths": [
+            "概念界定与类型化标准清晰，构建“原则-例外”分析路径。",
+            "提出5项要素性规范，实现理论向立法与司法解释的精准转化。"
+          ],
+          "weaknesses": [
+            "分析步骤偏重教义学推演，缺乏可视化流程图或裁判检验清单。",
+            "对例外情形的程序保障机制论述可进一步细化操作标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不涉逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 89.75150275230408,
+        "glm-5.1": 51.638426780700684,
+        "kimi-k2.6": 14.373673915863037,
+        "qwen3.6-plus": 67.71249294281006
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "mean": 77.2,
+      "std": 21.9,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文形成了“原则根据→例外类型→制度冲突→立法建议”的完整推理链，结论有充分支撑且处理了核心反驳。",
+          "core_judgment": "既有对既判力相对性原则的理论根基论证，也有对第三人撤销之诉等实务冲突的回应，主线推理充分密实。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。因对制度冲突的回应局部可再深入，酌予88分。",
+          "evidence_quotes": [
+            "既判力原则上只对该诉讼的当事人双方有约束力，如果不是该诉讼的当事人，就不受该判决中判断的约束。",
+            "一旦民事诉讼法在没有规定既判力制度的情形下预先设置了第三人撤销之诉制度，必然对判决相对性原理造成冲击。"
+          ],
+          "strengths": [
+            "从宪法性法理、程序保障到制度化方案，推理步骤清晰可复述且每一步依赖前一步结论。",
+            "通过识别第三人撤销之诉与再审、执行异议的关系，实质回应对既判力相对性的挑战并承认例外与局限。"
+          ],
+          "weaknesses": [
+            "对第三人撤销之诉“弊大利小”的利弊权衡依赖定性判断，缺少更具体的实务约束或成本分析予以补强。",
+            "制度建议部分关于“立法难以短期内实现”的局限回应较简略，可进一步细化过渡阶段的适用方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文的推理链完整、反驳处理充分，将其归类为逻辑问题而非框架问题。仅部分环节可更严密，但不构成关键跳步。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文从制度缺失出发，经理论推演与例外分析，严密推导出既判力相对性原则制度化方案。",
+          "core_judgment": "推理链完整且层层递进，对反对意见与实务约束有实质性回应，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理链依赖度高，结论可辩护推出，无关键跳步。",
+          "evidence_quotes": [
+            "上世纪80年代，始有学者对既判力作用于形式上的当事人的观点提出有力质疑……但至今仍未成为通说",
+            "一些人仅仅看到两个判决对所有权的确认不同……误以为前后裁判有矛盾。如果澄清这种误解，既判力相对性原则也就能够理解了"
+          ],
+          "strengths": [
+            "理论推演与制度批判紧密咬合，无关键跳步",
+            "对矛盾判决等隐含分歧给出了有力的实务回应"
+          ],
+          "weaknesses": [
+            "部分例外情形（如诉讼担当）的推导稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是从理论根据到制度化建议的推导链条，而非既判力制度本身在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从既判力基础理论到相对性原则再到例外与制度化的完整推理链，但反驳处理较为薄弱。",
+          "core_judgment": "推理链完整但反驳处理不足，核心结论可由前文推出，局部存在论证跳跃。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4基本成立但第三人撤销之诉与既判力扩张的关系处存在轻微跳步），反驳处理度得分=1/3（标准1成立，标准2、3不成立），锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "既判力存在的根据在于保障审判制度能够有效地发挥解决纠纷的作用...当事人也应当对其诉讼结果承担自我责任",
+            "一旦承认既判力相对性原则并将其制度化，第三人撤销之诉的功用将受到很大的限缩"
+          ],
+          "strengths": [
+            "从既判力概念到相对性原则再到例外扩张，层层递进",
+            "对形式当事人与实质当事人的辨析有理论深度"
+          ],
+          "weaknesses": [
+            "未充分回应'既判力相对性原则与第三人撤销之诉并存'的反对意见",
+            "对'冒名诉讼'等特殊情形的处理论证不够充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的充分支撑性，不涉及既判力制度本身是否可操作的判断。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以既判力相对性原则为核心，通过原理阐释、例外分析与制度建构的严密链条完成论证。",
+          "core_judgment": "推理链条完整且层层递进，核心结论可由前文规范分析与比较法材料充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "既判力原则上只在当事人之间发生，符合既判力作为诉讼法制度设置的本质要求。",
+            "一旦承认既判力相对性原则并将其制度化，第三人撤销之诉的功用将受到很大的限缩。"
+          ],
+          "strengths": [
+            "原理到例外的推演严密，制度批判紧扣相对性原则。",
+            "对形式/实质当事人争议及第三人撤销之诉的回应充分。"
+          ],
+          "weaknesses": [
+            "部分配套制度（如判决主文格式）的论证略显简略。",
+            "对司法解释具体条款的推演可进一步细化操作路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与可辩护性，不涉及制度方案在实务中的可操作性或结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.8468451499939,
+        "glm-5.1": 48.152623891830444,
+        "kimi-k2.6": 11.132512092590332,
+        "qwen3.6-plus": 46.92159295082092
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85.5,
+      "std": 9.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文作为一篇制度型论文，明确提出了“既判力相对性原则”的制度建构主张，并与中国现行法秩序兼容，具有较高的共同体对话度与制度可接受度。",
+          "core_judgment": "结论基于比较法与中国实践，清晰论证了既判力相对性原则的制度根据与例外，能够被学术共同体认真回应，且与现行法秩序基本兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定制度论文excellent档，给85分。结论回应了学界争论，考虑了我国制度语境及第三人撤销之诉等约束。",
+          "evidence_quotes": [
+            "根据既判力相对性原则，既判力原则上只对该诉讼的当事人双方有约束力……如果澄清这种误解，既判力相对性原则也就能够理解了。",
+            "既判力制度化需要明确规定以下要素性规范……明确规定确定判决仅对诉讼的当事人有效力，即既判力相对性原则（既判力主观范围的原则规范）。"
+          ],
+          "strengths": [
+            "结论明确挑战了实践中可能存在的“判决绝对效力”误区，有力主张相对性原则制度化，具有鲜明的学术立场。",
+            "充分回应了第三人撤销之诉等中国制度语境，并指出了既判力相对性原则制度化后该制度的限缩方向，可操作性强。"
+          ],
+          "weaknesses": [
+            "对既判力相对性原则可能带来的矛盾判决风险虽有澄清，但对司法实务中如何具体协调新旧判决的冲突，操作性指引稍显不足。",
+            "结论部分对极个别挑战相对性原则的极端学说（如效力绝对扩张论）的直接反对意见讨论可以更充分，以强化对话深度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下可接受性，不涉及论证严密性或未来扩展性；结论的批判性立场本身不构成扣分理由。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "结论深刻回应共同体争论与中国制度约束，提出具体制度化方案，可接受性极高。",
+          "core_judgment": "结论成功进入共同体对话并给出高度兼容的制度转化路径，维度完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "确立了这一原则，第三人就可以根据这一原则，通过一般诉讼维护自己的合法权益",
+            "比较可行的方法是尽快通过最高人民法院的司法解释予以制度化"
+          ],
+          "strengths": [
+            "主动回应反对意见与自身局限，对话度高",
+            "提出5条要素规范及司法解释转化路径，制度度强"
+          ],
+          "weaknesses": [
+            "对第三人撤销之诉的批判略显激进，可能遭遇实务界强反弹"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在本土语境下系统论证既判力相对性原则，结论具有明确的学术对话性和制度兼容性。",
+          "core_judgment": "结论回应了国内既判力制度缺失的理论空白，与大陆法系理论对话充分，并明确指向中国民事诉讼法修改与司法解释路径，共同体对话度与制度可接受度均达标。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给82分。论文明确与大陆法系理论及国内'一事不再理'实践对话，承认第三人撤销之诉的争议性；制度层面主张通过司法解释或指导性案例逐步确立既判力制度，与现行法秩序兼容。",
+          "evidence_quotes": [
+            "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题",
+            "比较可行的方法是尽快通过最高人民法院的司法解释予以制度化"
+          ],
+          "strengths": [
+            "主动回应第三人撤销之诉与既判力相对性的张力",
+            "提出具体制度化路径（司法解释、指导性案例）"
+          ],
+          "weaknesses": [
+            "未充分讨论反对既判力制度化的学术观点",
+            "对'形式当事人说'的批评意见回应不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确主张确立既判力相对性原则并限缩第三人撤销之诉，高度契合法学共同体争议与中国程序法治语境。",
+          "core_judgment": "该结论深度嵌入既有学术争论与制度现实，具备极强的共同体对话能力与制度转化可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位学术争点，直面制度缺失，提出具体规范要素与司法解释路径。",
+          "evidence_quotes": [
+            "本文就是要在特定的中国语境之下对既判力相对性原则进行研究，认识并解决我国民事诉讼语境下的理论和制度问题。",
+            "既判力制度化需要明确规定以下要素性规范是：1．明确规定只有确定判决主文中关于诉讼标的的判断才有既判力……"
+          ],
+          "strengths": [
+            "精准回应第三人撤销之诉与既判力冲突的核心争议",
+            "提出五项具体规范要素，制度转化路径清晰可行"
+          ],
+          "weaknesses": [
+            "对司法解释短期内替代立法的现实阻力评估稍显乐观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.91494703292847,
+        "glm-5.1": 51.644232988357544,
+        "kimi-k2.6": 10.944123983383179,
+        "qwen3.6-plus": 80.08277678489685
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.5,
+      "std": 6.0,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文在制度建构层面提出了明确的延展路径，包括具体立法要素、实施模式以及与第三人撤销之诉的衔接，但延展证据集中在宏观制度设计，对理论争议的后续推进和具体局限的精细化展开不足。",
+          "core_judgment": "存在真实且可定位的延展路径，主要指向制度完善和立法建构，而非空泛口号。",
+          "score_rationale": "原始分70分，对应bonus=3档。论文指明了既判力条文要素、司法解释与指导性案例的实施路径，与正文核心结论紧密衔接，但精细度有限，未展开未来理论争论点。",
+          "evidence_quotes": [
+            "既判力制度化需要明确规定以下要素性规范是：1.明确规定只有确定判决主文中关于诉讼标的的判断才有既判力……4.作为既判力相对性原则的例外，确定判决对于诉讼系属后的承继人……亦有效力。",
+            "元的方法是比较可行的方法是尽快通过最高人民法院的司法解释予以制度化。如果不能通过司法解释作出规定，则可通过出台相应的指导性案例以及公布典型案例，明确既判力制度的基本规范，包括既判力相对性原则。"
+          ],
+          "strengths": [
+            "延展路径基于制度建构需求，明确提出了五项具体立法要素和规范内容。",
+            "区分了修法、司法解释、指导性案例等多种可行的制度实施路径。"
+          ],
+          "weaknesses": [
+            "延展主要集中在宏观立法层面，对既判力相对性理论内部的争议深化和未来研究问题未做具体切入。",
+            "对正文提及的冒名诉讼、无效判决等具体局限，未进一步展开未来如何围绕这些局限推进研究。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文展望的是未来规则如何建构与衔接（如修法、颁行司法解释），这属于制度完善方向即前瞻延展性问题，而非评价当下的结论是否为共同体所接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了清晰的既判力制度化要素规范及配套制度调整方向。",
+          "core_judgment": "存在真实延展路径，指明了具体的制度完善方向、规则衔接与实施风险控制。",
+          "score_rationale": "原始分85，bonus=5。文章明确列出5项制度化要素规范，指出对世效扩张的程序补强条件及配套制度调整方向，延展路径清晰可定位，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "既判力制度化需要明确规定以下要素性规范是：1.明确规定只有确定判决主文中关于诉讼标的的判断才有既判力……5.既判力标准时、时间范围规范",
+            "对于家事诉讼、公司诉讼判决等具有对世效的扩张，必须充分考虑程序性补强条件……配套制度也应当予以调整，例如判决书的表达格式"
+          ],
+          "strengths": [
+            "提出了5项具体的制度化要素规范，延展路径清晰可定位",
+            "指出了对世效扩张的程序补强条件及配套制度调整方向"
+          ],
+          "weaknesses": [
+            "第三人撤销之诉与再审等规则衔接的具体整合方案未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "制度化要素规范及配套调整属于未来立法与实务的延展方向，而非当下理论结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在制度建构层面提出了清晰的延展路径，包括既判力制度化的具体规范要素、与第三人撤销之诉的关系重构、配套程序原则的确立等，但部分延展方向仍较宏观，精细化程度有限。",
+          "core_judgment": "存在真实延展路径，论文明确提出了既判力相对性原则制度化的具体方向、与相关制度的衔接问题及后续研究争点。",
+          "score_rationale": "原始分75，对应bonus=3档位。论文在结尾部分系统提出了既判力制度化的5项要素性规范、司法解释与指导性案例的推进路径、与第三人撤销之诉关系的限缩性重构等具体延展方向，并与正文核心结论紧密衔接；但部分方向（如'配套制度调整'）仍较概括，未充分展开操作细节。",
+          "evidence_quotes": [
+            "既判力制度化需要明确规定以下要素性规范是：1．明确规定只有确定判决主文中关于诉讼标的的判断才有既判力...4．作为既判力相对性原则的例外...",
+            "既判力的制度化最好是通过再次修改民事诉讼法予以实现...比较可行的方法是尽快通过最高人民法院的司法解释予以制度化...可通过出台相应的指导性案例以及公布典型案例"
+          ],
+          "strengths": [
+            "提出5项要素性规范作为制度化具体路径",
+            "明确第三人撤销之诉与既判力扩张的限缩关系重构方向"
+          ],
+          "weaknesses": [
+            "配套制度调整方向较概括，未细化技术方案",
+            "比较法维度未提出新比较框架或本土化深化路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文讨论的是'未来如何推进既判力制度化'，属于未来延展问题；而非'当下结论是否可被接受'，后者属于结论可接受性维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出以司法解释与指导案例推进既判力制度化的务实路径，并明确技术细化与理论普及方向。",
+          "core_judgment": "存在真实且清晰的延展路径，紧密围绕既判力相对性原则的制度化落地与配套机制完善。",
+          "score_rationale": "原始分85，映射bonus=5。论文明确提出以司法解释和指导案例替代立法的过渡路径，并指出判决主文区分、程序补强及理论通俗化等具体深化方向，路径清晰可定位。",
+          "evidence_quotes": [
+            "比较可行的方法是尽快通过最高人民法院的司法解释予以制度化……可通过出台相应的指导性案例明确基本规范。",
+            "如何使得复杂的理论和制度通俗化并运用到民事实践中，为民众、律师和基层司法人员所理解和运用，是另一个问题。"
+          ],
+          "strengths": [
+            "提出司法解释与指导案例替代立法的务实过渡路径。",
+            "明确判决格式区分、程序补强等具体技术深化方向。"
+          ],
+          "weaknesses": [
+            "对实体法与程序法衔接的具体例外情形未展开细化设计。",
+            "理论通俗化与司法大众化的转化机制仅点出，缺乏操作方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于既判力制度建构后的立法技术细化、司法解释路径选择及理论普及机制，属于制度落地与理论深化的未来推进方向，而非对本文当下结论正当性的评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.05115795135498,
+        "glm-5.1": 40.37710189819336,
+        "kimi-k2.6": 12.62956714630127,
+        "qwen3.6-plus": 54.29892015457153
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 85,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 85
+      },
+      "mean": 78.8,
+      "std": 7.5,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 79.24,
+      "weighted_total": 77.6
+    },
+    "aggregation_strictest": {
+      "final_score": 56.06,
+      "weighted_total": 59.4
+    },
+    "avg_std": 13.9,
+    "max_std": 28.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 23.2,
+    "composite_score": -13.9,
+    "worst_dimension": "problem_originality",
+    "worst_std": 28.0
+  }
+}

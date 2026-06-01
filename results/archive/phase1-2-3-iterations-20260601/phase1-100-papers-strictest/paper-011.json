@@ -1,0 +1,1098 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/当代中国的法律实证研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": [
+          "对于中国法律实证研究兴起这样一个“静悄悄的革命”，前文所用的形式证据，尽管可以帮助我们对变化全局有个较好的把握"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在中文中，实证研究有时也被称为“经验研究”。理论上，法学论文标题是否带有“经验”或者“经验研究”也值得统计。",
+          "当前中国法学的权威期刊对法律实证研究相当重视……",
+          "已经呈现了如下一些明显的“新兴+转轨”的中国特色。",
+          "法律实证研究在中国已经兴起，并初步归纳了其主要特征。接下来的问题是，是什么原因导致了实证研究在中国法学界被日益接纳？",
+          "法律实证研究对法律体系建设的潜在贡献，不仅可以直接体现在丰富法学知识体系，提供法治建设的宏观建议，也可以有微观的“规范面向”（即为解决具体的法律规范问题提供建设性意见）。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国学者从说法律实证研究开始，到目前已经开始慢慢做法律实证研究。一个新的研究范式/方法发展的第一步往往是先说它……从目前的发展状态看，法律实证研究在中国的发展是幸运的……",
+        "法律实证研究已经在中国法学界获得了应有的一席之地。……如果我们把时间拉长，寻找学术界之前的思考与探索，并以动态的眼光来看待今天的事实，就会有一些非常有意思的发现。",
+        "已有的实证研究尽管数量越来越多，但是明显缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究。科学研究之所以成为科学，其本质属性之一是因为之前的研究可以被后面的重复进行……"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国法学实证研究的兴起为对象，形成了可争辩的法学发展问题与理论命题，具备明确的中国问题中心性，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致部分词汇乱码（如'前瞻I生地'、'-~tL专门'、'法学核一1、5'期刊'、'昕／观众'）",
+          "期刊页码及页眉混入正文（如'67', '中国法学 2015年第6期'）",
+          "脚注编号及参考文献信息混入正文",
+          "图表数据及标签存在OCR乱码"
+        ],
+        "evidence_quotes": [
+          "前瞻I生地引领学界同仁",
+          "涌现出了-~tL专门",
+          "法学核一1、5'期刊",
+          "67",
+          "中国法学\n2015年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "对于中国法律实证研究兴起这样一个“静悄悄的革命”……",
+          "转型时期中国法律体系快速增长既促成对规范法学的极大需求，也导致规范法学的“自我膨胀”并脱离中国现实。",
+          "当前中国法学的实证研究中，改进研究非常少……缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究。",
+          "法律实证研究对法律体系建设的潜在贡献，不仅可以直接体现在丰富法学知识体系……也可以有微观的“规范面向”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程质量风险：OCR乱码、页码页眉混入及脚注格式问题需在后续阶段清洗，但不影响对项目口径的判定"
+      ],
+      "evidence_quotes": [
+        "转型时期中国法律体系快速增长既促成对规范法学的极大需求，也导致规范法学的“自我膨胀”并脱离中国现实。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国法律实证研究的兴起、特征及市场机制为研究对象，涉及中国法学研究范式与方法论的可争辩问题，并尝试解释中国法学实践中的真实难题及提出理论反思命题，符合进入六维评价的口径。但因OCR乱码及排版混入等文本工程问题，后续评分阶段需进行文本清洗与修复。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码残留（如⑩、③等符号与正文混排，部分脚注内容嵌入正文）",
+          "参考文献列表缺失（标注为'无'），但正文中有大量脚注引用",
+          "存在期刊页码混入（如'67'、'68'、'69'、'70'、'71'、'72'、'73'、'74'、'75'等页码数字散落于段落间）",
+          "少量OCR残留字符（如'霪'、'一'、'J'、'~LJ'等）"
+        ],
+        "evidence_quotes": [
+          "⑩ 包万超：《面向社会科学的行政法学》，载《中国法学) )2010年第6期。",
+          "67",
+          "中国法学 2015年第6期",
+          "一 个学者同时应用两种方法也很常见。",
+          "J ~LJ,b，由苏力主编"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "当代中国的法律实证研究",
+          "中国法律实证研究兴起这样一个'静悄悄的革命'",
+          "已有的'实证'研究存在较多层次，此'实证'与彼'实证'难以区分，'实证'的边界模糊",
+          "从'说实证'演变到'做实证'，从讨论宏观的法治理论命题转向微观的法律制度问题",
+          "在法学不同领域，法律实证研究存在明显的不均衡分布，同时也呈现由个别学科向所有法学领域扩散的趋势",
+          "是什么原因导致了实证研究在中国法学界被日益接纳？",
+          "转型中国因为'一正一反'两个方面的原因，对实证研究成果产生了相对更多的知识需求",
+          "法律实证研究必须是好的研究，必须在中国有自己的听众，但这两者在目前中国都匮乏"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码与页码混入，需人工核对原始文献；参考文献列表未抽取，但正文引用可通过脚注定位",
+        "项目口径：论文核心命题明确——解释中国法律实证研究兴起的机制、特征与问题，属于典型的中国法学方法论/学术史研究"
+      ],
+      "evidence_quotes": [
+        "当代中国的法律实证研究",
+        "是什么原因导致了实证研究在中国法学界被日益接纳？这些原因在促进实证研究成果数量增长的同时，能否最终导致其质量上的改变？",
+        "中国法律实证研究能否在未来的'挤泡沫'过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战，并找到知识供给与需求的长久均衡点"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本质量风险较低，核心论点、结构与论证均可定位。建议评分时关注其理论转化深度：该文虽以描述性、回顾性为主，但提出了关于中国法律实证研究'市场机制'与'知识泡沫'的分析框架，具有可争辩的法学方法论命题。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（如‘前瞻I生地’、‘列人’、‘~tL’、‘J~LJ,b’、‘核一1、5'期刊’等）",
+          "图表坐标轴标签乱码（如‘∞I’、‘mI’等）",
+          "文末参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "前瞻I生地引领学界同仁",
+          "列人本文的统计分析范畴",
+          "涌现出了-~tL专门",
+          "J~LJ,b，由苏力主编",
+          "核一1、5'期刊"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "已有的‘实证’研究存在较多层次，此‘实证’与彼‘实证’难以区分，‘实证’的边界模糊。",
+          "转型中国因为‘一正一反’两个方面的原因，对实证研究成果产生了相对更多的知识需求。",
+          "法律实证研究对法律体系建设的潜在贡献，不仅可以直接体现在丰富法学知识体系……也可以有微观的‘规范面向’",
+          "实证研究和规范法学研究行走在两条平行线上，未能形成有效的知识交融"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在局部OCR乱码及参考文献缺失，但不影响核心论点定位与评审"
+      ],
+      "evidence_quotes": [
+        "当代中国的法律实证研究在数量、范围上有了长足的进步。但是相对而言，实证研究的质量参差不齐",
+        "转型中国因为‘一正一反’两个方面的原因，对实证研究成果产生了相对更多的知识需求。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR识别瑕疵与参考文献缺失，但核心论证完整、结构清晰。论文聚焦中国法学研究方法论转型，深入剖析法律实证研究在中国兴起的制度与市场动因、学科分布特征及与法教义学的张力，具备明确的中国问题意识与可争辩的法学理论命题，符合项目口径，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文是法律实证研究兴起的态势描述与现状归纳，未提出可争辩的法学问题。",
+          "core_judgment": "论文无明确的问题句或法学争点，只是对研究方法的宏观介绍，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性校验未实质触发但因缺乏问题意识本身即为上限，扣分合计80分。锚定unacceptable档，最终给35分。",
+          "evidence_quotes": [
+            "法律实证研究已经在目前的中国法学界获得了应有的一席之地。",
+            "是什么原因导致了实证研究在中国法学界被日益接纳？"
+          ],
+          "strengths": [
+            "对法律实证研究在中国的发展做了翔实的史料梳理与归纳。"
+          ],
+          "weaknesses": [
+            "全文无问题句，仅是“某某兴起”的现象描述与原因归纳。",
+            "缺失可争辩的法学争点，停留在宏观介绍而非深度分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何“XX是否YY”“如何ZZ”的问题句，只有主题声明与态势归纳。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述、论证严密性或材料是否支撑结论。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅是对法律实证研究兴起的宏观描述与原因归纳，缺乏可争辩的法学问题。",
+          "core_judgment": "问题维度不成立，全文无法学争点，仅为知识社会学层面的现象描述与政策倡导。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性触发上限，锚定unacceptable档给40分；前置扣分50分，依规则调至最低30分。",
+          "evidence_quotes": [
+            "是什么原因导致了实证研究在中国法学界被日益接纳？",
+            "法律实证研究必须是好的研究，必须在中国有自己的听众，但这两者在目前中国都匮乏。"
+          ],
+          "strengths": [
+            "对实证研究现状的数据统计与特征归纳较为系统"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的法学理论或规范争点",
+            "核心问题属于知识社会学范畴而非法学层面"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无法学争点，仅有现象描述与原因分析"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料新颖但无实质推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以统计数据作为主要创新依据，未改变问题设定"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文描述中国法律实证研究兴起的现象与机制，但缺乏可争辩的法学问题。",
+          "core_judgment": "全文为现象描述与历史梳理，未提出具有理论分歧的可争辩法学问题，不符合研究问题的基本标准。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。锚定unacceptable档，给35分。扣分合计=45分（检查1扣15分：'新兴+转轨'等概念包装旧有讨论；检查2扣20分：无学者观点交锋，仅系统归纳；检查3扣10分：有问题句但实质是政策倡导）。扣分后不低于30分。",
+          "evidence_quotes": [
+            "当前中国的法律实证研究在数量、范围上有了长足的进步",
+            "法律实证研究非常重要这个判断尽管已经有了部分事实依据，但更主要还是个价值判断"
+          ],
+          "strengths": [
+            "选题涉及法学研究方法转型，具有一定宏观意义"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为描述性主题声明",
+            "缺乏不同学术观点的交锋与理论分歧呈现"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未提出'XX是否YY'式问题句，仅陈述'法律实证研究兴起'这一主题"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "虽提及'能否导致质量改变'等问题，但实质是政策倡导而非法学争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "本文以学术社会学视角梳理法律实证研究在中国的兴起机制与困境。",
+          "core_judgment": "问题聚焦学术范式变迁而非规范法学争点，缺乏可争辩的法学命题。",
+          "score_rationale": "可争辩性=2/4，枢纽性=3/4，材料新颖性未触发上限，锚定good档，前置检查扣35分（宏观介绍扣15，主题声明扣20），最终给30分。",
+          "evidence_quotes": [
+            "是什么原因导致了实证研究在中国法学界被日益接纳?",
+            "已有的实证研究尽管数量越来越多，但是明显缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究。"
+          ],
+          "strengths": [
+            "运用知识市场供需框架系统剖析实证研究兴起的结构性动因。",
+            "对实证研究“泡沫化”风险及信效度挑战的预警具有现实针对性。"
+          ],
+          "weaknesses": [
+            "全文偏向学术现象描述与机制归纳，缺乏实质性的法学理论交锋。",
+            "核心问题属于学术社会学范畴，未触及可争辩的规范法学争点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评研究问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 19.86261296272278,
+        "glm-5.1": 56.70082187652588,
+        "kimi-k2.6": 14.531862020492554,
+        "qwen3.6-plus": 482.28924107551575
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 32.5,
+      "std": 2.9,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文绘制了一幅法律实证研究在中国兴起与扩散的全景图，但研究地图三要素严重残缺，未能明确交代已有研究解决了什么、目前存在何种关键争议以及本文的独特切入点。",
+          "core_judgment": "本文更偏向对学术现象的事实性描述和自我评述，而非在既有文献地图中定位自身的研究贡献，因此研究地图不成立。",
+          "score_rationale": "三要素=1/6，争点结构=1/2，法学流派=1个，触发三要素总分过低上限55分，因存在少量争论脉络锚定marginal上限64，给58分。",
+          "evidence_quotes": [
+            "本文对法律实证研究在当下中国的现状进行了初步描述。如果孤立看待这些数据与信息，或许意义不大。",
+            "已有的“实证”研究存在较多层次，此“实证”与彼“实证”难以区分，“实证”的边界模糊。"
+          ],
+          "strengths": [
+            "对法律实证研究的学术生态、代际变迁和市场机制有细致的观察和归类。"
+          ],
+          "weaknesses": [
+            "未提炼2个以上具体研究成果的贡献，无明确的未竟点，也未宣布本文要填补的具体空白。",
+            "仅呈现“规范法学vs实证研究”的宏观分歧，缺乏可区分的法学流派或完整争点脉络。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文既无关于“已有研究已解决什么问题”的具体提炼，也未指明“现有研究缺口”，更未声明本文的理论切入点。"
+            }
+          ],
+          "boundary_note": "本文的问题不在于法律实证研究主题是否新颖，而在于没有在已有文献中构建出研究地图，这是文献定位缺陷。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图三要素齐备且对应紧密，争点结构清晰，流派识别充分，现状洞察度高。",
+          "core_judgment": "论文完整呈现了法教义学与社科法学等路径分歧，并精准定位实证研究对话缺失的缺口。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "苏力就当时中国法学研究的三种范式——政法法学、诠释法学和社科法学——的历史与现状进行了系统分析",
+            "明显缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究"
+          ],
+          "strengths": [
+            "到达点与未竟点梳理扎实，既有成果与缺口对应明确",
+            "争点结构丰富，法教义学与社科法学路径分歧清晰"
+          ],
+          "weaknesses": [
+            "无"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点呈现深度，不评问题本身新颖性或论证逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文系统梳理了中国法律实证研究的兴起脉络与内在分歧，但研究地图三要素呈现分散化特征。",
+          "core_judgment": "本文以历史演进和特征归纳为主线，分散呈现了学术脉络，但未形成集中的研究地图三要素结构，争点结构以特征描述替代学术争论。",
+          "score_rationale": "三要素得分=4/6（到达点2分：引述白建军、左卫民、苏力、季卫东等多位学者具体成果；未竟点1分：指出'缺乏改进研究''数据不公开'等不足但分散；本文切入点1分：提出'市场机制'解释框架但对应关系松散），争点结构=1/2（呈现'规范法学vs社科法学/实证研究'一个争点），法学流派=2个（法教义学与社科法学/实证研究两大阵营），锚定good档，给72分。",
+          "evidence_quotes": [
+            "苏力就当时中国法学研究的三种范式——政法法学、诠释法学和社科法学——的历史与现状进行了系统分析",
+            "已有的实证研究尽管数量越来越多，但是明显缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究"
+          ],
+          "strengths": [
+            "分散式文献定位有效，引述具体学者成果丰富",
+            "比较法视野隐含，呈现中美法学研究路径差异"
+          ],
+          "weaknesses": [
+            "未竟点与切入点分散于全文，缺乏集中对应",
+            "争点结构未充分展开，'规范vs实证'对立停留于背景描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；本文三要素4分，争点结构1分，不触发此规则",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素4分，争点结构1分，法学流派2个，按规则锚定good档65-74分区间"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位的结构性松散，而非研究问题本身不新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒中国法律实证研究的兴起脉络、范式分歧与市场机制，研究地图完整。",
+          "core_judgment": "本维度成立，作者精准定位既有研究版图并明确切入质量与机制之争。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "苏力就当时中国法学研究的三种范式——政法法学、诠释法学和社科法学——的历史与现状进行了系统分析",
+            "已有的实证研究尽管数量越来越多，但是明显缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究。"
+          ],
+          "strengths": [
+            "精准提炼规范法学与社科法学的范式对立及演进脉络。",
+            "明确指出现有实证研究缺乏数据共享与重复验证的学术缺口。"
+          ],
+          "weaknesses": [
+            "对欧美实证法学成熟范式的对照分析略显单薄。",
+            "部分流派界定偏重方法论差异，规范主张交锋可再深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点定位，不涉及实证方法本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.386275053024292,
+        "glm-5.1": 45.797280073165894,
+        "kimi-k2.6": 14.655738115310669,
+        "qwen3.6-plus": 65.55039715766907
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 78,
+      "std": 16.1,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文为法律实证研究的现状描述与原因分析，未建构任何可操作的分析框架。",
+          "core_judgment": "该维完全不成立。全文是对法律实证研究兴起的现象梳理和市场供需分析，无原创概念界定、分类标准或可循的分析步骤。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发no_operational_framework上限规则，给15分。",
+          "evidence_quotes": [
+            "本文在这个部分着重分析影响法律实证研究变迁的市场机制。(一)知识的市场供给...(二)知识的市场需求...",
+            "赵骏认为，法律实证研究有三类：第一类...第二类...第三类...这是一个很好的分类..."
+          ],
+          "strengths": [
+            "对法律实证研究在中国的发展现状和供需机制进行了广泛的事实梳理。"
+          ],
+          "weaknesses": [
+            "未提出任何原创的分析框架，核心分类（如实证研究三层次）直接引用他人",
+            "全文仅进行现象描述和因素罗列，无概念化、无步骤化、无操作化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分；论文核心术语无定义且无任何可循的分析步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无核心术语的明确定义，无步骤化分析流程，后文分析完全依赖现象罗列和供需因素描述，框架可操作性得分为0。"
+            }
+          ],
+          "boundary_note": "此为框架建构力判断，不涉及论文对法律实证研究现象描述的事实准确性或逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文为学术现象梳理，未建构原创分析框架，无操作步骤与法学转化。",
+          "core_judgment": "论文属现象归纳与阐释，缺乏原创分析框架的建构与法学操作化转化。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发上限规则，给45分。",
+          "evidence_quotes": [
+            "实证的边界模糊……很难确定“实证”的边界范围",
+            "整体上而言，法律实证研究的出现是知识市场自由竞争的结果"
+          ],
+          "strengths": [
+            "对实证研究现状与市场机制的梳理系统深入"
+          ],
+          "weaknesses": [
+            "无原创概念界定与类型化标准",
+            "市场机制分析停留在隐喻层面，无法学转化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无原创定义，无分析步骤，仅为现象描述与归纳。"
+            }
+          ],
+          "boundary_note": "本维度评估框架建构力，不评估文章作为学术史梳理的逻辑与价值。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文是对中国法律实证研究发展状况的描述性综述，未建构可重复适用的分析框架。",
+          "core_judgment": "本文属于政策理论梳理型论文，以'梳理''归纳'既定现象为主，无原创分析框架，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅对'实证研究'做了层次分类，无明确分析步骤和判断标准，后文未调用任何框架步骤），法学转化度得分=0/4（无跨学科概念转化、无裁判规则或操作指引、无制度设计方案）。触发'政策理论梳理型'上限规则（总分不超过60分），且框架核心术语无操作化定义，实际得分35分。",
+          "evidence_quotes": [
+            "赵骏认为，法律实证研究有三类：第一类……第二类……第三类……这是一个很好的分类",
+            "上述四种法学学术市场的结构性转向是相互交融在一起的"
+          ],
+          "strengths": [
+            "对实证研究层次做了初步分类"
+          ],
+          "weaknesses": [
+            "全文以描述现象、归纳特征为主，无原创分析框架",
+            "提出的'供给-需求'分析仅为现象描述，未转化为可操作的判断标准或分析步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无操作化定义，无分析步骤，无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'本文所称XX是指'式定义，'市场供给''市场需求'等术语未操作化，无判断标准或分析步骤"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_review_type",
+              "rule": "政策理论梳理型论文，框架可操作性上限2分，法学转化度上限1分，总分不超过60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以'梳理''归纳''描述'中国法律实证研究兴起的现象、特征和原因为主，无原创概念界定或类型化框架"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身是否成立，不评价描述性统计是否准确或文献综述价值。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文属学术现象描述与成因分析，未建构可供法学分析或裁判适用的原创框架。",
+          "core_judgment": "分析框架建构力不成立，全文以现象归纳与市场机制解释为主，缺乏可操作的法学分析工具。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4。触发v0.7梳理型规则，无原创框架与操作步骤，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "已有的“实证”研究存在较多层次，此“实证”与彼“实证”难以区分，“实证”的边界模糊。",
+            "法律实证研究的学术市场存在一定程度的“市场失灵”以及由此形成的知识泡沫。"
+          ],
+          "strengths": [
+            "对实证研究兴起的市场供需机制进行了细致的社会学剖析。"
+          ],
+          "weaknesses": [
+            "未提出原创性概念界定或类型化标准，缺乏可重复适用的分析步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语无定义且无可循步骤，未实现法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为学术现象归纳与成因分析，未提出原创分析框架或裁判适用步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉学术史梳理质量或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.52035713195801,
+        "glm-5.1": 69.4043219089508,
+        "kimi-k2.6": 17.428663969039917,
+        "qwen3.6-plus": 457.65409994125366
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 35
+      },
+      "mean": 32.5,
+      "std": 12.6,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以形式与补充证据论证法律实证研究的兴起、特征及成因，主线推理链清晰但核心结论部分依赖价值判断，反驳处理仅隐含于对文献缺漏的纠正中。",
+          "core_judgment": "推理链能支撑对“兴起”现象的描述与基础原因分析，但“泡沫性”等核心结论的推出略显跳步，且缺乏对关键反对观点的直接处理，削弱了论证的严密性。",
+          "score_rationale": "推理链完整性得分=3/4（可复述步骤、依赖度好、能推出部分结论，但从‘存在缺陷’到‘泡沫性’有跳步），反驳处理度得分=1/3（隐含回应了形式证据不足，但无显式反对意见或局限承认），锚定good档，给72分。",
+          "evidence_quotes": [
+            "“为了弥补上述形式证据的不足，此处对几点重要事实要进行说明，作为证明法律实证研究在当代中国的兴起的补充证据。”",
+            "“如果孤立看待这些数据与信息…但如果我们把时间拉长…以动态的眼光来看待今天的事实，就会有一些非常有意思的发现。”"
+          ],
+          "strengths": [
+            "补充证据与形式证据结合，对“兴起”的判断提供了较充分的经验支撑。"
+          ],
+          "weaknesses": [
+            "从“实证研究质量参差不齐”直接过渡到学术市场存在“泡沫性”，缺乏关于泡沫具体机理的严密推导。",
+            "未显式处理“实证研究未兴起”或“仅表面繁荣”等可能反驳观点，回应性较弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文对“兴起”的判断基于多方证据，是推理问题而非分析框架操作性不足；未回应潜在批评导致反驳处理度偏低。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文从现象描述到特征归纳再到机制分析与挑战预判，形成完整推理链，且对分歧路径有实质回应。",
+          "core_judgment": "推理链完整且结论可辩护推出，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "前文所用的形式证据……并不精确——尤其是漏掉了很多严肃地利用科学的定性或者定量方法来研究法律的学术实践。",
+            "其中绝大多数论文的引用率在个位数……说明此类研究的实际影响非常有限。"
+          ],
+          "strengths": [
+            "从现象到机制再到挑战的推理链层层依赖，无关键跳步。",
+            "对实证概念分歧和需求路径分歧给出了数据支撑的选择理由。"
+          ],
+          "weaknesses": [
+            "部分因果推断（如海归美化格局的影响）略显主观推测。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦于现象到结论的推导是否严密，而非学术生态分析框架是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "描述性综述为主，缺乏明确论证主线与结论推导。",
+          "core_judgment": "论文以现象描述和特征归纳为主，未形成'前提→推导→结论'的严密推理链，核心判断缺乏充分支撑。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2依赖度不足、标准4存在跳步），反驳处理度得分=1/3（仅标准1识别分歧，标准2无实质回应、标准3未承认局限），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "接下来的问题是，是什么原因导致了实证研究在中国法学界被日益接纳？这些原因在促进实证研究成果数量增长的同时，能否最终导致其质量上的改变？",
+            "中国法律实证研究能否在未来的'挤泡沫'过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战，并找到知识供给与需求的长久均衡点。"
+          ],
+          "strengths": [
+            "现象描述层次清晰，时间维度与分类框架较完整",
+            "部分段落存在隐性因果分析（市场机制→实证研究兴起）"
+          ],
+          "weaknesses": [
+            "核心问题（'能否导致质量改变'）未获回答，结论悬置",
+            "从'市场机制分析'到'未来挑战'的过渡缺乏推导，存在关键跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链严密性，不涉及该综述框架是否适格的问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建“现象确认→特征归纳→成因剖析→前景预判”推理链，论证严密且充分回应争议与局限。",
+          "core_judgment": "本维度成立，核心结论可由前文数据、期刊统计与市场机制分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "已有的‘实证’研究存在较多层次……‘实证’的边界模糊。",
+            "法律实证研究的学术市场存在一定程度的‘市场失灵’以及由此形成的知识泡沫。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从现象到成因再到挑战的链条完整且依赖度高。",
+            "明确区分实证研究层次，有效回应了‘装饰性实证’的质疑。"
+          ],
+          "weaknesses": [
+            "部分成因分析依赖宏观背景推断，微观机制论证稍显简略。",
+            "对‘挤泡沫’后的路径推演偏重价值判断，实证支撑相对薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链支撑度，不涉及学术市场框架的可操作性或结论的学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.97920894622803,
+        "glm-5.1": 55.52941083908081,
+        "kimi-k2.6": 10.527776956558228,
+        "qwen3.6-plus": 46.53517270088196
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 75,
+      "std": 15.0,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文描述了中国法律实证研究的现状与成因，但结论部分未将事实判断转化为可争辩的学术主张，也未回应反对意见，导致共同体对话度极低。",
+          "core_judgment": "论文结论停留在对现象的概括和未来趋势的模糊判断，未能进入法学共同体的学术争论语境，无法被有效反驳或对话。",
+          "score_rationale": "共同体对话度得分=0/4：结论未回应已有争论，未给反对者留出反驳空间，未讨论反对意见。制度可接受度得分=1/4：虽提及中国语境，但无具体制度关联。属理论论文，对话度≤1，根据no_community_dialogue规则上限为50分，结合空泛对策倾向扣分至45。",
+          "evidence_quotes": [
+            "法律实证研究非常重要这个判断尽管已经有了部分事实依据，但更主要还是个价值判断。",
+            "中国法律实证研究能否在未来的‘挤泡沫’过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战，并找到知识供给与需求的长久均衡点。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结论完全未回应法学共同体对实证研究方法的既有争论或批评，属于封闭叙述。",
+            "全文以描述和预测为主，未将核心判断转化为可争辩的学术主张，反对者无法定位和回应。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度为0，结论未进入学术争论语境，最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论未明确说明与既有争论的关系，未讨论反对意见，仅为事实描述和价值判断。"
+            }
+          ],
+          "boundary_note": "此为结论可接受性问题，不涉及论证过程严密性或研究创新性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文深刻回应法学范式争论，指出实证研究泡沫与挑战，与中国学术语境高度契合。",
+          "core_judgment": "结论精准定位学术生态现状，对话度与制度兼容性均极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "法律实证研究在目前的中国法学界获得了应有的一席之地",
+            "法律实证研究的学术市场存在一定程度的“市场失灵”以及由此形成的知识泡沫"
+          ],
+          "strengths": [
+            "深刻回应社科法学与规范法学之争，指出泡沫与挑战",
+            "完全扎根中国法学学术生态与制度语境"
+          ],
+          "weaknesses": [
+            "对如何具体克服六大挑战的出路论述稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评价结论能否被共同体和制度语境接受，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "描述性综述论文，缺乏明确学术主张与对话意识。",
+          "core_judgment": "论文以描述法律实证研究在中国兴起的现象为主，未提出可争辩的学术结论，未能有效进入法学共同体对话。",
+          "score_rationale": "共同体对话度得分=2/4（回应了既有争论脉络但无明确立场；可被定位但难以被回应；考虑中国语境；未讨论反对意见或局限）。制度可接受度得分=2/4（不矛盾；对制度约束有描述性回应；未指出制度转化方向；考虑中国语境）。锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "本文在这个部分着重分析影响法律实证研究变迁的市场机制。",
+            "中国法律实证研究能否在未来的'挤泡沫'过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战。"
+          ],
+          "strengths": [
+            "详细梳理了中国法律实证研究的历史与现状。",
+            "对中国法学学术市场结构有本土语境分析。"
+          ],
+          "weaknesses": [
+            "结论仅为现象描述，未提出可争辩的学术主张。",
+            "未回应'规范法学vs实证研究'争论中的反对意见。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论清晰回应方法论争论，扎根中国学术生态，对实证研究困境与转型路径有明确指向。",
+          "core_judgment": "该结论高度契合学术共同体语境，且对制度/学术生态约束有充分回应，可接受性强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "已有的实证研究尽管数量越来越多，但是明显缺乏基于共同数据或者相似数据的证伪、批评、对话或者改进研究。",
+            "中国法律实证研究能否在未来的‘挤泡沫’过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战..."
+          ],
+          "strengths": [
+            "精准定位方法论争论，明确回应既有学术分歧。",
+            "深刻剖析中国学术市场供需机制与制度约束。"
+          ],
+          "weaknesses": [
+            "对策偏重学术生态宏观描述，具体操作指引略弱。",
+            "对规范法学与实证研究的融合路径论证可更具体。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 367.5961253643036,
+        "glm-5.1": 383.4323308467865,
+        "kimi-k2.6": 10.106445074081421,
+        "qwen3.6-plus": 420.30578088760376
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 92,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 90
+      },
+      "mean": 70.5,
+      "std": 24.0,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了未来面临的多项具体挑战，但未形成清晰的后续研究问题或可操作的修正路径，延展方向停留于概括性描述。",
+          "core_judgment": "存在基于正文局限性的概括延展方向，但未转化为可定位的具体研究问题或方法路径。",
+          "score_rationale": "原始分45分，对应bonus=2。论文在结论部分承认了实证研究质量参差不齐、人才匮乏、对话不足等局限，并提及“挤泡沫”过程，但未指明后续应围绕哪一局限如何具体推进研究，延展路径精细度不足，故落入40-59档。",
+          "evidence_quotes": [
+            "法律实证研究能否在未来的‘挤泡沫’过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战",
+            "实证研究的伦理匮乏，数据造假和其他违背学术伦理的事情时有发生"
+          ],
+          "strengths": [
+            "明确承认了当前实证研究的多重具体挑战（如人才匮乏、数据信效度不足、伦理匮乏等）。",
+            "指出了市场短期需求驱动的泡沫性，隐含了未来研究转型的概括方向。"
+          ],
+          "weaknesses": [
+            "未针对所列挑战提出任何具体的后续研究问题、修正路径或新一轮争点。",
+            "缺乏对概念边界、制度路径或实务场景的延展性说明，延展方向过于宽泛。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估未来研究从哪里切入，不评估结论是否可被共同体接受或论证是否严密。论文提及的挑战属于未来研究可开展的领域，但缺乏具体定位，故为延展性问题而非结论可接受性问题。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确指出了法律实证研究未来需克服的6项具体挑战，提供了清晰可定位的深化路径。",
+          "core_judgment": "存在真实且具体的延展路径，指明了实证研究从量到质转变的6个具体深化方向。",
+          "score_rationale": "原始分85，对应bonus档位>=80（bonus=5）。末尾列举6项具体挑战（人才、数据、问题意识、范式、伦理、资源），与正文“挤泡沫”结论紧密衔接，路径清晰可定位。",
+          "evidence_quotes": [
+            "挑战至少包括如下一些方面：(1)熟悉实证研究的人才匮乏...；(4)共同的理论范式并没有形成...；(5)实证研究的伦理匮乏...",
+            "中国法律实证研究能否在未来的“挤泡沫”过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战"
+          ],
+          "strengths": [
+            "延展路径具体可定位，直接对应6项挑战。",
+            "与正文“市场泡沫”核心结论紧密衔接。"
+          ],
+          "weaknesses": [
+            "延展以挑战列举为主，未对单一路径做深度理论假设展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "未来如何克服人才、范式、伦理等挑战属于前瞻延展，而非当下实证研究兴起结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在描述中国法律实证研究现状的基础上，指出了若干未来挑战与改进方向，但延展路径较为概括，缺乏精细化的后续研究设计。",
+          "core_judgment": "存在真实延展路径，但路径较粗疏，主要体现为对挑战的罗列而非对具体修正方向的展开。",
+          "score_rationale": "原始分55，对应bonus=2（40-59档）。论文末尾明确列举了实证研究面临的六项挑战（人才、数据、问题意识、理论范式、伦理、资源），并指出'挤泡沫'趋势下需'找到知识供给与需求的长久均衡点'，具备可定位的延展方向。但延展停留在问题清单层面，未进一步说明如何修正概念、深化理论或设计制度，精细度不足。",
+          "evidence_quotes": [
+            "中国法律实证研究能否在未来的'挤泡沫'过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战，并找到知识供给与需求的长久均衡点。",
+            "挑战至少包括如下一些方面：(1)熟悉实证研究的人才匮乏……(2)实证数据采集及经验材料获取不够科学……(3)被实证研究的问题本身可能不是真实问题……"
+          ],
+          "strengths": [
+            "明确列出六项具体挑战，为后续研究提供可进入的争点。",
+            "提出'挤泡沫'与'长久均衡点'概念，具有制度演进的时间维度。"
+          ],
+          "weaknesses": [
+            "延展路径仅为问题罗列，未说明修正机制或深化方向。",
+            "未承认正文具体局限以引出后续研究，如统计方法的自我限定未转化为研究建议。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文末段讨论的是'未来能否克服挑战'而非'当下结论是否正确'，属于典型的未来延展问题；其关于'挤泡沫'的预测性判断也不涉及当下结论的可接受性验证。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文基于实证研究“市场泡沫”诊断，明确列出人才、数据、范式与伦理等六大供给挑战，为后续方法论深化与学术生态建设提供具体路径。",
+          "core_judgment": "存在真实延展路径，以“挤泡沫”后的均衡点为目标，系统指明了实证研究范式建构与规范法学对话的具体方向。",
+          "score_rationale": "原始分82，对应bonus=5。文中未停留于口号，而是紧扣“市场失灵”结论，精准定位数据共享、范式统一、教义与实证交融等6项具体挑战，延展路径清晰且与正文论证紧密咬合。",
+          "evidence_quotes": [
+            "中国法律实证研究能否在未来的“挤泡沫”过程中不被边缘化，取决于其能否克服供给和需求两端上的挑战，并找到知识供给与需求的长久均衡点。",
+            "挑战至少包括如下一些方面：(1)熟悉实证研究的人才匮乏……(4)共同的理论范式并没有形成……(5)实证研究的伦理匮乏……"
+          ],
+          "strengths": [
+            "精准识别“挤泡沫”趋势，将宏观判断转化为可操作的学术生态改进清单。",
+            "明确指出范式缺失与数据壁垒，为后续重复检验与理论对话划定具体突破口。"
+          ],
+          "weaknesses": [
+            "侧重学术市场与供给端挑战，对实证结论如何反哺具体立法或司法裁判的实务转化路径着墨较少。",
+            "未给出不同意见者（如坚持纯粹法教义学者）进入争论的具体切入点或反驳检验机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“挤泡沫”后实证研究如何克服范式缺失、数据壁垒以实现学术生态均衡，属于未来方法论深化与学科建设方向，而非对当下结论是否成立的评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 359.4970600605011,
+        "glm-5.1": 367.4530448913574,
+        "kimi-k2.6": 336.88709592819214,
+        "qwen3.6-plus": 397.3256468772888
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 82
+      },
+      "mean": 66.8,
+      "std": 19.8,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 53.21,
+      "weighted_total": 55.6
+    },
+    "aggregation_strictest": {
+      "final_score": 39.82,
+      "weighted_total": 40.6
+    },
+    "avg_std": 15.1,
+    "max_std": 24.0,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 13.4,
+    "composite_score": -13.43,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 24.0
+  }
+}

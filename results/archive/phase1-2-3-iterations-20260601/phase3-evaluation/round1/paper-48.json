@@ -1,0 +1,1004 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGFX2025004012_中国法学_2025_证据链之内涵与功能重释.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文末无参考文献列表，但正文脚注完整，不影响核心论点识别。",
+          "存在少量OCR残留，如脚注编号与正文黏连、部分引号空缺，但不影响论证结构定位。"
+        ],
+        "evidence_quotes": [
+          "参见周平：《刑事证据闭合性新探》，载《现代法学》1994 年第5 期，第58-59 页；...",
+          "参见栗峥：《证据链与结构主义》，载《中国法学》2017 年第2 期。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "证据链这一颇具中国特色的术语在我国刑事证据法学研究中早已存在，目前已是我国刑事司法中的一个常用术语。",
+          "从规范层面来看，‘证据链’在我国法律规范中出现的时间并不长...",
+          "可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+          "证据链概念的核心功能是贯彻证据裁判原则，同时也可促进证据分析精细化、保障证明标准的正确适用、加强法庭调查的实质化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+        "证据链的实践运用状况来看，存在以下问题：（一）证据链的内涵不明（二）证据链完整的标准模糊（三）证据链的功能不清。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国刑事司法实践中漂浮的'证据链'概念为核心问题，通过规范解释、实践反思与比较法资源转化提出可复核的理论定位和标准，四项目口径信号全部触发，可直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文段落间混入期刊页码（如228、229等）",
+          "部分脚注编号被OCR识别为异常符号（如■）"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2025 年第4 期\n228",
+          "■ 参见何家弘主编：《证据的审查认定规则——示例与释义》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“证据链”这一颇具中国特色的术语在我国刑事证据法学研究中早已存在……目前已是我国刑事司法中的一个常用术语。",
+          "从笔者在北大法宝数据库中检索到的包含“证据链”“证据锁链”等关键词的18万余份刑事裁判文书来看……",
+          "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+          "证据链完整的基本标准是各犯罪构成要件事实均有证据证明；在对每一犯罪构成要件事实的证明中，证据的推理链条应当是完整且合理的；能够以犯罪构成要件事实为核心形成一个完整、可信的案件事实框架。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文混入期刊页码及脚注符号异常，但不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，评审时忽略混入的页码及脚注乱码符号"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在上标格式残留（如①②⑩⑪等），但不影响核心内容阅读",
+          "参考文献列表标注为'（无）'，实际正文中有大量脚注引用，属于抽取遗漏而非正文缺失"
+        ],
+        "evidence_quotes": [
+          "① 参见周平：《刑事证据闭合性新探》，载《现代法学》1994 年第5 期",
+          "⑱ 参见前注③，马国洋文，第1656-1658 页",
+          "㊳ 参见［美］罗纳德·J. 艾伦等：《证据法：文本、问题和案例》，张保生等译，高等教育出版社2006 年版，第156 页"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《刑事诉讼法》第55 条和相关司法解释条款的体系解释",
+          "2021 年《刑事诉讼法解释》第140 条将2013 年《刑事诉讼法解释》第105 条中'全案证据已经形成完整的证明体系'修改为'全案证据形成完整的证据链'",
+          "《监察法》第40 条中，明确规定监察机关应收集各种证据，'形成相互印证、完整稳定的证据链'",
+          "本文在考察实践中证据链的运用状况和既往证据链相关研究的基础上，从法律解释角度厘清证据链的概念，并对其结构、功能进行重新诠释",
+          "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号格式残留（低优先级，不影响评审）",
+        "参考文献列表抽取失败，但正文脚注完整可定位"
+      ],
+      "evidence_quotes": [
+        "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构",
+        "证据链的核心功能是贯彻证据裁判原则，同时也可促进证据分析精细化、保障证明标准的正确适用、加强法庭调查的实质化"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，进入六维评价。文本质量良好，脚注编号格式问题属于表面工程问题，不影响核心学术内容评审。建议后续评分时关注其理论原创性贡献（'动态关联结构'的界定）及实践解释力。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "刑事司法实践中的“证据链”概念存在内涵不明、标准模糊、功能不清等问题",
+          "根据对《刑事诉讼法》第55条和相关司法解释条款的体系解释，“完整的证据链”是《刑事诉讼法》第55条中“定罪的事实都有证据证明”的动态化、形象化表达",
+          "可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "证据链并非仅表示证据间的相互印证……可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文高度契合项目口径，以中国刑事证据法中的“证据链”概念为核心，结合本土司法实践与规范解释，提出了明确的内涵界定、结构模型与审查标准，具备充分的理论转化价值与可复核命题，建议直接进入六维评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文本质是澄清一个中国司法实践中已长期使用的术语，提出了一个实践性问题，但缺乏可争辩的法学理论分歧，问题层次较低。",
+          "core_judgment": "问题属于对既有法律术语的内涵重释，虽有实践意义，但未能触及法学基本理论争议，且通篇主要是阐释作者立场，未展现学者观点交锋。",
+          "score_rationale": "可争辩性=1/4（仅有问题句但实质是澄清概念而非法学理论争辩），枢纽性=1/4（影响范围有限，非学界长期核心争论），材料新颖性校验未触发上限但未带来实质推进。正式评分锚定 unacceptable 档，先定 45 分。负面模式扣分合计 45 分（检查 1 扣 15 分：新概念包装旧问题，未能充分说明解释力提升；检查 2 扣 15 分：有提及分歧但未展开；检查 3 扣 20 分：有问题句但实质是政策倡导）。最终 40 分。",
+          "evidence_quotes": [
+            "证据链并非仅表示证据间的相互印证……可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+            "全案证据形成完整的证据链……实际上就是《刑事诉讼法》中‘定罪的事实都有证据证明’的一种形象化表达。"
+          ],
+          "strengths": [
+            "明确指出了“证据链”在司法实践中被虚化为逃避说理责任的修辞手法，具有现实针对性。",
+            "通过结合《刑事诉讼法》第55条进行体系解释，为界定“证据链”提供了规范依据。"
+          ],
+          "weaknesses": [
+            "全文主要是对“证据链”内涵的自我阐释，缺乏与其他法学学者在理论层面的直接对话与交锋。",
+            "问题仅停留在对已有法律术语的技术性澄清，未能上升为具有理论深度的法学争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分。全文无清晰的法学理论分歧，问题主要是概念阐释而非提出可争辩的法理难题。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文旨在重释证据链内涵与功能，虽有“证据链究竟是什么”等设问，但实质是通过体系解释确立一个标准答案，未展示不同法学流派的根本之争。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否可争辩且重要，不评论文的文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "mandatory_expert_review",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "对证据链这一模糊核心概念的内涵与标准进行深度重塑，问题扎实且枢纽性强。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将实践痛点转化为规范层面的法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，负面检查0扣分，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "证据链究竟是什么？在案证据如何形成证据链？证据链完整的判断标准是什么？",
+            "完整的证据链是《刑事诉讼法》第55条中‘定罪的事实都有证据证明’的动态化、形象化表达"
+          ],
+          "strengths": [
+            "精准识别司法实践中证据链沦为修辞的痛点",
+            "将模糊概念与犯罪构成要件、证明标准等核心制度紧密锚定"
+          ],
+          "weaknesses": [
+            "问题属于对既有模糊概念的澄清与深化，而非全新发现"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 68,
+          "band": "good",
+          "summary": "论文针对刑事证据法中'证据链'概念模糊问题，提出其内涵重释与功能重构，具有明确法学争点但理论推进深度有限。",
+          "core_judgment": "论文存在可争辩的法学问题，但主要属于概念澄清与制度优化型研究，理论创新性受限于对既有框架的修补而非突破。",
+          "score_rationale": "可争辩性=3/4（有明确问题句'证据链是什么/如何形成/完整标准为何'，涉及证据法规范解释与制度适用争点，存在与'印证''证明标准'等概念的界分分歧，但非理论范式之争），枢纽性=2/4（影响证据裁判原则适用、证明标准判断及法庭调查程序，但主要限于刑事证据法单一领域，制度连锁效应集中于证明标准层面），材料新颖性未触发上限。锚定good档，给68分。扣分合计=0分。",
+          "evidence_quotes": [
+            "证据链究竟是什么？在案证据如何形成证据链？证据链完整的判断标准是什么？证据链与证明标准之间是何关系？",
+            "证据链并非证据与证据之间的直接链接……是以往所理解的这种直接链接实质上就是证据之间的相互印证"
+          ],
+          "strengths": [
+            "问题聚焦刑事证据法核心概念模糊困境，具有明确实践指向",
+            "通过规范解释与比较法分析重构概念，方法论路径清晰"
+          ],
+          "weaknesses": [
+            "争点主要限于概念界定与制度功能优化，未形成理论范式层面的根本分歧",
+            "对既有研究（如栗峥、马国洋）的批判性回应不足，理论推进深度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦刑事证据法中“证据链”概念模糊与功能异化问题，通过体系解释与比较法重构其内涵与判断标准。",
+          "core_judgment": "问题具有明确的法学争点与理论纵深，切中证据裁判与证明标准适用的核心痛点，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。前置负面检查扣0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "证据链究竟是什么？在案证据如何形成证据链？证据链完整的判断标准是什么？",
+            "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。"
+          ],
+          "strengths": [
+            "问题意识精准，直击司法实践概念滥用与说理逃避痛点。",
+            "以构成要件事实为枢纽重构证据链结构，理论推进清晰。"
+          ],
+          "weaknesses": [
+            "对直接/间接证据推理差异的论证可进一步深化。",
+            "法庭调查程序重构的可行性论证略显理想化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.83748006820679,
+        "glm-5.1": 60.89866495132446,
+        "kimi-k2.6": 10.646467208862305,
+        "qwen3.6-plus": 68.23840093612671
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 85,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.2,
+      "std": 23.1,
+      "strictest": 40,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文通过梳理既有学界定义和域外理论，指出了证据链概念在内涵、标准、功能上的不足，并据此提出了自己的重释方案，形成了有效的学术对话。",
+          "core_judgment": "论文具备清晰的研究地图，呈现了多个学术争点和解释路径分歧，但全文未提供参考文献列表，削弱了追溯与验证文献定位的能力。",
+          "score_rationale": "三要素得分=6/6（到达点2+未竟点2+本文切入点2），争点结构=2/2，法学流派=2个，锚定good档，给78分。",
+          "evidence_quotes": [
+            "但关于证据链仍有如下问题需要厘清：证据链究竟是什么？在案证据如何形成证据链？证据链完整的判断标准是什么？证据链与证明标准之间是何关系？",
+            "我国学术界对证据链有多种界定，其中不乏合理之处，但普遍存在的问题是：（1）未明确证据链的结构，（2）在内涵中未明确证据链完整的标准，（3）未能厘清证据链与印证、证明标准之间的关系"
+          ],
+          "strengths": [
+            "准确概括了学界对证据链的三项共性不足，形成完整争点结构。",
+            "将域外证据推论理论（英美、德国等）引入对比，拓展了研究视野并对立了不同解释路径。"
+          ],
+          "weaknesses": [
+            "仅引述国内外学者观点，但未详细辨析不同流派间的根本分歧。",
+            "全文无参考文献列表，无法验证引注的完整性与准确性，降低了文献定位的严谨性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献梳理的完整性与争点呈现，不评价证据链重释方案本身的创新性及其论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准梳理了证据链内涵的学界分歧与域外路径，研究地图完整，争点结构清晰。",
+          "core_judgment": "本维高度成立，三要素满分且呈现多重争点与丰富流派对立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "普遍存在的问题是：未明确证据链的结构...未明确证据链完整的标准...未能厘清证据链与印证、证明标准之间的关系",
+            "有学者以哲学上的结构主义理论对证据链概念进行构建和解析...有学者认为证据链应作为一种证据分析方法"
+          ],
+          "strengths": [
+            "精准提炼既有研究三大未竟点，与本文切入点完美对应",
+            "系统呈现国内印证论、结构主义论及英美推论论等多重解释路径分歧"
+          ],
+          "weaknesses": [
+            "无"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评文献定位与争点结构深度，不评概念重塑的创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了以法律解释为核心的证据链理论，对既有研究有一定梳理，但研究地图的系统性不足。",
+          "core_judgment": "研究地图三要素部分满足，争点结构单一，法学流派识别有限，整体处于good档中下游。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了陈为钢、栗峥、樊崇义、陈光中等学者观点及域外理论；未竟点1分：指出既有研究'未明确结构''未厘清与印证、证明标准关系'等不足，但分散且未集中提炼；切入点1分：提出从法律解释角度重塑，但与未竟点对应不够紧密），争点结构=1/2（呈现'证据链是否仅限于间接证据'一个争点），法学流派=1个（间接证据定案派vs不限于间接证据派，但后者仅为少数观点，未形成充分学派对话），锚定good档，给72分。",
+          "evidence_quotes": [
+            "我国学术界对证据链有多种界定……但普遍存在的问题是：（1）未明确证据链的结构……（2）在内涵中未明确证据链完整的标准……（3）未能厘清证据链与印证、证明标准之间的关系",
+            "从国内现有的研究来看，多数都未将证据链的运用限于仅有间接证据的案件……而从域外的理论来看，多数也未将证据链限于间接证据"
+          ],
+          "strengths": [
+            "对国内外证据链研究有较全面的梳理，引用了陈为钢、栗峥、马国洋等多位学者观点",
+            "引入域外证据推理理论作为参照，拓展了比较法视野"
+          ],
+          "weaknesses": [
+            "未竟点分散在正文中，缺乏集中的研究缺口提炼，与本文切入点对应不紧密",
+            "争点结构单薄，仅'证据链是否限于间接证据'一个明确争点，缺少多维度学术对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；三要素总分4但争点结构≤1且法学流派≤1时上限65分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4，争点结构1，法学流派识别为1个（间接证据限定vs不限定），未触发更低上限"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献梳理的完整性和深度，不涉及证据链理论本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理证据链学术脉络与实践困境，精准定位未竟点并确立体系解释切入点。",
+          "core_judgment": "研究地图完整清晰，争点结构严密，流派覆盖充分，文献洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "学界对证据链有多种界定……普遍存在的问题是：未明确结构、完整标准及与印证的关系。",
+            "学界对于是否仅间接证据需形成证据链观点不一，存在适用范围与推理路径的明确分歧。"
+          ],
+          "strengths": [
+            "精准提炼既有研究三大共性缺陷，未竟点具体明确。",
+            "分散式文献定位与正文论证深度融合，脉络清晰。"
+          ],
+          "weaknesses": [
+            "对部分域外理论的引介偏重描述，批判性对话稍显不足。",
+            "流派划分清晰，但跨学科方法论的交锋呈现可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点建构，不涉及概念创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.175439834594727,
+        "glm-5.1": 194.8023819923401,
+        "kimi-k2.6": 17.18336319923401,
+        "qwen3.6-plus": 73.66000628471375
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文对证据链的内涵、标准与功能进行了系统梳理和阐释，但未提出可重复适用的原创分析框架，属于政策理论梳理型论文，按协议总分上限为60分。",
+          "core_judgment": "论文主要贡献是梳理和重塑既有概念，而非提出原创分析框架；框架可操作性和法学转化度均因缺乏可重复适用的分析步骤而极低。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定较清晰，但无明确分类标准、步骤缺失、后文调用为理论阐释而非框架驱动），法学转化度得分=1/4（仅概念操作化定义勉强成立，无裁判规则或制度设计方案），锚定unacceptable档，因触发政策理论梳理型上限，给28分。",
+          "evidence_quotes": [
+            "可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+            "证据链完整的基本标准是各犯罪构成要件事实均有证据证明；...能够以犯罪构成要件事实为核心形成一个完整、可信的案件事实框架。"
+          ],
+          "strengths": [
+            "核心术语“证据链”有较清晰的定义，并与印证、证明标准等概念进行了区分。",
+            "对司法实践中的概念误用问题梳理详实，为后续阐释奠定了问题基础。"
+          ],
+          "weaknesses": [
+            "全文以阐释既有立场和规范为主，未提出如“证据推理五步法”等原创可操作步骤。",
+            "所谓“标准”仅为宏观要求（如推理完整合理），未转化为法官可逐项勾选的判断清单或裁判程式。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_overview_cap",
+              "rule": "政策理论梳理型论文：框架可操作性得分上限2，法学转化度得分上限1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "论文核心工作是重新阐释证据链的内涵、标准与功能，并归纳为‘均需证据证明+推理完整合理+融贯案件事实’，属对《刑事诉讼法》第55条的体系解释和理论梳理，而非提出原创分析框架。"
+            }
+          ],
+          "boundary_note": "论文的问题是框架本身未建构可操作步骤，而非逻辑衔接是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文成功建构了以犯罪构成要件事实为核心的证据链分析框架，概念清晰、步骤可循、法学转化度高。",
+          "core_judgment": "框架高度成立且可用，将抽象的“证据链”概念转化为可操作的判断标准和司法程序指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。概念界定清晰，提供三步完整标准，且转化为法庭调查程序方案。",
+          "evidence_quotes": [
+            "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+            "证据链完整的标准包括犯罪构成要件事实均有证据证明、证据推理环节完整且合理、组合成融贯的案件事实。"
+          ],
+          "strengths": [
+            "概念界定清晰，明确区分了证据链与印证、证明标准等概念边界。",
+            "提供三步完整标准及断裂修复机制，可操作性强，后文实际调用充分。"
+          ],
+          "weaknesses": [
+            "证据推理链条的合理性检验仍较依赖经验法则，具体操作稍显抽象。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力而非逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'证据链'的原创分析框架，将其界定为动态关联结构，并提出三层完整标准与断裂修复机制。",
+          "core_judgment": "分析框架基本成立，具有明确的法学转化，但部分核心术语的操作性仍可细化。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文实际调用；但'动态关联'的操作判断标准未完全展开），法学转化度得分=3/4（转化为证明标准适用步骤、法庭调查程序指引、证据分析方法；但制度设计层面的具体规则仍可深化），锚定good档，给72分。",
+          "evidence_quotes": [
+            "可将证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构",
+            "证据链完整的标准包括以下几方面：各犯罪构成要件事实均有证据证明；证据的推理链条应当是完整且合理的；能够以犯罪构成要件事实为核心形成一个完整、可信的案件事实框架"
+          ],
+          "strengths": [
+            "原创提出'动态关联结构'定义，区分于印证概念",
+            "构建三层完整标准与断裂修复机制，形成闭环分析"
+          ],
+          "weaknesses": [
+            "'动态关联'的判断标准未完全操作化，依赖个案裁量",
+            "法庭调查程序重构建议较原则，缺乏具体程序规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架本身的建构与转化，不涉及证据推理逻辑严密性的实质判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文重构证据链内涵，构建“要件事实-推理链条-融贯事实”分析框架，具强司法操作性。",
+          "core_judgment": "框架概念界定清晰、步骤可循且贯穿全文，成功将抽象术语转化为可操作的证据审查指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念操作化与裁判步骤高度契合实务需求。",
+          "evidence_quotes": [
+            "可将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。",
+            "证据链完整的标准包括犯罪构成要件事实均有证据证明、证据推理环节完整且合理、组合成融贯的案件事实。"
+          ],
+          "strengths": [
+            "核心概念界定精准，提供“要件-推理-融贯”三步审查标准。",
+            "框架深度嵌入法庭调查程序设计，实现理论向裁判规则的有效转化。"
+          ],
+          "weaknesses": [
+            "推理链条的“合理性”检验标准仍依赖法官经验，缺乏量化阈值。",
+            "对直接证据与间接证据混合案件的框架适用边界论述稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.68084001541138,
+        "glm-5.1": 55.22808790206909,
+        "kimi-k2.6": 11.496654987335205,
+        "qwen3.6-plus": 63.618542194366455
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 70.5,
+      "std": 29.7,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文从实践问题出发，通过体系解释重塑证据链内涵，并以此为基础推演出完整标准与功能体系，主线推理链清晰且结论可辩护地推出。",
+          "core_judgment": "论证符合法教义学论文特征，对反对观点有隐含回应，但缺乏对自身方案适用局限的明确承认，轻微影响推理的严谨性。",
+          "score_rationale": "推理链完整性得分=4/4（主要推理步骤可复述、链条依赖度高、结论由前文推出、无关键跳步），反驳处理度得分=2/3（隐含回应分歧路径、未明确承认局限），锚定excellent档（80-100），因反驳处理度未达3分满分，严谨性稍有欠缺，给82分。",
+          "evidence_quotes": [
+            "对《刑事诉讼法解释》第140条第3项中“证据链”的内涵，可以通过体系解释的方法在《刑事诉讼法》第55条第2款与《刑事诉讼法解释》第140条的对比分析中厘清。",
+            "证据链之“链”既包括两个以上的证据通过结合而证明单个犯罪构成要件事实过程中产生的相互关联，也包括全案证据共同证明整体案件事实过程中产生的相互关联。"
+          ],
+          "strengths": [
+            "通过体系解释建立“规范→内涵→结构→标准→功能”的严密推导链，结论具有充分支撑。",
+            "有效处理“印证与证据链关系”“是否限于间接证据”等理论分歧，增强了结论的可辩护性。"
+          ],
+          "weaknesses": [
+            "论证未明确承认其“证据链”内涵界定及完整标准在复杂或疑难案件中的适用边界。",
+            "对证据链“动态关联”的具体运作机制（如动态调整规则）交代不足，局部过渡有待细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文论证重点在于通过规范解释和逻辑推演重塑概念，其推理链从问题到结论是完整的，缺陷主要在于未明示适用边界，属于反驳处理不充分，而非推理链根本断裂。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文从问题出发，经体系解释重塑内涵，严密推导出结构、标准与功能，逻辑闭环完整。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文可辩护地推出，本维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理环环相扣，对分歧与局限回应充分。",
+          "evidence_quotes": [
+            "《刑事诉讼法解释》第140条各项与《刑事诉讼法》第55条各项的逻辑对应关系，推导出'完整的证据链'即'定罪事实都有证据证明'的形象化表达",
+            "对证据链限于间接证据的分歧，回应称直接证据也需推理且55条要求统一证明要件事实，故应统一适用"
+          ],
+          "strengths": [
+            "从体系解释推导内涵，逻辑起点坚实",
+            "内涵→结构/标准→功能→建议，推理链高度依赖且无关键跳步"
+          ],
+          "weaknesses": [
+            "将'完整证据链'等同于'定罪事实都有证据证明'的解释推论仍有理论争辩空间"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价推理链支撑度与结论推出逻辑，不评价证据链图示在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了'规范解释→概念界定→结构分析→标准确立→功能展开'的完整推理链，但反驳处理不足。",
+          "core_judgment": "推理链完整但反驳处理度仅达最低标准，核心结论可从前文辩护性推出。",
+          "score_rationale": "推理链完整性得分=4/4（标准1-4均满足：步骤可复述、依赖递进、结论可推出、无关键跳步）；反驳处理度得分=1/3（仅标准1满足：识别了'有学者认为'等反对意见，但标准2实质性回应和标准3局限承认均不足）。锚定good(70-79)档，给78分。",
+          "evidence_quotes": [
+            "有学者以哲学上的结构主义理论对证据链概念进行构建和解析；有学者认为证据链应作为一种证据分析方法...但对上述关键问题的回答依然有很大不足",
+            "有学者认为直接证据与间接证据一样，都需要经过推理过程方可证明案件事实，所以都需要形成证据链"
+          ],
+          "strengths": [
+            "从《刑事诉讼法》第55条到《刑事诉讼法解释》第140条的体系解释链条严密",
+            "证据链结构图与论证结构类型化分析使抽象概念具象化"
+          ],
+          "weaknesses": [
+            "对结构主义、证据分析方法等竞争理论仅罗列批评，未深入回应其核心论证",
+            "未承认自身四要件框架的争议性及与阶层犯罪论的潜在张力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不评四要件框架本身是否最优。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过规范解释与要件分析重构证据链概念，推理严密且充分回应分歧。",
+          "core_judgment": "推理链条完整闭环，结论可由前文规范分析与案例检视可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "《刑事诉讼法解释》第140条的‘完整的证据链’实际上就是《刑事诉讼法》中‘定罪的事实都有证据证明’的一种形象化表达",
+            "证据链的内涵界定为：各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。"
+          ],
+          "strengths": [
+            "规范解释与实务批判紧密结合，推理步骤层层递进。",
+            "核心结论由法条体系解释与要件事实分析充分支撑，无关键跳步。"
+          ],
+          "weaknesses": [
+            "对“动态关联结构”的操作化检验标准略显抽象。",
+            "部分反驳集中于学界旧说，对实务中“印证中心主义”的深层阻力回应稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦概念内涵与规范逻辑的推演，非操作框架设计，故属逻辑链评价范畴。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 75.24569487571716,
+        "glm-5.1": 69.24755597114563,
+        "kimi-k2.6": 14.023094892501831,
+        "qwen3.6-plus": 53.408366203308105
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85.5,
+      "std": 6.6,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论在理论重构基础上与现行法秩序高度兼容，并主动进入共同体对话，具备可争辩性和制度转化方向。",
+          "core_judgment": "论文结论明确回应了主流争议，使证据链成为一个与印证、排除合理怀疑等相区分的独立性实质概念，充分考虑了与《刑事诉讼法》第55条及司法解释的体系解释，共同体对话度高且制度兼容性强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，结合理论论文锚定规则，对话度≥3且制度度≥2，锚定 excellent 档，给 85 分。",
+          "evidence_quotes": [
+            "证据链的核心功能是贯彻证据裁判原则，同时也可提高证据分析水平、保障证明标准的正确适用、加强法庭调查的实质化。",
+            "将证据链的内涵界定为各证据证明犯罪构成要件事实并组合成案件事实过程中形成的动态关联结构。"
+          ],
+          "strengths": [
+            "结论明确挑战并修正了将证据链等同于印证的传统观点，回应了学术界已有争论，极易被定位和反驳。",
+            "通过体系解释将证据链锚定于《刑事诉讼法》第55条，并指出了法庭调查程序转化的具体方向，制度落实脉络清晰。"
+          ],
+          "weaknesses": [
+            "结论部分对重构后的证据链在司法实践中可能面临的适用成本或反对意见（如法官内心确信与证据链结构化的冲突）讨论较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下的可接受性，不评其逻辑严密度或对未来研究的延伸空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论精准回应既有争论，深度契合中国法秩序，提出了具体的立法与程序转化方向。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，成功将理论重构转化为可操作的制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "证据链并非仅表示证据间的相互印证...是'定罪的事实都有证据证明'的动态化表达",
+            "在《刑事诉讼法》的再修改中...构建以证据链为重心的法庭调查程序"
+          ],
+          "strengths": [
+            "明确修正了将证据链等同于印证的主流观点，对话度高。",
+            "提出了以构成要件事实为单元的法庭调查程序，制度转化具体。"
+          ],
+          "weaknesses": [
+            "对四要件体系的依赖可能面临阶层犯罪论者的反对。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体接受度与制度兼容性，不评论证逻辑严密性或理论前瞻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文对证据链概念进行理论重构，回应了中国刑事诉讼制度语境，具有明确的学术对话性。",
+          "core_judgment": "理论论文，共同体对话度3/4，制度可接受度2/4，结论可被定位回应且与法秩序兼容。",
+          "score_rationale": "共同体对话度得分=3/4：回应了既有证据链研究争论（栗峥、马国洋等），明确与印证、证明标准等概念的关系，能被反对者定位；但全文未主动讨论反对意见或自身局限。制度可接受度得分=2/4：结论与现行法秩序兼容，对《刑事诉讼法》第55条及司法解释有回应，但制度转化方向较笼统，未充分讨论中国制度语境下的适配障碍。锚定good档(70-79)，给78分。",
+          "evidence_quotes": [
+            "本文在考察实践中证据链的运用状况和既往证据链相关研究的基础上，从法律解释角度厘清证据链的概念",
+            "在《刑事诉讼法》的再修改中，可在证明标准规范中正式纳入证据链概念，对其内涵和标准作出明确规定"
+          ],
+          "strengths": [
+            "明确回应既有学术争论，与栗峥、马国洋等学者对话",
+            "紧密结合中国刑事诉讼法规范进行体系解释"
+          ],
+          "weaknesses": [
+            "未主动承认并讨论反对意见或自身理论局限",
+            "制度转化方向较空泛，缺乏具体程序衔接方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应实务模糊与理论争议，提出契合中国刑诉语境的证据链教义学重构方案。",
+          "core_judgment": "结论深度嵌入中国刑事证据规范体系，具备明确的学术对话坐标与制度转化路径，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论直面既有学说分歧与裁判乱象，体系解释严密且提出明确修法与庭审改革方向。",
+          "evidence_quotes": [
+            "“完整的证据链”是《刑事诉讼法》第55条中“定罪的事实都有证据证明”的动态化、形象化表达",
+            "在《刑事诉讼法》的再修改中，可在证明标准规范中正式纳入证据链概念……构建以证据链为重心的法庭调查程序"
+          ],
+          "strengths": [
+            "精准定位既有学说与裁判实践的模糊地带，对话坐标清晰",
+            "教义学重构紧密贴合中国刑诉法条与犯罪构成理论"
+          ],
+          "weaknesses": [
+            "对“最佳解释推理”等域外方法本土化适用的潜在张力讨论稍显简略",
+            "庭审程序重构建议对基层司法资源约束的考量可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接纳，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 102.81087899208069,
+        "glm-5.1": 69.55751180648804,
+        "kimi-k2.6": 11.46324610710144,
+        "qwen3.6-plus": 63.16940784454346
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85,
+      "std": 5.7,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了立法完善和实务能力提升的双重延伸方向，但延展路径较为概括，缺乏具体的后续研究问题或精细的制度设计。",
+          "core_judgment": "存在明确的延展方向，与正文核心结论衔接，但路径精细度有限，证据展开不足。",
+          "score_rationale": "原始分55对应bonus 2档。论文在结论部分指明了立法纳规和司法能力提升两个方向，构成有效延展。但未提出具体后续研究问题、边界条件或反驳入口，精细度不足，故落入40-59区间。",
+          "evidence_quotes": [
+            "在《刑事诉讼法》的再修改中，可在证明标准规范中正式纳入证据链概念，对其内涵和标准作出明确规定，并对现行的法庭调查程序进行一定调整。",
+            "还需司法人员提升证据分析能力和法律解释能力……方能使“证据链”在司法实践中发挥其实质性功能。"
+          ],
+          "strengths": [
+            "明确指向立法修改方向，与核心结论“证据链概念实质化”紧密衔接。",
+            "指出司法人员能力建设是规范落地的关键，具有实务延伸意识。"
+          ],
+          "weaknesses": [
+            "立法完善方向停留在宏观建议，未展开规则衔接、风险控制等具体问题。",
+            "未提出可供后续研究检验的具体问题、反驳入口或理论修正路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结论部分提出的立法建议和实务要求属于未来制度和实践的完善方向，而非论证当前结论可接受性所需的一部分，故归入前瞻延展性而非结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "提出了立法修改与司法能力提升的具体延展方向。",
+          "core_judgment": "存在真实延展路径，指明了刑诉法修改纳入证据链概念及法庭调查程序调整的制度完善方向，以及经验法则运用等理论深化方向。",
+          "score_rationale": "原始分80，bonus档位>=80（bonus=5）。延展路径清晰可定位，与正文概念重塑紧密衔接，指明了刑诉法修改纳入证据链概念、调整法庭调查程序及司法能力提升的具体维度。",
+          "evidence_quotes": [
+            "在《刑事诉讼法》的再修改中，可在证明标准规范中正式纳入证据链概念，对其内涵和标准作出明确规定，并对现行的法庭调查程序进行一定调整",
+            "还需司法人员提升证据分析能力和法律解释能力，包括经验法则的正确运用、证据推理方法的熟练掌握、犯罪构成要件事实的精准划定"
+          ],
+          "strengths": [
+            "延展方向与正文核心结论紧密衔接，非空泛拔高。",
+            "明确指出了立法修改与实务能力提升的具体维度。"
+          ],
+          "weaknesses": [
+            "未深入探讨立法修改可能面临的规则衔接风险或阻力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的刑诉法修改及法庭调查程序重构属于未来制度完善方向，而非当下可直接适用的结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结论部分提出了证据链概念立法化、法庭调查程序调整及司法人员能力提升等延展方向，但多为概括性制度建议，缺乏具体后续研究问题或精细化路径。",
+          "core_judgment": "存在真实但较概括的延展路径，主要集中于制度立法和程序改造方向，但路径精细度有限，未形成明确的下一轮争点或具体修正对象。",
+          "score_rationale": "原始分55，对应bonus=2的40-59档。论文末段提出《刑事诉讼法》再修改中纳入证据链概念、调整法庭调查程序、提升司法人员能力等方向，属可定位的制度完善建议；但未提出具体后续研究问题，也未承认正文具体局限并说明如何推进，路径较概括，证据展开不足。",
+          "evidence_quotes": [
+            "在《刑事诉讼法》的再修改中，可在证明标准规范中正式纳入证据链概念，对其内涵和标准作出明确规定，并对现行的法庭调查程序进行一定调整，构建以证据链为重心的法庭调查程序",
+            "除了立法中对证据链作出明确规范外，还需司法人员提升证据分析能力和法律解释能力，包括经验法则的正确运用、证据推理方法的熟练掌握、犯罪构成要件事实的精准划定、案件事实的细致剖析等能力"
+          ],
+          "strengths": [
+            "提出立法纳入与程序调整的具体制度方向",
+            "指出司法人员能力提升的多维要求"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "未承认正文局限并说明如何针对性推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估未来延展方向，不涉及当下结论是否被接受（结论可接受性）或论证是否严密（逻辑严密性）。论文末段的立法建议和程序改造方向属于未来延展问题，而非对当前论证的接受度判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结论部分清晰指明了刑诉法修法、法庭调查程序重构及司法人员推理能力提升三条具体延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密围绕正文“证据链实质化”核心结论展开。",
+          "score_rationale": "原始分85，对应bonus=5。文末明确提出刑诉法修法纳入概念、重构法庭调查程序及提升司法推理能力三条具体路径，与正文结论紧密衔接，非空泛展望。",
+          "evidence_quotes": [
+            "在《刑事诉讼法》的再修改中，可在证明标准规范中正式纳入证据链概念，对其内涵和标准作出明确规定",
+            "还需司法人员提升证据分析能力和法律解释能力，包括经验法则的正确运用、证据推理方法的熟练掌握"
+          ],
+          "strengths": [
+            "明确指向刑诉法修法与法庭调查程序重构，路径具体且具规范转化潜力。",
+            "将理论概念落地与司法人员经验法则运用、推理方法掌握等能力建设直接挂钩。"
+          ],
+          "weaknesses": [
+            "延展方向偏重立法与实务常规建议，缺乏对犯罪构成理论变迁的纵深推演。",
+            "未具体说明不同意见者（如坚持印证模式者）的后续反驳入口或检验机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估修法方向与司法能力提升等未来推进路径，不涉及当前概念重构结论在学理上是否已被共同体接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.19525456428528,
+        "glm-5.1": 57.843724966049194,
+        "kimi-k2.6": 56.47237706184387,
+        "qwen3.6-plus": 54.664836168289185
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 80,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 68.8,
+      "std": 16.0,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 80.22,
+      "weighted_total": 77.6
+    },
+    "aggregation_strictest": {
+      "final_score": 54.35,
+      "weighted_total": 56.8
+    },
+    "avg_std": 15.1,
+    "max_std": 29.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 25.9,
+    "composite_score": -15.1,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 29.7
+  }
+}

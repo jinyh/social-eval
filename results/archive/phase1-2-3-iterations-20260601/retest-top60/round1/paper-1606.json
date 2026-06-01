@@ -1,0 +1,927 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1606-法学研究-2016-1-法条竞合与想象竞合的区分-张明楷-清华大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文中多处出现日文人名/术语的OCR残留乱码（如'山火正则'误为'山火正则'、'神奈川法学'误为'神奈川法学'、'判例夕4 厶艾'等），但核心论点、论证结构和论据均可清晰定位。",
+          "参考文献列表缺失，但不影响对论文核心内容的阅读与评审。"
+        ],
+        "evidence_quotes": [
+          "参见[E1] 山火正则：《法条竞合 诸问题(1)》，《神奈川法学》第7卷(1971)第1号...",
+          "转引自[57]，只木诚文，第6页。",
+          "大阪地方裁判所1993年3月25 日判决，载《判例夕4 厶艾》第831号，第246页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "法条竞合与法条关系不是等同概念。但是，只有理顺了法条关系，才能明确其中的哪些情形可能成立法条竞合，哪些情形不可能成立法条竞合。",
+          "我国刑法理论之所以将大量想象竞合纳人法条竞合，一个重要原因就是通过具体案件事实来确立两个法条之间的包容与交叉关系。",
+          "将法益的同一性作为区分法条竞合与想象竞合的标准，既具有理论根据，也具有现实意义。",
+          "倘若从立法论的角度来说，如此持续的争论显然是立法者滥设法定刑不均衡的“特别法条”所致。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本中存在较多日文OCR残留乱码，影响阅读流畅度，但不影响整体判断。",
+        "缺少参考文献列表，建议在后续评审中关注引证规范性问题。"
+      ],
+      "evidence_quotes": [
+        "我国刑法理论一般认为，法条之间存在包容或交叉关系时便是法条竞合。",
+        "法益的同一性还意味着法益主体的同一性。亦即，如果行为侵害了不同法益主体的相同法益，也不可能属于法条竞合。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR残留风险，但核心论证清晰，符合项目口径，建议直接进入六维评分阶段。在评分中可关注其对文献引用的准确性和学术规范的遵守程度。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别乱码及格式变异（如【l0]、(13]、C5o]、E71 3、U3 3等）",
+          "期刊页码混入正文（如· 129 ·、· l30 ·等）",
+          "部分段落存在断行残留符号"
+        ],
+        "evidence_quotes": [
+          "【l0] 完整的表述应当是规定侵占(委托物) 罪的法条与规定盗窃罪的法条。",
+          "· 129 ·",
+          "C5o] 再次特别声明：不法内容仅限于有责的不法内容，而不包括没有责任的不法内容。",
+          "E71 3 参见劳东燕：《强奸罪与嫖宿幼女罪的关系新论》，《清华法学》2011年第2期，第33页以下。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法理论之所以将大量想象竞合纳人法条竞合，一个重要原因就是通过具体案件事实来确立两个法条之间的包容与交叉关系。",
+          "只有当适用一个法条能够充分评价一个行为的所有不法内容时，才可能属于法条竞合。反之，则应当认定为想象竞合。",
+          "例如，刑法第264条规定的盗窃罪的法定最高刑为无期徒刑，第345条对盗伐林木罪规定的最高刑为15年有期徒刑...不可能因为其行为符合了盗伐林木罪的构成要件，就认为其不法程度低于盗窃罪。",
+          "本文显然是实质解释论的产物，旨在实现刑法的公平正义，实现刑罚的特殊预防与一般预防目的。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR乱码及期刊页码混入，但不影响核心论点定位",
+        "项目口径：完全符合中国自主法学知识体系构建的候选信号，以中国刑法分则具体规范和司法实践难题为中心，提出了可复核的实质区分命题"
+      ],
+      "evidence_quotes": [
+        "只有当适用一个法条能够充分评价一个行为的所有不法内容时，才可能属于法条竞合。反之，则应当认定为想象竞合。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程，但在后续文本工程处理中需对脚注编号乱码（如【l0]、C5o]等）及混入的期刊页码（如· 129 ·）进行清洗修复，核心学术论证不受影响。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如[10]、[11]等编号格式不统一，部分含全角半角混用）",
+          "期刊页码混入正文（如'· 129 ·'、'· 130 ·'等页码标记）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "少量日文文献引用存在编码显示问题（如'Vg1.'应为'Vgl.'）"
+        ],
+        "evidence_quotes": [
+          "· 129 ·",
+          "[10] 完整的表述应当是规定侵占(委托物) 罪的法条与规定盗窃罪的法条。",
+          "Vg1．C．Roxin，Strafrecht Allgemeiner Teil"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法理论之所以将大量想象竞合纳人法条竞合，一个重要原因就是通过具体案件事实来确立两个法条之间的包容与交叉关系",
+          "我国刑法理论与司法实践原本就过于宽泛地肯定了法条竞合，特别明显的是将诸多想象竞合误认为法条竞合的特别关系",
+          "我国刑法理论已经接受了源于德国的想象竞合概念，却忽略了想象竞合最重要的、德国刑法理论与司法实践最强调的明示机能",
+          "我国刑法分则中的相关问题",
+          "刑法第266条与第279条之间是法条竞合的交叉关系",
+          "刑法修正案(九)废除嫖宿幼女罪"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式不统一，期刊页码标记残留正文，参考文献列表缺失",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国刑法理论之所以将大量想象竞合纳人法条竞合，一个重要原因就是通过具体案件事实来确立两个法条之间的包容与交叉关系",
+        "我国刑法理论与司法实践原本就过于宽泛地肯定了法条竞合，特别明显的是将诸多想象竞合误认为法条竞合的特别关系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文为中国刑法学核心问题研究，具有明确的中国问题意识（中国刑法分则法条竞合与想象竞合的区分）、系统的理论建构（提出'法益同一性'与'不法包容性'双重实质标准），并大量运用中国刑法条文与司法实践案例进行论证，完全符合项目口径。文本质量风险较低，主要为格式性问题，不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留导致部分脚注编号乱码（如【l0]、N5】、[193 vg1．、C5o]等）",
+          "期刊排版页码标记混入正文（如· 129 ·、· 130 ·等）",
+          "部分标点符号全半角混用及断行异常"
+        ],
+        "evidence_quotes": [
+          "【l0] 完整的表述应当是规定侵占(委托物) 罪的法条与规定盗窃罪的法条。",
+          "N5】 法条之间是否存在包容与交叉，首先取决于构成要件内容",
+          "· 129 · \n\n法学研究 \n2016年第1期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法理论一般认为，法条之间存在包容或交叉关系时便是法条竞合。本文只是照顾到这种通说，才将交叉关系当作法条竞合的形式标准。但如后述，交叉关系均属于想象竞合。",
+          "将法益的同一性作为区分法条竞合与想象竞合的标准，既具有理论根据，也具有现实意义。",
+          "本文的观点使得法条竞合与想象竞合的区分并不固定，但如此并不会导致区分的恣意。本文的观点会导致法条竞合减少、想象竞合增多，但如此并不是为了实现重刑主义，而是为了实现刑法的公平正义，实现特殊预防与一般预防目的。",
+          "倘若学者坚持认为保险诈骗罪是诈骗罪的特别法条，也只有当保险诈骗数额在普通诈骗数额较大或者巨大的范围内时，才承认二者是特别关系……如若行为人保险诈骗的数额达到了普通诈骗应当判处无期徒刑的数额特别巨大标准，那么，此时保险诈骗罪与诈骗罪便是想象竞合。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在少量OCR脚注乱码与页码混入，已归入旁路字段，不影响核心论证定位",
+        "项目口径：无边界争议，完全符合中国自主知识体系法学研究的候选信号"
+      ],
+      "evidence_quotes": [
+        "我国刑法理论一般认为，法条之间存在包容或交叉关系时便是法条竞合。",
+        "将法益的同一性作为区分法条竞合与想象竞合的标准，既具有理论根据，也具有现实意义。",
+        "本文的观点使得法条竞合与想象竞合的区分并不固定……旨在实现刑法的公平正义"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论证清晰，以中国刑法分则具体条文与司法实践难题为中心，深入辨析法条竞合与想象竞合的区分标准，提出‘法益同一性’与‘不法包容性’的实质判断命题，具有明确的理论转化与可复核性。完全符合进入六维评价的项目口径。旁路提示存在轻微OCR格式噪声，建议直接进入正式评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出并论证了以'不法的包容性'为核心的实质竞合区分标准，挑战了长期主导的形式逻辑标准，问题具有高度可争辩性。",
+          "core_judgment": "该问题因对学界根深蒂固的'形式标准'通说发起有力挑战，并在法理深度和制度影响上表现突出，创新性成立，但因部分依赖概念重塑，未达满分档。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限。初始锚定excellent档(80-100)，因论证主要基于概念重构而未引入新理论范式，给予85分。前置检查扣分合计0分，最终得分85分。",
+          "evidence_quotes": [
+            "适用一个法条不能充分评价行为的不法内容时，即使符合前述两个标准，也只能认定为想象竞合。",
+            "仅仅考虑法条之间是否存在包容与交叉关系是不够的，还必须考虑适用一个法条能否充分评价行为的不法性质与不法内容(程度)。"
+          ],
+          "strengths": [
+            "精准定位了形式标准与罪刑相适应原则之间的深层矛盾，问题切口具体且理论负载力强。",
+            "成功将一个存在25年争议的实务难题提升为关于不法评价充分性的法哲学命题。"
+          ],
+          "weaknesses": [
+            "核心创新'不法包容性'标准是对既有实质解释论的精细化延伸，理论范式突破的幅度相对有限。",
+            "问题更多源于对既有概念内涵的重塑与限缩，而非引入一个全新的分析框架或理论工具。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价问题本身的创新性和重要性，不评价论证的逻辑严密性、文献综述的充分性或解决方案的最终正确性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出法条竞合与想象竞合区分的新标准体系，具有明确理论争点和制度意义。",
+          "core_judgment": "问题成立且重要：以'法益同一性'和'不法包容性'双重实质标准重构法条竞合与想象竞合的区分，针对我国刑法学界25年核心争论提出可争辩的解决方案。",
+          "score_rationale": "可争辩性=4/4（明确问题句'适用一个法条能否充分评价行为的不法内容'、法学层面、存在形式解释论与实质解释论的理论分歧、非政策倡导）；枢纽性=4/4（影响罪数论/竞合论/量刑制度、学界25年核心争论、涉及法条竞合/想象竞合/罪刑相适应等基础概念、结论改变裁判文书表述与量刑规则）；材料新颖性未触发上限。锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "只有当适用一个法条能够充分评价一个行为的所有不法内容时，才可能属于法条竞合",
+            "在特别关系的法条竞合中，能否采用重法优于轻法原则，始终是我国刑法学界关于法条竞合理论关注的一个核心问题，而且争论时间持续达25年之长"
+          ],
+          "strengths": [
+            "问题聚焦明确，以实质标准回应形式标准缺陷",
+            "理论争点清晰，呈现形式解释论与实质解释论交锋"
+          ],
+          "weaknesses": [
+            "未充分展开对德国'法条单一'概念的替代性论证",
+            "'充分评价'标准依赖量刑实践，操作性存疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦法条竞合与想象竞合的区分难题，提出以法益同一性与不法包容性为实质标准，有效回应长期理论分歧。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，直击刑法竞合论核心争议，研究命题成立且极具理论纵深。",
+          "score_rationale": "扣分合计=0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "处理特别关系是否必须严格遵守特别法条优于普通法条的原则?",
+            "只有当适用一个法条能够充分评价一个行为的所有不法内容时，才可能属于法条竞合。"
+          ],
+          "strengths": [
+            "直击持续25年的核心争点，问题意识鲜明",
+            "突破形式逻辑局限，构建实质评价标准"
+          ],
+          "weaknesses": [
+            "实质标准在司法裁量中可能增加解释恣意风险",
+            "对交叉关系一律归入想象竞合略显绝对"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不涉文献综述、论证逻辑及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "glm-5.1": "[glm-5.1] Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For details, see: https://help.aliyun.com/zh/model-studio/error-code#token-limit', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}, 'request_id': '8c9caf31-003c-99fe-a0d5-b287ecd57e34'}"
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.16228699684143,
+        "glm-5.1": 1.9787373542785645,
+        "kimi-k2.6": 13.290486097335815,
+        "qwen3.6-plus": 76.37518405914307
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.3,
+      "std": 4.0,
+      "strictest": 85,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文未设置文献综述且无参考文献列表，仅通过正文引注零散提及部分学者观点，未能构建清晰的研究地图。",
+          "core_judgment": "研究地图残缺不全，无法判断作者对既有研究的全面掌握程度，学术对话脉络模糊。",
+          "score_rationale": "三要素总分=1/6（到达点=0，未竟点=0，切入点=1），争点结构=1/2，法学流派=2个，锚定unacceptable档，触发no_research_map上限给48分。",
+          "evidence_quotes": [
+            "“我国刑法理论一般认为，法条之间存在包容或交叉关系时便是法条竞合。[12]”（未提供参考文献列表，无法验证引注来源）",
+            "“笔者现在见到和想到的是三种做法：第一，容忍罪刑不相适应的局面……第二，有条件地适用重法条优于轻法条的原则……第三，……将不法内容重而法定刑轻的情形排除在法条竞合之外。”"
+          ],
+          "strengths": [
+            "正文中嵌入了对“通说”“少数说”及具体学者（如陈兴良、周光权）观点的对立描述，构成初步争点结构。",
+            "清晰定位了本文切入点：从实质标准重新区分法条竞合与想象竞合，反对纯粹形式逻辑路径。"
+          ],
+          "weaknesses": [
+            "研究地图三要素严重缺失：无任何具体研究成果及其贡献的系统梳理，到达点和未竟点均为零。",
+            "完全缺失参考文献列表，无法进行文内证据与外部文献的对勘核查，学术诚实性与可验证性存疑。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素总分仅为1分（到达点0，未竟点0，切入点1），无系统文献梳理，无独立或分散的到达点描述。"
+            }
+          ],
+          "boundary_note": "本维度仅评估文献梳理的完整性与深度，不评判问题本身的理论创新性。论文的争点在于概念重构，但缺乏对既有研究的全景式定位。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了法条竞合与想象竞合区分的实质标准体系，呈现了德日刑法理论与我国通说的对话，但研究地图三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素部分满足（4/6），争点结构充分（2/2），法学流派识别充分（≥3个），锚定good档。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=2/2，法学流派=4个（德国竞合论、日本刑法理论、我国形式解释论、我国实质解释论），锚定good档，给72分。",
+          "evidence_quotes": [
+            "随着德国刑法理论的引进，而且有学者主张我国现有的罪数论应转向德国的竞合论...有必要讨论中立关系的法条之间能否成立法条竞合",
+            "在本文看来，这一形式标准大体是成立的...但是，倘若只有借助特定的案件事实，才能使两个法条产生关联...就不应当认定为法条竞合"
+          ],
+          "strengths": [
+            "系统引介德日刑法理论并与中国问题对接，比较法视野清晰",
+            "明确呈现形式解释论与实质解释论的方法论分歧"
+          ],
+          "weaknesses": [
+            "未竟点分散于正文，缺乏集中提炼，如'本文要解决的缺口是XX'的明确表述",
+            "到达点多为学说罗列，对既有研究贡献的提炼不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；本例三要素=4，争点结构≥1，不触发流派上限",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素4分，争点结构2分，流派4个，按规则至少good(65-74)，取72分"
+            }
+          ],
+          "boundary_note": "本维度评价文献定位的完整性，不评价问题本身是否新颖或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制法条竞合与想象竞合区分的研究地图，清晰呈现形式与实质解释之争。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派覆盖充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我国刑法理论一般认为，法条之间存在包容或交叉关系时便是法条竞合。",
+            "在特别关系的法条竞合中，能否采用重法优于轻法原则，始终是我国刑法学界关注的一个核心问题，争论持续达25年。"
+          ],
+          "strengths": [
+            "精准提炼中德日理论分歧，构建形式与实质标准对立脉络。",
+            "明确25年重法优先争议缺口，切入点与未竟点高度咬合。"
+          ],
+          "weaknesses": [
+            "部分德日学者观点引述较密集，本土化理论对话可进一步深化。",
+            "对交叉关系归属的论证稍显绝对，未充分展开少数反对立场。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有理论分歧与解释路径梳理，属典型文献定位与争点映射。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "glm-5.1": "[glm-5.1] Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For details, see: https://help.aliyun.com/zh/model-studio/error-code#token-limit', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}, 'request_id': 'f1753959-4cf6-92b5-95b2-d89f536f757b'}"
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.181777000427246,
+        "glm-5.1": 2.5096077919006348,
+        "kimi-k2.6": 16.433911085128784,
+        "qwen3.6-plus": 73.57873511314392
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 70.7,
+      "std": 22.0,
+      "strictest": 48,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文建构了“形式标准—实质标准—不法包容性标准”的递进分析框架，逻辑清晰、步骤可循，并有效转化为裁判规则。",
+          "core_judgment": "框架独创、可操作且具备充分的法学转化度，为区分法条竞合与想象竞合提供了可重复适用的判断标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4，锚定excellent档(80-100)，给82分。",
+          "evidence_quotes": [
+            "两个法条之间存在包容或交叉关系，是法条竞合的形式标准……必须在此基础上进行实质标准的判断。",
+            "第一步：法条间是否存在包容或交叉关系（形式标准）；第二步：侵害的法益是否具有同一性（实质标准）；第三步：适用一个法条能否充分评价行为的不法内容（不法包容性标准）。"
+          ],
+          "strengths": [
+            "独创性地提出了包含“不法包容性”的动态三层递进标准，超越了单纯的逻辑归类。",
+            "框架成功转化为“判断流程”，为司法裁判中区分竞合类型提供了明确、可逐步操作的分析步骤。"
+          ],
+          "weaknesses": [
+            "“不法包容性”判断需参照司法实践（如量刑标准），导致框架在部分临界情形下的稳定性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价框架本身的建构力与可操作性，不评价其在具体案例推理中的逻辑衔接是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'形式标准+实质标准'的双层分析框架区分法条竞合与想象竞合，具有较强可操作性。",
+          "core_judgment": "分析框架成立且可用，以'法条关系类型化—法益同一性—不法包容性'三阶层递进结构为核心，具有明确法学转化。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文实际调用；无负面模式触发），法学转化度得分=3/4（跨学科概念已转化为法学分析步骤、提供裁判规则层面的操作指引、转化步骤在后文反复使用；未提供具体制度设计方案），锚定good档，给72分。",
+          "evidence_quotes": [
+            "两个法条之间存在包容或交叉关系，是法条竞合的形式标准……符合这一形式标准的也不必然是法条竞合，而是需要在此基础上进行实质标准的判断",
+            "只有当适用一个法条能够充分评价一个行为的所有不法内容时，才可能属于法条竞合。反之，则应当认定为想象竞合"
+          ],
+          "strengths": [
+            "框架层次清晰：形式标准（包容/交叉关系）与实质标准（法益同一性、不法包容性）形成递进结构",
+            "后文调用充分：以盗伐林木罪、保险诈骗罪、嫖宿幼女罪等十余个案例反复验证框架"
+          ],
+          "weaknesses": [
+            "未提供具体制度设计方案（如立法修改建议或司法解释草案）",
+            "'不法包容性'的判断依赖法定刑比较，但未给出量化标准或操作细则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“形式逻辑+法益同一+不法充分评价”三阶框架，贯穿全文指导竞合判定。",
+          "core_judgment": "框架成立且具高度教义学可操作性，成功将抽象竞合理论转化为可重复适用的实质判断标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，步骤可循且后文高频调用；作为理论型论文，成功完成教义学操作化转化。",
+          "evidence_quotes": [
+            "两个法条之间存在包容或交叉关系，是法条竞合的形式标准……符合这一形式标准的也不必然是法条竞合，而是需要在此基础上进行实质标准的判断。",
+            "只有当适用一个法条能够充分评价行为的所有不法内容时，才可能属于法条竞合。反之，则应当认定为想象竞合。"
+          ],
+          "strengths": [
+            "提出形式与双重实质标准的递进判断步骤，逻辑清晰且可重复适用。",
+            "将理论标准精准映射至具体罪名关系，实现教义学层面的操作化转化。"
+          ],
+          "weaknesses": [
+            "“充分评价不法内容”依赖量刑经验，司法裁量门槛略高。",
+            "对交叉关系一律认定想象竞合的绝对化处理，边缘案件易生争议。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "glm-5.1": "[glm-5.1] Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For details, see: https://help.aliyun.com/zh/model-studio/error-code#token-limit', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}, 'request_id': '29d1fb34-4ba9-95ae-8ed0-417e0013c52c'}"
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.681421041488647,
+        "glm-5.1": 2.542191743850708,
+        "kimi-k2.6": 13.801794052124023,
+        "qwen3.6-plus": 55.83097767829895
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82,
+      "std": 10.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链完整清晰，通过三步递进构建区分标准并积极回应反驳，结论由前文可辩护推出。",
+          "core_judgment": "逻辑严密性成立。全文从形式到实质层层深入区分法条竞合与想象竞合，对反对意见和边界情形均有实质性处理，推理链坚实。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。考虑理论型论文对反驳处理的实质要求，给予88分。",
+          "evidence_quotes": [
+            "“法益的同一性还意味着法益主体的同一性。亦即，如果行为侵害了不同法益主体的相同法益，也不可能属于法条竞合。”",
+            "“当A、B两个法条在通常情况下是法条竞合关系时，不排除在特殊情况下(适用一个法条不能充分评价行为的不法内容时)属于想象竞合。”"
+          ],
+          "strengths": [
+            "推理链递进严密：从“形式标准”（包容/交叉）到“实质标准”（法益同一性）再到“补充标准”（不法包容性），环环相扣。",
+            "反驳处理扎实：系统地识别并回应了“重法优于轻法”、“法典另有规定”及德国竞合论移植等多种反对或分歧路径。"
+          ],
+          "weaknesses": [
+            "对“不法内容能否被充分评价”的判断依赖法定刑比较，其操作边界在极端边缘案件中仍有模糊空间，但论文已承认此局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属理论型论文，重在概念逻辑推演与体系建构，其推理链完整性和对理论争辩的回应均属论证层面，非操作框架缺陷。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了'形式标准→实质标准→补充标准'的递进推理链，论证严密，反驳充分。",
+          "core_judgment": "推理链完整且相互支撑，核心结论'法益同一性+不法包容性'可由前文推出，反驳处理较为充分。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、依赖度高、结论可推出、无关键跳步），反驳处理度得分=3/3（识别反对意见、实质性回应、承认局限），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "只有理顺了法条关系，才能明确其中的哪些情形可能成立法条竞合",
+            "法益的同一性是区分法条竞合与想象竞合的一个实质标准...还需要进一步增加不法的包容性这一实质标准"
+          ],
+          "strengths": [
+            "三步递进结构清晰：形式标准→法益同一性→不法包容性",
+            "大量运用中外判例与学说作为支撑，反例处理细致"
+          ],
+          "weaknesses": [
+            "部分案例推导中'不法内容充分评价'的判断标准可更精确化",
+            "对'重法优于轻法'路径的自我批判可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价'法益同一性'作为区分标准本身的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文由形式标准递进至法益与不法实质标准，严密推导出竞合动态区分结论。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论由规范分析与实质评价充分支撑，反驳处理全面，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从形式逻辑递进至实质评价，无关键跳步，反驳充分。",
+          "evidence_quotes": [
+            "只有当适用一个法条能够充分评价一个行为的所有不法内容时，才可能属于法条竞合。",
+            "倘若认为嫖宿幼女致幼女重伤、死亡的行为成立奸淫幼女与嫖宿幼女罪的想象竞合，则可以解决所有问题。"
+          ],
+          "strengths": [
+            "推理呈形式标准至实质评价的递进结构，步骤依赖度高。",
+            "对形式解释论与重法优先观点的回应具实质论证，非简单罗列。"
+          ],
+          "weaknesses": [
+            "部分实质标准依赖量刑实践，存在一定解释弹性。",
+            "对德国中立关系理论的批判稍显简略，未完全展开比较逻辑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑力与结论可辩护性，而非评价该实质解释框架在司法中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "glm-5.1": "[glm-5.1] Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For details, see: https://help.aliyun.com/zh/model-studio/error-code#token-limit', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}, 'request_id': 'ead9c211-0b54-99c9-8ce8-9b81fe592108'}"
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.88343334197998,
+        "glm-5.1": 2.472105026245117,
+        "kimi-k2.6": 10.854407787322998,
+        "qwen3.6-plus": 72.56189966201782
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.3,
+      "std": 3.5,
+      "strictest": 85,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过与德国、日本及我国主流观点的深入对话，提出以“法益同一性”和“不法内容充分评价”为核心的实质区分标准，挑战并限缩了传统的法条竞合范围，结论在理论与制度层面可被接受。",
+          "core_judgment": "结论明确回应了共同体争论，能被清晰定位和反对，考虑了我国刑法语境与具体制度，且主动承认并回应了可能的反对意见，在理论与制度层面均具高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4（满足全部四项标准），制度可接受度得分=3/4（缺少明确的制度转化方向指示，但有充分的制度语境回应和法条分析），按理论论文锚定 excellent 档(80-100)，给85分。",
+          "evidence_quotes": [
+            "我国刑法理论通说一般认为，法条之间存在包容或交叉关系时便是法条竞合。在本文看来，这一形式标准大体是成立的。... 然而，如果一概承认上述情形属于特别关系... 就必然导致罪刑不相适应。",
+            "借鉴德国、日本刑法理论与判例的基本观点... 只有当适用一个法条能够充分评价行为的所有不法内容时... 才应认定为法条竞合的特别关系。"
+          ],
+          "strengths": [
+            "深度嵌入学术共同体对话：明确以我国通说为靶子，系统回应陈兴良、周光权等学者观点，并借鉴德日理论构建替代方案。",
+            "制度耦合性强：大量结合我国刑法分则具体条文（如盗窃与盗伐林木、诈骗与保险诈骗）进行剖析，结论与现行法秩序逻辑兼容而非根本对立。"
+          ],
+          "weaknesses": [
+            "制度转化方向稍显薄弱：结论在理论层面论证充分，但对未来司法实践中如何统一适用新标准、如何形成指导性案例等具体转化方向着墨不多。",
+            "反对意见回应以理论辩驳为主：对“可能导致定罪量刑恣意”等实务界可能的重大关切，主要从理论应然层面回应，缺乏对实务操作风险的预防性制度设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的理论贡献在于重构区分标准，其可接受性基于与法学共同体和法秩序的逻辑兼容，不涉及其对未来制度方案的设计。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文提出区分法条竞合与想象竞合的实质标准，深度回应学界争论与中国制度语境，结论可接受性极高。",
+          "core_judgment": "结论明确修正通说并回应反对意见，与中国刑法制度高度兼容且指出了裁判明示方向，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "本文不可能平息这方面的争论，相反，还可能使争论更加激烈（或者说，本文可能会受到更多的批判）",
+            "只有认定为想象竞合，在判决中明示行为触犯上述两个罪名，才能实现对不法内容的充分评价"
+          ],
+          "strengths": [
+            "深度回应学界25年争论及形式解释论反对意见",
+            "紧密结合中国刑法分则条文与量刑实践"
+          ],
+          "weaknesses": [
+            "不法包容性标准的操作性可能受质疑（已自认局限）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的对话与制度回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "张明楷教授关于法条竞合与想象竞合区分标准的理论论文，提出'法益同一性+不法包容性'双重实质标准，限缩法条竞合范围。",
+          "core_judgment": "结论深度参与中国刑法学界持续25年的核心争论，明确回应并挑战'特别法条优于普通法条'的通说，具有高度对话性与制度回应力。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分。论文明确回应陈兴良、周光权等学者观点，定位清晰；反对者可精准反驳；结合中国刑法分则具体条文展开；主动承认'形式标准大体成立'等限定。制度层面充分回应中国刑法条文与司法实践，但结语部分'还可能使争论更加激烈'暗示制度转化方向可更明确。",
+          "evidence_quotes": [
+            "本文的观点使得法条竞合与想象竞合的区分并不固定，但如此并不会导致区分的恣意。",
+            "我国刑法理论之所以将大量想象竞合纳入法条竞合，一个重要原因就是通过具体案件事实来确立两个法条之间的包容与交叉关系。"
+          ],
+          "strengths": [
+            "明确回应并修正陈兴良、周光权等学者观点，对话定位精准",
+            "结合中国刑法分则大量具体条文展开，本土语境充分"
+          ],
+          "weaknesses": [
+            "结语部分对制度转化方向的表述较含蓄，可更明确",
+            "对'重法条优于轻法条'路径的自我修正说明可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价结论的可接受性，不涉及论证严密性或未来研究空间的评估。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应刑法学界长期争议，提出实质解释路径，与中国法秩序高度兼容。",
+          "core_judgment": "该维度完全成立，结论具备高度的学术对话能力与制度语境适应性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文显然是实质解释论的产物，旨在实现刑法的公平正义。",
+            "本文观点会导致法条竞合减少、想象竞合增多，但旨在实现公平正义。"
+          ],
+          "strengths": [
+            "精准定位并回应形式与实质解释论的核心争议",
+            "将理论标准与中国刑法条文及量刑规范深度结合"
+          ],
+          "weaknesses": [
+            "实质判断标准在司法适用中可能面临裁量恣意的质疑",
+            "对传统通说的限缩可能短期内增加裁判说理负担"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.66435217857361,
+        "glm-5.1": 50.85218381881714,
+        "kimi-k2.6": 15.974084854125977,
+        "qwen3.6-plus": 58.92892098426819
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89.2,
+      "std": 5.1,
+      "strictest": 85,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出了可供后续争辩的具体入口（形式解释论与实质解释论的争论），并暗示了可在司法实践中通过量刑规范化来细化不法程度的判断边界，但由于未就自身局限或理论修正路径展开系统论述，延展性主要集中在已有的学术争论承接上。",
+          "core_judgment": "论文提供了与学术共同体对话的特定争论入口，但缺乏对自身理论框架的修正方向或具体研究局限的清晰规划，延展路径虽有定位但较为概括。",
+          "score_rationale": "原始分55分，对应bonus=2档。论文虽明确指出其观点是“实质解释论的产物”并预期会“使争论更加激烈”，这为后续争论提供了具体入口（符合第4类有效延展信号），但主要是将与现有争论对接，未提出新的研究问题或明确的理论修正路径，延展证据尚显单薄。",
+          "evidence_quotes": [
+            "本文显然是实质解释论的产物，旨在实现刑法的公平正义...相反，还可能使争论更加激烈（或者说，本文可能会受到更多的批判）。",
+            "倘若从2016年起，司法实践对诈骗价值3000万元以上财物的才判处无期徒刑...根据量刑规范可以进一步细化不法内容的判断。"
+          ],
+          "strengths": [
+            "精确定位了自身结论所能激发的具体学术争论方向（形式解释论与实质解释论之争）。",
+            "在量刑部分指明了借助未来司法实践与量刑规范化来细化判断标准的可操作性路径。"
+          ],
+          "weaknesses": [
+            "未明确指出本文理论框架在何种情况下可能失效或需要修正，缺乏对自身局限的系统反思。",
+            "延展方向主要是学术争论的延续，而非提出新的理论假设、概念修正或制度路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的“争论可能更激烈”属于对未来学术对话进程的延展预期，而非对当下结论能否被接受的判断；量刑规范化的提及属于对未来裁判边界的实务延伸。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了法条竞合与想象竞合区分的实质标准修正路径，并明确指出了理论局限与后续争点。",
+          "core_judgment": "存在真实延展路径，指明了概念修正方向（不法包容性标准）并给出了反驳入口。",
+          "score_rationale": "原始分85，对应bonus=5档。延展路径清晰，与核心结论紧密衔接，明确指出了“双重法益例外”的理论局限及“争论将更激烈”的反驳入口，属于真实延展。",
+          "evidence_quotes": [
+            "在我国当前的理论背景下，或许还需要被迫承认……不排除成立法条竞合的可能。",
+            "本文不可能平息这方面的争论，相反，还可能使争论更加激烈(或者说，本文可能会受到更多的批判)。"
+          ],
+          "strengths": [
+            "明确提出概念修正路径：以不法包容性作为实质标准。",
+            "清晰给出反驳入口与后续争点，承认理论局限。"
+          ],
+          "weaknesses": [
+            "对“双重法益例外”的后续推进仅点到为止，未展开具体机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "争论是否平息及理论能否被接受属于结论可接受性，而指出争论将继续和理论需修正的方向属于未来延展问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文在结语部分提出了实质解释论与形式解释论的路线分歧，并指出限缩法条竞合范围、扩大想象竞合适用的理论方向，但缺乏对后续具体研究问题的明确指引。",
+          "core_judgment": "存在真实但较概括的延展路径，主要体现为理论立场的方法论延伸，而非具体可定位的后续研究议程。",
+          "score_rationale": "原始分58分，对应bonus=2的marginal档位。论文在结语明确将争论归结为'形式解释论与实质解释论的争论'，提出'限缩法条竞合范围、将不法内容重而法定刑轻的情形排除在法条竞合之外'作为替代路径，并承认'本文不可能平息这方面的争论，相反，还可能使争论更加激烈'，构成可识别的理论深化方向。但延展较依赖读者推断，未提出下一轮具体争点或概念修正的精细路径。",
+          "evidence_quotes": [
+            "本文提出的法条竞合与想象竞合的重新区分，采取的是后一路径。虽然前后路径不同，但对具体案件的处理结论完全相同，可谓殊途同归吧。",
+            "本文显然不可能平息这方面的争论，相反，还可能使争论更加激烈（或者说，本文可能会受到更多的批判）。"
+          ],
+          "strengths": [
+            "明确将理论分歧归结为形式解释论与实质解释论之争，为后续研究提供方法论入口。",
+            "提出'限缩法条竞合、扩大想象竞合'作为替代性制度路径，具有可检验性。"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点，延展方向较概括。",
+            "对'不法包容性'标准的操作化细节缺乏进一步展开，后续深化路径模糊。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究提供的可延展空间，而非当前结论是否被接受。论文结语关于'争论将更加激烈'的表述指向未来学术生产的可进入性，属于典型的前瞻延展信号，而非对结论可接受性的当下判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出以“不法包容性”区分竞合形态，明确理论争议将持续，为实质解释论深化预留空间。",
+          "core_judgment": "存在真实延展路径，围绕“充分评价”标准的教义学检验与立法协调展开。",
+          "score_rationale": "原始分75，达bonus=3档。论文明确承认争议将持续，提出“不法包容性”标准，为后续教义学精细化与量刑衔接提供清晰路径，但操作细则待完善。",
+          "evidence_quotes": [
+            "本文不可能平息这方面的争论，相反，还可能使争论更加激烈。",
+            "在此可能遇到的诘问是，凭什么说适用一个法条没有充分评价行为的不法内容？"
+          ],
+          "strengths": [
+            "明确承认理论争议将持续，为实质解释论精细化预留接口。",
+            "提出“不法包容性”标准，自然衍生出与量刑规范化衔接的后续问题。"
+          ],
+          "weaknesses": [
+            "“充分评价”的具体检验步骤仍依赖解释者裁量，未给出防恣意细则。",
+            "对立法层面法定刑均衡的配套修正路径着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“充分评价”标准在后续教义学中的检验路径与立法协调方向，属未来研究延展，非当下结论可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.83441400527954,
+        "glm-5.1": 50.523823976516724,
+        "kimi-k2.6": 15.058942079544067,
+        "qwen3.6-plus": 56.630967140197754
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 75
+      },
+      "mean": 68.2,
+      "std": 14.2,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.69,
+      "weighted_total": 82.6
+    },
+    "aggregation_strictest": {
+      "final_score": 74.0,
+      "weighted_total": 74.2
+    },
+    "avg_std": 9.8,
+    "max_std": 22.0,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "score_gap": 11.7,
+    "composite_score": -6.47,
+    "worst_dimension": "literature_insight",
+    "worst_std": 22.0
+  }
+}

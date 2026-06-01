@@ -1,0 +1,1166 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国大众平等观念评析.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "正文脚注编号格式有误（存在缺漏或乱码，如⑩⑩⑩）",
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "⑩前引①，第481页。",
+          "⑩[美]罗纳德·德沃金：《认真对待权利》，信春鹰、吴玉章译，中国大百科全书出版社1998年版，第23页。",
+          "⑩[英]亨利·梅因：《古代法》，沈景一译．商务印书馆1959年版，第112页。",
+          "⑩前引⑩，德沃金文，第238页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "今天，平等显然是个法律概念。不存在平等原则的法律不可想象。",
+          "法律是历史的法律，平等也是历史的平等，平等从来都是法律的推手。",
+          "法律的平等是一回事，道德的平等却是另外一回事。法律无论如何规定平等，人与人之间在道德上的平等观总是不一致的。",
+          "平等应该是一个整体性的概念……进入21世纪，中国发生了翻天覆地的变化，而依然面临一时无法克服的问题，集中体现在一些方面存在的不平等现象……",
+          "83.4％的民众认为卖淫人员被抓去游街是不对的。换句话说，83.4％的民众认为卖淫人员的名誉权应该受到无论是法律还是道德的保护。",
+          "我国《民法通则》规定、刑事诉讼法修改的“犯罪记录封存制度”等法律文本被作为制度评价与规范解释的材料。",
+          "通过问卷分析与访谈，揭示中国大众平等观念在法律权利与道德权利之间的张力，提炼出“身份记忆”“分类能力与歧视”“被遗忘权”等可复核命题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：参考文献列表缺失、脚注编号格式异常，但不影响核心论点识别。",
+        "项目口径风险：无。论文以中国大众平等观念调查数据为基础，解释中国法治实践与道德语境下权利保护的张力，构成典型的中国自主知识体系研究。"
+      ],
+      "evidence_quotes": [
+        "83.4％的民众认为卖淫人员的名誉权应该受到无论是法律还是道德的保护。",
+        "法律已经注意到这种歧视的存在，并认识到了歧视给人带来的危害。不过，法律却只能消除由法律后果带来的可能歧视，而且只能在有限范围内在法律上予以纠正。",
+        "平等应该是一个整体性的概念……21世纪中国面临资源、住房、医疗、教育、收入、养老、就业等方面的不平等现象，这些现象势必影响民众的平等观。",
+        "71.6％的人认为人与人之间的平等观念是因为那些具体的不平等现象事实的存在而形成。",
+        "我国刑事诉讼法修改的“犯罪记录封存制度”……通过法律限制未成年犯罪人的信息不适当地外传……"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文以中国实证调查（问卷与访谈）为基础，围绕法律平等、道德平等、身份歧视等展开分析，提出并解释中国法治与社会治理中的平等难题，具备明确的法学问题意识和中国实践解释尝试，且已形成若干可复核的理论命题（如“身份记忆影响平等权实现”“抽象平等观与具体平等观的矛盾”等），完全满足进入六维评价的条件。文本存在脚注编号瑕疵和参考文献缺失，但不影响核心论证阅读，建议在评审阶段提醒作者补充参考文献列表。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR识别错误导致统计表格参数（显著性星号）乱码，如'术：}：水：'、'：l：半斗：'",
+          "页码及部分数字存在空格乱码，如'1 l2'、'll620'",
+          "部分外文词汇及人名识别错误，如'We掘Fe state'、'普路译斯的脸'、'恿格斯'"
+        ],
+        "evidence_quotes": [
+          "参数估计(Exp．B)…1．167术：}：水：…1．327术水木：l：",
+          "1 l2",
+          "We掘Fe state"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国大众平等观念评析",
+          "问卷中，我们的问题也没有对权利做具体的界分……显然，这里指的是“人格权”。",
+          "梅因认为，从社会发展的趋势看，契约的社会必然替代身份的社会……但非常遗憾的是，随着社会的发展，虽然我们似乎也见着了契约在社会中的广泛存在，但身份并没有由此消失，特别是工业社会出现，由社会分工而形成的身份现象愈加严重。",
+          "法律已经注意到这种歧视的存在……不过，法律却只能消除由法律后果带来的可能歧视，而且只能在有限范围内在法律上予以纠正。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：统计表格参数与数字存在中重度OCR乱码，可能影响后续实证数据维度的精确复核",
+        "项目口径：完全满足中国自主知识体系评价口径，无需边界裁断"
+      ],
+      "evidence_quotes": [
+        "中国大众平等观念评析",
+        "法律已经注意到这种歧视的存在……不过，法律却只能消除由法律后果带来的可能歧视，而且只能在有限范围内在法律上予以纠正。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程。由于实证统计表格存在OCR参数乱码，后续评审阶段需注意数据证据的可复核性限制，必要时需人工校对表格显著性参数与频次数字。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如⑩⑩等符号混用、重复编号）",
+          "部分访谈记录编号格式不统一（如'卷43'、'卷33'、'卷45'、'卷8'等）",
+          "参考文献列表缺失（标注为'（无）'），但正文引用信息基本可定位",
+          "个别表格数据存在OCR识别误差（如'39.8%'等数据旁有乱码标记）"
+        ],
+        "evidence_quotes": [
+          "⑩前引①，第481页。",
+          "⑩[美]罗纳德·德沃金：《认真对待权利》，信春鹰、吴玉章译，中国大百科全书出版社1998年版，第23页。",
+          "⑩[英]亨利·梅因：《古代法》，沈景一译．商务印书馆1959年版，第112页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国大众平等观念评析",
+          "中国法学 2015年第4期",
+          "据采源：'中国大众人权观念调查研究'数据库",
+          "2012年全国人民代表大会常务委员会修改了预防未成年人犯罪法",
+          "中国大众的现代平等观念仍然处于培育阶段，中国应该有健康的平等观",
+          "虽然中国社会发展已经多元，但总的说来观念上还比较单一"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留，但核心引用信息可辨识",
+        "文本工程：参考文献列表未抽取，但正文引用格式基本完整",
+        "项目口径：论文以中国社会实证调查为基础，核心命题清晰"
+      ],
+      "evidence_quotes": [
+        "中国大众平等观念评析",
+        "据采源：'中国大众人权观念调查研究'数据库",
+        "2012年全国人民代表大会常务委员会修改了预防未成年人犯罪法，规定：'对于审判的时候被告人不满十八周岁的刑事案件，不公开审理。'",
+        "中国大众的现代平等观念仍然处于培育阶段，中国应该有健康的平等观"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国大众平等观念为研究对象，基于'中国大众人权观念调查研究'数据库的实证分析，涉及法律平等与道德平等的区分、身份歧视的法律规制、犯罪记录封存制度等中国法治实践问题，具有明确的法学问题意识和理论转化尝试。文本质量存在轻微OCR风险，但不影响核心评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "表格统计符号OCR识别错误（如星号、等号、百分号乱码替换）",
+          "页码与正文混排干扰阅读（如'1 l2'、'll4'、'12O'等）",
+          "脚注编号重复或错位（如多处出现⑩）",
+          "参考文献列表未提供但正文含完整引注"
+        ],
+        "evidence_quotes": [
+          "表5不同社会背景答题者对待特殊主体权利认识的二元Logit模型结果(模型二)参数估计(Exp．B) 变量 吸毒者 卖淫人员 罪犯 第三者 性别 1．167术：}：}：水：l： 1．327术水木：l：",
+          "1 l2 中国大众平等观念评析",
+          "⑨ Kevin 0lslIn，Re f lexive Democracy：Politi cal Equali ty and the We掘Fe State，Massachusetts：The MIT Press，2006，P．95"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文以‘中国大众人权观念调查研究’数据库为基础，分析中国民众在抽象平等与具体群体权利保护上的认知差异",
+          "法律已经注意到这种歧视的存在，并认识到了歧视给人带来的危害。不过，法律却只能消除由法律后果带来的可能歧视，而且只能在有限范围内在法律上予以纠正。",
+          "2012年全国人民代表大会常务委员会修改了预防未成年人犯罪法...该修订被简称为‘犯罪记录封存制度’...这些法律的修改，旨在通过法律限制未成年犯罪人的信息不适当地外传",
+          "平等应该是一个整体陛的概念...抽象平等观的形成需要具体平等观支撑...人格平等在人们的平等观念评价中最难达成一致"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：表5、表6统计符号需人工还原核对；页码与脚注混排需清洗",
+        "项目口径：无。四项核心信号完整，具备进入六维评价资格"
+      ],
+      "evidence_quotes": [
+        "本文使用的“大众”、“民众”及相关概念，实际上也指公民。...中国今天的身份歧视的现象比较严重，原因是：虽然中国社会发展已经多元，但总的说来观念上还比较单一。",
+        "法律已经注意到这种歧视的存在，并认识到了歧视给人带来的危害。不过，法律却只能消除由法律后果带来的可能歧视，而且只能在有限范围内在法律上予以纠正。",
+        "平等应该是一个整体陛的概念...抽象平等观的形成需要具体平等观支撑...人格平等在人们的平等观念评价中最难达成一致"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在中等程度OCR与排版噪声，但核心法学命题、中国问题意识及实证分析结构完整清晰，明确满足六维评价入口标准。建议直接进入评分流程，评审专家仅需在核对表5、表6统计符号及脚注对应关系时稍作留意即可。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文是对调查数据的社会现象描述，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文无明确的法学问题句，主要是对问卷结果的描述和对平等观念的泛论，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性未改变问题设定。触发负面模式：检查1扣20分（新概念包装旧问题），检查2扣20分（无学者观点交锋），检查3扣30分（无问题句，只主题声明）。锚定unacceptable档，最终分=30。",
+          "evidence_quotes": [
+            "今天，平等显然是个法律概念。不存在平等原则的法律不可想象。是平等催生了法律，这已成为常识。",
+            "以上分析所展示的中国大众平等观念似乎是矛盾和混乱的……"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无任何问题句，只有对调查结果的主题声明和现象描述。",
+            "无任何学者观点交锋，仅是既定立场的系统归纳。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学争点，未提出任何研究问题，仅作主题声明和现象描述",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未见'XX是否YY'等问题句，只有'平等是什么'、'平等观现状如何'等陈述性主题。"
+            },
+            {
+              "rule_id": "negative_mode_check_1",
+              "rule": "新概念包装旧问题：引入'抽象平等观/现实平等观'但未说明理论进步",
+              "score_ceiling": "扣20分",
+              "priority": 1,
+              "evidence": "'抽象平等观'与'现实平等观'的划分未说明相比既有平等理论的解释力提升。"
+            },
+            {
+              "rule_id": "negative_mode_check_2",
+              "rule": "宏观介绍非深度分析：全文无学者观点交锋",
+              "score_ceiling": "扣20分",
+              "priority": 1,
+              "evidence": "全文无任何学者观点交锋，仅引述个别学者论述作为支撑。"
+            },
+            {
+              "rule_id": "negative_mode_check_3",
+              "rule": "主题声明非研究问题：全文无问题句，只有主题声明",
+              "score_ceiling": "扣30分",
+              "priority": 1,
+              "evidence": "全文无任何'XX是否YY'等问题句，只有'中国大众平等观念评析'等主题声明。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否可争辩、是否法学问题、有无理论分歧，不评论证严密性或材料支撑。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文基于问卷数据描述大众平等观的矛盾现象，缺乏可争辩的法学问题与理论交锋。",
+          "core_judgment": "本文仅为社会学事实描述与主题声明，未提出可争辩的法学争点，问题创新性不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档，基础分40分，前置负面扣分50分（下限30分），给30分",
+          "evidence_quotes": [
+            "中国大众平等观念似乎是矛盾和混乱的……",
+            "为什么会出现以上的情况，这可能源于另一个原因——身份"
+          ],
+          "strengths": [
+            "触及法律平等与道德平等的张力",
+            "利用问卷数据揭示了大众观念的矛盾"
+          ],
+          "weaknesses": [
+            "全文无法学争点与问题句",
+            "无学者观点交锋，仅为现象描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何问题句，仅为'中国大众平等观念评析'的主题声明与现象描述"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评问卷数据是否详实或论证是否严密",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文呈现中国大众平等观念调查数据，但缺乏可争辩的法学问题。",
+          "core_judgment": "全文为描述性社会调查报告，无明确法学争点，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限，锚定unacceptable档，给35分。扣分合计=45分（检查1扣15分：'抽象平等观''现实平等观'为新包装但部分说明不足；检查2扣20分：全文无学者观点交锋，仅为数据描述；检查3扣10分：有问题句但实质是现象描述非法学争点）。",
+          "evidence_quotes": [
+            "以上分析所展示的中国大众平等观念似乎是矛盾和混乱的",
+            "71.6％的人认为人与人之间的平等观念是因为那些具体的不平等现象事实的存在而形成"
+          ],
+          "strengths": [
+            "涉及法律平等与道德平等的关系讨论"
+          ],
+          "weaknesses": [
+            "无明确法学问题句，仅为现象描述",
+            "缺乏学者观点交锋与理论对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'式法学问题句，仅描述平等观念数据"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "主题'中国大众平等观念'过于宽泛，未聚焦具体法学制度或规范争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "以实证数据揭示平等观矛盾，但缺乏法学争点与理论交锋。",
+          "core_judgment": "问题偏向社会学实证描述，未提炼可争辩的规范命题，创新性不足。",
+          "score_rationale": "可争辩性=2/4，枢纽性=3/4，材料校验触发上限。锚定good档，初评65分。扣20分(主题声明非研究问题)，终评45分。",
+          "evidence_quotes": [
+            "那么，图1中85.4％的民众究竟认为卖淫人员的什么权利不应该得到平等对待?",
+            "法律已经注意到这种歧视的存在，并认识到了歧视给人带来的危害。"
+          ],
+          "strengths": [
+            "结合实证数据揭示平等观的内在矛盾",
+            "触及人格权保护与反歧视的规范交叉"
+          ],
+          "weaknesses": [
+            "缺乏明确法学争点，偏向社会学描述",
+            "无学者观点交锋，仅为既定立场归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文以调查数据为主线，未提炼规范命题"
+            }
+          ],
+          "boundary_note": "仅评问题成立性与重要性，不评数据详实度与论证逻辑。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.82451891899109,
+        "glm-5.1": 59.360886096954346,
+        "kimi-k2.6": 12.019260883331299,
+        "qwen3.6-plus": 91.3593020439148
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 36.2,
+      "std": 6.3,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文完全未建立研究地图，无任何既有研究的梳理、争点呈现或流派识别，仅以作者自身论述展开。",
+          "core_judgment": "研究地图完全缺失，无文献综述、无学派争点、无研究缺口定位，不符合学术论文的文献基础要求。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，触发no_research_map上限，给0分",
+          "evidence_quotes": [
+            "“平等显然是个法律概念。不存在平等原则的法律不可想象。是平等催生了法律，这已成为常识。”",
+            "“法律的平等是一回事，道德的平等却是另外一回事。”"
+          ],
+          "strengths": [
+            "引用了恩格斯、德沃金、梅因等经典作者的观点作为论证支撑"
+          ],
+          "weaknesses": [
+            "完全没有任何形式的研究综述或文献梳理，无法定位既有研究的到达点和未竟点",
+            "未呈现任何法学流派的对立或争点结构，即便引用多位学者也未放入学术争论脉络"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分为0，研究地图完全缺失",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无任何对既有研究成果的梳理或评述，无到达点、未竟点、本文切入点的任何描述"
+            }
+          ],
+          "boundary_note": "论文讨论平等观念本身，但完全未定位既有研究，属文献梳理缺失问题，而非问题创新性评判。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图，未梳理既有学术争点与缺口，仅零散引述理论。",
+          "core_judgment": "本维度不成立，论文未建立学术脉络的到达点、未竟点与切入点。",
+          "score_rationale": "三要素=1/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给40分",
+          "evidence_quotes": [
+            "罗尔斯、阿玛蒂亚·森等在谈论平等时只谈福利、经济、政治的平等",
+            "法律的平等是一回事，道德的平等却是另外一回事"
+          ],
+          "strengths": [
+            "通过问卷数据揭示了大众平等观的内在矛盾"
+          ],
+          "weaknesses": [
+            "完全缺失学术研究地图的梳理与定位",
+            "未呈现学界争点与理论流派的对立脉络"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素仅得1分，未竟点与切入点缺失，无学术脉络梳理"
+            }
+          ],
+          "boundary_note": "评估的是文献定位与争点梳理，而非问卷数据揭示的社会现象创新性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 12,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，无文献综述与学术对话。",
+          "core_judgment": "本文未建立研究地图，三要素全部缺失，争点结构与法学流派均未呈现。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给12分",
+          "evidence_quotes": [
+            "参考文献列表：（无）",
+            "论文正文未出现任何'已有研究指出''学界认为'等文献定位表述"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无参考文献列表，未与任何既有研究对话",
+            "正文未提炼任何学术争点或对立立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0分，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无参考文献，无到达点、未竟点、切入点任何一项"
+            }
+          ],
+          "boundary_note": "本维度仅评文献定位完整性，不评问题新颖性；该文虽具实证特色，但无学术地图。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文通过实证数据与法理分析，清晰勾勒大众平等观的内在张力与制度局限。",
+          "core_judgment": "研究地图完整，争点结构清晰，有效整合规范理论与经验实证两条路径。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "法律的平等是一回事，道德的平等却是另外一回事……平等从来都是法律的推手。",
+            "为什么会出现以上的情况，这可能源于另一个原因——身份，是民众基于身份意义上的歧视。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，有效串联法哲学与法社会学视角。",
+            "明确揭示抽象平等与具体权利保护间的实证落差，未竟点扎实。"
+          ],
+          "weaknesses": [
+            "对既有实证研究的对话略显单薄，未充分展开方法论争点。",
+            "流派识别偏重理论引述，缺乏对当代规范争议的纵深梳理。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及实证数据本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.40901970863342,
+        "glm-5.1": 37.57442307472229,
+        "kimi-k2.6": 10.462558031082153,
+        "qwen3.6-plus": 82.05712103843689
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 40,
+        "kimi-k2.6": 12,
+        "qwen3.6-plus": 80
+      },
+      "mean": 33,
+      "std": 35.5,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文梳理了中国大众平等观念的多元面向，但缺乏具有操作性的原创分析框架，仅为现象归纳与主题整理。",
+          "core_judgment": "该维度不成立。论文未建构可重复适用的分析框架，仅围绕抽象/现实、法律/道德等维度对调查结果进行阐释性归纳。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定勉强可识别），法学转化度得分=1/4（仅将平等转化为法律权利的一般性讨论）。锚定unacceptable档，依据上限规则给45分。",
+          "evidence_quotes": [
+            "“法律的平等是一回事，道德的平等却是另外一回事...平等首先是一个道德概念。”",
+            "“我们似乎更应该说，平等首先是一个道德概念...在个人道德标准上，社会无法完成整齐划一的要求。”"
+          ],
+          "strengths": [
+            "明确区分了法律平等与道德平等、抽象平等观与现实平等观，为分析大众平等观念提供了基础分类维度。"
+          ],
+          "weaknesses": [
+            "全文以阐释调查数据和归纳既有立场为主，未提出具有明确操作步骤的判断标准或分析流程。",
+            "“抽象平等观/现实平等观”等分类仅停留在概念划分层面，未转化为可重复适用的法学分析步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分，且核心术语多为既有表述的归纳，无原创的、可重复适用的分析步骤或判断标准。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语如“法律平等”“道德平等”“身份歧视”无操作性定义，全文无逐步分析的流程，仅为问卷调查结果的分类讨论。"
+            }
+          ],
+          "boundary_note": "本文的问题在于未建构分析框架，而非框架衔接不严密，属于结构性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文缺乏可操作的法学分析框架，仅依靠问卷数据的描述性对比与常识性归因展开。",
+          "core_judgment": "论文未建构可重复适用的法学分析框架，核心概念缺乏操作化定义，且未将社会学归因转化为法学分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（因核心术语无明确定义触发概念堆砌降档上限1），法学转化度得分=0/4（未转化为法学操作步骤或裁判规则），锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "之前，我们只是将平等划分为抽象的平等观和现实的平等观。",
+            "身份的认同是由心理作用……社会生活经验……长成的生活背景的影响。"
+          ],
+          "strengths": [
+            "通过实证数据揭示了大众抽象平等观与现实平等观之间的矛盾张力"
+          ],
+          "weaknesses": [
+            "核心概念缺乏操作化定义，无步骤化的分析流程可循",
+            "对身份歧视的社会学归因未转化为法学层面的裁判规则或操作指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无定义、无分析步骤、社会学归因未转化为法学操作步骤"
+            }
+          ],
+          "boundary_note": "本维度评价框架建构力，不评价问卷实证调查的数据价值或问题新颖性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以描述性统计和现象归纳为主，未建构可重复适用的分析框架。",
+          "core_judgment": "全文缺乏原创分析框架，仅有'抽象平等观/现实平等观'的二元分类及'身份'因素的引入，未形成可操作的法学分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅有简单分类，无明确分析步骤；后文调用不足3次），法学转化度得分=1/4（'身份'概念未转化为法学判断标准或裁判规则）。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "之前，我们只是将平等划分为抽象的平等观和现实的平等观",
+            "如果是这样，我们就不难理解以下分层表格的统计结果"
+          ],
+          "strengths": [
+            "引入'身份'概念解释平等观念差异，有一定理论敏感度"
+          ],
+          "weaknesses": [
+            "核心术语'身份'未界定，未说明如何识别与操作化",
+            "后文分析沦为数据描述，未调用前述框架进行逐步分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'身份'作为核心解释变量，无'本文所称身份是指...'的界定，亦无身份识别标准或分析步骤；全文无步骤化操作流程"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评统计方法是否恰当或结论是否可靠。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文以实证数据揭示大众平等观矛盾，但未建构可重复适用的法学分析框架。",
+          "core_judgment": "框架缺乏明确概念界定与操作步骤，法学转化度不足，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=0/4，锚定unacceptable档，给42分。核心术语缺乏操作化定义，未转化为裁判规则或适用流程，仅停留在社会学现象描述层面。",
+          "evidence_quotes": [
+            "法律的平等是一回事，道德的平等却是另外一回事。",
+            "身份的多元已然是社会事实，并深深地根植于公民社会，形成了不同身份的公民。"
+          ],
+          "strengths": [
+            "实证数据详实，有效揭示抽象平等观与具体情境评价的背离。",
+            "引入“身份”变量解释平等观差异，具法社会学解释力。"
+          ],
+          "weaknesses": [
+            "核心概念缺乏明确界定与可重复适用的类型化边界。",
+            "未将社会学发现转化为可操作的法学判断标准或制度方案。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心概念无明确定义，无分析步骤，未转化为法学操作指引。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及实证数据可靠性或逻辑推演严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.7571702003479,
+        "glm-5.1": 46.4800808429718,
+        "kimi-k2.6": 21.80110502243042,
+        "qwen3.6-plus": 76.5845079421997
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 35,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 42
+      },
+      "mean": 39.2,
+      "std": 5.1,
+      "strictest": 35,
+      "strictest_model": "glm-5.1"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文主干结构是问卷数据呈现与解释，但核心结论的推导存在多处跳步，且未实质回应数据中的矛盾。",
+          "core_judgment": "论文虽在个别段落有推理步骤，但整体缺乏串联各章节的严密逻辑链，且未就问卷结果中的关键矛盾给出充分论证。",
+          "score_rationale": "推理链完整性得分=2/4（主要步骤可复述但存在关键跳步），反驳处理度得分=1/3（隐含承认了论证局限），锚定 good(60-69) 或 marginal(50-59) 档，因存在两处核心结论跳步，给 55 分。",
+          "evidence_quotes": [
+            "“83.4%的民众认为卖淫人员被抓去游街是不对的......那为什么图1中只有14.6%的民众认为其权利应该得到平等对待？”",
+            "“这里的身份性质发生了变化，已经不再是依据血缘划分身份，而是基于社会阶层及类别而形成的。”"
+          ],
+          "strengths": [
+            "论文尝试从“抽象平等观”与“现实平等观”的张力出发组织材料，为分析问卷矛盾提供了可能框架。",
+            "从问卷数据矛盾引出身份歧视的解释，展现了一定的问题敏感度。"
+          ],
+          "weaknesses": [
+            "核心矛盾（14.6% vs 83.4%）未得到严密论证，仅以“模糊认识”和“身份歧视”过渡，构成关键跳步。",
+            "“身份”解释部分转向笼统社会心理描述，未回扣问卷矛盾完成逻辑闭环。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性得分=2但反驳处理度≤1时，最高得分不超过70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "推理链完整性得分=2，反驳处理度得分=1，虽未触发 broken_inference_chain，但存在明显逻辑断点。"
+            }
+          ],
+          "boundary_note": "论文在从数据到结论的推导中缺乏必要论证，这属于推理链不完整，而非框架本身不可操作。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过概念区分与实证数据揭示大众平等观矛盾，推导出身份歧视是核心成因，逻辑链完整且回应了理论分歧。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由概念分析与实证数据可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "以上的划分仅仅是社会和个人的两分法，这种划分远远不够。",
+            "非常遗憾的是……身份并没有由此消失，特别是工业社会出现，由社会分工而形成的身份现象愈加严重。"
+          ],
+          "strengths": [
+            "从抽象/具体平等区分到问卷矛盾，再到身份歧视的推导链条依赖度高。",
+            "对梅因“从身份到契约”的隐含分歧给出了工业社会新身份的实质性回应。"
+          ],
+          "weaknesses": [
+            "从问卷数据直接跃迁至宏观身份理论，局部过渡论证稍显宽泛。",
+            "对“14.6%与83.4%矛盾”的解释仅归因身份，未充分排除其他变量。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问卷设计的科学性属分析框架建构力，不纳入逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文呈现调查数据与现象描述，但缺乏清晰推理链与结论支撑。",
+          "core_judgment": "本维度不成立：论文主线为现象描述与数据罗列，未形成可辩护的论证链条，核心结论无法从前文推出。",
+          "score_rationale": "推理链完整性得分=2/4，反驳处理度得分=0/3，锚定marginal档，给52分。存在'抽象平等观—具体平等观—身份歧视'的松散框架，但步骤间缺乏逻辑依赖；数据呈现与理论分析平行推进，未形成递进推理；无任何反对意见或反例处理。",
+          "evidence_quotes": [
+            "以上分析所展示的中国大众平等观念似乎是矛盾和混乱的……这是很有意思的现象",
+            "如果是这样，我们就不难理解以下分层表格的统计结果"
+          ],
+          "strengths": [
+            "数据与理论素材丰富，提供多维度观察视角",
+            "结语部分尝试归纳五点结论，有总结意识"
+          ],
+          "weaknesses": [
+            "核心命题'身份歧视导致平等观矛盾'未获充分论证，从数据到结论跳跃过大",
+            "五个结论与正文分析脱节，多为断言式总结而非推导所得"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题在于推理链断裂而非框架缺失；作者有分析框架，但框架内论证未有效展开。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以实证数据与法理分析交织，推演大众平等观的内在矛盾与身份根源，逻辑链条完整。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可由问卷数据与理论框架充分支撑，反驳与局限处理到位。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "问卷结果与预想不符……经验证，这一差值是抽样比例造成的。",
+            "法律上不具备消除其存在的能力……过度地矫正平等观或许会伤及社会。"
+          ],
+          "strengths": [
+            "概念界定与实证数据层层递进，推理依赖度高。",
+            "主动回应预期偏差并承认法律干预的局限性。"
+          ],
+          "weaknesses": [
+            "从数据矛盾到身份归因的过渡稍显跳跃。",
+            "部分访谈引文与核心推论的衔接可更紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条是否自洽支撑结论，不评价实证框架设计或结论的社会接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.61565089225769,
+        "glm-5.1": 43.20052528381348,
+        "kimi-k2.6": 9.573946952819824,
+        "qwen3.6-plus": 54.08525729179382
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 69.2,
+      "std": 18.2,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "结论多为对调查数据的现象描述和常识性归纳，未能将研究发现转化为可被学术共同体辩驳的明确理论主张，且未回应任何既有争论或反对意见。",
+          "core_judgment": "结论停留在复述数据结果和发表宽泛感慨，缺乏可被学界定位、批评或发展的学术主张，导致其几乎无法进入共同体对话。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4（仅因提及中国法律语境勉强满足标准4）。锚定unacceptable档，因共同体对话度=0触发上限规则，给40分。",
+          "evidence_quotes": [
+            "“当下大众矛盾的平等观与现实相符。”",
+            "“平等应该是一个整体性的概念……我们却能直接地感知不同方面的不平等。”"
+          ],
+          "strengths": [
+            "结论提到“犯罪记录封存制度”，对中国制度语境有轻微回应。"
+          ],
+          "weaknesses": [
+            "结论完全是现象复述和常识总结（如“平等是时空概念”），未形成可争辩的学术观点。",
+            "全文未提及、赞同或挑战任何既有学术争论，自说自话，反对者无切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，结论未回应法学共同体已有争论，反对者无法定位和回应",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语部分仅为五点泛泛的现象观察与感想，未与任何既有法学理论或观点对话，也未讨论任何反对意见或局限。"
+            }
+          ],
+          "boundary_note": "本评价仅考察结论的可接受性与对话可能性，不涉及数据分析本身的严谨性或未来研究价值。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 50,
+          "band": "marginal",
+          "summary": "结论仅为现象描述，缺乏可争辩的学术主张，无法进入共同体对话",
+          "core_judgment": "结论未转化为可争辩主张，仅复述现象，触发总分上限",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=1/4，锚定good档，但因结论缺乏可争辩主张触发≤50分上限，给50分",
+          "evidence_quotes": [
+            "第一，中国人的平等观无论是抽象层面还是具体层面都已经有了巨大进步...属于正常",
+            "第五，平等观念是可感染的...中国大众的现代平等观念仍然处于培育阶段"
+          ],
+          "strengths": [
+            "结合了中国大众问卷数据与实证分析"
+          ],
+          "weaknesses": [
+            "结论全为描述性表态，缺乏规范性或理论性争辩主张",
+            "结语完全脱离制度与法秩序语境，未指明理论转化方向"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.descriptive_conclusion_ceiling",
+              "rule": "结论仅为现象描述，未转化为可争辩学术主张，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语五点全为现象描述（如平等观多元、时空概念），无规范性争辩主张"
+            }
+          ],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文基于问卷数据呈现中国大众平等观念的矛盾性，但结论缺乏与法学共同体既有争论的明确对话，制度回应薄弱。",
+          "core_judgment": "结论作为经验描述性研究有一定价值，但未进入法学共同体的规范理论对话，制度可接受度因缺乏具体回应而受限。",
+          "score_rationale": "共同体对话度得分=2/4（回应了平等/身份议题但未定位既有学术争论；可被回应但缺乏明确学术主张；有中国语境但主要是描述性呈现；未主动讨论反对意见）。制度可接受度得分=1/4（不根本矛盾但几乎无制度回应；未回应具体制度约束；未指出制度转化方向；有中国语境但浅层）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "平等应该是一个整体性的概念，不能像物理学那样用分凌镜先把一束光进行分色...但我们却可以通过不同分色认识光",
+            "中国大众的现代平等观念仍然处于培育阶段，中国应该有健康的平等观"
+          ],
+          "strengths": [
+            "基于大规模问卷的经验研究有数据支撑",
+            "关注中国本土平等观念的特殊性"
+          ],
+          "weaknesses": [
+            "结论未与法学共同体关于平等的规范理论形成对话",
+            "未回应反对意见或承认研究局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证过程严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论基于实证数据剖析中国大众平等观的抽象与具体张力，承认法律干预局限，契合本土法治语境。",
+          "core_judgment": "该维度成立，结论有效嵌入法学共同体关于平等与身份的讨论，并与现行法秩序逻辑兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "71.6%的人认为人与人之间的平等观念是因为那些具体的不平等现象事实的存在而形成。",
+            "面对卖淫人员之类的被歧视现象，就现在而言，法律上不具备消除其存在的能力。"
+          ],
+          "strengths": [
+            "实证数据与理论分析结合紧密，精准定位平等观的内在张力。",
+            "明确承认法律在消除身份歧视方面的局限性，体现学术克制。"
+          ],
+          "weaknesses": [
+            "对策部分偏重学理阐释，缺乏具体制度衔接方案的细化。",
+            "对反对意见的回应多集中于现象描述，理论交锋深度可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 60.888516902923584,
+        "glm-5.1": 75.34570813179016,
+        "kimi-k2.6": 10.269247055053711,
+        "qwen3.6-plus": 73.83712387084961
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 50,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 57.5,
+      "std": 21.0,
+      "strictest": 40,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文结尾仅以笼统口号式表述展望未来，未提出任何具体可定位的后续研究问题、理论修正路径或制度改进方向。",
+          "core_judgment": "论文未提供真实的延展路径，仅存在空泛的意义拔高和“继续研究”式结尾。",
+          "score_rationale": "原始分15分，属于0-39低分段，bonus=0。结语部分只有“培育健康平等观”“相信离平等越来越近”等口号式展望，未指明具体对象、机制或概念边界，触发低分约束。",
+          "evidence_quotes": [
+            "中国大众的现代平等观念仍然处于培育阶段，中国应该有健康的平等观...希望中国在短时间内形成良好、健康的平等观并不现实。",
+            "我们相信离平等越来越近而非越来越远，这或许是人类社会所致力的终极追求。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结语仅进行空泛的未来展望，无具体待修正的理论概念或制度路径。",
+            "未坦诚核心局限并提出围绕该局限的推进方向，缺乏可定位的后续研究问题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，属于低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅说“培育健康的平等观”“离平等越来越近”，没有说明具体问题、对象、机制或制度路径。"
+            }
+          ],
+          "boundary_note": "结语中关于“未来形成健康平等观”的表述属于对未来走向的模糊期许，而非对论文当下结论可接受性的判断，因此划入前瞻延展性而非结论可接受性。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了未深究的权利类型差异及人格平等与社会发展的关系，存在明确但精细度有限的延展路径。",
+          "core_judgment": "存在真实延展路径，指明了具体后续研究问题与制度适用延伸。",
+          "score_rationale": "原始分65，bonus档位为3（>=60）。论文承认对特殊群体不同权利类型的平等观未深究，并提出人格平等与社会发展关系的后续争点，路径明确但展开有限。",
+          "evidence_quotes": [
+            "这一问题我们并没有深究……85.4%的民众究竟认为卖淫人员的什么权利不应该得到平等对待？",
+            "这种人格不平等的现象与社会发展呈什么样的关系，远古社会人与现代社会相比，人与人之间的平等状况究竟谁优谁劣？"
+          ],
+          "strengths": [
+            "明确承认实证数据的局限，指出未深究的权利类型差异。",
+            "提出人格平等与社会发展关系的后续理论争点。"
+          ],
+          "weaknesses": [
+            "制度延展（如被遗忘权）仅提及，未说明具体适用边界。",
+            "结语部分仍有部分口号式展望（如“终极追求”）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "人格平等与社会发展历史比较属于未来理论深化方向，而非当下问卷数据可直接接受的结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "结语部分提出五条总结性观察，但缺乏具体后续研究问题或理论深化路径，多为现象描述与价值呼吁。",
+          "core_judgment": "不存在真实延展路径，仅有口号式展望与意义拔高。",
+          "score_rationale": "原始分35分，bonus=0。结语虽列五点，但均为对正文发现的重复总结与宏观呼吁（如'中国应该有健康的平等观'），未提出可操作的后续研究问题、概念修正方向或制度完善路径。'平等观念是可感染的''逐步消除不平等'等表述属典型空泛拔高，无具体待修正对象或检验入口。",
+          "evidence_quotes": [
+            "中国应该有健康的平等观，而这种平等观的形成需要人们在抽象意义上持有理性，又具理性对待现实中的不平等现象的精神",
+            "我们相信离平等越来越近而非越来越远，这或许是人类社会所致力的终极追求"
+          ],
+          "strengths": [
+            "结语结构完整，对正文有归纳"
+          ],
+          "weaknesses": [
+            "五点结论均为描述性总结，无后续研究问题或理论深化方向",
+            "'逐步消除不平等''健康的平等观'等缺乏具体机制或路径说明"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语提出'中国应该有健康的平等观''离平等越来越近''人类社会所致力的终极追求'等表述，未说明具体制度路径、概念边界或后续研究问题"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展空间，而非当下结论是否可被接受。论文结语的价值呼吁（如'健康的平等观'）属于当下规范性主张，但未转化为可继续推进的研究议程或理论修正方案。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文基于实证数据揭示大众平等观张力，明确指出了未深究的具体权利类型及法律干预道德歧视的边界，为后续概念细化与制度衔接提供了可定位的延展路径。",
+          "core_judgment": "存在真实延展路径，主要体现在具体权利界分的未竟之问、法律与道德平等的边界厘清及反歧视制度的场景延伸。",
+          "score_rationale": "原始分65，对应bonus=3。论文明确承认实证未深究具体权利类型，并指出法律干预道德歧视的边界与制度延伸方向，路径清晰且紧扣结论，但后续研究设计精细度有限。",
+          "evidence_quotes": [
+            "这一问题我们并没有深究……对于卖淫人员而言，可能最主要的权利应该是人格权。",
+            "法律上不具备消除其存在的能力……法律只能消除由法律后果带来的可能歧视。"
+          ],
+          "strengths": [
+            "明确指出实证未深究的具体权利类型，为后续精细化研究提供入口。",
+            "清晰界定法律干预道德歧视的边界，并引出反歧视制度的场景延伸。"
+          ],
+          "weaknesses": [
+            "延展方向散见于结语，未形成结构化的未来研究设计。",
+            "对平等观历史演变仅提出设问，缺乏具体的比较或实证推进方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于论文指出的具体权利未深究、法律干预边界等未来可推进方向，而非评判当下大众平等观结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.25852632522583,
+        "glm-5.1": 37.68784499168396,
+        "kimi-k2.6": 12.81485891342163,
+        "qwen3.6-plus": 69.84791994094849
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 65,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 65
+      },
+      "mean": 45,
+      "std": 24.5,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 43.74,
+      "weighted_total": 45.2
+    },
+    "aggregation_strictest": {
+      "final_score": 29.0,
+      "weighted_total": 29.4
+    },
+    "avg_std": 18.4,
+    "max_std": 35.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 14.7,
+    "composite_score": -18.4,
+    "worst_dimension": "literature_insight",
+    "worst_std": 35.5
+  }
+}

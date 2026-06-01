@@ -1,0 +1,1045 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/农民集体成员权、农民集体决议与乡村治理体系的健全.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "正文中个别脚注编号后出现异常换行与字符（如“注129”），疑似OCR或排版导致的参考文献抽取风险，但核心论点、结构及论证可完整定位。"
+        ],
+        "evidence_quotes": [
+          "刘家安:《物权法论》（第2版），中国政法大学出版社2015年第2版，第87页注129"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "农民集体所有权的规范目的是实现集体成员的利益、实现农民集体所有的财产由农民集体成员共享",
+          "农民集体所有权的内部法律构造（主要特征）包括如下四个方面：在主体方面,集体财产集体所有;在客体方面，集体财产范围法定限制；在目的方面，集体利益集体成员分享，由此派生出农民集体成员权;在行使方面，集体事务集体民主管理,并采取农民集体决议的民主决策方式。",
+          "农民集体决议行为是农民集体成员权行使的外在重要方式，是农民集体团体治理的重要技术工具，其回答了乡村治理“谁来治理”和“如何治理”的问题。",
+          "应区分农民集体决议行为的不成立与农民集体对外合同行为的法律效力……基于村民自治原则……未经民主讨论决定土地承包经营方案，村民委员会就没有代表权限……构成无权代表……应区分以这两种不同民事法律行为为调整对象的法律规范。",
+          "建议将《物权法》第63条第2款修改为:‘集体经济组织、村民委员会或者其负责人作出的决定侵害集体成员土地承包经营权、宅基地使用权、集体土地补偿费分配权或者集体收益分配权等受益权利的，受侵害的集体成员可以请求人民法院予以变更或者撤销。’"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号或参考文献抽取存在局部格式风险，可能影响自动化文献索引。"
+      ],
+      "evidence_quotes": [
+        "农民集体所有权的规范目的是实现集体成员的利益……应该结合分配正义，从利益共享而非所有权共有的角度理解农民集体所有权以及国家所有权。",
+        "建议区分农民集体成员权中自益权与共益权，分别配置救济措施……将《物权法》第63条第2款作目的性限缩解释，并区分农民集体决议不成立与农民集体对外合同无效。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国农民集体所有权、成员权与决议行为为中心，提出并论证了具有可复核性的规范命题与解释方案，完全满足进入六维评价的项目口径。文本质量总体可评，但局部脚注存在OCR或抽取风险，可标记供后续评审环节注意。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号极度混乱，数字、带圈数字与特殊符号（如①、⑭、㉑、®、⑩等）混用且错位",
+          "外文文献（德文等）OCR识别存在明显乱码，如Priittinf应为Prütting，Koinmentar应为Kommentar，Aulfalage应为Auflage",
+          "期刊页眉及页码（如“中国法学 2019年第2期”、“130”、“131”等）混入正文段落",
+          "局部段落拼接错位，如“⑲...不同的情况不同对待用”与下一段“所享有权利的总称，以具有村集体农民的特定身份为前提”之间存在文意断裂与错行"
+        ],
+        "evidence_quotes": [
+          "⑲刘守英、高圣平、王瑞民:《农地三权分置下的土地权利体系重构》.载《北京大学学报》（哲学社会科学版）2017年第5期。 20谢怀杭先生将成员权表述为社员权...所享有权利的总称，以具有村集体农民的特定身份为前提...",
+          "® Vgl. Priittinf/Wegen/Weinreieh BGB Koinmentar,3. Auflage,Luchterhand 2008, § 705 Rn. 22,24； §717 Rn. 2； § 719 Rn. 2.",
+          "130 中国法学 2019年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "农民集体所有权制度规定于《物权法》第五章...即回答乡村治理‘为谁治理’的问题。",
+          "农民集体所有权不等于农民集体成员所有权,也不等于农民集体成员共有权。农民集体所有权的规范目的是保障集体成员权的实现...应该结合分配正义，从利益共享而非所有权共有的角度理解农民集体所有权。",
+          "农村集体产权制度改革也并非将农村资产还原为集体成员所有...通过清产核资、折股量化、确权到户等方式，着力实现经营性资产产权清晰、权能完善，落实好农民对集体经济活动的民主管理权利。",
+          "农民集体成员权是具有复合性特点的民事权利...包括自益权和共益权...农民集体决议是农民集体成员权行使的外在重要方式...农民集体决议行为的法律效力原则上的内部指向性特点,应该区分农民集体决议行为的不成立与农民集体对外合同行为的法律效力。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号体系混乱及外文文献OCR乱码，需在后续评审中留意引证核查的准确性",
+        "文本工程：正文局部段落错位及页眉混入，需在阅读时人工重构逻辑连贯性",
+        "项目口径：无口径问题，完全符合进入六维评审标准"
+      ],
+      "evidence_quotes": [
+        "农民集体所有权的规范目的是保障集体成员权的实现...应该结合分配正义，从利益共享而非所有权共有的角度理解农民集体所有权以及国家所有权。",
+        "农民集体成员权是具有复合性特点的民事权利...农民集体决议是农民集体成员权行使的外在重要方式，是农民集体团体治理的重要技术工具，其回答了乡村治理‘谁来治理’和‘如何治理’的问题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本存在局部OCR乱码、脚注编号混乱及排版错位风险，但核心论点（农民集体成员权、决议行为与乡村治理）与主要论证结构清晰可辨，不影响项目口径判断与实质学术评审，建议在后续评分阶段对引证准确性予以适当宽容或人工校对辅助。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如①②③等符号与正文混排，部分脚注内容嵌入正文段落）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "期刊页码信息混入正文（如'中国法学 2019年第2期'、'129'、'130'等）",
+          "部分德文文献引用存在格式残留（如'Vgl.'等）"
+        ],
+        "evidence_quotes": [
+          "① 参见韩松:《农民集体所有权主体的明确性探析》，载《政法论坛》2011年第1期.",
+          "中国法学\n2019年第2期\n129",
+          "Vgl. Priittinf/Wegen/Weinreich BGB Koinmentar,3. Auflage,Luchterhand 2008, § 705 Rn. 22,24"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "农民集体所有权制度规定于《物权法》第五章，其内部法律构造如下",
+          "农民集体所有权的规范目的是保障集体成员权的实现，即回答乡村治理'为谁治理'的问题",
+          "笔者认为，从解释论上看,全民所有制和集体所有制是社会主义公有制的两种重要表现形式，农民集体所有权是我国《宪法》和《物权法》所确立的社会主义基本经济制度的重要体现之一",
+          "从民事权利分类的角度看，不能简单将农民集体成员权归位到物权和债权二分体系或者绝对权与请求权二分体系之下",
+          "应该区分农民集体决议行为的不成立与农民集体对外合同行为的法律效力",
+          "对《物权法》第63条第2款从法律后果上进行了目的性限缩解释"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留与正文混排，需人工核对原始文献",
+        "文本工程：期刊页码和期号信息（如'中国法学 2019年第2期'、'129'、'130'等）混入正文，但不影响核心论点定位",
+        "文本工程：参考文献列表缺失，但正文引用信息完整可定位"
+      ],
+      "evidence_quotes": [
+        "农民集体所有权的规范目的是实现农民集体成员权",
+        "从解释论上看……农民集体所有权是我国《宪法》和《物权法》所确立的社会主义基本经济制度的重要体现之一",
+        "应该区分农民集体决议行为的不成立与农民集体对外合同行为的法律效力"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文进入六维评分。文本质量风险较低，核心论点、结构和主要论证均可定位。建议评分时注意：该文以《物权法》《村民委员会组织法》《农村土地承包法》等中国法规范为核心分析对象，聚焦农民集体成员权、农民集体决议行为等中国民法典编纂中的重大理论与实践问题，具有明确的中国问题意识和理论转化贡献。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别乱码（如©、®替代数字序号）",
+          "页眉页脚信息（如“中国法学 2019年第2期”“130”）混入正文段落",
+          "部分外文文献引用存在拼写识别错误（如Priittinf/Wegen/Weinreieh）"
+        ],
+        "evidence_quotes": [
+          "① 参见韩松:《农民集体所有权主体的明确性探析》...",
+          "© 参见向玉乔:《社会制度实现分配正义的基本原则及价值维度》...",
+          "® Vgl. Priittinf/Wegen/Weinreieh BGB Koinmentar,3. Auflage..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "农民集体所有权制度规定于《物权法》第五章... 结合分配正义，从利益共享而非所有权共有的角度理解农民集体所有权",
+          "司法实践中，有关农民集体决议行为效力瑕疵纠纷的热点和难点问题是相关决议行为对农民集体外部合同行为的效力影响。法院普遍将用于判断农民集体决议行为是否成立的规定误作判断农民集体对外合同行为是否无效的依据",
+          "笔者建议，在民法典物权编立法中，将《物权法》第63条第2款修改为... 实际上就对《物权法》第63条第2款从法律后果上进行了目的性限缩解释。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在轻微OCR脚注乱码与页眉混入，已标注但不影响核心教义学论证定位。"
+      ],
+      "evidence_quotes": [
+        "农民集体所有权的规范目的是实现农民集体成员权",
+        "应该区分农民集体决议不成立与农民集体对外合同无效",
+        "对《物权法》第63条第2款从法律后果上进行了目的性限缩解释"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量风险为旁路工程问题，不影响实质评审。论文紧扣中国农村土地集体产权制度改革与乡村治理实践，围绕农民集体成员权性质、集体决议行为效力及司法救济路径展开教义学分析，提出明确的规范解释方案与立法修改建议，具备充分的理论转化与可复核命题。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文采用“农民集体成员权与决议行为”框架阐释乡村治理，但全文属于对既定法律构造和政策的体系介绍，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文主要是对农民集体所有权、成员权、决议行为的制度阐述与体系化，属于宏观介绍而非围绕可争辩法学问题的深度分析，问题创新性不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发上限。前置检查：新概念包装旧问题扣20分，宏观介绍非深度分析扣20分，主题声明非研究问题扣30分，扣分合计70分。锚定unacceptable档，正式评分=40分（原40分-扣分后取不低于下限规则30分，但下限规则要求可争辩性≤1最高50分，此处因前置扣分实际落于38分），最终给38分。",
+          "evidence_quotes": [
+            "农民集体所有权的规范目的是实现农民集体成员权。",
+            "作为农民集体所有权主体的“农民集体”已经虚化或者被架空。"
+          ],
+          "strengths": [
+            "系统梳理了农民集体所有权、成员权、决议行为的规范结构与关联。",
+            "指出决议行为与合同行为在效力判断上的区分，并尝试进行类型化分析。"
+          ],
+          "weaknesses": [
+            "全文找不到明确的法学争点或问题句，仅是主题阐释与体系介绍。",
+            "未呈现不同学者间的观点交锋，多为对各方主张的简单列举或权威性整合。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明，无法找到可争辩的法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文标题与各部分均以陈述性命题展开，如“农民集体所有权的规范目的是实现农民集体成员权”，未见“是否”“如何”等问题表述。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑力。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕农民集体成员权与决议行为的法教义学建构展开，问题成立且枢纽性强。",
+          "core_judgment": "论文提出了明确的法学争点（决议效力内外区分、撤销诉权目的性限缩），存在理论分歧且影响多领域制度。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料未触发上限，锚定excellent档，给88分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "问题不在于农民集体所有权主体是否虚置，更重要的是完善代表行使机制",
+            "对《物权法》第63条第2款中的‘合法权益’作目的性限缩解释"
+          ],
+          "strengths": [
+            "争点明确，存在法人化改造与代表行使机制的理论交锋",
+            "问题枢纽性强，涉及物权、合同与团体法多领域制度连锁"
+          ],
+          "weaknesses": [
+            "部分问题隐含在体系阐释中，缺乏显性问题句提炼"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文系统阐释农民集体成员权与集体决议制度，但缺乏明确可争辩的法学问题句，主题声明替代了研究问题。",
+          "core_judgment": "论文以制度阐释和体系建构为主，未提出具有理论分歧的可争辩法学问题，问题创新性不足。",
+          "score_rationale": "可争辩性=2/4（有法学层面讨论、非纯政策倡导，但无明确问题句、无真正理论分歧呈现），枢纽性=2/4（涉及成员权与决议制度多个领域、触及法学核心概念，但无学界长期争论焦点、制度连锁论证不充分），材料新颖性未触发上限，锚定marginal档，给55分。负面模式扣分：检查2扣15分（有学者观点提及但未展开交锋），检查3扣20分（有问题句但实质是制度建构而非可争辩争点），合计扣35分；但扣分后不得低于30分，正式评分55分。",
+          "evidence_quotes": [
+            "农民集体所有权的规范目的是实现农民集体成员权",
+            "应该区分农民集体决议行为的不成立与农民集体对外合同行为的法律效力"
+          ],
+          "strengths": [
+            "涉及成员权、决议行为等民法基础概念，有一定理论深度",
+            "尝试构建农民集体成员权的权利体系与行使机制"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'式问题句，只有主题声明和制度阐释",
+            "学者观点仅作为引证材料，未形成真正的理论交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文以'农民集体成员权''乡村治理体系'等宏大主题展开，无具体争点聚焦"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦集体决议效力与外部合同界分及成员权救济，具明确教义学争点。",
+          "core_judgment": "该维度成立，问题具备高度可争辩性与枢纽性，未触发负面扣分与上限规则。",
+          "score_rationale": "负面检查扣0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "法院普遍将用于判断农民集体决议行为是否成立的规定误作判断对外合同无效的依据",
+            "应综合判断有关农民集体决议行为法律条文是否属于效力性强制性规定"
+          ],
+          "strengths": [
+            "精准提炼决议不成立与对外合同无效的教义学区分",
+            "对成员撤销权提出目的性限缩的体系化解释方案"
+          ],
+          "weaknesses": [
+            "部分立法建议偏向解释论完善，对新型乡村治理实证回应稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.592926025390625,
+        "glm-5.1": 45.22950077056885,
+        "kimi-k2.6": 13.37995982170105,
+        "qwen3.6-plus": 70.37246489524841
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 88,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 67.2,
+      "std": 24.9,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文在正文论证中分散梳理了若干学术观点，但整体研究地图三要素不够完整，未竟点与本文切入点的逻辑对应关系较模糊，争点结构尚未充分展开。",
+          "core_judgment": "研究地图部分成立，有分散的文献定位和有限的学术对话，但未清晰完成“到达点—未竟点—本文切入点”的严密建构，且基本未呈现可区分的争点与流派对立。",
+          "score_rationale": "三要素总分=3/6（到达点1，未竟点1，本文切入点1），争点结构=0/2，法学流派=0个。锚定marginal档，因研究地图有缺口且无争点结构，触发了insufficient_school_coverage上限，最终给58分。",
+          "evidence_quotes": [
+            "“有学者建议确认农民集体的法人地位……有学者则认为，《物权法》第60条规定了农村集体经济组织对于集体财产的所有人地位。”",
+            "“孙宪忠教授认为，通过实证调研发现，这种‘集体’已经不存在了……梁慧星教授质疑农村土地所有权主体归属问题的讨论意义。”"
+          ],
+          "strengths": [
+            "正文多处引用具体学者观点（如韩松、刘家安、孙宪忠、梁慧星等），显示了分散式的文献定位。",
+            "对农民集体所有权的主体争议进行了介绍，具备一定的学术对话意识。"
+          ],
+          "weaknesses": [
+            "未明确指出既有研究已解决什么（到达点）以及未解决什么（未竟点），本文切入点与学术界缺口之间的对应关系不清晰。",
+            "所引学者观点仅作为对立主张罗列，未形成可区分的法学流派或清晰的争点结构，难以看出学界争论的脉络。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1，研究地图未充分展现学术争论脉络。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文列举了不同学者对农民集体性质的不同看法，但未将其组织为可区分的争点或法学流派对立，无法提取清晰的争论结构。"
+            }
+          ],
+          "boundary_note": "评分聚焦于学术脉络的梳理程度，而非所讨论的成员权、决议行为等问题本身是否新颖或重要。",
+          "review_flags": [
+            "needs_external_context",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位既有研究缺口，呈现多维度争点结构与丰富流派对立，洞察度极佳。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者建议确认农民集体的法人地位…也有学者从立法论的角度解构…认为已经虚化或者被架空",
+            "法院普遍将用于判断农民集体决议行为是否成立的规定误作判断农民集体对外合同行为是否无效的依据"
+          ],
+          "strengths": [
+            "精准识别司法实务与理论对决议效力及撤销诉权的误判与局限",
+            "呈现集体所有权主体构造的多重对立解释路径"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献定位与争点梳理深度，不评问题本身是否新颖或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文构建了农民集体成员权与决议行为的理论框架，但研究地图呈现分散且三要素不完整。",
+          "core_judgment": "三要素总分4/6，争点结构1/2，法学流派2个，因争点结构不足且流派覆盖有限，落入marginal档。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=2个（'集体虚化论'vs'集体实在论'、'法人改造论'vs'代表行使论'），锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "有学者建议确认农民集体的法人地位……有学者则认为，《物权法》第60条规定了农村集体经济组织对于集体财产的所有人地位",
+            "孙宪忠教授认为……梁慧星教授质疑农村土地所有权主体归属问题的讨论意义……但中共中央办公厅、国务院办公厅……指出：'农村土地农民集体所有……不能虚置'"
+          ],
+          "strengths": [
+            "分散式文献定位有效，正文多处嵌入具体学者观点",
+            "对司法实践裁判分歧有类型化梳理"
+          ],
+          "weaknesses": [
+            "未明确提炼'未竟点'，缺乏对研究缺口的集中陈述",
+            "争点结构不完整，仅呈现主体资格单一争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "三要素总分4但争点结构≤1且法学流派≤2，上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文虽涉及集体所有权主体虚置之争，但未形成≥2个可区分争点，流派识别仅2个"
+            }
+          ],
+          "boundary_note": "本维度评文献定位完整性，不评问题新颖性；论文问题意识清晰但研究地图构建不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰勾勒了集体所有权构造、决议效力认定及救济路径的既有研究版图。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，三要素高度契合，现状洞察度优秀。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "有学者建议确认农民集体的法人地位……有学者则认为《物权法》第60条规定了农村集体经济组织的所有人地位。",
+            "司法实践中法院普遍将判断决议成立的规定误作判断外部合同无效的依据，存在效力性与管理性强制规范之争。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，有效提炼了法人化改造与代表行使机制的学术分歧。",
+            "明确指出现行法未规定决议撤销制度及司法误判合同效力的具体缺口。"
+          ],
+          "weaknesses": [
+            "部分流派识别依赖司法裁判分歧，纯学理流派交锋的纵深略显不足。",
+            "对比较法或历史制度演进的文献覆盖较少，主要聚焦国内现行法解释。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及成员权制度设计本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.420000076293945,
+        "glm-5.1": 48.66129994392395,
+        "kimi-k2.6": 14.044561862945557,
+        "qwen3.6-plus": 74.46540188789368
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 75.5,
+      "std": 18.0,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文梳理了“成员权—决议行为”双重分析框架，思路清晰但原创建构性较弱，整体框架可操作性和法学转化度良好。",
+          "core_judgment": "论文有明确的分析框架，但整体偏向既有理论梳理，原创建构力略显不足。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=2/4，锚定good档，给72分。",
+          "evidence_quotes": [
+            "农民集体所有权的规范目的是保障集体成员权的实现，即回答乡村治理“为谁治理”的问题。",
+            "农民集体决议是农民集体成员权行使的外在重要方式，是农民集体团体治理的重要技术工具，其回答了乡村治理“谁来治理”和“如何治理”的问题。"
+          ],
+          "strengths": [
+            "从成员权与决议行为两个核心维度构建分析框架，结构清晰。",
+            "框架在后文被反复调用，如运用成员权自益权/共益权二分分析侵害救济问题。"
+          ],
+          "weaknesses": [
+            "框架更多是既有制度要素的归纳，原创性建构较弱。",
+            "作为制度/实务型论文，未提供可直接操作的裁判规则或判断流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架本身的可操作性与法学转化度，不评问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了所有权-成员权-决议行为的清晰框架，法学转化度高。",
+          "core_judgment": "该维度完全成立，框架概念清晰、步骤可循且提供了具体裁判规则与立法方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "农民集体成员权包括自益权和共益权，前者更近似传统财产权，后者具有民主性、程序性特点",
+            "判断此类对外合同效力时，《合同法》第50条方为基础规范，不能用规范决议的条文直接判断合同效力"
+          ],
+          "strengths": [
+            "概念界定与类型化标准极为清晰，自益权/共益权区分具有强解释力",
+            "将程序正义等理论成功转化为决议成立要件与效力判断的裁判规则"
+          ],
+          "weaknesses": [
+            "部分立法修改建议的论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构力，不评价理论溯源的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以农民集体成员权为核心，构建了'权利性质—行使方式—效力瑕疵—救济机制'的分析脉络，但原创框架性较弱，偏重制度阐释与规范解释。",
+          "core_judgment": "分析框架基本成立但原创性不足，属于制度/实务型论文中规范解释型研究，缺乏独立的类型化工具或操作步骤。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准部分明确，但分析步骤化不足、后文调用分散），法学转化度得分=2/4（有裁判规则提炼和制度建议，但多为解释论层面的规范适用，缺乏独立的程序性操作指引），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "农民集体所有权的内部法律构造（主要特征）包括如下四个方面：在主体方面……在客体方面……在目的方面……在行使方面……",
+            "农民集体成员权包括：一是直接的物权……二是物权派生的管理权利……"
+          ],
+          "strengths": [
+            "对农民集体成员权进行权利性质分解（自益权/共益权），具有类型化意识",
+            "将决议行为效力瑕疵与对外合同效力区分，提炼了裁判规则"
+          ],
+          "weaknesses": [
+            "核心框架为'四方面特征'式描述，未转化为可重复适用的判断步骤",
+            "后文对'四方面特征'的调用不足，多为规范解释而非框架驱动分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语虽多，但缺乏步骤化分析流程，多为特征描述而非判断标准",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "论文以'四个方面''两种权利'等结构化归纳为主，未形成'第一步…第二步…'式的分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及规范解释的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了“所有权目的→成员权复合结构→决议程序效力→类型化救济”的教义学框架，具强司法操作性。",
+          "core_judgment": "框架成立且高度可用，成功将集体产权理念转化为可重复适用的裁判规则与解释路径。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "农民集体成员权包括：一是直接的物权……二是物权派生的管理权利",
+            "应该区分农民集体决议不成立与农民集体对外合同无效……不能用规范农民集体决议的条文直接去判断合同行为的效力"
+          ],
+          "strengths": [
+            "自益/共益权分类精准对接差异化救济路径",
+            "决议内部效力与外部合同效力区分提供明确裁判指引"
+          ],
+          "weaknesses": [
+            "部分立法建议仍沿用旧法表述未完全同步民法典体系",
+            "司法审查与自治边界论述稍显宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.54859805107117,
+        "glm-5.1": 48.46915292739868,
+        "kimi-k2.6": 14.052930116653442,
+        "qwen3.6-plus": 59.4201557636261
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 77.8,
+      "std": 17.9,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文整体推理链清晰，能有效串联从“集体所有权规范目的”到“成员权性质”再到“决议行为效力与救济”的主线，并较好地回应了反驳观点。",
+          "core_judgment": "主要推理步骤完备且逻辑连贯，结论可由前文推导而出；仅在对既有观点进行反驳时，个别环节的过渡稍显简略。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，结合论证的充实程度，给85分。",
+          "evidence_quotes": [
+            "农民集体所有权的规范目的是保障集体成员权的实现...（有学者）认为作为农民集体所有权主体的‘农民集体’已经虚化...笔者认为，问题不在于...是否虚置，更重要的是明确在既有法律体系下如何坚持农村土地集体所有权的根本地位。",
+            "农民集体成员权...属于独立的民事权利类型...农民集体决议行为...也有可能侵害农民集体成员权...需要作类型化讨论...笔者主张对《物权法》第63条第2款中的‘合法权益’作目的性限缩解释。"
+          ],
+          "strengths": [
+            "能够识别并回应学界分歧（如集体主体虚置说），逻辑回应的针对性较强。",
+            "从“成员权内部构造”到“决议行为类型化救济”的推导清晰，为结论提供了有力支撑。"
+          ],
+          "weaknesses": [
+            "对霍布斯、亚里士多德等法哲学观点的援引，与农民集体成员权具体制度建构的关联性论证稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "文中被质疑的‘支撑不足’主要指理论纵深引用的衔接问题，而非法学三段论式的推理断裂，不影响核心体系逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链层层递进且高度依赖，对理论与实务分歧均有实质性回应。",
+          "core_judgment": "推理链完整且无关键跳步，核心结论可辩护推出，本维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“农民集体成员权由农民集体所有权派生……农民集体决议行为是农民集体成员权行使的外在重要方式”",
+            "“有学者从立法论角度解构……认为‘集体’已虚化……但中共中央……指出：‘不能虚置’”"
+          ],
+          "strengths": [
+            "推理链高度依赖：所有权目的→成员权性质→决议行为→效力救济，删前步后步失据",
+            "反驳处理深入：对法人化、主体虚化及司法实务分歧均给出实质回应与替代方案"
+          ],
+          "weaknesses": [
+            "从分配正义理念到成员权自益/共益具体划分的过渡稍显理论化，实务约束论证可更充实"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦所有权至决议救济的推导连贯性，不评判撤销诉权限缩方案在实务界的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'集体所有权→成员权→决议行为'的三层推理链，逻辑主线清晰，但部分关键过渡存在论证跳跃。",
+          "core_judgment": "推理链完整性基本成立，但存在1-2处关键跳步；反驳处理度不足，对核心反对意见的回应深度有限。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在跳步：从'集体所有权规范目的'到'成员权复合性'的推导中，'成员权由所有权派生'的规范依据论证不足；从'决议行为成立要件'到'对外合同效力'的区分论证中，无权代表说的引入较为突兀）；反驳处理度得分=2/3（标准1、2成立：对'集体虚化说''法人改造说'有显式回应，但对'成员权独立说'的反驳较浅；标准3不成立：未明确承认论证边界）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "农民集体成员权由农民集体所有权派生，是农民作为集体成员对集体所享有权利的总称。",
+            "有学者建议确认农民集体的法人地位……笔者认为……不必对农民集体所有权的主体乃至全部农民集体所有权代表行使主体进行重塑或者法人化改造"
+          ],
+          "strengths": [
+            "三层推理链环环相扣：所有权规范目的→成员权性质内容→决议行为成立与效力",
+            "对司法实践误区的类型化分析细致，区分'决议不成立'与'合同无效'具有规范意义"
+          ],
+          "weaknesses": [
+            "从'所有权派生成员权'到'成员权是独立民事权利'的过渡，缺乏对'派生'与'独立'之张力的充分消解",
+            "引入无权代表说解释对外合同效力时，与前文'代表行使机制'的衔接论证不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的完整性与反驳处理，不评价'成员权是否应独立'这一实体结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑链条完整，规范分析与实务回应严密，结论可辩护推出。",
+          "core_judgment": "推理链完整且依赖度高，核心结论由教义分析与案例推导充分支撑，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证层层递进且有效回应反对意见，无关键跳步。",
+          "evidence_quotes": [
+            "农民集体所有权的规范目的是实现集体成员的利益……应结合分配正义，从利益共享而非所有权共有的角度理解",
+            "应该区分农民集体决议不成立与对外合同无效……不能用规范决议的条文直接判断合同效力"
+          ],
+          "strengths": [
+            "推理链条完整，从规范目的到权利派生再到决议机制层层递进",
+            "有效回应学界质疑，区分内外效力逻辑严密"
+          ],
+          "weaknesses": [
+            "部分立法建议过渡稍简，较多依赖政策文件背书",
+            "司法审查介入自治边界的论证可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链支撑度，不评价制度方案可操作性或结论共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 122.89085912704468,
+        "glm-5.1": 48.57313370704651,
+        "kimi-k2.6": 12.78049898147583,
+        "qwen3.6-plus": 58.889013051986694
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.8,
+      "std": 9.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文结论能与既有学术争论和制度语境进行对话，具备较强的共同体对话度，但制度可接受度层面回应略显不足。",
+          "core_judgment": "结论提出了与主流观点对话的学术主张，并回应了现行法秩序的基本逻辑，但制度转化方向及对反对意见的讨论不够充分。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=2/4，锚定理论论文good档，结合制度回应不足微调至72分。",
+          "evidence_quotes": [
+            "从解释论上看...问题不在于农民集体所有权主体是否不明或者虚置，也不必对农民集体所有权的主体乃至全部农民集体所有权代表行使主体进行重塑或者法人化改造。",
+            "笔者建议...将《物权法》第63条第1款修改为：...本集体十分之一以上的成员或者三分之一以上的成员代表有权要求行为人承担...责任。"
+          ],
+          "strengths": [
+            "结论明确回应了孙宪忠、梁慧星等学者关于集体所有权主体虚置的争论，并提出解释论立场。",
+            "结论考虑了《物权法》《村民委员会组织法》等现行法秩序，并提出了具体的修法建议，具有一定制度兼容性。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认或讨论自身论证的局限，也未回应可能的反对意见（如坚持法人化改造方案的学者可能提出的反驳）。",
+            "对于理论框架如何在更广泛的制度语境中转化，讨论相对薄弱，主要集中在具体的条文修改上。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅针对结论在共同体和制度语境中的可接受性，不评估论证过程的严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论与实务分歧，提出具体解释论与立法论方案，高度兼容现行法秩序。",
+          "core_judgment": "结论完全进入共同体对话语境，且在制度层面提出了高度可接受的具体转化方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "结论明确修正了孙宪忠等关于集体所有权主体虚化的观点，主张在既有体系下完善代表行使机制",
+            "建议将《物权法》第63条第2款修改为限缩受益权利的撤销诉权，兼顾决议安定性与成员权保护"
+          ],
+          "strengths": [
+            "深度回应既有学术争论与司法实务分歧，对话度高",
+            "提出具体法条修改建议与解释论方案，制度转化方向明确"
+          ],
+          "weaknesses": [
+            "对成员权复合性理论的制度转化细节可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论在共同体与制度语境中的可接受性，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文在既有民法学争论中明确立论，提出农民集体成员权的复合权利构造及决议行为的法教义学分析，制度兼容性强。",
+          "core_judgment": "结论深度嵌入中国法秩序语境，主动回应了集体所有权虚化、成员权救济等核心争论，可被反对者定位反驳。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定理论论文good档，给78分。对话度四项全满足：回应孙宪忠、梁慧星等既有争论（标准1）；提出可反驳的具体论点如'目的性限缩解释''变更诉权替代撤销诉权'（标准2）；紧密结合《物权法》《民法典》编纂及三权分置改革语境（标准3）；主动讨论'多数人暴政''司法审查与村民自治协调'等反对意见（标准4）。制度度三项满足：不矛盾于现行法秩序（标准1）；回应《物权法》第63条等具体条文解释（标准2）；指出民法典物权编立法方向（标准3）。标准4（中国制度语境）虽满足但外国法引用较多，未充分转化。",
+          "evidence_quotes": [
+            "有学者建议确认农民集体的法人地位……笔者认为，从解释论上看……不必对农民集体所有权的主体乃至全部农民集体所有权代表行使主体进行重塑或者法人化改造",
+            "笔者主张对《物权法》第63条第2款中的'合法权益'作目的性限缩解释……应该根据权利性质的不同，分别讨论其救济措施"
+          ],
+          "strengths": [
+            "主动回应孙宪忠、梁慧星等学者观点，定位清晰",
+            "提出'变更诉权替代撤销诉权'等具体可反驳论点"
+          ],
+          "weaknesses": [
+            "德国法引用较多，未充分转化为中国制度语境",
+            "结语部分'一体两翼'表述略显口号化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论当下可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度契合中国法秩序与乡村治理语境，具高度可接受性。",
+          "core_judgment": "结论明确回应既有学说争议，提出具体修法与解释路径，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "问题不在于农民集体所有权主体是否不明或者虚置……更重要的是，应明确在既有法律体系下如何坚持农村土地集体所有权的根本地位",
+            "笔者建议……将《物权法》第63条第2款修改为……受侵害的集体成员可以请求人民法院予以变更或者撤销。"
+          ],
+          "strengths": [
+            "深度回应孙宪忠等学者争议，立场清晰可辩。",
+            "提出区分内外效力及限缩撤销权的具体修法建议。"
+          ],
+          "weaknesses": [
+            "对“变更诉权”替代“撤销诉权”的司法成本论证略简。",
+            "部分程序规则类推适用公司法的本土适配性可深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.99510192871094,
+        "glm-5.1": 39.88763189315796,
+        "kimi-k2.6": 13.54596209526062,
+        "qwen3.6-plus": 73.68926095962524
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83.5,
+      "std": 10.1,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "结语仅对正文观点进行空泛拔高与意义重申，未能提出具体、可定位的后续研究问题、修正方向或制度完善路径。",
+          "core_judgment": "本文不存在真实、具体的延展路径，前瞻部分停留在口号式展望。",
+          "score_rationale": "原始分25分属于0-39低分段，bonus为0。证据显示结语段仅以“需要本着……”应本着……”等宏观表述收尾，未指出任何具体待修正的对象、机制或研究争点，构成空泛拔高。",
+          "evidence_quotes": [
+            "健全乡村治理体系和完善农民集体决议行为法律制度的根本目的都是保障农民集体成员权的实现。",
+            "应该本着程序正义的理念，妥当界定农民集体决议行为的成立和效力。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "展望仅为宏观意义重申，无具体后续研究问题或制度修正方向。",
+            "未指明正文的明确局限或未来应围绕何种理论/制度缺口推进。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "仅包含空泛拔高且没有具体待修正对象时，进入低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "结语段反复强调“需要本着”“应该本着”，但未说明任何具体的后续研究问题、概念边界或制度路径。"
+            }
+          ],
+          "boundary_note": "本文未探讨未来应如何检验或修正现有结论，仅重申现有主张，属于是否有真实延展路径的问题，而非结论当下是否可接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了具体的立法修改建议和决议行为类推适用等制度完善方向，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了决议行为规则衔接与成员权救济类型化的制度深化方向。",
+          "score_rationale": "原始分85，对应bonus=5档。论文提出了民法典物权编具体条文修改建议、决议行为类推适用公司法规则及公开制度的跨领域借鉴，延展路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "农民集体决议行为公开制度……值得业主大会或业主委员会决定、业主管理规约和公司决议等其他决议行为类型参考借鉴。",
+            "农民集体决议行为的法律规范配置应该采取民法典总则和物权编相结合、民法典和民法特别法相结合的模式"
+          ],
+          "strengths": [
+            "提出了具体的立法论修改建议（如物权编第63条修改）。",
+            "指明了决议行为规则向其他团体法延伸的比较维度。"
+          ],
+          "weaknesses": [
+            "对成员权救济类型化在司法实践中的实施风险控制未作深入延展。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "决议行为规则向公司法类推适用及跨领域借鉴属于未来制度完善与规则衔接问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语及多处提出制度完善方向，包括民法典编纂中成员权一般规则的确立、决议行为效力瑕疵的集中规范、撤销诉权的目的性限缩解释等，延展路径明确但精细度有限。",
+          "core_judgment": "存在真实延展路径，主要体现为立法论层面的制度完善方向与解释论层面的规则细化建议。",
+          "score_rationale": "原始分62分，对应bonus=3档位。论文提出：①民法典应确立普遍适用的成员权法律制度；②《民法总则》应增加决议行为效力瑕疵规定；③《物权法》第63条第2款应作目的性限缩并修改条文；④农民集体决议行为应采取'民法典总则和物权编相结合、民法典和民法特别法相结合'的规范配置模式。这些均为可定位的具体延展方向，但多集中于立法建议层面，对理论深化路径（如成员权与股权的比较法展开、团体法理论的本土化建构）着墨较少，且部分建议与正文论证的衔接尚需进一步展开。",
+          "evidence_quotes": [
+            "从民事基本制度层面看，适宜在民法典物权编'国家所有权和集体所有权、私人所有权'章规定确认农民集体成员身份的实体规则和程序规则",
+            "农民集体决议行为的法律规范配置应该采取民法典总则和物权编相结合、民法典和民法特别法相结合的模式"
+          ],
+          "strengths": [
+            "立法建议具体可定位，如明确援引《民法总则》第134条第2款授权特别法作具体规定",
+            "区分受益权与共益权配置不同救济措施，为后续类型化研究提供入口"
+          ],
+          "weaknesses": [
+            "比较法维度仅零星涉及德日，未提出可继续深化的比较框架",
+            "对'三权分置'政策背景下成员权与经营权关系的理论延展不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究或制度发展指明的方向，而非当下结论是否被接受。论文提出的立法建议属于'未来还能往哪里走'的范畴，区别于结论可接受性所评价的'当下结论能否成立'。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文立足解释论与立法论，清晰勾勒出农民集体成员权救济、决议程序完善及跨类型决议规则借鉴的具体延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密围绕决议效力瑕疵救济与立法技术配置展开。",
+          "score_rationale": "原始分82，达80分档对应bonus=5。主要证据为提出《物权法》第63条具体修法方案、决议公开制度跨领域延伸及成员资格认定细化路径，与正文结论紧密衔接。",
+          "evidence_quotes": [
+            "笔者建议，在民法典物权编立法中，将《物权法》第63条第2款修改为……受侵害的集体成员可以请求人民法院予以变更或者撤销。",
+            "农民集体决议行为公开制度……值得业主大会或业主委员会决定、业主管理规约和公司决议等其他决议行为类型参考借鉴。"
+          ],
+          "strengths": [
+            "立法修改与司法解释路径具体明确，具备直接转化潜力。",
+            "将决议公开制度延伸至其他团体法领域，展现跨制度延展视野。"
+          ],
+          "weaknesses": [
+            "对成员资格认定的具体司法审查标准未作深度展开。",
+            "立法建议的实证效果评估与配套程序设计略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于决议规则立法完善、跨领域制度借鉴及成员权救济机制的未来演进方向，而非当下结论的教义学可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.639504194259644,
+        "glm-5.1": 34.135672092437744,
+        "kimi-k2.6": 16.337428092956543,
+        "qwen3.6-plus": 57.659910917282104
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 82
+      },
+      "mean": 63.5,
+      "std": 27.6,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 78.16,
+      "weighted_total": 75.4
+    },
+    "aggregation_strictest": {
+      "final_score": 53.71,
+      "weighted_total": 54.1
+    },
+    "avg_std": 17.9,
+    "max_std": 27.6,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.4,
+    "composite_score": -17.9,
+    "worst_dimension": "forward_extension",
+    "worst_std": 27.6
+  }
+}

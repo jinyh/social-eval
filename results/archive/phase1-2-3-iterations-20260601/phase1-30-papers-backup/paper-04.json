@@ -1,0 +1,543 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/论行政诉讼补救判决的适用——基于104份行政裁判文书的统计分析.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致部分百分比与数字错乱（如l7．3％、1O．6％、68。3％）",
+          "期刊名称括号及特殊字符识别错误（如《四川师范大学学报}2014、《清华~ k}2013）",
+          "页眉页脚、页码及脚注编号混入正文流（如235、中国法学 2015年第2期、④⑤⑥⑩等）"
+        ],
+        "evidence_quotes": [
+          "l7．3％",
+          "《四川师范大学学报}2014年第2期",
+          "《清华~ k}2013年第4期",
+          "235 \n\n中国法学 \n2015年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文收集的全国各地涉及补救判决的104份行政裁判文书...从案件发生的时间、地点及案件类型来看，仍不失一定的代表性",
+          "从规范依据来看，补救判决来源于最高人民法院的司法解释，共有三条，即《解释》第58条、59条第2项和《信息公开司法解释》第l1条第1款",
+          "在行政审判实践中，无论当事人是否诉请被告采取补救措施，法院均可以依职权进行审查并作出判决",
+          "新《行政诉讼法》第76条规定...根据补救判决在司法实践中的运用情况，人民法院在适用新《行政诉讼法》该条规定时应当注意以下几点：第一...第二...第三...第四..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR识别残留与排版混入，但不影响核心法学论证、实证数据与规范命题的定位"
+      ],
+      "evidence_quotes": [
+        "本文收集的全国各地涉及补救判决的104份行政裁判文书...",
+        "新《行政诉讼法》第76条规定...根据补救判决在司法实践中的运用情况，人民法院在适用新《行政诉讼法》该条规定时应当注意以下几点..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR与排版混入风险，但核心论点、实证数据与规范分析结构完整清晰。项目口径完全符合‘中国自主知识体系’六维评价标准：以中国行政诉讼制度与司法实践为中心，具有明确的规范争点（补救判决的性质、适用基础、形式与内容），深入解释了中国法院在司法权与行政权平衡中的真实难题，并形成了可复核的教义学命题与适用指引。建议直接进入六维评分阶段，评审时忽略格式乱码，聚焦其对中国行政判决制度的理论贡献与实践解释力。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR识别错误导致数字与字母乱码（如'l7.3%'应为'17.3%'，'1O.6%'应为'10.6%'，'海1 21市'应为'海口市'，'10 4'应为'104'）",
+          "期刊页码及栏目名混入正文（如'235 中国法学 2015年第2期'，'236 论行政诉讼补救判决的适用'等）",
+          "脚注编号与正文混杂，部分脚注符号被OCR为数字或与正文数字粘连（如④识别为4，⑩识别为10导致与正文104粘连成'10 4'）"
+        ],
+        "evidence_quotes": [
+          "10 4 个案件的基本情况如表1所示",
+          "l7．3％",
+          "235 中国法学 2015年第2期",
+          "海1 21市人民政府颁发国有土地使用证纠纷上诉案"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文收集的全国各地涉及补救判决的104份行政裁判文书不免带有一定的“偶然性”",
+          "若是仅作出撤销违法行政行为或者确认行政行为违法的判决，难以从根本上化解各方的争议，更不要说平衡相关各方的利益关系了",
+          "前者为“并责令”采取补救措施，即具有“羁束性”，而后者是“可以责令”采取补救措施，即具有裁量性",
+          "补救判决只能处于从属地位...作为“从判决”，人民法院只有在作出确认违法或无效判决的情形下才可以判决被告“采取补救措施”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR数字/字母乱码、剥离混入正文的页码/期刊信息、重新分离脚注",
+        "项目口径：完全满足，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "本文收集的全国各地涉及补救判决的104份行政裁判文书",
+        "10 4 个案件的基本情况如表1所示",
+        "235 中国法学 2015年第2期"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在文本工程阶段清洗OCR乱码（如数字粘连、字母误认）、剔除混入正文的期刊页码及栏目名，并重新分离脚注与正文。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 85
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "基于百份裁判文书实证分析，精准提炼补救判决适用中的规范与理论争点。",
+          "core_judgment": "问题具有明确的可争辩性与法学深度，触及行政诉讼判决体系的核心构造。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "基于私人利益的考虑，为什么不能作出情况判决?除《解释》第58条、59条第2项规定的事由外，补救判决是否还存在其他的适用空间?",
+            "在行政审判实践中，当事人甚至是法院对此是有不同意见的……法院作出补救判决应当以当事人的诉讼请求为基础"
+          ],
+          "strengths": [
+            "实证数据精准揭示司法实践分歧，问题意识鲜明",
+            "紧扣判决性质、职权基础与既判力等核心法理争点"
+          ],
+          "weaknesses": [
+            "部分争点（如主从判决形式）的规范论证可进一步深化",
+            "对新旧法衔接的理论张力挖掘略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不涉文献综述、逻辑推演或证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于实证数据揭示了补救判决适用中的法理争点，问题成立且枢纽性强。",
+          "core_judgment": "论文提出了补救判决适用基础、形式及限度等可争辩的法学争点，问题成立。",
+          "score_rationale": "前置扣分0分。可争辩性=4/4，枢纽性=4/4，材料未触发上限，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "补救事项是法院依职权审查事项还是依当事人请求审查事项，认识并不完全一致。",
+            "这种立法中否定补救判决作为撤销判决从判决存在的做法是否合理，应该是一个值得进行深入讨论的问题。"
+          ],
+          "strengths": [
+            "提出了职权主义vs当事人主义等明确争点",
+            "争点涉及行政诉讼核心制度与法理"
+          ],
+          "weaknesses": [
+            "部分争点（如司法权限度）属行政诉讼传统争议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 82.09361004829407,
+        "glm-5.1": 44.97659111022949
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 90
+      },
+      "mean": 85,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "实证梳理补救判决适用现状，精准映射理论空白与实务分歧。",
+          "core_judgment": "文内证据完整构建研究地图，争点脉络清晰，符合优秀文献洞察标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学界对补救判决缺乏必要的研究和关注，因而该规定所蕴含的潜在价值没有得到应有的重视和发掘。",
+            "具体到我国行政审判实践，补救事项是法院依职权审查事项还是依当事人请求审查事项，认识并不完全一致。"
+          ],
+          "strengths": [
+            "实证样本与规范分析结合，精准定位理论空白与实践争议。",
+            "分散式文献定位有效融入五大争点，逻辑链条完整。"
+          ],
+          "weaknesses": [
+            "未集中设置独立文献综述章节，部分理论溯源略显分散。",
+            "流派识别主要依赖实务分歧，纯理论学派交锋着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉制度创新性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过实证精准定位学界空白与实践分歧，构建了多重对立争点结构。",
+          "core_judgment": "现状洞察维度高度成立，研究地图完整且争点结构丰满。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界对补救判决缺乏必要的研究和关注，因而该规定所蕴含的潜在价值没有得到应有的重视和发掘",
+            "补救事项是法院依职权审查事项还是依当事人请求审查事项，认识并不完全一致"
+          ],
+          "strengths": [
+            "分散式文献定位精准，实证揭示学界空白与实践混乱",
+            "争点结构清晰，呈现职权/当事人主义、主/从判决等多重对立"
+          ],
+          "weaknesses": [
+            "无独立文献综述章节，理论脉络梳理稍显碎片化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献梳理与争点结构，不评判补救判决问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.2393798828125,
+        "glm-5.1": 52.50687098503113
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "基于实证数据构建五维分类框架，并提炼出明确的司法适用指引。",
+          "core_judgment": "分析框架成立且具备较强实务可操作性，有效实现了从案例归纳到裁判规则的法学转化。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "根据判决在诉讼中的地位和作用，行政判决可划分为主判决与从判决。",
+            "新法第76条适用指引：补救判决须在主文体现、属从判决、具裁量性且需释明。"
+          ],
+          "strengths": [
+            "五维实证分类标准清晰，有效覆盖法律依据与裁判形式等核心争议。",
+            "结论提炼的四点指引直接回应司法裁量与裁判说理需求。"
+          ],
+          "weaknesses": [
+            "未提供步骤化的裁判审查流程，法官适用时仍需自行裁量。",
+            "部分分类停留于现象描述，缺乏深层法理逻辑的体系化串联。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "基于实证案例提炼出补救判决的五维分类分析框架与裁判释明操作指引。",
+          "core_judgment": "本文建构了基于判例的分类分析框架，并有效转化为具体的裁判操作指引，框架成立且可用。",
+          "score_rationale": "框架可操作性得分=3/4（分类标准明确但缺步骤化流程），法学转化度得分=4/4（提供裁判释明指引），锚定excellent档，给85分",
+          "evidence_quotes": [
+            "前者为‘并责令’采取补救措施...我们称之为‘应为补救判决’；后者是‘可以责令’...我们称之为‘可为补救判决’",
+            "说理部分应当对为何责令补救、对谁补救、对何种不利益进行补救等予以释明，以保证补救判决的实效性"
+          ],
+          "strengths": [
+            "从判例中提炼出清晰的分类标准（依据、基础、形式、位置、内容）",
+            "提供了具体的裁判操作指引（释明三要素：为何、对谁、何种不利益）"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的判断流程（如适用补救判决的先后审查步骤）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价分析框架是否成立及法学转化，不评价推理逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 82.63858604431152,
+        "glm-5.1": 53.088555097579956
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文基于实证数据展开五维度分析，逻辑链条完整，结论推导严密。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可由前文实证与规范分析充分支撑，反驳处理到位。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "从案件发生的时间、地点及案件类型来看，仍不失一定的代表性……104个案件的基本情况如表1所示",
+            "上诉人及二审法院的逻辑在于……法院作出补救判决应当以当事人的诉讼请求为基础……笔者认为该观点不符合行政审判权特点"
+          ],
+          "strengths": [
+            "五维度实证分析层层递进，数据与规范推演紧密咬合",
+            "对“超诉请裁判”与“行政裁量尊重”等实务争议作了实质性回应"
+          ],
+          "weaknesses": [
+            "部分规范建议的论证略显单薄",
+            "样本“偶然性”局限未深入讨论其对结论外推的影响"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦于从实证数据到制度建议的推导链条是否严密，而非评价补救判决框架本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "实证数据与规范分析紧密咬合，推导出可辩护的制度适用建议。",
+          "core_judgment": "推理链完整且依赖度高，反驳处理充分，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "严格说来，本文收集的...104份行政裁判文书不免带有一定的‘偶然性’",
+            "上诉人及二审法院的逻辑在于...作出补救判决就是超范围审理...笔者认为，该种观点...不符合行政审判权的特点"
+          ],
+          "strengths": [
+            "实证统计与规范分析层层递进，结论有充分支撑",
+            "对反例（如主判决形式）和反对意见有实质性回应"
+          ],
+          "weaknesses": [
+            "从'依职权作出居多'到'属裁量权范畴'的过渡稍显跳跃，但后续论证弥补"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评判从案例现象推导制度建议的逻辑链条，不评判建议本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 48.6388521194458,
+        "glm-5.1": 54.37287187576294
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论基于实证精准回应适用争议，与新法高度兼容且具明确司法指引价值。",
+          "core_judgment": "结论深度嵌入中国行政审判语境，有效回应学说分歧与实务约束，具备高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "这种立法中否定补救判决作为撤销判决从判决存在的做法是否合理，应深入讨论。",
+            "法院可对‘采取补救措施’作出指引，这既是释明义务要求，也可提高判决可执行性。"
+          ],
+          "strengths": [
+            "实证数据与规范分析紧密结合，结论直击司法适用痛点",
+            "主动回应超范围审理质疑与司法谦抑边界，论证具可辩驳性"
+          ],
+          "weaknesses": [
+            "对新法第76条限制适用情形的批判稍显保守，未展开替代方案",
+            "部分裁判样本年代较早，结论对最新司法解释的衔接可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被学界与实务接纳，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "基于实证分析提出补救判决具体适用规则，高度回应学界争论与实务约束。",
+          "core_judgment": "结论在制度层面高度可接受，精准回应实务痛点与现行法秩序逻辑。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "这种立法中否定补救判决作为撤销判决从判决存在的做法是否合理，应该是一个值得进行深入讨论的问题",
+            "不能笼统地以‘责令采取相应补救措施’为之...应当对为何责令补救、对谁补救、对何种不利益进行补救等予以释明"
+          ],
+          "strengths": [
+            "结论提出具体裁判规则指引，非空泛对策",
+            "主动承认并回应了依职权判决属超范围审理的反对意见"
+          ],
+          "weaknesses": [
+            "样本偶然性虽被承认，但结论普适性仍可能受质疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评价结论的制度与共同体可接受性，不评价实证统计方法的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 64.45361876487732,
+        "glm-5.1": 45.05269694328308
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "基于实证样本指出新法第76条与旧解释的适用冲突，明确补救判决的从属性定位及裁量边界，为后续规则衔接与实务适用提供清晰路径。",
+          "core_judgment": "存在真实延展路径，聚焦新旧法规范冲突下的判决性质定位与司法裁量细化方向。",
+          "score_rationale": "原始分85，对应bonus=5。明确指向新法第76条与旧解释的规范冲突，提出判决性质争议与裁量指引路径，与实证结论紧密衔接。",
+          "evidence_quotes": [
+            "这种立法中否定补救判决作为撤销判决从判决存在的做法是否合理，应该是一个值得进行深入讨论的问题。",
+            "法院完全可以对‘采取补救措施’作出一定的‘指引’，这既是法院释明义务的内在要求，也可以提高补救判决的可执行性。"
+          ],
+          "strengths": [
+            "精准定位新旧法规范冲突下的理论争点",
+            "提出兼顾司法克制与判决实效的实务指引"
+          ],
+          "weaknesses": [
+            "未就样本时间跨度局限提出后续数据更新方案",
+            "对第三人利益补救的边界探讨可进一步展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评述新法实施后的规则衔接与实务适用边界，属未来制度演进方向，非评价当下结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了新法下补救判决适用边界收缩及规则衔接冲突等具体延展路径。",
+          "core_judgment": "存在真实延展路径，明确提出了新法实施后的裁判规则延伸与实务改进方向。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。论文在文末明确指出了新法第76条与旧解释的规则衔接冲突（撤销判决下能否适用补救判决）及适用边界变化，路径清晰可定位，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "这种立法中否定补救判决作为撤销判决从判决存在的做法是否合理，应该是一个值得进行深入讨论的问题。",
+            "司法实践中可以适用补救判决的情形将更为广泛，但《解释》第59条第2项规定的以下两种情形将不再适用补救判决..."
+          ],
+          "strengths": [
+            "明确指出了新法与旧解释的规则衔接冲突作为后续争点。",
+            "指明了补救判决适用空间的边界变化与实务改进路径。"
+          ],
+          "weaknesses": [
+            "延展论述集中在文末，对后续研究设计的展开稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "新法下撤销判决能否附带补救判决属于未来立法与裁判规则的延伸问题，而非当下旧法解释能否被接受的结论问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 66.10720801353455,
+        "glm-5.1": 42.24275207519531
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.8,
+    "max_std": 7.1,
+    "weighted_total": 87.0,
+    "final_score": 91.71,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 6.53,
+    "worst_dimension": "literature_insight",
+    "worst_std": 7.1
+  }
+}

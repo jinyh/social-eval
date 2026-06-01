@@ -1,0 +1,544 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/非典型与典型案件：术语、成因及其关系.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别残留与错字（如‘2ol1年’、‘3月29 Et’、‘镌刻在~JIUL’）",
+          "期刊页码与刊名混入正文流（如‘269’‘270’‘中国法学 2015年第5期’打断段落连贯性）",
+          "脚注编号格式不统一且部分位置错位"
+        ],
+        "evidence_quotes": [
+          "2ol1年9月26日",
+          "最后访问日期：2015年3月29 Et",
+          "镌刻在~JIUL，其意义当然是明晰"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文的主题是“非典型案件”...“疑难案件”显然更符合当前的用语习惯",
+          "以2012年修订的《刑事诉讼法》为例...第208条",
+          "诉讼双造的专业选择行为...构成了非典型案件产生的直接原因",
+          "经验中没有非典型案件与典型案件的截然二分格局",
+          "当前各种关于疑难案件(非典型案件)的法律规定把非典型案件的认定权交给法官或法院是一种不符合司法中立、被动面貌因而极不妥当的制度安排"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：轻度OCR与排版混排风险，需基础清洗",
+        "项目口径：四项核心信号均充分触发，无边界争议"
+      ],
+      "evidence_quotes": [
+        "诉讼双造的专业选择行为...构成了非典型案件产生的直接原因",
+        "经验中没有非典型案件与典型案件的截然二分格局"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻度OCR/排版残留，但不影响核心论点定位与逻辑推演。项目口径四项信号（中国问题中心性、可争辩法学问题、中国实践解释、理论转化命题）均明确触发，具备进入六维评价资格。建议状态设为conditional_pass，进入评分流程前进行基础文本清洗即可。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR数字与字母混淆（如2O11年、l1期、l0页）",
+          "脚注编号（如④、⑤、⑨、⑩）散落正文",
+          "网址全角符号及断行残留",
+          "正文局部OCR乱码（如'3n-r、'应为'加工'，'~JI UL'应为'金石上'）",
+          "期刊页码（269-284）混入正文"
+        ],
+        "evidence_quotes": [
+          "《四川高院推进民商事疑难案件审理》，《人民法院报)2ol1年9月26日",
+          "经过3n-r、被赋予意义的事实",
+          "镌刻在~JI UL",
+          "269"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以2012年修订的《刑事诉讼法》为例...与此相对的'疑难案件'包括'事实不清楚'或'适用法律有异议'以及两者兼具的案件",
+          "如'许霆案'中许霆的行为，就可能无法无争议地纳入到'盗窃'、'侵占'或'不当得利'等成熟术语之中",
+          "真正的直接原因只是诉讼各造的专业选择：如果把当下案件变成非典型案件有助于自身选择的实现，他就突出这些特质",
+          "经验中不存在一个或一类案件只可能是典型案件或只可能是非典型案件...典型案件与非典型案件无法截然二分"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR乱码、脚注编号及混入的页码",
+        "项目口径：无边界争议，完全符合中国自主知识体系法学评价口径"
+      ],
+      "evidence_quotes": [
+        "真正的直接原因只是诉讼各造的专业选择",
+        "典型案件与非典型案件无法截然二分，可以相互转化"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续文本工程阶段对OCR乱码、脚注散落及页码混入进行清洗修复，以保障评分数据提取的准确性。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "本文以“非典型案件”替代“疑难案件”，论证两类案件可相互转化，提出诉讼策略选择为直接成因。",
+          "core_judgment": "问题具高度可争辩性与枢纽性，突破静态二分法，触及裁判正当性与法律解释核心争点，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置检查扣0分，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "典型案件与非典型案件是否是一对相互转化的范畴？",
+            "正是由于诉讼双造的选择才是非典型案件产生的直接原因"
+          ],
+          "strengths": [
+            "精准区分事实存疑与法律适用争议，厘清研究边界",
+            "以诉讼策略选择重构分类逻辑，理论推进显著"
+          ],
+          "weaknesses": [
+            "对法官绝对被动的推论在公法领域适用性存疑",
+            "转化机制的程序法衔接与实证检验略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "挑战典型/非典型案件二分格局，提出诉讼双造专业选择为直接成因的动态转化争点。",
+          "core_judgment": "问题高度成立且枢纽，颠覆了疑难案件静态二分共识，提出可争辩的法学理论命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。扣分合计=0分。",
+          "evidence_quotes": [
+            "典型案件何以可能？",
+            "经验世界中是否存在纯粹的典型案件？"
+          ],
+          "strengths": [
+            "提出典型与非典型案件动态转化的原创争点",
+            "揭示专业选择为案件非典型化的直接原因"
+          ],
+          "weaknesses": [
+            "新术语'非典型案件'的理论优势论证可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "只评问题成立性与枢纽性，不评论证严密性及术语替换必要性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 81.48241996765137,
+        "glm-5.1": 47.41187024116516
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准梳理案件术语流变与成因研究，明确指出现有泛化与二分局限，确立本文切入点。",
+          "core_judgment": "研究地图完整清晰，争点脉络分明，流派识别充分，文献定位与论证深度融合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "引发了哈特与德沃金、德沃金与富勒、德沃金与拉兹之间持久的学术论战。",
+            "此种思路无法就如下疑问给出一个符合逻辑的解释……错把‘影响因素’当作原因"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将术语辨析与成因批判融入论证。",
+            "明确揭示既有研究在二分法预设与归因逻辑上的具体缺陷。"
+          ],
+          "weaknesses": [
+            "对国内司法裁判实证数据的文献覆盖相对单薄。",
+            "诠释学与实用主义流派脉络可进一步细化展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及案件转化理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰构建了研究地图，精准识别了多个学术争点与流派分歧。",
+          "core_judgment": "现状洞察度极高，三要素完备，争点结构丰满，流派识别充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界共识是要区分法律规则上的疑难案件与案件事实上的疑难案件",
+            "哈特第一次尝试揭示非典型案件产生的法律语言学基础，并引发与德沃金等持久论战"
+          ],
+          "strengths": [
+            "精准指出既有研究错把间接原因当直接原因等三大谬误",
+            "清晰呈现典型与非典型截然二分与相互转化之争点"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点结构，而非问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.2029480934143,
+        "glm-5.1": 43.313668966293335
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文重构典型/非典型案件框架，以诉讼双造专业选择为直接原因，以事实规范不确定性为转化抓手。",
+          "core_judgment": "框架概念界定清晰、分类明确、路径可循且全文深度调用，具备较强的理论建构与法学转化能力。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。理论型论文中概念操作化与转化机制清晰，后文案例充分验证。",
+          "evidence_quotes": [
+            "本文所称‘非典型案件’是指没有无争议法条可以适用、也即适用法律有争议的案件",
+            "真正的直接原因只是诉讼各造的专业选择……使当下案件‘变成’非典型案件"
+          ],
+          "strengths": [
+            "核心概念界定清晰，明确区分直接原因与间接原因",
+            "提出案件类型相互转化机制，后文多案例反复调用验证"
+          ],
+          "weaknesses": [
+            "分析步骤偏重理论推演，缺乏面向实务的标准化裁判流程",
+            "“专业选择”作为直接原因的论证未充分考量程序与资源限制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "构建了清晰的概念界定与类型化框架，成功将跨学科概念转化为法学分析步骤。",
+          "core_judgment": "该维度完全成立，论文原创性地构建了典型与非典型案件相互转化的分析框架，法学转化度高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "笔者将那些必须通过其它因素为中介方能导致某种结果产生的因素称为‘间接原因’，而将直接导致结果产生的因素称为‘直接原因’。",
+            "办案人员加工事实的三步：首先收集片断；其次根据片断回构事实；最后依据特定法条赋予该事实特定意义。"
+          ],
+          "strengths": [
+            "概念界定精准，清晰区分了非典型案件与疑难案件、直接原因与间接原因。",
+            "构建了典型与非典型相互转化的分析框架，并在具体案例中有效调用。"
+          ],
+          "weaknesses": [
+            "转化步骤偏重理论推演，缺乏具体的裁判规则或司法程序层面的操作指引。",
+            "对直接原因（诉讼双造专业选择）的实证验证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架是否成立可用及法学转化，不评推理逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 64.54374098777771,
+        "glm-5.1": 47.20585608482361
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了严密的理论推演链条，结论可由前文充分辩护推出。",
+          "core_judgment": "推理链完整且依赖度高，反驳处理充分，核心结论具备可辩护性，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "“真正的直接原因只是诉讼各造的专业选择……只要诉讼中的某一方愿意并且专业上足够高明，就可以……使当下案件‘变成’非典型案件”",
+            "“经验中没有非典型案件与典型案件的截然二分格局……它们其实正是一对韦伯所谓的‘理想类型’”"
+          ],
+          "strengths": [
+            "推理链条完整，从术语辨析到成因重构再到转化证成层层递进",
+            "对主流二分法观点的回应具实质性，引入“直接/间接原因”区分有效支撑结论"
+          ],
+          "weaknesses": [
+            "“专业选择”作为唯一直接原因的论证略显绝对，未充分展开制度约束",
+            "部分哲学概念的引入与实证衔接稍显跳跃，增加理解门槛"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否闭环，而非概念框架本身的理论创新性或可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过概念界定、成因区分与转化证成构建了严密的推理链，并对理论分歧与自身局限作了充分回应。",
+          "core_judgment": "推理链完整闭环且反驳处理充分，本维度高度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "如果法律或事实本身所具备的某些因素就足以导致非典型案件，则逻辑上的结论就应当是所有案件都为非典型案件",
+            "这种证成并不妨碍它们在理论上、逻辑上是一对可以截然二分的范畴……它们其实正是一对韦伯所谓的‘理想类型’"
+          ],
+          "strengths": [
+            "推理链层层递进，从定义到成因再到转化形成闭环。",
+            "对既有理论的隐含分歧给出了有力的逻辑反驳与选择理由。"
+          ],
+          "weaknesses": [
+            "部分案例论证（如看车案）稍显经验性，理论推演纯度略有稀释。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评价的是概念到结论的推理支撑度，而非“理想类型”分析框架本身的建构力或可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.99838089942932,
+        "glm-5.1": 46.04331016540527
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 92
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确挑战典型/非典型案件二分法，深度回应争论并兼容中国法秩序。",
+          "core_judgment": "结论具备高度的共同体对话能力与制度语境兼容性，完全满足理论论文的接受性标准。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "本文结论修正了将典型与非典型案件截然二分的通行观点，主张其经验中可相互转化。",
+            "指出当前将非典型案件认定权交予法官的制度安排不符合司法中立、被动面貌。"
+          ],
+          "strengths": [
+            "精准定位并挑战主流二分法，论证具有强可争辩性。",
+            "紧密结合中国本土案例与制度语境，理论落地性强。"
+          ],
+          "weaknesses": [
+            "对诉讼策略主导案件定性的极端情形缺乏程序性制约讨论。",
+            "部分法哲学概念的实务转化路径稍显抽象。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深刻回应学术争论并紧密结合中国语境，可接受性极高。",
+          "core_judgment": "结论成功进入共同体对话，与现行法秩序兼容且指出了制度转化方向，维度完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "把非典型案件的认定权交给法官是一种不符合司法中立、被动面貌因而极不妥当的制度安排",
+            "是当事人、法律人的选择而非规则本身自动选择并组合各种因素进而设定诉讼策略才决定了疑难案件的存在"
+          ],
+          "strengths": [
+            "主动回应刑法领域可能反对意见及术语生造风险",
+            "明确指出非典型案件认定权归属的制度转化方向"
+          ],
+          "weaknesses": [
+            "对法官中立性原则的预设可能面临审委会制度现实阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 55.80995488166809,
+        "glm-5.1": 37.370059967041016
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 75
+      },
+      "mean": 80,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文突破典型/非典型案件二分法，提出动态转化理论，并明确指向司法分类权配置与程序规则重构的延展路径。",
+          "core_judgment": "存在真实延展路径，核心结论直接推导出制度修正方向与实证检验空间。",
+          "score_rationale": "原始分85，对应bonus=5档。论文指出现行法官定性权配置不妥，并提出动态转化模型，为程序规则重构与法律社会学实证提供清晰后续争点。",
+          "evidence_quotes": [
+            "当前各种关于疑难案件的法律规定把非典型案件的认定权交给法官或法院是一种不符合司法中立、被动面貌因而极不妥当的制度安排。",
+            "只要法律人足够高明并且又有足够的意愿，他就几乎总是可以把一个案件加工为典型案件或非典型案件。"
+          ],
+          "strengths": [
+            "突破静态二分范式，提出案件类型动态转化理论，延展方向明确。",
+            "精准指出现行司法分类权配置的制度缺陷，为程序法修订提供具体靶点。"
+          ],
+          "weaknesses": [
+            "延展路径多隐含于理论批判中，未显性列出具体研究议程。",
+            "对“专业选择”机制的实证检验方法未作展开，需后续研究补足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于论文提出的动态分类模型如何引导未来程序规则重构与法律人行为实证研究，而非评判该理论当下是否被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文虽无专设展望，但在论证中内嵌了明确的制度修正与理论深化方向。",
+          "core_judgment": "存在真实延展路径，指明了非典型案件认定权的制度重构及争议识别的理论深化方向。",
+          "score_rationale": "原始分75，属good档(60-79)，bonus=3。延展路径可定位（认定权归属、可接受性识别），与核心结论紧密衔接，但未设专节展开，精细度有限。",
+          "evidence_quotes": [
+            "当前各种关于疑难案件的法律规定把非典型案件的认定权交给法官或法院是一种...极不妥当的制度安排。",
+            "最重要的本也不应是判定...而是...该如何在各种争议结论中识别出更具有可接受性的那种主张。"
+          ],
+          "strengths": [
+            "从核心结论（专业选择行为）自然推导出后续理论问题（可接受性识别）。",
+            "明确指出了当前制度安排的缺陷及修正方向（认定权归属）。"
+          ],
+          "weaknesses": [
+            "缺乏专门的结论与展望部分，延展路径散落在正文中，系统性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "识别争议主张的“可接受性”属于未来理论深化方向，而非当下本文已完成的结论可接受性证成。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.19276905059814,
+        "glm-5.1": 53.81113386154175
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.9,
+    "max_std": 7.1,
+    "weighted_total": 90.4,
+    "final_score": 96.09,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 5.43,
+    "worst_dimension": "forward_extension",
+    "worst_std": 7.1
+  }
+}

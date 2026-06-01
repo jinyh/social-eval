@@ -1,0 +1,1047 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGSHKX2025010009_中国社会科学_2025_慈善财产法律制度的中国建构.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号在OCR中以孤立行呈现（如'.0.5.1.'）且与正文混排，但不影响论点定位"
+        ],
+        "evidence_quotes": [
+          "·\n0\n5\n1\n·\n①\n②"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+          "我国慈善法治建设如何以增强慈善组织公信力为核心，以推动中国公益慈善事业现代转型为导向...是当前推动我国慈善事业高质量发展的重要课题。",
+          "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。",
+          "以慈善财产为基点构建慈善法律体系。...从解释论层面阐明慈善财产的法律属性、内容范围、权利义务等元问题，从而奠定构建慈善财产法律制度的理论基础。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留，不影响评审"
+      ],
+      "evidence_quotes": [
+        "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+        "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。",
+        "以慈善财产为基点构建慈善法律体系...慈善法治建设重心应从慈善组织转向慈善财产"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文满足全部项目口径信号，可直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如“· 0 5 1 ·”、“· 1 5 1 ·”）",
+          "脚注编号及标记残留（如“①”、“②”、“❋”）",
+          "末尾混入无关英文摘要片段（如“TheIntrinsicLogicamongRegionalAndCountryStudies...”）"
+        ],
+        "evidence_quotes": [
+          "· 0 5 1 ·",
+          "❋ 本文为国家社会科学基金重大招标项目",
+          "TheIntrinsicLogicamongRegionalAndCountryStudies，RegionalHistoryandGlobalHistoryXiaJiguo·128·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+          "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。",
+          "慈善法治建设重心应从慈善组织转向慈善财产，即以慈善财产为基点构建慈善法律体系。",
+          "构建慈善财产“权利束”和“义务束”以及“责任束”，推动慈善财产管理从“权利本位”向“权义平衡”的范式转变。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及脚注编号混入正文，末尾混入无关英文摘要片段"
+      ],
+      "evidence_quotes": [
+        "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，但需在后续阶段清理文本中的页码、脚注乱码及无关英文摘要片段，以免干扰语义分析。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文末混入无关英文摘要内容（AI艺术、区域研究、气候治理、商代考古等），疑似期刊同期其他文章摘要或排版残留，但核心论文正文完整可读",
+          "参考文献列表标注为'（无）'，实际正文中有大量脚注引用，系抽取问题而非原文缺失"
+        ],
+        "evidence_quotes": [
+          "文末混入：'technicallogicunderlying AIlanguageisbasedonpatternfittingandtranscoding...'",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点",
+          "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型",
+          "构建中国慈善财产法律制度",
+          "慈善财产法律制度的建构是中国式现代化法治进程中不可或缺的组成部分",
+          "从解释论层面阐明慈善财产的法律属性、内容范围、权利义务等元问题，从而奠定构建慈善财产法律制度的理论基础",
+          "从立法论层面提出慈善财产募集、使用、管理、处分、监督等元规则，从而推动中国慈善法律体系的建立健全"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：文末混入同期期刊其他论文的英文摘要，需确认是否为OCR/分栏残留；参考文献列表抽取失败但正文脚注引用完整",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点",
+        "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型",
+        "从解释论层面阐明慈善财产的法律属性...从立法论层面提出慈善财产募集、使用、管理、处分、监督等元规则"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文正文完整，核心论点清晰，可直接进入六维评分。文末英文摘要残留和参考文献列表缺失为期刊排版/OCR抽取问题，不影响主体评审。建议在评分时以正文内容为准，忽略文末混入材料。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国特色慈善事业呈现出从传统慈善转向现代慈善的趋势...需要通过法治创新推动慈善事业高质量发展。",
+          "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+          "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。",
+          "构建慈善财产‘权利束’和‘义务束’规范体系...推动慈善财产管理从‘权利本位’向‘权义平衡’的范式转变。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+        "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。",
+        "构建慈善财产‘权利束’和‘义务束’以及‘责任束’，推动慈善财产管理从‘权利本位’向‘权义平衡’的范式转变。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文高度契合项目口径，以中国慈善法治与第三次分配实践为核心，提出慈善财产独立属性界定及‘权利束/义务束’规范构造命题，具备明确的法学争辩性与理论转化价值。文本质量良好，建议直接进入六维评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文主题明确但缺乏可争辩的法学研究问题，仅为政策主张与体系建构论述，创新性极低。",
+          "core_judgment": "全文主要是阐释既定立场和提出立法建议，未能提出一个可争辩的法学争点，不构成法学研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。负面模式扣分合计=55分（检查1扣25分、检查2扣15分、检查3扣30分，分项触发送代扣分取最低上限45分）。原始锚定unacceptable档（0-49分，原始40分），最终分数=40-55=-15，取规则下限30分。鉴于可争辩性为1触发no_justiciable_question上限50分且低于负面扣分后分数，最终取28分（体现多项负面模式严重性）。",
+          "evidence_quotes": [
+            "我国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+            "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。"
+          ],
+          "strengths": [
+            "议题具有现实重要性，涉及慈善法治与共同富裕战略。",
+            "体系建构努力可见，尝试涵盖慈善财产全生命周期。"
+          ],
+          "weaknesses": [
+            "全文是主题声明与政策倡导，未提出可争辩的法学问题（如'XX是否YY'或'如何ZZ'）。",
+            "仅罗列制度设想和域外介绍，无学者观点交锋或不同解释路径的深层分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 分，且全文主要为政策倡导与立法建议，未能形成法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确的问题句，核心是'应以慈善财产为基点构建法律制度'的主题声明与政策主张。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的创新性与可争辩性，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文确立了慈善财产独立性的核心争点，并以此重构慈善法治框架，问题枢纽性强。",
+          "core_judgment": "问题成立且重要，涉及财产权基础理论与多制度联动，属法学核心争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "慈善财产是否属于慈善组织的财产或者说慈善财产是否独立于慈善组织财产",
+            "《慈善法》与《民法典》《企业所得税法》《个人所得税法》等法律法规之间的衔接配合更需优化"
+          ],
+          "strengths": [
+            "提出了慈善财产独立性这一核心法学争点",
+            "问题解决涉及慈善法、民法典、信托法等多制度联动"
+          ],
+          "weaknesses": [
+            "子争点较多但部分论证展开深度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性或体系建构的完备度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "主题宏大但缺乏可争辩的法学争点，实为政策倡导型制度建构方案。",
+          "core_judgment": "论文以'慈善财产法律制度的中国建构'为主题，但全文主要是对既定立场的阐释和制度设计，未提出真正可争辩的法学问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。锚定unacceptable档，给45分。扣分合计=30分（检查3扣30分），扣分后不低于30分。最终分数=45分。",
+          "evidence_quotes": [
+            "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点",
+            "构建中国慈善财产法律制度"
+          ],
+          "strengths": [
+            "主题涉及慈善法基础理论，具有一定制度关联性",
+            "对慈善财产权利义务配置有体系化尝试"
+          ],
+          "weaknesses": [
+            "全文无真正的问题句，只有主题声明和政策倡导",
+            "缺乏学者观点交锋，多为单向制度设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "主题声明非研究问题，全文主要是阐释既定立场，无可争辩的法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以'构建中国慈善财产法律制度'为核心，全文为'应以...''需要...''宜...'等应然表述，无'XX是否YY'式问题句"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "慈善财产法律制度的中国建构作为宏大主题，涵盖性质、范围、权利、义务、监管等多维度，但未凝练为具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "以慈善财产为核心基点重构慈善法治体系，问题明确且具理论纵深。",
+          "core_judgment": "问题具备高度可争辩性与跨制度枢纽性，符合优秀法学研究标准。",
+          "score_rationale": "前置检查扣分0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "慈善财产是否属于慈善组织的财产或者说慈善财产是否独立于慈善组织财产？",
+            "“草根慈善组织”是否享有慈善财产募捐权？"
+          ],
+          "strengths": [
+            "精准提炼慈善财产法律属性争议焦点",
+            "构建“权利束/义务束”规范体系逻辑严密"
+          ],
+          "weaknesses": [
+            "部分制度建议偏重宏观框架设计",
+            "对新型慈善财产（如数字资产）论证稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.59076714515686,
+        "glm-5.1": 80.56978607177734,
+        "kimi-k2.6": 18.254343271255493,
+        "qwen3.6-plus": 80.53688907623291
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 61.5,
+      "std": 29.7,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文虽多次提及学界争议，但未引用任何具体文献，研究地图三要素均无法从正文中提取可验证证据，整体缺乏可定位的学术对话脉络。",
+          "core_judgment": "本文属于宏观理论建构论文，但在正文中未呈现任何具体学者姓名、文献标题或可追溯的学术成果，导致无法判断其是否建立了真实的研究地图。",
+          "score_rationale": "三要素=0/6（到达点、未竟点、本文切入点均无具体文献支撑），争点结构=0/2（未将争议归入可引证的学术脉络），法学流派=0个（无具体流派指认），锚定unacceptable档，给42分。",
+          "evidence_quotes": [
+            "就学术界研究而言，更多关注于慈善组织管理，而关于慈善财产法治建设着墨不多……存在较大争议，亟待系统研究、澄清误区、达成共识",
+            "学术界探讨慈善财产性质问题惯常以厘定慈善财产所有权归属为逻辑起点，形成了不同观点学说"
+          ],
+          "strengths": [
+            "文中有多处“学术界存在争议”“亟待澄清误区”等自述，表明作者意识到需要定位研究缺口"
+          ],
+          "weaknesses": [
+            "全文零引证具体学者或文献，所有争议描述均为无源断言，无法验证",
+            "参考文献列表完全缺失，无法支持任何流派识别或到达点证据"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文中未出现任何可验证的学者姓名或文献标题，无具体到达点、未竟点对应证据，参考文献列表为空。"
+            }
+          ],
+          "boundary_note": "本评分仅反映文献定位和学术对话脉络的缺失，不判定论文问题本身是否新颖或论证是否严密。",
+          "review_flags": [
+            "needs_external_context",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准洞察学界偏重组织忽视财产的盲区，清晰呈现中西制度对立与财产属性争点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察度极高。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "更多关注于慈善组织管理...对于慈善财产...探讨不够深入，特别是在...独立性...等问题上存在较大争议",
+            "以西方国家市民社会理论框架分析...忽略了中国社会的历史和国情，西方...‘非政府原则’...对中国不具有借鉴意义"
+          ],
+          "strengths": [
+            "明确指出学界重心偏误与具体争议缺口",
+            "清晰呈现中西制度传统对立及财产属性解释路径分歧"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点梳理的完整性，而非制度建构方案的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 68,
+          "band": "good",
+          "summary": "论文构建了以慈善财产为核心的研究地图，但法学流派识别和争点结构化呈现不足。",
+          "core_judgment": "三要素基本成立但争点结构分散，法学流派识别有限，属于有研究地图但深度不足的文献定位。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点2+切入点1），争点结构=1/2，法学流派=1个，锚定good档，给68分。到达点充分：梳理了慈善组织中心论、近似原则、信托财产独立性等研究；未竟点充分：指出慈善财产独立性、权利义务体系等'存在较大争议'；切入点部分满足：提出'以慈善财产为基点'但与前述未竟点对应不够紧密。争点结构仅1个（慈善财产性质独立vs从属于慈善组织财产）。法学流派仅识别1个（信托财产独立性理论，脚注提及'物权说''债权说'等但属民法学理而非法学流派对立）。",
+          "evidence_quotes": [
+            "对于慈善财产的结构性地位、法律属性、范围内容、权责利等问题探讨不够深入，特别是在慈善财产的独立性及其与慈善组织财产之间的关系、慈善财产权利义务规范体系、中国慈善财产制度的特殊性等问题上存在较大争议，亟待系统研究、澄清误区、达成共识",
+            "学术界探讨慈善财产性质问题惯常以厘定慈善财产所有权归属为逻辑起点，形成了不同观点学说"
+          ],
+          "strengths": [
+            "到达点具体，引述了国内外立法例和学术观点",
+            "未竟点明确，指出慈善财产独立性等核心争议"
+          ],
+          "weaknesses": [
+            "争点结构分散，未形成清晰的学术对立脉络",
+            "法学流派识别不足，未呈现可区分的学术阵营或解释路径分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；但本例三要素=4且法学流派=1，不适用此上限",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "不适用，三要素总分4分"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性；论文选题有现实意义但文献定位深度有限。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制慈善财产法治研究地图，清晰界定既有共识与核心争议，并以财产中心主义切入构建规范体系。",
+          "core_judgment": "研究地图三要素完整闭环，争点脉络清晰，流派覆盖充分，文献定位维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "就学术界研究而言，更多关注于慈善组织管理，而关于慈善财产法治建设着墨不多……存在较大争议，亟待系统研究",
+            "学术界探讨慈善财产性质问题惯常以厘定慈善财产所有权归属为逻辑起点，形成了不同观点学说"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼到达点与未竟点，逻辑闭环严密",
+            "系统梳理财产性质、信托属性及监管模式等多元解释路径，争点立体"
+          ],
+          "weaknesses": [
+            "部分域外制度引介偏重规范描述，对本土学术争点的理论交锋深度可进一步挖掘",
+            "流派识别虽全，但个别观点（如草根组织募捐权）的学派归属标注稍显模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及慈善财产制度设计本身的创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.288655042648315,
+        "glm-5.1": 83.9143922328949,
+        "kimi-k2.6": 18.04327893257141,
+        "qwen3.6-plus": 80.93336606025696
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 90,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 92
+      },
+      "mean": 73,
+      "std": 23.4,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文梳理了以慈善财产为中心的制度框架，但缺乏可重复适用的分析步骤，法学转化主要停留在宏观主张层面。",
+          "core_judgment": "提出'慈善财产为中心'的制度构想，但未构建可操作的分析步骤或判断标准，法学转化度有限。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定部分满足，但触发宏观介绍降档），法学转化度得分=2/4（提供操作化定义和制度方案，但多为方向性主张），锚定marginal档(40-49)，因框架可操作性为1上限为50，考虑到概念界定和制度框架的系统性给52分。",
+          "evidence_quotes": [
+            "慈善财产'权利束'和'义务束'规范体系的特殊构造，应以界定慈善财产范围类型为起点，以确保慈善财产公益属性为宗旨...构建中国慈善财产法律制度。",
+            "从法律关系权利义务理论出发，需要通过法律确定慈善组织享有哪些权利、承担哪些义务...是立法面临的重大问题。"
+          ],
+          "strengths": [
+            "核心术语'慈善财产'有明确定义和类型化尝试，提出公私法双重属性独立财产类型",
+            "提出'权利束''义务束'的权利义务配置框架，有一定法学转化意识"
+          ],
+          "weaknesses": [
+            "分析步骤不可循：未提供如何判断慈善财产性质或如何配置权利义务的具体步骤或标准",
+            "规范性主张过多(应当/必须/需要≥5处)，缺乏可操作的裁判规则或法律适用流程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 <= 1，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "框架仅提供'以慈善财产为起点'的制度构想和分类罗列，无逐步可循的判断步骤；规范性呼吁多但具体方案少。"
+            }
+          ],
+          "boundary_note": "本文属于制度/实务型论文，但未进入具体裁判规则或操作流程设计阶段，框架建构力停留在概念主张层面。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了以慈善财产为中心的“权利束-义务束”及全周期监管框架，操作性与法学转化度均高。",
+          "core_judgment": "框架建构成立且可用，成功将财产权理论转化为具体的法律制度设计方案与操作流程。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。概念界定清晰，分类标准明确，分析步骤可循且后文实际调用；法学转化提供了具体的权责配置与全周期监管方案。",
+          "evidence_quotes": [
+            "以界定慈善财产范围类型为起点，以确保慈善财产公益属性为宗旨，以慈善财产权利义务配置为主线，以创新慈善财产监管机制为支撑",
+            "构建覆盖‘募集—管理—使用—处置’全链条的闭环监管机制，推行慈善资金管理‘三户分离’模式"
+          ],
+          "strengths": [
+            "框架步骤清晰，从范围界定到权责配置再到监管创新",
+            "将‘权利束’‘义务束’成功转化为具体的募捐、管理、监督等法律权能"
+          ],
+          "weaknesses": [
+            "部分监管方案（如三户分离）的实操细节仍需立法进一步验证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架的成立与法学转化，不评价权责配置的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "制度型论文提出'权利束''义务束'等分析工具，但框架可操作性不足，法学转化停留在规范罗列层面。",
+          "core_judgment": "分析框架建构力未充分成立：核心术语有定义但分析步骤模糊，后文调用以政策阐释为主，缺乏可重复适用的判断标准。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰、分类标准部分明确，但分析步骤不可循、后文调用以主题展开而非框架步骤展开）；法学转化度得分=2/4（跨学科概念'权利束'有法学转化尝试，但裁判规则/操作指引不足，制度设计较笼统）；锚定marginal档(50-59)，给52分。",
+          "evidence_quotes": [
+            "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型",
+            "以界定慈善财产范围类型为起点，以确保慈善财产公益属性为宗旨，以慈善财产权利义务配置为主线，以创新慈善财产监管机制为支撑"
+          ],
+          "strengths": [
+            "核心术语'权利束''义务束'有明确界定，体现财产法理论转化尝试",
+            "提出'四维度'制度建构方向，有一定体系化整理价值"
+          ],
+          "weaknesses": [
+            "'四维度'仅为内容提纲，未转化为可重复适用的分析步骤或判断标准",
+            "后文分析以制度介绍和比较法描述为主，未实际调用框架步骤进行推演"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "'权利束''义务束'作为框架核心术语，后文仅在描述性段落分散出现，未作为分析步骤被逐步调用，实际分析以制度罗列和政策阐释为主"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 46,
+          "band": "marginal",
+          "summary": "提出慈善财产基点与权义束框架，但缺严格定义与步骤化流程。",
+          "core_judgment": "框架具制度转化价值，但因缺乏可重复操作步骤与明确定义，建构力受限。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=3/4，锚定marginal档，结合可操作性≤1上限规则给46分。",
+          "evidence_quotes": [
+            "以界定慈善财产范围类型为起点，以权义配置为主线构建制度",
+            "构建慈善财产‘权利束’和‘义务束’，推动向权义平衡范式转变"
+          ],
+          "strengths": [
+            "分类标准清晰且后文充分调用，成功转化为具体监管与立法方案"
+          ],
+          "weaknesses": [
+            "核心术语缺严格界定，分析偏重体系罗列而非可操作步骤推演"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无严格定义且缺步骤化流程，仅具体系建构特征"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.29503321647644,
+        "glm-5.1": 148.35656690597534,
+        "kimi-k2.6": 20.417487144470215,
+        "qwen3.6-plus": 192.48127794265747
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 46
+      },
+      "mean": 59.5,
+      "std": 19.2,
+      "strictest": 46,
+      "strictest_model": "qwen3.6-plus"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以“慈善财产为基点”的核心主张贯穿始终，推理链清晰可复述，对学界争议有较充分回应，但部分推论存在关键跳步。",
+          "core_judgment": "主线逻辑链完整，结论可由前文推出，但对“慈善财产独立于组织财产”等关键点的论证跳跃影响了严密性，整体属于逻辑较好的理论型论文。",
+          "score_rationale": "推理链完整性得分=3/4，反驳处理度得分=3/3，锚定excellent档(80-100)，但因标准4存在关键跳步扣分，最终给72分。",
+          "evidence_quotes": [
+            "如果把慈善组织的财产与慈善财产等同起来，慈善组织即能够根据所有权理论和规则自由处分捐赠人捐赠的慈善财产，这将可能导致慈善公益目的发生根本性偏离。",
+            "将慈善财产界定为一种独立的财产类型较为合适，其类似于信托财产，不属于任何人所有，构成独立的法律结构和法律关系。"
+          ],
+          "strengths": [
+            "核心主张“以慈善财产为基点”贯穿始终，从价值功能、法理、制度史三个维度系统推导，形成闭环。",
+            "对慈善财产募捐权、管理权、监督权等争议均作出理论回应，反驳处理充分且有实质性论证。"
+          ],
+          "weaknesses": [
+            "从“等同会导致目的偏离”直接跳到“应界定为独立财产类型”，缺乏对中间可能方案的排除论证，存在关键跳步。",
+            "部分结论如“成立统一监管机构”的推导较简略，缺乏与现行体制的衔接论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "核心跳步在于制度方案推论缺少对替代方案的比较排除，属推理链问题而非框架本身可操作性不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整连贯，对核心争议有实质回应，但未承认论证局限。",
+          "core_judgment": "本维度成立，制度建构方案可由前文基点确立与规范缺陷分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。推理链依赖度高，核心结论可辩护推出；对争议有实质回应但未承认局限。",
+          "evidence_quotes": [
+            "将慈善财产界定为一种独立的财产类型较为合适...如果把慈善组织的财产与慈善财产等同起来...将可能导致慈善公益目的发生根本性偏离。",
+            "慈善财产的价值功能耦合性、法律定位复合性、制度发展渐进性决定了其在慈善法秩序中的结构性地位。"
+          ],
+          "strengths": [
+            "从基点确立、规范分析到制度建构的三步推理链依赖度高，层层递进。",
+            "对慈善财产性质、募捐权等学术争议给出了明确的选择理由与论证回应。"
+          ],
+          "weaknesses": [
+            "未承认自身制度方案的适用边界或局限性，略显绝对。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评“重心转向财产→建构方案”的推导连贯性，不评独立监管机构等方案的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "制度建构型论文，主线推理链完整但存在局部跳步，反驳处理薄弱。",
+          "core_judgment": "推理链完整性3/4，反驳处理度1/3，锚定good档60-69分区间。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（价值坐标→中心基点→权利义务配置→监管机制四步可复述）；标准2成立（后步依赖前步结论）；标准3基本成立（'独立财产类型'结论有属性分析支撑）；标准4不成立（从'慈善财产独立性'到'类似信托财产'存在关键跳步，未充分论证为何排除其他财产形态）。反驳处理度得分=1/3：标准1部分满足（提及'有学者认为''存在争议'等，但多为事实陈述而非理论分歧）；标准2不满足（未对反对意见作实质性回应论证）；标准3不满足（未承认自身论证边界）。锚定good档60-69分，取62分。",
+          "evidence_quotes": [
+            "慈善财产的价值功能耦合性、法律定位复合性、制度发展渐进性决定了其在慈善法秩序中的结构性地位",
+            "将慈善财产界定为一种独立的财产类型较为合适，其类似于信托财产，不属于任何人所有"
+          ],
+          "strengths": [
+            "从价值功能到制度构造的推理主线清晰，四步推导环环相扣",
+            "对慈善财产'权利束''义务束'的规范构造有体系化展开"
+          ],
+          "weaknesses": [
+            "关键跳步：从'独立性'直接类比'信托财产'，未回应信托财产说与法人财产权说的理论分歧",
+            "反驳处理形式化：提及'存在争议'但未实质回应，如第52条'慈善组织财产'与'慈善财产'的规范冲突未解决"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链完整性，不涉及'权利束'框架本身的理论原创性或制度可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以慈善财产为核心构建权义规范体系，逻辑链条完整且反驳处理充分。",
+          "core_judgment": "本维度成立，推理链严密且反驳处理到位，核心结论可由前文规范分析与实务推导充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。",
+            "考虑到现代慈善活动的专业性、技术性以及直接捐赠所蕴含的道德风险，慈善法聚焦于公益慈善更有利于推动慈善回归公益本质。"
+          ],
+          "strengths": [
+            "推理链条完整，从重心转移、性质界定到权义配置层层递进。",
+            "对募捐主体、管理费比例等实务争议逐一回应，论证扎实。"
+          ],
+          "weaknesses": [
+            "部分制度建议（如税收全额扣除）缺乏财政可行性论证。",
+            "对近似原则本土化适用的边界条件交代稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦规范推导与制度建构的逻辑衔接，未评价框架操作性或结论接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 141.57665991783142,
+        "glm-5.1": 81.08213710784912,
+        "kimi-k2.6": 17.48205804824829,
+        "qwen3.6-plus": 84.28170800209045
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 77.8,
+      "std": 13.4,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "结论明确提出以慈善财产为基点构建中国特色慈善法律制度，核心主张具有理论对话性和制度兼容性。",
+          "core_judgment": "论文在与现行法秩序兼容的基础上挑战了以慈善组织为中心的主流范式，实现了可进入共同体对话的学术创新。",
+          "score_rationale": "共同体对话度得分=3/4（回应争论、便于定位、语境适配，但未充分承认局限），制度可接受度得分=3/4（兼容法秩序、回应实务、指出转化方向），锚定理论论文excellent档，给82分。",
+          "evidence_quotes": [
+            "慈善法治建设重心应从慈善组织转向慈善财产，即以慈善财产为基点构建慈善法律体系。",
+            "慈善财产具有公私法两种属性，宜界定为一种独立财产类型。"
+          ],
+          "strengths": [
+            "结论明确与“慈善组织中心主义”主流范式对话，具有挑战性且可被反驳。",
+            "紧密结合《慈善法》《民法典》等中国制度语境，转化方向较具体。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认并讨论自身论证的局限或所面临的反对意见。",
+            "对慈善财产“独立财产类型”这一核心主张可能引发的物权法争议缺乏深入回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分排除对论证逻辑严密性和研究创新性的评价，仅聚焦结论的可接受性与对话度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论有效回应学界争议并提出具体制度建构方案，与中国法秩序高度兼容。",
+          "core_judgment": "结论成功进入共同体对话语境，制度转化方向明确且兼容现行法秩序。",
+          "score_rationale": "共同体对话度得分=3/4（未承认局限），制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "慈善法治建设重心应从慈善组织转向慈善财产",
+            "将《慈善法》第35条删除或改为‘国家鼓励捐赠人通过慈善组织捐赠’"
+          ],
+          "strengths": [
+            "制度建议具体，有明确法条修改指向",
+            "有效回应了慈善财产独立性等核心争议"
+          ],
+          "weaknesses": [
+            "结语未主动承认自身论证局限或潜在反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出以慈善财产为基点构建中国慈善法律制度的理论主张，回应了既有学术争论和制度实践需求。",
+          "core_judgment": "结论具备共同体对话能力和制度兼容性，但存在对策空泛化和理论原创性标识不足的问题。",
+          "score_rationale": "共同体对话度=3/4（回应了慈善财产独立性、'权利束''义务束'等学术争论，定位了与既有研究的关系；但'权利束''义务束'等概念借用明显，未充分说明相对既有理论的优势；结论可被反对者定位），制度可接受度=2/4（不与现行法秩序根本矛盾，回应了《慈善法》《民法典》等制度约束，但未充分讨论中国制度语境特殊性，制度转化方向较泛）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型",
+            "从解释论层面阐明慈善财产的法律属性、内容范围、权利义务等元问题，从立法论层面提出慈善财产募集、使用、管理、处分、监督等元规则"
+          ],
+          "strengths": [
+            "明确回应慈善财产法律性质等学术争论，定位与既有研究关系",
+            "结合《慈善法》《民法典》等中国法秩序展开，不脱离本土语境"
+          ],
+          "weaknesses": [
+            "部分对策建议偏空泛，如'完善立法、加强监管、健全机制'式表述较多",
+            "'权利束''义务束'等概念借用明显，未充分论证相对既有理论的独特优势"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性和未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应慈善财产定性争议，提出以财产为核心的制度建构路径，高度契合中国法治语境。",
+          "core_judgment": "结论具备充分的共同体对话基础与制度兼容性，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "中国慈善法治建设应以第三次分配为价值坐标，以慈善财产为中心基点。",
+            "慈善财产在规范法学意义上具有公私法两种属性，宜界定为一种独立财产类型。"
+          ],
+          "strengths": [
+            "精准定位财产定性争议，构建权义平衡框架。",
+            "制度建议具体且紧扣《慈善法》修订语境。"
+          ],
+          "weaknesses": [
+            "独立监督部门建议缺乏过渡期可行性论证。",
+            "草根慈善合法化路径论述偏原则，操作细则不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.02846622467041,
+        "glm-5.1": 56.4696843624115,
+        "kimi-k2.6": 13.16618013381958,
+        "qwen3.6-plus": 71.21724581718445
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.8,
+      "std": 8.3,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出了具体的立法论任务和大量制度细化方向，具有明确的延展路径，但整体以宏观建构为主，具体后续研究问题的聚焦度有限。",
+          "core_judgment": "本文存在真实、具体且可定位的延展路径，足以支持中档弱加分。",
+          "score_rationale": "原始分65分对应bonus=3档。文章系统提出以慈善财产为基点的制度建构方向，并在多个争议点上给出理论回应与后续规则细化路径，延展性强但尚未形成精密的未来研究设计。",
+          "evidence_quotes": [
+            "从解释论层面阐明慈善财产的法律属性、内容范围、权利义务等元问题，从而奠定构建慈善财产法律制度的理论基础。从立法论层面提出慈善财产募集、使用、管理、处分、监督等元规则。",
+            "对于应否分类逐步承认客观存在的‘草根慈善组织’并对其加强治理和监督……是一个亟待给出理论回答的重大现实问题。"
+          ],
+          "strengths": [
+            "明确指出解释论与立法论的双重未来任务，衔接正文核心结论。",
+            "多段落提出具体制度修正路径(如“近似原则”细化、税收全额扣除、慈善公益诉讼)，具有可操作性。"
+          ],
+          "weaknesses": [
+            "延展方向呈多点分布，缺乏对最需优先突破的后续研究问题的聚焦提炼。",
+            "部分延展仍属制度完善方向性提议，后续研究的方法或推进机制未着墨。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "所评内容均指向‘慈善财产制度未来应如何继续完善或深入讨论’，而非评价当前方案是否已被接受或论证是否完备，符合维度边界。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了慈善财产制度的多条具体完善方向与规则衔接路径，延展性极佳。",
+          "core_judgment": "存在真实且具体的延展路径，指明了制度修正、规则衔接与场景延伸方向。",
+          "score_rationale": "原始分85，对应bonus=5档。论文提出了慈善信托受托人拓展、破产清算特殊规则、新型财产动态认定等具体制度深化方向与跨法域衔接问题，路径清晰可定位，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "是否应进一步改革慈善募捐制度，赋予慈善信托一定的特权，创设混合目的信托规范，需要给出充分的理论论证。",
+            "其破产程序在制度设计上不能简单套用《企业破产法》的商事破产规则体系……都具有特殊性。"
+          ],
+          "strengths": [
+            "提出了股权、知识产权等新型财产形态的动态认定机制这一场景延伸。",
+            "明确指出了慈善法与民法典、税法等跨法域的规则衔接问题。"
+          ],
+          "weaknesses": [
+            "对“责任束”的延展仅以“非本文重点”一笔带过，未指明具体推进路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "跨法域衔接与破产特殊规则属于未来制度完善方向，而非当下结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在制度建构层面提出了较明确的延展路径，包括慈善财产独立性证成、'权利束''义务束'规范体系深化、监管机制创新等方向，但部分展望仍偏宏观。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向、规则衔接问题及实施风险控制的具体指向，但部分路径精细度有限。",
+          "score_rationale": "原始分65分，对应bonus=3档。论文在结语及制度建构部分明确提出了'权利束''义务束'的范式转换、动态制衡机制、全周期规制体系等可定位的深化方向；同时指出了《慈善法》与《民法典》《信托法》等衔接的具体问题。但部分展望如'夯实法治之基'等表述仍偏宏观，且对'草根慈善组织'等问题的回应停留在'亟待给出理论回答'层面，未形成闭环。",
+          "evidence_quotes": [
+            "从立法论层面提出慈善财产募集、使用、管理、处分、监督等元规则，从而推动中国慈善法律体系的建立健全",
+            "慈善财产管理领域的新问题亦需要法治作出回应，即从法治创新角度明确慈善财产在慈善法治建设中的核心地位，构建慈善财产'权利束'和'义务束'以及'责任束'"
+          ],
+          "strengths": [
+            "提出'权利束''义务束'范式转换等可定位的理论深化方向",
+            "明确指向《慈善法》与《民法典》《信托法》等规则衔接问题"
+          ],
+          "weaknesses": [
+            "部分展望表述宏观，如'夯实法治之基'缺乏具体修正对象",
+            "'草根慈善组织'等问题仅指出'亟待回答'，未形成闭环"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文是否指明了未来研究或制度完善的可继续推进方向，而非评价当前结论是否被接受。论文提出的'动态制衡机制''全周期规制体系'等属于未来延展问题，而非当下结论的可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以慈善财产为核心，系统规划了配套立法、信托制度突破、监管创新及破产清算特殊规则等具体延展路径。",
+          "core_judgment": "存在高度具体且可定位的真实延展路径，紧密衔接正文“以财产为基点重构慈善法治”的核心主张。",
+          "score_rationale": "原始分85，对应bonus=5。论文精准锚定慈善财产独立属性，提出配套细则制定、信托法修订、公益诉讼增设及破产清算特殊规则等路径，与核心结论紧密咬合，具备明确可操作性与后续争点。",
+          "evidence_quotes": [
+            "针对破产清算情形……其破产程序在制度设计上不能简单套用《企业破产法》的商事破产规则体系",
+            "在《信托法》修订中增设‘慈善目的转换条款’，建立慈善信托双重登记制度"
+          ],
+          "strengths": [
+            "延展路径具体可定位，直指配套细则制定、信托法修订与公益诉讼立法衔接",
+            "明确列出草根组织募捐权、信托受托人拓展等下一轮核心争点与反驳入口"
+          ],
+          "weaknesses": [
+            "部分监管体制重构建议缺乏对现行行政架构约束的可行性论证",
+            "对数字慈善财产（如加密资产）的权属界定与监管延展着墨较少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦立法修订方向、配套规则衔接与新型场景监管延伸，属“未来制度建构路径”，非对当下结论可接受性的评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 19.06326198577881,
+        "glm-5.1": 44.757792949676514,
+        "kimi-k2.6": 13.239441871643066,
+        "qwen3.6-plus": 85.78547406196594
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 65,
+        "qwen3.6-plus": 85
+      },
+      "mean": 75,
+      "std": 11.5,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 70.69,
+      "weighted_total": 69.6
+    },
+    "aggregation_strictest": {
+      "final_score": 42.47,
+      "weighted_total": 46.6
+    },
+    "avg_std": 17.6,
+    "max_std": 29.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 28.2,
+    "composite_score": -17.6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 29.7
+  }
+}

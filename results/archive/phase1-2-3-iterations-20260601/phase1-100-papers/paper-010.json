@@ -1,0 +1,598 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/我国民事管辖审查程序的反思与修正.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入少量期刊页码与排版标记（如'6 8 1 *'、'7 8 1'）",
+          "部分脚注引用标记出现特殊字符乱码（如'瑏瑠'、'瑐瑠'）",
+          "文末参考文献列表标注为'（无）'，未提供完整引文信息"
+        ],
+        "evidence_quotes": [
+          "我国民事案件管辖权的审查程序乃是立案庭前置审查为主，业务庭后置审查为辅的混合模式，因此，在理论上和实践中便存在双重多次审查的可能性。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国管辖权的审查程序采立案庭前置职权主动审查为主，业务庭基于管辖权异议后置被动审查为辅的双重构造。这样繁复的审查程序导致实践中围绕管辖权的争议无休无止，诉讼迟延拖沓。",
+          "1991 年设立的管辖权异议制度旨在为当事人提供充分的程序保障，但其在实践中却被肆意滥用，导致诉讼延迟进一步加剧。",
+          "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。",
+          "笔者认为，仅根据原告主张的、完全没有证明的事实即可认可管辖对被告而言过于严苛……此时，法院也可以利用职权进行证据调查。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在页码混入与脚注编码乱码，建议清洗后入库",
+        "项目口径：完全符合，无需额外人工确认"
+      ],
+      "evidence_quotes": [
+        "我国特有的管辖权二元复式审查结构造成了管辖权审查的繁复性和内在冲突。……选择后置统一审查的改革模式毋庸增设诸多新制度，而且可以减轻立案庭的负担，因此遇到的改革阻力也会比较小。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR页码混入与脚注乱码，但不影响核心论点与论证结构的定位，建议进行基础文本清洗后直接进入六维评分。论文深度聚焦中国民事管辖权审查程序的结构性缺陷与司法实践困境，提出“单一后置开庭审查模式”及配套规则（如裁量性实质审查、移送程序优化、裁量性移送等），具备鲜明的中国问题意识、可争辩的教义学命题与明确的制度转化路径，完全符合项目口径。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码（如'8 8 1', '0 9 1'等）混入正文段落中",
+          "脚注编号10以后存在OCR/编码转换乱码（如'瑏瑠', '瑐瑡'等）"
+        ],
+        "evidence_quotes": [
+          "8 8 1\n中国法学\n2019 年第4 期",
+          "瑏瑠参见张卫平: 《管辖权异议: 回归原点与制度修正》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国管辖权审查程序采立案庭前置职权主动审查为主，业务庭基于管辖权异议后置被动审查为辅的双重构造。这样繁复的审查程序导致实践中围绕管辖权的争议无休无止，诉讼迟延拖沓。",
+          "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。",
+          "在现有起诉条件两阶段复式审查的诉讼构造中，单一后置开庭审查模式的效果更佳，即立案庭不审查管辖权问题，有关争议仅在被告提出管辖权异议时由业务庭启动审查，而是否开庭审查则委于法官裁量决定。",
+          "管辖权属于诉讼要件，法院一旦产生疑虑，就必须依职权主动进行审查，且其在程序上具有先决性，应于起诉时确定。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码与脚注编号乱码需在后续阶段清洗，但不影响核心论点提取",
+        "项目口径：完全符合进入六维评价条件，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程，但在后续评分提取特征前需清洗正文中的期刊页码混入及脚注编号乱码。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦民事管辖审查程序的结构性冗余，提出以单一后置审查替代复式构造的改革命题。",
+          "core_judgment": "该研究问题具备高度可争辩性与体系枢纽性，成功将实践痛点转化为可论证的教义学与制度设计争点。",
+          "score_rationale": "前置扣分0。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。",
+            "在现有起诉条件两阶段复式审查的诉讼构造中，单一后置开庭审查模式的效果更佳。"
+          ],
+          "strengths": [
+            "问题聚焦明确，直击管辖审查程序重复拖沓的结构性痛点。",
+            "深度呈现学界对审查限度、移送效力等核心争点的理论分歧。"
+          ],
+          "weaknesses": [
+            "对单一后置模式可能引发的立案庭职能转型阻力论证稍显理想化。",
+            "部分比较法借鉴未充分结合我国基层司法资源分布的现实约束。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准识别管辖复式审查的结构性缺陷，提出体系化改革争点",
+          "core_judgment": "问题成立且枢纽性强，涉及诉讼要件、职权探知等基本原理及多项制度联动",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，扣分合计=0，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。",
+            "管辖权属于诉讼要件……单一后置开庭审查模式的效果更佳"
+          ],
+          "strengths": [
+            "问题聚焦于复式审查的结构性缺陷，切中诉讼迟延痛点",
+            "争点明确，涵盖审查模式选择、审查限度、移送程序等多层面"
+          ],
+          "weaknesses": [
+            "部分争点（如审查限度）虽提出裁量性实质审查，但理论边界稍显模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 79.68029618263245,
+        "glm-5.1": 38.71165704727173
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒管辖审查改革脉络，精准定位既有方案缺陷并确立后置单一审查切入点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "学界主流观点认为，保障被告的管辖异议权是必要的，但完全没有必要将此程序进一步扩展",
+            "无论是废除管辖权异议制度，抑或是区分不同管辖分阶段审查，均有其不合理之处"
+          ],
+          "strengths": [
+            "精准提炼废除异议、分阶审查、前置/后置等改革路径及其局限",
+            "系统梳理德日审查限度与移送效力学说，争点脉络清晰"
+          ],
+          "weaknesses": [
+            "部分比较法文献引述偏重制度描述，理论交锋的批判性可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及方案本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构丰富，流派覆盖充分，比较法视野开阔。",
+          "core_judgment": "论文构建了清晰的研究地图，呈现了多维度的争点结构与流派对立，现状洞察度极高。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "学界主流观点认为，保障被告的管辖异议权是必要的，但完全没有必要将此程序进一步扩展，导致程序过剩",
+            "上述问题皆因管辖权审查程序内部衔接不畅，整体设计欠缺体系化考量所致...改革的基本思路应当是化繁就简"
+          ],
+          "strengths": [
+            "三要素完整，未竟点与切入点直接对应结构性缺陷与体系化重构",
+            "呈现了异议存废、审查模式、审查限度等多维度争点与流派对立"
+          ],
+          "weaknesses": [
+            "比较法流派梳理稍显分散，未在独立文献综述中集中映射"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构深度，不评管辖审查改革方案本身的新颖性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.75252199172974,
+        "glm-5.1": 45.70163106918335
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“单一后置审查”框架，逻辑清晰且具高度程序可操作性。",
+          "core_judgment": "框架成立且有效，成功将结构性问题转化为可操作的程序制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。框架分类明确，提供完整程序重构步骤与裁判指引，后文充分调用。",
+          "evidence_quotes": [
+            "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。",
+            "在单一后置审查模式中，管辖异议权成了触发管辖权先决审查的引擎，至关重要。"
+          ],
+          "strengths": [
+            "分类标准明确，清晰划分复式与单一审查模式并论证优劣。",
+            "提供完整程序操作指引，涵盖审查限度、方式与移送效力。"
+          ],
+          "weaknesses": [
+            "部分配套程序过渡方案的实操细节可进一步细化。",
+            "裁量性移送考量因素缺乏明确的优先级排序标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文建构了“后置单一审查模式”框架，操作性与法学转化度极高。",
+          "core_judgment": "框架高度成立，提供了完整的制度设计方案与裁判操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "“立案庭不审查管辖权问题，有关争议仅在被告提出管辖权异议时由业务庭启动审查”",
+            "“法院先行调查判断有无‘行为’，但不审理该行为是否属于侵权行为”"
+          ],
+          "strengths": [
+            "概念界定清晰，分类标准明确（任意管辖与专属管辖）。",
+            "提供了完整的裁判规则与司法程序操作指引。"
+          ],
+          "weaknesses": [
+            "无明显框架建构力缺陷。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评框架建构与法学转化，不评推理逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 59.4192259311676,
+        "glm-5.1": 41.776110887527466
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“问题诊断—路径比较—模式选定—规则细化”的严密推理链，结论可辩护推出。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论由规范分析与实务约束充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "改革的基本思路应当是化繁就简……变复式为单式，选择单一前置或后置开庭审查。",
+            "前置审查固然可以解决诸多问题，但却需要配套太多程序设置，立法工作量过于浩大。"
+          ],
+          "strengths": [
+            "推理步骤呈递进依赖，从结构批判到模式选择再到规则设计，逻辑链条完整。",
+            "对废除异议、前置审查等反对观点均作实质性回应，论证具有可辩护性。"
+          ],
+          "weaknesses": [
+            "部分配套制度（如裁量移送的具体考量因素）的论证略显理想化，实务落地约束可再强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否形成充分支撑，而非评价所提制度方案在司法实践中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳处理充分，结论可辩护推出。",
+          "core_judgment": "本维成立，制度方案推导严密，反驳与局限处理到位。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "前置审查固然可以解决目前复式结构所存在的诸多问题，但却需要配套太多程序设置，立法工作量过于浩大。",
+            "对管辖原因事实的实体审查与管辖作为诉讼要件的先决性具有天然的紧张关系。"
+          ],
+          "strengths": [
+            "从问题诊断到模式选择再到具体设计，推理链高度依赖且连贯。",
+            "对废除异议、前置审查等反对路径均有实质性论证回应。"
+          ],
+          "weaknesses": [
+            "裁量性实质审查说的论证稍显简略，局部过渡缺详细展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判的是后置模式推导的逻辑支撑度，而非该模式在实务中是否易落地。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 59.128721714019775,
+        "glm-5.1": 34.09761095046997
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确主张单一后置审查模式，深度回应中国管辖权审查程序争议，制度设计具体且契合现行法秩序。",
+          "core_judgment": "该结论高度融入中国民事诉讼程序语境，具备明确的学术对话坐标与可操作的制度转化路径，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位既有学说分歧，全面回应中国立案/审判庭双轨制约束，并提出具象化改革方案与转化方向。",
+          "evidence_quotes": [
+            "改革管辖权审查程序的核心在于化繁就简，即废除复式审查模式，变为单一前置或后置审查。",
+            "后置单一审查模式与我国司法实践及审理构造最具契合度，其并不需要改变当前立案庭与业务庭分别审查的基本框架"
+          ],
+          "strengths": [
+            "精准回应管辖权异议滥用与程序重复审查等核心争议",
+            "制度设计具体，涵盖审查限度、移送规则与裁量性移送等实操环节"
+          ],
+          "weaknesses": [
+            "对单一后置模式可能引发的立案庭职能空转风险论证稍显不足",
+            "裁量性移送的具体适用标准仍需更多本土实证数据支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论回应学界争论并提出详尽的后置单一审查制度方案，高度契合中国语境。",
+          "core_judgment": "结论可接受性极高，充分回应共同体争论与制度约束，提供具体转化方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文拟基于利益衡量的立场，分析在我国现行民事诉讼程序框架下，契合管辖权本质的最佳改革方案，即后置单一审查模式",
+            "后置单一审查模式与我国司法实践及审理构造最具契合度，立法成本极低"
+          ],
+          "strengths": [
+            "回应了废除异议等多种争论，对话度高",
+            "提供了审查限度、裁判方式等详尽制度方案"
+          ],
+          "weaknesses": [
+            "后置审查可能弱化管辖权先决性，虽有回应但仍存争议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被学界及制度语境接受，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 55.708085775375366,
+        "glm-5.1": 31.125712871551514
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 85
+      },
+      "mean": 76.5,
+      "std": 12.0,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在结语明确指向体系化建构与立案庭裁撤趋势，延展路径清晰但精细度有限。",
+          "core_judgment": "存在真实延展路径，聚焦制度衔接、未来机构裁撤趋势及配套规则验证方向。",
+          "score_rationale": "原始分68，对应bonus=3档。结语明确指向体系化建构、制度衔接及立案庭裁撤趋势，与核心结论紧密衔接，但未展开具体后续研究设计或配套规则验证路径，精细度有限。",
+          "evidence_quotes": [
+            "也许将来废除立案庭之后，目前存在的问题可以自然消解。但既然短期内仍然会保留立案庭，那么只能在诉讼流程内部优化管辖权的审查任务。",
+            "总之，管辖权审查程序是一个需要体系化建构的作业，不能仅将目光局限于个别制度上，更不宜轻言废立某项制度，应当注重制度之间的衔接与协调。"
+          ],
+          "strengths": [
+            "明确指向体系化建构与制度衔接方向",
+            "将改革路径与立案庭裁撤趋势相衔接"
+          ],
+          "weaknesses": [
+            "结语偏重总结，未细化后续实证检验路径",
+            "对裁量移送等新规的适用风险缺乏具体推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦改革方案落地后的制度衔接、立案庭裁撤趋势下的程序演进及裁量移送的风险控制等未来议题，而非当下结论的学理可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了单一后置审查的远景衔接及裁量移送的风险控制，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了废除立案庭的制度衔接及管辖与实体竞合的后续争点。",
+          "score_rationale": "原始分85，bonus档位为5分（>=80）。论文指出了“废除立案庭”的远景衔接与当前方案的过渡性，并给出裁量移送的具体考量因素与管辖实体竞合的后续争点，路径清晰可定位。",
+          "evidence_quotes": [
+            "也许将来废除立案庭之后，目前存在的问题可以自然消解……还可以提前为将来裁撤立案庭做好准备。",
+            "在需要明确侵权行为地法院管辖的审理过程中，不认可侵权行为时应驳回本案请求还是以管辖错误为由裁定移送。"
+          ],
+          "strengths": [
+            "明确了当前后置方案向未来“废除立案庭”远景的制度衔接路径。",
+            "给出了裁量移送的具体考量因素清单，具实施风险控制意义。"
+          ],
+          "weaknesses": [
+            "对管辖与实体竞合的后续争点仅提出问题，未指明深化方向。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "废除立案庭的远景及裁量移送的风险控制属于未来制度演进与实施边界，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 51.74587607383728,
+        "glm-5.1": 43.94867515563965
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.8,
+    "max_std": 12.0,
+    "weighted_total": 91.0,
+    "final_score": 94.91,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 5.53,
+    "worst_dimension": "forward_extension",
+    "worst_std": 12.0
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国管辖权的审查程序采立案庭前置职权主动审查为主，业务庭基于管辖权异议后置被动审查为辅的双重构造。这样繁复的审查程序导致实践中围绕管辖权的争议无休无止，诉讼迟延拖沓。",
+          "在现有起诉条件两阶段复式审查的诉讼构造中，单一后置开庭审查模式的效果更佳，即立案庭不审查管辖权问题，有关争议仅在被告提出管辖权异议时由业务庭启动审查，而是否开庭审查则委于法官裁量决定。",
+          "笔者认为，仅根据原告主张的、完全没有证明的事实即可认可管辖对被告而言过于严苛……原告应当证明足以认可上述裁判权的外观事实与行为。此时，法院也可以利用职权进行证据调查。",
+          "为保护被告利益并维持公益，原告即使是向有管辖权的法院起诉，但可能因此产生显著损害或诉讼迟延时，法院也可依据职权或被告申请裁量将案件移送其他更适当的法院管辖。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国管辖权的审查程序采立案庭前置职权主动审查为主，业务庭基于管辖权异议后置被动审查为辅的双重构造。这样繁复的审查程序导致实践中围绕管辖权的争议无休无止，诉讼迟延拖沓。",
+          "2012年《民事诉讼法》参照德日立法增设了应诉管辖制度，但该制度系德日单一审查模式下为消解任意管辖的审查负担而设，在我国现有两阶段复式审查模式下几无用武之地。",
+          "在现有起诉条件两阶段复式审查的诉讼构造中，单一后置开庭审查模式的效果更佳，即立案庭不审查管辖权问题，有关争议仅在被告提出管辖权异议时由业务庭启动审查，而是否开庭审查则委于法官裁量决定。",
+          "宜增设为避免迟延和促进当事人间公平之裁量移送。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

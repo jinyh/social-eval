@@ -1,0 +1,1005 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/以危险方法危害公共安全罪认定规则研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文本末尾参考文献列表缺失，但脚注引用详尽完整，不影响对论证和结论的评审"
+        ],
+        "evidence_quotes": [
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以危险方法危害公共安全罪是我国《刑法》中唯一使用“其他……方法”作为罪状主体的罪名，因此其天然具有“口袋罪”的嫌疑。",
+          "本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则，从理论与实践契合关系的视角分析理论的实践有效性，以尝试建构能有效影响司法实践的认定规则。",
+          "司法实践认定的“其他危险方法”具有两个显著的特征：其一，行为本身的危险性高……其二，行为危险具有蔓延性、扩散性……",
+          "研究发现，限制解释与谨慎适用以危险方法危害公共安全罪是中级以上法院的整体基调，而且，司法实践已经形成了可类型化、操作性较强的裁判规则。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表为空，建议确认原始文本是否存在抽取失败或原稿未提供。"
+      ],
+      "evidence_quotes": [
+        "本文运用中国裁判文书网2010-2019年中级以上法院相关判决书对以危险方法危害公共安全罪定罪影响因素和司法认定与理论的契合关系进行了统计分析。",
+        "司法实践中认定的“其他危险方法”具有两个显著的特征：其一，行为本身的危险性高……其二，行为危险具有蔓延性、扩散性……",
+        "研究发现，限制解释与谨慎适用以危险方法危害公共安全罪是中级以上法院的整体基调，而且，司法实践已经形成了可类型化、操作性较强的裁判规则。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本工程基本正常（仅参考文献列表缺失），论文以中国刑法中的具体罪名为核心，深入分析司法实践并构建可操作的认定规则，完全符合进入六维评价的条件。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码混入正文（如222、223等）",
+          "期刊名与年份期数混入正文（如“中国法学 2021 年第4 期”）",
+          "脚注编号及内容直接穿插在正文中",
+          "表格数据（表1至表4）以纯文本形式抽取，格式结构受损"
+        ],
+        "evidence_quotes": [
+          "222",
+          "中国法学 2021 年第4 期",
+          "(1) 参见高铭暄、赵秉志编著：《新中国刑法学研究60 周年》……",
+          "表1  Logistic 模型估计结果 立法类模型 司法类模型 （1） （2）……"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以危险方法危害公共安全罪是我国《刑法》中唯一使用“其他……方法”作为罪状主体的罪名，因此其天然具有“口袋罪”的嫌疑。",
+          "本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则，从理论与实践契合关系的视角分析理论的实践有效性，以尝试建构能有效影响司法实践的认定规则。",
+          "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型。",
+          "关于“公共”的涵义，学界存在如下四种学说：“不特定人说”、“多数人说”、“不特定或多数人说”、“不特定且多数人说”……两者的主要分歧在于不特定人与多数人是并列关系还是选择关系。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文混入页码、期刊信息、脚注文本及表格数据解析乱码，需后续清洗与格式重构，但不影响核心论点定位与项目口径判断。"
+      ],
+      "evidence_quotes": [
+        "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "确认进入六维评分流程。建议在后续评审阶段前，对文本进行工程清洗：剔除混入的页码与期刊标识，将脚注内容分离至注区，并对表1至表4的Logistic模型数据及统计频数表进行结构化还原。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如'前注②''前注⑳''前注㉑'等）",
+          "部分表格数据在OCR转换中可能存在格式错位风险",
+          "参考文献列表缺失（标注为'（无）'）",
+          "DOI和期刊页码信息混入正文开头"
+        ],
+        "evidence_quotes": [
+          "前注②，劳东燕文，第24页。",
+          "前注⑳，陈兴良主编书，第308页。",
+          "前注㉑，高铭暄、马克昌主编书，第333-334页。",
+          "（注：本部分的比例以认定以危险方法危害公共安全罪的260个案件为分母）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以危险方法危害公共安全罪是我国《刑法》中唯一使用'其他……方法'作为罪状主体的罪名",
+          "本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则，从理论与实践契合关系的视角分析理论的实践有效性，以尝试建构能有效影响司法实践的认定规则",
+          "研究数据来源于中国裁判文书网……检索到从最早公布该罪文书的2010年至2020年4月18日的判决书共计459份",
+          "司法的裁判规则经改善后可普遍适用于司法实践，以增强法律适用的统一性",
+          "刑法理论需正视司法实践，并及时调整研究姿态"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码（前注②、⑳、㉑等），但不影响核心内容识别",
+        "文本工程：参考文献列表缺失，但正文引用完整可追踪",
+        "文本工程：期刊页眉信息（中国法学2021年第4期）重复出现，属正常分栏残留"
+      ],
+      "evidence_quotes": [
+        "以危险方法危害公共安全罪是我国《刑法》中唯一使用'其他……方法'作为罪状主体的罪名，因此其天然具有'口袋罪'的嫌疑",
+        "本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则……以尝试建构能有效影响司法实践的认定规则",
+        "研究数据来源于中国裁判文书网……最终得到400份判决书，作为本研究的有效样本",
+        "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评价。文本质量风险较低，脚注编号乱码和参考文献缺失不影响核心评审；该文以中国刑法具体罪名为核心，运用实证研究方法分析中国司法实践，提出类型化的认定规则，具有明确的中国问题中心性、法学问题意识和理论转化贡献。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则，从理论与实践契合关系的视角分析理论的实践有效性，以尝试建构能有效影响司法实践的认定规则。",
+          "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "以危险方法危害公共安全罪是我国《刑法》中唯一使用“其他……方法”作为罪状主体的罪名...本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则...尝试建构能有效影响司法实践的认定规则。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，聚焦中国刑法核心争议罪名（以危险方法危害公共安全罪）的司法适用难题，结合大样本裁判文书实证分析与教义学阐释，精准回应“口袋罪”倾向与理论实践脱节问题，并提出具有可操作性的类型化裁判规则与规范命题。文本结构完整、论证清晰，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文围绕以危险方法危害公共安全罪的认定规则展开实证研究，但主要是一个主题声明，缺乏可争辩的法学研究问题。",
+          "core_judgment": "论文未能提出明确、可争辩的法学问题，核心是完善规则的主题声明，而非对一个有理论分歧的争点进行探索。",
+          "score_rationale": "可争辩性=1/4（仅满足标准2法学层面），枢纽性=3/4（满足标准1-3，但不满足制度连锁），触发no_justiciable_question上限（50分）。材料新（大样本实证）但未改变问题设定，无实质理论推进，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "及时完善甚至重述以危险方法危害公共安全罪的认定规则尤为必要且迫切。",
+            "本文以实证方法考察以危险方法危害公共安全罪的司法认定状况与裁判规则，从理论与实践契合关系的视角分析理论的实践有效性，以尝试建构能有效影响司法实践的认定规则。"
+          ],
+          "strengths": [
+            "实证方法提供了新的材料视角，揭示了司法实践中的定罪影响因素。",
+            "研究触及了该罪认定的核心争议点，具有较强的实践导向。"
+          ],
+          "weaknesses": [
+            "全文无问题句，核心是“完善规则”的主题声明而非可争辩的研究问题。",
+            "研究设计基于“理论与实践契合”但未转化为具体的法学争点，缺乏理论推进路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，论文核心是主题声明或政策倡导，无明确法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文旨在“建构能有效影响司法实践的认定规则”，无“XX是否YY”等问题句，缺乏可争辩的法学理论问题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评论证是否严密、材料是否充分支持结论。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "问题直击口袋罪认定核心争议，枢纽性强，争辩充分，属优秀问题",
+          "core_judgment": "论文提出了明确且可争辩的法学争点，涉及刑法核心概念与多罪名界限，问题成立且极为重要",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限（实证方法实质推进了结论），锚定excellent档，给88分",
+          "evidence_quotes": [
+            "既有研究尚存在诸多分歧，且理论在实践中的有效性仍然存在疑问...尝试建构能有效影响司法实践的认定规则",
+            "关于“公共”的涵义，学界存在...四种学说...目前关于“公共”涵义的争论主要是“不特定或多数人”说与“不特定且多数人”说之争"
+          ],
+          "strengths": [
+            "争点明确，直击口袋罪认定规则这一刑法学界长期核心争议",
+            "问题枢纽性极强，涉及本罪与多个关联罪名的界限划分"
+          ],
+          "weaknesses": [
+            "核心问题本身为学界长期关注的旧问题，问题设定创新度略欠"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评实证方法严密性与数据支撑度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以实证方法研究以危险方法危害公共安全罪的司法认定规则，问题具有实践意义但创新性不足。",
+          "core_judgment": "问题属于制度性应用研究，有可争辩的教义学争点，但主要贡献在于材料整理与实证描述，未形成真正的理论推进。",
+          "score_rationale": "可争辩性=3/4（有问题句、法学层面、理论分歧），枢纽性=2/4（影响范围广、涉及核心概念），材料新颖性未触发上限，锚定good档，但宏观介绍非深度分析扣15分，最终给55分。",
+          "evidence_quotes": [
+            "既有研究尚存在诸多分歧，且理论在实践中的有效性仍然存在疑问",
+            "关于'公共'的涵义，学界存在如下四种学说"
+          ],
+          "strengths": [
+            "问题聚焦司法实践与理论契合，有明确争点",
+            "涉及'公共'内涵、危险相当性等核心教义学问题"
+          ],
+          "weaknesses": [
+            "以实证统计替代理论建构，未推进规范命题",
+            "类型化结论多为描述性归纳，缺乏解释力提升"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.macro_introduction_not_analysis",
+              "rule": "宏观介绍非深度分析，有学者观点交锋但未充分展开理论争辩",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文梳理'不特定或多数人'等四种学说后，以统计描述替代规范论证，未深入展开理论交锋"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以实证数据检验教义学争议，重构危险方法危害公共安全罪认定规则，问题聚焦且具枢纽价值。",
+          "core_judgment": "问题明确指向刑法核心教义学争点，兼具理论分歧与实践检验价值，研究问题高度成立且具重要学术意义。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。负面模式检查均不满足，扣分合计0分。",
+          "evidence_quotes": [
+            "如何判断‘危险性相当’则众说纷纭……学界仍存在分歧",
+            "本文以实证方法考察……从理论与实践契合关系的视角分析理论的实践有效性"
+          ],
+          "strengths": [
+            "明确聚焦“口袋罪”限缩解释的核心争点，问题意识清晰",
+            "引入大样本实证模型检验教义学命题，有效桥接理论与实践分歧"
+          ],
+          "weaknesses": [
+            "样本仅限中级以上法院，基层司法实践的代表性存疑",
+            "部分类型化规则仍偏重经验归纳，法理正当性论证可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评研究问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.014989137649536,
+        "glm-5.1": 48.375969886779785,
+        "kimi-k2.6": 12.531092166900635,
+        "qwen3.6-plus": 61.98583197593689
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 88,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 70,
+      "std": 23.5,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位，清晰构建了以危险方法危害公共安全罪认定规则的研究地图，呈现了多个理论争点与对立流派。",
+          "core_judgment": "研究地图完整且争点结构突出，既有研究缺口明确，本文切入点与之高度对应，法学流派覆盖充分。",
+          "score_rationale": "三要素得分=6/6（到达点2，未竟点2，本文切入点2），争点结构=2/2，法学流派=4个（实质区分论、不特定或多数人说、不特定且多数人说、否定单纯财产安全说等），锚定excellent档（85-100），给88分。",
+          "evidence_quotes": [
+            "关于“其他危险方法”，学界的共识是……但如何判断“危险性相当”则众说纷纭……对于“危险相当性”的判断基准，学界仍存在分歧……相关研究则付之阙如。",
+            "本文以实证方法考察……认定规则，从理论与实践契合关系的视角分析理论的实践有效性，以尝试建构能有效影响司法实践的认定规则。"
+          ],
+          "strengths": [
+            "分散在正文中的文献梳理精准提炼了到达点、未竟点与本文切入点，三要素均充分满足。",
+            "围绕“公共”“危险方法”“财产安全”等争点呈现了至少四个可区分的法学流派或对立立场，争点结构高度清晰。"
+          ],
+          "weaknesses": [
+            "缺少独立的参考文献列表，无法从文末直接核验文献覆盖范围。",
+            "对认知心理学或跨学科法学流派的提及较少，流派多样性可进一步拓宽。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价研究地图的完整性和争点结构，不涉及本文所提实证研究方法本身的新颖性或论证严密性。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准梳理既有研究共识与分歧，明确实证切入点，呈现多重争点结构。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "目前关于‘公共’涵义的争论主要是‘不特定或多数人’说与‘不特定且多数人’说之争",
+            "对于‘危险相当性’的判断基准，学界仍存在分歧...相关研究则付之阙如"
+          ],
+          "strengths": [
+            "精准提炼既有研究在三个核心争点上的共识与具体分歧",
+            "明确指出既有研究欠缺大样本实证分析与理论实践有效性检验"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于文献定位与争点梳理的完整性，不评价实证方法本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了较完整的研究地图，呈现了三重核心争点及理论与实践的契合关系分析。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但法学流派识别以问题领域划分而非严格学派对立，辅助锚定作用有限。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=2个（'不特定或多数人'说与'不特定且多数人'说；肯定说与否定说），锚定good档，给72分。",
+          "evidence_quotes": [
+            "现有讨论集中于'其他危险方法'与'公共'的内涵以及单纯财产安全是否属于公共安全等三个方面...但这些共识比较宏观，可操作性欠佳，且在很多具体内容上仍存在分歧。",
+            "关于'公共'的内涵，主要存在'不特定或多数人'说与'不特定且多数人'说之争...关于单纯财产安全是否属于公共安全，主要存在两种观点：其一，肯定说...其二，否定说"
+          ],
+          "strengths": [
+            "明确提炼三重核心争点并系统梳理对立观点",
+            "实证研究设计与理论争议形成有效对话"
+          ],
+          "weaknesses": [
+            "未充分呈现'其他危险方法'判断标准中的学派分歧（仅罗列观点未形成对立脉络）",
+            "对既有研究'到达点'的贡献提炼偏概括，缺乏具体学者成果的深入评析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时最高79分",
+              "score_ceiling": 79,
+              "priority": 3,
+              "evidence": "三要素得5分，不适用此规则；但流派识别以问题领域立场为主，严格学派属性较弱"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准勾勒既有研究共识与分歧，明确指出现有规范研究局限，并以实证视角切入，研究地图完整。",
+          "core_judgment": "本维度充分成立，作者已建立包含到达点、未竟点与切入点的完整研究地图，争点脉络分明。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "现有讨论集中于“其他危险方法”与“公共”的内涵以及单纯财产安全是否属于公共安全等三个方面",
+            "本文以实证方法考察司法认定状况与裁判规则，从理论与实践契合关系的视角分析理论的实践有效性"
+          ],
+          "strengths": [
+            "精准提炼三大核心争点及学界共识与分歧",
+            "明确指出既有研究缺乏大样本实证与理论实践契合视角"
+          ],
+          "weaknesses": [
+            "对实证研究方法的既有文献梳理略显单薄",
+            "部分争点未充分展开跨法域比较视角"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献定位与争点梳理的完整性，不涉及本文实证方法或结论的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.330472230911255,
+        "glm-5.1": 40.81818199157715,
+        "kimi-k2.6": 13.656683683395386,
+        "qwen3.6-plus": 68.23199892044067
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.5,
+      "std": 9.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "本文通过大样本实证回归和案例类型化，构建了可操作的“其他危险方法”认定规则体系，框架清晰、后文持续调用。",
+          "core_judgment": "论文通过实证归纳和类型化提炼出三类可重复适用的裁判规则，框架建构力强且法学转化度高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4，锚定excellent档，给88分。框架概念界定清晰、分类标准明确、分析步骤可循，后文实际调用充分；法学转化已将实证发现转化为具体的类型化裁判指引。",
+          "evidence_quotes": [
+            "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型。",
+            "关于三种类型共通的要素，首先应考虑上述回归分析……所得出的结论：(1)行为危险极其严重；(2)行为危险具有蔓延性、扩散性；(3)行为针对财产的负向影响；(4)造成单纯财产损害的负向影响。"
+          ],
+          "strengths": [
+            "实证回归与案例类型化结合，将定罪机制凝练为三类可检验的裁判模型。",
+            "框架要素贯穿全文，从模型变量到类型化规则再到结语启示，调用链条完整。"
+          ],
+          "weaknesses": [
+            "‘公共’内涵部分最终依赖‘非个体、非私人’的抽象审查，未给出排他性操作步骤。",
+            "从回归结果到三类认定规则的过渡稍显跳跃，未严格证明类型划分的周延性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处仅评价分析框架本身的建构力与法学转化度，不涉及实证方法或逻辑衔接严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "通过实证统计与教义学融合，建构了极具操作性的三类型认定规则框架",
+          "core_judgment": "框架建构力极强，将实证回归变量成功转化为法学裁判规则，并提供三类型操作指引",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "将其他危险方法分为行为工具极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为+强化行为力度与危险型三类",
+            "类型一判断：A.行为危险直接迅速导致结果；B.危险或结果极为严重规模大；C.对公共生命健康有具体危险"
+          ],
+          "strengths": [
+            "实证回归变量转化为法学判断要素，转化路径清晰",
+            "三类型认定规则提供具体判断步骤，可操作性强"
+          ],
+          "weaknesses": [
+            "部分类型化边界（如极端危险与高度危险的区分）仍依赖经验判断"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架成立与法学转化，不评理论推演的严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "基于实证回归分析构建了三类型认定规则框架，具有较强可操作性但法学转化深度有限。",
+          "core_judgment": "分析框架基本成立：以Logistic回归识别定罪影响因素，并类型化为三类型认定规则，但核心概念'公共'的界定仍依赖理论通说，原创性法学转化步骤不足。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文实际调用），法学转化度得分=2/4（跨学科统计方法转化为法学分析步骤、提供裁判规则指引，但制度设计层面方案不足、转化步骤后文调用深度有限），锚定good档，给72分。",
+          "evidence_quotes": [
+            "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型",
+            "表4 '其他危险方法危害公共安全'认定规则类型化"
+          ],
+          "strengths": [
+            "实证方法与类型化结合，构建了三类型认定规则框架",
+            "回归分析识别了定罪关键影响因素，具有可重复操作性"
+          ],
+          "weaknesses": [
+            "'公共'概念界定仍依赖通说，缺乏原创性法学转化",
+            "类型化规则的后文调用深度不足，部分类型分析较简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架建构力，不评逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "基于大样本实证提炼裁判规则，构建三类型化认定框架与可操作的司法判断步骤。",
+          "core_judgment": "分析框架成立且具备强可操作性与法学转化度，有效回应了限缩口袋罪的实务需求。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。实证变量精准转化为裁判要素，类型化规则提供明确司法指引。",
+          "evidence_quotes": [
+            "依据行为的危险程度，可以将其他危险方法危害公共安全大致分为行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型。",
+            "首先应考虑行为危险是否极为严重、有蔓延性……其次，考虑行为是否对公共生命、健康造成具体危险……再次，如果行为针对财产……"
+          ],
+          "strengths": [
+            "实证数据精准提炼定罪核心变量，分类边界清晰",
+            "将统计结论直接转化为法官可操作的类型化裁判规则"
+          ],
+          "weaknesses": [
+            "对基层法院裁判规则的普适性验证略有不足",
+            "部分类型化标准的交叉情形未作充分排除说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.83871507644653,
+        "glm-5.1": 37.20319390296936,
+        "kimi-k2.6": 10.987238883972168,
+        "qwen3.6-plus": 47.442403078079224
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86.8,
+      "std": 10.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文通过实证数据驱动的研究设计，构建了从问题诊断到回归分析再到理论重构的完整推理链，结论由模型结果和裁判文书分析双重支撑，推理链完整但反驳处理略显不足。",
+          "core_judgment": "推理链完整性较好，实证分析有力支撑了‘司法实践未口袋化’及三种行为类型的核心结论，但在理论部分对‘多数人说’等对立观点的实质性回应和自身局限的主动承认有所欠缺。",
+          "score_rationale": "推理链完整性得分=3/4（缺独立反驳步骤），反驳处理度得分=2/3（未能明确承认局限），锚定good档（70-79），考虑实证推理的严谨性和类型化结论的充分支撑，给78分。",
+          "evidence_quotes": [
+            "“行为危险直接、严重、有扩散性，强化行为力度与危险，明知或放任危害公共安全对于认定该罪具有正向影响...行为针对单纯财产对于定罪具有负向影响。”",
+            "“司法实践认定的公共安全基本不包括单纯财产安全...大多数判决要求存在具体危险...245个案件中行为的危险具有蔓延性、扩散性，占比94.2%。”"
+          ],
+          "strengths": [
+            "实证分析到理论重构的链条清晰：从立法/司法两类Logistic模型的结果，稳健地推出定罪机制的三项特征，再结合裁判文书分析形成三种行为类型。",
+            "结论可由前文充分推出，三种‘其他危险方法’类型均从回归结果和裁判说理中归纳而来，逻辑跳步极少。"
+          ],
+          "weaknesses": [
+            "反驳处理较弱：在界定‘公共’含义时，对‘不特定且多数人说’的批评仅以‘不当缩小范围’带过，未展开实质性反驳论证。",
+            "未明确承认自身局限：结语虽提及样本未及基层法院，但正文未回应实证模型本身可能存在的遗漏变量或内生性问题，属于关键局限的回避。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文逻辑弱点主要在于理论交锋的深度而非推理断裂，属于反驳处理度不足，不是框架建构力或结论可接受性的问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "实证数据与理论分歧深度交互，严密推导出类型化认定规则。",
+          "core_judgment": "推理链完整且环环相扣，对理论分歧的实证回应充分，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "行为危险直接、严重、有扩散性对于认定该罪的可能性显著高于行为危险扩散性不大的情形",
+            "本文仅以中级以上法院的判决书为样本考察了定罪影响因素和裁判规则……不及于基层法院"
+          ],
+          "strengths": [
+            "实证回归结果直接支撑类型化规则的提炼，无关键跳步",
+            "对理论分歧（如公共内涵）用实证数据给出选择理由，回应实质"
+          ],
+          "weaknesses": [
+            "从“中级法院无口袋化”到“规则可普遍化”的推导略显乐观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价实证数据到规则推导的逻辑支撑力，不评价规则实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "实证研究路径清晰，但理论建构与反驳处理存在局部薄弱。",
+          "core_judgment": "论文以'问题提出—实证分析—理论契合—类型建构'为主轴，推理链基本完整，但'公共'概念重构的论证跳步及反驳处理不足。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4部分成立：'公共'概念从'多数人说'到'非个体/非私人'的推导存在关键跳步）；反驳处理度得分=1/3（标准1成立：呈现了'不特定或多数人'说与'不特定且多数人'说之争；标准2部分成立：对'否定说'的回应不够充分；标准3不成立：未明确承认类型化方案的适用边界）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "司法实践在上述案件中采取了'多数人说'的立场……但笔者认为并不充分，还应从公开性、非私人性方面来把握。",
+            "类型一：行为工具与手段极端危险……类型二：高度危险行为直接针对公共人身安全……类型三：高度危险行为+强化行为力度与危险。"
+          ],
+          "strengths": [
+            "实证到理论的推理链清晰：回归分析→司法特征提取→三类型建构，步骤可复述。",
+            "对'其他危险方法'的司法认定模式归纳充分，数据支撑扎实。"
+          ],
+          "weaknesses": [
+            "'公共'概念重构从'多数'跃迁至'非个体/非私人'，中间论证不足，存在关键跳步。",
+            "对'否定说'（单纯财产安全不属于公共安全）的反驳处理流于描述性归纳，缺乏规范论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度关注推理链是否充分支撑结论，不评价类型化框架本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“实证检验-教义提炼”推理链，结论获数据与规范双重支撑。",
+          "core_judgment": "推理步骤环环相扣，反驳回应与局限承认充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文以实证方法考察司法认定状况与裁判规则，从理论与实践契合关系的视角分析有效性，以尝试建构认定规则。",
+            "需要指出的是，本文仅以中级以上法院的判决书为样本考察了定罪影响因素和裁判规则，今后的研究至少应在两方面加以拓展。"
+          ],
+          "strengths": [
+            "实证模型与教义分析深度咬合，核心结论推导路径清晰可复述",
+            "系统梳理理论分歧并以裁判数据实质回应，逻辑自洽"
+          ],
+          "weaknesses": [
+            "样本限于中高层级法院，向基层普适化推导存在轻微外推风险"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价从数据到规则的推导闭合度，不涉规则实务操作成本。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.1689190864563,
+        "glm-5.1": 41.49965786933899,
+        "kimi-k2.6": 15.483001947402954,
+        "qwen3.6-plus": 44.84585905075073
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83.5,
+      "std": 10.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "论文结论基于实证分析提出认定规则类型化方案，与现有法秩序兼容并对学术争论有具体回应，但理论对话深度和反对意见讨论尚有加强空间。",
+          "core_judgment": "论文结论在共同体和制度层面有基本可接受度，但未充分回应学说分歧和自身局限，对话度有一定欠缺。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=3/4，按理论论文锚定good(60-69)档，给出68分。",
+          "evidence_quotes": [
+            "司法实践认定的公共安全基本不包括单纯财产安全，这一立场与理论界的‘公共安全不包括单纯财产安全’的主张基本契合。",
+            "本文将认定规则类型化为：行为工具与手段极端危险型、高度危险行为直接针对公共人身安全型、高度危险行为被强化型。"
+          ],
+          "strengths": [
+            "结论直接回应了学界关于口袋罪、公共、危险相当性等核心争论，并给出了司法实证依据。",
+            "结论提出的类型化规则与现行法条文及司法解释逻辑兼容，且指明了制度适用方向。"
+          ],
+          "weaknesses": [
+            "结论虽涉及理论多数学说，但对反对意见（如不特定且多数人说）的讨论不够深入，未明确论证自身理论相较反对学说的优势。",
+            "对基层法院适用困境及‘口袋化’真实风险缺少充分回应，自身局限仅在结尾简要提及。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的可接受性，创新程度和论证严密性不影响得分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论基于实证数据提出类型化认定规则，有效回应学界争论并兼容现行法秩序。",
+          "core_judgment": "结论可接受性成立，实证规则与理论对话充分，制度转化方向明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "司法实践已经形成了可类型化、操作性较强的裁判规则...可为司法实践与理论发展提供启示",
+            "本文仅以中级以上法院的判决书为样本...今后的研究至少应在两方面加以拓展"
+          ],
+          "strengths": [
+            "提出三种具体认定规则类型，反对者可定位反驳",
+            "明确承认样本局限及不及于基层法院，对话度高"
+          ],
+          "weaknesses": [
+            "实证样本仅限中级以上法院，对基层口袋化现象回应稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受，不评论证严密性与前瞻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "实证研究揭示司法裁判规则，结论与理论对话充分且制度兼容性强。",
+          "core_judgment": "论文以实证方法回应了以危险方法危害公共安全罪认定的核心理论争议，结论能被学界定位与回应，且与中国刑法制度逻辑兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定good档，给72分。论文明确回应'不特定或多数人'说与'不特定且多数人'说之争，修正了既有理论；主动讨论反对意见（如'多数'是否充分的质疑）；结论完全基于中国裁判文书实证，未移植外国理论。制度层面回应了《刑法》第114-115条体系解释，提出了三类可操作的类型化规则，并与《刑法修正案（十一）》新增罪名衔接。",
+          "evidence_quotes": [
+            "司法实践在上述案件中采取了'多数人'的立场...'公共'的认定受危险方法的影响",
+            "类型一：行为工具与手段极端危险...类型二：高度危险行为直接针对公共人身安全...类型三：高度危险行为+强化行为力度与危险"
+          ],
+          "strengths": [
+            "主动回应'不特定或多数人'说与'不特定且多数人'说之争，定位清晰",
+            "结论提出三类类型化规则，可直接指导司法实践"
+          ],
+          "weaknesses": [
+            "对'公共'概念的重新界定未充分回应'非个体''非私人'标准可能面临的质疑",
+            "结语部分对基层法院适用差异的承认，削弱了规则普遍化主张的彻底性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论可接受性，不评论证过程严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论基于实证数据提炼类型化裁判规则，有效回应理论争议并契合中国司法语境。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文运用裁判文书网判决数据，发现限制解释与谨慎适用是该罪整体基调。",
+            "司法裁判规则经改善后可普遍适用，体现实践理性并增强法律适用统一性。"
+          ],
+          "strengths": [
+            "精准定位理论争议并以大样本实证数据予以回应",
+            "提炼的类型化裁判规则具强操作性且与现行法兼容"
+          ],
+          "weaknesses": [
+            "样本仅限中级以上法院，基层司法实践覆盖不足",
+            "对重刑主义与口袋罪扩张的深层关联未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.62031626701355,
+        "glm-5.1": 36.48420310020447,
+        "kimi-k2.6": 12.325495958328247,
+        "qwen3.6-plus": 65.84973812103271
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.2,
+      "std": 11.2,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在结语部分提出了两个具体的后续研究方向，并指明了研究局限，形成了清晰、可定位的延展路径。",
+          "core_judgment": "存在真实的延展路径，且与正文核心结论紧密衔接，足以支持最高弱加分。",
+          "score_rationale": "原始分82分，对应bonus=5档位。主要证据：结语明确指出‘本文仅以中级以上法院判决书为样本……今后的研究至少应在两方面加以拓展’，并列出了‘以所有层级法院判决书为样本观察’和‘观察该罪适用与重刑的相关性’两个具体问题，并非空泛展望。",
+          "evidence_quotes": [
+            "本文仅以中级以上法院的判决书为样本考察了定罪影响因素和裁判规则，今后的研究至少应在两方面加以拓展。",
+            "观察以危险方法危害公共安全罪适用与重刑的相关性。这些现象是否相关以及如何相关，还有待今后的持续研究。"
+          ],
+          "strengths": [
+            "延展路径具体、可操作：明确提出‘以所有层级法院判决书为样本’和‘观察与重刑相关性’两个后续研究问题。",
+            "延展与正文局限直接挂钩：承认样本层级局限，并围绕此局限给出明确的拓展方向，衔接紧密。"
+          ],
+          "weaknesses": [
+            "延展路径的精细度稍显不足：对‘与重刑的相关性’这一方向，未进一步说明检验机制或初步假设。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评分仅评价论文对未来研究方向的指明和具体化程度，不涉及论文当下的结论可接受性或论证严密性。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "明确提出扩展样本层级和考察重刑相关性两条具体后续研究路径。",
+          "core_judgment": "存在真实延展路径，明确承认样本局限并指出了两处具体的后续研究方向。",
+          "score_rationale": "原始分85，bonus档位为5分档。结语明确承认仅用中级以上法院样本的局限，并提出扩展至基层法院及考察重刑相关性两条具体后续研究路径，与正文实证结论紧密衔接。",
+          "evidence_quotes": [
+            "今后的研究至少应在两方面加以拓展：其一，以所有层级法院的判决书为样本观察司法实践的整体状况……",
+            "其二，观察以危险方法危害公共安全罪适用与重刑的相关性。"
+          ],
+          "strengths": [
+            "明确承认样本局限并给出具体拓展方向",
+            "提出重刑需求与舆论相关性的新研究假设"
+          ],
+          "weaknesses": [
+            "对理论修正路径的阐述稍显概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "扩展至基层法院样本和引入重刑相关性变量属于未来实证研究的延展，而非当下结论是否可接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语部分提出两级明确延展路径：拓展样本层级至基层法院、探究该罪适用与重刑及舆论的相关性，并隐含类型化规则对新罪名适用的延伸分析。",
+          "core_judgment": "存在真实延展路径，具体表现为后续研究问题与制度适用场景延伸。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文明确提出两个后续研究方向（基层法院样本拓展、重刑相关性分析），并隐含类型化规则对高空抛物罪、妨害安全驾驶罪等新罪名的适用延伸，路径可定位且与正文核心结论衔接。但延展深度有限，未充分展开理论深化或制度衔接的具体机制。",
+          "evidence_quotes": [
+            "今后的研究至少应在两方面加以拓展：其一，以所有层级法院的判决书为样本观察司法实践的整体状况……其二，观察以危险方法危害公共安全罪适用与重刑的相关性",
+            "高空抛物、盗窃路面窨井盖的定性主要涉及上述类型二和类型三……可以参照上述类型二的认定规则予以判断"
+          ],
+          "strengths": [
+            "提出具体后续研究问题，样本层级拓展方向明确",
+            "类型化规则对新罪名适用有场景延伸价值"
+          ],
+          "weaknesses": [
+            "重刑相关性分析仅提出问题，未说明研究路径",
+            "未回应类型化规则与刑法教义学体系的深层理论衔接"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是研究完成后可继续推进的方向与空间。论文提出的基层法院样本拓展、重刑相关性分析属于未来可检验的研究问题；类型化规则对新罪名的适用参照属于制度适用场景的延伸。这些均不涉及当下结论是否被接受，也不涉及论证过程的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结语明确指出了样本局限，并提出了拓展至全层级法院样本及探究重刑适用相关性的具体后续研究方向。",
+          "core_judgment": "存在真实且具体的延展路径，紧密衔接实证研究设计与核心结论。",
+          "score_rationale": "原始分85，对应bonus=5。作者在结语精准定位样本局限，明确提出拓展全层级样本对比及检验“重刑需求”相关性的两项具体议程，路径清晰且与正文实证逻辑严密衔接。",
+          "evidence_quotes": [
+            "今后的研究至少应在两方面加以拓展：其一，以所有层级法院的判决书为样本观察司法实践的整体状况……其二，观察以危险方法危害公共安全罪适用与重刑的相关性。",
+            "刑法理论应更加注重司法实践的需求以及理论的实践有效性。"
+          ],
+          "strengths": [
+            "明确承认样本层级局限，提出全层级法院对比的具体拓展路径。",
+            "将理论争议转化为可检验的实证问题，延展具可操作性。"
+          ],
+          "weaknesses": [
+            "未详细设计基层法院样本的变量控制与数据获取方案。",
+            "对重刑相关性检验仅提出方向，缺乏初步假设构建。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于实证样本局限的后续弥补与重刑机制的延伸检验，属于未来研究议程规划，而非对当下裁判规则结论的可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.00862908363342,
+        "glm-5.1": 33.07218599319458,
+        "kimi-k2.6": 12.17519474029541,
+        "qwen3.6-plus": 49.210702657699585
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "mean": 78.5,
+      "std": 11.1,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 82.79,
+      "weighted_total": 79.7
+    },
+    "aggregation_strictest": {
+      "final_score": 62.47,
+      "weighted_total": 63.0
+    },
+    "avg_std": 12.5,
+    "max_std": 23.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.3,
+    "composite_score": -12.5,
+    "worst_dimension": "problem_originality",
+    "worst_std": 23.5
+  }
+}

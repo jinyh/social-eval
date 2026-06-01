@@ -1,0 +1,1023 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/共同市场支配地位制度拓展适用于算法默示共谋研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在多处OCR/格式瑕疵残留，如外文文献URL中的字符变形（'厶aw' '⑼' '@' '⑱'）。",
+          "脚注编号疑似与正文标点粘连或格式异常（如'.80(l 929)')。",
+          "部分外文引用片段可能由于抽取不完整导致可读性下降。"
+        ],
+        "evidence_quotes": [
+          "in Proceedings of the 2017 Antitrust 厶 aw",
+          "at https://papers.ssm.com/sol3/papers.cfm?abstract_id=1999829(Last visited on October 23, 20⑼.",
+          "Quarterly Journal of Economics,Vol. 11, p.80(l 929)."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《反垄断法》第19条关于推定多个经营者具有市场支配地位的规定，实际上隐含着共同市场支配地位的概念和制度。",
+          "“异烟肼原料药垄断案”和“扑尔敏原料药垄断案”对上述规定的分析运用显得机械和僵硬，失之精当，未能呈现出共同市场支配地位的一般性分析框架。",
+          "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机；（2）存在反复的相互作用或高频互动；（3）存在较高的市场透明度；（4）缺乏充分有效的竞争约束。",
+          "为了弥补这些不足并完善共同市场支配地位制度，应对《反垄断法》第19条进行如下修改……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻度OCR/格式噪声，但不影响核心论证识别。",
+        "脚注位置与正文标点粘连，需在后续环节注意引注格式。"
+      ],
+      "evidence_quotes": [
+        "我国《反垄断法》第三章“禁止滥用市场支配地位”的规定……第19条关于推定多个经营者具有市场支配地位的规定,实际上隐含着共同市场支配地位的概念和制度。",
+        "异烟肼原料药垄断案和扑尔敏原料药垄断案……未能呈现出共同市场支配地位的一般性分析框架及其构成要件。",
+        "应对《反垄断法》第19条进行如下修改：增加“共同实体”或“整体”的分析概念。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本可进入六维评分，但后续评审需关注OCR/格式噪音对引注准确性的影响。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留字符与乱码（如'厶 aw'应为Law，'默 ZK'应为默示，'塹'、'画'等错字或乱码符号）",
+          "期刊页眉及页码混入正文（如'中国法学 2020年第2期'、'91-106'等数字）",
+          "脚注编号及部分URL链接格式存在抽取乱码或断行残留"
+        ],
+        "evidence_quotes": [
+          "Antitrust 厶 aw and Algorithmic Pricing",
+          "寡头默示共谋或者纯粹相互依赖的平行定价，属于“根据相关经济情势做岀的个体理性决策……如果法律禁止企业在决定自己的价格和产出时参考它的竞争者可能做出的决策，那么，这毋宁等同于法律要求企业做出非理性的行为”塹",
+          "91 中国法学 2020年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国，尽管《反垄断法》第13条关于协同行为的规定同样具有调整寡头默示共谋的可能,但无论是反垄断行政执法还是司法审判,都秉持“一致行动+意思联络”的证明要求。",
+          "这样的规范状况导致了一些理论认识的偏差，也使得“异烟腓原料药垄断案”和“扑尔敏原料药垄断案”对上述规定的分析运用显得机械和僵硬,失之精当，未能呈现出共同市场支配地位的一般性分析框架及其构成要件。",
+          "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机；（2）存在反复的相互作用或高频互动；（3）存在较高的市场透明度；（4）缺乏充分有效的竞争约束。",
+          "为了弥补这些不足并完善共同市场支配地位制度，应对《反垄断法》第19条进行如下修改：第一，增加“共同实体”或“整体”的分析概念……第二，修改“不应当推定该经营者具有市场支配地位”的不准确表述。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程问题：OCR乱码、页眉页码混入及脚注格式瑕疵需在后续阶段清洗，但不影响核心论点提取",
+        "项目口径完全符合，无需特别关注口径边界问题"
+      ],
+      "evidence_quotes": [
+        "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机……（4）缺乏充分有效的竞争约束。",
+        "应对《反垄断法》第19条进行如下修改：第一，增加“共同实体”或“整体”的分析概念……把《反垄断法》第17条修改为：“禁止具有市场支配地位的一个或者多个经营者从事下列滥用市场支配地位的行为：……”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径判断为明确进入六维评分（enter_six_dimension_review）。文本存在局部OCR乱码与排版混入，核心论点与结构清晰可辨，判定为conditional_pass。建议在后续文本工程阶段清洗乱码字符、剔除页眉页码及整理脚注，无需因格式问题进行口径边界复核。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如⑪⑫⑬等符号与正文混排，部分脚注内容嵌入正文段落）",
+          "参考文献列表缺失（标注为'（无）'，但正文中有大量脚注引用）",
+          "部分英文文献引用存在格式不统一（如'supra note'与直接引用混用）",
+          "页码标记（如91、92等）残留于正文流中"
+        ],
+        "evidence_quotes": [
+          "⑪ 共谋的结局能够在厂商从未聚会讨论价格问题或从未交换敏感信息的情况下得以维持。",
+          "⑫ 张伯伦指出...",
+          "91",
+          "中国法学\n2020年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《反垄断法》第三章'禁止滥用市场支配地位'的规定，虽然没有明确突出'一个或者多个经营者'的主体情况，但是该法第19条关于推定多个经营者具有市场支配地位的规定，实际上隐含着共同市场支配地位的概念和制度。",
+          "然而，如何理解和适用这一规定，《反垄断法》并未作进一步指引，相关配套规章也缺乏明确阐释。",
+          "这样的规范状况导致了一些理论认识的偏差，也使得'异烟肼原料药垄断案'和'扑尔敏原料药垄断案'对上述规定的分析运用显得机械和僵硬，失之精当",
+          "本文建议将共同市场支配地位制度拓展适用于算法默示共谋。",
+          "《反垄断法》第19条可修改为：...",
+          "把《反垄断法》第17条修改为：'禁止具有市场支配地位的一个或者多个经营者从事下列滥用市场支配地位的行为：……'",
+          "我国《关于评估经营者集中竞争影响的暂行规定》（商务部公告2011年第55号）第4条"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留与正文混排，页码标记残留，参考文献列表缺失但正文引用丰富，不影响核心内容评审",
+        "项目口径：论文明确以中国《反垄断法》第19条为核心分析对象，提出具体修法建议，属于典型的中国法学问题研究"
+      ],
+      "evidence_quotes": [
+        "我国《反垄断法》第19条关于推定多个经营者具有市场支配地位的规定，实际上隐含着共同市场支配地位的概念和制度",
+        "本文建议将共同市场支配地位制度拓展适用于算法默示共谋",
+        "《反垄断法》第19条可修改为：..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《反垄断法》具体条文（第17条、第19条）的规范解释和制度完善为核心，结合欧盟竞争法比较，提出将共同市场支配地位制度拓展适用于算法默示共谋的理论命题和修法方案，完全符合'中国自主知识体系研究'项目口径。文本质量风险较低，主要涉及脚注格式和页码标记的OCR残留，不影响核心论点评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（如“厶aw”、“默 ZK 协调”、“©”等符号乱码）",
+          "期刊页码与刊名混入正文段落间（如“91\n\n中国法学\n2020年第2期”）",
+          "脚注编号与正文交叉导致局部排版断裂"
+        ],
+        "evidence_quotes": [
+          "厶aw",
+          "默 ZK 协调",
+          "91\n\n中国法学\n2020年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《反垄断法》第19条关于推定多个经营者具有共同市场支配地位的规定存在的明显不足，有必要对共同市场支配地位的规范构成作进一步的探析",
+          "使得“异烟腈原料药垄断案”和“扑尔敏原料药垄断案”对上述规定的分析运用显得机械和僵硬，失之精当",
+          "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机……（2）存在反复的相互作用……（3）存在较高的市场透明度……（4）缺乏充分有效的竞争约束。",
+          "建议将共同市场支配地位制度拓展适用于算法默示共谋。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR乱码与页码混入，属典型PDF抽取风险，不影响核心论证定位；项目口径四项信号均明确触发，具备进入六维评价资格。"
+      ],
+      "evidence_quotes": [
+        "我国《反垄断法》第19条关于推定多个经营者具有共同市场支配地位的规定存在的明显不足，有必要对共同市场支配地位的规范构成作进一步的探析",
+        "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机……（2）存在反复的相互作用……（3）存在较高的市场透明度……（4）缺乏充分有效的竞争约束。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在局部OCR与排版干扰，但核心中国问题（反垄断法第19条适用困境）、可争辩法学问题（垄断协议vs共同支配地位对算法默示共谋的规制路径）、中国实践解释（原料药案机械适用）及理论转化命题（四要件归纳与修法建议）均清晰完整。建议直接进入六维评分，评分时自动过滤页码与脚注乱码。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出“将共同市场支配地位制度拓展适用于算法默示共谋”，问题表述清晰，属于传统寡头垄断问题在数字经济背景下的延伸，但尚未构成颠覆性创新。",
+          "core_judgment": "论文找到了可争辩的法学争点，即算法默示共谋应适用共同市场支配地位制度而非垄断协议制度，但问题设定主要是在既有理论框架下进行制度拓展研究。",
+          "score_rationale": "可争辩性=4/4，枢纽性=3/4，材料新颖性未触发上限（算法共谋为新情境但带来了制度拓展命题），锚定excellent档，但问题创新性尚未达到颠覆性突破，在档内取偏低值，给75分。",
+          "evidence_quotes": [
+            "本文建议将共同市场支配地位制度拓展适用于算法默示共谋。",
+            "尽管算法共谋构成垄断协议的可能性，但对于算法默示共谋，则不宜纳入垄断协议的制度框架处理。"
+          ],
+          "strengths": [
+            "明确提出了“垄断协议制度vs共同市场支配地位制度”的路径选择争点。",
+            "问题涉及反垄断法两大核心制度的衔接与拓展，具有枢纽价值。"
+          ],
+          "weaknesses": [
+            "核心问题是既有理论框架在新技术情境下的适用论证，而非提出全新的理论命题。",
+            "问题设定主要围绕制度拓展的可行性分析，而非对共同市场支配地位理论的根本重构。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文聚焦算法默示共谋的规制困境，提出共同市场支配地位制度的拓展路径，问题成立且枢纽性强。",
+          "core_judgment": "问题具有明确的法学争点与理论分歧，涉及反垄断法核心制度重构，枢纽性显著。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。扣分合计=0分。",
+          "evidence_quotes": [
+            "若将寡头默示共谋认定为垄断协议,实际上面临着难以逾越的证明要求上的障碍",
+            "共同市场支配地位制度很大程度上是作为一种替代性调整措施而产生和发展起来的"
+          ],
+          "strengths": [
+            "问题直面反垄断法规制默示共谋的长期痛点",
+            "呈现了垄断协议与共同支配地位制度的理论分歧"
+          ],
+          "weaknesses": [
+            "问题表述偏向制度拓展的可行性论证，二元争辩性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出将共同市场支配地位制度拓展适用于算法默示共谋，具有明确的问题意识和制度创新价值。",
+          "core_judgment": "论文存在明确可争辩的法学问题，涉及反垄断法核心制度选择，但问题表述偏向对策建议，理论争点深度可进一步挖掘。",
+          "score_rationale": "可争辩性=3/4（有明确问题句、属法学层面、存在理论分歧，但政策倡导色彩较浓），枢纽性=3/4（影响范围广、涉及核心制度、理论基础扎实，但制度连锁论证稍弱），材料新颖性未触发上限，锚定good档，给72分。扣分合计=0分。",
+          "evidence_quotes": [
+            "本文建议将共同市场支配地位制度拓展适用于算法默示共谋",
+            "共同市场支配地位制度拓展适用于算法默示共谋的可行性和优越性"
+          ],
+          "strengths": [
+            "问题聚焦反垄断法制度空白，具有明确制度回应性",
+            "跨法域比较与理论梳理较为系统"
+          ],
+          "weaknesses": [
+            "对策建议篇幅过长，问题意识被稀释",
+            "理论分歧呈现不足，多为单向制度介绍"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦反垄断法应对寡头及算法默示共谋的制度困境，提出以共同市场支配地位替代垄断协议规制的明确争点。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，精准切中反垄断法核心制度衔接难题，研究命题成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "若将寡头默示共谋认定为垄断协议，实际上面临着难以逾越的证明要求上的障碍。",
+            "算法的普遍运用改变了与共谋风险相关的市场条件，从而简化了共同市场支配地位的构成要件。"
+          ],
+          "strengths": [
+            "精准提炼垄断协议规制默示共谋的证明障碍与制度替代路径",
+            "将算法技术特征嵌入反垄断法构成要件分析，问题具时代张力"
+          ],
+          "weaknesses": [
+            "算法默示共谋的实证案例支撑略显单薄，推演偏重理论",
+            "对共同支配地位制度可能引发的过度执法风险探讨不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.28991889953613,
+        "glm-5.1": 57.93598484992981,
+        "kimi-k2.6": 9.618436813354492,
+        "qwen3.6-plus": 78.43933534622192
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 9.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 79,
+          "band": "good",
+          "summary": "论文呈现了清晰的争点结构与较完整的到达点、未竟点和本文切入点，但分散式文献定位下部分到达点的具体贡献提炼稍显模糊，法学流派识别足以支撑争点但不构成充足的对立脉络。",
+          "core_judgment": "研究地图三要素基本具备，争点结构明确围绕垄断协议与共同市场支配地位两种路径展开，法学流派覆盖多个学术立场，但到达点的提炼深度略有不足，整体可定位为good上限。",
+          "score_rationale": "三要素得分=5/6（到达点=2，未竟点=2，本文切入点=1），争点结构=2/2，法学流派≥2个，三要素总分≥5且争点结构≥2但法学流派数量未达3个，锚定good(75-84)档，结合未竟点充分但本文切入点对应关系稍弱，给79分。",
+          "evidence_quotes": [
+            "寡头默示共谋在本质上是一种非合作的共谋均衡…不存在任何沟通交流或意思联络…因而不符合垄断协议的定义基准。",
+            "共同市场支配地位制度很大程度上是作为一种替代性调整措施而产生和发展起来的。"
+          ],
+          "strengths": [
+            "清晰呈现了垄断协议路径与共同市场支配地位路径的制度分歧，形成完整的争点结构。",
+            "到达点覆盖了张伯伦、贝恩、施蒂格勒、特纳等多位学者的具体贡献，未竟点明确指向证明障碍与制度替代问题。"
+          ],
+          "weaknesses": [
+            "本文切入点的表述较为简略，与未竟点的对应关系可以更直接地凸显。",
+            "部分到达点的贡献提炼偏重概述，缺少对特定研究成果的精准贡献归因。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理完整性与争点结构深度，不涉及问题创新性或论证严密性，论文的制度分歧梳理属于文献定位而非问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，充分呈现了多个法学争点与对立流派。",
+          "core_judgment": "现状洞察度极高，分散式文献定位精准，争点结构完整且流派覆盖充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派≥3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "波斯纳和卡波洛主张关注共谋经济效果而非手段证据，但主流理论始终将‘意思联络’作为定义垄断协议的基准。",
+            "理论界应对算法共谋的三种立场：垄断协议充分适用、视算法为附加因素推断联络、激进主张放弃意思联络证明要求。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，到达点、未竟点与切入点形成闭环",
+            "清晰呈现意思联络与经济效果、垄断协议与共同支配地位等多重争点"
+          ],
+          "weaknesses": [
+            "部分经济学理论流派与法学流派边界略显模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非算法共谋问题本身的创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了较为清晰的研究地图，梳理了垄断协议制度与共同市场支配地位制度两条路径的分歧，但三要素呈现分散且部分模糊。",
+          "core_judgment": "研究地图三要素部分满足，争点结构成立但法学流派识别有限，整体处于good档中等偏上。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了垄断协议证明障碍、共同市场支配地位制度起源等；未竟点1分：指出我国《反垄断法》第19条不足但分散且未明确提炼为学术争点缺口；切入点1分：提出将共同市场支配地位拓展适用于算法默示共谋但与前述未竟点衔接不够紧密），争点结构=2/2（垄断协议制度vs共同市场支配地位制度两条路径分歧、算法明示共谋vs默示共谋的规制分野），法学流派=2个（形式法治/实质法治未涉及；主要识别出'法律经济学派'与'传统法律形式主义'在协议证明标准上的对立，以及欧盟竞争法与美国反托拉斯法制度路径分歧），锚定good档，给72分。",
+          "evidence_quotes": [
+            "若将寡头默示共谋认定为垄断协议，实际上面临着难以逾越的证明要求上的障碍……主流的反垄断法理论和立法始终将'沟通/交流'或'意思联络'作为定义垄断协议的基准。",
+            "共同市场支配地位制度很大程度上是作为一种替代性调整措施而产生和发展起来的……寡头默示共谋……具有被认定成共同市场支配地位的可能。"
+          ],
+          "strengths": [
+            "清晰呈现垄断协议制度与共同市场支配地位制度两条规制路径的制度分歧。",
+            "对欧盟法与美国法不同制度选择有比较法层面的对立呈现。"
+          ],
+          "weaknesses": [
+            "未竟点与切入点分散于正文各处，缺乏集中凝练的学术缺口表述。",
+            "法学流派识别有限，主要依赖制度路径对立而非理论流派争鸣。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时最高79分；三要素总分4且争点结构≥2但法学流派≤2时锚定good档",
+              "score_ceiling": 84,
+              "priority": 2,
+              "evidence": "三要素总分4分，争点结构2分，法学流派2个，符合good档条件，未触发更低上限"
+            }
+          ],
+          "boundary_note": "本评分仅评价文献梳理与争点呈现，不涉及算法默示共谋问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文精准绘制寡头默示共谋规制路径的学术地图，争点结构清晰。",
+          "core_judgment": "研究地图三要素完整，争点脉络明确，流派识别充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "主流反垄断法始终将“沟通/交流”作为垄断协议基准，而波斯纳等主张关注经济效果",
+            "我国《反垄断法》第19条推定规则忽视寡头复杂性，举证责任分配严重失衡"
+          ],
+          "strengths": [
+            "精准提炼经济学与法学交叉的默示共谋理论脉络",
+            "清晰对比中美欧制度路径与证明标准分歧"
+          ],
+          "weaknesses": [
+            "对算法自主共谋的伦理与责任归属探讨稍显单薄",
+            "部分文献引述偏重域外，本土实证支撑略弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有制度路径分歧与理论缺口，属文献定位而非问题新颖性评价",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 54.83319711685181,
+        "glm-5.1": 44.330787897109985,
+        "kimi-k2.6": 17.908926010131836,
+        "qwen3.6-plus": 62.24737191200256
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 79,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 80
+      },
+      "mean": 80.8,
+      "std": 8.3,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文从寡头垄断理论出发，提炼出“共同市场支配地位”的四项核心构成要件，并以此框架分析算法默示共谋的可行性，框架有较明确的分析步骤和法学转化。",
+          "core_judgment": "论文建构了以“四项核心要件”为中心的共同市场支配地位分析框架，并将其拓展适用于算法默示共谋，框架在后文被实际调用，具有较强的可操作性。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定明确、分析步骤可循、后文实际调用），法学转化度得分=3/4（跨学科概念已转化为法学分析步骤、提供了制度设计方案、后文使用），锚定excellent/good档区间，因后文调用形式以阐释性分析为主，给72分。",
+          "evidence_quotes": [
+            "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机…（2）存在反复的相互作用或高频互动…（3）存在较高的市场透明度…（4）缺乏充分有效的竞争约束…",
+            "在共同市场支配地位的四项核心构成要件中…算法对前三项构成要件的影响方式是确切无疑的，即不仅简化了这些要件，而且使这些要件更易于实现。"
+          ],
+          "strengths": [
+            "清晰归纳出四项核心构成要件，为分析寡头默示共谋提供了可重复适用的判断标准。",
+            "将经济学上的默示共谋理论转化为法学上的共同市场支配地位要件并进行制度设计，法学转化较充分。"
+          ],
+          "weaknesses": [
+            "框架在后文主要用于阐释算法如何影响要件，而非提供逐步操作的裁判流程，可操作性略有提升空间。",
+            "部分要件（如“缺乏充分有效的竞争约束”）在算法场景下的相关性判断较模糊，影响框架的精确适用。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "该评分仅针对分析框架的建构力与可操作性，不涉及框架推理的严密性及问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文成功将经济学默示共谋理论转化为法学四要件分析框架，并应用于算法场景及立法修改。",
+          "core_judgment": "分析框架高度成立且可用，法学转化彻底，提供了完整的认定要件与制度修改草案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "本文将共同市场支配地位的核心构成要件归纳为：(1)具有协调的动机；(2)存在反复的相互作用；(3)存在较高的市场透明度；(4)缺乏充分有效的竞争约束。",
+            "多个经营者组成的共同实体（整体）具备以下条件的，可以推定其具有市场支配地位……"
+          ],
+          "strengths": [
+            "将经济学动态寡头理论成功转化为法学认定要件",
+            "提供了具体的立法修改草案与适用指引"
+          ],
+          "weaknesses": [
+            "算法对第四要件（竞争约束）的影响分析略显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与法学转化，不评价算法共谋问题的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出共同市场支配地位四项核心构成要件，但框架可操作性不足，法学转化度有限。",
+          "core_judgment": "分析框架部分成立但存在明显缺陷：四项要件有归纳但缺乏明确的判断步骤和适用边界，后文调用流于描述性分析而非步骤化操作。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰、分类标准部分明确，但分析步骤不可循、后文实际调用不足），法学转化度得分=2/4（跨学科概念有转化尝试、提供部分操作指引，但裁判规则/司法程序层面指引不足、制度设计方案单薄、后文调用不充分），锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机……（2）存在反复的相互作用或高频互动……（3）存在较高的市场透明度……（4）缺乏充分有效的竞争约束……下文将结合算法默示共谋展开进一步的分析。",
+            "对于这四项核心构成要件，下文将结合算法默示共谋展开进一步的分析。"
+          ],
+          "strengths": [
+            "四项核心构成要件归纳较为系统，有经济学理论支撑。",
+            "尝试将经济学理论转化为法学分析概念，有一定跨学科整合意识。"
+          ],
+          "weaknesses": [
+            "四项要件仅为描述性列举，未转化为可重复适用的判断步骤或操作标准。",
+            "后文分析未按步骤展开，多为'算法简化了要件'的泛泛描述，缺乏具体裁判指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用 → 最高60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "四项核心要件在'可行性分析'章节被提及但仅作描述性对应，未作为分析步骤实际调用；'优越性分析'章节未再使用框架术语。"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文构建共同市场支配地位四要件框架，并转化为反垄断认定标准与修法方案。",
+          "core_judgment": "框架成立且高度可用，经济学理论被精准转化为可操作的法学认定步骤与立法建议。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文将共同市场支配地位的核心构成要件归纳为：（1）具有协调的动机……（4）缺乏充分有效的竞争约束。",
+            "建议将《反垄断法》第19条修改为……多个经营者组成的共同实体具备以下条件的，可以推定其具有市场支配地位。"
+          ],
+          "strengths": [
+            "经济学动态博弈理论被精准转化为四要件累积审查标准。",
+            "直接提供《反垄断法》具体条文修改草案，制度设计极具可操作性。"
+          ],
+          "weaknesses": [
+            "第四要件在算法场景下的具体认定标准略显模糊。",
+            "对“共同实体”的举证责任分配缺乏配套证据规则细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及论证逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.85685610771179,
+        "glm-5.1": 40.84367513656616,
+        "kimi-k2.6": 15.538297891616821,
+        "qwen3.6-plus": 58.85611891746521
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 95,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.2,
+      "std": 17.5,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文推理链条清晰完整，对核心反驳进行实质性回应，结论可从前文充分推出。",
+          "core_judgment": "推理链完整性高，反驳处理充分，逻辑严密性优秀。",
+          "score_rationale": "推理链完整性得分=4/4（四步推理均成立），反驳处理度得分=3/3（明确回应特纳等反对意见，并承认制度边界），锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "“用特纳的话来说，寡头默示共谋……属于‘根据相关经济情势做出的个体理性决策’……”。",
+            "“本文并不否认算法共谋构成垄断协议的可能性……但是,对于算法默示共谋,则不宜纳入垄断协议的制度框架处理。”"
+          ],
+          "strengths": [
+            "推理链严整：从寡头垄断问题→垄断协议障碍→共同支配地位方案→立法改进与算法拓展，步步递进。",
+            "反驳处理扎实：明确援引并正面回应特纳、波斯纳等对立主张，并给出实质性论证理由。"
+          ],
+          "weaknesses": [
+            "部分局部过渡（如从动态寡头理论到四项要件的具体归纳）可更细化，但不影响主线推理链的完整性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文从垄断协议困境推导出共同支配地位替代路径，再拓展至算法共谋，逻辑链条完整且反驳有力。",
+          "core_judgment": "本维度成立，推理链高度依赖且结论可辩护推出，反驳处理实质性且承认局限。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "完全放弃对沟通交流或意思联络的行为证据要求……很可能陷入‘脱离行为而惩罚行为’的危险境地。",
+            "算法与该构成要件是否具有相关性？具有何种相关性？答案并非一目了然。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，垄断协议障碍→替代路径→要件归纳→算法拓展，依赖度极高。",
+            "对垄断协议路径的反对意见进行了实质性回应，论证了共同支配地位路径的优越性。"
+          ],
+          "weaknesses": [
+            "算法对第四要件（缺乏竞争约束）的影响论证稍弱，虽承认局限但削弱了可行性论证的完美度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑维度仅评推理支撑度与推出性，不评共同支配地位制度在反垄断实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了从寡头垄断问题到共同市场支配地位制度，再拓展至算法默示共谋的完整推理链，逻辑主线清晰。",
+          "core_judgment": "推理链完整但存在局部跳步，反驳处理基本充分，整体逻辑严密性良好。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'算法简化前三项要件'到'共同市场支配地位制度可拓展适用于算法默示共谋'的优越性论证中，第四项要件的相关性未充分回应即得出结论；反驳处理度得分=2/3（标准1、2成立，标准3未明确承认局限），锚定good档，给75分。",
+          "evidence_quotes": [
+            "共同市场支配地位制度是着力应对寡头垄断问题或更一般意义上的默示共谋的反垄断法举措...有必要对共同市场支配地位的规范构成作进一步的探析",
+            "在共同市场支配地位的四项核心构成要件中，尽管算法与第四项要件的相关性很难在一般层面作出明确的判断，但算法对前三项构成要件的影响方式是确切无疑的"
+          ],
+          "strengths": [
+            "从经济学理论到法律制度再到算法场景的推理链条层次分明",
+            "对垄断协议制度障碍的分析与共同市场支配地位制度优势形成对照论证"
+          ],
+          "weaknesses": [
+            "第四项要件与算法相关性未充分论证，即得出优越性结论，存在关键跳步",
+            "未明确承认共同市场支配地位制度在算法场景下的适用边界或局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链的完整性与反驳处理，不涉及制度方案本身的可操作性或结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以寡头默示共谋证明困境为起点，严密推导出共同市场支配地位制度的适用优越性及修法路径。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论由规范分析与经济学理论充分支撑，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从证明困境到制度替代再到算法拓展，依赖度高且无关键跳步。",
+          "evidence_quotes": [
+            "鉴于垄断协议制度适用于寡头默示共谋在证明要求上的障碍,共同市场支配地位制度很大程度上是作为一种替代性调整措施而产生和发展起来的。",
+            "算法与该构成要件是否具有相关性？答案并非一目了然……很难断言算法是进入壁垒的原因还是结果。"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，制度替代方案由前文证明困境自然导出。",
+            "对主流“意思联络”标准与波斯纳观点的回应具有实质论证力。"
+          ],
+          "weaknesses": [
+            "对我国修法建议的执法成本与误判风险缺乏充分边界限定。",
+            "算法影响第四要件的论证稍显简略，未完全展开应对策略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑力与结论可辩护性，不涉及修法方案在行政执法中的具体可操作性评估。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 69.49154806137085,
+        "glm-5.1": 43.60988783836365,
+        "kimi-k2.6": 12.770970106124878,
+        "qwen3.6-plus": 71.43967175483704
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 95,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.5,
+      "std": 9.1,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文结论以共同市场支配地位制度应对算法默示共谋，具有理论开创性和制度探索价值，但与我国《反垄断法》现行文本及主流实践对话不足，限制了其共同体对话度和制度可接受度。",
+          "core_judgment": "结论在比较法和经济学基础上提出制度拓展方案，主体可被学界认真回应，但未充分回应我国反垄断法体系中“协同行为”“协同效应”等既有概念，削弱了与当前制度语境的契合度。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=3/4。论文属制度论文，锚定good档（60-69分），考虑到其对我国制度有一定具体回应且提出了修法建议，给78分。",
+          "evidence_quotes": [
+            "《反垄断法》第19条……增加“共同实体”或“整体”的分析概念。",
+            "垄断协议制度……难以被纳入垄断协议制度的调整范围。……共同市场支配地位制度很大程度上是作为一种替代性调整措施而产生和发展起来的。"
+          ],
+          "strengths": [
+            "结论明确挑战了垄断协议制度适用于算法默示共谋的主流倾向，提出了替代性制度方案，具有可争辩性。",
+            "结论尝试从法条修改角度给出制度转化方向，如建议在《反垄断法》第17条、第19条中引入“一个或者多个经营者”“共同实体”等表述。"
+          ],
+          "weaknesses": [
+            "结论未充分讨论我国反垄断法既有“协同行为”“协同效应”概念与共同市场支配地位的关系，削弱了与本土制度语境的对接。",
+            "结论未主动承认或回应制度转化可能面临的反对意见，例如“共同实体”标准在行政执法中的可操作性、举证责任再分配带来的过度威慑风险等。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅关注结论与共同体对话和制度语境的契合度，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论明确回应算法默示共谋规制争论，提出共同市场支配地位制度拓展路径及具体修法建议，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话和制度约束回应上均表现优异，提出了可争辩的学术主张及具体制度转化方案，可接受性强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "对于算法默示共谋，则不宜纳入垄断协议的制度框架处理。",
+            "《反垄断法》第19条可修改为：多个经营者组成的共同实体（整体）具备以下条件的，可以推定其具有市场支配地位"
+          ],
+          "strengths": [
+            "回应了垄断协议与滥用支配地位的既有争论，对话度高",
+            "提出了具体的法条修改建议，制度转化方向明确"
+          ],
+          "weaknesses": [
+            "对算法与第四项要件相关性承认判断不明，略显局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出将共同市场支配地位制度拓展适用于算法默示共谋，结论在反垄断法理论层面具有学术对话性，制度设计指向明确。",
+          "core_judgment": "结论作为制度论文，对既有理论争论和制度困境均有回应，提出了可争辩的学术主张，但制度转化方案的具体性仍可加强。",
+          "score_rationale": "共同体对话度得分=3/4（回应了垄断协议与滥用市场支配地位制度的功能分工争论，定位清晰；反对者可定位其主张；结合中国《反垄断法》第19条展开；但主动承认的反对意见和自身局限讨论不足）。制度可接受度得分=3/4（不根本矛盾；回应了现行法条文和执法困境；指出了修法方向和制度转化路径；考虑了中国制度语境）。锚定good档，给78分。",
+          "evidence_quotes": [
+            "本文并不否认算法共谋构成垄断协议的可能性,主张对于算法明示共谋直接适用垄断协议的相关制度,但是,对于算法默示共谋,则不宜纳入垄断协议的制度框架处理。",
+            "发生在寡头市场并在不同功能算法助力下实施的明示共谋和默示共谋，可以分别适用垄断协议制度和滥用共同市场支配地位制度。"
+          ],
+          "strengths": [
+            "明确回应垄断协议与滥用市场支配地位制度的功能分工理论争论",
+            "结合中国《反垄断法》第19条提出具体修法建议"
+          ],
+          "weaknesses": [
+            "对反对意见和自身局限承认不足，对话深度受限",
+            "制度转化方案中部分要件（如算法与第四项要件相关性）的判断留有余地"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性和未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论明确回应寡头/算法默示共谋规制路径之争，提出具体修法建议，高度契合中国反垄断法语境。",
+          "core_judgment": "该结论具备高度的共同体对话度与制度兼容性，可被学界准确定位、反驳并直接对接现行法秩序。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准切入制度选择争议，提供明确修法文本与算法适用路径，无空泛对策。",
+          "evidence_quotes": [
+            "鉴于垄断协议制度适用于寡头默示共谋在证明要求上的障碍,共同市场支配地位制度很大程度上是作为一种替代性调整措施而产生和发展起来的。",
+            "为了弥补这些不足并完善共同市场支配地位制度，应对《反垄断法》第19条进行如下修改：第一，增加“共同实体”或“整体”的分析概念。"
+          ],
+          "strengths": [
+            "精准定位垄断协议与共同支配地位的制度功能边界，回应核心学术争议。",
+            "提供具体法条修改草案与算法适用路径，制度转化方向明确。"
+          ],
+          "weaknesses": [
+            "对算法默示共谋第四要件（外部竞争约束）的适用性论证稍显保留。",
+            "修法建议未充分展开与现行反垄断执法机构权限配置的衔接细节。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.4023380279541,
+        "glm-5.1": 30.912988901138306,
+        "kimi-k2.6": 11.623337030410767,
+        "qwen3.6-plus": 60.73185992240906
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 84,
+      "std": 6.9,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 60,
+          "band": "good",
+          "summary": "论文在结语部分及制度改进建议中，为共同市场支配地位制度的拓展适用指明了若干具体延展路径，但路径的精细度和进一步检验的论证展开仍有限。",
+          "core_judgment": "存在可定位的延展路径，与正文核心结论衔接，但精细度不足，符合中等弱加分档位。",
+          "score_rationale": "原始分60，属60-79区间，bonus=3。证据为结语中提出的“事前集中控制+事后滥用”功能互补机制，以及经营者集中审查、算法共谋场景适用性等可操作的后续争点。",
+          "evidence_quotes": [
+            "共谋…都应关进反垄断法的笼子里…垄断协议制度与滥用市场支配地位制度…应当形成功能互补。",
+            "在数字经济背景下…共同市场支配地位制度对寡头市场的算法默示共谋进行规范的优势得以显现：不仅可以在事前的经营者集中控制中预防共同市场支配地位（协同效应）的形成或强化，而且可以弥补我国现行…制度的刚性要件导致的不足…"
+          ],
+          "strengths": [
+            "清晰提出“事前集中控制+事后滥用”的功能互补机制作为制度拓展方向。",
+            "指明了经营者集中审查在算法默示共谋预防中的具体适用路径。"
+          ],
+          "weaknesses": [
+            "对算法作用于第四项核心要件的影响判断模糊，未指明如何围绕此局限展开后续研究。",
+            "制度建设方向的提出较宏观，对实施风险控制与具体规则衔接的展开有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语和制度改进部分讨论的是未来反垄断法制度的完善方向与功能互补，而非当前论证结论能否被接受，属于典型的未来延展性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "指出了算法与外部竞争约束要件关系的复杂性及两大反垄断制度的衔接方向，存在明确但精细度有限的延展路径。",
+          "core_judgment": "存在真实延展路径，指明了算法情境下竞争约束要件的不确定性及制度衔接的深化方向。",
+          "score_rationale": "原始分65，属good档，bonus=3。正文承认算法与第四要件相关性不明，指明需厘清“数字管家”等抗衡力量真实作用；结语指明两大制度需建立呼应交集机制，构成制度完善与场景延伸路径，但结语未专设展望，精细度有限。",
+          "evidence_quotes": [
+            "算法与该构成要件是否具有相关性？具有何种相关性？答案并非一目了然……很难断言算法是进入壁垒的原因还是结果",
+            "为这两大制度建立起并行不悖、呼应交集的机制，从而使得反垄断法律制度可以周延地适用于……更一般意义上的默示共谋"
+          ],
+          "strengths": [
+            "承认正文局限，明确算法与竞争约束要件关系需后续厘清。",
+            "指出垄断协议与滥用支配地位制度的衔接与功能互补方向。"
+          ],
+          "weaknesses": [
+            "结语未专设前瞻展望，延展路径隐含于正文论证而非显性提炼。",
+            "对“数字管家”等抗衡力量的后续检验路径缺乏具体设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "算法与外部竞争约束要件的关系及“数字管家”真实作用的厘清，属于未来制度实施风险控制与规则衔接的延展问题，而非当下结论能否被接受的判定。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语和制度比较中提出了共同市场支配地位制度拓展适用的具体方向，包括与垄断协议制度形成功能互补、在经营者集中控制中预防协同效应，以及针对算法默示共谋的规范路径，但缺乏对后续研究争点的明确勾勒。",
+          "core_judgment": "存在真实延展路径，主要体现为制度功能互补的具体方向和算法共谋场景的应用延伸，但精细度有限。",
+          "score_rationale": "原始分62分，对应bonus=3的'good'档位。论文明确提出了共同市场支配地位制度与垄断协议制度'形成功能互补'的方向，以及该制度在经营者集中控制中的事前预防功能，并针对算法默示共谋提出了'并行不悖、呼应交集'的机制设计，属于可定位的延展路径。但论文未提出具体的后续研究问题或下一轮争点，也未承认正文的具体局限并说明如何推进，精细度不足。",
+          "evidence_quotes": [
+            "垄断协议制度与滥用市场支配地位制度……应当形成功能互补……为这两大制度建立起并行不悖、呼应交集的机制",
+            "不仅可以在事前的经营者集中控制中预防共同市场支配地位（协同效应）的形成或强化，而且可以弥补我国现行禁止垄断协议和滥用市场支配地位两大制度的刚性要件导致的不足"
+          ],
+          "strengths": [
+            "明确提出制度功能互补的具体方向，非空泛展望",
+            "将共同市场支配地位制度延伸至算法默示共谋场景，具有现实针对性"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "未承认正文局限并说明后续推进路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究或制度发展指明的方向，而非当下结论是否被接受。论文提出的制度互补和算法场景延伸属于未来可拓展的研究路径，不涉及结论可接受性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文明确提出将共同市场支配地位制度拓展适用于算法默示共谋，并给出《反垄断法》第19条的具体修法路径。",
+          "core_judgment": "存在真实延展路径，聚焦制度修正与算法规则衔接，但未充分展开实施风险与实证检验方向。",
+          "score_rationale": "原始分65，映射为bonus=3档。论文清晰指明制度修正与算法规则衔接方向，与核心结论紧密衔接；但未展开修法落地难点、算法适用边界及后续实证检验路径，延展精细度有限。",
+          "evidence_quotes": [
+            "建议将《反垄断法》第19条修改为……增加‘共同实体’或‘整体’的分析概念。",
+            "本文建议将共同市场支配地位制度拓展适用于算法默示共谋。"
+          ],
+          "strengths": [
+            "制度修法建议具体可定位，与正文论证逻辑自洽。",
+            "明确指向算法规则衔接这一前沿争点，具有实务延展价值。"
+          ],
+          "weaknesses": [
+            "未说明修法后的执法成本、证据标准转换等实施风险。",
+            "缺乏对算法默示共谋适用边界的限定及后续实证检验路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估本文结论提出后的制度落地与算法场景深化方向，而非当下修法建议本身的理论自洽性或共同体接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.1472008228302,
+        "glm-5.1": 34.097012996673584,
+        "kimi-k2.6": 14.455771207809448,
+        "qwen3.6-plus": 61.74129104614258
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 65,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 65
+      },
+      "mean": 63,
+      "std": 2.4,
+      "strictest": 60,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.4,
+      "weighted_total": 81.6
+    },
+    "aggregation_strictest": {
+      "final_score": 73.24,
+      "weighted_total": 70.5
+    },
+    "avg_std": 8.9,
+    "max_std": 17.5,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 12.2,
+    "composite_score": -7.23,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 17.5
+  }
+}

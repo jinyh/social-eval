@@ -1,0 +1,606 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/释法抑或造法：由刑法历次修正引发的思考.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别错误（如《13本刑法》应为《日本刑法》，'Et本'应为'日本'）",
+          "期刊页眉/页码混入正文（如'中国法学 2015年第5期'、'291'、'292'等穿插）",
+          "脚注标记符号乱码或格式不统一（如'⑤'、'@'、'⑦'、'⑩'等混排）"
+        ],
+        "evidence_quotes": [
+          "《13本刑法》第208条设置了暴行罪",
+          "Et本刑法中的“暴行”具有特定的含义",
+          "中国法学 \n2015年第5期 \n的。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "释法在位阶上应当优先于造法，即刑法出现“疏漏”时，首先应当考虑解释刑法，只有当运用刑法解释理论已经不能填补疏漏时，才能考虑创设新法。",
+          "提倡“释法中心主义”取代“立法中心主义”是社会主义法律体系建成之后的必然要求，是对“立法万能主义”思维的摈弃。",
+          "与其千方百计地创设新法，不如深思熟虑地解释旧法；与其强化国家权力创设新罪，不如扩大国民权利限制入罪。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR误识词、页眉页脚残留及脚注符号乱码，建议进行基础文本清洗后再进入细读。",
+        "项目口径：无。四项核心信号均明确满足，具备直接进入六维评价的条件。"
+      ],
+      "evidence_quotes": [
+        "释法在位阶上应当优先于造法...只有当释法无法解决法律所存在的疏漏且又必须对之进行规制时才能造法。",
+        "由“立法中心主义”迈向“释法中心主义”是未来一段时期内我国法治的基本趋势和主要特征。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "建议进入六维评分。文本存在轻微OCR与排版混入问题，需在评审前进行基础清洗，但不影响实质内容评估。论文聚焦中国刑法历次修正实践，深入辨析“释法”与“造法”的位阶关系，提出“释法优先于造法”及“立法中心主义向释法中心主义转型”的规范命题，具有明确的中国问题意识、可争辩的法学理论内核及清晰的解释路径，完全符合项目口径。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR识别残留导致部分专有名词及上下文乱码（如'1 3本刑法'应为'日本刑法'，'Et本'应为'日本'，'临时I生'应为'临时性'）",
+          "期刊页码混入正文段落之间（如29l, 292, 293等）",
+          "脚注编号乱码及标点符号异常（如'⑤⑥⑦⑩'，以及') )'代替'》'）"
+        ],
+        "evidence_quotes": [
+          "《1 3本刑法》第208条设置了暴行罪",
+          "Et本刑法中的“暴行”具有特定的含义",
+          "一个临时I 生的立法便无法保证同样可靠地执行"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "纵观我国历次刑法修正，其最为重要的追求是严密刑事法网，实现“疏而不漏”。",
+          "释法论与造法论的分歧由此可见一斑。针对上述两种不同完善刑事法网的进路，笔者认为两者并不矛盾，可以并存。不过，释法在位阶上应当优于造法。",
+          "《刑法修正案(八)》增设了“食品监管渎职罪”……实质上是对《刑法》第397条所规定的“滥用职权罪、玩忽职守罪”的狭隘理解，是完全没有必要的草率造法。",
+          "提倡“释法中心主义”取代“立法中心主义”是社会主义法律体系建成之后的必然要求，是对“立法万能主义”思维的摈弃。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR乱码及页码混入需在后续评分前进行清洗预处理，否则可能干扰细粒度论证提取",
+        "项目口径：完全满足进入六维评价的条件，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "提倡“释法中心主义”取代“立法中心主义”是社会主义法律体系建成之后的必然要求",
+        "释法在位阶上应当优先于造法，即刑法出现“疏漏”时，首先应当考虑解释刑法"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程，但需在后续阶段对OCR残留（如'1 3本'->'日本'、'Et本'->'日本'、'临时I生'->'临时性'、页码混入等）进行文本清洗预处理，以保障论证结构提取的准确性。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 70
+      },
+      "mean": 79,
+      "std": 12.7,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦刑法修正中的释法与造法之争，论证释法优先于造法的法理基础与制度必然性。",
+          "core_judgment": "问题具有明确的法学争点与理论纵深，契合法律体系建成后的方法论转型需求，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，负面模式扣0分，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "那么，以增加刑法条文(罪名)为代表的不断犯罪化能否真正实现严密刑事法网的目标?",
+            "释法在位阶上应当优先于造法，只有穷尽释法的功能仍无法弥补漏洞时才能考虑造法。"
+          ],
+          "strengths": [
+            "明确提炼释法与造法的位阶关系，构建清晰的法学方法论争点。",
+            "结合刑法谦抑性与法律稳定性，论证具有扎实的法理支撑。"
+          ],
+          "weaknesses": [
+            "对释法边界的具体操作标准论述稍显抽象，缺乏类型化指引。",
+            "部分例证偏向立法批评，对司法释法能力的现实制约着墨不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 70,
+          "band": "good",
+          "summary": "论文提出释法优先于造法并倡导释法中心主义，问题可争辩且枢纽，但属新概念包装旧问题。",
+          "core_judgment": "问题成立且具枢纽性，但创新性因新概念包装旧问题受损。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档(85分)，因新概念包装旧问题扣15分，给70分。",
+          "evidence_quotes": [
+            "以增加刑法条文为代表的不断犯罪化能否真正实现严密刑事法网的目标?",
+            "提倡‘释法中心主义’取代‘立法中心主义’是社会主义法律体系建成之后的必然要求"
+          ],
+          "strengths": [
+            "争点明确，触及刑法解释与立法的核心分歧",
+            "影响范围广，涉及立法与司法双重制度"
+          ],
+          "weaknesses": [
+            "‘释法中心主义’实质是解释优先论的新包装，理论推进有限",
+            "宏观结论略显跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 3693.7124960422516,
+        "glm-5.1": 3675.843183040619
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 88
+      },
+      "mean": 84,
+      "std": 5.7,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒“释法论”与“造法论”的学术对立，并系统论证释法优先的位阶与宏观转向。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，流派识别达标，文献洞察度良好。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "持不同立场和观点者的回答并不一样……前者可以称之为释法论，后者可以称之为造法论。",
+            "提倡“释法中心主义”取代“立法中心主义”是社会主义法律体系建成之后的必然要求。"
+          ],
+          "strengths": [
+            "精准提炼“释法/造法”对立争点，逻辑递进严密。",
+            "将微观刑法修正与宏观法治转向结合，研究地图完整。"
+          ],
+          "weaknesses": [
+            "流派识别集中于单一主线，跨学科或比较法流派展开略浅。",
+            "部分文献引述偏重实务修法现象，纯理论争鸣的纵深稍欠。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，非评价问题新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了清晰的释法与造法之争的研究地图，争点结构完整，流派识别充分。",
+          "core_judgment": "现状洞察度成立，分散式文献定位有效提炼了既有立法与学界的核心分歧，切入点明确。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "至于如何实现‘疏而不漏’，持不同立场和观点者的回答并不一样。",
+            "提倡‘释法中心主义’取代‘立法中心主义’是社会主义法律体系建成之后的必然要求"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了既有立法与学界的核心分歧",
+            "构建了释法与造法、犯罪化与谦抑性等多重争点结构"
+          ],
+          "weaknesses": [
+            "部分比较法论述偏重事实描述而理论提炼稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非刑法修正案问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 3696.166053056717,
+        "glm-5.1": 3673.9422459602356
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 82,
+        "glm-5.1": 55
+      },
+      "mean": 68.5,
+      "std": 19.1,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建“释法优先于造法”位阶框架，论证向“释法中心主义”转型的必然性。",
+          "core_judgment": "框架具备清晰位阶标准与适用边界，能有效指导刑法漏洞填补路径，理论转化度达标。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给82分。提出明确位阶规则与解释边界，符合理论型论文适配标准，但缺乏多阶精细化检验步骤。",
+          "evidence_quotes": [
+            "释法在位阶上应当优先于造法，只有当运用刑法解释理论已经不能填补疏漏时，才能考虑创设新法。",
+            "当法律解释超越了法律文本本身含义之射程时，通过刑法解释无法规制现有的生活事实，此时解释论必须让位于造法论"
+          ],
+          "strengths": [
+            "提出“释法优先、造法补充”的清晰位阶标准，逻辑自洽。",
+            "明确界定解释边界（语义射程、预测可能性），实现理论向裁判标准转化。"
+          ],
+          "weaknesses": [
+            "核心概念缺乏形式化定义，依赖语境理解。",
+            "框架偏向宏观价值倡导，缺乏针对复杂案件的多阶检验步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了“释法优先于造法”的宏观立场，但缺乏步骤化的分析框架与法学操作转化。",
+          "core_judgment": "框架仅为宏观优先级原则，无操作步骤与裁判规则转化，建构力偏弱。",
+          "score_rationale": "框架可操作性得分=2/4（有分类与调用，无定义与步骤），法学转化度得分=0/4（无操作步骤与制度方案），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "当刑法出现所谓的疏漏时，可以采取两种不同的方式：解释刑法或者创设新法",
+            "释法在位阶上应当优先于造法，只有当运用刑法解释理论已经不能填补疏漏时，才能考虑创设新法"
+          ],
+          "strengths": [
+            "对释法与造法进行了清晰的二分法归类",
+            "框架核心立场在后文具体罪名分析中被有效调用"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的分析流程与判断标准",
+            "未将宏观立场转化为可操作的裁判规则或适用指引"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架本身是否成立可用，不评估论证逻辑是否严密或问题是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 3701.5355100631714,
+        "glm-5.1": 3683.5674180984497
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 88
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了从刑法修正反思到释法优先确立，再至法治范式转型的完整推理链，逻辑严密且反驳处理充分。",
+          "core_judgment": "推理链条完整自洽，核心结论可由前文多维度论证可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "释法之所以优先于造法，理由如下：(一)造法与释法对严密法网的功用……(二)释法优于造法与法的稳定性的维护……",
+            "但这仅仅是在刑法范围之内……针对刑法所作的释法与造法的分析是否经得起在更为宏观层面的检验和推敲，这是不能回避的问题。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从具体罪名增设批判自然过渡到方法论位阶比较",
+            "显式回应造法论与民意立法倾向，并明确承认释法优先的适用边界"
+          ],
+          "weaknesses": [
+            "从刑法部门推演至整个法律体系时，宏观过渡的论证密度略低于前文",
+            "部分经济性与程序性对比的论据偏重经验描述，规范推导稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否形成充分支撑，不评价释法优先框架的实务可操作性或结论是否被学界普遍接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从刑法微观修正到宏观体系转向的严密推理链，充分回应造法论分歧并承认释法边界。",
+          "core_judgment": "本维成立，推理链完整且反驳处理充分，核心结论可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。从刑法到体系法的跨越论证稍弱但不构成关键跳步。",
+          "evidence_quotes": [
+            "释法的边界是罪刑法定原则，当法律解释超越了法律文本本身含义之射程时……必须借助造法",
+            "提倡‘释法中心主义’取代‘立法中心主义’是社会主义法律体系建成之后的必然要求"
+          ],
+          "strengths": [
+            "推理层层递进，从刑法具体修正推至宏观立法主义转向",
+            "反驳处理极佳，既论证造法缺陷又明确承认释法边界与造法保留"
+          ],
+          "weaknesses": [
+            "从刑法的释法优先推导至整个法律体系的释法中心主义，部门法差异论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链关注推导连贯性，不评价“释法中心主义”在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 3674.581519842148,
+        "glm-5.1": 3672.0936226844788
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确主张释法优先，契合中国法治转型语境，具备高度可接受性。",
+          "core_judgment": "结论深度嵌入既有学术争论，回应制度约束，符合理论论文评价标准。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "释法在位阶上应当优先于造法，只有当运用刑法解释理论已经不能填补疏漏时，才能考虑创设新法。",
+            "提倡释法中心主义取代立法中心主义是社会主义法律体系建成之后的必然要求。"
+          ],
+          "strengths": [
+            "精准定位释法与造法之争，论证层次清晰。",
+            "紧密结合中国刑法修正实践与立法程序，语境契合。"
+          ],
+          "weaknesses": [
+            "对司法解释过度扩张的潜在风险着墨稍浅。",
+            "部分立法例批判可进一步深化实证数据支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉逻辑严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论主张释法优先于造法，深度回应学界争论与中国制度语境。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "释法在位阶上应当优先于造法……只有穷尽释法的功能仍无法弥补漏洞时才能考虑造法",
+            "当法律解释超越了法律文本本身含义之射程时……解释论必须让位于造法论"
+          ],
+          "strengths": [
+            "明确回应造法论与释法论分歧，对话度高",
+            "充分结合刑法修正案与罪刑法定原则，制度兼容强"
+          ],
+          "weaknesses": [
+            "对释法中心主义可能引发的司法擅断风险讨论可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是结论当下能否被共同体和制度语境接受，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 1615.9704329967499,
+        "glm-5.1": 1586.269232749939
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 75
+      },
+      "mean": 71.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文将刑法领域的“释法优先”结论延展至整个法律体系，提出向“释法中心主义”转型的法治趋势。",
+          "core_judgment": "存在真实延展路径，明确指出了从立法中心向解释中心转型的宏观方向与跨部门法适用场景。",
+          "score_rationale": "原始分68，对应bonus=3。末段明确提出“释法中心主义”取代“立法中心主义”的未来趋势，并以网络空间定性等跨部门法衔接为例给出具体延展场景，路径清晰但操作化细节有限。",
+          "evidence_quotes": [
+            "关于释法优于造法的论证是否可以作为一个一般性结论应用于整个社会主义法律体系？",
+            "对于该问题的解决，只能通过解释法律而不宜创制新法。"
+          ],
+          "strengths": [
+            "将部门法结论合理推演至整体法治范式转型，延展视野开阔。",
+            "结合刑诉衔接等具体场景指明解释论的适用边界，具有实务指引价值。"
+          ],
+          "weaknesses": [
+            "对“释法中心主义”的具体制度配套与司法技术转化缺乏细化设计。",
+            "跨部门法延展多停留在方向性宣示，未展开比较法或实证检验路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“释法中心主义”范式在未来法治建设中的推进路径与跨法域适用场景，属未来研究与发展方向，而非对本文当下结论的接受度评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文指明了释法边界、跨法域适用性检验及网络空间规则衔接等延展路径。",
+          "core_judgment": "存在真实延展路径，指明了释法中心主义的适用边界与跨部门法检验方向。",
+          "score_rationale": "原始分75，bonus档位为3（60-79档）。文章提出了释法边界、跨法域适用性检验等具体延展路径，与核心结论衔接，但末尾展望精细度有限。",
+          "evidence_quotes": [
+            "释法的边界是罪刑法定原则，当法律解释超越了法律文本本身含义之射程时……必须借助造法来实现处罚的目标了。",
+            "关于释法优于造法的论证是否可以作为一个一般性结论应用于整个社会主义法律体系?"
+          ],
+          "strengths": [
+            "指明了释法中心主义的适用边界（罪刑法定与文本射程）",
+            "提出了跨部门法体系检验释法优于造法一般性结论的后续研究问题"
+          ],
+          "weaknesses": [
+            "末尾宏观展望偏概括，未展开跨法域检验的具体研究设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "跨法域适用性检验属于未来理论深化与制度衔接问题，而非当下刑法修正结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.1941020488739,
+        "glm-5.1": 1591.9649047851562
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 7.5,
+    "max_std": 19.1,
+    "weighted_total": 81.1,
+    "final_score": 83.68,
+    "high_confidence_pct": 50.0,
+    "dimension_count": 6,
+    "composite_score": -2.5,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 19.1
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "释法在位阶上应当优先于造法，即刑法出现‘疏漏’时，首先应当考虑解释刑法，只有当运用刑法解释理论已经不能填补疏漏时，才能考虑创设新法。",
+          "我国近三十年来以‘建立社会社会主义法律体系’为目标的造法任务已经基本完成。……从现在起至将来较长的一段时期之内，‘造法’将不再是法律生活中的主角，‘立法中心主义’将转向于‘释法中心主义’。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "纵观我国历次刑法修正，其最为重要的追求是严密刑事法网，实现‘疏而不漏’。",
+          "当刑法出现所谓的疏漏时，可以采取两种不同的方式：解释刑法或者创设新法，前者可以称之为释法论，后者可以称之为造法论。",
+          "释法在位阶上应当优先于造法，即刑法出现‘疏漏’时，首先应当考虑解释刑法，只有当运用刑法解释理论已经不能填补疏漏时，才能考虑创设新法。",
+          "提倡‘释法中心主义’取代‘立法中心主义’是社会主义法律体系建成之后的必然要求，是对‘立法万能主义’思维的摈弃。",
+          "日本刑法设置‘暴行罪’是由其立法技术和习惯所决定的……反观我国刑法……这种差异最为直接的体现是，伤害未遂行为在日本刑法中应当成立暴行罪，而在我国刑法中则成立故意伤害罪(重伤未遂)。通过上述分析可知，与我国刑法相比，日本刑法多设的‘暴行罪’也并不意味着日本刑法对人身权益的保护更加严密。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 7.0,
+    "signal_scores": [
+      7,
+      7
+    ]
+  }
+}

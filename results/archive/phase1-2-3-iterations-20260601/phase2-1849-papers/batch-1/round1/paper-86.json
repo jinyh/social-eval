@@ -1,0 +1,1064 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国基本法文化的特征及其当代变迁.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注/参考文献标记为数字带圈字符（如④⑤⑥⑦⑧⑨⑩⑧⑨⑩），且部分编号不连续或缺失，但未影响正文论证理解。",
+          "正文中出现疑似期刊页眉/页码混入（如“123”“l24”“l26”“l27”“l28”“129”“l30”“13l”“132”），但段落完整。"
+        ],
+        "evidence_quotes": [
+          "④ 前引⑩，陈晓枫、柳正权书，第290页。",
+          "⑤ 《马克思恩格斯选集》第2卷，人民出版社1995年版，第38页。",
+          "⑧ 参见前引⑩，陈晓枫、柳正权书，第293页。",
+          "⑨ 参见赵纪彬：《论语新探》，人民出版社1976年版，第l—l8页。",
+          "⑩ 参见前引③，王世杰、钱端升书，第15页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "如果以近代立宪主义的标准来审视，则中国古代没有宪法。……从研究对象上看，中国古代同样存在确定基本治理原则的基本法，并且成为宗族社会最基本制度的法律基础。在此意义上，不妨称其为中国基本法或'国家基本法'。",
+          "中国古人认为主权因天授命，只能被某一宗族集团代表，通常由宗族的嫡长子代表整个宗族取得政权。……权威主体的这种权力被认为是从开朝的战争中一次性获得的，因为宗法性在整体上不可分割，它事实上也不受法律的有效约束。",
+          "民国初年……出于约法限袁的目的……开启了民国立宪史上因人设法的先例，凸显了中国国家基本法中威权视法律为工具这一色彩，对此后的民国立宪史产生了重大负面影响。",
+          "中国基本法首重的问题即权威的来源问题，这在中国古代表现为用以解释天命周期性移转的‘德命’系统。……中国当代权威主体的形成过程即带有‘德命’印记。",
+          "在中国当代社会，主要的基本法文化重构方式是在文本中规定人民的各项基本权利，但权利的实现要由政策予以配置。……这些会引起社会生活变迁或引起社会资源重配的现象，都是由最高决策者统一配给的，原理上也是可收回的。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号不连续、参考文献列表缺失、正文混入疑似页码/页眉字符，但核心论点可定位。",
+        "项目口径：信号完全满足，文本质量可评，直接进入六维评分。"
+      ],
+      "evidence_quotes": [
+        "中国基本法具有鲜明的柔性约束特质。……它既体现在皇权运行中的诏令系统里，又体现在中央和地方官署履行职责的具体依据中；以职官职掌为核心，各规则文本分散表达了中国古人关于国家的主权所在。",
+        "一元化的权威主体主导了整个社会秩序的建构，中国宪法及其配属法律的实施现状和未来变迁，在根本上也是由这种基本法文化决定的。……这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的'阿喀琉斯之踵'。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本有轻度格式/脚注/OCR残留风险，但不影响评审。论文以中国基本法文化及其当代宪法重构为中心，提出'一元权威主导秩序建构'等可复核命题，属于典型的中国自主知识体系研究，直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及页眉混入正文（如'123'、'l24'、'中国法学'、'2015年第1期'）",
+          "脚注编号及部分脚注内容直接插入正文段落中（如'④前引⑩，陈晓枫、柳正权书，第290页'、'⑤《马克思恩格斯选集》...'）",
+          "局部OCR识别错误导致个别词汇不可读或语义偏移（如'基本潲邕否'应为'基本法能否'，'准人条件'应为'准入条件'）"
+        ],
+        "evidence_quotes": [
+          "基本潲邕否走向近现代宪法",
+          "l24",
+          "④前引⑩，陈晓枫、柳正权书，第290页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "不妨称其为中国基本法或‘国家基本法’……中国基本法具有鲜明的柔性约束特质。",
+          "中国基本法在权力来源上表现出以下文化特征：不管是王和皇帝(总统)的个人集权，还是政党的组织集权，中国历史上政治权力的最大特征是一元化的权威。",
+          "‘良性违宪’论实际上起到了鼓励部门法突破宪法规定的负面作用……是对法律效力层级观的否定。",
+          "权利被视为一元化权威主体的分赐……人民从来就不在一个同等的地位上，不同社会分层所能享有的特权或权利与其实际地位有关。",
+          "这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的‘阿喀琉斯之踵’。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：OCR错字及排版/脚注混入正文，但不影响核心论点定位",
+        "项目口径完全满足，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "不妨称其为中国基本法或‘国家基本法’",
+        "权利被视为一元化权威主体的分赐",
+        "这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的‘阿喀琉斯之踵’"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在局部OCR乱码及排版/脚注混入，需在后续评审阶段注意清洗和还原段落结构；项目口径完全符合进入六维评审标准，核心论点与理论命题清晰可提取，建议进入正式评分流程。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩、③、⑤等编号不连续，存在OCR或排版残留）",
+          "部分引注格式混杂，存在“前引⑩”“参见前引⑩”等回溯性引注，但核心内容可定位",
+          "文末参考文献列表缺失（标注为“无”），但正文引注信息基本完整"
+        ],
+        "evidence_quotes": [
+          "④前引⑩，陈晓枫、柳正权书，第290页。",
+          "⑩《马克思恩格斯选集》第2卷，人民出版社1995年版，第38页。",
+          "①中国法律发展史与亨利·梅因描述的古代法从身份到契约的发展轨迹有较大偏移。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国古代设定部族、酋邦秩序的终极依据，是部族征战中最终胜利者的宗族宗法，这是中国最初的基本法。",
+          "中国基本法具有鲜明的柔性约束特质。",
+          "相对于西方基本法而言，中国基本法不具备走向宪法的文化基因。",
+          "中国基本法在人民权利的配置上表现出明显的权利分赐观，人民权利被认为是由一元化的权威主体自主认识和安排的。",
+          "中国本土的权能分治理论重构了西方立宪主义的人民主权理论，以中式“五权”割裂了西式“三权”，从而使人民的主权所属和主权所在发生了分离。",
+          "“良性违宪”论实际上起到了鼓励部门法突破宪法规定的负面作用，用法律及其实施细则以及司法解释等来规范和约束社会生活，这必然会损害宪法对社会利益的安排机制。",
+          "中国社会各阶层的利益仍由一元化权威主体设定安排，这是中国基本法文化及其当代表现中国宪法文化的基本特征。",
+          "这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的“阿喀琉斯之踵”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号存在OCR/排版残留（⑩③⑤等），但不影响核心论点定位",
+        "参考文献列表缺失，需关注是否影响后续引文复核"
+      ],
+      "evidence_quotes": [
+        "中国基本法文化的特征及其当代变迁",
+        "中国基本法在人民权利的配置上表现出明显的权利分赐观，人民权利被认为是由一元化的权威主体自主认识和安排的。",
+        "中国本土的权能分治理论重构了西方立宪主义的人民主权理论，以中式“五权”割裂了西式“三权”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国基本法/宪法文化为核心研究对象，系统阐释了中国古代至当代的宪法文化特征，提出了“权利分赐观”“一元化权威主体”“德命系统”等具有理论创新性的分析概念，并对中国宪法实践中的真实难题（如良性违宪、宪法监督机制缺失、权利配置模式等）进行了深度解释。文本质量风险较低，脚注编号乱码和参考文献缺失不影响核心评审，建议直接进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与期刊头尾信息混入正文（如“123 \n\n中国法学 \n2015年第1期”）",
+          "脚注编号存在OCR识别乱码或符号替换（如④、⑤、@、①、⑧等交替出现且格式不统一）",
+          "部分段落存在异常换行与断字（如“基本潲邕否走向近现代宪法”应为“基本法能否”）"
+        ],
+        "evidence_quotes": [
+          "123 \n\n中国法学 \n2015年第1期",
+          "④\n前引⑩，陈晓枫、柳正权书，第290页。",
+          "l24 \n\n中国基本法文化的特征及其当代变迁"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在此意义上，不妨称其为中国基本法或“国家基本法”",
+          "中国基本法在权力来源上表现出以下文化特征：不管是王和皇帝(总统)的个人集权，还是政党的组织集权，中国历史上政治权力的最大特征是一元化的权威",
+          "“良性违宪”论实际上起到了鼓励部门法突破宪法规定的负面作用……这类观点的真正文化内涵是不承认法律是有层级的",
+          "中国社会各阶层的利益通常是由最高权威代表各利益主体来配置和安排的。我国当前在中国共产党的领导下制定和实施宪法，社会各阶层的基本权利和利益即由这一权威主体统一配置。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗页码、期刊头尾及脚注乱码符号，修正OCR错字（如“基本潲邕否”）",
+        "项目口径：四项核心信号均明确触发，无边界争议"
+      ],
+      "evidence_quotes": [
+        "中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化。",
+        "该权威主体的最高权力具有政治惯例意义上的至高无上性，既可以构建基本法或宪法以及其他配套法律，也可以改变已经制定的基本法或宪法。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文深度聚焦中国宪法文化与传统基本法基因，提出‘一元化权威主体’‘中国基本法’等分析框架，具备明确的法学争辩性与中国实践解释力，完全符合进入六维评价标准。文本存在轻微OCR与页码混排噪声，但不影响核心论证定位。建议按正常流程进入评分，后续排版时注意清理脚注编号与页码残留。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以“中国基本法文化”为概念框架，试图阐释中国宪法的深层文化结构，但全文主要是主题声明和历史归纳，未能提出可争辩的法学研究问题。",
+          "core_judgment": "论文将既有法文化讨论用“基本法文化”重新包装，但未形成可争辩的法学争点，只是对非立宪主义特征的体系化复述，缺乏理论分歧和问题驱动。",
+          "score_rationale": "可争辩性=1/4（仅标准2涉及法学层面），枢纽性=2/4（标准1与3满足），材料新颖性未触发上限。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "中国古代同样存在确定基本治理原则的基本法，并且成为宗族社会最基本制度的法律基础。在此意义上，不妨称其为中国基本法或“国家基本法”。",
+            "中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化。"
+          ],
+          "strengths": [
+            "涉及法学基本原理（权力来源、法律层级、权利保障），属于法学层面讨论。",
+            "对中西法文化差异的历史溯因有一定跨度，触及多个制度领域。"
+          ],
+          "weaknesses": [
+            "全文无非研究问题句，只有“中国基本法文化特征”的主题声明，无可争辩的法学争点。",
+            "缺乏学者观点交锋，主要是对一元权力、非立宪主义等既定立场的系统归纳和重复阐释。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1，论文无明确问题句，只有主题声明，无法学层面的可争辩问题。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕“中国基本法文化的特征及其当代变迁”展开，未见“XX是否YY”或“如何ZZ”等法学争点问题句，主要是对非立宪主义趋向的体系化阐释。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料对结论的支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "以新概念阐释本土法律文化特征及宪法变迁，缺乏问题句，属主题声明。",
+          "core_judgment": "核心为新概念包装旧问题且无明确问题句，属宏观主题声明而非可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档给80分；前置扣分45分（新概念包装-15，无问题句-30），最终35分。",
+          "evidence_quotes": [
+            "在此意义上，不妨称其为中国基本法或‘国家基本法’",
+            "所谓‘民本’……远未发展成为人民主权，也不具有宣示人民基本权利的意义"
+          ],
+          "strengths": [
+            "涉及良性违宪、民本与人权等法学理论分歧",
+            "问题枢纽性强，触及主权来源与宪法监督等核心"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为宏观主题声明式阐释",
+            "‘中国基本法’新概念对旧问题的解释力提升不充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献充分度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文系统阐释中国基本法文化特征，但缺乏可争辩的法学问题。",
+          "core_judgment": "全文为历史阐释与理论归纳，无明确争点，不满足法学研究问题的可争辩性要求。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明无问题句），枢纽性=2/4（涉及基础概念与多制度但无争议焦点），材料新颖性未触发上限，锚定unacceptable档，扣25分（检查1：新概念'中国基本法'未说明相对'宪法''古代法'等既有概念的理论进步，仅包装旧问题），给35分",
+          "evidence_quotes": [
+            "中国古代设定部族、酋邦秩序的终极依据，是部族征战中最终胜利者的宗族宗法，这是中国最初的基本法",
+            "中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化"
+          ],
+          "strengths": [
+            "主题宏大，横跨古今中西，涉及宪法、法律史多领域"
+          ],
+          "weaknesses": [
+            "无'XX是否YY'问题句，纯主题声明式叙述",
+            "无学者观点交锋，仅单向阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅'中国基本法文化的特征及其当代变迁'主题陈述"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，因可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "excellent",
+          "summary": "论文以“中国基本法文化”为线索进行历史梳理，但缺乏明确争点与规范命题推进。",
+          "core_judgment": "问题属宏观文化阐释，缺乏可争辩的法学争点，概念包装未带来实质理论突破。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料校验触发上限。负面扣分合计65分，锚定excellent档，最终30分。",
+          "evidence_quotes": [
+            "不妨称其为中国基本法或'国家基本法'",
+            "中国基本法文化在近代重构了西方宪法文化"
+          ],
+          "strengths": [
+            "触及宪法层级与权利保障等核心法学原理",
+            "梳理了中西法治文化差异的历史脉络"
+          ],
+          "weaknesses": [
+            "全文为宏观文化阐释，缺乏明确问题句",
+            "新概念未论证相对既有理论的解释力优势"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "以'中国基本法'概念重构历史叙事，未改变规范命题或解释路径"
+            }
+          ],
+          "boundary_note": "本维度仅评问题争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.01894569396973,
+        "glm-5.1": 76.1632330417633,
+        "kimi-k2.6": 13.818682193756104,
+        "qwen3.6-plus": 107.6152081489563
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 35,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 33.8,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "qwen3.6-plus"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文梳理了中国基本法文化的历史脉络与当代变迁，但未构建清晰的学术研究地图，缺少对既有研究的系统定位与争点呈现。",
+          "core_judgment": "本文有历史脉络梳理，但未呈现可区分的学术争点或流派对立，三要素严重缺失，研究地图基本不成立。",
+          "score_rationale": "三要素=1/6（到达点0分，未竟点0分，本文切入点1分），争点结构=0/2，法学流派=0个，锚定unacceptable档（上限55分），给55分。",
+          "evidence_quotes": [
+            "如前所述，如果以近代立宪主义的标准来审视，则中国古代没有宪法。",
+            "迄今为止，若干对近现代中国基本法制约作用的特征尚未被充分探讨。"
+          ],
+          "strengths": [
+            "对中国古代基本法的文化特征有自成体系的梳理。",
+            "对当代宪法实践中的传统延续性有现象描述。"
+          ],
+          "weaknesses": [
+            "未引用任何具体学者的研究成果或流派立场，缺乏到达点梳理。",
+            "未明确指出既有研究的具体缺口和争议内容，未竟点模糊。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2时触发，研究地图严重残缺，最高55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点0分/未竟点0分/本文切入点1分，三要素总分1分，且全文无学术流派识别与争点结构。"
+            }
+          ],
+          "boundary_note": "论文的问题在于缺少对既有学术研究的定位与对话，而非问题本身缺乏新颖性。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过中西宪制对比与良性违宪争论构建了清晰的争点结构，流派覆盖充分。",
+          "core_judgment": "争点结构成立且流派识别≥3，研究地图基本完整，本维度高分成立。",
+          "score_rationale": "三要素=5/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "自郝铁川首次提出‘良性违宪’论后...支持者多是传统政治学者，反对者多是宪法学者。",
+            "中西方社会...分别确立了共尊一权权威或者共尊统一规则的不同秩序，由此奠定了中西基本法的始基。"
+          ],
+          "strengths": [
+            "中西宪制分歧与良性违宪争论构建了多维争点结构。",
+            "分散式文献定位有效提炼了梅因、戴雪等具体贡献。"
+          ],
+          "weaknesses": [
+            "缺乏显式的“本文切入点”声明，未竟点与切入点的对应稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点结构，而非中国基本法理论本身是否创新。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本维度不成立：三要素严重缺失，争点结构与法学流派均未建立。",
+          "score_rationale": "三要素得分=1/6（仅到达点部分满足1分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "参见前引⑩，陈晓枫、柳正权书，第290页",
+            "参见郝铁川：《论良性违宪》，载《法学研究》1996年第4期"
+          ],
+          "strengths": [
+            "引用少量具体学者观点",
+            "涉及中西比较的历史制度分析"
+          ],
+          "weaknesses": [
+            "无未竟点与切入点的明确表述",
+            "未呈现学术争论脉络"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅1分，未竟点与切入点均为0分，总分1分"
+            }
+          ],
+          "boundary_note": "本文属历史制度描述，未进入学术文献对话层面。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰勾勒中西基本法分歧与“良性违宪”争点，研究地图完整。",
+          "core_judgment": "文内充分呈现既有成果、明确指出现有认知局限并确立切入点，研究地图成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“然而，这是对中国基本法文化的一种不正确认识。所谓中国古代的‘民本’观，远未发展成为人民主权……”",
+            "“支持者有不少是中国传统政治学者，反对者多是法学界的宪法学者。”"
+          ],
+          "strengths": [
+            "争点结构清晰，系统呈现权威来源、法效力层级与权利配置的中西对立。",
+            "准确定位“良性违宪”等学术争论，明确既有研究的认知局限。"
+          ],
+          "weaknesses": [
+            "部分流派识别依托历史制度对比，现代规范法学层面的直接交锋略少。",
+            "未竟点向切入点的过渡偏重文化阐释，教义学维度的文献锚定可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉文化解释路径的新颖性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.69621706008911,
+        "glm-5.1": 48.00187802314758,
+        "kimi-k2.6": 9.305845022201538,
+        "qwen3.6-plus": 75.79528307914734
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 88,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 90
+      },
+      "mean": 69.5,
+      "std": 22.9,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文系统梳理了中国基本法文化的历史特征与变迁，但未提出可重复适用的原创分析框架，核心工作是归纳与阐释既有文化命题。",
+          "core_judgment": "论文属于政策理论梳理型，仅提供了历史分期和特征罗列，缺乏可操作的原创分析步骤或判断标准，分析框架建构力较弱。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定较清晰，无量化的分析步骤，后无对应分析步骤调用），法学转化度得分=0/4（未将文化特征转化为裁判规则、法律适用流程或制度设计方案），锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "首先，它来源于宗法...其次，它既体现在皇权运行中的诏令系统里，又体现在中央和地方官署履行职责的具体依据中",
+            "中国基本法在人民权利的配置上表现出明显的权利分赐观，人民权利被认为是由一元化的权威主体自主认识和安排的。"
+          ],
+          "strengths": [
+            "对中国基本法的特征（权威一元化、法律分工非层级化、权利分赐观）进行了清晰的概念提炼和结构化归纳。"
+          ],
+          "weaknesses": [
+            "分析框架止步于特征归纳与历史梳理，缺乏可操作的判断步骤或法学分析流程。",
+            "法学转化度极低，全文未将文化特征转化为具体的裁判规则、立法设计或制度建构方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的建构与可操作性，不评价论文历史梳理的逻辑严密性或观点新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提炼“中国基本法”三维文化特征，形成中西对比的理论阐释框架。",
+          "core_judgment": "框架建构力成立，通过概念重构与类型化维度对比，实现了理论层面的法学转化与适用边界界定。",
+          "score_rationale": "框架可操作性得分3/4（缺步骤化流程），法学转化度得分4/4（提供概念重构与关系映射），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "不妨称其为中国基本法或‘国家基本法’…具有鲜明的柔性约束特质",
+            "中国基本法在权力来源上表现出以下文化特征：一元化的权威"
+          ],
+          "strengths": [
+            "提炼了权力来源、法律层级、权利配置的三维评价标准",
+            "将宗法等跨学科概念成功转化为法学分析维度"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的判断流程，仅为维度提纲",
+            "理论修正方向与制度方案较为薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架的类型化维度建构，而非逻辑推演的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "本文属历史制度分析型论文，以'中国基本法文化'为核心概念展开历史阐释，但缺乏可重复适用的分析框架与操作步骤。",
+          "core_judgment": "论文以描述性历史叙事为主，核心概念'中国基本法文化'未转化为可操作的法学分析工具，框架建构力薄弱。",
+          "score_rationale": "框架可操作性得分=1/4（仅'概念界定'部分成立：'中国基本法'有初步定义，但分类标准模糊、分析步骤缺失、后文未调用框架术语）；法学转化度得分=1/4（仅有历史描述，未提供裁判规则、制度设计方案或概念操作化路径；'德命'等概念未转化为法学分析步骤）。锚定marginal档，因触发'宏观介绍非深度分析'负面模式，上限50分，给45分。",
+          "evidence_quotes": [
+            "中国古代设定部族、酋邦秩序的终极依据，是部族征战中最终胜利者的宗族宗法，这是中国最初的基本法",
+            "中国基本法在权力来源上表现出以下文化特征：不管是王和皇帝(总统)的个人集权，还是政党的组织集权，中国历史上政治权力的最大特征是一元化的权威"
+          ],
+          "strengths": [
+            "核心概念'中国基本法文化'具有历史纵深感，为理解中国宪法传统提供新视角",
+            "对中西方基本法文化差异的比较有一定启发性"
+          ],
+          "weaknesses": [
+            "全文为描述性历史叙事，无步骤化分析流程，'特征'仅为罗列而非框架",
+            "'德命''良性违宪'等术语未转化为可操作的法学判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "宏观介绍非深度分析：全文无任何具体问题的深入分析，只有宏观框架描述",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文以'根基—沉淀—重构'为结构，但各节均为历史制度描述，未提出可重复适用的分析步骤或判断标准，如'一元化权威''德命'等概念仅作历史阐释，未转化为法学操作工具"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及历史叙事的真实性与逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "论文构建三维文化分析框架，理论转化完整但缺乏操作步骤与分类边界。",
+          "core_judgment": "框架在理论阐释层面成立且贯穿全文，但程序性与操作性较弱，属典型概念历史型框架。",
+          "score_rationale": "框架可操作性得分=2/4（核心概念有界定且后文持续调用，但缺明确分类边界与步骤化流程），法学转化度得分=3/4（完成跨学科概念法学映射、界定适用边界并持续调用），锚定good档，给65分。",
+          "evidence_quotes": [
+            "在此意义上，不妨称其为中国基本法或“国家基本法”……中国古代设定部族、酋邦秩序的终极依据，是部族征战中最终胜利者的宗族宗法",
+            "中国基本法在权力来源上表现出以下文化特征：……中国历史上政治权力的最大特征是一元化的权威"
+          ],
+          "strengths": [
+            "构建“权力来源-效力层级-权利配置”三维框架，贯穿古今宪法变迁分析",
+            "将“德命”“民本”等传统概念操作化为宪法文化分析维度"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的判断步骤或类型化边界，程序操作性偏弱",
+            "未提供具体制度设计或裁判适用指引，停留于历史描述与理论阐释"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及历史论证严密性或问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.31343102455139,
+        "glm-5.1": 66.48470497131348,
+        "kimi-k2.6": 13.526908874511719,
+        "qwen3.6-plus": 79.07300925254822
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 65
+      },
+      "mean": 63.2,
+      "std": 16.7,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以“中国基本法文化特征及其当代变迁”为轴心，形成了“文化根基→历史沉淀→当代重构”的严密递进链，核心结论由前文充分支撑。",
+          "core_judgment": "推理链完整且高度递进，虽反驳处理隐含在文化比较中，但主线论证充分满足可辩护推出的标准。",
+          "score_rationale": "推理链完整性得分=4/4（可复述、高依赖、可推出、无关键跳步），反驳处理度得分=2/3（隐含分歧回应、承认自身局限），锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "相对于西方的海商文明，中国早期“物质生活的生产方式”是一种农耕文明…难以形成不同宗族共尊的规则大于任何组织的观念…由此铸就了中国基本法的基础底蕴。",
+            "中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化…该权威主体的最高权力具有政治惯例意义上的至高无上性…或许也是中国基本法文化的“阿喀琉斯之踵”。"
+          ],
+          "strengths": [
+            "推理链深度依赖：从农耕文明的根基，推导至身份性组织的沉淀，再至当代宪法制度的变异，删除前一步后后续推导即失去依据。",
+            "反驳隐含但实质：在权力来源、法律层级、权利保障三部分均呈现中西文化不同的理解路径，并系统论证为何中国走向另一路径，构成理论型论文的有效反驳处理。"
+          ],
+          "weaknesses": [
+            "反驳处理以文化比较的隐含方式为主，缺乏对直接反对意见（如“良性违宪”论的批评者）的进一步再回应。",
+            "结论处提出“阿喀琉斯之踵”的论断，前文虽有铺垫，但由历史叙事到当代困境的转化可更直接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文困局在“可操作的制度建议缺失”属框架建构力维度，本维度仅判断历史文化推导至当代制度困境的推理链是否严密，不因结论无解扣分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链环环相扣，反驳处理充分，逻辑严密性极高。",
+          "core_judgment": "论文从概念界定到基因沉淀再到当代重构，形成充分支撑的逻辑链条，核心结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "甚至有学者从中读出了‘放伐暴君论’，是人民主权……然而，这是对中国基本法文化的一种不正确认识。",
+            "这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的‘阿喀琉斯之踵’。"
+          ],
+          "strengths": [
+            "推理链依赖度强，历史沉淀与当代重构逻辑衔接紧密。",
+            "对隐含分歧和显式反对意见均有实质性论证回应。"
+          ],
+          "weaknesses": [
+            "从“宗族嫡长”到“政党先锋队”的类比推演稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦于推理链是否充分支撑结论，不评判“国家基本法”概念框架的政治可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了中国基本法文化的历史—当代分析框架，推理链完整但反驳处理薄弱。",
+          "core_judgment": "主要推理步骤可识别且相互依赖，但缺乏对反对意见的显式回应，反驳处理度不足。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立：能识别'农耕文明→身份社会→基本法特征→当代重构'的链条；标准4存疑：从'德命'到当代领导权的古今比附存在跳步），反驳处理度得分=1/3（仅标准3隐含成立：承认'良性违宪'论争但仅作单方批判，未回应政治宪法学的理论辩护；标准1、2未满足）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "农耕文明对血缘组织天然依赖，造成中国人从血缘组织走向地缘组织的过程相对西方而言并不是很充分……由此形成了以血缘管辖为主的身份型社会。",
+            "中国本土的权能分治理论重构了西方立宪主义的人民主权理论，以中式'五权'割裂了西式'三权'，从而使人民的主权所属和主权所在发生了分离。"
+          ],
+          "strengths": [
+            "历史到当代的纵向推理链清晰，三步特征分析相互支撑。",
+            "概念界定前后一致，'一元化权威'作为核心范畴贯穿全文。"
+          ],
+          "weaknesses": [
+            "未回应政治宪法学对'良性违宪'的规范性辩护，单方批判构成稻草人。",
+            "'德命'古今比附缺乏中间论证，从宗族宗法到阶级先锋队的过渡过陡。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'中国基本法'概念本身的学术可接受性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链条完整严密，反驳处理充分，结论可由前文文化分析可辩护地推出。",
+          "core_judgment": "逻辑严密性成立，核心结论由历史特征到当代重构的推演链条充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化。”",
+            "“所谓中国古代的‘民本’观，远未发展成为人民主权……更与人权保障无涉。”"
+          ],
+          "strengths": [
+            "历史溯源到当代重构的推理链条完整且层层递进。",
+            "对“民本”误读与“良性违宪”论的反驳具有实质论证。"
+          ],
+          "weaknesses": [
+            "部分历史材料到现代制度变迁的过渡略显宏大叙事。",
+            "对“德命”系统当代映射的推演可进一步细化规范依据。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估概念推演与反驳处理，不评价文化解释框架的实证可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 54.962944984436035,
+        "glm-5.1": 46.69165229797363,
+        "kimi-k2.6": 11.75011682510376,
+        "qwen3.6-plus": 63.6500358581543
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 90,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 85,
+      "std": 8.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出了关于中国基本法文化连续性及其当代重构的学术主张，能与既有宪法文化、良性违宪等讨论对话，并在文化层面回应了制度语境，但对反对意见回应不足。",
+          "core_judgment": "结论可被共同体识别和回应，且在中国制度语境中说得通，但缺乏对反对意见或自身局限的讨论，限制了其可接受度。",
+          "score_rationale": "共同体对话度得分=3/4（回应了权力一元、良性违宪等争论，但未主动讨论反对意见或局限），制度可接受度得分=3/4（对制度/实务约束有原则层面回应，指出了制度转化方向，且不与法秩序根本矛盾）。属理论论文，锚定good档，因限于对话度未满分而给65分。",
+          "evidence_quotes": [
+            "“‘良性违宪’论实际上起到了鼓励部门法突破宪法规定的负面作用，……必然会损害宪法对社会利益的安排机制。”",
+            "“人民从来就不在一个同等的地位上，不同社会分层所能享有的特权或权利与其实际地位有关。”"
+          ],
+          "strengths": [
+            "将结论明确嵌入权力来源观、法律层级观等既有学术争论，具备对话基础。",
+            "从文化积淀角度讨论宪法制度的本土约束，理论与实践结合较紧。"
+          ],
+          "weaknesses": [
+            "结论部分未主动讨论可能的反对意见或自身论证局限，削弱了共同体对话度。",
+            "制度转化方向仅停留在宏观描述，缺乏具体适用条件的进一步指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评估结论当下的可接受性与共同体对话性，不涉及论证严密性及后续研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻揭示中国基本法文化的非立宪主义基因及当代困境，对话度高。",
+          "core_judgment": "结论在共同体对话和制度语境中高度可接受，虽批判性强但非自说自话。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的‘阿喀琉斯之踵’。",
+            "中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化。"
+          ],
+          "strengths": [
+            "明确回应中国古代有无宪法、民本与人权、良性违宪等学术争论。",
+            "主动承认并深刻剖析自身理论的制度困境（阿喀琉斯之踵）。"
+          ],
+          "weaknesses": [
+            "结论偏重揭示文化基因与困境，未指明制度转化的可能方向。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "本文提出中国基本法文化理论，挑战了西方中心主义宪法观，具有明确学术对话性。",
+          "core_judgment": "结论可进入法学共同体对话，但制度转化方向表述不足，理论自限性讨论缺失。",
+          "score_rationale": "共同体对话度得分=3/4（回应西方宪法理论、定位中国宪法文化特殊性、可被反对者回应），制度可接受度得分=2/4（不矛盾于现行法秩序、回应中国制度语境，但未明确制度转化方向、未充分回应反对意见），锚定good档，给72分。",
+          "evidence_quotes": [
+            "中国基本法文化在近代重构了西方宪法文化，由此形成民族化的、保留着一定非立宪主义趋向的中国宪法文化",
+            "该权威主体的最高权力具有政治惯例意义上的至高无上性，既可以构建基本法或宪法以及其他配套法律，也可以改变已经制定的基本法或宪法"
+          ],
+          "strengths": [
+            "明确挑战西方立宪主义标准，建构中国基本法文化分析框架",
+            "贯穿古今的纵向分析，对中国宪法史有具体制度回应"
+          ],
+          "weaknesses": [
+            "未主动承认理论局限或回应可能的反对意见",
+            "制度转化方向仅停留在文化决定论层面，缺乏具体展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深度嵌入中国宪法文化语境，明确回应学界争论，理论自洽且与现行法秩序逻辑兼容。",
+          "core_judgment": "该维度成立，结论具备高度的共同体对话能力与制度语境兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "“良性违宪”论者列举了……反对者多是法学界的宪法学者。",
+            "设定了宪法是最高法，却长期未规定宪法制衡其他法的合宪性审查机制……"
+          ],
+          "strengths": [
+            "精准定位“良性违宪”等核心争论，对话指向明确。",
+            "深刻揭示一元权威与宪法层级的内在张力，理论穿透力强。"
+          ],
+          "weaknesses": [
+            "未明确指明理论框架向制度实践转化的具体路径。",
+            "对反对意见的回应偏重现象描述，缺乏规范性辩驳。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.48814606666565,
+        "glm-5.1": 37.912578105926514,
+        "kimi-k2.6": 10.147913932800293,
+        "qwen3.6-plus": 67.62915396690369
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 76.8,
+      "std": 9.9,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了一个概括性的深层文化悖论，指明了未来制度探索的核心困境，但未将其转化为具体的后续研究问题或可操作的延展路径。",
+          "core_judgment": "存在概括性的延展方向，但与正文衔接较粗放，缺乏精细化的研究对象或机制设定。",
+          "score_rationale": "原始分55分，对应bonus=2档位。论文在结语中指出了‘阿喀琉斯之踵’这一深层矛盾，指涉了制度完善方向，构成了概括性延展；但因缺乏具体待修正对象、研究问题或进一步分析的切入点，路径精细度不足，未进入60分以上区间。",
+          "evidence_quotes": [
+            "如果设定宪法实施机关去撤销最高决策核心的决策，可能意味着最高权的分裂，会埋下‘藩镇’的祸根。这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的‘阿喀琉斯之踵’。"
+          ],
+          "strengths": [
+            "结语点出了合宪性审查与一元权威在深层文化上的两难，提供了可继续争辩的延展方向。"
+          ],
+          "weaknesses": [
+            "后续研究问题未明确化，仅以‘阿喀琉斯之踵’的修辞概括，未指出应从何处入手推进。",
+            "缺乏对概念边界、适用条件或比较维度的进一步说明，未来路径需要推断。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评的是未来制度探索应围绕何种困境推进，而不是当下结论能否被接受；后者属于结论可接受性维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "精准指明中国基本法文化的“阿喀琉斯之踵”为一元权威与合宪性审查的悖论，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，明确承认正文局限并定位了制度与理论的深层悖论作为后续争点。",
+          "score_rationale": "原始分85，对应bonus档位5（>=80）。结语将一元权威与合宪性审查的冲突定性为“阿喀琉斯之踵”，提供了具体可定位的延展路径，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "如果设定一个宪法实施机关去撤销最高决策核心的决策，可能意味着最高权的分裂，会埋下‘藩镇’的祸根。这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的‘阿喀琉斯之踵’。",
+            "要实现让基本权利回复到宪法的基本目的，其重要基础是把阶级论还原为‘人’。"
+          ],
+          "strengths": [
+            "精准定位制度悖论与理论局限，延展问题极具穿透力",
+            "提出“阶级论还原为人”的理论修正路径"
+          ],
+          "weaknesses": [
+            "对如何突破“阿喀琉斯之踵”的后续研究设计未作展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "合宪性审查机制与一元权威的冲突属于未来制度与理论如何突破的延展问题，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出中国宪法文化'阿喀琉斯之踵'的核心困境，但未展开具体后续研究路径。",
+          "core_judgment": "存在真实但有限的延展路径，主要集中于制度困境的边界条件提示，缺乏明确的后续研究问题或理论深化方向。",
+          "score_rationale": "原始分55分，bonus=2档。证据：结语指出'宪法实施机关撤销最高决策核心决策'的悖论及'藩镇'风险，属于制度适用边界条件；但全文未提出具体后续研究问题、概念修正路径或检验入口，延展较概括。",
+          "evidence_quotes": [
+            "如果设定一个宪法实施机关去撤销最高决策核心的决策，可能意味着最高权的分裂，会埋下'藩镇'的祸根",
+            "这是中国当代法文化最不能解决的问题，或许也是中国基本法文化的'阿喀琉斯之踵'"
+          ],
+          "strengths": [
+            "结语以悖论形式揭示制度困境，隐含适用边界条件"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或理论修正路径",
+            "'阿喀琉斯之踵'隐喻未转化为可操作的检验入口"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语提出的'藩镇'困境是制度适用的未来风险场景，而非当下结论能否被接受的问题；但论文止步于诊断，未说明如何从该入口推进后续研究。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文揭示了一元权威与合宪性审查的结构性张力，为未来宪法实施研究提供切入点，但未展开具体研究路径。",
+          "core_judgment": "存在真实延展路径，聚焦于合宪性审查机制与一元权力文化的制度衔接难题。",
+          "score_rationale": "原始分52，对应bonus=2。结语精准定位“合宪性审查与一元权威冲突”这一制度张力，构成真实延展锚点；但未提出后续理论修正或实证检验的具体路径，延展精细度有限。",
+          "evidence_quotes": [
+            "如果设定一个宪法实施机关去撤销最高决策核心的决策，可能意味着最高权的分裂，会埋下“藩镇”的祸根。",
+            "中国宪法及其配属法律的实施现状和未来变迁，在根本上也是由这种基本法文化决定的。"
+          ],
+          "strengths": [
+            "明确指出合宪性审查与一元权威之间的结构性张力，为后续制度研究提供具体切入点。"
+          ],
+          "weaknesses": [
+            "仅停留在文化诊断与困境揭示，未提出具体的理论深化路径或可操作的后续研究设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是“如何在一元权威文化下推进合宪性审查理论或制度衔接”的未来研究方向，而非当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.07307291030884,
+        "glm-5.1": 40.816388845443726,
+        "kimi-k2.6": 9.399988174438477,
+        "qwen3.6-plus": 63.11816072463989
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 52
+      },
+      "mean": 61.8,
+      "std": 15.6,
+      "strictest": 52,
+      "strictest_model": "qwen3.6-plus"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 59.44,
+      "weighted_total": 61.3
+    },
+    "aggregation_strictest": {
+      "final_score": 46.06,
+      "weighted_total": 48.2
+    },
+    "avg_std": 12.7,
+    "max_std": 22.9,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 13.4,
+    "composite_score": -11.03,
+    "worst_dimension": "literature_insight",
+    "worst_std": 22.9
+  }
+}

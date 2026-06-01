@@ -1,0 +1,962 @@
+{
+  "paper": "法学三大刊论文/法学研究/唐律中的“余条准此”考辨.pdf",
+  "round1_source": "results/phase1-100-papers-strictest/paper-057.json",
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus",
+    "deepseek-v4-pro",
+    "kimi-k2.6"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 65
+      },
+      "round2_scores": {
+        "glm-5.1": 60,
+        "qwen3.6-plus": 45,
+        "deepseek-v4-pro": 65,
+        "kimi-k2.6": 55
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 85,
+          "revised": 60,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 25,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 65,
+          "revised": 45,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 20,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 65,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 35,
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original": 35,
+          "revised": 55,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 20,
+          "confidence": "medium"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 25,
+          "revised_band": "marginal",
+          "revised_core_judgment": "全文以体系归纳为主，缺乏贯穿全文的可争辩命题；虽有对既有观点的批评与结语反思，但问题意识后置，未形成学术交锋。",
+          "revision_rationale": "接受其他专家关于“缺乏问题驱动”和“无学者交锋”的合理批评。原文对既有观点的批评仅停留在指出其不够系统，未展开论证交锋；核心问题句在结语才浮现，属于结论反思而非论证起点，导致全文呈现体系归纳的单向阐释特征。但拒绝将评分降至unacceptable，因为结语提出的问题触及法典体例核心矛盾，且文章提出了“准此”作为通则性规范的新解释路径，具有一定学术推进与枢纽性，故下调至marginal档。",
+          "accepted_points": [
+            "全文主体是体系阐释与归纳，缺乏前文问题驱动",
+            "对既有观点的批评未展开为真正的学术交锋，仅为单向阐释",
+            "核心问题句在结语浮现，实质上等同于无明确问题句驱动论证"
+          ],
+          "rejected_points": [
+            "完全否认文章的枢纽性，结语提出的问题确实触及了传统法典立法体例的核心矛盾",
+            "认为文章只是制度介绍，文章提出了准此作为通则性规范的新解释，有学术推进"
+          ],
+          "new_evidence_found": [
+            "文中对既有观点的批评仅有一句，随后立即转向自己的归纳，确实缺乏交锋论证",
+            "结语的问题句是作为归纳结果的反思，而非前文论证的起点"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 65,
+          "revised_score": 45,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 20,
+          "revised_band": "marginal",
+          "revised_core_judgment": "史料梳理扎实，但全文停留于制度考辨与单向归纳，缺乏明确的问题意识与理论交锋，未形成可争辩的规范命题，创新性不足。",
+          "revision_rationale": "充分采纳A、B专家意见。重读发现原文虽在结语提出设问，但仅作描述性回应；全文以填补“缺乏系统概括”的空白为切入点，论证路径为单向的史料排比与功能归纳，未设置学术争点或挑战既有范式。就“研究创新性”标准而言，缺乏理论张力与规范启示，故下调至marginal档。",
+          "accepted_points": [
+            "全文缺乏明确的问题句与学者观点交锋，仅为考辨性主题声明",
+            "核心论证偏向单向历史与制度归纳，未形成可争辩的法学命题",
+            "可争辩性维度应大幅下调"
+          ],
+          "rejected_points": [
+            "完全否定其学术价值（原文对立法技术功能的体系化提炼与通则性定位仍具制度史贡献，非纯粹资料堆砌）"
+          ],
+          "new_evidence_found": [
+            "结语处提出《名例》能否克服立法体例不足的设问，但仅作描述性回答，未展开规范论证",
+            "明确指出既有研究未作系统概括，以此作为切入点，但填补方式为归纳而非理论辩驳"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 35,
+          "revised_band": "good",
+          "revised_core_judgment": "论文在结语部分提出了一个具有枢纽性的规范命题，但整体论证仍偏重历史阐释，可争辩性不足。",
+          "revision_rationale": "重新阅读发现，结语部分明确提出了‘《名例》能否完全克服传统法典立法体例不足’这一问句，并围绕‘余条准此’作为化解矛盾的技术手段展开论证，回应了专家A的部分观点。这构成了一定程度的法学争辩和体系枢纽，突破了单纯的历史阐释。但问题仅在结尾浮现，前文大量史料梳理未直接服务于此争点，理论交锋仍显薄弱，故采纳专家B的意见，提升至good档，给65分。",
+          "accepted_points": [
+            "问题在结语部分浮现，触及立法体例的核心矛盾",
+            "对‘准此’作为通则性规范功能的界定准确",
+            "史料梳理为后续命题提供了基础"
+          ],
+          "rejected_points": [
+            "认为问题完全成立且枢纽性极强(excellent)：全文缺乏持续的理论交锋与学者观点的系统回应",
+            "认为可争辩性可打满分：法学命题仅在结尾提出，未充分展开论证"
+          ],
+          "new_evidence_found": [
+            "结语中明确设问：‘出现于法典之首的《名例》一篇所包含的若干条文能否完全克服传统法典立法体例的不足？’并以此引出‘余条准此’的体系化功能论证",
+            "文中引用‘此是一部通例’直接说明‘准此’的通则性，构成对立法技术矛盾回应的证据"
+          ],
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original_score": 35,
+          "revised_score": 55,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 20,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文存在隐性理论问题意识，但核心问题句后置、法学争点呈现不足，介于法制史考辨与规范分析之间。",
+          "revision_rationale": "重新审阅后，承认论文并非纯粹材料归纳：结语明确提出《名例》能否克服传统立法体例不足这一理论问题，且全文贯穿对'准此'通则性规范功能的分析，具有一定枢纽性。但坚持原判的核心关切——该问题直至结语才浮现，前文缺乏明确的问题句与学者观点交锋，'考辨'体例导致法学争点被史料梳理淹没。评审专家A的85分高估了问题的显明性与可争辩性；专家B的65分仍偏乐观。论文处于'有规范意识的历史研究'而非'有历史深度的规范研究'，提升至marginal档。",
+          "accepted_points": [
+            "结语存在核心理论问题：'《名例》一篇所包含的若干条文能否完全克服传统法典立法体例的不足'",
+            "'准此'作为通则性规范的定性具有规范分析价值，非纯粹史料堆砌",
+            "对'准此'功能的分析触及法典编纂技术的一般理论，有一定枢纽性"
+          ],
+          "rejected_points": [
+            "专家A认为'可争辩性4/4'：论文未呈现学者间真正的理论交锋，薛梅卿、周密观点仅被提及且未被批判性回应，不构成'争辩性'",
+            "专家A认为'枢纽性4/4'：论文未论证'准此'制度对当代法典编纂或法学理论的连锁影响，枢纽性有限",
+            "专家B认为'可争辩性2/4'仍偏高：论文缺乏明确的规范命题与反命题设置"
+          ],
+          "new_evidence_found": [
+            "结语明确提问'《名例》一篇所包含的若干条文能否完全克服传统法典立法体例的不足'，构成隐性理论问题意识",
+            "'此是一部通例，故条不别生文'等条文自我指涉，可作为规范分析的内在证据",
+            "对《宋刑统》'一部律内余条准此条'的编纂技术分析，隐含法典体系化的一般理论关怀"
+          ],
+          "confidence": "medium"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 53.744810819625854,
+        "qwen3.6-plus": 67.28385829925537,
+        "deepseek-v4-pro": 53.47708082199097,
+        "kimi-k2.6": 14.741235971450806
+      },
+      "round1_mean": 53.8,
+      "round2_mean": 56.2,
+      "round1_std": 25.9,
+      "round2_std": 8.5,
+      "convergence_improvement": 17.4
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 80,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 78
+      },
+      "round2_scores": {
+        "glm-5.1": 60,
+        "qwen3.6-plus": 62,
+        "deepseek-v4-pro": 60,
+        "kimi-k2.6": 65
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 80,
+          "revised": 60,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 20,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 78,
+          "revised": 62,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 16,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 60,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 30,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 35,
+          "revised": 65,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 30,
+          "confidence": "medium"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 80,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 20,
+          "revised_band": "marginal",
+          "revised_core_judgment": "研究地图部分呈现，争点简略存在，但三要素声明不够显式，法学流派未识别，切入需推断。",
+          "revision_rationale": "重新审视后，承认论文确实呈现了既有研究争点（类推适用说vs准用刑律制度说）及未竟点（缺乏系统概括说明），但呈现方式过于简略，缺乏显式切入点声明，法学流派未识别。接受对方关于三要素声明不足、法学流派缺失的意见，但拒绝'完全未呈现'的极端判断，因论文明确引用了多位学者观点并呈现了理论分歧。评分从good下调到marginal档位。",
+          "accepted_points": [
+            "三要素声明不够显式，切入点需读者自行推断",
+            "法学流派未明确识别，缺乏流派层面的学术地图构建"
+          ],
+          "rejected_points": [
+            "研究地图完全残缺、完全未呈现法学领域既有研究成果和理论分歧——论文确实引用了薛梅卿、周密、刘俊文等学者观点，并明确呈现了对'准此'性质的两种解释路径分歧"
+          ],
+          "new_evidence_found": [
+            "论文明确引用了薛梅卿、周密、刘俊文、蔡墩铭、仁井田陞等多位学者的观点",
+            "论文明确呈现了对'准此'性质的两种解释路径：类推适用说和准用刑律制度说",
+            "论文明确提出自己的观点作为切入点：'可以认为唐律《名例》之外涉及准此的条文内容，皆属通则性规范'"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 78,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 16,
+          "revised_band": "marginal",
+          "revised_core_judgment": "文献梳理仅一段，三要素虽具雏形但展开极浅，争点仅罗列未形成对立论证，未显式勾连切入点与未竟点，整体呈碎片化特征。",
+          "revision_rationale": "接受其他专家关于“研究地图构建薄弱、争点结构缺失”的批评。原文仅用单一段落简述前人观点并指出缺口，未系统勾勒“到达点”，未明确交代切入点如何对接未竟点，学说分歧仅停留在标签式提及，缺乏实质交锋。故下调至marginal档。",
+          "accepted_points": [
+            "研究地图三要素缺乏显式对应与系统展开，到达点图景模糊",
+            "争点结构仅简单罗列学说标签，未呈现理论对立与论证脉络",
+            "全文无明确法学流派识别，文献定位呈碎片化"
+          ],
+          "rejected_points": [
+            "完全否定三要素存在（原文第184页确实明确指出了前人研究的具体观点、系统概括的缺口及本文的考察意图，并非“完全未呈现”或“严重缺失”）"
+          ],
+          "new_evidence_found": [
+            "原文第184页仅以单一段落（含脚注25、26）完成全部文献回顾，未设独立综述章节",
+            "对“类推适用”与“准用刑律”的提及仅为定性标签，无具体学者观点交锋或逻辑推演",
+            "正文随后直接转入正史文献溯源与条文统计，缺乏从“研究缺口”到“本文论证”的过渡性说明"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 30,
+          "revised_band": "marginal",
+          "revised_core_judgment": "研究地图存在但残缺不全：作者呈现了两种学说对立，但未显式化未竟点与切入点的逻辑对应，影响了争点结构的清晰度。",
+          "revision_rationale": "重新审视发现，论文确实明确提出了类推适用说与通则性规范说两种对立解释路径，并指出了“未作系统概括说明”的学术缺口。这构成了法学流派识别和部分争点结构的基础，原有“三要素=0/6”的判断过于严苛。但论文仍未将“未竟点”显式转换为“本文切入点”，且争点的对立论证展开不足，故研究地图仍不够完整，调整至marginal档的60分更为合适。",
+          "accepted_points": [
+            "论文确实呈现了两种不同的学说解释路径（类推适用说与通则性规范说）。",
+            "明确指出了既有研究缺乏系统概括性说明的学术缺口。"
+          ],
+          "rejected_points": [
+            "争点结构清晰度被高估：论文只是罗列了两种观点，并未深入展开其间的对立论证脉络，也未构建清晰的学术争论图景。",
+            "未竟点与切入点的对应关系缺失评价不足：专家A和B都承认缺乏显式的切入点声明，而这对研究地图的完整性至关重要，不能仅靠读者自行推断。"
+          ],
+          "new_evidence_found": [
+            "正文中明确写道：“对此，有学者认为‘准此’指向的法律规范是具有类推适用性质的条文……这些观点分别针对‘准此’的一些具体条文做了比较深入的探讨，但未对唐律中涉及‘准此’的法律规范内容作出系统、概括的说明。”——这构成了学说对立和未竟点的证据。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 35,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 30,
+          "revised_band": "marginal",
+          "revised_core_judgment": "研究地图三要素部分具备，争点结构隐约可见，但法学流派识别与切入点声明仍显不足。",
+          "revision_rationale": "重新审读论文后，承认此前评价存在偏差。论文确实呈现了'类推适用说'与'通则性规范说'两种解释路径的分歧（第184页），并明确指出'未对唐律中涉及准此的法律规范内容作出系统、概括的说明'这一未竟点。但论文缺乏显式的'本文切入点'声明，且两种学说仅作为背景提及，未形成结构化的争点展开，'法学流派'识别亦不充分。原评35分过低，但专家A、B的80分左右评价高估了论文——争点结构并非'清晰'，而是需要读者自行提炼。综合调整为marginal档上限。",
+          "accepted_points": [
+            "论文确实识别了'类推适用说'与'通则性规范说'两种解释路径",
+            "论文明确指出了'未对唐律中涉及准此的法律规范内容作出系统、概括的说明'这一未竟点",
+            "存在零散的文献引用和学术史梳理"
+          ],
+          "rejected_points": [
+            "专家A称'争点结构清晰'——两种学说仅在第184页一段中并列提及，未展开对立论证，不构成'清晰'的争点结构",
+            "专家A称'研究地图基本完整'——论文未建立到达点、未竟点、切入点的完整三要素链条，尤其缺乏显式切入点声明",
+            "专家B称'文献定位清晰'——薛梅卿、周密等人观点仅作为脚注引用，未进行系统的学术谱系定位"
+          ],
+          "new_evidence_found": [
+            "第184页：'有学者认为准此指向的法律规范是具有类推适用性质的条文，或是准用刑律的制度……这些观点……但未对唐律中涉及准此的法律规范内容作出系统、概括的说明'——此句同时包含两种学说和未竟点，但紧接下文直接转入'准此的性质'分析，未将未竟点转化为本文研究问题",
+            "第185-186页：通过大量'准此例''准此法'的条文列举，实际论证了'通则性规范说'，但未与'类推适用说'形成对话，争点结构断裂",
+            "结语部分（第187页）提到'余条准此就是立法化解这种矛盾与不足的技术手段'——这或可视为隐性切入点，但缺乏显式声明"
+          ],
+          "confidence": "medium"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 49.995651721954346,
+        "qwen3.6-plus": 75.97807717323303,
+        "deepseek-v4-pro": 48.004276275634766,
+        "kimi-k2.6": 20.54634189605713
+      },
+      "round1_mean": 55.8,
+      "round2_mean": 61.8,
+      "round1_std": 26.9,
+      "round2_std": 2.4,
+      "convergence_improvement": 24.5
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 82
+      },
+      "round2_scores": {
+        "glm-5.1": 35,
+        "qwen3.6-plus": 42,
+        "deepseek-v4-pro": 30,
+        "kimi-k2.6": 62
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 85,
+          "revised": 35,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 50,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 82,
+          "revised": 42,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 40,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 30,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 35,
+          "revised": 62,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 27,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 35,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 50,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文仅为史料归纳与性质阐释，未建构可操作分析框架，框架建构力不成立。",
+          "revision_rationale": "重新审视发现，论文对‘准此’的界定属描述性归纳而非操作化定义，分类基于法典现有篇章结构而非理论类型化，缺乏步骤化判断流程与后文框架调用，法学转化度为零。原评误将性质归纳视为概念操作化，高估了框架建构力，故下调至unacceptable档。",
+          "accepted_points": [
+            "概念界定属描述性归纳而非原创操作化界定",
+            "缺乏分析步骤与后文框架调用",
+            "法学转化度为零，无裁判规则或操作指引"
+          ],
+          "rejected_points": [
+            "无（对方意见基本合理，原评价存在明显高估）"
+          ],
+          "new_evidence_found": [
+            "结语明确指出‘余条准此’是立法化解矛盾的技术手段，印证论文旨在历史功能阐释而非构建分析框架",
+            "全文无‘本文所称’式定义及任何步骤化判断流程"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 82,
+          "revised_score": 42,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 40,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文属典型法制史考辨，仅完成史料梳理与现象归纳，未建构原创性分析框架或现代法学判断标准，理论建构力薄弱。",
+          "revision_rationale": "初评高估了其“框架成立”与“教义学转化力”。重读发现，全文仅按“名例内外”作史料分类，对“准此”性质的界定（通则性规范）系描述性归纳而非原创概念提炼；全文无分析步骤、裁判规则或跨学科转化设计，后文亦未调用任何框架术语。符合“无操作框架上限规则”，故大幅下调至unacceptable档。",
+          "accepted_points": [
+            "全文仅为史料归纳与现象描述，缺乏原创概念界定与类型化",
+            "未构建可操作的分析步骤、判断标准或裁判规则",
+            "后文无框架术语调用，法学转化度为零"
+          ],
+          "rejected_points": [
+            "完全否定其分类标准的价值（名例内外分类虽非理论框架，但为历史考辨提供了清晰结构，故未给0分）"
+          ],
+          "new_evidence_found": [
+            "论文结论明确指出‘余条准此’是立法化解传统法典列举体例不足的技术手段，属历史功能阐释，未尝试抽象为一般立法技术理论",
+            "文中对‘准此’性质的论证完全依赖《唐律疏议》原文的语义互证（如‘此例’‘通例’），无外部理论模型支撑"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 30,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文仍是对“准此”的渊源、性质与功能进行归纳性梳理，未提出任何概念化、类型化或步骤化的操作分析框架，框架建构力未得到实质提升。",
+          "revision_rationale": "重新审视论文全文后，依然确认论文核心工作为历史文献梳理与性质归纳。将“准此”释为“通则性规范”属于对象定性，而非可供重复操作的分析框架；分篇讨论仅为材料划分，未形成分类标准或判断步骤。评审A、B所指的框架实质仍停留于描述层次，不符合本文对框架可操作性的高标准，故坚持30分。",
+          "accepted_points": [],
+          "rejected_points": [
+            "将“准此”定性为“通则性规范”等同于建构操作化框架的观点，因这种定性只是对研究对象性质的归纳，未提供可重复使用的分析步骤或判断标准。",
+            "按篇章结构分为“名例内外”仅是材料组织方式，缺乏分类的维度说明和分析功能，不构成有方法论意义的分类标准。",
+            "评审专家B所称“历史考辨结构清晰”仍属传统文献学方法，并非法学理论框架，未完成向现代法学方法的转化。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 35,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 27,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文存在隐性分析框架：以'通则性规范'为核心概念，按篇章结构与规范性质双重分类，具备一定法学转化意识，但框架仍缺步骤化与可重复性。",
+          "revision_rationale": "重新审视后发现，论文并非仅有史料分类，而是隐含了'通则性规范'的提炼与双重分类标准（篇章结构+规范性质），且存在向教义学转化的尝试（如将'准此'定性为立法技术、与《宋刑统》比较法分析）。但原评价中'无原创概念界定'的判断部分成立——'通则性规范'系借用刘俊文等既有概念，非作者原创；且确实缺乏'本文所称'式定义与步骤化判断流程。专家A、B高估了'原创性'与'转化步骤'，将描述性归纳误作操作化框架。然而原评分35分过低，未充分承认其隐性框架与有限转化，应上调至marginal档。",
+          "accepted_points": [
+            "存在'通则性规范'的概念提炼，虽非原创但有一定整合意义",
+            "分类标准具有双重维度（篇章结构/规范性质），非单纯史料罗列",
+            "存在历史比较与立法技术分析的法学意识"
+          ],
+          "rejected_points": [
+            "专家A称'概念操作化与类型化分析有效'——'通则性规范'为借用概念，无操作化定义；类型化止于二分，未形成类型体系",
+            "专家B称'教义学转化路径'——论文无现代法学的规范分析或裁判规则提炼，'转化'仅为历史描述而非教义学方法应用",
+            "专家A/B称'框架可操作性3/4'——无分析步骤、无判断标准、无框架术语的后文调用，不满足可操作性基本要件"
+          ],
+          "new_evidence_found": [
+            "论文明确区分'名例中的内容'与'名例以外的内容'，并进一步按'刑名/法例'细分，分类逻辑具有层次性",
+            "结语部分将'余条准此'定位为'立法化解矛盾与不足的技术手段'，存在从现象到技术的理论提升意图，但止于描述未形成规范命题",
+            "多次使用'准此例'、'准此法'、'通例'等术语进行内部互证，显示框架意识的萌芽，但未上升为自觉的方法论"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 45.69472002983093,
+        "qwen3.6-plus": 55.79408097267151,
+        "deepseek-v4-pro": 29.31791591644287,
+        "kimi-k2.6": 15.989619970321655
+      },
+      "round1_mean": 58,
+      "round2_mean": 42.2,
+      "round1_std": 29.5,
+      "round2_std": 14.1,
+      "convergence_improvement": 15.4
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "round2_scores": {
+        "glm-5.1": 78,
+        "qwen3.6-plus": 75,
+        "deepseek-v4-pro": 62,
+        "kimi-k2.6": 80
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 88,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 88,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 62,
+          "revised": 62,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 80,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 8,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 88,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链整体清晰但性质推导存在关键跳步，对反对观点缺乏显式反驳，降档至good。",
+          "revision_rationale": "接受专家A关于“关键跳步”的意见，论文从“出现‘例’+‘准此’”直接推导“属法例/通则性规范”缺乏充分论证，仅称“应当可信”略显武断；同时接受专家关于缺乏显式反驳“类推适用”的意见，论文仅指出前人研究不系统而未正面交锋。虽结语承认了《名例》统帅的局限，但性质推导的跳步与驳论缺失严重影响逻辑严密性，故下调至good档高分。",
+          "accepted_points": [
+            "从‘有例字又有准此’推导‘属通则性规范’存在关键跳步，论证不充分",
+            "对学界‘类推适用’等反对观点仅指出其研究不系统，缺乏显式、正面的反驳"
+          ],
+          "rejected_points": [
+            "专家A认为‘未承认自身结论局限’，论文结语明确承认了《名例》条文统帅具体条文的不足及‘具体列举抽象规范’的逻辑矛盾，此点不成立"
+          ],
+          "new_evidence_found": [
+            "结语部分明确承认了《名例》统帅不足的局限（‘具体的列举抽象规范本身就存在着明显的逻辑矛盾’），印证了原评价中对局限承认的判断"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 88,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链整体可复述，但“准此”性质认定存在从语词共现到规范定性的逻辑跳步，对类推说等异见仅作方法论回避而非实质回应，逻辑严密性有所欠缺。",
+          "revision_rationale": "采纳A、B专家意见，原评高估了反驳处理度与推理严密性。论文在论证“准此”指向通则性规范时，仅凭“例”与“准此”共现即下结论，缺乏法理层面的实质推导；对学界“类推适用”观点仅以“未系统概括”一笔带过，未进行正面辩驳或界定边界。故推理链完整性与反驳处理度均降档，评分下调至good档。",
+          "accepted_points": [
+            "“例”与“准此”共现直接推导为“通则性规范”存在关键逻辑跳步，论证不够充分",
+            "对“准此是类推适用”等既有观点仅作罗列与方法论回避，缺乏实质性回应与局限承认"
+          ],
+          "rejected_points": [
+            "完全否定推理链完整性：论文正史溯源→分布统计→性质功能分析的三步框架依然清晰，数据与文本互证基础扎实，仅局部推导存瑕，故不采纳大幅降分至60+的意见"
+          ],
+          "new_evidence_found": [
+            "原文第185页明确自述‘涉及到例的内容又同时出现了准此的表述……则应当是可信的’，证实性质认定依赖语词共现而非规范分析",
+            "原文第184页对薛梅卿、周密观点的回应仅停留在‘未系统概括’的方法论层面，未触及类推适用与准用技术的实质界分"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 62,
+          "revised_score": 62,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "论文三步推理框架成立，但“准此”性质认证的关键跳步及对类推说回应不足的问题依旧存在，未达excellent档。",
+          "revision_rationale": "重新审视论文后，坚持原判。论文仍直接从“有‘准此’又含‘例’字”跳至“内容属通则性规范”，未充分论证为何不可为类推性或比附性规范。对学界“类推适用”等反对观点，仅以“未系统概括”为由回避，未做实质性辨析。其他专家虽强调整体完备性，但未提供弥补该跳步及反驳缺失的新文本证据，故维持62分。",
+          "accepted_points": [],
+          "rejected_points": [
+            "推理链完整无跳步：论文在性质论证环节，仅凭'例'字与'准此'共现便断定通则性，缺乏对'例'字其他立法含义的排除论证，跳步客观存在。",
+            "对反对观点有实质性回应：论文仅指出既有研究未'系统概括'，属于对研究空白的指认而非对反对观点的回应，未构成实质反驳。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 8,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链完整且相互依赖，对异见有实质性回应，但'准此'与'例'的过渡仍可更充分。",
+          "revision_rationale": "重新审视后，认可论文对反对观点的回应比我最初判断的更充分。论文指出薛梅卿、周密观点'未对唐律中涉及准此的法律规范内容作出系统、概括的说明'，这并非简单罗列，而是以'系统分析不足'为切入点进行了实质性批评。同时，论文通过大量'准此例''准此法'的文本证据，论证了从'准此'到'法例'的过渡，并非'略快'。但'准此'与'比附'等相近技术的界分确实简略，故提升至good档上限80分，暂不进入excellent档。",
+          "accepted_points": [
+            "论文对薛梅卿、周密观点的回应具有实质性，以'未系统概括'为批评切入点",
+            "'准此'与'法例'的过渡有充分文本证据支撑，非简单跳跃",
+            "历史文献与法典文本互证的推理步骤确实严密递进"
+          ],
+          "rejected_points": [
+            "反驳处理度达3/3满分：论文虽回应了'类推适用说'，但未承认自身理论局限（如'准此'是否可能为单纯修辞），故反驳处理度应为2/3而非3/3",
+            "推理链完整性达4/4满分：从'例'到'法例'的定性仍有可补充空间，且'准此'与'比附''类推'的界分未展开"
+          ],
+          "new_evidence_found": [
+            "论文明确以'未对唐律中涉及准此的法律规范内容作出系统、概括的说明'回应薛梅卿、周密，属于方法论层面的批评而非简单罗列",
+            "论文大量引用'准此例''准此法''准此条为法'等表述，'例'与'法例'的关联有充分内证",
+            "结语部分'余条准此根源于通则性规范，集中于《名例》而渗入各篇'的总结，显示了三步推理的闭环"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 39.322970151901245,
+        "qwen3.6-plus": 64.89182615280151,
+        "deepseek-v4-pro": 38.66438412666321,
+        "kimi-k2.6": 14.351066827774048
+      },
+      "round1_mean": 77.5,
+      "round2_mean": 73.8,
+      "round1_std": 12.8,
+      "round2_std": 8.1,
+      "convergence_improvement": 4.7
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 86
+      },
+      "round2_scores": {
+        "glm-5.1": 78,
+        "qwen3.6-plus": 78,
+        "deepseek-v4-pro": 85,
+        "kimi-k2.6": 72
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 85,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 86,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 8,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 17,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "结论修正了法制史内类推说，但仅停留于制度史描述，未与当代法学争论对话，亦未指明现代转化方向。",
+          "revision_rationale": "原评高估了论文的共同体对话度。论文虽修正“类推说”提出“通则说”，但仅限法制史内部考证，未与当代法学共同体争论明确对话；制度可接受度仅限于解释古代法秩序逻辑，因时代错位无现代转化方向，缺乏更广泛的法学共识启发。接受A、B关于对话局限和转化缺失的批评，下调至good档。",
+          "accepted_points": [
+            "对话仅限制度史层面，未延伸至当代法学争论",
+            "结论缺乏现代制度转化方向，时代错位限制可接受度"
+          ],
+          "rejected_points": [
+            "专家B将评分降至marginal(55)。理由：论文明确指出了前人“类推说”的不足并提出“通则性规范”新解，在法制史学术圈内确实推进了共识并修正了既有观点，并非毫无对话或完全边缘，只是对话深度和广度受限。"
+          ],
+          "new_evidence_found": [
+            "脚注28明确继承并推进了刘俊文、蔡墩铭关于名例外通则的观点，证实了在史学圈内的对话度；但结语仅强调“提高体系化程度”，确无现代转化讨论。"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 86,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 8,
+          "revised_band": "good",
+          "revised_core_judgment": "结论在法制史考据层面扎实严谨，但未与当代法学理论展开有效对话，缺乏现代立法技术转化启示，整体属良好档。",
+          "revision_rationale": "采纳同行意见，原评高估了共同体对话度。论文虽系统回应法制史既有研究，但对话局限于历史学界，未对接当代法学关于“类推/准用”的规范争论，亦未延伸至现代立法技术启示。历史语境自洽故制度可接受度维持3/4，综合下调至good档。",
+          "accepted_points": [
+            "论文对话主要停留在法制史领域，未明确回应现代法学关于类推适用与准用规范的争论",
+            "结论缺乏对当代立法技术转化的具体启示与自身论证局限的反思"
+          ],
+          "rejected_points": [
+            "专家B认为制度可接受度仅2/4（时代错位受限）：论文作为法制史研究，其结论在历史法秩序内完全自洽，不应以现代法秩序的直接兼容性作为主要扣分项，故维持3/4"
+          ],
+          "new_evidence_found": [
+            "论文正文仅引用刘俊文、蔡墩铭、薛梅卿等法制史学者观点，未涉及任何现代法理学或立法学文献",
+            "结语部分仅总结历史功能（提高法典体系化），未延伸至现代法典编纂或法律解释学讨论"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论修正了类推说，深度回应共同体争论，与法秩序逻辑高度兼容，但未主动承认局限及指出现代转化方向。",
+          "revision_rationale": "重读论文发现其明确引述并反驳了“类推适用”和“准用刑律”的既有观点，系统提出“通则性规范”新解，完成了对学术共同体的深度对话，我之前低估了其对话力度。结论在制度史语境中逻辑严密，与法秩序兼容。虽未指出现代转化方向、未主动承认局限，仍符合 excellent 档特征，因此上调评分至85分。",
+          "accepted_points": [
+            "论文确实修正了既有类推说，提出通则性规范新解，深度回应了学术共同体争论",
+            "结论在法史语境中逻辑严密，具有可争辩性，与现行法理逻辑兼容"
+          ],
+          "rejected_points": [
+            "专家B将共同体对话度评为4/4，但论文未主动承认自身论证局限，因此对话存在缺陷，仍应评为3/4"
+          ],
+          "new_evidence_found": [
+            "论文明确将‘准此’定性为‘通则性规范’，并引述前人‘类推适用’、‘准用刑律’观点后进行系统反驳，构成对既有研究的修正"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 17,
+          "revised_band": "good",
+          "revised_core_judgment": "论文对'类推说'的修正具有明确的学术对话性，制度可接受度因历史语境限定而成立，但现代转化不足仍存局限。",
+          "revision_rationale": "重新审视后，接受专家A、B的部分合理意见：论文确实通过'通则性规范'新解修正了'类推说'，与刘俊文、蔡墩铭等研究形成明确对话位置（第185页注28直接引用并推进二人观点）；'准此'性质的考证在法史语境中具有制度可接受性。但专家B'共同体对话度4/4'的评分过高——论文未明确标注'类推说'持有者的具体姓名（仅称'有学者'），对话深度受限；结语确实未讨论研究局限。综合判断，论文应属'good'档而非'excellent'，提升至72分。",
+          "accepted_points": [
+            "论文提出'通则性规范'新解，确实修正了'类推说'",
+            "与刘俊文、蔡墩铭的研究存在明确继承与推进关系",
+            "在法史语境中制度可接受性成立"
+          ],
+          "rejected_points": [
+            "专家B认为'共同体对话度4/4'：论文未点名'类推说'具体学者（仅称'有学者'），对话深度不足满分",
+            "专家A、B未充分重视'未承认研究局限'这一缺点的严重性",
+            "专家A、B对'现代制度转化'缺失的问题重视不足"
+          ],
+          "new_evidence_found": [
+            "第185页注28明确引用刘俊文《唐律疏议笺解》与蔡墩铭《唐律与近世刑事立法之比较研究》，并指出'多有重合'、'仍属通例'，构成直接学术对话",
+            "第184页'这些观点分别针对准此的一些具体条文做了比较深入的探讨，但未对唐律中涉及准此的法律规范内容作出系统、概括的说明'——此句虽模糊，但结合注25-26可确认'类推说'指向薛梅卿、周密",
+            "结语'余条准此就是立法化解这种矛盾与不足的技术手段'确实仅陈述事实，未回应可能的反对意见（如'准此'是否可能兼具类推功能）"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 49.356523752212524,
+        "qwen3.6-plus": 53.695411920547485,
+        "deepseek-v4-pro": 45.050435066223145,
+        "kimi-k2.6": 15.56929612159729
+      },
+      "round1_mean": 76,
+      "round2_mean": 78.2,
+      "round1_std": 14.4,
+      "round2_std": 5.3,
+      "convergence_improvement": 9.1
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 50
+      },
+      "round2_scores": {
+        "glm-5.1": 60,
+        "qwen3.6-plus": 52,
+        "deepseek-v4-pro": 60,
+        "kimi-k2.6": 60
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 65,
+          "revised": 60,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 50,
+          "revised": 52,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 2,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 35,
+          "revised": 60,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 25,
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 60,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "medium"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 65,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "揭示法典体例内在矛盾与“准此”化解功能，具理论延展潜力，但未主动提出后续具体研究问题或争点。",
+          "revision_rationale": "接受专家B关于“未提出明确后续研究问题”的批评，论文结语虽提炼出“具体列举抽象规范”的逻辑矛盾这一具有延展潜力的理论命题，但仅停留在历史功能总结，缺乏主动的前瞻设计或具体争点提出，故适当下调分数。拒绝专家A“仅属复述结论”的判断，因为提炼逻辑矛盾属于理论升华而非简单复述。",
+          "accepted_points": [
+            "未提出明确的后续研究问题或方法论框架",
+            "结语以总结收束，缺乏主动的前瞻延展设计"
+          ],
+          "rejected_points": [
+            "专家A认为“仅属于复述结论、无理论深化方向”，因为提炼“具体列举抽象规范”的逻辑矛盾属于理论升华，非简单复述"
+          ],
+          "new_evidence_found": [
+            "无"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 50,
+          "revised_score": 52,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 2,
+          "revised_band": "marginal",
+          "revised_core_judgment": "存在基于唐宋法典技术演进与“具体列举抽象规范”内在张力的隐含延展方向，但结语仅止于历史功能总结，未转化为明确的研究设问或方法论路径。",
+          "revision_rationale": "采纳专家B指出的“具体列举抽象规范”逻辑矛盾作为有效延展锚点，上调2分；同时认同专家A关于结语缺乏明确后续争点与方法论指引的批评。论文虽触及传统法体系化技术的理论命题，但未明示研究局限或向当代法解释学延伸的具体路径，故维持marginal档位。",
+          "accepted_points": [
+            "专家B指出的“具体列举抽象规范”逻辑矛盾可作为传统法技术一般命题的延展锚点",
+            "专家A关于结语仅复述结论、未提出具体后续研究问题或方法论框架的批评"
+          ],
+          "rejected_points": [
+            "专家A认为“不存在可定位的真实延展路径，属于口号式展望”过于绝对；论文已提供唐宋法典编纂技术演进的实证线索与体系化张力的理论切口，具备实质延展基础，仅缺乏显性表述"
+          ],
+          "new_evidence_found": [
+            "结语明确提出“《名例》一篇所包含的若干条文能否完全克服传统法典立法体例的不足”之设问，并指出“具体的列举抽象规范本身就存在着明显的逻辑矛盾”，证实了潜在的理论延展空间"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 35,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 25,
+          "revised_band": "good",
+          "revised_core_judgment": "论文明确提出“具体列举抽象规范”的逻辑矛盾及“准此”的化解功能，指明了传统立法技术研究的理论深化方向，具备真实延展路径。",
+          "revision_rationale": "重新阅读后发现，结语段清晰揭示了法典体例的内在矛盾与“余条准此”的立法技术功能，为立法技术史、传统法解释学提供了可深化的理论切入点，符合“存在真实延展路径”的标准。我先前将结语仅视为复述结论，忽略了其具有的学术问题凝练价值，故上调评分至good档。",
+          "accepted_points": [
+            "接受专家A关于结语揭示法典体例矛盾并指明理论深化方向的判断。",
+            "接受专家B关于唐宋演进暗线隐含立法技术史比较延展路径的观点。"
+          ],
+          "rejected_points": [
+            "拒绝专家B“缺乏明确未来研究设问或局限说明”而降档至marginal的判断，因为结语中‘具体列举抽象规范’的逻辑矛盾本身就是明确的争点提出。"
+          ],
+          "new_evidence_found": [
+            "结语中“具体的列举抽象规范本身就存在着明显的逻辑矛盾，而抽象、概括性有限的《名例》条文在统帅大量定罪量刑的具体条文时也存在着明显的不足。‘余条准此’就是立法化解这种矛盾与不足的技术手段。” 这一表述实际上已构成了明确的理论争点。"
+          ],
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "论文揭示了传统法典'具体列举'与'抽象统贯'的内在张力，'准此'作为立法技术的化解功能具有明确理论延展性，但缺乏具体后续研究设计。",
+          "revision_rationale": "接受评审专家A的核心观点：论文结语明确揭示了法典体例的内在矛盾——'具体的列举抽象规范本身就存在着明显的逻辑矛盾'，并指出'余条准此'是'立法化解这种矛盾与不足的技术手段'，这构成了清晰的理论深化方向。同时，论文对《宋刑统》'一部律内余条准此条'的编纂技术演进分析，确实隐含了从唐到宋的制度衔接路径。但专家B指出的'未明示研究局限或下一轮争点'仍成立，结语停留在功能总结而非研究展望，且未向当代法解释学延伸。综合判断，评分应从marginal上调至good下限。",
+          "accepted_points": [
+            "专家A：结语精准揭示法典体例内在矛盾，为后续探讨立法技术演进提供切入点",
+            "专家A：结合宋刑统演变，隐含制度衔接与历史演进的延展方向",
+            "专家B：以唐宋法典编纂技术演进为暗线，自然指向立法技术史的比较延展"
+          ],
+          "rejected_points": [
+            "专家A评分65偏高：论文虽指明矛盾与化解方向，但'未展开后续具体研究设计'的程度较深，结语以总结收束而非研究展望，精细度不足支撑good中位",
+            "专家B评分50偏低：忽略结语中'逻辑矛盾—技术手段'的理论框架建构，该框架已超越'概括性路径'"
+          ],
+          "new_evidence_found": [
+            "结语明确使用'逻辑矛盾'与'技术手段'的二元分析框架，具有法理学命题的抽象潜力",
+            "《宋刑统》'一部律内余条准此条'的编纂技术分析，实际构成了'立法技术自觉'的历史叙事，可延伸为传统法法典化的一般命题",
+            "王明德《读律佩觿》的引证将《名例》功能概括为'冠于律首以统贯夫全律'，与论文揭示的'具体列举'体例张力形成对话，隐含比较法或法律史的理论空间"
+          ],
+          "confidence": "medium"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 44.50386619567871,
+        "qwen3.6-plus": 150.15943789482117,
+        "deepseek-v4-pro": 27.163326025009155,
+        "kimi-k2.6": 17.758974075317383
+      },
+      "round1_mean": 51.2,
+      "round2_mean": 58,
+      "round1_std": 12.5,
+      "round2_std": 4.0,
+      "convergence_improvement": 8.5
+    }
+  },
+  "overall": {
+    "round1_final_score_mean": 62.04,
+    "round2_final_score_mean": 61.71,
+    "group_changes": {
+      "a_group": {
+        "avg_change": -17.7,
+        "models": [
+          "glm-5.1",
+          "qwen3.6-plus"
+        ]
+      },
+      "b_group": {
+        "avg_change": 17,
+        "models": [
+          "deepseek-v4-pro",
+          "kimi-k2.6"
+        ]
+      }
+    }
+  }
+}

@@ -58,7 +58,8 @@ def test_v2_46_signal_prompt_comes_from_framework_yaml():
 
 def test_v0_16_doc_points_prompt_details_to_v2_46_yaml():
     doc = Path(
-        "docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md"
+        "docs/evaluation/archive/v0.1-v0.15-iterations-20260601/"
+        "law-ai-assisted-review-rules-v0.16-large-scale-candidate.md"
     ).read_text(encoding="utf-8")
 
     assert "六维评分的精确字段、字数限制、prompt 与 JSON 契约" in doc

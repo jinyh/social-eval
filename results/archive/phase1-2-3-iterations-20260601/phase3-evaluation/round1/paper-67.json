@@ -1,0 +1,1073 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGFX2025006001_中国法学_2025_论中国古代经济管理法.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文中出现OCR残留和排版干扰符号，如'(1)'、'(2)'等脚注编号被内嵌为正文上标，未形成独立脚注区域。",
+          "存在大量文献引用括号格式（如'载前注☒'），其中'☒'疑为排版或OCR错误，虽不影响核心论点定位但影响文本整洁度。",
+          "参考文献列表完全缺失，无法对引证完整性和重复率进行后续检验。",
+          "部分段落存在跨页拼接导致的标点或断行可能不完整，但未造成语义中断。"
+        ],
+        "evidence_quotes": [
+          "(1) 梁启超：《论中国成文法编制之沿革得失》，载梁启超：《饮冰室文集》（第16 卷），中华书局1936 年版，第35 页。",
+          "载前注☒，杨紫烜主编书，第88 页。",
+          "(9) 袁达松：《经济法研究中的思想史视角》，载《政法论坛》2013 年第3 期，第172 页。",
+          "参见《礼记·月令》。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "古代经济管理法（以下简称“古代经济管理法”）是古代国家经营财利、控制市场的法律。它同其他中国古代法一样，根植于中华民族的文化土壤，通过不断纵向传承、自我革新实现了螺旋式上升，形成了特有的发展轨迹和历史地位。",
+          "要回答这些问题，需要从古代经济管理法的特性入手，探寻其内部结构和存在方式。",
+          "逐利性是古代经济管理法内生的、本质的特性，也是它与以“礼”为核心的儒家化法律冲突焦点之所在。",
+          "古代经济管理法是中国古代固有的一类法律，具有丰富的法律史学术价值，所包含的治理智慧能为当下提供丰富的文化基因与本土启示。",
+          "“阴阳相协”的二元特性互相辅助，使法律规范的制定和修改更具灵活性和针对性...是“法与时转”思想的鲜活实例，也是经济治理本土化智慧力量来源。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：参考文献完全缺失，可能影响后续引证评价环节。",
+        "文本工程风险：存在少量OCR/排版乱码（如'☒'），建议核对原文。",
+        "项目口径评价：论文以中国古代经济管理法为研究对象，属于中国法律史与法理学的交叉，涉及中国自主知识体系建构，但需警惕其将传统阴阳学说直接转化为法学概念的理论建构是否具有可复核性。"
+      ],
+      "evidence_quotes": [
+        "古代经济管理法的逐利性，是指它以增加财利收入为首要目标。逐利性是古代经济管理法内生的、本质的特性，也是它与以“礼”为核心的儒家化法律冲突焦点之所在。",
+        "古代经济管理法的隐名性，也可称“隐藏性”“隐蔽性”，是指它的存在样态“隐而不彰”。",
+        "“逐利—隐名”二元特性的形成过程和关系...以“一物两体”的观点看待事物，主张“阴阳行乎万物之中”的思想是千载传承的中华智慧。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文具有明确的中国法律制度和思想问题意识，通过“逐利性”与“隐名性”的二元框架解释中国古代经济管理法的存在形态，致力于形成一种本土法学分析范式，完全符合进入六维评价的标准。当前主要风险在于文本工程（参考文献缺失及部分排版乱码），但不影响进入评审。建议在后续评审中重点关注其理论命题（阴阳相协结构）的可复核性和论证严谨性。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码数字（如6,7,8...24）混入正文段落之间",
+          "脚注编号及完整内容直接嵌入正文段落中，严重打断论证连贯性",
+          "文末标注参考文献列表为空，但正文存在大量脚注引用需抽取",
+          "存在OCR残留符号如前注☒"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2025 年第6 期\n6",
+          "(3) 参见陈汉生：《中国古代经济立法史浅论》，载《上海大学学报》1987 年第3 期，第88-89 页。",
+          "前注☒，杨紫烜主编书，第88 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以“礼”为核心、“重义轻利”的中华法系内，为何会有以“利”为主旨的经济管理类法律存在？又为何没有以常见的古代法律形式存在？",
+          "古代经济管理法的逐利性和隐名性的“阴—阳”属性并非一成不变，它们在不同位面互相转化，构成“立体化”的阴阳相协关系。",
+          "隐名性作为“阳中之阴”制约极端逐利，避免激烈社会矛盾，辅助法律规则嵌入行政、保障运转；逐利功能又作为隐名性的“阴中之阳”..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文混入大量页码及完整脚注内容，需清洗与结构化抽取",
+        "文本工程：文末参考文献缺失，需从正文脚注中重建"
+      ],
+      "evidence_quotes": [
+        "以“礼”为核心、“重义轻利”的中华法系内，为何会有以“利”为主旨的经济管理类法律存在？又为何没有以常见的古代法律形式存在？"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "清洗正文中的页码及脚注残留，提取脚注为标准引用格式后，正式进入中国自主知识体系六维评分流程。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "古代经济管理法是中国古代固有的一类法律，具有丰富的法律史学术价值，所包含的治理智慧能为当下提供丰富的文化基因与本土启示。",
+          "逐利性是古代经济管理法内生的、本质的特性，也是它与以'礼'为核心的儒家化法律冲突焦点之所在。",
+          "隐名性则在融入中华法系的过程中长期塑造而成。'逐利—隐名'二元特性的形成过程和关系……",
+          "古代经济管理法的逐利性和隐名性的'阴—阳'属性并非一成不变，它们在不同位面互相转化，构成'立体化'的阴阳相协关系。",
+          "当高质量发展呼唤高质量法治，生生不息的'阴阳协奏'能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧，奏响法治中国的历史强音。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "古代经济管理法是中国古代固有的一类法律，具有丰富的法律史学术价值，所包含的治理智慧能为当下提供丰富的文化基因与本土启示。",
+        "逐利性是古代经济管理法内生的、本质的特性，也是它与以'礼'为核心的儒家化法律冲突焦点之所在。",
+        "隐名性则在融入中华法系的过程中长期塑造而成。'逐利—隐名'二元特性的形成过程和关系……",
+        "古代经济管理法的逐利性和隐名性的'阴—阳'属性并非一成不变，它们在不同位面互相转化，构成'立体化'的阴阳相协关系。",
+        "当高质量发展呼唤高质量法治，生生不息的'阴阳协奏'能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧，奏响法治中国的历史强音。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，直接进入六维评价。该文以中国古代经济管理法为研究对象，核心提出'逐利性—隐名性'二元特性及其'阴阳相协'关系，属于典型的中国法律史研究，具有明确的中国问题中心性、可争辩的法学问题（古代经济管理法的性质、特性与法系定位）、对中国历史实践的深度解释，以及理论转化（以阴阳哲学重构法律史分析框架）。文本质量良好，无OCR或格式风险。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "古代经济管理法是王朝统治者以获取财利为目的，为组织、干预、管理国家经济事务而制定和执行的法律规范的总称，是中国古代法中的专门类别，是中华法系的组成部分。逐利性是它的内生特性；隐名性则在融入中华法系的过程中长期塑造而成。",
+          "以“一物两体”的观点看待事物，主张“阴阳行乎万物之中”的思想是千载传承的中华智慧，构成了中华文明的重要内涵，也深刻影响、塑造了古代经济管理法二元特性对立统一的关系。",
+          "古代经济管理法二元特性的相生相协，是中华法系贡献给现代法治文明的文化基因。当高质量发展呼唤高质量法治，生生不息的“阴阳协奏”能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧，奏响法治中国的历史强音。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "古代经济管理法是王朝统治者以获取财利为目的，为组织、干预、管理国家经济事务而制定和执行的法律规范的总称... 逐利性是它的内生特性；隐名性则在融入中华法系的过程中长期塑造而成。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文聚焦中国古代经济管理法的历史演进与内在逻辑，明确提出“逐利性—隐名性”二元特性命题，并创造性引入“阴阳相协”传统哲学框架作为法史学分析工具，成功将中国本土文化资源转化为可复核的法学解释路径。文本结构完整、论证严密、引注规范，完全符合中国自主知识体系研究的候选标准，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文虽有研究主题，但未提出可争辩的法学研究问题，主要是对古代经济管理法特性的体系化阐释。",
+          "core_judgment": "论文未形成可争辩的法学问题，全文围绕作者自设的“逐利性”和“隐名性”展开诠释而非论证，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限，原应锚定 unacceptable 档，因扣分合计45分，最终得35分。",
+          "evidence_quotes": [
+            "那么，以“礼”为核心、“重义轻利”的中华法系内，为何会有以“利”为主旨的经济管理类法律存在？又为何没有以常见的古代法律形式存在？",
+            "古代经济管理法二元特性应被客观认识。逐利性的实现必然伴随统治者对百姓的掊克、压迫。"
+          ],
+          "strengths": [
+            "对古代经济管理法的特性进行了系统归纳和史料梳理。",
+            "尝试用“阴阳相协”的框架解释法律现象，具有本土理论构建意图。"
+          ],
+          "weaknesses": [
+            "全文无实质性的学者观点交锋，仅系统归纳既定立场和史料。",
+            "“为何存在”“为何隐名”等问题在文中更像是引出主题的修辞，而非驱动论证的研究问题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学研究问题，主要为阐释既定立场",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "引言提出两个问题句，但全文未将其作为可争辩的法学争点展开论证，而是围绕作者自设的“逐利性”和“隐名性”概念进行体系化描述。"
+            },
+            {
+              "rule_id": "problem_originality.macroscopic_intro_not_deep_analysis",
+              "rule": "全文无学者观点交锋，仅系统归纳既定立场",
+              "score_ceiling": null,
+              "priority": 2,
+              "evidence": "文献综述部分列举了多位学者的定义和研究，但未见不同观点之间的实质交锋或批判，全文以作者自身的二元特性框架统摄叙述。"
+            },
+            {
+              "rule_id": "problem_originality.new_concept_packaging_old_issue",
+              "rule": "引入新概念包装旧问题，未充分说明解释力提升",
+              "score_ceiling": null,
+              "priority": 3,
+              "evidence": "提出“逐利性”“隐名性”二元特性作为核心框架，但未说明这一概念化相比既有“食货”“经济立法”研究有何理论进步或解释力提升，主要是对已知史实的重新描述。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且可争辩，不评论证严密性、文献充分性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 70,
+          "band": "good",
+          "summary": "追问中华法系中逐利法的隐名存在逻辑，问题枢纽性强但概念包装略显牵强。",
+          "core_judgment": "问题成立且极具法学枢纽性，但新概念对旧争点的解释力提升不充分。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档给85分；前置扣分15分（新概念包装旧问题），最终70分。",
+          "evidence_quotes": [
+            "以‘礼’为核心、‘重义轻利’的中华法系内，为何会有以‘利’为主旨的经济管理类法律存在？",
+            "隐名性...是指它的存在样态‘隐而不彰’...托‘义’之名行逐利之实"
+          ],
+          "strengths": [
+            "提出了明确的法学争点，追问重义轻利法系中逐利法的存在逻辑。",
+            "梳理了长时段的义利之争与法律形式演变，枢纽性极强。"
+          ],
+          "weaknesses": [
+            "“阴阳相协”等新概念对旧有义利之争的解释力提升不够充分，略显包装。",
+            "问题虽宏大，但偏向历史描述与归纳，规范命题推进有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评史料梳理详实度或阴阳框架论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "主题声明式论文，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文以阐释'逐利性—隐名性'二元特性为核心，系主题声明而非研究问题，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=1/4（仅有主题陈述，无法学争点），枢纽性=2/4（涉及中华法系、法律史基础概念，但无制度连锁论证），材料新颖性未触发上限。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'阴阳相协''双螺旋'等概念未说明相对既有理论进步），最终35分。",
+          "evidence_quotes": [
+            "逐利性和隐名性作为古代经济管理法的二元特性，是互相矛盾、互相关联、辩证统一的",
+            "古代经济管理法的逐利性和隐名性的'阴—阳'属性并非一成不变"
+          ],
+          "strengths": [
+            "选题涉及法律史基础领域，有一定学术价值"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为'论古代经济管理法'主题阐释",
+            "'阴阳相协''双螺旋'等新表述未说明理论进步"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY''如何ZZ'等问题句，仅陈述古代经济管理法二元特性"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性、材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "以“逐利—隐名”二元框架切入中华法系义利冲突悖论，问题意识鲜明且具理论纵深。",
+          "core_judgment": "该维度成立，问题高度可争辩且触及法系结构核心，突破了传统食货法单向叙事。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "为何会有以“利”为主旨的经济管理类法律存在？又为何没有以常见的古代法律形式存在？",
+            "逐利性是古代经济管理法内生的、本质的特性，也是它与以“礼”为核心的儒家化法律冲突焦点之所在。"
+          ],
+          "strengths": [
+            "精准提炼二元特性框架，有效回应传统法系义利冲突难题。",
+            "问题直指法律史核心争点，兼具规范分析与法哲学纵深。"
+          ],
+          "weaknesses": [
+            "部分历史脉络偏重史实铺陈，法理交锋的当代映射可深化。",
+            "“隐名性”概念与既有非正式制度理论的对话稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评史料考证或文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.2226459980011,
+        "glm-5.1": 88.22756910324097,
+        "kimi-k2.6": 12.890572786331177,
+        "qwen3.6-plus": 68.14651322364807
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 70,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 57,
+      "std": 26.4,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 79,
+          "band": "good",
+          "summary": "论文通过分散式文献定位清晰地建立了研究地图，梳理了学术史脉络和概念分歧，并指出了研究缺口，但争点结构的组织性稍弱。",
+          "core_judgment": "论文虽无独立文献综述，但正文中分散的学术史梳理充分勾勒了研究现状，三要素完整且识别出多个法学流派，仅因争点结构偏向历时梳理而稍显不足。",
+          "score_rationale": "三要素=5/6，争点结构=1/2，法学流派≥2个，锚定good上限79分。",
+          "evidence_quotes": [
+            "“在‘中国古代经济管理’这个大题目下，已经在史料整理、史实书写和规则爬梳等方面取得了大量研究成果；但在法律史角度开展的专门研究还不多见。”",
+            "“史际春、邓峰指出，古已有之的‘经济的法律调整’与现代‘经济法’不是同一个概念。刘志伟强调...‘不可在意义上相嵌合或相转换’。”"
+          ],
+          "strengths": [
+            "学术史梳理扎实，从梁启超、陈顾远到当代学者，脉络清晰。",
+            "精准识别了概念的古今之争和“食货”与“经济法”的学术分歧。"
+          ],
+          "weaknesses": [
+            "研究缺口的提炼较为笼统，未明确说明既有研究的理论局限或具体争议。",
+            "流派/观点之间的对立关系多以历时性叙述呈现，缺少共时性的争点对峙结构。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，最高79分",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "三要素总分5分，但争点结构为1分，按规则四要素总分5且争点结构1、法学流派≥2，锚定good档上限79分。"
+            }
+          ],
+          "boundary_note": "本文属于历史法学/法律史论文，其文献综述方式不同于现代部门法研究，采取了历时性的学术史梳理，故争点结构判定中未给予顶峰分数。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，学术史梳理扎实，争点结构鲜明。",
+          "core_judgment": "文献定位充分，呈现了古今概念之争与义利之辨等多重争点结构。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "梁启超指出宋代成文法‘多有局部法、特别法、刑法以外之法’的特点",
+            "史际春、邓峰指出古已有之的‘经济的法律调整’与现代‘经济法’不是同一个概念"
+          ],
+          "strengths": [
+            "学术史梳理详实，从晚清至现代学者观点均有具体提炼",
+            "呈现了现代经济法概念之争与古代义利之辨双重争点结构"
+          ],
+          "weaknesses": [
+            "参考文献列表缺失，仅能从脚注提取文献信息"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献定位与争点结构，不评判阴阳相协理论的逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文梳理了古代经济管理法研究学术史，但三要素呈现分散且薄弱，缺乏明确争点结构与学派对话。",
+          "core_judgment": "研究地图三要素部分满足但未充分展开，未呈现可区分的学术争点或对立流派，文献定位功能有限。",
+          "score_rationale": "三要素得分=3/6（到达点1+未竟点1+本文切入点1），争点结构=0/2，法学流派=0个，锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "从学术史上来看……但在法律史角度开展的专门研究还不多见",
+            "古代经济管理法的大量相关史料已由《中华大典·法律典·经济法分典》整理……但相关研究成果还不丰富"
+          ],
+          "strengths": [
+            "提及经济史、财政史、法律史等多学科研究，有一定学术史意识"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的具体争点或对立立场，仅罗列学者观点",
+            "未指出具体学术缺口，'研究不多''成果不丰富'等表述过于笼统"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1时最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文未呈现可区分的学术争点或对立流派，仅平铺直叙介绍学者观点"
+            }
+          ],
+          "boundary_note": "本文献定位问题在于未建立研究地图，而非问题本身是否新颖。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的古代经济管理法研究地图，精准锚定义利冲突与古今概念辨析两大争点，文献定位扎实。",
+          "core_judgment": "研究地图三要素完整，争点结构立体，流派识别充分，文献洞察维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "但在法律史角度开展的专门研究还不多见……尽管有学者开展针对土地、赋税、货币、专卖等问题的法律史研究，但相关研究成果还不丰富。",
+            "机械地以今鉴古，则会落入语义陷阱而怀疑古代是否存在经济法；盲目地以古托今，不加辩证地宣称中国古代已有经济法，又有强行比附之嫌。"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼学界对古今经济法概念的辨析与史料整理成果。",
+            "清晰呈现义利冲突与事功派/儒家派的制度方案分歧，争点脉络完整。"
+          ],
+          "weaknesses": [
+            "部分历史学派观点未充分对接现代法学解释路径的对话。",
+            "文献梳理偏重史学脉络，对当代法理学流派介入的评析略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及本文提出的阴阳相协理论是否具原创性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.785416841506958,
+        "glm-5.1": 55.695724964141846,
+        "kimi-k2.6": 14.336832046508789,
+        "qwen3.6-plus": 67.81196904182434
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 79,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 90
+      },
+      "mean": 80.2,
+      "std": 13.2,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文系统归纳了古代经济管理法的“逐利—隐名”二元特性及其历史演进，但未提出可重复适用的法学分析框架。",
+          "core_judgment": "论文属于政策理论梳理型，核心工作是阐释既有历史现象的特征，而非建构可操作的法律分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足概念界定清晰一项标准，且触发概念堆砌和宏观介绍上限锁定为1），法学转化度得分=1/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "古代经济管理法的逐利性，是指它以增加财利收入为首要目标。逐利性是古代经济管理法内生的、本质的特性。",
+            "古代经济管理法的隐名性，也可称“隐藏性”“隐蔽性”，是指它的存在样态“隐而不彰”。"
+          ],
+          "strengths": [
+            "对“逐利性”“隐名性”等核心概念给出了清晰的自我定义。"
+          ],
+          "weaknesses": [
+            "全文为历史特征归纳，未提出分析步骤、判断标准或裁判规则，缺乏框架可操作性。",
+            "“阴阳相协”止于文化隐喻，未转化为法学操作指引，法学转化度极低。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文仅归纳“逐利—隐名”二元特性及其历史表现，无分析步骤、判断标准或可重复适用的法学操作框架，属于政策理论梳理型。"
+            }
+          ],
+          "boundary_note": "本文缺陷在于框架未能操作化，而非历史梳理本身不成立。这是分析框架建构力问题。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文建构了“逐利-隐名”二元特性及阴阳相协框架，概念清晰且类型化标准明确。",
+          "core_judgment": "框架高度成立，原创概念与类型化标准有效转化了历史现象，具备强解释力。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "古代经济管理法的逐利性，是指它以增加财利收入为首要目标。",
+            "隐名性...是指它的存在样态‘隐而不彰’...分为名义上的依托性、内容上的治事性、运行上的嵌入性。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，类型化标准（依托/治事/嵌入）边界明确。",
+            "阴阳相协映射成功将传统文化概念转化为法学分析维度。"
+          ],
+          "weaknesses": [
+            "结尾部分略显口号化，缺乏更具体的现代制度转化指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力而非逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以'逐利性—隐名性'二元特性描述古代经济管理法历史，缺乏可重复适用的分析框架。",
+          "core_judgment": "框架以'逐利性''隐名性'（依托性、治事性、嵌入性）为核心术语，属对历史现象的概念归纳，未转化为法学分析步骤或判断标准，后文调用为描述性展开而非步骤化操作。",
+          "score_rationale": "框架可操作性得分=1/4（仅'隐名性'三维度有分类，但无明确边界标准和分析步骤；概念界定模糊，'逐利性''隐名性'无'本文所称'式定义；后文调用为历史叙述而非框架操作）。法学转化度得分=1/4（'阴阳相协'为文化隐喻，未转化为法学分析步骤；无裁判规则或制度设计方案；后文历史描述未使用框架进行规范分析）。锚定marginal档，因属政策理论梳理型，框架可操作性上限2分、法学转化度上限1分，总分不超过60分，综合给45分。",
+          "evidence_quotes": [
+            "逐利性和隐名性作为古代经济管理法的二元特性，是互相矛盾、互相关联、辩证统一的",
+            "依托性、治事性和嵌入性，使古代经济管理法'行其实而隐其名'的状态在两汉出现"
+          ],
+          "strengths": [
+            "以'逐利—隐名'二元特性统摄全篇，有一定概念整合力",
+            "历史材料丰富，对制度演变脉络梳理较清晰"
+          ],
+          "weaknesses": [
+            "核心术语无'本文所称'式定义，边界模糊",
+            "'阴阳相协'为文化隐喻，未转化为法学操作步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文，框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以'逐利性''隐名性'阐释既定历史现象，无原创概念界定或类型化，主要贡献是'梳理''归纳'而非'建构''设计'，框架核心术语来自对历史特征的描述而非论文原创"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评历史考证是否扎实或逻辑是否自洽。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建“逐利-隐名”二元分析框架，概念清晰且全文深度调用。",
+          "core_judgment": "框架成立且具备强理论建构力，成功实现历史法律现象的法学概念化转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。理论型论文适配下，概念重构与历史维度映射充分。",
+          "evidence_quotes": [
+            "古代经济管理法的逐利性，是指它以增加财利收入为首要目标。",
+            "隐名性则‘处静’，缓和逐利所致社会矛盾，将法律规则限定在伦理标准和社会可承受的限度内。"
+          ],
+          "strengths": [
+            "提出“逐利-隐名”二元特性框架，概念界定清晰且贯穿全文。",
+            "将历史现象转化为可操作的法律史分析维度，逻辑自洽。"
+          ],
+          "weaknesses": [
+            "框架偏重历史阐释，缺乏对现代司法裁判的直接转化指引。",
+            "“阴阳相协”隐喻较强，部分分析依赖哲学推演而非规范实证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉及历史论证逻辑严密性或史料考据准确性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.418349981307983,
+        "glm-5.1": 52.31714200973511,
+        "kimi-k2.6": 19.517359733581543,
+        "qwen3.6-plus": 67.56621599197388
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 88,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 66.5,
+      "std": 24.8,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链完整清晰，特性分析层层递进，对潜在反驳有实质回应，逻辑严密性较高。",
+          "core_judgment": "从概念辨析到二元特性提出，再到特性内涵、关系与价值的分层论证，主线推理链环环相扣，结论可从前文充分推出。",
+          "score_rationale": "推理链完整性得分=4/4，主要推理步骤（概念界定→逐利性→隐名性→二元关系→价值评析）可复述且依赖度高，无关键跳步。反驳处理度得分=2/3，通过呈现学术史分歧路径（信号②）并说明自身概念选择理由、处理了“义利冲突”这一核心理论难题（信号②），但未见明确承认自身论证适用边界（信号④）。锚定excellent档(80-100)，综合给85分。",
+          "evidence_quotes": [
+            "机械地以今鉴古，则会落入语义陷阱而怀疑古代是否存在“经济法”；盲目地以古托今...又有强行比附之嫌。",
+            "儒家认为义利不兼容，否定逐利的正当性...而事功派回应...将国家逐利定义为实现礼义的必要手段。"
+          ],
+          "strengths": [
+            "概念辨析后确立‘逐利-隐名’二元主线，后续特性分析、历史演变、阴阳哲理阐释均紧密围绕主线展开，推理依赖度高。",
+            "对‘义利冲突’这一核心反驳点通过盐铁会议、历代变法论争等进行了实质性历史论证回应，而非简单回避。"
+          ],
+          "weaknesses": [
+            "论文未明确承认自身论证的适用边界，如‘阴阳相协’框架在解释非汉文化圈或特定朝代时的局限性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属法史学概念分析，重阐释而非形式逻辑；‘阴阳相协’系文化诠释框架而非严格形式推演，评分子以考量。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过逐利性与隐名性的历史与逻辑推演，严密论证了古代经济管理法的二元特性及其对立统一关系。",
+          "core_judgment": "推理链完整且层层依赖，核心结论可辩护推出，反驳与局限处理充分，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "隐名性则‘处静’，缓和逐利所致社会矛盾，将法律规则限定在伦理标准和社会可承受的限度内",
+            "逐利性的实现必然伴随统治者对百姓的掊克、压迫……是当下应当扬弃的糟粕"
+          ],
+          "strengths": [
+            "推理链环环相扣：逐利内生→义利冲突→隐名调和→阴阳相协",
+            "反驳处理深入：显式回应“与民争利”批评并论证隐名逻辑"
+          ],
+          "weaknesses": [
+            "阴阳哲学框架引入稍显外部植入，与前文历史论证的过渡略快"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "阴阳框架的玄学色彩属于“分析框架建构力”问题，不纳入逻辑链断裂评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建'逐利性—隐名性'二元特性分析框架，历史推演链条完整但理论提炼与反驳处理存在不足。",
+          "core_judgment": "推理链主线可识别且历史叙事连贯，但核心概念'隐名性'的提炼缺乏充分论证，且未处理'二元特性'是否周延的关键理论分歧。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'史料分散'直接推出'隐名性'作为独立特性，未充分论证其与一般古代法分散性的区别；反驳处理度得分=1/3（标准1部分成立：呈现了'义利之辨'等分歧路径但未充分回应'为何是二元而非多元'，标准2、3不成立）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "依托性、治事性和嵌入性，使古代经济管理法'行其实而隐其名'的状态在两汉出现，唐代形成，宋代有所松动而未改",
+            "逐利性和隐名性作为古代经济管理法的二元特性，是互相矛盾、互相关联、辩证统一的"
+          ],
+          "strengths": [
+            "历史分期推理链清晰：从先秦到明清的演变脉络可复述，各时期过渡有史料支撑",
+            "'阴阳相协'理论嫁接具有内部一致性，为二元特性提供了传统哲学依据"
+          ],
+          "weaknesses": [
+            "'隐名性'作为独立特性提炼跳跃：史料分散、诏敕形式等是大多数古代法的共性，未充分论证其特殊性",
+            "未处理关键理论反驳：为何是'二元'而非多元？'隐名性'三子特性（依托性、治事性、嵌入性）是否都指向同一概念？"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链是否支撑结论，不评'阴阳相协'框架本身是否最优；框架建构力属另一维度。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "以“逐利—隐名”二元特性为主线，历史实证与理论推演咬合紧密，逻辑链条完整。",
+          "core_judgment": "推理链环环相扣，核心结论由史料与概念分析充分支撑，反驳与局限处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。概念推演依赖前序结论，无关键跳步。",
+          "evidence_quotes": [
+            "古代经济管理法不等于古代经济法……机械地以今鉴古则会落入语义陷阱",
+            "逐利性是古代经济管理法内生的、本质的特性……隐名性则在融入中华法系的过程中长期塑造而成"
+          ],
+          "strengths": [
+            "历史实证与理论抽象高度咬合，概念推演严格依赖前序结论",
+            "显式回应学术分歧，并明确承认历史局限与制度剥削本质"
+          ],
+          "weaknesses": [
+            "阴阳哲学类比部分理论跨度略大，依赖传统文化预设",
+            "末段AI方法论引入与主线逻辑关联较弱，略显游离"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文史料与概念推演可辩护地推出，非评价历史解释框架的新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 61.38541889190674,
+        "glm-5.1": 58.590497970581055,
+        "kimi-k2.6": 15.588459014892578,
+        "qwen3.6-plus": 59.2244610786438
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 84.2,
+      "std": 8.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文对古代经济管理法“逐利—隐名”二元特性的理论建构自洽，但未将结论转化为与法学共同体可争辩的学术主张，缺乏对反对意见和自身局限的讨论。",
+          "core_judgment": "结论属于基于史料的理论概括，但未回应法学共同体已有争论，也未主动讨论反对意见或局限，导致难以被反对者定位和进行有意义的学术对话。",
+          "score_rationale": "共同体对话度得分=1/4（仅满足标准3，与中国制度语境相容），制度可接受度得分=2/4（满足标准1和部分标准4，不与现行法秩序根本矛盾且考虑了本土语境）。属理论论文，按对话度≤1规则锚定unacceptable档，但结论未与法秩序根本矛盾，综合考虑给55分。",
+          "evidence_quotes": [
+            "古代经济管理法二元特性应被客观认识。逐利性的实现必然伴随统治者对百姓的掊克、压迫。",
+            "优秀传统法律文化的创造性转化和创新性发展，正在现代法治的建设中昭示其历久弥新的价值。"
+          ],
+          "strengths": [
+            "对古代经济管理法的特性进行了“阴阳相协”的理论建构，具有原创性。"
+          ],
+          "weaknesses": [
+            "结论部分未明确说明与既有学术争论的关系，未主动回应反对意见。",
+            "对“优秀传统法律文化价值”的肯定缺乏具体制度转化方向的论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论未回应法学共同体已有争论，无法被反对者定位和回应，共同体对话度=0-1。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论仅概括二元特性及其价值，未说明与已有法律史、经济法史研究的争论关系，亦未讨论反对意见。"
+            }
+          ],
+          "boundary_note": "此评分仅针对结论的可接受性，不涉及论证的逻辑严密性或研究的创新性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "提出古代经济管理法“逐利-隐名”二元特性，深度回应学术争论并指向现代转化。",
+          "core_judgment": "结论在共同体对话和制度兼容上均表现优异，理论框架可定位、可反驳且具本土语境。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "所谓‘良法善政’，只不过让百姓痛苦稍轻而已...是当下应当扬弃的糟粕。",
+            "生生不息的‘阴阳协奏’能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧。"
+          ],
+          "strengths": [
+            "主动承认理论掩盖剥削的局限，对话度高",
+            "明确指出阴阳协奏为现代法治提供动态平衡智慧"
+          ],
+          "weaknesses": [
+            "阴阳隐喻稍显玄学，实证转化路径仍较宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被学界和制度语境接受，不评阴阳框架的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "本文提出古代经济管理法'逐利性—隐名性'二元特性理论，以阴阳相协框架阐释其辩证关系，属于理论型法律史论文。",
+          "core_judgment": "结论在法学共同体对话度和制度可接受度方面表现良好，但存在理论创新深度与对话充分性不足的问题。",
+          "score_rationale": "共同体对话度得分=3/4（回应了法律史学界关于'古代有无经济法'的争论，定位清晰；可被反对者回应；扎根中国语境；但主动承认反对意见和自身局限不足），制度可接受度得分=2/4（作为理论论文，与现行法秩序无根本矛盾，对当代法治建设有所回应，但制度转化方向较空泛）。锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "古代经济管理法是中国古代固有的一类法律，具有丰富的法律史学术价值，所包含的治理智慧能为当下提供丰富的文化基因与本土启示。",
+            "当高质量发展呼唤高质量法治，生生不息的'阴阳协奏'能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧，奏响法治中国的历史强音。"
+          ],
+          "strengths": [
+            "明确回应法律史学界'古代有无经济法'的核心争论，理论定位清晰",
+            "扎根中国法律传统语境，以阴阳相协等本土概念建构理论框架"
+          ],
+          "weaknesses": [
+            "未充分讨论可能的反对意见，如'阴阳框架是否过度比附'等质疑",
+            "结论部分'创造性转化'表述较空泛，缺乏具体制度转化路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论可接受性，不涉及论证严密性和未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应古代经济法概念之争，提出二元特性理论，契合中国法治话语。",
+          "core_judgment": "结论高度融入学术共同体对话，理论框架与现行法秩序逻辑兼容，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "古代经济管理法不等于古代经济法……机械地以今鉴古，则会落入语义陷阱",
+            "逐利性和隐名性的‘阴—阳’属性并非一成不变……构成‘立体化’的阴阳相协关系"
+          ],
+          "strengths": [
+            "精准定位学术史争论，提出可检验的二元特性理论框架",
+            "主动揭示历史局限与剥削本质，展现学术反思与对话诚意"
+          ],
+          "weaknesses": [
+            "现代转化路径偏宏观，缺乏具体制度衔接的微观论证",
+            "阴阳哲学类比虽具启发性，但法学规范性论证稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.64824414253235,
+        "glm-5.1": 55.19529318809509,
+        "kimi-k2.6": 10.505423069000244,
+        "qwen3.6-plus": 69.09923100471497
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76.8,
+      "std": 16.9,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文仅以人工智能技术介入和法治文化价值作空泛展望，未提出具体的后续研究问题、理论修正路径或制度延伸方向。",
+          "core_judgment": "论文未形成真实、可定位的延展路径，结尾展望停留在口号式拔高。",
+          "score_rationale": "原始分35分，落入bonus=0档。结尾虽提及人工智能辅助研究与法治文化价值，但未指明具体问题、边界或深化方向，仅属口号式展望，无真实延展路径。",
+          "evidence_quotes": [
+            "在生成式人工智能技术迅猛发展的时代背景下，古代经济管理法研究正迎来方法论的深刻变革。",
+            "优秀传统法律文化的创造性转化和创新性发展，正在现代法治的建设中昭示其历久弥新的价值。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "未提出任何具体的后续研究问题、争点或理论修正路径。",
+            "结尾仅泛泛强调文化价值与方法变革，缺乏可定位的延展对象和论证衔接。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾提出人工智能辅助研究和法治文化价值，但未说明具体问题、机制或概念边界，属于口号式展望。"
+            }
+          ],
+          "boundary_note": "文中对人工智能技术介入和传统法律文化价值的论述属于对未来研究方向的展望，而非对当下结论可接受性的主张，故划入前瞻延展性维度。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出了AI辅助史料梳理的方法论延展及阴阳相协向现代法治转化的理论延展方向。",
+          "core_judgment": "存在明确延展路径，指明AI解决史料分散及二元特性向现代法治转化，但精细度有限。",
+          "score_rationale": "原始分65，bonus=3。延展路径明确：指明AI技术解决史料分散问题，及二元特性向现代法治转化，与正文衔接；但未展开具体争点或修正路径，精细度有限。",
+          "evidence_quotes": [
+            "人工智能...辅助学者勾勒出特定制度、概念在长时段历史中演变的轨迹与谱系...是古代经济管理法史料分散、表征不显等问题的‘对症良药’。",
+            "生生不息的‘阴阳协奏’能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧"
+          ],
+          "strengths": [
+            "指明AI技术介入史料整理的具体方法论延展方向。",
+            "将阴阳相协理论延展至现代法治的动态平衡场景。"
+          ],
+          "weaknesses": [
+            "理论转化延展较宏观，缺乏具体制度衔接或概念修正路径。",
+            "未能提出具体的后续争点或反驳入口。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "阴阳协奏转化为现代法治制度设计属未来延展，而非当下历史结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文结尾仅有空泛的数字化与AI方法提及，缺乏具体后续研究问题、理论深化路径或概念修正方向，属于口号式展望。",
+          "core_judgment": "不存在真实延展路径，仅末尾有极概括的AI技术应用提及，未形成可定位的后续研究方向。",
+          "score_rationale": "原始分35分，bonus=0。论文属理论型，但结尾仅空泛提及'生成式人工智能''数字化手段'可辅助史料整理，未提出具体研究问题、理论修正路径或下一轮争点；'优秀传统法律文化的创造性转化'等表述属典型口号式拔高，无待修正对象或深化机制，落入低分段。",
+          "evidence_quotes": [
+            "在生成式人工智能技术迅猛发展的时代背景下，古代经济管理法研究正迎来方法论的深刻变革...必将能够更系统地发掘、梳理与阐释古代经济管理法的丰富内涵。",
+            "优秀传统法律文化的创造性转化和创新性发展，正在现代法治的建设中昭示其历久弥新的价值。"
+          ],
+          "strengths": [
+            "文末提及AI与数字化手段，有极粗略的方法论更新意识。"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或理论深化路径，AI应用仅停留于断言。",
+            "结尾大量口号式表述，无待修正对象或制度场景。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "优秀传统法律文化的创造性转化和创新性发展，正在现代法治的建设中昭示其历久弥新的价值；奏响法治中国的历史强音。"
+            }
+          ],
+          "boundary_note": "本维度评未来研究走向，不评当下结论可接受性。论文'阴阳相协'框架本身作为当下结论是自洽的，但如何深化、修正或应用于未来研究，未作说明。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文针对史料分散痛点提出AI辅助谱系勾勒的方法论路径，并将“阴阳协奏”二元框架延伸至现代治理平衡议题。",
+          "core_judgment": "存在真实延展路径，明确指向数字人文技术介入史料整理与理论框架的现代治理转化。",
+          "score_rationale": "原始分82，对应bonus=5。论文明确指出AI语义分析可破解史料分散难题，并将核心“二元特性”理论对接现代法治动态平衡需求，路径清晰且与正文紧密衔接。",
+          "evidence_quotes": [
+            "人工智能不仅能够以超越传统研究方法的效率……更能够通过语义分析与模式识别，辅助学者勾勒出特定制度、概念在长时段历史中演变的轨迹与谱系。",
+            "生生不息的“阴阳协奏”能为市场与公平、创新与秩序、效率与正义提供动态平衡的治理智慧"
+          ],
+          "strengths": [
+            "精准对接史料分散痛点，提出AI语义分析的具体方法论路径",
+            "将历史二元理论框架创造性延伸至现代治理多维平衡场景"
+          ],
+          "weaknesses": [
+            "现代治理转化部分表述偏宏观，缺乏具体制度衔接机制的展开",
+            "未明确界定AI介入的学术边界与潜在误读风险"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦AI技术介入史料整理及理论框架向现代治理延伸的未来路径，而非评价当下历史结论的学术接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.96973395347595,
+        "glm-5.1": 67.01700186729431,
+        "kimi-k2.6": 33.21467900276184,
+        "qwen3.6-plus": 59.657793045043945
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 65,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 82
+      },
+      "mean": 54.2,
+      "std": 23.3,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 72.54,
+      "weighted_total": 70.3
+    },
+    "aggregation_strictest": {
+      "final_score": 51.82,
+      "weighted_total": 51.3
+    },
+    "avg_std": 18.9,
+    "max_std": 26.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.7,
+    "composite_score": -18.9,
+    "worst_dimension": "problem_originality",
+    "worst_std": 26.4
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1767-法学研究-2025-1-论驳回公诉制度及其在我国刑事诉讼中的引入-郭烁-中国政法大学诉讼法学研究院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文以“引入驳回公诉制度”为主题，将控审关系中的公诉合法性缺陷提炼为可争辩的法学问题，但问题提出方式偏重体系介绍，理论交锋与争点凝练尚不充分。",
+          "core_judgment": "问题具有法学层面的可争辩性和一定的枢纽性，但“宏观介绍”色彩较重，未能充分展现学者观点交锋，且问题表述部分趋向政策倡导，限制了原创性得分。",
+          "score_rationale": "可争辩性=2/4，枢纽性=3/4，材料新颖性未触发上限，但触发“宏观介绍非深度分析”扣20分，锚定marginal档，最终得分=85-20=65分。",
+          "evidence_quotes": [
+            "“什么样的公诉应当被法院受理”这一问题，等价于“诉讼系属能否成立”的判断。",
+            "依现行刑事诉讼规则，法院受理案件之后，对公诉的评价限于作出实体判决……却没有意识到实体判决应以诉讼系属关系成立为前提。"
+          ],
+          "strengths": [
+            "将公诉瑕疵提炼为诉讼系属成立条件的缺失，具有法学层面的可争辩性。",
+            "问题涉及审判权、管辖权、起诉条件等多个制度节点，枢纽性较高。"
+          ],
+          "weaknesses": [
+            "全文以体系介绍为主，缺乏学者观点交锋，未触及不同理论路径的正面论辩。",
+            "问题表述部分趋向“引入驳回公诉制度”的政策倡导，削弱了研究性争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "macro_intro_not_deep_analysis",
+              "rule": "论文完成了体系介绍但未触及现实问题，无不同学者观点的交锋",
+              "score_ceiling": 80,
+              "priority": 2,
+              "evidence": "全文多处系统介绍诉讼系属原理和比较法模式，但未呈现学者围绕公诉合法性条件、驳回公诉正当性的分歧与论辩。"
+            }
+          ],
+          "boundary_note": "仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出可争辩的法学问题，切中控审关系核心，枢纽性极强。",
+          "core_judgment": "问题成立且极具枢纽性，成功将实务痛点转化为诉讼系属条件的法理争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置扣分0分。",
+          "evidence_quotes": [
+            "“什么样的公诉应当被法院受理？”",
+            "“法院不得因公诉欠缺必要条件拒绝审理从而终结当前诉讼程序”实属伪命题"
+          ],
+          "strengths": [
+            "问题聚焦诉讼系属成立条件，切中控审关系核心",
+            "从程序法理颠覆“有公诉必有审判”的实务共识"
+          ],
+          "weaknesses": [
+            "犯罪嫌疑条件作为起诉门槛的争辩性稍弱，易与实体裁判竞合"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及比较法材料运用妥当性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文以'什么样的公诉应当被法院受理'为核心问题，论证引入驳回公诉制度的必要性与路径，属于刑事诉讼法基础理论问题。",
+          "core_judgment": "问题具有可争辩性与理论枢纽性，但核心争点表述存在包装化倾向，且部分依赖比较法材料展开。",
+          "score_rationale": "可争辩性=3/4（明确问题句'什么样的公诉应当被法院受理'，涉及诉讼系属成立条件之法理争议，有理论分歧如起诉法定主义与便宜主义之争，但部分论述偏向制度介绍），枢纽性=3/4（影响公诉审查与审判两大制度，涉及控审关系核心命题，牵连审判权/管辖权/起诉条件多重基础概念，制度连锁效应明显），材料新颖性未触发上限（比较法材料用于支撑论点而非作为核心创新依据），锚定good档，给75分。负面模式检查：检查1不成立（'诉讼系属'为既有理论工具，但论文对其功能有新展开）；检查2部分成立（宏观介绍德国/日本/台湾制度较多，但存在本土问题交锋如1996年修法精神之争，扣15分）；检查3不成立（有明确问题句）。扣分合计=15分，正式评分90-15=75分。",
+          "evidence_quotes": [
+            "本文的主题是：对前述习以为常的控审互动模式进行批判与检讨……并在此基础上从本土问题域出发探讨我国控审关系规则未来发展的可能性。",
+            "长久以来关于控审关系的讨论，以宪法、刑事诉讼法规定的'分工负责，互相配合，互相制约'原则为根本定向……真正有待澄清的问题——应当如何理解与塑造我国控审关系的基本格局——反倒被这一原则中的描述性词汇遮蔽了。"
+          ],
+          "strengths": [
+            "问题聚焦本土制度痛点，以'诉讼系属成立条件'重构控审关系分析框架。",
+            "争点具有理论纵深，触及起诉法定主义、审判中心主义等基础命题。"
+          ],
+          "weaknesses": [
+            "核心创新点'驳回公诉'实为比较法既有制度引入，理论突破有限。",
+            "部分篇幅用于系统介绍德国/日本/台湾地区制度，本土问题交锋深度不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题句'什么样的公诉应当被法院受理'涵盖审判权/管辖权/起诉条件三层，虽经拆解但核心主张分散于制度比较"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以诉讼系属条件为支点，精准质疑“有公诉必受理”惯例，提出引入驳回公诉制度，问题意识鲜明。",
+          "core_judgment": "该问题具备高度可争辩性与枢纽性，成功将宏观控审关系转化为可操作的程序合法性审查命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。负面模式检查扣0分。",
+          "evidence_quotes": [
+            "“什么样的公诉应当被法院受理”",
+            "“法院不得因公诉欠缺必要条件拒绝审理”这一前提的正确性较少从根本上受到批判与检讨。"
+          ],
+          "strengths": [
+            "精准提炼诉讼系属条件作为审查公诉合法性的教义学支点",
+            "突破分工配合话语遮蔽，直面控审互动应然逻辑"
+          ],
+          "weaknesses": [
+            "犯罪嫌疑条件与实体无罪判决竞合的处理论证稍显简略",
+            "本土司法实践阻力与配套程序设计的可行性分析可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.37322378158569,
+        "glm-5.1": 53.29470992088318,
+        "kimi-k2.6": 17.925870895385742,
+        "qwen3.6-plus": 71.8296570777893
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.5,
+      "std": 12.8,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 28.41,
+      "weighted_total": 24.1
+    },
+    "aggregation_strictest": {
+      "final_score": 22.94,
+      "weighted_total": 19.5
+    },
+    "avg_std": 12.8,
+    "max_std": 12.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "score_gap": 5.5,
+    "composite_score": -12.8,
+    "worst_dimension": "problem_originality",
+    "worst_std": 12.8
+  }
+}

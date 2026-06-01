@@ -1,0 +1,923 @@
+{
+  "paper": "法学三大刊论文/补充论文/ZGFX2025006008_中国法学_2025_数据财产权排他性研究.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 36,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 36,
+        "glm-5.1": 85,
+        "kimi-k2.6": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 36,
+          "revised": 36,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 75,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 36,
+          "revised_score": 36,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文仍属于对政策导向的体系化阐释，虽有议题罗列，但未提炼出贯穿全文、包含理论交锋的可争辩性法学问题，创新性较弱。",
+          "revision_rationale": "专家A与B误将论文对概念的递进式介绍和立法呼吁视为“可争辩的研究问题”。论文虽梳理了排他性议题，但整体以政策落实为导向，缺乏真正的理论对立与破解，未形成论证的核心争点。原评分理由中关于“无明确问题句”和“理论交锋缺失”的判断依然成立，扣分依据未被动摇，故维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "认为提出了三项递进式法学争点并构成理论交锋：论文仅在开篇列举了三个待厘清的议题，后续行文是偏重单向度的立法论阐释与制度建议，并未在不同学说间建立实质性的抗辩与证成关系，不符合“理论交锋”的标准。",
+            "将政策配套性立法建议等同于具有高度可争辩性与枢纽性的法学问题：论文的核心是理解政策精神并进行概念解释与制度设计，而非从法理内部提出并解决一个容许辩论的真问题。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "问题具有高度枢纽性，引入排他/治理策略深化确权之争，但对反方理论批判深度稍欠，带有政策论证色彩。",
+          "revision_rationale": "接受专家B关于“学者交锋未充分展开深层对话”及“部分政策倡导表述”的意见。文章虽提炼了排他性这一枢纽问题并引入精细理论框架，但对非确权观、行为主义保护等反方观点的深层理论逻辑驳斥稍弱，更多是正面构建自身体系，且论证受政策文件牵引明显。故适度下调分数，但仍认可其问题提炼与理论引入的较高创新性。",
+          "accepted_points": [
+            "学者交锋停留在观点罗列，未深入批判性对话",
+            "部分论证实为政策倡导，受中央文件牵引明显"
+          ],
+          "rejected_points": [
+            "属于宏观阐释和体系介绍，未形成核心法学争点（文章明确围绕排他性展开理论比较与规范构造，非单纯政策介绍）",
+            "主题声明非研究问题（排他性三问是明确的研究问题）"
+          ],
+          "new_evidence_found": [
+            "文章在论证排他策略优势时，对治理策略（行为主义保护）的驳斥主要基于信息成本和交易稳定性的经济学分析，缺乏对行为主义保护法理内核（如控制论）的深度批判",
+            "文章多次以'数据二十条提出'作为立论依据或论证终点，强化了政策倡导色彩"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 75,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "问题具备高度可争辩性与枢纽性，理论工具运用扎实，但'政策倡导'痕迹仍存，距excellent档尚有距离。",
+          "revision_rationale": "重新审阅后，承认此前对'理论包装旧问题'的批评过于严苛。论文并非简单包装，而是将排他性理论深度嵌入数据财产权的特殊语境：一是将财产规则/责任规则、排他策略/治理策略等理论工具与数据的技术特征（事实排他性、技术边界）紧密结合，实现了法理与技术的有机融合；二是三层次问题结构（应否确权→制度优势→规范构造）具有清晰的内在逻辑，并非观点罗列。但维持good档判断：'贯彻落实中央文件'等政策倡导型表述仍存在于问题提出和结论部分；学者交锋虽存在，但深层理论对话仍有提升空间。",
+          "accepted_points": [
+            "问题聚焦排他性确为数据确权之争的核心法理提炼，而非旧问题新包装",
+            "排他/治理策略等理论工具与数据技术特征的结合具有实质性创新",
+            "三层次递进结构具有清晰的内在逻辑，非简单观点罗列"
+          ],
+          "rejected_points": [
+            "专家A'无缺点'判断：政策倡导型表述客观存在，不能忽略",
+            "专家B'非政策倡导'判断：'贯彻落实数据二十条''助益中央文件'等表述明确属于政策倡导",
+            "两专家92分excellent档判断：论文在理论对话深度上尚未达到excellent档标准"
+          ],
+          "new_evidence_found": [
+            "论文第154页将排他策略与数据'事实排他性'技术特征深度结合，提出'技术边界'作为排他策略的简明标准",
+            "第155-157页对交易场景与非交易场景的区分论证，体现了财产权理论的精细化适用",
+            "第158-160页对身份认证、访问控制、爬虫限制两道保护边界的规范构造，具有可操作性的制度创新"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {
+        "qwen3.6-plus": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 16.451338052749634,
+        "glm-5.1": 54.04701590538025,
+        "kimi-k2.6": 14.533769845962524,
+        "qwen3.6-plus": 599.2388432025909
+      },
+      "round1_mean": 73.8,
+      "round2_mean": 68.7,
+      "round1_std": 26.4,
+      "round2_std": 28.3,
+      "convergence_improvement": -1.9
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 88,
+        "qwen3.6-plus": 86
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 78,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 82,
+          "revised": 88,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 86,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 78,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "论文有效呈现了国内确权与行为规制两派的核心对立与多组理论分歧，但未竟点的批判性与国际前沿的梳理仍显不足，未达到excellent档要求的体系性突破指认。",
+          "revision_rationale": "评审专家A和B将三要素评为满分，认为到达点与未竟点对应明确。但仔细重读论文，其指出沈健州文存在“误解”后，未深入反驳该文的具体局限，也未系统批判其他反对派实证研究不足，未竟点仍笼统。且将财产规则/责任规则及排他/治理策略的探讨等同于全面前沿地图有失精准，遗漏了国际学界如模块化理论、公地悲剧修正模型等关键争点。故维持good档判断。",
+          "accepted_points": [
+            "论文整合了“排他与治理”、“财产规则与责任规则”等多重对立，争点结构较为丰富。"
+          ],
+          "rejected_points": [
+            "三要素得分为满分。论文虽指出了“误解”，但对现有文献局限的批判不够系统、锋利，未竟点未达到excellent档要求的明确性与突破性。",
+            "仅凭国内理论分歧的梳理及财产规则/责任规则的引入即可认定为‘完整的研究地图’并忽略了国际前沿争论的缺失。"
+          ],
+          "new_evidence_found": [
+            "论文在提及沈健州文‘误解与澄清’时，仅作为前提引出，后续论证转向自我理论建构，并未深度解剖该文等代表性反对意见在排他性解释上的具体谬误或逻辑缺口。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图争点结构丰富，流派对立清晰，但未竟点与切入点表述偏泛，锋利度不足，未能精准锚定本文突破口。",
+          "revision_rationale": "接受专家关于未竟点聚焦不足、切入点偏泛的批评。论文引言仅提出三个问题并泛化表述研究意图，未锋利揭示既有文献的具体局限，印证了切入点偏泛的缺陷。但论文争点结构（确权vs行为规制、财产规则vs责任规则、排他vs治理）极其丰富，对立清晰，故仍维持较高分数，不采纳降至78的极端评价。",
+          "accepted_points": [
+            "未竟点表述不够锋利，仅笼统指出需研究排他性",
+            "本文切入点（'本文尝试……进行研究'）偏泛，与未竟点对应不够直接",
+            "'已有研究指出'后多为观点罗列而非贡献总结"
+          ],
+          "rejected_points": [
+            "专家A认为缺少国际学界最新争论梳理（如模块化理论），论文聚焦排他性理论主线已形成自洽论证闭环，非必须罗列所有前沿理论",
+            "评分降至78过低，论文呈现的多重对立争点结构（4组核心对立）远超一般good档位水平"
+          ],
+          "new_evidence_found": [
+            "论文脚注7引用了沈健州《数据财产的排他性：误解与澄清》，但正文未点明具体误解，印证了切入点偏泛的批评"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 82,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素完整成立，争点结构与法学流派识别充分，切入点经全文验证具有明确的问题导向与理论推进。",
+          "revision_rationale": "重新审读全文后，确认'本文尝试在财产权排他性一般理论的基础上，对数据财产权排他性的理论表达和规范构造等进行研究'并非泛泛之语，而是具有明确理论指向：以排他性为统摄性概念，贯通'确权与否—保护强度—保护范围—规范构造'的完整链条。论文将'数据二十条'的政策话语转化为'排他性'这一法教义学命题，切入点与未竟点的对应关系在后续论证中得到充分展开。同时，论文实际识别的法学流派/分析框架超过3个，除财产权肯定论/否定论、排他策略/治理策略、财产规则/责任规则外，还包括事实控制保护模式/财产权保护模式、防御性法益/权利等对立框架，文献整合的纵深性值得肯定。但'本文尝试……进行研究'的表述在引言中确实偏泛，且对既有研究具体贡献的提炼仍可更精细，故维持good档、不上调excellent。",
+          "accepted_points": [
+            "三要素中到达点与未竟点的对应关系在全文展开中确实明确，并非如引言单句所呈现的'偏泛'",
+            "论文实际呈现的法学流派与分析框架丰富，包括排他策略/治理策略、财产规则/责任规则、事实控制/财产权保护、防御性法益/权利等多重对立，跨文献整合能力强",
+            "争点结构具有递进性：从'是否确权'到'保护强度'再到'保护范围'，最终落实为'规范构造'，脉络清晰"
+          ],
+          "rejected_points": [
+            "评审专家A、B均给92分（excellent档），但本文在'现状洞察'维度尚未达到excellent标准：引言中'本文尝试……进行研究'的表述仍显程式化，且对反对派最新实证研究（如反不正当竞争法司法实践的最新发展）回应不足，与excellent档要求的'完全成立'尚有距离",
+            "专家B指出'对反对派最新实证研究的回应可更深入'，这一批评合理，说明文献对话的纵深性仍有提升空间"
+          ],
+          "new_evidence_found": [
+            "论文第145页末段明确提出三个递进问题：是否确立排他性数据财产权、确权保护是否具有制度优势、如何规范设计排他性制度，构成完整的问题链条，验证了切入点的明确性",
+            "第152-155页关于'排他策略'与'治理策略'的论述，实际整合了Henry Smith的财产理论、反不正当竞争法司法实践、'数据二十条'政策文本三重资源，文献定位精准",
+            "第155-157页关于'事实控制保护模式'与'财产权保护模式'的比较，构成独立的第四重分析框架，此前评价未充分识别",
+            "第160页关于'返还数据请求权'与'停止侵害请求权'的区分，体现理论建构的精细化程度"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 86,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素基本完整，争点脉络清晰，但未竟点与切入点表述偏泛，对既有文献局限性的靶向批判不足。",
+          "revision_rationale": "采纳A、B专家意见，原文献综述虽成功整合财产/责任规则与排他/治理策略框架，但“未竟点”仅以设问形式呈现，未直接点破既有研究的具体理论盲区；“切入点”表述较为程式化，与未竟点的逻辑咬合不够锋利。故下调至good档，但肯定其跨文献整合能力与规范构造的扎实度。",
+          "accepted_points": [
+            "未竟点聚焦不足，仅以三个问题笼统带过，未系统澄清既有文献中关于“排他性误解”的具体局限",
+            "本文切入点表述偏泛，与未竟点的对应关系不够直接，缺乏对既有研究贡献的精准提炼"
+          ],
+          "rejected_points": [
+            "遗漏国际学界最新争论（如模块化理论）：本文聚焦中国“数据二十条”与本土民法体系，已充分引入Smith、Calabresi等经典比较法框架，理论适配度已满足本土研究需求，无需过度追求前沿域外模型",
+            "文献仅为观点罗列：原文已将分散观点有效升维至“财产规则vs责任规则”“排他策略vs治理策略”的分析框架，具备较强的理论整合力，非简单罗列"
+          ],
+          "new_evidence_found": [
+            "引言脚注7引用了沈健州《数据财产的排他性：误解与澄清》，但正文未将该文献作为未竟点的直接对话靶标，导致研究缺口呈现不够锋利",
+            "正文第149页“已有研究指出……”后直接转入保护强度比较，缺乏对既有文献在“交易场景保护不足”这一核心痛点上的贡献总结与局限剖析"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.68908715248108,
+        "glm-5.1": 64.64108800888062,
+        "kimi-k2.6": 18.76236391067505,
+        "qwen3.6-plus": 64.63420081138611
+      },
+      "round1_mean": 86,
+      "round2_mean": 84.2,
+      "round1_std": 7.1,
+      "round2_std": 4.3,
+      "convergence_improvement": 2.8
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 80,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 82
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 68,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 68,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "论文清晰转化了财产规则/排他策略等理论，形成具体保护边界与裁判规则，但法定限制等场景的设计仍有待细化。",
+          "revision_rationale": "重新阅读后发现，论文不仅提出了“保护强度”与“保护范围”框架，还具体转化为身份认证/爬虫限制等操作性标准及返还数据、停止侵害等救济请求权，法学转化度显著高于我初判的“宏观主张”水平。但法定限制等部分仍较原则性，未达到完全成熟的制度设计方案，故上调至good高档（78分），但未达到excellent档。",
+          "accepted_points": [
+            "将排他策略转化为数据技术边界作为简明标准的论证确实具体，如身份认证与爬虫限制的分层保护边界。",
+            "救济请求权的设计（返还数据、停止侵害等）构成了清晰的裁判规则雏形。"
+          ],
+          "rejected_points": [
+            "“完整转化为裁判规则与制度设计方案”的判断过高，法定限制场景仍较宏观，如公共利益例外标准未提供具体衡量公式。",
+            "“框架高度成立”的评价忽略了论文对既有理论（卡拉布雷西/史密斯）的映射应用性质，原创性仍有限。"
+          ],
+          "new_evidence_found": [
+            "明确了身份认证/访问控制与爬虫限制措施构成公开数据的双重保护边界，并给出侵权判断标准。",
+            "具体界定了返还数据请求权与停止侵害请求权的适用场景与效果。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "框架清晰且保护边界转化成功，但法定限制偏宏观、救济规则创新不足，属理论整合应用而非高度原创建构。",
+          "revision_rationale": "原评价过高估计了整体的法学转化度与原创性。虽然论文在数据保护边界（将排他策略转化为技术边界与爬虫限制）的转化上极具可操作性，但在法定限制部分确实如专家A所言停留在“合理方式配合”等宏观主张，缺乏具体裁判标准；救济请求权部分如专家B所言与既有民法体系高度重合，创新性有限。整体框架更多是对经典理论的梳理与映射应用，而非突破性原创建构，故下调至80分，档位调整为good。",
+          "accepted_points": [
+            "法定限制场景（如公共利益、数据来源者权益）的判断标准仍略显原则性，缺乏具体的裁判流程或操作指引",
+            "救济请求权部分（返还数据、停止侵害等）与既有民法体系高度重合，创新性有限",
+            "框架更多是对既有理论（财产规则/责任规则、排他策略/治理策略）的梳理和组合，而非原创性建构"
+          ],
+          "rejected_points": [
+            "完全否定法学转化度（论文在保护边界上的转化非常具体且成功，将抽象的排他策略转化为身份认证、访问控制、爬虫限制等简明标准，不应被忽视）"
+          ],
+          "new_evidence_found": [
+            "论文将排他策略具体化为'第一道边界（身份认证/访问控制）'和'第二道边界（爬虫限制）'，这部分转化非常具体且具有强可操作性，支撑了部分高分理由",
+            "论文在救济请求权中区分了'返还数据'（恢复持有）和'停止侵害'（删除销毁）的独立法律效果，虽基于民法体系但有针对数据无形性、可复制性的微调"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "框架高度成立，跨学科概念成功转化为法学分析工具，核心术语'有限排他性'的界定虽可更明确但已具备规范内涵，双层边界体系具有制度创新性。",
+          "revision_rationale": "重新审读论文后，发现'有限排他性'虽缺乏'本文所称'式定义，但其在第148页已明确内涵（'数据财产权排他性相较于物权排他性应当更弱'），且全文多次调用该概念；双层边界体系（身份认证/访问控制+爬虫限制）确实将技术事实转化为法律规范，具有裁判规则功能。专家A、B对'法学转化度'的评价更为准确，论文已将排他/治理策略转化为可操作的判断标准。但'有限排他性'作为核心创新术语，其定义方式仍有提升空间，且救济请求权部分与民法体系的契合度较高，原创性有限，故维持good档上限而非excellent。",
+          "accepted_points": [
+            "跨学科概念（排他/治理策略）成功转化为法学判断标准与裁判规则",
+            "双层边界体系具有明确的规范内涵和制度可操作性",
+            "救济请求权的具体适用条件提供了操作指引"
+          ],
+          "rejected_points": [
+            "专家A、B认为'核心概念界定清晰'——'有限排他性'仍缺乏集中定义，依赖读者从多处推导，与excellent档的'清晰界定'标准尚有距离",
+            "专家B认为'类型化标准明确'——数据分类（公共领域/公开/非公开）的边界标准尚可更精细，如'公开数据'与'非公开数据'的区分在实践中的判断标准未完全展开"
+          ],
+          "new_evidence_found": [
+            "第148页：'数据财产权排他性相较于物权排他性应当更弱，在整体法秩序中体现为有限排他性'——虽分散但确有界定",
+            "第157-160页：将技术边界（身份认证、访问控制、爬虫限制）与法律边界明确对应，形成'不符合保护边界要求的用户访问行为均构成侵害'的裁判规则",
+            "第161页：对返还数据请求权与停止侵害请求权的区分，体现了数据特性（可复制性、无形性）对传统民法请求权的改造"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "理论框架扎实且逻辑自洽，成功嫁接经典财产法理论于数据产权，但制度转化偏重宏观教义建构，微观裁判规则与核心概念界定仍显不足。",
+          "revision_rationale": "采纳A、B专家意见，原评“完整转化为裁判规则”评价过高。论文对“有限排他性”缺乏独立界定，救济请求权设计多为民法既有规则的教义学平移，缺乏具体裁判流程与利益衡量公式；技术边界向法律边界的转化仍依赖原则性表述，微观可操作性未达优秀档标准，故下调分数。",
+          "accepted_points": [
+            "框架更多是经典理论的映射应用而非原创建构",
+            "核心术语'有限排他性'缺乏明确定义，内涵边界依赖推导",
+            "制度设计偏宏观，缺乏具体裁判流程与精细利益衡量公式",
+            "救济请求权分类与既有民法重合度高，创新性有限"
+          ],
+          "rejected_points": [
+            "完全否定其理论转化价值（论文在数据技术边界与法律排他性边界的对接上具有显著教义学解释力，并非纯政策对接，其双层边界划分仍具裁判指引意义）"
+          ],
+          "new_evidence_found": [
+            "第160-161页对'返还数据'与'停止侵害'的适用场景区分，实为对《民法典》第179条的教义学解释，未提供独立裁判标准与举证责任分配",
+            "第158-159页将身份认证/访问控制作为第一道边界、爬虫限制作为第二道边界，但未配套司法取证程序与电子证据认定规则",
+            "第161-162页法定限制部分仅列举反垄断与公安调取等既有法条，未构建数据场景下的具体利益衡量公式或比例原则适用步骤"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.24689817428589,
+        "glm-5.1": 58.46798229217529,
+        "kimi-k2.6": 15.995846033096313,
+        "qwen3.6-plus": 84.80824899673462
+      },
+      "round1_mean": 80.5,
+      "round2_mean": 81.2,
+      "round1_std": 12.3,
+      "round2_std": 3.0,
+      "convergence_improvement": 9.3
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 95,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 92,
+        "kimi-k2.6": 88,
+        "qwen3.6-plus": 92
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 92,
+          "revised": 92,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 95,
+          "revised": 92,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 82,
+          "revised": 88,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 92,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 92,
+          "revised_score": 92,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链完整性与反驳处理度均表现优异，核心结论有充分的前提推导支撑，逻辑严密性完全成立。",
+          "revision_rationale": "重新审视后仍认为原92分更准确。专家A指出的“概念跨度”问题恰是我原指出的“非交易场景论证单向”的具体表现；专家B指出的“技术边界理想化”是对我原批评的补充而非颠覆。论文在从“制度优势”向“规范构造”过渡时，对行为主义保护的自我修正可能性确未充分检验，构成微瑕，故维持92分而非提至95分。",
+          "accepted_points": [
+            "从排他策略的'简明标准'过渡到'技术边界'存在概念跨度（专家A），这与我原批评的非交易场景论证单向性一致",
+            "技术边界向法律边界的转化论证略显理想化（专家B），补充了我对行为主义保护自我修正可能性论证不足的批评"
+          ],
+          "rejected_points": [
+            "专家A给95分的评分偏高。其指出的'法理回应稍弱'问题实际上触及了推理链中的薄弱环节，该问题足以使评分在excellent档内微调至92分而非95分"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 95,
+          "revised_score": 92,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链完整且反驳充分，但从理论证成到规范构造过渡中，“有限排他性”界定标准操作化不足，理论框架适用稍显生硬。",
+          "revision_rationale": "接受专家B关于“有限排他性”界定标准操作化不足及卡拉布雷西框架适用论证生硬的观点。论文从“应当有限排他”推导至“如何有限排他”时，规范构造偏重枚举法定限制情形，缺乏连贯可操作的界定逻辑，导致逻辑链条在最后一步略显松散。故微调下调分数，但仍维持excellent档位。",
+          "accepted_points": [
+            "对'有限排他性'中'有限'的界定标准，规范层面的操作化程度可进一步提升",
+            "卡拉布雷西框架的适用性论证可更充分，部分过渡依赖理论引证堆砌",
+            "对非交易场景行为主义保护的局限论证稍显单向，未充分检验其自我修正可能性"
+          ],
+          "rejected_points": [
+            "专家B给出的82分过低，逻辑连贯性主要考察推理链完整性与反驳处理度，本文在这些核心指标上表现优异，瑕疵属于论证深度而非逻辑断裂"
+          ],
+          "new_evidence_found": [
+            "论文在规范构造部分对'有限排他性'的法定限制主要采用枚举方式（基于他人民事权益与基于公共利益），缺乏一般性的界定标准或操作逻辑，印证了专家B关于操作化不足的观点"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 82,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链完整且相互支撑，核心结论可由前文推出；对反对意见有显式回应与实质性论证，技术边界向法律边界的转化论证具有可操作性。",
+          "revision_rationale": "重新审读论文后，发现以下此前低估的论证质量：第一，论文对'有限排他性'中'有限'的规范操作化程度高于初评判断，第161-162页明确将法定限制类型化为'基于他人民事权益的法定限制'与'基于公共利益的法定限制'，并列举了数据来源者权益、反垄断强制开放、国家安全调取等具体场景，操作化程度充分；第二，从'技术边界'到'法律边界'的转化并非理想化跳跃，而是建立在身份认证、访问控制、爬虫限制等措施的规范分析基础上，具有技术可实现性；第三，论文对'数据二十条'三权分置的排他策略特征分析（第154-155页）是重要理论贡献，增强了制度证成与规范构造的衔接紧密度。但维持excellent档而非更高分，因卡拉布雷西框架的适用性论证仍可更充分，且部分反驳（如对行为主义保护派的回应）偏重效率分析，法理深度有提升空间。",
+          "accepted_points": [
+            "专家A指出'从排他策略的简明标准过渡到技术边界，虽论证但仍有概念跨度'——接受此观察，但认为论文后续通过身份认证、访问控制、爬虫限制三层技术措施的具体分析已有效弥合该跨度，概念跨度不构成关键缺陷",
+            "专家B指出'技术边界向法律边界的转化论证略显理想化'——接受此批评的表面合理性，但重新阅读后发现论文第157-160页对技术措施的规范分析已提供充分支撑，该转化并非理想化",
+            "专家A、B均强调反驳处理充分——确认此判断，并认为论文对责任规则派、治理策略派、事实控制法益派的回应均具实质性"
+          ],
+          "rejected_points": [
+            "专家A评分95分：认为该评分过高，论文在卡拉布雷西框架的适用性论证、部分反驳的法理深度方面仍有提升空间，未达到95分所要求的近乎无瑕疵标准",
+            "专家B评分92分：认为略高，技术边界向法律边界转化的论证虽非理想化，但'有限排他'中'有限'的动态调整机制（如第155页'随着数据要素市场逐渐走向成熟……逐步拓宽治理策略的适用场景'）的规范确定性仍可增强"
+          ],
+          "new_evidence_found": [
+            "第154-155页对'数据二十条'三权分置（数据持有权、使用权、经营权）的排他策略特征分析，是连接理论前提与制度设计的核心环节，此前未充分重视其理论贡献",
+            "第157-160页对身份认证、访问控制作为'第一道保护边界'以及爬虫限制措施作为'第二道保护边界'的规范分析，具体展示了技术边界如何转化为法律边界，操作化程度高于初评判断",
+            "第161-162页对法定限制的两类型化（他人民事权益限制/公共利益限制）及具体列举（数据来源者权益、反垄断强制开放、国家安全调取），使'有限'的规范内涵具有明确适用场景"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 92,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链条严密完整，理论推演与规范构造衔接顺畅，对学术分歧的回应具实质性，逻辑自洽性高。",
+          "revision_rationale": "坚持原判。论文以“排他性”为核心构建完整逻辑链，对责任规则与行为主义保护的反驳充分。虽在技术边界向法律边界转化及“有限排他”量化标准上存在探讨空间，但属前沿立法研究的正常留白，未动摇推理主干与结论成立。综合他组意见，维持92分。",
+          "accepted_points": [
+            "认可专家A指出的非交易场景下行为主义保护自我修正可能性论证稍显单向的不足",
+            "采纳专家B关于“有限排他”规范层面操作化程度及卡拉布雷西框架适用性可进一步深化的建议"
+          ],
+          "rejected_points": [
+            "未采纳专家B因理论引证堆砌而大幅降分的倾向，因本文引证紧密服务于核心论证链条，未造成逻辑断裂或关键跳步，82分偏低"
+          ],
+          "new_evidence_found": [
+            "论文第155-156页明确区分交易与非交易场景，指出事实控制模式在标准化数据集交付等交易场景中存在保护不足，补强了确立财产权模式的逻辑必要性",
+            "第161-162页对排他性法定限制进行类型化展开（民事权益与公共利益），并援引《反垄断法》《数据安全法》等实证法条文，使“有限排他”的规范构造更具支撑"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.24538969993591,
+        "glm-5.1": 52.84403991699219,
+        "kimi-k2.6": 19.669764041900635,
+        "qwen3.6-plus": 59.83713507652283
+      },
+      "round1_mean": 90.2,
+      "round2_mean": 91,
+      "round1_std": 5.7,
+      "round2_std": 2.0,
+      "convergence_improvement": 3.7
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 95,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 90,
+        "glm-5.1": 88,
+        "kimi-k2.6": 90,
+        "qwen3.6-plus": 88
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 82,
+          "revised": 90,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 8,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 95,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 85,
+          "revised": 90,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 4,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 82,
+          "revised_score": 90,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 8,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论具有高度可接受性，共同体对话充分，制度兼容论证扎实，尤其在技术边界向法律边界转化上展现了精细化设计。",
+          "revision_rationale": "其他专家指出论文“将技术边界成功转化为法律保护边界的精细制度设计”，重读后发现，论文第四部分详细论证了身份认证、访问控制及爬虫限制作为排他性保护边界的具体构造，规范设计精细度超出初步评价。这弥补了我在第一轮评价中对‘制度转化难题’指摘过严的疏漏。因此上调评分。",
+          "accepted_points": [
+            "论文在将技术边界转化为法律保护边界方面展现出精细的制度设计，如身份认证与访问控制作为第一道边界、爬虫限制作为第二道边界的具体规范构造。"
+          ],
+          "rejected_points": [
+            "A专家给分95过高，论文对‘数据垄断’等强力反对意见的主动回应仍显不足，且在个人信息权益冲突的实务化解上依然简略，未达完美程度。"
+          ],
+          "new_evidence_found": [
+            "论文第157-160页详细阐述了以‘身份认证、访问控制’为第一道边界和‘爬虫限制措施’为第二道边界的双层保护边界规范构造，以及物理环境中物理访问控制的法律意义。",
+            "论文在交易场景部分（第155-156页）具体说明了财产权保护模式相较于事实控制保护在标准化数据集交易和委托加工场景中的制度优势，论证更为具体。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 95,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论在学术对话上表现卓越，但在制度兼容的精细转化与体系衔接上存在不足，整体高度可接受。",
+          "revision_rationale": "接受A和B关于法定限制原则化及未充分讨论与物权、知识产权体系规范张力的意见。论文虽回应了数据垄断，但仅停留在条文引用，缺乏理论深度与制度转化细节；对数据来源者权益等限制的论证偏原则化；且未处理与既有财产权体系的规范衔接。故将制度可接受度下调至3/4，总分相应下调至88分。",
+          "accepted_points": [
+            "对数据财产权排他性的法定限制讨论趋于原则化，未展现更复杂的制度转化难题（来自A）",
+            "未充分讨论与现行物权、知识产权体系的规范衔接细节或张力（来自B）",
+            "对“数据垄断”等强反对意见的回应深度不足，缺乏理论层面的精细反驳（来自A）"
+          ],
+          "rejected_points": [
+            "A认为论文“未主动深入讨论‘数据垄断’”。实际上论文在第155页和第162页已主动提及并引用《反垄断法》回应，只是深度不够，不能说完全未讨论，故部分拒绝该表述。"
+          ],
+          "new_evidence_found": [
+            "论文第155页明确提及打破‘数据垄断’的必要性，并指出应根据治理策略配置，但未展开理论反驳",
+            "论文第162页仅引用《反垄断法》第22条等条文作为公共利益限制，印证了A关于实务化解简略的判断",
+            "论文第146页将排他性作为统领物权、知识产权的本质特征，但后续论证未深入展开数据财产权与这两类权利的规范张力，印证了B的观点"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 85,
+          "revised_score": 90,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "excellent",
+          "revised_core_judgment": "论文在学术共识度维度表现卓越，有限排他性理论精准回应确权之争，规范构造深度结合中国法秩序，制度转化路径清晰可辩。",
+          "revision_rationale": "重新审视后，我接受评审专家A、B的合理观点，上调评分至90分。理由如下：第一，论文对'数据二十条'的规范解读与《民法典》第179条的制度衔接比我原先评估的更为深入，并非仅'指出'框架，而是构建了'排他策略+治理策略'的双层规范结构；第二，技术边界（身份认证、访问控制、爬虫限制）向法律边界的转化论证具有显著创新性，且提供了可操作的司法判断标准；第三，论文对数据来源者权益、公共利益等限制情形的讨论已超出'提及'层面，形成了'本权权利'与'排他性限制'的体系化分析框架。但我仍坚持原判中关于'与物权、知识产权体系规范张力讨论不足'的判断，此点专家B亦作为缺点指出，故不采纳95分。",
+          "accepted_points": [
+            "技术边界转化为法律保护边界的制度设计具有精细性和可操作性",
+            "规范构造紧密结合中国现行政策与法律，转化路径清晰",
+            "对数据财产权与个人信息权益交叉地带的论证虽可更充分，但已有体系化安排"
+          ],
+          "rejected_points": [
+            "专家A的95分评价：论文对数据来源者权益限制的论证仍可更充分，与既有财产权体系的规范张力未完全消解，尚未达到'完全成立'的极致标准",
+            "专家B认为'司法可操作性待实证检验'属合理批评，但此点不影响学术共识度维度的核心评价，因该维度侧重理论可辩性与制度兼容性而非实证验证"
+          ],
+          "new_evidence_found": [
+            "论文第158-160页对身份认证、访问控制、爬虫限制措施的规范分析，形成了'第一道保护边界'与'第二道保护边界'的完整技术-法律转化框架，具有明确的司法适用指引功能",
+            "论文第161页对返还数据请求权与停止侵害请求权的区分，以及第162页对数据来源者权益作为'内在限制'的法理建构，体现了与《民法典》物权编、侵权责任编规范逻辑的深层契合",
+            "论文第155-156页对交易场景中财产权保护优于事实控制保护的论证，直接回应了梅夏英等学者的非确权保护主张，反驳力度强于初评判断"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 4,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论精准回应确权争论，提出有限排他性框架，高度兼容中国法秩序；但法定限制与体系衔接的论证深度有待加强。",
+          "revision_rationale": "采纳A、B专家关于法定限制论证偏原则化、与既有财产权体系张力探讨不足的合理意见。论文虽以排他策略为基准确立有限排他性财产权，逻辑自洽且政策契合度高，但对数据垄断、来源者权益冲突等复杂场景的规范转化仅作框架性回应，未充分展开体系化衔接论证。故微调评分至88，仍锚定优秀档。",
+          "accepted_points": [
+            "法定限制与例外情形的论证趋于原则化，未深入展开数据垄断、公地悲剧等强反对意见的应对",
+            "对数据财产权与现行物权、知识产权体系的规范张力及衔接细节讨论不足"
+          ],
+          "rejected_points": [
+            "技术边界直接转化为法律边界的司法可操作性问题：论文已通过‘身份认证+反爬虫’双层边界设计及援引《网络数据安全管理条例》等规范予以初步回应，具备基础可操作性，故不作为扣分主因"
+          ],
+          "new_evidence_found": [
+            "第162页已援引《反垄断法》第22条及必需设施理论初步回应数据垄断担忧",
+            "第161-162页结合《网络数据安全管理条例》第46条具体论证数据来源者权益的法定限制路径"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.28442168235779,
+        "glm-5.1": 77.29089689254761,
+        "kimi-k2.6": 20.549092054367065,
+        "qwen3.6-plus": 76.27831506729126
+      },
+      "round1_mean": 88.5,
+      "round2_mean": 89,
+      "round1_std": 6.0,
+      "round2_std": 1.2,
+      "convergence_improvement": 4.8
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 75,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 78
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 70,
+          "revised": 75,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 85,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 85,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 70,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "存在明确的延展路径，提出了多主体数据财产权效力关系及治理策略演进方向等可定位的后续研究问题，具有一定展开。",
+          "revision_rationale": "重新审读论文后，发现结论部分不仅提出了多主体权利冲突问题，还明确了治理策略从排他策略逐步拓宽适用的制度化演进路径和立法方向（“通过立法构建体系化的数据保护限制规则”），具有一定的展开度。原评分对此演进路径的可定位性评价不足，故微调至75分，保持在good档位。",
+          "accepted_points": [
+            "接受评审专家A和B关于论文同时指明了排他策略向治理策略过渡的制度演进方向与立法路径的合理观点。"
+          ],
+          "rejected_points": [
+            "拒绝评审专家A和B将评分提升至85分的判断。该论文仅指明了方向和初步立法构想，未对效力冲突的具体场景、协调机制或触发条件展开分析，精细度尚未达到excellent档位要求。"
+          ],
+          "new_evidence_found": [
+            "结论部分明确提到“可逐步拓宽治理策略的适用场景，对基于排他策略的数据保护框架作出修正与完善，通过立法构建体系化的数据保护限制规则”，这构成了明确的制度完善路径，比原初评价中认为的只是提出了问题更进了一步。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "存在明确延展路径，提出多重数据处理者权利冲突等具体后续争点与制度演进方向，但未对延展路径展开分析，精细度有限。",
+          "revision_rationale": "接受其他专家意见，论文虽提出了极具理论价值的后续争点（效力关系）和制度方向（治理策略拓宽），但延展内容高度集中于文末，篇幅极短，仅停留在提出问题层面，未对效力冲突的具体场景、解决方案或研究路径作初步展开，精细度不足，不足以达到excellent档位，故下调至good档位上限附近。",
+          "accepted_points": [
+            "仅提出后续研究问题，未对效力冲突的具体场景、可能方案或研究方法展开初步讨论，精细度有限",
+            "延展内容集中于文末，篇幅较短，未充分展开"
+          ],
+          "rejected_points": [
+            "认为对公共利益法定限制情形的展望完全空泛（论文结合了反垄断法必需设施原则与数据安全法调取规则，给出了具体的法定例外情形展望，并非完全空泛）"
+          ],
+          "new_evidence_found": [
+            "正文第148页提到'当若干个数据处理者各自通过合法方式独立采集承载相同信息的数据时，此等数据分别成为若干个相互独立的数据财产权的客体'，为结尾的效力关系问题提供了前置背景，但结论部分仍未展开分析"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "存在真实且与正文紧密衔接的延展路径，主要体现在多主体数据权属冲突、治理策略动态演进及法定限制完善三个维度，但'效力关系'问题提示较简，未展开研究路径。",
+          "revision_rationale": "重新审读论文后，发现延展内容并非仅'高度集中于文末'，而是与正文核心论证存在紧密的逻辑嵌套：'效力关系'问题直接承接第三部分'数据财产权排他性的规范构造'中关于权利主体、保护边界与救济请求权的完整论述；'治理策略拓宽'呼应正文对排他策略与治理策略关系的深入分析（第153-155页），并非空泛展望；'法定限制'亦与第三部分（三）形成结构对应。评审专家A、B指出的'与正文排他性构造紧密衔接''与核心结论紧密咬合'具有合理性，论文的延展路径确实建立在已完成的规范构造基础之上，而非孤立附缀。但'效力关系'问题仅作提示未展开研究路径、未形成初步分析框架，仍与'excellent'档存在差距，故上调至78分，维持'good'档位。",
+          "accepted_points": [
+            "延展路径与正文排他性构造存在紧密的逻辑衔接，非孤立附缀",
+            "治理策略拓宽具有明确的制度演进逻辑，与正文排他策略/治理策略分析形成呼应",
+            "多主体数据权属冲突的提出具有现实针对性和理论价值"
+          ],
+          "rejected_points": [
+            "对方认为可达'excellent'档（≥80分）：论文虽提出'效力关系'问题，但仅作一句话提示，未展开研究路径、未形成初步分析框架，与excellent档要求的'充分展开'仍有距离；'法定限制'的展望亦较概括，未超出政策宣示层面",
+            "对方认为'路径清晰'：'效力关系'问题的研究路径（如比较物权共有、知识产权重叠保护等）完全缺失，'清晰'评价过高"
+          ],
+          "new_evidence_found": [
+            "第153-155页正文已对排他策略与治理策略的关系作深入比较分析，为文末'逐步拓宽治理策略适用场景'提供充分铺垫",
+            "第三部分（三）'数据财产权排他性的法定限制'已系统论述基于他人民事权益和公共利益的限制，文末'法定限制情形将不断完善'是对该部分的延伸展望",
+            "'效力关系'问题直接承接第三部分关于'数据财产权的权利主体''数据财产权排他性保护范围的厘定'等规范构造，逻辑链条完整"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 85,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "存在明确延展路径，精准指向多主体权属效力冲突与治理策略动态拓宽，但仅停留于文末提示，缺乏具体协调机制与研究方法的初步构想，展开度不足。",
+          "revision_rationale": "采纳同行关于“延展内容集中于文末且未展开初步构想”的意见。原文虽精准定位后续争点并契合市场规律，但仅以结语形式提示，未提供场景预设、协调路径或立法衔接的具体方案，学术延展的纵深与可操作性有限，故下调评分。",
+          "accepted_points": [
+            "延展内容高度集中于文末，未对效力冲突的具体场景、协调机制或研究方法展开初步讨论",
+            "治理策略拓宽的触发条件与立法衔接方案偏宏观，缺乏精细度"
+          ],
+          "rejected_points": [
+            "因未充分展开即判定精细度严重不足而给出较低分（70分）：原文已清晰构建“排他策略向治理策略动态演进”的逻辑链条，并与信息成本降低、市场成熟度挂钩，具备明确的理论生长点，单篇论文无需包揽全部后续论证。"
+          ],
+          "new_evidence_found": [
+            "第155页明确将治理策略拓宽与“数据要素市场成熟”及“信息成本降低”挂钩，提供了具体的经济学触发条件",
+            "第163页结语将多主体效力关系问题明确界定为需以排他性规范内涵为基础解决的衍生争点，构成严密的后续研究起点"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.773830890655518,
+        "glm-5.1": 42.5858690738678,
+        "kimi-k2.6": 14.425058126449585,
+        "qwen3.6-plus": 64.34572291374207
+      },
+      "round1_mean": 78,
+      "round2_mean": 76.5,
+      "round1_std": 8.1,
+      "round2_std": 1.7,
+      "convergence_improvement": 6.4
+    }
+  },
+  "overall": {
+    "round1_avg_std": 10.93,
+    "round2_avg_std": 6.75,
+    "std_improvement": 4.18,
+    "round1_max_std": 26.4,
+    "round2_max_std": 28.3,
+    "dimensions_converged": 5,
+    "total_dimensions": 6,
+    "round1_final_score_mean": 82.83,
+    "round2_final_score_mean": 82.35
+  }
+}

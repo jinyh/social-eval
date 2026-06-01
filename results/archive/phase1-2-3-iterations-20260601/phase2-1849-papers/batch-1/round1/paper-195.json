@@ -1,0 +1,1112 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/全面深化改革中的民法典编纂.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与正文交叉混排（如'⑩'出现在正文行文内），可能导致脚注归属关系局部模糊。",
+          "存在少量OCR/识别残留或符号异常（如'载《中国法学）'、'《马克思主义与现实>>2002年第l期》'等），但未严重破坏论点结构。",
+          "参考文献列表缺失，无法判定期刊要求是否完全满足，但不影响核心论证的定位。"
+        ],
+        "evidence_quotes": [
+          "王乐泉：《论改革与法治的关系》，载《中国法学）",
+          "参见俞可平：《全球治理引论》，载《马克思主义与现实>>2002年第l期》。",
+          "⑩"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在全面深化改革的历史背景下，民法典的编纂必须处理好以下几种关系：(一)稳定性与开放性的关系",
+          "全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础，为民法典编纂提供了机遇",
+          "通过民法典的编纂，进一步凝聚改革的共识，确认改革的成果，推动改革进程，引领改革发展",
+          "民法典编纂应当立足中国国情，体现中国特色，反映全面深化改革的要求及其带来的社会变化",
+          "在总结我国民事立法、司法经验和借鉴国外民事立法经验的基础上，我国的民法典在体系结构上必须有所创新，有所发展"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：脚注编号混入正文、参考文献缺失，属于可处理的格式风险。",
+        "项目口径：论文以全面深化改革为背景，核心论证民法典编纂如何回应中国治理与改革难题，已形成可争辩的中国法学命题，无需边界复核。"
+      ],
+      "evidence_quotes": [
+        "民法典编纂应当立足中国国情，体现中国特色，反映全面深化改革的要求及其带来的社会变化。",
+        "在总结我国民事立法、司法经验和借鉴国外民事立法经验的基础上，我国的民法典在体系结构上必须有所创新，有所发展。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在脚注混排、OCR残留及参考文献缺失等低度风险，但核心论证清晰，可直接进入六维评分。建议后续评审中忽略OCR误别并依据上下文定位脚注。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码（如29、30等）及刊名期号混入正文",
+          "脚注编号⑩及脚注内容穿插在正文段落中",
+          "外文参考文献存在OCR识别残缺与乱码（如thmuIgh, Indktna, Le列System等）"
+        ],
+        "evidence_quotes": [
+          "29 \n中国法学 \n2015年第4期",
+          "⑩ \n王乐泉：《论改革与法治的关系》，载《中国法学) )2014年第6期。",
+          "Le 列 System：towards：Decodif lcation and Recod ification"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国的物权法构建了建设用地使用权制度，保持了在土地所有权不移转的情形下使土地使用权实现流转，这就是我们的本土特色。",
+          "在无充分且正当的管制理由时，必须维护自治，由此限制权力对自治的过分干涉。",
+          "严格限制甚至禁止宅基地使用权的流转具有如下缺陷：不利于保护农民利益，也不利于改变城乡二元体制。",
+          "民法典中的主体制度应当贯彻私法自治原则，全面落实负面清单的基本要求，保障主体的行为自由。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗混入正文的期刊页码、脚注编号及OCR乱码，以保证后续文本分析精度",
+        "项目口径：完全符合，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "我国的物权法构建了建设用地使用权制度，保持了在土地所有权不移转的情形下使土地使用权实现流转，这就是我们的本土特色。",
+        "民法典中的主体制度应当贯彻私法自治原则，全面落实负面清单的基本要求，保障主体的行为自由。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评价（以中国民法典编纂与深化改革为中心，有可争辩的自治与管制等法学问题，并尝试解释中国农村土地等实践难题及形成负面清单等可复核命题）。文本存在页码混入、脚注乱码及外文OCR残缺等工程问题，建议清洗文本后进入正式评分流程。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩重复使用、编号跳跃）",
+          "部分引用文献页码或出版信息混入正文（如'29'、'30'等页码残留）",
+          "参考文献列表缺失，文末标注'（无）'"
+        ],
+        "evidence_quotes": [
+          "⑩王乐泉：《论改革与法治的关系》，载《中国法学》2014年第6期。",
+          "⑩[北宋]王安石：《周公》。",
+          "⑩李非：《富与德—— 亚当·斯密的无形之手市场社会的架构》，天津人民出版社2001年版，第165页。",
+          "29",
+          "30"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在全面深化改革的历史背景下，民法典编纂必须处理好以下几种关系",
+          "民法典编纂是在全面深化改革的背景下展开的，其必然要承载新的使命，即适应全面深化改革的需要，引领改革，助推改革，为改革提供法律保障",
+          "我国未来民法典应当在总结这一改革经验的基础上，对宅基地使用权的利用与转让规则作出规定",
+          "民法典的编纂应当有效处理好私法和公法的关系"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码及页码残留不影响核心内容阅读，但需关注参考文献完整性"
+      ],
+      "evidence_quotes": [
+        "全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础",
+        "民法典编纂是在全面深化改革的背景下展开的，其必然要承载新的使命",
+        "我国未来民法典应当在总结这一改革经验的基础上，对宅基地使用权的利用与转让规则作出规定"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国民法典编纂为核心议题，深入探讨全面深化改革背景下民法典编纂的多重关系与制度设计，具有明确的中国问题意识和法学理论贡献。文本质量存在轻微脚注编号乱码和页码残留问题，但不影响核心论点评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留符号（如@、⑩等替代标准脚注编号）",
+          "期刊页码与页眉混入正文段落间（如“29 中国法学 2015年第4期”）",
+          "部分长句存在异常换行与断字"
+        ],
+        "evidence_quotes": [
+          "@经过三十多年的改革开 放，我国社会面貌发生了翻天覆地的巨变",
+          "29 \n\n中国法学 \n2015年第4期",
+          "⑩ 王乐泉：《论改革与法治的关系》，载《中国法学) )2014年第6期。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "凡属重大改革都要于法有据，在整个改革过程中，都要发挥立法的引领和推动作用",
+          "负面清单模式下，对市场主体而言，法不禁止即自由，而对政府而言，则实行法无授权不可为",
+          "在无充分且正当的管制理由时，必须维护自治，由此限制权力对自治的过分干涉",
+          "民法典应当保持一定的抽象性，给未来的发展预留空间，以更好地适应未来社会的发展与变化"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在OCR脚注乱码、页眉页码混入及局部断行，需基础清洗；",
+        "项目口径：高度契合中国自主知识体系标准，具备明确的中国问题中心性与可争辩的民法学命题"
+      ],
+      "evidence_quotes": [
+        "在私法中规定强制性规范，公法规范就会像躲在木马里面的雄兵一样涌进特洛伊城",
+        "我国未来民法典应当在总结这一改革经验的基础上，对宅基地使用权的利用与转让规则作出规定",
+        "民法典编纂过程中可以充分利用各种立法技术实现法典稳定性和开放性之间的平衡"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR与排版干扰，建议进行基础格式清洗后进入六维评分。项目口径高度契合，以中国全面深化改革与民法典编纂为问题中心，系统论证了私法自治与管制、本土化与国际化、法典稳定性与开放性等可争辩法学命题，并针对农村土地权利流转、负面清单管理模式、不动产登记统一等中国实践难题提出具体制度建构与规范命题，符合进入六维评价的全部候选信号。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文仅为改革政策与民法典编纂关系的宏观介绍，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文是政策主题声明和既定立场的体系化阐释，无任何可辩驳的法学争点，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学层面争点、无理论分歧、为纯政策倡导），枢纽性=0/4，触发no_justiciable_question上限故给25分。扣分合计=85分（检查1扣20分+检查2扣20分+检查3扣30分，共70分；可争辩性≤1原始上限50分，再因负面模式扣分至25分）。",
+          "evidence_quotes": [
+            "“全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础，为民法典编纂提供了机遇”",
+            "“民法典的编纂必须处理好以下几种关系：(一)稳定性与开放性的关系…(二)自治与管制之间的关系…(三)继承与借鉴之间的关系…(四)守成与创新之间的关系…”"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无任何疑问句式或可争辩的法学命题，仅以“XX必须YY”的应然口号展开。",
+            "将改革政策直接等同于民法典的立法理由，属于政策倡导而非法学理论建构。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文只有主题声明而无研究问题",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未见任何‘XX是否YY’或‘如何ZZ’等明确的问题句，通篇为‘民法典应当适应改革需要’的既定立场阐释。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立且具备法学可争辩性，不评论证是否严密或文献是否充分。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅为政策倡导与主题声明，缺乏可争辩的法学问题。",
+          "core_judgment": "问题维度不成立，全文无法学争点，仅是政策对立法的单向映射。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性触发上限，可争辩性≤1触发50分上限，锚定unacceptable档，基础40分，前置扣分45分，下限30分。",
+          "evidence_quotes": [
+            "凡属重大改革都要于法有据",
+            "民法典应当全面确认和保护私权，以激发市场主体活力"
+          ],
+          "strengths": [
+            "涉及民法典多领域制度设计，枢纽性较广"
+          ],
+          "weaknesses": [
+            "无问题句，纯政策倡导与主题声明",
+            "单向陈述，无理论分歧与法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有'民法典应当确认改革成果'等主题声明"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "主题声明式政策倡导，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文以'全面深化改革中的民法典编纂'为主题，系统阐释政策立场与制度建议，但未提出任何具有理论分歧的法学争点，不构成研究问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学层面争点、无理论分歧、纯政策倡导），枢纽性=2/4（涉及多制度、涉及基础概念，但无争议焦点与制度连锁），材料新颖性未触发上限。锚定unacceptable档，扣25分（新概念包装旧问题：'治理''引领改革'等新表述未说明理论进步）+20分（宏观介绍无学者交锋）+20分（主题声明非研究问题）=65分，但不得低于30分，最终给30分。",
+          "evidence_quotes": [
+            "全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础",
+            "民法典编纂过程中可以充分利用各种立法技术实现法典稳定性和开放性之间的平衡"
+          ],
+          "strengths": [
+            "涉及民法典编纂的多项制度领域"
+          ],
+          "weaknesses": [
+            "全文为政策阐释与制度介绍，无'是否''如何'等问题句",
+            "未呈现任何学者观点交锋或理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为主题声明与政策倡导"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "新概念包装旧问题扣25分",
+              "score_ceiling": 75,
+              "priority": 2,
+              "evidence": "'治理''引领改革'等新表述未说明相对既有概念的理论进步"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "主题声明非研究问题扣20分",
+              "score_ceiling": 80,
+              "priority": 3,
+              "evidence": "全文只有主题声明'全面深化改革中的民法典编纂'，无可争辩法学争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以政策导向为主，缺乏明确可争辩的法学问题句，属主题声明。",
+          "core_judgment": "问题设定偏向政策倡导与体系归纳，未形成可争辩的法学核心争点，创新性不足。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限。锚定unacceptable档，基准45分。负面检查扣45分（宏观介绍扣15，主题声明扣30），依规保底计30分。",
+          "evidence_quotes": [
+            "凡属重大改革都要于法有据……民法典编纂应当全面回应改革的需要",
+            "民法典编纂必须处理好稳定性与开放性、自治与管制等关系"
+          ],
+          "strengths": [
+            "议题涵盖民法核心制度与公私法交叉，枢纽性强",
+            "系统梳理了法典化需平衡的多重理论关系"
+          ],
+          "weaknesses": [
+            "全文缺乏明确问题句，仅为政策立场阐释",
+            "学者观点交锋仅背景提及，未展开深度辨析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确争点句，仅为改革背景下的立法应然主张"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑与材料支撑。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.00474190711975,
+        "glm-5.1": 61.46391558647156,
+        "kimi-k2.6": 15.04804515838623,
+        "qwen3.6-plus": 84.26800584793091
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 28.8,
+      "std": 2.5,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文完全缺失研究地图，未呈现既有学术研究的到达点、未竟点和本文切入点，仅直接论述改革背景与民法典构想。",
+          "core_judgment": "本文未进行任何形式的文献梳理或学术定位，无到达点、无未竟点、无本文切入点，研究地图完全缺失。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，论文未区分或引用任何既有学术争论或流派，锚定unacceptable档，给20分。",
+          "evidence_quotes": [
+            "“全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础...具体表现在如下几个方面：第一，简政放权是私法自治发挥功能的必然要求...”",
+            "“民法典编纂是在全面深化改革的背景下展开的，其必然要承载新的使命，即适应全面深化改革的需要，引领改革，助推改革...”"
+          ],
+          "strengths": [
+            "论证紧扣全面深化改革背景，将民法典编纂与简政放权、负面清单等现实政策需求紧密关联。"
+          ],
+          "weaknesses": [
+            "完全未呈现既有学术研究、理论分歧或解释路径的梳理，无任何文献定位，研究地图空白。",
+            "虽提及“有学者主张”采用德国民法典体系，但未将其作为学术争论或流派加以区分和展开，不构成有效流派识别。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时触发，研究地图严重残缺或完全缺失，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点0/2，未竟点0/2，本文切入点0/2，全文无任何对既有学术成果的梳理或定位，仅进行政策背景阐述与制度构想。"
+            }
+          ],
+          "boundary_note": "论文未进行任何学术文献梳理，属于文献定位缺失，而非问题本身是否新颖；故在此维度给出极低分。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 60,
+          "band": "marginal",
+          "summary": "论文指出了具体制度缺口，但缺乏学术争点与流派梳理，研究地图不完整。",
+          "core_judgment": "现状洞察度偏弱，仅有制度缺陷描述，无学术脉络定位与争点结构。",
+          "score_rationale": "三要素=4/6，争点结构=0/2，法学流派=0个，锚定marginal档，给60分",
+          "evidence_quotes": [
+            "但问题在于...法律并没有做出规定，这就赋予了行政机关过大的自由裁量权",
+            "该条例只是阶段性的立法成果...尚缺乏细致的配套规定"
+          ],
+          "strengths": [
+            "明确指出了土地使用权延期、不动产登记等具体制度缺口"
+          ],
+          "weaknesses": [
+            "未将立法关系权衡放入学界争论脉络，缺乏学术流派识别"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1，上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文仅论述立法价值权衡，未呈现学术争点与流派对立"
+            }
+          ],
+          "boundary_note": "评估的是文献梳理与争点脉络，而非民法典立法建议本身的创新性",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文缺乏对既有学术研究的系统梳理，未建立研究地图。",
+          "core_judgment": "本文未呈现可识别的研究地图三要素，未提炼既有研究的到达点、未竟点及本文切入点，不符合现状洞察力的基本要求。",
+          "score_rationale": "三要素得分=0/6（到达点0，未竟点0，本文切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "论文通篇未出现'已有研究''学界认为''但尚未解决'等研究地图标识词。",
+            "全文以政策解读和制度建议为主，未引证任何具体学术成果及其贡献。"
+          ],
+          "strengths": [
+            "对改革政策的梳理较为全面。",
+            "涉及本土化与国际化等潜在学术议题。"
+          ],
+          "weaknesses": [
+            "无任何具体学者观点引述，到达点完全缺失。",
+            "未识别任何学术争点或对立立场，未竟点与切入点均缺失。",
+            "未将讨论纳入任何学术流派或理论脉络。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未出现任何具体学术成果引述、未识别任何研究缺口、未说明本文问题与既有研究的关系。"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性；该文问题可能具现实意义，但学术脉络完全未建立。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以改革与法典化张力为轴，清晰勾勒既有研究脉络与制度缺口，争点结构严密。",
+          "core_judgment": "研究地图完整，争点组织清晰，文献定位与本文切入点高度契合，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "德国在债法现代化过程中放弃了本土特色制度，引发了激烈的争论",
+            "《物权法》对农村土地承包经营权的内容和权能未作出全面详细的规定"
+          ],
+          "strengths": [
+            "分散式文献定位精准嵌入五大辩证关系论证",
+            "明确指出现行法原则性过强与配套缺失的具体未竟点"
+          ],
+          "weaknesses": [
+            "部分流派对立未严格标注学界代表性学者姓名",
+            "跨学科视角引入略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有学说梳理与制度缺口定位，未越界评价问题本身新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.12141799926758,
+        "glm-5.1": 52.72673678398132,
+        "kimi-k2.6": 12.645248174667358,
+        "qwen3.6-plus": 64.2077329158783
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 60,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 90
+      },
+      "mean": 51.2,
+      "std": 30.7,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "论文是政策理论梳理型，主要阐释改革背景下民法典编纂的立场与任务，未提出原创分析框架。",
+          "core_judgment": "论文未建构可操作的分析框架，仅对政策背景和制度关系进行宏观梳理与呼吁，不满足分析框架建构力的基本要求。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足概念界定一项，但触发概念堆砌和口号式呼吁降档），法学转化度得分=0/4（无任何操作化转化），锚定unacceptable档，给10分。",
+          "evidence_quotes": [
+            "在全面深化改革的历史背景下，民法典的编纂必须处理好以下几种关系：(一)稳定性与开放性的关系……(二)自治与管制之间的关系……",
+            "改革于法有据，意味着要依法改革，以立法引领改革，这样才能使改革有序推进……"
+          ],
+          "strengths": [
+            "对改革与民法典编纂的五种关系进行了结构化归纳，议题覆盖较全。"
+          ],
+          "weaknesses": [
+            "全文以阐释既定政策立场为主，无原创概念界定或分析步骤，属于政策梳理而非框架建构。",
+            "核心术语如‘私法自治’‘负面清单’未转化为可重复适用的判断标准，后文无分析步骤调用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文未提供任何可循的分析步骤或判断标准，仅罗列关系与任务，且触发概念堆砌和口号式呼吁负面模式，框架可操作性得分上限为1。"
+            }
+          ],
+          "boundary_note": "此评分仅针对分析框架的建构力，不涉及论文对政策阐述的全面性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了主题分类式的编纂思路，法学转化度高，但缺乏操作化定义和步骤，框架可操作性弱。",
+          "core_judgment": "论文框架为主题提纲而非可操作分析工具，概念无明确定义且无步骤化流程，但制度转化方案具体。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档），法学转化度得分=4/4，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "应当处理好稳定性与开放性、自治与管制等几种关系",
+            "未来民法典应当在总结农村土地改革经验基础上，对土地承包经营权抵押制度作出规定"
+          ],
+          "strengths": [
+            "法学转化度高，将政策概念转化为具体民法典制度方案",
+            "后文实际调用框架分类进行具体制度展开"
+          ],
+          "weaknesses": [
+            "核心术语缺乏“本文所称”式明确定义，触发概念堆砌降档",
+            "框架仅为主题分类，缺乏步骤化的分析流程"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架是否可操作及有法学转化，不评制度建议本身是否合理或逻辑严密。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，缺乏原创分析框架。",
+          "core_judgment": "论文以阐释'全面深化改革'与'民法典编纂'的关系为主，无原创概念界定或类型化分析框架，核心术语均来自政策表述。",
+          "score_rationale": "框架可操作性得分=1/4（仅'四对关系''五项制度'等分类罗列，无判断步骤或评价标准；法学转化度得分=1/4（仅将政策话语映射到制度层面，未转化为可操作的法学分析步骤）。锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础，为民法典编纂提供了机遇，具体表现在如下几个方面",
+            "在全面深化改革的历史背景下，民法典编纂应当处理好以下几种关系：（一）稳定性与开放性的关系……（二）自治与管制之间的关系……（三）继承与借鉴之间的关系……（四）守成与创新之间的关系……（五）一般法与特别法之间的关系"
+          ],
+          "strengths": [
+            "政策与制度对应关系梳理较为系统"
+          ],
+          "weaknesses": [
+            "核心术语如'四对关系''五项制度'无操作化定义，仅为内容提纲",
+            "大量'应当''需要'式规范性表述缺乏具体法条或程序支撑"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'第一''第二''第三'等列举政策要点，无'本文所称XX是指'的原创定义，无步骤化分析流程，后文仅重复政策话语未调用任何分析框架"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身，不涉及具体制度建议的合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以政策阐释与立法建议为主，缺乏原创分析框架与可操作步骤。",
+          "core_judgment": "框架未提供可重复适用的判断标准或分析步骤，法学转化停留于宏观立法指引。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "凡属重大改革都要于法有据……民法典应当充分确认自由的价值",
+            "民法典编纂应当处理好稳定性与开放性、自治与管制等关系"
+          ],
+          "strengths": [
+            "主题归纳结构清晰，覆盖民法典编纂核心议题"
+          ],
+          "weaknesses": [
+            "核心概念无明确定义，缺乏类型化边界与判断标准",
+            "通篇为规范性呼吁，无具体裁判规则或可操作步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1或仅为政策梳理，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以政策阐释为主，无原创概念、分析步骤或可重复判断标准。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉逻辑严密性与问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.354929208755493,
+        "glm-5.1": 57.514354944229126,
+        "kimi-k2.6": 12.639171838760376,
+        "qwen3.6-plus": 58.862605810165405
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 10,
+        "glm-5.1": 45,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 45
+      },
+      "mean": 36.2,
+      "std": 17.5,
+      "strictest": 10,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 65,
+          "band": "good",
+          "summary": "论文推理链以“改革需求→民法回应→制度建议”为主线，但部分关键结论跳跃明显，反驳处理缺失。",
+          "core_judgment": "实务型论文，主线可循但存在关键跳步，且完全未处理反对意见，导致结论的可辩护性受损。",
+          "score_rationale": "推理链完整性得分=3/4（缺少反驳处理环节），反驳处理度得分=0/3，锚定good档下沿，考虑关键跳步（从概括需求直接跳至具体制度建议）扣分，给65分。",
+          "evidence_quotes": [
+            "主体制度应当全面落实负面清单管理模式...一是市场主体类型的多元化...二是法人治理结构的科学化...",
+            "民法典编纂过程中，应当全面回应改革的需要，反映改革成果、引领改革发展。"
+          ],
+          "strengths": [
+            "主线清晰：以“深化改革要求”为起点，依次推导出民法需处理的几组关系和具体制度回应。",
+            "局部推理有效：如对负面清单管理模式的引入，清晰论证了其作为私法自治保障工具的逻辑。"
+          ],
+          "weaknesses": [
+            "关键跳步显著：从宏观改革口号（如“治理能力现代化”）直接跳至具体制度建议（如多元化市场主体类型），中间缺乏“为何民法规制如此具体问题是必要的”论证。",
+            "完全未回应反对意见：未列举或反驳任何学者对民法典编纂时机、体例或具体制度的批评，未承认任何局限，自封结论。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评的是推理链上的论证缺位（如何从抽象理念推出具体制度），而非框架本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链完整，反驳处理充分，核心结论可辩护推出。",
+          "core_judgment": "推理链形成充分支撑，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "有学者主张，我国民法典在体系上也应当采用《德国民法典》的立法体系，但《德国民法典》毕竟是百年前的产物……",
+            "对于前景不明晰的改革事项，应当保持谦抑态度，不能强行作出刚性规定或作出过多限定"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从背景到原则再到具体方案",
+            "对反对意见和自身局限有实质性回应"
+          ],
+          "weaknesses": [
+            "部分制度建议的推导偏宏观政策宣示，细节论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价推导过程是否严密，不评价制度方案本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 52,
+          "band": "marginal",
+          "summary": "政策宣示型论述为主，缺乏规范分析链条",
+          "core_judgment": "论文以政策文件解读和改革口号串联为主，未形成从规范前提到制度结论的可辩护推理链",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2依赖度不足、标准4存在关键跳步），反驳处理度得分=1/3（仅标准1部分满足，无实质回应与局限承认），锚定marginal档，给52分",
+          "evidence_quotes": [
+            "全面深化改革和全面推进依法治国均为民法典的制定打下了良好的基础，为民法典编纂提供了机遇，具体表现在如下几个方面",
+            "民法典编纂过程中可以充分利用各种立法技术实现法典稳定性和开放性之间的平衡"
+          ],
+          "strengths": [
+            "结构清晰，按主题分块排列政策要点"
+          ],
+          "weaknesses": [
+            "从'改革需要'到'民法典应然设计'缺乏规范推导，多为政策语言直接转换",
+            "比较法材料（德日法）未转化为可辩护的制度选择理由"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题在于政策话语替代法律推理，非框架设计问题",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文逻辑链条完整，原则与制度推导严密，反驳处理充分。",
+          "core_judgment": "推理链完整且结论可辩护推出，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "有学者主张采用《德国民法典》体系，但完全照搬他国模式无法实现我国民法典体系的科学性和合理性。",
+            "民法典不可能包罗万象……单纯地通过民法典无法实现有效的规范……在民法典之外制定特别单行法就成为必要。"
+          ],
+          "strengths": [
+            "推理链条完整，从宏观背景到立法原则再到具体制度层层递进。",
+            "充分回应学术分歧与制度局限，论证具有可辩护性。"
+          ],
+          "weaknesses": [
+            "部分政策主张向具体规则的推导略显跳跃，缺乏教义学精细论证。",
+            "对公法与私法引致机制的论述偏宏观，操作性支撑稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文充分支撑，不评价立法建议的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.07204484939575,
+        "glm-5.1": 26.471374034881592,
+        "kimi-k2.6": 9.726337909698486,
+        "qwen3.6-plus": 46.41007471084595
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 72.5,
+      "std": 17.1,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "结论仅为复述改革既定方针和原则性号召，未能转化为可争辩的学术主张，无法被法学共同体认真定位和回应。",
+          "core_judgment": "论文结论停留在宣示全面深化改革与民法典编纂的关系，未提出具体学术论点，也未回应任何反对意见或既有争论，共同体对话度严重不足。",
+          "score_rationale": "共同体对话度得分=0/4（未回应已有争论、反对者无法定位、未讨论局限）；制度可接受度得分=1/4（仅标准1成立，结论不与法秩序矛盾，但无具体制度回应、无转化方向、生硬移植）。锚定unacceptable档，因对话度为0触上限规则给分。",
+          "evidence_quotes": [
+            "民法典编纂应当处理好稳定性与开放性之间的关系……在为改革预留空间的同时，也要发挥引领改革的作用。",
+            "民法典编纂就是为重大的改革所提供的法律依据。"
+          ],
+          "strengths": [
+            "结论方向与我国现行法治话语高度一致，不存在根本冲突。"
+          ],
+          "weaknesses": [
+            "结论均为政策话语的重述，缺乏可争辩的学术论点，反对者无法进入对话。",
+            "未提及任何既有学术争论，也未主动回应可能的反对意见或论证局限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，论文结论未回应法学共同体已有争论，也未使反对者可定位和回应，自说自话，最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文结论仅强调民法典须服务改革、固化成果、引领改革，无与任何既有学术观点的争辩、修正或挑战，也未讨论任何反对意见或局限。"
+            }
+          ],
+          "boundary_note": "本维仅评结论的可接受性与对话度，不评论证逻辑严密性及前瞻延展性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深度回应民法典编纂争论，提出具体制度转化方向，高度契合中国法秩序语境。",
+          "core_judgment": "结论可接受性极高，成功进入共同体对话并给出扎实的制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "如果仅以《德国民法典》没有规定独立的人格权制度为由……无异于削足适履",
+            "未来民法典应当在总结这一改革经验的基础上，对宅基地使用权的利用与转让规则作出规定"
+          ],
+          "strengths": [
+            "深度回应学界关于民法典体系照搬德国模式的争论",
+            "制度转化方向具体，涵盖主体、财产权、登记等核心领域"
+          ],
+          "weaknesses": [
+            "部分对策建议（如主体类型扩展）的可行性论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被共同体及制度语境接受，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 52,
+          "band": "marginal",
+          "summary": "政策宣导型论述，缺乏学术对话与理论建构",
+          "core_judgment": "论文以政策阐释为主，未进入法学共同体学术争论，结论无法被反对者定位回应。",
+          "score_rationale": "共同体对话度得分=1/4（仅标准3部分成立，提及中国改革语境但未回应学术争论），制度可接受度得分=2/4（标准1、2成立，不根本矛盾且回应制度约束，但标准3、4空泛）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "民法典应当全面确认和保护私权，以激发市场主体活力",
+            "民法典编纂过程中可以充分利用各种立法技术实现法典稳定性和开放性之间的平衡"
+          ],
+          "strengths": [
+            "结合中国改革语境展开论述",
+            "涉及具体制度如不动产登记、土地承包经营权等"
+          ],
+          "weaknesses": [
+            "未回应任何学术争论或既有理论，自说自话",
+            "结论多为政策复述，无法被反对者定位反驳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0或1时，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未提及任何学术观点、理论争论或学者姓名（除引用政策讲话和个别比较法学者外），结论为政策话语复述，无法进入学术对话"
+            }
+          ],
+          "boundary_note": "本维评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深度契合中国改革语境与民法典编纂争议，制度转化路径清晰，具备高度可接受性。",
+          "core_judgment": "结论明确回应立法与改革张力，提出具体制度转化方向，完全符合共同体对话与制度兼容标准。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "民法典应当保持一定的抽象性，给未来的发展预留空间……妥善处理列举规定和一般条款之间的关系",
+            "负面清单针对的是政府对社会事务的管制……权力清单的制定必须充分考虑市场主体所应当享有的私权"
+          ],
+          "strengths": [
+            "精准定位民法典编纂中的核心法理争议（如自治与管制、稳定与开放）",
+            "制度建议紧密结合中国政策语境与现行法条约束，转化方向明确"
+          ],
+          "weaknesses": [
+            "部分对策偏重宏观政策宣示，微观裁判规则衔接略显不足",
+            "对改革试点可能引发的法秩序冲突风险讨论不够深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.52269196510315,
+        "glm-5.1": 37.18269228935242,
+        "kimi-k2.6": 10.782449960708618,
+        "qwen3.6-plus": 80.14977383613586
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 90
+      },
+      "mean": 61.8,
+      "std": 35.9,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文在结论部分提出了若干可定位的制度完善方向，并承认了正文的局限性，形成了真实的延展路径，但整体延展仍以宏观概括为主，缺乏精细化的后续研究问题或争点设计。",
+          "core_judgment": "存在明确的延展路径，与正文论证有可解释的衔接，但路径的精细度或证据展开有限。",
+          "score_rationale": "原始分70分，对应bonus=3分档位。主要证据是：论文指明了不动产登记制度、主体制度、农村财产权制度等具体改革方向的完善路径，并承认了立法前瞻性的局限，要求对未来前景不明事项保持谦抑。",
+          "evidence_quotes": [
+            "在宅基地使用权的规范中，由于宅基地流转改革未定，该法在这方面规定的条文也就比较抽象，且援引了其他法律，这就能为未来的改革预留空间。",
+            "应当总结该条例的实施经验，对不动产的统一登记的范围、登记机构审查的职责、查询、登记错误的赔偿等作出更科学合理的细致规定，进一步完善不动产登记的各项制度。"
+          ],
+          "strengths": [
+            "明确指出了多个具体制度的改革方向与完善内容，如农村土地三权分置、不动产登记细化等。",
+            "承认了立法前瞻性的限度，提出对前景不明事项应保持沉默，为后续研究留下了明确的问题域。"
+          ],
+          "weaknesses": [
+            "延展路径多为宏观制度建议，缺乏可转化为具体研究问题的争点设计或反驳入口。",
+            "未来延展主要停留在应然层面，对路径实施可能面临的理论或实务风险论证不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评的是论文为后续研究或改革指出的可定位方向（如不动产登记完善、农村土地制度改革），而非其当下结论是否可被接受。后者属于结论可接受性维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文为民法典编纂指明了多项具体制度完善方向与规则衔接路径，延展性清晰可定位。",
+          "core_judgment": "存在真实延展路径，具体指明了农村土地权利流转、不动产登记细化、商事主体扩展等制度修正方向。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。论文作为制度/立法型，清晰指出了宅基地流转程序、不动产登记赔偿等具体制度完善方向，与正文核心结论紧密衔接，非空泛展望。",
+          "evidence_quotes": [
+            "主要应当规定宅基地使用权的利用方式、流转的具体程序、转让的限制条件等内容。",
+            "对不动产的统一登记的范围、登记机构审查的职责、查询、登记错误的赔偿等作出更科学合理的细致规定。"
+          ],
+          "strengths": [
+            "延展路径具体可定位，如宅基地流转程序与限制条件",
+            "指明了公私法衔接的引致规范等规则设计方向"
+          ],
+          "weaknesses": [
+            "部分延展偏向当下立法建议，未来理论深化稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文指出的宅基地流转条件、登记赔偿规则等属于未来立法应完善的制度路径，而非当下裁判可直接接受的一般结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在民法典编纂的具体制度层面提出了若干可延伸方向，但缺乏对后续研究争点或理论深化的明确勾画。",
+          "core_judgment": "存在真实的制度延展路径，但多嵌入在'应当如何'的立法建议中，未形成独立的未来研究议程。",
+          "score_rationale": "原始分45，对应bonus=2的边际档位。论文在主体制度、财产权制度、不动产登记、合同侵权等领域提出了'下一步应如何规定'的方向（如宅基地使用权转让的具体程序、登记查询的配套规则），但多数建议与当下立法建议混为一体，未明确区分'当下应然'与'未来待研'；结尾引用梅因名言属泛泛收束，无具体延展。",
+          "evidence_quotes": [
+            "未来民法典应当在认真总结我国农村土地改革经验的基础上，对土地承包经营权的抵押制度作出更符合中国实际的规定，主要应当规定土地承包经营权抵押的期限、抵押权的实现方式、耕地保护原则等内容。",
+            "我国未来民法典应当在总结这一改革经验的基础上，对宅基地使用权的利用与转让规则作出规定，主要应当规定宅基地使用权的利用方式、流转的具体程序、转让的限制条件等内容。"
+          ],
+          "strengths": [
+            "在农村土地制度改革、不动产登记完善等领域指出了具体规则细化方向。",
+            "对'本土化与国际化''稳定性与开放性'等张力关系提出了可继续展开的框架。"
+          ],
+          "weaknesses": [
+            "多数'未来'方向实为当下立法建议，未区分已完成论证与待研究问题。",
+            "结尾处缺乏对后续研究争点或检验路径的明确交代，梅因引语流于空泛。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文是否为后续研究或制度发展留下可延伸的入口，而非评估其当下结论是否正确或被接受。论文的立法建议本身属于'当下应然'判断，但其对'具体程序''限制条件'等未竟问题的指涉，构成了未来研究的延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文系统勾勒了民法典编纂在改革背景下的制度完善路径与规则衔接方向。",
+          "core_judgment": "存在真实且具体的延展路径，明确指向立法技术选择、具体制度设计及公法私法衔接的后续推进方向。",
+          "score_rationale": "原始分85，对应bonus=5档。论文精准定位宅基地流转、登记细化等制度修正路径，延展方向清晰且与改革主线紧密衔接。",
+          "evidence_quotes": [
+            "对于前景不明晰的改革事项，应当保持谦抑态度……为将来的改革预留空间。",
+            "对不动产的统一登记的范围、登记机构审查的职责、查询、登记错误的赔偿等作出更科学合理的细致规定。"
+          ],
+          "strengths": [
+            "延展路径与正文“改革引领立法”核心结论高度咬合。",
+            "精准指出具体制度的待修正对象与细化方向。"
+          ],
+          "weaknesses": [
+            "部分宏观表述缺乏配套的实施风险评估。",
+            "比较法本土化转化路径的论证稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评述立法预留空间与制度演进方向，属未来规则建构问题，不涉当下结论的可接受性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 59.32866191864014,
+        "glm-5.1": 32.10546088218689,
+        "kimi-k2.6": 12.08235478401184,
+        "qwen3.6-plus": 63.7935950756073
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 85
+      },
+      "mean": 71.2,
+      "std": 18.9,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 45.66,
+      "weighted_total": 48.6
+    },
+    "aggregation_strictest": {
+      "final_score": 27.53,
+      "weighted_total": 27.1
+    },
+    "avg_std": 20.4,
+    "max_std": 35.9,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 18.1,
+    "composite_score": -18.73,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 35.9
+  }
+}

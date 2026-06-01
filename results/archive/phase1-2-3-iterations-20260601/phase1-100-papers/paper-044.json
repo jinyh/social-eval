@@ -1,0 +1,603 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/报偿赠与论.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与正文混排（如“· 3 3 1 ·”）",
+          "脚注标记与换行符残留（如“〔6 〕”）",
+          "部分段落因PDF解析导致断行不连贯"
+        ],
+        "evidence_quotes": [
+          "·\n3\n3\n1\n·\n报偿赠与论",
+          "〔6 〕\n\n由此，在市场交易之外，赠与\n在现实生活中实现着极为丰富的社会功能。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民法典的立法参与者在说明赠与合同作为典型合同的意义时，首先强调了赠与是对他人和社会的帮助，即赠与的利他性。",
+          "在他人婚礼上赠与一定数额的金钱，该他人通常也会在赠与人结婚时回赠数额大致相当的金钱。",
+          "基于我国本土赠与观，现实的赠与合同以报偿为其典型目的，其拘束力须从报偿目的的强弱中寻求依据。",
+          "民法典第658条第1款所规定的并非赠与人的“撤销权”，而应理解为赠与人的“解除权”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量OCR页码混排与脚注标记断行，但不影响核心论证定位与评分"
+      ],
+      "evidence_quotes": [
+        "基于我国本土赠与观，现实的赠与合同以报偿为其典型目的，其拘束力须从报偿目的的强弱中寻求依据。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR混排风险，但项目口径完全符合“中国自主知识体系研究”标准（聚焦中国民法典赠与规范、本土礼俗实践与教义学重构），建议直接进入六维评分阶段。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在空格乱码（如〔6 〕）",
+          "期刊页码混入正文（如·3 3 1·）",
+          "脚注内容直接穿插在正文段落中，影响阅读连贯性"
+        ],
+        "evidence_quotes": [
+          "〔6 〕",
+          "·3 3 1·",
+          "参见李永军：《“ 契约+ 非要式+ 任意撤销权” ：赠与的理论模式与规范分析》，《中国法学》2018 年第4 期，第163 页以下，第167 页以下。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国本土的赠与观与欧洲法传统中的有限赠与观截然不同……核心并非好意，而是‘报偿’——感谢或者期待‘等量的返还’。",
+          "民法典第658条第1款所规定的并非赠与人的‘撤销权’，而应理解为赠与人的‘解除权’……在该解除权的产生受到更为严格的限制，不仅需要赠与人的意思发动，还须满足报偿目的嗣后落空的要件。",
+          "我国民法赠与规范采取的‘诺成+非要式’模式，重视的是‘言而有信’，而‘有限解除’则注重对报偿目的的肯定。由此……‘诺成+非要式+目的落空的解除’这一赠与法规范体系也能充分体现我国民法的独特构造。",
+          "我国裁判实务上，子女未对父母尽孝道、‘受赠人对赠人有加害行为或者其他忘恩负义行为’等，均是法院认定的赠与人嗣后撤销赠与的理由。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号空格乱码、期刊页码混入正文、脚注内容穿插正文导致局部阅读中断",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国本土的赠与观与欧洲法传统中的有限赠与观截然不同……核心并非好意，而是‘报偿’",
+        "民法典第658条第1款所规定的并非赠与人的‘撤销权’，而应理解为赠与人的‘解除权’"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。论文具有强烈的中国问题中心性和可争辩法学问题，成功将儒家文化资源（礼尚往来）转化为法学分析工具（报偿赠与观、报偿目的），并形成可复核的规范命题（有限解除权）。文本存在脚注穿插正文及页码混入的工程风险，但不影响核心论点与结构的定位，后续评审需注意清洗或忽略这些格式干扰。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“报偿赠与”重构民法典赠与合同拘束力基础，问题明确且具高度教义学价值。",
+          "core_judgment": "问题成立且具重大理论争辩性，成功将社会习惯转化为规范解释命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，负面模式扣分合计0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我国民法并未继受德国的有限赠与观……应当基于本土赠与观对赠与合同的拘束力作出统一说明。",
+            "民法典第658条第1款所规定的并非赠与人的‘撤销权’，而应理解为赠与人的‘解除权’。"
+          ],
+          "strengths": [
+            "精准提炼“报偿赠与”核心争点，直击民法典赠与规范解释困境。",
+            "体系化重构撤销与解除的教义界限，理论推进扎实。"
+          ],
+          "weaknesses": [
+            "本土“报偿观”的实证数据支撑稍显薄弱，偏重规范演绎。",
+            "对任意撤销权向解除权转化的程序法衔接论证略简。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "基于本土报偿赠与观重构民法典赠与合同拘束力规范，问题成立且枢纽性强。",
+          "core_judgment": "论文提出了明确的法学争点（赠与拘束力基础重构），涉及合同法核心原理与多制度联动，问题创新性高。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置负面检查0扣分。",
+          "evidence_quotes": [
+            "民法典赠与合同的拘束力规范是否存在统一的理论基础？",
+            "需要结合我国本土赠与观，对赠与合同的拘束力来源进行重构性说明。"
+          ],
+          "strengths": [
+            "问题聚焦于赠与拘束力基础重构，争点明确",
+            "涉及合同法核心原理与多制度联动，枢纽性极强"
+          ],
+          "weaknesses": [
+            "报偿赠与概念的解释力边界尚待进一步明晰"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 80.56636381149292,
+        "glm-5.1": 57.13845419883728
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准勾勒赠与法教义学争点，清晰呈现二元论局限与本土报偿观的替代路径。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰且流派覆盖广泛，文献洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分。文内精准提炼既有研究贡献与局限，并确立本文报偿目的论切入点。",
+          "evidence_quotes": [
+            "既有学说对于道德义务性质的赠与仅停留于字面含义的解释，并未对该概念的继受法来源和规范意味作出明确说明。",
+            "基于本土赠与观，现实的赠与合同以报偿为其典型目的，其拘束力须从报偿目的的强弱中寻求依据。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，贯穿比较法与本土教义学脉络。",
+            "争点提炼深刻，清晰揭示继受规范与本土实践的张力。"
+          ],
+          "weaknesses": [
+            "对部分早期继受文献的批判性对话可进一步展开。",
+            "实证裁判数据的量化支撑略显不足，偏重教义推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有学说梳理与争点定位，非评价问题本身新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准识别赠与拘束力的理论分歧与继受法缺口，以报偿目的重构解释论，洞察度极高。",
+          "core_judgment": "研究地图完整，呈现了有偿无偿二元论与报偿赠与观等多个对立争点，现状洞察维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "以上观点采取的是较为典型的有偿、无偿二元论的立场……在我国民法的语境中，传统的有偿、无偿二元论与私法自治原理的龃龉显而易见",
+            "对于抽象的效果意思以外的事由……存在两种路径：一是他律进路……二是自律进路……自律进路被认为是符合我国实体法的解释路径"
+          ],
+          "strengths": [
+            "精准识别有偿无偿二元论与本土报偿赠与观的深层对立，争点结构清晰",
+            "深入比较德日法秩序分歧及法国原因理论，流派覆盖充分"
+          ],
+          "weaknesses": [
+            "对战略赠与与交易行为结合的法效果讨论稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评文献梳理与争点结构，不评报偿赠与观本身的理论创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.38716530799866,
+        "glm-5.1": 61.64417099952698
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "原创构建报偿赠与框架，教义转化清晰且充分调用。",
+          "core_judgment": "框架具备高可操作性与转化度，有效重构赠与拘束力理论。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "“报偿”成为当事人缔结赠与合同的典型偶素",
+            "我国法上赠与合同的典型目的是‘报偿’，即期待等量的返还"
+          ],
+          "strengths": [
+            "构建“现实类型-报偿偶素-目的”递进框架，逻辑清晰",
+            "将社会学概念彻底转化为教义学目的解释路径"
+          ],
+          "weaknesses": [
+            "“报偿目的强弱”的司法量化标准仍显抽象",
+            "对公证赠与的报偿目的推定未充分讨论例外"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化，不涉逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "提出报偿赠与框架，将社会学概念转化为教义学分析工具，重构赠与合同拘束力理论。",
+          "core_judgment": "分析框架高度成立，原创概念界定清晰，类型化标准明确，法学转化彻底且后文调用充分。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "我国本土赠与观的核心并非好意，而是‘报偿’——感谢或者期待‘等量的返还’。",
+            "不同赠与合同拘束力的差异就与偶素即报偿意图的强弱有关。"
+          ],
+          "strengths": [
+            "原创概念“报偿赠与”与“典型偶素”界定清晰，分类标准明确。",
+            "将“报偿”成功转化为意思表示解释与效力判断的法学操作步骤。"
+          ],
+          "weaknesses": [
+            "分析步骤嵌入教义推演，未显式提炼为标准化的裁判流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力与法学转化度，不评价报偿理论在民法体系中的逻辑自洽性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 58.468302965164185,
+        "glm-5.1": 51.21561288833618
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整，结论可辩护推出。",
+          "core_judgment": "链条环环相扣，反驳充分，逻辑严密成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证层层递进无跳步。",
+          "evidence_quotes": [
+            "现实类型……‘报偿’成为典型偶素。",
+            "第658条第2款应为拘束力原则性规定。"
+          ],
+          "strengths": [
+            "步骤依赖度高，形成分析闭环。",
+            "对传统理论及比较法渊源回应实质。"
+          ],
+          "weaknesses": [
+            "社会学向教义学转化论证略简。",
+            "好意赠与例外统合度可强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评推理推导与反驳，不评框架可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过现实类型提炼偶素，批判现行法预设，重构拘束力来源并落实于条文解释，推理链完整。",
+          "core_judgment": "推理链形成充分支撑，核心教义学结论可由前文理论推导可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "现实类型的共通偶素是报偿，决定拘束力边界",
+            "第658条第1款并非任意撤销权，而应理解为目的落空后的解除权"
+          ],
+          "strengths": [
+            "从社会类型到法律效力的推导链环环相扣",
+            "对有偿无偿二元论等反对观点有实质性回应"
+          ],
+          "weaknesses": [
+            "从社会学偶素到法律效力来源的转换存在理论张力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是从报偿偶素到解除权重构的推理支撑，而非该重构方案在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 67.67999482154846,
+        "glm-5.1": 54.26016712188721
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文提出“报偿赠与”理论重构赠与拘束力基础，深度回应学说争议并契合本土语境。",
+          "core_judgment": "结论具备高度对话度与制度兼容性，理论主张明确且可被学界检验回应。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文修正有偿/无偿二元论，主张以报偿目的作为赠与拘束力统一基础。",
+            "提出将第658条任意撤销权解释为目的落空后的有限解除权，提供教义路径。"
+          ],
+          "strengths": [
+            "精准挑战传统二元论，对话意识强。",
+            "将本土规范转化为教义概念，语境回应充分。"
+          ],
+          "weaknesses": [
+            "报偿目的司法认定标准需进一步细化。",
+            "偏重解释论，立法衔接方案着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论提出“报偿赠与观”重构赠与拘束力基础，并给出具体解释论方案。",
+          "core_judgment": "结论有效挑战既有二元论，提出本土化理论重构及具体解释路径，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "我国本土赠与观的核心并非好意，而是‘报偿’",
+            "民法典第658条第1款所规定的并非赠与人的‘撤销权’，而应理解为赠与人的‘解除权’"
+          ],
+          "strengths": [
+            "理论重构与本土语境深度融合",
+            "给出具体的解释论转化方案（目的性限缩等）"
+          ],
+          "weaknesses": [
+            "将‘道德义务性质赠与’视为原则可能面临文义解释阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.6440601348877,
+        "glm-5.1": 42.798563718795776
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 82
+      },
+      "mean": 75,
+      "std": 9.9,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提出“报偿赠与”理论框架，为赠与合同拘束力解释提供本土化路径，并预留了教义细化与司法适用的延展空间。",
+          "core_judgment": "存在真实延展路径，主要指向“报偿目的”司法认定标准细化及与其他合同制度的教义衔接。",
+          "score_rationale": "原始分68，对应bonus=3。论文构建“报偿目的”框架并指向“有限解除”规则，路径清晰且与结论紧密衔接；但未展开具体后续研究设计或证据标准，精细度有限。",
+          "evidence_quotes": [
+            "推动我国民法解释论实现从‘继受的民法’到‘自信的民法’的转变。",
+            "基于本土赠与观，现实的赠与合同以报偿为其典型目的，其拘束力须从报偿目的的强弱中寻求依据。"
+          ],
+          "strengths": [
+            "提出“报偿目的”框架，为后续裁判标准细化提供明确理论接口。",
+            "指出向“有限解除”转换，预留了与合同解除制度衔接的研究空间。"
+          ],
+          "weaknesses": [
+            "未明确列出后续实证检验或具体教义学争点，延展方向偏宏观。",
+            "对“报偿目的”强弱程度的司法认定标准缺乏前瞻性操作指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估“报偿目的”理论提出后，未来在司法认定标准、跨制度衔接及本土化教义深化方面的研究空间，而非当下结论的学术接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "提出“诺成+非要式+目的落空解除”的新规范体系，为赠与合同教义学重构指明清晰延展路径。",
+          "core_judgment": "该维存在真实延展路径，通过将撤销权重构为限定解除权及提出报偿目的解释论，指明了具体的制度完善与概念修正方向。",
+          "score_rationale": "原始分82，对应bonus档位为5分（>=80）。论文虽未专设展望段，但核心结论本身即构成清晰延展路径：将任意撤销重构为“目的落空的限定解除”，并提出“诺成+非要式+目的落空解除”体系，指明了具体的理论与制度修正方向。",
+          "evidence_quotes": [
+            "不仅赠与合同的拘束力可以得到统一的解释基础，“诺成+非要式+目的落空的解除”这一赠与法规范体系也能充分体现我国民法的独特构造。",
+            "第658条第1款赋予赠与人的不是任意撤销权，而是有限或限定解除权。"
+          ],
+          "strengths": [
+            "提出具体的制度重构方向（撤销转解除）。",
+            "概念修正路径清晰（报偿目的替代无偿性）。"
+          ],
+          "weaknesses": [
+            "未明确指出“报偿目的”在实务认定中的证明难点等局限。",
+            "结语部分存在轻微宏观意义拔高（分配正义）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "探讨“报偿目的”在具体个案中的证明标准与适用边界属于未来延展问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 85.15837788581848,
+        "glm-5.1": 61.61329197883606
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 3.3,
+    "max_std": 9.9,
+    "weighted_total": 89.9,
+    "final_score": 93.76,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 5.03,
+    "worst_dimension": "forward_extension",
+    "worst_std": 9.9
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "我国本土的赠与观与欧洲法传统中的有限赠与观截然不同。我国社会长久形成的赠与观与以“人缘、人情、人伦”为特征的人际关系密切关联……其核心基础在于人们相互之间的“欠”。",
+          "基于本土赠与观以及现实赠与诸类型的共通偶素，我国法上赠与合同的典型目的是“报偿”，即期待等量的返还。",
+          "民法典第658条第1款所规定的并非赠与人的“撤销权”，而应理解为赠与人的“解除权”。而且，该解除权的产生受到更为严格的限制，不仅需要赠与人的意思发动，还须满足报偿目的嗣后落空的要件。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "我国本土的赠与观与欧洲法传统中的有限赠与观截然不同……可见，我国本土赠与观的核心并非好意，而是‘报偿’——感谢或者期待‘等量的返还’……这样的基本立场可以被概括为‘报偿赠与观’",
+          "我国民法典宏观上采取了类似于日本法的规范模式，却同时继受了德国‘道德义务性质的赠与’的相关规范，呈现出混合继受的样态。这种规范模式是否与我国本土赠与观相契合，就是一个值得进一步思考的问题。",
+          "基于本土赠与观以及现实赠与诸类型的共通偶素，我国法上赠与合同的典型目的是‘报偿’，即期待等量的返还。",
+          "民法典第658条第1款所规定的并非赠与人的‘撤销权’，而应理解为赠与人的‘解除权’。而且，该解除权的产生受到更为严格的限制，不仅需要赠与人的意思发动，还须满足报偿目的嗣后落空的要件。在这个意义上，第658条第1款赋予赠与人的不是任意撤销权，而是有限或限定解除权。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

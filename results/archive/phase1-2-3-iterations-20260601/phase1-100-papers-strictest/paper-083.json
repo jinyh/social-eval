@@ -1,0 +1,1178 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/法治文明的中国表达.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "degraded",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR或复制导致国际刊号等格式字符混入正文，但不影响论点定位",
+          "仅提供编者按及作者论点摘要，未提供六篇文章的完整正文，属于期刊栏目综述性质文本"
+        ],
+        "evidence_quotes": [
+          "4 4 ·",
+          "· 0 0 2 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "法治文明的中国表达...以习近平法治思想为指导，不断总结和创新法治文明的中国表达",
+          "中国式法治现代化道路深刻反映了中国共产党不断探索法治发展道路的光辉历程，彰显出鲜明的中国法治文明特色",
+          "中国特色社会主义法治理论...具有内在的逻辑和规则",
+          "中国式物权制度对标以公有制为前提发展中国特色社会主义市场经济...以“三重所有权”结构安排捍卫中国特色社会主义公有制"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "法治文明的中国表达...以习近平法治思想为指导",
+        "中国式物权制度...创新性地回应了财产权文明的世界之问"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "可进入六维评分。文本为《中国社会科学》2022年第12期的一组专题文章‘编者按’及作者论点摘要汇编，核心论点明确，围绕“法治文明的中国表达”展开多个法学维度的自主知识体系建构论述，完全符合项目口径。文本存在字符混排等低质量风险，但不影响评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如'· 3 4 ·', '· 4 4 ·', '· 0 0 2 ·'）",
+          "OCR数字空格残留（如'1 954 年'）",
+          "文本为编者按与多篇论文摘要合集，非单一完整学术论文正文"
+        ],
+        "evidence_quotes": [
+          "· 3 4 ·",
+          "1 954 年前后以毛泽东为核心的党的第一代领导人对法的认识",
+          "· 0 0 2 · 中国社会科学 2022 年第12 期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "构建中国自主法学知识体系必须扎根人类文明新形态的中国伟大实践和伟大创造",
+          "中国式物权制度对标以公有制为前提发展中国特色社会主义市场经济、平衡实现人民福祉与民事权利，以“三重所有权”结构安排捍卫中国特色社会主义公有制、以“多层级用益物权体系”制度创新满足人民对美好生活的向往",
+          "我国传统刑事程序法治文明的创造性转化是推动新发展的内生动力"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "项目口径：文本为专题编者按与多篇论文摘要合集，非单一完整学术论文，后续维度评审需注意论证深度评估的局限性",
+        "文本工程：页码及OCR空格残留影响局部阅读体验，但不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "以“三重所有权”结构安排捍卫中国特色社会主义公有制、以“多层级用益物权体系”制度创新满足人民对美好生活的向往、以“平等保护”法律原则维护市场机制的有效运作"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_boundary"
+      ],
+      "recommendation": "文本属于'法治文明的中国表达'专题的编者按及中英文摘要合集，并非单一完整学术论文。虽然项目口径信号极强（明确探讨中国自主法学知识体系，且蔡立东摘要中包含'三重所有权'等可复核法学命题），但缺乏完整论证过程。建议人工确认是否需要获取六篇完整论文后再行评审，或在当前文本基础上仅作口径预检通过，后续维度评分降级处理。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "期刊编者按/主持人语体裁，非独立学术论文；正文为多位学者观点的摘要汇编，缺乏完整论证结构；参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "编者按：习近平总书记在中国共产党第二十次全国代表大会上的报告指出……我们以'法治文明的中国表达'为主题组织了六篇文章",
+          "Fu Zitang,professor at Southwest University of Political Science and Law,believes that...",
+          "Li Lin,research fellow...believes that...",
+          "He Qinhua...and Zhou Xiaofan...believe that..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "编者按：……我们以'法治文明的中国表达'为主题组织了六篇文章",
+          "付子堂认为，中国式法治现代化道路深刻反映了中国共产党不断探索法治发展道路的光辉历程",
+          "李林认为，现代化中华法治文明……实现了中华优秀传统法律文化……的创造性转化",
+          "蔡立东认为，中国式物权制度……创新性地回应了财产权文明的世界之问"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "体裁为期刊编者按/主持人语，非独立学术论文，而是六篇论文的摘要汇编",
+          "全文由六个并列的学者观点摘要组成，每个摘要仅200-300字，无任何论证展开",
+          "不存在可争辩的法学问题：各摘要均为肯定性、宣示性陈述，无规范分析、无理论争议、无反驳对象",
+          "无中国实践解释尝试：仅概括性描述'中国法治现代化''中华法治文明''中国式物权制度'等，未解释任何具体实践难题",
+          "无理论转化或可复核命题：各摘要均为政策话语复述和成就总结，未形成任何可检验的法学概念、判断标准或制度命题"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：中英文摘要混排，但核心内容可定位；项目口径：完全不具备学术论文形态，属于项目征稿说明或编者按"
+      ],
+      "evidence_quotes": [
+        "编者按：……我们以'法治文明的中国表达'为主题组织了六篇文章，以期从不同视角、不同层面为构建中国自主法学知识体系贡献智慧"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "体裁为期刊编者按/主持人语，非独立学术论文，而是六篇论文的摘要汇编",
+        "全文由六个并列的学者观点摘要组成，每个摘要仅200-300字，无任何论证展开",
+        "不存在可争辩的法学问题：各摘要均为肯定性、宣示性陈述，无规范分析、无理论争议、无反驳对象",
+        "无中国实践解释尝试：仅概括性描述'中国法治现代化''中华法治文明''中国式物权制度'等，未解释任何具体实践难题",
+        "无理论转化或可复核命题：各摘要均为政策话语复述和成就总结，未形成任何可检验的法学概念、判断标准或制度命题"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该文本为《中国社会科学》期刊的编者按/主持人语（Editor's Note），是对六篇专题论文的引介和摘要汇编，并非独立学术论文。虽然涉及中国法治问题，但完全不具备学术论文的问题意识、论证结构和理论深度，属于项目征稿说明性质。建议直接排除，不进入六维评价。如需评价该专题的学术贡献，应获取六篇原始论文分别进行评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "中英文摘要混排且夹杂期刊页码与分隔符（如· 3 4 ·、· 0 0 2 ·）",
+          "OCR断行导致部分英文句子粘连与标点缺失（如scientific and people-centered.It fully embodies...）",
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "· 3 4 ·\n\n法律文化以及其他人类法治文明之精华为历史基础",
+          "scientific and people-centered.It fully embodies the truth and moral strength of Xi\nJinping Thought on Socialism with Chinese Characteristics for a New Era."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "构建中国自主法学知识体系的历史转型期，必须以习近平法治思想为指导，不断总结和创新法治文明的中国表达。",
+          "中国式物权制度对标以公有制为前提发展中国特色社会主义市场经济……以‘三重所有权’结构安排捍卫中国特色社会主义公有制、以‘多层级用益物权体系’制度创新满足人民对美好生活的向往"
+        ],
+        "boundary_reasons": [
+          "文本体裁为期刊专题编者按及六篇论文摘要汇编，非完整单篇学术论文，缺乏独立、完整的论证结构与文献支撑",
+          "内容侧重宏观法治文明叙事与政策成就总结，虽提出‘三重所有权’‘统筹国内涉外法治’等命题，但未展开具体规范分析或可争辩的教义学推演，需专家裁断其作为独立评分对象的适格性"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "文本为摘要合集，需确认是否以单篇论文形式进入评分流程",
+        "宏观理论表述较多，具体法学争辩点需结合全文定位"
+      ],
+      "evidence_quotes": [
+        "中国式现代化的本质要求是……创造人类文明新形态",
+        "加快构建中国特色哲学社会科学，归根结底是建构中国自主的知识体系"
+      ],
+      "boundary_reasons": [
+        "文本体裁为期刊专题编者按及六篇论文摘要汇编，非完整单篇学术论文，缺乏独立、完整的论证结构与文献支撑",
+        "内容侧重宏观法治文明叙事与政策成就总结，虽提出‘三重所有权’‘统筹国内涉外法治’等命题，但未展开具体规范分析或可争辩的教义学推演，需专家裁断其作为独立评分对象的适格性"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议转入人工复核。本文高度契合‘中国自主知识体系’主题，但实为专题编者按与多篇摘要合集，体裁非完整研究论文。文本存在页码混排与OCR断行风险，但不影响核心论点定位。因缺乏具体可争辩的法学命题与完整论证链条，建议调取该专题下六篇完整论文进行独立六维评分，或按‘专题导论/编者按’类别作特殊口径处理。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 47,
+          "band": "unacceptable",
+          "summary": "六篇文章构成的政策宣示汇编，未能提出任何一个可争辩的法学研究问题。",
+          "core_judgment": "不具备法学论文应有的问题争辩性，全文仅阐释既定政策立场，无可供学术争辩的法学问题。",
+          "score_rationale": "可争辩性=1/4（仅标准2勉强满足），枢纽性=1/4，材料新颖性未触发上限（因问题本身不成立），锚定unacceptable档，因可争辩性≤1触发上限扣至47分。",
+          "evidence_quotes": [
+            "以‘法治文明的中国表达’为主题组织了六篇文章……《中国社会科学 2022 年第12 期》",
+            "实现了中华优秀传统法律文化从学科体系、学术体系、话语体系等方面的创造性转化、创新性发展……推进了中华法系……时代性升华、现代性复兴……"
+          ],
+          "strengths": [
+            "选题宏大，尝试将中国法治实践纳入人类文明新形态叙事。",
+            "涉及法理学宏观层面的法治文明概念，具备法学理论探讨的潜在空间。"
+          ],
+          "weaknesses": [
+            "全文是主题声明和成就归纳的汇编，未提出任何具体、可争论的法学问题。",
+            "仅单向阐释政策正当性，未呈现学者观点交锋或理论分歧。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1→最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何‘XX是否YY’或‘如何ZZ’的问题句，仅有主题声明和政策阐释。"
+            }
+          ],
+          "boundary_note": "本维只评问题本身是否成立与重要，不评材料新颖性或体系完整性。",
+          "review_flags": [
+            "no_justiciable_question",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "纯政策阐释与成就总结，无法学争点与理论分歧。",
+          "core_judgment": "全文仅为主题声明与立场阐释，缺乏可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性已触发上限，锚定unacceptable档，给基础分40分；前置负面检查扣70分，底线取30分。",
+          "evidence_quotes": [
+            "必须以习近平法治思想为指导，不断总结和创新法治文明的中国表达",
+            "中国特色社会主义法治理论...成熟、定型于习近平法治思想之中"
+          ],
+          "strengths": [
+            "涉及法治多领域，主题宏大"
+          ],
+          "weaknesses": [
+            "无问题句与法学争点，纯立场阐释",
+            "无学者观点交锋，仅为成就总结"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为'法治文明的中国表达'等主题声明"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "主题声明式论文，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文为政策阐释与主题归纳，无明确问题句、理论交锋或法学争点，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限。锚定unacceptable档，给30分。扣分合计=75分（检查1扣20分+检查2扣20分+检查3扣30分，但受最低30分限制）。正式评分前基础分为105分，扣75分后为30分。",
+          "evidence_quotes": [
+            "以‘法治文明的中国表达’为主题组织了六篇文章",
+            "伟大实践孕育新的知识体系，新的知识体系推动伟大实践"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无问题句，仅为主题声明与政策阐释",
+            "无学者观点交锋，仅为既定立场归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，仅有主题声明式表述"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为编者按与摘要合集，缺乏明确法学争点与理论交锋，属主题声明与政策阐释。",
+          "core_judgment": "该维度不成立，全文无可争辩的研究问题，仅为既定立场的系统归纳。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性已触发上限。锚定unacceptable档，经负面检查扣70分，按规则保底给30分。",
+          "evidence_quotes": [
+            "中国式法治现代化道路深刻反映了中国共产党不断探索法治发展道路的光辉历程",
+            "统筹国内法治和涉外法治是习近平法治思想的核心要义之一"
+          ],
+          "strengths": [
+            "涵盖多部门法领域，宏观视野较广"
+          ],
+          "weaknesses": [
+            "全篇无问题句与学术交锋，纯主题声明",
+            "未阐明新概念相对既有理论的解释力提升"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无“XX是否YY”争点，仅为政策与立场阐释"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.49114680290222,
+        "glm-5.1": 44.79247689247131,
+        "kimi-k2.6": 9.718672037124634,
+        "qwen3.6-plus": 75.9030749797821
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 47,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 34.2,
+      "std": 8.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 8,
+          "band": "unacceptable",
+          "summary": "本文是六篇笔谈的编者按与摘要合集，未呈现任何既有学术研究的梳理、争点脉络或流派识别，缺乏研究地图。",
+          "core_judgment": "全文为成果宣介型笔谈，无文献综述、无对立学术观点呈现、无具体研究缺口指认，研究地图完全缺失。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，触发no_research_map上限55分，因三要素总分0且全无文献定位，实际给予8分。",
+          "evidence_quotes": [
+            "编者按：我们以“法治文明的中国表达”为主题组织了六篇文章...为构建中国自主法学知识体系贡献智慧。",
+            "付子堂认为...李林认为...何勤华、周小凡认为...黄进认为...陈卫东认为...蔡立东认为..."
+          ],
+          "strengths": [
+            "六篇笔谈均观点鲜明，各自从不同维度阐释法治文明的中国表达"
+          ],
+          "weaknesses": [
+            "全文无任何对既有学术研究的引述、评价或争点梳理",
+            "无研究缺口（未竟点）指认，未将自身论述置于学术辩论脉络中"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点、未竟点、本文切入点均缺失；无任何学术文献引用或对立观点呈现。"
+            }
+          ],
+          "boundary_note": "此处扣分是因文献梳理和学术定位缺失，而非对论文主题创新性或论证严密性的评价。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "纯观点罗列的笔谈组文，无任何研究地图与争点结构。",
+          "core_judgment": "论文完全缺失研究地图，现状洞察维度不成立。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分",
+          "evidence_quotes": [
+            "编者按：以期从不同视角为构建中国自主法学知识体系贡献智慧",
+            "付子堂认为，中国式法治现代化道路深刻反映了...光辉历程"
+          ],
+          "strengths": [
+            "无"
+          ],
+          "weaknesses": [
+            "无文献梳理与学术脉络定位",
+            "纯正面主张，无争点与未竟点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素得分为0，完全缺失到达点、未竟点和切入点"
+            }
+          ],
+          "boundary_note": "评文献定位缺失而非评观点是否新颖",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "该文为编者按/主题导言，非学术论证论文，无研究地图。",
+          "core_judgment": "本文是期刊编者按，旨在介绍六篇主题文章的背景与主旨，不构成独立的法学研究论文，因此不满足文献洞察度的评价前提。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [
+            "编者按：习近平总书记在中国共产党第二十次全国代表大会上的报告中指出……我们以'法治文明的中国表达'为主题组织了六篇文章",
+            "西南政法大学教授付子堂认为……中国社会科学院法学研究所研究员李林认为……"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "文本性质为编者按，非独立研究论文",
+            "无文献综述、无研究问题、无学术争点呈现"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文为编者按，无到达点、未竟点、切入点的任何呈现"
+            }
+          ],
+          "boundary_note": "本维度评价文献梳理的完整性，但该文本非研究论文，不适用常规评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "本文实为专题编者按与多篇文章摘要汇编，缺乏独立学术论文的文献梳理与研究地图构建。",
+          "core_judgment": "未呈现任何既有研究脉络、学术争点或研究缺口，本维度核心要件完全不成立。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给40分",
+          "evidence_quotes": [
+            "基于此，我们以“法治文明的中国表达”为主题组织了六篇文章，以期……贡献智慧。",
+            "付子堂认为……李林认为……黄进认为……陈卫东认为……蔡立东认为……"
+          ],
+          "strengths": [
+            "主题宏大且视角多元，涵盖法治现代化、涉外法治与部门法制度创新。"
+          ],
+          "weaknesses": [
+            "无文献综述与学术脉络梳理，未识别任何研究缺口或对立争点。",
+            "体裁为编者按与摘要汇编，缺乏独立论文的到达点、未竟点与切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1触发上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素全为0分，无任何到达点、未竟点与切入点表述"
+            }
+          ],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉及主题价值或政治表述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.74288296699524,
+        "glm-5.1": 36.3402099609375,
+        "kimi-k2.6": 9.36685585975647,
+        "qwen3.6-plus": 69.03678297996521
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 8,
+        "glm-5.1": 0,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 40
+      },
+      "mean": 12,
+      "std": 19.0,
+      "strictest": 0,
+      "strictest_model": "glm-5.1"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "本文为六篇文章的编者按，旨在介绍和归纳各文观点，并未提出或建构任何分析框架。",
+          "core_judgment": "全文属于政策理论梳理型介绍，无成形的分析框架，故本维不成立。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，触犯“政策理论梳理型”及“无分析框架”上限规则，定位 unacceptable，给10分。",
+          "evidence_quotes": [
+            "我们以“法治文明的中国表达”为主题组织了六篇文章，以期从不同视角、不同层面为构建中国自主法学知识体系贡献智慧。",
+            "中国式法治现代化道路深刻反映了中国共产党不断探索法治发展道路的光辉历程，彰显出鲜明的中国法治文明特色。"
+          ],
+          "strengths": [
+            "对六篇文章的核心观点进行了高度凝练的概括。"
+          ],
+          "weaknesses": [
+            "全文仅为主题介绍与观点归纳，无任何原创的分析框架或操作步骤。",
+            "缺乏对核心术语的自我定义，后文亦无分析框架可供调用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "policy_summary_type",
+              "rule": "政策理论梳理型识别规则：主要工作为系统归纳既有立场或政策理论，未提出原创分析框架，框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以介绍其他学者论文观点（如付子堂、李林等）为主，核心功能为归纳阐述，无自我建构的分析步骤或判断标准。"
+            }
+          ],
+          "boundary_note": "本文是编者按，不具备建构分析框架的条件，本维度评估的是框架本身的有无与可操作性，非逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为政策理论梳理型笔谈，未建构任何原创分析框架，仅有宏观阐释。",
+          "core_judgment": "该维度不成立，论文完全缺乏可操作的分析框架与法学转化步骤。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发no_operational_framework上限规则，给30分。",
+          "evidence_quotes": [
+            "构建中国自主知识体系必须扎根人类文明新形态的中国伟大实践",
+            "以‘三重所有权’结构安排捍卫中国特色社会主义公有制"
+          ],
+          "strengths": [
+            "对权威表述和既有制度特征进行了系统归纳"
+          ],
+          "weaknesses": [
+            "无原创分析框架，缺乏概念操作化定义",
+            "仅有宏观阐释，无具体法学分析步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策立场归纳与意义阐释，无分析步骤与操作转化"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用，不评理论立场正确性或逻辑严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型论文，无原创分析框架，仅为六篇论文的编者按汇编。",
+          "core_judgment": "该文未建构任何可操作的法学分析框架，核心术语全部来自权威表述，属于典型的政策阐释而非学术框架建构。",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、无分类标准、无分析步骤、无后文调用——全文为编者按汇编，无独立分析框架）；法学转化度得分=0/4（无跨学科概念转化、无裁判规则、无制度设计方案、无后文操作步骤）。触发v0.7政策理论梳理型识别规则：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分；同时触发no_operational_framework上限（框架可操作性≤1则最高50分）。最终取最低上限，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "编者按：习近平总书记在中国共产党第二十次全国代表大会上的报告中指出……我们以'法治文明的中国表达'为主题组织了六篇文章",
+            "付子堂认为……李林认为……何勤华、周小凡认为……黄进认为……陈卫东认为……蔡立东认为"
+          ],
+          "strengths": [
+            "作为组稿编者按，主题聚合较为清晰"
+          ],
+          "weaknesses": [
+            "全文为六篇论文观点汇编，无任何原创概念或分析步骤",
+            "核心术语'中国式现代化''人类文明新形态'等均为权威表述，未作学术转化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1则最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何'本文所称XX是指'式定义，无分类标准，无步骤化分析流程，核心术语全部来自权威表述"
+            },
+            {
+              "rule_id": "v0.7_policy_theory_recognition",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释既定立场为主，主要贡献是'组织''介绍'六篇文章，无原创概念界定或类型化"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评该文作为编者按的组稿功能。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "本文系政策理论梳理与编者按汇编，未提出原创分析框架。",
+          "core_judgment": "全文以归纳权威表述为主，缺乏可操作的分析步骤与法学转化，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给25分。",
+          "evidence_quotes": [
+            "中国式法治现代化道路深刻反映了中国共产党不断探索法治发展道路的光辉历程",
+            "统筹推进国内法治和涉外法治是习近平法治思想的核心要义之一"
+          ],
+          "strengths": [
+            "宏观视野开阔，系统梳理了法治文明中国表达的多维视角"
+          ],
+          "weaknesses": [
+            "核心术语无明确定义，缺乏类型化标准与可重复的分析步骤",
+            "停留于政策立场阐释，未转化为裁判规则或制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义且无任何可循分析步骤，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为编者按与立场归纳，无原创概念界定与操作指引"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.434757232666016,
+        "glm-5.1": 37.25572490692139,
+        "kimi-k2.6": 15.064502000808716,
+        "qwen3.6-plus": 63.606658935546875
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 10,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 25
+      },
+      "mean": 25,
+      "std": 10.8,
+      "strictest": 10,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 50,
+          "band": "unacceptable",
+          "summary": "本文为多作者笔谈汇编，缺乏统一的论文推理链，各部分观点并列独立，无整体性逻辑推导。",
+          "core_judgment": "作为一组笔谈的编者按与摘要汇编，本文不构成一篇有统一推理链条的论文，无法进行有效的逻辑严密性评估，触发推理链完整性严重缺失的上限规则。",
+          "score_rationale": "推理链完整性得分=1/4（仅可勉强复述编辑意图的串联步骤，但各部分推理链完全依赖，无法从前一步推出下一步），反驳处理度得分=0/3（无任何反对意见、分歧路径或局限承认），触发broken_inference_chain上限，给50分。",
+          "evidence_quotes": [
+            "我们以‘法治文明的中国表达’为主题组织了六篇文章，以期从不同视角、不同层面为构建中国自主法学知识体系贡献智慧。",
+            "西南政法大学教授付子堂认为……中国社会科学院法学研究所研究员李林认为……华东政法大学教授何勤华……认为……"
+          ],
+          "strengths": [
+            "编者按清晰交代了组稿主题和各篇主旨，各部分摘要独立可读。"
+          ],
+          "weaknesses": [
+            "六篇文章的观点为并列关系，删除任何一篇不影响其他，缺乏从前提到结论的连贯推理链。",
+            "全文无任何反对意见、分歧路径或论证局限的承认，完全是正面阐述，反驳处理度为0。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "无法识别至少3个主要推理步骤，各部分为各自独立的观点摘要，不存在从前提到结论的逻辑推导关系。"
+            }
+          ],
+          "boundary_note": "这不是框架可操作性或结论可接受性问题，而是文本属于编者按与摘要汇编，不具备论文应有的完整推理链，属于结构层面的逻辑链缺失。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文为多位作者观点合集，缺乏统一推理链，结论多为宣言式断言。",
+          "core_judgment": "本维度不成立，文本未展现从前提到结论的可辩护推导，纯属立场宣示。",
+          "score_rationale": "推理链完整性得分=0/4，反驳处理度得分=0/3，锚定unacceptable档，触发上限规则，给20分",
+          "evidence_quotes": [
+            "它以马克思主义法学观为思想渊源……具有内在的逻辑和规则",
+            "以“三重所有权”……创新性地回应了财产权文明的世界之问"
+          ],
+          "strengths": [
+            "蔡立东部分呈现了从公有制前提到制度设计再到结论的宏观框架"
+          ],
+          "weaknesses": [
+            "全文为并列断言，无依赖性推理链",
+            "零反驳处理，结论突兀无推导"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "推理链完整性仅得0分，全文由并列宣言组成，无连贯推导"
+            }
+          ],
+          "boundary_note": "逻辑断裂源于缺乏推导步骤，而非理论框架本身缺乏可操作性。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "该文为编者按/综述性文章，缺乏论证性推理链，不符合学术论文标准结构。",
+          "core_judgment": "本文未形成可识别的推理链条，核心结论无法从前文推出，逻辑严密性维度不成立。",
+          "score_rationale": "推理链完整性得分=1/4，反驳处理度得分=0/3。虽能识别3个以上独立陈述，但各陈述为并列介绍六位学者观点，无依赖关系；无核心结论需推出，无反驳处理。触发上限规则，取最低档。",
+          "evidence_quotes": [
+            "六篇文章分别从不同视角...为构建中国自主法学知识体系贡献智慧",
+            "付子堂认为...李林认为...何勤华、周小凡认为...黄进认为...陈卫东认为...蔡立东认为"
+          ],
+          "strengths": [
+            "六位学者观点并列呈现，结构清晰"
+          ],
+          "weaknesses": [
+            "无推理链，仅为观点汇编",
+            "无任何反驳或分歧处理"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文章为编者按综述，无'前提→推导→结论'结构，六位学者观点并列独立，无逻辑衔接"
+            }
+          ],
+          "boundary_note": "本维度评推理链质量，不评框架；此文本无论证框架，故无法评价框架建构力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "本文系编者按与摘要汇编，呈平行结构，缺乏统一推理链条与反驳处理。",
+          "core_judgment": "逻辑严密性不成立，因文本为观点汇编，无法形成可辩护的推导闭环。",
+          "score_rationale": "推理链完整性得分=1/4，反驳处理度得分=0/3，锚定unacceptable档，给40分。文本为多学者观点并列，无递进推导与对立回应，触发上限。",
+          "evidence_quotes": [
+            "付子堂认为…彰显出鲜明的中国法治文明特色。李林认为…实现传统法律文化创造性转化。",
+            "蔡立东认为…创新性地回应了财产权文明的世界之问，提升了时代刻度。"
+          ],
+          "strengths": [
+            "主题聚焦明确，按学者分块呈现多维视角",
+            "编者按有效统合了各篇摘要的宏观背景"
+          ],
+          "weaknesses": [
+            "各观点平行罗列，缺乏逻辑递进与依赖关系",
+            "全篇未设置反对意见或边界条件讨论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文本为六篇独立摘要汇编，无统一推理步骤与前后依赖关系"
+            }
+          ],
+          "boundary_note": "本维度仅评推理链条是否完整支撑结论，不评价编者按的选题框架或政策导向价值。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.739027976989746,
+        "glm-5.1": 55.109293937683105,
+        "kimi-k2.6": 9.127171993255615,
+        "qwen3.6-plus": 76.44693994522095
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 50,
+        "glm-5.1": 20,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 40
+      },
+      "mean": 36.2,
+      "std": 12.5,
+      "strictest": 20,
+      "strictest_model": "glm-5.1"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "本文为六篇笔谈的编者按，仅概述各文主旨，并未提出可被共同体对话和制度检验的独立学术结论。",
+          "core_judgment": "该文作为编者按，缺乏独立的、可被反对者定位和回应的学术结论，无法进入学术共同体语境。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=0/4。因完全未形成可争辩的学术主张且无任何制度/理论约束回应，触发no_community_dialogue上限规则，总分不超过50分，综合评定给25分。",
+          "evidence_quotes": [
+            "法治文明的中国表达付子堂 李 林 何勤华 周小凡 黄 进 陈卫东 蔡立东"
+          ],
+          "strengths": [
+            "主题紧扣构建中国自主法学知识体系，具有宏观时代意义。"
+          ],
+          "weaknesses": [
+            "作为编者按，全文为各篇文章观点简介，未提出独立论证或可争辩结论。",
+            "未与法学共同体已有争论对话，也未回应任何反对意见或制度约束。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论未提出可争辩的学术主张，无法被共同体认真回应",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文是编者按，仅概述他人文章，无独立结论、争论定位或反对意见回应。"
+            }
+          ],
+          "boundary_note": "本维度评估结论的可接受性，不涉及各篇文章本身的论证质量或前瞻延展性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文复述既定立场，缺乏可争辩学术主张与反对意见回应。",
+          "core_judgment": "结论仅为官方话语表态，无法进入共同体学术对话。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定marginal档，因复述既定立场无争辩性触发上限50分。",
+          "evidence_quotes": [
+            "推进了中华法系从价值理念……等方面的时代性升华、现代性复兴，具有十分重要的理论价值、实践价值和世界意义",
+            "中国式物权制度……创新性地回应了财产权文明的世界之问，提升了财产权文明的时代刻度"
+          ],
+          "strengths": [
+            "高度契合中国现行法秩序与官方法治话语",
+            "部分结论（如物权制度）指出了具体制度转化方向"
+          ],
+          "weaknesses": [
+            "仅复述既定立场，未转化为可争辩学术主张",
+            "完全未回应反对意见或自身论证局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场无争辩主张且无反对意见回应，对话度≤1，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论仅表态‘具有十分重要的理论价值、实践价值和世界意义’，未提出可争辩主张"
+            }
+          ],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "该文为政策宣示性合集，缺乏学术对话与制度回应，结论不可接受。",
+          "core_judgment": "作为法学论文，其结论未进入学术共同体对话，亦未回应制度约束，不符合结论可接受性要求。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=0/4，锚定unacceptable档，给15分。该文为六位学者观点的汇编性编者按及摘要，无独立论证结构，未回应任何学术争论，也未与既有理论形成对话；结论停留在政治话语复述，无法被反对者定位回应，亦未考虑具体制度约束或中国法治实践难题。",
+          "evidence_quotes": [
+            "伟大实践孕育新的知识体系，新的知识体系推动伟大实践",
+            "以习近平法治思想为指导，不断总结和创新法治文明的中国表达"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无学术对话，仅复述既定政治立场",
+            "无制度分析，未回应具体法治实践问题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为编者按及摘要汇编，未与任何学术观点对话，未承认反对意见或自身局限"
+            }
+          ],
+          "boundary_note": "本维评估结论当下能否被共同体接受，不评估其政治宣传价值或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 50,
+          "band": "marginal",
+          "summary": "结论高度契合现行法秩序，但属宏观立场复述，缺乏可争辩命题与反对意见回应。",
+          "core_judgment": "该维度勉强成立，制度兼容性强但未能进入实质性学术对话语境。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=3/4，锚定marginal档，给50分。结论复述既定立场，未转化为可争辩主张，依规则总分不超50。",
+          "evidence_quotes": [
+            "构建中国自主知识体系必须扎根人类文明新形态的中国伟大实践。",
+            "我国传统刑事程序法治文明的创造性转化是推动新发展的内生动力。"
+          ],
+          "strengths": [
+            "高度契合中国法治语境与现行法秩序逻辑。",
+            "明确关联刑事程序、物权等具体制度领域的理论回应。"
+          ],
+          "weaknesses": [
+            "仅复述宏观立场，未提出可被学界定位与反驳的具体命题。",
+            "未讨论任何反对意见或理论局限，缺乏学术对话性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 101.23520493507385,
+        "glm-5.1": 44.86784601211548,
+        "kimi-k2.6": 11.975605010986328,
+        "qwen3.6-plus": 61.12892293930054
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 50,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 50
+      },
+      "mean": 35,
+      "std": 17.8,
+      "strictest": 15,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "仅停留在各主题宏观意义拔高和内容概括层面，未见具体、可定位的未来研究路径或修正方向。",
+          "core_judgment": "论文无实质性延展路径，所有展望均为口号式表达。",
+          "score_rationale": "原始分30分，低于40分，bonus为0。全文系编者按及六篇短文摘要集成，侧重已有成果地位阐述，未提出后续研究问题、理论修正点或制度完善方向，缺乏真实延展证据。",
+          "evidence_quotes": [
+            "以期从不同视角、不同层面为构建中国自主法学知识体系贡献智慧。",
+            "具有十分重要的理论价值、实践价值和世界意义。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅作宏观意义宣告，未指明未来具体应从何处深化或修正。",
+            "未承认任何具体研究局限或给出可供后续检验的反驳入口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "触发口号式展望：仅有'贡献智慧''世界意义'等宏观评价，无具体待修正对象或研究路径。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文多处出现'伟大创造''卓越贡献''时代意义'等意义拔高，但均未转化为可操作的后续研究问题或边界条件。"
+            }
+          ],
+          "boundary_note": "本文缺失向前瞻延展的必要方向，属于零延展场景，而非结论可接受性问题。",
+          "review_flags": [
+            "evidence_thin",
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅有口号式意义拔高，缺乏具体可定位的未来延展路径。",
+          "core_judgment": "该文不存在真实延展路径，仅有空泛的成就宣告与意义拔高。",
+          "score_rationale": "原始分30，bonus档位为0(<40)。全文充斥“重大意义”“卓越贡献”等口号式拔高，未指明具体理论修正、概念边界或制度深化方向，缺乏真实延展路径。",
+          "evidence_quotes": [
+            "具有十分重要的理论价值、实践价值和世界意义",
+            "创新性地回应了财产权文明的世界之问，提升了财产权文明的时代刻度"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅有空泛拔高，未提出具体后续研究问题或修正方向",
+            "缺乏对理论概念边界或制度适用场景的未来延伸探讨"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，才进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文充斥‘重大意义’‘卓越贡献’等口号，未说明具体问题、对象或机制"
+            }
+          ],
+          "boundary_note": "本文的“世界意义”“时代刻度”等属于当下结论的自我评价（结论可接受性维度），而非未来可继续推进的具体研究路径。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "该文为编者按/主题综述，缺乏对具体研究问题的后续延展路径设计，仅停留在宏观意义宣示层面。",
+          "core_judgment": "不存在真实延展路径，全文未提出任何可定位的后续研究问题、理论修正方向或制度深化路径。",
+          "score_rationale": "原始分15分，bonus=0。该文为六篇论文的编者按，仅概述各文核心观点，未在任何位置提出具体后续研究问题、概念修正路径或制度完善方向。文末以'具有十分重要的理论价值、实践价值和世界意义'等空泛表述收尾，属于典型的口号式展望，无待修正对象或具体机制说明，落入0-39低分段。",
+          "evidence_quotes": [
+            "具有十分重要的理论价值、实践价值和世界意义",
+            "以期从不同视角、不同层面为构建中国自主法学知识体系贡献智慧"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅宏观宣示'贡献智慧''世界意义'，无具体研究议程或路径设计",
+            "六篇文章各自方向未形成可延伸的学术争点或待检验命题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文末以'具有十分重要的理论价值、实践价值和世界意义''以期从不同视角、不同层面为构建中国自主法学知识体系贡献智慧'作结，无具体问题、对象、机制或路径说明"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展空间，而非当下结论是否成立。该文作为编者按，其结论可接受性涉及对中国式法治现代化意义的判断，但本维度仅关注是否提供了可继续推进的研究路径——此处明显缺失。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "本文系专题编者按与摘要汇编，通篇聚焦宏观意义宣示，未提供具体后续研究路径。",
+          "core_judgment": "不存在真实延展路径，仅停留在政策与理论成就的总结性表述。",
+          "score_rationale": "原始分25，对应bonus=0。文本为专题编者按与摘要汇编，通篇依赖“重大意义”“世界意义”等宏观宣示，未提出具体后续争点、理论修正路径或局限说明，触发slogan_outlook规则，故无加分。",
+          "evidence_quotes": [
+            "具有十分重要的理论价值、实践价值和世界意义。",
+            "具有重大的时代意义、全局意义、国际意义和战略意义。"
+          ],
+          "strengths": [
+            "明确锚定构建中国自主法学知识体系的宏观主题。"
+          ],
+          "weaknesses": [
+            "仅停留于宏观意义宣示，未提出具体后续研究问题或理论修正路径。",
+            "缺乏对论证局限的承认及未来可检验的反驳入口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，才进入0-39低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文多处使用“具有重大意义”“世界意义”等表述，但未指明具体待修正对象、机制或下一步研究路径。"
+            }
+          ],
+          "boundary_note": "本维度专评未来研究走向与接口，而非当下结论的政策契合度或学术共识。本文未提供可操作的后续研究设计或概念边界修正方案。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.61738681793213,
+        "glm-5.1": 45.01113224029541,
+        "kimi-k2.6": 11.989974021911621,
+        "qwen3.6-plus": 62.74088501930237
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 25
+      },
+      "mean": 25,
+      "std": 7.1,
+      "strictest": 15,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 27.82,
+      "weighted_total": 28.4
+    },
+    "aggregation_strictest": {
+      "final_score": 17.06,
+      "weighted_total": 16.8
+    },
+    "avg_std": 12.6,
+    "max_std": 19.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 10.8,
+    "composite_score": -12.6,
+    "worst_dimension": "literature_insight",
+    "worst_std": 19.0
+  }
+}
