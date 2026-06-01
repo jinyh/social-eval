@@ -1,0 +1,1026 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/商法独立的逻辑和体系：基于组织化交易论.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文中存在OCR识别导致的乱码或特殊符号残留，例如'㉘'、'㉙'、'㉛'、'㊵'、'㊶'等数值编号，以及'■'等占位符，但不影响核心论点识别。",
+          "脚注编号存在OCR乱码或排版跳变，例如脚注编号在文中显示为'①'、'②'等，虽不连贯但参考文献抽取未导致核心文本不可读。"
+        ],
+        "evidence_quotes": [
+          "㉘ ",
+          "㉙ ",
+          "㉛ ",
+          "㊵ ",
+          "㊶ ",
+          "■ "
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "逐步建立统一的商事法律基础制度，是发展中国特色社会主义市场经济的必由之路。",
+          "有必要探索商法独立的底层理论逻辑，在宏观层面构建一个核心观察视角和体系性思维，以推动商法的立法体系独立和司法独立。",
+          "本文深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。",
+          "组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化，获得追求商业目标的主体性资格；二是市场能够通过组织体的外部交易获得价值增长。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR 残留编号或占位符可能影响部分引文精确定位，但不影响整体评审。"
+      ],
+      "evidence_quotes": [
+        "商法独立的逻辑和体系：基于组织化交易论",
+        "逐步建立统一的商事法律基础制度，是发展中国特色社会主义市场经济的必由之路。",
+        "本文深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。",
+        "组织化交易视角下，组织体始终为有限责任：以所有名义下的财产为限，而所谓的责任的有限与否，描述的是出资人与组织的相对独立程度。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文清晰涉及中国商法独立问题，提出了组织化交易论这一可复核的理论命题，并尝试用中国实践解释商法制度，满足进入六维评分的要求。文本质量存在轻微 OCR 残留，建议在正式评审前进行文本清洗，但无需进入边界复审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落之间（如271、272等）",
+          "脚注编号使用特殊符号及■替代数字，存在抽取/OCR解析风险"
+        ],
+        "evidence_quotes": [
+          "271",
+          "272",
+          "■往往会带来一系列债务清偿问题",
+          "■参见湖南省慈利县人民法院（2019）湘0821 民再2 号民事判决书"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国学者对商法的独立性建构完成了从模仿创制到探索自立，再到以中国特色社会主义市场地位为内核的自主性建构的现代化转型",
+          "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论",
+          "从契约到组织的法学认知转向，是基于中国特色的现代化转型",
+          "组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化，获得追求商业目标的主体性资格；二是市场能够通过组织体的外部交易获得价值增长"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文、脚注编号特殊符号及■替代",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段清洗正文中的期刊页码及修复异常脚注编号（如■符号）。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如㉔、㉕等带圈数字编号，部分显示为方框或乱码风险）",
+          "参考文献列表缺失（标注为'（无）'），但正文引用格式完整可辨识",
+          "期刊页码混入正文（如'271'、'272'等页码标记）"
+        ],
+        "evidence_quotes": [
+          "㉔ 参见陈甦：《商法机制中政府与市场的功能定位》",
+          "参考文献列表：（无）",
+          "中国法学 2024 年第4 期 272"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "逐步建立统一的商事法律基础制度，是发展中国特色社会主义市场经济的必由之路",
+          "我国《民法典》颁行后，私法一元化的趋势愈发明显",
+          "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论",
+          "在新《证券法》和新《公司法》全面诞生、商事主体登记法制建立、非公司企业法制改革的背景下",
+          "这是中国商法较之作为纯粹私法部门的民法和呈公法属性的经济法，在整个中国经济法制体系中具有独特地位的本质体现",
+          "民法典时代商法独立性的落没，是统一市场中商事交易特色的消解"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留（带圈数字部分可能显示异常），参考文献列表缺失，页码标记混入正文",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "逐步建立统一的商事法律基础制度，是发展中国特色社会主义市场经济的必由之路",
+        "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论",
+        "民法典时代商法独立性的落没，是统一市场中商事交易特色的消解"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文质量良好，项目口径完全匹配，应进入六维评分。文本质量风险较低，脚注编号和页码标记不影响核心论点评审，建议在评分时关注脚注引用的准确性核对。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "逐步建立统一的商事法律基础制度，是发展中国特色社会主义市场经济的必由之路。",
+          "在民法典时代的来临，如何构建商法独立的基础理论这一传统难题，更是被重新赋予了巨大的时代意义。",
+          "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。",
+          "组织化交易论为观察市场中的商法现象提供两个基本视角……能够贯通商法对商主体和商行为的规范逻辑，实现商法基础理论的内在统一。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "逐步建立统一的商事法律基础制度，是发展中国特色社会主义市场经济的必由之路。",
+        "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国民法典时代商法独立性建构为核心议题，明确提出“商法组织化交易论”作为基础理论命题，紧密结合中国商事登记、公司治理、金融交易等本土实践与司法裁判难题，具备清晰的可争辩法学问题与理论转化路径。符合项目口径，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "全文是围绕“组织化交易论”这一新概念对商法独立性的体系阐释，未提出可争辩的法学研究问题，缺少学者观点交锋。",
+          "core_judgment": "论文用“组织化交易论”包装了商法独立性这一旧问题，实质是主题声明和体系介绍，无问题句和理论分歧，材料和概念未带来实质研究推进。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性已触发上限。强制前置检查扣分合计 75 分（检查1：新概念包装旧问题扣25分；检查2：宏观介绍非深度分析扣20分；检查3：主题声明非研究问题扣30分），正式评分不可低于30分。锚定unacceptable档，给38分以保留最低区分度（未突破30分底线）。",
+          "evidence_quotes": [
+            "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。",
+            "组织化交易论为观察以合同形式出现的现代金融现象提供了一个研究框架……"
+          ],
+          "strengths": [
+            "试图在宏观层面构建统一的商法理论视角。",
+            "注意到民商关系中的组织性差异，有一定现实关切。"
+          ],
+          "weaknesses": [
+            "全文无明确的研究问题句，只有主题声明。",
+            "缺少不同学者观点的交锋，仅是作者关于“组织化交易”的体系介绍。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1且全文无问题句，主题声明等于研究问题，触发no_justiciable_question，上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现“XX是否YY”、“如何ZZ”等问题句，仅有“探索构建我国商法独立的核心理论逻辑”等主题声明。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的成立性与重要性，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 70,
+          "band": "good",
+          "summary": "商法独立旧难题引入新概念包装，问题枢纽但概念创新解释力不足。",
+          "core_judgment": "问题本身高度枢纽且可争辩，但核心创新概念对旧问题的解释力提升论证不充分，触发负面扣分。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限；触发负面检查1（新概念包装旧问题扣15分），锚定excellent档(85分)，扣分后给70分。",
+          "evidence_quotes": [
+            "“如何在具体环境中内在地实现商事主体规范和商事行为规范的逻辑统合？”",
+            "“组织化交易论旨在完成从契约到组织的法学认知的范式变革。”"
+          ],
+          "strengths": [
+            "问题触及商法独立这一长期核心争点，枢纽性极强。",
+            "论证涉及多制度领域，有理论分歧与交锋。"
+          ],
+          "weaknesses": [
+            "“组织化交易论”实质是对既有组织法理论的泛化包装，解释力提升论证不充分。",
+            "问题表述偏宏大体系建构，具体争点聚焦度稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文提出'组织化交易论'作为商法独立基础理论，但缺乏明确可争辩的法学问题句，主题声明替代研究问题。",
+          "core_judgment": "全文以'商法独立需要新理论基础'为主题展开体系建构，但无可争辩的法学争点，属于主题声明型写作而非问题研究。",
+          "score_rationale": "可争辩性=1/4（仅有主题方向但无问题句），枢纽性=2/4（涉及商法/民法分野及多个制度领域），材料新颖性未触发上限。锚定unacceptable档，因可争辩性≤1触发上限50分，扣负面模式25分（检查1：新概念包装旧问题），最终45分。",
+          "evidence_quotes": [
+            "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论",
+            "组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化...二是市场能够通过组织体的外部交易获得价值增长"
+          ],
+          "strengths": [
+            "涉及商法/民法关系等基础理论，枢纽性较强"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'式问题句，仅为主题声明",
+            "'组织化交易'概念未说明相对既有理论的解释力提升"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅陈述'构建商法独立基础理论'之必要性，无明确可争辩问题句"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "本文以“组织化交易论”重构商法独立基础理论，回应民商合一趋势下的体系整合难题。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将传统民商关系之争转化为组织与契约的范式转换，研究问题成立。",
+          "score_rationale": "前置扣分0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "对主观主义和客观主义的割裂认知和形式上的糅合主义，造成了商法规范体系的识别和运用困境。",
+            "组织化交易是指生产要素通过组织化联合获得主体性，进而形成特定交易目标、确定的交易结构和意识协调机制的交易模式。"
+          ],
+          "strengths": [
+            "精准切入民商关系百年争点，提出范式转换。",
+            "理论框架贯通商主体、公司行为与金融交易。"
+          ],
+          "weaknesses": [
+            "核心概念的教义学边界仍需进一步精细化。",
+            "对民法意思自治的批判略显宏观，对接可深入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 81.2100419998169,
+        "glm-5.1": 83.78197717666626,
+        "kimi-k2.6": 13.056349992752075,
+        "qwen3.6-plus": 79.76556587219238
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 70,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 60.2,
+      "std": 23.0,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文在正文中广泛嵌入了既有研究的定位和对立观点的争辩，研究地图三要素完整，具备清晰的争点结构。",
+          "core_judgment": "本文通过分散式文献定位，清晰勾勒了商法独立性建构的学术争论脉络和既有研究不足，并提出了自己的理论切入点，形成了有效的学术对话框架。",
+          "score_rationale": "三要素总分=5/6，争点结构=2/2，法学流派≥3个（形式民商合一vs实质商法独立、主观主义vs客观主义/混合主义、规范主义vs组织化交易论），锚定good档，给78分。",
+          "evidence_quotes": [
+            "商法独立性建构…始终未能形成一个强大而且自证的基础理论体系。而且，包罗万象的商事交易现象终究处于割裂而且零散的规范状态，此乃当前商法独立地位颇受质疑的致命弱点。(对该段落的引用，指明到达点与未竟点)",
+            "从身份到契约…在法学认知中，从契约到组织的发展…本质上是回归组织性规范秩序对经济发展的重要作用。(对该段落的引用，指明确立了核心争点与本文切入点)"
+          ],
+          "strengths": [
+            "分散式文献定位到位：正文中多处具体引述既有研究（如范健、赵万一、蒋大兴、施鸿鹏等），并明确提炼其贡献与局限。",
+            "争点结构清晰深刻：呈现了‘形式民商合一 vs 实质商法独立’、‘主观主义 vs 客观主义’、‘从身份到契约 vs 从契约到组织’等多组可区分的对立观点。"
+          ],
+          "weaknesses": [
+            "未竟点的凝练可以更集中：对既有研究具体错漏的批判散布在全文中，在结论部分的整合度稍弱。",
+            "参考文献列表缺失：无法直接核查部分引文的完整性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分仅评价论文对既有学术争议的梳理深度，不评价‘组织化交易论’这一核心命题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理商法独立理论争点，精准定位未竟点并提出组织化交易论切入。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "针对商法独立的理论基础，不同学者尝试提出过不同的模式...以商事信用为核心...以营业为核心",
+            "始终未能形成一个强大而且自证的基础理论体系...对主观主义和客观主义的割裂认知...造成了识别和运用困境"
+          ],
+          "strengths": [
+            "精准提炼商法独立基础理论的多种解释路径及其局限",
+            "争点结构清晰，民商规范逻辑对立与理论模式分歧交织"
+          ],
+          "weaknesses": [
+            "无明显缺陷"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献定位与争点梳理，不评理论创新性本身",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了商法独立的'组织化交易论'，但对既有研究的学术地图呈现不足。",
+          "core_judgment": "研究地图三要素部分满足，争点结构单一，法学流派识别有限，整体处于good档中下游。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=2个，锚定good档，给72分。到达点充分（主观主义/客观主义/混合主义、'从身份到契约'到'从契约到组织'等）；未竟点部分满足（指出'始终未能形成强大而自证的基础理论体系'但具体缺口描述分散）；切入点与未竟点对应不够紧密。争点结构仅呈现民商关系单一核心争点。法学流派识别出主观主义（商人中心主义）与客观主义（商行为中心主义）2个流派，以及混合主义作为折中立场。",
+          "evidence_quotes": [
+            "一般认为以德国立法为代表的是商人中心主义（主观主义）；以法国立法为代表的是商行为中心主义（客观主义）；以日本立法为代表的是混合主义（兼采主观和客观）",
+            "尽管学界对商法独立的坚守与探索……但始终未能形成一个强大而且自证的基础理论体系"
+          ],
+          "strengths": [
+            "明确梳理了主观主义、客观主义、混合主义三种立法模式及其代表国家",
+            "对'从身份到契约'到'从契约到组织'的范式转型有清晰的历史脉络"
+          ],
+          "weaknesses": [
+            "未竟点描述分散，未形成集中的学术争议呈现",
+            "缺乏对'组织化交易论'既有研究的直接对话，冯果等前期研究仅被提及而未充分展开学术定位"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；此处三要素=4，争点结构=1，法学流派=2，锚定good档65-74分区间",
+              "score_ceiling": 74,
+              "priority": 2,
+              "evidence": "三要素4分，争点结构仅1分（民商关系单一争点），法学流派2个"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性。论文提出'组织化交易论'具有理论创新性，但创新性不等于文献洞察度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准勾勒商法独立理论演进脉络，明确指出现有主观/客观主义及民商关系争论的体系性缺口，并以组织化交易论精准切入。",
+          "core_judgment": "研究地图完整清晰，争点结构严密，流派覆盖充分，文献定位与理论建构高度自洽。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "始终未能形成一个强大而且自证的基础理论体系……对主观主义和客观主义的割裂认知和形式上的糅合主义，造成了商法规范体系的识别和运用困境。",
+            "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。"
+          ],
+          "strengths": [
+            "精准提炼主观/客观主义及契约/组织路径分歧，争点脉络清晰。",
+            "分散式文献定位高效，未竟点与本文切入点逻辑咬合紧密。"
+          ],
+          "weaknesses": [
+            "对跨学科组织理论的法学转化论证稍显宏观，具体教义对接可深化。",
+            "部分比较法经验仅作为背景提及，未充分展开争点对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉及组织化交易论本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.20790672302246,
+        "glm-5.1": 44.520389795303345,
+        "kimi-k2.6": 15.362138032913208,
+        "qwen3.6-plus": 64.67086410522461
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 62,
+          "band": "good",
+          "summary": "论文提出了“组织化交易论”这一理论框架，但整体以理论阐释为主，分类和操作步骤不够明确，限制了其分析框架的建构力。",
+          "core_judgment": "框架在理论阐释层面有建构，但概念的操作化定义、分析步骤和后文严格调用上存在不足，整体建构力一般。",
+          "score_rationale": "框架可操作性得分=2/4（满足标准1、4，但分类标准不明、分析步骤不可循），法学转化度得分=2/4（满足标准1、2但非严格操作指引，后文有调用），锚定good档（60-69），给62分。",
+          "evidence_quotes": [
+            "“组织化交易是指生产要素通过组织化联合获得主体性，进而形成特定交易目标、确定的交易结构和意识协调机制，参与市场促使其外部性改善的交易模式和现象。”",
+            "“组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化，获得追求商业目标的主体性资格；二是市场能够通过组织体的外部交易获得价值增长。”"
+          ],
+          "strengths": [
+            "提出了“组织化交易”这一核心概念，试图统合商主体与商行为理论。",
+            "后文运用该视角对具体制度（如公司决议、金融交易、商事合同）进行了阐释，体现了框架的应用。"
+          ],
+          "weaknesses": [
+            "缺乏清晰的分析步骤或判断标准（如判断“组织化交易”成立与否的具体要件），可操作性受限。",
+            "框架对三类市场内涵（资本集约、交易协调、组织发展）的展开未转化为可重复适用的法学分析步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此评分针对框架本身的可操作性与法学转化度，不涉及框架内部推理的严密性或问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "提出原创“组织化交易论”，概念清晰、步骤可循，法学转化深入具体裁判与制度重构。",
+          "core_judgment": "框架高度成立且可用，成功将组织理论转化为商法独立性的法学分析范式与操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "组织化交易是指生产要素通过组织化联合获得主体性，进而形成特定交易目标、确定的交易结构和意识协调机制...",
+            "组织化交易论为观察市场中的商法现象提供两个基本视角：一是生产要素组织化获得主体性；二是交易组织化形成市场。"
+          ],
+          "strengths": [
+            "原创核心概念界定清晰，双视角分类标准明确。",
+            "法学转化彻底，从理论重构下沉至具体裁判规则（如金钱质押、公司决议）。"
+          ],
+          "weaknesses": [
+            "部分分析步骤在具体适用中略显宏观，如“实质性认定”的判断边界仍需进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力与法学转化，不评价商法独立性命题本身的创新度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "提出'组织化交易论'作为商法独立基础理论，但框架偏宏观阐释，可操作步骤与法学转化不足。",
+          "core_judgment": "框架具有原创概念界定，但分析步骤模糊，法学转化停留在理论映射层面，未形成可重复适用的裁判或制度操作指引。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准部分明确，但分析步骤不可循、后文调用分散未形成步骤化操作），法学转化度得分=1/4（跨学科组织理论有初步法学转化但缺裁判规则/司法程序/制度设计层面的操作指引，后文未实际使用转化步骤），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "组织化交易是指生产要素通过组织化联合获得主体性，进而形成特定交易目标、确定的交易结构和意识协调机制，参与市场促使其外部性改善的交易模式和现象。",
+            "组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化，获得追求商业目标的主体性资格；二是市场能够通过组织体的外部交易获得价值增长。"
+          ],
+          "strengths": [
+            "原创提出'组织化交易'概念并界定三要素，具有理论建构意识。",
+            "以'主体性获得'和'市场形成'双视角贯通商主体与商行为理论，有一定体系整合力。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化分析流程，'组织化交易'未转化为可重复适用的判断标准或裁判步骤。",
+            "后文案例分析未按框架步骤展开，多为理论阐释而非框架调用，法学转化浅层。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "虽有'组织化交易'定义，但无分析步骤；'三个内涵''两个视角'仅为内容提纲，未转化为判断标准或操作程序。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构与转化，不涉及民商关系理论正确性或逻辑严密性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文成功建构“组织化交易论”框架，实现跨学科概念的商法转化。",
+          "core_judgment": "分析框架成立且具备强可操作性与高法学转化度，有效统合商法体系。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，分类明确，后文密集调用；理论推演直接转化为商法解释与裁判视角。",
+          "evidence_quotes": [
+            "组织化交易是指生产要素通过组织化联合获得主体性，进而形成特定交易目标、确定的交易结构和意识协调机制……",
+            "商事合同的解释路径将各种缔约过程看作单一组织化交易，关注交易本身在市场中的利益实现，包容交易的复杂性。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，分类标准（组织化程度）明确且贯穿全文。",
+            "成功将组织学概念转化为商法解释与裁判的分析视角。"
+          ],
+          "weaknesses": [
+            "分析步骤偏重宏观视角指引，缺乏微观裁判的标准化检验流程。",
+            "部分制度转化仍停留于理论阐释，具体立法/司法规则设计略欠。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.278925895690918,
+        "glm-5.1": 43.704647064208984,
+        "kimi-k2.6": 14.734505891799927,
+        "qwen3.6-plus": 58.770978927612305
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 95,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76,
+      "std": 20.4,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文“组织化交易论”的提出与展开具有较完整的推理链，但对反对观点的实质性回应和自身局限的承认存在不足。",
+          "core_judgment": "推理链基本成立，核心结论可从前文推出，但反驳处理不充分，缺乏对潜在批评的实质性回应和明确的局限承认。",
+          "score_rationale": "推理链完整性得分=3/4（标准3不满足），反驳处理度得分=1/3（仅隐含回应了分歧路径），锚定good档，给75分。",
+          "evidence_quotes": [
+            "当前对商法独立性的强调，需要以市场和交易为内核建构基础理论，实现对过去零散制度对比、具体概念辨析、简单私法规则区隔的逻辑整合，完成商法独立的路径统一。",
+            "组织化交易视角下，自然人通过资本集合获得组织性，形成不同商事主体……在本质上皆具有商法中的主体性。"
+          ],
+          "strengths": [
+            "推理链清晰：从批判现有理论缺陷，到提出“市场和交易内核”，再到建构“组织化交易论”并展开体系阐释，层层递进。",
+            "隐含回应了民商合一等不同路径：论文通过阐述商法与民法在债务、货币、组织秩序上的差异，隐含地为其选择“组织化交易”路径提供了理由。"
+          ],
+          "weaknesses": [
+            "反驳处理不充分：论文未明确列举或实质性回应“为何不采已有替代方案（如商事信用、营业、金融交易说）”，只是简单提及即转回自身理论。",
+            "缺乏对自身论证局限的承认，如“组织化交易”边界的模糊性、适用范围的潜在限制等，未作明确讨论。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "指出“缺乏对替代理论实质性回应和局限承认”是逻辑链条上反驳处理不充分的问题，而非框架本身是否可操作的问题。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从困境识别到范式转向再到概念应用的自洽推理链，且有效回应了理论分歧与自身局限。",
+          "core_judgment": "推理链完整且层层递进，核心结论可辩护推出，反驳处理充分，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "正如学界所担忧，作为商法理论基础的‘商主体’和‘商行为’不可能脱离、区分于民事，商法的基础在现代社会中并不存在或业已丧失殆尽了。",
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨。"
+          ],
+          "strengths": [
+            "从困境到转向再到应用的推理链依赖度高",
+            "对经济学契约路径与法学组织路径的分歧给出了实质性选择理由"
+          ],
+          "weaknesses": [
+            "债与货币的历史分析与组织化交易概念的衔接稍显松散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦于组织化交易论推导商法独立的逻辑链条，而非该理论框架本身的制度可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "理论建构型论文，以'组织化交易论'统合商法独立逻辑，推理链完整但反驳处理薄弱。",
+          "core_judgment": "推理链三步递进可复述且相互依赖，核心结论可由前文推出；但缺乏对反对意见的显式回应，反驳处理度不足。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4无关键跳步），反驳处理度得分=1/3（仅标准3隐含承认局限，标准1、2不满足）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "组织化交易是指生产要素通过组织化联合获得主体性，进而形成特定交易目标、确定的交易结构和意识协调机制，参与市场促使其外部性改善的交易模式和现象。",
+            "组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化，获得追求商业目标的主体性资格；二是市场能够通过组织体的外部交易获得价值增长。"
+          ],
+          "strengths": [
+            "推理链三步递进：历史转型→概念界定→体系展开，环环相扣",
+            "从'债与货币'历史分析到'组织化交易'概念提炼，过渡自然"
+          ],
+          "weaknesses": [
+            "未显式回应'商法独立否定论'等反对意见",
+            "从'组织化交易'概念到具体制度应用的推导偶有跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度，不评'组织化交易论'本身是否最优框架。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建“组织化交易论”证成商法独立，推理链完整，反驳与局限处理充分。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文理论推演可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "从‘身份到契约’的经济认知转向为‘从契约到组织’的法学认知范式变革。",
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨。"
+          ],
+          "strengths": [
+            "历史演进与理论建构逻辑衔接紧密，三步推理环环相扣。",
+            "明确回应民商混淆论争及契约企业理论，论证具针对性。"
+          ],
+          "weaknesses": [
+            "部分经济学概念向法学规范转化时论证稍显跳跃。",
+            "对组织化交易的具体制度落地仅做框架提示，实证略薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条是否自洽支撑结论，不评价该理论框架在司法实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.90914583206177,
+        "glm-5.1": 37.77741026878357,
+        "kimi-k2.6": 11.32357120513916,
+        "qwen3.6-plus": 61.36850619316101
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 80.8,
+      "std": 8.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "本文提出了有理论潜力的“组织化交易论”，能与既有争论形成对话，并回应了中国制度语境，但对自身局限和潜在反对意见讨论不足，影响了结论的可接受度。",
+          "core_judgment": "结论作为理论主张具有可争辩性，能与共同体对话，但尚未充分构建反对者定位与回应空间，制度转化方向亦有提示，整体在对话度和制度度上处于中上水平。",
+          "score_rationale": "共同体对话度得分=2/4，制度可接受度得分=2/4，按理论论文锚定good档(60-69)，因结论有对话意识且制度兼容性较好，给68分。",
+          "evidence_quotes": [
+            "当前商法独立地位颇受质疑的致命弱点...是对主观主义和客观主义的割裂认知和形式上的糅合主义，造成了商法规范体系的识别和运用困境。",
+            "组织化交易论为观察市场中的商法现象提供两个基本视角：一是生产要素组织化获得主体性；二是交易组织化形成市场。"
+          ],
+          "strengths": [
+            "结论明确回应了学界对商法独立基础的长期争论，挑战了既有民商合一趋势，形成了可被定位的理论主张。",
+            "结论充分考虑了民法典、市场主体登记条例等中国制度语境，在原则层面论证了与现行法秩序的兼容性。"
+          ],
+          "weaknesses": [
+            "未主动讨论组织化交易论可能的反对意见或自身适用局限，如与行为/主体二分法的深层兼容性问题。",
+            "制度转化方向仅散见于各领域分析，缺乏对理论在立法或司法中具体落地路径的集中提炼。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维不评价论证逻辑严密性和理论创新潜力，只关注结论在共同体和制度语境中的当下可接受性与对话能力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出“组织化交易论”挑战既有商法独立理论，与中国民法典语境高度兼容且对话充分。",
+          "core_judgment": "结论在共同体对话和制度兼容上均表现优异，成功进入学术争鸣语境并回应制度约束。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "对主观主义和客观主义的割裂认知...造成了商法规范体系的识别和运用困境",
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨"
+          ],
+          "strengths": [
+            "明确挑战既有理论并提出替代范式，对话度高",
+            "结合民法典与金融交易等制度语境，兼容性强"
+          ],
+          "weaknesses": [
+            "制度转化方向虽已指出但未完全展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价结论能否被共同体和制度语境接受回应，不评价论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "本文提出'组织化交易论'作为商法独立的核心理论，有效回应了民商关系学术争论，但制度转化方向尚显不足。",
+          "core_judgment": "理论论文，结论具有明确的学术对话定位和中国特色语境回应，但制度转化路径的阐释较为有限。",
+          "score_rationale": "共同体对话度得分=3/4（回应民商关系长期争论、可被反对者定位、结合中国民法典语境，但未充分讨论反对意见或自身局限）；制度可接受度得分=2/4（与现行法秩序兼容、对制度约束有原则性回应，但制度转化方向不够具体、中国语境讨论集中于历史转型而非具体制度适配）；锚定good档，给78分。",
+          "evidence_quotes": [
+            "本文将深入商主体理论和商行为理论并进行融贯性改造，探索构建我国商法独立的核心理论逻辑——商法组织化交易论。",
+            "组织化交易论为观察市场中的商法现象提供两个基本视角：一是交易在市场中通过生产要素的组织化，获得追求商业目标的主体性资格；二是市场能够通过组织体的外部交易获得价值增长。"
+          ],
+          "strengths": [
+            "明确回应民商合一与商法独立的学术争论，理论定位清晰",
+            "结合中国民法典时代背景与社会主义市场经济语境展开论证"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见或自身理论局限，学术对话的开放性不足",
+            "制度转化方向较为笼统，缺乏对具体制度设计的衔接说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确回应民商关系争论，提出组织化交易论，高度契合中国法治语境且具制度转化潜力。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准定位既有争论，提出可争辩主张；契合中国语境，理论兼容现行法秩序并指明转化方向。",
+          "evidence_quotes": [
+            "本文结论修正了传统主观主义与客观主义的割裂认知，主张以组织化交易统合商法逻辑。",
+            "囿于篇幅，组织化交易论对具体制度的解释需另文探讨，仍待学界共同开拓。"
+          ],
+          "strengths": [
+            "精准切入民商关系核心争论，提出具可反驳性的理论主张。",
+            "深度结合中国民法典语境与最新商事立法，制度兼容性强。"
+          ],
+          "weaknesses": [
+            "对反对意见的针对性回应略显不足，多停留在理论自洽层面。",
+            "制度转化方向偏宏观，缺乏具体裁判规则或程序衔接的细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.10373783111572,
+        "glm-5.1": 42.80008912086487,
+        "kimi-k2.6": 11.33160662651062,
+        "qwen3.6-plus": 79.44456696510315
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 88,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 88
+      },
+      "mean": 80.5,
+      "std": 9.6,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文明确指出了未来的延展方向，将组织化交易论对具体制度的解释留待后续研究，构成了可定位的延展路径，但精细化程度有限。",
+          "core_judgment": "存在明确的延展路径，与正文核心结论紧密衔接，但缺乏更具体的未来研究问题或争点展开。",
+          "score_rationale": "原始分70对应bonus档位为3分。论文明确提出需另文探讨对具体制度的解释与整合，并指出理论仍待深化，是真实、可定位的后续研究路径，但仅以概括方式提出，精细度一般。",
+          "evidence_quotes": [
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨。商法组织化交易论作为商法体系建构的基础，仍待学界同仁共同开拓与深化。"
+          ],
+          "strengths": [
+            "延展路径清晰：明确提出对具体制度解释与整合的后续研究任务。",
+            "与核心结论衔接紧密：延展直接基于全文构建的组织化交易论体系。"
+          ],
+          "weaknesses": [
+            "延展路径精细度有限：仅指出“需另文探讨”，未提出具体制度切入点或更细化的未来研究问题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文关于“另文探讨”的声明明确指向未来的研究方向和理论深化，属于前瞻延展性范畴；其正文结论（如组织化交易论作为商法独立逻辑）的可接受性已在另一维度评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "提出将组织化交易论应用于具体商法制度解释与整合的明确深化方向。",
+          "core_judgment": "存在真实延展路径，明确指出了理论应用于具体制度整合的后续研究方向。",
+          "score_rationale": "原始分80，对应bonus档位5分（>=80）。论文明确指出后续需将组织化交易论应用于具体商法制度的解释与整合，延展路径清晰、可定位，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨。",
+            "商法组织化交易论作为商法体系建构的基础，仍待学界同仁共同开拓与深化。"
+          ],
+          "strengths": [
+            "延展方向明确，指向具体商法制度的解释与整合",
+            "与正文核心理论结论紧密衔接"
+          ],
+          "weaknesses": [
+            "对后续理论深化的具体路径与假设设计稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "后续将理论应用于具体制度整合属于未来理论深化方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出组织化交易论对具体商法制度的解释与整合'需另文探讨'，并呼吁学界共同开拓深化，但全文缺乏对后续研究问题、理论修正路径或制度适用边界的具体展开。",
+          "core_judgment": "存在概括性延展方向，但缺乏具体、可定位的后续研究路径，与正文核心结论的衔接需要推断。",
+          "score_rationale": "原始分55分，对应bonus=2的边际档位。论文仅在结尾处提及'组织化交易论对具体商法制度的解释与整合，需另文探讨'，属于承认正文局限并指向后续推进，但未说明'如何另文探讨'、'具体哪些制度'、'解释与整合的方法论'；同时提出'仍待学界同仁共同开拓与深化'，属于较概括的学术呼吁。正文虽在多个领域（公司行为、金融交易、商事合同）展示了组织化交易论的应用，但未在结论部分将这些应用转化为明确的后续争点或深化方向。整体属于'存在延展方向，但较概括、证据较少'的40-59分档。",
+          "evidence_quotes": [
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨。",
+            "商法组织化交易论作为商法体系建构的基础，仍待学界同仁共同开拓与深化。"
+          ],
+          "strengths": [
+            "承认正文局限并指向后续研究，非纯粹口号式展望。",
+            "正文多领域应用暗示了潜在延展空间。"
+          ],
+          "weaknesses": [
+            "未具体说明'另文探讨'的研究问题、制度对象或方法论路径。",
+            "未回应可能的理论反驳或给出可检验的争论入口。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估'未来还能往哪里走'。论文结语指向后续研究，但缺乏具体路径设计；当下结论能否被接受属于结论可接受性，论证是否严密属于逻辑严密性，均不在本维度评价。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在结尾明确指向将“组织化交易论”应用于具体商法制度解释与体系整合的未来研究方向。",
+          "core_judgment": "存在真实延展路径，明确指向理论向具体制度适用的转化与深化。",
+          "score_rationale": "原始分68，对应bonus=3。结尾明确指出理论需向“具体商法制度的解释与整合”延伸，路径清晰且与核心论证衔接，但缺乏具体制度清单或问题预设，精细度有限。",
+          "evidence_quotes": [
+            "囿于篇幅，组织化交易论对具体商法制度的解释与整合，需另文探讨。",
+            "商法组织化交易论作为商法体系建构的基础，仍待学界同仁共同开拓与深化。"
+          ],
+          "strengths": [
+            "明确指向理论向具体制度适用的转化方向",
+            "延展目标与正文“体系建构”核心结论紧密咬合"
+          ],
+          "weaknesses": [
+            "未列举待整合的具体制度或潜在争点",
+            "展望表述偏常规，缺乏可检验的反驳入口"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是该理论框架未来向具体制度解释延伸的研究空间，而非当下理论结论本身的逻辑自洽或学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.87666416168213,
+        "glm-5.1": 36.49346303939819,
+        "kimi-k2.6": 14.149631977081299,
+        "qwen3.6-plus": 56.96889114379883
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 80,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 68
+      },
+      "mean": 68.2,
+      "std": 10.3,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 76.2,
+      "weighted_total": 73.7
+    },
+    "aggregation_strictest": {
+      "final_score": 57.0,
+      "weighted_total": 58.0
+    },
+    "avg_std": 13.6,
+    "max_std": 23.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 19.2,
+    "composite_score": -13.6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 23.0
+  }
+}

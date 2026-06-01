@@ -1,0 +1,1008 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/先公司合同问题研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与正文衔接存在局部OCR残留乱码，但不影响核心论点识别",
+          "参考文献列表未单独抽取，但脚注中引注信息完整，不影响评审"
+        ],
+        "evidence_quotes": [
+          "③有学者通过全面的比较分析指出，两大法系先公司合同的规则无法融合。See KLAUS HEINEMANN，PRE-INCORPORATION TRANSACTIONS：A COMPAR A TIVE ANALYSIS(1990)．",
+          "⑥See Michael J Whincop，OfDragons and Horses：Filling Gaps in Pre-Incorporati on Contracts 12 J CONT．L．217，217-235 (1998)．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议。",
+          "批评者认为立法者割裂了公司设立与运营，忽视对先公司交易的法律调整，并进而指出“设立中公司”难以纳入我国法律体系，对合同进行必要性审查也有诸多缺陷，应当借鉴英美法系的规则。",
+          "笔者认为这一意见值得商榷，有必要解读第94条立法本意以及适用规则，借鉴比较法的经验，并根据我国经济条件以及立法政策，在我国的法律体系中对该条进行重新检验。",
+          "我国《公司法》并没有对发起人作出明确界定……《解释三》试图统合两种标准……笔者认为其妥当性值得商榷。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注/参考文献抽取残留OCR乱码，局部字母粘连或换行异常，但不影响文本可读性",
+        "论文后半部分对中国法规则的解释与重构属于规范命题，需后续关注其理论转化深度"
+      ],
+      "evidence_quotes": [
+        "我国《公司法》第94条第1款规定…围绕该条的理解与适用存在较大争议。",
+        "笔者认为这一意见值得商榷，有必要解读第94条立法本意以及适用规则，借鉴比较法的经验，并根据我国经济条件以及立法政策，在我国的法律体系中对该条进行重新检验。",
+        "在推定当事人意思的时候还应当注重商法的效率取向以及商事交易的特性，尤其是在考虑当事人风险承担、预期等方面，与一般的民事交易有区别。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国公司法第94条为中心问题，在比较法框架下尝试解释中国实践并提出可复核的规范命题，完全满足“中国自主知识体系研究”六维评审的项目口径，可直接进入六维评分。文本质量虽存在OCR脚注残留，但不影响评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "英文参考文献标题及作者名存在多处OCR乱码（如Filling Gaps被识别为删hlg脚s，Corporate被识别为C0砒，0RA啪N）",
+          "期刊原始页码（223-242）大面积混入正文段落中",
+          "脚注内容与正文交织，部分脚注编号及内容打断正文连贯性"
+        ],
+        "evidence_quotes": [
+          "删hlg脚s in Incomplete Contracts：An Economi c Theory of n咖础Ru,les",
+          "223",
+          "225",
+          "C0砒，0RA啪N LAW 42．43(2nd e d．2010)．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议。",
+          "笔者认为这一意见值得商榷，有必要解读第94条立法本意以及适用规则，借鉴比较法的经验，并根据我国经济条件以及立法政策，在我国的法律体系中对该条进行重新检验。",
+          "在先公司合同的责任承担问题上，应当以形式标准为原则、实质标准为补充。",
+          "以设立中公司名义缔约使交易呈现出组织的外观，在第三人没有相反意思表示的情况下，可以推定其以发起人合伙作为交易对象，发起人要承担连带责任。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：英文文献OCR乱码及大面积页码混入需在后续阶段清洗",
+        "文本工程：脚注与正文交织需重新排版解析"
+      ],
+      "evidence_quotes": [
+        "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审。论文以中国《公司法》第94条及先公司合同问题为中心，具备明确的中国实践解释尝试与理论转化命题，完全符合项目口径。但文本工程质量存在中等风险，需在后续评分阶段对混入的页码、穿插的脚注及OCR乱码进行清洗和结构重组，以确保评审准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码（如④⑤⑥等编号后偶有残字）",
+          "部分英文文献引用存在分栏导致的换行断裂（如'COMPARATIVE ANALYSIS'等）",
+          "参考文献列表缺失（标注为'（无）'），但正文引用信息完整可定位"
+        ],
+        "evidence_quotes": [
+          "③有学者通过全面的比较分析指出...See KLAUS HEINEMANN，PRE-INCORPORATION TRANSACTIONS：A COMPARATIVE ANALYSIS(1990)",
+          "④Kelner ．Baxter(1866)LR 2 CP 174",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议",
+          "笔者认为这一意见值得商榷，有必要解读第94条立法本意以及适用规则，借鉴比较法的经验，并根据我国经济条件以及立法政策，在我国的法律体系中对该条进行重新检验",
+          "设立中公司在我国司法实践中难以定位，除理论积累不足之外，更重要的原因是我国对非法人组织的规制方式过于强调财产独立原则和登记的作用，法官难以类推适用",
+          "《解释三》试图统合两种标准...笔者认为其妥当性值得商榷",
+          "在先公司合同的责任承担问题上，应当以形式标准为原则、实质标准为补充",
+          "我国司法过于强调缔约名义的作用，有必要予以修正"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号偶有OCR残留，英文文献存在分栏换行断裂，参考文献列表缺失但正文引用完整",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议",
+        "笔者认为这一意见值得商榷，有必要解读第94条立法本意以及适用规则，借鉴比较法的经验，并根据我国经济条件以及立法政策，在我国的法律体系中对该条进行重新检验"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《公司法》第94条及司法解释三为核心研究对象，系统比较两大法系先公司合同规则，提出'以形式标准为原则、实质标准为补充'等本土化解释方案，具备明确的中国问题意识、可争辩的法学命题及理论转化尝试。文本质量风险较低，不影响核心评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注及外文参考文献部分存在OCR识别乱码、断行及符号错位（如期刊名、页码、URL等）",
+          "正文排版中混入期刊页码（如223、225、227等）及脚注编号乱码"
+        ],
+        "evidence_quotes": [
+          "See KLAUS HEINEMANN，PRE-INCORPORATION TRANSACTIONS：A COMPAR A TIVE ANALYSIS(1990)．",
+          "223 \n\n中国法学 \n2015年第3期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议。",
+          "笔者认为，在先公司合同的责任承担问题上，应当以形式标准为原则、实质标准为补充。",
+          "结合前文分析和立法解释，第94条的“费用”宜理解为设立公司所必要的行为引致的“设立费用”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注OCR乱码属文本工程问题，已记录至text_quality_gate，不影响项目口径判断",
+        "论文完全符合六维评价候选信号，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "我国《公司法》第94条第1款规定股份有限公司不能成立时，发起人对设立行为产生的债务和费用负连带责任，围绕该条的理解与适用存在较大争议。",
+        "笔者认为，在先公司合同的责任承担问题上，应当以形式标准为原则、实质标准为补充。",
+        "考虑到我国并不允许以营业出资，设立中公司的权利能力局限于组织体形成的必要行为，采纳代表说更有助于维护交易安全以及在理论上解释必要合同的直接约束力。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《公司法》第94条及本土司法实践为核心，深入探讨先公司合同责任分配、设立中公司法律地位及必要合同规则，具有明确的中国问题意识与可争辩的教义学命题。已形成“形式标准为主、实质标准为补充”的发起人认定路径及代表说解释框架，完全符合进入六维评价的口径。脚注OCR乱码不影响核心论证定位，建议直接评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文是对先公司合同法律规则的系统介绍与立法完善建议，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文属于主题声明与比较法知识介绍，缺乏可争辩的法学争点，问题创新性不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限。扣分合计=50分（扣分后不低于30分，取35分）。",
+          "evidence_quotes": [
+            "探寻排除建立在公司人格独立、合同相对性以及无权代理等法理基础上的个人责任，区分对待先公司合同的政策理由，构成了各国制度设计的核心问题。",
+            "笔者认为，在第94条的框架下，应当以形式标准为原则、实质标准为补充。"
+          ],
+          "strengths": [
+            "比较法材料较为丰富，梳理了四种制度模式。"
+          ],
+          "weaknesses": [
+            "全文为‘现状描述+立法建议’，无理论分歧与可争辩问题。",
+            "核心主张是借鉴比较法填补漏洞，属于政策倡导而非学术论辩。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无‘XX是否YY’‘如何ZZ’等问题句，仅围绕‘各国制度如何设计、我国如何借鉴’展开，属主题声明。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否可争辩且重要，不评论证严密性、文献综述或对策妥当性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦先公司合同责任分配，问题可争辩且枢纽性强。",
+          "core_judgment": "问题成立且重要，涉及多制度交叉与长期理论分歧。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "如何在我国的法律体系中为设立中公司找到合理的定位；如何界定可直接约束公司的合同范围；如何处理设立行为之外的先公司合同。",
+            "《解释三》直接对发起人作出界定并将之扩展至有限责任公司初始股东的做法可谓独树一帜。笔者认为其妥当性值得商榷。"
+          ],
+          "strengths": [
+            "问题具有高度可争辩性，涉及公司法与合同法/代理法的交叉。",
+            "争点为学界长期争议的核心，枢纽性强。"
+          ],
+          "weaknesses": [
+            "部分问题表述偏向制度适用困境，法理层面的争辩可更聚焦。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文围绕先公司合同责任承担这一公司法核心争点，系统比较两大法系规则并重构我国《公司法》第94条的解释框架。",
+          "core_judgment": "论文提出了明确的可争辩法学问题——先公司合同责任如何在我国法律体系中得到融贯解释，涉及发起人界定、设立中公司地位、必要合同范围等多重理论分歧，具备充分的可争辩性与制度枢纽性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=3/4，材料新颖性未触发上限。论文明确提出了'如何在法律体系内为设立中公司定位''如何界定可直接约束公司的合同范围''如何处理非必要合同'三个问题句；涉及公司法、合同法、代理法多个制度领域；讨论了代表说与代理说、形式标准与实质标准等长期学术争论。但枢纽性标准4（制度连锁需调整≥2个制度）因论文侧重解释论而非立法改革，未完全满足。锚定good档，给75分。",
+          "evidence_quotes": [
+            "如何在中国的法律体系中为设立中公司找到合理的定位；如何界定可直接约束公司的合同范围；如何处理设立行为之外的先公司合同",
+            "发起人与设立中公司的关系存在代表说与代理说两种构造方式"
+          ],
+          "strengths": [
+            "问题聚焦明确，以第94条解释困境为切入点展开体系性论证",
+            "理论分歧呈现充分，涵盖代表说/代理说、形式标准/实质标准等核心争论"
+          ],
+          "weaknesses": [
+            "部分问题表述偏宏观，'重新检验'的政策导向稍强",
+            "比较法篇幅较大，对我国本土争点的独立理论建构仍有提升空间"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦先公司合同责任分配与设立中公司定位，提出明确的解释学争点与规则重构方案。",
+          "core_judgment": "问题具有高度可争辩性与制度枢纽性，属典型的教义学与比较法交叉的深层法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，负面检查扣0分，材料校验未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "第94条的漏洞在于没有规定设立行为的判断标准与非必要合同的效力",
+            "发起人与设立中公司的关系存在代表说与代理说两种构造方式"
+          ],
+          "strengths": [
+            "明确提炼出第94条适用的三大解释学争点，问题意识清晰",
+            "系统梳理两大法系分歧并嵌入中国教义学语境，争点纵深足"
+          ],
+          "weaknesses": [
+            "部分比较法制度介绍篇幅较长，对本土争点的聚焦可更紧凑",
+            "对非必要合同的类型化标准仍偏重学理推演，实证检验略弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.421250820159912,
+        "glm-5.1": 48.82718801498413,
+        "kimi-k2.6": 13.18801999092102,
+        "qwen3.6-plus": 68.60151815414429
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 88,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 72.5,
+      "std": 26.0,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过脚注密集引证英美法系与大陆法系的核心文献与判例，系统构建了先公司合同规则的全面研究地图，争点结构清晰且覆盖多元学派。",
+          "core_judgment": "论文的研究地图极为清晰，不仅完整呈现了既有研究的到达点与未竟点，还通过比较法分析构建了超过两个可区分且对立的法学流派争点，现状洞察度极高。",
+          "score_rationale": "三要素总分=6/6（到达点2+未竟点2+本文切入点2），争点结构=2/2，法学流派=4个（合同责任派、保证责任派、缺陷设立派、必要合同派），锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "有学者通过全面的比较分析指出，两大法系先公司合同的规则无法融合。See KLAUS HEINEMANN，PRE-INCORPORATION TRANSACTIONS：A COMPARATIVE ANALYSIS(1990)。",
+            "纵观当代两大法系主要国家和地区的制度，可以将先公司合同的法律规则分为以下四种。1. 发起人合同责任 ... 2. 发起人保证责任 ... 3. 缺陷设立规则 ... 4. 必要合同规则 ..."
+          ],
+          "strengths": [
+            "研究地图三要素完备，通过大量外文文献与判例精准描绘了既有研究的到达点与争议缺口，并清晰对应本文切入点。",
+            "比较法流派识别充分，明确划分了四种对立的制度方案（合同责任、保证责任等）并指出了背后的法理冲突，构成了深度的争点结构。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文对既有文献的梳理与学派的分类属于对研究现状的深度洞察，而非单纯评价问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派覆盖充分，比较法与法经济学视角交织。",
+          "core_judgment": "本维度高度成立，论文展现了深厚的文献洞察与争点梳理能力。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=7个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "Heinemann将这一规则仅存在于大陆法系的原因归结为资本制度的差异...笔者认为，Heinemann的解释忽略了公司设立时间并非仅取决于资本制度",
+            "发起人的认定存在两种标准，实质说以实际参与了公司筹建为标准，形式说以在章程签名为标准"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确指出Heinemann等既有研究的局限与误判。",
+            "呈现了英美vs大陆、实质vs形式、代表vs代理等多重争点与解释路径对立。"
+          ],
+          "weaknesses": [
+            "无"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理深度与争点结构，不评先公司合同问题本身是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "比较法视野下的研究地图完整，争点结构清晰，流派覆盖充分。",
+          "core_judgment": "本文建立了以英美法系与大陆法系对立为核心的比较法研究地图，呈现了多个可区分的制度方案分歧与解释路径争议。",
+          "score_rationale": "三要素得分=5/6（到达点充分：系统梳理了两大法系四种规则模式及各国立法；未竟点充分：指出我国《公司法》第94条的漏洞、设立中公司定位争议及司法实践举棋不定；本文切入点明确：以第94条为基础构建必要合同规则），争点结构=2/2（≥2个可区分争点：发起人认定标准之争、代表说与代理说之争、必要合同与非必要合同之分、个人责任与双重保障之争），法学流派=4个（英美合同责任/保证责任/缺陷设立规则、大陆法系必要合同规则、代表说与代理说、形式说与实质说），锚定good档，给82分。",
+          "evidence_quotes": [
+            "作为先公司合同责任承担的前置问题，发起人(promoter)的认定存在两种标准，实质说以实际参与了公司筹建为标准，形式说以在章程签名为标准",
+            "发起人与设立中公司的关系存在代表说与代理说两种构造方式"
+          ],
+          "strengths": [
+            "比较法研究地图系统完整，覆盖两大法系四种制度模式",
+            "争点结构层次丰富，从发起人认定到合同构造再到责任性质层层推进"
+          ],
+          "weaknesses": [
+            "未竟点部分对我国学界既有研究的批判性梳理可更充分",
+            "部分比较法分析偏重制度描述，对学术争论脉络的呈现可更清晰"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦比较法制度梳理与本土法解释，未竟点识别准确，属于文献定位问题而非问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理了先公司合同责任的比较法演进与我国《公司法》第94条的解释争议，研究地图完整清晰。",
+          "core_judgment": "文内充分呈现了到达点、未竟点与切入点，争点脉络分明，流派识别充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "有学者通过全面的比较分析指出，两大法系先公司合同的规则无法融合。",
+            "《解释三》直接对发起人作出界定并将之扩展至有限责任公司初始股东的做法可谓独树一帜。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将比较法模型与本土司法解释争议有机嵌入论证脉络。",
+            "明确提炼既有规则在风险分配与当事人意思推定上的局限，未竟点指向清晰。"
+          ],
+          "weaknesses": [
+            "部分比较法文献引证偏重制度描述，对理论源流的学派交锋提炼可进一步深化。",
+            "对国内实证裁判数据的系统性归纳略显不足，未竟点的实证支撑可更丰满。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及本文提出的制度重构方案是否具备实质创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.53440594673157,
+        "glm-5.1": 54.51906991004944,
+        "kimi-k2.6": 13.046470880508423,
+        "qwen3.6-plus": 50.348188161849976
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 90,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89,
+      "std": 4.8,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了一个基于交易结构与比较法类型的多层次分析框架，将先公司合同规制问题转化为可操作的制度构成要素。",
+          "core_judgment": "框架通过交易结构解剖和四种比较法规则类型化，形成了清晰、可循的分析维度，并成功用于诊断和重构我国具体制度。",
+          "score_rationale": "框架可操作性得分=4/4（概念界定清晰、分类标准明确、分析步骤可循、后文充分调用），法学转化度得分=4/4（比较维度即为法学分析步骤，提供了操作性制度设计方案并实际运用），锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "先公司合同的法律规则分为以下四种：1. 发起人合同责任...2. 发起人保证责任...3. 缺陷设立规则...4. 必要合同规则。",
+            "审核的核心标准在于区分合同是为了公司组织体形成还是成立之后的经营活动，可以考虑以下因素：公司的实际营业范围；合同标的的价值与公司性质、资本、规模的关联；发起人在公司的地位。"
+          ],
+          "strengths": [
+            "比较法类型化标准清晰：以责任基础与风险分担为维度，提炼出四种可比较的制度模式，构成强分析骨架。",
+            "法学转化操作性强：将域外规则转化为可裁判的判断标准，并对设立必要合同提供了多因素操作指引。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "此为比较法与制度型论文，其分析框架表现为比较维度和制度构成要素的提炼，评分聚焦于框架的可操作性与法学转化程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了以必要/非必要合同为核心的分类框架，并提供了具体的裁判认定标准与制度设计方案。",
+          "core_judgment": "分析框架高度成立，将比较法与经济学概念成功转化为可操作的法学裁判规则与制度设计。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "审核的核心标准在于区分合同是为了公司组织体形成还是成立之后的经营活动",
+            "将风险分担转化为默认规则：在没有相反约定情况下由其在公司接受合同之前承担个人责任较为合理"
+          ],
+          "strengths": [
+            "分类标准明确，将先公司合同区分为必要与非必要合同并细化子类型",
+            "法学转化彻底，将交易成本等经济学概念转化为具体的裁判考量因素与默认规则"
+          ],
+          "weaknesses": [
+            "必要合同的认定因素仍有一定模糊性，依赖法官个案裁量"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与法学转化，不评价论证逻辑的严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "比较法梳理型论文，对先公司合同规则进行类型化整理，但缺乏原创分析框架与可操作的法学转化步骤。",
+          "core_judgment": "论文以比较法梳理和制度介绍为主，未建构可重复适用的原创分析框架，核心分类标准来自比较法既有规则而非论文原创。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰但分类标准为既有比较法类型，分析步骤不明确，后文调用为描述性展开而非步骤化操作）；法学转化度得分=2/4（有裁判规则归纳和制度设计方案，但多为比较法经验介绍，未转化为我国法体系内可操作的适用流程）。锚定marginal档(50-59)，给52分。",
+          "evidence_quotes": [
+            "纵观当代两大法系主要国家和地区的制度，可以将先公司合同的法律规则分为以下四种：1.发起人合同责任 2.发起人保证责任 3.缺陷设立规则 4.必要合同规则",
+            "笔者认为，审核的核心标准在于区分合同是为了公司组织体形成还是成立之后的经营活动，在案件中可以考虑以下因素：首先...其次...最后..."
+          ],
+          "strengths": [
+            "比较法类型化整理系统全面，四种规则分类清晰",
+            "对我国《公司法》第94条的解释论有一定推进"
+          ],
+          "weaknesses": [
+            "核心分类标准来自比较法既有规则，非论文原创框架",
+            "缺乏可重复适用的分析步骤，多为描述性介绍而非建构性操作"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "四种比较法类型在后续分析中仅作为背景介绍，未转化为分析我国问题的操作步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身是否成立可用，不涉及比较法梳理的学术价值或逻辑严密性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了先公司合同责任认定的类型化框架，并有效转化为司法裁判指引。",
+          "core_judgment": "分析框架成立且具备较强实务转化力，通过比较法类型化与教义学重构提供了可操作的裁判标准。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给85分。概念与分类清晰且后文充分调用；成功将比较模型转化为本土裁判规则，符合制度型论文要求。",
+          "evidence_quotes": [
+            "审核的核心标准在于区分合同是为了公司组织体形成还是成立之后的经营活动，在案件中可以考虑以下因素……",
+            "将发起人组合作为合伙，承认其在设立公司的事务中有相互代表权，并通过授权规则来降低交易风险……"
+          ],
+          "strengths": [
+            "构建了“必要/非必要合同”二分及缔约情形的类型化分析路径。",
+            "将比较法经验有效转化为我国《公司法》第94条的司法适用标准。"
+          ],
+          "weaknesses": [
+            "缺乏显性的步骤化流程图，框架多隐含于教义学推演之中。",
+            "部分裁判指引仍依赖法官裁量，操作细则的刚性略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.3582489490509,
+        "glm-5.1": 51.72493314743042,
+        "kimi-k2.6": 13.997507095336914,
+        "qwen3.6-plus": 73.2900140285492
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 79.8,
+      "std": 18.7,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从法理反思到比较法类型化再到本土化重构的完整推理链，结论可从前文充分辩护地推出。",
+          "core_judgment": "论文推理链条完整清晰，反驳处理充实，核心的制度建构结论有扎实的前置分析和比较法支撑，属于高质量的论证结构。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。文章在法理分析、比较法考察和本土化建议之间衔接紧密，回应了潜在反对意见并承认分析框架的边界，故给88分。",
+          "evidence_quotes": [
+            "普通法规则未必符合当事人意思，反而可能增加交易成本，诱发机会主义行为。因此，在尽量与现有法律体系协调的基础上，探寻...构成了各国制度设计的核心问题。",
+            "第94条的漏洞在于没有规定设立行为的判断标准与非必要合同的效力...因此，规则设计应当回答三个问题：如何在我国的法律体系中为设立中公司找到合理的定位；如何界定可直接约束公司的合同范围；如何处理设立行为之外的先公司合同。"
+          ],
+          "strengths": [
+            "推理链条完整：从普通法规则失灵出发，到比较法上的类型化解决方案，最后回归我国第94条的困境并完成重构，逻辑环环相扣。",
+            "反驳处理到位：论文不仅呈现了比较法上的不同规则路径，还专门回应了“引入必要合同规则不适宜”等批判观点，并承认了自身建构的适用边界。"
+          ],
+          "weaknesses": [
+            "从“当事人意思”直接推导出应采用“保证责任规则”作为默认规则的环节，论证可以更详细，但未构成无法推出结论的关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文为比较法加本土制度建构的实务型论文，其逻辑链在于用比较法经验支撑对第94条的解释与重构，不存在误将制度协调问题当作逻辑问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过比较法与交易结构分析，严密推导出我国先公司合同的规制方案，反驳处理充分。",
+          "core_judgment": "推理链完整且环环相扣，核心制度方案可由前文可辩护地推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "批评者认为……应当借鉴英美法系的规则。笔者认为这一意见值得商榷，有必要解读第94条立法本意……",
+            "合同对公司设立是否具有‘必要性’更多是一种商业判断，无法通过立法界定，法官也难以在个案中作出判断。"
+          ],
+          "strengths": [
+            "推理链依赖度高，比较法与本土制度推导环环相扣",
+            "对显式反对意见与隐含分歧路径均有实质性回应"
+          ],
+          "weaknesses": [
+            "部分过渡论证稍显密集，但未构成关键跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦推理链条连贯与结论推出，不评判必要合同规则在司法中是否易操作。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "比较法制度分析框架完整，但核心制度建构的推理链存在局部跳步，反驳处理充分性不足。",
+          "core_judgment": "论文作为实务型制度设计论文，推理链基本完整但存在关键过渡论证薄弱问题，反驳处理度达到良好水平。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'设立中公司具有部分权利能力'到'应采代表说'的推导中，权利能力范围与代表说选择之间的逻辑桥梁不足；'必要合同'界定标准从比较法经验到我国法适用的转化论证亦有跳跃），反驳处理度得分=2/3（标准1识别反对意见成立，标准2实质性回应成立，标准3承认局限不成立）。锚定good(70-79)档，给78分。",
+          "evidence_quotes": [
+            "考虑到我国并不允许以营业出资，设立中公司的权利能力局限于组织体形成的必要行为，采纳代表说更有助于维护交易安全以及在理论上解释必要合同的直接约束力。",
+            "有学者认为由法官审查合同的必要性并不合适，会增加交易的不确定性，阻碍创业的热情，从我国司法实践看，并没有发展出明确的标准。"
+          ],
+          "strengths": [
+            "比较法分析到我国法解释的推理链层次分明，四类型划分清晰。",
+            "对第94条的体系解释与立法目的阐释形成较完整论证。"
+          ],
+          "weaknesses": [
+            "代表说选择的核心理由（权利能力范围限定）与结论之间的推导存在跳步，未充分回应代理说亦可限定权限的反驳。",
+            "未明确承认自身论证在'必要合同'司法审查标准上的操作局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的充分支撑性，不涉及'设立中公司'概念本身的理论建构力评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文推理链条严密，比较法与教义学分析层层递进，反驳处理充分。",
+          "core_judgment": "核心结论均由前文规范分析与比较经验充分支撑，逻辑推演严密且无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。论证环环相扣，对反对意见与自身局限均有实质回应。",
+          "evidence_quotes": [
+            "传统普通法规则并无失当，但其隐含的前提是公司未形成独立的人格……忽视了公司组织属性。",
+            "《解释三》忽略了公司法对发起人作形式界定的立法宗旨……并不妥当。"
+          ],
+          "strengths": [
+            "推理链条完整，从比较法模型到本土法解释层层递进。",
+            "对学术分歧与司法争议均作实质性回应，论证可辩护。"
+          ],
+          "weaknesses": [
+            "部分比较法规则向本土移植的过渡论证稍显简略。",
+            "商业判断标准（如“必要性”）的司法落地逻辑可更细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦前提与结论的推导支撑度，不评价制度方案在实务中的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.67609119415283,
+        "glm-5.1": 34.884623289108276,
+        "kimi-k2.6": 12.84095573425293,
+        "qwen3.6-plus": 69.14914107322693
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 88,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 86,
+      "std": 5.4,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "论文通过比较法分析，为中国先公司合同规则提出了具体解释方案，回应了司法实践争议，但未明确回应学界反对意见或主动讨论自身局限，对话度受限。",
+          "core_judgment": "结论虽具制度兼容性且指向具体规则设计，但因未主动回应反对意见或承认论证局限，未能充分进入共同体对话语境。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=2/4，按理论论文锚定good档（60-69分），给68分。",
+          "evidence_quotes": [
+            "笔者拟先采取实质说进行法理的阐释以及比较法的研究，将我国法上的认定标准留待后文论述。",
+            "第94条的漏洞在于没有规定设立行为的判断标准与非必要合同的效力……规则设计应当回答三个问题：如何在……为设立中公司找到合理的定位；如何界定可直接约束公司的合同范围；如何处理设立行为之外的先公司合同。"
+          ],
+          "strengths": [
+            "结论围绕《公司法》第94条和司法解释展开，与中国现行法秩序高度兼容，并提供了具体制度转化方向。",
+            "论文框架回应了“设立中公司”性质、发起人责任等国内长期争议，具有共同体对话基础。"
+          ],
+          "weaknesses": [
+            "未在结论或全文主动讨论可能的反对意见或承认自身论证的局限性，削弱了共同体对话的充分性。",
+            "对必要合同规则等激进主张未回应学界对其增大交易不确定性的批评。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文为制度论文，评分的重点是规则方案在现行法秩序下的可接受性，不涉及论证逻辑严密性或学说延伸潜力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应学界争议与中国制度语境，提出兼容现行法的具体解释方案。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "批评者认为立法者割裂了公司设立与运营……笔者认为这一意见值得商榷，有必要解读第94条立法本意",
+            "考虑到我国实行法定资本制……设立过程较长，采取必要合同规则是合适的"
+          ],
+          "strengths": [
+            "深度回应中国司法实践争议与《解释三》缺陷",
+            "制度方案与现行法秩序高度兼容且具操作性"
+          ],
+          "weaknesses": [
+            "部分类型化标准（如必要性判断）仍需司法检验"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度接受度，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以比较法为基础，提出我国《公司法》第94条应作必要合同规则解释，主张设立中公司为具有部分权利能力的非法人组织，采纳代表说构造。",
+          "core_judgment": "结论进入法学共同体已有争论并明确回应反对意见，制度设计与中国法秩序兼容，但制度转化方向的具体操作性有待加强。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被反对者定位、承认反对意见；中国语境回应充分但比较法篇幅过大），制度可接受度得分=2/4（不与现行法秩序矛盾、对制度约束有原则回应；制度转化方向较明确但具体方案不足，中国语境适配性论证充分），锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者认为这一意见值得商榷，有必要解读第94条立法本意以及适用规则，借鉴比较法的经验，并根据我国经济条件以及立法政策，在我国的法律体系中对该条进行重新检验。",
+            "在先公司合同的责任承担问题上，应当以形式标准为原则、实质标准为补充。"
+          ],
+          "strengths": [
+            "明确回应学界对《解释三》的批评，提出替代性解释方案",
+            "主动讨论代表说与代理说之争并承认自身论证局限"
+          ],
+          "weaknesses": [
+            "结论部分未充分回应'设立中公司'定位与现行合伙法、非法人组织规则的体系协调难题",
+            "必要合同的具体判断标准仍依赖比较法例举，本土化制度转化方案不够具体"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论可接受性，不评论证过程严密性与后续研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应教义学争议，契合中国公司法语境，制度转化路径清晰。",
+          "core_judgment": "该维度完全成立，结论具备高度的学术对话能力与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "《解释三》直接对发起人作出界定……完全排除了法官在个案中援引实质标准适用相关规则的可能性，并不妥当。",
+            "赋予设立中公司权利能力有利于节约交易成本……更加符合商业需要，因此主流做法是将其作为具有部分权利能力的特殊社团。"
+          ],
+          "strengths": [
+            "精准定位既有学说与司法解释分歧并给出修正方案。",
+            "紧密结合中国法定资本制与登记实践提出教义学解释路径。"
+          ],
+          "weaknesses": [
+            "部分裁判规则的类型化标准仍依赖法官个案裁量，操作性待检验。",
+            "对认缴制改革后的设立周期变化回应略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.331687927246094,
+        "glm-5.1": 32.542535066604614,
+        "kimi-k2.6": 11.905811071395874,
+        "qwen3.6-plus": 44.87710881233215
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 12.8,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在比较法制度和本土解释论层面提出了较具体的未来研究方向与制度修补路径，但部分延展仍停留在方向提示而非精细论证。",
+          "core_judgment": "存在明确的未来延展路径，与正文核心结论衔接紧密，具备支持中等弱加分的条件。",
+          "score_rationale": "原始分72分，对应bonus=3档。论文明确指出了《解释三》的修正方向、未来修法建议以及司法实践中类型化总结的路径，延展对象具体，衔接性好，但操作细则仍较概括。",
+          "evidence_quotes": [
+            "在未来的立法改革上，宜规定设立费用在章程中进行记载，由发起人自主约定风险的分担。",
+            "审核的核心标准在于区分合同是为了公司组织体形成还是成立之后的经营活动，在案件中可以考虑以下因素..."
+          ],
+          "strengths": [
+            "明确指出了对《公司法解释三》发起人认定标准的修正方向，提出形式标准为原则、实质标准为补充。",
+            "为非必要合同的司法审查提供了可操作的考量因素（营业范围、标的与规模关联、发起人地位等）。"
+          ],
+          "weaknesses": [
+            "延展路径主要集中在立法论和解释论修补上，对制度实施后的风险控制、裁判规则统一性问题着墨较少。",
+            "对于比较法经验的进一步深化比较或本土化延伸未给出新的比较维度或框架。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评述的是如何完善先公司合同规则及未来立法/司法走向，而非当前结论的可接受性或论证严密性，二者界限清晰。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "提出了清晰的立法修法方向与司法类型化延展路径。",
+          "core_judgment": "存在真实延展路径，指明了第94条立法完善方向及司法类型化总结的具体推进路径。",
+          "score_rationale": "原始分80，对应bonus档位5分。文章明确指出了第94条的立法漏洞及修法方向（如设立费用章程记载），并提出通过司法积累与比较法进行类型化总结的后续研究路径，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "在未来的立法改革上，宜规定设立费用在章程中进行记载，由发起人自主约定风险的分担。",
+            "更为适当的方式是通过司法实践的积累以及比较法的经验进行类型化的总结。"
+          ],
+          "strengths": [
+            "延展路径具体可定位，直接回应正文揭示的制度漏洞",
+            "结合司法实践与比较法提出类型化总结的后续研究方向"
+          ],
+          "weaknesses": [
+            "延展论述散见于正文修补建议中，缺乏集中独立的展望设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "识别第94条修法方向与司法类型化属于未来制度延展，而非当下司法解释可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在比较法分析基础上提出了我国第94条的解释路径和修法方向，延展方向明确但深度有限。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向的明确建议，但部分延展仍停留在概括层面。",
+          "score_rationale": "原始分62分，对应bonus=3档位。论文在文末提出了第94条'债务'与'费用'区分的修法建议、设立费用纳入章程的立法改革方向、以及司法实践中合同必要性审查的类型化标准，这些均为可定位的具体延展路径；但关于发起人责任免除的'双重保障'问题、第三人不知公司未成立情形的规则设计等，仅停留在比较法介绍和原则性判断，缺乏更精细的制度构建。",
+          "evidence_quotes": [
+            "在未来的立法改革上，宜规定设立费用在章程中进行记载，由发起人自主约定风险的分担",
+            "更为适当的方式是通过司法实践的积累以及比较法的经验进行类型化的总结"
+          ],
+          "strengths": [
+            "明确提出了第94条解释论和立法论的双重延展路径",
+            "对设立中公司权利能力、发起人界定等核心概念指出了修正方向"
+          ],
+          "weaknesses": [
+            "部分关键问题如'双重保障'规则仅作否定性结论，未提出替代方案",
+            "比较法经验多作为论据呈现，本土化制度构建的精细度不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文关于'未来修法宜规定设立费用记载于章程'等建议属于未来延展问题；而关于第94条应否引入必要合同规则的论证属于当下结论的可接受性范畴，已由正文完成。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文精准定位现行法漏洞，提出立法修法、司法类型化与教义类推等清晰具体的未来推进路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接正文对先公司合同责任构造的论证。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确指出《公司法》第94条漏洞，提出设立中公司定位、合同必要性司法类型化及章程记载等具体路径，与核心结论紧密咬合，非空泛展望。",
+          "evidence_quotes": [
+            "第94条的漏洞在于没有规定设立行为的判断标准与非必要合同的效力……规则设计应当回答如何界定合同范围及处理非必要合同。",
+            "更为适当的方式是通过司法实践的积累以及比较法的经验进行类型化的总结。"
+          ],
+          "strengths": [
+            "精准定位法条漏洞与裁判分歧，给出立法与司法双重延展路径。",
+            "延展方向与正文发起人责任、必要合同规则的论证逻辑高度一致。"
+          ],
+          "weaknesses": [
+            "对复杂商业场景下的风险分配机制偏重教义推演，缺乏实证检验设计。",
+            "未充分展开不同法域本土化移植可能引发的体系冲突应对方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估立法修法方向、司法标准细化及教义学规则类推等未来推进路径，不涉及当下结论的共识度或论证严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 57.763306856155396,
+        "glm-5.1": 32.957659006118774,
+        "kimi-k2.6": 11.565842866897583,
+        "qwen3.6-plus": 55.88786792755127
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 80,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "mean": 74.8,
+      "std": 10.0,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 83.85,
+      "weighted_total": 80.6
+    },
+    "aggregation_strictest": {
+      "final_score": 59.18,
+      "weighted_total": 60.2
+    },
+    "avg_std": 12.9,
+    "max_std": 26.0,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 24.7,
+    "composite_score": -11.23,
+    "worst_dimension": "problem_originality",
+    "worst_std": 26.0
+  }
+}

@@ -1,0 +1,1133 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/“南海仲裁案”裁决缘何非法无效.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "degraded",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国政府坚持不接受、不承认裁决的立场，具有充分的事实和法律依据。",
+          "仲裁庭违反了四大程序原则...仲裁庭犯了五大实体错误",
+          "陆地领土主权是海洋权利的基础和前提...仲裁庭裁决颠倒岛礁主权与海洋权利的关系，企图以确定海洋地物的地位之名，否定其主权归属，背离了“陆地统治海洋”原则和《公约》的规定。",
+          "中国不接受、不参与菲律宾单方面提起的仲裁案，不承认、不执行该仲裁庭的裁决，是在国际法的框架内捍卫国家主权和海洋权益、维护公平正义的国际法治"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国政府坚持不接受、不承认裁决的立场，具有充分的事实和法律依据。",
+        "仲裁庭违反了四大程序原则...仲裁庭犯了五大实体错误",
+        "陆地领土主权是海洋权利的基础和前提...仲裁庭裁决颠倒岛礁主权与海洋权利的关系，企图以确定海洋地物的地位之名，否定其主权归属，背离了“陆地统治海洋”原则和《公约》的规定。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文围绕南海仲裁案这一重大中国涉外法治实践展开，系统批驳仲裁庭的程序与实体错误，阐释中国基于国际法的维权逻辑，具备明确的中国问题中心性、可争辩的法学命题及理论转化尝试，文本质量正常，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码数字（如29、30、31等）混入正文段落中",
+          "作者身份说明（如“外交部条约法律司副司长。”、“国际关系学院教授。”）混入正文",
+          "局部标点符号残留或断行异常（如“一、”前的空格与换行）"
+        ],
+        "evidence_quotes": [
+          "外交部条约法律司副司长。\n29",
+          "中国法学\n2016年第5期\n288条第1款",
+          "国际关系学院教授。\n36"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "仲裁庭没有遵循属事管辖原则，对超出《公约》范畴的领土主权、一般国际法上的历史性权利和大陆国家远海群岛等问题进行裁判，完全是擅自扩权，损害了国际海洋法律秩序。",
+          "我国将南沙群岛作为远海“群岛”主张领土主权和海洋权利是历史形成的，得到国际社会的承认，并为包括《旧金山和约》在内的国际文件认可，有充分的事实和法律依据。",
+          "仲裁庭超越“解释或适用《公约》”的职权范围，实际上是更改或重写《公约》121条第3款规定，完全是仲裁庭“造法”，侵犯了当事国的“缔约权”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及作者职称混入正文，需在后续阶段清洗",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "仲裁庭没有遵循属事管辖原则，对超出《公约》范畴的领土主权、一般国际法上的历史性权利和大陆国家远海群岛等问题进行裁判，完全是擅自扩权，损害了国际海洋法律秩序。",
+        "我国将南沙群岛作为远海“群岛”主张领土主权和海洋权利是历史形成的，得到国际社会的承认，并为包括《旧金山和约》在内的国际文件认可，有充分的事实和法律依据。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本存在页码与作者信息混入的轻度工程风险，需在后续评分阶段进行正文清洗与格式还原，不影响核心论点与论证结构的提取。"
+    },
+    "kimi-k2.6": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "文本为多人笔谈/专题讨论形式，存在多个独立子文章拼接痕迹，结构边界模糊",
+          "脚注/作者信息抽取不完整，部分作者身份标注为'OCR残留'或混入正文",
+          "页码标记（如'29'、'30'、'31'、'32'、'33'、'34'、'35'、'36'）混入正文，存在期刊分栏排版残留",
+          "参考文献列表标注为'（无）'，但文内存在大量引注（如'查戈斯海洋保护区案'、'突尼斯一利比亚大陆架案'等），存在参考文献抽取失败风险",
+          "存在孤立的标点符号残留（如单引号'、星号*等），疑似OCR或排版转换痕迹"
+        ],
+        "evidence_quotes": [
+          "外交部条约法律司副司长。",
+          "29",
+          "中国法学 2016年第5期",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "仲裁庭违反了四大程序原则",
+          "仲裁庭犯了五大实体错误",
+          "仲裁庭非法篡改了《公约》第121条第3款认定'岛屿'的标准",
+          "我国在南海的活动已有两千多年历史，我国在南海的历史性权利在1982年《公约》出台前就已经客观存在，根据'时际法'原则，我国主张在南海享有历史性权利是完全符合国际法的",
+          "我国将南沙群岛作为远海'群岛'主张领土主权和海洋权利是历史形成的，得到国际社会的承认",
+          "仲裁庭新立的所谓岛屿标准，严重违背《公约》第121条第3款的目的和宗旨，没有任何法律依据，也没有国家实践的支持"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码、分栏标记、作者身份信息残留需清理，但不影响核心论点定位",
+        "文本工程：参考文献列表虽标注为空，但文内案例引注丰富，实际引用关系可追踪",
+        "项目口径：笔谈形式导致理论深度分布不均，部分段落为政策宣示性表述，但核心法律评析部分具备完整法学论证结构"
+      ],
+      "evidence_quotes": [
+        "仲裁庭违反了四大程序原则...仲裁庭犯了五大实体错误",
+        "仲裁庭非法篡改了《公约》第121条第3款认定'岛屿'的标准...仲裁庭超越'解释或适用《公约》'的职权范围，实际上是更改或重写《公约》121条第3款规定，完全是仲裁庭'造法'",
+        "我国在南海的历史性权利在1982年《公约》出台前就已经客观存在，根据'时际法'原则，我国主张在南海享有历史性权利是完全符合国际法的"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。建议评分时关注：1）笔谈形式中不同作者论述的理论一致性；2）政策宣示性表述与法学论证的区分；3）国际法解释方法（条约解释、时际法、习惯国际法认定）的学理深度。文本质量风险可控，核心法律命题清晰可复核。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码、期刊名称与期号信息混入正文段落",
+          "少量OCR字符识别异常（如'l4项'应为'14项'、标点符号错位）",
+          "部分段落标题层级与分隔符存在轻微排版残留"
+        ],
+        "evidence_quotes": [
+          "29 \n\n中国法学 \n2016年第5期",
+          "l4项",
+          "’\n\n《公约》第十五部分"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "仲裁庭没有遵循上述条件和其他程序规则，犯了诸多错误。",
+          "《公约》第十五部分争端解决机制的一个突出特点是，它确立了当事方自愿选择程序优先、第三方强制程序补充的“双层”争端解决体系。",
+          "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了“国际立法权”，完全是一项既无合法基础，也无合法授权的政治性裁决"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在页眉页脚混排及轻微OCR识别噪声，需在后续评分环节自动过滤或人工忽略，不影响核心法学命题提取。"
+      ],
+      "evidence_quotes": [
+        "中国政府坚持不接受、不承认裁决的立场，具有充分的事实和法律依据。",
+        "《公约》未予规定的事项，应继续以一般国际法的规则和原则为准据。",
+        "仲裁庭新立的所谓岛屿标准，严重违背《公约》第121条第3款的目的和宗旨，没有任何法律依据，也没有国家实践的支持。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR与排版残留风险，但项目口径完全符合。论文以南海仲裁案为核心，深入剖析管辖权扩张、条约解释规则、历史性权利与《公约》关系等可争辩的国际法/海洋法命题，并明确论证中国立场的法理正当性。建议直接进入六维评分阶段，评分时注意忽略页码与期刊头信息干扰。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文以官方立场声明替代法学研究问题，未提出可争辩的法学争点，属于对仲裁裁决的政治否定而非学术分析。",
+          "core_judgment": "全文无明确的问题句或可争辩的法学争点，主要为阐释中国官方既定立场，不构成一次法学研究问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、政策倡导无误、无法学层面分歧），枢纽性=0/4（无法学问题故无枢纽性），材料新颖性未触发上限。扣分合计=55分（检查1扣25分+检查2扣20分+检查3扣30分，取最低30分）。锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "中国不接受、不参与菲律宾单方面提起的仲裁案，不承认、不执行该仲裁庭的裁决，是在国际法的框架内捍卫国家主权和海洋权益、维护公平正义的国际法治。",
+            "仲裁庭的有关行为完全背离了《公约》的原则和宗旨，损害了《公约》的完整性和权威性，背离了国际司法正义。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无任何可争辩的法学问题句，仅为主题声明与立场阐释。",
+            "未能呈现不同学者观点交锋，仅是系统归纳中国官方反对仲裁裁决的既定立场。",
+            "以宏观介绍和批评仲裁庭错误为主，未形成法学层面的理论推进或规范命题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性得分≤1分，触发 no_justiciable_question，上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无法找到一个类似'XX是否YY'或'如何ZZ'的问题句，核心内容为阐述中国为何不接受仲裁裁决，属于政策声明而非法学研究问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评价论文是否提出了可争辩的法学研究问题及其枢纽性，不评价文献综述、论证严密性或材料的充分性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "文章仅为立场阐释与政策倡导，缺乏可争辩的法学研究问题。",
+          "core_judgment": "无问题句与理论分歧，属单向批判仲裁庭裁决的既定立场阐释，非研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性触发上限，可争辩性≤1触发上限50分，锚定unacceptable档，扣负面50分，底线给30分。",
+          "evidence_quotes": [
+            "总而言之...本案仲裁庭不仅管辖权存在着随意扩权越权的法律问题和法理谬误",
+            "中国不接受、不参与...是在国际法的框架内捍卫国家主权和海洋权益...的正当之举"
+          ],
+          "strengths": [
+            "对仲裁庭管辖权与实体错误进行了较系统的条款梳理"
+          ],
+          "weaknesses": [
+            "无问题句，仅为主题声明与立场辩护",
+            "单向批判，未呈现学界理论分歧与观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明，且无理论分歧"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与立场正当性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为政策立场阐释与仲裁裁决批驳，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文无明确问题句，仅为对仲裁庭裁决错误的系统归纳与立场宣示，不满足法学研究问题的可争辩性要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。锚定unacceptable档，扣25分（主题声明非研究问题），最终给30分。",
+          "evidence_quotes": [
+            "中国政府坚持不接受、不承认裁决的立场，具有充分的事实和法律依据。",
+            "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了'国际立法权'。"
+          ],
+          "strengths": [
+            "涉及国际海洋法重要制度领域。"
+          ],
+          "weaknesses": [
+            "全文为立场阐释与裁决批驳，无'XX是否YY'式问题句。",
+            "无学者观点交锋，仅单向论证仲裁庭错误。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "主题声明非研究问题：全文主要是阐释既定立场，无可争辩的法学争点",
+              "score_ceiling": 30,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'问题句，仅陈述'仲裁庭违反...''仲裁庭错误...'等既定立场，属于主题声明式笔谈。"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性不足且问题表述宏大无法聚焦",
+              "score_ceiling": 30,
+              "priority": 2,
+              "evidence": "虽涉及管辖权、历史性权利等议题，但全文未形成可争辩的学术问题，仅为政策宣示与裁决批驳的集合。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文系针对南海仲裁案裁决的立场性法律评析，缺乏明确的可争辩研究问题，实质为政策与立场倡导。",
+          "core_judgment": "论文以既定国家立场为核心展开法理反驳，未提出具有学术争辩性的原创研究问题，问题创新性不足。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性已触发上限。锚定good档(65分)，经负面模式扣分(宏观介绍15+政策倡导20=35分)，最终得30分。",
+          "evidence_quotes": [
+            "仲裁庭的有关行为完全背离了《公约》的原则和宗旨……没有任何公正性。",
+            "中国不接受、不参与菲律宾单方面提起的仲裁案……是在国际法的框架内捍卫国家主权……"
+          ],
+          "strengths": [
+            "紧扣UNCLOS管辖权与实体解释展开法理分析",
+            "援引多国学者观点与国际实践支撑论证"
+          ],
+          "weaknesses": [
+            "全文缺乏明确的研究问题句，仅为立场声明",
+            "实质为政策倡导与既定立场阐释，无学术交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_overclaim",
+              "rule": "主要依赖新案例/新材料但无实质研究推进，上限70分",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "以2015/2016仲裁裁决为新材料展开评析，未改变问题设定或理论命题"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.52738904953003,
+        "glm-5.1": 52.14152979850769,
+        "kimi-k2.6": 56.33515477180481,
+        "qwen3.6-plus": 83.73934888839722
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 32.5,
+      "std": 5.0,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文未提供任何参考文献列表，也未在正文中建立研究地图，完全缺失到达点、未竟点和本文切入点。",
+          "core_judgment": "现状洞察度不成立：论文无参考文献、无既有研究梳理、无争点结构、无流派识别，完全无法判断作者对学术地图的掌握。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "缺乏参考文献列表，正文中未引用任何学术观点或已有研究成果",
+            "未呈现可区分的争点、对立观点或学术流派，仅以实务评论形式展开政策立场表述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=0或1-2→最高55分，触发no_research_map上限",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文无参考文献，正文无任何到达点、未竟点、本文切入点表述，三要素总分为0。"
+            }
+          ],
+          "boundary_note": "本维度只评文献洞察而不评问题创新性；此处得0分仅因论文未提供任何文献基础，并非否定其现实意义。",
+          "review_flags": [
+            "mandatory_expert_review",
+            "evidence_thin",
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图，未梳理学术到达点与未竟点。",
+          "core_judgment": "维度不成立，纯引文堆叠佐证论点，无学术脉络定位。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给20分",
+          "evidence_quotes": [
+            "仲裁庭没有遵循上述条件和其他程序规则，犯了诸多错误。",
+            "《公约》对“历史性权利”含义没有作出明确规定，国际上对此尚存争议。"
+          ],
+          "strengths": [
+            "引述多位国际法学者观点佐证批判"
+          ],
+          "weaknesses": [
+            "无学术研究地图梳理",
+            "未提炼学界到达点与未竟点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素得分为0，无到达点、未竟点和切入点"
+            }
+          ],
+          "boundary_note": "评估的是文献定位缺失，而非仲裁案批判本身的新颖性",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "本文无任何研究地图构建，缺乏学术对话意识。",
+          "core_judgment": "本文未建立研究地图，三要素全部缺失，争点结构与法学流派识别均为零。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。本文是政策评论与法律实务分析，非学术研究论文，未呈现任何既有研究成果、学术争议或理论分歧。",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "全文无参考文献列表，未引用任何学术文献",
+            "未呈现任何学术争点或理论分歧，纯单方论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无到达点、未竟点、切入点的任何表述，无参考文献"
+            }
+          ],
+          "boundary_note": "本文属政策笔谈/法律时评，非学术期刊论文的文献定位问题，但按维度标准仍评文献梳理。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "本文侧重实务批判与立场宣示，缺乏对既有学术脉络的系统梳理与研究地图构建。",
+          "core_judgment": "研究地图三要素仅部分满足，争点结构围绕裁决本身而非学术争论，未形成有效文献洞察。",
+          "score_rationale": "三要素得分=3/6，争点结构=1/2，法学流派=0个，锚定marginal档，给58分",
+          "evidence_quotes": [
+            "《公约》对“历史性权利”和“历史性所有权”的含义没有作出明确规定，国际上对此尚存争议。",
+            "仲裁庭在无法直接确认中菲之间就地物的地位存在争端的情况下，转而开始“推论”该争端的存在"
+          ],
+          "strengths": [
+            "围绕管辖权与实体问题构建了清晰的批判框架。",
+            "援引多位国际法学者观点与判例支撑论证。"
+          ],
+          "weaknesses": [
+            "未将学者观点置于学术争论脉络中，缺乏研究地图。",
+            "未竟点与切入点指向实务立场而非学术研究缺口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素≤3且争点≤1，研究地图严重不足",
+              "score_ceiling": 64,
+              "priority": 1,
+              "evidence": "全文侧重个案裁决批判，未梳理学界既有成果与分歧脉络"
+            }
+          ],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉问题新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.830470085144043,
+        "glm-5.1": 51.06938099861145,
+        "kimi-k2.6": 52.677189111709595,
+        "qwen3.6-plus": 72.36877799034119
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 20,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 58
+      },
+      "mean": 19.5,
+      "std": 27.3,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 18,
+          "band": "unacceptable",
+          "summary": "本文是对仲裁裁决的立场性批驳与政论性笔谈，未提出或建构任何法学分析框架。",
+          "core_judgment": "该文以阐释既定立场、逐条反驳裁决为主，缺乏原创概念界定、类型化或可重复适用的分析步骤，无分析框架可评。",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、无分类标准、无可循步骤、后文无框架调用）；法学转化度得分=0/4（无跨学科转化、无裁判规则指引、无制度设计方案、无转化步骤调用）。触发宏观介绍/政策梳理上限，总分18分。",
+          "evidence_quotes": [
+            "仲裁庭违反了四大程序原则：（一）仲裁庭违反了属事管辖原则……（二）仲裁庭违反了当事方自愿选择程序优先的原则……",
+            "仲裁庭犯了五大实体错误：（一）仲裁庭错误界定了《公约》的优先适用地位……（五）仲裁庭还主观臆断了中国在南海的行为非法……"
+          ],
+          "strengths": [
+            "结构化梳理了仲裁庭的程序与实体错误，便于阅读者理解中方立场。"
+          ],
+          "weaknesses": [
+            "全文为驳斥性评论，未提出分析框架或操作化步骤；“四大原则”“五大错误”仅为论点罗列，无分析框架功能。",
+            "核心术语来自官方立场表述，无原创操作化定义，未转化为可重复适用的裁判规则或学理框架。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分，最高上限50分；且符合政策理论梳理型识别规则，总通常不超过60分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释中方既定立场为主，主要贡献为梳理、归纳和驳斥，无原创分析框架，核心术语无操作化定义。"
+            }
+          ],
+          "boundary_note": "此为框架建构力评价，非逻辑衔接或问题创新性评价。该文未尝试建构分析框架，不涉及框架内部逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文以《公约》既有条款为依据构建了管辖权三步审查与实体错误分类框架，但缺乏原创概念界定与制度转化。",
+          "core_judgment": "框架分类清晰且后文实际调用，但受限于无原创操作化定义与口号式呼吁，建构力偏弱。",
+          "score_rationale": "框架可操作性得分=1/4（受负面模式B上限1限制），法学转化度得分=2/4，锚定marginal档，给45分",
+          "evidence_quotes": [
+            "第三方强制解决程序的适用需要满足以下三个条件：一是属事管辖范围…二是优先适用…三是管辖的事项不属于…限制与例外",
+            "中国更要坚守…立场，增加国际法的分量，树立…良好形象"
+          ],
+          "strengths": [
+            "提炼了管辖权三步审查标准，分类逻辑清晰"
+          ],
+          "weaknesses": [
+            "核心术语无“本文所称”式明确定义，触发降档",
+            "结尾多口号式呼吁，缺乏具体制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.concept_heap",
+              "rule": "概念堆砌降档规则：核心术语无“本文所称XX是指…”明确定义",
+              "score_ceiling": 1,
+              "priority": 1,
+              "evidence": "核心术语如“属事管辖”“历史性权利”等均无“本文所称”式操作化定义"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用，不评推理衔接严密性或问题新颖性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "该文为政策理论梳理型笔谈，无原创分析框架，仅有立场归纳与程序/实体错误的分类罗列。",
+          "core_judgment": "分析框架建构力不成立：全文以阐释既定立场为主，无原创概念界定、类型化标准或可重复适用的分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅'四大程序原则''五大实体错误'有分类罗列，但无明确分类标准、无分析步骤、无概念界定，后文未调用任何框架术语），法学转化度得分=1/4（仅对《公约》条文进行解释性适用，未转化为可操作的裁判规则或分析步骤）。触发政策理论梳理型上限规则，总分不超过60分；同时触发'宏观介绍非深度分析'负面模式，可操作性上限为2。综合判定35分。",
+          "evidence_quotes": [
+            "仲裁庭违反了四大程序原则...（一）仲裁庭违反了属事管辖原则...（二）仲裁庭违反了当事方自愿选择程序优先的原则...",
+            "仲裁庭犯了五大实体错误...（一）仲裁庭错误界定了《公约》的优先适用地位...（二）仲裁庭错误否定了我国在南海的历史性权利..."
+          ],
+          "strengths": [
+            "对《公约》相关条款的梳理较为系统，便于读者快速定位争议焦点。"
+          ],
+          "weaknesses": [
+            "'四大''五大'仅为内容提纲，未转化为可重复适用的分析步骤或判断标准。",
+            "核心术语均来自权威表述和《公约》条文，论文未提出任何原创概念或类型化框架。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review_ceiling",
+              "rule": "政策理论梳理型论文：框架可操作性上限2，法学转化度上限1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以'梳理''归纳'既定立场为主，核心术语'四大程序原则''五大实体错误'来自对仲裁庭错误的分类归纳，非论文原创分析框架"
+            },
+            {
+              "rule_id": "analytical_framework.macro_introduction_not_analysis",
+              "rule": "宏观介绍非深度分析：全文只有宏观框架描述，无具体问题的深入分析",
+              "score_ceiling": 2,
+              "priority": 2,
+              "evidence": "论文仅对仲裁庭错误进行程序/实体分类罗列，未构建可重复适用的判断标准或分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构与可用性，不涉及对国际法条文解释正确性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "以程序与实体错误分类为框架，结构清晰但属既有法理套用，缺原创步骤与制度转化。",
+          "core_judgment": "框架具备基础分类与实务调用功能，但未达到原创性建构与深度法学转化标准。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档。因属实务评析型，仅具既有法理分类与条文对照，无原创分析步骤与操作化转化，依v0.7规则上限给55分。",
+          "evidence_quotes": [
+            "仲裁庭违反了四大程序原则",
+            "仲裁庭犯了五大实体错误"
+          ],
+          "strengths": [
+            "分类标准明确，程序与实体错误划分清晰",
+            "框架贯穿全文，法理分析与案例事实紧密结合"
+          ],
+          "weaknesses": [
+            "核心术语依赖既有国际法概念，缺乏原创界定",
+            "仅有错误罗列与法条对照，无步骤化裁判指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_cap",
+              "rule": "政策理论梳理型框架可操作性上限2、转化度上限1，总分不超60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以归纳既有国际法立场评析仲裁错误为主，无原创框架建构"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.70841312408447,
+        "glm-5.1": 190.97507405281067,
+        "kimi-k2.6": 31.822078943252563,
+        "qwen3.6-plus": 83.09752893447876
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 18,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 55
+      },
+      "mean": 38.2,
+      "std": 15.8,
+      "strictest": 18,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以'程序违法—实体错误—结论非法'为主线，推理链清晰且结论由充分的法律论证支撑，并系统回应了仲裁庭裁决的逻辑缺陷。",
+          "core_judgment": "这是一篇批判性实务型论文，通过'违反四大程序原则'和'犯五大实体错误'的分解论证，有力地推出了'裁决非法无效'的核心结论，推理链完整且具有高度说服力。",
+          "score_rationale": "推理链完整性得分=4/4（步骤清晰、依赖度高、结论可推导、无关键跳步），反驳处理度得分=3/3（满足所有信号），锚定excellent档，基于论证的严密性和反驳的系统性给92分。",
+          "evidence_quotes": [
+            "仲裁庭没有遵循《公约》规定的属事管辖原则，对超出《公约》范畴的领土主权、一般国际法上的历史性权利和大陆国家远海群岛等问题进行裁判，完全是擅自扩权。",
+            "有关《公约》优先适用的规定处理的是《公约》与其他有关条约关系，不能以此作为《公约》优于其他国际法规则的依据。"
+          ],
+          "strengths": [
+            "推理链高度结构化，从程序违法（管辖权）到实体错误（权利认定）再得出整体裁决非法的结论，步骤递进性强。",
+            "反驳处理极为充分，系统性地枚举并回应了仲裁庭的具体裁决逻辑，并引用多方国际法学者的意见作为实质性反驳依据。"
+          ],
+          "weaknesses": [
+            "论证性质为单方辩护，未纳入或设想可能支持仲裁庭立场的有力学说，使得对话感稍弱，但这符合其笔谈/政论定位。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本篇属于对裁决的批判性实务评析，其逻辑评价重点在于自身论证链条的闭环和对对方逻辑的系统反驳，而非构建一个待检验的理论框架。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文系统拆解仲裁庭程序与实体错误，逻辑链条完整，但未承认论证局限。",
+          "core_judgment": "推理链完整且层层递进，核心结论可辩护推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。虽实质性反驳了仲裁庭解释路径，但未承认自身论证局限。",
+          "evidence_quotes": [
+            "仲裁庭将《公约》第281条有关‘协议’、‘排除’的条件作出限制性解释...有悖《公约》相关条款的通常含义",
+            "仲裁庭超越《公约》赋予的职权范围...事实上行使了‘国际立法权’，完全是一项政治性裁决"
+          ],
+          "strengths": [
+            "推理步骤清晰，从法定条件到违规事实再到结论，依赖度高",
+            "对仲裁庭的不同解释路径进行了实质性反驳与理由说明"
+          ],
+          "weaknesses": [
+            "论证语气绝对，未承认自身解释路径或论证的适用边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于从法定条件到违规事实的推出逻辑，不评价中国立场在国际法共同体的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "笔谈形式导致多作者并列论述，缺乏统一推理链，各文独立罗列观点而非递进论证。",
+          "core_judgment": "作为集合性笔谈，论文未形成从问题到结论的连贯推理链条，逻辑严密性不成立。",
+          "score_rationale": "推理链完整性得分=1/4（标准1勉强成立，标准2-4均不成立；多篇文章并列，步骤间无依赖关系，结论由各自独立论述堆砌而非推出），反驳处理度得分=0/3（无任何反对意见识别、实质性回应或局限承认）。锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "仲裁庭违反了四大程序原则...仲裁庭犯了五大实体错误（马新民）",
+            "仲裁庭任意扩大管辖权，擅自设定岛礁条件（吴慧）"
+          ],
+          "strengths": [
+            "单篇内部有分类列举结构",
+            "部分子论点有规范依据支撑"
+          ],
+          "weaknesses": [
+            "三篇文章并列独立，无推理链衔接",
+            "结论'裁决非法无效'为预设立场，非由前文逐步推出"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "马新民、吴慧等文各自独立论述程序错误与实体错误，无步骤依赖关系，删除任一篇不影响其他篇结论"
+            }
+          ],
+          "boundary_note": "问题在于笔谈形式导致多线并列，非单一论文的框架设计缺陷。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建“程序越权→实体谬误→裁决无效”推理链，结论获规范与学理充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论具备充分的可辩护性，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "仲裁庭没有遵循上述条件和其他程序规则，犯了诸多错误。",
+            "仲裁庭将《公约》第298条规定的‘关于海域划界争端’解释为排除海域划界争端本身，不符合通常含义。"
+          ],
+          "strengths": [
+            "程序与实体双轨论证结构严密，层层递进支撑核心结论。",
+            "大量援引《公约》条款与条约解释规则，规范推导扎实。"
+          ],
+          "weaknesses": [
+            "未明确界定论证的适用边界或潜在反例情境。",
+            "对仲裁庭部分法理推演的回应偏重立场宣示，深度可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦规范推导与结论支撑链，非评价政策立场或框架操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.93761396408081,
+        "glm-5.1": 53.26752519607544,
+        "kimi-k2.6": 54.64514493942261,
+        "qwen3.6-plus": 67.62157821655273
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 85
+      },
+      "mean": 76.8,
+      "std": 21.4,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "本文结论几乎没有进入学术共同体对话，完全复述中国官方既定立场，缺乏可争辩的学术主张与对反对意见的回应，对制度约束的讨论停留在宣告层面。",
+          "core_judgment": "论文结论是政治立场的直接宣示，未转化为可被法学共同体认真回应的学术主张，对话度极低。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4。因对话度为0触发上限规则，总分不宜超过50分，且完全复述立场未回应反对意见，锚定 unacceptable 档，给出25分。",
+          "evidence_quotes": [
+            "中国政府坚持不接受、不承认裁决的立场，具有充分的事实和法律依据。",
+            "中国不接受、不参与菲律宾单方面提起的仲裁案，不承认、不执行该仲裁庭的裁决。"
+          ],
+          "strengths": [
+            "结论与中国官方法治话语高度一致，制度兼容性强。"
+          ],
+          "weaknesses": [
+            "结论纯粹复述官方立场，未提出可争辩的学术主张。",
+            "全文未主动承认或讨论任何反对意见与自身论证局限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，论文结论未说明与既有争论的关系，反对者无从定位和回应，完全自说自话。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论仅反复申明中国立场合理合法，未说明该立场在法学争论中的位置，也未回应任何可能的质疑。"
+            }
+          ],
+          "boundary_note": "本维评价结论是否可被共同体对话与制度语境接受，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin",
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文系统批驳南海仲裁案裁决，结论与中国制度语境高度兼容，但缺乏学术反思。",
+          "core_judgment": "结论虽为官方立场的学术重申，但提供了具体法理反驳路径，能被定位回应，制度兼容度高。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档。因缺乏学术反思且高度贴合官方话语，给80分。",
+          "evidence_quotes": [
+            "仲裁庭的有关行为完全背离了《公约》的原则和宗旨...没有任何公正性。",
+            "中国不接受...是在国际法的框架内捍卫国家主权...的正当之举"
+          ],
+          "strengths": [
+            "对仲裁庭管辖权与实体错误提供了具体法理反驳路径",
+            "结论与中国现行法秩序及制度语境高度兼容"
+          ],
+          "weaknesses": [
+            "结论完全复述官方既定立场，缺乏独立学术反思与局限承认",
+            "语气绝对化，未将反对意见视为可反思的学术挑战"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论在共同体与制度语境中的可接受与回应性，不评论证严密性或学术反思深度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策宣示性笔谈，缺乏学术对话性与制度回应性",
+          "core_judgment": "本文属于政策评论/官方立场阐释，未进入法学共同体学术对话，结论不可接受为学术论文结论",
+          "score_rationale": "共同体对话度得分=1/4（仅标准3部分满足，提及中国立场与《公约》关系），制度可接受度得分=2/4（标准1、2部分满足），锚定unacceptable档，给35分。上限规则触发：共同体对话度≤1强制最高49分，且本文实际为政策笔谈非学术论证",
+          "evidence_quotes": [
+            "中国不接受、不参与菲律宾单方面提起的仲裁案，不承认、不执行该仲裁庭的裁决，是在国际法的框架内捍卫国家主权和海洋权益、维护公平正义的国际法治、维护《公约》权威性和完整性的正当之举",
+            "仲裁庭超越《公约》赋予的职权范围，不仅超越管辖权，而且超越解释权，事实上行使了'国际立法权'，完全是一项既无合法基础，也无合法授权的政治性裁决"
+          ],
+          "strengths": [
+            "明确回应中国法秩序与国际法关系",
+            "运用条约解释方法分析《公约》条款"
+          ],
+          "weaknesses": [
+            "未与既有学术争论对话，仅为单方立场宣示",
+            "未承认任何反对意见或自身论证局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未与任何学术观点对话，未说明与既有争论关系，结论为政策宣示而非学术主张"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性；本文问题在无法进入学术对话而非立场激进",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论立足《公约》法理与中国立场，有效回应国际法争议，制度兼容性强。",
+          "core_judgment": "该结论能进入国际法学共同体对话语境，且与现行国际法秩序逻辑高度兼容。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "仲裁庭不仅管辖权存在着随意扩权越权的法律问题和法理谬误，而且在认定事实、适用法律等方面存在严重问题。",
+            "中国不接受、不参与菲律宾单方面提起的仲裁案，不承认、不执行该仲裁庭的裁决，是在国际法的框架内捍卫国家主权和海洋权益的正当之举。"
+          ],
+          "strengths": [
+            "紧扣《公约》条款与国际法理，论证路径清晰，精准定位管辖权与实体争议。",
+            "明确回应国际法学界对裁决的质疑，立场鲜明且具备可争辩性。"
+          ],
+          "weaknesses": [
+            "结论高度契合官方立场，缺乏对学术反对意见的实质性对话与自我局限反思。",
+            "制度转化建议偏宏观，未细化至具体程序衔接或规则设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.272337198257446,
+        "glm-5.1": 90.91930985450745,
+        "kimi-k2.6": 11.932228326797485,
+        "qwen3.6-plus": 56.30162811279297
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 80,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 85
+      },
+      "mean": 56.2,
+      "std": 30.7,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文未提出任何具体的后续研究问题、理论修正路径或实务延伸方向，仅以政治宣示性语句收尾，缺乏真实延展路径。",
+          "core_judgment": "不存在可定位的真实延展路径，仅有口号式展望与意义拔高。",
+          "score_rationale": "原始分0分，对应bonus档位0。全文均是对既定立场的重申与论证，未就未来研究、制度完善、理论深化或实务边界给出任何具体指向，完全符合 slogan_outlook 定义。",
+          "evidence_quotes": [
+            "中国将一直是国际法治的建设者、倡导者和维护者。",
+            "中国不接受、不参与仲裁，不接受、不承认任何裁决，合理合法，有理有据。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "完全没有提出任何后续研究问题、理论修正或实务延伸路径。",
+            "结尾段落均为政治表态和意义宣示，无具体待修正的对象或可操作的延伸方向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "仅含口号式展望、意义拔高，无具体延展路径，适用低分约束。",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "结尾仅宣称中国是国际法治建设者、倡导者、维护者等，未指明任何具体未来研究问题、制度完善方向或理论深化路径。"
+            }
+          ],
+          "boundary_note": "本文的宣示性结论属于立场阐释，并非基于已建立论证的、指向未来何种路径跟进或修正的延展判断，因此不涉及结论可接受性或逻辑严密性维度的边界争议。",
+          "review_flags": [
+            "evidence_thin",
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文隐含了远海群岛习惯法建构与岛屿裁判规则适用边界的延展方向，但未明确提出后续研究路径。",
+          "core_judgment": "存在可推断的实务与制度延展方向，但缺乏明确的后续研究设计或局限承认。",
+          "score_rationale": "原始分45，属marginal档（bonus=2）。正文虽未明示后续研究，但指出《公约》对远海群岛留白及多国实践，且点明仲裁庭岛屿标准对冲之鸟岛等的影响，构成可推断的延展路径。",
+          "evidence_quotes": [
+            "《公约》没有对大陆国家远海群岛作出规定……目前，包括法国、英国等10多个国家将其远海群岛作为一个整体划设直线基线",
+            "美国的约翰斯顿岛和日本主张的‘冲之鸟岛’也应被认定为岩礁，甚至对于钓鱼岛的地位也要重新考虑"
+          ],
+          "strengths": [
+            "指明了仲裁庭岛屿标准对其他国家岛礁地位的延伸影响",
+            "揭示了《公约》在远海群岛制度上的留白与多国实践方向"
+          ],
+          "weaknesses": [
+            "未明确提出后续研究问题或争点",
+            "开篇仅以空泛口号展望国际法治形象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "远海群岛习惯国际法规则的建构与岛屿标准对其他法域的适用检验，属于未来制度完善与实务延展问题，而非当下裁决可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文为南海仲裁案法律评析笔谈，聚焦裁决非法无效的程序与实体批判，缺乏对未来研究路径、制度发展或理论深化的具体延展。",
+          "core_judgment": "不存在真实延展路径，仅结尾处出现口号式拔高，未提出可定位的后续研究方向或制度完善路径。",
+          "score_rationale": "原始分25分，bonus=0。论文通篇为对仲裁裁决的批判性分析，属于典型的实务/判例型论文，但正文及结尾均未提出案例适用边界、裁判规则延伸或实务改进路径。文末'中国将继续是国际法治的建设者、倡导者和维护者'等表述为空泛口号，无具体待修正对象、机制或场景，落入slogan_outlook低分区间。",
+          "evidence_quotes": [
+            "在全球治理的发展之路上，中国将一直是国际法治的建设者、倡导者和维护者。",
+            "中国不接受、不参与仲裁，不接受、不承认任何裁决，合理合法，有理有据。"
+          ],
+          "strengths": [
+            "对仲裁庭程序与实体错误的批判系统详尽，具有较强现实针对性。"
+          ],
+          "weaknesses": [
+            "结尾展望仅为立场宣示，无具体制度路径或研究问题。",
+            "未识别裁决批判后可延伸的学术争点或实务改进空间。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文末'中国将继续是国际法治的建设者、倡导者和维护者'等表述，无具体问题、对象、机制或场景。"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展可能性。论文结尾的立场宣示属于可接受性判断（中国立场正当），而非未来研究或制度如何推进的延展问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文以批判裁决错误为主，隐含历史性权利等后续争点，但缺乏明确的未来研究设计。",
+          "core_judgment": "存在基于具体法律争议的潜在延展方向，但未显性转化为可操作的后续路径。",
+          "score_rationale": "原始分45，对应bonus=2。文本聚焦裁决批判，虽在历史性权利、第121条解释等议题上留下理论争点，但多为宏观政策宣示，未提出具体后续问题或修正机制，延展精细度有限。",
+          "evidence_quotes": [
+            "在联合国大会、安理会……增加国际法的分量，在‘一带一路’建设……树立坚持国内法治、建设国际法治良好形象。",
+            "《公约》未予规定的事项，应继续以一般国际法的规则和原则为准据。"
+          ],
+          "strengths": [
+            "精准锁定历史性权利与岛礁标准等核心争点，预留法理辩论空间。",
+            "结合多边平台提出宏观应对方向，具备一定实务指引价值。"
+          ],
+          "weaknesses": [
+            "未将批判结论转化为具体后续研究问题或制度修正路径。",
+            "延展多为立场宣示，缺乏可检验的反驳入口或场景边界。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估裁决批判后留下的理论争点如何转化为未来研究或规则演进，而非当下立场正当性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.096022844314575,
+        "glm-5.1": 50.67161703109741,
+        "kimi-k2.6": 11.771217823028564,
+        "qwen3.6-plus": 65.89737391471863
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 45,
+        "kimi-k2.6": 25,
+        "qwen3.6-plus": 45
+      },
+      "mean": 28.8,
+      "std": 21.4,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 40.87,
+      "weighted_total": 41.8
+    },
+    "aggregation_strictest": {
+      "final_score": 24.35,
+      "weighted_total": 23.2
+    },
+    "avg_std": 20.3,
+    "max_std": 30.7,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 16.5,
+    "composite_score": -18.63,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 30.7
+  }
+}

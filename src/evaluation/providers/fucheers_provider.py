@@ -15,8 +15,10 @@ class FucheersProvider(BaseProvider):
 
     DEFAULT_TEMPERATURE = 0.3
 
-    def __init__(self, model_name: str = "gpt-5.5"):
-        self.model_name = model_name
+    def __init__(self, model_name: str = "gpt-5.5", reasoning_effort: str | None = None):
+        self.model_name = f"{model_name}-{reasoning_effort}" if reasoning_effort else model_name
+        self._model_id = model_name
+        self._reasoning_effort = reasoning_effort
         self._client = openai.AsyncOpenAI(
             api_key=settings.fucheers_api_key,
             base_url=settings.fucheers_base_url,
@@ -26,11 +28,14 @@ class FucheersProvider(BaseProvider):
         """调用 FUCHEERS API 生成 JSON 响应"""
         content = ""
         try:
-            response = await self._client.chat.completions.create(
-                model=self.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=self.DEFAULT_TEMPERATURE,
-            )
+            kwargs = {
+                "model": self._model_id,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": self.DEFAULT_TEMPERATURE,
+            }
+            if self._reasoning_effort:
+                kwargs["reasoning_effort"] = self._reasoning_effort
+            response = await self._client.chat.completions.create(**kwargs)
             content = response.choices[0].message.content
             if not content:
                 raise ProviderCallError(self.model_name, "Empty response content")

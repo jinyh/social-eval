@@ -2,9 +2,11 @@ import pytest
 from src.knowledge.loader import load_framework
 from src.core.exceptions import KnowledgeError
 
+ARCHIVE_DIR = "configs/frameworks/archive/v2.0-v2.54-20260522"
+
 
 def test_load_legacy_law_framework_succeeds():
-    fw = load_framework("configs/frameworks/law_v1.yaml")
+    fw = load_framework(f"{ARCHIVE_DIR}/law_v1.yaml")
     assert fw.discipline == "law"
     assert len(fw.dimensions) == 6
     assert fw.name == "法学论文评价框架"
@@ -15,7 +17,7 @@ def test_load_legacy_law_framework_succeeds():
 
 
 def test_load_law_framework_dimensions_have_prompts():
-    fw = load_framework("configs/frameworks/law_v1.yaml")
+    fw = load_framework(f"{ARCHIVE_DIR}/law_v1.yaml")
     for dim in fw.dimensions:
         assert dim.prompt_template.strip() != ""
         assert "{paper_content}" in dim.prompt_template
@@ -23,7 +25,7 @@ def test_load_law_framework_dimensions_have_prompts():
 
 
 def test_load_law_v2_framework_succeeds():
-    fw = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    fw = load_framework(f"{ARCHIVE_DIR}/law-v2.0-20260413.yaml")
     assert fw.name == "法学评价框架 v2.0"
     assert fw.discipline == "法学"
     assert fw.version == "2.0.0"
@@ -36,7 +38,7 @@ def test_load_law_v2_framework_succeeds():
 
 
 def test_load_law_v2_framework_preserves_new_dimension_names():
-    fw = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    fw = load_framework(f"{ARCHIVE_DIR}/law-v2.0-20260413.yaml")
     dimension_keys = [dim.key for dim in fw.dimensions]
     assert "analytical_framework" in dimension_keys
     assert "conclusion_consensus" in dimension_keys
@@ -45,7 +47,7 @@ def test_load_law_v2_framework_preserves_new_dimension_names():
 
 
 def test_load_law_v2_30_framework_succeeds():
-    fw = load_framework("configs/frameworks/law-v2.30-20260425.yaml")
+    fw = load_framework(f"{ARCHIVE_DIR}/law-v2.30-20260425.yaml")
     assert fw.version == "2.30.0"
     assert fw.scoring_structure is not None
     assert fw.raw_config.get("scoring_protocol", {}).get("mode") == "core_ceiling_bonus"

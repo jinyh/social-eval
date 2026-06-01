@@ -1,0 +1,1089 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/“法治中国”命题的理论逻辑及其展开.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": [
+          "参见梁漱溟：《中国文化的命运》，中信出版集团2013年版，第54、146页。",
+          "See Bodin，On Sovereignty，中国政法大学出版社(影印本)2003，p．1．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "法治中国的内在理论脉络遵循着历史与实践的逻辑统一：它是对不同历史阶段新中国主权结构和治权结构法治化的集大成。",
+          "“法治中国”的“法”并非仅仅秉持一种形式主义的法治观而纯粹转向一种法律实证主义，“法治中国”所追求的“生机勃勃与秩序井然的现代中国”需要靠实质的道义力量来推动",
+          "《宪法》究竟预设了怎样的“法治中国”价值图谱，需要我们从文本出发",
+          "本文以为，从不修改现行宪法并考虑现实性与可操作性，第一种方案和第二种方案较为可行。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "“法治中国”命题的理论逻辑及其展开",
+        "从宪法文本构建的“价值中国”来看，一个具有理想生活形态的中国至少包括“秩序井然的中国”(和谐)、“公平正义的中国”(平等)、“生机勃勃的中国”(自由)、“小康独立的中国”(富强)、“选贤慎议的中国”(民主)、“礼兴乐盛的中国”(文明)这六重意象。",
+        "在“法治中国”的具体语境里就是《决定》所讨论的“改革与立法的关系”",
+        "《宪法》是双重代表制的共同规范平台"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [],
+      "recommendation": "论文以中国宪法文本与实践为核心，系统阐释了法治中国的价值逻辑与制度命题，具备明确的中国自主知识体系建构意图和可争辩的理论框架，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致个别字词识别错误（如'孑L子'应为'孔子','苟子'应为'荀子','面l}6j'应为'面临'）",
+          "期刊页眉/页脚信息及页码混入正文（如'中国法学 2016年第1期'、页码'95','98','100'等）",
+          "脚注内容与编号直接穿插混入正文段落中，造成阅读断续"
+        ],
+        "evidence_quotes": [
+          "面l}6j的挑战是什么",
+          "孑L子提出“以德、礼养民为重，政刑为助”",
+          "苟子斥责法家思想为“寡廉鲜耻，伤仁害义”",
+          "95 \n 中国法学 \n 2016年第1期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《宪法》究竟预设了怎样的“法治中国”价值图谱，需要我们从文本出发，看看“法治中国”究竟在宪法上如何理解",
+          "这种代表制在立宪后形成一元统治原则和二元统治形式的特征，构成一种典型的混合体制……从而整个中国的民主体制可以说是一种“双重代表制下的半契约结构”",
+          "“基于合宪性控制的治理有效性”是化解上述三个问题的基本思路",
+          "宪法解释是平息“价值内战”的关键"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "OCR识别乱码需文本工程清洗（如'孑L子'、'苟子'、'面l}6j'等）",
+        "期刊页眉页脚及脚注内容混入正文需结构化抽取与剥离"
+      ],
+      "evidence_quotes": [
+        "双重代表制下的半契约结构",
+        "基于合宪性控制的治理有效性"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分。但需在评分前对文本工程问题进行清洗：修正OCR乱码（如'孑L子'->'孔子'、'苟子'->'荀子'），剥离混入正文的页码（95,98等）、期刊信息（中国法学2016年第1期）及穿插的脚注内容，以确保后续评审的文本连贯性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如①③④⑤⑦⑨⑩等编号不连续且格式混乱，部分编号后缺少对应脚注内容）",
+          "参考文献列表标注为'（无）'，实际正文中有大量脚注引用但未抽取为规范参考文献格式",
+          "期刊页码混入正文（如'95'、'98'、'100'、'101'、'102'、'103'等页码数字孤立出现）",
+          "部分西文文献引用格式不规范（如'See Bodin，On Soverei gnty'存在空格断裂）",
+          "OCR残留痕迹：部分文字存在疑似分栏导致的断行错误（如'一\\n个'、'圆'等）"
+        ],
+        "evidence_quotes": [
+          "95",
+          "98",
+          "100",
+          "101",
+          "102",
+          "103",
+          "See Bodin，On Soverei gnty，中国政法大学出版社(影印本)2003，p．1．",
+          "①",
+          "③",
+          "④"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "法治中国的内在理论脉络遵循着历史与实践的逻辑统一：它是对不同历史阶段新中国主权结构和治权结构法治化的集大成",
+          "《宪法》究竟预设了怎样的'法治中国'价值图谱，需要我们从文本出发",
+          "双重代表与半契约结构。在这双重代表制中处在根本地位的是党与人民的关系",
+          "基于合宪性控制的治理有效性",
+          "《宪法》是双重代表制的共同规范平台",
+          "宪法解释是平息'价值内战'的关键",
+          "宪法实施的监督机制是化解多元主义挑战的基础"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号系统混乱，存在大量不连续编号（①③④⑤⑦⑨⑩等），部分编号无对应内容；参考文献列表未抽取，正文引用以脚注形式散落；页码数字混入正文；少量西文引用存在OCR空格断裂",
+        "项目口径：无问题，完全符合六维评价要求"
+      ],
+      "evidence_quotes": [
+        "法治中国的内在理论脉络遵循着历史与实践的逻辑统一：它是对不同历史阶段新中国主权结构和治权结构法治化的集大成",
+        "双重代表与半契约结构。在这双重代表制中处在根本地位的是党与人民的关系，这种代表制迥异于西方，它有三个特征",
+        "基于合宪性控制的治理有效性是化解上述三个问题的基本思路"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文完全符合'中国自主知识体系研究'项目口径，应进入六维评分。建议评分时关注其'双重代表制''半契约结构''合宪性控制'等核心命题的理论原创性。文本质量风险较低，主要为脚注编号混乱和参考文献抽取失败，不影响核心论点评审，可在评分阶段正常处理。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致部分脚注编号乱码（如@、⑦、⑩、◎混用）及个别字符断裂（如“面l}6j”）",
+          "期刊页眉页脚及页码（如“中国法学 2016年第1期”“95”“100”）混入正文流",
+          "部分参考文献与正文脚注交叉排版，但核心论证结构完整可定位"
+        ],
+        "evidence_quotes": [
+          "面l}6j的挑战是什么",
+          "⑤ See Bodin，On Soverei gnty，中国政法大学出版社(影印本)2003，p．1．",
+          "中国法学 \n 2016年第1期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“法治中国”命题是中国现代治理最为伟大的共识……本文对它的理论逻辑按照历史、实践和道义的维度进行了体系化思考",
+          "整个中国的民主体制可以说是一种“双重代表制下的半契约结构”",
+          "“基于合宪性控制的治理有效性”是化解上述三个问题的基本思路",
+          "宪法解释是平息“价值内战”的关键……通过解释方法的运用，调整承载特定价值的规范之文义、范围、目的等"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：局部OCR残留与脚注编号乱码，需后续清洗",
+        "项目口径：高度契合，无边界争议"
+      ],
+      "evidence_quotes": [
+        "“法治中国”要通过一种价值的力量及其实现呈现一个以宪法为统帅的“良法之治的中国”",
+        "如何避免例外政治……在“立法要主动适应改革”与“改革要于法有据”之间，究竟如何拿捏分寸",
+        "“基于合宪性控制的治理有效性”是化解上述三个问题的基本思路"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR与排版噪声，但不影响核心论点、理论框架与制度命题的定位。论文以中国宪法文本与治理实践为中心，提出“双重代表制下的半契约结构”“基于合宪性控制的治理有效性”等可争辩法学命题，成功将西方宪政理论与中国传统治理资源转化为中国法学分析工具，高度契合中国自主知识体系评价口径。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文本质上是对“法治中国”政策命题的体系化阐释，而非提出一个可争辩的法学研究问题。",
+          "core_judgment": "全文无聚焦的法学问题句，仅围绕既定政治立场展开价值梳理和挑战回应，缺乏理论分歧与可争辩的法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未单独触发上限。可争辩性≤1触发 no_justiciable_question 上限50分；因严重依赖主题声明而非研究问题，实际锚定 unacceptable 档，扣除负面模式（新概念包装旧问题扣20分、宏观介绍非深度分析扣20分、主题声明非研究问题扣30分）后最终给30分。",
+          "evidence_quotes": [
+            "那么我们接下来就要进一步思考，“法治中国”要实现民主国家的有效治理，那就必然有特定的价值目标...（这是主题声明，而非可争辩的问题句）",
+            "法治中国面对的挑战是什么，又如何从其自身理论逻辑出发予以有效应对...（只给出应对思路，未呈现对立立场间的深层争辩）"
+          ],
+          "strengths": [
+            "对宪法文本中隐含的价值意象进行了较为系统的归纳。",
+            "尝试从主权结构、价值协调等层面提出若干现实张力。"
+          ],
+          "weaknesses": [
+            "全文围绕政策主题展开阐释，缺乏“是否”“如何”等可争辩的法学问题句。",
+            "对挑战的讨论多为自设自答，未呈现不同学者观点间的实质交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文开头为‘那么我们接下来就要进一步思考...’，属于主题声明，后续大段为价值梳理和挑战罗列，未找到可争辩的法学问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "将法治中国命题转化为宪法学争点，揭示主权结构与价值冲突张力，问题枢纽性极强。",
+          "core_judgment": "问题成立且极具枢纽性，成功将政策话语转化为可争辩的法学争点，但问题设定偏保守。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，扣分0，给85分",
+          "evidence_quotes": [
+            "如何避免例外政治？...在‘立法要主动适应改革’与‘改革要于法有据’之间，究竟如何拿捏分寸...",
+            "宪法解释是平息‘价值内战’的关键...通过解释方法的运用，调整承载特定价值的规范之文义、范围、目的等"
+          ],
+          "strengths": [
+            "提炼‘半契约结构’精准揭示中国主权结构内在张力",
+            "将官方话语转化为宪法学争点，触及党与人大关系等核心体制"
+          ],
+          "weaknesses": [
+            "问题源于对官方命题的内部拆解，而非提出颠覆性新问题",
+            "解决方案偏向既有宪法学共识的延伸，问题设定略显保守"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评研究问题是否成立且重要，不评文献综述充分性及论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以'法治中国'为主题进行宏大阐释，缺乏可争辩的法学问题。",
+          "core_judgment": "全文无明确问题句，仅有主题声明式论述，未提出可争辩的法学争点，不满足问题创新性维度要求。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明，无问题句；无学者观点交锋；无理论分歧呈现；非法学论证而是政策阐释），枢纽性=2/4（涉及宪法、法治等基础概念，但无制度连锁论证），材料新颖性未触发上限。锚定unacceptable档，给35分。负面模式扣分：检查2扣20分（无任何学者观点交锋），检查3扣30分（全文无问题句，只有主题声明），合计扣50分，但按规则不低于30分。",
+          "evidence_quotes": [
+            "本文对它的理论逻辑按照历史、实践和道义的维度进行了体系化思考",
+            "法治中国的建设就是按照一定的价值图谱，实现'党领导人民依法治国'"
+          ],
+          "strengths": [
+            "主题涉及宪法、法治等法学核心概念"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'等问题句，只有主题声明",
+            "无学者观点交锋，仅单向阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确问题句，仅有'法治中国命题的理论逻辑及其展开'主题声明式表述"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分，但本例可争辩性=1",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "主题'法治中国'过于宏大，涵盖六重价值、历史逻辑、实践逻辑，无法聚焦为具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 50,
+          "band": "excellent",
+          "summary": "论文系统阐释“法治中国”宪法逻辑，枢纽性强，但问题偏宏大阐释，缺乏尖锐法学争点。",
+          "core_judgment": "问题具备高理论枢纽性，但实质为既定命题体系化展开，可争辩性受限，经扣分后得分中等。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档。经前置检查扣35分（新概念解释力提升不充分扣15，主题声明非争点扣20），最终得50分。",
+          "evidence_quotes": [
+            "“法治中国面临的挑战是什么，又如何从其自身理论逻辑出发予以有效应对？”",
+            "“宪法解释是平息‘价值内战’的关键……通过解释方法的运用调整承载特定价值的规范”"
+          ],
+          "strengths": [
+            "触及主权结构与合宪性审查等核心领域，枢纽性极强。",
+            "引入凯尔森与德沃金理论分歧，展现规范价值冲突分析深度。"
+          ],
+          "weaknesses": [
+            "全文以阐释既定共识为主，缺乏“XX是否YY”式尖锐争点。",
+            "新概念侧重体系建构，未对比既有理论以凸显解释力跃升。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.52884793281555,
+        "glm-5.1": 55.160818099975586,
+        "kimi-k2.6": 16.02199411392212,
+        "qwen3.6-plus": 97.97958397865295
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 50
+      },
+      "mean": 50,
+      "std": 24.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 12,
+          "band": "unacceptable",
+          "summary": "论文通篇未建构任何研究地图，缺乏对既有研究成果的具体引述、研究缺口说明及明确的本文切入点，完全是作者自身的理论阐述。",
+          "core_judgment": "本维度不成立。论文未呈现任何文献梳理、学术争点或学派对立，无法评估其研究边界与前人对话。",
+          "score_rationale": "三要素总分=0/6，争点结构=0/2，法学流派=0个。锚定 unacceptable 档（0-54分），按三要素总分0分触发 no_research_map，上限55分。因全文无任何学术文献对话，取12分。",
+          "evidence_quotes": [
+            "我们可以从文本出发，看看“法治中国”究竟在宪法上如何理解…（全文无具体前人研究引述）",
+            "（无参考文献列表）"
+          ],
+          "strengths": [
+            "作者围绕“法治中国”进行了系统的理论构架与价值阐述。"
+          ],
+          "weaknesses": [
+            "全文未呈现任何既有研究的到达点、未竟点及本文切入点，无文献综述与学术对话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=0，无研究地图，上限55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文无任何既有研究成果标识（无学者姓名、具体观点、研究缺口），亦无参考文献列表。"
+            }
+          ],
+          "boundary_note": "本文的问题在于完全缺失对既有研究的梳理与对话，而非其探讨的“法治中国”命题本身是否新颖。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，呈现多个核心争点与对立流派，现状洞察度极高。",
+          "core_judgment": "本文通过分散式文献定位充分建立了研究地图，争点结构完整，法学流派识别丰富。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "陈端洪很早就提出了这种党与人大的双重代表制说法……但我则以代表产生的时点为标准",
+            "凯尔森就否认有客观的价值秩序……而德沃金则提出‘价值的互相构成和一体性原理’"
+          ],
+          "strengths": [
+            "未竟点明确具体，精准指出主权张力、实用主义与多元主义三大挑战",
+            "争点结构清晰，呈现了契约论与道义代表、价值相对与价值一体等对立"
+          ],
+          "weaknesses": [
+            "到达点多为西方思想史资源，法学专门文献梳理稍显分散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非理论建构本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文构建'法治中国'理论框架，但缺乏对既有学术研究的系统梳理与对话。",
+          "core_judgment": "研究地图三要素严重缺失，未建立清晰的学术争点结构，属于典型的'自说自话'式论述。",
+          "score_rationale": "三要素=1/6（到达点1+未竟点0+切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "前文通过历史与实践、价值与实践双重逻辑线索……这是本文最后要尝试回答的问题",
+            "学术研究仅是书生管见，但任何伟大的实践者都应该珍惜这来之不易的共识"
+          ],
+          "strengths": [
+            "引用博丹、洛克、德沃金等经典文献支撑论点"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学术成果作为到达点，无'XX学者证明了XX'式表述",
+            "未识别任何学术争点或对立立场，'挑战'部分仅为作者自设问题而非学术对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无'已有研究指出''学界争论''但尚未解决'等研究地图标识，仅有经典理论引述而无当代学术对话"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性；该文问题意识清晰，但缺乏学术坐标系。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理主权、价值与监督理论，明确现实挑战并提出合宪性控制路径，研究地图完整。",
+          "core_judgment": "本维度成立，论文具备清晰的争点结构与充分的文献定位能力。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "凯尔森否认客观价值秩序，德沃金则提出价值互相构成原理，本文据此展开宪法解释路径之争。",
+            "本文指出主权结构内部张力、价值冲突实用主义诱惑及多元主义挑战为既有理论未竟之处。"
+          ],
+          "strengths": [
+            "争点结构清晰，系统呈现主权张力、价值协调与监督机制三大分歧。",
+            "文献定位充分，将凯尔森与德沃金等对立学说有效融入论证脉络。"
+          ],
+          "weaknesses": [
+            "部分流派识别偏向理论引介，对国内学界具体争论脉络的集中提炼稍显分散。",
+            "未竟点与切入点的对应虽明确，但缺乏对反对观点或替代方案的直接交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.029051303863525,
+        "glm-5.1": 53.2922580242157,
+        "kimi-k2.6": 13.06639313697815,
+        "qwen3.6-plus": 67.23024296760559
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 12,
+        "glm-5.1": 92,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 90
+      },
+      "mean": 59.8,
+      "std": 38.5,
+      "strictest": 12,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文以归纳和阐释“法治中国”的政策理论脉络为主，未提出可重复适用的原创法学分析框架。",
+          "core_judgment": "文本属于政策理论梳理型论文，缺乏原创概念界定、可循分析步骤及法学操作化转化，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定勉强成立），法学转化度得分=0/4，锚定unacceptable档，上限规则触发（no_operational_framework），最终给42分。",
+          "evidence_quotes": [
+            "《宪法》究竟预设了怎样的“法治中国”价值图谱，需要我们从文本出发...（归纳出）“秩序井然的中国”...六重意象。",
+            "《宪法》是双重代表制的共同规范平台...宪法解释是平息“价值内战”的关键...宪法实施的监督机制是化解多元主义挑战的基础。"
+          ],
+          "strengths": [
+            "对“法治中国”的多重价值维度进行了较为系统的归纳。"
+          ],
+          "weaknesses": [
+            "核心术语如“道义逻辑”“半契约结构”无明确定义，难以作为分析单元使用。",
+            "所谓“应对思路”仅停留在宏观政策主张，未转化为可操作的裁判规则或审查步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1，触发表述性框架上限规则，最高分不超过50。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文核心工作是归纳、阐释《宪法》文本及《决定》中的既定政策表述，无原创分析步骤或可重复适用的法学判断标准，属于政策理论梳理型论文。"
+            }
+          ],
+          "boundary_note": "此评分针对分析框架的可操作性与法学转化度，不涉及论文对政策脉络梳理的全面性与学术价值评价。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，仅归纳宪法价值提纲，缺乏可操作分析框架与法学转化。",
+          "core_judgment": "该维不成立，论文未建构可重复适用的分析框架，仅为宏观理论阐释与政策归纳。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发上限规则给40分。",
+          "evidence_quotes": [
+            "一个具有理想生活形态的中国至少包括...这六重意象",
+            "基于合宪性控制的治理有效性是化解上述三个问题的基本思路"
+          ],
+          "strengths": [
+            "对宪法文本价值进行了体系化归纳与阐释"
+          ],
+          "weaknesses": [
+            "六重意象仅为内容提纲，未转化为可操作判断步骤",
+            "大量理论移植仅作阐释，缺乏法学操作化转化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释《决定》和宪法价值为主，提出六重意象但无操作步骤与法学转化"
+            }
+          ],
+          "boundary_note": "本维评框架建构力而非逻辑衔接或理论深度。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论阐释型论文，以'法治中国'价值体系梳理为主，缺乏原创分析框架。",
+          "core_judgment": "论文未建构可重复适用的分析框架，核心术语来自权威表述，属于政策理论梳理而非框架建构。",
+          "score_rationale": "框架可操作性得分=1/4（仅'六重价值'有分类但无判断标准或分析步骤），法学转化度得分=1/4（仅有制度方向提及，未转化为具体裁判规则或操作程序），锚定marginal档，给45分。触发v0.7政策理论梳理型上限规则。",
+          "evidence_quotes": [
+            "从宪法文本构建的'价值中国'来看，一个具有理想生活形态的中国至少包括'秩序井然的中国'……这六重意象",
+            "'基于合宪性控制的治理有效性'是化解上述三个问题的基本思路"
+          ],
+          "strengths": [
+            "六重价值分类有一定体系化整理功能",
+            "对宪法文本的规范分析有法学根基"
+          ],
+          "weaknesses": [
+            "核心术语如'双重代表制''半契约结构'缺乏明确定义与操作步骤",
+            "后文未实际调用六重价值分类进行具体案例分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review_ceiling",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释'法治中国'既定立场为主，核心术语'六重意象''双重代表制'等为描述性归纳，无原创概念界定或类型化，主要贡献是'梳理''归纳'而非'建构''设计'"
+            },
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "'双重代表制''半契约结构'等术语无'本文所称'式定义，无分析步骤，后文仅重复描述性使用"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文属政策理论梳理型，框架具宏观统摄力但缺乏可操作的分析步骤与法学转化。",
+          "core_judgment": "框架成立但属理论归纳型，未转化为可重复适用的法学分析工具或裁判指引。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。受政策梳理规则限制，核心术语为权威表述归纳，缺乏操作化步骤与裁判规则转化。",
+          "evidence_quotes": [
+            "《宪法》序言第七自然段有一条表达国家目的的“方针条款”……蕴含着宪法上述三个关键价值的明确宣示",
+            "基于合宪性控制的治理有效性是化解上述三个问题的基本思路"
+          ],
+          "strengths": [
+            "以宪法文本为锚点构建六重价值图谱，理论脉络清晰",
+            "将宏观命题拆解为三重挑战，论述结构完整"
+          ],
+          "weaknesses": [
+            "核心概念缺乏明确界定，停留于宏观政策阐释",
+            "未提供可重复适用的分析步骤或裁判规则"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "v0.7.policy_theory_review_cap",
+              "rule": "政策理论梳理型规则：仅归纳既有立场，无原创步骤，操作与转化得分受限",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释“法治中国”既定立场与宪法价值为主，无原创分析步骤或裁判规则转化"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 89.18279099464417,
+        "glm-5.1": 48.653462648391724,
+        "kimi-k2.6": 17.151390075683594,
+        "qwen3.6-plus": 76.87088584899902
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 40,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 55
+      },
+      "mean": 45.5,
+      "std": 6.7,
+      "strictest": 40,
+      "strictest_model": "glm-5.1"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "论文构建了宏大理论框架但内部逻辑链条存在多处断裂，整体推理力受到削弱。",
+          "core_judgment": "推理链基本完整但存在多处未充分论证的关键过渡，使得核心结论的推出依赖于尚未完全建立的规范前提。",
+          "score_rationale": "推理链完整性得分=2/4，反驳处理度得分=2/3，锚定good档，综合推理链中的局部薄弱环节，给68分。",
+          "evidence_quotes": [
+            "《宪法》究竟预设了怎样的“法治中国”价值图谱...《宪法》序言第七自然段...“把我国建设成为富强、民主、文明的社会主义国家”...这里蕴含着...三个关键价值的明确宣示。",
+            "如果以这样一种实践哲学的立场来看，具体法律实践中重大的价值冲突往往可以通过回溯到《宪法》文本的规范体系中...通过宪法解释的途径和机制，才可以将并不自明、高度抽象的宪法条款及其价值在具体实践情境中予以明确。"
+          ],
+          "strengths": [
+            "论文清晰识别并回应了主权结构张力、实用主义诱惑、多元主义挑战三种反驳信号，讨论具有理论对话意识。",
+            "从价值图景到制度应对的总体论证方向明确，致力于为‘合宪性控制’方案提供理论铺垫。"
+          ],
+          "weaknesses": [
+            "从宪法条文直接跳跃式推出六重‘价值中国’意象，缺乏对推导过程及其取舍的充分论证，属于关键过渡缺环。",
+            "应对方案中‘合宪性控制’的前提——宪法能够提供客观融贯的价值秩序——与正文揭示的‘价值内战’判断之间存在尚未弥合的张力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "六重价值推导的薄弱属于推理链内部论据不充分，而非整个分析框架本身不可操作；宪制方案间逻辑跳跃属于理论推导未闭合，而非完全偏离论证命题。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文从宪法价值图谱推导出实践挑战，最终推出合宪性控制应对方案，逻辑闭环完整。",
+          "core_judgment": "推理链形成充分支撑，核心结论可辩护地推出，本维度成立且表现优秀。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "凯尔森就否认有客观的价值秩序...从而他认为法律不可能解决价值冲突的问题",
+            "陈端洪很早就提出了这种党与人大的双重代表制说法...但我则以代表产生的时点为标准"
+          ],
+          "strengths": [
+            "推理步骤层层递进，价值-挑战-应对形成严密闭环",
+            "对凯尔森价值相对主义等反对意见给出了德沃金理论的实质性回应"
+          ],
+          "weaknesses": [
+            "从德沃金价值一体性直接推出中国宪法解释可平息内战，理论移植过渡稍快"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价推理链支撑度，不评价合宪性控制方案在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "理论建构完整但反驳处理薄弱，推理链存在局部跳步。",
+          "core_judgment": "论文构建了'历史-价值-实践'三重逻辑脉络，但反驳处理不足，核心制度建议的推导存在关键跳步。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4因'合宪性控制'方案推导存在跳步而不完全成立），反驳处理度得分=1/3（仅标准1满足，标准2、3未满足），锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "前文通过历史与实践、价值与实践双重逻辑线索从'法治中国'的历史任务、基本要素与价值体系三个方面构建了'法治中国'的理论逻辑",
+            "基于合宪性控制的治理有效性是化解上述三个问题的基本思路"
+          ],
+          "strengths": [
+            "三重逻辑层层递进，从历史到价值再到实践挑战，结构清晰",
+            "六重价值意象的宪法文本分析有规范依据支撑"
+          ],
+          "weaknesses": [
+            "从'三个挑战'到'合宪性控制'方案缺乏中间论证，未说明为何该方案能同时化解三种异质性挑战",
+            "三种宪法监督方案的比较仅作技术罗列，未回应'自我审查'质疑外的其他反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链支撑度，不评'合宪性控制'框架本身是否最优。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了“历史-实践-价值”推理链，核心结论由前文充分支撑，反驳处理完整。",
+          "core_judgment": "推理链完整且依赖度高，结论可辩护推出，反驳处理覆盖显式反对、反例与局限承认。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "“法治中国”要通过一种价值的力量及其实现呈现一个以宪法为统帅的“良法之治的中国”",
+            "“基于合宪性控制的治理有效性”是化解上述三个问题的基本思路。"
+          ],
+          "strengths": [
+            "推理步骤清晰：价值图谱构建→三重挑战识别→合宪性控制应对，环环相扣",
+            "实质性回应挑战：对“例外政治”“价值内战”“多元主义”均给出宪法解释与监督路径"
+          ],
+          "weaknesses": [
+            "部分价值冲突的协调机制仍偏原则性，具体操作推演略简",
+            "对“自我审查”弊端的替代方案论证稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否形成充分支撑，而非制度方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 42.82730174064636,
+        "glm-5.1": 47.57460904121399,
+        "kimi-k2.6": 11.577594757080078,
+        "qwen3.6-plus": 9.43661117553711
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 88,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 82
+      },
+      "mean": 75,
+      "std": 12.1,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文构建了法治中国的六重价值图谱并提出“合宪性控制化解治理有效性”的结论，但多停留于立场宣示和宏大叙事，未能将结论转化为可被学术共同体有效争辩和回应的具体主张。",
+          "core_judgment": "结论在共同体对话和制度可接受性上均存在明显缺陷：与既有学术争论脱节，缺乏对反对意见的回应，且制度应对方案流于空泛，导致了无法进入有效的学术对话。",
+          "score_rationale": "共同体对话度得分=1/4（仅标准3勉强成立），制度可接受度得分=2/4（标准1和4成立），锚定理论论文marginal档（50-59），因对话度过低给55分。",
+          "evidence_quotes": [
+            "“基于合宪性控制的治理有效性”是化解上述三个问题的基本思路。",
+            "如何避免政治代表频频打破法律规范的稳定秩序...在‘立法要主动适应改革’与‘改革要于法有据’之间，究竟如何拿捏分寸...这些问题构成了对法治有效性的重大挑战。"
+          ],
+          "strengths": [
+            "结论始终围绕中国宪法文本和制度语境展开，与现行法秩序基本逻辑兼容。",
+            "主动提出了双重代表制、实用主义诱惑等理论挑战，显示了一定的问题意识。"
+          ],
+          "weaknesses": [
+            "结论是纲领性表态，未说明与既存的学术争论（如规范宪法学、政治宪法学）的关系，无法被有效定位和争辩。",
+            "提出的“合宪性控制”应对方案停留于完善机制等空泛层面，缺乏具体的法理路径，沦为万能药式对策。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论只在宣示自身立场，未说明其与学术共同体已有争论的关系，也未主动回应可预见的反对意见，导致对话度极低。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分仅复述‘基于合宪性控制的治理有效性’，未与任何学术观点进行对话，也未承认自身论证局限。"
+            }
+          ],
+          "boundary_note": "本次评估仅聚焦结论在共同体对话和制度语境中的可接受性，不评判其创新性或前瞻性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深刻回应共同体争论并主动承认挑战，与中国宪法秩序高度兼容且指明制度转化方向。",
+          "core_judgment": "结论在理论层面与制度层面均具备高度可接受性，成功进入共同体对话语境。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "本文结论修正了陈端洪关于双重代表制的观点，以代表产生的时点为标准",
+            "任何理论都是有其限度的，会面临其他理论和具体实践上的挑战"
+          ],
+          "strengths": [
+            "主动承认并系统回应了法治中国面临的三大挑战",
+            "提出了合宪性控制的具体制度转化方向及宪法监督方案"
+          ],
+          "weaknesses": [
+            "对主权结构张力的化解方案仍偏重原则层面，实操性有待深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评估结论能否被共同体及制度语境接受，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "理论论文以宪法为核心构建'法治中国'价值体系，回应中国法治语境，但对话度有限。",
+          "core_judgment": "论文作为理论建构型文章，在中国法学语境中具有可理解性，但与既有学术争论的对话不够充分，制度转化方向较为明确。",
+          "score_rationale": "共同体对话度得分=2/4（回应中国语境、承认理论限度，但未明确与既有争论的关系、反对者难以精确定位回应）；制度可接受度得分=3/4（不矛盾、回应制度约束、考虑中国语境，制度转化方向较明确）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "任何理论都是有其限度的，会面临其他理论和具体实践上的挑战",
+            "基于合宪性控制的治理有效性是化解上述三个问题的基本思路"
+          ],
+          "strengths": [
+            "明确以中国宪法文本为基础建构理论，回应中国制度语境",
+            "提出具体制度方案（宪法监督委员会设计），有制度转化方向"
+          ],
+          "weaknesses": [
+            "未明确与陈端洪等学者'双重代表制'观点的学术关系，对话性不足",
+            "结论部分未充分回应可能的反对意见，'初步研究'表述过于谦抑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度嵌入中国宪法语境，明确回应理论争议与制度挑战，具备高度的共同体对话度与法秩序兼容性。",
+          "core_judgment": "该结论成立，能有效进入法学共同体对话并契合现行法秩序逻辑。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文对它的理论逻辑按照历史、实践和道义的维度进行了体系化思考，并在此基础上对于它可能存在的挑战和应对作了初步研究。",
+            "基于合宪性控制的治理有效性是化解上述三个问题的基本思路……最终都必须回溯到中国的《宪法》依据及其具体实施之上来。"
+          ],
+          "strengths": [
+            "主动剖析主权张力、实用主义与多元主义三大挑战，对话意识强。",
+            "提出合宪性控制路径，明确宪法解释与监督机制的转化方向。"
+          ],
+          "weaknesses": [
+            "部分价值协调机制仍偏重理论推演，具体程序衔接可进一步细化。",
+            "对党内法规与国家法律衔接的合宪性审查技术论证略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 53.86554312705994,
+        "glm-5.1": 34.4153151512146,
+        "kimi-k2.6": 10.182690143585205,
+        "qwen3.6-plus": 53.5474169254303
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 77.2,
+      "std": 17.3,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语部分明确指出了主权结构张力、实用主义诱惑和多元主义挑战三个具体挑战，并提出“基于合宪性控制的治理有效性”作为应对思路，结构上具备明确的未来延展路径。",
+          "core_judgment": "存在明确的制度/理论延展路径，与正文核心论证衔接较为自然，但路径展开的精细度和证据密度仍属中等。",
+          "score_rationale": "原始分62分，位于60-79分'good'区间，对应bonus=3。论文提出“如何避免例外政治\"\"如何建立有效问责制\"等具体后续问题，并指出宪法解释和《宪法》作为共同规范平台等深化方向，构成真实延展信号，但未进一步展开具体理论假设或操作细节。",
+          "evidence_quotes": [
+            "\"如何避免政治代表频频打破法律规范的稳定秩序，这是一个值得重视的问题。\"",
+            "\"如何将这些不同的治理规则予以统一、协调……保证人民意志的统一，这些都是对法治中国的挑战。\""
+          ],
+          "strengths": [
+            "明确提出了主权结构内部张力、实用主义诱惑、多元主义挑战三个可操作的具体后续研究方向。",
+            "延展路径与正文核心结论（宪法是化解挑战的关键平台）紧密挂钩，衔接自然。"
+          ],
+          "weaknesses": [
+            "对\"如何建立有效的问责制\"等路径的论述仅止于提出问题，缺乏进一步的理论深化方向或制度设计雏形。",
+            "关于宪法解释平息\"价值内战\"的延展，未具体说明解释方法或价值协调法则的修正方向，精细化程度有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的三个挑战及应对思路，属于从理论框架出发的未来制度与理论完善方向，本质上是向未来延伸的探讨，而非仅评价当前结论的共同体接受度，故归入前瞻延展性而非结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰指明了“法治中国”理论逻辑面临的三大挑战及合宪性控制应对路径，延展扎实。",
+          "core_judgment": "存在真实且可定位的延展路径，通过提出具体争点与制度深化方向实现理论延展。",
+          "score_rationale": "原始分85，bonus档位为5。文章提出“例外政治与问责制”等具体争点及“宪法监督委员会”制度深化方向，路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "如何避免例外政治……在“立法要主动适应改革”与“改革要于法有据”之间，究竟如何拿捏分寸……构成了对法治有效性的重大挑战。",
+            "可以考虑设计非人大代表组成的宪法监督委员会……防止出现“自我审查”的弊端同时在人员遴选的开放性、多元性……有更多的想象空间"
+          ],
+          "strengths": [
+            "提出三大具体挑战作为后续争点，为不同意见者提供反驳入口。",
+            "给出合宪性控制及宪法监督委员会的具体制度深化方向。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "例外政治的拿捏分寸与宪法监督委员会的具体设计属于未来理论深化与制度完善方向，而非当下理论逻辑可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语和应对思路部分提出了若干延展方向，但多停留于制度框架层面，缺乏具体后续研究问题的展开。",
+          "core_judgment": "存在真实但较为概括的延展路径，主要体现为宪法监督机制的具体方案设计，但其他挑战的应对缺乏精细化展开。",
+          "score_rationale": "原始分55分，对应bonus=2的40-59档。论文在'基于合宪性控制的治理有效性'部分提出了三种宪法监督机制方案并比较其优劣，构成可定位的延展路径；但对'价值内战'和'多元主义'的应对仅停留在原则性表述，未形成具体后续问题。",
+          "evidence_quotes": [
+            "本文以为，从不修改现行宪法并考虑现实性与可操作性，第一种方案和第二种方案较为可行...可以考虑设计非人大代表组成的宪法监督委员会",
+            "学术研究仅是书生管见，但任何伟大的实践者都应该珍惜这来之不易的共识，在具体的实践中不断推动目标的点滴实现"
+          ],
+          "strengths": [
+            "宪法监督机制三种方案的比较具有制度延展性",
+            "承认理论限度并指向具体实践挑战"
+          ],
+          "weaknesses": [
+            "结语部分为典型口号式收尾，无具体延展",
+            "价值协调与多元主义应对缺乏后续研究问题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的宪法监督方案属于'未来还能往哪里走'的制度完善方向，而非当下结论能否被接受的问题；但结语'珍惜共识、推动实现'属于当下呼吁而非未来延展。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文基于“合宪性控制”框架，明确指向主权问责程序、宪法解释协调价值及监督机构设计等具体制度延展路径。",
+          "core_judgment": "存在真实延展路径，精准锚定制度落地与程序设计的后续争点。",
+          "score_rationale": "原始分78，对应bonus=3。论文精准定位主权问责程序、价值协调方案及宪法监督委员会设计等具体延展路径，与“合宪性控制”核心结论紧密衔接。但机制精细度与实证检验有限，符合60-79档特征。",
+          "evidence_quotes": [
+            "超越于法律与契约逻辑的主体如何接受问责，具体程序如何设计，这同样是法治中国的具体实践操作需要回答的问题。",
+            "为此，可以考虑设计非人大代表组成的宪法监督委员会……在人员遴选的开放性、多元性，程序设计的科学性等方面有更多的想象空间。"
+          ],
+          "strengths": [
+            "明确提炼主权结构张力、价值冲突与多元治理三大挑战，指向具体制度设计。",
+            "提出合宪性控制下的宪法解释与监督委员会改良路径，延展方向清晰可操作。"
+          ],
+          "weaknesses": [
+            "问责程序与价值协调的具体操作机制仅停留在方向性提示，缺乏精细论证。",
+            "监督委员会的人员遴选与程序设计未展开实证或比较法层面的可行性检验。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“合宪性控制”框架落地后，问责程序设计、价值冲突解释规则及监督机构人员遴选等尚未展开的后续研究与制度建构方向，而非评判当前理论结论本身的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.60090494155884,
+        "glm-5.1": 52.81926774978638,
+        "kimi-k2.6": 10.77313494682312,
+        "qwen3.6-plus": 68.38418674468994
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 78
+      },
+      "mean": 70,
+      "std": 13.9,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 57.39,
+      "weighted_total": 60.0
+    },
+    "aggregation_strictest": {
+      "final_score": 35.06,
+      "weighted_total": 38.0
+    },
+    "avg_std": 18.9,
+    "max_std": 38.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 22.3,
+    "composite_score": -18.9,
+    "worst_dimension": "literature_insight",
+    "worst_std": 38.5
+  }
+}

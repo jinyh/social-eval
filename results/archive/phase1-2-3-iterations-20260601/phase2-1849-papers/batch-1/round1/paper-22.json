@@ -1,0 +1,1158 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/“完善中国特色社会主义法治体系”笔谈.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "degraded",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "正文仅为笔谈开头段落，正文主体（韩大元《健全保证宪法全面实施制度体系》内容）未见，无法判断全文论证深度，但现有文本可明确定位法学论题与中国问题。"
+        ],
+        "evidence_quotes": [
+          "“完善中国特色社会主义法治体系”笔谈",
+          "本期推出6位法学专家围绕“完善中国特色社会主义法治体系”撰写的一组笔谈。",
+          "健全保证宪法全面实施制度体系 韩大元*"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "为全面贯彻落实各项改革决策部署提供科学合理的学理论证和操作方案。",
+          "健全保证宪法全面实施制度体系",
+          "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作",
+          "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的《中共中央关于进一步全面深化改革 推进中国式现代化的决定》..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "论文正文只是笔谈导言和首篇论题索引，核心论证尚未展开，文本工程目测缺少完整论文主体，这可能引发后续评分时论证深度不足的风险。"
+      ],
+      "evidence_quotes": [
+        "健全保证宪法全面实施制度体系",
+        "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作",
+        "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的《中共中央关于进一步全面深化改革 推进中国式现代化的决定》..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "当前可见文本已明确涉及中国宪法实施制度这一核心法学问题，并指向中国法治实践，项目口径信号明确，可进入六维评价。但请关注论文主体是否包含完整论证，如后续发现正文仅存片段而导致论证无法定位，则需重新评估。"
+    },
+    "glm-5.1": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文",
+          "脚注及作者标识符混入正文",
+          "DOI混入正文"
+        ],
+        "evidence_quotes": [
+          "5",
+          "*  中国人民大学法学院教授。",
+          "DOI:10.14111/j.cnki.zgfx.2024.012"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "“完善中国特色社会主义法治体系”笔谈",
+          "为全面贯彻落实各项改革决策部署提供科学合理的学理论证和操作方案。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "纯政策复述与文件精神阐释，缺乏可争辩的法学问题",
+          "无理论转化或可复核命题"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：期刊页码、脚注与DOI混入正文",
+        "项目口径：纯政策阐释性笔谈，缺乏法学争辩性与理论命题"
+      ],
+      "evidence_quotes": [
+        "为全面贯彻落实各项改革决策部署提供科学合理的学理论证和操作方案。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "纯政策复述与文件精神阐释，缺乏可争辩的法学问题",
+        "无理论转化或可复核命题"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "因属于政策阐释性笔谈，缺乏可争辩法学问题与理论转化，判定为明显不适格，建议直接排除出六维评价体系。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "《决定》对坚持全面依法治国、完善中国特色社会主义法治体系、在法治轨道上深化改革和推进中国式现代化作出了战略部署，提出了一系列新思想新任务新举措",
+          "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "文本为政策宣讲型笔谈/编者按，非学术论文",
+          "缺乏可争辩的法学问题，仅为对党的二十届三中全会精神的复述与阐释",
+          "未形成法学概念、判断标准、解释路径、制度命题或规范命题",
+          "无中国实践的真实难题解释，仅为政策解读"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本为期刊专栏编者按及笔谈开篇，非独立学术论文",
+        "内容性质为政策宣讲，缺乏学术论证结构"
+      ],
+      "evidence_quotes": [
+        "为深入学习贯彻和研究阐释党的二十届三中全会精神，本刊拟从本期开始设立'党的二十届三中全会精神研究阐释'专栏",
+        "本期推出6位法学专家围绕'完善中国特色社会主义法治体系'撰写的一组笔谈"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "政策宣讲文本，非学术论文",
+        "无独立法学问题意识",
+        "无理论转化或可复核命题"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该文本为期刊专栏的编者按及首篇笔谈引言，属于政策宣讲性质，不具备学术论文的基本形态。建议排除在'中国自主知识体系研究'六维评价之外，不进入评分流程。如后续有同组其他6位专家的笔谈正文，需逐一单独评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在期刊排版残留（如DOI标识、脚注编号①、作者单位标注*及参考文献列表缺失），但正文核心段落完整可读，不影响论点定位"
+        ],
+        "evidence_quotes": [
+          "DOI:10.14111/j.cnki.zgfx.2024.05.012",
+          "*  中国人民大学法学院教授。",
+          "① 习近平：《在首都各界纪念现行宪法公布施行三十周年大会上的讲话》..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "uncertain"
+        },
+        "evidence_quotes": [
+          "健全保证宪法全面实施制度体系",
+          "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+        ],
+        "boundary_reasons": [
+          "文本为期刊‘笔谈’栏目编者按及开篇引言，高度聚焦中国宪法实施与二十届三中全会法治部署，具备明确的中国问题意识；但当前片段以宏观政策定位与政治宣示为主，尚未展开可争辩的法学命题、规范分析或理论转化框架，需结合全文判断是否具备实质法学论证与可复核命题。"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "uncertain"
+      },
+      "issues": [
+        "文本为节选/开篇，缺乏完整论证结构；政策表述比重较高，需确认后续是否转化为具体法学分析。"
+      ],
+      "evidence_quotes": [
+        "健全保证宪法全面实施制度体系",
+        "党的二十届三中全会通过的《决定》对坚持全面依法治国、完善中国特色社会主义法治体系...作出了战略部署"
+      ],
+      "boundary_reasons": [
+        "文本为期刊‘笔谈’栏目编者按及开篇引言，高度聚焦中国宪法实施与二十届三中全会法治部署，具备明确的中国问题意识；但当前片段以宏观政策定位与政治宣示为主，尚未展开可争辩的法学命题、规范分析或理论转化框架，需结合全文判断是否具备实质法学论证与可复核命题。"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议人工复核全文。该文本为法学核心期刊‘笔谈’栏目开篇，作者为宪法学权威学者，主题涉及中国宪法实施制度体系，具备进入六维评价的潜在资格。但当前节选仅为编者按与引言，以政策阐释为主，尚未呈现具体法学争点、解释路径或可复核命题。需确认正文后续是否展开规范分析、制度建构或理论转化，再决定是否进入正式评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文属政策解读式笔谈，缺乏可争辩的法学问题，仅围绕权威部署进行宣示性阐释。",
+          "core_judgment": "全文无问题句、无学者观点交锋、无法学层面论证，属政策倡导而非学术研究。",
+          "score_rationale": "扣分合计：检查1不扣分，检查2扣20分，检查3扣30分，共扣50分。正式评分：可争辩性=0/4，枢纽性=1/4，材料无实质推进，锚定unacceptable档。原始分35，扣50分后按规则不低于30分，最终给35分。",
+          "evidence_quotes": [
+            "健全保证宪法全面实施制度体系（此为标题，全文围绕此主题展开）",
+            "党的二十届三中全会通过的《中共中央关于进一步全面深化改革 推进中国式现代化的决定》...对坚持全面依法治国...作出了战略部署（此为政策依据陈述）"
+          ],
+          "strengths": [
+            "紧扣当前重大政策部署，选题具有现实时效性。"
+          ],
+          "weaknesses": [
+            "仅为宏观宣示，未提出任何可争辩的法学研究问题句；全文无学者观点交锋，只是系统地阐述既定政策立场。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只是主题声明，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为围绕'健全保证宪法全面实施制度体系'的政策性笔谈，无可争辩的法学争点，仅进行政策阐释与宣示。"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大且无法聚焦，实为宏观介绍非深度分析，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "标题为宏观主题，全文进行体系介绍，未触及宪法实施中的具体现实问题或理论分歧。"
+            }
+          ],
+          "boundary_note": "本维度评问题是否成立且重要；不评文献综述是否充分，不评论证是否严密。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "无可争辩法学问题，纯政策阐释与主题声明。",
+          "core_judgment": "问题维度不成立，仅为政策倡导与宏观介绍，缺乏法学争点与理论分歧。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限，锚定unacceptable档，给50分；负面扣分50分，底线30分。",
+          "evidence_quotes": [
+            "为贯彻落实各项改革决策部署提供科学合理的学理论证和操作方案",
+            "健全保证宪法全面实施制度体系"
+          ],
+          "strengths": [
+            "涉及宪法实施这一枢纽性议题"
+          ],
+          "weaknesses": [
+            "无问题句与理论分歧",
+            "纯政策阐释无法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明，无理论分歧"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "政策解读性笔谈，无独立法学研究问题。",
+          "core_judgment": "全文为政策阐释与制度介绍，未提出可争辩的法学问题，不满足问题创新性维度要求。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限。锚定unacceptable档，扣30分（主题声明非研究问题），最终30分。",
+          "evidence_quotes": [
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神...提供科学合理的学理论证和操作方案",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无问题句，仅为主题声明与政策阐释",
+            "无学者观点交锋，单向复述既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，仅阐释'完善宪法实施制度'"
+            },
+            {
+              "rule_id": "problem_originality.policy_declaration",
+              "rule": "主题声明非研究问题扣20-30分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "笔谈性质为政策解读，无独立学术问题意识"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文系政策阐释型笔谈，缺乏明确法学争点与理论交锋，问题创新性不足。",
+          "core_judgment": "全文仅为宏观政策宣示与主题声明，未提出可争辩的法学研究问题，该维度不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性触发上限。初评40分。负面检查扣分合计50分（宏观无交锋-20，纯主题声明-30），依规保底30分。",
+          "evidence_quotes": [
+            "《决定》对坚持全面依法治国……作出了战略部署，提出了一系列新思想新任务新举措",
+            "健全保证宪法全面实施制度体系"
+          ],
+          "strengths": [
+            "紧扣国家重大法治战略部署，选题具有宏观政策导向性。"
+          ],
+          "weaknesses": [
+            "全文无明确问题句与学者观点交锋，仅为政策立场阐释。",
+            "缺乏法学规范分析与理论争辩，未触及现实制度痛点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为政策主题声明"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评政策意义或论证逻辑。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.835007905960083,
+        "glm-5.1": 41.508366107940674,
+        "kimi-k2.6": 10.548293828964233,
+        "qwen3.6-plus": 86.43534207344055
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 31.2,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "文章为笔谈，未呈现任何学术研究地图，无到达点、未竟点或本文切入点，无任何法学流派或争点讨论。",
+          "core_judgment": "本文完全缺乏对既有研究的梳理与定位，不具备可评估的学术研究地图。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给10分",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "文章未提及任何既有研究成果或学术观点，无法构成研究地图。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0: 无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未见任何对既有学术研究的引用、归纳或评价，仅作政策与讲话的阐释性论述。"
+            }
+          ],
+          "boundary_note": "本文作为笔谈，未进行学术文献回顾，属于文献定位完全缺失，而非问题创新性不足。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "纯政策解读笔谈，毫无学术文献梳理与争点呈现。",
+          "core_judgment": "本维度完全不成立，缺乏任何学术研究地图要素。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分",
+          "evidence_quotes": [
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神，本刊拟从本期开始设立专栏",
+            "党的十八大以来，宪法实施成为统筹推进“四个全面”战略布局的重要命题"
+          ],
+          "strengths": [
+            "紧扣最新政策精神与战略部署"
+          ],
+          "weaknesses": [
+            "无任何学术文献梳理与研究成果提炼",
+            "无学术争点、对立观点与流派呈现"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素得分0，无到达点、未竟点和切入点"
+            }
+          ],
+          "boundary_note": "评文献定位与争点梳理缺失，不评政策解读本身的价值或创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "笔谈文章无研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本维度不成立：该文为政策解读型笔谈，非学术研究论文，缺乏研究地图三要素。",
+          "score_rationale": "三要素=0/6（到达点0+未竟点0+本文切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神，本刊拟从本期开始设立专栏",
+            "本期推出6位法学专家围绕'完善中国特色社会主义法治体系'撰写的一组笔谈"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无到达点：未梳理既有学术研究成果",
+            "无未竟点与切入点：笔谈体例不涉及研究缺口与问题定位"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文为政策宣讲与制度倡议，无文献综述、无学术对话、无问题意识"
+            }
+          ],
+          "boundary_note": "笔谈属政策阐释文体，本维度评价其文献定位能力属维度错配，但依协议仍评。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "本文仅引述政策讲话，未构建学术研究地图，缺乏文献定位与争点梳理。",
+          "core_judgment": "文内未呈现任何既有研究成果、学术争议或本文切入点，研究地图维度不成立。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给25分",
+          "evidence_quotes": [
+            "党的十八大以来，宪法实施成为统筹推进战略布局的重要命题。",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [
+            "政策背景引述准确，契合宏观法治建设导向。"
+          ],
+          "weaknesses": [
+            "完全缺失学术文献梳理与既有研究评述。",
+            "未指明学术争议缺口与本文具体切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "正文仅引政策讲话，无学者观点、争议缺口或研究路径定位。"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理深度，不涉及政策议题本身的新颖性或价值。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.99955105781555,
+        "glm-5.1": 30.7877037525177,
+        "kimi-k2.6": 8.749068021774292,
+        "qwen3.6-plus": 172.32992219924927
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 10,
+        "glm-5.1": 0,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 25
+      },
+      "mean": 8.8,
+      "std": 11.8,
+      "strictest": 0,
+      "strictest_model": "glm-5.1"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文是对党的二十届三中全会精神的政策阐释与意义梳理，未提出任何原创性的法学分析框架。",
+          "core_judgment": "论文的核心工作是阐释既定政策立场，未建构可重复适用的概念框架、分类标准或分析步骤，分析框架建构力不成立。",
+          "score_rationale": "触发政策理论梳理型识别规则，框架可操作性得分不超过2分，法学转化度得分不超过1分。实际框架可操作性=0，法学转化度=0，归入unacceptable档，给30分。",
+          "evidence_quotes": [
+            "全会通过的《决定》……作出了战略部署，提出了一系列新思想新任务新举措，确立了新时代新征程法治中国建设的总蓝图和施工图。",
+            "党的十八大以来，宪法实施成为统筹推进“四个全面”战略布局的重要命题。"
+          ],
+          "strengths": [
+            "对政策背景和重大意义的阐述较为清晰。"
+          ],
+          "weaknesses": [
+            "全文仅梳理和阐释政策表述，未提出任何原创概念或分析工具。",
+            "缺乏可操作的分析步骤、裁判指引或制度设计方案，框架建构力缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "触发政策理论梳理型识别规则：全文以归纳阐释既定立场为主，无原创概念界定或类型化，框架可操作性得分和法学转化度得分均触上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文内容为笔谈形式的政策阐释，核心术语来自权威表述而非论文原创，无分析步骤或分类标准。"
+            }
+          ],
+          "boundary_note": "此评分基于框架建构力维度，不涉及文章的观点正确性或理论深度，仅评价是否提出并实际运用了可操作的分析框架。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文为政策理论梳理型笔谈，未建构原创分析框架。",
+          "core_judgment": "该文以阐释权威表述为主，缺乏原创概念界定与可操作分析步骤，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给20分",
+          "evidence_quotes": [
+            "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的…",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [
+            "紧扣最新政策精神与权威表述"
+          ],
+          "weaknesses": [
+            "无原创概念界定与类型化",
+            "仅为宏观政策阐释，缺乏操作步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无定义，无分析步骤，仅为政策阐释"
+            }
+          ],
+          "boundary_note": "评价的是框架是否成立可用，而非逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型笔谈，无原创分析框架",
+          "core_judgment": "全文以阐释党的二十届三中全会既定法治立场为主，未建构可操作的法学分析框架",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（无跨学科概念转化、无裁判规则、无制度方案、无后文使用），锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神...提供科学合理的学理论证和操作方案",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "核心术语来自权威表述，无论文原创界定",
+            "仅有政策立场阐释，无类型化或步骤化分析框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'本文所称XX是指'式定义，无分类标准，无步骤化分析流程，仅有政策理论梳理"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文分析框架建构力总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以'学习贯彻''研究阐释'既定立场为主，无原创概念界定或类型化，主要贡献为'梳理''阐释'而非'建构''提出'"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评政治立场正确性或政策阐释准确性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文属政策理论阐释型笔谈，缺乏原创分析框架与可操作步骤。",
+          "core_judgment": "该维度不成立，全文以权威表述归纳为主，未建构可重复适用的法学分析框架。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给30分。符合政策梳理型上限规则，无概念界定与裁判转化。",
+          "evidence_quotes": [
+            "“全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作”",
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神，本刊拟设立专栏"
+          ],
+          "strengths": [
+            "紧扣中央法治部署，政策导向明确。"
+          ],
+          "weaknesses": [
+            "仅停留宏观政策引述，缺乏核心概念界定。",
+            "未提供类型化标准与分析步骤，无可操作性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语无定义且无分析步骤，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策阐释，无原创框架与操作步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑严密性与问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 87.73310708999634,
+        "glm-5.1": 129.84177708625793,
+        "kimi-k2.6": 11.733952045440674,
+        "qwen3.6-plus": 162.45319986343384
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 20,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 30
+      },
+      "mean": 31.2,
+      "std": 10.3,
+      "strictest": 20,
+      "strictest_model": "glm-5.1"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "作为一篇笔谈短文，主要观点以并列方式呈现，缺乏可追溯的推理链条，核心结论无前文论证支撑。",
+          "core_judgment": "论文未能形成推理链条，主要论点各自独立，核心结论无法从提供的论据中可辩护地推出，逻辑严密性存在根本缺陷。",
+          "score_rationale": "推理链完整性得分=0/4，因无法识别至少3个有衔接的推理步骤，且删除任何论点不影响其他部分；反驳处理度得分=0/3，未出现任何反驳信号。触发上限规则，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "2012年12月4日，习近平总书记在首都各界纪念现行宪法公布施行30周年大会上的讲话中指出...",
+            "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的《中共中央..."
+          ],
+          "strengths": [
+            "明确提出了健全保证宪法全面实施制度体系的时代命题。"
+          ],
+          "weaknesses": [
+            "仅陈列了党的会议精神和领导人讲话，缺乏环环相扣的论证步骤。",
+            "未对核心主张进行任何推理展开，导致结论孤立、缺乏支撑。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性得分 ≤ 1，最高不超过50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文只提出了观点和引用，未展开任何递进式推理，无法提取出至少3个逻辑上互相衔接的推理步骤。"
+            }
+          ],
+          "boundary_note": "本文缺乏推理结构是论证逻辑内部的问题，而非分析框架可操作性的不足。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "文本仅为笔谈编者按与文章开头片段，无完整推理链与结论。",
+          "core_judgment": "因文本截断且仅为背景铺垫，无实质论证展开，本维度逻辑严密性完全不成立。",
+          "score_rationale": "推理链完整性得分=0/4，反驳处理度得分=0/3，锚定unacceptable档，给25分",
+          "evidence_quotes": [
+            "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的《中共中央关于进一步全面"
+          ],
+          "strengths": [
+            "无"
+          ],
+          "weaknesses": [
+            "文本截断无核心结论",
+            "无任何推理步骤与反驳处理"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文本仅为编者按与文章开头，无法识别3个推理步骤，推理链完整性得分为0"
+            }
+          ],
+          "boundary_note": "逻辑链缺失源于文本截断无论证，而非分析框架本身不可操作",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "笔谈文章缺乏可识别的学术推理链，仅为政策宣示性文本。",
+          "core_judgment": "本文不符合法学学术论文的基本逻辑结构要求，无法构成有效学术推理。",
+          "score_rationale": "推理链完整性得分=0/4，反驳处理度得分=0/3，锚定unacceptable档，给35分。全文为政策解读与宣言式表述，无任何可识别的学术推理步骤，无反对意见识别与回应，无结论推导过程。",
+          "evidence_quotes": [
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作",
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神"
+          ],
+          "strengths": [
+            "无"
+          ],
+          "weaknesses": [
+            "无任何可识别的推理步骤与逻辑衔接",
+            "无学术论证所需的结论推导与反驳处理"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无学术推理链，仅为政策宣示与编者按性质文本，无法识别任何推理步骤"
+            }
+          ],
+          "boundary_note": "本维度评推理链完整性，此文非学术论证文本，无框架建构问题可评。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "文本仅为政策引言，缺乏实质推理与反驳处理，逻辑严密性不足。",
+          "core_judgment": "本维度不成立，因文本未呈现可复述的推理步骤，结论无法从前文推导。",
+          "score_rationale": "推理链完整性得分=0/4，反驳处理度得分=0/3，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作",
+            "《决定》对坚持全面依法治国、完善中国特色社会主义法治体系……作出了战略部署"
+          ],
+          "strengths": [
+            "紧扣中央政策导向，议题定位明确"
+          ],
+          "weaknesses": [
+            "缺乏实质推理链条，仅为政策宣示",
+            "未处理任何反对意见或理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅为编者按与开篇政策引述，未展开论证步骤。"
+            }
+          ],
+          "boundary_note": "本文属政策阐释引言，未构建论证链条，故评逻辑链而非框架。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.218332052230835,
+        "glm-5.1": 29.921839952468872,
+        "kimi-k2.6": 8.036072969436646,
+        "qwen3.6-plus": 49.24806499481201
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 25,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 35
+      },
+      "mean": 32.5,
+      "std": 5.0,
+      "strictest": 25,
+      "strictest_model": "glm-5.1"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 50,
+          "band": "marginal",
+          "summary": "结论忠实复述党的二十届三中全会决定精神，但未将观点转化为可争辩的学术主张，缺乏与理论共同体的对话。",
+          "core_judgment": "文章属于笔谈性质的政策阐释，结论停留在政治性表态层面，未进入可被批评与回应的学术讨论语境。",
+          "score_rationale": "共同体对话度得分=0/4（未回应学术争论，无可反驳的具体论点），制度可接受度得分=4/4（完全符合现行法秩序）。因对话度为0触发上限规则，最高50分，锚定unacceptable档，给50分。",
+          "evidence_quotes": [
+            "党的二十届三中全会通过的《中共中央关于进一步全面深化改革 推进中国式现代化的决定》...作出了战略部署",
+            "健全保证宪法全面实施制度体系...为全面贯彻落实各项改革决策部署提供科学合理的学理论证和操作方案"
+          ],
+          "strengths": [
+            "结论与中国宪法秩序和官方话语高度兼容，制度语境明确",
+            "问题意识紧扣国家重大决策部署，具有现实关联性"
+          ],
+          "weaknesses": [
+            "结论仅复述既定政策立场，未提出可被反对者定位和回应的学术命题",
+            "未说明观点与既有宪法学争论（如合宪性审查路径之争）的关系"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度为0，结论只复述既定立场没有转化为可争辩的学术主张，也没有回应反对意见",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为笔谈形式的政策阐释，结论完全复述《决定》精神，未提及任何既有学术争论或反对观点"
+            }
+          ],
+          "boundary_note": "本文为笔谈，重在政策阐释而非原创学术论证，本维只评共同体对话度和制度可接受性，不评论证的严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文复述官方既定立场，缺乏学术争辩与共同体对话。",
+          "core_judgment": "结论未转化为可争辩学术主张，无法进入共同体对话语境。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=3/4，锚定unacceptable档，因复述既定立场无争辩性给40分。",
+          "evidence_quotes": [
+            "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的《决定》...",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [
+            "与中国现行法秩序及官方话语高度兼容"
+          ],
+          "weaknesses": [
+            "仅复述官方政策立场，缺乏学术争辩性",
+            "未回应既有学术争论与反对意见"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场无争辩性总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文仅阐释官方文件，未转化为可争辩学术主张，对话度=1"
+            }
+          ],
+          "boundary_note": "本维评价结论的共同体对话与制度接受度，不评价论证严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "政策性笔谈缺乏学术论证与对话性，无法构成可回应的学术主张。",
+          "core_judgment": "该文为政策宣讲式笔谈，未提出可争辩的学术结论，不满足共同体对话度与制度可接受度的基本要求。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4（仅不根本矛盾），锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "为深入学习贯彻和研究阐释党的二十届三中全会精神，本刊拟从本期开始设立'党的二十届三中全会精神研究阐释'专栏",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [
+            "与官方话语高度一致，制度兼容性无根本冲突"
+          ],
+          "weaknesses": [
+            "未回应任何法学共同体既有争论，无学术对话对象",
+            "结论为政策复述，反对者无法定位回应"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策宣讲，未与任何法学学术观点对话，无'赞同、修正或挑战'的学术主张"
+            }
+          ],
+          "boundary_note": "本维度仅评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "文本仅为政策引言，缺乏实质结论与学术争鸣，无法评估可接受性。",
+          "core_judgment": "因未提供明确结论与论证，无法进入学术共同体对话，本维度不成立。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "健全保证宪法全面实施制度体系",
+            "全面贯彻实施宪法，是建设社会主义法治国家的首要任务和基础性工作"
+          ],
+          "strengths": [
+            "高度契合中国现行法秩序与官方话语体系"
+          ],
+          "weaknesses": [
+            "全文缺失实质结论与学术主张",
+            "未回应任何既有争论或反对意见"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度为0触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文本仅复述政策立场，无明确结论"
+            }
+          ],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性或未来延展空间。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.67963218688965,
+        "glm-5.1": 43.070334911346436,
+        "kimi-k2.6": 65.938649892807,
+        "qwen3.6-plus": 53.34684491157532
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 50,
+        "glm-5.1": 40,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 35
+      },
+      "mean": 35,
+      "std": 14.7,
+      "strictest": 15,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "文章为笔谈形式，聚焦于政策阐释与任务部署，缺乏具体的未来研究问题、概念修正路径或制度深化方向。",
+          "core_judgment": "本文未提供任何真实的、可定位的学术延展路径，仅停留于政策意义的宣示性表述。",
+          "score_rationale": "原始分15，对应bonus=0。文中仅有‘推动宪法全面实施’等宏观表述，未指明后续具体研究问题或修正方向，触发 slogan_outlook 规则。",
+          "evidence_quotes": [
+            "必须坚持宪法与国家治理体系和治理能力现代化相结合，不断健全保证宪法全面实施的制度体系。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅在笔谈结尾泛泛呼吁健全制度体系，无具体待解决问题。",
+            "未指出理论、制度或实务上的下一步争点或修正方向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "若前瞻延展仅包含空泛拔高、政治宣示或口号式展望，而未指明具体研究问题或改进路径，则触发此规则。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未提出具体未来研究问题，仅以‘健全保证宪法全面实施的制度体系’等宏观语句结束。"
+            }
+          ],
+          "boundary_note": "本文属于政策解读笔谈，其任务在于阐释全会精神而非指明未来研究。此处仅评价其作为学术论文的延展性，不讨论其结论的政策正当性。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "仅提出宏观制度完善目标，缺乏具体延展路径与待修正对象。",
+          "core_judgment": "本文无真实延展路径，仅有口号式的宏观制度完善展望。",
+          "score_rationale": "原始分25，bonus档位为0（<40）。文本仅提及“进一步完善宪法实施和监督制度”，属空泛拔高，无具体后续研究问题或制度深化方向，触发低分约束。",
+          "evidence_quotes": [
+            "为进一步完善宪法实施和监督制度，党的二十届三中全会通过的《决定》……"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅陈述宏观政策背景与完善目标，无具体延展机制或路径",
+            "缺乏对制度适用边界、风险控制或后续争点的指明"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "仅提及“进一步完善宪法实施和监督制度”，未说明具体问题、对象或制度路径"
+            }
+          ],
+          "boundary_note": "宏观制度完善方向属于未来延展问题，但本文仅停留在口号式展望，未提供可定位的延展路径，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "该文为政策阐释性笔谈，未提供任何可定位的后续研究路径或延展方向。",
+          "core_judgment": "不存在真实延展路径，全文为对现行政策与制度的描述性阐释，未提出待深化的理论问题、制度修正方向或实务边界。",
+          "score_rationale": "原始分0分，bonus=0。该文属于政策解读型笔谈，核心任务是阐释'完善中国特色社会主义法治体系'的既有部署，未提出任何后续研究问题、理论深化方向或制度修正路径。'笔谈'体裁本身以观点陈述为主，但即使在此体裁下，也未出现对宪法实施制度体系未来完善方向的具体展望。",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "全文为政策阐释，未提出可定位的后续研究问题或方向",
+            "缺乏对制度完善路径、理论深化或实务边界的任何具体说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "该文未涉及'未来还能往哪里走'的问题，其内容完全聚焦于对现行政策立场的当下阐释与确认，属于结论可接受性范畴（政策文本的学理解读），而非前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "文本仅为政策语境导入与开篇引言，未呈现任何实质论证或未来研究路径。",
+          "core_judgment": "不存在真实延展路径，因文本严重截断且缺乏具体待深化的理论或制度对象。",
+          "score_rationale": "原始分25，对应bonus=0。文本仅为编者按与开篇引言，严重截断且未展开论证，完全缺失具体后续研究问题、制度修正路径或局限反思等有效延展信号。",
+          "evidence_quotes": [
+            "《决定》对坚持全面依法治国……确立了新时代新征程法治中国建设的总蓝图和施工图。",
+            "党的十八大以来，宪法实施成为统筹推进“四个全面”战略布局的重要命题。"
+          ],
+          "strengths": [
+            "准确锚定二十届三中全会法治部署的宏观政策语境。"
+          ],
+          "weaknesses": [
+            "文本严重截断，未展开具体论证或提出可操作的后续研究路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度专评“未来研究/制度深化方向”，非当下结论的可接受性。因文本未触及具体争点或制度细节，无法生成有效延展。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.88471293449402,
+        "glm-5.1": 46.57982897758484,
+        "kimi-k2.6": 7.965312957763672,
+        "qwen3.6-plus": 66.99552297592163
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 25,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 25
+      },
+      "mean": 16.2,
+      "std": 11.8,
+      "strictest": 0,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 26.24,
+      "weighted_total": 26.6
+    },
+    "aggregation_strictest": {
+      "final_score": 20.0,
+      "weighted_total": 18.5
+    },
+    "avg_std": 9.3,
+    "max_std": 14.7,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "score_gap": 6.2,
+    "composite_score": -5.97,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 14.7
+  }
+}

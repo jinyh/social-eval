@@ -1,0 +1,566 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/民法分则婚姻家庭编立法研究.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（页码数字混入正文段落、脚注编号乱码如“⑩”“⑦”、部分标点/括号识别错误如“《法学论坛12014年第4期”“非婚l司居关系”）",
+          "参考文献列表缺失（正文末尾标注“（无）”）"
+        ],
+        "evidence_quotes": [
+          "74 \n\n民法分则婚姻家庭编立法研究",
+          "非婚l司居关系",
+          "《法学论坛12014年第4期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民法典婚姻家庭编基本原则的重构应当考虑我国婚姻家庭立法传统，婚姻家庭编基本原则与民法总则基本原则之间的协调...",
+          "关于婚姻家庭编是否应当将非婚同居纳入法律调整的范围，一直有不同的观点。",
+          "自2001年婚姻法修正案颁布至今，我国离婚率持续上升，轻率离婚屡见不鲜，离婚救济制度条件苛刻，适用受限...",
+          "将生活困难标准由绝对困难改为相对困难。",
+          "在登记离婚程序中增加1个月的审查期。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR识别噪声与页码混入，但不影响核心论点定位；参考文献列表缺失需后续补充。"
+      ],
+      "evidence_quotes": [
+        "我国民法典婚姻家庭编基本原则的重构应当考虑我国婚姻家庭立法传统...",
+        "将生活困难标准由绝对困难改为相对困难。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论证完整，中国问题意识明确，提出多项可复核的立法建议命题，符合进入六维评价标准。建议进入正式评分，同时注意校对OCR残留格式与补充参考文献。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与乱码（如'非婚l司居'、'Et本'、'1\\n3'、'3O个'、'3．3条'等）",
+          "脚注编号与正文混排（如⑩⑦⑨等符号错位插入段落中间）",
+          "期刊页码混入正文流（如74, 75, 76...85）"
+        ],
+        "evidence_quotes": [
+          "非婚l司居关系",
+          "Et本民法典亲属编",
+          "1\\n3为界",
+          "74 \\n 民法分则婚姻家庭编立法研究"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "如何在保障离婚自由的同时，防止轻率离婚是此次婚姻家庭编立法所面临的重大课题",
+          "我国婚姻家庭编基本原则的重构应当考虑我国婚姻家庭立法传统，婚姻家庭编基本原则与民法总则基本原则之间的协调",
+          "将生活困难标准由绝对困难改为相对困难",
+          "在现有列举性规定之后增加一个概括性规定：‘其他导致离婚的重大过错’"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR乱码、剥离混入正文的脚注编号及期刊页码",
+        "项目口径：无边界问题，完全符合中国自主知识体系评价口径"
+      ],
+      "evidence_quotes": [
+        "如何在保障离婚自由的同时，防止轻率离婚是此次婚姻家庭编立法所面临的重大课题",
+        "将生活困难标准由绝对困难改为相对困难"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国婚姻家庭编立法为核心，针对中国离婚率上升、轻率离婚等实践难题提出了具体的规范命题与制度转化路径，完全符合项目口径，进入六维评价。但文本存在OCR乱码、脚注错位及页码混入等工程问题，需在后续阶段进行文本清洗与修复后再行评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 45
+      },
+      "mean": 66.5,
+      "std": 30.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦婚姻家庭编立法核心争点，问题明确且具制度枢纽价值。",
+          "core_judgment": "问题具备高度可争辩性与制度枢纽性，符合优秀法学研究问题标准，予以高分。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，负面检查扣0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "婚姻家庭编应否调整非婚同居关系……一直有不同的观点。",
+            "将“反对轻率离婚”改为“防止轻率离婚”……制定限制性措施。"
+          ],
+          "strengths": [
+            "争点明确，系统梳理学界对基本原则、同居及同性伴侣的多元立场。",
+            "结合实证数据与比较法，提出离婚冷静期与苛刻条款等具体制度方案。"
+          ],
+          "weaknesses": [
+            "议题较为宏大，部分论证偏向立法建议汇编，理论交锋深度稍显不足。",
+            "对同性伴侣等前沿议题的论证偏重国情考量，法理推演相对单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "立法对策体系汇编，缺乏核心法学争点与深度理论交锋。",
+          "core_judgment": "本文实质为立法政策倡导与体系介绍，虽有局部争点但未深度交锋，问题创新性不足。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档80分；前置扣分35分（宏观介绍非深度分析扣15分，实质为政策倡导扣20分），给45分。",
+          "evidence_quotes": [
+            "婚姻家庭编应否调整非婚同居关系",
+            "我们认为，我国当前离婚立法的指导思想应当将‘反对轻率离婚’改为‘防止轻率离婚’"
+          ],
+          "strengths": [
+            "涉及婚姻家庭编多个重要立法议题",
+            "展示了基本原则、同居规制等不同学者观点"
+          ],
+          "weaknesses": [
+            "整体为立法对策体系介绍，无核心学术争点",
+            "观点罗列未深入交锋，实质为政策倡导"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评立法对策是否可行或论证是否严密。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.9761209487915,
+        "glm-5.1": 100.89430284500122
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理了婚姻家庭编立法核心争点，清晰呈现学界分歧与制度演进，研究地图完整。",
+          "core_judgment": "文内充分构建了到达点、未竟点与切入点的逻辑闭环，争点脉络清晰，满足优秀标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "此次婚姻家庭编立法对于基本原则重构的讨论主要有四种观点",
+            "关于婚姻家庭编是否应当将非婚同居纳入法律调整的范围，一直有不同的观点"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将学界观点自然融入各制度论证中",
+            "明确提炼四大立法争点，对立规范主张与制度方案对比鲜明"
+          ],
+          "weaknesses": [
+            "部分比较法例仅罗列国别，未深入提炼背后的法理流派分歧",
+            "对反对派观点的学理依据挖掘稍显单薄，多停留于政策国情"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不评价立法建议本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现多个立法争点与对立观点，研究地图完整。",
+          "core_judgment": "论文在基本原则、非婚同居、同性伴侣等争点上充分梳理了对立立场，洞察度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "此次婚姻家庭编立法对于基本原则重构的讨论主要有四种观点：一是应当取消...二是应当完整保留...",
+            "因家务劳动补偿的适用范围过窄...离婚救济制度在司法实践中适用比例低，救济功能未能得到很好地发挥"
+          ],
+          "strengths": [
+            "争点结构清晰，多个立法争议均有对立观点呈现",
+            "未竟点与切入点对应紧密，针对救济制度低适用提出具体完善建议"
+          ],
+          "weaknesses": [
+            "比较法梳理偏重制度列举，未深入提炼背后的法学理论流派对立"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非立法建议本身的社会妥当性或创新性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.44596886634827,
+        "glm-5.1": 47.472224950790405
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 45,
+        "glm-5.1": 45
+      },
+      "mean": 45,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文侧重立法建议与规则设计，缺乏可重复适用的分析框架与操作步骤。",
+          "core_judgment": "论文属制度建构型，侧重具体规则设计，未提炼可复用的分析框架，建构力较弱。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=2/4，锚定marginal档，给45分。受可操作性≤1上限规则限制，最高50分。",
+          "evidence_quotes": [
+            "在登记离婚程序中增加1个月的审查期。",
+            "对生活困难的界定，不仅应包括一方离婚后不能维持自己生活，也应包括其生活水平比婚姻关系存续期间显著下降的情形。"
+          ],
+          "strengths": [
+            "针对离婚救济与程序提出具体立法方案，转化度较高。",
+            "结合实证数据与比较法经验，制度设计具现实针对性。"
+          ],
+          "weaknesses": [
+            "全文按议题平行展开，缺乏贯穿始终的分析框架与步骤。",
+            "核心术语多为立法建议，未转化为可重复适用的分析工具。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文为议题式立法建议，无明确分类标准与可重复分析步骤，可操作性仅得1分。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及立法建议实质合理性或逻辑衔接。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文未建构原创分析框架，仅按立法议题并列论述，但提出了具体的制度设计方案。",
+          "core_judgment": "论文缺乏统领全文的分析框架，框架建构力不成立，仅有议题式的制度建议。",
+          "score_rationale": "框架可操作性得分=0/4（无框架概念、步骤与调用），法学转化度得分=2/4（提供了具体制度方案与裁判指引），锚定marginal档，给45分",
+          "evidence_quotes": [
+            "在登记离婚程序中增加1个月的审查期",
+            "将生活困难标准由绝对困难改为相对困难"
+          ],
+          "strengths": [
+            "提出了具体的立法修改建议和操作标准",
+            "制度设计方案具有可操作性"
+          ],
+          "weaknesses": [
+            "缺乏统领全文的原创分析框架",
+            "仅按议题并列论述，无步骤化分析流程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文未提出分析框架核心术语，无框架可供调用"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评制度建议本身的合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 81.72587418556213,
+        "glm-5.1": 74.46310091018677
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链条完整且依赖度高，反驳处理充分，结论可辩护推出。",
+          "core_judgment": "逻辑严密性成立。论文构建了“争议梳理→法理分析→制度设计”的完整推导链，核心结论获充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "民法总则的基本原则与分则的基本原则之间构成上下位阶的关系，下位原则具有更为具体的内涵和特殊的规范功能。",
+            "设立离婚审查期或考虑期可以使当事人对已经达成的离婚协议进行认真冷静地考虑，确保当事人对离婚本身及其后果能够充分理解。"
+          ],
+          "strengths": [
+            "推理链条完整，从问题识别到制度设计层层递进，逻辑衔接紧密。",
+            "充分列举学界分歧观点并逐一回应，论证具有针对性与可辩护性。"
+          ],
+          "weaknesses": [
+            "部分对策与预期效果的因果论证略显预设，缺乏实证数据检验。",
+            "同性伴侣规制方案中，伦理权衡与权利保障的逻辑张力未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估“问题识别-规范分析-对策推导”的逻辑支撑度，不评价立法建议的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整，对策建议由前文问题充分推出，对反对意见有实质性回应。",
+          "core_judgment": "逻辑维度完全成立，核心立法建议均可由前文实务分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。问题识别与对策建议形成强依赖，对显式反对意见均结合国情与规范功能作了实质性回应。",
+          "evidence_quotes": [
+            "有学者认为无须另行规定基本原则...但婚姻家庭编基本原则具有独特的内涵与功能，应当予以明确规定",
+            "现阶段赋予同性婚姻同等地位不符合国情...采取民事伴侣制度具备较强的现实性和可行性"
+          ],
+          "strengths": [
+            "问题与对策形成强依赖，对策直接回应前文识别的实务缺陷",
+            "对显式反对意见结合国情与比较法作了实质性回应"
+          ],
+          "weaknesses": [
+            "从“基本原则具有独特内涵”到“应明确规定”的局部过渡略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评的是对策建议是否由问题分析推出，不评对策建议本身是否可操作",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.11812496185303,
+        "glm-5.1": 59.831881284713745
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度嵌入中国婚姻家庭立法语境，精准回应学界争议并提出具象化制度方案。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将“反对轻率离婚”改为“防止轻率离婚”并增设1个月审查期",
+            "家务劳动补偿有条件地延展至共同财产制，生活困难标准由绝对改为相对"
+          ],
+          "strengths": [
+            "精准梳理并回应四大立法争议观点",
+            "对策具体明确，直指司法适用痛点"
+          ],
+          "weaknesses": [
+            "同性伴侣规制部分对本土文化阻力论证稍显简略",
+            "部分比较法经验移植的本土适配性可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证逻辑或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文全面回应学界争论并提出契合中国国情的具体立法方案，可接受性极高。",
+          "core_judgment": "结论深度回应既有争论与实务约束，提出具体制度转化方案且不与现行法秩序矛盾，该维完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "考虑到我国的具体情况和立法传统，我们认为将离婚考虑期规定为1个月比较符合中国国情。",
+            "采取民事伴侣制度的做法具备较强的现实性和可行性...对婚姻法律制度的冲击程度较小，易于被社会接受。"
+          ],
+          "strengths": [
+            "全面回应学界四种基本原则争论与三种同性伴侣规制观点。",
+            "提出具体制度方案如1个月审查期、苛刻条款、家务补偿延展。"
+          ],
+          "weaknesses": [
+            "部分对策（如民事伴侣制度）仅指出方向，未设计具体规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 45.48339796066284,
+        "glm-5.1": 61.77663207054138
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 45
+      },
+      "mean": 56.5,
+      "std": 16.3,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文针对非婚同居规制与离婚救济制度提出明确的立法预留空间与司法裁量路径。",
+          "core_judgment": "存在真实延展路径，具体指向单行法制定空间、法官过错裁量标准及救济门槛调整。",
+          "score_rationale": "原始分68，对应bonus=3档。论文针对非婚同居、离婚救济等提出单行法预留空间与司法裁量路径，延展方向明确且与立法论证紧密衔接，但缺乏实施风险推演与实证检验设计，故落入良好区间。",
+          "evidence_quotes": [
+            "婚姻家庭编立法时可以对非婚同居关系做原则性规定，采取契约保护模式，为将来制定相关的单行法律法规保留空间。",
+            "具体何种行为构成重大过错可由法官根据过错情节与伤害后果确定。"
+          ],
+          "strengths": [
+            "明确指向单行法立法空间与司法裁量边界，延展路径具体可操作。",
+            "制度完善建议与正文论证紧密衔接，具备清晰的规则演进方向。"
+          ],
+          "weaknesses": [
+            "对规则落地后的实施风险与配套机制缺乏深入推演。",
+            "延展多停留于立法技术层面，未提出可检验的实证研究问题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦立法预留空间与规则演进方向（如单行法制定、法官裁量标准细化），属未来制度完善路径，而非当下结论的规范可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了非婚同居单行立法的延展方向，但整体展望空泛，缺乏具体后续争点。",
+          "core_judgment": "存在可定位的制度完善方向（单行法规），但路径概括且结尾口号化，缺乏真实延展路径的深度展开。",
+          "score_rationale": "原始分45，对应bonus=2档（40-59段）。正文仅零星提及非婚同居需未来单行法规规制，结尾陷入口号式拔高，未指明具体后续研究问题或局限说明。",
+          "evidence_quotes": [
+            "婚姻家庭编立法时可以对非婚同居关系做原则性规定，采取契约保护模式，为将来制定相关的单行法律法规保留空间。",
+            "最终制定出一部符合中国现实需求、顺应时代发展、体系完备、内容完整、情理法相一致并具有前瞻性、科学性和可操作性的婚姻家庭编。"
+          ],
+          "strengths": [
+            "指出了非婚同居需由未来单行法规规制的制度衔接方向"
+          ],
+          "weaknesses": [
+            "结尾展望空泛，仅作意义拔高，未指明具体后续研究争点或局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "最终制定出一部符合中国现实需求、顺应时代发展、体系完备、内容完整、情理法相一致并具有前瞻性、科学性和可操作性的婚姻家庭编。"
+            }
+          ],
+          "boundary_note": "非婚同居单行立法属于未来制度完善与规则衔接方向，而非当下婚姻家庭编立法结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.2069251537323,
+        "glm-5.1": 53.34904718399048
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 8.1,
+    "max_std": 30.4,
+    "weighted_total": 74.5,
+    "final_score": 73.29,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": -1.43,
+    "worst_dimension": "problem_originality",
+    "worst_std": 30.4
+  }
+}

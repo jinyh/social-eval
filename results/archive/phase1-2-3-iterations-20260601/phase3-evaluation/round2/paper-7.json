@@ -1,0 +1,958 @@
+{
+  "paper": "法学三大刊论文/补充论文/FXYJ2025004007_法学研究_2025_构思决定论视野下生成式人工智能生成物的版权保护.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 95,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 92,
+        "kimi-k2.6": 88,
+        "qwen3.6-plus": 88
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 25,
+          "revised": 25,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 95,
+          "revised": 92,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 78,
+          "revised": 88,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 4,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 25,
+          "revised_score": 25,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文仍是对既定立场的修正性阐述，无可争辩的法学研究问题，停留于主题声明与阐释层面。",
+          "revision_rationale": "其他专家将论文主题提炼（三重转向）本身当作可争辩问题，但原文仅是对该主题的回应声明，未呈现真实理论分歧或对立假说。文中虽有体系建构，却未论证为何必须修正而非颠覆或维持现有理论，缺乏法学研究应有的实质对抗性，故维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "认为“三重转向”的提炼即构成可争辩问题：该提炼仅为作者的主题概括，非可证明或反驳的法学命题。",
+            "认为体系性回应与修正具有解释力则问题成立：解释力是回答质量，不能替代问题本身的可争辩性。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 95,
+          "revised_score": 92,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "问题极具可争辩性与枢纽性，通过提炼并修正构思决定论体系性回应了GenAI版权的三重转向挑战。",
+          "revision_rationale": "坚持原判核心，论文明确提出了“能否类推适用”的法学争点并梳理了学界分歧，反驳了专家A的误判。吸纳专家B意见微调分数：论文对创作记录与版权自动产生原则张力的回应虽将前者定位为证据要件，但仍带有政策建议色彩（如简化认证系统），且制度连锁效应的闭环论证在责任承担部分稍显仓促，故微降3分，仍稳居excellent档。",
+          "accepted_points": [
+            "专家B指出制度连锁效应论证可更充分，特别是权责分离的解决方案（创作记录）与侵权判断的衔接略显仓促",
+            "专家B指出部分问题表述与政策建议边界偶有模糊（如简化版认证系统）"
+          ],
+          "rejected_points": [
+            "专家A认为无明确可争辩的法学问题句：论文引言明确提出了'能否类推适用'及'能否逻辑自洽应对三重转向'的争点，并梳理了中美学界三种观点交锋，具有高度可争辩性",
+            "专家A认为未触及真实理论分歧：论文深入论证了构思与执行的非同质性、思想与表达二分法的挑战以及权责分离的结构性风险，触及了深层理论分歧"
+          ],
+          "new_evidence_found": [
+            "论文第四(四)2部分明确回应了创作记录与版权自动产生原则的张力，将其定位为'证据要件'而非'产生要件'，承认维权成本变高并提出简化认证系统的设想，虽有一定说服力但仍带有政策倡导色彩"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 78,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "论文以摄影作品构思决定论为参照系，通过'受控固定'与'创作记录'双重要件修正，体系性回应GenAI版权三重转向，问题建构具有教义学深度与制度连锁效应。",
+          "revision_rationale": "重新审视后，我承认此前对'枢纽性'的评估偏保守。论文并非仅提出可争辩的争点，而是通过'三重转向'的精准提炼，将可版权性、侵权判定、责任承担三大制度领域有机联动：第一，独创性判断对象从'最终表达'转向'构思'，触及思想/表达二分法根基；第二，侵权比对基准从'表达相似'转向'提示词相似'，挑战传统'接触+实质性相似'规则；第三，责任承担从'执行者'转向'构思者'，重构直接侵权主体认定。这种三重转向的体系性建构，使'枢纽性'应从3/4提升至4/4。同时，'受控固定'要件对'直接产生'规范的解释论推进、'创作记录'要件对作者身份举证与侵权比对的程序法功能，均体现了超越简单类比的教义学创新。但'创作记录'与版权自动产生原则的潜在张力、提示词独创性阈值的抽象性仍存，尚未达到excellent档的圆融自洽，故上调至88分，维持good档上限。",
+          "accepted_points": [
+            "枢纽性应评为4/4：三重转向确实精准联动了可版权性、侵权判定与责任承担三大制度领域",
+            "受控固定+创作记录构成创造性修正，而非简单类比，具有解释论推进意义",
+            "问题意识尖锐，直击版权法核心教义冲突，非政策倡导"
+          ],
+          "rejected_points": [
+            "评分进入excellent档（95/92）：'创作记录'要件与版权自动产生原则的张力、提示词独创性阈值的抽象性、侵权比对中'专业人士'与'普通受众'的区分标准，均显示论证尚未达到excellent档的圆融自洽",
+            "材料新颖性未触发上限的判断：仍维持，因核心材料为'沙乐尼案'等经典判例，GenAI案例为既有公开材料"
+          ],
+          "new_evidence_found": [
+            "论文明确将'受控固定'定位为结果要件，与版权自动产生原则衔接：'只要构思者通过合理控制使其构思中的关键性表达元素得到有效固定时，这个作品创作事实行为才完成，此时的生成物就自动成为版权法保护的作品'",
+            "侵权比对部分提出'复制+非法挪用'替代传统'接触+实质性相似'，并区分事实层面复制（普通受众判断）与非法挪用（专业人士判断），具有方法论创新",
+            "创作记录要件的程序法配套论证已部分展开：包括简化版作者身份认证系统、商业秘密保护、诉讼举证责任分配等",
+            "结语以摄影作品纳入《伯尔尼公约》的历史类比，论证GenAI版权保护的渐进接受路径，增强了制度史纵深感"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 4,
+          "revised_band": "excellent",
+          "revised_core_judgment": "问题聚焦明确，直击版权法核心教义冲突。提出“受控固定”与“创作记录”要件具有显著理论推进价值，但程序法配套与政策边界论证稍显薄弱。",
+          "revision_rationale": "采纳专家B关于“制度连锁效应论证可深化”及“问题与政策边界模糊”的意见。论文教义学框架严密，但“创作记录”要件的证据规则与举证责任分配论证仍显抽象，结语略带政策色彩。故微调分数，核心创新性依然突出。",
+          "accepted_points": [
+            "枢纽性中制度连锁效应与程序法配套的论证需进一步深化",
+            "部分论述（如结语）存在政策建议与解释论问题边界模糊的倾向"
+          ],
+          "rejected_points": [
+            "专家A认为全文缺乏可争辩法学问题、仅为主题声明的观点。论文已明确提出‘能否逻辑自洽应对三重转向’及‘构思决定论能否类推’的核心争点，并展开实质性教义学检验与修正，并非单纯立场阐释。"
+          ],
+          "new_evidence_found": [
+            "论文明确区分摄影‘机械固定’与GenAI‘转化性执行’原理，推导出独创性、侵权比对与责任归属的三重教义冲突",
+            "提出‘受控固定’与‘创作记录’双重要件，试图在解释论层面弥合思想/表达二分法与GenAI生成逻辑的断裂"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.507272005081177,
+        "glm-5.1": 58.14681696891785,
+        "kimi-k2.6": 22.00309181213379,
+        "qwen3.6-plus": 174.9865381717682
+      },
+      "round1_mean": 72.5,
+      "round2_mean": 73.2,
+      "round1_std": 32.5,
+      "round2_std": 32.2,
+      "convergence_improvement": 0.3
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 70,
+          "revised": 70,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 2,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 90,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 70,
+          "revised_score": 70,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "论文研究地图清晰，争点结构鲜明，但法学流派的深层锚定与文献完备性不足的缺陷依然存在。",
+          "revision_rationale": "其他评审专家指出了文稿的诸多优点，如三重转向提炼精准、流派划分明确，这些我在初次评价中已予肯定。然而，专家A与B的评价忽略了论文在法学流派锚定上的明显不足，仅停留在描述性流派的列举，未将其与规范主义/功能主义等深层理论框架关联。专家B指出的'观望论内部细分不足'恰印证了深度欠缺的问题。此外，论文缺失完整的参考文献索引，无法核实对关键争点的覆盖度，这一程序性硬伤在专家组的评价中被忽视。鉴于上述实质性与程序性缺陷均未得合理论证，维持原判更严谨。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家A与B认为法学流派覆盖充分，但二者均仅以文中明确的三种观点为依据，未论证为何未关联更深层的法学理论流派仍可视为'充分'。",
+            "专家B指出的'观望论内部细分不足'间接暴露了流派深度欠缺，与excellent档的'极佳'、'极高'判定自相矛盾。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 2,
+          "revised_band": "excellent",
+          "revised_core_judgment": "争点结构与流派识别极佳，但到达点学者提炼稍散且缺参考文献列表，整体仍属excellent。",
+          "revision_rationale": "接受专家B关于到达点学者观点呈现稍显分散及专家A关于缺乏参考文献列表影响复核的批评，故微降2分。但拒绝专家A要求关联宏观法理学流派的意见，因针对具体争点的立场流派已充分识别；论文脚注详实反驳了“仅依赖正文”的批评，三重转向争点结构依然是核心亮点，维持excellent档。",
+          "accepted_points": [
+            "到达点的具体学者成果提炼较分散，未集中呈现",
+            "未提供完整的参考文献列表，影响外部文献复核"
+          ],
+          "rejected_points": [
+            "法学流派需关联形式法治/实质法治等深层理论：对具体部门法论文要求过高，问题立场流派已充分识别且引用具体学者"
+          ],
+          "new_evidence_found": [
+            "脚注详实引用了中美案例与学者观点（如崔国斌、王迁、Lemley等），证明文献定位有扎实支撑，而非仅依赖正文叙述"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素完整成立，'三重转向'争点结构立体清晰，三派学说覆盖充分，但到达点的既有成果提炼仍可更集中呈现。",
+          "revision_rationale": "经重新审读，接受专家A、B的部分合理意见：论文对'三重转向'（可版权性→侵权比对→权责分离）的提炼确实具有高度体系性，并非简单的'局部分析'；三派学说（肯定论/否定论/观望论）的识别准确且贯穿全文；'权责分离'作为未竟点的提出具有原创性。但专家B所称'分散式文献定位精准'略有溢美，论文对观望论内部细分的处理确实单薄，且早期摄影判例的当代映射缺乏实证数据支撑。原评78分偏低，调整至85分，仍锚定good档而非excellent，因到达点的具体学者成果呈现仍较分散，未如专家A所称'极佳'。",
+          "accepted_points": [
+            "三重转向争点结构具有立体性和体系性，非简单并列",
+            "三派学说识别准确且贯穿论证脉络",
+            "权责分离作为未竟点的提炼具有原创价值",
+            "研究地图三要素基本完整闭环"
+          ],
+          "rejected_points": [
+            "专家A'文献定位极佳'的评价：到达点成果分散，未集中呈现具体学者的核心论点",
+            "专家B'分散式文献定位精准'：提示词与生成物的'映射性'论证虽有，但早期摄影判例与GenAI的当代映射缺乏实证数据",
+            "专家B'锚定excellent档'：观望论内部细分（如温和观望/激进观望）未展开，学派交锋深度不足"
+          ],
+          "new_evidence_found": [
+            "论文第4页明确将'权责分离'界定为第三重转向，与'广州奥特曼案'直接挂钩，未竟点与切入点衔接紧密",
+            "第5-6页对'沙乐尼案'的二元要件（可视化构思+机械固定）进行了精细化解构，为后续修正奠定理论基础",
+            "第21-22页提出'创作记录要件'作为新增要件，体现对GenAI技术特性的回应，但未明确标注为'第四要件'或'补充要件'"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 90,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "excellent",
+          "revised_core_judgment": "研究地图闭环完整，争点递进清晰，但流派归类偏实务化，缺乏深层法理锚定；文献整合稍显分散，整体仍属优秀。",
+          "revision_rationale": "采纳他评关于理论纵深与文献归纳分散的合理意见，适度下调分数。但论文“三重转向”框架极具原创性，对摄影构思决定论的修正逻辑严密，实证案例运用精准，核心论证质量仍达优秀档标准，故微调至85分。",
+          "accepted_points": [
+            "法学流派仅停留在实务观点分类，未与规范主义/功能主义等深层法理流派进行理论锚定",
+            "到达点既有研究成果的文献提炼较为分散，未集中呈现通说与少数说的学派归属"
+          ],
+          "rejected_points": [
+            "以‘无独立参考文献列表’为由扣分：评审仅基于提供正文，正文脚注已完整覆盖核心文献，且分散式引用系本文问题导向论证的合理策略，不影响学术复核"
+          ],
+          "new_evidence_found": [
+            "论文在‘受控固定’与‘创作记录’要件中精准援引中美最新判例与审查指南，实证支撑扎实",
+            "明确提出将‘机械固定’修正为‘受控固定’并增设‘创作记录’要件，体系性破解权责分离难题"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.992013216018677,
+        "glm-5.1": 80.76579809188843,
+        "kimi-k2.6": 17.039029121398926,
+        "qwen3.6-plus": 76.77777934074402
+      },
+      "round1_mean": 82,
+      "round2_mean": 82,
+      "round1_std": 9.8,
+      "round2_std": 8.1,
+      "convergence_improvement": 1.7
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "框架原创性高，概念清晰且实现体系性调用。法学转化已突破纯粹描述，提供了侵权比对步骤等具体指引，但",
+          "revision_rationale": "接受其他专家关于“法学转化彻底”的合理成分。重读论文发现侵权判断部分已提供“复制+非法挪用”比对步骤及区分判断主体的具体操作指引，法学转化度优于初评印象。但“受控固定”中“合理努力”仍缺乏量化指标，制度方案着墨不多，故仅上调至good档上限，未达excellent。",
+          "accepted_points": [
+            "该框架提供了侵权比对的具体步骤和判断主体区分，具备较强的裁判操作指引",
+            "论文将技术差异有效转化为可操作的法学要件，逻辑严密且在后文深度调用"
+          ],
+          "rejected_points": [
+            "法学转化度满分（4/4）的评价过高：'受控固定'的'合理努力'仍较抽象，缺乏可供裁判直接援引的量化或质化指标，未完全达到彻底转化的精细度",
+            "框架可操作性与法学转化度双满分评价忽视了论文在立法修改、举证责任分配等制度方案上的明显留白"
+          ],
+          "new_evidence_found": [
+            "论文在“创作记录要件”部分具体论证了区分判断主体的侵权比对步骤：普通受众判断事实性复制，专业人士比对提示词实质性相似",
+            "论文提供了从'复制+非法挪用'上位规则到具体操作步骤的完整推导链条"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "框架体系性建构极强，三要件与侵权步骤转化路径明确，但“受控固定”等要件裁判颗粒度稍欠精细，法学转化度略降。",
+          "revision_rationale": "接受专家关于“受控固定”合理努力标准缺乏量化细化指标、侵权比对中专业人士判断与传统方法衔接不足的观点，这确实导致法学转化颗粒度稍欠，原评法学转化度4/4过高。但拒绝将转化度降至2/4，因论文已提供“映射性”“有效原因”等具体裁判指引，且僵化量化不符技术规律；同时，要求提供立法修改方案超出本文解释论反思范畴。故小幅下调至85分，维持excellent档。",
+          "accepted_points": [
+            "‘受控固定’中‘合理努力’标准较为抽象，缺乏可供裁判直接援引的量化或质化细化指标",
+            "侵权比对中专业人士判断提示词实质性相似与传统‘整体观感法’的衔接说明不足"
+          ],
+          "rejected_points": [
+            "法学转化度仅得2/4（论文已提供‘映射性’‘有效原因’等具体裁判思路，并非完全停留在要件描述，2/4评价过低）",
+            "要求提供立法或司法解释修改的具体制度方案（超出本文解释论体系性反思的核心论题，属于立法论层面的额外期待）"
+          ],
+          "new_evidence_found": [
+            "论文论证‘合理控制’时引用了‘武汉文生图案’的‘映射性’判断和英国法官的‘有效原因’理论，提供了一定裁判指引，但确实未进一步量化",
+            "论证专业人士判断提示词时类比了计算机软件侵权，但未详细展开提示词思想与表达的具体过滤方法"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "excellent",
+          "revised_core_judgment": "三要件框架不仅逻辑清晰，更实现了从理论到裁判规则的完整法学转化，'创作记录'要件对侵权比对、证据规则及权责划分的体系性建构具有显著创新价值。",
+          "revision_rationale": "重新审读论文后，发现其理论建构的法学转化度被低估。论文不仅提出'受控固定''创作记录'要件，更在第四部分详细展开了：'创作记录'作为独立要件的侵权比对规则（专业人士判断提示词实质性相似）、证据规则（作者身份认证与举证责任）、以及权责一致机制（防止用户滥用GenAI）。这些构成了完整的裁判操作指引，而非仅停留在概念层面。'受控固定'中'合理努力'标准虽存裁量空间，但论文已提供'关键表达元素得到有效贯彻'的主标准及'提示词精准程度''转化规律把握'等辅助因素，并非空白授权。",
+          "accepted_points": [
+            "三要件框架将技术原理差异转化为可操作的司法审查步骤，后文逐节深度调用",
+            "'创作记录'要件重构了侵权判断规则，区分不同比对主体（专业人士vs普通受众）与步骤",
+            "框架精准对接实务痛点，为独创性认定、侵权比对及权责划分提供明确裁判指引",
+            "论文对'复制+非法挪用'二元侵权要件的提出，超越了传统'接触+实质性相似'框架"
+          ],
+          "rejected_points": [
+            "专家A认为'法学转化度满分'——仍保留一定保留：'创作记录'中'专业人士判断'的具体资质、选任程序未展开，与传统'整体观感法'的衔接机制仍可细化",
+            "专家B认为'操作性与转化度均满分'——'合理努力'的阈值判断在复杂场景（如多轮迭代中GenAI自主生成关键元素）中仍存模糊性，不宜完全忽略"
+          ],
+          "new_evidence_found": [
+            "论文第（四）部分'创作记录要件'第3点明确：'非法挪用的判断须对提示词（组合）进行实质性相似的比对……判断者应当是专业人士'，并类比计算机软件侵权的专业人士判断标准（参见Altai案）",
+            "论文第（四）部分第4点提出创作记录可'明确侵权内容的生成原因'，实现'权责一致'，直接回应'广州奥特曼案'的权责分离困境",
+            "论文第（三）部分'受控固定'要件中，以'武汉文生图案''伴心案''艺术椅案'等实际案例说明'合理控制'的具体判断因素，包括'提示词对关键性表达元素描述的精准程度''构思者对GenAI转化规律的把握程度'等辅助标准"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "框架体系严密且后文深度调用，但法学转化偏重教义学建构，裁判指引的量化指标与配套制度设计尚显不足，需进一步细化。",
+          "revision_rationale": "采纳A、B专家关于“裁判颗粒度不足”与“制度配套待补充”的意见。论文虽完成三要件教义学建构，但“合理努力”标准未提供量化参考，举证责任与立法建议仅停留于原则层面。故下调法学转化度评分，总分微调，仍锚定优秀档。",
+          "accepted_points": [
+            "裁判操作指引缺乏量化/质化指标（如提示词迭代阈值、关键元素映射比例）",
+            "制度方案与举证责任分配的具体立法/司法解释路径着墨较少",
+            "‘创作记录’的专业人士判断标准与传统整体观感法的衔接需更明确"
+          ],
+          "rejected_points": [
+            "认为法学转化仅停留在要件描述层面（论文已提供‘复制+非法挪用’二元比对步骤及专业人士判断规则，具备实质裁判指引）",
+            "可操作性得分应降为3/4（三要件逻辑闭环完整，后文逐节调用解决三重转向，步骤清晰可循）"
+          ],
+          "new_evidence_found": [
+            "论文第2.3节明确侵权比对采用‘先整体观感后提示词比对’的双阶步骤，部分回应衔接问题",
+            "第2.2节以案例迭代轮次为例说明‘合理努力’的个案裁量逻辑，但未设定统一阈值",
+            "第2.4节提出‘简化版作者身份认证系统’构想，但未展开具体制度设计"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.68653106689453,
+        "glm-5.1": 85.21511316299438,
+        "kimi-k2.6": 19.51300811767578,
+        "qwen3.6-plus": 79.10434603691101
+      },
+      "round1_mean": 83.5,
+      "round2_mean": 85,
+      "round1_std": 10.1,
+      "round2_std": 0.0,
+      "convergence_improvement": 10.1
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 78,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 12,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "good",
+          "revised_core_judgment": "虽构建了清晰推理链且反批判性强，但对于自身修正方案的关键不足（受控固定主观性、类比必然性）辩护不足，导致反驳处理度仍有欠缺。",
+          "revision_rationale": "重新审视发现：1）论文在提出“受控固定”与“创作记录”后，未深入回应“受控固定”标准的模糊性（专家A指出的“合理控制仍偏主观”），也未对摄影法律史类比的局限性及自身方案的适用边界进行自省；2）这些不足在原文中虽有端倪但未充分处理，影响反驳深度。因此，维持good档但降低3分，以更准确反映其未完全消解的论证瑕疵。",
+          "accepted_points": [
+            "接受专家A对“受控固定”标准主观性的批评，论文确实未有效化解该操作难题，构成局部论证弱点。"
+          ],
+          "rejected_points": [
+            "未采纳专家B对“创作记录证据效力简略”的批评，因为该点属制度配套而非逻辑缺陷，不直接影响本维度评价；未采纳两位专家的excellent档断定，因其未充分考量方案局限对逻辑闭环的损害。"
+          ],
+          "new_evidence_found": [
+            "论文第125-128页（修订部分）虽借用“有效原因”理论，但未就“合理性”控制标准提供清晰的法律判断框架，亦未正面讨论类比摄影史演进逻辑的必然性，论证缝隙尚存。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 12,
+          "revised_band": "good",
+          "revised_core_judgment": "宏观推理链完整，但微观推导存在跳步；反驳处理有效但未承认自身修正方案局限，降档至good。",
+          "revision_rationale": "接受专家意见，从“机械固定”到“受控固定”的推导缺乏技术原理支撑，存在逻辑跳步；对“受控固定”主观性及“创作记录”制度成本等自身理论局限缺乏显式承认与反驳，反驳处理度不足。故从excellent降为good档，修正分数为78。",
+          "accepted_points": [
+            "微观推导存在跳步：从摄影“机械固定”修正到“受控固定”的推导缺乏充分技术原理支撑，逻辑桥梁不够坚实。",
+            "反驳处理度不足：论文未明确承认“受控固定”等修正要件自身可能存在适用边界或模糊地带，缺少对自身理论局限（如主观性、制度成本）的讨论。"
+          ],
+          "rejected_points": [
+            "无。专家A和B的意见均具有合理性，精准指出了我之前忽略的微观逻辑瑕疵和反驳深度问题。"
+          ],
+          "new_evidence_found": [
+            "论文在论证“受控固定”要件时，仅引用英国法官裁判逻辑（规范性要求）和用户迭代提示词的实例（经验性描述），缺乏从GenAI统计学规律到法律要件修正的严密逻辑推导。",
+            "论文对“创作记录”要件可能带来的制度成本与激励效果的平衡缺乏反驳处理，仅提出“简化版认证系统”的初步设想，未深入论证其可行性与成本。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链完整且环环相扣，'受控固定'要件的论证有充分技术原理与法理支撑，反驳处理基本充分，但'创作记录'要件的制度成本分析仍可深化。",
+          "revision_rationale": "重新审视后，我承认之前对'受控固定'要件的评价存在偏差。论文第3部分第(三)节详细论证了GenAI与照相机在执行原理上的差异：照相机是'机械固定'（对镜头前现实事物的光学复制），而GenAI是'转化性执行'（基于统计学规律将文字提示转化为另一种作品类型的表达）。论文明确援引了'武汉文生图案'的'映射性'标准，并以艾伦624次迭代、'伴心案'原告从80-100轮优化到30-50轮等实例，说明'合理控制'并非主观臆断，而是有具体判断维度的。此外，论文对反对意见的处理比我最初评价的更为充分：第2部分第(三)节明确回应了'提示词是思想'的批评，第3部分第(四)节专设'创作记录'要件回应了权责分离担忧。但'创作记录'要件的制度成本（如用户举证负担、诉讼效率）仍缺乏充分回应，故提升至good档上限85分，未达excellent。",
+          "accepted_points": [
+            "专家A指出的'问题-困境-修正的推理链依赖度极高'成立，三重转向框架确实环环相扣",
+            "专家B指出的'技术原理差异与版权法理充分辩护'成立，论文对GenAI'转化性执行'与照相机'机械固定'的差异分析有充分技术原理支撑",
+            "'受控固定'的'合理控制'标准有具体化论证，并非'偏主观'，包括提示词精准度、迭代次数、转化规律把握等维度"
+          ],
+          "rejected_points": [
+            "专家A、B均给excellent档（90-92分），我认为偏高。'创作记录'要件的制度成本分析仍显不足：论文未充分回应用户留存创作记录的成本负担、GenAI提供者配合义务、以及该要件对小额作品创作激励的潜在抑制效应",
+            "专家B认为'对反对意见与自身局限均有实质性回应'，但论文对'创作记录'可能导致的'版权蟑螂'反向激励（如用户故意不记录以规避责任）缺乏预判性分析"
+          ],
+          "new_evidence_found": [
+            "论文第3部分第(三)节2段：'合理控制的判断，应当以构思中对所属作品类型的关键性表达元素的选择和安排得到有效贯彻和固定为主，以提示词对关键性表达元素描述的精准程度、构思者对GenAI转化规律的把握程度等因素为辅'——这直接回应了我之前批评的'合理控制标准偏主观'问题",
+            "论文第3部分第(四)节4段：'如果用户满足受控固定要件，那么其对于GenAI生成物中哪些侵权内容的生成起到主要作用……也可以通过创作记录非常清楚地作出判断'——这说明创作记录要件具有双向功能，既保护权利也明确责任，比我之前理解的更为周密",
+            "论文第2部分第(三)节明确区分了摄影作品与GenAI生成物在'接触+实质性相似'判断上的差异：'提示词的目标受众是创作者，生成作品的目标受众是普通消费者'——这是关键的法理区分"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "推理主干清晰完整，但“受控固定”要件的法理推导存在规范跳跃，且对自身修正方案的适用边界与制度成本缺乏充分反思。",
+          "revision_rationale": "采纳专家A、B意见。论文虽构建了严密的“三重转向”应对框架，但“机械固定”向“受控固定”的修正更多依赖政策与规范目的论证，技术原理与法律要件间的逻辑桥梁不够坚实；同时，未明确界定“受控固定”在高度自主GenAI场景下的适用边界，对“创作记录”带来的举证成本与产业激励平衡亦缺乏深度反驳处理，故反驳处理度下调，分数相应调整。",
+          "accepted_points": [
+            "论文未明确承认‘受控固定’等修正要件在复杂/高度自主GenAI场景下的适用边界与模糊地带",
+            "‘受控固定’从摄影‘机械固定’修正的推导中，技术原理差异与法律要件修正之间的逻辑桥梁偏重规范目的论证，存在一定跳跃",
+            "对‘创作记录’要件可能增加的维权成本与产业激励效果的平衡缺乏充分讨论"
+          ],
+          "rejected_points": [
+            "完全否定推理链完整性：论文从问题提出、类推困境到要件修正的递进逻辑依然严密，核心结论可由现有论证支撑，仅局部推导需强化，故不采纳整体降档至推理链不完整的观点"
+          ],
+          "new_evidence_found": [
+            "文中引用英国上议院布雷特法官‘有效原因’理论作为‘受控固定’的类比支撑，但未深入论证该普通法逻辑在我国成文法‘直接产生’要件下的移植正当性",
+            "结语提及摄影作品入约的漫长历史以类比GenAI版权接受过程，侧面印证了当前理论框架仍处于探索期，自身局限性尚未完全展开"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 21.9282488822937,
+        "glm-5.1": 78.10670280456543,
+        "kimi-k2.6": 27.987789154052734,
+        "qwen3.6-plus": 72.94034814834595
+      },
+      "round1_mean": 84.5,
+      "round2_mean": 80.8,
+      "round1_std": 7.5,
+      "round2_std": 5.1,
+      "convergence_improvement": 2.4
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 86,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 82
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 86,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "论文通过修正摄影作品构思决定论，深度回应了三重转向挑战，共同体对话度与制度兼容性均显著提升，结论可接受性强。",
+          "revision_rationale": "重新审视发现，论文不仅修正理论，还具体提出了'受控固定+创作记录'方案及侵权比对规则，直接回应了否定论对思想/表达二分的担忧，并为制度转化提供了明确指引。原评价低估了其对反对意见的实质回应深度和制度方案的具体性，故上调评分至 excellent 档。",
+          "accepted_points": [
+            "体系性回应了肯定论、否定论和观望论的僵局，对话度高。",
+            "提出了具体的侵权比对规则和创作记录制度，制度转化方向明确。",
+            "精准回应中美实务分歧与学界三重转向争议。"
+          ],
+          "rejected_points": [
+            "创作记录要件可能增加维权成本，虽有回应但仍存实务争议：该缺点属于方案落地层面的操作细节，不影响其学术共识维度的优秀表现。",
+            "对GenAI提供者责任分配偏理论，缺程序衔接设计：责任分配的初步探讨已属体系性回应的一部分，程序衔接的细化并非本维度考察重点。"
+          ],
+          "new_evidence_found": [
+            "论文明确提出：侵权判断应采用'复制+非法挪用'上位要件，并对提示词进行实质性相似比对，给出了具体的制度转化方案。",
+            "论文在第三部分详细分析了权责分离现象及GenAI提供者参与内容生成的结构性风险，构成了对否定论担忧的实质性回应。",
+            "结论部分提出了'受控固定''创作记录'及侵权比对等具体要件，已超越纯粹的理论修正。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 86,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 6,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论体系性回应僵局且制度兼容性强，但结语未集中反思方案局限，对话度微降。",
+          "revision_rationale": "接受专家关于“结语未主动集中讨论反对意见或局限”的批评，论文正文虽深入回应否定论，但结语仅作乐观展望，缺乏学术反思的开放性，故对话度微调降分。但拒绝“缺乏制度转化方向”的批评，论文提出的“受控固定”“创作记录”及侵权比对规则已构成明确的制度转化蓝图，制度度仍高。综合维持excellent档，分数微降至86。",
+          "accepted_points": [
+            "结论部分未主动集中承认并讨论反对意见或自身方案的局限，缺乏学术反思的开放性",
+            "'创作记录要件'的具体操作标准（如简化版认证系统）可进一步细化"
+          ],
+          "rejected_points": [
+            "结论缺乏制度转化的具体方向指引，仅停留在理论修正层面。理由：论文提出的'受控固定'、'创作记录'要件及'复制+非法挪用'侵权比对规则，已为司法实践和未来立法提供了明确的制度转化蓝图和操作指引，并非仅停留在理论层面。"
+          ],
+          "new_evidence_found": [
+            "论文在正文第28页明确承认了'创作记录要件'会增加维权成本（'创作者的版权维权成本相较传统作品要高得多'），并提出了'简化版的作者身份认证系统'作为应对，这表明作者对自身方案局限有认知，但确实未在结语中集中体现。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "结论具有高度的学术对话性和制度回应性，'三重转向'框架体系性整合了三种理论立场，'受控固定+创作记录'方案兼具理论深度与本土实践关怀。",
+          "revision_rationale": "经重新审读，论文通过'三重转向'问题将肯定论/否定论/观望论的僵局转化为体系性理论挑战，学术对话度优于初评；'受控固定'要件的提出深度回应了'直接产生'制度约束，且结合中国司法案例充分。原评78分过于保守，上调至85分以更准确反映其学术贡献，但仍坚持good档而非excellent档，因结论部分对反对意见的集中回应仍显不足，且'创作记录'要件的程序衔接设计可进一步细化。",
+          "accepted_points": [
+            "论文体系性回应三种观点的对话度值得肯定，'三重转向'框架具有理论整合力",
+            "制度转化方向明确，'受控固定+创作记录'方案与现行法高度兼容",
+            "深度结合中国判例（春风案、武汉文生图案、艺术椅案、广州奥特曼案）展开论证"
+          ],
+          "rejected_points": [
+            "92分（excellent档）略高：对'创作记录'实务操作难度的评估过于乐观，论文虽提出简化版认证系统设想，但程序衔接设计仍显粗略；",
+            "结论部分未集中讨论反对意见这一缺陷不应被忽视，影响学术对话的完整性"
+          ],
+          "new_evidence_found": [
+            "论文第3节第3部分明确回应《著作权法实施条例》第3条'直接产生'要求的解释论难题，提出'视为直接产生'的扩大解释路径",
+            "论文提出侵权判断应采用'复制+非法挪用'上位要件，并对提示词比对的专业人士判断标准作出具体安排",
+            "论文结语以摄影作品在《伯尔尼公约》的接受历程作类比，具有历史纵深感"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "结论具备较强学术对话力与制度兼容性，但结论部分未集中回应反对意见与方案局限，程序衔接与操作标准偏理论，故降档。",
+          "revision_rationale": "采纳A、B专家意见，正文虽深入回应三重转向，但结语未集中讨论反对观点及方案局限；“受控固定+创作记录”契合现行法逻辑，却缺乏举证责任分配、平台合规等程序性设计，实务落地性受限。故两项子维度均微调至3/4，总分下调至82。",
+          "accepted_points": [
+            "结论部分未集中讨论反对意见（如提示词属思想论）及方案自身局限",
+            "“创作记录”要件缺乏具体操作标准与程序衔接设计，实务转化指引不足"
+          ],
+          "rejected_points": [
+            "“未深入回应否定论核心挑战”的绝对化判断。理由：正文已系统剖析提示词与思想/表达界限，并论证“受控固定”如何化解该挑战，实质对话充分，仅结论未显性化总结。"
+          ],
+          "new_evidence_found": [
+            "结语仅以摄影作品入约历史作类比展望，未对反对观点或“权责分离”风险作集中回应",
+            "正文第(四)部分提及“简化版认证系统”与“后台日志”，但仅停留在理论建议，未构建具体证据规则或平台合规程序"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.599550008773804,
+        "glm-5.1": 66.070552110672,
+        "kimi-k2.6": 32.1708710193634,
+        "qwen3.6-plus": 64.43048310279846
+      },
+      "round1_mean": 85,
+      "round2_mean": 84.5,
+      "round1_std": 8.1,
+      "round2_std": 1.7,
+      "convergence_improvement": 6.4
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 80,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 78
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 75,
+          "revised": 82,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 85,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 82,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 85,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 75,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "存在明确的理论修正与制度延伸路径，且指出了侵权比对、创作记录工具及国际条约等具体延展方向，足以支撑excellent弱加分。",
+          "revision_rationale": "重新审读论文，认可其他专家指出的延展路径具体性，特别是侵权双层比对机制和创作记录工具开发方向。论文虽未详细阐明‘合理控制’标准，但已勾勒出清晰的制度演进脉络，且对国际条约路径有明确指引，故上调至excellent低段。",
+          "accepted_points": [
+            "延展路径具体：侵权判断双层比对机制（受众比对表达+专业人士比对提示词）值得采纳。",
+            "创作记录配套工具开发和简化版身份认证系统的构建需求具有明确的制度方向。",
+            "论文对国际条约演进路径的指引并非空泛拔高，而是基于摄影作品历史的逻辑延伸。"
+          ],
+          "rejected_points": [
+            "评审专家A和B对‘合理控制’标准的延展批评虽合理，但考虑到论文篇幅限制与主题聚焦，该要求因已属次要缺陷，不宜过度扣分。"
+          ],
+          "new_evidence_found": [
+            "论文明确指出‘侵权判断方法应当采用比‘接触+实质性相似’更上位的侵权二元要件，即‘复制+非法挪用’’，并暗示了专业人士介入提示词比对的具体方向。",
+            "论文提出‘可考虑设计简化版的作者身份认证系统’及‘GenAI提供者开发配套记录工具’，其思路与实务落地紧密衔接。",
+            "论文从摄影作品在国际公约中的演进推导GenAI作品的可能轨迹，逻辑清晰，体现了前瞻性。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "存在真实延展路径，侵权比对与理论修正机制具体，但配套制度实施细节与国际规则对接稍显概括。",
+          "revision_rationale": "吸收专家意见，论文在侵权判断双层比对机制及三要件修正上延展具体且具操作性，但在“简化版认证系统”等配套实施机制及国际影响力提升路径上仅点到为止，未形成完整制度方案；对“合理控制”判断标准虽有主辅维度及案例支撑，但具体场景细化仍显不足。故下调至80分并调整档位为good，以更准确反映其在核心理论延展上的优势与制度细节上的欠缺。",
+          "accepted_points": [
+            "创作记录要件的实施机制（如简化版认证系统）仅点到为止，未形成完整制度方案。",
+            "国际影响力提升路径缺乏具体法域或国际组织的对接分析，属于宏观展望。",
+            "对“受控固定”中“合理控制”的判断标准虽有提及，但具体场景细化路径仍稍显概括。"
+          ],
+          "rejected_points": [
+            "因精细度有限而给予较低分数（如72分）。论文在侵权比对双层机制（受众比对生成物+专业人士比对提示词）及权责分离风险控制逻辑上的延展非常具体且具创新性，超越了概括性展望，不应被过度低估。"
+          ],
+          "new_evidence_found": [
+            "论文对“合理控制”的判断并非完全概括，给出了“以关键性表达元素有效贯彻为主，以提示词精准度、规律把握为辅”的主辅标准，并结合艾伦案624次迭代、“伴心案”30-50轮迭代的具体例证，具有一定细化程度。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "修正后的构思决定论具备真实且清晰的延展路径，'受控固定'与'创作记录'要件可直接导出配套制度需求，侵权判断转型路径具体可操作。",
+          "revision_rationale": "重新审读论文后，发现其延展路径比我最初评估的更为具体和体系化。'受控固定'要件不仅提出概念，还明确了'合理控制'的判断标准（以关键表达元素有效贯彻为主、提示词精准程度等因素为辅），并援引'武汉文生图案'等实例佐证。'创作记录'要件亦详细论证了其在作者身份确认、权利边界划定、侵权原因查明三方面的功能，且明确提出了'简化版作者身份认证系统'的制度设计。侵权判断从'接触+实质性相似'转向'复制+非法挪用'的路径中，论文具体设计了'受众比对表达+专业人士比对提示词'的双层机制，比我最初认知的更为精细。国际规则构建方面，论文在结语中明确参照摄影作品在《伯尔尼公约》中的演进路径，提出了'通过GenAI方式表达的作品'之制度愿景，具备明确的国际法对接指向。我原先评分偏低，主要因对'创作记录实施细节'和'国际路径'的精细度要求过高，未充分认可论文在解释论层面已达成的体系性建构。",
+          "accepted_points": [
+            "侵权比对双层机制（受众比对表达+专业人士比对提示词）的具体设计",
+            "创作记录配套工具开发与简化版身份认证系统的构建需求",
+            "理论修正直接导出配套制度与工具开发需求，延展具象化",
+            "国际条约演进路径参照摄影作品《伯尔尼公约》接受史，具备历史参照性"
+          ],
+          "rejected_points": [
+            "专家A将评分提至85分（excellent档）略显偏高：'合理控制'判断标准虽有辅助因素列举，但'关键表达元素'的界定仍依赖司法个案，尚未达到'excellent'所要求的精细度",
+            "专家B认为国际条约路径'清晰'：论文仅提出参照摄影作品的演进逻辑，未具体展开中国如何主导或参与哪些国际组织的规则制定，'清晰'评价过当"
+          ],
+          "new_evidence_found": [
+            "论文第27页明确以'武汉文生图案'为例，将'合理控制'的判断标准具体化为'以构思中对所属作品类型的关键性表达元素的选择和安排得到有效贯彻和固定为主，以提示词对关键性表达元素描述的精准程度、构思者对GenAI转化规律的把握程度等因素为辅'",
+            "论文第28-29页详细论证创作记录要件的三大功能：确认作者身份、划定权利边界、明确侵权原因，并具体提出'简化版的作者身份认证系统'设计",
+            "论文第29-30页明确提出侵权判断应采用'复制+非法挪用'要件，并设计'先比对生成作品，再由专业人士比对提示词'的双层机制，专业人士界定为'利用提示词的创作者'",
+            "论文结语明确参照摄影作品从1837年发明到1967年纳入《伯尔尼公约》的演进历程，提出'通过GenAI方式表达的作品'之制度愿景"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 85,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "延展路径清晰且与理论修正紧密咬合，具象化指向工具开发、侵权比对转型与条约演进，但合理控制标准、程序法衔接及国际规则对接偏宏观，精细度不足。",
+          "revision_rationale": "采纳其他专家关于“合理控制”操作标准模糊、国际路径缺乏法域对比、配套机制仅点到为止的合理批评。论文延展逻辑自洽且方向明确，但制度落地细节、比较法论证深度及程序法举证分配未达“excellent”所需的完备性与可操作性，故下调至“good”档。",
+          "accepted_points": [
+            "“合理控制”要件缺乏具体操作标准与边界条件",
+            "国际规则构建路径偏宏观，缺乏具体法域或国际组织对接分析",
+            "“创作记录”配套机制（如简化认证系统）仅点到为止，司法举证责任分配的程序法衔接未充分展开"
+          ],
+          "rejected_points": [
+            "无明确拒绝点。原评价中“延展路径与正文结论紧密咬合”的核心判断依然成立，仅因制度精细度与比较法支撑不足而调整档位。"
+          ],
+          "new_evidence_found": [
+            "论文明确提出侵权比对应转向“复制+非法挪用”二元要件，并设计“普通受众比对生成物+专业人士比对提示词”的两步检验法",
+            "详述“创作记录”在防止用户滥用GenAI引发“版权蟑螂”及厘清用户与提供者侵权责任边界中的程序性作用",
+            "结语部分以《伯尔尼公约》接纳摄影作品的历史演进为参照，推演GenAI作品国际规则的未来表述与我国的主导角色"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.958832263946533,
+        "glm-5.1": 176.63674116134644,
+        "kimi-k2.6": 19.85739016532898,
+        "qwen3.6-plus": 85.93422532081604
+      },
+      "round1_mean": 79.2,
+      "round2_mean": 80.5,
+      "round1_std": 6.8,
+      "round2_std": 1.9,
+      "convergence_improvement": 4.9
+    }
+  },
+  "overall": {
+    "round1_avg_std": 12.47,
+    "round2_avg_std": 8.17,
+    "std_improvement": 4.3,
+    "round1_max_std": 32.5,
+    "round2_max_std": 32.2,
+    "dimensions_converged": 4,
+    "total_dimensions": 6,
+    "round1_final_score_mean": 81.12,
+    "round2_final_score_mean": 81
+  }
+}

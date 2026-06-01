@@ -1,0 +1,997 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1012-中国社会科学-2018-7-标表型人格权的构造与人格权商品化批判-房绍坤-吉林大学法学院,长春130012.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "人格权在民法典中是否应独立成编...人格权能否商业化利用为其焦点之一。",
+          "《民法总则》、《民法通则》及《侵权责任法》均将姓名权...并列规定为人格权。",
+          "在司法实践中，姓名权还被赋予了‘基础权利’或‘基本权利’的属性。",
+          "我国法应采有别于美国法的二元主义立法模式...考虑到我国的文化传统与法制背景。",
+          "标表型人格权的谜底在于权利构造的错位...以人格标识的形成自由为权利对象，独立于作为财产权的人格标识使用权。",
+          "人格标识使用权...应令其寄生于人格权的规范体系加以保护，但其请求权基础应为财产权。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，文本质量良好，可直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文且存在OCR数字识别错误（如O代替0，]代替1，】代替1）",
+          "首段脚注内容截断混入正文（“① 赞同 米 本文为...”）"
+        ],
+        "evidence_quotes": [
+          "· 】39 ·",
+          "· 1 4O ·",
+          "· 1 4】 ·",
+          "① 赞同 米 本文为国家社会科学基金青年项目"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "围绕人格权在民法典中是否应独立成编，民法学界存在两种不同意见",
+          "理想结构应以人格标识的决定、变更为权能，人格标识的形成自由为权利对象，排除人格标识的使用权能，切割人格标识冒用与盗用的私法效果",
+          "考虑到我国的文化传统与法制背景，我国法应采有别于美国法的二元保护模式，使其依托于人格权的规范体系中"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及OCR数字乱码需清洗",
+        "文本工程：首段脚注截断需修复"
+      ],
+      "evidence_quotes": [
+        "我国法应采有别于美国法的二元保护模式，使其依托于人格权的规范体系中"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段清洗页码乱码及修复首段脚注截断问题"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码残留（如'①②③'等圆圈数字与正文混排，部分脚注引用格式不统一）",
+          "期刊页码混入正文（如'· 139 ·'、'· 140 ·'等页码标记）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "少量OCR残留风险：部分英文文献引用存在断行、空格异常（如'Com m odif ication'、'H um an'等）"
+        ],
+        "evidence_quotes": [
+          "· 】39 ·",
+          "Com m odif\nication：European and Com parative Perspectives",
+          "H um an Identity",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《民法总则》通过后，围绕人格权在民法典中是否应独立成编，民法学界存在两种不同意见",
+          "我国学者通常在狭义上使用这一概念",
+          "在我国，通说肯认姓名权的人格权属性，但身份权说、人格权·财产权说、人格权·身份权说也同时存在",
+          "我国法应采有别于美国法的二元保护模式",
+          "考虑到我国具有'重德轻物、重名轻财'的文化传统，同时基于人格标识使用权与主体的天然关系，可令其寄生于人格权的规范体系加以保护",
+          "无论人格权独立成编与否，均应坚持这一思路",
+          "《民法总则》、《侵权责任法》只是对人格权进行了初步确权，人格权的正面确权还须人格权独立成编来实现"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、期刊页码混入、参考文献缺失、少量英文引用OCR残留，但核心论点可定位",
+        "项目口径：无问题，论文以中国民法典编纂为背景，深入分析标表型人格权的权利构造，提出中国化的二元保护模式立法建议"
+      ],
+      "evidence_quotes": [
+        "本文试分析标表型人格权的权利构造，反思人格权商品化理论，以引起学界争鸣，推动人格权立法",
+        "我国法应采有别于美国法的二元保护模式，即将人格标识使用权归人人格权的规范体系中，但以财产权为其请求权基础",
+        "考虑到我国具有'重德轻物、重名轻财'的文化传统，同时基于人格标识使用权与主体的天然关系，可令其寄生于人格权的规范体系加以保护"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文进入六维评价。文本质量风险较低，核心论点、结构和主要论证均可定位，建议在评分时注意核对脚注引用的完整性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码OCR识别乱码混入正文（如'· 】39 ·'、'· 1 4O ·'、'· ]43 ·'等）",
+          "部分脚注编号重复或格式异常（如'⑩'重复出现）",
+          "段落间存在轻微换行断裂与标点全半角混用"
+        ],
+        "evidence_quotes": [
+          "· 】39 ·",
+          "·  1 4O ·",
+          "⑩ Sheldon W ．Halpern... ⑩ Haelan Laboratories..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《民法总则》通过后，围绕人格权在民法典中是否应独立成编，民法学界存在两种不同意见。",
+          "本文主张为标表型人格权瘦身，割裂人格标识的决定、变更权能与使用权能的关联关系，以人格标识的决定、变更为权能，人格标识的形成自由为权利对象",
+          "考虑到我国具有“重德轻物、重名轻财”的文化传统...我国法应采有别于美国法的二元保护模式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗页码OCR乱码与脚注编号异常，但不影响核心论证定位。"
+      ],
+      "evidence_quotes": [
+        "本文主张为标表型人格权瘦身...我国法应采有别于美国法的二元保护模式，即将人格标识使用权归人人格权的规范体系中，但以财产权为其请求权基础。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在少量页码OCR乱码与脚注格式瑕疵，但不影响核心论点与论证逻辑的定位。论文高度契合中国自主知识体系评价口径，具备明确的中国民法问题意识、可争辩的教义学命题及本土化理论建构，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文对人格权商品化提出批判性重构，但问题设定更多是理论解释的修正而非提出全新且可争辩的法学问题。",
+          "core_judgment": "论文对通说的挑战具有理论争议性，但问题聚焦于权利构造的重新解释，而非提出一个严格意义上可争辩的疑难法学问题。",
+          "score_rationale": "可争辩性=3/4，枢纽性=1/4，材料新颖性未触发上限。基础分档为good（70-79），因问题设定偏向理论修正（weak_problem_formulation）扣12分至65分，再因负面模式检查扣7分（检查1扣0分，检查2扣0分，检查3因全文以阐释自身立场为主、争点不够突出扣7分），最终58分。",
+          "evidence_quotes": [
+            "人格权商品化理论以标表型人格权为对象，但后者存在着人格标识的决定、变更权能(内在属性)与使用权能(外在属性)两个矛盾的基本属性以及人格标识与主体有稳定联系的特性。",
+            "本文主张为标表型人格权瘦身，割裂人格标识的决定、变更权能与使用权能的关联关系，以人格标识的决定、变更为权能，人格标识的形成自由为权利对象。"
+          ],
+          "strengths": [
+            "揭示了标表型人格权的内在矛盾，并提出了重新构造权利对象的理论方案。",
+            "对中美两国的人格权商品化实践进行了比较，展现了理论分歧和不同解释路径。"
+          ],
+          "weaknesses": [
+            "问题本质上是对既有理论（人格权商品化）的修正，而非提出一个可争辩的法学新问题。",
+            "理论分歧更多是作者对通说的批判，而非呈现并介入学界已有明确对立立场的争论。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2 但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文核心旨在重构标表型人格权的权利构造，批判人格权商品化，问题设定偏向一个宏大的理论体系修正，而非一个能清晰聚焦的具体法律争点。"
+            }
+          ],
+          "boundary_note": "本维度仅评判问题本身的可争辩性与枢纽性，不涉及论证的严密性、材料支撑度或文献综述的充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "问题直击人格权商品化核心争点，理论重构影响深远，创新性卓越。",
+          "core_judgment": "论文提出了可争辩的法学争点，涉及长期核心争议且影响多制度，问题成立且极为重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，前置扣分=0，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "人格权能否商业化利用，商业化利用的后果如何...问题核心又在于标表型人格权",
+            "如何切割人格标识盗用与冒用的利益范围及私法效果?"
+          ],
+          "strengths": [
+            "问题直击人格权与财产权界分的长期核心争点",
+            "权利构造重构深刻影响人格权、侵权等多个制度"
+          ],
+          "weaknesses": [
+            "问题宏大且子争点较多，整体聚焦度稍受影响"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献综述充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出标表型人格权权利构造错位的核心争点，重构人格权商品化理论。",
+          "core_judgment": "问题具有明确可争辩性与理论枢纽性，但部分依赖'标表型人格权'新概念包装传统人格权财产利益争议。",
+          "score_rationale": "可争辩性=3/4（明确问题句'人格权能否商业化利用'，涉及法学规范解释，存在人格权一元/二元模式之争，非纯政策倡导），枢纽性=3/4（影响人格权编立法体例与财产权制度，系学界长期核心争点，涉及人格权基本原理，连锁民法典编纂与司法实践），材料新颖性未触发上限。锚定good档，扣新概念包装旧问题15分后给72分。",
+          "evidence_quotes": [
+            "人格权能否商业化利用，商业化利用的后果如何，已成为人格权立法中必须要解决的问题",
+            "标表型人格权作为一种人格权，只能以人格标识的决定、变更为权能，以人格标识的形成自由为权利对象，独立于作为财产权的人格标识使用权"
+          ],
+          "strengths": [
+            "问题聚焦人格权财产利益的理论根基，争点明确且贯穿全文",
+            "重构权利构造，提出有别于美国法二元模式的中国方案"
+          ],
+          "weaknesses": [
+            "'标表型人格权'概念相对温世扬等既有研究进步说明不充分",
+            "对人格标识使用权与知识产权的区分论证仍可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准切入人格权商品化构造矛盾，提出权能分离新命题，具显著理论突破。",
+          "core_judgment": "问题高度可争辩且具体系枢纽性，成功将立法争议转化为教义学重构命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "人格权能否商业化利用，商业化利用的后果如何，已成为人格权立法中必须要解决的问题，而问题核心又在于标表型人格权。",
+            "本文主张为标表型人格权瘦身，割裂人格标识的决定、变更权能与使用权能的关联关系，以人格标识的形成自由为权利对象。"
+          ],
+          "strengths": [
+            "精准识别权利构造错位导致的体系矛盾",
+            "提出权能与对象分离的教义学新路径"
+          ],
+          "weaknesses": [
+            "促销价值理论的经济法理支撑稍显单薄",
+            "二元模式本土化落地的规范技术论证可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立度与重要性，不涉文献综述、论证逻辑与材料支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 80.28455901145935,
+        "glm-5.1": 103.18353199958801,
+        "kimi-k2.6": 12.974471092224121,
+        "qwen3.6-plus": 75.2551658153534
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 78.5,
+      "std": 16.6,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 84,
+          "band": "good",
+          "summary": "论文通过分散式文献定位构建了清晰的研究地图，清晰勾勒了人格权商品化、一元论与二元论等核心争点，研究缺口论证有力。",
+          "core_judgment": "论文虽无集中文献综述，但正文中广泛呈现了国内外学界对立流派与制度分歧，争点结构成熟，研究地图清晰成立。",
+          "score_rationale": "三要素得分=5/6(到达点2，未竟点2，切入点1)，争点结构=2/2，法学流派=3个(形式法治与实质法治无，但一元论/二元论/公开权、人格自由说/劳动财产说/促销说、欧陆一元vs美国二元等均满足强制认定规则)，锚定good(75-84)档，给84分。",
+          "evidence_quotes": [
+            "我国有学者对此保持警惕，实践中也存在担忧，但尚未理顺人格利益与经济利益的关系。",
+            "以德国为代表的传统大陆法系国家...认为人格权存在精神与财产的双重构造，对二者应予一体保护，是为人格保护的一元模式。...美国法分别创设隐私权、公开权，各自保护人格、财产利益，故为二元模式。"
+          ],
+          "strengths": [
+            "争点结构完整：系统呈现了“一元论vs二元论”“劳动财产说vs人格自由说vs促销说”等多组对立路径。",
+            "研究缺口精准：明确指出既有理论“未理顺人格利益与经济利益的关系”及权利构造的错位，并据此提出瘦身重构方案。"
+          ],
+          "weaknesses": [
+            "本文切入点与未竟点的对应关系可更直接，目前以“试分析...反思...引起争鸣”引出，略显模糊。",
+            "法学流派主要在制度方案分歧层面展开，缺乏对“形式法治vs实质法治”“法律道德主义vs分离论”等法理学流派的直接引入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理的深度与完整性，不评价论文问题本身是否新颖或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准勾勒人格权商品化争点脉络，重构权利构造，洞察度极高。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "当前通说增加了人格标识的决定、变更权能，但仍以人格标识为权利对象，导致了人格权的性质矛盾",
+            "无论是美国法上的公开权，还是我国的人格权商品化理论，均未区分人格标识的使用权能及其同一性利益"
+          ],
+          "strengths": [
+            "精准揭示通说权利对象与权能错位的未竟点",
+            "呈现一元论与二元论、劳动说与自由说等多重争点"
+          ],
+          "weaknesses": [
+            "无明显弱点，文献定位与问题切入高度咬合"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点建构深度，而非权利构造理论本身的新颖性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图清晰，三要素完整，争点结构与流派识别充分。",
+          "core_judgment": "本文建立了完整的研究地图，呈现了多个可区分的学术争点和法学流派。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "关于人格权商品化，有广义说与狭义说之分。",
+            "学界存在两种解释方式：一是功利主义进路，劳动财产说为其代表；二是道德原旨主义进路，人格自由说为其典型。"
+          ],
+          "strengths": [
+            "三要素完整，未竟点与切入点对应明确。",
+            "争点结构清晰，呈现了解释路径与制度方案的多重分歧。"
+          ],
+          "weaknesses": [
+            "到达点呈分散式分布，部分关键学者观点引用较简略。",
+            "未明确使用'学界争论'等表述标识某些流派对立。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献定位的完整性与深度，不涉及问题新颖性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒人格权商品化与权利构造的学术脉络，精准定位通说矛盾并确立本文切入点。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派覆盖充分，文献洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "当前通说增加了人格标识的决定、变更权能，但仍以人格标识为权利对象，导致了人格权的性质矛盾",
+            "有鉴于此，本文试分析标表型人格权的权利构造，反思人格权商品化理论，以引起学界争鸣"
+          ],
+          "strengths": [
+            "精准提炼通说在权能与对象配置上的内在矛盾",
+            "系统梳理中美德法秩序下的保护模式分歧"
+          ],
+          "weaknesses": [
+            "部分历史沿革引述偏重事实描述，理论交锋密度略不均",
+            "对新兴数字人格标识的文献覆盖可进一步延伸"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及本文权利构造新说本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.906673192977905,
+        "glm-5.1": 77.81240701675415,
+        "kimi-k2.6": 65.19703006744385,
+        "qwen3.6-plus": 75.47855496406555
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 84,
+        "glm-5.1": 90,
+        "kimi-k2.6": 90,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89,
+      "std": 3.5,
+      "strictest": 84,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出了标表型人格权的三重历史构造与二元保护模式框架，概念界定较清晰，且在后文被反复调用，但法学操作步骤的提炼尚可更明确。",
+          "core_judgment": "分析框架基本成立且被实际使用，但更侧重于权利结构的理论重塑，向具体裁判规则或法律适用流程的转化尚有提升空间。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=2/4，锚定good档（60-69分），因框架的核心术语与分类标准明确且后文调用充分，上浮至72分。",
+          "evidence_quotes": [
+            "历史地看，基于不同权能与权利对象的组合关系，标表型人格权存在三种不同的结构：早期立法以人格标识的使用为权能...当前通说...理想结构应以人格标识的决定、变更为权能，人格标识的形成自由为权利对象。",
+            "我国法应采有别于美国法的二元保护模式，即将人格标识使用权归入人格权的规范体系中，但以财产权为其请求权基础。"
+          ],
+          "strengths": [
+            "概念界定清晰：对人格标识的决定/变更权能（内在属性）与使用权能（外在属性）进行了明确区分。",
+            "类型化标准明确：以“权能-权利对象”的组合为标准，构建了早期立法、当前通说与理想结构三种类型，区分边界清楚。"
+          ],
+          "weaknesses": [
+            "分析步骤的提炼不够显性：后文虽有利益切割（冒用vs盗用）的结论，但未形成“第一步判断利益类型→第二步选择保护模式”的步骤化操作指引。",
+            "制度设计方案较为原则：提出的“二元保护模式”更多是宏观体系定位，缺乏具体的法条设计或审查程序方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此为对论文框架建构力的评判，不涉及框架内部推理的逻辑严密性或该问题的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "提出标表型人格权内外属性与权能-对象组合框架，重构权利构造与保护模式。",
+          "core_judgment": "框架高度成立，通过权能与对象的组合分析精准切割人格权与财产权，法学转化彻底。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "所谓标表型人格权的内在属性...表现为人格标识的决定、变更权能",
+            "理想结构应以人格标识的决定、变更为权能，人格标识的形成自由为权利对象，排除人格标识的使用权能"
+          ],
+          "strengths": [
+            "概念界定精准，内外属性与同一性/个性化利益分类清晰",
+            "权能-对象组合步骤可循，有效切割盗用与冒用私法效果"
+          ],
+          "weaknesses": [
+            "二元保护模式的制度设计稍显宏观，具体规则衔接可再细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构力而非逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 62,
+          "band": "good",
+          "summary": "论文提出'权能-权利对象'重构框架，区分人格标识形成自由与人格标识使用权，但操作化步骤不足。",
+          "core_judgment": "框架具有理论创新性，但缺乏可重复适用的判断步骤，法学转化停留在概念重构层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程、后文调用不充分），法学转化度得分=2/4（跨学科概念已法学转化、提供概念操作化定义，但无裁判规则或司法程序指引、制度设计层面方案不足），锚定good档(60-69)，给62分。",
+          "evidence_quotes": [
+            "本文主张为标表型人格权瘦身，割裂人格标识的决定、变更权能与使用权能的关联关系，以人格标识的决定、变更为权能，人格标识的形成自由为权利对象",
+            "人格标识使用权是一种包含同一性和个性化人格利益并不同于物权、知识产权的特殊财产权"
+          ],
+          "strengths": [
+            "原创提出'内在属性/外在属性'双重分析维度，概念界定清晰",
+            "历史比较三种权利构造，分类标准明确"
+          ],
+          "weaknesses": [
+            "缺乏'第一步…第二步…'式可重复操作步骤",
+            "后文未形成步骤化调用，多为理论阐述而非框架应用"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文构建“权能-对象”分离的教义学框架，将商品化争议转化为可操作的二元保护方案。",
+          "core_judgment": "框架成立且建构力强，通过重构权利对象与权能关系，提供清晰的类型化标准与立法转化路径，逻辑自洽且贯穿全文。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，三分法明确，教义学推演直接转化为二元立法模式与裁判利益切割标准。",
+          "evidence_quotes": [
+            "本文主张为标表型人格权瘦身，割裂人格标识的决定、变更权能与使用权能的关联关系，以人格标识的形成自由为权利对象。",
+            "我国法应采有别于美国法的二元主义立法模式……将人格标识使用权归入人格权的规范体系中，但以财产权为其请求权基础。"
+          ],
+          "strengths": [
+            "权利对象与权能分离的教义学重构极具原创性。",
+            "盗用与冒用的利益切割标准明确，可直接指引司法裁判。"
+          ],
+          "weaknesses": [
+            "理论推演偏重概念演绎，对司法实证数据的调用略显不足。",
+            "“促销价值”的经济学解释与民法财产权定性衔接可更紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.011168003082275,
+        "glm-5.1": 87.43242716789246,
+        "kimi-k2.6": 18.5161452293396,
+        "qwen3.6-plus": 75.46803116798401
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.5,
+      "std": 15.0,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过历史分析与比较法方法，系统重构了标表型人格权的权利构造，推理链完整清晰，反驳处理充分有力。",
+          "core_judgment": "论文推理链完整，结论可从重构的权利对象（形成自由）与权能（决定/变更）中可辩护地推出，反驳处理有力。",
+          "score_rationale": "推理链完整性得分=4/4：步骤可复述（特殊性→历史构造→理想方案/二元模式），依赖度强，结论可推出，无关键跳步。反驳处理度得分=3/3：识别并回应反对意见（一元模式/美国法），处理反例（冒名/借名），承认局限（非尽述/立法权衡）。锚定excellent档，因逻辑清晰给予90分。",
+          "evidence_quotes": [
+            "历史地看，基于不同权能与权利对象的组合关系，标表型人格权存在三种不同的结构：早期立法……当前通说……理想结构应以人格标识的决定、变更为权能，人格标识的形成自由为权利对象。",
+            "人格权保护一元论的理由略谓……本文认为，一元论有其局限，美国法上的二元论亦须修正……我国法应采有别于美国法的二元主义立法模式。"
+          ],
+          "strengths": [
+            "推理链完整：从标表型人格权的双重属性出发，通过历史流变分析推出理想构造，再基于促销价值说推导出特殊财产权定位与二元模式，环环相扣。",
+            "反驳处理充分：有效回应了一元说、劳动财产说、美国法模式等反对或替代观点，并区分了盗用与冒用的私法效果，展示了论证深度。"
+          ],
+          "weaknesses": [
+            "个别环节的推导跳跃依赖于强有力的概念重新定义（如将“形成自由”作为权利对象），对既有理论范式的冲击较大，但其内部自洽性仍可维持。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "分析聚焦于论文自身的逻辑链条与反驳论证，不评价其理论建构在外部学术共同体中的接受度或具体制度设计的可操作性，符合维度边界。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，对反对意见与理论分歧回应详尽，逻辑严密性极佳。",
+          "core_judgment": "本维度完全成立。论文通过属性矛盾分析推导出权利构造重构，再推导出保护模式，推理链充分支撑结论。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。推理链层层依赖，反驳处理详尽，仅局部过渡稍弱。",
+          "evidence_quotes": [
+            "一元论的理由略谓：(1)...(4)...本文认为，一元论有其局限...使性质迥异的...强行合并谓之体系化，徒具其表",
+            "人格标识使用权虽可授权使用但却无法转让...基于其与主体的天然关系，可令其寄生于人格权的规范体系中"
+          ],
+          "strengths": [
+            "推理链层层递进，从属性矛盾到构造重构再到保护模式，依赖度极高",
+            "对一元论、劳动财产说等反对意见与理论分歧作了详尽实质性回应"
+          ],
+          "weaknesses": [
+            "将财产权放入人格权规范体系的理由略显牵强，局部过渡论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价从属性矛盾到构造重构的推理链是否可辩护推出，不评价二元保护模式的立法可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "理论推演完整，但反驳处理与自我限界不足。",
+          "core_judgment": "论文构建了'权利对象—权能—保护模式'的完整推理链，但缺乏对核心命题的显式反驳回应与适用边界说明。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'人格标识使用权是财产权'到'应依托人格权规范体系'的立法方案推导缺乏充分论证）；反驳处理度得分=1/3（标准1部分满足：呈现了不同学说但未充分回应；标准2不满足：未实质性回应'人格权商品化'论者的核心反驳；标准3不满足：未承认自身二元模式的适用边界）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "人格标识使用权源自人格的促销价值，是含有人格利益的特殊财产权，立法上应采有别于美国法的二元保护模式，使其依托于人格权的规范体系中。",
+            "本文认为，我国法应断然抛弃以人格标识为人格要素的传统立场，开启人格标识形成自由为标表型人格权权利对象的新时代。"
+          ],
+          "strengths": [
+            "历史演进与类型化分析形成清晰的三阶段推理链。",
+            "权利对象与权能的区分具有理论创新性，逻辑自洽。"
+          ],
+          "weaknesses": [
+            "对'人格权商品化'支持者的核心反驳（如积极权能确权功能）回应不足。",
+            "未讨论二元模式在数字人格标识等新兴场景下的适用局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链与反驳处理，不评价'权利对象'概念本身的理论建构力。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“属性辨析→历史构造演进→权能切割→立法模式选择”的严密推理链，核心结论获充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理全面且具实质性，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "历史地看，基于不同权能与权利对象的组合关系，标表型人格权存在三种不同的结构……",
+            "当然，人格权的正面确权还涉及人格与财产的界分、权利客体的理论建构等难题，非本文所能尽述。"
+          ],
+          "strengths": [
+            "概念拆解与历史演进逻辑紧密咬合，推导路径清晰。",
+            "对劳动财产说、人格自由说及一元/二元模式均作针对性批驳。"
+          ],
+          "weaknesses": [
+            "“促销价值”到“特殊财产权”的定性过渡稍显跳跃。",
+            "二元模式本土化落地的具体规范衔接论证略薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦权利概念重构与规范推导的内在逻辑，而非制度操作细节，属典型逻辑链评价范畴。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 95.51847195625305,
+        "glm-5.1": 85.17377495765686,
+        "kimi-k2.6": 24.86984395980835,
+        "qwen3.6-plus": 62.46416521072388
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 90,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.5,
+      "std": 9.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "结论在透彻反思通说后提出新构造，挑战主流但反对意见可被明确定位，并与中国制度语境及民法典编纂高度关联。",
+          "core_judgment": "结论具备较强的共同体对话能力，能与传统通说、比较法模式展开有效辩论；制度可接受度整体良好，但具体衔接路径有待细化。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=2/4，属理论论文，A≥3且B≥2，锚定excellent档，但考虑到结论对现行人格权通说构成根本性挑战，存在一定争议性，微调至78分。",
+          "evidence_quotes": [
+            "当前通说增加了人格标识的决定、变更权能，但仍以人格标识为权利对象，导致了人格权的性质矛盾。",
+            "我国法应采有别于美国法的二元保护模式，将人格标识使用权归入人格权的规范体系中，但以财产权为其请求权基础。"
+          ],
+          "strengths": [
+            "结论清晰回应了人格权商品化及独立成编的核心争议，与梁慧星、王利明等主流观点形成直接对话。",
+            "在批判一元论与美国二元论时，均指出了其具体缺陷（如一元论的内部矛盾、美国法对个性化利益的忽视），为反对者提供了明确靶点。"
+          ],
+          "weaknesses": [
+            "结论提出的“中国化二元保护模式”在立法技术上如何具体落实（如请求权基础的规范设计）论证较原则。",
+            "文章承认欧陆法缺乏深刻反思，但未充分回应为何多数大陆法系国家仍选择维持一元论体系的现实路径依赖。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结论提出了新理论框架并指明了制度转化方向，属于可争辩的学术主张，其可接受性处于良好区间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文重构标表型人格权构造并提出二元保护模式，高度回应学界争论与中国立法语境。",
+          "core_judgment": "结论清晰挑战通说并提出替代方案，能被定位反驳，与中国民法典编纂语境高度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "人格标识的商业利用并不违背善良风俗……既非人格权独立成编的肯定理由，也不构成反对理由。",
+            "标表型人格权的立法表达应采有别于美国法的二元保护模式……依托于人格权编反而是相对合理的选择。"
+          ],
+          "strengths": [
+            "精准回应人格权商品化与独立成编的学界核心争论",
+            "明确提出二元保护模式及依托人格权编的立法转化方向"
+          ],
+          "weaknesses": [
+            "对人格标识使用权作为特殊财产权的司法适用路径稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出标表型人格权应重构为以人格标识形成自由为对象的人格权，人格标识使用权则作为特殊财产权独立，主张中国法采二元保护模式。",
+          "core_judgment": "结论具有明确的学术对话性，回应了人格权商品化争论及中国民法典编纂语境，但制度转化方向的具体回应略显不足。",
+          "score_rationale": "共同体对话度得分=3/4（回应了人格权商品化争论、可被反对者定位、结合中国民法典语境，但未充分讨论反对意见）；制度可接受度得分=2/4（不与现行法秩序根本矛盾、对中国制度语境有所回应，但制度转化方向仅原则性提及、未深入回应具体制度约束）；锚定good档，给78分。",
+          "evidence_quotes": [
+            "人格权能否商业化利用，商业化利用的后果如何，已成为人格权立法中必须要解决的问题",
+            "考虑到人格标识使用权的特殊性和我国既有法制背景，标表型人格权的立法表达应采有别于美国法的二元保护模式"
+          ],
+          "strengths": [
+            "明确回应学界关于人格权商品化的核心争论，定位清晰",
+            "结合中国民法典编纂语境，具有本土意识"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见，如人格权独立成编反对者的具体论据回应不足",
+            "制度转化方向仅原则性提及，未深入法条或裁判规则层面"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论精准回应商品化争论，提出权利构造新框架与本土化二元模式，理论对话与制度兼容性强。",
+          "core_judgment": "该维度完全成立，结论深度嵌入中国民法语境且具备清晰的学术争鸣坐标。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准定位学术争论，提出可辩主张并指向立法转化，契合中国法秩序。",
+          "evidence_quotes": [
+            "“标表型人格权的谜底在于权利构造的错位……人格标识的商业利用并不违背善良风俗”",
+            "“我国法应采有别于美国法的二元保护模式……以财产权为其请求权基础。”"
+          ],
+          "strengths": [
+            "精准切入核心争议，理论主张清晰可辩",
+            "结合民法典语境提出本土化二元立法方向"
+          ],
+          "weaknesses": [
+            "财产权请求权基础的具体规范衔接论证稍简",
+            "未充分展开司法裁判中的利益衡平细则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.27805471420288,
+        "glm-5.1": 82.73670291900635,
+        "kimi-k2.6": 11.461869955062866,
+        "qwen3.6-plus": 68.60223698616028
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 88,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 88
+      },
+      "mean": 83,
+      "std": 5.8,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出了具体、可定位的未来研究路径，包括人格权正面确权的难题及立法表达，但未就所提“中国化的二元保护模式”提供精细的下一步研究问题或可检验的反驳入口。",
+          "core_judgment": "论文存在明确的、与核心结论衔接的延展路径，但路径精细度和进一步展开的证据仍有限。",
+          "score_rationale": "原始分65分，对应bonus档位为3分。论文在结语中明确指出了未来需解决的“人格与财产的界分、权利客体的理论建构等难题”，属于具体、可定位的后续研究方向，超越了空泛展望；但该延展仅以列举形式提出，未说明研究如何围绕这些难题推进，精细度受限。",
+          "evidence_quotes": [
+            "人格权的正面确权还涉及人格与财产的界分、权利客体的理论建构等难题，非本文所能尽述。",
+            "我国法应采有别于美国法的二元主义立法模式……使其依托于人格权的规范体系中。"
+          ],
+          "strengths": [
+            "结语中明确列举了与核心论证直接相关的、待解决的未来理论难题，形成了清晰的延展方向。",
+            "提出了“中国化二元保护模式”的具体立法方向，为后续制度建构提供了可讨论的切入点。"
+          ],
+          "weaknesses": [
+            "对“人格与财产的界分”等未来难题仅作列举，未说明应从何处或以何种方法着手推进。",
+            "未就所提倡的二元模式指明可能遭遇的反驳或需进一步检验的边界条件，欠缺精细的争点展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的“人格与财产的界分”等难题，是本文分析框架可拓展的未来方向，而非对其当下结论可接受性的质疑，后者属于结论可接受性维度。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出了权利客体理论建构、二元立法模式及冒名行为效力等具体延展路径，与核心结论衔接紧密。",
+          "core_judgment": "存在真实延展路径，明确指出了权利客体理论深化方向及制度完善的具体立法技术安排。",
+          "score_rationale": "原始分75，对应bonus=3档。论文承认局限并指明“权利客体的理论建构”深化方向，提出“二元保护模式”制度完善路径，路径可定位但结语展开有限。",
+          "evidence_quotes": [
+            "人格权的正面确权还涉及人格与财产的界分、权利客体的理论建构等难题，非本文所能尽述。",
+            "从立法技术上说，如果人格权独立成编，在其中规定财产权性质的规范，亦不影响人格权编的立法安排。"
+          ],
+          "strengths": [
+            "明确承认理论局限，指出了权利客体建构这一具体深化方向。",
+            "提出“个性化人格促销说”新假设及二元立法技术安排，为后续争点提供入口。"
+          ],
+          "weaknesses": [
+            "前瞻性论述主要散见于正文论证，结语部分对延展路径的展开稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "权利客体理论建构与立法技术安排属于未来理论深化与制度完善方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语和立法建议中提出了有别于美国法的二元保护模式方向，并指出人格权正面确权、权利客体理论建构等后续课题，但缺乏对下一轮争点的具体展开。",
+          "core_judgment": "存在真实延展路径，主要为制度完善方向与理论深化方向的概括性提示，但精细度有限。",
+          "score_rationale": "原始分62分，对应bonus=3档位。论文提出'人格权的正面确权还涉及人格与财产的界分、权利客体的理论建构等难题，非本文所能尽述'，承认局限并指明方向；提出'我国法应采有别于美国法的二元保护模式'作为制度路径。但延展较概括，未形成具体后续研究问题或精细的概念修正路径，证据支撑有限。",
+          "evidence_quotes": [
+            "人格权的正面确权还涉及人格与财产的界分、权利客体的理论建构等难题，非本文所能尽述",
+            "考虑到人格标识使用权的特殊性和我国既有法制背景，标表型人格权的立法表达应采有别于美国法的二元保护模式"
+          ],
+          "strengths": [
+            "明确承认正文局限并指出理论深化方向",
+            "提出具体的制度完善路径（二元保护模式）"
+          ],
+          "weaknesses": [
+            "未提出下一轮具体争点或后续研究问题",
+            "对'人格与财产界分''权利客体理论建构'等方向缺乏展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究或制度发展指明的方向与空间，而非当前结论是否被接受。论文提出的二元保护模式方向和理论建构课题属于未来延展问题，不涉及当下结论的可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在结语明确指出了人格与财产界分、权利客体建构等未竟理论难题，并提出了立法技术上的具体延展方向。",
+          "core_judgment": "存在真实延展路径，明确指向理论深化与立法衔接的具体方向，且与正文核心论证紧密咬合。",
+          "score_rationale": "原始分75分，对应bonus=3档。结语精准定位“人格与财产界分”“权利客体建构”等后续争点，并给出立法嵌入路径，方向清晰可定位；但侧重宏观理论与立法，缺乏司法适用边界与具体检验场景的精细展开，故落入60-79分档。",
+          "evidence_quotes": [
+            "当然，人格权的正面确权还涉及人格与财产的界分、权利客体的理论建构等难题，非本文所能尽述。",
+            "标表型人格权的立法表达应采有别于美国法的二元保护模式，即将人格标识使用权归人人格权的规范体系中，但以财产权为其请求权基础。"
+          ],
+          "strengths": [
+            "精准定位后续理论争点，非空泛展望。",
+            "提出立法技术延展路径，具可操作性。"
+          ],
+          "weaknesses": [
+            "侧重宏观理论与立法方向。",
+            "未细化司法裁判规则或场景检验。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于正文结论之后“理论如何深化、立法如何衔接、实务如何检验”的未来路径，而非评判当前二元模式结论本身是否被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.781513929367065,
+        "glm-5.1": 59.90201187133789,
+        "kimi-k2.6": 12.69157075881958,
+        "qwen3.6-plus": 73.92882108688354
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 75,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 75
+      },
+      "mean": 69.2,
+      "std": 6.8,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.79,
+      "weighted_total": 82.1
+    },
+    "aggregation_strictest": {
+      "final_score": 71.12,
+      "weighted_total": 68.8
+    },
+    "avg_std": 9.5,
+    "max_std": 16.6,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 14.7,
+    "composite_score": -7.83,
+    "worst_dimension": "problem_originality",
+    "worst_std": 16.6
+  }
+}

@@ -1,0 +1,1011 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/传销犯罪的司法限缩与立法完善.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在少量脚注编号/OCR残留（如“( _ )”“㉑”等符号），但不影响核心论点定位与论证理解。",
+          "参考文献列表缺失，但正文论证完整、逻辑自洽，可独立评审。"
+        ],
+        "evidence_quotes": [
+          "( _ ) 直销、团队计酬与金字塔骗局",
+          "㉑ 吉林省四平市中级人民法院（2017)吉0 3 刑申16号刑事驳回申诉通知书。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "传销犯罪究竟应当如何定性？评价传销犯罪及其刑事规制应持何种价值准则？",
+          "《刑法修正案（七）》第4条增设了组织、领导传销活动罪，将“拉人头”且“收取人门费”以骗取财物的传销活动入罪。",
+          "建议将团队计酬在司法和立法层面彻底非罪化，理由如下：(一）根据罪刑法定要求，团队计酬不宜定为组织、领导传销活动罪……",
+          "本文认为，形式上的团队计酬无疑是对单纯的团队计酬的除罪效应所作修正性限定，而非完全对立情形。",
+          "应当根据罪刑法定原则，对于骗取财物作更为严格的认定。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：少量OCR残留字符，参考文献列表缺失，但不影响评审。"
+      ],
+      "evidence_quotes": [
+        "传销犯罪究竟应当如何定性？评价传销犯罪及其刑事规制应持何种价值准则？",
+        "《刑法修正案（七）》第4条增设了组织、领导传销活动罪……",
+        "建议将团队计酬在司法和立法层面彻底非罪化……",
+        "应当根据罪刑法定原则，对于骗取财物作更为严格的认定。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [],
+      "recommendation": "论文具备进入六维评价的全部项目口径信号，可直接评分；可提醒后续评审注意OCR残留与参考文献缺失不影响论证质量。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致字符间距异常及个别错字（如'2 0 世纪'、'引人'应为'引入'、'B卩'应为'即'、'丨'应为'1'等）",
+          "脚注编号乱码（使用特殊符号如©、®、⑨、⑬、⑯、㊣等代替数字序号）",
+          "期刊原始页码混入正文段落末尾（如244、245、246...261）",
+          "参考文献列表抽取失败（文末标注'（无）'，但正文存在大量脚注引用）"
+        ],
+        "evidence_quotes": [
+          "2 0 世纪4 0 年代的美国",
+          "B卩“以销售商品为目的、以销售业绩为计酬依据”",
+          "244",
+          "© See William Keep & Peter Vander Nat..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国传销犯罪立法无疑是与时俱进的。然而，具有行政违法性但却无处不在的团队计酬是否还要人罪？",
+          "《意见》明确单纯的团队计酬不具有刑事违法性，这是刑事政策的重大调整。",
+          "真正的团队计酬系“传物”传销...而构成组织、领导传销活动罪的不真正的团队计酬系“传人”传销",
+          "建议将《刑法》第224条之一对于组织、领导传销活动罪的表述修改为“以非法占有为目的，并以各种形式为名...诈骗财物”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR乱码、恢复脚注编号、剔除混入页码、补全参考文献",
+        "项目口径：无阻断问题，完全符合进入六维评价标准"
+      ],
+      "evidence_quotes": [
+        "团队计酬是否还要人罪？...建议将团队计酬在司法和立法层面彻底非罪化",
+        "2 0 世纪4 0 年代 / B卩 / 244"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。后续评审阶段需注意清洗文本中的OCR字符间距异常与错字，还原脚注编号，剔除混入的期刊页码，并尝试从正文脚注中重建参考文献列表。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑭⑮⑯等符号混用及重复）",
+          "部分参考文献抽取不完整或格式混乱",
+          "期刊页码信息偶有混入正文"
+        ],
+        "evidence_quotes": [
+          "⑭",
+          "⑮",
+          "⑯",
+          "⑰",
+          "⑱",
+          "⑲",
+          "⑳",
+          "㉑",
+          "㉒",
+          "㉓",
+          "㉔",
+          "㉕",
+          "㉖",
+          "㉗"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《刑法修正案（七）》第4条增设了组织、领导传销活动罪",
+          "《意见》第5条第2款则予以界分，'以销售商品为目的、以销售业绩为计酬依据的单纯的“团队计酬”式传销活动，不作为犯罪处理'",
+          "建议将《意见》第5条第2款第一句修改为'以销售商品为目的的真正的“团队计酬”式传销活动，不作为犯罪处理'",
+          "司法实践中，传销组织也常以团队计酬作为外衣掩盖传销犯罪",
+          "团队计酬非罪化并不意味着组织、领导传销活动罪之惩治力度的减弱"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号符号存在OCR残留或排版乱码，但不影响核心论点阅读",
+        "参考文献列表缺失，但正文引用信息基本完整"
+      ],
+      "evidence_quotes": [
+        "《刑法修正案（七）》第4条增设了组织、领导传销活动罪，将“拉人头”且“收取入门费”以骗取财物的传销活动入罪",
+        "建议将《刑法》第224条之一的量刑部分调整为“数额较大的，处5年以下有期徒刑或者拘役，并处罚金”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国刑法中的组织、领导传销活动罪为核心研究对象，深入分析团队计酬的罪与非罪界限，提出司法限缩与立法完善的具体建议，完全符合项目口径。文本质量风险较低，脚注编号问题不影响评审，可直接进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文主题为传销犯罪定性，但主要进行政策梳理与司法适用解释，未形成可争辩的法学研究问题。",
+          "core_judgment": "问题创新性不成立：全文围绕既定立场进行阐释与政策倡导，未提出具有理论分歧的法学争点。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学层面理论分歧、主要为政策倡导），枢纽性无法计算。扣分合计=30分（检查1扣0分，检查2扣15分，检查3扣30分），最终分数=30分。材料新颖性未触发上限。",
+          "evidence_quotes": [
+            "传销犯罪究竟应当如何定性？评价传销犯罪及其刑事规制应持何种价值准则？",
+            "建议将团队计酬在司法和立法层面彻底非罪化……"
+          ],
+          "strengths": [
+            "对传销犯罪历史演进和团队计酬模式有较为详细的梳理。"
+          ],
+          "weaknesses": [
+            "全文无明确可争辩的法学问题句，只有主题声明和政策倡导。",
+            "缺乏不同学者观点的交锋，主要呈现为对既定立场的阐释。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以传销犯罪定性为主题，但未提出具体的法学争点，如'XX是否YY'或'如何ZZ'，主要进行政策梳理和司法适用建议。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且具有可争辩性，不评文献综述充分性、论证严密性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文聚焦团队计酬非罪化及传销犯罪诈骗定性，问题明确且具重大理论分歧。",
+          "core_judgment": "问题高度成立且枢纽性强，涉及刑法与行政法衔接及罪刑法定核心争议。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "具有行政违法性但却无处不在的团队计酬是否还要人罪？",
+            "张明楷教授指出……依然应以非法经营罪论处"
+          ],
+          "strengths": [
+            "争点明确，直击传销犯罪定性长期分歧",
+            "问题辐射广，牵涉刑法与行政法多制度"
+          ],
+          "weaknesses": [
+            "开篇问题句略显宏大，后文才聚焦具体争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出团队计酬非罪化问题，但核心争点被宏大叙事稀释，可争辩性不足。",
+          "core_judgment": "问题具有现实针对性，但主要呈现为政策倡导型主题声明，缺乏真正的理论交锋与可争辩的法学争点聚焦。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质为政策倡导；有规范分析但缺乏学者观点交锋），枢纽性=3/4（涉及传销犯罪与非法经营罪两个制度，触及刑法基础概念），材料新颖性未触发上限。锚定marginal档，扣15分（检查2：宏观介绍非深度分析，有提及分歧但未展开），最终55分。",
+          "evidence_quotes": [
+            "建议将团队计酬在司法和立法层面彻底非罪化",
+            "具有行政违法性的团队计酬是否还要入罪？"
+          ],
+          "strengths": [
+            "触及传销犯罪与非法经营罪界分这一长期争议",
+            "涉及罪刑法定、罪责刑相适应等刑法基础原理"
+          ],
+          "weaknesses": [
+            "全文以历史梳理和制度介绍为主，学者观点交锋极少",
+            "核心问题被稀释为政策倡导，缺乏真正的理论对抗"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文从传销历史、国际比较、团队计酬模式分类到司法实践、立法建议，覆盖面过广，核心争点'团队计酬是否入罪'被淹没"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦团队计酬罪与非罪界限，提出司法限缩与立法完善路径。",
+          "core_judgment": "问题具有明确争点与深厚法理基础，兼具理论张力与制度变革价值。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置负面检查无扣分。",
+          "evidence_quotes": [
+            "传销犯罪究竟应当如何定性？评价传销犯罪及其刑事规制应持何种价值准则？",
+            "具有行政违法性但却无处不在的团队计酬是否还要人罪？"
+          ],
+          "strengths": [
+            "明确提炼罪与非罪界限的核心争点",
+            "深度融合刑法教义与司法实务分歧"
+          ],
+          "weaknesses": [
+            "部分立法建议的可行性论证可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.85068082809448,
+        "glm-5.1": 42.29274892807007,
+        "kimi-k2.6": 12.167409896850586,
+        "qwen3.6-plus": 58.74940896034241
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 66.8,
+      "std": 29.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文有分散的文献定位和外部资料，但未构建清晰的学术争点结构，研究地图要素不完整。",
+          "core_judgment": "论文虽引用了大量文献与实践案例，但未将既有研究组织为可区分的学术流派或争辩脉络，研究地图存在明显缺口。",
+          "score_rationale": "三要素总分=2/6（到达点2分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，锚定 unacceptable 档，但考虑到达点部分满足，给58分。",
+          "evidence_quotes": [
+            "See William Keep & Peter J. Vander Nat, Multilevel Marketing and Pyramid Schemes in the United States... (2014)",
+            "张明楷：《传销犯罪的基本问题》，载《政治与法律》2009年第9期，第29页。"
+          ],
+          "strengths": [
+            "广泛援引国内外判例与域外制度资料",
+            "正文中嵌入了部分学者观点以标明已有研究"
+          ],
+          "weaknesses": [
+            "未指出既有研究的不足、争议或理论缺口",
+            "文献引用多为事实辅助，缺乏学术流派或对立观点的争点化梳理"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺，触发 no_research_map 上限规则",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅部分满足，未竟点与本文切入点在文中未找到对应的明确表述，三要素合计2分。"
+            }
+          ],
+          "boundary_note": "本文的弱项在于未梳理学术脉络和争议焦点，而非问题本身缺乏新颖性。",
+          "review_flags": [
+            "needs_external_context",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现传销犯罪定性争点，精准定位除罪效应局限，提出彻底非罪化方案。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "主流观点认为，团队计酬仍然应当以非法经营罪论处",
+            "《意见》对团队计酬除罪功能虽然非常明显，但却并不彻底"
+          ],
+          "strengths": [
+            "分散式文献定位精准，提炼出出罪、非法经营、扩张入罪三大流派",
+            "争点结构清晰，紧扣单纯与形式团队计酬的界限"
+          ],
+          "weaknesses": [
+            "无独立文献综述，部分流派仅以单学者观点指代"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点呈现，非评估非罪化主张的创新性或论证严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文梳理了传销犯罪立法演变与团队计酬司法争议，但研究地图三要素呈现分散且未竟点与切入点关联薄弱。",
+          "core_judgment": "研究地图三要素总分4/6，争点结构仅1/2，法学流派识别2个，因争点结构不足且三要素未充分展开，落入marginal档。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了立法演变与多个学者观点；未竟点1分：指出《意见》除罪不彻底但分散；切入点1分：提出司法限缩与立法完善建议但未与未竟点紧密对应），争点结构=1/2（呈现团队计酬罪与非罪之争但未充分展开对立结构），法学流派=2个（团队计酬除罪派vs入罪派）。锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "有论者认为，团队计酬只是违反《禁止传销条例》的违法行为，而不再是违反《刑法》的犯罪行为，但主流观点认为，团队计酬仍然应当以非法经营罪论处",
+            "黄芳教授甚至认为，《刑法》第224条之一已经将团队计酬从刑法圈剥离，《意见》没有忠于立法原意，反而将部分团队计酬行为人罪"
+          ],
+          "strengths": [
+            "历史梳理较完整，呈现立法演变与比较法视角",
+            "引用了张明楷、黄芳等学者观点，有一定学派意识"
+          ],
+          "weaknesses": [
+            "未竟点与切入点关联松散，建议分散在结论部分而非前置论证",
+            "缺乏对既有研究缺口的集中提炼，'司法限缩'命题的学术对话性不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素实际4分，但争点结构仅1分，未触发此规则而触发marginal规则"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "三要素总分4但争点结构≤1且法学流派≤1时上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "争点结构=1，法学流派=2，未完全触发；但争点结构不足导致落入marginal档"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题创新性，论文的'司法限缩'主张本身有新意，但学术对话呈现不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒团队计酬刑法规制的学术与实务争点脉络，精准定位解释局限并提出修法方案。",
+          "core_judgment": "研究地图完整，争点结构严密，流派覆盖充分，文献定位与本文论证高度咬合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "张明楷教授指出……依然应以非法经营罪论处，但黄芳教授等认为立法已将其剥离，学界存在明显分歧。",
+            "《意见》除罪规定模糊……至今裁判文书网尚无因单纯的团队计酬宣告无罪的案件，实务适用存在局限。"
+          ],
+          "strengths": [
+            "分散式文献定位精准嵌入罪状解释与司法适用争议",
+            "明确提炼《意见》出罪条款的局限与实务归罪导向偏差"
+          ],
+          "weaknesses": [
+            "对国外多层次直销合法化判例的学理转化论述稍显单薄",
+            "部分裁判数据引用未附完整实证统计方法说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉及团队计酬非罪化主张本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.39680218696594,
+        "glm-5.1": 35.472349882125854,
+        "kimi-k2.6": 18.012843132019043,
+        "qwen3.6-plus": 61.43057894706726
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 75.5,
+      "std": 18.0,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文以历史梳理、现状分析和立法建议为主线，缺乏可重复适用的原创分析框架，法学转化停留在建议层面。",
+          "core_judgment": "全文属于对传销犯罪规制政策的系统梳理和阐释，未提出具有操作步骤或判断标准的原创分析框架，框架建构力不足。",
+          "score_rationale": "框架可操作性得分=1/4（概念分类明确但无分析步骤，且触发口号式呼吁降档），法学转化度得分=1/4（仅提供宏观修改建议），锚定marginal档，结合政策理论梳理型识别规则给50分。",
+          "evidence_quotes": [
+            "追本溯源，可以从其历史演进脉络中发掘一定的规律",
+            "建议将《意见》第5条第2款第一句修改为“以销售商品为目的的真正的‘团队计酬’式传销活动，不作为犯罪处理”"
+          ],
+          "strengths": [
+            "对团队计酬模式进行了清晰分类（太阳线极差制、双轨制、矩阵制）",
+            "提出了“真正”与“表面”团队计酬的界分思路，具有一定判断指引"
+          ],
+          "weaknesses": [
+            "全文以梳理、归纳和立法建议为主，未构建可一步步操作的法学分析步骤",
+            "文中大量‘应当’‘需要’‘建议’属于规范呼吁，对应的具体制度方案不够细化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "框架可操作性得分仅1分，法学转化度得分仅1分，整体缺乏可重复使用的分析步骤或判断标准，属于政策理论梳理型论文，触发v0.7协议上限规则。"
+            }
+          ],
+          "boundary_note": "此处仅评论分析框架是否成立和可操作，不涉及论文逻辑衔接或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了极具操作性的5步裁判判断规则与具体的立法修改方案。",
+          "core_judgment": "分析框架高度成立，将跨学科营销模式成功转化为法学判断步骤与制度设计。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。5步递进思维与具体法条修改方案展现了极高的法学转化力。",
+          "evidence_quotes": [
+            "判断有没有商品...判断商品是否真实被消费...判断商品是否物有所值...判断经营过程是以销售商品还是以兜售盈利模式为主导...判断有无合适退出机制",
+            "建议将《刑法》第224条之一修改为：以非法占有为目的，并以各种形式为名...诈骗财物"
+          ],
+          "strengths": [
+            "构建了5步递进判断步骤，将营销模式转化为可操作的裁判规则",
+            "提供了极其具体的司法解释与立法条文修改方案"
+          ],
+          "weaknesses": [
+            "部分营销学概念（如拨比率）在法学层面的转化标准仍略显模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架的可操作性与法学转化，不评价其逻辑衔接是否严密或问题是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文以历史梳理和制度比较为主，提出团队计酬五步骤判断框架，但原创分析框架建构有限。",
+          "core_judgment": "分析框架建构力较弱：虽有五步骤判断标准，但核心术语来自既有司法解释，原创性不足，且框架未在后文系统调用。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定部分清晰，分类标准明确，但分析步骤虽存在却未在后文实际调用≥3次；负面模式A触发，大量'应当'建议但具体制度方案不足），法学转化度得分=2/4（五步骤有一定转化，但核心仍是司法解释的细化而非原创法学转化），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "在具体判断时,可以运用一定体系性递进思维：（1）判断有没有商品……（2）判断商品是否真实被消费、使用……（3）判断商品是否物有所值……（4）判断经营过程是以销售商品还是以兜售盈利模式为主导……（5）判断有无合适退出机制和退换货制度。",
+            "建议将《意见》第5条第2款第一句修改为'以销售商品为目的的真正的'团队计酬'式传销活动，不作为犯罪处理'。"
+          ],
+          "strengths": [
+            "提出五步骤判断标准，有一定可操作性。",
+            "结合大量案例和比较法材料，素材丰富。"
+          ],
+          "weaknesses": [
+            "核心术语'真正团队计酬''形式团队计酬'来自《意见》，原创性不足。",
+            "五步骤框架在后文未系统调用，案例分析未按步骤展开。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "五步骤判断标准在绪论提出后，后文案例分析未按步骤逐一展开，仅散见提及'骗取财物''商品虚化'等，未形成框架性调用。"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身是否成立可用，不评价论证逻辑是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了团队计酬罪与非罪的五步司法审查框架，并提出具体的修法与司法解释方案。",
+          "core_judgment": "分析框架成立且高度可操作，成功将商业模式转化为刑法适用标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "判断有没有商品……判断商品是否真实被消费……判断商品是否物有所值……判断经营过程主导……判断有无退出机制",
+            "建议将《意见》第5条第2款第一句修改为‘以销售商品为目的的真正的团队计酬式传销活动，不作为犯罪处理’"
+          ],
+          "strengths": [
+            "提出五步递进审查标准，为司法裁判提供清晰的操作流程",
+            "将商业模式特征精准转化为刑法“骗取财物”与“非法占有目的”的认定要件"
+          ],
+          "weaknesses": [
+            "部分计酬模式的刑事风险阈值仍依赖法官自由裁量，量化标准稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.65679979324341,
+        "glm-5.1": 39.92379713058472,
+        "kimi-k2.6": 14.01304316520691,
+        "qwen3.6-plus": 70.75164794921875
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 50,
+        "glm-5.1": 92,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.5,
+      "std": 23.7,
+      "strictest": 50,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了从历史演进到规范分析再到完善建议的完整推理链，核心结论可被辩护推出。",
+          "core_judgment": "推理链完整，结论可从前文推出，反驳处理充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4（主要步骤可复述、推理链依赖、结论有支撑、无关键跳步），反驳处理度得分=3/3（识别反对意见、实质性回应、承认局限），锚定excellent档，结合实际论证细致度给85分。",
+          "evidence_quotes": [
+            "团队计酬与拉人头、收取人门费的本质区别应该在于是否以销售商品为目的,计酬或者返利主要依赖于人员招募，还是主要依赖于商品销售业绩提升。",
+            "《意见》中形式上团队计酬入罪规定并没有和前述单纯团队计酬除罪规定有机衔接，其平面化、绝对化表述很大程度上抵消了除罪效应。"
+          ],
+          "strengths": [
+            "论证沿\"历史演进→性质辨析→规范缺陷→完善方案\"推进，每步依赖前步结论。",
+            "系统回应了\"以非法经营罪论处\"等反对观点，并承认自身方案依赖立法修改等局限。"
+          ],
+          "weaknesses": [
+            "从\"出罪规定被抵消\"直接跳跃到\"司法限缩建议\"时，中间缺乏对裁判异化机制的系统分析。",
+            "部分证据依赖二手文献，缺乏对具体奖金拨比率、价格数据的实证支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文将团队计酬出罪问题置于规范解释与立法完善框架下论证，属于制度设计论文，推理链完整且反驳充分，不存在跨维度误判。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，对反对意见有实质性回应，结论可辩护推出。",
+          "core_judgment": "逻辑严密性维度完全成立，核心结论由充分的规范分析与法理推导支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "主流观点认为团队计酬仍应以非法经营罪论处……笔者认为该论断现已不合时宜",
+            "团队计酬所产生的风险具有行政可控性，没有必要适用刑法"
+          ],
+          "strengths": [
+            "从概念区分到非罪化论证再到修法建议，推理链高度依赖且无关键跳步",
+            "对主流定罪观点进行了三点实质性反驳，论证有力"
+          ],
+          "weaknesses": [
+            "局部过渡中从行政可控直接推出非罪，略带政策权衡色彩但未失逻辑支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度，不评团队计酬非罪化结论在实务中的可接受性或操作性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从历史演进→规范分析→司法困境→立法建议的完整推理链，主线逻辑清晰，但部分关键过渡存在论证跳跃。",
+          "core_judgment": "推理链基本完整，反驳处理存在但不够充分，核心结论可被辩护地推出但局部跳步影响严密性。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'团队计酬有风险'到'应彻底非罪化'的推导跨度过大，未充分回应'行政可控'与'刑法必要'之间的逻辑鸿沟）；反驳处理度得分=2/3（标准1、2成立：识别并回应了'应以非法经营罪论处'的反对意见；标准3未成立：未承认自身'彻底非罪化'建议可能带来的监管真空风险）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文认为，形式上的团队计酬无疑是对单纯的团队计酬的除罪效应所作修正性限定，而非完全对立情形。",
+            "建议将团队计酬在司法和立法层面彻底非罪化"
+          ],
+          "strengths": [
+            "历史演进→规范分析→制度建议的三段式结构环环相扣，前步为后步提供必要前提。",
+            "对'骗取财物'的限缩解释与诈骗罪理衔接紧密，体现了理论一致性。"
+          ],
+          "weaknesses": [
+            "从'行政可控'直接推出'不必适用刑法'存在跳步，未论证行政手段失效时的刑法兜底必要性。",
+            "对'彻底非罪化'可能导致的监管真空风险未作任何自我限定或反驳回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的严密性，不涉及'彻底非罪化'结论本身的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链条完整，核心结论由规范分析与实务检视充分支撑，反驳处理扎实。",
+          "core_judgment": "推理链完整且依赖度高，结论可辩护推出；对反对意见与实务分歧进行了实质性回应，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。历史演进与规范分析层层递进，结论推导无关键跳步。",
+          "evidence_quotes": [
+            "“团队计酬必须真销商品……并非名义上推销商品”，逆向解释刑法条文确立出罪逻辑。",
+            "“《批复》已经失效……不再以非法经营罪规制”，逐层反驳主流观点并切断旧法适用。"
+          ],
+          "strengths": [
+            "概念界定与规范解释层层递进，推理依赖度高。",
+            "对学者观点及司法实务分歧进行了实质性回应。"
+          ],
+          "weaknesses": [
+            "对行政监管有效性的预设略显理想化，论证稍显单薄。",
+            "部分裁判案例的归纳偏向结论导向，反例检验可更充分。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不涉制度方案的可操作性或学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 58.28173089027405,
+        "glm-5.1": 34.08232092857361,
+        "kimi-k2.6": 11.859315156936646,
+        "qwen3.6-plus": 62.69544696807861
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 83.8,
+      "std": 8.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论明确主张团队计酬应通过司法限缩与立法完善彻底非罪化，与中国现行法秩序高度兼容，并完整回应了既有争论与反对意见，形成了可被认真回应的学术主张。",
+          "core_judgment": "该结论在学术共同体中具有高度可接受性，既回应了立法嬗变中的核心争议，又提供了具体的司法解释和立法修改建议，使反对者能准确定位并进行反驳。",
+          "score_rationale": "共同体对话度得分=4/4（回应既有争论、反对者可定位、中国语境成立、讨论局限），制度可接受度得分=4/4（与法秩序兼容、回应制度约束、给出转化方向、融入中国语境），按理论论文锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "真正的团队计酬不应作为犯罪处理……应当回归刑法及其司法，结合具体情形判断出入罪界限与尺度。",
+            "建议将《意见》第5条第2款第一句修改为‘以销售商品为目的的真正的‘团队计酬’式传销活动，不作为犯罪处理’。"
+          ],
+          "strengths": [
+            "结论完全嵌入中国传销犯罪立法嬗变脉络，对司法解释和判例进行了系统响应。",
+            "主动讨论了反对意见（如张明楷教授非法经营罪论），并给出了详细的驳斥理由。"
+          ],
+          "weaknesses": [
+            "结论完全立足于规范分析和刑事政策论证，未进一步讨论彻底非罪化可能引发的监管真空或社会风险。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评估结论在当前学术共同体和制度语境下的可接受性，不涉及其论证逻辑严密性或是否开辟后续研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论主张团队计酬彻底非罪化并给出具体修法方案，对话与制度回应极佳。",
+          "core_judgment": "结论深度回应学界与实务争论，提出具体制度转化方案，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "建议将《意见》第5条第2款第一句修改为‘以销售商品为目的的真正的团队计酬式传销活动，不作为犯罪处理’",
+            "建议将《刑法》第224条之一...修改为‘以非法占有为目的...诈骗财物’"
+          ],
+          "strengths": [
+            "提出极其具体的司法解释与刑法条文修改方案，制度转化方向明确",
+            "主动回应张明楷等主流观点及实务困境，对话度高"
+          ],
+          "weaknesses": [
+            "彻底非罪化主张在当前严打实务语境下转化阻力较大"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容性，而非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文主张团队计酬彻底非罪化，并对组织、领导传销活动罪构成要件及量刑提出系统修法建议，结论具有明确学术立场与制度指向。",
+          "core_judgment": "结论明确回应了团队计酬与传销犯罪界分这一中国刑法学界长期争论，提出了可争辩的学术主张，并对中国制度语境有所回应，但部分制度建议的实操性仍可进一步展开。",
+          "score_rationale": "共同体对话度得分=3/4（回应了张明楷、陈兴良、黄芳等学者观点及实务争议，反对者可定位回应；但未充分讨论'非罪化后行政监管如何有效'等潜在反对意见）；制度可接受度得分=2/4（结论不与现行法秩序根本矛盾，对《意见》第5条等制度约束有回应，但部分修法建议如提高法定刑至无期徒刑与现行诈骗罪体系衔接、删除'扰乱经济社会秩序'表述等涉及较大制度变动，未充分论证与现行法秩序的协调）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "建议将《意见》第5条第2款第一句修改为'以销售商品为目的真正的'团队计酬'式传销活动，不作为犯罪处理'",
+            "建议将《刑法》第224条之一对于组织、领导传销活动罪的表述修改为'以非法占有为目的，并以各种形式为名……诈骗财物'"
+          ],
+          "strengths": [
+            "明确回应学界关于团队计酬定性的核心争论，定位清晰",
+            "修法建议具体至条文表述，具有制度转化方向"
+          ],
+          "weaknesses": [
+            "对'非罪化后如何防止团队计酬异化为诈骗'的反对意见回应不足",
+            "部分修法建议与现行刑法体系衔接的论证可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价结论的可接受性，不涉及论证过程严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应团队计酬入罪争议，提出明确的司法限缩与修法方案，高度契合中国法秩序。",
+          "core_judgment": "结论具备强共同体对话能力与制度落地可行性，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "建议将《意见》第5条第2款第一句修改为‘以销售商品为目的的真正的团队计酬式传销活动，不作为犯罪处理’。",
+            "建议将《刑法》第224条之一修改为‘以非法占有为目的……诈骗财物’并调整量刑档次。"
+          ],
+          "strengths": [
+            "精准定位学术争议，明确挑战非法经营罪适用路径。",
+            "修法建议具体到条文措辞与量刑档次，极具操作性。"
+          ],
+          "weaknesses": [
+            "对行政监管配套机制的论证略显单薄。",
+            "未充分回应非罪化可能引发的短期执法真空风险。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被学界与实务接纳，非论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.74608612060547,
+        "glm-5.1": 43.541361808776855,
+        "kimi-k2.6": 12.978255271911621,
+        "qwen3.6-plus": 44.83158874511719
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 9.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文提出了具体的司法解释条文修改和立法完善建议，构成了可定位的规范修正路径，但立法建议中的有限细化和部分延展论证仍显不足。",
+          "core_judgment": "存在以具体条文修改为内核的明确延展路径，属于制度型论文的有效延伸。",
+          "score_rationale": "原始分62，对应bonus=3。论文提出了对《意见》第3条和第5条的具体文字修改方案，并指明了立法罪状与量刑调整的方向，延展路径清晰可定位。但量刑调整部分仅停留在框架，精细度有限，故得分位于60-79分段。",
+          "evidence_quotes": [
+            "建议将《意见》第5条第2款第一句修改为“以销售商品为目的的真正的‘团队计酬’式传销活动，不作为犯罪处理”。",
+            "建议将《刑法》第224条之一对于组织、领导传销活动罪的表述修改为“以非法占有为目的，并以各种形式为名，要求参加者以缴纳费用或者购买商品、服务等方式获得加入资格……”"
+          ],
+          "strengths": [
+            "延展路径具体：直接提出对司法解释和刑法条文的具体修改措辞。",
+            "衔接紧密：修正建议直接源于文中关于“单纯”与“真正”等核心概念的分析和局限批判。"
+          ],
+          "weaknesses": [
+            "立法完善部分的精细度不足：对量刑调整的论述较为概括，未展开数额巨大、特别巨大等具体认定标准。",
+            "部分延展论证依赖推断：如“用‘欺骗’替代‘欺诈’”等建议的深层教义学效果未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此为未来“应如何”修改规则与立法的建议，属于规范完善路径，而非当前司法论证或共同体接受度问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出具体的司法解释与立法修正方向，并指明新型传销形态作为后续争点。",
+          "core_judgment": "存在真实且可定位的制度完善与实务改进延展路径。",
+          "score_rationale": "原始分85，bonus档位5分。论文指明了修改《意见》与《刑法》条文的制度完善方向，并提出新型传销（金融属性）作为下一轮争点，路径清晰且与核心结论衔接。",
+          "evidence_quotes": [
+            "新型传销犯罪已经不再‘以推销商品、提供服务等经营活动为名’，而是以投资理财、资本运作、电子商务、互联网金融、微商等为名",
+            "建议将《意见》第5条第2款第一句修改为‘以销售商品为目的的真正的“团队计酬”式传销活动，不作为犯罪处理’"
+          ],
+          "strengths": [
+            "给出具体的司法解释与立法条文修改建议",
+            "指出新型传销形态作为未来争点"
+          ],
+          "weaknesses": [
+            "对立法修改后的实施风险控制论述稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的立法条文修改建议属于未来制度完善方向，而非当下司法实践可直接接受的结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度完善方向提出了具体的修法建议与司法限缩路径，但理论深化与比较法维度延展有限。",
+          "core_judgment": "存在真实延展路径，主要体现在制度完善方向的条文修改建议与司法适用限缩路径，但理论层面的后续研究问题提出不足。",
+          "score_rationale": "原始分72分，对应bonus=3档。论文在'司法限缩'与'立法完善'两部分提出了明确的条文修改方案（如《意见》第5条第2款、第3条及《刑法》第224条之一的修改建议），属于可定位的制度延展路径；但缺乏对比较法框架深化的探讨，也未提出下一轮理论争点或后续研究问题，精细度受限。",
+          "evidence_quotes": [
+            "建议将《意见》第5条第2款第一句修改为'以销售商品为目的的真正的团队计酬式传销活动，不作为犯罪处理'",
+            "建议将《刑法》第224条之一对于组织、领导传销活动罪的表述修改为'以非法占有为目的，并以各种形式为名...诈骗财物'"
+          ],
+          "strengths": [
+            "提出了具体的条文修改方案，制度延展路径清晰可定位",
+            "区分司法限缩与立法完善两个层面，结构层次分明"
+          ],
+          "weaknesses": [
+            "未提出比较法框架深化或国际经验本土化的后续方向",
+            "缺乏对下一轮理论争点或后续研究问题的明确提示"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究或制度完善的延展方向，而非当下结论是否被接受。论文提出的修法建议属于'未来还能往哪里走'的制度完善路径，不涉及结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文针对团队计酬出罪困境，提出明确的司法解释修改建议与刑法条文重构方案，延展路径清晰且具可操作性。",
+          "core_judgment": "存在真实延展路径，具体指向《意见》条款修正、刑法第224条之一要件明确化及量刑阶梯调整。",
+          "score_rationale": "原始分85，对应bonus=5档。论文末章直接给出司法解释措辞替换与刑法条文重构方案，与核心结论紧密衔接，具备明确的制度完善路径。",
+          "evidence_quotes": [
+            "建议将《意见》第5条第2款第一句修改为‘以销售商品为目的的真正的团队计酬式传销活动，不作为犯罪处理’。",
+            "建议将《刑法》第224条之一表述修改为‘以非法占有为目的……诈骗财物’，并调整量刑幅度与诈骗罪相吻合。"
+          ],
+          "strengths": [
+            "提出具体的司法解释措辞替换与刑法条文重构方案，路径清晰可操作。",
+            "明确划定团队计酬与诈骗型传销的动态转化边界，为实务提供检验入口。"
+          ],
+          "weaknesses": [
+            "立法建议未充分论证修法成本与跨部门法协调难度，实施风险控制略简。",
+            "对新型网络传销的金融化变异场景延伸探讨稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于司法解释修订与刑法条文完善的未来制度建构方向，而非评价当前结论在学理上的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.511026859283447,
+        "glm-5.1": 32.25168466567993,
+        "kimi-k2.6": 11.123955965042114,
+        "qwen3.6-plus": 55.43059682846069
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 76,
+      "std": 11.2,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 76.68,
+      "weighted_total": 74.9
+    },
+    "aggregation_strictest": {
+      "final_score": 50.0,
+      "weighted_total": 52.8
+    },
+    "avg_std": 16.7,
+    "max_std": 29.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 26.7,
+    "composite_score": -16.7,
+    "worst_dimension": "problem_originality",
+    "worst_std": 29.8
+  }
+}

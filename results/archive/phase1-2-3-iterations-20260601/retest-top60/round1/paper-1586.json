@@ -1,0 +1,1009 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1586-法学研究-2020-2-法人依瑕疵决议所为行为之效力-徐银波-西南政法大学.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文本中存在OCR导致的少量字符异常（如数字乱码、参考文献卷期符号误识别），但不影响核心论点与结构的定位。"
+        ],
+        "evidence_quotes": [
+          "·９４１· ",
+          "台湾《法学丛刊》第５３卷第２期（２００８年４月），第１９９页以下。",
+          "《金陵法律评论》２００７年春季卷，第２５页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "民法总则第８５条、第９４条及“公司法解释四”第６条设立善意相对人保护规则，以衡平保护法人与相对人的利益，殊值肯定。但是如下几个方面表明该规则明显存在不足...",
+          "决议行为不仅无法适用传统的法律行为之效力规则，而且无法完全适用民法总则第１５７条关于法律行为无效之后果规定...",
+          "强制决议规则系属强制性权能规范...需由立法对重要事项的决策及代表权限作出强制性规定，使公司可以对抗相对人...",
+          "基于目的解释，当利益冲突交易行为并不损害公司利益时，即使欠缺有效决议的授权，该行为亦应有效。",
+          "应区分超越意定权限限制之越权代表行为与超越法定权限限制之专断行为。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR数字/符号残留，但不构成解读障碍。"
+      ],
+      "evidence_quotes": [
+        "民法总则第８５条、第９４条及“公司法解释四”第６条设立善意相对人保护规则，以衡平保护法人与相对人的利益，殊值肯定。但是如下几个方面表明该规则明显存在不足...",
+        "强制决议规则系属强制性权能规范。因权能规范亦使用“必须”“不得”等表述方式，易被误读为管理性或效力性强制规定。",
+        "笔者建议设定此一年除斥期间...类比上述规定...限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [],
+      "recommendation": "文本质量可接受，可进入六维自主知识体系评分。论文以中国制度规范（民法典、公司法解释等）为中心，提出“专断行为”“强制性权能规范”等本土概念并进行类型化分析，具备明确的中国实践解释与理论转化，完全符合项目口径。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如·９４１·、·０５１·等）",
+          "脚注编号全角数字及括号乱码（如〔１〕）",
+          "日文文献人名及书名存在严重OCR乱码（如酒'俊雄、第４'）机( １、中央)*社、襎水道、/川成弘、株主1会0议等）",
+          "英文摘要OCR连字缺失空格（如Ａｒｔｉｃｌｅ１５７ｉｎｔｈｅＧｅｎｅｒａｌＰｒｏｖｉｓｉｏｎｓ）"
+        ],
+        "evidence_quotes": [
+          "·９４１·",
+          "参见［日］酒'俊雄、龙田节：《逐条解说会社法（第４'）机( １》，中央)*社２００８年版",
+          "Ａｒｔｉｃｌｅ１５７ｉｎｔｈｅＧｅｎｅｒａｌＰｒｏｖｉｓｉｏｎｓｏｆｔｈｅＣｉｖｉｌＬａｗ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "民法总则第85条、第94条及“公司法解释四”第6条设立善意相对人保护规则...该规则明显存在不足，也是本文展开分析和论证的缘由",
+          "强制决议规则系属强制性权能规范",
+          "区分超越法定权限限制与意定权限限制之越权行为...将其表述为“专断行为”",
+          "应突破法律行为无效即对所有人“绝对无效”之认知，认可相对无效理念",
+          "设立除斥期间...限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入、全角脚注编号、日文文献及英文摘要OCR严重乱码",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "民法总则第85条、第94条及“公司法解释四”第6条设立善意相对人保护规则...该规则明显存在不足",
+        "参见［日］酒'俊雄、龙田节：《逐条解说会社法（第４'）机( １》，中央)*社２００８年版"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，以中国民法/公司法规范及司法实践为中心，提出了可争辩的法学问题与可复核命题，进入六维评分。文本存在OCR乱码及页码混入风险，建议在后续评审中注意日文文献及英文摘要的乱码还原，但不影响中文核心论点与论证结构的评审。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别残留（如〔１〕〔２〕等全角括号数字），但不影响核心内容定位",
+          "部分日文文献引用存在乱码或识别不全（如“酒'俊雄”“社法上の法律行#としての新株$行行#”等），但核心论点可辨",
+          "文末英文摘要存在连字符断裂（如“resolution”“subsequent”），但不影响理解",
+          "参考文献列表标注为“（无）”，但实际正文中有大量脚注引用，系抽取失败而非真正缺失"
+        ],
+        "evidence_quotes": [
+          "〔１〕本文为国家哲学社会科学基金青年项目“社团自治与团体性决议行为的私法规制研究”",
+          "ＳｅｅＰｒｉｙａＲ．Ｊｕｄｉｔｈｅｔａｌ．，ＡＤｅｓｃｒｉｐｔｉｖｅＳｔｕｄｙｏｎＤｏｃｔｒｉｎｅｏｆＩｎｄｏｏｒＭａｎｇｅｍｅｎｔ",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "民法总则第８５条、第４条及《最高人民法院关于适用〈中华人民共和国公司法〉若干问题的规定（四）》",
+          "村民委员会、业主委员会依瑕疵决议所签合同，存在认定合同有效、无效、可撤销、效力待定等不同判决",
+          "强制决议规则系属强制性权能规范",
+          "应区分超越法定权限限制与意定权限限制之越权行为",
+          "设立除斥期间……排除有关组织行为效力判决对第三人的溯及力"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：日文文献引用存在OCR乱码，需核对原文；参考文献列表抽取失败，但正文脚注完整可定位",
+        "文本工程：英文摘要连字符断裂，不影响理解"
+      ],
+      "evidence_quotes": [
+        "本文为国家哲学社会科学基金青年项目“社团自治与团体性决议行为的私法规制研究”",
+        "民法总则第８５条、第９４条及“公司法解释四’第６条设立善意相对人保护规则，以衡平保护法人与相对人的利益，殊值肯定。但是如下几个方面表明该规则明显存在不足",
+        "强制决议规则系属强制性权能规范",
+        "应区分超越法定权限限制与意定权限限制之越权行为……将其表述为‘专断行为’",
+        "设立除斥期间……限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文完全符合项目口径，涉及中国民法总则、公司法等核心制度，针对中国司法实践中决议瑕疵与后续行为效力认定的重大疑难问题展开系统分析，提出‘强制性权能规范’‘专断行为’‘相对无效’等理论命题，并类型化构建内部管理行为、交易行为、组织行为的效力认定规则，具有明确的中国问题意识、法学理论深度和实践解释力。文本质量风险较低，可进入六维评分。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与期刊分隔符OCR残留（如“· ９ ４ １ ·”、“· ０ ５ １ ·”）",
+          "部分外文参考文献及作者名OCR识别乱码（如“ＳｅｅＰｒｉｙａＲ．Ｊｕｄｉｔｈｅｔａｌ．”、“襎水道”、“酒'俊雄”）",
+          "脚注编号与正文段落存在局部混排现象"
+        ],
+        "evidence_quotes": [
+          "· ９ ４ １ ·",
+          "ＳｅｅＰｒｉｙａＲ．Ｊｕｄｉｔｈｅｔａｌ．，ＡＤｅｓｃｒｉｐｔｉｖｅＳｔｕｄｙｏｎＤｏｃｔｒｉｎｅｏｆＩｎｄｏｏｒＭａｎａｇｅｍｅｎｔ",
+          "参见［日］襎水道：《最高裁判所判例解说》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "民法总则第８５条、第９４条及《公司法解释四》第６条设立善意相对人保护规则……但是如下几个方面表明该规则明显存在不足",
+          "强制决议规则系属强制性权能规范……法定代表人欠缺有效决议所为行为系违反公开的法定权限限制，系未经共同决策而专断实施相应行为，故……将其表述为‘专断行为’",
+          "就有限责任公司，应允许公司或利益受侵害的股东否定行为效力……当第三人依瑕疵决议认缴增资时，纵为善意，亦应允许权利受侵害的股东撤销变更登记",
+          "限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量页码分隔符残留及脚注外文OCR乱码，属典型期刊排版抽取风险，不影响核心法学论证的定位与评审"
+      ],
+      "evidence_quotes": [
+        "强制决议规则系属强制性权能规范",
+        "应区分超越法定权限限制与意定权限限制之越权行为……将其表述为‘专断行为’",
+        "限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《民法总则》《公司法》及相关司法解释为中心，直面中国司法实践中瑕疵决议后续行为效力认定分歧，提出“强制性权能规范”“专断行为”等本土化分析工具，并构建区分法人类型与行为类型的效力认定路径及诉讼规则。四项项目口径信号均明确触发，符合“中国自主知识体系研究”六维评价标准。建议进入正式评分阶段，评审时自动过滤页码及脚注OCR乱码即可。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文聚焦于法人依瑕疵决议所为后续行为的效力问题，有明确的问题意识，但整体上是对现行法与司法实践的批判和政策性改良主张，未能提炼出可争辩的法学理论命题。",
+          "core_judgment": "问题意识明确但尚未成为理论争点，全文以宏观介绍和单向的政策倡导为主，未能深入展示不同学者观点交锋，触发多个负面模式扣分。",
+          "score_rationale": "负面模式扣分：未使用新概念包装旧问题（不扣分）；全文无学者观点交锋（扣20分）；全文无明确问题句（扣30分）。扣分后分数不低于30分，综合可争辩性（1/4）与枢纽性（2/4）锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "就决议无效之法律后果，需要关注者主要有两个问题：一是对世效力。……二是法人依瑕疵决议所为行为之效力。",
+            "本文展开分析和论证的缘由……几个方面表明该规则明显存在不足。"
+          ],
+          "strengths": [
+            "对法人依瑕疵决议所为行为的效力进行了全面、系统的类型化分析，具有实践指导意义。",
+            "明确指出了善意相对人保护规则的不足，并尝试提出区分营利与非营利法人、交易与组织行为的解决方案。"
+          ],
+          "weaknesses": [
+            "全文以阐释既定立场和批判现行规则为主，未能提炼出可争辩的法学理论问题。",
+            "缺乏不同学者观点之间的实质性交锋，主要是对司法实践的梳理和作者的单向主张。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学争点，只有主题声明或政策倡导",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文主要指出现行规则不足并提出改良主张，未形成‘XX是否YY’等可争辩的核心问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证是否严密或文献是否充分。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准聚焦决议瑕疵效力连动难题，理论分歧与制度连锁显著。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，打破既有研究局限并重构解释路径。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "就决议无效之法律后果，需要关注者主要有两个问题：一是对世效力...二是法人依瑕疵决议所为行为之效力",
+            "强制决议规则系属强制性权能规范...将其表述为‘专断行为’"
+          ],
+          "strengths": [
+            "问题精准聚焦决议瑕疵对后续行为效力的影响，打破既有研究局限",
+            "系统梳理四种解释路径并提出‘权能规范’新解释，理论推进显著"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文聚焦决议瑕疵与后续行为效力连动这一民法学核心争点，提出类型化分析框架。",
+          "core_judgment": "问题具有明确可争辩性，涉及民法总则第85条、第94条及公司法解释四第6条的解释适用，但主要贡献在于制度层面的类型化建构，理论枢纽性有限。",
+          "score_rationale": "可争辩性=4/4，枢纽性=2/4，材料新颖性未触发上限。论文提出'决议瑕疵效力连动'概念并区分内部管理行为、交易行为、组织行为三种类型，问题明确且涉及法学规范解释；但争议焦点主要集中于具体规则适用，尚未达到比例原则、形式法治vs实质法治等基础理论层面的核心争点程度，制度连锁效应限于公司法及民法总则相关条文，影响范围相对聚焦。锚定good档，给72分。",
+          "evidence_quotes": [
+            "当公司就交易行为所作决议无效时……但当公司就选任董事、增资等行为所作决议无效时，如何认定后续行为的效力？",
+            "强制决议规则系属强制性权能规范……应区分超越法定权限限制与意定权限限制之越权行为"
+          ],
+          "strengths": [
+            "问题聚焦司法实践分歧，明确提出'决议瑕疵效力连动'的分析框架",
+            "类型化区分内部管理行为、交易行为、组织行为，具有制度建构意义"
+          ],
+          "weaknesses": [
+            "核心争点主要停留在具体规则解释层面，未上升至法哲学或基础理论高度",
+            "对'强制性权能规范'的理论创新说明不够充分，与既有理论区分度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦瑕疵决议后续行为效力认定难题，构建类型化分析框架，理论突破显著。",
+          "core_judgment": "问题明确且具高度可争辩性，直击民商法交叉核心争议，枢纽性强，成立。",
+          "score_rationale": "可争辩性4/4，枢纽性4/4，材料校验未触发上限。负面检查无扣分（合计0分）。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "强制决议规则系属强制性权能规范，违反此类规则的行为并非内容违法，而是仅违反须经决议授权之程序性要求。",
+            "当公司依瑕疵决议实施处分重大资产、为他人债务提供担保等交易行为时，应区分相对人善意与否而认定行为效力。"
+          ],
+          "strengths": [
+            "精准提炼“强制性权能规范”概念，突破传统效力性/管理性二分法。",
+            "构建“内部-交易-组织”三分框架，有效回应司法裁判分歧。"
+          ],
+          "weaknesses": [
+            "对非营利法人越权行为效力待定的论证稍显理想化，缺乏配套救济细化。",
+            "部分比较法引证未充分结合中国本土司法语境进行深度转化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、逻辑严密性与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.734477043151855,
+        "glm-5.1": 57.20519709587097,
+        "kimi-k2.6": 14.867988109588623,
+        "qwen3.6-plus": 66.95319414138794
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 74.2,
+      "std": 21.3,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了较清晰的研究地图，明确指出既有研究集中于决议效力认定而对无效后果着墨不多，并通过系统梳理国内四种解决路径和比较法对立立场，呈现出丰富的争点结构。",
+          "core_judgment": "论文通过分散式文献定位较好地满足了研究地图三要素，呈现了丰富的法学流派和争点结构，但未竟点的提炼可以更集中。",
+          "score_rationale": "三要素=5/6，争点结构=2/2，法学流派=4个，锚定good上限79档，给78分。",
+          "evidence_quotes": [
+            "当前研究局限于探讨决议行为的效力认定，关于决议无效之后果则着墨不多。（脚注1）",
+            "对于这一难题，虽然我国及比较法上的理论与实践提出了众多解决方案和不同观点，但在本质上可归纳为四种路径……"
+          ],
+          "strengths": [
+            "明确了既有研究的局限（集中于效力认定，忽视后果），并以此为切入点。",
+            "将国内外学说梳理为四种路径，构建了清晰的争点结构，而非简单罗列观点。"
+          ],
+          "weaknesses": [
+            "未竟点的表述相对简短，未充分展开既有研究在后果问题上具体存在的分歧或空白。",
+            "对非营利法人决议后果的既有研究扫描略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分基于论文自身的文献定位与争点构建能力，不评价其问题本身的新颖性或论证的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理决议瑕疵效力连动的四种既有解释路径及内部分歧，精准指出善意相对人保护规则的不足，洞察度极高。",
+          "core_judgment": "本维度完全成立，研究地图三要素充分满足，争点结构丰富，法学流派识别充分且对立立场清晰。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=8个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "当前研究局限于探讨决议行为的效力认定，关于决议无效之后果则着墨不多。",
+            "我国及比较法上的理论与实践提出了众多解决方案和不同观点，但在本质上可归纳为四种路径：第一，违法行为效力认定路径..."
+          ],
+          "strengths": [
+            "精准定位既有研究缺口（决议无效后果着墨不多，善意相对人规则过于简单武断）。",
+            "系统归纳四种解释路径及内部对立观点，争点结构极其清晰。"
+          ],
+          "weaknesses": [
+            "无明显弱点，文献定位与争点梳理深度融合于正文论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于文献梳理与争点结构的完整性，不评价类型化方案本身的创新性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文系统梳理了决议瑕疵效力连动的四种理论路径，建立了清晰的争点结构，但三要素呈现分散，未竟点与切入点对应可更明确。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰（四种路径对立），法学流派覆盖充分（≥3个），但到达点分散、未竟点与切入点对应关系可更紧密。",
+          "score_rationale": "三要素=4/6（到达点2+未竟点1+切入点1），争点结构=2/2，法学流派=4个（违法行为效力认定路径、意思表示效力认定路径、越权行为效力认定路径、成员撤销权客体路径），锚定good档，给82分。",
+          "evidence_quotes": [
+            "当前研究局限于探讨决议行为的效力认定，关于决议无效之后果则着墨不多",
+            "虽然我国及比较法上的理论与实践提出了众多解决方案和不同观点，但在本质上可归纳为四种路径"
+          ],
+          "strengths": [
+            "四种路径分类清晰，争点结构完整",
+            "比较法素材丰富，德日美台学说与判例均有涉及"
+          ],
+          "weaknesses": [
+            "未竟点表述较隐晦，'着墨不多'未明确具体缺口",
+            "切入点与未竟点对应关系分散，未集中回应"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文献定位聚焦于决议瑕疵效力连动，争点结构成立，评分不涉及问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "研究地图完整，精准提炼四大解释路径与规则局限，争点脉络清晰。",
+          "core_judgment": "三要素充分满足，争点结构严密，流派识别达标，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "然而当前研究局限于探讨决议行为的效力认定，关于决议无效之后果则着墨不多。",
+            "在本质上可归纳为四种路径：违法行为效力认定路径、意思表示效力认定路径、越权行为效力认定路径、成员撤销权客体之解释路径。"
+          ],
+          "strengths": [
+            "精准归纳学界四种对立解释路径，文献定位深入。",
+            "明确指出现行善意相对人保护规则过于简单武断，缺口清晰。"
+          ],
+          "weaknesses": [
+            "部分比较法文献引用偏重判例，理论流派对话稍显分散。",
+            "对非营利法人特殊性的论证可进一步结合本土实证数据。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有解释路径分歧与规则适用局限，属典型文献定位与争点梳理。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.826046228408813,
+        "glm-5.1": 66.8552839756012,
+        "kimi-k2.6": 12.257293939590454,
+        "qwen3.6-plus": 61.33186101913452
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "本文建构了“区分瑕疵类型—识别前置条件—界定行为类型—对应效力规则”的分析框架，具有高度可操作性和法学转化度。",
+          "core_judgment": "分析框架清晰成立，基于规范分类与行为类型化，提供了可重复适用的裁判指引和法律适用流程。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4，锚定excellent档。框架从“前提”到“路径”再到“两类行为区分”，后文分节严格调用，概念界定与分类标准明确；唯一不足在于对非营利法人交易行为的“效力待定”方案，提供了判断方向但未细化追认与救济的具体程序。",
+          "evidence_quotes": [
+            "“欲探讨前述问题，需首先追问...何以影响后续行为效力...本文将...表述为‘决议瑕疵效力连动’。”",
+            "“强制决议规则系属强制性权能规范...应区分营利法人与非营利法人、交易行为与组织行为，类型化地探讨行为之效力。”"
+          ],
+          "strengths": [
+            "通过提炼“强制性权能规范”概念，将强制决议规则从效力性/管理性强制规定的争议中独立出来，奠定了分析基石。",
+            "构建了“内部管理行为—外部交易行为—组织行为”的三分法，并针对不同类型提供了具体的效力判断步骤与规则适用。"
+          ],
+          "weaknesses": [
+            "在非营利法人交易行为部分，仅提出“效力待定”的定性结论，对追认期限、催告程序等操作性细节缺少展开。",
+            "组织行为的“除斥期间”建议具有创新性，但一年具体期限的正当性论证主要依赖类比，独立性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价集中于框架本身的构成与适用，不涉及框架各部分间逻辑是否无缝衔接或问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了以决议瑕疵类型与后续行为类型为双轴的效力认定框架，法学转化度高。",
+          "core_judgment": "该维度高度成立，框架概念清晰、分类明确、步骤可循且提供了具体裁判规则与制度方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "将决议瑕疵导致后续行为亦存在效力瑕疵表述为‘决议瑕疵效力连动’",
+            "法定代表人欠缺有效决议所为行为系违反法定权限限制，将其表述为‘专断行为’"
+          ],
+          "strengths": [
+            "概念界定清晰，‘专断行为’‘组织行为’等均有明确定义与区分",
+            "提供具体裁判规则与制度方案，如设立1年除斥期间、排除判决对第三人溯及力"
+          ],
+          "weaknesses": [
+            "框架分类维度较多（瑕疵类型×行为类型×法人类型），司法适用需多重检索"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与法学转化，不评价具体案例推理的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'决议瑕疵效力连动'分析框架，区分决议无效/不成立/可撤销三种瑕疵类型，并类型化分析内部管理行为、交易行为与组织行为的效力认定规则。",
+          "core_judgment": "分析框架具有明确的类型化结构和法学转化路径，但核心概念'专断行为'的界定与后文调用存在张力，部分分类标准的边界可更明晰。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定较清晰、分类标准明确、分析步骤可循且后文多次调用，但'专断行为'与'越权行为'的区分标准在后文运用中偶有模糊）；法学转化度得分=2/4（提供了裁判规则层面的操作指引如善意相对人保护规则的限缩适用、表见代理准用要件等，但组织行为效力诉讼规则部分偏立法建议而非法学分析步骤）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "当决议被认定为无效时，其议定的内容违法……法人依该议定内容所为的行为亦随之违法，应依民法总则第153条认定其效力",
+            "应区分超越法定权限限制与意定权限限制之越权行为……将其表述为'专断行为'"
+          ],
+          "strengths": [
+            "类型化框架清晰：以'前提—路径—行为类型'三层结构展开，逻辑严密",
+            "比较法与本土规范融合：将日本、美国及我国台湾地区学说转化为可操作的裁判规则"
+          ],
+          "weaknesses": [
+            "'专断行为'概念的操作化不足：与'越权代表'的区分标准在后文分析中未能一贯贯彻",
+            "组织行为部分的分析步骤偏宏观：除斥期间等建议偏立法论，司法适用指引弱化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及具体案例论证的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建类型化框架并转化为裁判规则，建构力与转化度极高。",
+          "core_judgment": "框架概念清晰、分类明确、步骤可循且全文深度调用，法学转化度极高。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "强制决议规则系属强制性权能规范……构成欠缺法定特别授权的越权行为。",
+            "就非营利法人……应认定其依瑕疵决议实施的越权行为，对于法人效力待定。"
+          ],
+          "strengths": [
+            "构建“瑕疵类型—行为性质—法人类型”三维框架，逻辑严密可操作。",
+            "将抽象理论精准转化为裁判规则与诉讼程序，实务指引性强。"
+          ],
+          "weaknesses": [
+            "部分程序规则（如除斥期间）的正当性论证稍显简略。",
+            "“专断行为”与表见代理的适用边界可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价框架建构力与转化度，不评逻辑衔接与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 72.16009593009949,
+        "glm-5.1": 62.90068292617798,
+        "kimi-k2.6": 20.61063289642334,
+        "qwen3.6-plus": 62.98929786682129
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.5,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过“瑕疵类型—行为类型—法人类型”的三阶推理链，围绕“善意相对人规则的局限性”进行逻辑严密的展开，结论可辩护地由前文推出。",
+          "core_judgment": "推理链完整形成充分支撑，反驳处理均衡回应了理论与实务分歧，逻辑整体严密。",
+          "score_rationale": "推理链完整性得分=4/4（识别并串联了瑕疵机制、行为分类、法人类型三个主要推理层级），反驳处理度得分=2/3（处理了显式反对意见和自身局限，但隐含分歧回应较弱），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "强制决议规则系属强制性权能规范……违反此类规则的行为并非内容违法，而是仅违反须经决议授权之程序性要求。",
+            "不同于交易行为效力认定仅关乎公司与相对人的利益，组织行为的效力认定不仅涉及公司与股份认购人等相对人利益，而且涉及信赖公司注册资本而与之交易的众多第三人利益。"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，从规范属性辨析到行为类型化处理再到后果特殊设计，结论有充分前文支撑。",
+            "反驳处理有效回应了司法实践中的对立判决与学说分歧，并明确承认了规则适用的边界。"
+          ],
+          "weaknesses": [
+            "在引入“强制性权能规范”新概念时，缺乏对其与“管理性强制规定”等相近学说深入的反驳与区分论证。",
+            "少数论证如裁量驳回制度的引入依赖读者对既有制度的理解，推理衔接略显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的制度逻辑推导依托对规范性质的重新界定和行为类型的划分，属于裁判路径构建而非纯粹的框架缺陷，故推理链完整。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链层层递进，反驳处理充分，核心结论可辩护推出。",
+          "core_judgment": "本维成立，论文构建了从规范性质到类型化方案的严密逻辑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "强制决议规则系属强制性权能规范……构成欠缺法定特别授权的越权行为",
+            "一概认定非营利法人依瑕疵决议所为交易行为效力待定，可能有损相对人的利益"
+          ],
+          "strengths": [
+            "推理链依赖度高，规范定性直接支撑类型化方案",
+            "对四种既有路径逐一反驳，论证扎实"
+          ],
+          "weaknesses": [
+            "非营利法人效力待定后的赔偿方案论证稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评的是推导支撑度，而非类型化方案本身的实务可操作性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了完整的'前提—路径—类型化适用'推理链条，逻辑主线清晰。",
+          "core_judgment": "推理链完整且反驳处理充分，核心结论可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给82分。论文从决议瑕疵效力连动之前提、路径到内部管理行为、交易行为、组织行为的类型化分析，形成递进式推理链；对四种路径的批评及自身'强制性权能规范'理论的适用边界均有回应。",
+          "evidence_quotes": [
+            "笔者认为，明确强制决议规则之性质，系厘清后续外部行为效力认定路径之基础。强制决议规则系属强制性权能规范",
+            "善意相对人保护规则过于简单而武断，有待类型化地探讨法人依瑕疵决议所为行为之效力"
+          ],
+          "strengths": [
+            "从前提、路径到类型化适用，推理步骤环环相扣",
+            "对四种学说路径的批评性回应充分，反驳处理完整"
+          ],
+          "weaknesses": [
+            "非营利法人与营利法人的区分论证中，'生存利益高于商业利益'的跳跃可更细致",
+            "组织行为效力部分对上市公司与有限公司的区分标准可更统一"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不涉及'强制性权能规范'概念本身的理论创新力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 93,
+          "band": "excellent",
+          "summary": "推理链条完整递进，反驳处理充分，逻辑严密性极佳。",
+          "core_judgment": "核心结论可由前文规范分析与利益衡量充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给93分。",
+          "evidence_quotes": [
+            "厘清强制决议规则之性质，系厘清后续外部行为效力认定路径之基础。强制决议规则系属强制性权能规范",
+            "一概认定非营利法人依瑕疵决议所为交易行为效力待定，可能有损相对人的利益。"
+          ],
+          "strengths": [
+            "推理链呈“规范定性→类型化分析→程序配套”严密递进",
+            "系统梳理并实质回应四种既有学说，反驳论证充分"
+          ],
+          "weaknesses": [
+            "部分利益衡量段落稍显冗长，可进一步精简以强化主线",
+            "对认缴资本制下溯及力例外的论证略快，可补充更多判例支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦规范解释与裁判规则的推导链条，非评价框架创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.25286793708801,
+        "glm-5.1": 57.9728741645813,
+        "kimi-k2.6": 12.168529987335205,
+        "qwen3.6-plus": 47.42993187904358
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 93
+      },
+      "mean": 88,
+      "std": 5.4,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文在构建精细化类型化裁判方案时深度回应了现行法秩序与司法实践分歧，具有强制度可接受度与高共同体对话度。",
+          "core_judgment": "结论通过对《民法总则》《公司法解释四》等规则的批判性建构和类型化方案，有效进入法教义学对话，制度兼容度极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4。作为制度论文，对话度与制度度均≥3，锚定excellent档。论文在批判现行规则的同时提出了具体化、类型化的裁判路径，对实务约束有系统性回应，给予88分。",
+          "evidence_quotes": [
+            "民法总则第85条、第94条及《公司法解释四》第6条设立善意相对人保护规则...明显存在不足...有待类型化地探讨法人依瑕疵决议所为行为之效力。",
+            "就上市公司，应认定行为有效...就有限责任公司，应允许公司或利益受侵害的股东否定行为效力。"
+          ],
+          "strengths": [
+            "结论高度类型化，直接回应现行法条与裁判分歧，制度可操作性极强。",
+            "明确批判现有规则‘过于简单而武断’，并提出可争辩的替代方案，对话性显著。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评估结论的制度兼容与共同体对话可接受性，不涉及其逻辑严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文结论深度回应既有争论，提出类型化裁判路径，与中国现行法秩序高度兼容。",
+          "core_judgment": "结论可接受性极高，精准定位既有学说并提出可反驳的具体替代方案，制度转化方向明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "明确强制决议规则系属强制性权能规范，厘清了违法行为、意思表示、越权行为等既有路径的缺陷。",
+            "就非营利法人认定越权行为效力待定；就组织行为建议设立一年除斥期间并排除对第三人溯及力。"
+          ],
+          "strengths": [
+            "精准批判四种既有路径，提出'强制性权能规范'替代方案并阐明优势。",
+            "结论给出具体裁判规则（如除斥期间、效力待定），制度转化方向明确。"
+          ],
+          "weaknesses": [
+            "对营利与非营利法人的二元区分虽具说服力，但边界情形（如社会企业）未充分回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否进入共同体对话及兼容法秩序，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文对瑕疵决议效力连动问题提出类型化方案，结论具有明确学术对话性和制度回应性。",
+          "core_judgment": "结论有效嵌入既有学术争论，明确回应中国法秩序，可被反对者定位反驳，制度方案具有可转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给82分。论文明确修正既有'善意相对人保护规则'，提出'强制性权能规范'理论及类型化效力认定方案，回应了中国民法典及公司法解释四的具体条文。",
+          "evidence_quotes": [
+            "笔者认为，明确强制决议规则之性质，系厘清后续外部行为效力认定路径之基础。强制决议规则系属强制性权能规范",
+            "善意相对人保护规则过于简单而武断，有待类型化地探讨法人依瑕疵决议所为行为之效力"
+          ],
+          "strengths": [
+            "明确回应并挑战既有'善意相对人保护规则'通说，学术定位清晰",
+            "结合民法典第85条、第94条及公司法解释四第6条展开分析，中国语境充分"
+          ],
+          "weaknesses": [
+            "对'强制性权能规范'作为新理论，相对既有理论的优势说明可更充分",
+            "组织行为效力部分对非营利法人的类型化方案可更细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论可接受性，不涉及论证严密性或未来延展性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应既有学说与裁判分歧，提出类型化效力认定与诉讼规则完善方案，高度契合中国法秩序。",
+          "core_judgment": "结论明确修正现行善意相对人保护规则，提出可操作的教义学路径与程序衔接，具备强共同体对话与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位学术争论，回应中国司法实践约束，提出具体裁判与诉讼规则优化方向。",
+          "evidence_quotes": [
+            "现行善意相对人保护规则过于简单而武断，有待类型化地探讨法人依瑕疵决议所为行为之效力。",
+            "可对其设立除斥期间之限制，限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼。"
+          ],
+          "strengths": [
+            "精准批判现行规则武断性，构建类型化效力认定框架",
+            "结合中国判例与法条提出具体诉讼规则完善方案"
+          ],
+          "weaknesses": [
+            "部分教义学区分在司法适用中门槛较高",
+            "一年除斥期间建议缺乏现行法直接依据"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被学界与实务接受，不涉论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.990436792373657,
+        "glm-5.1": 60.64439105987549,
+        "kimi-k2.6": 12.656697988510132,
+        "qwen3.6-plus": 53.41393709182739
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 88,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.5,
+      "std": 4.1,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度完善、规则衔接和实务适用边界方面均有具体的延展路径，但部分方向仍停留在框架性提示，精致度有限。",
+          "core_judgment": "存在明确的、可定位的未来研究延展路径，且与正文核心结论紧密衔接，但路径的精细展开和证据呈现尚可深化。",
+          "score_rationale": "原始分72分，对应bonus档位为3（≥60）。论文提出了设立除斥期间、完善溯及力规则、区分法人类型认定效力等多个具体制度深化方向，已超越空泛展望，但部分建议（如非营利法人效力待定规则的具体操作）未充分展开。",
+          "evidence_quotes": [
+            "有必要为尽早稳定法律关系尤其是保护与公司进行交易的不特定第三人的交易安全。…可对其设立除斥期间之限制，限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼。",
+            "纵然判决认定组织行为无效，亦应限定其仅在当事人之间自始无效，对于第三人无溯及力、仅面向未来发生效力，并不影响第三人在此前与公司形成的法律关系。"
+          ],
+          "strengths": [
+            "明确提出了除斥期间、判决溯及力排除等具体制度完善路径，方向可定位。",
+            "指明了区分营利/非营利法人、交易/组织行为等不同场景适用规则差异的深化方向。"
+          ],
+          "weaknesses": [
+            "非营利法人依瑕疵决议所为行为的“效力待定”方案之具体操作规则未精细构建。",
+            "对除斥期间起算点、举证责任分配等配套程序设计仅作原则性提示，未深入展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为后续研究提供的制度修正、规则完善和适用边界深化路径，而非论证当下结论是否可接受。该论文在结语和分论点中明确指出了当前规则的不足及未来的完善方向，属于向前看的延展性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出了清晰的制度完善方向与规则衔接路径，延展性极佳。",
+          "core_judgment": "存在真实延展路径，指明了组织行为诉讼除斥期间、认缴资本制下决议对世效力反思等具体制度修正方向。",
+          "score_rationale": "原始分85，对应bonus档位5分。延展路径清晰可定位，如组织行为效力诉讼设立除斥期间、排除溯及力及认缴资本制下对世效力反思，与正文类型化结论紧密衔接。",
+          "evidence_quotes": [
+            "限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼。",
+            "在认缴资本制下……需反思有关决议效力之判决的对世效力……应认定增资决议对于被伪造签名者不成立，但对于表决意思真实者有效。"
+          ],
+          "strengths": [
+            "提出了具体的制度完善方向（如组织行为除斥期间）。",
+            "指明了规则衔接与实施风险控制（认缴制下对世效力反思）。"
+          ],
+          "weaknesses": [
+            "未明确承认自身研究局限及后续推进计划。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "组织行为效力诉讼的除斥期间设计及认缴资本制下对世效力的反思，属于未来立法与司法规则完善的延展问题，而非当下裁判结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度完善与规则衔接层面提出了明确的延展路径，包括组织行为效力诉讼的除斥期间设立、判决溯及力限制等具体制度建议，以及非营利法人与营利法人的类型化区分方向。",
+          "core_judgment": "存在真实延展路径，主要体现在组织行为效力诉讼规则的完善方向及法人类型化区分框架的深化空间。",
+          "score_rationale": "原始分72分，对应bonus=3档位。论文在结尾部分明确提出了'设立除斥期间''排除判决对第三人溯及力'等具体制度完善方向，并指出'需反思有关决议效力之判决的对世效力'，延展路径可定位且与正文核心结论紧密衔接；但部分延展（如认缴资本制下的特殊规则）仍属初步提出，精细度有限。",
+          "evidence_quotes": [
+            "有必要为尽早稳定法律关系尤其是保护与公司进行交易的不特定第三人的交易安全。就此，可对其设立除斥期间之限制，限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼。",
+            "纵然判决认定组织行为无效，亦应限定其仅在当事人之间自始无效，对于第三人无溯及力、仅面向未来发生效力，并不影响第三人在此前与公司形成的法律关系"
+          ],
+          "strengths": [
+            "提出除斥期间、判决溯及力限制等具体制度完善方向",
+            "区分营利法人与非营利法人、交易行为与组织行为的类型化框架具有深化空间"
+          ],
+          "weaknesses": [
+            "部分延展建议（如认缴资本制特殊性）论证较初步，精细度不足",
+            "未明确回应不同意见者可从何处进入争论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究或制度完善指明的方向（如除斥期间、判决溯及力限制），而非当下结论是否被接受；后者属于结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕决议瑕疵效力连动问题，系统提出类型化裁判规则与诉讼程序延展方案。",
+          "core_judgment": "存在真实延展路径，明确指向组织行为效力诉讼的除斥期间设定与溯及力限制等制度完善方向。",
+          "score_rationale": "原始分85，对应bonus=5。论文提出一年除斥期间、限制判决溯及力等具体制度延展路径，与正文类型化论证紧密衔接，具明确实务指向。",
+          "evidence_quotes": [
+            "可对其设立除斥期间之限制，限定利害关系人自公司增资、合并等行为生效之日起一年内提起效力诉讼。",
+            "纵然判决认定组织行为无效，亦应限定其仅在当事人之间自始无效，对于第三人无溯及力、仅面向未来发生效力"
+          ],
+          "strengths": [
+            "延展路径清晰，类型化提出诉讼除斥期间与溯及力限制规则",
+            "与正文核心论证紧密衔接，具明确实务可操作性"
+          ],
+          "weaknesses": [
+            "未明确交代规则落地的实证检验路径",
+            "认缴制例外情形的边界仍需进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于本文提出的诉讼规则设计与效力边界如何向未来立法与司法适用延伸，而非评判当下结论的学术接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 125.54276728630066,
+        "glm-5.1": 48.67036318778992,
+        "kimi-k2.6": 14.416038990020752,
+        "qwen3.6-plus": 57.574150800704956
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 78.5,
+      "std": 7.5,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.04,
+      "weighted_total": 82.4
+    },
+    "aggregation_strictest": {
+      "final_score": 66.24,
+      "weighted_total": 68.1
+    },
+    "avg_std": 9.2,
+    "max_std": 21.3,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 18.8,
+    "composite_score": -7.53,
+    "worst_dimension": "problem_originality",
+    "worst_std": 21.3
+  }
+}

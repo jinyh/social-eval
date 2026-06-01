@@ -1,0 +1,985 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/法治语境下极端主义犯罪治理定量研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别的脚注编号混入正文、拼写错误（如'但斯兰'应为'伊斯兰'），但核心论点清晰可读。"
+        ],
+        "evidence_quotes": [
+          "但斯兰正处于“流血的边界”。",
+          "中国法学 \n2016年第6期",
+          "⑩ See Freadef ick Starr(editor)..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从社会治理实用性的角度出发，立足实情，找到某种对诸如新疆社会稳定构成重大现实威胁...以这种相对具体的、可测量的极端观念或极端行为作为中心变量展开研究。",
+          "在极端主义关联行为的犯罪圈划定上，最为关键的恐怕还不是刑法理念之争...具体样态的关联行为与对公共安全构成实际损害和威胁的极端暴恐犯罪之间的关系才是问题的核心。",
+          "本研究回归模型显示，新疆维吾尔居民对伊斯兰教信仰的虔诚程度与宗教极端倾向无关。真正对维吾尔居民的宗教极端倾向发生促成作用的是对“圣战”等极端主义资讯、主张的传播与宣扬。",
+          "《刑法修正案(九)》新增的极端主义(恐怖主义)关联罪名...从本回归模型调查不难看出...大量对极端倾向发生实际作用的因素源自犯罪以外的社会问题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本中有少量OCR识别错误（如“但斯兰”应为“伊斯兰”），但不影响理解。",
+        "脚注编号与期刊页码混入正文，但正文主体结构完整。"
+      ],
+      "evidence_quotes": [
+        "要对现实生活中的伊斯兰极端主义促成因素展开定量研究...实现概念的“操作化”。",
+        "在极端主义关联行为的犯罪圈划定上，最为关键的恐怕还不是刑法理念之争...具体样态的关联行为与对公共安全构成实际损害和威胁的极端暴恐犯罪之间的关系才是问题的核心。",
+        "本回归模型调查显示，新疆维吾尔居民对伊斯兰教信仰的虔诚程度与宗教极端倾向无关。真正对维吾尔居民的宗教极端倾向发生促成作用的是对“圣战”等极端主义资讯、主张的传播与宣扬。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在少量OCR识别错误，但不影响评审。论文围绕新疆伊斯兰极端主义犯罪治理，运用定量实证方法解释中国实践，提出具有可复核性的法学命题，完全符合六维评价标准，建议直接进入评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "high",
+        "issues": [
+          "OCR识别错误导致部分词汇严重乱码（如'±也理区域'应为'地理区域'，'人1 51'应为'人口'，'念 屎卡1'应为'念尼卡哈'，'爨访者'应为'受访者'）",
+          "脚注编号及内容大量混入正文，打断阅读连贯性",
+          "期刊页码及栏目名（如'279 中国法学 2016年第6期'）频繁混入正文段落中间"
+        ],
+        "evidence_quotes": [
+          "维吾 例、±也理区域两个维度上进行分层",
+          "全体爨访者对“汉族人是异教徒”这一极端观念的态度分布如表1",
+          "念 屎卡1。不领结婚证”",
+          "279 中国法学 2016年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "立足实情，找到某种对诸如新疆社会稳定构成重大现实威胁、且能够体现新疆宗教极端主义核心内涵的具体观念或行为，以这种相对具体的、可测量的极端观念或极端行为作为中心变量展开研究。",
+          "在极端主义关联行为的犯罪圈划定上，最为关键的恐怕还不是刑法理念之争……具体样态的关联行为与对公共安全构成实际损害和威胁的极端暴恐犯罪之间的关系才是问题的核心。",
+          "只有利用极端主义物品进行极端主义的宣传煽动才可能促成他人极端主义倾向的形成……单纯持有相关物品而没有宣扬极端主义的意图，就不可能促发极端暴恐犯罪的发生。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR乱码及脚注/页码混入需后续清洗校对",
+        "项目口径：无口径边界问题，完全符合进入评审标准"
+      ],
+      "evidence_quotes": [
+        "在极端主义关联行为的犯罪圈划定上，最为关键的恐怕还不是刑法理念之争……具体样态的关联行为与对公共安全构成实际损害和威胁的极端暴恐犯罪之间的关系才是问题的核心。",
+        "维吾 例、±也理区域两个维度上进行分层"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在高频OCR乱码及排版混杂，需进行文本工程清洗后进入六维评分；项目口径明确满足中国问题中心性、法学问题可争辩性及理论转化信号，直接进入评审流程。"
+    },
+    "kimi-k2.6": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号乱码（如⑩⑩重复使用、编号跳跃）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "部分OCR残留字符（如'越 的}}'、'詹 撼聪套往'等）",
+          "表格数据格式混乱，部分数值粘连"
+        ],
+        "evidence_quotes": [
+          "⑩前引⑥，金宜久文。⑩马品彦：《宗教极端主义的本质与危害》",
+          "越 的}}",
+          "詹 撼聪套往"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《刑法修正案(九)》增设了宣扬(恐怖主义)极端主义罪，利用极端主义破坏法律实施罪，强制穿戴(恐怖主义)极端主义服饰、标志罪，非法持有宣扬(恐怖主义)极端主义物品罪等极端主义(恐怖主义)关联犯罪",
+          "本研究以县为初级抽样单位(PSU)，在新疆5个地、市、州的8个县(区)展开问卷调查，最终形成有效问卷1206份",
+          "从犯罪社会治理的角度看，那些已为历史检验的法学原理固然能够为我们提供某种方向性的指引……最终还是要取决于决策者对本土实情的精准把握",
+          "法治语境下极端主义犯罪治理定量研究"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号系统混乱，存在重复编号和跳跃；部分段落有OCR残留乱码；参考文献列表未抽取成功",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "《刑法修正案(九)》增设了宣扬(恐怖主义)极端主义罪……",
+        "本研究以县为初级抽样单位(PSU)……最终形成有效问卷1206份",
+        "从犯罪社会治理的角度看……最终还是要取决于决策者对本土实情的精准把握"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国新疆地区的伊斯兰极端主义犯罪治理为核心研究对象，运用定量研究方法（1206份问卷）分析极端主义倾向的促成因素，并直接回应《刑法修正案（九）》《反恐怖主义法》的具体制度设计，属于典型的以中国问题为中心的法学研究。论文形成了可检验的法学命题（如'抽象危险犯'的限缩解释、'情节犯'的严格把握等），具有明确的理论转化意义。建议进入六维评分，但需在评分前确认脚注引用对应关系，并注意OCR残留段落的核心语义是否完整。"
+    },
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以定量方法研究新疆伊斯兰极端主义成因，但未提出可争辩的法学研究问题，实质是政策现状评估与治理建议。",
+          "core_judgment": "全文以测量和解释“异教徒”观念为核心，属于社会事实描述与政策分析，缺乏法学层面的核心争点与理论分歧。",
+          "score_rationale": "可争辩性=0/4（无问题句，非法学理论分歧，纯政策分析），枢纽性=1/4（仅涉及制度连锁，但非法学理论基础），扣分合计=70分（检查1扣20分+检查2扣20分+检查3扣30分），最终得分=30分。",
+          "evidence_quotes": [
+            "从社会治理实用性的角度出发，立足实情，找到某种对诸如新疆社会稳定构成重大现实威胁...的具体观念或行为...作为中心变量展开研究。",
+            "本文目的是通过定量研究找出对该极端观念发生实际影响的相关因素，便具有了实践与理论的双重意义。"
+          ],
+          "strengths": [
+            "对新疆地区伊斯兰极端主义的社会诱因进行了系统的实证调查与回归分析，材料扎实。",
+            "在刑事政策部分提出了将实证发现与犯罪圈划定、司法尺度掌握相结合的思路。"
+          ],
+          "weaknesses": [
+            "全文主体为“异教徒”观念成因的定量分析，是事实描述而非可争辩的法学命题论证。",
+            "法学部分仅为刑法修正与政策的阐释和运用建议，不存在学者观点的实质交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性为0，全文无任何可辨的法学争点或问题句，仅有主题声明与政策分析，触发上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现“XX是否YY”、“如何ZZ”等法学问题句，核心是对一个社会观念进行测量和解释，并提出治理建议。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否具备法学的可争辩性与枢纽性，不评实证方法的严谨性或材料是否丰富。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "evidence_thin"
+          ],
+          "optional_expert_review_note": ""
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "问题成立且极具枢纽性，实证数据实质推进了刑法扩张边界的规范命题。",
+          "core_judgment": "论文提出了可争辩的法学问题，且实证数据改变了传统解释路径，问题枢纽性极强。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限（数据实质推进规范命题），锚定excellent档，给90分。扣分合计0分。",
+          "evidence_quotes": [
+            "具体样态的关联行为与对公共安全构成实际损害和威胁的极端暴恐犯罪之间的关系才是问题的核心",
+            "这种逻辑是否适合于新疆‘异教徒观念’的促成尚需本土检验"
+          ],
+          "strengths": [
+            "问题兼具实证检验与法理争辩，可争辩性强",
+            "枢纽性高，触及刑法扩张边界与社会治理深层结构"
+          ],
+          "weaknesses": [
+            "部分法学争点由实证数据引出，理论提炼稍显依附于数据"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评实证方法的严密性及数据对结论的支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以定量方法研究新疆伊斯兰极端主义促成因素，但核心为政策导向的社会调查，缺乏可争辩的法学问题。",
+          "core_judgment": "全文无明确法学争点，主要是政策评估与社会治理建议，不符合法学研究问题的可争辩性要求。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明，无法学层面争点），枢纽性=2/4（涉及反恐刑法与民族政策，但非法学理论枢纽），材料新颖性未触发上限。扣分合计=45分（检查1扣15分：新概念'操作化'无理论进步说明；检查2扣20分：无学者观点交锋，仅系统归纳数据；检查3扣10分：有问题句但实质是政策倡导）。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "从社会治理实用性的角度出发，立足实情，找到某种对诸如新疆社会稳定构成重大现实威胁……的具体观念或行为",
+            "法治不等于以法规制，依法治理更不等于依刑法治理……不着力对这些问题展开针对性的系统治理，仅仅依靠刑罚的强力还不能有效控制宗教极端主义犯罪"
+          ],
+          "strengths": [
+            "采用定量研究方法，数据较为详实",
+            "涉及反恐刑法与民族治理交叉领域"
+          ],
+          "weaknesses": [
+            "无明确法学问题句，仅为政策评估主题",
+            "缺乏不同法学理论或学者观点的交锋讨论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无法学层面'XX是否YY'问题句，仅有'法治语境下极端主义犯罪治理'主题声明及政策建议"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以定量实证检验极端主义促成因素，并据此重构犯罪圈划定与刑事政策边界。",
+          "core_judgment": "该研究问题兼具明确的可争辩性与高度的制度枢纽性，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分合计=0分，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "试图将极端主义……操作化为简洁、明确、准确、可测量的变量是极为困难的。",
+            "宗教极端主义行为的犯罪化与非犯罪化，必须立足于现实社会治理的合理需求，而不能仅仅依赖抽象法理的言说与推导。"
+          ],
+          "strengths": [
+            "以实证数据检验传统理论假设，打破贫困/教育等单一归因",
+            "将定量结论精准对接刑法谦抑与风险刑法之争，提出限缩犯罪圈标准"
+          ],
+          "weaknesses": [
+            "部分政策建议仍偏向宏观治理框架，微观司法适用标准可进一步细化",
+            "定量模型解释力有限，提示仍有重要促成变量未纳入分析框架"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或数据支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.665310859680176,
+        "glm-5.1": 54.11298203468323,
+        "kimi-k2.6": 15.595455884933472,
+        "qwen3.6-plus": 68.81473398208618
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 92
+      },
+      "mean": 61.8,
+      "std": 33.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 68,
+          "band": "good",
+          "summary": "论文通过分散式文献定位呈现了研究地图，但到达点多为概略特征描述，未形成可区分的对立争点结构，限制了文献洞察的深度。",
+          "core_judgment": "本文通过梳理概念定义困境和学界特征探讨建立研究背景，但未将既有研究组织为可辨别的对立立场或争点脉络，法学流派识别不足。",
+          "score_rationale": "三要素=4/6（到达点2，未竟点1，切入点1），争点结构=1/2，法学流派=2个（形式法治vs实质法治/预防刑法观对立），锚定good档，给68分。",
+          "evidence_quotes": [
+            "学界围绕极端主义特征的探讨也呈现出巨大的差异性和丰富的多样性，所含内容十分广泛。",
+            "显然，这是两种刑法观念的对立，仅从理论逻辑人手，很难争出输赢高下..."
+          ],
+          "strengths": [
+            "准确识别了极端主义概念操作化困难的核心学术缺口，并提出了立足本土实情的替代研究路径。",
+            "呈现了传统罪责刑法与风险刑法/预防刑法观在极端主义犯罪化问题上的根本对立。"
+          ],
+          "weaknesses": [
+            "对既有研究的梳理停留在特征多样性的宏观描述，未提炼出具体的对立观点或解释路径争点。",
+            "本文切入点与研究缺口的对应关系不够直接，未明确阐述本文如何解决既有研究的“差异性和丰富性”难题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=1 且 法学流派≤2，非必要但限制上限",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "争点结构得分为1（仅呈现了罪责刑法vs风险刑法的对立），法学流派识别为2，虽不触发硬性上限，但未达到excellent档所需的多争点结构。"
+            }
+          ],
+          "boundary_note": "本文核心贡献在于提出定量研究路径本身，其文献部分的价值在于定位‘研究空白’，而非梳理‘学术争辩’，这属于研究设计问题，不完全是文献洞察力不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰呈现研究地图，多维度争点结构与对立流派识别充分。",
+          "core_judgment": "现状洞察度极高，研究地图三要素完整，争点结构丰满，法学流派对立鲜明。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "这是两种刑法观念的对立……居于罪责刑法立场……而在风险刑法的视野中",
+            "有研究将伊斯兰极端主义归咎为‘伊斯兰复兴运动的负面效应’……也有研究认为……是‘伊斯兰复兴走入低潮的副产品’"
+          ],
+          "strengths": [
+            "分散式文献定位精准，未竟点（定量缺乏、区群谬误）与切入点（定量检验）严密对应",
+            "争点结构立体，涵盖概念操作化、成因争论与刑法观念对立"
+          ],
+          "weaknesses": [
+            "部分流派（如后殖民主义）仅作为背景反驳，未深入展开其法学内部争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评定量方法本身的科学性或数据真实性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文以定量研究为主，但研究地图三要素严重缺失，未建立清晰的学术对话脉络。",
+          "core_judgment": "本文缺乏明确的研究地图三要素呈现，虽有大量文献引用，但未形成'到达点—未竟点—切入点'的学术对话结构，争点结构亦未建立。",
+          "score_rationale": "三要素得分=1/6（到达点部分满足1分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，给48分。",
+          "evidence_quotes": [
+            "学界围绕极端主义特征的探讨也呈现出巨大的差异性和丰富的多样性，所含内容十分广泛。",
+            "主流研究认为……不过，也有学者指出……故此，关于贫困与极端主义(恐怖主义)的关系应作'多维度思考'"
+          ],
+          "strengths": [
+            "正文多处引用中外文献，有一定文献覆盖广度"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的具体成果及贡献，到达点模糊",
+            "未指出任何具体研究缺口或学术争议，未竟点与切入点均缺失"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1分，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未呈现'到达点—未竟点—切入点'结构，仅有背景介绍和文献堆砌，无学术对话脉络"
+            }
+          ],
+          "boundary_note": "本评分仅针对文献梳理的完整性与深度，不评价定量研究的问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "精准定位概念操作化难题，实证检验既有归因假设，清晰勾勒刑法理念与治理路径之争。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别达标，文献洞察度良好。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "“显然，这是两种刑法观念的对立，仅从理论逻辑入手，很难争出输赢高下”",
+            "“试图将极端主义……概念‘操作化’为可测量的变量是极为困难的”"
+          ],
+          "strengths": [
+            "明确提炼传统罪责刑法与风险刑法的对立脉络",
+            "实证数据精准回应既有贫困/失业归因的区群谬误"
+          ],
+          "weaknesses": [
+            "跨学科定量方法占比大，纯教义学流派交锋略弱",
+            "部分外部治理经验（如法国模式）仅作背景对照"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，非评价实证方法本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 91.04961895942688,
+        "glm-5.1": 65.69420194625854,
+        "kimi-k2.6": 12.069523811340332,
+        "qwen3.6-plus": 64.50173687934875
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 80
+      },
+      "mean": 71.5,
+      "std": 18.1,
+      "strictest": 48,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以实证调查数据描述替代分析框架建构，未提出可重复适用的法学分析步骤或裁判标准。",
+          "core_judgment": "本文属于实证研究报告而非建构法学分析框架的理论或制度型论文，核心工作是数据采集与统计描述，无原创分析框架。",
+          "score_rationale": "框架可操作性得分=0/4（无概念定义、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（无法学操作步骤转化，仅描述实证发现），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "相对较为可行的研究路径是：从社会治理实用性的角度出发，立足实情，找到某种…具体观念或行为…作为中心变量展开研究。",
+            "由上述数据分析不难发现，只有利用极端主义物品进行极端主义的宣传煽动才可能促成他人极端主义倾向的形成…故此，该罪的成立必须有较为严格的情节限制。"
+          ],
+          "strengths": [
+            "对“异教徒”极端观念的促成因素进行了系统的定量回归分析，数据采集与模型设计较为规范。"
+          ],
+          "weaknesses": [
+            "全文未提出任何可重复适用的法学分析框架（如裁判规则、法律适用步骤或制度设计流程），仅以统计结论替代框架建构。",
+            "后文的立法评析与刑事政策建议直接嫁接在实证数据之上，未通过框架步骤进行逐层推演或调用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分（实际为0分），触发最高50分上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无核心术语的法学定义、无类型化分类标准、无可循的分析步骤，分析框架可操作性为0。"
+            }
+          ],
+          "boundary_note": "此为框架建构力维度，不涉及实证数据的真实性或统计模型的质量，仅评判是否形成法学可操作的分析框架。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "将抽象极端主义概念操作化为定量变量，并转化为刑法适用界限，框架极佳。",
+          "core_judgment": "框架建构力极强，成功实现跨学科概念向法学裁判规则与政策尺度的转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "将新疆伊斯兰极端主义的“异教徒”观念作为核心变量",
+            "只有为宣扬极端主义而大量持有极端主义物品...才能作为犯罪处理"
+          ],
+          "strengths": [
+            "概念操作化精准，将抽象极端主义转化为可测量变量",
+            "法学转化彻底，定量数据直接支撑裁判规则与犯罪圈划定"
+          ],
+          "weaknesses": [
+            "部分治理策略稍显宏观，技术性路径的操作细节可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构与法学转化，不评估数据统计的严谨性或逻辑推演的衔接。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "实证研究型论文，以定量方法检验极端主义促成因素，但缺乏可重复适用的法学分析框架。",
+          "core_judgment": "论文构建了'异教徒观念'操作化变量及回归模型，但框架属于社会学实证工具，未转化为法学分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但分析步骤不可循、后文未调用框架术语），法学转化度得分=1/4（仅有数据描述无法学操作指引，未提供裁判规则或制度设计方案），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "将新疆伊斯兰极端主义的'异教徒'观念作为核心变量，通过定量研究找出对该极端观念发生实际影响的相关因素",
+            "基于反思权衡步骤，建议在立法中设置权利冲突的三级审查程序"
+          ],
+          "strengths": [
+            "变量操作化清晰，抽样设计严谨",
+            "数据与刑事政策讨论有结合"
+          ],
+          "weaknesses": [
+            "回归模型属社会学工具，未转化为法学判断标准",
+            "政策建议部分'应当'表述多，缺乏具体制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文核心框架为SPSS回归模型，属社会学统计工具，未转化为裁判规则、法律适用流程或制度设计步骤；'五把钥匙'等政策表述未操作化为可重复判断标准"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评统计方法严谨性或政策建议合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“概念操作化-定量检验-法政策转化”的实证分析框架，转化度高。",
+          "core_judgment": "框架具备明确的操作步骤与分类标准，且深度融入刑法教义与政策分析，建构力成立。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将抽象的‘极端主义’操作化为可测量的‘异教徒观念’核心变量",
+            "基于回归模型数据，明确非法持有极端物品罪的入罪须以宣扬意图为限"
+          ],
+          "strengths": [
+            "实证变量分类清晰，分析步骤严格可循",
+            "定量结论精准转化为刑法解释与刑事政策尺度"
+          ],
+          "weaknesses": [
+            "部分社会学变量向法教义学转化的逻辑链条稍显跳跃",
+            "对抽象危险犯的法理批判深度略逊于实证分析"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化，不涉及逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 95.15910196304321,
+        "glm-5.1": 50.436261892318726,
+        "kimi-k2.6": 15.053423643112183,
+        "qwen3.6-plus": 55.39741897583008
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 95,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71,
+      "std": 26.2,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以定量数据驱动，清晰构建了"
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "实证数据与教义分析紧密嵌合，推理链完整且反驳处理充分。",
+          "core_judgment": "推理链高度完整，核心结论由定量数据与规范分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "真正对维吾尔居民的宗教极端倾向发生促成作用的是对‘圣战’等极端主义资讯、主张的传播与宣扬。",
+            "模型大约能解释因变量20-30%的变化...具体样态的关联行为与实际损害的关系才是核心。"
+          ],
+          "strengths": [
+            "定量数据与刑法教义学审查形成强依赖推理链，无关键跳步",
+            "对风险刑法与罪责刑法的分歧给出了基于本土实证的实质性回应"
+          ],
+          "weaknesses": [
+            "从不显著变量直接推导限缩犯罪圈，局部过渡稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评推理链对结论的支撑度，不评定量调查框架的操作性或结论的政治可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "实证研究设计严谨，但理论框架与政策建议间存在逻辑张力。",
+          "core_judgment": "推理链基本完整，核心结论可由数据支撑，但部分政策推导存在跳步，反驳处理不充分。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'服饰态度与极端倾向无关'直接推出'不应扩大犯罪圈'，省略了社会治理与刑法手段的衔接论证）；反驳处理度得分=1/3（标准1部分满足——提及'有学者认为'贫困是滋生土壤并回应，但标准2'实质性回应'不足——对风险刑法观的回应停留在立场宣示而非论证反驳，标准3'承认局限'缺失）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "从'存在制度缺陷'直接跳到'应废除该制度'，核心结论无法推出",
+            "那种认为伊斯兰教本身即蕴含强烈极端倾向的观点与新疆自治区的实际情况不符"
+          ],
+          "strengths": [
+            "概念操作化路径清晰：从抽象'极端主义'到'异教徒观念'再到可测量变量",
+            "数据分析与理论阐释形成有效互动，回归结果支撑多数结论"
+          ],
+          "weaknesses": [
+            "政策建议部分从'相关性'滑向'因果性'，如'加快经济发展'作为'根本途径'的推导过强",
+            "对风险刑法观的回应仅为立场罗列，未实质回应'抽象危险犯'的认定标准难题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文逻辑问题集中于'数据→政策'的转化环节，属推理链严密性而非分析框架建构力问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "实证数据与规范论证严密咬合，政策推导逻辑完整且充分回应反方观点。",
+          "core_judgment": "推理链完整无关键跳步，反驳处理充分，结论可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。数据与规范推导严密咬合。",
+          "evidence_quotes": [
+            "前述回归模型显示，接触过极端暴恐资讯的受访者具有更强的伊斯兰极端主义倾向……这就从定量层面证明了传播、宣扬极端主义与极端暴恐犯罪的促成作用。",
+            "法治不等于以法规制，依法治理更不等于依刑法治理。在宗教极端主义犯罪背后，是一系列极为棘手的深层次社会问题。"
+          ],
+          "strengths": [
+            "实证数据与规范分析紧密咬合，政策推导链条完整。",
+            "对主流理论假设进行本土检验并给出差异化解释。"
+          ],
+          "weaknesses": [
+            "部分变量显著性临界（如p=0.051），推论略显勉强。",
+            "刑事政策建议部分对司法裁量边界的论证可更细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦数据到立法建议的推导链条，而非评价治理框架的实操性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.4576210975647,
+        "glm-5.1": 59.990241050720215,
+        "kimi-k2.6": 12.455842018127441,
+        "qwen3.6-plus": 58.445111989974976
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 9.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在定量研究基础上对极端主义犯罪治理提出了具体的刑事政策建议，结论与既有争论形成有效对话，并能回应制度约束，可接受度较高。",
+          "core_judgment": "结论在共同体中可被定位和回应，且与现行法秩序兼容，对制度语境有深入回应，整体可接受度良好。",
+          "score_rationale": "共同体对话度得分=3/4（结论回应了学界争论，反对者可定位回应，讨论了中国语境，但未充分讨论自身局限或反对意见），制度可接受度得分=4/4（与法秩序兼容，回应了具体制度约束，指出了转化方向，考虑了本土语境），属理论论文excellent档（80-100分），给85分。",
+          "evidence_quotes": [
+            "从定量层面证明了传播、宣扬极端主义与极端暴恐犯罪的促成作用……将宣扬极端主义等对极端暴恐犯罪具实际促成作用的极端主义关联行为作为犯罪予以规制，便在原则上取得了实质意义的正当性和合法性。",
+            "利用极端主义破坏国家法律实施罪的锋芒，只能对准那些旨在以此制造恐怖社会氛围、对抗世俗政权的宗教极端主义分子，而不能有任何的扩大，以免伤及普通群众、激化社会矛盾。"
+          ],
+          "strengths": [
+            "结论明确回应了风险刑法与罪责刑法的争论，并基于实证数据提出限缩犯罪圈的刑事政策主张。",
+            "逐项讨论了经济发展、民族交往等制度性因素，将刑事政策与本土社会治理需求紧密结合。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认或讨论自身论证的局限性（如抽样偏差、因果推断限制）。",
+            "对反对意见（如过度犯罪化批评）的回应主要集中在实证层面，未就理论对立进行进一步交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论的可接受性，不涉及论证严密性或研究前瞻性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应学界争论与本土制度约束，提出具实操性的刑事政策尺度。",
+          "core_judgment": "结论高度可接受，既挑战常识又与现行法秩序深度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "仅从理论逻辑入手很难争出输赢高下……最终还是要取决于决策者对本土实情的精准把握",
+            "利用极端主义破坏法律实施罪的锋芒，只能对准……宗教极端主义分子，而不能有任何的扩大"
+          ],
+          "strengths": [
+            "定量数据有力修正了贫困导致极端等常识性观点",
+            "为新增极端主义罪名划定了精准的适用边界与政策尺度"
+          ],
+          "weaknesses": [
+            "部分社会治理对策（如实质公正）仍偏宏观，落地细节稍欠"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度兼容性，不评估论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以定量研究为基础，提出新疆伊斯兰极端主义治理应区分思想、文化、习俗、宗教、暴恐不同性质问题，强调刑事政策精准化与社会治理系统性。",
+          "core_judgment": "结论回应了法学共同体关于极端主义犯罪化、预防刑法的争论，结合中国法治语境与新疆本土实情，可被反对者定位回应，但制度转化方向表述较原则。",
+          "score_rationale": "共同体对话度得分=3/4（回应犯罪化争论、可被定位、结合中国语境，但主动承认反对意见/局限不足）；制度可接受度得分=2/4（不矛盾、回应制度约束，但转化方向较空泛、中国语境深度有限）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "从犯罪社会治理的角度看，那些已为历史检验的法学原理固然能够为我们提供某种方向性的指引……最终还是要取决于决策者对本土实情的精准把握。",
+            "法治不等于以法规制，依法治理更不等于依刑法治理。在宗教极端主义犯罪背后，是一系列极为棘手的深层次社会问题。"
+          ],
+          "strengths": [
+            "明确回应预防刑法与罪责刑法的理论争论，定位清晰",
+            "结合新疆本土实证数据，避免直接移植外国理论"
+          ],
+          "weaknesses": [
+            "未充分讨论自身定量研究的方法局限及反对意见",
+            "制度转化方向较原则，缺乏具体规则或程序设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论基于扎实定量数据，精准回应学术争议与本土治理需求，兼具理论对话力与制度兼容性。",
+          "core_judgment": "该维度完全成立，结论高度契合学术共同体对话规范与中国现行法秩序。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "结论明确修正了‘贫困直接导致极端主义’的主流假设，指出地区整体经济水平而非个体贫困才是关键变量。",
+            "针对《刑法修正案（九）》新增罪名，提出基于实质法益侵害的限缩解释路径与刑事政策尺度，避免过度犯罪化。"
+          ],
+          "strengths": [
+            "以实证数据精准定位学术争论焦点，结论可被明确反驳与检验。",
+            "刑事政策建议紧扣现行法条与本土治理语境，避免空泛移植。"
+          ],
+          "weaknesses": [
+            "部分治理建议依赖宏观政策协同，司法直接转化路径稍显间接。",
+            "对定量模型未解释的剩余变异之制度归因可进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.04781794548035,
+        "glm-5.1": 57.205790996551514,
+        "kimi-k2.6": 12.373996019363403,
+        "qwen3.6-plus": 66.44851398468018
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 9.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出了具体、可定位的制度、实务与技术性延展路径，并与核心实证结论紧密衔接，但部分路径的精细度与证据展开仍有提升空间。",
+          "core_judgment": "存在明确的延展路径，与正文论证有可解释衔接，但路径的精细度或证据展开相对有限。",
+          "score_rationale": "原始分75分，对应bonus=3档。论文从‘社会治理精细化’出发，指明了立法犯罪圈划定、刑事政策尺度、非刑事治理策略及研究范式改进等具体方向，均能定位到正文数据与结论，延展路径清晰可操作。",
+          "evidence_quotes": [
+            "该领域研究范式及研究方法的改进已迫在眉睫。利用现代社会科学的研究手段，采用符合学术规范的经验方法，能够为极端主义犯罪社会治理的科学化、合理化、精细化提供可靠的经验依据。",
+            "新疆的极端主义犯罪首先是一种本土性犯罪，相应的对策设计必须立足于新疆的实际情况……进一步将这些服饰的穿戴者以及非强制的加功他人穿戴者纳入行政罚或刑事罚的范畴，则需根据新疆的实际审慎决断。"
+          ],
+          "strengths": [
+            "基于回归模型结果，逐一对应提出了经济发展、教育、民族交往、利益分配、习俗尊重等具体治理路径。",
+            "在法教义学层面，针对宣扬极端主义罪、非法持有罪等个罪，提出了结合实证数据的入罪标准与政策界限深化方向。"
+          ],
+          "weaknesses": [
+            "延展路径多集中于政策与制度建议，对于理论概念（如“排他性”、“异教徒观念”）的进一步修正或深化方向着墨有限。",
+            "比较法延展（如法国面罩禁令）虽指出需立足本土，但未明确给出后续可深入比较的具体维度或分析框架。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文指出未来应从‘实证依据’和‘社会治理精细化’入手完善制度设计与政策尺度，属于未来延展方向，而非证明当前结论是否可被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于定量数据结论，清晰指明了极端主义犯罪圈划定边界、刑事政策风险控制及非刑事治理的具体延展路径。",
+          "core_judgment": "存在真实延展路径，且路径清晰可定位，与正文定量数据结论紧密衔接。",
+          "score_rationale": "原始分85，对应bonus档位为5分（>=80）。论文基于定量数据结论，清晰指明了犯罪圈划定边界、刑事政策风险控制及非刑事治理的具体延展路径，与正文核心结论紧密衔接，无空泛拔高。",
+          "evidence_quotes": [
+            "还需进一步探究维汉‘良性交往’、‘积极接触’的具体路径，以规避双方因利益冲突或文化差异导致‘恶性交往’、‘消极接触’的反效应",
+            "必须权衡将该部分未必具有极端倾向的维吾尔民众推向政府及主流社会对立面的治理风险"
+          ],
+          "strengths": [
+            "延展路径与正文定量数据紧密衔接，逻辑闭环。",
+            "提出了犯罪圈边界、风险控制等具体的制度完善方向。"
+          ],
+          "weaknesses": [
+            "结语部分关于研究范式改进的表述略显空泛。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "探究良性交往路径和实质公正实现机制属于未来制度与实务的延展问题，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在定量研究基础上提出了多维度的治理延展路径，包括刑事政策细化、非刑事治理策略及技术性路径，但部分延展方向仍可进一步深化。",
+          "core_judgment": "存在真实延展路径，主要体现在刑事立法边界细化、社会治理多维化及技术性路径选择三个层面，与正文核心结论紧密衔接。",
+          "score_rationale": "原始分72分，对应bonus=3档位。论文明确提出了'精准评估''具体路径''技术性系统工程'等可定位的后续方向，尤其在非法宗教活动区分处理、持有型犯罪情节限定、罩袍治理本土调适等方面给出了具体政策建议；但部分延展如'探索更为有效的方式'仍偏概括，精细度有提升空间。",
+          "evidence_quotes": [
+            "对于利用非法宗教活动宣扬极端主义的，应依法追究刑事责任；对于只是形式上未取得政府的许可认证、实质上并未宣扬极端主义思想的，则应坚持罪刑法定原则，采取教育、引导、团结的处理方式",
+            "对非法持有宣扬(恐怖主义)极端主义物品的人罪问题，司法机关应根据具体案情反复推敲、慎之又慎"
+          ],
+          "strengths": [
+            "刑事政策层面提出明确的区分处理标准与情节限定要求",
+            "社会治理层面将定量发现转化为可操作的非刑事治理路径"
+          ],
+          "weaknesses": [
+            "部分延展方向如'探索更为有效的方式'缺乏具体机制设计",
+            "全球比较维度仅止于法国头巾法，未充分展开新比较维度"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是未来研究可拓展的方向与路径，而非当下结论是否被接受。论文提出的'精准评估''技术性路径'等属于未来可深化的研究议程，区别于结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文基于定量实证结论，明确指出了族际良性交往路径、实质公正分配机制及刑事政策精细化边界等具体延展方向。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接实证发现与治理对策。",
+          "score_rationale": "原始分82，映射bonus=5。论文基于回归数据精准提出探究“积极接触”机制、市场化实质公正路径及刑事政策边界等具体议题，延展清晰可定位。",
+          "evidence_quotes": [
+            "还需进一步探究维汉“良性交往”、“积极接触”的具体路径，以规避双方因利益冲突或文化差异导致“恶性交往”的反效应",
+            "如何帮助相对弱势的族群在形式公正的市场化分配框架下进一步感受恰当的实质公正，将成为一项极为复杂、极难破解的课题"
+          ],
+          "strengths": [
+            "延展方向与实证结论高度咬合，指向明确",
+            "清晰划定刑事政策与行政干预的后续检验边界"
+          ],
+          "weaknesses": [
+            "跨国经验本土化转化的具体操作路径着墨较少",
+            "未规划后续定量追踪研究的变量与抽样设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估基于现有结论衍生的后续研究议题与政策细化方向，不涉及当下结论的学术共识度或论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 112.63962173461914,
+        "glm-5.1": 48.67669868469238,
+        "kimi-k2.6": 12.666270971298218,
+        "qwen3.6-plus": 71.36808896064758
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 82
+      },
+      "mean": 78.5,
+      "std": 6.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 74.21,
+      "weighted_total": 73.0
+    },
+    "aggregation_strictest": {
+      "final_score": 46.76,
+      "weighted_total": 50.6
+    },
+    "avg_std": 17.1,
+    "max_std": 33.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 27.4,
+    "composite_score": -17.1,
+    "worst_dimension": "problem_originality",
+    "worst_std": 33.8
+  }
+}

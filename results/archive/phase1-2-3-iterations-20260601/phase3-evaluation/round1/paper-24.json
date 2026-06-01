@@ -1,0 +1,984 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/FXYJ2025005012_法学研究_2025_诉权处分合同的程序法效果及其司法审查.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "观察诉权处分合同抗辩的实践争议, 首先需关注合意对程序事项而非实体事项的安排。",
+          "就基于合意的程序性抗辩效力, 司法实践中肯定论与否定论各执一词。",
+          "实践中司法审查的结论并不一致, 在审查标准和程序设置上的争议也较大。",
+          "为回应实践争议, 有必要回到同时存在实体法与程序法效果面向的诉权处分合同。",
+          "面对此类合同“诉权”“处分”的法效果误读, 本文主张, 即便不调整其名称, 也应准确解读其程序法效果。",
+          "将抗辩强度与纠纷样态进行对应、形成效力审查框架前, 需强调的是, 抗辩效力的正当性来源于当事人真实自愿的合意..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "就基于合意的程序性抗辩效力, 司法实践中肯定论与否定论各执一词。... 实践中的争议直接导向了对诉权性质的理论反思。",
+        "有必要回到同时存在实体法与程序法效果面向的诉权处分合同。... 妥当的分析路径是先借鉴民事合同的意思表示解释方法探求当事人真意, 再引入民事诉讼法的特别规定与制度理念进行分析。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国司法实践中的裁判分歧为起点，系统解释了中国语境下诉权处分合同的程序法效果与审查标准，尝试建构本土化的抗辩权发生说及类型化审查框架，具备明确的中国自主知识体系研究特征，可直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码混入正文（如·012·、·112·等期刊排版残留）",
+          "脚注编号带空格乱码（如〔4 〕）",
+          "外文文献及部分德文术语夹杂"
+        ],
+        "evidence_quotes": [
+          "·012· 法学研究 2025 年第5 期",
+          "〔4 〕",
+          "Gerhard Wagner, Prozessverträge: Privatautonomie im Verfahrensrecht"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "观察诉权处分合同抗辩的实践争议...实践中司法审查的结论并不一致，在审查标准和程序设置上的争议也较大",
+          "我国曾以起诉权为中心应对‘案人多少’...可能导致诉权退回到私法诉权的结构性风险",
+          "绝大部分法院都以判决驳回诉讼请求的方式处理...其裁判方法的错位隐含对实体权利与程序权利的混淆",
+          "选用比较法上通行的抗辩理论这一相对折中的观点，更契合各方真意",
+          "将抗辩强度与纠纷样态进行对应、形成效力审查框架...纠纷已解决，则排除实体审理的妨诉抗辩有效...纠纷已发生未解决，则限制实体审理的妨诉抗辩有效"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及脚注编号OCR残留，需在后续阶段清洗，不影响核心论点定位",
+        "项目口径：完全满足进入六维评审条件"
+      ],
+      "evidence_quotes": [
+        "将抗辩强度与纠纷样态进行对应、形成效力审查框架...纠纷已解决，则排除实体审理的妨诉抗辩有效...纠纷已发生未解决，则限制实体审理的妨诉抗辩有效"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；后续文本工程处理需清理页码混入（如·012·）及脚注编号空格（如〔4 〕），核心论证结构完整不受影响"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与正文混排，部分脚注内容嵌入正文段落中，存在格式抽取残留",
+          "参考文献列表缺失（标注为“无”），但正文引用完整，不影响核心论证定位",
+          "存在少量OCR残留痕迹如“·012·”“·112·”等页码标记"
+        ],
+        "evidence_quotes": [
+          "·012·法学研究 2025 年第5 期",
+          "〔4〕参见潘剑锋: 《论司法确认》...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国曾以起诉权为中心应对‘案多人少’...随着专门立案机构和独立受理程序的确立，在‘有案必立、有诉必理，保障当事人诉权’的理念下，这一状况得到改善",
+          "我国台湾地区通说即具体诉权说...我国，原先从程序和实体意义上对诉权区分的二元诉权说已受质疑，开始转向前述大陆法系思路",
+          "本文主张，即便不调整其名称，也应准确解读其程序法效果",
+          "我国尚未规定与和解相关的司法救济程序规则...这就导致，未经法院制作调解书等程序的纯粹‘民法上和解’，通常仅有实体法效果",
+          "我国也有观点主张，法院无需审理实体法律关系，而应直接裁定驳回起诉"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号与正文混排，部分脚注内容嵌入正文；参考文献列表缺失；少量OCR页码残留",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国曾以起诉权为中心应对‘案多人少’...随着专门立案机构和独立受理程序的确立...这一状况得到改善",
+        "本文主张，即便不调整其名称，也应准确解读其程序法效果",
+        "我国尚未规定与和解相关的司法救济程序规则...这就导致，未经法院制作调解书等程序的纯粹‘民法上和解’，通常仅有实体法效果"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国民事诉讼实践中的'诉权处分合同'为核心研究对象，系统分析其程序法效果及司法审查标准，具有明确的中国问题意识和法学理论深度。文本质量存在轻微格式问题（脚注混排、页码残留、参考文献缺失），但核心论点、结构和论证完整可定位，不影响评审。建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "观察诉权处分合同抗辩的实践争议, 首先需关注合意对程序事项而非实体事项的安排。",
+          "实践中司法审查的结论并不一致, 在审查标准和程序设置上的争议也较大。",
+          "我国曾以起诉权为中心应对“案多人少”...在“有案必立、有诉必理, 保障当事人诉权”的理念下, 这一状况得到改善",
+          "本文主张, 即便不调整其名称, 也应准确解读其程序法效果。...选用比较法上通行的抗辩理论( Einredetheorie) 这一相对折中的观点, 更契合各方真意。",
+          "对基于真实有效的诉权处分合同创设并被主动援引的程序法抗辩, 司法审查的标准需视纠纷样态和抗辩强度进行协调。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "实践中司法审查的结论并不一致, 在审查标准和程序设置上的争议也较大。",
+        "选用比较法上通行的抗辩理论( Einredetheorie) 这一相对折中的观点, 更契合各方真意。",
+        "对基于真实有效的诉权处分合同创设并被主动援引的程序法抗辩, 司法审查的标准需视纠纷样态和抗辩强度进行协调。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "进入六维评分。论文以中国民事诉讼中“诉权处分合同”的司法裁判分歧为切入点，深入剖析诉权性质与程序法效果的理论争议，明确提出以“抗辩权发生说”替代“直接处分效力说”，并构建了基于纠纷解决阶段（已解决/未解决/未发生）的类型化司法审查框架与程序法效果设计。具备鲜明的中国问题意识、扎实的法教义学分析与明确的规范命题，高度契合中国自主法学知识体系构建导向。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "good",
+          "summary": "该文提出了诉权处分合同抗辩效力的可争辩法学问题，但问题表述较为宏大且包含对实践的系统归纳成分。",
+          "core_judgment": "具有可争辩的法学争点，但问题聚焦度不足，枢纽性中等，整体创新性属良好档。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限。按规则锚定good(60-69)档，因问题表述偏宏大扣减3分，最终62分。",
+          "evidence_quotes": [
+            "“就基于合意的程序性抗辩效力，司法实践中肯定论与否定论各执一词。”",
+            "“有必要回到同时存在实体法与程序法效果面向的诉权处分合同……先借鉴民事合同的意思表示解释方法……再引入民事诉讼法的特别规定……”"
+          ],
+          "strengths": [
+            "问题具备理论分歧与法学层面的可争辩性",
+            "问题触及诉讼契约与司法权行使的关联，具有制度连锁效应"
+          ],
+          "weaknesses": [
+            "问题表述偏宏大，核心争点“能否有效”贯穿全文，缺乏更聚焦的问句限定",
+            "对实践争议的系统归纳占据了研究起点，弱化了问题的原创性聚焦"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，上限65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文以‘诉权处分合同的程序法效果及其司法审查’为主题，争点虽存在但被置于宏观的制度梳理与类型化分析框架下，缺乏可操作的聚焦性问题表述。"
+            }
+          ],
+          "boundary_note": "本维度评问题是否成立且重要，不评文献综述、论证严密性或材料对结论的支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准提出诉权处分合同程序法效果的法学争点，理论分歧深刻，枢纽性极强。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，横跨民诉、民法与宪法，绝非单纯政策倡导。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，扣分0，给92分",
+          "evidence_quotes": [
+            "实践中司法审查的结论并不一致，在审查标准和程序设置上的争议也较大",
+            "相较于‘直接处分效力说’，‘抗辩权发生说’更契合各方真意"
+          ],
+          "strengths": [
+            "精准识别诉权处分合同的程序法效果争点",
+            "呈现私法诉权说与公法诉权说的深刻理论分歧"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文围绕诉权处分合同的程序法效果展开，提出'抗辩权发生说'替代'直接处分效力说'，具有明确可争辩的法学争点。",
+          "core_judgment": "问题成立且重要：诉权处分合同的程序法效果属于民事诉讼法学核心争点，涉及诉权性质、司法权限制等基础理论，具有可争辩性与枢纽性。",
+          "score_rationale": "可争辩性=4/4（明确问题句'诉权处分合同能否产生程序法上的抗辩权'，涉及诉权性质/司法权限制等法学争点，呈现肯定论/否定论/抗辩权发生说等理论分歧，非纯政策倡导），枢纽性=3/4（影响诉权理论、诉讼要件理论、司法权行使逻辑≥2个制度领域；属学界长期争论核心问题；涉及诉权、抗辩权等基础概念；制度连锁需调整诉讼要件审查与裁判方式≥2个制度），材料新颖性未触发上限，锚定good档，给75分。",
+          "evidence_quotes": [
+            "本文主张，即便不调整其名称，也应准确解读其程序法效果",
+            "相较于'直接处分效力说'，'抗辩权发生说'更契合各方真意"
+          ],
+          "strengths": [
+            "问题聚焦诉权处分合同的程序法效果，理论争点清晰",
+            "构建'抗辩权发生说'替代既有理论，具有理论推进性"
+          ],
+          "weaknesses": [
+            "部分论述偏重制度介绍，理论交锋深度可加强",
+            "司法实践梳理较多，对既有学理的批判性反思不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦诉权处分合同效力争议，提出抗辩权说与类型化审查框架。",
+          "core_judgment": "问题直击民诉核心理论分歧，具备高度可争辩性与显著制度连锁效应。",
+          "score_rationale": "前置扣分0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "实践中司法审查结论不一，肯定论与否定论在审查标准上各执一词。",
+            "主张选用抗辩权发生说替代直接处分效力说，以契合当事人真意与司法逻辑。"
+          ],
+          "strengths": [
+            "精准提炼实务分歧与理论对立，问题意识尖锐。",
+            "突破传统诉权处分框架，构建类型化审查体系。"
+          ],
+          "weaknesses": [
+            "部分效力转换论证偏重教义推演，实证支撑稍弱。",
+            "宪法诉讼权与民诉诉权界分可结合本土裁判深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评文献、逻辑或材料支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.916351318359375,
+        "glm-5.1": 52.09264302253723,
+        "kimi-k2.6": 14.59388518333435,
+        "qwen3.6-plus": 67.36847591400146
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.2,
+      "std": 14.6,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "论文通过分散式文献定位构建了基本有效的研究地图，呈现了实践中的对立立场和诉权理论脉络，但未集中提炼争点结构，学派识别较为隐含。",
+          "core_judgment": "本文在正文中融入了对实践肯定论/否定论及诉权理论脉络的梳理，研究地图基本成立，但对立观点的争点化组织稍显分散，学派脉络的明确提炼可进一步加强。",
+          "score_rationale": "三要素得分=4/6（到达点2，未竟点1，本文切入点1），争点结构=1/2，法学流派=2个（肯定论/私法诉权说 vs 否定论/公法诉权说），锚定good档，给75分。",
+          "evidence_quotes": [
+            "“实践中司法审查的结论并不一致，在审查标准和程序设置上的争议也较大...肯定论的部分法院将诉权理解为私权利...否定论的法院...将诉权认定为法定的公权力...”。",
+            "“现有研究大多以‘契约样态(内容)→合法性→作用效果’的层次展开分析，重要分歧在于作为处分客体的‘诉权’的性质。”"
+          ],
+          "strengths": [
+            "梳理了肯定论与否定论的争点及各自理由，并指出实体权利与程序权利混淆的实践缺陷。",
+            "溯源诉权由私法入公法的理论脉络，定位各学说立场，为解决本文问题提供基础。"
+          ],
+          "weaknesses": [
+            "未进一步区分学术史中不同“公法诉权说”或“私法诉权说”的内部支派，争点呈现偏重实践争议而非学术流派对立。",
+            "本文切入点与未竟点（如审查标准、程序设置）的对应可更直接，以增强研究地图的闭环。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价文献梳理的完整性（研究地图），不评价问题的新颖性或论证的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位实践与理论争点，清晰呈现诉权性质与效果解释的流派对立，研究地图完整。",
+          "core_judgment": "现状洞察度极高，通过分散式文献定位完整构建了研究地图与争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "持肯定论的部分法院将诉权理解为私权利...持否定论的法院将诉权认定为法定的公权力或者宪法上的基本权",
+            "选用比较法上通行的抗辩理论(Einredetheorie)...相较于‘直接处分效力说’，‘抗辩权发生说’更契合各方真意"
+          ],
+          "strengths": [
+            "精准识别并剖析了私法诉权说与公法诉权说的核心分歧",
+            "清晰呈现了直接处分效力说与抗辩权发生说的解释路径对立"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评问题创新性或论证严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了诉权处分合同抗辩效力的分析框架，呈现了司法实践争议与理论分歧，但研究地图的系统性有待加强。",
+          "core_judgment": "论文呈现了诉权性质（私权vs公权/基本权）的对立争点及抗辩权发生说与直接处分效力说的理论分歧，但三要素的显式提炼不足。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=2/2，法学流派=2个（私法诉权说/公法诉权说/宪法诉权说可归为诉权性质论争的两端，加上抗辩权发生说与直接处分效力说），锚定good档，给72分。",
+          "evidence_quotes": [
+            "诉权处分合同相关抗辩效力争议与各方对诉权性质的不同理解直接相关",
+            "重要分歧在于作为处分客体的'诉权'的性质……选用比较法上通行的抗辩理论（Einredetheorie）这一相对折中的观点"
+          ],
+          "strengths": [
+            "清晰呈现诉权性质公私之争及抗辩权发生说与直接处分效力说的对立",
+            "大量引用中外文献和司法案例，实践争议梳理较充分"
+          ],
+          "weaknesses": [
+            "未竟点未明确提炼既有研究的具体缺口，仅隐含于实践争议描述中",
+            "本文切入点与未竟点的对应关系不够显式，分散式论述削弱了三要素清晰度"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位与争点结构，不评价问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准勾勒诉权处分合同抗辩的实务分歧与理论争点，研究地图完整清晰。",
+          "core_judgment": "文内充分呈现到达点、未竟点与切入点，争点结构严密，流派覆盖充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "现有研究大多以'契约样态→合法性→作用效果'的层次展开分析，重要分歧在于作为处分客体的'诉权'的性质。",
+            "实践中司法审查的结论并不一致，在审查标准和程序设置上的争议也较大。"
+          ],
+          "strengths": [
+            "精准提炼实务肯定论与否定论对立及程序裁判错位",
+            "清晰构建直接处分效力说与抗辩权发生说的解释路径分歧"
+          ],
+          "weaknesses": [
+            "部分比较法文献引述未完全展开本土化适用边界讨论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉问题创新性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.09776306152344,
+        "glm-5.1": 64.66706204414368,
+        "kimi-k2.6": 11.974728107452393,
+        "qwen3.6-plus": 69.56991219520569
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 81.8,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 84,
+          "band": "excellent",
+          "summary": "论文建构了以纠纷发展阶段为基准的三分法审查框架，并完成了从理论到裁定驳回/中止审理的操作指引转化。",
+          "core_judgment": "分析框架成立：通过独创的“纠纷已解决/已发生未解决/未发生”类型化，为诉权处分合同抗辩效力提供了清晰的分析步骤，且在后文被持续调用并指向具体裁判规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4，锚定excellent档。因框架被后文充分调用且有明确裁判规则，给84分。",
+          "evidence_quotes": [
+            "对抗辩效力审查框架…以纠纷已解决/已发生未解决/未发生的三阶段分类为基础，分别对应排除实体审理、限制实体审理、有限制地承认抗辩效力的不同效果。",
+            "在程序法效果梳理中明确：原则裁定驳回起诉，例外时可裁定中止审理，要求先完成和解，提供了清晰的司法处置方案。"
+          ],
+          "strengths": [
+            "独创性分类：不同于既有研究聚焦诉权性质，本文以纠纷发生与解决阶段为分类标准，将抗辩效力划分为绝对有效、无效及可转换的中间状态。",
+            "法学转化彻底：将理论推演直接导向“裁定驳回”与“裁定中止审理”两种可操作的裁判结论，并分配了证明责任。"
+          ],
+          "weaknesses": [
+            "“抗辩权发生说”的论证论证某些部分理论推演较多，对法院具体审查步骤（如和解妥当性计算）的操作指引可再细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评估的是框架的可重复操作性与法学转化度，不涉及该框架各步骤间的逻辑衔接瑕疵。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了基于纠纷样态的三阶审查框架，并转化为具体裁判规则与程序方案。",
+          "core_judgment": "框架可操作性强，法学转化度高，提供了清晰的裁判规则与程序指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "该说主张...程序性合意不能直接对诉讼程序事项产生处分或形成的效力...即其创设了需主动行使的妨诉抗辩权。",
+            "法官有必要在被告提出类似抗辩时, 经由对案件诉讼要件的审查, 最终作出驳回起诉的裁定"
+          ],
+          "strengths": [
+            "提出基于“纠纷样态”的三阶分类审查框架，边界清晰。",
+            "将理论学说转化为具体的裁判规则与程序效果（驳回起诉/中止审理）。"
+          ],
+          "weaknesses": [
+            "“行为效力转换”在具体适用场景中的判断标准稍显抽象。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构与法学转化，不评价诉权理论的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'实体法效果→程序法效果'双层分析框架，并以纠纷样态类型化抗辩效力审查标准。",
+          "core_judgment": "分析框架基本成立，具有可操作性并完成法学转化，但类型化标准的边界清晰度与后文调用密度尚有提升空间。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循，但'纠纷已解决/未解决/未发生'三类边界在后文部分交叉；后文调用超过3次），法学转化度得分=3/4（实体法效果转化为行为义务、程序法效果转化为抗辩权发生说、并设计审查程序，但制度设计方案的精细度可再加强），锚定good档，给72分。",
+          "evidence_quotes": [
+            "妥当的分析路径是先借鉴民事合同的意思表示解释方法探求当事人真意，再引入民事诉讼法的特别规定与制度理念进行分析",
+            "意定限制存在纠纷发生前、纠纷发生后解决前、纠纷解决后之分类，其可成为诉权处分合同抗辩效力审查框架和司法审查程序设计的类型化基础"
+          ],
+          "strengths": [
+            "双层结构清晰区分实体法效果与程序法效果，避免实体程序混同",
+            "类型化框架覆盖纠纷三阶段，为司法审查提供可操作的步骤指引"
+          ],
+          "weaknesses": [
+            "部分类型边界存在交叉，'纠纷已发生未解决'与'纠纷未发生'的区分标准可更明确",
+            "程序法效果设计部分（如中止审理）的论证深度可加强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及具体论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“实体义务-程序抗辩-纠纷样态”三阶审查框架，提供明确裁判规则与程序分流方案。",
+          "core_judgment": "框架概念界定清晰、分类标准明确、分析步骤可循，且已完全转化为可操作的司法审查指引与裁判规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "妥当的分析路径是先借鉴民事合同的意思表示解释方法探求当事人真意，再引入民事诉讼法的特别规定与制度理念进行分析。",
+            "将抗辩强度与纠纷样态进行对应、形成效力审查框架……纠纷已解决则排除实体审理，已发生未解决则限制实体审理。"
+          ],
+          "strengths": [
+            "类型化标准清晰，按纠纷状态划分审查强度，逻辑严密。",
+            "直接输出裁判规则，明确裁定驳回起诉与中止审理的适用条件。"
+          ],
+          "weaknesses": [
+            "部分程序分流方案依赖比较法类推，本土实证支撑稍弱。",
+            "实体与程序效果衔接论证较长，可进一步精简以提升操作性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及逻辑衔接严密性与问题创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.06477499008179,
+        "glm-5.1": 63.77752614021301,
+        "kimi-k2.6": 11.203706741333008,
+        "qwen3.6-plus": 68.02993297576904
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 84,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85,
+      "std": 9.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以实践争议为起点，围绕诉权处分合同建立了从实体法效果到程序法效果的递进推理链，回应了主要反对观点并承认制度边界，逻辑严密。",
+          "core_judgment": "推理链完整且反驳处理度良好，结论可从前文充分支撑地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给分85分。没有关键跳步，反例处理和自身局限承认均到位。",
+          "evidence_quotes": [
+            "将诉权处分合同的程序法效果与“诉权”“处分”划等号……以“直接处分效力说”对此程序性效果进行阐释也难言准确……选用比较法上通行的抗辩理论(Einredetheorie)这一相对折中的观点，更契合各方真意。",
+            "纠纷是否通过和解协议在实体上得到解决的判断，并不要求应给付数额与和解协议计算的给付额精确相等，而是存在一个合理的偏差区间。"
+          ],
+          "strengths": [
+            "推理步骤清晰：从实践争议引出诉权性质分歧，经实体义务分析推向程序抗辩效果，再构建审查框架与程序效果，环环相扣。",
+            "反驳处理扎实：显式回应公法诉权说、基本权放弃、债权诉求力等反对路径，并通过抗辩权发生说与协调审查标准承认自身结论的适用边界。"
+          ],
+          "weaknesses": [
+            "从“实体法效果是程序法效果的逻辑前提”到“程序法效果审查需排除与诉讼相关的强制性规定”的过渡可补充论证密度。",
+            "例外情形（如纠纷未发生/未特定）的否定结论与规则推导之间的反向论证链条稍短，可进一步强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文主要审查推理链条是否支撑结论，不评价审查框架本身的可操作性（属于框架建构力维度）。推链完整性问题轻微，不构成跳步。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链层层递进，反驳处理深入，核心结论可辩护推出。",
+          "core_judgment": "推理链完整且依赖度高，对理论分歧的实质性回应充分，逻辑严密性维度高度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "实体法效果是程序法效果的逻辑前提...合同本身的意思表示瑕疵会在根本上排除不起诉的行为义务",
+            "选用比较法上通行的抗辩理论...更契合各方真意"
+          ],
+          "strengths": [
+            "推理链依赖度强，从概念辨析到制度设计层层嵌套。",
+            "对“直接处分效力说”的驳斥结合了实践操作与证明责任，回应实质。"
+          ],
+          "weaknesses": [
+            "从“抗辩权发生说”向“和解机制类推”的过渡略显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价聚焦概念推演与反驳回应，不评价和解类推框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了从实践争议到理论澄清再到制度方案的完整推理链，但反驳处理存在明显不足。",
+          "core_judgment": "推理链完整但反驳处理度仅满足1项标准，锚定good档。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'纠纷解决目标'到'类推适用意定限制'的正当性推导跨度较大）；反驳处理度得分=1/3（标准1满足：呈现了肯定论/否定论及不同路径；标准2不满足：对否定论的回应停留在描述层面，未实质论证为何'抗辩权发生说'优于公法诉权说；标准3不满足：未承认自身理论在纠纷未特定化场景下的局限）。锚定good(70-79)档，给75分。",
+          "evidence_quotes": [
+            "诉权处分合同相关抗辩效力争议与各方对诉权性质的不同理解直接相关...有必要回到同时存在实体法与程序法效果面向的诉权处分合同",
+            "本文主张,即便不调整其名称,也应准确解读其程序法效果"
+          ],
+          "strengths": [
+            "从实践争议类型化到理论澄清再到审查框架的三阶推理链清晰",
+            "将'抗辩权发生说'与诉讼时效理论类比，增强理论说服力"
+          ],
+          "weaknesses": [
+            "对公法诉权说的批评仅描述其立场，未回应'基本权不可放弃'的核心论证",
+            "纠纷未发生时'不宜认可抗辩'的结论与'尊重缔约成本'前提存在张力，未充分调和"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属实务型论文，评其制度方案的逻辑推导而非框架可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链条完整严密，理论争辩回应充分，结论可辩护推出。",
+          "core_judgment": "论文构建了从实践争议到理论重构再到审查框架的完整推理链，核心结论由前文充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "先确立实体法不起诉义务→再论证其为程序法效果逻辑前提→最后推导出抗辩权发生说",
+            "针对‘诉权属宪法基本权不可处分’的反对意见，本文通过厘清诉权与诉讼权界限予以实质性回应"
+          ],
+          "strengths": [
+            "推理步骤层层递进，前后依赖度高，无关键跳步",
+            "对肯定论/否定论及不同学说均给出实质性论证回应"
+          ],
+          "weaknesses": [
+            "部分类推适用（如仲裁法中止程序）的教义学衔接可更紧密",
+            "效力转换理论的适用边界可进一步限定"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否充分支撑结论，不评价审查框架在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.664578914642334,
+        "glm-5.1": 49.09246611595154,
+        "kimi-k2.6": 13.667747020721436,
+        "qwen3.6-plus": 54.17377185821533
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 8.0,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论通过‘抗辩权发生说’和类型化审查框架，有效回应了实务分歧与学理争论，并与现行法秩序兼容。",
+          "core_judgment": "结论具备高度的共同体对话度，成功将自身定位为对既有争论的修正方案，并在制度层面给出了清晰、可操作的转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4。论文系统回应了肯定论、否定论等既有观点，给出了制度转化方向且未与法秩序根本矛盾，锚定理论论文excellent档，给92分。",
+          "evidence_quotes": [
+            "“‘诉权处分合同’不能被解释为处分民事诉讼法上诉权的意图...应选用‘抗辩权发生说’而非‘直接处分效力说’。”",
+            "“以意定限制的相关思路，在诉外纠纷解决机制的大框架下重新定位诉权处分合同，并可类型化为基础审查抗辩效力。”"
+          ],
+          "strengths": [
+            "精准进入学界争论，通过修正‘诉权私权说’与‘公法诉权说’，实现了可被定位和反驳的学术对话。",
+            "制度转化方向极为具体，提出了‘裁定驳回起诉’‘裁定中止审理’等差异化程序效果，远超理论论文的制度回应预期。"
+          ],
+          "weaknesses": [
+            "结论对实践中法院‘裁定驳回起诉’比例极低的现状缺乏解释，可能影响其在实务共同体中的完全可接受性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评估不涉及论证的逻辑严密性或未来研究空间，仅关注结论在当前学术与制度语境下的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应实践与学理争议，提出抗辩权发生说及精细化审查框架，制度兼容度高。",
+          "core_judgment": "结论在共同体对话与制度可接受性上均表现优异，完全成立且具有高度可争辩性与实践指引力。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "选用抗辩权发生说而非直接处分效力说，更契合各方真意",
+            "法官有必要经由对案件诉讼要件的审查，最终作出驳回起诉的裁定"
+          ],
+          "strengths": [
+            "精准回应肯定论与否定论及直接处分效力说的学理争议",
+            "提出三分审查框架与驳回起诉、中止审理的具体程序方案"
+          ],
+          "weaknesses": [
+            "对纠纷未发生时概括设定妨诉抗辩权无效的论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性与前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "诉权处分合同抗辩效力理论重构，主张'抗辩权发生说'替代'直接处分效力说'，并类型化司法审查框架。",
+          "core_judgment": "论文属于制度论文，结论回应了诉权性质与程序法效果的既有争论，能被反对者定位回应，且结合中国司法实践与比较法展开，但制度转化方向的具体程序设计尚显不足。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、结合中国语境，但未充分讨论反对意见或自身局限），制度可接受度得分=2/4（不矛盾、回应制度约束，但程序转化方向较概括、中国语境适配性讨论可更深入），锚定good档，给78分。",
+          "evidence_quotes": [
+            "本文主张，即便不调整其名称，也应准确解读其程序法效果",
+            "选用比较法上通行的抗辩理论这一相对折中的观点，更契合各方真意"
+          ],
+          "strengths": [
+            "明确回应'直接处分效力说'与'抗辩权发生说'之争",
+            "结合中国司法实践案例与民事诉讼法规范展开分析"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见或自身理论局限",
+            "程序法效果的具体制度转化方向较概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不涉及论证严密性与未来延展性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应实务争议，提出类型化审查框架与程序处理方案，高度契合中国诉讼法理与司法语境。",
+          "core_judgment": "该维度完全成立，结论具备强共同体对话能力与制度落地可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "选用比较法上通行的抗辩理论……更契合各方真意。",
+            "原则上裁定驳回起诉……例外时可裁定中止审理。"
+          ],
+          "strengths": [
+            "精准定位实务裁判分歧，提出类型化审查框架。",
+            "程序转化方案具体，明确裁定驳回与中止的适用场景。"
+          ],
+          "weaknesses": [
+            "部分比较法借鉴未充分论证本土程序法衔接细节。",
+            "对当事人滥用抗辩权的防范机制论述稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证过程严密度或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.78403091430664,
+        "glm-5.1": 52.32135224342346,
+        "kimi-k2.6": 10.350314140319824,
+        "qwen3.6-plus": 66.93770217895508
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.5,
+      "std": 7.0,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文在重构抗辩效力审查框架的基础上，明确提出了类型化的程序法效果及具体制度路径，延展路径清晰、可操作，并与核心结论紧密衔接。",
+          "core_judgment": "存在真实、具体且与正文核心结论紧密衔接的延展路径，足以支持最高弱加分。",
+          "score_rationale": "原始分88分，对应bonus=5。论文不仅提出了“纠纷样态—抗辩强度—司法审查程序”的类型化框架，还指明了‘裁定驳回起诉’与‘裁定中止审理’等具体程序法效果，延展精细度高，可直接作为未来修法或司法实践指引。",
+          "evidence_quotes": [
+            "在妨诉抗辩具有绝对效力与完全没有效力这两端之间，还存在因尊重缔约成本而进行行为效力调整的中间状态。",
+            "法院亦可裁定中止审理，要求双方先完成和解等其他程序性事项，解纷不成功则继续审理，成功则视为撤诉。"
+          ],
+          "strengths": [
+            "延展路径高度具体：提出了‘纠纷未发生/已发生未解决/已解决’的三层类型化审查框架及相应程序法效果。",
+            "制度延伸可操作：不仅主张‘裁定驳回起诉’，还借鉴比较法提出‘裁定中止审理’的例外方案，直接回应实务改进路径。"
+          ],
+          "weaknesses": [
+            "对‘裁定中止审理’方案的论述相对简略，缺乏对该制度在我国实施风险的进一步控制性设计。",
+            "部分宏观制度完善方向（如诉讼要件理论立法欠缺）虽已指出，但未展开具体的规则衔接论述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的‘类型化审查框架’及‘裁定中止审理’等方案，是对未来制度如何完善、实务如何改进的延伸探讨，而非要求共同体直接接受其结论，故属于前瞻延展性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建了类型化审查框架，并指明诉讼要件立法澄清与和解司法确认类推适用等具体延展路径。",
+          "core_judgment": "存在真实延展路径，指明了制度完善与理论修正的具体方向。",
+          "score_rationale": "原始分85，对应bonus档位5（>=80）。论文指明诉讼要件理论立法澄清、和解协议司法确认类推适用及效力转换理论深化等具体延展路径，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "诉的合法性理论（即诉讼要件理论）在我国立法上也存在欠缺……同样应当作出澄清。",
+            "我国尚未规定与和解相关的司法救济程序规则……这里存在进行类推使之适用于诉权处分合同抗辩的可能性。"
+          ],
+          "strengths": [
+            "延展路径紧扣核心结论，从审查框架自然延伸至程序规则构建。",
+            "明确指出了诉讼要件立法欠缺及效力转换理论的后续深化方向。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "诉讼要件立法完善与和解确认程序类推适用属于未来制度构建方向，而非当下裁判可直接接受的具体方案。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在类型化框架基础上提出了程序法效果的具体延展方向，但多数路径仍停留在类推适用层面，缺乏对后续研究争点的明确勾勒。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向与比较法参照，但精细度和专属研究问题提炼不足。",
+          "score_rationale": "原始分55，对应bonus=2档。论文将诉权处分合同类型化为三类场景并对应不同程序法效果，提出可类推仲裁协议、调解协议司法确认等既有制度；同时建议参考我国台湾地区'仲裁法'第4条设计中止审理程序。这些属于可定位的延展方向，但尚未形成明确的后续研究问题或下一轮争点，路径精细度有限。",
+          "evidence_quotes": [
+            "意定限制存在纠纷发生前、纠纷发生后解决前、纠纷解决后之分类，其可成为诉权处分合同抗辩效力审查框架和司法审查程序设计的类型化基础",
+            "我国台湾地区'仲裁法'第4条或可成为程序法效果设计上的参考……以此类推，存在有效的为实体审理附加程序条件的抗辩权且被告提出时，法院亦可裁定中止审理"
+          ],
+          "strengths": [
+            "类型化框架为制度完善提供可继续展开的比较维度",
+            "明确援引域外规则作为本土程序设计的参照对象"
+          ],
+          "weaknesses": [
+            "未提出专属后续研究问题，多为既有制度的类推适用",
+            "对'抗辩权发生说'与'直接处分效力说'的深层理论张力缺乏进一步展开方向"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究或制度发展提供的可延展空间，而非当下结论是否正确或被接受。论文提出的类型化审查框架和程序效果设计属于未来可继续深化的方向，区别于结论可接受性所关注的当下论证是否成立。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文揭示诉的合法性理论立法欠缺与和解协议程序规则空白，为后续立法澄清与司法审查程序设计指明路径。",
+          "core_judgment": "存在真实延展路径，主要体现为立法概念澄清与程序规则类推适用的明确方向。",
+          "score_rationale": "原始分68，对应bonus=3。论文明确指出诉的合法性理论立法欠缺及和解协议程序规则空白，与正文抗辩权审查框架紧密衔接，指明立法与实务深化方向；但未专章说明研究局限或具体实证检验方案，路径精细度有限，故落于60-79档。",
+          "evidence_quotes": [
+            "诉的合法性理论(即诉讼要件理论)在我国立法上也存在欠缺，导致其可能与权利保护要件等相关概念含混不清，同样应当作出澄清。",
+            "我国尚未规定与和解相关的司法救济程序规则……纯粹‘民法上和解’通常仅有实体法效果，需探索程序法衔接路径。"
+          ],
+          "strengths": [
+            "明确指出诉的合法性理论立法欠缺，为后续立法完善提供清晰方向。",
+            "提出类推调解确认程序处理和解协议抗辩，具实务规则延伸价值。"
+          ],
+          "weaknesses": [
+            "未设专章论述研究局限或后续实证检验方案。",
+            "程序效果设计仅停留在比较法类推，缺乏本土化落地路径细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评述的是抗辩权理论框架向未来立法澄清与程序规则设计的延伸可能，而非当下结论的学术共识度或论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 21.02556800842285,
+        "glm-5.1": 45.15826416015625,
+        "kimi-k2.6": 13.269270896911621,
+        "qwen3.6-plus": 138.84902095794678
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 68
+      },
+      "mean": 74,
+      "std": 15.4,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.79,
+      "weighted_total": 82.9
+    },
+    "aggregation_strictest": {
+      "final_score": 71.18,
+      "weighted_total": 69.3
+    },
+    "avg_std": 10.7,
+    "max_std": 15.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 14.6,
+    "composite_score": -10.7,
+    "worst_dimension": "forward_extension",
+    "worst_std": 15.4
+  }
+}

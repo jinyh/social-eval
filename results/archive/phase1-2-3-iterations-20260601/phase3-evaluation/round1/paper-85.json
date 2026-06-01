@@ -1,0 +1,1100 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGSHKX2025009005_中国社会科学_2025_制度型开放的竞争法实现.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "OCR/抽取后的英文摘要与中文论文主体混排在同一文本中，但不影响对中文正文论点的理解",
+          "论文末尾缺失显式的参考文献列表，但原文为《中国社会科学》格式，其脚注中包含完整、规范的学术引用，不影响论证可复核性"
+        ],
+        "evidence_quotes": [
+          "continuously reorganizes production through the collection analysis and...",
+          "〔责任编辑:王 博 责任编审:李树民〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "竞争法是改革开放的制度结晶。作为我国高水平开放的法治化表达,制度型开放蕴含深刻的竞争法哲理...",
+          "在理论层面,推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则。",
+          "当前竞争法的制度供给尚不足以有效支撑深化改革与扩大开放的双重需求。",
+          "在实践层面,以竞争法治为核心的包容性开放方案更符合我国国情和发展趋势...",
+          "在公平竞争原则基础上,通过国际竞争规则内化与国内竞争规则外化,完善竞争规则体系..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑。",
+        "在理论层面,推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则。",
+        "在实践层面,以竞争法治为核心的包容性开放方案更符合我国国情和发展趋势,竞争法治需要在治理规则、工具和机制诸方面进一步健全。",
+        "通过国际竞争规则内化与国内竞争规则外化,完善竞争规则体系,优化竞争规制方法和管理工具,健全竞争标准体系,推动实现制度型开放。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国制度型开放为中心，提出“国际竞争规则内化与国内竞争规则外化”等法学命题，属于典型的中国自主知识体系研究，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码（如·3 8·）混入正文段落",
+          "脚注编号及部分脚注内容直接混入正文行间",
+          "参考文献列表抽取提示为（无），但正文存在大量脚注引用",
+          "末尾混入其他论文的英文摘要片段（如Machine Consciousness相关内容）"
+        ],
+        "evidence_quotes": [
+          "·3 8·",
+          "①参见黄文艺：《改革、变法与中国式现代化———党的二十届三中全会精神的法学解读》，《法学家》2024年第5期。",
+          "MachineConsciousnessandtheCausalSelf-Model WuXiaoan·103·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "制度型开放是进入新时代以来,我国适应国内外新形势和发展新特点在对外开放领域做出的战略部署。",
+          "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑。",
+          "在公平竞争原则基础上,通过国际竞争规则内化与国内竞争规则外化,完善竞争规则体系。",
+          "对构建中国竞争法学自主知识体系和健全中国竞争法律制度具有重大理论价值。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码、脚注内容、无关英文摘要混入正文，需在后续阶段清洗",
+        "项目口径：完全符合，明确指向中国自主知识体系构建与中国实践解释"
+      ],
+      "evidence_quotes": [
+        "对构建中国竞争法学自主知识体系和健全中国竞争法律制度具有重大理论价值，亟待深化研究。",
+        "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。后续阶段需对文本进行清洗，剔除混入的期刊页码、行间脚注及无关英文摘要，并重新抽取参考文献列表，以保证评分质量。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文末存在英文摘要及无关英文段落混入（疑似期刊其他文章摘要），属于分栏/排版残留问题",
+          "参考文献列表标注为'（无）'，实际文末有英文摘要残留，存在脚注/参考文献抽取风险",
+          "页码标记（如'·83·'）和期刊信息（'中国社会科学 2025年第9期'）多次混入正文"
+        ],
+        "evidence_quotes": [
+          "continuously reorganizes production through the collection analysis and transmissionofmarketdemandinformation...",
+          "TheRealizationofInstitutionalOpening-UpthroughCompetitionLaw SunJin·83·",
+          "MachineConsciousnessandtheCausalSelf-Model WuXiaoan·103·",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "制度型开放蕴含深刻的竞争法哲理,体现了公平竞争理念及其规则不断深化的演进规律",
+          "在理论层面,推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则",
+          "以竞争法治为核心的包容性开放方案更符合我国国情和发展趋势",
+          "通过国际竞争规则内化与国内竞争规则外化,完善竞争规则体系,优化竞争规制方法和管理工具,健全竞争标准体系,推动实现制度型开放",
+          "中国自主的竞争法知识体系的构建,任务艰巨"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：文末混入其他文章的英文摘要残留（《Machine Consciousness and the Causal Self-Model》等），需确认是否影响完整性，但核心论文正文完整可定位",
+        "文本工程：页码标记和期刊信息多次穿插于正文，属OCR/分栏残留，不影响核心内容评审",
+        "文本工程：参考文献列表实际为空，但文末有英文摘要残留，脚注抽取可能存在风险"
+      ],
+      "evidence_quotes": [
+        "制度型开放蕴含深刻的竞争法哲理,体现了公平竞争理念及其规则不断深化的演进规律",
+        "在理论层面,推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则",
+        "中国自主的竞争法知识体系的构建,任务艰巨"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文核心内容完整，项目口径信号明确，应进入六维评价。建议评分时忽略文末英文摘要残留及页码标记等排版噪声，关注'竞争规则内化与外化''包容性开放''中国自主竞争法知识体系'等核心理论命题的展开深度。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码标记混入正文（如‘· 3 8 ·’）",
+          "末尾混入其他论文英文摘要及期刊目录信息",
+          "参考文献列表抽取失败（显示为‘无’）"
+        ],
+        "evidence_quotes": [
+          "· 3 8 ·",
+          "MachineConsciousnessandtheCausalSelf-Model...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑",
+          "通过国际竞争规则内化与国内竞争规则外化,完善竞争规则体系,优化竞争规制方法和管理工具",
+          "当前竞争法的制度供给尚不足以有效支撑深化改革与扩大开放的双重需求"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "页码标记混入正文",
+        "末尾混入无关英文摘要",
+        "参考文献缺失"
+      ],
+      "evidence_quotes": [
+        "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑",
+        "通过国际竞争规则内化与国内竞争规则外化,完善竞争规则体系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在局部OCR残留与参考文献缺失，但不影响核心论点定位。项目口径完全契合，明确涉及中国制度型开放与竞争法治的交叉命题，具备理论转化与可复核路径，建议进入六维评分阶段，评审前清理格式噪声即可。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文仅围绕“制度型开放需要竞争法保障”进行主题声明和体系介绍，未能提出可争辩的法学研究问题。",
+          "core_judgment": "全文以阐释既定立场和宏观梳理为主，缺乏可争辩的法学争点，不符合法学论文的问题创新性要求。",
+          "score_rationale": "前置检查扣分：检查1扣20分（新概念包装旧问题），检查2扣20分（无学者观点交锋），检查3扣30分（无问题句只有主题声明），合计扣70分，扣分后分数为30分。正式评分：可争辩性=0/4，枢纽性=0/4，材料新颖性校验未触发上限但无研究推进，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则。",
+            "以竞争法治为核心的包容性开放方案更符合我国国情和发展趋势"
+          ],
+          "strengths": [
+            "关注竞争法在制度型开放中的角色，主题具有现实意义。"
+          ],
+          "weaknesses": [
+            "全文为体系化介绍，缺少“XX是否YY”“如何ZZ”等可争辩问题句。",
+            "未呈现任何学者观点交锋，仅为既定立场的系统归纳。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何可争辩的法学问题句，只有主题声明和体系介绍。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的成立性与重要性，不评文献综述或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文阐释政策主题，缺乏可争辩的法学问题与理论交锋。",
+          "core_judgment": "问题维度不成立，全文仅为政策倡导与体系归纳，无法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档，给50分；前置扣分50分，最终30分。",
+          "evidence_quotes": [
+            "制度型开放的竞争法实现",
+            "当前竞争法的制度供给尚不足以有效支撑深化改革与扩大开放的双重需求"
+          ],
+          "strengths": [
+            "议题涉及竞争法与国际经贸规则多个制度领域，枢纽性较强"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的问题句，仅为主题声明与政策倡导",
+            "无学者观点交锋，单向阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，无争辩问题，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明与政策倡导"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_overclaim",
+              "rule": "材料新颖无实质推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以制度型开放新政策为创新依据，未改变解释路径"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "主题宏大但缺乏可争辩的法学问题，仅为政策阐释与制度介绍。",
+          "core_judgment": "全文无明确问题句，未形成可争辩的法学争点，属于主题声明式宏观论述。",
+          "score_rationale": "可争辩性=1/4（仅有主题领域涉及法学，无问题句、无理论分歧、非政策倡导但无论证），枢纽性=2/4（涉及多制度、有理论基础），材料新颖性未触发上限。因可争辩性≤1，锚定unacceptable档，最高50分，扣减负面模式25分后给35分。负面模式：检查1不满足；检查2扣20分（无学者观点交锋）；检查3扣25分（无问题句，仅主题声明）。扣分合计=25分（取检查3，因最严），但扣分后不得低于30分，最终35分。",
+          "evidence_quotes": [
+            "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑",
+            "推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则"
+          ],
+          "strengths": [
+            "主题涉及竞争法与开放型经济，有一定制度关联性"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'类问题句，仅为主题声明",
+            "无学者观点交锋，仅为政策话语与制度归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅有'论制度型开放的竞争法实现'类主题声明"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文属政策阐释型，缺乏可争辩的法学问题，枢纽性尚可但创新不足。",
+          "core_judgment": "全文为既定政策立场的系统归纳，未提出可争辩的法学争点，问题创新性不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性已触发上限，锚定unacceptable档，给45分。经负面模式检查扣50分，按规则保底30分。",
+          "evidence_quotes": [
+            "当前竞争法的制度供给尚不足以有效支撑深化改革与扩大开放的双重需求。",
+            "在公平竞争原则基础上，通过国际竞争规则内化与国内竞争规则外化，完善竞争规则体系。"
+          ],
+          "strengths": [
+            "涉及竞争法、行政规制与国际贸易等多重制度领域。",
+            "紧扣公平竞争原则与政府市场关系等法学基础概念。"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为政策主题声明与立场阐释。",
+            "缺乏学者观点交锋，未触及实质法学理论争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高不超过50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确争点句，仅为政策阐释"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评论证严密性与文献综述。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.711474895477295,
+        "glm-5.1": 63.46169710159302,
+        "kimi-k2.6": 13.616883039474487,
+        "qwen3.6-plus": 85.31367683410645
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 35.8,
+      "std": 8.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文缺乏研究地图三要素，未呈现既有研究争点或对立流派，文献定位严重不足。",
+          "core_judgment": "论文仅在开篇提及“研究尚处于起步阶段”或“几乎处于空白状态”，未展开任何具体的既有研究梳理、学派争鸣或文献对话，现状洞察度低。",
+          "score_rationale": "三要素得分=1/6（到达点0，未竟点1，本文切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，因未竟点有模糊描述给予55分。",
+          "evidence_quotes": [
+            "我国目前关于制度型开放的法学研究尚处于起步阶段,其内含的法理问题并未得到澄清,而关于制度型开放中如何发挥竞争法功能的研究几乎处于空白状态。"
+          ],
+          "strengths": [
+            "论文对制度型开放的竞争法属性及实践路径有系统论证。"
+          ],
+          "weaknesses": [
+            "未梳理任何具体既有研究成果或其贡献，缺乏到达点；未呈现任何法学流派或学术争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无具体文献成果引述，无到达点，无本文切入与未竟点的对应，仅有“研究几乎处于空白”的笼统表述。"
+            }
+          ],
+          "boundary_note": "论文的贡献在于建构制度型开放的竞争法理论框架，而非梳理已有学术争论，因此低分源于文献定位缺失而非问题创新性不足。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散文献定位清晰呈现了规制路径与比较法秩序的争点，精准切入规则内化与外化。",
+          "core_judgment": "研究地图三要素充分，争点结构清晰，流派识别满足强制规则，现状洞察度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "我国目前关于制度型开放的法学研究尚处于起步阶段...关于制度型开放中如何发挥竞争法功能的研究几乎处于空白状态",
+            "与美国竞争规则倡导的社会公平和市场效率不同,欧盟竞争法治更注重‘不被扭曲的竞争’"
+          ],
+          "strengths": [
+            "精准识别制度型开放竞争法研究的空白并提出内化外化切入点",
+            "清晰呈现产业政策与竞争政策、美国与欧盟竞争法治的双重争点结构"
+          ],
+          "weaknesses": [
+            "到达点多为背景性引述，缺乏对既有学术争点解决状态的系统提炼"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点梳理深度，不涉及对“制度型开放”概念本身的创新性评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文构建制度型开放竞争法理论框架，但研究地图三要素严重缺失。",
+          "core_judgment": "研究地图三要素均未建立，未呈现既有研究到达点、未竟点及本文切入点的清晰结构。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，但存在政策论述深度，给55分。",
+          "evidence_quotes": [
+            "我国目前关于制度型开放的法学研究尚处于起步阶段，其内含的法理问题并未得到澄清，而关于制度型开放中如何发挥竞争法功能的研究几乎处于空白状态",
+            "与制度型开放密切相关的竞争法学理论建设也需要持续跟进，尤其是中国自主的竞争法知识体系的构建，任务艰巨"
+          ],
+          "strengths": [
+            "政策论述系统完整，历史梳理较为清晰"
+          ],
+          "weaknesses": [
+            "无具体学者成果引述，未建立研究地图",
+            "未呈现任何学术争点或对立观点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1分，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未引述任何具体学者研究成果，未说明既有研究已解决什么、缺口在哪、本文如何切入"
+            }
+          ],
+          "boundary_note": "本文献定位问题非问题新颖性：论文主题具有现实意义，但缺乏对学术脉络的梳理。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "研究地图三要素基本完整，但文献梳理偏重政策演进，缺乏学术争点提炼与流派对话。",
+          "core_judgment": "本维度成立，论文具备清晰的未竟点与切入点，但到达点贡献提炼不足且争点结构单薄。",
+          "score_rationale": "三要素得分=5/6，争点结构=1/2，法学流派=0个，锚定good档，给75分",
+          "evidence_quotes": [
+            "我国目前关于制度型开放的法学研究尚处于起步阶段……关于制度型开放中如何发挥竞争法功能的研究几乎处于空白状态",
+            "倚重产业政策主导资源配置的模式已经难以为继，以市场竞争机制内驱型发展替代政府产业政策外驱型发展观点受到重视"
+          ],
+          "strengths": [
+            "明确指出现有研究空白与制度供给不足，未竟点与本文切入点高度对应。",
+            "采用分散式文献定位，将既有观点融入历史演进与规制变革论证中。"
+          ],
+          "weaknesses": [
+            "未提炼既有学者的具体理论贡献，到达点呈现偏重政策描述与事实罗列。",
+            "缺乏对竞争法解释路径或规范主张的学术流派梳理与对立争点展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献定位与争点结构，不涉及制度型开放命题本身的政策新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.513450145721436,
+        "glm-5.1": 127.48814702033997,
+        "kimi-k2.6": 12.007627964019775,
+        "qwen3.6-plus": 85.22736811637878
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 88,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 75
+      },
+      "mean": 68.2,
+      "std": 16.2,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文以阐释制度型开放的竞争法哲理为主，未提出可重复适用的原创分析框架，属于政策理论梳理型，框架建构力薄弱。",
+          "core_judgment": "论文的核心工作是系统归纳和阐释'制度型开放'与'竞争法'的既定内涵及关系，属于政策理论梳理，未建构原创的、可操作的分析框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定不清晰，分析步骤不可循，但后文部分调用），法学转化度得分=1/4（仅政策与制度映射），锚定marginal档，触发no_operational_framework上限规则，上限50分，给42分。",
+          "evidence_quotes": [
+            "制度型开放包含制度的自我开放与对外开放双重要义...公平竞争理念贯穿开放进程始终...",
+            "在理论层面,推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则。"
+          ],
+          "strengths": [
+            "对制度型开放与竞争法的历史同频共振梳理扎实",
+            "提出了'规则内化与外化'两条概括性路径"
+          ],
+          "weaknesses": [
+            "核心术语（如'竞争法治'）无明确定义，内涵边界不清",
+            "'两个维度'的路径是宏观政策方向，未转化为可重复适用的分析步骤或判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时触发上限50分，但此处框架可操作性得分=2，上限未强制触发；然而依据政策理论梳理型识别规则，该类型论文法学转化度上限1，可操作性上限2，总分通常不超过60分，综合评定42分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释既定政策立场为主，核心术语来自权威表述非原创，无步骤化可循的分析流程，主要贡献是‘梳理’和‘阐释’。"
+            }
+          ],
+          "boundary_note": "本文是制度/政策阐释型论文，非提出原创分析框架的建构型论文，框架建构力评低分是类型适配结果。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，依赖权威表述构建主题提纲，缺乏原创可操作分析框架。",
+          "core_judgment": "框架仅为宏观政策映射与要素罗列，无步骤化法学分析流程，建构力不足。",
+          "score_rationale": "框架可操作性得分=1/4（触发口号式呼吁与概念堆砌降档上限1），法学转化度得分=1/4（仅宏观映射无操作转化），锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "制度型开放包括规则、规制、管理、标准四大基本组成要素",
+            "需要强化规则、规制、管理、标准等要素与国际高标准竞争制度体系的对接"
+          ],
+          "strengths": [
+            "对制度型开放与竞争法的关联进行了系统的历史与理论梳理"
+          ],
+          "weaknesses": [
+            "核心框架依赖政策术语，缺乏法学操作步骤与判断标准",
+            "充斥应当等口号，缺乏具体裁判规则或制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "v0.7_policy_theory_review",
+              "rule": "政策理论梳理型识别规则：框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释‘制度型开放’权威表述为主，框架核心术语‘规则、规制、管理、标准’来自政策文件而非原创"
+            }
+          ],
+          "boundary_note": "本维度仅评框架的可操作性与法学转化，不评政策梳理的完备性与逻辑衔接。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，缺乏原创分析框架与可操作步骤",
+          "core_judgment": "该文以阐释既定政策立场为主，未建构可重复适用的法学分析框架",
+          "score_rationale": "框架可操作性得分=1/4（仅'规则内化与外化'有粗略分类，无明确边界标准、无步骤化流程、核心术语未严格定义），法学转化度得分=1/4（仅将竞争法概念映射到制度层面，无裁判规则或操作指引），锚定marginal档，给42分",
+          "evidence_quotes": [
+            "在理论层面，推进制度型开放的竞争法实现有两个维度：一是承接国际竞争规则，二是引领国际竞争规则",
+            "规则、规制、管理、标准四大基本组成要素。四者同竞争法治有何关系，分别在制度型开放中发挥何种作用，有必要予以分析"
+          ],
+          "strengths": [
+            "对制度型开放与竞争法关系有系统梳理"
+          ],
+          "weaknesses": [
+            "核心术语如'包容性开放'未明确定义",
+            "'应当''需要'等规范性表述达20余处但无具体制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文，框架可操作性得分上限为2，法学转化度得分上限为1",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释'制度型开放''公平竞争'等既定政策立场为主，无原创概念界定或类型化，主要贡献是'梳理''归纳'而非'建构''设计'"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及逻辑严密性或问题新颖性判断",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以政策阐释为主，缺乏原创法律分析框架与可操作步骤。",
+          "core_judgment": "框架未成立，核心术语源于权威表述且未转化为可重复适用的法学判断标准。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给45分。受政策梳理规则与负面模式限制，无具体裁判规则或分析步骤。",
+          "evidence_quotes": [
+            "制度型开放包括规则、规制、管理、标准四大基本组成要素",
+            "通过国际竞争规则内化与国内竞争规则外化，完善竞争规则体系"
+          ],
+          "strengths": [
+            "结构完整，系统梳理了制度型开放与竞争法的政策关联"
+          ],
+          "weaknesses": [
+            "核心概念依赖政策表述，缺乏原创性法学界定与类型化"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以政策阐释为主，核心术语无明确定义，无可循分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及宏观逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 117.65643429756165,
+        "glm-5.1": 106.90372204780579,
+        "kimi-k2.6": 10.514652013778687,
+        "qwen3.6-plus": 67.96190905570984
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 45,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 45
+      },
+      "mean": 43.5,
+      "std": 1.7,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了从历史描述、理论阐释到实践路径的完整推理链，但在回应潜在批评和承认论证局限方面存在不足。",
+          "core_judgment": "推理链完整度较高，结论基本可从前文推出，但反驳处理的缺失限制了论证的深度与严密性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=1/3，锚定excellent档。因缺少显式反驳、反例处理及局限承认，在档内下限给82分。",
+          "evidence_quotes": [
+            "制度型开放的核心特征在于通过规则对接构建开放型经济体系，本质上具有鲜明的竞争法属性。",
+            "因应制度型开放的重大变革...通过贯彻竞争法基本原则，并依托国际竞争规则内化与国内竞争规则外化两条路径...全面推动我国的制度型开放。"
+          ],
+          "strengths": [
+            "推理步骤清晰：历史同步演进→法理属性与品格→运行逻辑→理论实践双重路径，逻辑衔接紧密。",
+            "依赖度强：后续的“规则内化与外化”路径方案直接建立在前文“竞争法属性”和“运行逻辑”的论证基础之上。"
+          ],
+          "weaknesses": [
+            "反驳处理缺失：全文未提出任何显式反对意见或理论分歧，通篇为正面建构，削弱了论证的抗辩性。",
+            "缺乏局限承认：在提出规则外化等雄心勃勃的方案时，未讨论我国规则与国际规则冲突等潜在边界与适用条件。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "推理链本身是自洽的，但缺乏对竞争法“私法适用”“规制俘获”等潜在张力的回应，这属于论证全面性问题而非推理断裂。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "主线推理链完整，隐含回应了路径分歧，结论可辩护推出。",
+          "core_judgment": "逻辑严密性维度成立，推理链形成充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "倚重产业政策主导资源配置的模式已经难以为继，以市场竞争机制内驱型发展替代政府产业政策外驱型发展观点受到重视",
+            "缩小与CPTPP相关规则要求之间并不是完全照抄照搬即可解决问题。可以通过声明保留等技术性方案，在友好对话中找到改进方案"
+          ],
+          "strengths": [
+            "主线从属性界定到问题诊断再到方案设计，逻辑递进清晰",
+            "隐含回应了产业政策与竞争政策的路径分歧并给出选择理由"
+          ],
+          "weaknesses": [
+            "实务方案推导偏宏观，具体操作逻辑稍显宽泛",
+            "缺乏显式反对意见的交锋，反驳多为隐含处理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判基于推理链支撑度，而非制度方案的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "论文构建了'历史演进—理论基础—实践路径'的推理链条，但存在论证密度不均、部分结论跳跃的问题。",
+          "core_judgment": "推理链基本完整但局部存在关键跳步，反驳处理度不足，整体处于可接受但非优秀的逻辑水平。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'制度型开放需要竞争法'到'包容性开放是最佳方案'缺乏充分推导）；反驳处理度得分=1/3（仅标准1成立，识别了'有学者认为'类反对意见但回应不充分，无信号②③④）。锚定good档(60-69)，给62分。",
+          "evidence_quotes": [
+            "有学者认为比例原则不适用于民法私域→本文回应___（注：原文无此显式反驳，实际为'我国目前关于制度型开放的法学研究尚处于起步阶段...研究几乎处于空白状态'，暗示分歧但未展开）",
+            "从'制度型开放具有竞争法属性'到'包容性开放方案更符合我国国情'的过渡缺乏中间论证环节"
+          ],
+          "strengths": [
+            "历史维度论证扎实，从流动型开放到制度型开放的演进链条清晰",
+            "四要素分析框架（规则、规制、管理、标准）为推理提供了结构化支撑"
+          ],
+          "weaknesses": [
+            "关键结论'包容性开放'的优选性论证不足，未充分回应其他开放模式",
+            "日韩例证与我国制度型开放的因果关联论证薄弱，存在类比跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链完整性，不涉及'包容性开放'概念本身的理论建构力评价。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从历史演进到理论证成再到制度路径的完整推理链，结论可由前文充分支撑。",
+          "core_judgment": "本维度成立，推理链条完整且反驳处理充分，核心结论具备可辩护性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "从流动型开放到制度型开放的演进具有历史必然性...呈现出开放水平越高、竞争的作用越大、竞争法治越发达的规律性。",
+            "并非完全照抄照搬即可解决问题。可以通过声明保留等技术性方案,在友好对话中找到一条既符合中国国情又符合CPTPP规则要求的改进方案。"
+          ],
+          "strengths": [
+            "历史演进与制度需求层层递进，推理依赖度高。",
+            "对产业政策偏好等现实分歧给出实质性回应。"
+          ],
+          "weaknesses": [
+            "部分制度工具（如容错机制）的推导略显宏观。",
+            "国际规则内化的具体教义学衔接论证可更细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑力与结论的可辩护性，而非评价竞争法框架本身的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.685796976089478,
+        "glm-5.1": 62.022866010665894,
+        "kimi-k2.6": 10.865073919296265,
+        "qwen3.6-plus": 71.55333805084229
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 88
+      },
+      "mean": 79.2,
+      "std": 11.8,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "结论缺乏可争辩的学术主张，未回应反对意见，且完全围绕既定政策话语展开论证，无法被法学共同体在学术层面认真对话。",
+          "core_judgment": "论文将官方政策表述作为结论本身，未将其转化为可争辩的学术主张，缺乏对反对意见和自身局限的讨论，共同体对话度极低。",
+          "score_rationale": "共同体对话度得分=1/4（仅满足中国法学语境中说得通），制度可接受度得分=2/4（不与现行法秩序根本矛盾、对制度约束有所回应）。理论论文锚定unacceptable档（对话度≤1），触发no_community_dialogue上限规则（≤50），给42分。",
+          "evidence_quotes": [
+            "在理论层面,推进制度型开放的竞争法实现有两个维度:一是承接国际竞争规则,二是引领国际竞争规则。",
+            "在实践层面,以竞争法治为核心的包容性开放方案更符合我国国情和发展趋势"
+          ],
+          "strengths": [
+            "结论与中国制度语境高度兼容，对现行法秩序有较好回应",
+            "结论覆盖了规则内化与外化的制度转化方向"
+          ],
+          "weaknesses": [
+            "结论停留在政策宣示层面，未提出可被反对者定位和回应的具体学术主张",
+            "全文未主动承认或讨论任何反对意见或自身论证局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度≤1时，总分最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论未明确说明与既有学术争论的关系，反对者无法构造具体反驳路径，且未讨论反对意见或局限，满足标准1、2、4均不成立。"
+            }
+          ],
+          "boundary_note": "本维仅评结论当下的共同体可接受性，不评论证逻辑严密性或前瞻延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论高度契合现行法秩序，提出了具体的制度转化方向，对话度高。",
+          "core_judgment": "结论在共同体对话和制度兼容上表现优异，提出了可争辩的学术主张和可操作的转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "公平竞争都理应成为制度型开放的基石性原则和主要面向",
+            "赋予自贸区(港)制度创新有限豁免权，设定‘负面清单+动态豁免’边界"
+          ],
+          "strengths": [
+            "提出了规则内化与外化的双向转化路径",
+            "主动承认理论建设任务艰巨及实践试错风险"
+          ],
+          "weaknesses": [
+            "摘要对策表述略显套路化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出制度型开放的竞争法实现路径，具有明确的问题意识和政策导向。",
+          "core_judgment": "结论在共同体对话度和制度可接受度方面基本成立，但理论创新性不足，部分表述趋于政策复述。",
+          "score_rationale": "共同体对话度得分=3/4（回应了竞争法与开放关系的既有讨论，能被定位和回应，考虑了中国语境，但较少主动承认反对意见或局限）；制度可接受度得分=3/4（与现行法秩序兼容，回应了制度约束，指出了转化方向，考虑了中国语境）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "制度型开放具有竞争法属性、公平竞争特质及其竞争法运行逻辑。在理论层面，推进制度型开放的竞争法实现有两个维度：一是承接国际竞争规则，二是引领国际竞争规则。",
+            "通过国际竞争规则内化与国内竞争规则外化，完善竞争规则体系，优化竞争规制方法和管理工具，健全竞争标准体系，推动实现制度型开放。"
+          ],
+          "strengths": [
+            "明确将中国制度型开放与竞争法结合，回应了国内法治实践需求。",
+            "提出了国际规则内化与国内规则外化的双向路径，具有政策参考价值。"
+          ],
+          "weaknesses": [
+            "结论部分缺乏对反对意见或自身理论局限的主动承认与讨论。",
+            "部分表述接近政策文件复述，学术争辩性和对话深度有待加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足中国制度型开放语境，提出竞争法双向互动路径，兼具政策契合度与制度转化方向。",
+          "core_judgment": "结论明确回应现实制度需求，与现行法秩序高度兼容，具备较强的共同体对话基础与实务可操作性。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "在公平竞争原则基础上，通过国际竞争规则内化与国内竞争规则外化，完善竞争规则体系",
+            "构建竞争法框架下的容错纠错与激励体系，赋予自贸区(港)制度创新有限豁免权"
+          ],
+          "strengths": [
+            "紧密对接中国制度型开放政策与现行竞争法体系",
+            "提出规则内化外化及自贸区试点豁免等具体转化路径"
+          ],
+          "weaknesses": [
+            "未明确回应产业政策与竞争政策优先性的学界争论",
+            "对理论局限性与潜在实施阻力的反思略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论当下在共同体与制度语境中的可接受性，不涉及论证逻辑严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.9089891910553,
+        "glm-5.1": 54.07857584953308,
+        "kimi-k2.6": 13.047056913375854,
+        "qwen3.6-plus": 172.14206314086914
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 72.5,
+      "std": 21.7,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 46,
+          "band": "marginal",
+          "summary": "论文提出了宏观的“内化—外化”路径和“包容性开放”方向，但未形成具体、可操作的后续研究问题或待检验命题，延展路径较为概括。",
+          "core_judgment": "存在概括性的延展方向，但与正文论证的衔接需要推断，缺乏精细化的后续研究路径设计。",
+          "score_rationale": "原始分46分，对应bonus档位2。理由：论文指明了“内化—外化”路径和公平竞争审查制度国际化等宏观方向，但未提出具体后续研究问题或可检验假设，延展路径细节不足。",
+          "evidence_quotes": [
+            "围绕制度型开放的基本理论……亟待深化研究。（结语）",
+            "提炼出我国国内竞争规则体系化构建中的经验，补足差距……尚有许多工作要做。"
+          ],
+          "strengths": [
+            "明确指出了“国际规则内化与国内规则外化”的双向推进方向。",
+            "提出了公平竞争审查制度、数字竞争规则等本土经验国际化的潜在路径。"
+          ],
+          "weaknesses": [
+            "未来研究展望停留在“亟待深化研究”等宏观表述，缺乏具体争点。",
+            "未指明理论深化或制度修正的具体边界、条件或可检验的假设。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语部分提出“亟待深化研究”等属于对未来研究方向的呼吁，而非对当下结论共同体可接受性的辩护，故此处理为延展性问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "结语以口号式展望收尾，但正文隐含宏观制度完善方向。",
+          "core_judgment": "存在可定位的宏观制度完善方向，但缺乏具体的后续研究争点，延展路径需从正文推断。",
+          "score_rationale": "原始分45，bonus档位2（40-59档）。结语属口号式展望触发slogan_outlook上限50分，但正文提出自贸区豁免权、数字规则国际化等宏观可定位方向，故未压至低分段。",
+          "evidence_quotes": [
+            "自贸区(港)的试点经验在立法上的统筹转化机制步伐缓慢，难以向全国推广",
+            "与制度型开放密切相关的竞争法学理论建设也需要持续跟进……亟待深化研究"
+          ],
+          "strengths": [
+            "正文指出了自贸区统筹转化、数字规则国际化等可定位的制度完善方向"
+          ],
+          "weaknesses": [
+            "结语完全沦为口号式拔高，未提炼具体后续争点或局限推进路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入低分段；口号式展望设定上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语称“亟待深化研究”“具有重大理论价值”，未说明具体问题或机制"
+            }
+          ],
+          "boundary_note": "评估聚焦未来对自贸区转化机制等制度路径的深化，而非当下结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在结语和正文中提出了竞争法参与国际规则制定、中国自主知识体系构建等明确延展方向，并给出数字竞争规则国际化、公平竞争审查制度外溢等具体路径。",
+          "core_judgment": "存在真实延展路径，主要体现在国际竞争规则内化与外化的双向路径、数字竞争规则国际化贡献、自贸区试验机制等可定位的后续研究方向。",
+          "score_rationale": "原始分68分，对应bonus=3（60-79档）。论文明确提出'中国自主的竞争法知识体系的构建，任务艰巨'作为理论深化方向，给出数字竞争规则国际化、公平竞争审查制度对外辐射等具体路径，以及自贸区'压力测试—经验推广'的实务延伸机制，路径可定位且与正文核心结论衔接。但部分延展（如欧盟'布鲁塞尔效应'借鉴）仍较概括，未充分展开下一轮争点或检验入口。",
+          "evidence_quotes": [
+            "与制度型开放密切相关的竞争法学理论建设也需要持续跟进，尤其是中国自主的竞争法知识体系的构建，任务艰巨",
+            "通过共建'一带一路'倡议和双边多边协定，积极参与国际竞争规则再造……自贸区（港）作为对接国际市场的重要窗口，需要建立起与国际接轨的竞争法律规范实现通道"
+          ],
+          "strengths": [
+            "提出'规则内化与外化'双向路径及数字竞争规则国际化等具体方向",
+            "明确自贸区'压力测试—复制推广'的实务延展机制"
+          ],
+          "weaknesses": [
+            "部分比较法借鉴（如欧盟模式）未充分转化为可操作的后续研究问题",
+            "结语中'亟待深化研究'的表述略泛，可更具体化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文在结语提出'中国自主的竞争法知识体系的构建'属于未来理论深化方向，而非论证当下结论是否可被接受；自贸区试验机制的'压力测试—推广'属于未来实务延展，而非结论本身的可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文明确指向自主知识体系构建、自贸区试点推广与数字规则外化等未来延展路径。",
+          "core_judgment": "存在真实延展路径，理论深化与制度试点方向具体且与正文核心紧密衔接。",
+          "score_rationale": "原始分75，对应bonus=3。结语与机制部分明确提出构建自主知识体系、自贸区试点评估推广及数字规则外化等方向，与正文论证紧密衔接，路径清晰但部分检验标准待细化。",
+          "evidence_quotes": [
+            "与制度型开放密切相关的竞争法学理论建设也需要持续跟进,尤其是中国自主的竞争法知识体系的构建,任务艰巨。",
+            "同步完善试点经验评估与全国推广机制,实现从被动承接国际规则向主动供给中国方案的治理跃迁。"
+          ],
+          "strengths": [
+            "明确指出构建自主竞争法知识体系与深化制度型开放机理的具体方向。",
+            "提出自贸区试点评估推广与容错纠错机制，制度延展路径清晰可操作。"
+          ],
+          "weaknesses": [
+            "对数字竞争规则外化的具体检验标准与风险边界论述仍偏宏观。",
+            "理论深化路径缺乏对潜在学术争点或反驳入口的明确预设。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于论文指出的理论深化方向与制度试点推广路径，属于未来研究与制度演进的延展规划，而非对当下结论可接受性或论证严密性的评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.47225308418274,
+        "glm-5.1": 186.1521599292755,
+        "kimi-k2.6": 14.636011123657227,
+        "qwen3.6-plus": 154.12125492095947
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 46,
+        "glm-5.1": 45,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 75
+      },
+      "mean": 58.5,
+      "std": 15.3,
+      "strictest": 45,
+      "strictest_model": "glm-5.1"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 54.99,
+      "weighted_total": 56.9
+    },
+    "aggregation_strictest": {
+      "final_score": 45.53,
+      "weighted_total": 45.2
+    },
+    "avg_std": 12.5,
+    "max_std": 21.7,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 9.5,
+    "composite_score": -10.83,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 21.7
+  }
+}

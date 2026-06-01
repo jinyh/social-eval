@@ -1,0 +1,976 @@
+{
+  "paper": "法学三大刊论文/法学研究/宪法功能转型的社会机理与中国模式.pdf",
+  "round1_source": "results/phase1-100-papers-strictest/paper-065.json",
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus",
+    "deepseek-v4-pro",
+    "kimi-k2.6"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 92,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "glm-5.1": 65,
+        "qwen3.6-plus": 72,
+        "deepseek-v4-pro": 35,
+        "kimi-k2.6": 75
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 92,
+          "revised": 65,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 27,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 72,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 20,
+          "confidence": "medium"
+        },
+        "deepseek-v4-pro": {
+          "original": 35,
+          "revised": 35,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 45,
+          "revised": 75,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 30,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 27,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文有深刻问题意识但缺乏具体可争辩的法学命题，属宏观体系建构与立场阐释，未展开观点交锋。",
+          "revision_rationale": "接受其他专家关于“无明确问题句”、“无学者观点交锋”的批评。重新审视发现，论文指出的“如何处理三者关系”属宏大时代课题而非具体法学争点，后半部分对中国模式的论述完全是正向建构与立场阐释，缺乏对潜在反对意见的辩驳与理论交锋，可争辩性严重不足。虽理论视野宏阔且引入系统论视角有重构价值，但不符合法学研究创新性对“争点可争辩性”的核心要求，故大幅下调评分至marginal档。",
+          "accepted_points": [
+            "全文缺乏“XX是否YY”式的明确法学问题句，所提问题过于宏大属时代课题。",
+            "缺乏学者观点交锋，对自由主义、福利国家、社会主义范式的论述多为单向理论铺陈与体系介绍。",
+            "宏观理论阐释与立场建构替代了深度的法学争点辨析。"
+          ],
+          "rejected_points": [
+            "认为论文仅为政策倡导（论文有扎实的理论梳理和规范分析，如基本权利社会功能的重构，非纯政策倡导）。",
+            "认为枢纽性不足或理论无价值（论文触及宪法功能与基本权利核心范畴，系统论视角的引入有学术重构价值）。"
+          ],
+          "new_evidence_found": [
+            "论文后半部分（如“社会本位的基本权利体系”、“二元民主观”）完全是正向的体系建构与描述，未设置任何反方立场或理论质疑进行交锋，印证了“无观点交锋”的批评。",
+            "论文结语“恰到好处地融合在一起”等表述，进一步证明了文章是立场定调而非争点论证。"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 20,
+          "revised_band": "good",
+          "revised_core_judgment": "论文具理论建构价值，但缺乏明确可争辩的教义学命题与学者交锋，问题意识偏宏观阐释，法学争辩聚焦度不足。",
+          "revision_rationale": "采纳专家意见，论文虽触及宪法转型核心，但以体系建构为主，缺乏明确法学问题句与实质性观点交锋。论证依赖政策话语转化，削弱了规范命题的对抗性与可争辩性，故下调至良好档。",
+          "accepted_points": [
+            "全文缺乏明确的法学问题句与学者观点交锋",
+            "论证偏重宏观体系建构与政策话语转化，法学争辩对抗性较弱",
+            "理论推演未充分聚焦具体规范命题的争辩"
+          ],
+          "rejected_points": [
+            "完全否定问题创新性（论文仍具跨学科理论价值与现实关怀，非纯粹政策倡导）",
+            "评分过低至unacceptable档（系统论与宪法教义结合仍具学术贡献，未达不可接受底线）"
+          ],
+          "new_evidence_found": [
+            "文中虽提出‘国家干预边界’与‘基本权利社会约束标准’等疑问，但均作为理论建构的引子而非待证伪的争点",
+            "对中国模式的论证大量依托‘共同富裕’‘全过程人民民主’等政策话语，缺乏教义学层面的规范推演与反例检验",
+            "对福利国家与社会主义范式的对比停留在功能描述，未深入宪法裁判或具体条款的解释分歧"
+          ],
+          "confidence": "medium"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 35,
+          "revised_score": 35,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文仍为体系介绍和立场阐释，无“XX是否YY”式法学理论争点，不满足问题创新性基本要求。",
+          "revision_rationale": "重新审视后，其他专家所指的问题意识深刻、理论分歧呈现等优点本质上是论文对功能转型议题的宏观论述，而非在法学理论脉络中提出可争辩的问题并展开交锋。全文未形成“XX是否YY”式问题句，也未呈现学者间对立观点及其论证博弈，仍属于单向度的立场展开与政策倡导。根据评分标准，可争辩性归零触发上限规则，评分维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "认为论文提出了明确的法学争点：论文虽涉及宪法功能转型的理论议题，但未从法学内部提炼出可质疑、可辩论的具体命题，亦未呈现观点的交锋与辩驳，仅是对不同范式的介绍和自身立场的阐释，不构成法学意义上的问题创新。"
+          ],
+          "new_evidence_found": [
+            "评审专家A和B引用的证据（如“如何通过保护基本权利实现对社会的调控”、“如何处理个体自由与社会共同体的关系”等句）实为论文所展示的开放性议题或困境表述，并非论文自身设定并加以论证的具体法学问题句，不能据此认定论文满足可争辩性要求。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 45,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 30,
+          "revised_band": "good",
+          "revised_core_judgment": "论文存在明确的法学争点：宪法功能转型背景下国家、社会、个体三者关系的立体化重构，以及中国宪法模式的独特路径，但问题表述的聚焦度和对抗性仍可提升。",
+          "revision_rationale": "重新审视后，我承认第一轮评价对'明确问题句'的要求过于形式化。论文虽未以'本文要解决的问题是'的句式呈现，但贯穿全文的核心争点清晰可辨：一是现代复杂社会中宪法如何从'国家-个体'二元调控转向'国家-社会-个体'立体调控；二是中国宪法如何超越西方自由主义与福利国家范式，形成独特模式。这些问题具有可争辩性（涉及卢曼系统论与宪法教义学的张力、基本权利社会属性的边界等）和枢纽性（触及宪法基础理论重构）。但专家A、B将可争辩性评为4/4仍属过誉——论文多为作者单方理论建构，缺乏对具体反对观点的直接回应与交锋，'至今没有发展出具有说服力的标准'等表述虽暗示争点，却未形成真正的学术对话。因此从'unacceptable'上调至'good'档，扣25分（问题聚焦度不足、对抗性较弱、部分论证依赖政策话语转化）。",
+          "accepted_points": [
+            "论文存在明确的理论争点，即宪法功能转型中如何处理国家、社会、个体的立体关系",
+            "问题触及宪法基础理论重构，具有枢纽性",
+            "将系统论（卢曼）与宪法教义学结合，具有跨制度辐射力",
+            "中国宪法模式的提炼具有现实关怀和理论价值"
+          ],
+          "rejected_points": [
+            "专家A、B认为'可争辩性=4/4'——论文虽有问题意识，但缺乏学者观点的直接交锋与对抗，多为单向理论铺陈，未达到最高档",
+            "专家B认为'法学争点的对抗性'仅'稍弱'——实际上对抗性明显不足，基本权利社会约束的标准、国家干预的边界等关键问题未与具体学者展开辩论"
+          ],
+          "new_evidence_found": [
+            "第8页：'国家可以在多大程度上干预社会以及应如何确定干预的边界……诸如此类的问题都可以归结为如何处理国家、社会、个体之间的立体关系这一宪法问题'——此为其明确的问题意识表述，第一轮未充分重视",
+            "第17页：'如何通过保护基本权利实现对社会的调控，如何处理个体自由与社会共同体的关系，至今也没有发展出具有说服力的标准'——直接呈现理论困境与争点",
+            "第16-17页：对基本权利双重属性的反思，以及'社会本位的基本权利理论'的提出，构成与德国'客观价值秩序'理论的潜在对话"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 49.24830079078674,
+        "qwen3.6-plus": 64.61596703529358,
+        "deepseek-v4-pro": 28.12520980834961,
+        "kimi-k2.6": 18.98621106147766
+      },
+      "round1_mean": 66,
+      "round2_mean": 61.8,
+      "round1_std": 30.3,
+      "round2_std": 18.3,
+      "convergence_improvement": 12.0
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "glm-5.1": 82,
+        "qwen3.6-plus": 82,
+        "deepseek-v4-pro": 85,
+        "kimi-k2.6": 85
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 90,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 8,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 8,
+          "revised_band": "good",
+          "revised_core_judgment": "本文构建了范式变迁脉络，但未竟点提炼偏宏观，且与中国模式切入点对应稍弱，争点偏重理论史梳理。",
+          "revision_rationale": "接受专家关于未竟点宏观、缺乏微观论战及切入点对应稍弱的意见。论文虽指出既有理论缺陷，但未明确标定为学界未竟之争，中国模式切入点偏制度描述，与理论缺口对接不够直接，争点偏理论史梳理，故下调至good档。",
+          "accepted_points": [
+            "未竟点描述稍显宏观，缺乏对具体学者核心论点的直接质疑",
+            "未竟点与切入点对应关系模糊，中国模式缺乏对既有理论缺口的明确回应",
+            "争点多为理论史梳理而非严格学界争论"
+          ],
+          "rejected_points": [
+            "完全否定未竟点的存在：论文明确指出了既有理论缺陷及未发展出说服力标准的现状，实质已提出未竟点",
+            "完全否定争点结构：宏观范式对立与微观理论缺陷批判仍构成了一定的争点脉络，只是不够微观具体"
+          ],
+          "new_evidence_found": [
+            "论文指出'至今也没有发展出具有说服力的标准'实质提炼了未竟点，但后续切入'中国模式'时转向制度演进，与该理论未竟点对接存在跳跃"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "范式谱系梳理完整，系统论视角具启发性，但争点呈现偏理论史叙事，未竟点与切入点衔接稍弱，缺乏深度批判对话。",
+          "revision_rationale": "采纳同行意见，原文未竟点提炼偏宏观，未与具体学者核心论点形成针锋相对的批判性对话；争点结构实为范式演进史梳理，非严格学术争点；流派实为三大范式。虽理论建构宏大，但西方局限向中国模式的过渡略显跳跃，系统论与本土教义学对接待深化，故下调至good档。",
+          "accepted_points": [
+            "未竟点描述偏宏观，缺乏对具体学者核心论点的直接质疑与批判性对话",
+            "争点结构实为理论史/范式演进梳理，非严格意义上的学术争点交锋",
+            "法学流派实为自由主义、福利国家、社会主义三大宪法范式，数量应为3个",
+            "未竟点与本文切入点（中国模式/系统论）的对应关系与逻辑衔接不够紧密"
+          ],
+          "rejected_points": [
+            "参考文献列表缺失虽为形式瑕疵，但正文脚注引用规范详实，不影响对实质学术质量与理论建构的评价，故不因此大幅降档"
+          ],
+          "new_evidence_found": [
+            "原文对‘客观价值秩序’与‘基本权利第三人效力’的批判仅停留在‘任意性大’‘缺乏社会维度’的宏观论断，未结合德国联邦宪法法院最新判例或教义学修正进行具体辩驳",
+            "中国模式部分侧重历史与规范结构分析，对‘合宪性审查’‘民主集中制’等制度的实证运行机制与系统论的对接多为应然推演，缺乏本土实证材料支撑"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "excellent",
+          "revised_core_judgment": "研究地图完整且争点结构立体，分散式文献定位精准，对既有理论的批判具体有力，系统论视角的引入与本土经验对接清晰。",
+          "revision_rationale": "重新阅读后，发现论文对自由主义、福利国家、社会主义三种范式的梳理不仅脉络清晰，更通过脚注引用了大量德文一手文献，分散式文献定位精准。争点结构从宏观范式对立到微观基本权利属性分歧逻辑连贯，对客观价值秩序任意性、基本权利价值困境的批评具体切中要害。系统论视角的引入并非仅提出方向，而是详细展开了功能分化与政治调控的双重变奏，并与中国宪法文本（如第51条）和本土实践（如平台经济）进行了细致对接。因此，原评分78分偏低，应提升至excellent档。",
+          "accepted_points": [
+            "分散式文献定位精准，脚注引用大量德文一手文献，构成充分的研究地图。",
+            "争点结构立体，从宪法范式宏观对立到基本权利社会属性等微观分歧，逻辑层次分明。",
+            "对既有理论的批判（如客观价值秩序任意性、基本权利价值困境）具体而非泛泛而谈。"
+          ],
+          "rejected_points": [
+            "评审专家B认为对西方福利国家宪法教义学最新发展的回应略显简略。但论文已详细分析了德国基本法通过社会国家原则和基本权利第三人效力进行社会调控，以及美国罗斯福新政的宪法革命，覆盖了主要教义学发展。",
+            "评审专家B认为系统论视角可进一步细化与本土实证材料的对接。但论文已结合平台经济、非法经营罪界定、劳动教养制度废止等本土实例展开论证，对接较为充分。"
+          ],
+          "new_evidence_found": [
+            "脚注中引用了伯肯弗尔德、卢曼等多个德国宪法学流派的德文原著，表明文献覆盖面的广度与深度。",
+            "论文对‘八二宪法’公私二元规范结构的分析，以及宪法第51条在社会本位基本权利体系中的功能解读，体现了系统论视角与本土宪法文本的紧密结合。",
+            "结语部分明确将国家建构、社会调控和个体保护三重任务融会贯通，并指出中国宪法话语体系的独特贡献，强化了研究地图的到达点。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "本文通过范式变迁与基本权利社会属性的双重脉络，构建了从宏观理论到微观教义学的争点结构，但微观教义学流派的内部争论呈现仍可加强。",
+          "revision_rationale": "重新审读论文后，承认此前对'未竟点-切入点'对应关系的判断过于严苛。论文在'福利国家干预有限、客观价值秩序任意性大'与'中国模式'之间，实际上通过'社会复杂性提升→功能分化→政治调控必要性'的链条建立了逻辑关联。第8页明确指出福利国家宪法'无力回应现代复杂社会中的各类问题'，继而提出'宪法需要重塑国家、社会、个体的关系'，这构成了明确的理论缺口回应。此外，论文对基本权利社会属性的讨论（第16-17页）确实形成了从'价值困境'到'社会维度'再到'功能分化标准'的微观争点。但坚持认为，论文对西方福利国家宪法教义学最新发展的回应仍显简略，微观教义学流派内部争论（如客观价值秩序与基本权利第三人效力之争）的呈现不足，尚未达到excellent档。",
+          "accepted_points": [
+            "分散式文献定位精准，三种范式的理论谱系梳理完整",
+            "从宏观范式对立到微观基本权利属性分歧的争点结构具有层次性",
+            "对既有范式贡献与理论局限的提炼较为明确",
+            "文献定位与理论建构具有较高契合度"
+          ],
+          "rejected_points": [
+            "专家A'三要素得分6/6'的判断：论文虽呈现三种范式，但'未竟点'的提炼仍显分散，未形成学界明确争论的聚焦点",
+            "专家B'法学流派=5个'的判断：论文实际呈现的核心范式仍为自由主义、福利国家、社会主义三种，其余为理论资源而非独立流派",
+            "专家B'92分/excellent'的档位：微观教义学层面（如基本权利第三人效力、客观价值秩序的具体争论）呈现不足，尚未达到excellent"
+          ],
+          "new_evidence_found": [
+            "第8页'无论福利国家宪法对社会的有限干预，还是早期社会主义宪法对社会的全面干预，都存在一定的弊端，也都无力回应现代复杂社会中的各类问题'——明确构成理论缺口",
+            "第16-17页'现有的基本权利理论不仅遭遇着价值困境，也缺乏对社会维度的考量...至今也没有发展出具有说服力的标准'——形成从宏观到微观的争点递进",
+            "第17页'引入功能分化的系统视角，是这其中的关键'——明确对应中国模式的理论切入点"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 52.82379174232483,
+        "qwen3.6-plus": 76.03772592544556,
+        "deepseek-v4-pro": 59.526078939437866,
+        "kimi-k2.6": 17.22108817100525
+      },
+      "round1_mean": 83,
+      "round2_mean": 83.5,
+      "round1_std": 9.6,
+      "round2_std": 1.7,
+      "convergence_improvement": 7.9
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 65
+      },
+      "round2_scores": {
+        "glm-5.1": 65,
+        "qwen3.6-plus": 58,
+        "deepseek-v4-pro": 45,
+        "kimi-k2.6": 68
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 90,
+          "revised": 65,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 25,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 65,
+          "revised": 58,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 38,
+          "revised": 45,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 52,
+          "revised": 68,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 16,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 25,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架具理论统摄力，但核心术语缺乏操作化定义与步骤，法学转化停留在宏观阐释，未形成裁判规则。",
+          "revision_rationale": "接受其他专家关于缺乏操作化分析步骤与裁判规则转化的批评。论文虽提出“双重变奏”与“立体化重塑”等统摄性概念，但后文调用多为宏观制度描述与目的论证（如非法经营罪的界定目的），缺乏可重复适用的法学分析流程，法学转化度与可操作性显著不足，故下调分数至marginal档。",
+          "accepted_points": [
+            "核心术语（功能分化、政治调控）缺乏可操作的定义与判断标准。",
+            "缺乏可循的分析步骤与裁判规则转化，框架偏重宏观分类与理论阐释。"
+          ],
+          "rejected_points": [
+            "框架完全无法被后文调用（拒绝no_operational_framework判定）。论文在后文基本权利部分确实调用功能分化视角作为规范适用指引，虽不充分但非零调用。",
+            "完全缺乏原创性（部分拒绝）。论文在既有理论基础上提出了“双重变奏”与针对中国语境的“立体化重塑”，具有理论整合与重构的统摄力。"
+          ],
+          "new_evidence_found": [
+            "论文在基本权利部分尝试将功能分化作为规范适用指引（如非法经营罪界定目的、基本权利社会约束标准），但仅停留在目的论证层面，未展开步骤化分析，印证了转化不足的批评。"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 65,
+          "revised_score": 58,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架具备宏观解释力与体系整合功能并贯穿全文，但核心概念操作化不足，缺乏可重复的裁判步骤与微观适用指引，属偏重理论阐释的建构型框架。",
+          "revision_rationale": "采纳专家B关于“缺乏可重复操作步骤与微观裁判规则转化”的批评，下调评分。但反驳专家A“框架未被后文调用”的论断，因论文后半部确以该框架系统剖析了中国民主集中制、基本权利社会约束及合宪性审查。综合其理论整合价值与实操短板，降至marginal档。",
+          "accepted_points": [
+            "核心术语（如功能分化、政治调控）缺乏明确的操作化定义与步骤化分析流程",
+            "法学转化度偏弱，未形成可直接适用于司法裁判的具体规则或检验标准"
+          ],
+          "rejected_points": [
+            "专家A认为“框架无法被后文反复实际调用”与文本事实不符。论文第三、四部分明确以“国家-社会-个体”立体关系及功能分化理论，系统重构了中国二元民主观、基本权利体系与合宪性审查逻辑，框架调用贯穿始终。"
+          ],
+          "new_evidence_found": [
+            "第11-12页提出政治调控的边界标准（以维系功能分化、消除去界分化危险为限）",
+            "第16-17页尝试将功能分化视角作为基本权利社会约束的规范标准，并提及对刑法非法经营罪界定的指引，显示作者有操作化意图，但仍停留于宏观原则层面"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 38,
+          "revised_score": 45,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "该维度仍未成立：核心术语仍缺可操作定义与步骤，但框架确有一定理论统摄力与后文调用，故微调仍属不可用档。",
+          "revision_rationale": "重新审视后，我注意到“功能分化”与“政治调控”在文中确有反复调用并尝试解释，有一定理论统摄力，这比我最初认定的“完全无定义”要好一些。但可操作的定义、分析步骤和裁判规则转化依然缺失，仅属理论阐释型框架，仍触发no_operational_framework规则，故仅予以小幅上调。",
+          "accepted_points": [
+            "同意框架有一定理论统摄力，后文对概念有所调用",
+            "承认将系统论概念转化为宪法分析维度有一定法学转化度"
+          ],
+          "rejected_points": [
+            "不同意框架可操作性得分可达4/4或2/4，因全文缺乏可循的分析步骤与裁判规则转化，仍属政策理论梳理型",
+            "不同意法学转化度可达3/4或4/4，因核心术语缺乏明确法学判断标准与适用边界"
+          ],
+          "new_evidence_found": [
+            "文中确实有“功能分化的视角可以在实践中指引规范的适用。例如，对刑法上非法经营罪的界定，需以保障经济系统的良性运转为目的”等尝试性转化",
+            "政治调控的五方面内容有初步列举，虽不构成操作化定义，但比完全空白稍好"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 52,
+          "revised_score": 68,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 16,
+          "revised_band": "good",
+          "revised_core_judgment": "框架以系统论为基础实现了宪法功能分析的概念重构，'功能分化与政治调控双重变奏'具有理论整合力，但核心术语的操作化与步骤化仍有不足。",
+          "revision_rationale": "重新审视后，承认论文在以下方面超出原评：一是'国家-社会-个体'三元框架并非简单整合，而是将卢曼系统论转化为宪法分析的具体维度（如基本权利的社会功能、政治系统的反身性），具有明确的问题导向；二是'功能分化与政治调控的双重变奏'作为核心命题，贯穿了宪法范式变迁、中国宪法道路、基本权利保护等多层次分析，后文调用充分；三是政治调控五方面内容、'政-治-民'分化等确属原创性理论建构，而非既有理论的直接套用。但原评指出的'缺乏步骤化分析流程''未形成裁判规则'仍成立，故提升至good档而非excellent。",
+          "accepted_points": [
+            "专家A指出的'系统论成功转化为宪法分析步骤与概念重构路径'——论文确实将功能分化从社会学概念转化为宪法功能分析的基本维度",
+            "专家B指出的'范式分类标准清晰，贯穿全文分析逻辑'——三类范式不仅是历史描述，更构成了后文中国宪法分析的对照框架",
+            "专家A和B共同认可的'后文调用充分'——'双重变奏'命题在基本权利、国家权力配置、合宪性审查等部分均有展开"
+          ],
+          "rejected_points": [
+            "专家A的'框架可操作性4/4'评分过高——政治调控五方面内容仍偏重理论描述，'功能分化'作为基本权利社会约束的标准仅举'非法经营罪'一例，未形成可重复适用的分析步骤或裁判规则",
+            "专家A的'法学转化度4/4'评分过高——系统论概念虽有法学转化，但'功能分化''政治调控'等核心术语缺乏明确的操作定义，如未界定'去界分化'的判断标准、'社会子系统'的识别标准等"
+          ],
+          "new_evidence_found": [
+            "论文第11页明确提出'功能分化的视角可以在实践中指引规范的适用。例如，对刑法上非法经营罪的界定，需以保障经济系统的良性运转为目的'——虽为例证，但确属将系统论转化为规范适用的尝试",
+            "论文第14-15页'政、治、民'三个子系统的分化——属于对中国政治结构的原创性理论建构，非既有理论直接套用",
+            "论文第16页将基本权利的社会功能与功能分化关联，提出'个体自由与功能分化之间又具有异质性'——体现了系统论概念的法学转化深度"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 41.496175050735474,
+        "qwen3.6-plus": 63.10585308074951,
+        "deepseek-v4-pro": 59.48085403442383,
+        "kimi-k2.6": 18.757902145385742
+      },
+      "round1_mean": 61.2,
+      "round2_mean": 59,
+      "round1_std": 22.1,
+      "round2_std": 10.2,
+      "convergence_improvement": 11.9
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "round2_scores": {
+        "glm-5.1": 78,
+        "qwen3.6-plus": 78,
+        "deepseek-v4-pro": 82,
+        "kimi-k2.6": 78
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 88,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 90,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 12,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 82,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 4,
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 88,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "宏观推理链成立，但对中国模式“成功”的证成存在关键跳步，且对自身理论的反驳处理严重不足。",
+          "revision_rationale": "接受专家A和B的意见，论文从“功能分化需要政治调控”到“中国模式率先发展出成功机制”缺乏中间论证，未论证为何该机制更成功或如何克服西方弊端；同时，论文对自身主张（如合宪性审查实效、转型期公平正义等潜在反例）未作显式反驳回应，反驳处理度极弱。据此将推理链完整性降为3/4，反驳处理度降为1/3，档位下调至good。",
+          "accepted_points": [
+            "从陈述中国宪法具备社会本位和二元民主结构直接跳跃至‘率先发展出了成功应对复杂社会挑战的宪法机制’，未论证为何更‘成功’或如何克服西方弊端",
+            "反驳处理明显不足，未处理转型期中国社会的公平正义问题、合宪性审查实效等潜在反例",
+            "从‘功能分化需要政治调控’直接推出‘中国二元民主观和民主集中制是最佳方案’，缺乏中间论证"
+          ],
+          "rejected_points": [
+            "中国模式的优越性论证存在循环论证嫌疑，预设了社会主义的优越性——论文更多是在规范层面重构社会主义的内涵（功能分化+政治调控），而非简单预设优越性，但确实在证成‘成功’时缺乏实证支撑"
+          ],
+          "new_evidence_found": [
+            "摘要中明确写道‘率先发展出了成功应对复杂社会挑战的宪法机制’，结语中写道‘恰到好处地融合在一起’，这些断言在正文中缺乏对应的实效论证和比较论证支撑",
+            "论文对合宪性审查的辩护仅回应了‘反多数诘难’，未回应其实效不足的质疑"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 90,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 12,
+          "revised_band": "good",
+          "revised_core_judgment": "宏观推理链完整，但中国模式“成功性”证成存在关键跳步，反驳处理与边界条件讨论不足，论证坚实度受限。",
+          "revision_rationale": "采纳专家A、B意见。论文理论推演严密，但结论处从制度描述直接跃升至“率先成功”缺乏比较标准与实证支撑；对合宪性审查实效、功能分化理论本土适用性等关键反对意见回应薄弱，未充分划定理论适用边界，故降档至good。",
+          "accepted_points": [
+            "中国模式‘成功性’结论存在护短式跳步，缺乏比较标准与边界条件",
+            "反驳处理明显不足，未实质性回应潜在反例与方法论质疑",
+            "推理链宏观完整但微观制度衔接与规范论证需细化"
+          ],
+          "rejected_points": [
+            "完全否定理论预设的适用性（系统论与中国宪法结合具有内在逻辑自洽性，属规范建构而非简单经验套用）",
+            "认为存在循环论证（论文以社会主义优越性为理论起点进行规范演绎，并非逻辑闭环谬误）"
+          ],
+          "new_evidence_found": [
+            "论文第11-12页将‘共同富裕’与‘功能分化’‘政治调控’直接绑定，但未提供该机制在立法或司法中的具体运行数据与效果评估",
+            "结语部分直接断言中国‘恰到好处地融合’三重任务，缺乏对转型期社会矛盾或审查机制局限性的反思性论述与反例处理"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 4,
+          "revised_band": "excellent",
+          "revised_core_judgment": "宏观推理链逻辑成立，结论基本可从前文理论推出，“率先”等措辞虽有夸大成分，但整体论证自洽度较高。",
+          "revision_rationale": "重新审视后发现，论文对自由主义与福利国家范式的批判确实构成了对“中国模式”合理性的间接论证，具有反驳处理功能。我原先低估了这种隐含的实质性回应。但“率先”“成功”等判断缺乏严格比较标准，跳跃问题未完全消除，故小幅上调4分至excellent下沿。",
+          "accepted_points": [
+            "对自由主义与福利国家范式的批判可视为对“中国模式”合理性的间接论证和反驳回应。"
+          ],
+          "rejected_points": [
+            "“核心结论可由前文理论可辩护地推出”这一判断过于乐观，结论中的“率先”“成功”缺乏明确比较标准，存在理论跳跃。",
+            "“反驳处理度=3/3”显然过高，论文未显式处理对自身结论的直接反例。"
+          ],
+          "new_evidence_found": [
+            "论文在结语部分明确了“中国模式”建立在社会主义、政治整合和社会本位基本权利体系之上，其论证路径并非完全跳跃，而是有结构呼应。"
+          ],
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链完整性4/4，反驳处理度2/3，锚定good档上限。核心结论可由前文理论预设与历史规范分析支撑，但'中国模式优越性'论证仍存预设循环与方法跳跃。",
+          "revision_rationale": "重新审读论文后，发现原文对'功能分化需要政治调控'到'中国模式'的过渡并非完全跳步：论文在'社会主义宪法理论'部分明确提出了'功能分化与政治调控的双重要求'作为中间环节（第11页），并以'共同富裕''涵括'等概念衔接社会平衡目标与中国制度实践。专家A、B所指的'层层递进'确有文本依据。但我仍坚持'反驳处理度'不足的判断：论文未回应'功能分化理论能否直接适用于中国宪法'的方法论质疑（卢曼理论的语境移植问题），且'中国模式优于福利国家'的规范论证依赖'社会主义本质'的预设，未充分论证为何民主集中制比德国'客观价值秩序'更能避免价值任意性。此外，专家B指出的'微观制度衔接可细化'确为论文局限。综合调整至good档上限78分。",
+          "accepted_points": [
+            "从'功能分化需要政治调控'到'中国模式'存在'功能分化与政治调控的双重要求'作为中间论证环节，非完全跳步",
+            "论文对自由主义与福利国家范式的理论局限有实质性回应，尤其是通过'客观价值秩序'的任意性问题展开批判",
+            "历史类型学分析（自由主义→福利国家→社会主义）形成清晰的递进推理结构"
+          ],
+          "rejected_points": [
+            "专家A、B将反驳处理度评为3/3：论文仅回应'反多数诘难'，未回应'方法论质疑'（卢曼社会系统理论移植中国的正当性）及'福利国家模式是否真不可行'的比较论证，仍属不足",
+            "专家B认为'核心结论可由前文充分支撑'：'中国模式'的规范论证仍预设社会主义优越性，循环论证嫌疑未消除"
+          ],
+          "new_evidence_found": [
+            "第11页：'功能分化与政治调控的双重要求，正是国家、社会、个体三者关系获得立体化重塑的核心和关键'——构成从社会机理到中国模式的中间论证",
+            "第12-13页：以'共同富裕''涵括'概念衔接社会主义目标与制度实践，形成规范实现路径",
+            "第15页：民主集中制作为'二元民主观'的制度依托，与'政、治、民'三分结构形成对应，但微观制度衔接（如合宪性审查如何具体运作）确实语焉不详"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 46.44161510467529,
+        "qwen3.6-plus": 145.89727425575256,
+        "deepseek-v4-pro": 64.3251142501831,
+        "kimi-k2.6": 19.908976316452026
+      },
+      "round1_mean": 82,
+      "round2_mean": 79,
+      "round1_std": 8.5,
+      "round2_std": 2.0,
+      "convergence_improvement": 6.5
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "glm-5.1": 78,
+        "qwen3.6-plus": 80,
+        "deepseek-v4-pro": 70,
+        "kimi-k2.6": 78
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 85,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 12,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 70,
+          "revised": 70,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "结论成功进入中西范式争论语境且与中国制度高度兼容，但缺乏对反对意见的主动回应与自身局限反思，共识深度受限。",
+          "revision_rationale": "原评分侧重于理论重构与制度兼容的优点，忽略了缺乏对反对意见回应及自身局限反思对学术共识深度的严重削弱。论文结语断言中国模式“恰到好处”、“率先发展出成功机制”，却未回应政治调控过度干预的风险及功能分化移植性的质疑，使得共识停留在立场宣示层面，缺乏交互反思，故下调至good档。",
+          "accepted_points": [
+            "缺乏对反对观点的直接讨论和主动回应，削弱了对话深度",
+            "结语断言式表述（如'恰到好处'、'率先发展出成功机制'）缺少对批评声音的回应空间",
+            "制度转化方向较抽象，缺乏具体规范适用指引"
+          ],
+          "rejected_points": [
+            "完全否定其进入中西范式争论语境的能力（论文明确回应了哈贝马斯、自由主义和福利国家范式，对话定位是清晰的）"
+          ],
+          "new_evidence_found": [
+            "结语断言'恰到好处地融合在一起'、'率先发展出成功应对复杂社会挑战的宪法机制'，缺乏反思语气",
+            "正文虽提及政治调控边界，但未将其转化为对自身理论潜在过度干预风险的主动回应与防波堤"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 12,
+          "revised_band": "good",
+          "revised_core_judgment": "理论建构扎实且本土化自洽，但结论断言过强且缺乏对反对意见与自身局限的反思，共同体对话深度受限，符合良好标准。",
+          "revision_rationale": "采纳A、B专家意见。论文虽精准批判西方范式并深度结合中国宪制文本与历史，但结语断言“率先成功”且全文未主动讨论潜在质疑、理论边界或反对观点，削弱了学术对话的开放性与严谨性。功能分化的教义学转化仍偏宏观，故下调至good档。",
+          "accepted_points": [
+            "结论缺乏对反对意见、理论挑战或自身局限的主动讨论",
+            "断言中国模式‘率先成功’未预留批评空间，影响对话深度",
+            "功能分化作为权利约束标准的教义学转化路径仍显抽象"
+          ],
+          "rejected_points": [
+            "完全否定其制度兼容性（论文对八二宪法变迁、二元民主观及合宪性审查政治/法律协调功能的论述已具备较强制度逻辑自洽性，仅操作性细节待深化）"
+          ],
+          "new_evidence_found": [
+            "结语明确断言中国‘率先发展出了成功应对复杂社会挑战的宪法机制’，未设置任何限定或反思条件",
+            "全文未出现对国内自由主义宪法观、规范主义路径或系统论移植风险的实质性回应与辩驳",
+            "对合宪性审查的论述集中于宏观功能定位，缺乏具体审查基准或案例推演"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 70,
+          "revised_score": 70,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "结论可被共同体定位，与中国制度语境高度兼容，但缺乏对反对观点的直接讨论，对话深度受限。",
+          "revision_rationale": "其他专家虽然看到了论文与中国制度的兼容性，但在“共同体对话度”上评估过高。论文结语部分断言中国模式已“率先发展出成功应对复杂社会挑战的宪法机制”，却未承认任何理论局限或回应可能批评，这严重限制了其与学术共同体进行深入对话的可能性。专家B的“4/4”评语忽略了这种论断的封闭性，因此维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家B将共同体对话度评为4/4（满分），认为结论清晰可辩，但忽略了论文在结语中未对自身理论局限进行反思，也未回应可能存在的批评，这种封闭式论断不符合满分标准。",
+            "专家A和B均未提及结语中‘率先发展出成功应对复杂社会挑战的宪法机制’这一强烈断言所隐含的对批评性对话的排斥。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "论文成功建构'中国模式'对话位置，制度兼容性强，但反对意见回应与教义学转化仍显不足。",
+          "revision_rationale": "重新审读论文后，确认其共同体对话能力比我最初评估的更强：论文明确将自由主义、福利国家、社会主义作为三种并列范式进行类型学建构，而非简单否定西方理论；'中国模式'的提出具有清晰的对话意识和理论自觉，符合学术共识度中'可被定位回应'的标准。同时，论文对八二宪法文本、历史演进与官方话语的深度结合，确实达到了较高的制度可接受度。但我仍维持good档而非excellent档，原因在于：一是论文对'功能分化'移植性的潜在质疑（如卢曼理论的中国语境适配性）缺乏主动回应；二是'制度转化方向'仍偏抽象，专家B指出的'合宪性审查制度如何具体承载该理论'的操作性论证薄弱问题确实存在。专家A的85分和专家B的92分可能高估了论文对反对意见的回应深度。",
+          "accepted_points": [
+            "论文对西方范式的回应是'修正性'而非'否定性'的，具有明确的对话位置建构（专家A、B）",
+            "制度兼容性强，深度结合中国宪法文本、历史演进与官方话语（专家B）",
+            "引入功能分化的系统视角为'国家保护'条款提供了规范标准（专家A）"
+          ],
+          "rejected_points": [
+            "专家B认为'共同体对话度4/4'：论文虽回应西方范式，但未主动讨论'功能分化'作为移植性理论可能面临的'反多数难题''国家过度干预'等质疑，对话度未达满分",
+            "专家A认为'制度可接受度4/4'：制度转化方向仍较抽象，'政治调控'的具体边界、'功能分化'的司法适用标准尚未充分展开",
+            "专家B的92分可能忽视了论文在教义学转化层面的明显短板"
+          ],
+          "new_evidence_found": [
+            "论文第8页明确将三种范式作为'宪法功能'的类型学区分，而非价值等级排序，体现了方法论上的自觉",
+            "论文第11-12页对'政、治、民'三分的阐释，为'政治调控'提供了相对具体的制度分析框架",
+            "结语部分'中国则走出了一条独特的宪法道路'的表述，具有明确的范式竞争意识"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 36.04332685470581,
+        "qwen3.6-plus": 67.09750890731812,
+        "deepseek-v4-pro": 71.41149687767029,
+        "kimi-k2.6": 16.351993799209595
+      },
+      "round1_mean": 79.8,
+      "round2_mean": 76.5,
+      "round1_std": 10.5,
+      "round2_std": 4.4,
+      "convergence_improvement": 6.1
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 75,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "round2_scores": {
+        "glm-5.1": 65,
+        "qwen3.6-plus": 75,
+        "deepseek-v4-pro": 75,
+        "kimi-k2.6": 70
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 75,
+          "revised": 65,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 85,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 75,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 45,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 70,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 15,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 75,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "marginal",
+          "revised_core_judgment": "存在真实延展路径（社会约束标准与功能分化视角）并有初步框架，但前瞻未独立呈现，结语偏总结，缺乏操作化细节与局限反思。",
+          "revision_rationale": "接受专家B关于前瞻延展嵌套于论证内部而非独立呈现、以及专家A关于缺乏局限反思的观点。论文虽明确提出“社会约束标准”与“功能分化视角”并在末段给出四点初步框架，超越了口号式展望，但结语仅做宏观拔高，未形成系统前瞻议程，操作化路径仍较抽象，故下调至marginal档。",
+          "accepted_points": [
+            "前瞻延展多嵌套于论证内部而非独立呈现，未形成系统前瞻议程（专家B）",
+            "未说明本文局限或可质疑之处，未提供争论入口（专家A）"
+          ],
+          "rejected_points": [
+            "仅停留在意义重申或口号式展望（专家A）：论文明确提出了'基本权利社会约束标准'的具体研究任务，并在正文末段阐述了功能分化视角的四个初步作用框架，具有真实的理论延展路径，并非纯粹口号"
+          ],
+          "new_evidence_found": [
+            "正文末段详细阐述了引入功能分化视角作为社会约束标准的四个初步理由/框架（一致性、异质性、指引规范适用、引入国家保护义务），证明前瞻延展有初步理论支撑而非空泛口号"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 85,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "延展路径真实且指向明确，但多嵌入理论论证中，缺乏独立议程规划与具体操作化方案。",
+          "revision_rationale": "采纳专家B意见，论文虽精准定位理论空白并提出功能分化视角，但前瞻内容未独立呈现，缺乏概念操作化、具体权衡算法及审查场景推演，故下调至良好。专家A的“口号式”论断过于严苛，忽视了正文已提供的规范适用指引。",
+          "accepted_points": [
+            "延展多嵌套于论证内部，未形成独立研究议程",
+            "对功能分化操作化与社会本位具体化缺乏展开",
+            "合宪性审查适用场景推演偏宏观"
+          ],
+          "rejected_points": [
+            "缺乏真实具体延展路径/仅意义重申（理由：正文已明确将功能分化视角与基本权利社会约束标准确立为后续方向，并关联审查实践与具体部门法适用，具实质理论指引价值，非空洞口号）"
+          ],
+          "new_evidence_found": [
+            "正文指出发展基本权利社会约束标准是努力方向，并列举功能分化视角在界定非法经营罪、划定国家保护义务边界等方面的规范适用指引",
+            "结语落脚于中国特色宪法话语体系建构，但未提供分阶段研究计划或可检验的教义学命题"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 45,
+          "revised_band": "good",
+          "revised_core_judgment": "存在真实、具体的延展路径，明确指向“基本权利社会约束标准”与“功能分化视角”，与核心结论衔接紧密，但展开精细度有限。",
+          "revision_rationale": "重新审读原文，发现我之前过于严苛，混淆了“前瞻延展”与“自我批评”的要求。论文结语虽简短，但正文末尾两段明确提出了“讲清基本权利社会属性背后的社会机理，发展出适切的基本权利社会约束标准”及“引入功能分化的系统视角”两个具体后续研究问题，指明了理论空白与修正对象。这构成了真实、清晰的延展路径，符合good档标准，故上调评分至75分。",
+          "accepted_points": [
+            "论文明确指出了基本权利社会约束标准这一具体后续研究问题。",
+            "功能分化视角被明确确立为后续理论深化的关键工具。",
+            "正文精准定位了既有理论在基本权利社会义务边界与价值权衡上的空白。"
+          ],
+          "rejected_points": [
+            "评分85分（excellent档）过高。论文虽提出了具体路径，但对合宪性审查等制度场景的适用推演仍偏宏观，未初步展开具体建构方案，精细度距离excellent档尚有差距。"
+          ],
+          "new_evidence_found": [
+            "正文倒数第二段：“讲清基本权利社会属性背后的社会机理，发展出适切的基本权利社会约束标准，应是中国基本权利理论研究的努力方向。引入功能分化的系统视角，是这其中的关键。”",
+            "正文末尾段提出了将“功能分化的视角作为基本权利社会约束的规范标准”的四点理由，构成了对后续研究方向的初步论证。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 70,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 15,
+          "revised_band": "good",
+          "revised_core_judgment": "论文存在真实且清晰的延展路径，'功能分化'作为核心概念工具与基本权利社会约束标准的提出具有明确的前瞻性，但操作化细节仍待深化。",
+          "revision_rationale": "重新审读论文后，发现此前低估了论文前瞻延展性的系统性与清晰度。论文并非仅'嵌套'延展，而是在基本权利部分形成了相对独立的理论建构方向：明确提出'引入功能分化的系统视角'作为'中国基本权利理论研究的努力方向'，并具体化为'发展出适切的基本权利社会约束标准'这一研究任务。该路径具有三重特征：一是问题意识精准（个体自由与社会约束的张力、基本权利冲突权衡缺乏标准）；二是概念工具明确（功能分化）；三是规范目标清晰（社会本位基本权利理论）。这与专家A、B的判断更为接近。但'功能分化'如何具体化为司法审查中的权衡算法、'社会约束标准'的规范内涵如何展开，确实仍较抽象，距'excellent'档的精细度有差距，故上调至good档下限。",
+          "accepted_points": [
+            "专家A指出'明确提出了基本权利社会约束标准及功能分化视角的后续研究方向'，该判断准确",
+            "专家B指出'精准识别基本权利社会约束与价值权衡的理论空白'，论文确实在'如何通过保护基本权利实现对社会的调控'处明确指出了理论空白",
+            "专家B认为'路径清晰且与核心结论紧密咬合'，功能分化视角确实贯穿全文理论建构，并非孤立提及"
+          ],
+          "rejected_points": [
+            "专家B评分85分偏高：论文虽提出'功能分化'视角，但未充分展开'不同社会子系统冲突时的具体权衡算法'，此非小缺陷而是关键操作化缺失，不足以支撑excellent档",
+            "专家A认为'结语偏向当下总结拔高'是缺点，但此判断对评分影响有限，结语的功能在于收束而非延展"
+          ],
+          "new_evidence_found": [
+            "论文明确指出'如何通过保护基本权利实现对社会的调控，如何处理个体自由与社会共同体的关系，至今也没有发展出具有说服力的标准'，这是对理论空白的精准定位，构成前瞻延展的问题基础",
+            "论文提出'个体与系统的双重维度，可以为基本权利的保护提供一个相辅相成、互相制约的保障机制'，显示功能分化视角已初步形成分析框架而非仅概念提及",
+            "论文将功能分化与'国家保护义务的边界'结合，提出'国家保护的边界和必要性也应止步于此'，显示该视角已指向具体制度适用"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 51.72309398651123,
+        "qwen3.6-plus": 60.21957588195801,
+        "deepseek-v4-pro": 53.25032687187195,
+        "kimi-k2.6": 16.964000940322876
+      },
+      "round1_mean": 61.2,
+      "round2_mean": 71.2,
+      "round1_std": 24.3,
+      "round2_std": 4.8,
+      "convergence_improvement": 19.5
+    }
+  },
+  "overall": {
+    "round1_final_score_mean": 72.21,
+    "round2_final_score_mean": 71.83,
+    "group_changes": {
+      "a_group": {
+        "avg_change": -13.2,
+        "models": [
+          "glm-5.1",
+          "qwen3.6-plus"
+        ]
+      },
+      "b_group": {
+        "avg_change": 12.4,
+        "models": [
+          "deepseek-v4-pro",
+          "kimi-k2.6"
+        ]
+      }
+    }
+  }
+}

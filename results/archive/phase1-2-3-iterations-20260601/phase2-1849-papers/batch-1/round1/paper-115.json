@@ -1,0 +1,1063 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/主权原则在中国宪法中的展开.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留：部分注释编号转换异常（如文内残留㉑、㊳、㊿等格式编码），但文本语义完整，核心论点可定位。",
+          "参考文献缺失：文末标注“参考文献列表：（无）”，不符合完整学术论文格式，但论文论证自足，暂不影响内容评审。",
+          "期刊页码混入正文：例如“中国法学 2023年第6期 144”，但未破坏正文结构。"
+        ],
+        "evidence_quotes": [
+          "㉑ F. H. Hinsley, Sovereignty, Cambridge University Press, 1986, p.1.",
+          "㊳《在中央人民政府委员会第三十三次会议上周恩来总理兼外长的外交报告》，载《人民日报》1954年8月14日，第1版。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+          "现行宪法不仅赋予主权原则新内涵、新形式和新境界，也在宪法实施过程中落实了主权原则，即适用主权原则处理和解决宪法问题。",
+          "根据宪法确立的国家主权原则，在中英关于香港问题的外交谈判过程中，中国政府的态度一直明确且坚定……这也是现行宪法中的国家主权原则的生动实践。",
+          "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成‘强大的人民民主国家’。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献完全缺失，疑似OCR或源文件抽取失败。",
+        "部分注释编号存在OCR乱码，但不影响核心论点理解。"
+      ],
+      "evidence_quotes": [
+        "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释...",
+        "立法机关通过解释和适用宪法，推动建立行政诉讼制度...这是宪法中人民主权原则在立法实践中的具体运用。",
+        "现行宪法创设特别行政区制度，将‘一国两制’构想予以制度化，为恢复对香港和澳门行使主权、维护国家主权和领土完整奠定了宪法基础。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在OCR编码残留与参考文献缺失风险，但论文显著围绕中国宪法主权原则展开，具备完整的中国问题、法学问题、实践解释与理论转化信号，建议直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在特殊符号乱码（如⑪、㉑、■等）",
+          "期刊页码及刊名混入正文段落之间",
+          "参考文献列表抽取为空，但正文包含大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "143",
+          "中国法学 2023 年第6 期",
+          "⑪",
+          "■"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+          "宪法既是保障人民主权的根本法，也是捍卫国家主权的最高法，联结起主权的内外面向。",
+          "现行宪法关于主权原则的‘一体两翼’逻辑结构，即以过渡时期总任务为体，以人民主权和国家主权为两翼",
+          "主权原则紧密联结国内国际两个大局……这在新时代发展为总体国家安全观。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码及页眉信息混入正文",
+        "文本工程：参考文献列表抽取缺失"
+      ],
+      "evidence_quotes": [
+        "把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，完全符合进入六维评分的条件。文本存在脚注编号乱码和页眉混入的风险，但不影响核心论点定位，建议在后续评审阶段修复文本工程问题。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+          "主权概念也是中国宪法学的传统范畴……近年来，因应公法学和政治学领域'找回国家'的呼声，主权原则对于理解中国宪法和国家建构的意义得到重新评估。",
+          "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成'强大的人民民主国家'。",
+          "中国宪法中的主权原则是对中国近代以来'外争国权，内兴民权'的政治确认和宪法表达。",
+          "现行宪法不仅赋予主权原则新内涵、新形式和新境界，也在宪法实施过程中落实了主权原则，即适用主权原则处理和解决宪法问题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+        "中国宪法中的主权原则是对中国近代以来'外争国权，内兴民权'的政治确认和宪法表达。",
+        "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成'强大的人民民主国家'。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，直接进入六维评价。该文以主权原则为核心范畴，系统梳理了从《共同纲领》到'五四宪法'再到现行宪法的历史演进，对中国宪法中的主权原则进行了规范内涵挖掘、体系解释与实践功能分析，形成了'人民主权—国家主权'双重面向的理论框架，并提出了'强大的人民民主国家'等可复核命题，具有明确的中国问题中心性和理论转化贡献。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "主权原则贯穿于中国宪法制定和实施的全过程，构成理解宪法秩序的底层逻辑。",
+          "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+          "基于国家意象的展开、主权命题的确立和对主权民族的确认，现行宪法充实了国家主权原则的内涵。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "主权原则贯穿于中国宪法制定和实施的全过程，构成理解宪法秩序的底层逻辑。",
+        "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文高度契合项目口径，以中国宪法中的主权原则为核心议题，具备明确的规范解释与理论争辩性，深入阐释了中国宪法实践中的真实难题（如人民主权与国家主权的宪法统一、特别行政区制度、总体国家安全观等），并成功将经典主权理论转化为中国宪法学分析工具与可复核命题。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文是对主权原则在中国宪法文本中历史性展开的体系性阐释，但未提出具有理论分歧的可争辩法学问题。",
+          "core_judgment": "全文本质上是主题声明与既定立场的宏观阐释，未触及学者观点交锋，也未形成可争辩的法学研究问题，不符合问题创新性要求。",
+          "score_rationale": "可争辩性=0/4（无问题句，纯主题阐释），枢纽性=2/4，材料新颖性未触发上限。因无争点触发no_justiciable_question上限50分，又因纯宏观介绍无学术交锋触发检查2扣20分，最终得分=50-15=35分。",
+          "evidence_quotes": [
+            "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+            "归根结底，中国宪法中的主权原则是对中国近代以来“外争国权，内兴民权”的政治确认和宪法表达。"
+          ],
+          "strengths": [
+            "对主权原则在中国宪法文本中的内涵梳理较为系统，勾连了从《共同纲领》到现行宪法的历史脉络。"
+          ],
+          "weaknesses": [
+            "全文未提出可争辩的法学问题，仅是既有宪法文本的宏观介绍而非深度分析，无学者观点交锋。",
+            "引入“主权概念内外双重面向”的分析框架，但未说明该框架相对于既有理论的解释力进步，落入新概念包装旧问题模式。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何可争辩的法学问题句，只有主题声明，触发可争辩性≤1的上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文是‘主权原则在中国宪法中的展开’的主题阐释，未找到‘XX是否YY’‘如何ZZ’等问题句，亦无不同学者观点交锋。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否可争辩、重要且设定合理；不评文献综述是否充分、论证是否严密或材料支撑是否恰当。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以主题声明替代研究问题，宏观梳理缺乏深度交锋，实质为政策倡导。",
+          "core_judgment": "问题本身缺乏可争辩性，仅为阐释既定立场的体系归纳与政策倡导。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性已触发上限，锚定good档(65分)；前置检查扣35分(宏观介绍15+主题声明20)，给30分。",
+          "evidence_quotes": [
+            "把主权原则嵌入新中国宪法发展历程，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能",
+            "要积极发展全过程人民民主……坚定不移贯彻总体国家安全观"
+          ],
+          "strengths": [
+            "梳理了主权原则在三部宪法文本中的历史脉络",
+            "揭示了主权内外面向在宪法中的统一逻辑"
+          ],
+          "weaknesses": [
+            "全文缺乏核心可争辩的法学争点",
+            "仅宏观介绍而无学者观点的深度交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "核心为阐释主权原则的展开，表述宏大无聚焦争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "依赖新政策与史料复述主权原则贯穿始终的旧观点"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文系统梳理主权原则在中国宪法中的历史展开，但缺乏可争辩的法学问题意识。",
+          "core_judgment": "主题声明明确但研究问题缺失，全文为历史阐释与体系归纳，未形成真正的法学争点。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明，无法律规范解释或适用争点），枢纽性=2/4（涉及人民主权与国家主权两个制度领域，触及宪法基础概念），材料新颖性未触发上限，锚定unacceptable档，但枢纽性支撑上调至marginal档，给45分。扣分合计=45分（检查1扣20分：主权原则'双重面向'作为核心创新但未说明相对既有理论进步；检查2扣20分：全文无学者观点交锋，仅系统归纳既定立场；检查3扣5分：有问题句但实质是政策倡导）。扣分后不得低于30分，取45分。",
+          "evidence_quotes": [
+            "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释",
+            "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成'强大的人民民主国家'"
+          ],
+          "strengths": [
+            "主题涉及宪法基础理论，具有制度关联性",
+            "历史梳理较为完整，覆盖多部宪法文本"
+          ],
+          "weaknesses": [
+            "缺乏明确的问题句，全文为阐释性叙述",
+            "无学者观点交锋，未触及规范解释争议"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'类问题句，仅为主题声明'主权原则在中国宪法中的展开'"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "主题涵盖从《共同纲领》到现行宪法的全部历史，但无具体规范争点或解释路径分歧"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "本文系统梳理主权原则在中国宪法中的历史演进与规范内涵，但缺乏明确争点，偏向主题阐释。",
+          "core_judgment": "问题具备宪法基础理论与制度枢纽价值，但缺乏明确争点与交锋，属体系性阐释而非问题导向研究。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性未触发上限，锚定good档(65分)。触发负面模式：宏观介绍非深度分析扣15分，主题声明非研究问题扣30分，扣分合计45分。按规则保底30分。",
+          "evidence_quotes": [
+            "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释",
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战：人民主权原则面临祛魅……国家主权原则遭遇解构"
+          ],
+          "strengths": [
+            "紧扣宪法核心概念，贯通历史文本与规范体系",
+            "涉及人民主权与国家主权双重维度，制度关联广"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，偏向既定立场的体系化阐释",
+            "缺乏实质性的学者观点交锋与理论辩驳"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.07453393936157,
+        "glm-5.1": 83.818106174469,
+        "kimi-k2.6": 31.964417934417725,
+        "qwen3.6-plus": 101.90528321266174
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 30
+      },
+      "mean": 35,
+      "std": 7.1,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 68,
+          "band": "good",
+          "summary": "论文通过分散式文献定位展示了主权双重面向的理论发展脉络，但未明确将既有学术争论结构化为可区分的争点与对立流派。",
+          "core_judgment": "研究地图基础三要素部分满足，但缺少明确的争点结构和对立法学流派的系统识别，限制了文献洞察深度。",
+          "score_rationale": "三要素总分=4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=1个（跨学科法学理论：认知心理学与司法裁判交叉研究仅作比喻，实际为历史/规范分析路径），锚定good(65-74)档，给68分。",
+          "evidence_quotes": [
+            "戴雪把英国宪法归纳为“直接或间接影响国家主权权力之分配或行使的所有规则”。戈登·伍德...评述...“用于构建新联邦政府的人民主权概念最终厘清了特殊的美利坚宪法理念”",
+            "近年...学者提出以主权概念为基础形成中国的国家学说，也有学者主张以主权为切入口提炼中国宪法的核心范畴"
+          ],
+          "strengths": [
+            "对主权概念从博丹、格劳秀斯到凯尔森的理论演化有较系统追溯，构成有效到达点",
+            "清晰指出了“主权概念从宪法学中逐步淡出”及近年“找回国家”的呼声，回应学术趋势"
+          ],
+          "weaknesses": [
+            "未竟点仅表述为“接续...趋势”和“嵌入...发展历程”，未具体指明既有研究的具体缺口或分歧",
+            "法学流派识别不足：仅呈现一种规范分析路径，未将形式法治/实质法治、人民主权/国家主权的理论张力提炼为学术界争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_dispute_structure",
+              "rule": "争点结构不足与流派覆盖薄弱，虽不触发硬性上限，但限制得分至good区间中段",
+              "score_ceiling": 74,
+              "priority": 2,
+              "evidence": "论文呈现了主权双重面向的对立性描述，但未将其组织为可区分的学术争点；对外部主权的批评（如波利蒂斯）仅作为历史叙述，未构成学术争辩脉络。"
+            }
+          ],
+          "boundary_note": "评分为文献梳理深度（研究地图）而非问题本身创新性；论文选题创新性不予评价。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现主权原则的学术脉络与晚近争点，研究地图完整。",
+          "core_judgment": "本维度成立，文献定位深入，争点结构清晰，流派覆盖充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者提出以主权概念为基础形成中国的国家学说，也有学者主张以主权为切入口提炼中国宪法的核心范畴",
+            "人民主权原则面临祛魅……国家主权原则遭遇解构，民族国家终结论、国家主权过时论等学说竞相涌现"
+          ],
+          "strengths": [
+            "明确提炼既有研究到达点与未竟点，切入点对应紧密",
+            "呈现君主主权vs人民主权、一元论vs多元论等多重争点"
+          ],
+          "weaknesses": [
+            "理论发展史梳理偏重历史叙事，部分流派对立的学界争论语境稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献梳理与争点结构，不评问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以历史解释和制度建构为主线，但缺乏对既有学术研究的系统梳理与对话。",
+          "core_judgment": "研究地图三要素严重缺失，未建立清晰的学术争点结构，法学流派识别不足。",
+          "score_rationale": "三要素得分=2/6（到达点1，未竟点1，切入点0），争点结构=0/2，法学流派=1个，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "近年来，因应公法学和政治学领域'找回国家'的呼声，主权原则对于理解中国宪法和国家建构的意义得到重新评估，例如有学者提出以主权概念为基础形成中国的国家学说，也有学者主张以主权为切入口提炼中国宪法的核心范畴。本文接续上述研究趋势...",
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战：人民主权原则面临祛魅，论者批评其存在整体主义的理论陷阱...国家主权原则遭遇解构，民族国家终结论、国家主权过时论、国家主权弱化论、国家主权多元论等学说竞相涌现。"
+          ],
+          "strengths": [
+            "历史脉络梳理较为完整，呈现了主权概念的内外双重面向及其宪法统一。",
+            "涉及人民主权与国家主权的理论张力，有一定争点潜质。"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的具体成果与贡献，到达点模糊。",
+            "未指出具体学术争议或研究缺口，未竟点与切入点均不充分。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及'有学者提出''也有学者主张'两个模糊指向，未提炼具体成果贡献；未竟点仅泛述'受到诸多挑战'，未说明具体研究缺口；切入点仅说'本文接续上述研究趋势'，未对应未竟点。"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题创新性，论文的历史解释路径本身具有价值，但学术对话不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文清晰勾勒主权理论演进脉络，研究地图完整，争点与流派识别充分。",
+          "core_judgment": "本维度成立，作者通过分散式文献定位有效构建了主权原则的学术坐标。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "伴随宪法理论的逐步成熟……主权概念由此从宪法学中逐步淡出。",
+            "他反对二元论或者多元论体系……主张从一元论角度理解二者关系。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，理论源流与宪法史实有机嵌入论证。",
+            "清晰呈现凯尔森一元论与多元论等解释路径的对立与统合。"
+          ],
+          "weaknesses": [
+            "未竟点表述偏重趋势接续，对既有局限的批判性剖析稍显含蓄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点建构，不涉命题新颖性或论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.8231418132782,
+        "glm-5.1": 54.15125513076782,
+        "kimi-k2.6": 57.199572801589966,
+        "qwen3.6-plus": 76.92193484306335
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 75.2,
+      "std": 16.8,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文是对主权原则在中国宪法中规范内涵与实践功能的系统梳理与阐释，未提出具有可操作性的原创分析框架。",
+          "core_judgment": "全文以‘主权原则’的内外双重面向为线索，对《共同纲领》、‘五四宪法’和现行宪法进行历史与体系解释，属于典型的政策理论梳理型论文，缺乏原创的分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=1/4（仅有概念定义，无可循步骤，后文未调用分析框架），法学转化度得分=0/4（未提供裁判规则、操作流程或原创分析步骤），锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "本文把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释，从而深入发掘和阐释主权原则在中国宪法中的规范内涵与实践功能。",
+            "主权概念双重面向的理论使命是贯通和延续的，二者都旨在弱化宗教因素对世俗政治的影响，为近代国家的兴起铺设了基石。"
+          ],
+          "strengths": [
+            "对主权原则的宪法演进脉络梳理清晰。",
+            "结合《共同纲领》至现行宪法的历史材料进行体系化阐述。"
+          ],
+          "weaknesses": [
+            "仅归纳既有宪法文本和权威表述，未提出原创分析框架。",
+            "缺乏可重复适用的分析步骤或裁判判断标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发no_operational_framework上限规则：最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未提供任何可重复适用的分析步骤或判断流程，核心术语来自既有主权理论，无原创概念操作化定义。"
+            }
+          ],
+          "boundary_note": "本维度仅评分析框架是否成立与可用，不评论文的历史梳理是否详实或逻辑是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以主权内外双重面向为阐释维度，缺乏原创操作化分析框架。",
+          "core_judgment": "论文属于政策理论梳理型，虽提供阐释维度但未建构可操作的分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅有分类维度，无步骤与原创定义），法学转化度得分=1/4（仅概念关系映射），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "主权概念的内涵渐次丰满，拓展出内外双重面向：前者用于描述国家内部权力，强调主权的最高性；后者用于调整国家间关系，推崇主权的独立性。",
+            "宪法既是保障人民主权的根本法，也是捍卫国家主权的最高法，联结起主权的内外面向。"
+          ],
+          "strengths": [
+            "有效提炼主权内外双重面向作为贯穿全文的阐释维度"
+          ],
+          "weaknesses": [
+            "缺乏原创操作化定义与步骤化分析流程",
+            "法学转化停留在概念映射，未提供裁判或适用指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释主权原则在宪法中的历史展开与规范内涵为主，无原创框架建构"
+            }
+          ],
+          "boundary_note": "本维度评价框架建构力，不评价历史梳理的学术价值或逻辑严密性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以主权原则双重面向为线索梳理中国宪法史，缺乏原创分析框架。",
+          "core_judgment": "分析框架建构力不成立：仅有历史-体系描述性分类，无原创概念界定、类型化标准或可重复适用的判断步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅'对内/对外'分类标准明确，无概念操作化定义、无分析步骤、无后文调用），法学转化度得分=1/4（历史梳理本身不构成法学转化，无裁判规则或制度设计方案），触发政策理论梳理型上限规则，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释",
+            "主权原则的内外双重面向，具有同源性和同质性，二者均具有以下四点特征"
+          ],
+          "strengths": [
+            "历史-体系梳理脉络清晰，文献运用扎实"
+          ],
+          "weaknesses": [
+            "核心术语'主权原则'未作操作化定义，仅作描述性使用",
+            "全文无分析步骤或判断标准，'双重面向'未转化为可重复适用的评价框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以'梳理''阐释''展开'既定立场为主，核心术语'主权原则''双重面向'来自既有理论，无原创概念界定或类型化；主要贡献是历史-体系归纳而非建构分析框架"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力，不涉及历史叙述的逻辑严密性或文献价值。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建“主权双重面向”分析框架，贯穿宪法历史演进与规范解释，理论转化充分。",
+          "core_judgment": "框架成立且具备较强的宪法解释力与理论推演功能，符合理论型论文标准。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "主权概念拓展出内外双重面向：前者用于描述国家内部权力……后者用于调整国家间关系",
+            "《共同纲领》在领土、政治、经济和文化方面系统建构了主权原则，使之成为新中国的立国原则之一"
+          ],
+          "strengths": [
+            "“内外双重面向”分类标准清晰，贯穿三部宪法文本分析",
+            "理论推演与规范解释深度结合，框架调用频次高"
+          ],
+          "weaknesses": [
+            "缺乏程序化分析步骤，偏重历史叙事与理论阐释",
+            "制度操作指引较弱，未提炼具体裁判或适用规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.285728931427,
+        "glm-5.1": 49.286694049835205,
+        "kimi-k2.6": 72.56945586204529,
+        "qwen3.6-plus": 51.881349086761475
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 45,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 85
+      },
+      "mean": 52.5,
+      "std": 22.2,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文以“主权原则”为红线贯穿不同历史时期的宪法文本，形成清晰的演绎式推理链，结论可辩护地推出。",
+          "core_judgment": "推理链环环相扣，结论由前文充分支撑；虽有隐含分歧回应，但缺乏对可能的相反理论立场的显式辩驳，扣分在反驳处理度。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、链式依赖、结论可推出、无关键跳步），反驳处理度得分=2/3（满足隐含分歧回应和自身局限承认，缺显式反对意见或反例处理），锚定excellent档，因反驳强度稍弱给82分。",
+          "evidence_quotes": [
+            "主权概念有外部和内部双重面向...作为国家正当理由的对内主权，目前形成以人民主权为主流的理论和实践；作为国际法自主人格的对外主权，目前形成国家主权的独立和平等原则。",
+            "起临时宪法作用的《共同纲领》，从人民主权和国家主权两个维度确立了新中国的立国原则...这构成人民主权和国家主权的共同基础。"
+          ],
+          "strengths": [
+            "以“内外双重面向”为分析框架，从理论起源经《共同纲领》到现行宪法，推理链高度连贯且依赖性强。",
+            "结论部分回归“强大的人民民主国家”总命题，成功将历史叙事收敛于规范命题，形成逻辑闭环。"
+          ],
+          "weaknesses": [
+            "论文对“主权原则面临祛魅/解构”的晚近挑战仅概括性提及，未展开实质性反驳或辨析，削弱了理论的防守性。",
+            "从历史描述到规范结论的过渡中，部分段落偏重史料铺陈，局部论证密度不足，略影响推理的紧凑度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文推理链完整，问题在于对理论对手的显式回应不足，属于反驳处理度而非推理链断开，故不触发上限规则。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "主权双重面向理论建构与中国宪法历史实践形成严密互证，逻辑链条完整。",
+          "core_judgment": "本维成立，论文从理论建构到历史梳理再到实践检验，形成充分支撑的推理链。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。推理链环环相扣，对晚近解构主权的挑战亦有基于中国语境的实质性回应。",
+          "evidence_quotes": [
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战：人民主权原则面临祛魅……国家主权原则遭遇解构",
+            "宪法既是保障人民主权的根本法，也是捍卫国家主权的最高法，联结起主权的内外面向"
+          ],
+          "strengths": [
+            "理论建构与历史制度演进形成严密互证逻辑",
+            "对主权解构论等反对意见有基于中国语境的实质回应"
+          ],
+          "weaknesses": [
+            "凯尔森一元论向中国宪法双重面向的过渡论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价不涉及主权理论框架本身的政治可接受性，仅关注推导支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "历史解释型论文，主权双重面向的推演链条完整，但反驳处理薄弱。",
+          "core_judgment": "推理链完整性3/4，反驳处理度1/3，锚定good档。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立：可复述'理论起源→近代发展→宪法统一'三步链，每步依赖前步；核心结论'宪法联结主权内外面向'可由前文推出；但标准4存疑：从凯尔森一元论直接跳到'宪法作为根本基础规范联结内外主权'，过渡论证不足）。反驳处理度得分=1/3（识别了尼古拉斯·波利蒂斯对主权概念的反对及'国家主权过时论'等晚近批评，但均为提及式罗列，无实质性回应；无自身局限承认）。锚定good(70-79)档，给75分。",
+          "evidence_quotes": [
+            "凯尔森把主权问题处理为基础规范的选择问题……宪法作为根本的基础规范，无论抉择何者优先，均依赖于宪法的塑造和形成——宪法既确认了国内法律秩序的框架（人民主权），也确定了接纳和承认国际法律秩序的可能性及其范围（国家主权）",
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战：人民主权原则面临祛魅……国家主权原则遭遇解构……这些批评虽然有其理论关怀"
+          ],
+          "strengths": [
+            "历史演进与规范分析形成'双重面向→宪法统一'的清晰链条",
+            "从《共同纲领》到'五四宪法'再到现行宪法的纵向比较结构严谨"
+          ],
+          "weaknesses": [
+            "对凯尔森理论的运用存在跳步，未充分论证为何其国际法优先的一元论能直接支撑中国宪法语境",
+            "晚近批评仅被提及，未获实质回应，削弱结论的防御性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不评'宪法作为基础规范'这一框架本身的理论原创性或可接受性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以主权双重面向为基点，依循三部宪法文本演进，严密推演出主权原则的规范展开与实践功能。",
+          "core_judgment": "逻辑严密性成立。理论预设、历史文本分析与当代实践形成递进链条，核心结论由规范材料与历史论证充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。理论框架与宪法史演进紧密咬合，规范推导层层递进；对主权解构论作出情境化回应，论证闭环完整。",
+          "evidence_quotes": [
+            "主权概念双重面向的理论使命是贯通和延续的，二者都旨在弱化宗教因素对世俗政治的影响，为近代国家的兴起铺设了基石。",
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战……面对中国这样一个在近代遭遇深重民族危机的国家，主权原则仍可成为建构中国宪法理论的基础。"
+          ],
+          "strengths": [
+            "理论预设与宪法文本分析形成强依赖关系，推理链条完整无断裂。",
+            "对主权解构论的回应结合中国近代史语境，论证具有充分辩护力。"
+          ],
+          "weaknesses": [
+            "凯尔森一元论引入略显突兀，与后文历史实证的衔接可更紧密。",
+            "局限性承认偏重宏观语境，对具体规范适用边界的界定稍显模糊。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文材料与规范推导充分支撑，而非评价主权理论框架本身的学术创新性或可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.95329213142395,
+        "glm-5.1": 41.68457889556885,
+        "kimi-k2.6": 58.289852142333984,
+        "qwen3.6-plus": 77.76823091506958
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 88,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.2,
+      "std": 7.4,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过历史和体系解释，将主权原则嵌入中国宪法发展历程，结论在学术共同体和现行宪法秩序中具有较高的可接受性。",
+          "core_judgment": "结论与现行宪法秩序高度兼容，对理论源流和本土制度语境有充分回应，但对既有争论的直接对话和自身局限的讨论稍显不足。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定理论论文excellent档，给85分。",
+          "evidence_quotes": [
+            "接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释。",
+            "中国宪法中的主权原则是对中国近代以来‘外争国权，内兴民权’的政治确认和宪法表达。"
+          ],
+          "strengths": [
+            "结论明确回应了中国宪法学‘找回国家’等既有学术趋势和争论。",
+            "结论深嵌于《共同纲领》、五四宪法、现行宪法的文本与制宪史，与现行法秩序高度兼容。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认或回应可能的反对意见（如主权概念面临的祛魅或解构挑战）。",
+            "论文对自身论证的局限性（如历史解释的边界）未作明确交代。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论部分未直接承认或讨论反对意见，但未触发该规则，因为整体对话度得分≥3。"
+            }
+          ],
+          "boundary_note": "本评估聚焦结论当下的可接受性，不评判其论证逻辑严密性或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度回应学界对主权原则的挑战，并与中国宪法制度语境高度融合。",
+          "core_judgment": "结论可接受性高，成功进入共同体对话并回应制度约束，非单纯复述官方话语。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战：人民主权原则面临祛魅……国家主权原则遭遇解构",
+            "主权原则不仅可以成为建构具有中国主体性的国家理论和宪法理论的基础，同时在宪法实施……过程中对促进全过程人民民主、维护国家主权安全也有重要意义"
+          ],
+          "strengths": [
+            "明确回应学界对主权原则的祛魅与解构挑战",
+            "将理论结论转化为宪法实施与制度发展的正当化基础"
+          ],
+          "weaknesses": [
+            "结论与官方法治话语高度一致，理论突破性相对温和"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "本文以主权原则双重面向为理论框架，系统阐释中国宪法中的主权原则，结论具有明确的学术对话性和制度回应性。",
+          "core_judgment": "作为理论论文，结论有效回应了宪法学共同体关于主权概念淡出的学术争论，与中国宪法秩序高度兼容，但对外国理论挑战的回应深度有限。",
+          "score_rationale": "共同体对话度得分=3/4（回应主权概念淡出争论、可被反对者定位、扎根中国语境，但对外国理论挑战回应不足）；制度可接受度得分=2/4（与现行法秩序兼容、回应制度约束，但制度转化方向较抽象、未充分讨论外国理论的中国适配性）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文接续上述研究趋势，把主权原则嵌入新中国宪法发展历程，对中国宪法中的主权原则进行历史和体系解释",
+            "主权原则不仅可以成为建构具有中国主体性的国家理论和宪法理论的基础，同时在宪法实施、宪法解释和宪法监督过程中对促进全过程人民民主、维护国家主权安全也有重要意义"
+          ],
+          "strengths": [
+            "明确接续'找回国家'学术脉络，定位清晰",
+            "以宪法文本和历史文献为基础，制度语境扎实"
+          ],
+          "weaknesses": [
+            "对外国理论挑战回应较浅，未充分展开反驳",
+            "制度转化方向偏原则性，具体路径不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统阐释主权原则在中国宪法中的演进与内涵，结论高度契合现行法秩序与学术语境。",
+          "core_judgment": "结论明确回应主权解构争议，深度嵌入中国宪制实践，具备高度的共同体对话度与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "晚近以来，宪法中的主权原则在世界范围内受到诸多挑战……这些批评虽然有其理论关怀，但是面对中国……主权原则不仅可以成为建构具有中国主体性的国家理论和宪法理论的基础",
+            "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成‘强大的人民民主国家’"
+          ],
+          "strengths": [
+            "精准定位学术争论脉络，主动回应主权解构论",
+            "深度结合中国宪法文本与实施实践，制度锚点扎实"
+          ],
+          "weaknesses": [
+            "偏重历史与宏观叙事，对具体宪法争议的教义学转化稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.1767098903656,
+        "glm-5.1": 50.454365253448486,
+        "kimi-k2.6": 10.47578501701355,
+        "qwen3.6-plus": 60.937472105026245
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.2,
+      "std": 8.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "结语部分提出了“强大的主权国家”这一宏观政治愿景，但未进一步将这一发展方向具体化为可操作的法学研究议题或明确的修正路径。",
+          "core_judgment": "论文存在一个概括性的未来延展方向，但因缺乏具体的研究路径、待修正问题或概念边界的说明，仅能提供较低程度的延展价值。",
+          "score_rationale": "原始分45分，对应bonus档位为2分。主要证据是结语提出了主权原则在新时代的发展目标，但该论述停留在宏观政治叙事层面，并未指明未来的具体研究问题、理论修正方向或制度衔接路径，精细度不足。",
+          "evidence_quotes": [
+            "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成“强大的人民民主国家”",
+            "面临世界百年未有之大变局加速演进...要坚定不移贯彻总体国家安全观...要坚定不移贯彻总体国家安全观...要积极发展全过程人民民主"
+          ],
+          "strengths": [
+            "结语部分敏锐地提出了建成“强大的人民民主国家”这一统领性目标，隐含了向内和向外两个维度的未来发展方向。"
+          ],
+          "weaknesses": [
+            "未来发展方向停留于“强大的人民民主国家”这一宏大的政治愿景，未转化为“如何完善相关宪法制度”“如何澄清相关宪法概念”等具体法学问题。",
+            "未指出本文的具体论证局限或后续研究应围绕何种理论争点、制度困境或概念边界展开，延展路径不清晰。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语提出了未来的发展目标，这属于“未来还能往哪里走”的范畴，而非直接让共同体接受“当下结论是否正确”，故未与结论可接受性维度混淆。不过，其延展方式过于宏观。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了主权原则面临的理论挑战与本土建构方向，延展路径明确但精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了回应整体主义陷阱与建构本土国家学说的深化方向。",
+          "score_rationale": "原始分65，bonus=3（>=60档）。论文指出主权原则面临整体主义陷阱与解构挑战，给出建构本土国家学说及衔接总体国家安全观的延展方向，但缺乏具体修正机制与后续争点设计。",
+          "evidence_quotes": [
+            "论者批评其存在整体主义的理论陷阱，可能会因此忽视对具体个人权利的宪法保障",
+            "主权原则不仅可以成为建构具有中国主体性的国家理论和宪法理论的基础"
+          ],
+          "strengths": [
+            "指明了回应整体主义陷阱与个人权利保障的理论修正方向",
+            "将主权原则延展至总体国家安全观与全过程人民民主的制度场景"
+          ],
+          "weaknesses": [
+            "对如何克服整体主义陷阱缺乏具体概念修正路径",
+            "本土国家学说建构方向较宏观，未提出具体后续研究争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "回应整体主义陷阱与建构本土国家学说属于未来理论深化方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在结尾部分提出'建成强大的人民民主国家'目标，将主权原则与总体国家安全观、全过程人民民主结合，存在延展方向但缺乏具体路径展开。",
+          "core_judgment": "存在真实但较概括的延展路径，主要体现为宏观制度方向而非具体修正/深化路径。",
+          "score_rationale": "原始分45分，对应bonus=2的边际档位。论文结尾提出'强大的国家指向国家主权''人民民主国家指向人民主权'的二元框架，并关联总体国家安全观、全过程人民民主等新时代命题，构成可定位的延展方向。但延展较概括，未提出具体后续研究问题、概念修正路径或制度完善方案，也未承认正文局限并说明如何推进，精细度不足。",
+          "evidence_quotes": [
+            "基于主权原则的宪法展开，我们可以引申出新时代中国宪法的重要目标之一就是建成'强大的人民民主国家'",
+            "一方面，强大的国家指向国家主权原则……另一方面，人民民主国家指向人民主权原则"
+          ],
+          "strengths": [
+            "结尾将历史解释延伸至新时代命题，形成'主权原则—总体国家安全观—全过程人民民主'的宏观框架"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "未承认正文局限并说明后续推进路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文结尾是否提供了未来可继续推进的研究方向或制度完善路径，而非评估'建成强大人民民主国家'这一结论本身是否被共同体接受——后者属于结论可接受性范畴。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文结语明确指向主权原则在当代宪法解释、监督实践及回应全球化理论挑战中的深化路径。",
+          "core_judgment": "存在真实延展路径，聚焦于主权原则在宪法实施与解释中的具体适用及中国主体性宪法理论的建构方向。",
+          "score_rationale": "原始分68，映射bonus=3档。结语指明主权原则在宪法解释与监督中的适用场域，及回应主权解构论的理论建构方向，与正文历史-体系论证衔接紧密，但缺乏具体研究争点与局限说明。",
+          "evidence_quotes": [
+            "在宪法实施、宪法解释和宪法监督过程中对促进全过程人民民主、维护国家主权安全也有重要意义。",
+            "主权原则不仅可以成为建构具有中国主体性的国家理论和宪法理论的基础"
+          ],
+          "strengths": [
+            "明确指向宪法解释与监督的具体适用场域，避免空泛展望"
+          ],
+          "weaknesses": [
+            "未具体说明后续研究的争点或可检验的反驳入口"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估“未来还能往哪里走”（如宪法解释适用、理论回应方向），不涉及当下结论的学术共同体接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.64981722831726,
+        "glm-5.1": 37.11764311790466,
+        "kimi-k2.6": 12.29570984840393,
+        "qwen3.6-plus": 57.97732400894165
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 65,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 68
+      },
+      "mean": 55.8,
+      "std": 12.5,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 59.12,
+      "weighted_total": 61.5
+    },
+    "aggregation_strictest": {
+      "final_score": 47.35,
+      "weighted_total": 49.7
+    },
+    "avg_std": 12.4,
+    "max_std": 22.2,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 11.8,
+    "composite_score": -12.4,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 22.2
+  }
+}

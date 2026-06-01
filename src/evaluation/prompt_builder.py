@@ -33,7 +33,26 @@ def _render_template(template: str, paper: ProcessedPaper) -> str:
 
 
 def build_prompt(dimension: Dimension, paper: ProcessedPaper) -> str:
+    post_instruction = getattr(dimension, "post_content_instruction", None)
+    if post_instruction:
+        return _build_with_post_instruction(
+            dimension.prompt_template, post_instruction, paper
+        )
     return _render_template(dimension.prompt_template, paper)
+
+
+def _build_with_post_instruction(
+    template: str, post_instruction: str, paper: ProcessedPaper
+) -> str:
+    """指令后置模式：基础指令 + 论文 + 参考文献 + 后置关键规则"""
+    return (
+        f"{template.rstrip()}\n\n"
+        f"论文正文：\n{_paper_content(paper)}\n"
+        f"---\n"
+        f"参考文献列表：\n{_reference_content(paper)}\n"
+        f"---\n\n"
+        f"{post_instruction.rstrip()}"
+    )
 
 
 def build_precheck_prompt(framework: Framework, paper: ProcessedPaper) -> str:

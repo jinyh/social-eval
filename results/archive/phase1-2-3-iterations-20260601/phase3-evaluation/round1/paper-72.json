@@ -1,0 +1,1040 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGFX2025006006_中国法学_2025_证券虚假陈述民事赔偿中重大性要件的适用.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号混入正文（如第1、3、4等脚注在扫描稿中可能未正确识别为脚注，混在行文括号内）",
+          "参考文献列表缺失，无法判断引注体系完整性",
+          "存在期刊网站标注（‘中国法学 2025年第6期’、页码信息）混入正文，但未妨碍正文通读"
+        ],
+        "evidence_quotes": [
+          "中国法学 2025 年第6 期 106",
+          "（1）为确保研究结论的周延性……",
+          "（3）参见齐斌：《证券市场信息披露法律监管》，法律出版社2000 年版，第157 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国现行《证券法》第19、80、81条规定了信息披露义务人应当披露可能影响投资者决策或影响证券交易价格的重大性信息",
+          "2022年《若干规定》第10条……严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系，给司法实践造成了很大困扰。",
+          "本文……从因果关系推定理论出发，对证券虚假陈述民事诉讼不同阶段重大性要件的证明标准及举证责任配置等进行规则重构",
+          "虚假陈述行为的可赔偿性与侵权责任中的损失因果关系是一体两面的……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：参考文献列表缺失；部分脚注编号混行，可能影响脚注校勘，但主论证完整可评。",
+        "项目口径：无。"
+      ],
+      "evidence_quotes": [
+        "2022年《若干规定》未能厘清重大性要件的双重判断标准与证券虚假陈述可诉性及可赔偿性的内在逻辑关系",
+        "虚假陈述既区别于单纯的违法行为，也不同于对已发生损害结果的单纯赔偿请求，而是兼具可诉性和可赔偿性两个层面。",
+        "本文……从因果关系推定理论出发，对证券虚假陈述民事诉讼不同阶段重大性要件的证明标准及举证责任配置等进行规则重构"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在脚注/参考文献抽取风险，但不影响阅读与论证定位。直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及名称混入正文段落（如'105'、'中国法学 2025 年第 6 期'）",
+          "脚注编号及部分内容存在抽取残留或乱码（如'前注☒'）"
+        ],
+        "evidence_quotes": [
+          "105",
+          "中国法学 2025 年第 6 期",
+          "(26) 参见前注☒，徐宇翔文，第148 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国现行《证券法》第19、80、81条规定了信息披露义务人应当披露可能影响投资者决策或影响证券交易价格的重大性信息",
+          "2022年《若干规定》第10条……严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系，给司法实践造成了很大困扰",
+          "重大性要件的双重判断标准与证券虚假陈述可诉性及可赔偿性的内在逻辑关系"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及名称混入正文，需在后续阶段清洗",
+        "文本工程：脚注编号及部分内容存在OCR残留或乱码（如前注☒），需修复",
+        "项目口径：完全符合进入六维评价条件，无边界或不适格问题"
+      ],
+      "evidence_quotes": [
+        "重大性要件的双重判断标准与证券虚假陈述可诉性及可赔偿性的内在逻辑关系",
+        "2022年《若干规定》第10条……严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续文本工程阶段清洗混入的页码与期刊名，并修复脚注乱码"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如“前注☒”“前注⑲”“前注⑫”等乱码或非常规编号）",
+          "部分脚注引用格式为“参见前注☒，徐宇翔文”存在编号识别错误",
+          "参考文献列表缺失（标注为“无”）"
+        ],
+        "evidence_quotes": [
+          "参见前注☒，徐宇翔文，第148页。",
+          "参见前注⑲，王春平、吴耀宏文，第73页。",
+          "参见前注⑫，林文学、付金联、周伦军文，第49页。",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国现行《证券法》第19、80、81条规定了信息披露义务人应当披露可能影响投资者决策或影响证券交易价格的重大性信息",
+          "2022年1月21日最高人民法院出台的《关于审理证券市场虚假陈述侵权民事赔偿案件的若干规定》",
+          "该规定严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系，给司法实践造成了很大困扰",
+          "随着我国资本市场注册制的全面推行，证券虚假陈述民事赔偿案件数量飙升",
+          "从因果关系推定理论出发，对证券虚假陈述民事诉讼不同阶段重大性要件的证明标准及举证责任配置等进行规则重构",
+          "法院在开庭前就确定了权利人范围，这种做法实际上构成对案件的先行审理",
+          "民事诉讼对信息重大性的认定应当构建起与行政处罚不同的差异化标准"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留：多处出现“前注☒”“前注⑲”“前注⑫”等非常规编号，需核对原始文献",
+        "参考文献列表缺失，可能影响引证完整性核查"
+      ],
+      "evidence_quotes": [
+        "我国现行《证券法》第19、80、81条规定了信息披露义务人应当披露可能影响投资者决策或影响证券交易价格的重大性信息",
+        "2022年《若干规定》第10条规定存在三方面问题：一是未能厘清虚假陈述与重大性要件的基本关系……二是采取单一化的信息重大性判断标准……三是对重大性要件与影响证券交易价格的关系认识不清",
+        "从因果关系推定理论出发，对证券虚假陈述民事诉讼不同阶段重大性要件的证明标准及举证责任配置等进行规则重构，是完善我国证券虚假陈述民事赔偿制度亟须解决的重点和难点问题",
+        "民事诉讼对信息重大性的认定应当构建起与行政处罚不同的差异化标准"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，直接进入六维评价。文本质量总体良好，脚注编号存在少量OCR残留但不影响核心论点定位，无需因文本工程问题触发人工复核。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表抽取显示为“（无）”，但正文脚注引用完整，核心论点与论证链条清晰可定位"
+        ],
+        "evidence_quotes": [
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国现行《证券法》第19、80、81 条规定了信息披露义务人应当披露可能影响投资者决策或影响证券交易价格的重大性信息...",
+          "2022 年《若干规定》第10 条规定存在三方面问题：一是未能厘清虚假陈述与重大性要件的基本关系...二是采取单一化的信息重大性判断标准...三是对重大性要件与影响证券交易价格的关系认识不清。",
+          "如何科学认识2022 年《若干规定》第10 条与《证券法》第19、80、81 条之间的关系，进而从因果关系推定理论出发，对证券虚假陈述民事诉讼不同阶段重大性要件的证明标准及举证责任配置等进行规则重构..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表未成功抽取，属旁路工程问题，不影响项目口径判断与正文评审"
+      ],
+      "evidence_quotes": [
+        "2022 年《若干规定》混淆了可诉性和可赔偿性之间的关系，是对重大性要件在虚假陈述诉讼中不同层面因果关系的功能定位与证明机制存在严重的认识错误。",
+        "在起诉阶段，法院只要求原告提供存在虚假陈述的初步证明材料...在交易因果关系层面，法院主要审查虚假信息是否具有影响投资者决策的重大性..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文聚焦中国证券虚假陈述民事赔偿中的核心要件“重大性”，深入剖析2022年司法解释与《证券法》的规范冲突及司法适用困境，提出基于双层因果关系理论的证明标准与举证责任重构方案。具备明确的中国问题意识、可争辩的教义学命题及实践解释力，完全符合进入六维评价的项目口径。建议直接进入正式评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文指出了现行司法解释与上位法的冲突及其导致的实践混乱，但未提炼出一个可争议的法学理论问题，本质上是围绕规范缺陷展开的系统梳理与完善建议。",
+          "core_judgment": "论文将法律适用中的规范性冲突作为论述主题，但缺乏可争辩的学理问题，主要停留在对既有立场的阐释和修补，未形成法学理论上的创新性推进。",
+          "score_rationale": "可争辩性=2/4，枢纽性=1/4，材料新颖性未触发上限。文章虽有明确对象但属解释性研究，扣分后锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "该条规定……严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系，给司法实践造成了很大困扰。",
+            "归结上述三个问题，关键在于2022年《若干规定》未能厘清重大性要件的双重判断标准与证券虚假陈述可诉性及可赔偿性的内在逻辑关系"
+          ],
+          "strengths": [
+            "明确指出2022年司法解释第10条与《证券法》第80、81条之间的规范冲突，具有实践针对性。",
+            "引入可诉性与可赔偿性框架分析重大性要件，对司法适用逻辑进行了一定的理论化重构。"
+          ],
+          "weaknesses": [
+            "全文缺少一个可争论的法学问题句（如“XX是否YY”），仅是围绕解释论冲突展开的立场辨析。",
+            "未能展示学术界在重大性要件功能定位上的理论分歧与交锋，属于对规范缺陷的系统性归纳而非学理争辩。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题主要在现行规范解释而非开放性学术争点，问题表述为对制度缺陷的分析而非可争辩的法学命题。",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "摘要与各节标题均为阐释性表述（如“未能厘清”“认识不清”），未提出“重大性要件是否可以/应当……”类问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否构成可争辩的法学命题及其枢纽性，不评文献综述是否充分（现状洞察度）或论证是否严密（逻辑严密性）。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准揭示司法解释逻辑漏洞，重构重大性在双层因果关系中的适用。",
+          "core_judgment": "问题成立且极为重要，成功将重大性要件争议转化为可诉性与可赔偿性的法理争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，扣分0，给92分",
+          "evidence_quotes": [
+            "2022年《若干规定》严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系",
+            "如何科学认识2022年《若干规定》第10条与《证券法》之间的关系...对证明标准及举证责任配置等进行规则重构"
+          ],
+          "strengths": [
+            "精准切中司法解释混淆可诉性与可赔偿性的逻辑漏洞",
+            "将重大性功能嵌入双层因果关系，问题枢纽性极强"
+          ],
+          "weaknesses": [
+            "部分争点表述偏向对司法解释的批判，问题设定略显依附性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文聚焦证券虚假陈述民事赔偿中重大性要件的适用难题，提出可诉性与可赔偿性二分框架下的规则重构问题。",
+          "core_judgment": "问题具有明确的法学争点和制度实践意义，但创新性受限于对现有司法解释的批判性整理，理论推进幅度有限。",
+          "score_rationale": "可争辩性=3/4（明确问题句存在，涉及法学规范解释与制度设计，存在理论分歧，但部分论述偏向政策倡导）；枢纽性=3/4（影响证券法、民事诉讼法、证据法多个领域，涉及重大性标准长期争议，触及核心概念，制度连锁效应明确）；材料新颖性未触发上限。锚定excellent档下限，因问题表述偏重制度介绍与规则重构，理论原创性稍弱，给72分。扣分合计=0分。",
+          "evidence_quotes": [
+            "如何科学认识2022年《若干规定》第10条与《证券法》第19、80、81条之间的关系，进而从因果关系推定理论出发，对证券虚假陈述民事诉讼不同阶段重大性要件的证明标准及举证责任配置等进行规则重构",
+            "2022年《若干规定》混淆了可诉性和可赔偿性之间的关系，是对重大性要件在虚假陈述诉讼中不同层面因果关系的功能定位与证明机制存在严重的认识错误"
+          ],
+          "strengths": [
+            "问题聚焦司法解释与上位法的规范冲突，具有明确可争辩性",
+            "提出可诉性与可赔偿性二分框架，具有理论整合价值"
+          ],
+          "weaknesses": [
+            "部分论述偏向制度介绍与规则重构，理论创新深度有限",
+            "对'影响投资者决策'与'价格敏感性'标准的融合适用，论证尚不充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身的可争辩性与枢纽性，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦2022年司法解释重大性要件适用混乱，厘清可诉性与可赔偿性逻辑，重构双层因果关系证明机制。",
+          "core_judgment": "问题明确具可争辩性，直击证券虚假陈述裁判核心争点，枢纽性极强。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置扣分0。",
+          "evidence_quotes": [
+            "2022年《若干规定》第10条……严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系",
+            "如何科学认识2022年《若干规定》第10条与《证券法》……对证明标准及举证责任配置等进行规则重构"
+          ],
+          "strengths": [
+            "精准识别司法解释与上位法规范冲突",
+            "构建可诉性与可赔偿性分层审查框架"
+          ],
+          "weaknesses": [
+            "对非有效市场下价格敏感性标准的实证支撑稍弱",
+            "部分论证偏重教义推演，跨法域比较可深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.4586980342865,
+        "glm-5.1": 54.956501960754395,
+        "kimi-k2.6": 12.14199686050415,
+        "qwen3.6-plus": 59.8964729309082
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 77.8,
+      "std": 17.9,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文未建立清晰的研究地图，仅通过个别脚注和零星提及进行文献定位，无法呈现既有研究的到达点、未竟点和争点结构。",
+          "core_judgment": "论文正文未构建出可识别的研究地图，缺乏具体的文献综述和争论梳理，导致现状洞察度很低。",
+          "score_rationale": "三要素总分=1/6（到达点1分，未竟点0分，本文切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "参见齐斌：《证券市场信息披露法律监管》，法律出版社2000年版，第157页。（第106页）",
+            "参见缪因知：《信息确定性视角下的披露与反欺诈制度一体性》，载《中外法学》2023年第5期，第1325页。（第107页）"
+          ],
+          "strengths": [
+            "引用了部分学者观点（如缪因知、焦津洪等），试图定位个别理论问题。"
+          ],
+          "weaknesses": [
+            "全文无独立的文献综述，也未在论证中分散定位现有研究的系统成果与争议；",
+            "未指出学界对重大性要件判断标准、可诉性与可赔偿性关系的具体对立观点或争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅通过少量脚注提及个别学者观点，未竟点和本文切入点均未涉及与既有研究的对话，三要素总分仅1分。"
+            }
+          ],
+          "boundary_note": "本文主要在规范分析和制度建构，而非评述或回应既有学术争议，故现状洞察度低属文献定位问题，非问题创新性判断。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "研究地图完整，清晰呈现重大性要件的主客观标准之争及功能定位分歧。",
+          "core_judgment": "文献定位充分，争点结构清晰，有效区分了可诉性与可赔偿性。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "司法实务中对重大性标准的判断呈现出一元论、二元论及三元论等多种观点",
+            "国内学界长期以来对于重大性要件的基础理论研究存在严重不足"
+          ],
+          "strengths": [
+            "精准识别主客观标准之争与功能定位分歧",
+            "未竟点与切入点逻辑对应紧密"
+          ],
+          "weaknesses": [
+            "流派识别依赖实务观点分类，纯理论流派略少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点呈现，不评问题创新性或论证严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了较完整的研究地图，呈现行政监管与民事司法二元对立及价格敏感性与投资者决策标准之争，但三要素分散且部分未竟点表述不够聚焦。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但法学流派识别以制度立场对立为主，缺乏明确学派标签，整体处于good档中游。",
+          "score_rationale": "三要素得分=4/6（到达点2：梳理了立法演变与司法解释；未竟点1：指出2022年规定混淆可诉性与可赔偿性但分散多处；切入点1：提出因果关系推定下的规则重构但对应不够紧密），争点结构=2/2（可诉性/可赔偿性二元结构+价格敏感性与投资者决策标准之争），法学流派=2个（行政监管立场vs民事司法立场；价格敏感性标准vs投资者决策标准），锚定good档，给72分。",
+          "evidence_quotes": [
+            "司法实务中对重大性标准的判断呈现出一元论、二元论及三元论等多种观点",
+            "民事诉讼对信息重大性的认定应当构建起与行政处罚不同的差异化标准"
+          ],
+          "strengths": [
+            "清晰呈现可诉性与可赔偿性的双层诉讼结构争点",
+            "系统比较行政监管与民事司法的重大性认定差异"
+          ],
+          "weaknesses": [
+            "未竟点分散于正文各处，缺乏集中明确的文献缺口陈述",
+            "学说梳理以制度立场为主，缺乏明确学派归属的理论对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；此处三要素=4，不适用",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4分，争点结构2分，流派2个，未触发该上限"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性；论文对2022年司法解释的批判属于制度分析而非理论创新评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制重大性要件研究地图，清晰呈现主客观标准分歧与逻辑断裂，文献定位扎实。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "国内学界长期以来对于重大性要件的基础理论研究存在严重不足，从而造成立法与实践层面认识分歧",
+            "司法实务中对重大性标准的判断呈现出一元论、二元论及三元论等多种观点"
+          ],
+          "strengths": [
+            "精准提炼主客观标准与可诉/可赔偿性双重逻辑断裂",
+            "将文献梳理深度融入诉讼阶段证明机制分析"
+          ],
+          "weaknesses": [
+            "未竟点表述偏重规范批判，对实证研究缺口着墨较少",
+            "部分域外理论引述未充分展开本土化争点对比"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构呈现，非评价问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.28528904914856,
+        "glm-5.1": 67.15265488624573,
+        "kimi-k2.6": 12.496792078018188,
+        "qwen3.6-plus": 81.40463185310364
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 80,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.8,
+      "std": 24.6,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文重在对司法解释条文矛盾进行法教义学梳理和批评，但始终未提出一个可重复适用的原创分析框架或判断步骤。",
+          "core_judgment": "全文以规范分析和体系阐释为主，核心术语高度依赖既有法律文本，缺乏原创概念界定和可操作的分析框架建构。",
+          "score_rationale": "框架可操作性得分=0/4（概念无独立定义、无分类标准、无分析步骤、后文无框架调用），法学转化度得分=1/4（仅在制度层面提出了审查区分主张），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "虚假陈述与重大性要件之间存在三层交互式结构关系：一是...二是...三是...（第109页）",
+            "2022年《若干规定》混淆了可诉性和可赔偿性之间的关系，是对重大性要件在虚假陈述诉讼中不同层面因果关系的功能定位与证明机制存在严重的认识错误（第118页）"
+          ],
+          "strengths": [
+            "对2022年《若干规定》第10条与《证券法》规范冲突的梳理较为清晰。",
+            "区分虚假陈述可诉性与可赔偿性两个层面的分析视角具有一定的启发性。"
+          ],
+          "weaknesses": [
+            "全文以阐释和批评既有规定为主，未提出“本文所称重大性可诉性审查标准为……”等原创定义或判定步骤。",
+            "“可诉性/可赔偿性”的区分停留在理论主张层面，未转化为可逐步操作的审查步骤或举证规则框架。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无原创定义、无任何可循的分析步骤、无法学转化，框架可操作性=0",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文核心概念（重大性、可诉性、可赔偿性）均直接引用法条或司法解释，无“本文所称...是指...”的独立界定，也未提出分步骤的判断流程或操作指引。"
+            }
+          ],
+          "boundary_note": "此评价限于文章自身的分析框架建构力，不涉及文章对条文理解的正确性或论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "构建了“可诉性-可赔偿性”与双层因果关系映射框架，操作性与法学转化度极高。",
+          "core_judgment": "框架高度成立，将重大性要件成功转化为分阶段的裁判规则与举证责任分配方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "重大性要件区分为可诉性与可赔偿性，对应交易因果关系与损失因果关系",
+            "起诉阶段形式审查，交易因果关系实质审查影响决策，损失因果关系实质审查价格敏感性"
+          ],
+          "strengths": [
+            "诉讼阶段与因果关系双层映射框架极具操作性",
+            "举证责任分配方案提供了清晰的裁判指引"
+          ],
+          "weaknesses": [
+            "信息抵消的举证责任分配在实务中可能面临取证困难"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不评价其经济学前提假设的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出'可诉性—可赔偿性'双层分析框架，但核心术语界定模糊，分析步骤缺乏可操作性，后文调用不充分。",
+          "core_judgment": "框架具有制度/实务型论文的问题意识，但'可诉性—可赔偿性'二分框架未转化为明确的裁判规则或举证责任配置步骤，法学转化度不足。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定部分清晰但'可诉性''可赔偿性'缺乏明确定义；有分类标准但边界模糊；分析步骤可循但不够具体；后文实际调用约2-3次），法学转化度得分=2/4（跨学科概念无；有裁判规则雏形但未形成明确操作指引；制度设计层面仅有方向性建议；转化步骤后文有使用但不够系统），锚定marginal档，给58分",
+          "evidence_quotes": [
+            "诉讼结构上的可诉性和可赔偿性与证券虚假陈述致投资者损害侵权责任的双重因果关系存在逻辑对应关系",
+            "交易因果关系阶段与起诉阶段，投资者提供的虚假陈述行为的证据其实是相同的，但在起诉阶段，法院只是形式审查，而在交易因果关系阶段，法院需要实质审查虚假陈述行为是否确实存在"
+          ],
+          "strengths": [
+            "问题意识明确，聚焦2022年《若干规定》第10条的实务困境",
+            "尝试构建'可诉性—可赔偿性'与'交易因果关系—损失因果关系'的对应关系"
+          ],
+          "weaknesses": [
+            "'可诉性''可赔偿性'作为核心框架术语，缺乏'本文所称...'的明确定义，边界模糊",
+            "框架未转化为具体的举证责任配置步骤或裁判规则，止于现象描述与理论阐释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'可诉性''可赔偿性'作为全文核心分析框架，未见'本文所称可诉性是指...'的明确定义，且框架未转化为具体裁判规则或举证步骤，后文分析仍以描述性阐释为主"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构力与法学转化度，不涉及逻辑严密性或问题新颖性评价",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“可诉性/可赔偿性”二分与“双层因果关系”对应的诉讼阶段分析框架。",
+          "core_judgment": "框架成立且高度可用，清晰界定了重大性要件在不同诉讼阶段的审查标准与证明责任分配。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "民事赔偿诉讼在诉讼结构上可以分为可诉性和可赔偿性两个层次……诉讼程序结构，总体上可以分为起诉与受理以及审理与裁判两个阶段。",
+            "在交易因果关系层面，法院主要审查虚假信息是否具有影响投资者决策的重大性……在损失因果关系层面，被告需要进一步举证"
+          ],
+          "strengths": [
+            "清晰划分起诉形式审查与审理实质审查的阶段性标准",
+            "将重大性要件精准映射至双层因果关系与证明责任分配"
+          ],
+          "weaknesses": [
+            "部分裁判规则重构仍依赖学理推演，缺乏实证数据支撑",
+            "对非有效市场情境下的价格敏感性标准适用边界论述稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.446974992752075,
+        "glm-5.1": 51.5130569934845,
+        "kimi-k2.6": 14.566896915435791,
+        "qwen3.6-plus": 62.65540814399719
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 95,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 72.5,
+      "std": 24.9,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从立法批判到可诉性/可赔偿性区分的严密推理链，核心结论均有充分支撑，但未显式处理对立学说。",
+          "core_judgment": "逻辑严密性成立。论文核心结论由前文规范分析与法理推演可辩护地推出，推理链完整且无明显关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档。推理步骤清晰递进，隐含处理了路径分歧并承认适用边界，但因缺少显式反对意见回应扣减少量分数，综合给88分。",
+          "evidence_quotes": [
+            "该规定严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系，给司法实践造成了很大困扰。",
+            "《证券法》第80、81条已经明确将可能影响证券交易价格的12种情形界定为重大事件，2022年《若干规定》则规定即便是上述12种重大事件情形，只要其不影响证券交易价格，就不具有重大性。这违反了上位法的规定。"
+          ],
+          "strengths": [
+            "推理步骤清晰可复述：从立法缺陷出发，剖析虚假陈述与重大性关系，最终推导出可诉性/可赔偿性二分的核心框架。",
+            "通过区分交易因果关系与损失因果关系，为制度重构提供了坚实的法理支撑，逻辑依赖度高。"
+          ],
+          "weaknesses": [
+            "论文未显式提及并回应“重大性一元标准论”等可能对立学说，反驳处理显性度不足。",
+            "结论部分将问题归结为“体系化思维不足”稍显笼统，若能更紧密回扣前文的二分层级分析则更严密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文为规范解释与制度重构型论文，其逻辑链在于揭示规范冲突与法理混淆，而非实证框架操作，不评框架可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过诊断现行规定缺陷，重构重大性要件在双层因果关系中的适用逻辑，推理链完整且反驳处理充分。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文可辩护地推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "有学者认为……重大性要件是作为信赖要件的替代要件而存在的。这种观点其实误解了欺诈市场理论。",
+            "证券交易价格未发生变化……各种因素交杂结果可能导致证券交易价格未发生明显波动。"
+          ],
+          "strengths": [
+            "从问题诊断到理论重构再到适用方案的推理链层层递进，依赖度高。",
+            "对理论分歧和实务反例均有实质性回应与论证。"
+          ],
+          "weaknesses": [
+            "局部证明机制（如信息抵消举证）的推导稍显简略，但未断裂主线。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价逻辑推导链条的严密性，不评价所提双层区分框架在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'规范文本分析→内在关系厘清→证明机制重构'的三层推理链，逻辑主线清晰，但反驳处理存在明显短板。",
+          "core_judgment": "推理链完整性基本成立，但反驳处理度不足，未能有效回应'价格敏感性标准更具可操作性'等实务性质疑。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'主客观标准应统一'到'应区分可诉性与可赔偿性'的过渡缺乏充分论证）；反驳处理度得分=1/3（仅标准1成立，识别了反对意见但未实质性回应；标准2、3不成立）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "2022年《若干规定》第10条混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系",
+            "交易因果关系的事实推定乃是原告证明责任减轻的方法，而损失因果关系层面的法律推定，是将结果意义上的证明责任转移至被告"
+          ],
+          "strengths": [
+            "三层推理结构完整：从立法文本批判到内在关系建构，再到证明机制重构",
+            "主客观标准统一性论证充分，揭示了价格变化与投资者决策的表里关系"
+          ],
+          "weaknesses": [
+            "未回应'价格敏感性标准更具可操作性'的实务质疑，反驳处理流于形式",
+            "从'应区分可诉性与可赔偿性'到具体制度设计的推导存在跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的完整性与反驳处理度，不涉及制度方案本身的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“规范批判→理论重构→程序适配”的严密推理链，结论可辩护推出。",
+          "core_judgment": "推理链完整且环环相扣，反驳处理充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "2022年《若干规定》混淆了可诉性和可赔偿性之间的关系，是对重大性要件在虚假陈述诉讼中不同层面因果关系的功能定位与证明机制存在严重的认识错误。",
+            "在损失因果关系推定前提下，应由被告全面举证虚假陈述实际上引发了证券交易价格的变化程度，或者说其他因素分别给证券交易价格造成了多大变化。"
+          ],
+          "strengths": [
+            "规范分析与诉讼阶段划分严密对应，推理链条无断裂。",
+            "对行政监管与民事审判的逻辑差异回应充分，论证扎实。"
+          ],
+          "weaknesses": [
+            "部分因果推定与举证责任转换的衔接略显繁复，可进一步精简。",
+            "对“非有效市场”下价格敏感性标准的替代方案论证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦规范解释与诉讼证明机制的逻辑推演，非框架建构评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.51503586769104,
+        "glm-5.1": 55.162428855895996,
+        "kimi-k2.6": 12.540081977844238,
+        "qwen3.6-plus": 65.10373783111572
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 9.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 75,
+          "band": "good",
+          "summary": "论文对现行司法解释提出体系性批评并重构重大性要件适用逻辑，结论清晰回应了制度争论，但未明确回应反对意见且部分论证存在局限。",
+          "core_judgment": "结论挑战了主流司法解释，但在共同体对话语境中具有明确论辩位置，能被反对者定位和回应，制度可接受度较高。",
+          "score_rationale": "共同体对话度得分=3/4（未达标标准4），制度可接受度得分=3/4（未达标标准3），理论论文锚定good档，给75分。",
+          "evidence_quotes": [
+            "该规定严重混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系，给司法实践造成了很大困扰。",
+            "未来在理论层面重构重大性要件的适用规则时，不能仅凭实用主义的简单理解，而需要更具复合性的顶层设计方案与体系化思维。"
+          ],
+          "strengths": [
+            "结论精确回应了《证券法》与2022年《若干规定》的规范冲突，进入共同体可争论语境。",
+            "通过可诉性/可赔偿性二分，将批评转化为可操作的理论框架，与现行法秩序逻辑兼容。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认并讨论自身理论的边界或可能招致的反对意见。",
+            "缺乏对理论如何转化为具体裁判规则或程序衔接的制度转化方向说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评不涉及论证严密性及未来延展性，仅衡量结论的共同体对话度与制度可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "结论重构了重大性要件的双重适用标准，高度回应共同体争论与中国实务约束。",
+          "core_judgment": "结论清晰挑战现行司法解释，提出可诉性与可赔偿性区分的替代方案，对话度与制度度均极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分。结论精准回应重大性标准争论，提出分阶段适用规则，制度转化方向明确。",
+          "evidence_quotes": [
+            "结论修正了2022年《若干规定》单一价格敏感性标准，主张区分可诉性与可赔偿性。",
+            "明确指出起诉、交易因果关系、损失因果关系三阶段的重大性审查与举证分配方向。"
+          ],
+          "strengths": [
+            "精准批判司法解释与上位法冲突，提出逻辑自洽的双重标准替代方案。",
+            "制度转化方向具体，细化了诉讼各阶段的审查标准与证明责任。"
+          ],
+          "weaknesses": [
+            "对信息作用力相互抵消时原告证明困境的解决方案仍面临实务检验挑战。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文对2022年司法解释第10条提出体系化批判，主张区分可诉性与可赔偿性层面的重大性标准，结论具有明确的学术对话性和制度回应性。",
+          "core_judgment": "论文结论进入共同体对话，对现行法秩序有明确回应，但制度转化方向表述较为原则，未充分展开具体规则设计。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有司法解释争论、可被定位反驳、结合中国法语境，但未充分讨论反对意见）；制度可接受度得分=2/4（不矛盾、有原则回应，但制度转化方向较空泛、未深入中国特殊制度条件）；锚定good档，给72分。",
+          "evidence_quotes": [
+            "2022年《若干规定》第10条混淆了重大性要件在虚假陈述可诉性和可赔偿性层面的逻辑关系",
+            "未来在理论层面重构重大性要件的适用规则时，不能仅凭实用主义的简单理解，而需要更具复合性的顶层设计方案与体系化思维"
+          ],
+          "strengths": [
+            "明确挑战2022年司法解释，学术定位清晰",
+            "结合《证券法》条文与司法判例展开论证"
+          ],
+          "weaknesses": [
+            "结论部分制度转化方向较空泛，缺乏具体规则设计",
+            "未充分讨论自身理论可能面临的反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确回应司法实践争议，提出重大性要件在可诉性与可赔偿性层面的区分适用路径，契合中国法秩序。",
+          "core_judgment": "该结论具备高度的共同体对话度与制度兼容性，能够被学界与实务界有效定位并回应。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准切入司法解释争议，提出双层因果关系与证明责任重构方案，逻辑自洽且契合中国语境。",
+          "evidence_quotes": [
+            "2022年《若干规定》混淆了可诉性和可赔偿性之间的关系，是对重大性要件在虚假陈述诉讼中不同层面因果关系的功能定位与证明机制存在严重的认识错误。",
+            "未来在理论层面重构重大性要件的适用规则时，不能仅凭实用主义的简单理解，而需要更具复合性的顶层设计方案与体系化思维"
+          ],
+          "strengths": [
+            "精准定位司法解释与上位法的规范冲突，提出可诉性与可赔偿性二分框架",
+            "结合起诉与审理阶段差异，系统重构证明责任与审查标准"
+          ],
+          "weaknesses": [
+            "对反对意见（如司法效率与防滥诉考量）的回应略显单薄",
+            "部分制度转化路径仍偏重学理阐释，具体程序衔接方案可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下能否被共同体与制度语境接受，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 76.26592183113098,
+        "glm-5.1": 51.05632495880127,
+        "kimi-k2.6": 10.937450885772705,
+        "qwen3.6-plus": 56.50047302246094
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 82.5,
+      "std": 10.8,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文在结语中明确提出了“理论层面重构复合性顶层设计”和“实践层面推动主客观标准融合适用”的双重延展方向，路径清晰且与正文核心批判紧密衔接，但未展开具体修正步骤或后续研究问题，精细度有限。",
+          "core_judgment": "存在明确的、可定位的未来研究/改进路径，与正文论证有可解释的衔接，但路径的细节展开仍较概括。",
+          "score_rationale": "原始分78分，对应bonus=3档。结语指出了未来需进行“复合性顶层设计”和“主客观标准融合适用”，并在前文批判了司法解释的单一化标准，延展信号真实且可定位，但缺乏更具体的理论假设或制度修正步骤，因此落入60-79区间。",
+          "evidence_quotes": [
+            "未来在理论层面重构重大性要件的适用规则时，不能仅凭实用主义的简单理解，而需要更具复合性的顶层设计方案与体系化思维；",
+            "实践层面，应积极通过司法审判推动相关标准完善，尽快实现重大性要件主客观标准之间的融合适用。"
+          ],
+          "strengths": [
+            "明确区分了理论复合性设计与实务融合适用两条延展路径，与正文对司法解释单一化标准的批判衔接自然。",
+            "延展方向扣合论文核心争点，即澄清可诉性与可赔偿性逻辑关系，从而为后续研究提供了具体的切入框架。"
+          ],
+          "weaknesses": [
+            "未进一步说明“复合性顶层设计”包含哪些可能要素，也未提出可供检验的具体理论假设或制度节点。",
+            "对主客观标准融合适用的程序障碍或冲突场景缺乏预判，使得延展路径的精细度和可操作性受限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评价的是论文对未来研究或制度改进方向的指引价值，不涉及正文当下论证逻辑的严密性或其结论能否被司法实务接受，后者分别属于逻辑严密性和结论可接受性维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "指明了重大性要件主客观标准融合及双层因果关系重构的宏观制度完善方向，并在正文提出具体后续争点。",
+          "core_judgment": "存在真实延展路径，指明了制度重构方向与具体后续研究争点，但结尾展望稍显概括。",
+          "score_rationale": "原始分75，bonus档位为3（>=60）。正文提出了信息抵消举证责任、民行差异标准等具体后续争点，结尾指明主客观标准融合适用与顶层设计方向，存在明确延展路径但精细度有限。",
+          "evidence_quotes": [
+            "信息作用力相互抵消的举证责任究竟如何分配值得深入研究。",
+            "未来在理论层面重构重大性要件的适用规则时，不能仅凭实用主义的简单理解，而需要更具复合性的顶层设计方案与体系化思维。"
+          ],
+          "strengths": [
+            "正文自然引出具体后续争点（如信息抵消举证分配、交易量标准斟酌）。",
+            "明确指出了制度完善的核心方向（主客观标准融合适用）。"
+          ],
+          "weaknesses": [
+            "结尾展望偏向宏观呼吁，缺乏对重构规则具体路径或实施风险控制的展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "主客观标准融合的具体规则设计及信息抵消举证分配属于未来制度完善方向，而非当下结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结论部分提出了重大性要件规则重构的复合性顶层设计与主客观标准融合适用的方向，并指出司法审判推动标准完善的具体路径，但延展深度有限。",
+          "core_judgment": "存在真实延展路径，但主要集中于文末概括性制度方向，缺乏对后续具体研究问题或理论修正路径的展开。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文结尾提出'复合性顶层设计方案与体系化思维''主客观标准融合适用'等明确方向，并区分理论与实践层面的推进路径，属于可定位的延展；但未提出下一轮具体争点、概念修正路径或制度衔接的细化方案，精细度不足，未达80分以上。",
+          "evidence_quotes": [
+            "未来在理论层面重构重大性要件的适用规则时，不能仅凭实用主义的简单理解，而需要更具复合性的顶层设计方案与体系化思维；至于实践层面，应积极通过司法审判推动相关标准完善，尽快实现重大性要件主客观标准之间的融合适用。",
+            "这是需要理论界与实务界持续共同研究的任务。"
+          ],
+          "strengths": [
+            "明确区分理论与实践层面的推进路径，具有可定位性。",
+            "提出'复合性顶层设计''体系化思维'等具体修正方向。"
+          ],
+          "weaknesses": [
+            "未提出下一轮具体研究问题或争点，延展深度有限。",
+            "'持续共同研究的任务'表述偏泛，缺乏后续切入的具体机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究方向、制度完善路径的展望，而非当前结论是否被接受；文中对'复合性顶层设计'的呼吁属于未来延展问题，而非当下可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文明确指出了重大性要件在理论重构与司法实践中的具体延展方向，并提出了待深入研究的举证责任分配问题。",
+          "core_judgment": "存在真实延展路径，且与正文关于可诉性/可赔偿性区分及双重标准融合的核心论证紧密衔接。",
+          "score_rationale": "原始分75，对应bonus=3。正文明确指出信息抵消情形下举证责任分配待深入研究，结语指明理论需体系化重构、实务应推动主客观标准融合。路径清晰且紧扣核心论证，但具体方法论与操作步骤展开有限。",
+          "evidence_quotes": [
+            "信息作用力相互抵消的举证责任究竟如何分配值得深入研究。",
+            "未来在理论层面重构重大性要件的适用规则时，需要更具复合性的顶层设计方案与体系化思维，尽快实现主客观标准融合适用。"
+          ],
+          "strengths": [
+            "精准定位正文未决难题（信息抵消情形下的举证责任分配）作为后续研究切口。",
+            "延展方向（理论体系化重构与司法标准融合）与全文批判逻辑高度一致。"
+          ],
+          "weaknesses": [
+            "“顶层设计方案”表述偏宏观，未给出具体理论模型或比较法参照路径。",
+            "对司法审判如何具体推动标准融合的操作性步骤缺乏进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估作者指出的未来理论与实务推进方向，不涉及对当前结论是否被学界/实务界接受的评判（属结论可接受性维度）。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.126802921295166,
+        "glm-5.1": 46.73055601119995,
+        "kimi-k2.6": 11.374072074890137,
+        "qwen3.6-plus": 72.37255501747131
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 75,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 75
+      },
+      "mean": 72.5,
+      "std": 7.1,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 79.91,
+      "weighted_total": 77.2
+    },
+    "aggregation_strictest": {
+      "final_score": 52.53,
+      "weighted_total": 55.0
+    },
+    "avg_std": 15.8,
+    "max_std": 24.9,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 27.4,
+    "composite_score": -15.8,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 24.9
+  }
+}

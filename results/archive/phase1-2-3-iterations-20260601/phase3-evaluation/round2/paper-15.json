@@ -1,0 +1,952 @@
+{
+  "paper": "法学三大刊论文/补充论文/FXYJ2025005003_法学研究_2025_论电子证据体系原理.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 73
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 40,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 62
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 40,
+          "revised": 35,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 30,
+          "revised": 40,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original": 48,
+          "revised": 62,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 14,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 73,
+          "revised": 62,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 11,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 40,
+          "revised_score": 35,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文仅完成现象描述与要素分类，未提出可辩驳的法学争点及理论对话，缺乏对既有理论解释力提升的论证，仍属宏观主张而非研究问题。",
+          "revision_rationale": "重新阅读论文后，发现其核心仍是描述“衍生材料—本体数据—取证笔录”的现象并命名“体系原理”，并未与既有证据法理论（如印证理论、证据链理论）进行实质性对话或论战，也未论证新概念相比于旧概念有何解释力提升。此缺陷比最初评估更为严重，故进一步扣分。",
+          "accepted_points": [
+            "同意专家A关于“新概念包装”和“宏观介绍”的负面评价，该论文确有概念创造但缺乏问题论证。",
+            "同意专家B关于“核心争点对抗性交锋不足”的判断，论文缺乏明显的理论对手和可争辩主张。"
+          ],
+          "rejected_points": [
+            "不同意专家B将可争辩性评为4/4，论文未提出可反驳的问题句，仅为现象概括和体系构建宣言。",
+            "不同意专家B锚定excellent档的起点，论文缺乏明确研究问题，无法达到良好或优秀档位。"
+          ],
+          "new_evidence_found": [
+            "论文结语自称“电子证据体系原理是证据体系理论领域的创新”，但未说明相对于“证据链”“印证体系”等既有概念有何理论进步。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 30,
+          "revised_score": 40,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "缺乏可争辩法学争点，实为主题声明与宏观构建；实证翔实但新概念解释力论证不足。",
+          "revision_rationale": "虽然论文缺乏可争辩的问题句和理论交锋，属于主题声明，但其基于7800份判决书的实证描述极其翔实，且提炼的“衍生材料-本体数据-取证笔录”体系对解释电子证据转化适用现象具有一定解释力，涉及证据法数字化转型这一枢纽性议题。之前的30分过低抵消了实证与体系归纳的贡献，上调至40分仍属unacceptable档，但更客观反映其现象揭示与体系构建的局部价值。",
+          "accepted_points": [
+            "缺乏明确的可争辩法学争点，实为宏观宣言/主题声明",
+            "新概念（电子证据体系原理）未充分说明相对既有理论的解释力提升",
+            "缺乏与既有证据理论的对话交锋，自说自话"
+          ],
+          "rejected_points": [
+            "枢纽性仅为2/4（论文涉及证据法基础概念及数字化转型，虽无详细制度连锁论证，但议题本身枢纽性强，应为3/4或4/4）"
+          ],
+          "new_evidence_found": [
+            "7800份判决书的统计分析及快播案等具体案例的深入剖析，使现象描述不仅翔实且具有强实证支撑",
+            "论文尝试将体系原理与印证理论结合，提出数字印证证明理论，虽不深入但非完全无解释力提升论证"
+          ],
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original_score": 48,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 14,
+          "revised_band": "marginal",
+          "revised_core_judgment": "主题声明明确但可争辩性不足，存在理论建构意识与制度连锁论证，枢纽性被低估，属边际可接受。",
+          "revision_rationale": "重新审视后，承认原评分对枢纽性评估不足。论文提出'电子证据体系原理'并构建'衍生材料—本体数据—取证笔录'三元结构，涉及证据法核心理论与审查判断、证明方法、证据展示等多制度的联动，枢纽性应达3-4/4。但可争辩性仍不足：全文以'提炼原理''构建理论'为目标，缺乏'是否''能否'等问题句，无学者观点交锋，属理论建构而非问题驱动。专家B将可争辩性评4/4过高，因'现象描述→理论提炼'路径未形成真正学术争点。接受专家A对枢纽性的肯定，但拒绝其'可争辩性2/4'中隐含的争点存在判断——论文仍无明确对抗性学术对话。综合锚定marginal档，给62分。",
+          "accepted_points": [
+            "专家A：枢纽性强，涉及证据法核心理论与多制度联动",
+            "专家B：精准捕捉电子证据庭审转化常态，问题意识鲜明",
+            "专家B：三元结构拓展数字印证理论边界"
+          ],
+          "rejected_points": [
+            "专家A'可争辩性2/4'：论文无'是否''能否'等问题句，未形成学术争点，2/4仍偏高",
+            "专家B'可争辩性4/4'：将现象观察等同于学术争点，混淆问题意识与可争辩性",
+            "专家B'锚定excellent档'：新概念的理论突破性说明不充分，且缺乏对抗性交锋，不足以支撑excellent"
+          ],
+          "new_evidence_found": [
+            "论文明确提出'电子证据体系原理'并构建三元结构，有理论建构自觉（第94页）",
+            "数字印证证明理论的提出，涉及印证证明理论的继承与再造，有制度连锁论证（第95-96页）",
+            "司法证明制度革新的三项任务，涉及证据定案、证据体系、展示规则的联动（第96-97页）",
+            "引用龙宗智、陈瑞华等学者观点并试图对话，但仅为引述而非交锋（第95-96页）"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 73,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 11,
+          "revised_band": "marginal",
+          "revised_core_judgment": "实证观察扎实且体系建构完整，但缺乏明确的可争辩性问题句与理论交锋，新概念阐释偏向宏观宣言而非严密论证，降档至边缘。",
+          "revision_rationale": "采纳A、B专家关于“缺乏可争辩问题句”与“理论交锋不足”的合理批评。原文虽以实证数据揭示转化常态，但“体系原理”更多是现象归纳与框架宣示，未设置明确争点，亦未与既有证据审查理论展开实质性对话。理论替代性与数字印证推导缺乏对抗性论证，故下调评分。",
+          "accepted_points": [
+            "全文缺乏明确的可争辩性问题句，偏向宏观主题声明而非可辩驳的研究问题",
+            "新概念‘电子证据体系原理’未充分说明相对既有证据体系理论的解释力提升或替代优势",
+            "缺乏与既有证据法学者的观点交锋与理论对话，论证呈现自说自话倾向"
+          ],
+          "rejected_points": [
+            "完全否定其问题意识与实证价值（原文7800份判决书统计与庭审软硬件制约分析具有扎实现实基础，非纯粹空泛宣言）",
+            "评分过低至unacceptable档（体系类型化、运行规律归纳及数字印证框架仍具一定理论整合与实务指导价值，未触及不可接受底线）"
+          ],
+          "new_evidence_found": [
+            "论文自述论证脉络为‘剖析动因—归纳要素类型规律—给出方案’，证实其属建构归纳型研究而非争辩型研究",
+            "对‘数字印证证明理论’的构建仅停留在‘纵横比对’与‘立体构造’的框架描述，未回应传统印证理论的核心争议（如印证与自由心证关系、客观化限度等）",
+            "结语明确‘本文所揭示的一体结构在当下具有现实合理性’，进一步印证其立场为现象确认与规则倡导，而非理论争鸣"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.176806926727295,
+        "glm-5.1": 115.71405410766602,
+        "kimi-k2.6": 16.83650493621826,
+        "qwen3.6-plus": 75.13802981376648
+      },
+      "round1_mean": 47.8,
+      "round2_mean": 49.8,
+      "round1_std": 18.4,
+      "round2_std": 14.3,
+      "convergence_improvement": 4.1
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 80,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 70,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 68
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 65,
+          "revised": 65,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 80,
+          "revised": 70,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 17,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 80,
+          "revised": 68,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 12,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 65,
+          "revised_score": 65,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "marginal",
+          "revised_core_judgment": "研究地图基本建立，但流派覆盖与争点结构仍显不足。作者提炼的理论对立属其创见，不能替代既有学术阵营的梳理，故不提升评分。",
+          "revision_rationale": "两位专家将作者提出的“孤立主义—体系主义”等新概括视为学术争点，但这是作者的理论建构而非对既有学说的互斥性组织。论文对形式法治/实质法治、鉴真/可采性等法学流派的辨识和命名仍为空白，触发流派覆盖不足的上限。专家B也指出“缺乏对对立学术阵营的集中梳理”，间接支持原判断。因此维持原判。",
+          "accepted_points": [
+            "作者提炼了孤立主义与体系主义、传统中心与电子基点等对立，理论建构力强"
+          ],
+          "rejected_points": [
+            "孤立主义/体系主义属于作者自创的理论范畴，不能等同于对既有法学争点的结构性梳理，因此不能认定为争点结构得分",
+            "法学流派识别仍缺乏对学界既有流派脉络的显式引述，作者自身提炼的立场对立不符合流派覆盖要求"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 80,
+          "revised_score": 70,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "marginal",
+          "revised_core_judgment": "三要素完整但流派识别空白，争点多为作者自建构而非学界既有对立，洞察深度受限。",
+          "revision_rationale": "接受专家关于流派覆盖空白及争点组织不足的批评。论文提炼的“孤立主义与体系主义”系作者自创的理论标签，并非对学界既有流派脉络的识别；争点对立亦属作者自身立场建构，缺乏对既有学术论战的显式梳理。虽然研究地图三要素（到达点、未竟点、切入点）完整且实证数据扎实，但法学流派与争点结构的缺失严重限制了现状洞察的学术纵深，故下调至marginal档，给70分。",
+          "accepted_points": [
+            "法学流派覆盖近乎空白，作者自创的理论标签（如孤立主义/体系主义）不能算作对学界既有流派的识别。",
+            "争点结构缺乏对学界既有学术论战的显式组织，更多是作者自身立场和主张的提炼，而非呈现既有讨论的对立解释路径。"
+          ],
+          "rejected_points": [
+            "专家B认为研究地图三要素严重残缺（1/6）。论文在引言和第一部分明确交代了到达点（7800份实证与多国实践）、未竟点（整体性不足）、切入点（体系原理），三要素充分，该判断不符合原文事实。"
+          ],
+          "new_evidence_found": [
+            "论文第三部分明确将“孤立主义”与“体系主义”界定为对我国证据规范与实践差异的概括（“这体现了八种证据形式的孤立主义式运用，而实践中的印证证明体现的是体系主义”），而非引述学界既有流派脉络，证实了流派识别为空白的判断。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 17,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素基本成立，争点结构有所呈现但法学流派识别不足，整体从marginal上调至good档下限。",
+          "revision_rationale": "重新审阅后，承认此前对论文的'三要素'评估过于严苛。论文明确呈现了'到达点'（电子证据转化运用的实证发现）、'未竟点'（孤立主义vs体系主义、传统中心vs电子基点的理论缺陷）及'切入点'（电子证据体系原理的提炼）。'孤立主义与体系主义'的对立虽为作者自创框架，但确实构成了有效的学术争点结构。然而，专家A、B所称'法学流派=2个'仍属夸大——该对立是方法论立场之争，而非学界既有流派脉络的显式呈现，论文未引用任何标识性学者代表特定流派，故不宜给满分。将评分从55分上调至72分，认可其争点结构成立、理论建构力较强，但法学流派识别仍为明显短板。",
+          "accepted_points": [
+            "三要素中的到达点与未竟点确实存在，且未竟点与切入点形成对应",
+            "'孤立主义与体系主义'构成有效的学术争点对立",
+            "'传统中心与电子基点'的提炼具有理论建构价值",
+            "实证数据与比较法材料扎实，支撑了理论跃迁"
+          ],
+          "rejected_points": [
+            "专家A、B所称'法学流派=2个'：论文中的对立是作者提炼的方法论立场，并非学界既有流派，缺乏对标识性学者及其代表作的显式引述，不能等同于法学流派",
+            "专家B称'争点脉络分明'：争点呈现为散点式嵌入，未集中梳理对立学术阵营，'脉络'程度有限"
+          ],
+          "new_evidence_found": [
+            "论文明确批判'我国刑事诉讼法的证据规范是以八种证据形式为基点进行设计的……体现了八种证据形式的孤立主义式运用，而实践中的印证证明体现的是体系主义'——此为核心争点表述",
+            "论文指出'电子证据体系原理的提炼，属于证据法基础理论的创新'——明确标示理论切入点",
+            "论文引用占善刚、王超'从法定电子数据迈向电子数据法定'的批评，构成对既有研究到达点的确认",
+            "论文回应龙宗智关于电子证据'可能产生新的印证需求'的论述，显示与既有学术对话"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 80,
+          "revised_score": 68,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 12,
+          "revised_band": "marginal",
+          "revised_core_judgment": "研究地图三要素较完整，实证与理论建构突出，但缺乏对学术争点的结构化梳理与对立流派的明确定位，现状洞察偏重现象归纳而非理论交锋。",
+          "revision_rationale": "采纳A、B专家意见，原评高估了争点结构与流派覆盖。重读发现，文献引用多为支撑自身观点的“分散式嵌入”，未将既有学说组织为对立解释路径或明确划分法学流派。虽三要素清晰且实证扎实，但缺乏深层法理交锋与学术阵营回应，故下调评分至marginal档。",
+          "accepted_points": [
+            "文献定位呈分散式嵌入，缺乏对对立学术阵营的集中梳理与回应",
+            "未将既有讨论组织为可区分的争点结构或对立解释路径",
+            "法学流派覆盖近乎空白，仅隐含方法论倾向而未作明确流派划分"
+          ],
+          "rejected_points": [
+            "三要素严重残缺（论文明确提炼了实践到达点、理论未竟点与体系原理切入点，结构完整）",
+            "实证数据与比较法材料无价值（7800份判决书统计与多国实践对比构成坚实的经验基础）"
+          ],
+          "new_evidence_found": [
+            "文中虽提及‘孤立主义’与‘体系主义’，但仅作为证据运用模式的描述，未上升为学术流派交锋",
+            "对龙宗智、陈瑞华等学者观点的引用均为单向印证，未设置反驳或对话框架",
+            "‘衍生材料—本体数据—取证笔录’三元结构的提出属于建构性理论，而非对既有争点的回应性解决"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.474291801452637,
+        "glm-5.1": 67.00853180885315,
+        "kimi-k2.6": 18.39583730697632,
+        "qwen3.6-plus": 66.4807198047638
+      },
+      "round1_mean": 70,
+      "round2_mean": 68.8,
+      "round1_std": 12.2,
+      "round2_std": 3.0,
+      "convergence_improvement": 9.2
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 49,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 49,
+        "glm-5.1": 85,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 78
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 49,
+          "revised": 49,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 95,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 14,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 49,
+          "revised_score": 49,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文提出了“三元组”现象归纳，但并未转化为可重复使用的审查步骤、标准或操作指引。",
+          "revision_rationale": "重新审视后，仍维持原判。论文确实将三元组描述为“纵横比对”和“立体构造”，但对其如何具体操作（如比对哪些指标、如何达到印证标准）的阐述仍停留在描述和概念层面，未提供清晰的步骤化指引或可审查的标准。其他专家认为这构成了高度的可操作性与法学转化力，我不同意，因为‘双重检验’仅为宏观思路，缺乏微观的、可规范化的操作细则。",
+          "accepted_points": [],
+          "rejected_points": [
+            "不同意评审专家A和B关于框架具有‘极具操作性’或‘高度可操作性’的观点。论文虽提出了‘纵横比对+立体构造’和‘双重检验’，但未说明如何执行这些检验，缺乏具体的判断标准、步骤或图示化的操作流程，不符合理论构建的操作性要求。",
+            "不同意其认定的‘成功转化为司法审查步骤与立法建议’即代表高法学转化度。论文的立法建议多为原则性号召，缺乏严谨的法律规范表述和具体的条文设计，法学转化停留在理念倡议层面。"
+          ],
+          "new_evidence_found": [
+            "论文确实提到了‘数字印证证明理论将基于电子证据实现印证证明分解为双重检验’和‘纵横比对+立体构造’，但这些描述依然抽象，缺乏可操作化转化。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 95,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "框架建构极具原创性与分类详尽度，但法学转化偏宏观方法论指引，缺乏微观裁判规则输出。",
+          "revision_rationale": "接受专家B关于法学转化缺乏微观裁判规则及案例分析调用松散的观点。论文提出的“纵横比对+立体构造”更偏向宏观审查视角而非可重复适用的裁判规则；案例分析侧重展示一体审查重要性，未严格按框架步骤展开；制度革新部分亦多宏观方向而少具体条文设计。因此下调法学转化度与微观可操作性得分。拒绝专家A关于“未提出可操作框架”的观点，三元框架的概念界定与详尽分类体系本身即具有极强的认知与拆解操作性。",
+          "accepted_points": [
+            "法学转化停留在理论阐释层面，未充分转化为具体的裁判规则或审查判断标准。",
+            "后文案例分析未严格按框架步骤展开，调用松散，未能充分展示框架的微观操作流程。"
+          ],
+          "rejected_points": [
+            "论文只是归纳现象，未提出可操作框架。理由：三元框架对三大要素的概念界定、多维分类及类型化（基本/扩展/整合体系）本身就是极具操作性的理论建构，提供了拆解电子证据的认知工具。",
+            "“体系”核心术语无明确定义。理由：论文对衍生材料、本体数据、取证笔录均给出了明确内涵界定与外延分类，并非仅依赖现象描述。"
+          ],
+          "new_evidence_found": [
+            "论文在制度革新部分仅提出宏观方向（体系主义、电子证据为基点），具体的规范条文建议极少（仅提到“电子证据体系不健全时，应予补正或作出合理说明”等寥寥数语），印证了法学转化缺乏微观规则输出的缺陷。",
+            "论文提出的“纵横比对”与“立体构造”双重检验，虽提供了审查路径，但表述偏向方法论（如“形成多张有形或无形的认识之网”），缺乏如“哈希值不一致则衍生材料无证据效力”等明确的裁判规则输出。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "三元框架具有显著原创性与可操作性，法学转化超越纯理论阐释，已形成具体审查步骤与制度方案，但裁判规则输出仍可深化。",
+          "revision_rationale": "重新审读论文后，发现此前低估了该文的法学转化深度。论文不仅提出三元结构框架，更在第四部分将其转化为'纵横比对+立体构造'的双重检验步骤，并给出'简式/复式电子证据体系'、'电子证据标签工作'等具体制度方案，还提出'证据定案从孤立主义走向体系主义'等立法建议。这些已超出'理论描述'层次，构成可操作的审查判断规则雏形。但'裁判规则输出'仍偏宏观，与excellent档（90分以上）尚有距离，故上调至85分，锚定good档高位。",
+          "accepted_points": [
+            "框架已成功转化为'纵横比对+立体构造'的司法审查步骤",
+            "提出了简式/复式电子证据体系、电子证据标签工作等具体制度方案",
+            "整合体系中'自成一体结构'的拆分审查具有实践解释力，非属牵强"
+          ],
+          "rejected_points": [
+            "专家A所称'成功转化为立法建议'评价过高，论文仅提出制度革新方向，未达立法草案程度",
+            "专家B所称'直接转化为证据一体审查规则'略过，转化仍属框架性、方向性，细则化不足"
+          ],
+          "new_evidence_found": [
+            "第四部分提出'简式电子证据体系'与'复式电子证据体系'两种操作方案，具可执行性",
+            "数字印证证明理论明确分解为'纵横比对'与'立体构造'双重检验步骤，非停留于理念",
+            "提出'电子证据标签工作'作为具体配套机制，衔接框架与实务",
+            "明确建议'电子证据体系不健全时，应予补正或作出合理说明'等规则表述"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 14,
+          "revised_band": "good",
+          "revised_core_judgment": "框架理论建构扎实、类型化清晰，但向裁判规则与操作指引的转化仍偏重理念阐释，缺乏细化的审查步骤与程序规范。",
+          "revision_rationale": "采纳专家B意见，承认框架原创性与类型化优势，但重新审视发现其“法学转化”多停留在理论重构与方向性建议层面，未输出可直接套用的裁判审查清单或细密程序规则；后文案例调用呈印证式举例而非严格按步骤推演，故下调至good档。专家A“仅归纳现象”之论断忽视第三部分的规则革新论述，不予采纳。",
+          "accepted_points": [
+            "框架法学转化偏重理论阐释，缺乏可直接套用的裁判审查清单与细密程序规则",
+            "后文案例分析对框架的调用呈印证式举例，未严格按步骤展开，操作指引密度不足"
+          ],
+          "rejected_points": [
+            "专家A认为论文仅归纳现象、无操作指引且未定义核心术语。理由：论文第二部分已明确界定三元要素及体系内涵，第三部分提出了收集审查实践改造、数字印证理论构建及证明制度革新等具体转化路径，并非纯现象描述。"
+          ],
+          "new_evidence_found": [
+            "第三部分虽提出‘一体审查’，但具体操作依赖‘寻找联结点’‘哈希值比对’等原则性描述，未形成标准化审查流程图或裁判指引",
+            "案例引用（如快播案、传销案）主要用于反向印证体系缺失的后果，而非正向演示框架的逐步适用过程"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 20.677164793014526,
+        "glm-5.1": 67.49378895759583,
+        "kimi-k2.6": 20.0689857006073,
+        "qwen3.6-plus": 67.1217269897461
+      },
+      "round1_mean": 77,
+      "round2_mean": 74.2,
+      "round1_std": 21.3,
+      "round2_std": 17.2,
+      "convergence_improvement": 4.1
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 92,
+          "revised": 92,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 92,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 2,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 92,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 92,
+          "revised_score": 92,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "excellent",
+          "revised_core_judgment": "论文逻辑链完整严密，从现象归纳到体系原理提炼再到方案推导，环环相扣，结论可辩护推出，逻辑严密性维度成立。",
+          "revision_rationale": "专家A和B指出的“从必然性到三元组过渡偏经验归纳”及“原理到立法建议的推导略显跳跃”，论文在实证数据、国内外实践惯例和电子证据特性三方面已做充分铺垫，并承认了适用边界与历史合理性，反驳处理也较为完整，现有论证已足以支撑结论，整体逻辑严密性仍属excellent档，故维持原评分。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家A认为从必然性到三元组过渡偏经验归纳、理论推演深度可加强，但论文已通过国际惯例、法庭条件及电子证据特性三方面逐层论证，逻辑支撑扎实；",
+            "专家B认为从原理到立法建议略显跳跃，但论文在实践改造、理论构建和制度革新三部分已分层次展开，且结语中承认适用边界和历史局限，论证可辩护。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 92,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 2,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链完整无跳步，主动援引批评并系统回应，处理例外结构与适用边界，逻辑严密性高。",
+          "revision_rationale": "吸收专家A意见，论文在第一步明确援引了“原有证据形态被转化、证明作用被矮化”的批评意见，并从整体主义立场予以回应；同时在第二步处理了整合体系的例外结构，反驳处理比我原先评估的更充分。推理链从现象归纳到原理提炼再到方案推导，逻辑严密，维持excellent档并微调分数。",
+          "accepted_points": [
+            "专家A指出论文主动援引批评观点并予以系统性回应（如对'法定调查程序被弱化'批评的整体主义回应）",
+            "专家A指出论文通过列举例外结构（整合体系）增强了论证的稳健性"
+          ],
+          "rejected_points": [
+            "专家B认为'未识别显式反对意见，未回应削弱质证权批评'，但论文第一部分(一)明确引用了占善刚等学者的批评（法定调查程序被弱化、证明作用被矮化），并从整体主义立场进行了回应，此点判断有误"
+          ],
+          "new_evidence_found": [
+            "论文第一部分(一)正文及脚注11明确引用了批评意见（'有学者就这一普遍现象批评道……'），并作出了理论回应（'然而，从整体主义的立场出发……'）",
+            "论文第二部分(二)专门论述了'整合体系'这一例外/变体结构，增强了理论覆盖面与逻辑稳健性"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "三步论证环环相扣且有扎实实证支撑，虽隐含处理主要反对意见，但缺乏显式反驳结构，可辩护性未达excellent。",
+          "revision_rationale": "重新阅读后发现，论文在第一、三部分已隐含回应'电子证据应独立呈现'及'质证权削弱'等批评，只是未以反对意见—回应的显式结构呈现；7800份判决书的实证基础使第二步原理提炼具有可辩护性。但显式反驳结构的缺失仍影响逻辑严密性的充分展现，故上调至good档上沿，未达excellent。",
+          "accepted_points": [
+            "论文以大量实证数据为起点增强论证可辩护性",
+            "结语对理论适用边界的主动限定增强了结论的审慎性",
+            "三步论证步骤间依赖关系明确"
+          ],
+          "rejected_points": [
+            "专家将反驳处理度评为3/3：论文未以显式结构识别并回应反对意见，隐含处理不等于显式反驳，标准应从严把握",
+            "专家B认为'从原理到立法建议的推导略显跳跃'：实际上第三步的制度方案与第二步的原理提炼有明确对应关系，跳跃感不强"
+          ],
+          "new_evidence_found": [
+            "第一部分（一）已回应'电子证据应独立作为法定证据形式'的潜在主张，指出'本体数据理应直接呈现于法庭，实则不然'",
+            "第一部分（二）和第三部分（三）已回应'衍生材料削弱质证权'的批评，通过揭示客观制约和提出展示规则改革来回应",
+            "7800份判决书的统计细节（55.23%、48.81%等）为论证提供了精细实证支撑"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 92,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "excellent",
+          "revised_core_judgment": "逻辑链严密完整，实证起点扎实，对学界批评作出体系化回应并明确适用边界，结论可辩护推出。",
+          "revision_rationale": "重新审阅后确认，论文已专节详述法庭客观制约与专家辅助制度落空等实务约束，初评“回应稍弱”系误判；虽未逐条辩论“独立证据形式”等反对意见，但通过整体主义立场重构批评语境，并明确原理的阶段性局限，反驳处理仍达优秀标准，故维持原判。",
+          "accepted_points": [
+            "专家B指出论文未显式回应“电子证据应独立作为法定证据形式”及“衍生材料替代削弱质证权”等具体反对意见，该观察准确"
+          ],
+          "rejected_points": [
+            "专家B认为反驳处理度仅1/3。理由：论文已直接援引学者批评，并以“整体主义立场+体系化构造+现实制约”进行系统性回应，且结语明确划定适用边界，符合法学论文反驳处理的实质要求，不应降档。"
+          ],
+          "new_evidence_found": [
+            "论文第二部分专节详述法庭信息化欠缺、专家辅助人制度落空及审裁分离等实务制约，初评“实务约束回应稍弱”不成立；运行规律部分已明确论证“支撑关系断裂将致证明价值显著降低”，初评“证明力减损风险论证不充分”亦不成立。"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 19.91090202331543,
+        "glm-5.1": 62.96406698226929,
+        "kimi-k2.6": 31.41229796409607,
+        "qwen3.6-plus": 70.97486114501953
+      },
+      "round1_mean": 88,
+      "round2_mean": 90.2,
+      "round1_std": 6.7,
+      "round2_std": 3.5,
+      "convergence_improvement": 3.2
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 86
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 85,
+          "revised": 88,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 88,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 4,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 78,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 86,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 85,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论理论化程度高，制度转化路径已有明确任务框架，共同体对话与制度可接受度均达优秀，仅因操作细则稍欠具体而留进步空间。",
+          "revision_rationale": "专家A指出结语主动承认理论局限并指明“跃迁方向”，我原将其仅视为承认局限（优点），未充分评价其未来导向的理论开放性价值。专家B强调给出体系化修正方案与务实转化路径，论文确实提出了改造实践、构建理论、革新制度三项任务框架，非仅方向指引。故制度可接受度提升至3.5/4，总分上调3分。但仍因冲突例外情形讨论不足，维持excellent档内低分段。",
+          "accepted_points": [
+            "论文提出制度革新的三项任务（定案走向体系主义、证据体系以电子证据为基点、展示规则现实可用），构成明确转化路径而非仅方向指引",
+            "结语承认阶段性合理性与永久演化可能，不是单纯承认局限，而是带有理论开放性的学术对话姿态"
+          ],
+          "rejected_points": [
+            "专家A认为正文对反对意见回应可更集中：论文在剖析“转化式适用”现象时已持续回应“背离法律规定”批评，结语前亦有多个段落定位反对意见，现有分布可接受"
+          ],
+          "new_evidence_found": [
+            "论文第三部分提出证据定案从孤立主义走向体系主义、证据体系从传统中心走向电子基点的具体制度表述建议",
+            "结语段明确指向“电子证据体系必然要不断跃迁至新阶段，其内涵外延也会持续丰富扩展”，非简单认限"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 4,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论对话度极高，制度革新方向明确但规则供给偏框架化，实践改造方案具体，整体仍属优秀。",
+          "revision_rationale": "原评对制度可接受度评分偏高。采纳A/B意见，论文“三项任务”的制度革新部分确偏方向指引，缺乏具体法条设计；对反对意见（如证明标准降低）回应不足。但论文在“实践改造”部分提出了简式/复式体系及标签工作等具体方案，且理论对话扎实，与现行法秩序兼容，故维持excellent档，微调降分。",
+          "accepted_points": [
+            "制度革新“三项任务”偏框架性，具体规则供给不足，缺乏可操作的法条设计",
+            "对反对意见（如证明标准降低风险、体系冲突）回应不足，多在结语声明而非正文集中论证"
+          ],
+          "rejected_points": [
+            "制度可接受度仅2/4且锚定good档。理由：论文虽宏观制度设计偏框架，但在实践改造部分有具体方案（简式/复式体系、标签工作），且与现行规范兼容度高，不应降至good档"
+          ],
+          "new_evidence_found": [
+            "论文在“改造实践”部分提出了具体的“简式/复式体系”搭建方案及“标签工作”要求，提供了微观操作指引，部分弥补了宏观制度设计的框架性"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 78,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "理论贡献明确，对话度充分，制度转化虽框架性但具务实基础，整体达good档上限。",
+          "revision_rationale": "重新审读论文后，认可其制度转化并非空泛：'三项任务'中'证据定案从孤立主义走向体系主义'等表述，实质是对证据法基础理论的结构性重塑，且论文明确回应了法庭硬件制约、程序规则约束等中国制度语境。专家A、B强调的'务实转化路径'确有依据——论文以7800份判决书实证为基础，提出'基本/扩展/整合'三种体系类型，具有规则供给的雏形。但'三项任务'仍偏宏观指引，具体程序衔接细则不足，未达excellent档'具体规则设计'要求。原评分78偏低，调整至85分以反映其制度可接受度的实际水平。",
+          "accepted_points": [
+            "制度转化'三项任务'具有务实基础，非空泛对策，是对证据法基础理论的结构性重塑",
+            "论文充分回应法庭硬件制约、程序规则等中国制度语境，制度兼容性强",
+            "三种体系类型（基本/扩展/整合）构成规则供给的雏形"
+          ],
+          "rejected_points": [
+            "专家A、B的'excellent'档判断：'三项任务'仍偏重宏观指引，具体程序衔接细则不足，如'电子证据收集、提取应当一式多份'等表述仍属原则性建议，未细化操作规则",
+            "专家B所称'完全成立'过强：论文对'衍生材料过度依赖导致证明标准降低'的反对意见回应不足，仅在结语声明'合理性非永久不变'"
+          ],
+          "new_evidence_found": [
+            "论文明确以7800份判决书统计为实证基础，55.23%书证类衍生材料案件缺失要式笔录的数据支撑了'制度回应实践'的论断",
+            "'数字印证证明理论'部分提出'纵横比对''立体构造'双重检验，具有一定规则化努力",
+            "结语明确声明'体系必然不断跃迁至新阶段'，主动限定理论适用范围，体现学术审慎"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 86,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 6,
+          "revised_band": "excellent",
+          "revised_core_judgment": "理论建构扎实且深嵌中国语境，但制度转化方案仍偏宏观框架，对衍生材料失真风险及跨案型冲突的防范细则论述不足，整体仍属优秀。",
+          "revision_rationale": "采纳A、B专家关于制度转化偏宏观、缺乏具体规则设计及未充分回应证明标准降低风险的合理批评。重读原文确认，论文虽提出“三项任务”与数字印证理论，但多停留于方向指引与原则性表述，未提供可操作的程序衔接细则与风险阻断机制。鉴于其理论创新与实证基础依然突出，维持excellent档，但分数适度下调以更精准反映其制度落地层面的局限。",
+          "accepted_points": [
+            "制度转化部分提出的审查规则调整和实践改造多停留于方向指引，具体可操作方案与程序衔接细则尚待细化",
+            "对衍生材料过度依赖可能引发的证明标准降低或证据失真风险，缺乏具体的程序性防范与制裁机制论述",
+            "未充分讨论电子证据体系在不同案件类型中可能出现的适用冲突或例外情形"
+          ],
+          "rejected_points": [
+            "理论贡献不明确或学术对话度不足（论文已精准定位并回应龙宗智、占善刚等学者观点，且基于7800份判决书实证分析，理论建构与共同体对话充分）"
+          ],
+          "new_evidence_found": [
+            "论文结语及制度革新部分仅提出‘电子证据体系不健全时应予补正’‘一式多份’等原则性建议，印证了制度设计偏宏观的判断",
+            "文中虽指出‘若本体数据对衍生材料的支撑关系断裂……证明价值显著降低’，但未将其转化为具体的证明标准审查规则或程序性救济路径"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.674436807632446,
+        "glm-5.1": 80.55158400535583,
+        "kimi-k2.6": 14.32897686958313,
+        "qwen3.6-plus": 76.99975991249084
+      },
+      "round1_mean": 86.8,
+      "round2_mean": 86.8,
+      "round1_std": 6.7,
+      "round2_std": 1.5,
+      "convergence_improvement": 5.2
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 72,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 72,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 78
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 62,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 72,
+          "revised": 72,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 85,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 62,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "存在明确、可定位的延展路径，与正文核心结论紧密衔接，且路径方向具体，但实施细节和风险防控的阐述仍显有限。",
+          "revision_rationale": "重新阅读后发现，结语及第三部分并非仅“概念勾勒”，而是明确提出了“数字印证证明理论”、“体系主义定案”等具体方向，且延展路径与正文论证咬合紧密。专家A和B关于路径“具体”的判断更为准确。原始评分62偏低，应上调至72分，以更公允地反映论文在指明理论深化与制度衔接方向上的贡献，但仍需指出其缺乏实施细节和风险防控的不足。",
+          "accepted_points": [
+            "延展路径指向明确且具体（如“数字印证证明理论”、“体系主义定案”），并非仅停留在概念勾勒层面。",
+            "延展路径与正文论证紧密咬合，具备真实的理论深化与制度衔接指向。"
+          ],
+          "rejected_points": [
+            "未接受专家B的85分和高档位判断。修改后的72分仍属good档位，因为论文确实缺乏对制度跃迁风险防控、跨法域比较验证及实施细节的深入阐述，未达到excellent档位所要求的精细度。"
+          ],
+          "new_evidence_found": [
+            "论文第三部分明确将“构建契合时代的数字印证证明理论”和“启动司法证明制度的革新”作为独立的延展路径进行阐述，并给出了“双重检验”等初步理论框架，其展开程度被原文低估。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 72,
+          "revised_score": 72,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "存在多维真实延展路径（实践改造、数字印证理论、制度革新三项任务），但理论检验机制与跃迁形态精细度不足。",
+          "revision_rationale": "吸收专家意见，论文延展路径比我初评更丰富，明确涵盖实践、理论与制度（含三项具体任务）三个维度；但各方共识指出，数字印证的“纵横立体”检验机制及体系跃迁形态仍偏概括，缺乏精细操作方案。优点与缺点权重相当，维持原分与档位最能准确反映其延展性广度尚可但深度不足的现状。",
+          "accepted_points": [
+            "延展路径明确指向实践改造、理论构建和制度革新三个方向（专家A）。",
+            "明确提出司法证明制度革新的三项具体任务，具有制度延展性（专家B）。",
+            "数字印证证明理论的'纵横''立体'检验机制较抽象，精细度不足（专家B）。"
+          ],
+          "rejected_points": [
+            "专家A认为'未明确指出正文的具体逻辑或证据短板，以及后续研究应如何围绕这些局限展开'。论文的延展是基于核心原理的正向推演与制度修正，属于体系性延展，并非必须围绕自身论证局限展开，这种延展方式在法学理论构建中是合理且常见的。"
+          ],
+          "new_evidence_found": [
+            "论文在制度革新部分明确列出了'三项任务'（证据定案从孤立主义走向体系主义、证据体系从传统中心走向电子基点、展示规则从规范落空走向现实可用），提供了更具体的制度延展锚点。",
+            "论文在实践改造部分提出了搭建'简式/复式电子证据体系'及'完善电子证据标签工作'的具体操作方向，补充了实践维度的延展细节。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "论文构建了清晰的理论-制度双层延展路径，数字印证证明理论与司法证明制度革新相互支撑，但部分机制精细化不足。",
+          "revision_rationale": "经重新审读，论文的延展性比我最初判断的更为充实。第三部分'构建契合时代的数字印证证明理论'不仅提出了'纵横''立体'双重检验框架，还明确了寻找'电子证据联结点'的具体操作方法；'启动司法证明制度的革新'部分明确列出三项任务，每项均有具体制度设计（如'补足以证据体系定案的制度表述''电子证据收集提取应当一式多份'等）。评审专家B将评分提升至85分可能偏高，因'数字印证'的精细操作机制、'跃迁至新阶段'的具体形态确实尚未充分展开，且缺乏程序法条文草案或实证检验设计。但专家A与我的原始判断均偏于保守，未充分认可论文在制度建议部分已实现的'具体化'跨越——从抽象理念到可定位的制度节点。综合考量，将评分上调至78分，仍处于good档位上限，认可其延展路径的真实性与具体性，同时保留对精细化不足的判断。",
+          "accepted_points": [
+            "评审专家B指出的'延展路径清晰，直接对接证据法数字化转型与司法证明制度革新'——论文第三部分三项任务确实形成了从理论到制度的完整链条",
+            "评审专家A指出的'坦诚承认当下体系原理的合理性局限，指明未来跃迁可能'——结语的自我限定增强了学术诚信度",
+            "专家B提到的'证明制度革新'具体路径——'证据定案从孤立主义走向体系主义'等表述具有制度可操作性"
+          ],
+          "rejected_points": [
+            "专家B的85分/excellent档位——'数字印证证明理论'的'纵横''立体'检验仍较抽象，未达到excellent档要求的'精细操作机制'充分展开；'跃迁至新阶段'缺乏具体形态描述，且论文自承'合理性局限'，说明延展的成熟度有限",
+            "专家B批评的'缺乏配套的程序法条文草案或实证检验设计'虽成立，但以此作为扣分项而非降档依据——该要求对一篇理论建构型论文而言标准过高"
+          ],
+          "new_evidence_found": [
+            "论文第三部分'构建契合时代的数字印证证明理论'中，明确将数字印证分解为'纵横的比对分析'和'立体的构造分析'，并举例说明'哈希值、时间属性等信息'的比对方法，比我最初判断的'较抽象'更具操作性",
+            "司法证明制度革新三项任务中，'补足以证据体系定案的制度表述''推出一批相关规范条文'等表述，已超出纯理念层面，进入制度设计的具体化阶段",
+            "结语明确限定'在当下条件下具有现实合理性'，形成'现状合理性-未来跃迁'的双层结构，增强了延展的学术审慎性"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 85,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "延展路径清晰且与核心原理紧密咬合，但具体理论构建与制度革新的操作机制、研究设计及实证检验方案仍显宏观，精细度与可验证性有待深化。",
+          "revision_rationale": "采纳A、B专家关于延展路径“精细度不足”与“缺乏具体研究设计”的意见。重读确认，论文虽规划三大方向，但“数字印证理论”的检验机制及制度革新任务多停留于宏观构想，未提供配套程序法草案、具体假设或跨域风险防控设计，操作化与可验证性较弱，故下调评分。",
+          "accepted_points": [
+            "延展路径虽清晰但多停留于宏观构想，缺乏具体研究方案、假设或实证检验设计",
+            "“数字印证证明理论”的检验机制较为抽象，精细操作机制与后续研究的具体展开不足"
+          ],
+          "rejected_points": [
+            "认为延展路径缺乏明确指向或理论价值（论文延展方向与核心论证紧密咬合，具备清晰的理论深化与制度衔接指向，仅缺微观操作设计）"
+          ],
+          "new_evidence_found": [
+            "第三部分提出“数字印证证明理论”的“纵横比对”与“立体构造”双重检验机制，但未展开具体方法论或研究假设",
+            "制度革新部分呼吁“补足‘以证据体系定案’的制度表述”及调整展示规则，但全文未提供配套的程序法条文草案或实证检验方案"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 20.07498073577881,
+        "glm-5.1": 145.42592692375183,
+        "kimi-k2.6": 19.9038188457489,
+        "qwen3.6-plus": 155.80609011650085
+      },
+      "round1_mean": 72.8,
+      "round2_mean": 75,
+      "round1_std": 9.4,
+      "round2_std": 3.5,
+      "convergence_improvement": 5.9
+    }
+  },
+  "overall": {
+    "round1_avg_std": 12.45,
+    "round2_avg_std": 7.17,
+    "std_improvement": 5.28,
+    "round1_max_std": 21.3,
+    "round2_max_std": 17.2,
+    "dimensions_converged": 4,
+    "total_dimensions": 6,
+    "round1_final_score_mean": 73.71,
+    "round2_final_score_mean": 74.12
+  }
+}

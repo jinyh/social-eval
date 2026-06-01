@@ -1,0 +1,1028 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/印证的证明原理与理论塑造.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "就司法证明而言，印证是证据之间一种独特的相互关系...在中国就是“印证”。",
+          "在我国司法证明的传统实践中，最主要的相互印证方式是“口供印证勘验笔录”...",
+          "印证制度与自由心证制度作为两种来源于实践的制度...我们必须实现能与印证这一“中国特色”证明模式相对接的、不同于西方自由心证的理论创新。",
+          "可靠主义为印证模式奠定了恰如其分的理性基础..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "就司法证明而言，印证是证据之间一种独特的相互关系...在中国就是“印证”。",
+        "我们必须实现能与印证这一“中国特色”证明模式相对接的、不同于西方自由心证的理论创新。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国刑事司法中的“印证”证明模式为核心，深入剖析其原理、实践偏差及认知心理基础，并借助可靠主义哲学构筑理论支撑，明确提出了构建中国特色证明理论的主张，完全满足进入六维评价的条件。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码及分栏代码混入正文（如'5 6 2', '6 6 2', '0 8 2'等）",
+          "脚注编号存在OCR解析乱码（如'瑏瑠', '瑐瑠', '瑑瑡'等）"
+        ],
+        "evidence_quotes": [
+          "5 6 2",
+          "瑏瑠",
+          "0 8 2"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "这一范式在中国就是“印证”",
+          "在我国司法证明的传统实践中，最主要的相互印证方式是“口供印证勘验笔录”",
+          "我们必须实现能与印证这一“中国特色”证明模式相对接的、不同于西方自由心证的理论创新。信念理性的确实现了这一任务。",
+          "可靠主义为印证模式奠定了恰如其分的理性基础"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及分栏代码混入正文；脚注编号存在OCR乱码"
+      ],
+      "evidence_quotes": [
+        "这一范式在中国就是“印证”",
+        "我们必须实现能与印证这一“中国特色”证明模式相对接的、不同于西方自由心证的理论创新。信念理性的确实现了这一任务。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，但需在文本工程阶段清理混入的页码/分栏代码及修复脚注编号乱码"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码残留（如瑏瑠、瑏瑡、瑏瑢等）",
+          "参考文献列表抽取失败（标注为'无'）",
+          "期刊页码信息混入正文（如'5 6 2'、'6 6 2'等）"
+        ],
+        "evidence_quotes": [
+          "瑏瑠",
+          "瑏瑡",
+          "瑏瑢",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "这一范式在中国就是'印证'",
+          "在我国司法证明的传统实践中，最主要的相互印证方式是'口供印证勘验笔录'",
+          "以聂树斌案与王书金案为例说明",
+          "我们必须实现能与印证这一'中国特色'证明模式相对接的、不同于西方自由心证的理论创新",
+          "信念理性的确实现了这一任务"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码残留，需人工核对原始文献",
+        "文本工程：参考文献列表缺失，但不影响核心论点定位",
+        "文本工程：期刊页码数字混入正文，属分栏残留"
+      ],
+      "evidence_quotes": [
+        "这一范式在中国就是'印证'",
+        "我们必须实现能与印证这一'中国特色'证明模式相对接的、不同于西方自由心证的理论创新",
+        "信念理性的确实现了这一任务"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国刑事司法中的'印证'证明模式为核心研究对象，深入分析其证明原理、实践偏差，并引入认知心理学'信念理性'和西方哲学'可靠主义'进行理论创新，形成'信念理性'理论框架。项目口径信号充分，应进入六维评分。文本质量方面存在脚注乱码、页码残留等低度风险，但不影响核心评审，建议在评分阶段注意核对引文准确性。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别残留字符（如④⑤⑥、瑏瑠等乱码）",
+          "期刊页码、期号与标题混入正文段落（如“5 6 2 印证的证明原理与理论塑造”、“6 6 2 中国法学 2019 年第1 期”）",
+          "部分段落因分栏或换行导致语句断裂"
+        ],
+        "evidence_quotes": [
+          "5\n6\n2\n印证的证明原理与理论塑造\n③\n④\n⑤\n⑥",
+          "6\n6\n2\n中国法学\n2019 年第1 期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "这一范式在中国就是“印证”。",
+          "实际上，相互印证所依托的逻辑基础并非是因果律，而是“概率叠列。”",
+          "必须实现能与印证这一“中国特色”证明模式相对接的、不同于西方自由心证的理论创新。信念理性的确实现了这一任务。",
+          "正体现出“口供印证勘验笔录”证明模式的偏差。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR识别残留与排版页码混入，但不影响核心法学论证与理论框架的提取。"
+      ],
+      "evidence_quotes": [
+        "这一范式在中国就是“印证”。",
+        "必须实现能与印证这一“中国特色”证明模式相对接的、不同于西方自由心证的理论创新。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论证完整，明确聚焦中国刑事印证证明模式，结合本土错案（聂树斌案/王书金案）剖析实践偏差，并提出“概率叠列”与“信念理性/可靠主义”的理论转化框架，高度契合中国自主知识体系构建方向。建议按正常流程进入六维评分，仅需在后续环节清理OCR与页码残留格式。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文主要对印证证明模式进行体系化阐释和正当性辩护，未提出可争辩的法学研究问题。",
+          "core_judgment": "问题创新性不成立。全文为印证模式的运作原理和认知基础提供系统辩护，属于既定立场的理论阐述，缺乏可争辩的法学争点。",
+          "score_rationale": "可争辩性=0/4，枢纽性不适用。触发no_justiciable_question上限50分。因负面模式扣分（检查1扣15分，检查2扣20分，检查3扣30分），扣分合计65分，扣分后分数不低于30分，最终给30分。",
+          "evidence_quotes": [
+            "印证最显著的特点在于，它实际上不是证明。",
+            "印证是证据之间一种独特的相互关系，其表达式为: 证据A与证据B...相互印证，共同证明待证事实F。"
+          ],
+          "strengths": [
+            "对印证模式进行了系统的原理提炼和理论建构"
+          ],
+          "weaknesses": [
+            "核心创新点'信念理性'仍是用新术语包装对印证认知过程的描述，未说明相对既有心证理论的解释力提升。",
+            "全文为印证模式辩护，无学者观点交锋，未触及现实制度问题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学问题句，主要是对印证模式的原理阐释和正当性论证。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕'印证是什么'和'印证如何形成信念'展开解释而非提出'XX是否YY'或'如何ZZ'的争点。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 95,
+          "band": "excellent",
+          "summary": "重构印证理论的逻辑基础与认知机制，提出可靠性作为司法证明新维度。",
+          "core_judgment": "问题触及司法证明核心争点，理论分歧明确，重构解释路径具有高创新性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给95分。前置负面检查扣分合计0分。",
+          "evidence_quotes": [
+            "相互印证所依托的逻辑基础并非是因果律，而是“概率叠列”",
+            "对印证终极问题的回答，必须走出与自由心证的纠缠，步入认知心理学的更深层面"
+          ],
+          "strengths": [
+            "提出印证逻辑基础的替代性解释路径（概率叠列）",
+            "引入可靠主义重构司法证明的理性标准"
+          ],
+          "weaknesses": [
+            "概率叠列的量化模型在司法实践中难以操作"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与跨学科理论移植的妥当性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文对'印证'概念进行理论重塑，提出'概率叠列''信念理性'等新表述，但核心是对既有证明理论的重新包装。",
+          "core_judgment": "问题具有可争辩性但创新性不足，属于对既有证明理论的概念重述而非理论推进。",
+          "score_rationale": "可争辩性=3/4（有明确争点、属法学层面、有理论分歧、非纯政策倡导），枢纽性=2/4（影响证据法制度、涉及证明标准核心概念，但制度连锁效应有限、未形成广泛理论交锋），材料新颖性未触发上限。锚定marginal档(50-59)，给55分。扣分合计=20分（检查2：宏观介绍非深度分析，扣15分；检查3：主题声明非研究问题，扣5分）。",
+          "evidence_quotes": [
+            "印证不同于证明……印证即是'通过对照比较而获得事实'的验证方式",
+            "可靠主义为印证模式奠定了恰如其分的理性基础"
+          ],
+          "strengths": [
+            "明确区分'印证'与'证明'，提出可争辩的理论命题",
+            "引入认知心理学理论，尝试跨学科论证"
+          ],
+          "weaknesses": [
+            "核心创新'概率叠列''信念理性'实为既有理论的新表述，解释力提升不充分",
+            "缺乏与不同学者观点的深度交锋，多为单向理论建构"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文主题涵盖印证原理、信念理性、可靠主义等多个宏大面向，问题聚焦不足"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以可靠主义与认知心理学重构印证证明模式的理论基础，有效回应学界长期争议，问题设定具有显著的理论纵深与争辩性。",
+          "core_judgment": "该维度成立，论文成功将传统证据法问题转化为认识论与认知科学交叉的可争辩法学命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。前置负面检查扣0分。",
+          "evidence_quotes": [
+            "“印证的理论基础是‘概率叠列’……印证不是基于证据形态或类别而聚合的，而是依赖概率工具进行重叠性交叉评价”",
+            "“可靠主义为印证模式奠定了恰如其分的理性基础……可靠性替代精确性成为印证的新的约束性标准”"
+          ],
+          "strengths": [
+            "引入可靠主义与认知心理学，突破传统因果论解释局限",
+            "直面印证模式实践偏差与理论批判，争点聚焦且论证深入"
+          ],
+          "weaknesses": [
+            "概率叠列的数学化表述在司法裁判中缺乏直接操作性",
+            "对自由心证与印证的制度衔接路径论述稍显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽性，不评文献综述与论证严密度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.653332948684692,
+        "glm-5.1": 40.19250798225403,
+        "kimi-k2.6": 13.547352075576782,
+        "qwen3.6-plus": 64.26133298873901
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 95,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 67,
+      "std": 30.2,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文以分散式文献定位呈现了关于印证性质、功能及与心证关系的多层次争论，研究地图整体清晰。",
+          "core_judgment": "论文通过正文论证展现了多组学术争点和反驳，有效构建了研究地图，但缺乏独立的文献综述章节，且争点展开深度有提升空间。",
+          "score_rationale": "三要素得分=5/6（到达点2分，未竟点1分，本文切入点2分），争点结构=2/2，法学流派=3个，锚定good档，给82分。",
+          "evidence_quotes": [
+            "有学者对印证证明的完成状态提出质疑，认为刑事印证理论‘说不清楚’，应当进行一种‘去印证化’改革。这正是对印证进阶性原理认识不足所产生的理论偏差。",
+            "无论是持理性主义的刑事印证理论，还是持怀疑主义的印证批判论，抑或是借鉴西方自由心证理论的比较论，都没有从本源上作出圆满回答。"
+          ],
+          "strengths": [
+            "争点结构清晰，围绕印证是否等于证明、印证与因果律/概率论的关系、印证与自由心证的衔接等形成明确对立观点。",
+            "法学流派识别充分，包含理性主义印证论、怀疑主义批判论、自由心证比较论及认知心理学跨学科延伸。"
+          ],
+          "weaknesses": [
+            "未竟点阐述较弱，虽指出既有研究‘未从本源圆满回答’，但未具体说明各派理论在哪个环节存在缺口。",
+            "论文缺乏独立文献综述，部分对立观点（如印证去留之争）的学界脉络交代可更完整。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦研究地图完整性，论文以争点结构、对立立场和理论批判呈现文献梳理，而非评估问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准定位既有研究缺口，引入认知心理学与可靠主义重塑印证理论，洞察度极高。",
+          "core_judgment": "研究地图完整，争点结构清晰，法学流派丰富，现状洞察维度充分成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "无论是持理性主义的刑事印证理论，还是持怀疑主义的印证批判论……都没有从本源上作出圆满回答",
+            "目前学界基本上仅限于因果论的一般层面研究，并未充分揭示印证的理论基础"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰揭示因果论与自由心证论的局限",
+            "引入认知心理学与可靠主义，与未竟点完美对接"
+          ],
+          "weaknesses": [
+            "对可靠主义的法学转化论证稍显跳跃，哲学与法学的衔接可更紧密"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点梳理的完整性，而非评判印证理论本身是否绝对正确。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 68,
+          "band": "good",
+          "summary": "论文构建了印证证明的理论框架，但研究地图呈现分散，三要素未充分显明。",
+          "core_judgment": "研究地图三要素部分满足，争点结构单一，法学流派识别不足，整体处于good档下限。",
+          "score_rationale": "三要素得分=3/6（到达点2分：引述多位学者观点；未竟点1分：指出自由心证讨论不足但未充分展开；切入点1分：提出信念理性但对应关系松散），争点结构=1/2（呈现印证vs自由心证之争），法学流派=2个（印证模式派与自由心证派），锚定good档，给68分。",
+          "evidence_quotes": [
+            "无论是持理性主义的刑事印证理论，还是持怀疑主义的印证批判论，抑或是借鉴西方自由心证理论的比较论，都没有从本源上作出圆满回答",
+            "对印证终极问题的回答，必须走出与自由心证的纠缠，步入认知心理学的更深层面"
+          ],
+          "strengths": [
+            "引述多位学者观点形成理论对话基础",
+            "以聂树斌案为例深入分析印证实践偏差"
+          ],
+          "weaknesses": [
+            "未竟点与本文切入点对应关系松散，信念理性提出突兀",
+            "缺乏对既有研究缺口的系统性梳理，三要素分散于正文各处"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分3分，识别2个流派，但未充分展开争点结构"
+            }
+          ],
+          "boundary_note": "本评分仅评估文献梳理的完整性与争点结构，不涉及问题新颖性或论证严密性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒印证理论版图，精准定位因果论局限与自由心证缺口，引入认知心理学构建新路径。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派覆盖充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "无论是持理性主义的刑事印证理论，还是持怀疑主义的印证批判论，抑或是借鉴西方自由心证理论的比较论，都没有从本源上作出圆满回答",
+            "但目前学界基本上仅限于因果论的一般层面研究，并未充分揭示印证的理论基础"
+          ],
+          "strengths": [
+            "精准提炼理性主义、怀疑主义与自由心证论的学术对立格局",
+            "将未竟点明确锚定于因果论局限与信念机制缺失，逻辑闭环严密"
+          ],
+          "weaknesses": [
+            "对“去印证化”批判观点的回应偏重理论辩驳，缺乏实证或判例反证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉及理论创新性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.13973093032837,
+        "glm-5.1": 39.39691090583801,
+        "kimi-k2.6": 12.530761957168579,
+        "qwen3.6-plus": 65.94056916236877
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83.5,
+      "std": 11.4,
+      "strictest": 68,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "marginal",
+          "summary": "论文提出印证原理、概率叠列、信念理性等原创概念并系统阐释，但未提供可重复适用的法律判断标准或分析步骤，属于理论阐释而非分析框架建构。",
+          "core_judgment": "论文的核心贡献是理论阐释与概念厘清，未建构出可操作的分析框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无分析步骤、后文未按步骤调用），法学转化度得分=0/4（未向裁判规则或操作指引转化），锚定marginal档，因可操作性得分≤1触发上限规则，最高50分，综合考虑理论深度给40分。",
+          "evidence_quotes": [
+            "印证认知机制包括信念生成、信念培育、信念偏差、信念修正四大部分。",
+            "证据A与证据B的相互印证，共同证明待证事实F。"
+          ],
+          "strengths": [
+            "对印证的概念界定和概率叠列原理阐释非常清晰，构成理论创新。",
+            "理论体系完整，从原理到实践偏差再到信念理性，层层递进。"
+          ],
+          "weaknesses": [
+            "缺乏可操作的分析步骤或裁判规则，后文聂树斌案分析未按信念理性四阶段展开。",
+            "法学转化度不足，未提供裁判者可重复适用的具体判断标准或流程。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1触发上限规则，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文未提供可循的分析步骤，法学转化度得分=0"
+            }
+          ],
+          "boundary_note": "本文属于理论型论文，理论深度高但缺乏操作化分析框架，此为框架建构力问题而非逻辑严密性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构了从印证表达式到概率叠列、信念理性及可靠主义的递进式框架，概念清晰且转化度高。",
+          "core_judgment": "框架建构力极强，成功将跨学科理论转化为可操作的法学分析步骤与概念重构路径。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定与分类明确，分析步骤可循且后文多次调用；跨学科概念有效转化为法学操作步骤与理论重构路径。",
+          "evidence_quotes": [
+            "印证是证据间独特的相互关系，其表达式为: 证据A与证据B相互印证，共同证明待证事实F。",
+            "信念理性将印证作用于心证的过程分解为信念生成、信念培育、信念偏差、信念修正四大部分。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，提供了印证的表达式与适用边界",
+            "跨学科理论转化成功，将概率与认知心理学转化为法学分析步骤"
+          ],
+          "weaknesses": [
+            "可靠主义部分偏重哲学阐释，法学操作化转化稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化度，不评理论推演的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出'概率叠列'和'信念理性'解释印证模式，但框架缺乏清晰的操作步骤与判断标准，法学转化不足。",
+          "core_judgment": "分析框架处于'理论阐释'层面，虽有原创概念但未能转化为可重复的司法操作步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰、有分类标准但无明确分析步骤、后文调用不足），法学转化度得分=1/4（跨学科概念心理学/哲学未充分转化为法学分析步骤、无裁判规则或操作指引、无制度设计），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "印证就是采用这一原理得以在司法证明实践中获得有效性与合理性的",
+            "信念理性的确实现了这一任务。它回答了从印证到内心确信的整个心证轨迹，将印证作用于信念的过程分解为信念生成、信念培育、信念偏差、信念修正四大部分"
+          ],
+          "strengths": [
+            "原创提出'概率叠列'概念解释印证原理，有一定理论深度",
+            "引入认知心理学'信念理性'四阶段模型，尝试跨学科融合"
+          ],
+          "weaknesses": [
+            "'信念生成—培育—偏差—修正'四阶段缺乏可操作的判断标准与步骤",
+            "后文案例分析未实际调用该四阶段框架，多为现象描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'信念理性'四阶段仅有描述性阐释，未转化为裁判者可操作的判断步骤或心证形成标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“概率叠列+信念理性四阶模型”印证框架，概念清晰、步骤可循且贯穿全文。",
+          "core_judgment": "该分析框架成立且具备强可操作性与高法学转化度，有效统摄证据评价与心证形成。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念界定明确，四阶认知模型步骤清晰，跨学科理论成功转化为证据审查与心证校验的法学操作指引，并在案例剖析中反复调用。",
+          "evidence_quotes": [
+            "印证即是'通过对照比较而获得事实'的验证方式，其表达式为:证据A与证据B相互印证，共同证明待证事实F。",
+            "以'印证信念——印证检测——印证证成'三种认知功能为一体的完整信念模型，实现'真实性——公正性——普适性'三种司法任务。"
+          ],
+          "strengths": [
+            "提出'概率叠列'与'信念理性四阶模型'，逻辑链条完整且具原创性",
+            "将认知心理学与可靠主义哲学深度转化为证据审查与心证校验的法学操作路径"
+          ],
+          "weaknesses": [
+            "概率叠列的数学化表述在实务中缺乏直接量化标准，操作高度依赖裁判者经验",
+            "信念偏差与修正机制的法学程序性转化略显抽象，需进一步对接具体证据规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的建构力与转化度，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.08308291435242,
+        "glm-5.1": 34.70454502105713,
+        "kimi-k2.6": 13.202800750732422,
+        "qwen3.6-plus": 55.93904185295105
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 92,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69,
+      "std": 27.0,
+      "strictest": 40,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文以‘印证是进阶性论证而非完善证明’为核心，从概念界定到原理分析再到实践检验，层层递进，形成了可复述的完整推理链，并能有效回应反对意见。",
+          "core_judgment": "论文推理链完整且自洽，核心结论均可由前文材料推导而出，反驳处理充分，整体逻辑严密性较好。",
+          "score_rationale": "推理链完整性得分=4/4：主要步骤清晰可复述，依赖关系明确，结论有充分支撑，无关键跳步。反驳处理度得分=2/3：显式回应了‘去印证化’等反对意见，并承认了实践偏差与信念偏差等局限，但缺乏对反对意见更系统的梳理。锚定excellent档，因反驳处理未达满分，给82分。",
+          "evidence_quotes": [
+            "有学者对印证证明的完成状态提出质疑……这是对印证进阶性原理认识不足所产生的理论偏差。",
+            "虽然相互印证是一种有效的司法证明模式，但它的实践应用还需特别谨慎……单纯套用某种一一对应关系以建立表象上的‘吻合’，并非真正意义上的相互印证。"
+          ],
+          "strengths": [
+            "从‘印证非证明’到‘进阶性论证’再到‘概率叠列’的推演链条完整且依赖关系清晰。",
+            "对‘去印证化’批判、口供印证偏差等做了实质性回应，增强了论证的防守性。"
+          ],
+          "weaknesses": [
+            "反驳处理多针对特定学者观点，缺乏对反驳类型或路径的体系化梳理。",
+            "从概率叠列到信念理性的过渡，部分细节的融贯性可进一步强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论型论文，重在概念逻辑推演与反驳回应，评估聚焦于推理链条的充分支撑性，不涉及实务方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层依赖，反驳处理充分，核心结论可辩护推出。",
+          "core_judgment": "本维度成立，论文构建了从概念到原理再到认识论基础的严密推理链。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者对印证证明的完成状态提出质疑……这是对印证进阶性原理认识不足所产生的理论偏差",
+            "相互印证仅缩小了概率事件，却并没有彻底否定小概率事件"
+          ],
+          "strengths": [
+            "推理链层层递进，从概念界定到原理揭示再到哲学奠基，依赖度高",
+            "对显式反对意见与隐含分歧路径均有实质性论证回应"
+          ],
+          "weaknesses": [
+            "从概率叠列原理过渡到认知心理学信念机制时，理论跨度稍大"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "概率叠列算法是否可操作属于框架建构力，不纳入逻辑严密性评价",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "理论型论文，构建'印证'概念体系并引入可靠主义哲学基础，主线推理链完整但部分环节存在跳步。",
+          "core_judgment": "推理链完整性3/4，反驳处理度2/3，锚定good档(70-79)，给72分。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（可识别'证明vs印证区分→进阶性论证→概率叠列原理→信念理性→可靠主义奠基'五步链）；标准2成立（后步依赖前步，如概率叠列依赖印证定义）；标准3基本成立（'信念理性'结论由前文四阶段推导）；标准4不成立（从'概率叠列'到'信念生成/培育'的心理机制转换缺乏过渡，可靠主义引入与印证原理的衔接存在跳步）。反驳处理度得分=2/3：标准1成立（显式回应周洪波'去印证化'批评）；标准2成立（以'不可知论泥潭'回应并论证似真性价值）；标准3不成立（未承认自身理论适用边界，如概率叠列的量化困难、信念偏差不可检测等未视为局限）。锚定good档(70-79)，取72分。",
+          "evidence_quotes": [
+            "有学者对印证证明的完成状态提出质疑，认为刑事印证理论'说不清楚'，应当进行一种'去印证化'改革。这是对印证进阶性原理认识不足所产生的理论偏差。",
+            "可靠主义为印证模式奠定了恰如其分的理性基础……可靠主义对印证的支持，不是赋予它不切实际、无所不包的理性，而是把极端的理性标准拉回到'可靠性'评价现实中来。"
+          ],
+          "strengths": [
+            "从'证明vs印证'到'概率叠列'再到'可靠主义'的递进结构清晰，理论建构有层次。",
+            "对周洪波批评的回应有具体论证，非简单否定。"
+          ],
+          "weaknesses": [
+            "从概率叠列数学原理到认知心理学'信念生成'机制转换突兀，缺乏中介论证。",
+            "可靠主义引入后未处理与自由心证理论的竞争关系，直接断言'超越'存在跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评的是推理链是否充分支撑结论，不评'印证'概念本身是否可操作。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建严密推理链，结论由前文充分支撑，反驳处理到位。",
+          "core_judgment": "逻辑严密性成立，核心结论由理论推演充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。论证层层递进，有效回应争议并承认局限。",
+          "evidence_quotes": [
+            "印证不是严格意义上的完备证明，推进印证的理由在于所有事情支持它且无反对",
+            "可靠主义把极端的理性标准拉回到可靠性评价的现实，为印证奠定理性基础"
+          ],
+          "strengths": [
+            "推理链条完整，从概念到概率再到认知与哲学支撑层层递进",
+            "有效回应学术争议并明确承认认知偏差与理论适用边界"
+          ],
+          "weaknesses": [
+            "概率叠列向实践的转化论证略显理想化，缺乏实证支撑",
+            "认知心理学与可靠主义衔接跨度较大，过渡可更严密"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条支撑力与反驳处理，不评价理论框架实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.61493897438049,
+        "glm-5.1": 35.147202014923096,
+        "kimi-k2.6": 15.744657754898071,
+        "qwen3.6-plus": 64.33213090896606
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83.5,
+      "std": 8.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "结论以认知心理学重构印证理论，具有对话性且与制度语境兼容，但未主动回应主要反对意见，略显理论上的封闭姿态。",
+          "core_judgment": "论文将印证定位为一种进阶性论证并引入可靠主义哲学基础，能与既有争论对话且不与现行法秩序根本矛盾，但因缺少对反对观点的主动回应，在共同体对话度上未达最优。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=2/4。作为理论论文，锚定good档，基于未满足标准4（承认反对意见）扣分，给68分。",
+          "evidence_quotes": [
+            "有学者对印证证明的完成状态提出质疑...这是对印证进阶性原理认识不足所产生的理论偏差。（回应反对意见）",
+            "可靠主义认为，司法证明无需完全掌控每一条可能性证明路径...不完整性既是印证的生命，也是整个司法证明的生命。（讨论中国制度语境下的理论适配）"
+          ],
+          "strengths": [
+            "结论明确回应了印证批判论的挑战，并定位为修正主流理论",
+            "引入可靠主义哲学，为印证模式在中国法语境下的正当性提供了新基础"
+          ],
+          "weaknesses": [
+            "论文未在结论部分主动讨论自身“概率叠列”模型的局限或面临的反对意见",
+            "对中国刑事诉讼法现存印证规则的制度约束回应不足，缺乏具体制度转化方向"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论的当下接受度，不评价论证严密性或理论创新程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文深刻回应学界争论并提出信念理性与可靠主义新框架，与中国制度语境高度兼容。",
+          "core_judgment": "结论在共同体对话和制度兼容上均表现优异，成功将西方认识论适配中国印证模式。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文结论修正了因果论观点，认为印证的逻辑基础是‘概率叠列’",
+            "必须实现能与印证这一‘中国特色’证明模式相对接的、不同于西方自由心证的理论创新"
+          ],
+          "strengths": [
+            "主动回应‘去印证化’等反对意见并给出具体反驳",
+            "将可靠主义与中国特色印证模式成功对接"
+          ],
+          "weaknesses": [
+            "概率叠列与可靠主义的跨学科融合在法学界的接受度仍有待观察"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是结论的对话与制度兼容性，而非跨学科论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "本文提出'信念理性'理论对接中国刑事印证模式，回应了既有争论并尝试理论创新，但制度转化方向不够清晰。",
+          "core_judgment": "理论论文，共同体对话度较高，但制度可接受度因缺乏具体转化方向而受限。",
+          "score_rationale": "共同体对话度得分=3/4（回应印证与自由心证之争、回应'去印证化'批判、承认信念偏差局限；但未明确讨论中国本土法学传统局限），制度可接受度得分=2/4（不矛盾、回应制度约束；但未指出制度转化方向、未充分讨论中国制度语境适配性），锚定good档，给72分。",
+          "evidence_quotes": [
+            "以自由心证作为印证的认知动力实际上是对印证的消解……我们必须实现能与印证这一'中国特色'证明模式相对接的、不同于西方自由心证的理论创新。",
+            "信念理性的确实现了这一任务……完成了由印证到心证的全过程。"
+          ],
+          "strengths": [
+            "明确回应印证与自由心证的理论争论，定位清晰",
+            "主动承认信念偏差问题并构建修正机制"
+          ],
+          "weaknesses": [
+            "未充分讨论'信念理性'在中国刑事诉讼制度中的具体转化路径",
+            "对可靠主义的引入缺乏与中国现行证据规则的对接分析"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应本土证据法争论，理论自洽且高度兼容现行法秩序。",
+          "core_judgment": "该结论明确嵌入中国刑事证据法学共同体语境，具备高度的理论对话力与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准回应既有争论，理论建构与中国司法语境高度融合。",
+          "evidence_quotes": [
+            "有学者对印证证明的完成状态提出质疑……这是对印证进阶性原理认识不足所产生的理论偏差。",
+            "可靠主义的引入大大改变了印证‘师出无门’的尴尬，建立了从司法证明的技术操作通向哲学深邃根基的新的路线图景。"
+          ],
+          "strengths": [
+            "精准回应‘去印证化’批判，重构概率叠列与可靠主义基础。",
+            "深度结合本土语境与错案反思，理论建构与实务约束高度契合。"
+          ],
+          "weaknesses": [
+            "认知心理学与可靠主义的跨学科嫁接稍显宏大，实证检验不足。",
+            "对‘信念偏差’的程序控制机制论述偏抽象，制度转化路径待细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.25892615318298,
+        "glm-5.1": 32.59781193733215,
+        "kimi-k2.6": 10.476809024810791,
+        "qwen3.6-plus": 62.421416997909546
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.5,
+      "std": 12.3,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在结尾部分引入了可靠主义作为宏观理论支撑，并提及了认知心理学的未来方向，但缺乏具体、可定位的延展路径。",
+          "core_judgment": "存在较为概括的延展方向，但与正文核心论证的衔接需要推断，且精细度不足。",
+          "score_rationale": "原始分45分，对应bonus=2档。论文提出了‘信念理性’和‘认知心理学’的深化方向，但未转化为具体的研究问题或修正路径。宏观理论转向虽有方向感，但延展路径模糊，证据展开有限。",
+          "evidence_quotes": [
+            "对印证终极问题的回答，必须走出与自由心证的纠缠，步入认知心理学的更深层面，以超越自由心证的有限维度而真正迈向更具科学性的信念理性。",
+            "可靠主义为印证模式、信念理性乃至整个司法证明提供了一种彼此契合的绝佳的理论支撑"
+          ],
+          "strengths": [
+            "明确指出了超越既有自由心证讨论、引入认知心理学的理论深化方向。",
+            "提出了可靠主义作为新的哲学基础，为宏观理论重构提供了方向感。"
+          ],
+          "weaknesses": [
+            "延展方向过于宏观，缺乏具体的待修正概念、可检验的假设或实务改进路径。",
+            "未说明后续研究应围绕正文的何种具体局限（如概率叠列的应用鸿沟）展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文末尾的理论转向旨在为印证模式寻找新的基础，属于‘未来还能往哪里走’的理论深化问题，而非检验当下结论是否可被接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了从技术操作走向哲学根基的理论深化方向，并提出认知心理学的后续研究路径。",
+          "core_judgment": "存在真实延展路径，指明了可靠主义与认知心理学作为印证理论的深化方向。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。论文提出可靠主义作为印证的哲学基础，并指明步入认知心理学的深化方向，延展路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "建立了从司法证明的技术操作通向哲学深邃根基的新的路线图景",
+            "必须走出与自由心证的纠缠，步入认知心理学的更深层面"
+          ],
+          "strengths": [
+            "延展路径与核心结论紧密衔接，从印证走向可靠主义",
+            "明确提出认知心理学与可靠主义的后续深化方向"
+          ],
+          "weaknesses": [
+            "可靠主义在司法证明中的具体应用设计尚未展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "未来延展问题是指印证理论如何与可靠主义和认知心理学深度融合，而非当下结论是否可接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在结尾部分提出信念理性理论可超越自由心证，并指出印证与认知心理学结合的研究方向，但缺乏具体后续问题或修正路径的展开。",
+          "core_judgment": "存在理论深化的方向性提示，但延展路径较概括，未形成明确的后续研究问题或具体修正方案。",
+          "score_rationale": "原始分45分，对应bonus=2的边际档位。论文结尾提出'信念理性'作为理论创新，并指出需借助认知心理学深化印证研究，但仅停留在方向性陈述，未提出具体后续研究问题、概念修正路径或制度应用场景，精细度不足。",
+          "evidence_quotes": [
+            "对印证终极问题的回答，必须走出与自由心证的纠缠，步入认知心理学的更深层面，以超越自由心证的有限维度而真正迈向更具科学性的信念理性。",
+            "信念理性的确实现了这一任务……借助于认知心理学，将印证与内心各环节对接，完成了由印证到心证的全过程。"
+          ],
+          "strengths": [
+            "提出'信念理性'作为替代自由心证的理论创新方向。",
+            "明确认知心理学可作为印证理论的深化路径。"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点。",
+            "缺乏对'信念理性'概念边界的进一步界定或修正路径说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估未来延展空间。论文结尾的理论升华属于前瞻方向，但'走向认知心理学'仅为学科交叉提示，未构成具体研究设计；当下结论的可接受性属于另一维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文明确提出以可靠主义与认知心理学重构印证理论根基，并指出证明标准向“可靠性”转向的后续研究路径。",
+          "core_judgment": "存在真实且清晰的理论深化延展路径，紧密衔接正文对印证模式哲学基础缺位的诊断。",
+          "score_rationale": "原始分85，对应bonus=5。论文精准定位当前印证理论的哲学缺位，明确提出引入可靠主义与认知心理学深化理论的路径，延展方向清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "对印证终极问题的回答，必须走出与自由心证的纠缠，步入认知心理学的更深层面，以超越自由心证的有限维度而真正迈向更具科学性的信念理性。",
+            "可靠主义的引入大大改变了印证“师出无门”的尴尬，建立了从司法证明的技术操作通向哲学深邃根基的新的路线图景。"
+          ],
+          "strengths": [
+            "明确提出以可靠主义与认知心理学深化印证理论的路径",
+            "指出从“精确性”向“可靠性”标准转换的理论重构方向"
+          ],
+          "weaknesses": [
+            "未具体展开可靠主义在证据规则中的程序化转化方案",
+            "对认知心理学的实证检验路径着墨较少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于理论引入可靠主义与认知心理学后的后续深化方向，而非评价该理论当下是否被学界接受或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.84241509437561,
+        "glm-5.1": 34.543501138687134,
+        "kimi-k2.6": 13.013243198394775,
+        "qwen3.6-plus": 69.27752494812012
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 85
+      },
+      "mean": 65,
+      "std": 23.1,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 78.12,
+      "weighted_total": 75.1
+    },
+    "aggregation_strictest": {
+      "final_score": 50.59,
+      "weighted_total": 52.1
+    },
+    "avg_std": 18.8,
+    "max_std": 30.2,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 27.5,
+    "composite_score": -18.8,
+    "worst_dimension": "problem_originality",
+    "worst_std": 30.2
+  }
+}

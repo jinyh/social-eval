@@ -7,6 +7,8 @@ FRAMEWORK_PATH = (
     Path(__file__).resolve().parents[2]
     / "configs"
     / "frameworks"
+    / "archive"
+    / "v2.0-v2.54-20260522"
     / "law-v2.18-20260424.yaml"
 )
 

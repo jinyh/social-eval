@@ -1,0 +1,951 @@
+{
+  "paper": "法学三大刊论文/补充论文/FXYJ2025006008_法学研究_2025_人工智能综合性立法及其实现.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 50,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 30,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 50,
+          "revised": 30,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 20,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 45,
+          "revised": 55,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original": 88,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 8,
+          "confidence": "medium"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 30,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文仅围绕“应制定综合性立法”的政策倡导展开，未提出可争辩的法学问题，不属于法学研究。",
+          "revision_rationale": "本轮复读确认了原判。论文虽有学者观点罗列与反驳，但“应否制定综合性立法”本身属立法政策选择问题，而非可争辩的法学命题。法律保留、归责原则等论证仅为服务于这一政策倡导的论据，未转化为独立法学争点。新概念“综合性立法”解释力提升不充分，系对已有立法路径建议的重新包装。论文缺乏真正的学术问题句，法学研究属性缺失。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家A认为“问题具可争辩性”可接受。但“应采取何种立法模式”本质是立法政策选择，缺乏法学问题应有的规范性与解释力争辩空间，未触及法教义学核心。",
+            "专家B认为“问题具有明确争点与法学深度”。但全文争点仅是对不同立法模式的利弊权衡，属于立法政策辩论，未提炼出可经法学方法验证的争点，法学深度不足。",
+            "两位专家列出的法学论证（法律保留、归责原则等）仅为服务于政策倡导的支撑性论据，未能使论文整体脱离政策倡导性质。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 50,
+          "revised_score": 30,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 20,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "核心命题实为立法模式政策主张，缺乏可争辩法学问题句；综合性立法属新概念包装旧问题，解释力不足。",
+          "revision_rationale": "接受其他专家意见，原评价高估了法学可争辩性。论文虽涉法律保留、归责原则，但仅作为论证“应制定综合性立法”的政策工具，未形成法学理论层面的实质争点。全文缺乏法学问题句，仅为主题声明，学者交锋亦停留在立法策略层面。故下调可争辩性得分，加重政策倡导扣分，调整至unacceptable档。",
+          "accepted_points": [
+            "全文核心为政策倡导（应制定综合性立法），缺乏法学理论层面的实质争点",
+            "缺乏明确的法学问题句，仅有主题声明",
+            "学者观点交锋仅作为立法模式选择的背景，未形成法学理论争辩"
+          ],
+          "rejected_points": [
+            "完全否认其法学属性（认为不属于法学研究）。论文涉及法律保留、归责原则等法学概念的运用，虽服务于立法论，但并非完全脱离法学范畴，只是创新性不足",
+            "枢纽性仅给1/4。论文讨论的立法模式对多部门法有连锁影响，枢纽性不应过低"
+          ],
+          "new_evidence_found": [
+            "论文在矩阵式制度体系中提出归责原则配置（如运行阶段严格责任），但仅作为立法建议内容，未进行法理深度论证，进一步印证其政策倡导属性"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 45,
+          "revised_score": 55,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "marginal",
+          "revised_core_judgment": "论文存在可争辩的法学问题句，但核心仍属政策倡导型命题，理论争辩深度不足。",
+          "revision_rationale": "重新审视后，承认论文存在'是否需要专门立法及采取何种模式'的可争辩问题句，且对总则性、碎片化、低位阶三种替代路径有较为系统的法理论证，枢纽性优于初判。但核心命题'应制定综合性立法'仍属立法政策选择，而非真正的法学理论分歧；'综合性立法'概念对既有法学命题的包装提升有限，制度设计部分偏向政策规划。综合调整为marginal档。",
+          "accepted_points": [
+            "评审专家A指出问题具可争辩性与枢纽性，论文确实围绕立法模式分歧展开论证",
+            "评审专家B认为论文明确提炼立法模式分歧、深入剖析替代路径法理缺陷，该部分论证确实存在",
+            "论文对三种替代立法路径（总则性、碎片化、低位阶）的批判性分析具有一定法学论证深度"
+          ],
+          "rejected_points": [
+            "评审专家B的88分/excellent档判断：论文虽有一定论证，但核心仍为政策倡导，'综合性立法'作为新概念对法学理论的创新贡献有限，未达到excellent标准",
+            "评审专家A的'可争辩性4/4、枢纽性4/4'评分：可争辩性应属中等偏上，但核心争点实为立法模式之争的政策层面，非根本性法学理论分歧"
+          ],
+          "new_evidence_found": [
+            "论文第9-10页对三种替代路径（总则性、碎片化、低位阶）的批判性分析，涉及法律保留原则、立法协调性、监管碎片化等法学议题",
+            "论文第14-15页对全生命周期各环节归责原则（过错推定、严格责任等）的差异化配置，具有法教义学分析特征",
+            "论文第16页关于'守门人'主体责任、开源责任减免等制度设计，触及传统法学理论中的责任分配问题"
+          ],
+          "confidence": "medium"
+        },
+        "qwen3.6-plus": {
+          "original_score": 88,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 8,
+          "revised_band": "good",
+          "revised_core_judgment": "聚焦立法模式选择，具学术争鸣与体系化论证，但偏重立法政策与规制设计，法教义转化不足，符合良好档标准。",
+          "revision_rationale": "采纳A/B关于偏重政策倡导、法教义转化弱、问题句宏观的批评。论文虽系统反驳替代路径，但多依赖治理效能逻辑，缺乏对具体部门法教义冲突的深度剖析。然其明确回应学界分歧，运用法律保留、归责原则等法理工具，具备立法学研究属性，故降档至良好。",
+          "accepted_points": [
+            "论文论证偏重立法政策与规制效能，法教义学转化相对薄弱",
+            "核心问题句偏向宏观立法模式选择，缺乏传统法学意义上的精准争点提炼"
+          ],
+          "rejected_points": [
+            "全文无可争辩的法学问题句/不属于法学研究：论文明确提炼立法模式分歧，并运用法律保留、归责原则等法理工具进行体系化反驳，具备立法学/规制法学研究属性",
+            "缺乏学者观点实质交锋：第二部分专节系统评析并逐一批驳替代路径主张，已形成实质学术对话"
+          ],
+          "new_evidence_found": [
+            "第二部分运用《立法法》第11条法律保留原则、监管重叠法理及归责原则（过错推定/严格责任）反驳替代路径",
+            "第四部分矩阵式制度设计中明确区分研发者、提供者、使用者的权利义务与归责逻辑，体现法教义建构尝试"
+          ],
+          "confidence": "medium"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.72596311569214,
+        "glm-5.1": 78.72241616249084,
+        "kimi-k2.6": 15.926759004592896,
+        "qwen3.6-plus": 69.48401689529419
+      },
+      "round1_mean": 53.2,
+      "round2_mean": 48.8,
+      "round1_std": 24.7,
+      "round2_std": 23.9,
+      "convergence_improvement": 0.8
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 80,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 80,
+        "glm-5.1": 80,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 80,
+          "revised": 80,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 90,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 80,
+          "revised_score": 80,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "本文通过分散式文献定位展示了丰富的争点结构，研究地图三要素基本完备，但法学理论流派的梳理深度有限，未能达到 excellent 档对“流派识别充分”的要求。",
+          "revision_rationale": "专家A/B主张5个/3个法学流派，但文中呈现的“先发展后立法”、总则式、碎片化、低位阶等实为立法模式或政策主张，并非法学理论流派（如法律现实主义、法律形式主义等）。论文主要呈现了立场对立，缺乏对背后法理谱系的深入辨疏，故维持原判80分。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家A称识别到5个法学流派：文中观点虽有对立，但均为针对同一立法议题的竞争性对策，难以构成多个独立法学理论流派。",
+            "专家B称识别到3个法学流派：类似地，这些分歧属于立法路径选择，尚未上升到法学理论流派的对立，如未涉及法律工具主义、法律自主论等深层范式。"
+          ],
+          "new_evidence_found": [
+            "论文在反驳替代性立法模式时，对“总则式”“碎片化”“低位阶”等路径进行了详细学理剖析，增强了争点结构，但仍停留在对策层面，未拓展到法学理论流派。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素完备，争点结构丰满，但法学流派识别停留在立法模式之争，缺乏深层法理提炼。",
+          "revision_rationale": "接受专家A关于法学流派识别深度不足的批评。论文虽系统梳理并反驳了多种替代性立法模式，争点结构清晰，但这些对立主要停留在立法路径与政策立场层面，未将其提炼为法学理论流派（如法律工具主义与法律自主论）的深层交锋。洞察深度受限，故下调至good档80分。",
+          "accepted_points": [
+            "法学流派识别相对有限：论文主要呈现支持统一立法与支持替代性立法模式的立场对立，缺乏对法学理论流派的深入梳理，流派识别停留在立法模式之争而非深层法理之争。",
+            "比较法经验多作为制度事实描述，较少提炼为深层法理争点（此为我原有缺点，但结合A的意见，认识到此缺陷对分数的影响应更大）。"
+          ],
+          "rejected_points": [
+            "专家B认为切入点与未竟点的对应关系不够直接。论文的未竟点指出既有研究未意识到AI颠覆性及统一立法防碎片化优势，切入点明确提出需制定覆盖全要素、体系化的综合性立法，逻辑上已直接回应了颠覆性需体系化应对、碎片化需统一立法的痛点，衔接是成立的。"
+          ],
+          "new_evidence_found": [
+            "论文在功能统合部分提及学界存在将立法窄化为'管理法'或'风险控制法'的倾向，但这仍属于立法功能定位之争，而非法学基础理论流派之争，进一步印证了论文流派识别未触及深层法理。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "excellent",
+          "revised_core_judgment": "研究地图三要素完备，争点结构丰满，流派识别充分，本文切入点与未竟点对应关系经全文审视更为清晰。",
+          "revision_rationale": "重新通读全文后，发现论文对'未竟点'的揭示并非仅停留在引言段，而是贯穿全文：第一部分通过'颠覆性''体系性治理赤字'等论述深化了对既有研究局限的批判；第二部分系统反驳总则式/碎片化/低位阶立法，形成与引言未竟点的呼应；第三部分正面建构综合性立法，形成'破—立'完整闭环。此前评分对'本文认为'与未竟点的衔接判断过于苛责，未充分体认全文结构的纵深展开。此外，论文对五种以上对立观点的梳理、从'先发展后立法'到'小快灵'再到'综合性立法'的层层递进，以及比较法经验的批判性运用（如欧盟AI法风险分级弊端的反思），均体现较高的现状洞察度。但坚持认为对域外经验的学理提炼仍可深化，故上调至85分而非90分。",
+          "accepted_points": [
+            "三要素得分应更高：本文切入点并非仅在引言处简单出现'本文认为'，而是与未竟点形成全文层面的深层对应",
+            "争点结构确实层层递进：从立法必要性→模式选择→功能定位→范式创新→技术塑造，形成立体结构",
+            "法学流派识别应包含5个：'先发展后立法'派、'立法增负'派、'技术困难'派、'总则式/碎片化/低位阶'派、'综合性立法'派"
+          ],
+          "rejected_points": [
+            "专家A/B的90分满分评价：对域外立法经验的学术批评深度仍有限，如对美国州际碎片化问题的分析停留在政策描述层面，未充分提炼为法理争点；对欧盟AI法的分析亦以制度事实为主，学理对话深度不及对国内观点的批判"
+          ],
+          "new_evidence_found": [
+            "论文第9页明确将'先发展后立法''立法增负''技术困难''总则式/碎片化/低位阶'归纳为四种对立观点，并在第10-13页逐一系统反驳，形成'到达点—未竟点—本文切入点'的完整链条",
+            "论文第13页'上述分析……未充分意识到人工智能的变革具有颠覆性'与后文'人工智能技术凭借前所未有的创新性与颠覆性'形成首尾呼应，证明未竟点与本文切入点的对应关系并非'不够直接'",
+            "论文对欧盟AI法'叠床架屋'式风险分级、美国州级立法碎片化等域外经验的批判性分析，已超越单纯制度描述，具有学术批评意识"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 90,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素完整且逻辑自洽，争点结构清晰；但法学流派识别偏重政策立场而非深层法理对话，域外经验学理提炼稍弱。",
+          "revision_rationale": "采纳专家A关于流派识别偏政策描述的意见。重读发现，文中归类确属立法策略分歧，未深入法理流派；域外引证多作政策佐证。但“未竟点”与“切入点”逻辑衔接紧密（专家B观点不成立），故微调降档至good档85分。",
+          "accepted_points": [
+            "法学流派识别相对有限，主要呈现立法策略/政策立场对立，缺乏对深层法理流派（如法律工具主义与自主论）的梳理",
+            "域外经验引述偏重政策描述与制度比较，学理对话与理论批判深度有待加强"
+          ],
+          "rejected_points": [
+            "本文切入点与未竟点的逻辑衔接不够直接（理由：原文通过“未充分意识到颠覆性/碎片化弊端”直接推导出“需综合性立法统筹全要素/平衡多重功能”，逻辑链条完整且明确）"
+          ],
+          "new_evidence_found": [
+            "文中明确将既有观点归纳为“立法时机/模式选择”分歧（如总则式、碎片化、低位阶），而非传统法理学派",
+            "在批判域外经验时，多引用欧盟AI办公室招聘困境、美国州立法碎片化等政策/实践案例，缺乏对比较法背后规制哲学的学理提炼"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 19.80913496017456,
+        "glm-5.1": 44.08186197280884,
+        "kimi-k2.6": 19.049925327301025,
+        "qwen3.6-plus": 72.86281085014343
+      },
+      "round1_mean": 83,
+      "round2_mean": 82.5,
+      "round1_std": 8.7,
+      "round2_std": 2.9,
+      "convergence_improvement": 5.8
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 58,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 30,
+          "revised": 30,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 58,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 32,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 52,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 20,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 90,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 2,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 30,
+          "revised_score": 30,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文仍以归纳政策主张和构建概念框架为主，缺乏可重复适用的法学分析步骤与裁判规则转化，框架建构力薄弱。",
+          "revision_rationale": "重新审视论文后，专家A和B所指出的“归责原则映射”“矩阵框架”等优点，本质仍是论文提出的概念性主张和制度设想，而非可操作的法律适用步骤（如构成要件、判断标准、举证规则等）。论文并未完成从政策理念到法学操作规则的转化，未提供能直接指导司法或执法实践的框架。v0.7规则对政策梳理型论文的上限约束依然适用，故维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家A/B将“提出制度方案”“概念分类明确”等同于“框架可操作性强”的观点，混淆了立法论层面的制度设想与真正可重复适用的法律适用框架，法学转化度评判存在根本偏差。"
+          ],
+          "new_evidence_found": [
+            "论文在“矩阵式制度体系”部分确实提出了生命周期归责原则的映射（如设计开发适用过错推定、运行转向严格责任），但仅为方向性主张，缺乏具体构成要件设计。",
+            "论文关于“负面清单”“立法特区”的讨论限于授权机关和权限层面，未触及清单的具体判断标准或特区到底可以变通哪些法律规则的操作机制。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 58,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 32,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架建构力偏弱，虽提出矩阵式立法提纲与归责映射，但多为政策主张，缺乏可操作的分析步骤与裁判规则转化。",
+          "revision_rationale": "接受其他专家意见，论文核心属立法论与政策倡导，提出的“矩阵式制度体系”及归责原则映射仅为立法内容提纲与方向，缺乏可重复适用的判断标准与法学操作流程，法学转化停留在宏观层面，未落地为操作流程，触发政策梳理型上限，故下调至marginal档。",
+          "accepted_points": [
+            "论文多为政策主张归纳，缺乏可重复适用的分析步骤或判断标准",
+            "核心术语缺乏操作化定义，法学转化度低，未转化为裁判规则或适用流程",
+            "触发政策理论梳理型上限规则，总分不应过高"
+          ],
+          "rejected_points": [
+            "法学转化度为0（论文确实有初步的类型化提炼，如三维义务分配标准和归责原则映射，并非完全没有转化，只是不够深入和操作化，停留在立法提纲层面）"
+          ],
+          "new_evidence_found": [
+            "论文提出'技术支配力、决策控制权、收益获取度'作为义务分配标准，但仅停留在概念提出层面，未展开具体判断步骤与适用流程",
+            "归责原则的七环节映射仅为宏观分配表，缺乏适用条件、举证责任与裁判规则的具体界定"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 52,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 20,
+          "revised_band": "good",
+          "revised_core_judgment": "框架建构力从'未成立'修正为'部分成立'：'全要素-分主体-全周期'矩阵确有具体展开，归责原则与义务分配标准具备一定操作性，但核心术语的法学操作化程度仍不充分。",
+          "revision_rationale": "重新审读论文后，承认首轮评价存在低估。论文第三部分'矩阵式制度体系'确实将'全要素覆盖、分主体规制、全周期监管'转化为可辨识的分析步骤：横向上以'技术支配力、决策控制权、收益获取度'三标准分配主体义务；纵向上将生命周期七环节与归责原则（过错推定→严格责任）映射，并设计了负面清单、监管沙盒、立法特区等制度方案。这些内容超越了'政策主张'层面，具有法学转化特征。但'综合性立法'仍缺乏明确的操作化定义——其内涵（体系性、全面性、综合性）与外延边界模糊，'矩阵'更多是内容提纲而非可重复适用的分析工具，且部分核心制度（如强制暂停机制）的法学构造仍显粗疏。因此从marginal上调至good档下限，而非两位专家认定的excellent。",
+          "accepted_points": [
+            "论文确实提出了'技术支配力、决策控制权、收益获取度'作为主体义务分配的具体标准",
+            "生命周期七环节与归责原则的映射具有制度设计特征，非空泛呼吁",
+            "负面清单、监管沙盒、立法特区等方案已落地为具体制度模块"
+          ],
+          "rejected_points": [
+            "'框架建构力强''法学转化彻底'等判断过度：'矩阵'缺乏作为分析工具的独立方法论地位，三标准未形成可检验的裁判规则；'立法特区'等方案的宪法依据与法律适用流程未充分展开；核心术语'综合性立法'仍停留于价值宣示，未转化为法律解释或漏洞填补的操作框架"
+          ],
+          "new_evidence_found": [
+            "第三部分明确以'技术支配力、决策控制权、收益获取度'为核心标准划分研发者、提供者、使用者义务（第343页）",
+            "设计开发阶段适用过错推定，运行阶段转向严格责任，并配套赔偿上限、产业补偿基金等机制（第344页）",
+            "区分'立法特区'与'监管沙盒'的本质差异，体现制度设计的类型化努力（第347页）",
+            "开源模型责任减免、守门人额外义务等精细化规则设计（第343页）"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 90,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 2,
+          "revised_band": "excellent",
+          "revised_core_judgment": "矩阵框架逻辑严密且深度调用，成功将治理需求转化为具体立法模块与归责体系，但司法裁判规则转化与程序触发细节仍显薄弱。",
+          "revision_rationale": "坚持原高分档。论文并非单纯政策归纳，而是构建了“全要素-分主体-全周期”矩阵，并精准转化为差异化归责原则、负面清单、监管沙盒及强制暂停等具体立法方案，法学转化度与可操作性强。采纳其他专家关于“司法裁判规则转化不足、程序触发细节待细化”的合理意见，故微调扣分，但整体仍属优秀。",
+          "accepted_points": [
+            "部分机制（如强制暂停、负面清单动态调整）的司法衔接、程序触发条件及证据标准确需进一步细化",
+            "核心术语在转化为可重复适用的司法裁判规则方面尚有提升空间"
+          ],
+          "rejected_points": [
+            "认为全文仅为政策归纳且缺乏可操作步骤：论文已明确给出主体划分标准（技术支配力等）、生命周期归责原则及具体制度模块，具备强可操作性",
+            "认为法学转化度极低：论文已将宏观目标转化为立法授权、责任豁免、税收抵免等具体法律规范设计，转化彻底"
+          ],
+          "new_evidence_found": [
+            "生命周期各环节差异化归责原则设计（设计开发适用过错推定、运行阶段适用严格责任等）",
+            "基于技术支配力、决策控制权、收益获取度的主体义务精准分配标准",
+            "负面清单管理制度与监管沙盒、强制暂停机制的配套立法授权设计"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 20.026826858520508,
+        "glm-5.1": 97.92739295959473,
+        "kimi-k2.6": 15.678338050842285,
+        "qwen3.6-plus": 58.693055868148804
+      },
+      "round1_mean": 66,
+      "round2_mean": 62.5,
+      "round1_std": 30.2,
+      "round2_std": 25.3,
+      "convergence_improvement": 4.9
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 85,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 90
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 88,
+          "revised": 88,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 82,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 90,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 2,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 88,
+          "revised_score": 88,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链完整闭环，反驳处理扎实，但对各模式独有缺陷的论证可更深入，且对“综合性立法解决碎片化”的深层挑战回应稍弱。",
+          "revision_rationale": "重新审视后维持原判。评审专家A、B指出的“深层逻辑挑战回应稍弱”和“强制暂停机制论证简略”等缺点，在我原评价中已有类似观察（“部分论证复用相似逻辑”），且新发现的细节不影响整体逻辑严密性的excellent档级判断。88分已合理反映该维度的强项与轻微不足，无需调整。",
+          "accepted_points": [
+            "‘综合性立法能否真正解决碎片化’的深层逻辑挑战回应稍弱（评审专家A）",
+            "强制暂停机制的触发标准论证略显简略（评审专家B）",
+            "地方立法试验与中央立法的权限冲突边界可进一步细化（评审专家B）"
+          ],
+          "rejected_points": [],
+          "new_evidence_found": [
+            "论文第五部分“暂停机制”段落仅提及‘有具体证据作为支撑’和‘严格的触发条件’，确实未展开论证具体标准。",
+            "论文在驳斥总则性、碎片化、低位阶立法时，均主要指向‘缺乏体系性’，对各自独有缺陷的区分确可加强。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链整体闭环完整，反驳处理扎实，但存在关键范式转换论证跳步及反驳逻辑同质化瑕疵。",
+          "revision_rationale": "接受专家A和B关于反驳逻辑同质化及范式转换论证跳步的观点。论文从技术迭代快到法律主动塑造技术的过渡依赖政策宣示，法理推导偏薄；全生命周期归责设计亦偏政策分配。这些削弱了逻辑严密性，故下调5分。但整体三段论结构清晰，反驳显式且承认自身局限，仍属excellent档。",
+          "accepted_points": [
+            "反驳替代模式时存在逻辑同质化，均指向缺乏体系性",
+            "从技术迭代快到法律主动塑造技术的范式转换论证不足，存在跳步",
+            "全生命周期归责等制度设计的中间环节依赖政策宣示多于法理分析"
+          ],
+          "rejected_points": [
+            "专家B认为未明确承认自身局限。论文已明确指出综合性立法不等于全面性，并非无所不包的法典，需预留接口和配套细化，这实质上承认了立法的局限与开放性。"
+          ],
+          "new_evidence_found": [
+            "论文在'综合性立法的基本内涵'部分明确承认'综合性不等于全面性'，预留衔接空间，回应了自身局限",
+            "在'范式创新'部分，从被动响应转向主动塑造的论证确实主要依赖沙盒监管等功能性列举，缺乏法理层面的深度过渡"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链完整且反驳处理充分，'主动塑造技术'范式转换论证有文本支撑，局部论证密度不均仍存但属可接受范围。",
+          "revision_rationale": "重新审读论文后，发现原文对'技术快速迭代→法律可主动塑造技术'的过渡并非完全缺失：第三部分'综合性立法的范式创新'明确将互联网'先发展后规范'与人工智能'边发展边监管'对比，提出'主动推进'转向；第四部分'技术塑造'进一步以'沙盒监管'等制度创新论证法律建构能力。此论证虽可更充分，但已构成有效过渡，非关键跳步。同时，论文对'全生命周期归责'的推导有明确法理支撑（过错推定、严格责任的区分适用），并非依赖政策宣示。但'强制暂停机制'触发标准论证确实简略，且未明确承认自身局限，故维持good档，提升至82分。",
+          "accepted_points": [
+            "专家A指出'对四种替代立法模式逐一展开实质性反驳'成立，反驳处理具有针对性",
+            "专家B指出'问题识别-模式比较-方案构建-实施机制'递进结构成立，环节依赖紧密",
+            "原文'主动塑造'范式转换在第三部分、第四部分有文本支撑，过渡论证存在而非缺失"
+          ],
+          "rejected_points": [
+            "专家A、B均锚定excellent档（90-92分），但论文存在'强制暂停机制触发标准论证简略'的明显跳跃，且未承认自身局限（如未讨论综合性立法可能导致的'一刀切'风险），不符合excellent档'完全成立'标准",
+            "专家B认为'强制暂停机制的触发标准论证略显简略'仅为'轻微跳跃'，但该制度涉及基本权利限制，论证简略构成实质性缺陷"
+          ],
+          "new_evidence_found": [
+            "第三部分'综合性立法的范式创新'：'从被动跟进转向主动推进，从'先发展、后监管'转向'边发展、边监管''，明确回应技术迭代与法律塑造的关系",
+            "第四部分'技术塑造'：'法律体系并非只能被动滞后或固守既有模式，其本身具有塑造技术发展的建构能力'，直接论证范式转换",
+            "全生命周期归责部分：设计阶段'过错推定'、运行阶段'严格责任'、退役阶段'永久性监护责任'，均有明确法理依据（风险收益对称、举证困境等）"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 90,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 2,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链条完整严密，反驳具针对性与实质性；但部分制度推导偏重政策宣示，法理纵深与关键机制触发标准论证可进一步夯实。",
+          "revision_rationale": "采纳专家A关于反驳逻辑部分趋同的提示，及专家B关于部分制度推导偏政策化的意见。经复核，论文已专设章节回应“技术塑造”范式转换，不存在关键跳步；但强制暂停机制触发阈值、地方变通立法的合宪性边界等细节确显简略，法教义学支撑稍弱。故微调至90分，仍属excellent档。",
+          "accepted_points": [
+            "反驳替代方案时部分逻辑存在趋同倾向（均指向缺乏体系性/顶层设计），可更突出各模式独有的规范缺陷",
+            "部分制度设计（如全生命周期归责）的推导链条偏重政策与机制构建，法理分析密度与教义学纵深可加强",
+            "强制暂停机制的触发标准与地方试验立法的权限边界论证略显简略"
+          ],
+          "rejected_points": [
+            "从'技术迭代快'到'法律主动塑造技术'存在关键跳步：论文已专设'综合性立法的技术塑造'一节，通过反驳技术决定论、引入沙盒监管与底线规则设定，完成了范式转换的论证，逻辑链条完整，不存在关键跳步。"
+          ],
+          "new_evidence_found": [
+            "论文第(四)部分“综合性立法的技术塑造”明确论证了法律体系的建构能力与调适能力，通过沙盒监管、影响评估等机制实现法律确定性与技术演进的动态平衡，有效回应了“法律滞后/无能”的质疑。",
+            "论文在反驳低位阶立法时，明确援引《立法法》第11条法律保留原则，指出其无法进行税收抵免、责任豁免等制度创新，论证具有明确的规范依据而非单纯政策宣示。"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.626054286956787,
+        "glm-5.1": 57.83157300949097,
+        "kimi-k2.6": 15.063963890075684,
+        "qwen3.6-plus": 58.50932192802429
+      },
+      "round1_mean": 85.5,
+      "round2_mean": 86.2,
+      "round1_std": 9.1,
+      "round2_std": 3.5,
+      "convergence_improvement": 5.6
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 86,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 86
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 85,
+          "revised": 88,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 92,
+          "revised": 86,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 86,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 85,
+          "revised_score": 88,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论明确主张推进综合性立法，深度回应替代方案并给出矩阵式制度设计，虽对协调成本论证偏简但整体学术对话与实践指引导向强势成立，略上调评分以更精确反映其制度可行性论证的密度。",
+          "revision_rationale": "重新审读后，论文第四部分对矩阵式制度体系、负面清单、沙盒机制、主体分层责任及全周期归责原则的设计极为细致，并明确回应了立法后优化和特区试验，在“制度可接受度”的论证密度上超出我初评时的判断，更接近两位专家92分的水平。但我仍认为其对跨部门协调成本的回应偏弱，故仅小幅上调3分而非完全拉平。",
+          "accepted_points": [
+            "立法后调适机制（适配性评估、特区试验等）论证充分，强化了制度落地能力",
+            "矩阵式制度体系、负面清单与监管沙盒等模块化设计确实比初评时认知的更系统"
+          ],
+          "rejected_points": [
+            "对方给出的92分过高，因论文对“部门协调超高成本”问题的回应仅停留在设立主管机关和机制描述层面，缺乏对现实障碍的深度解释，不能完全忽略这一弱点"
+          ],
+          "new_evidence_found": [
+            "第四部分对负面清单附件的动态调整授权、特区立法与监管沙盒本质分野的精细阐述",
+            "全周期七环节归责原则的差异化设计（过错推定、严格责任等），显著增强了制度操作性"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 92,
+          "revised_score": 86,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 6,
+          "revised_band": "excellent",
+          "revised_core_judgment": "深度回应立法模式争论并提供详尽制度转化方案，契合现行法秩序，但理论抽象提炼稍弱，对自身论证局限反思不足。",
+          "revision_rationale": "接受专家A和B关于论文“理论提炼深度有限，偏重制度描述与政策主张强化”以及“对自身论证局限反思不足”的意见。论文在共同体对话度和制度可接受度上表现优异，反驳替代方案具体有力，但学术推进更多体现在制度工程的细化而非理论范式的深层突破，且对综合性立法自身面临的部门协调超高成本等局限缺乏充分自省。故从92分微调至86分，仍锚定excellent档。",
+          "accepted_points": [
+            "结论偏重制度描述与政策主张的强化论证，理论层面的反思和抽象提炼相对较少",
+            "对自身论证局限（如综合性立法可能带来的部门协调超高成本与落地难度）未充分承认和反思"
+          ],
+          "rejected_points": [
+            "专家B认为“对反对意见回应不足”并据此降至good档（72分）。论文对总则式、碎片化、低位阶等观点的反驳是具体且有针对性的（如指出碎片化协商成本过高、低位阶受立法法限制），并非未充分回应，只是在反驳时对自身方案的弱点承认不够，这属于反思深度问题，不影响对话度本身的高水平表现，不应降至good档。"
+          ],
+          "new_evidence_found": [
+            "论文明确提出“综合性不等于全面性”，试图在理论上做一定澄清，但整体论述仍偏向功能统合（促进、防控、规制）与制度构建，理论抽象确实偏弱",
+            "论文在反驳碎片化立法时指出其立法协商成本过高，却未正面论证综合性立法如何克服类似的超高部门协调成本与博弈难度，印证了反思局限的缺点"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "结论具备强共同体对话能力与制度可接受度，理论创新虽非原创性突破，但实现了立法模式的系统整合与范式转换，属于制度导向的成熟型学术主张。",
+          "revision_rationale": "经重新审读，修正此前评价的两点不足：其一，论文对'先发展后立法''小快灵'等反对意见的回应比我此前判断更为充分，不仅逐一批驳了缓行论、碎片化论、总则式论等观点，更指出其'难以套用互联网规制经验''恐积累不可逆风险'等核心困境，共同体对话度应提升至4/4；其二，论文提出的'矩阵式制度体系''动态适配机制''立法后调适'等方案，并非单纯的制度描述，而是包含'从被动响应到主动塑造''从1到N的体系化整合'等范式创新，理论提炼深度应予肯定。但专家A、B的92分仍偏高，因论文对'部门协调超高成本''跨部门协调机制实操成本'等问题的回应确实稍弱，且'强制性暂停机制'等设计的风险门槛与程序约束论证尚显简略，尚未达到'excellent'档的顶尖水准，故上调至85分，锚定good档高位。",
+          "accepted_points": [
+            "精准回应了缓行论、碎片化论、总则式论等反对意见并指出其困境",
+            "矩阵式制度体系与动态适配机制具有操作性创新",
+            "立法后调适机制（评估循环、接口预留、特区试验、暂停机制）构成完整闭环"
+          ],
+          "rejected_points": [
+            "专家A、B的'excellent'档判断：论文对协调成本、实操细节的论证仍显薄弱，'强制性暂停机制'的触发条件与程序约束设计尚不充分，未达到excellent档所需的理论原创深度与论证无懈可击",
+            "专家B所称'逐一批驳'的精准度：论文对'部门法完善'路径的回应相对分散，未如'总则式''碎片化''低位阶'三路径那样集中展开"
+          ],
+          "new_evidence_found": [
+            "论文明确指出'先发展后立法'恐积累不可逆风险，并强调'难以套用互联网规制经验'，构成对反对意见的直接回应（第9页）",
+            "论文提出'从1到N的系统性整合'范式转换，以及'边发展、边监管'的主动塑造理念，具有理论整合价值（第39页）",
+            "论文区分'立法特区'与'监管沙盒'的本质差异，体现制度设计的精细化考量（第41页）",
+            "论文引用欧盟人工智能办公室招聘困境作为反面教训，增强制度比较深度（第38页）"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 86,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 6,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论精准回应立法模式争议，制度设计具强可操作性与对话能力；但偏重政策蓝图构建，法理抽象与理论反思深度稍显不足，整体仍属优秀档。",
+          "revision_rationale": "采纳专家A、B关于“理论提炼与反思相对有限”的合理意见。论文在制度转化与学术对话上表现卓越，但更偏向立法政策论证而非深层法理建构。部分责任分配与跨部门协调机制确需实践检验，故微调评分以更契合“制度导向稳健型”特征，但仍锚定excellent档。",
+          "accepted_points": [
+            "论文结论偏向制度描述与政策主张强化，理论层面的抽象提炼与反思相对不足",
+            "部分责任分配规则与跨部门协调机制的实操成本仍需司法与行政实践进一步检验"
+          ],
+          "rejected_points": [
+            "专家B认为对“先发展后立法”回应不足且未承认局限。理由：论文已专节论证该模式在AI颠覆性风险下的不适用性，并提出沙盒、动态评估等替代机制，实质回应充分；且文中明确“综合性不等于全面性”，已体现对立法边界的清醒认知。"
+          ],
+          "new_evidence_found": [
+            "明确提出“综合性立法并非无所不包的法典”，强调其作为一般法与特别法的衔接关系",
+            "构建了“全要素激励-分主体归责-全周期监管”的矩阵式制度框架，并细化至训练数据合理使用、算力税收抵免、开源责任豁免等具体条款",
+            "设计了立法后动态适配循环、地方立法特区试验及强制性技术暂停机制，展现较强的制度弹性"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.228813886642456,
+        "glm-5.1": 57.150328159332275,
+        "kimi-k2.6": 16.401822090148926,
+        "qwen3.6-plus": 66.88018298149109
+      },
+      "round1_mean": 85.2,
+      "round2_mean": 86.2,
+      "round1_std": 9.4,
+      "round2_std": 1.3,
+      "convergence_improvement": 8.1
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 65,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 62,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 78
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 42,
+          "revised": 42,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 65,
+          "revised": 62,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 62,
+          "revised": 68,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 85,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 42,
+          "revised_score": 42,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "marginal",
+          "revised_core_judgment": "存在概括性的制度完善方向，但未提出具体、可争辩的后续研究问题，与核心论证的衔接需推断，精细度不足。",
+          "revision_rationale": "评审专家A和B指出的延展路径（如立法特区、强制暂停机制等）在正文中主要作为综合性立法的制度设计方案呈现，而非作为对本文自身研究局限的反思或后续学术研究的具体问题。这些方向虽具真实性与可操作性，但仍属制度完善层面的宏观指引，缺乏可检验的理论假设或明确的学术对话入口。第一轮评价已涵盖此类宏观方向，并未忽略其价值，但对“延展性”的精细度要求更高，故维持原判。",
+          "accepted_points": [
+            "延展路径如立法特区与监管沙盒的区分具有真实性和可操作性，论文确实提供了制度深化方向。"
+          ],
+          "rejected_points": [
+            "评审专家B将结语中的制度机制直接等同于高度的学术延展性。本文延展路径内嵌于制度方案，未转化为明确的研究争点或理论修正对象，仍停留在宏观指引层面，精细度不足以支撑优秀档位。",
+            "评审专家A的good评分过高，原因在于未能区分“制度完善建议”与“学术研究延展路径”，后者要求对本文论证的局限、可能的批评及后续研究问题进行具体交代。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 65,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "good",
+          "revised_core_judgment": "存在具体的制度延展路径（立法特区、暂停机制等），但缺乏学术研究争点与自身局限承认，学术对话性较弱。",
+          "revision_rationale": "接受专家A和B关于论文缺乏具体学术研究争点、理论修正对象及自身局限承认的批评，论文延展偏向制度实践而非学术对话；但坚持认为论文提出了立法特区变通规定、强制性暂停机制等具体制度延展路径，非纯粹宏观概括，应保留在good档位，故微调下调至62分。",
+          "accepted_points": [
+            "缺乏对自身论证局限的明确承认及后续学术研究指引",
+            "延展路径偏向宏观制度完善，未能凝练成具体、可争辩的后续研究问题或理论假设",
+            "国际规则竞争维度的延展较宏观，缺乏后续检验入口",
+            "部分制度设计（如强制性暂停机制）的触发条件与程序细节未充分展开"
+          ],
+          "rejected_points": [
+            "专家A认为延展方向仅为概括性且与正文核心论证衔接需推断。理由：论文第四部分明确提出了立法特区变通规定、垂直接口预留、强制性暂停机制等具体制度方案，与正文综合性立法的核心论证紧密衔接，并非需推断的概括性方向。"
+          ],
+          "new_evidence_found": [
+            "论文第四部分（三）明确提出“立法特区”与“监管沙盒”的本质分野，前者是制度供给试验，后者是监管工具创新，这为后续制度延展提供了清晰的边界界定，而非泛泛而谈。",
+            "结语部分承认“人工智能立法具有复杂性与实施难度”，但未进一步转化为具体的学术研究局限或争点。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 62,
+          "revised_score": 68,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "论文存在真实且可操作的制度延展路径，立法后调适机制、垂直领域接口、地方试验特区及强制暂停机制等设计具体可定位，但国际规则竞争维度仍偏宏观，缺乏后续检验入口。",
+          "revision_rationale": "重新审读论文后，发现第四部分'立法后调适'的制度设计比我最初评估的更为系统和精细：一是'适配性评估循环'与'动态优化'形成闭环，非单向建议；二是'立法特区'与'监管沙盒'的功能界分有明确论述，避免概念混淆；三是'强制性暂停机制'虽触发细节未充分展开，但已明确'具体证据支撑''严格触发条件''明确有效期'等限定，具备一定可操作性。专家B指出的'跨法域规则冲突协调机制不足'确为论文局限，但此属'国际延展深度'问题，不影响国内制度路径的可操作性判断。专家A认为'缺乏对本文局限的明确承认'有一定道理，但结语已隐含对复杂性的认知。综合考量，原评分偏保守，上调至68分，仍属good档位，但更接近该档位上限。",
+          "accepted_points": [
+            "专家B指出的'路径清晰且与核心结论紧密咬合'——论文第四部分与正文'综合性立法'定位的衔接确实紧密",
+            "专家A指出的'区分了立法特区与监管沙盒，为后续规则衔接与实施风险控制指明路径'——该界分是论文的实质性贡献",
+            "专家B指出的'强制暂停的触发标准与程序细节仍需后续实证研究细化'——接受此点作为论文局限，但不因此否定路径本身的可操作性"
+          ],
+          "rejected_points": [
+            "专家B评分85分（excellent）偏高——论文国际规则竞争维度仍较宏观，'布鲁塞尔效应'等论述偏重意义阐释，缺乏具体的中国规则输出路径或国际协调机制设计，尚未达到excellent档位",
+            "专家A'缺乏对本文局限的明确承认'——论文结语已承认'复杂性与实施难度'，虽可更明确，但非完全缺失"
+          ],
+          "new_evidence_found": [
+            "论文明确将立法特区定义为'制度供给层面的试验，试验对象直指规则本身'，与监管沙盒'试验对象是技术或产品'形成本质分野，该界分具有制度创新意义",
+            "强制性暂停机制已设定'具体证据''严格触发条件''明确有效期'三重限定，并非空泛授权，具备一定制度可操作性",
+            "日本法立法后评估条款的引证（脚注67）为'动态优化循环'提供了比较法支撑，增强了路径的可信度"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 85,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "制度实施与规则迭代路径具体可操作，但学术延展性不足，缺乏明确的后续研究争点与理论对话入口。",
+          "revision_rationale": "采纳专家A、B关于“学术延展性较弱”的合理意见。论文在立法后评估、特区试验、强制暂停等制度延展上极为扎实，但未能将制度设计转化为可检验的学术命题或理论争点，对国际规则衔接的延展亦偏宏观。故下调至“good”档，以区分制度设计完备性与学术研究开放性。",
+          "accepted_points": [
+            "延展路径偏重宏观制度完善，缺乏凝练的后续研究问题或理论假设",
+            "国际规则竞争与强制暂停机制的触发程序缺乏可检验的学术入口",
+            "对自身论证局限及可能招致的学术批评缺乏明确交代"
+          ],
+          "rejected_points": [
+            "认为延展方向仅为概括性宏观方案（论文已明确区分监管沙盒与立法特区，并提出动态负面清单与修法吸纳机制，精细度远超概括性方案）",
+            "评分42分过低（论文制度路径与核心论证咬合紧密，具备高度可操作性，不应落入marginal档）"
+          ],
+          "new_evidence_found": [
+            "论文明确区分了“监管沙盒”（监管工具创新）与“人工智能特区”（制度供给试验）的功能边界，避免了概念混淆",
+            "提出建立配套规则、标准设计的评估与吸纳机制，择其优者通过修法程序融入正式法律规范，形成闭环",
+            "强制暂停机制设定了“具体证据支撑”“严格触发条件”与“明确有效期”，具备初步的程序框架"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.239880084991455,
+        "glm-5.1": 61.965121030807495,
+        "kimi-k2.6": 17.8736891746521,
+        "qwen3.6-plus": 70.43809413909912
+      },
+      "round1_mean": 63.5,
+      "round2_mean": 62.5,
+      "round1_std": 17.6,
+      "round2_std": 15.2,
+      "convergence_improvement": 2.4
+    }
+  },
+  "overall": {
+    "round1_avg_std": 16.62,
+    "round2_avg_std": 12.02,
+    "std_improvement": 4.6,
+    "round1_max_std": 30.2,
+    "round2_max_std": 25.3,
+    "dimensions_converged": 3,
+    "total_dimensions": 6,
+    "round1_final_score_mean": 72.75,
+    "round2_final_score_mean": 71.46
+  }
+}

@@ -1,0 +1,1048 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/个人破产免责的理论基础与规范构建.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文内存在期刊页码混入正文（如'202'、'203'、'204'等），影响阅读流畅性但不影响核心论点识别。",
+          "脚注编号乱码或格式异常（如'*  中国人民大学'前的星号与空格异常、DOI行混入正文）。",
+          "存在轻微OCR残留（如段落分隔符异常）但不影响论点和结构的完整性。"
+        ],
+        "evidence_quotes": [
+          "中国法学 2021 年第4 期 202 结首例个人破产案件即梁某某个人破产重整案...",
+          "*  中国人民大学法学院副教授，法学博士。本文系2020 年度国家社科基金项目...",
+          "DOI:10.14111/j.cnki.zgfx.2021.04.011"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《加快完善市场主体退出制度改革方案》明确提出：“研究建立个人破产制度...《深圳经济特区个人破产条例》自2021 年3 月1 日起施行，开启了我国个人破产立法的试点。",
+          "我们有必要探究免责立法的理论基础及其与我国传统文化的内在一致性，亟须对许可免责与自动免责两种法律路径作出评判和抉择，并对免责的适用范围进行规范构建。",
+          "在全球化背景下构建我国的个人破产法律制度...在比较分析和价值判断之下设计科学的法律规范，让破产免责在债权人、债务人和社会整体利益之间找到最佳平衡点。",
+          "我国个人破产立法不宜采纳自动免责的法律路径...许可免责应该成为现实的最佳选择。",
+          "我国目前债务人诚信道德缺失、恶意的或投机性的负债和逃债行为较为严重...采取许可免责的法律路径应该成为现实的最佳选择。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：期刊页码混入正文，脚注格式异常，存在OCR残留，建议校对后评估是否需要重新抽取。",
+        "项目口径信号：论文以中国个人破产免责制度构建为核心，涉及中国规范、实践与理论转化，符合六维评价条件。"
+      ],
+      "evidence_quotes": [
+        "《深圳条例》虽然只是个人破产立法的地方试点，但很大程度上决定了未来全国性个人破产立法的走向。",
+        "我国个人破产立法应当考虑传统文化和社会现实因素，选择许可免责的法律路径，注重发挥法院在免责中的决定性作用。",
+        "将解除债务人的剩余债务作为破产法的核心目标之一，并围绕‘诚实而不幸’债务人的识别构建免责例外体系，是中国自主法学理论转化的典型命题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在页码混入、脚注异常等格式问题，建议进行OCR/排版修复后直接进入六维评分；项目口径完全满足，无需边界复核或驳回。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如'202','203'等）",
+          "脚注编号与正文交织，存在轻微排版乱码",
+          "局部OCR空格/换行残留（如作者信息处）"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2021 年第4 期\n202",
+          "审\n\t*  中国人民大学法学院副教授"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《深圳经济特区个人破产条例》自2021年3月1日起施行，开启了我国个人破产立法的试点",
+          "在我国，目前债务人诚信道德缺失、恶意的或投机性的负债和逃债行为较为严重……采取许可免责的法律路径应该成为现实的最佳选择",
+          "个人破产免责问题本质上是基于债权乃至财产权的社会义务而对债权人利益所做的一种限制",
+          "破产不应该等于“破家”。婚姻家庭不是在市场中形成的，婚姻家庭义务也不是市场所能调节的"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码与OCR格式残留，但不影响核心论点定位",
+        "项目口径：完全符合，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "在我国，目前债务人诚信道德缺失……采取许可免责的法律路径应该成为现实的最佳选择",
+        "个人破产免责问题本质上是基于债权乃至财产权的社会义务而对债权人利益所做的一种限制"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，评审时忽略页码混入及脚注编号乱码等文本工程问题，聚焦法学命题与中国实践解释。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留如'前注⑥''前注㉟''前注㉜'等，但核心内容可识别",
+          "参考文献列表缺失，但正文引用信息完整可定位"
+        ],
+        "evidence_quotes": [
+          "(1) 国家发展改革委、最高人民法院、工业和信息化部等《关于印发〈加快完善市场主体退出制度改革方案〉的通知》",
+          "前注⑥，世界银行自然人破产处理工作小组起草书，第169 页",
+          "前注㉟，查尔斯·J. 泰步书，第1003 页"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《深圳经济特区个人破产条例》自2021年3月1日起施行，开启了我国个人破产立法的试点",
+          "我国个人破产立法的最大障碍来自社会公众对逃废债务的担忧",
+          "我国目前财产登记和监管制度尚不健全，诚信机制和失信惩戒措施有待完善，个人破产立法不宜采纳自动免责的法律路径",
+          "我国个人破产立法应当考虑传统文化和社会现实因素，选择许可免责的法律路径",
+          "建议全国性的个人破产立法继续坚持不将学生教育贷款纳入免责例外情形的做法",
+          "《深圳条例》第98条选择了前者，规定破产人存在下列情形之一的，不得免除剩余债务"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号存在OCR残留符号（如㉟、㉜），不影响核心内容识别",
+        "参考文献列表未抽取，但正文引用完整"
+      ],
+      "evidence_quotes": [
+        "我国个人破产立法的最大障碍来自社会公众对逃废债务的担忧，然而个人破产免责自产生之初就是与债权人利益最大化联系在一起的",
+        "我国目前财产登记和监管制度尚不健全，诚信机制和失信惩戒措施有待完善，个人破产立法不宜采纳自动免责的法律路径",
+        "我国个人破产立法应当考虑传统文化和社会现实因素，选择许可免责的法律路径，注重发挥法院在免责中的决定性作用"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，进入六维评价。文本质量良好，脚注OCR残留不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "PDF抽取导致页码数字（如202、203等）混入正文段落",
+          "期刊元数据（DOI、刊名、期号）残留于段落间",
+          "脚注编号与正文偶有粘连或换行错位"
+        ],
+        "evidence_quotes": [
+          "202\n\n中国法学\n2021 年第4 期\n202",
+          "DOI:10.14111/j.cnki.zgfx.2021.04.011",
+          "(1) 国家发展改革委、最高人民法院、工业和信息化部等《关于印发〈加快完善市场主体退出制度改革方案〉的通知》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "推动个人破产立法正式进入国家市场主体退出制度顶层设计的范畴，成为新时代加快完善社会主义市场经济体制的重要要求。",
+          "《深圳条例》虽然只是个人破产立法的地方试点，但很大程度上决定了未来全国性个人破产立法的走向",
+          "当下，我国个人破产立法的最大障碍来自社会公众对逃废债务的担忧",
+          "我国个人破产立法应当考虑传统文化和社会现实因素，选择许可免责的法律路径，注重发挥法院在免责中的决定性作用。",
+          "个人破产免责规范构建，需要在比较法的视野下考察域外立法的特定背景，对域外立法中列举的情形进行理论层面的分析，然后再结合我国实际情况作价值取舍。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量页码与期刊元数据混入，属典型PDF抽取瑕疵，但不影响核心论证、结构与主要命题的定位。"
+      ],
+      "evidence_quotes": [
+        "推动个人破产立法正式进入国家市场主体退出制度顶层设计的范畴",
+        "建议选择许可免责的法律路径，注重发挥法院在免责中的决定性作用"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微抽取瑕疵（页码/元数据混入），但核心论点清晰、结构完整、论证严密。项目口径高度契合：以中国个人破产立法试点与全国性立法需求为中心，聚焦免责制度的法理基础与规范构建，明确提出‘许可免责’路径及不予免责债务/情形的本土化构建方案，具备完整的理论转化与可复核命题。建议直接纳入六维评分流程，无需人工复核项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 32,
+          "band": "unacceptable",
+          "summary": "论文提供了外国理论和制度的综述，但未提炼出可争辩的法学问题，实质是制度移植建议。",
+          "core_judgment": "全文是主题声明和政策倡导，无明确可争辩的法学争点，未展现学界观点交锋，不构成法学研究问题。",
+          "score_rationale": "前置检查：检查1（扣25分，新概念包装旧问题），检查2（扣20分，宏观介绍无交锋），检查3（扣30分，主题声明非研究问题）。扣分合计75分，扣后25分，不低于30分。可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限，锚定unacceptable档，给32分。",
+          "evidence_quotes": [
+            "关键性难题之一就是破产免责的正当性考察与规范构建",
+            "个人破产立法必须在这个关键问题上作出选择，并据此构建个人破产免责的规范体系"
+          ],
+          "strengths": [
+            "对域外免责理论和制度有较全面的梳理",
+            "提出了许可免责与自动免责的路径选择问题"
+          ],
+          "weaknesses": [
+            "全文为政策建言，无法学层面的理论争辩",
+            "仅复述既定立法政策，未提炼“XX是否YY”类问题句"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1分，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无‘XX是否YY’类问题句，仅为‘需要/应当构建免责规范’的主题声明"
+            }
+          ],
+          "boundary_note": "只评问题是否成立且可争辩，不评综述充分度、论证严密性或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕个人破产免责的正当性、路径选择与范围界定展开，争点明确且枢纽性强。",
+          "core_judgment": "问题成立且高度重要，属于破产法核心争点，具有广泛制度影响与理论分歧。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，扣分0，给85分",
+          "evidence_quotes": [
+            "亟须对许可免责与自动免责两种法律路径作出评判和抉择，并对免责的适用范围进行规范构建。",
+            "支持者认为这是鼓励创新宽容失败的保障；反对者担忧其会成为逃废债务的天堂。"
+          ],
+          "strengths": [
+            "争点明确且涉及多元理论交锋",
+            "问题枢纽性强，牵涉多部门法制度"
+          ],
+          "weaknesses": [
+            "问题属既有核心争点深化而非全新提出",
+            "部分争点表述偏向规范构建"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文围绕个人破产免责的理论基础与制度构建展开，但核心问题偏向制度介绍与规范设计，缺乏真正的理论争点交锋。",
+          "core_judgment": "论文主题明确但问题创新性不足，主要是对既有理论的系统阐释和制度比较，而非提出可争辩的法学争点。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质是政策倡导，如'我国个人破产立法应当选择许可免责'；枢纽性=3/4（涉及破产法、民法、执行程序等多制度，理论基础涉及社会效用等核心概念）。材料新颖性未触发上限。锚定marginal档(50-59)，给58分。扣分合计=0分。",
+          "evidence_quotes": [
+            "我国个人破产立法应当融合多元免责学说来论证破产免责的正当性，并基于我国传统法律文化的约束，建议选择许可免责的法律路径",
+            "个人破产免责的规范构建，核心在于免责例外情形的考量"
+          ],
+          "strengths": [
+            "涉及破产法、民法等多领域制度关联",
+            "对域外立法有较系统的比较分析"
+          ],
+          "weaknesses": [
+            "核心命题是政策倡导而非理论争辩",
+            "缺乏对既有理论的批判性反思和真正学术交锋"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦个人破产免责的正当性证成与规范构建，问题明确且具高度可争辩性。",
+          "core_judgment": "该问题成立且重要，兼具理论深度与制度枢纽价值，符合优秀标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，负面模式扣0分，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何理解免责的理论基础，决定了国家的个人破产制度如何设计免责的规则体系。",
+            "自动免责抑或许可免责？我国个人破产立法必须在这个关键问题上作出选择。"
+          ],
+          "strengths": [
+            "明确提炼自动与许可免责的路径分歧，问题聚焦。",
+            "融合多元免责理论，论证具有体系性与规范指引力。"
+          ],
+          "weaknesses": [
+            "问题属经典破产法议题，框架创新有限。",
+            "部分比较法材料偏重介绍，本土转化论证可更深。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 60.43580603599548,
+        "glm-5.1": 45.16207790374756,
+        "kimi-k2.6": 9.393736839294434,
+        "qwen3.6-plus": 78.05330920219421
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 32,
+        "glm-5.1": 85,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 88
+      },
+      "mean": 65.8,
+      "std": 26.2,
+      "strictest": 32,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 74,
+          "band": "good",
+          "summary": "论文采用分散式文献定位，梳理了债务人合作论、人道主义论、社会效用论三大免责学说及许可/自动免责路径之争，但未形成更完整的争辩脉络。",
+          "core_judgment": "论文具备研究地图雏形和流派雏形，但争点结构较浅、邻接维度边界模糊，尚未达到优秀。",
+          "score_rationale": "三要素=4/6，争点结构=1/2，法学流派=2个（许可免责vs自动免责路径、债务人合作论vs人道主义论vs社会效用论等多重对立），锚定good档(65-74)，给74分。",
+          "evidence_quotes": [
+            "国内现有研究成果从不同角度...但欠缺深入挖掘各方免责学说并结合我国实际进行深入论证的研究...对国际上代表性国家免责路径具体规则和保障措施的设计...论证分析较少。",
+            "综合现代国家破产立法及其理论基础来看，破产免责问题本质上是基于债权乃至财产权的社会义务而对债权人利益所做的一种限制。"
+          ],
+          "strengths": [
+            "清晰呈现债务人合作论、债务宽恕与人道主义论、社会效用论三大学说及其解释力与局限。",
+            "将许可免责与自动免责作为可比较的法律路径进行抉择，并指明中国宜选许可免责，形成路径争辩雏形。"
+          ],
+          "weaknesses": [
+            "未竟点指出现有研究不足但较笼统，欠缺对具体学者、具体断点的标定。",
+            "学派归属争论不够显性，多数学说以客观介绍为主，缺少‘XX学者持YY立场’的学派化命名。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文将域外制度与理论作为解释性工具，并非独立检验制度创新，不涉及问题创新性边界。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，清晰呈现多元免责学说与路径争点，现状洞察深刻。",
+          "core_judgment": "研究地图三要素充分满足，争点结构完整且多元，流派识别充分，本维度成立且优秀。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "国内现有研究成果...但欠缺深入挖掘各方免责学说并结合我国实际进行深入论证的研究",
+            "各国的破产免责理念主要来自债务人合作理论、债务宽恕与人道主义理论、社会效用理论等不同学说"
+          ],
+          "strengths": [
+            "清晰呈现三种免责正当性学说及其各自的解释困境",
+            "明确指出现有文献对具体规则和保障措施分析较少的未竟点"
+          ],
+          "weaknesses": [
+            "结语对未竟点的集中表述稍显简略，主要依赖正文分散呈现"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非免责制度构建方案本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了比较完整的个人破产免责研究地图，呈现多元理论融合与路径选择争点，但三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但到达点以制度史梳理替代具体学术成果引述，未竟点与切入点对应关系松散。",
+          "score_rationale": "三要素得分=4/6（到达点1分+未竟点1分+切入点2分），争点结构=2/2，法学流派=2个（债务人合作理论vs债务宽恕/人道主义理论vs社会效用理论，按强制规则计为多元理论立场），锚定good档，给72分",
+          "evidence_quotes": [
+            "国内现有研究成果从不同角度、不同程度对个人破产免责的理论基础进行了分析，但欠缺深入挖掘各方免责学说并结合我国实际进行深入论证的研究",
+            "虽然有对免责的法律路径进行探讨的文献，并归类为两种免责模式或主义，但对国际上代表性国家免责路径具体规则和保障措施的设计和各方立法取舍的论证分析较少"
+          ],
+          "strengths": [
+            "系统梳理免责理论多元学说并构建比较法争点结构",
+            "明确呈现自动免责与许可免责的路径分歧及制度选择"
+          ],
+          "weaknesses": [
+            "到达点多以制度史和域外立法描述替代具体学术成果引述",
+            "未竟点表述笼统，未指明具体学术争论或理论缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "到达点1分+未竟点1分+切入点2分=4分，但到达点和未竟点均部分满足，争点结构虽完整但三要素呈现分散"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性；论文问题意识明确但文献定位方式偏制度比较而非学术史梳理。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒个人破产免责的理论谱系与制度分歧，精准定位既有研究缺口并给出对应切入点。",
+          "core_judgment": "研究地图完整，争点脉络清晰，理论流派覆盖充分，文献定位与论证高度契合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "国内现有研究成果从不同角度、不同程度对个人破产免责的理论基础进行了分析，但欠缺深入挖掘各方免责学说并结合我国实际进行深入论证的研究",
+            "虽有对免责的法律路径进行探讨的文献，但对国际上代表性国家免责路径具体规则和保障措施的设计和各方立法取舍的论证分析较少"
+          ],
+          "strengths": [
+            "精准提炼三大免责理论与两条法律路径的学术争鸣，构建清晰比较法研究地图",
+            "结论段集中回应未竟点，实现文献梳理与本文切入点的严密逻辑闭环"
+          ],
+          "weaknesses": [
+            "域外立法沿革史实描述较多，对当代中国学界具体争议的针对性回应稍显不足",
+            "对国内反对派学者关于逃废债担忧的文献引证可进一步体系化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及免责制度本身的创新性或规范设计优劣。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.53692603111267,
+        "glm-5.1": 53.734116077423096,
+        "kimi-k2.6": 14.743977069854736,
+        "qwen3.6-plus": 70.5750482082367
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 74,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.5,
+      "std": 11.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文系统梳理了域外免责理论与制度经验，并据此提出融合多元学说、选择许可免责路径的主张，但未能构建可重复适用的原创分析框架。",
+          "core_judgment": "框架建构力不足：论文主要贡献在于理论归纳与比较分析，而非提出原创分析框架或具有步骤化、类型化的操作工具。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定和分类标准成立，但缺乏分析步骤且后文未按原创框架步骤调用），法学转化度得分=1/4（提供了制度方案但未转化为裁判规则或法学操作步骤），锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "综合现代国家破产立法及其理论基础来看，破产免责问题本质上是基于债权乃至财产权的社会义务而对债权人利益所做的一种限制。",
+            "应当融合不同的免责理论...首先，应当根据债务宽恕理念和人道主义理论...其次，应当基于社会效用理论...最后，应当依据债务人合作理论..."
+          ],
+          "strengths": [
+            "对域外免责理论和制度进行了系统、深入的归纳，提供了清晰的比较法参照系。",
+            "明确提出了融合多元免责学说、选择许可免责路径的规范主张。"
+          ],
+          "weaknesses": [
+            "核心分析结构是“理论归纳+域外经验+我国选择”，属于解释性论述，未提出可重复适用的分析框架或判断标准。",
+            "全文以“应当”“建议”等规范性表述为主，缺乏裁判规则、法律适用流程或原创类型化标准等法学操作化转化。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_梳理型_ceiling",
+              "rule": "政策理论梳理型论文：框架核心术语来自既有理论与域外制度，主要贡献为归纳阐释而非提出原创分析框架，法学转化度上限为1。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以梳理债务人合作理论、债务宽恕理论、社会效用理论等既有学说为核心，并据此提出立法建议，无原创概念界定或分析步骤。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身是否成立与可操作，不涉及比较法研究的深度或立法的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "制度建构框架清晰，理论转化彻底。",
+          "core_judgment": "框架建构力成立，提供了清晰的制度设计方案。",
+          "score_rationale": "框架可操作性得分3/4，法学转化度得分4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "自动免责指债务人只需等待免责期限届满即可自动免责，无需申请或听证。",
+            "许可免责是指债务人只有获得法院许可方可免除剩余债务。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，分类标准明确。",
+            "理论转化为具体的立法规则与制度方案。"
+          ],
+          "weaknesses": [
+            "分析步骤偏文章论证结构，非可重复适用的分析工具。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评框架本身是否成立可用，不评推理衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "制度型论文，以比较法梳理和政策建议为主，缺乏原创分析框架。",
+          "core_judgment": "分析框架建构力薄弱：无原创概念界定或类型化工具，核心术语来自既有立法与学说，后文未形成可重复适用的判断步骤。",
+          "score_rationale": "框架可操作性得分=2/4（标准1部分成立：'自动免责/许可免责'有区分但无明确边界标准；标准2分类标准不明确：'不予免责债务类型'为列举式归纳而非基于明确标准的类型化；标准3分析步骤不可循：无'第一步…第二步…'式操作流程；标准4后文调用不足：核心术语虽反复出现但均为描述性使用，未发挥分析工具作用）。法学转化度得分=2/4（标准1部分成立：比较法素材有整理但未转化为本土法学的操作步骤；标准2部分成立：有制度建议但缺乏裁判规则或司法程序设计；标准3不成立：未提出具体立法条文或制度方案；标准4不成立：建议部分未与前面理论框架形成步骤化对应）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "所谓自动免责，是指债务人不需要做任何事……只需等待免责期限届满，债务人就可以自动从破产清算程序中获得免责。",
+            "许可免责是指债务人在破产程序中只有获得法院的许可方可获得剩余债务的免除。"
+          ],
+          "strengths": [
+            "比较法梳理系统，涵盖英美日等多国立法经验。",
+            "对'债务人合作理论''社会效用理论'等学说归纳较为全面。"
+          ],
+          "weaknesses": [
+            "核心术语均为既有学说或立法表述，无论文原创的概念工具。",
+            "缺乏从理论到规范的转化步骤，'应当选择许可免责'仅为结论性判断。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "论文虽多次提及'自动免责''许可免责'，但均为描述性使用，未形成可重复适用的分析步骤或判断标准，后文未调用框架进行逐步分析。"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及比较法梳理的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建“理论-路径-规范”框架，逻辑严密且具强立法指引力。",
+          "core_judgment": "框架成立且高度可用，成功将多元理论转化为可操作的立法规范设计。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。概念与分类清晰，步骤可循且贯穿全文；理论有效转化为立法路径与免责例外规则。",
+          "evidence_quotes": [
+            "所谓自动免责，是指债务人不需要做任何事……只需等待免责期限届满",
+            "许可免责是指债务人在破产程序中只有获得法院的许可方可获得剩余债务的免除。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，分类边界明确。",
+            "理论成功转化为立法路径与具体规则设计。"
+          ],
+          "weaknesses": [
+            "偏重立法设计，司法审查步骤与举证责任指引不足。",
+            "部分建议依赖比较法，本土裁判转化稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评框架建构与转化，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 57.59364628791809,
+        "glm-5.1": 55.11404275894165,
+        "kimi-k2.6": 15.075721979141235,
+        "qwen3.6-plus": 60.559056758880615
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 90
+      },
+      "mean": 71.2,
+      "std": 19.0,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 65,
+          "band": "good",
+          "summary": "推理链整体可复述且各部分有逻辑衔接，但对许可免责优越性的关键论证存在跳步，且缺乏对核心反驳的明确处理。",
+          "core_judgment": "论文论点充分但有局部推理弱环，结论基本可从前文推出，但关键过渡论证支撑不足，逻辑严密性良好。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立；标准2部分成立；标准4存在1处关键跳步），反驳处理度得分=2/3（隐含回应路径分歧；承认自动免责为终极目标构成局限承认；未识别或回应反对许可免责的显式意见）。锚定good（60-69）档，给65分。",
+          "evidence_quotes": [
+            "自动免责的法律路径可以很好地反映个人破产制度给予债务人'全新开始'的政策考量，但容易引发债务人的道德风险；许可免责的法律路径有助于更好地打击逃废债务行为和制裁不诚信的债务人，但存在司法成本相对过高而且债务人走出困境的周期较长等问题。",
+            "考虑到'欠债还钱，天经地义'的观念根深蒂固，社会诚信状况不甚理想带来的欺诈和逃债现象较多，我国个人破产立法应当考虑传统文化和社会现实因素，选择许可免责的法律路径。"
+          ],
+          "strengths": [
+            "三个免责理论（合作/宽恕/社会效用）与规范建议形成清晰对照，理论分析可辩护地支撑了'融合多元理论'的结论。",
+            "比较法素材丰富，对不予免责债务类型和法定情形的论证均从法理与域外实践双向展开，支撑了具体规范建议。"
+          ],
+          "weaknesses": [
+            "从'许可免责是现实最佳选择'到具体规范构建之间，对许可免责如何克服'司法成本高/周期长'等固有缺陷缺乏论证。",
+            "未明确关键一步：为何给予法院决定权即可有效识别'诚实而不幸'的债务人，这一因果链隐含跳步。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度=0时触发上限70分，本案反驳处理度=2故不触发。但推理链中存在至少1处使核心结论支撑减弱的跳步。",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "论证直接从'许可免责有助于打击逃债'和'传统文化'跳到'现实最佳选择'，未回应许可免责的高成本与债务人周期长等实务约束如何克服，构成关键过渡的论证不足。"
+            }
+          ],
+          "boundary_note": "本维度评估推理链支撑结论的程度。从'许可免责的困境'到'现实最佳选择'的跳跃属于命题间论证缺失（逻辑链问题），而非分析框架不可操作（框架建构力问题）。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，反驳与例外处理充分，逻辑严密性极佳。",
+          "core_judgment": "论文从理论基础推导至规范构建的逻辑链条成立，结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "社会上对破产免责会产生逃废债务结果的担忧……主要源于对个人破产免责理念的误解和对免责立法的片面理解。",
+            "我国目前财产登记和监管制度尚不健全……个人破产立法不宜采纳自动免责的法律路径。"
+          ],
+          "strengths": [
+            "理论-路径-规范三层推理链紧密咬合，国情分析有效支撑路径抉择。",
+            "对逃废债担忧及各理论解释困境的实质性回应充分。"
+          ],
+          "weaknesses": [
+            "学生教育贷款不纳入免责例外的论证稍弱，对道德风险回应不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦理论到规范的推导链条是否严密，不评判具体立法建议是否被立法机关采纳。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了'理论基础→路径选择→规范构建'的完整推理链，但反驳处理存在明显不足。",
+          "core_judgment": "推理链完整但反驳处理薄弱，核心结论可被辩护地推出。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处关键跳步：从'传统文化约束'到'应选择许可免责'的推导缺乏中间环节）；反驳处理度得分=1/3（仅标准1识别反对意见，标准2-3未满足）。锚定good(70-79)档，给75分。",
+          "evidence_quotes": [
+            "我国目前财产登记和监管制度尚不健全，诚信机制和失信惩戒措施有待完善，个人破产立法不宜采纳自动免责的法律路径",
+            "《深圳条例》虽然只是个人破产立法的地方试点，但很大程度上决定了未来全国性个人破产立法的走向"
+          ],
+          "strengths": [
+            "理论到规范的推理链清晰：多元学说融合→正当性论证→路径选择→具体规则设计",
+            "比较法分析支撑充分，各国制度演变与理论对应关系明确"
+          ],
+          "weaknesses": [
+            "对'许可免责最优'的反驳处理不足：未回应'司法成本过高'的批评，也未承认自身建议的局限",
+            "从'传统文化约束'到'许可免责'的推导存在跳步，未论证为何文化因素必然导向许可而非自动+限制模式"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链与反驳处理，不评制度方案本身是否最优。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建“理论融合—路径抉择—规范构建”推理链，结论获充分支撑。",
+          "core_judgment": "逻辑严密性成立，核心结论由理论辨析与比较经验可辩护推出，推理无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。理论推演与制度设计环环相扣，反驳与局限回应充分。",
+          "evidence_quotes": [
+            "反对者担忧免责成逃废债天堂，本文通过理论融合与例外设计予以回应。",
+            "囿于篇幅，本文未对许可免责路径下的申请与裁决程序作分析。"
+          ],
+          "strengths": [
+            "理论到规范的依赖链条完整严密。",
+            "显式回应逃废债担忧并承认分析局限。"
+          ],
+          "weaknesses": [
+            "部分规范建议理论推导略弱于比较罗列。",
+            "理论融合向路径过渡的中间论证可细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论是否由前文材料充分支撑，不涉框架实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 72.24351406097412,
+        "glm-5.1": 45.202956199645996,
+        "kimi-k2.6": 11.329824924468994,
+        "qwen3.6-plus": 56.65665602684021
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 88
+      },
+      "mean": 80,
+      "std": 12.4,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文结合中外理论与本土政策，明确提出许可免责的规范选择与例外设计，结论已进入学术争论框架并具备制度可操作性。",
+          "core_judgment": "结论清晰回应了免责正当性这一学术争议，且对《深圳条例》和未来立法提出具体路径，共同体对话度和制度可接受度均较高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，按照理论/混合论文锚定规则，对话度≥3且制度度≥2，落入excellent档（80-100），给82分。",
+          "evidence_quotes": [
+            "我国个人破产立法应当考虑传统文化和社会现实因素，选择许可免责的法律路径，注重发挥法院在免责中的决定性作用。",
+            "建议全国性的个人破产立法继续坚持不将学生教育贷款纳入免责例外情形的做法。"
+          ],
+          "strengths": [
+            "结论明确回应了“逃废债务”的社会担忧，并融通债务人合作、宽恕与社会效用等多元理论进行正当性论证。",
+            "在比较法基础上，对《深圳条例》的制度设计提出具体评判与全国性立法建议，展示了清晰的制度转化方向。"
+          ],
+          "weaknesses": [
+            "对许可免责路径下法院审查负担和司法成本问题未作充分回应，可能削弱反对者对该路径可操作性的回应空间。",
+            "“自动免责应成为终极追求”的远期判断仅简要提及，未交代其与当前许可免责选择之间的过渡条件或评估标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评判结论当下的可接受性，不涉及论证严密性，也不判断结论未来是否会被学界或实务界最终接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论全面回应学界争论，提出契合中国语境的具体制度方案，可接受性极高。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，成功将多元理论转化为可操作的规范构建。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "结语明确承认局限：“囿于篇幅，本文并未对许可免责法律路径之下的免责申请和裁决程序作分析”。",
+            "结论提出具体制度方向：“建议选择许可免责的法律路径……建议在全国性个人破产立法中予以采纳”。"
+          ],
+          "strengths": [
+            "精准回应逃废债担忧与免责正当性争论，对话度高。",
+            "制度方案具体，深度结合《深圳条例》与中国现实约束。"
+          ],
+          "weaknesses": [
+            "对许可免责裁决程序的制度转化留有空白。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文融合多元免责理论论证我国个人破产免责正当性，主张许可免责路径，结论具有学术对话性与制度回应性。",
+          "core_judgment": "结论进入法学共同体对话语境，明确回应既有理论争论并与中国制度语境衔接，但缺乏对反对意见的充分讨论。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、考虑中国语境，但未充分讨论反对意见）；制度可接受度得分=3/4（与现行法秩序兼容、回应制度约束、考虑中国语境，但制度转化方向表述较原则）。锚定good档，给78分。",
+          "evidence_quotes": [
+            "国内现有研究成果从不同角度、不同程度对个人破产免责的理论基础进行了分析，但欠缺深入挖掘各方免责学说并结合我国实际进行深入论证的研究",
+            "我国个人破产立法应当融合多元免责学说来论证破产免责的正当性，并基于我国传统法律文化的约束，建议选择许可免责的法律路径"
+          ],
+          "strengths": [
+            "主动定位既有研究不足，建立学术对话起点",
+            "结论明确回应中国制度语境，与《深圳条例》衔接"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见，如自动免责支持者的反驳",
+            "结语部分制度转化方向较原则，缺乏具体规范设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度融合多元免责理论，立足中国语境提出许可免责路径及具体规范构建方案。",
+          "core_judgment": "结论明确回应学界争议，契合现行法秩序与中国制度现实，具备高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "建议选择许可免责的法律路径，注重发挥法院在免责中的决定性作用。",
+            "囿于篇幅，本文并未对许可免责法律路径之下的免责申请和裁决程序作分析"
+          ],
+          "strengths": [
+            "精准定位自动与许可免责之争，论证充分",
+            "紧密结合深圳试点与中国信用现状，对策具体"
+          ],
+          "weaknesses": [
+            "未深入展开免责申请与裁决的程序衔接设计",
+            "对二次破产免责限制的本土化论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.40521812438965,
+        "glm-5.1": 49.54043793678284,
+        "kimi-k2.6": 10.097418785095215,
+        "qwen3.6-plus": 52.63907194137573
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了未来立法与研究的若干具体方向，延展路径明确，但与核心结论的衔接展开尚不够精细。",
+          "core_judgment": "存在明确的延展路径，但路径精细度或证据展开有限，属于“good”档。",
+          "score_rationale": "原始分65分，对应bonus=3档。论文指出了自动免责作为终极追求的条件、许可免责的程序研究缺口及教育贷款等具体议题，超越了空泛展望，但多集中于结语，未充分展开研究设计。",
+          "evidence_quotes": [
+            "自动免责法律路径应当成为我们的终极追求，只是需要假以时日，需要财产登记制度和信用建设体系的完备做保障。",
+            "本文并未对许可免责法律路径之下的免责申请和裁决程序作分析，但个人破产立法对此不可忽视。"
+          ],
+          "strengths": [
+            "明确指出现阶段选择许可免责后，自动免责为终极追求并点明制度条件，构成清晰的理论深化方向。",
+            "承认研究局限（未分析免责程序），并说明后续立法不可忽视，提供了可操作的后续研究切入点。"
+          ],
+          "weaknesses": [
+            "延展路径主要集中于结语段落，未在正文论证中系统嵌入“下一步研究问题”的细化讨论。",
+            "对教育贷款、二次破产等议题的未来研究建议仍偏重立法取舍结论，缺乏对后续论证框架或研究方法的进一步勾勒。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文指出的“自动免责是终极追求”及“免责程序研究缺口”属于未来制度演进和学术研究的待解决问题，而非当下结论的可接受性争论。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "论文指明了许可免责的程序构建及自动免责的配套制度两个延展方向。",
+          "core_judgment": "存在明确延展路径，与正文论证衔接紧密，但精细度有限。",
+          "score_rationale": "原始分70，对应bonus档位3（>=60）。结语明确承认未分析免责申请和裁决程序，并指出自动免责需财产登记与信用体系完备，路径清晰但展开有限。",
+          "evidence_quotes": [
+            "囿于篇幅，本文并未对许可免责法律路径之下的免责申请和裁决程序作分析，但个人破产立法对此不可忽视。",
+            "自动免责法律路径应当成为我们的终极追求，只是需要假以时日，需要财产登记制度和信用建设体系的完备做保障。"
+          ],
+          "strengths": [
+            "明确承认研究局限并指明后续程序构建方向。",
+            "指出制度演进的终极方向及所需配套条件。"
+          ],
+          "weaknesses": [
+            "延展路径仅在结语点出，缺乏具体展开。",
+            "结尾部分存在空泛的立法助推口号。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "许可免责的程序构建属于未来立法应补充的规范细节，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在结语部分明确指出了理论深化方向、制度完善路径及配套条件，延展路径可定位但与正文衔接尚可更紧密。",
+          "core_judgment": "存在真实延展路径，主要体现在自动免责作为终极追求的目标设定、许可免责程序待深化、以及二次破产免责规则的技术细化三个层面。",
+          "score_rationale": "原始分65分，对应bonus=3档。论文明确提出自动免责是'终极追求'但需财产登记和信用体系完备，指出许可免责申请裁决程序'不可忽视'待分析，以及二次破产免责需结合期限与清偿比例设计，均属可定位的延展方向，但程序深化部分仅为点题式提示，证据展开有限。",
+          "evidence_quotes": [
+            "但客观而言，自动免责法律路径应当成为我们的终极追求，只是需要假以时日，需要财产登记制度和信用建设体系的完备做保障",
+            "囿于篇幅，本文并未对许可免责法律路径之下的免责申请和裁决程序作分析，但个人破产立法对此不可忽视"
+          ],
+          "strengths": [
+            "明确将自动免责设定为终极目标并指出配套条件",
+            "指出二次破产免责需结合期限与清偿比例设计"
+          ],
+          "weaknesses": [
+            "许可免责程序深化仅为点题，未展开具体研究方向",
+            "结语部分'期待'表述略显空泛，未形成明确后续争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文评价的是未来研究还能往哪里走，而非当下结论是否被接受。自动免责的终极追求、许可免责程序细化、二次破产规则设计均属未来延展问题，不涉及结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰指出许可免责的程序构建空白、自动免责的配套制度前提及学生贷款与二次破产的立法待决点，延展路径具体且与正文紧密衔接。",
+          "core_judgment": "存在真实延展路径，明确指向程序规则补全、制度演进条件与特定债务类型的立法权衡。",
+          "score_rationale": "原始分85，对应bonus=5档。作者明确点出程序分析缺失、自动免责配套前提及二次破产规则待研，路径清晰可定位。",
+          "evidence_quotes": [
+            "囿于篇幅，本文并未对许可免责法律路径之下的免责申请和裁决程序作分析，但个人破产立法对此不可忽视。",
+            "自动免责法律路径应当成为我们的终极追求，只是需要假以时日，需要财产登记制度和信用建设体系的完备做保障。"
+          ],
+          "strengths": [
+            "明确指出许可免责的程序规则缺失及后续立法重点。",
+            "提出自动免责的终极目标与配套制度的衔接条件。"
+          ],
+          "weaknesses": [
+            "程序延展仅停留方向提示，缺乏具体机制设计。",
+            "学生贷款与二次破产的延展偏重比较法，本土推演稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦程序补全、制度演进前提及未决立法争点，属“未来如何推进”的延展，非对当下结论正当性的证成。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.2607159614563,
+        "glm-5.1": 40.65177297592163,
+        "kimi-k2.6": 10.743982076644897,
+        "qwen3.6-plus": 60.226523876190186
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 70,
+        "kimi-k2.6": 65,
+        "qwen3.6-plus": 85
+      },
+      "mean": 71.2,
+      "std": 9.5,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 77.02,
+      "weighted_total": 75.1
+    },
+    "aggregation_strictest": {
+      "final_score": 52.71,
+      "weighted_total": 55.9
+    },
+    "avg_std": 14.2,
+    "max_std": 26.2,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.3,
+    "composite_score": -14.2,
+    "worst_dimension": "problem_originality",
+    "worst_std": 26.2
+  }
+}

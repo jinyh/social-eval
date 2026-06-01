@@ -1,0 +1,1114 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国宪法的环境观及其规范表达.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在少量OCR识别残留字符或特字符，如'2O世纪'、'1O期'、'1O年第'、'20O0'、'1O年第'等数字零被识别为大写字母O，但不影响核心论点与结构。",
+          "部分脚注编号和引文信息散见于正文行文，但均可辨识并还原为规范引注。"
+        ],
+        "evidence_quotes": [
+          "2O世纪60年代以来",
+          "载《教育研究}2002年第lO期",
+          "56-57(20O0)",
+          "载《中山大学学报》(社会科学版)2002年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。",
+          "当前，特定的中国宪法环境观，应强调人与自然的和谐，强调经济发展与环境保护的互动，强调国家权力与公民权利的合作，强调宪法与部门法的协同。",
+          "生态文明写入宪法，标志着我国宪法上形成了有关生态与环境的较为完整的规范体系，这意味着中国宪法的环境观呈现出立体架构，应该分层对待，既包括从宪法整体结构以及发展理念等出发的结构环境观，也包括宪法环境条款自身所蕴含的规范环境观。",
+          "通过宪法可以证成公民环境权。我国宪法上尽管没有明确规定环境权，但综合现行宪法序言以及相关条款，可以为环境权提供间接保护。",
+          "宪法环境观表达了宪法对国家、人与环境关系的最基本、最核心的看法。",
+          "围绕生态文明建设进行的宪法修改虽然是由政治决断所启动，但政策理念一旦成为宪法条文，就成为指引国家宪法生活的最高规范，构成对国家公权力的宪法约束。",
+          "因此，在宪法已然确立生产资料实行社会主义公有制的前提下，可转化为生产资料的自然资源被法律规定为国家所有在逻辑上就成为必然。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本中存在少量OCR特有数字识别错误，建议在后续评审中忽略此类瑕疵。",
+        "参考文献列表未提供，但不影响评审结论。"
+      ],
+      "evidence_quotes": [
+        "当前，特定的中国宪法环境观，应强调人与自然的和谐，强调经济发展与环境保护的互动，强调国家权力与公民权利的合作，强调宪法与部门法的协同。",
+        "生态文明写入宪法，标志着我国宪法上形成了有关生态与环境的较为完整的规范体系，这意味着中国宪法的环境观呈现出立体架构..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国宪法文本与生态文明入宪实践为中心，围绕中国宪法环境观提出并论证了“结构环境观”“规范环境观”以及国家权力、公民权利义务等一系列法学命题，具有明确的中国问题意识、可争辩的法学问题、中国实践解释尝试和理论转化命题，质量可评分，建议直接进入六维评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留导致部分字词错乱（如'2O世纪'、'?肖极防御'、'时至El'）",
+          "脚注编号出现符号乱码（如'⑩'、'@'、'③'等替代数字序号）",
+          "英文参考文献抽取存在断行拼接错误及字母残缺",
+          "期刊页码及栏目名混入正文（如'8 '、'l2 '、'中国法学 2018年第4期'）"
+        ],
+        "evidence_quotes": [
+          "2O世纪60年代以来",
+          "?肖极防御和积极治理的双重角度",
+          "Assessing the Utility 0，o Human Ri ght s Approach to International Environment al Protecti on",
+          "l2 \n\n中国宪法的环境观及其规范表达"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。",
+          "生态文明写入宪法，标志着我国宪法上形成了有关生态与环境的较为完整的规范体系，这意味着中国宪法的环境观呈现出立体架构，应该分层对待，既包括从宪法整体结构以及发展理念等出发的结构环境观，也包括宪法环境条款自身所蕴含的规范环境观。",
+          "从基本权利功能体系的角度而言，宪法上的环境权包括三个层面：(1)环境防御权。(2)环境请求权。(3)环境受益权。",
+          "公民的环境保护义务分为三个层次：(1)充分注意义务。(2)积极维护义务。(3)尽量改善义务。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程问题：OCR乱码、脚注编号乱码及页码混入需在后续阶段清洗",
+        "文本工程问题：英文参考文献断行拼接需修正"
+      ],
+      "evidence_quotes": [
+        "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。",
+        "从基本权利功能体系的角度而言，宪法上的环境权包括三个层面：(1)环境防御权。(2)环境请求权。(3)环境受益权。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，论文以中国宪法环境观及规范表达为核心，提出了结构环境观与规范环境观的分析框架，并构建了环境权功能体系与公民环境义务层次等可复核命题，完全符合进入六维评分的标准。但因存在OCR乱码、页码混入等文本工程风险，状态为conditional_pass，需在后续评分阶段前对文本进行清洗修复。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩⑩⑩等重复编号，疑似OCR或分栏提取问题）",
+          "部分英文参考文献存在换行断裂（如See David Short...）",
+          "参考文献列表标注为'（无）'，但正文实际存在大量脚注引用，系抽取失败"
+        ],
+        "evidence_quotes": [
+          "⑩参见《环境科学大辞典》……",
+          "See David Short，Assessing the Utility 0，o Human Ri\nght\nal Protecti\non，UMI company，56-57(20O0)．",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观",
+          "生态文明写入宪法，标志着我国宪法上形成了有关生态与环境的较为完整的规范体系，这意味着中国宪法的环境观呈现出立体架构",
+          "现行宪法第9条确认了自然资源的国家所有……在宪法已然确立生产资料实行社会主义公有制的前提下，可转化为生产资料的自然资源被法律规定为国家所有在逻辑上就成为必然",
+          "环境治理是沟通理论与实践的基本平台……当前的环境治理应该强调法治性，中国性以及实践性",
+          "权利义务的复合结构是我国宪法规定环境权的理想规范构造，既符合我国宪法的环境观，同时也与受教育权和劳动权的规范表达一致"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码（⑩重复），英文参考文献换行断裂，参考文献列表抽取失败但正文引用完整可定位",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观",
+        "生态文明写入宪法，标志着我国宪法上形成了有关生态与环境的较为完整的规范体系",
+        "权利义务的复合结构是我国宪法规定环境权的理想规范构造"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国宪法环境观为核心研究对象，系统阐释中国宪法环境条款的规范结构与制度实践，具有明确的中国问题意识和法学理论贡献。文本质量风险较低，脚注编号乱码和参考文献抽取问题不影响核心论点评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别残留与字符替换（如“2O世纪”）",
+          "页眉、页码、期刊名与正文混排（如“中国法学 2018年第4期”穿插于段落间）",
+          "部分词语因分栏或换行断裂（如“1\\n3益被”、“日\\n益呈现”）",
+          "文末参考文献列表缺失，仅保留正文脚注"
+        ],
+        "evidence_quotes": [
+          "因此，应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。",
+          "宪法环境条款具备了较强的规范性，表达出特定的环境观。环境治理是我国宪法环境观从理论和规范走向制度实践的综合表现。",
+          "构建以宪法为核心跨部门法协同的法律机制，对环境治理中国家权力的功能以及环境权的保障提供根本的理论与规范依据甚至探索新的研究范式。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR排版噪声与页眉混入，但不影响核心法学命题定位；参考文献列表未提供，需后续补充核对引注规范性。"
+      ],
+      "evidence_quotes": [
+        "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论点清晰，以中国宪法环境条款为中心，提出“结构环境观/规范环境观”二分框架及宪法对环境治理的内外部规制路径，具备明确的中国问题意识、可争辩的宪法教义学命题与实践解释尝试。符合进入六维评价标准。建议清理OCR排版噪声后进入正式评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文主要进行体系介绍与理念宣导，未提出可争辩的法学研究问题。",
+          "core_judgment": "该文属于宏观介绍与既定立场阐释，缺乏明确、可争辩的法学问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发上限。扣分合计=30分（检查3扣30分）。锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "宪法环境观表达了宪法对国家、人与环境关系的最基本、最核心的看法。",
+            "应该放在世界宪法的发展潮流中，中国经济社会的发展实际中，以及中国宪法的整体结构中去理解中国宪法的环境观。"
+          ],
+          "strengths": [
+            "对宪法环境观进行了体系化梳理。",
+            "涉及结构与规范双维度，具有一定系统性。"
+          ],
+          "weaknesses": [
+            "全文仅有主题声明而无明确争点句。",
+            "缺乏不同学者观点的交锋与法学层面的理论论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明 → 扣30分",
+              "score_ceiling": 30,
+              "priority": 1,
+              "evidence": "全文未找到'XX是否YY'、'如何ZZ'等问题句，只有'论中国宪法的环境观及其规范表达'等主题声明和阐释性内容。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立及可争辩性，不评文献综述、论证严密性或材料支撑。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅为体系归纳与主题声明，缺乏可争辩的法学问题。",
+          "core_judgment": "问题维度不成立，全文无问题句与理论分歧，仅为宏观介绍与政策倡导。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限70分，锚定unacceptable档(上限50分)，负面扣分70分，底线给30分",
+          "evidence_quotes": [
+            "应该放在世界宪法的发展潮流中……去理解中国宪法的环境观",
+            "环境权利和环境义务将来应该同步规定在现行宪法中"
+          ],
+          "strengths": [
+            "涉及宪法与环境法等多部门法领域，枢纽性较强"
+          ],
+          "weaknesses": [
+            "全文无问题句，仅为主题声明与体系归纳",
+            "缺乏学者观点交锋，多为单向陈述与政策倡导"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，无可争辩的法学争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖新概念但无实质推进，上限70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "引入结构/规范环境观等新概念仅作分类归纳"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文系统阐释中国宪法环境观，但缺乏可争辩的法学研究问题。",
+          "core_judgment": "主题宏大但无明确问题句，未形成可争辩的法学争点，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4（有法学层面但无问题句、无理论分歧、非政策倡导但无论证），枢纽性=2/4（涉及宪法与部门法关系、国家权力与公民权利，但无制度连锁论证），材料新颖性未触发上限，锚定unacceptable档，给35分。负面模式检查：检查1不扣（无新概念包装）；检查2扣20分（无学者观点交锋，仅系统归纳）；检查3扣30分（无问题句，只有主题声明）。扣分合计50分，但不得低于30分，故正式评分85-50=35分。",
+          "evidence_quotes": [
+            "所谓结构环境观，是把宪法中的环境规范当成一个有机联系的整体",
+            "宪法环境条款具备了较强的规范性，表达出特定的环境观"
+          ],
+          "strengths": [
+            "主题涉及宪法基础理论，有一定理论深度"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'等问题句，只有主题声明",
+            "无学者观点交锋，仅单向阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅陈述'宪法环境观''环境公民观''环境国家观'等主题概念"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，因可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文系统阐释宪法环境观，但缺乏明确争点与理论交锋，属宏大主题陈述。",
+          "core_judgment": "问题表述为既定立场阐释，缺乏可争辩的法学核心争点，创新性不足。",
+          "score_rationale": "可争辩性2/4，枢纽性4/4，材料校验触发上限。负面扣分60（概念包装20+宏观介绍15+主题声明25）。锚定good档(65)，最终保底30分。",
+          "evidence_quotes": [
+            "所谓结构环境观，是把宪法中的环境规范当成一个有机联系的整体，强调的是宪法规范中蕴含的环境理念。",
+            "宪法环境条款具备了较强的规范性，表达出特定的环境观。环境治理是我国宪法环境观从理论和规范走向制度实践的综合表现。"
+          ],
+          "strengths": [
+            "枢纽性强，跨宪法、环境法、民法多制度领域",
+            "涉及国家义务、环境权等基础法理概念"
+          ],
+          "weaknesses": [
+            "无明确问题句，仅为主题声明与体系归纳",
+            "缺乏学者观点交锋，单向阐释既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文围绕宏观环境观展开，无具体争辩焦点"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立重要，不评文献综述、逻辑严密性与材料支撑。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.102256774902344,
+        "glm-5.1": 45.947137117385864,
+        "kimi-k2.6": 13.582669973373413,
+        "qwen3.6-plus": 98.34692716598511
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 31.2,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文未能建立有效的研究地图，缺少对既有研究到达点、未竟点的系统性梳理，也未呈现可区分的学术争点结构。",
+          "core_judgment": "本文仅孤立引述个别学者观点以佐证自身论述，未将既有研究组织为可分辨的学术争论脉络，研究地图基本缺失。",
+          "score_rationale": "三要素=1/6（到达点1分，未竟点0分，本文切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，给42分。",
+          "evidence_quotes": [
+            "如约翰·巴里的‘绿色公民共和主义’理论所主张，公民个体应该具备基于环境正义认知与情感的环境公民权意识...",
+            "有学者指出，此次宪法修改，进一步强化了生态保护的国家目标属性..."
+          ],
+          "strengths": [
+            "引用了多位中外学者（如John Barry、Andrew Dobson、陈海嵩等）的具体观点。",
+            "对宪法环境条款的规范类型进行了分类解析。"
+          ],
+          "weaknesses": [
+            "完全未说明学界在环境观问题上已形成哪些共识或争议（无到达点与未竟点）。",
+            "引证仅为单方面佐证自身论点，未识别任何对立的学派、解释路径或争点结构。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅1分（提及几位学者观点但贡献模糊），未竟点0分（无任何争议描述），本文切入点0分（未说明与既有研究缺口的关系），三要素总分=1。"
+            }
+          ],
+          "boundary_note": "本维度仅评估文献梳理的完整性与深度，不评价问题本身的新颖性。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式定位构建了清晰的研究地图，呈现了多重争点结构与法学流派。",
+          "core_judgment": "本维度成立，论文充分提炼了既有研究到达点，并呈现了丰富的争点对立与解释路径分歧。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "近十年来，环境国家的概念日益被德国、日本以及我国台湾地区的学者提出和使用。",
+            "基本国策仅为单纯的立法原则并不具有拘束力的理论即遭全盘性的否定；取而代之，视为宪法委托、制度性保障甚至公法权利的观点成为主流。"
+          ],
+          "strengths": [
+            "分散式文献定位有效，准确提炼了环境国家、绿色公民权等理论贡献。",
+            "争点结构丰富，呈现了基本国策效力、生态主义与人类中心主义等多重分歧。"
+          ],
+          "weaknesses": [
+            "未竟点分散于正文，缺乏集中明确的研究缺口提炼段落。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理深度与争点结构，不评环境权入宪的实践创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本维度不成立：三要素严重缺失，争点结构与法学流派均未建立。",
+          "score_rationale": "三要素=1/6（仅要素1部分满足），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "近十年来，环境国家的概念日益被德国、日本以及我国台湾地区的学者提出和使用",
+            "有学者指出，在环境领域，国家存在的目的就在于对其人民及其环境存在一定的保护义务"
+          ],
+          "strengths": [
+            "提及域外'环境国家'概念及个别学者观点"
+          ],
+          "weaknesses": [
+            "无具体研究成果与贡献提炼，到达点模糊",
+            "未指出任何研究缺口或学术争议，未竟点缺失"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "仅要素1部分满足（提及'环境国家'等概念但未提炼贡献），要素2、3完全缺失"
+            }
+          ],
+          "boundary_note": "本文属制度建构型论文，但现状洞察维度仅评文献定位，不评问题创新性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，三要素完整，争点结构明确，有效整合了环境宪法学核心学术脉络。",
+          "core_judgment": "研究地图完整成立，文献定位精准且与论证深度融合，充分展现对既有学术争点的洞察与回应。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "当然学术界也有不少学者，主张不再使用生态环境的概念。但在笔者看来，首先，生态环境的提法合乎十八大以来...",
+            "环境法学者所反思的...不像法学、法律味不浓是突出问题...既不被传统法学所接受，也难为法治实践提供有效指导。"
+          ],
+          "strengths": [
+            "分散式文献定位精准融入正文论证，未竟点与切入点高度对应。",
+            "清晰划分结构观与规范观，争点脉络立体且具解释力。"
+          ],
+          "weaknesses": [
+            "部分流派讨论偏重理论引介，对立交锋的批判性展开稍显不足。",
+            "文末参考文献列表标注为无，虽文内引注丰富，但形式规范性略欠。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉及环境权入宪问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.183974027633667,
+        "glm-5.1": 41.52336597442627,
+        "kimi-k2.6": 11.78948974609375,
+        "qwen3.6-plus": 59.93032908439636
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 90,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 90
+      },
+      "mean": 66.8,
+      "std": 26.9,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文系统归纳了中国宪法环境观的既有立场和规范体系，但未能建构出可重复适用的分析框架。",
+          "core_judgment": "框架建构力较弱：论文的主要贡献是‘外在体系’的梳理与阐释，而非提出原创性分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定和分类标准部分明确，但无具体分析步骤且后文未将‘四维规范类型’作为分析工具反复调用）；法学转化度得分=1/4（仅从理论映射到规范分类，未提供裁判指引或新操作化方案）。锚定marginal(50-59)档，因宏观阐释和政策复述迹象明显，给52分。",
+          "evidence_quotes": [
+            "结构环境观围绕公民、国家和社会展开，环境公民观强调公民个体应当持有的有关公民与环境的基本认识...",
+            "规范环境观...包括确认性规范、授权性规范、禁止性规范、权利义务性规范。"
+          ],
+          "strengths": [
+            "对宪法环境规范的分类梳理（确认性/授权性/禁止性等）具有概念区分功能，使规范体系结构化。"
+          ],
+          "weaknesses": [
+            "‘三个观念’（公民观/国家观/社会观）和‘四个规范类型’本质上是立场阐释和主题分类，未转化为可操作的分析或裁判步骤。",
+            "全文以‘应当’‘强调’‘主张’等规范性呼吁为主，缺乏对规范要素如何具体用于裁判说理或立法设计的深度指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_interpretation_ceiling",
+              "rule": "政策理论梳理型论文：法学转化度得分上限为1，框架可操作性得分上限为2，总分不超过60分。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文主要工作是归纳‘中国特色社会主义生态文明’理念下的宪法环境观，核心术语（如‘环境国家观’‘积极能效观’）多来自对既有理论和政策的阐释，未转化为可重复适用的裁判标准或判断步骤。"
+            }
+          ],
+          "boundary_note": "此处仅评分析框架的可操作性与法学转化度，不评论文理论阐释的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文属政策理论梳理型，仅作概念分类与条文释义，缺乏可操作步骤与法学转化。",
+          "core_judgment": "分析框架仅为阐释性分类体系，未转化为可操作的法学分析工具或裁判规则。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "所谓结构环境观，是把宪法中的环境规范当成一个有机联系的整体，强调的是宪法规范中蕴含的环境理念...",
+            "应该强调人与自然的和谐，强调经济发展与环境保护的互动，强调国家权力与公民权利的合作"
+          ],
+          "strengths": [
+            "构建了“结构-规范”双维环境观分类体系",
+            "对宪法环境条款的规范类型梳理较为全面"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的分析步骤或判断标准",
+            "大量口号式呼吁，缺乏具体制度方案或裁判规则"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "policy_theory_summary",
+              "rule": "政策理论梳理型识别规则：框架可操作性上限2，法学转化度上限1，总分上限60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释既定立场和宪法条文为主，主要贡献为梳理归纳而非建构原创框架"
+            },
+            {
+              "rule_id": "slogan_appeal",
+              "rule": "口号式呼吁降档：≥5处应当/必须且无具体方案，框架可操作性上限2",
+              "score_ceiling": 2,
+              "priority": 2,
+              "evidence": "文中多处“应该强调”“应当实行”等呼吁，缺乏具体法条或程序支撑"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用有法学转化，不评逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出'结构环境观—规范环境观'双层框架，但属于政策理论梳理型论文，缺乏可重复适用的分析步骤。",
+          "core_judgment": "框架为概念分类与政策阐释，未转化为可操作的法学分析工具，后文调用停留在描述层面。",
+          "score_rationale": "框架可操作性得分=1/4（仅'结构/规范'分类标准较明确，无分析步骤、无核心术语严格定义、后文未按框架步骤展开）；法学转化度得分=1/4（仅有概念映射到宪法条文，未提供裁判规则、适用流程或制度设计方案）。锚定marginal档，因政策理论梳理型属性触发上限规则，给45分。",
+          "evidence_quotes": [
+            "结构环境观围绕公民、国家和社会展开，环境公民观……环境国家观……环境社会观",
+            "规范环境观与宪法条文密切联系，强调宪法规范中具体的环境构成要素"
+          ],
+          "strengths": [
+            "双层分类有一定体系性，便于整理宪法环境规范"
+          ],
+          "weaknesses": [
+            "核心术语'结构环境观''规范环境观'无严格定义，边界模糊",
+            "后文分析未按框架步骤展开，仅为条文罗列与政策阐释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释'生态文明''美丽中国'等既定政策立场为主，核心术语来自权威表述，主要贡献是'梳理''归纳'而非'建构''设计'"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "构建“结构-规范”双层框架，系统运用于宪法条款解释与治理规制分析。",
+          "core_judgment": "框架概念清晰、分类明确，在教义学层面实现从政策理念到规范类型的有效转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "所谓结构环境观，是把宪法中的环境规范当成一个有机联系的整体……规范环境观与宪法条文密切联系，强调宪法规范中具体的环境构成要素。",
+            "结合现行宪法序言、第9条、第26条和第89条的规定，具体包含两个方面：1．环境的保护。2．环境的改善。"
+          ],
+          "strengths": [
+            "双层框架边界清晰，分类标准明确，契合宪法教义学分析逻辑。",
+            "框架贯穿全文，有效统合宪法条款解释、权力规制与部门法协同。"
+          ],
+          "weaknesses": [
+            "偏重类型化归纳，缺乏针对具体争议案件的裁判检验步骤。",
+            "规范四分法与传统法理分类重合度高，分析工具原创性有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.403676986694336,
+        "glm-5.1": 50.03295421600342,
+        "kimi-k2.6": 13.742044925689697,
+        "qwen3.6-plus": 176.17473316192627
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 55,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 60,
+      "std": 19.1,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过“结构环境观—规范环境观—制度实践”三重架构，形成了完整且可复述的推理链，结论可辩护地推出。",
+          "core_judgment": "本文作为理论建构型论文，推理链完整，虽有局部过渡依赖概念铺陈，但整体逻辑高度自洽，结论由前文充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档。论文主线清晰且依赖度高，但缺少显式反对意见的实质性回应，扣减部分分后给出92分。",
+          "evidence_quotes": [
+            "因此，应该放在世界宪法的发展潮流中…去理解中国宪法的环境观。当前，特定的中国宪法环境观，应强调人与自然的和谐…（提出了明确的定义与四维框架）。",
+            "所谓环境治理，应以环境的保护与改善…为综合目标…当前的的环境治理应该强调法治性，中国性以及实践性。"
+          ],
+          "strengths": [
+            "推理链高度完整：从“环境观”定义，到“结构/规范”二分，再到“确认性/授权性/禁止性/权利义务性”四种规范类型，最后落地为“内部/外部规制”的制度实践，层层递进。",
+            "隐含反驳处理到位：在论证“生态环境”概念时，明确承认‘学术界也有不少学者，主张不再使用生态环境的概念’，并给出了选择该路径的论证理由，增强了理论张力。"
+          ],
+          "weaknesses": [
+            "缺乏显式反对意见的回应：在论证比例原则适用或环境权时，未直接引入“有学者反对”的立场并进行实质性驳斥，使得论证的论辩色彩稍弱。",
+            "局部推理依赖断言：在从“环境国家观”推导到具体制度时，部分论述基于‘应然’的价值宣示，缺少对可能存在的实务约束或反例的讨论，如国家权力协同的障碍。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论型论文，其逻辑严密性体现在概念体系的建构与推演上，而非“事实-判决”的推理链，故不因缺乏实证数据而扣分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，局部隐含分歧有回应，但过渡稍松散。",
+          "core_judgment": "本维成立：论文形成了“环境观-规范表达-制度实践”的充分支撑链条，核心结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "学术界也有不少学者，主张不再使用生态环境的概念。但在笔者看来，首先，生态环境的提法合乎十八大以来...其次，并非无法确定内涵...",
+            "当然，强调国家的环境保护义务，并非不考虑中国的实际情况。环境保护的目标应与经济社会发展实际协调。"
+          ],
+          "strengths": [
+            "推理主线清晰：环境观→规范表达→制度实践，层层递进。",
+            "对隐含分歧（生态环境概念）有实质性回应与选择理由。"
+          ],
+          "weaknesses": [
+            "从规范表达到环境治理规制的过渡稍显松散，论证跳跃。",
+            "对核心争议（环境权入宪）的显式反驳处理不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评逻辑链条支撑度，不评环境观框架的操作性或环境权入宪结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "理论建构型论文，推理链基本完整但存在局部跳步，反驳处理薄弱。",
+          "core_judgment": "结构环境观与规范环境观的双层架构可辩护，但'结构→规范→制度实践'的推导存在关键过渡论证不足。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处关键跳步：从'环境观分层'到'环境治理制度'的推导缺中间环节）；反驳处理度得分=1/3（仅标准3隐含承认局限，标准1-2均未满足）。锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "因此，应该放在世界宪法的发展潮流中……既包括从宪法整体结构以及发展理念等出发的结构环境观，也包括宪法环境条款自身所蕴含的规范环境观",
+            "环境治理是我国宪法环境观从理论和规范走向制度实践的综合表现"
+          ],
+          "strengths": [
+            "双层架构（结构/规范环境观）有明确逻辑递进，概念界定清晰",
+            "规范环境观部分对宪法条文的类型化分析（确认/授权/禁止/权利义务）推理链条完整"
+          ],
+          "weaknesses": [
+            "缺乏对'环境观'作为宪法解释范畴的反对意见回应，未处理'环境观是否构成独立宪法学范畴'的质疑",
+            "从'环境观'理论建构到'环境治理'制度实践的推导存在跳步，未充分论证观念如何转化为规范效力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评'环境观'概念本身的学术价值或制度方案的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建“结构-规范”双维框架，推理链条完整，核心结论可由规范分析与治理实践推导得出。",
+          "core_judgment": "本维度成立，主要推理步骤环环相扣，反驳处理充分，结论具备可辩护性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。概念界定、条款类型化与制度推导形成闭环，对学术分歧与适用边界有实质回应。",
+          "evidence_quotes": [
+            "当然学术界也有不少学者，主张不再使用生态环境的概念。但在笔者看来，首先，生态环境的提法合乎十八大以来……",
+            "当然，强调国家的环境保护义务，并非不考虑中国的实际情况。环境保护的目标应与经济社会发展实际协调。"
+          ],
+          "strengths": [
+            "“结构-规范”双维框架与宪法条款类型化分析形成严密递进逻辑。",
+            "对“生态环境”概念争议及国策拘束力分歧给出了实质性学理回应。"
+          ],
+          "weaknesses": [
+            "部分规范效力向部门法传导的论证略显宏观，缺乏具体教义学衔接。",
+            "环境权入宪的规范构造推演偏重价值宣示，实证约束力论证稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑度与可辩护性，而非评价环境治理框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.22666907310486,
+        "glm-5.1": 44.26606488227844,
+        "kimi-k2.6": 11.671051025390625,
+        "qwen3.6-plus": 50.64675188064575
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 90
+      },
+      "mean": 82.2,
+      "std": 13.8,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文试图在宪法框架内构建环境观，但结论多为宏大叙事和政策性主张，未能有效转化为可争辩的学术命题，也未充分回应反对意见。",
+          "core_judgment": "结论虽与官方话语高度一致，但缺乏与法学共同体的实质对话，且制度转化方向空泛，导致可接受度受限。",
+          "score_rationale": "共同体对话度得分=2/4（回应了争论但与既有观点关系不明，缺乏反对意见讨论），制度可接受度得分=3/4（与法秩序兼容，有原则回应，但转化方向空泛）。制度论文锚定marginal档，因万能药式对策触发上限，给65分。",
+          "evidence_quotes": [
+            "应强调人与自然的和谐，强调经济发展与环境保护的互动，强调国家权力与公民权利的合作，强调宪法与部门法的协同。",
+            "通过宪法解释可以证成公民环境权。我国宪法上尽管没有明确规定环境权，但综合现行宪法序言以及相关条款，可以为环境权提供间接保护。"
+          ],
+          "strengths": [
+            "结论紧密围绕中国宪法文本与生态文明政策展开，制度兼容性较好。"
+          ],
+          "weaknesses": [
+            "结论多为原则性、宣示性主张，未回应学界对“环境权”性质、功能等核心争论，共同体对话度不足。",
+            "对策建议如“功能分解与协同”“相互理解、有效沟通”等过于宏大空泛，缺乏具体制度路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "制度论文万能药对策，最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "对策建议包括“对立法、行政、司法的规制与协同”“宪法与环境法相互理解、有效沟通、功能互补”等，均属空泛的宏观指引，无具体法条/程序/规则。"
+            },
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度≤1或结论不足以支撑主张，最高50分",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "结论提出“结构环境观”“规范环境观”等新框架，但未明确与既有宪法教义学或环境权理论争论的关系，也未回应可能的反对意见，对话度较低。"
+            }
+          ],
+          "boundary_note": "评分基于结论的可接受性与对话度，而非逻辑严密性或前瞻性。",
+          "review_flags": [
+            "evidence_thin",
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论提出环境权与义务同步入宪的复合构造，与现行法秩序高度兼容，对话度强。",
+          "core_judgment": "结论成功进入共同体语境，回应了环境权入宪争论，并提出了与中国宪法体系兼容的具体制度转化方向，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "权利义务的复合结构是我国宪法规定环境权的理想规范构造...将来应该同步规定在现行宪法中。",
+            "有力回应了‘环境权入宪’的诉求...为环境权提供了更为明确的保障预期，更为充足的规范依据"
+          ],
+          "strengths": [
+            "结论明确回应环境权入宪争论，提出权利义务复合结构的具体规范方案。",
+            "与中国宪法体系（如受教育权规范）高度兼容，制度转化方向清晰。"
+          ],
+          "weaknesses": [
+            "结论对环境权入宪可能面临的体系性冲击等深层反对意见讨论稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出中国宪法环境观的双层架构理论，结论具有明确学术定位，但制度转化方向不够具体。",
+          "core_judgment": "作为理论论文，结论能进入共同体对话且与法秩序兼容，但制度转化方向较为笼统，未充分回应反对意见。",
+          "score_rationale": "共同体对话度得分=3/4（回应了环境权入宪、环境国家等既有争论，能定位回应，但缺少对反对意见的直接讨论）；制度可接受度得分=2/4（不矛盾于现行法秩序，对制度约束有原则回应，但制度转化方向仅笼统提及'环境权利和环境义务同步规定'，未说明具体规范构造；考虑了中国语境）。锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "未来在宪法中对于环境权的进一步明确规定，可以清晰展现环境权所应具备的规范构造，可以有力呼应我国的生态文明建设，可以有效规范环境权保障的制度实践",
+            "权利义务的复合结构是我国宪法规定环境权的理想规范构造，既符合我国宪法的环境观，同时也与受教育权和劳动权的规范表达一致"
+          ],
+          "strengths": [
+            "结论明确回应环境权入宪争论，提出'权利义务复合结构'的具体方案",
+            "紧密结合中国宪法文本与生态文明入宪背景，语境意识强"
+          ],
+          "weaknesses": [
+            "未主动讨论反对意见，如环境权入宪可能面临的宪法结构性质疑",
+            "制度转化方向过于笼统，未说明环境权规范构造的具体技术路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论可接受性，不评论证严密性与研究创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足现行宪法文本与生态文明入宪背景，提出复合权利义务观，具备较高理论自洽与制度兼容性。",
+          "core_judgment": "结论明确回应环境权入宪争议与部门法协同难题，在现行法秩序内具有充分的可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "本文结论修正了环境权仅作为宣示性权利的观点，主张构建权利义务复合结构。",
+            "结合2018年修宪与宪法第9、26条，指出环境权可通过宪法解释获得间接保障。"
+          ],
+          "strengths": [
+            "深度嵌入中国宪法语境，避免理论空转。",
+            "主动回应入宪争议，提出可检验的教义路径。"
+          ],
+          "weaknesses": [
+            "反对意见回应分散，未专章讨论局限。",
+            "转化方向偏重立法，司法衔接着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.67476296424866,
+        "glm-5.1": 56.024686098098755,
+        "kimi-k2.6": 54.37116980552673,
+        "qwen3.6-plus": 67.51355290412903
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 78.2,
+      "std": 11.6,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "在明确指出现行宪法对环境权规定不足的基础上，提出了“未来在宪法中进一步明确规定环境权”的具体延展路径，并指明了权利义务复合的规范构造。",
+          "core_judgment": "论文存在清晰、可定位且与正文核心结论紧密衔接的具体延展路径。",
+          "score_rationale": "原始分85分，对应bonus=5档。主要证据：余论明确主张未来宪法应明确规定环境权并与义务同步规定，且指明了“权利义务复合结构”的具体规范构造，延展路径高度具体。",
+          "evidence_quotes": [
+            "未来在宪法中对于环境权的进一步明确规定，可以清晰展现环境权所应具备的规范构造...",
+            "环境权利和环境义务将来应该同步规定在现行宪法中。"
+          ],
+          "strengths": [
+            "提出的宪法修改方向具体可定位，涉及条文构造而非空泛呼吁。",
+            "延展建议与正文关于国家权力-公民权利义务复合结构的分析结论一脉相承。"
+          ],
+          "weaknesses": [
+            "对环境义务同步入宪可能引发的权利虚化风险未展开讨论。",
+            "未指明该延展路径面临的主要理论障碍或反对意见的入手点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是未来宪法如何演进以明确公民环境权，属于“未来还能往哪里走”的延展问题，而非当下规范解释是否被共同体接受的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "提出环境权入宪及权利义务同步规定的制度完善方向，延展路径明确但精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了环境权入宪的具体规范构造方向及跨部门法协同机制。",
+          "score_rationale": "原始分75，bonus档位3（60-79档）。论文指明环境权入宪及权利义务同步规定的制度完善方向，与正文环境观及规范表达衔接紧密，但对规范构造与实施风险未展开，精细度有限。",
+          "evidence_quotes": [
+            "未来在宪法中对于环境权的进一步明确规定，可以清晰展现环境权所应具备的规范构造",
+            "环境权利和环境义务将来应该同步规定在现行宪法中"
+          ],
+          "strengths": [
+            "指明环境权入宪及权利义务复合结构的制度完善方向",
+            "提出跨部门法协同及新研究范式的深化方向"
+          ],
+          "weaknesses": [
+            "对环境权入宪的具体规范构造与实施风险未作展开",
+            "跨部门法协同机制缺乏后续研究的具体争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "环境权入宪及规范构造属于未来立法完善方向，而非当下宪法文本解释的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在余论部分提出了环境权入宪的明确方向及权利义务复合结构的规范构造设想，但全文缺乏系统的后续研究问题设计，延展路径较分散且部分停留在方向性陈述。",
+          "core_judgment": "存在真实延展路径，但精细度和系统性不足，主要集中于文末的环境权入宪呼吁。",
+          "score_rationale": "原始分55分，对应bonus=2的低档弱加分。证据：余论明确提出'未来在宪法中对于环境权的进一步明确规定'及'权利义务的复合结构是我国宪法规定环境权的理想规范构造'，属于可定位的制度完善方向；但全文缺乏对后续争点的具体展开，比较法维度未延伸，环境治理的跨部门法协同机制也未提出可检验的后续问题。",
+          "evidence_quotes": [
+            "未来在宪法中对于环境权的进一步明确规定，可以清晰展现环境权所应具备的规范构造，可以有力呼应我国的生态文明建设，可以有效规范环境权保障的制度实践",
+            "权利义务的复合结构是我国宪法规定环境权的理想规范构造，既符合我国宪法的环境观，同时也与受教育权和劳动权的规范表达一致"
+          ],
+          "strengths": [
+            "余论明确指向环境权入宪的具体制度方向，非空泛口号",
+            "提出权利义务复合结构的规范构造，与正文论证形成衔接"
+          ],
+          "weaknesses": [
+            "缺乏对后续研究争点的系统梳理，如环境权与现有基本权利体系的冲突协调",
+            "比较法框架（德日环境国家理论）未延伸为可继续展开的本土化维度"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估未来延展方向，不评估环境权入宪主张本身是否被学界接受（属结论可接受性），也不评估从宪法条文推导环境权的论证过程是否严密（属逻辑严密性）。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文基于现行宪法规范空间，明确提出环境权与义务同步入宪的规范建构方向。",
+          "core_judgment": "存在真实延展路径，聚焦于宪法环境条款的未来解释与修宪完善方向。",
+          "score_rationale": "原始分68，达60分档对应bonus=3。余论基于修宪留存的规范空间，明确提出环境权与义务同步入宪的具体方向，与正文核心论证衔接，但缺乏教义学转化细节。",
+          "evidence_quotes": [
+            "未来在宪法中对于环境权的进一步明确规定，可以清晰展现环境权所应具备的规范构造",
+            "环境权利和环境义务将来应该同步规定在现行宪法中。"
+          ],
+          "strengths": [
+            "明确指出修宪/释宪的具体方向，与正文“复合权利义务”结论紧密衔接。",
+            "基于2018修宪留存的规范空间提出延展，具有制度演进的可操作性。"
+          ],
+          "weaknesses": [
+            "未深入探讨环境权入宪的具体规范构造设计或教义学转化路径。",
+            "对可能存在的立法成本或权利冲突等实施风险缺乏预判与应对方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于宪法环境条款的未来解释路径与修宪完善方向，属于后续制度建构与理论深化的延展，而非对本文当下结论的正当性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.773146867752075,
+        "glm-5.1": 34.12461519241333,
+        "kimi-k2.6": 55.69986081123352,
+        "qwen3.6-plus": 66.8035261631012
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 75,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 68
+      },
+      "mean": 70.8,
+      "std": 12.6,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 56.66,
+      "weighted_total": 59.5
+    },
+    "aggregation_strictest": {
+      "final_score": 43.0,
+      "weighted_total": 45.8
+    },
+    "avg_std": 14.4,
+    "max_std": 26.9,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 13.7,
+    "composite_score": -12.73,
+    "worst_dimension": "literature_insight",
+    "worst_std": 26.9
+  }
+}

@@ -1,0 +1,1013 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/FXYJ2025005006_法学研究_2025_个人信息作为对待给付.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号和引用格式混入正文（如〔3〕〔4〕等），但未影响核心论证定位。",
+          "参考文献列表缺失，无法校验引注完整性。",
+          "部分德语引注和长条文编号可能影响OCR准确度，但当前文本可读且论证结构完整。"
+        ],
+        "evidence_quotes": [
+          "Vgl. Andreas Scheibenpflug, Personenbezogene Daten als Gegenleistung, S. 51.",
+          "参见陈甦、谢鸿飞主编: 《民法典评注. 人格权编》, 中国法制出版社2020 年版, 第247 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文同样采用这一概念并加以细化界定。",
+          "我国法上的决定性事件当属2021 年施行的《常见类型移动互联网应用程序必要个人信息范围规定》...",
+          "本文将个人信息的经济价值概括为两点：一是提供交易机会...二是增加交易情报...",
+          "条件型关联符合中国本土的交易和司法实践...笔者检索了国内有代表性的经营者服务协议，未见任何协议将提供个人信息约定为用户义务。",
+          "用户开放接口使经营者获取信息成为可能，就已经完成给付。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，需后续补充核实。",
+        "多处脚注编号和溢出的参考信息混入正文，可能影响细粒度抽取。",
+        "部分德文和英文引注的OCR质量需确认。"
+      ],
+      "evidence_quotes": [
+        "个人信息保护法上的任意撤回权在“信息换给付”中的妥当定位，是用户对“提供个人信息”这一意愿条件成就与否的选择机制。",
+        "本文将个人信息的经济价值概括为两点：一是提供交易机会...二是增加交易情报...",
+        "条件型关联符合中国本土的交易和司法实践..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本工程质量存在参考文献缺失和脚注混入正文的风险，但论文核心论证围绕中国个人信息保护法、司法实践与民法理论展开，明确提炼了“开放接口说”等法学概念并形成可复核命题，完全符合“中国自主知识体系研究”六维评价口径，应准入六维评分。建议在评审前补充参考文献列表并清理文本工程噪音。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文段落中混入大量脚注编号及脚注全文，打断核心论证连贯性",
+          "期刊页码及刊名信息（如“· 4 9 · 法学研究 2025 年第5 期”）作为独立行混入正文",
+          "部分词汇存在异常空格拆分（如“信 息驱动型交易”、“个 人信息保护法”）"
+        ],
+        "evidence_quotes": [
+          "〔3 〕 〔4 〕 〔5 〕 〔6 〕 〔7 〕 〔8 〕 〔9 〕 Vgl. Andreas Scheibenpflug, Personenbezogene Daten als Gegenleistung, S. 51.",
+          "· 4 9 · 法学研究 2025 年第5 期",
+          "信 息驱动型交易"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国司法曾经将“免费”电子邮件归入无偿行为，〔11〕但这一立场已悄然改变。在一则典型案例中，法院虽仍提到电子邮件属于免费服务，但实质上已不再对其适用无偿行为的责任减轻规则",
+          "笔者检索了国内有代表性的经营者服务协议，未见任何协议将提供个人信息约定为用户义务。这些协议通常是纯粹描述性行文……并无协议规定拒绝提供个人信息构成违约",
+          "本文观点可简称为“开放接口说”",
+          "信息给付属于给付行为之债、持续性债务",
+          "将任意停止信息给付权融入债法关系的一种新路径……条件型关联说",
+          "对信息给付质量应适用“有限真实标准”……用户享有在合理范围内掺入非真实信息的权利（非真实信息掺入权）"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文与脚注/页码混杂需清洗，异常空格需修复",
+        "项目口径：完全符合，无需特别关注"
+      ],
+      "evidence_quotes": [
+        "本文观点可简称为“开放接口说”",
+        "笔者检索了国内有代表性的经营者服务协议，未见任何协议将提供个人信息约定为用户义务"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本需清洗脚注及页码混入问题后进入六维评分；项目口径完全符合，直接进入评审。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留标记如〔3〕〔4〕等，但正文可读",
+          "参考文献列表未完整抽取（标注为'无'），但正文引用信息完整",
+          "期刊页码混入正文（如'·4 9·法学研究 2025 年第5 期'），属分栏残留",
+          "部分德文文献引用存在格式混排"
+        ],
+        "evidence_quotes": [
+          "·4 9·法学研究 2025 年第5 期",
+          "〔3〕 Vgl. Andreas Scheibenpflug...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国个人信息保护法第15条规定的任意撤回权",
+          "我国司法曾经将'免费'电子邮件归入无偿行为，但这一立场已悄然改变",
+          "民法典第1022条第2款第1句",
+          "《常见类型移动互联网应用程序必要个人信息范围规定》",
+          "广州互联网法院(2022)粤0192民初6486号民事判决书",
+          "北京互联网法院(2019)京0491民初23942号民事判决书",
+          "面向新科技的民法学研究范式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "text_quality: 脚注编号OCR残留，期刊页码混入正文，参考文献列表未抽取",
+        "text_quality: 德文文献引用格式混排，但不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "本文从'信息换给付'现象中提炼出信息给付概念，再将其整合入民法学的知识体系",
+        "我国个人信息保护法第15条规定的任意撤回权...投射到债法关系上",
+        "面向新科技的民法学研究范式...应当坚守以人为本"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《个人信息保护法》《民法典》等规范为核心分析对象，系统建构'信息给付'的民法学理论，涉及中国司法实践解释、本土立法评价及理论转化，完全符合项目口径。文本质量风险为低级别，不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "论证Ⅰ: 条件型关联符合中国本土的交易和司法实践……笔者检索了国内有代表性的经营者服务协议……司法实践方面，撤回权引发的案件稀少……我国实践立场更接近条件型关联。",
+          "本文观点可简称为“开放接口说”……提出“非真实信息掺入权”……构造“低信息给付模式”",
+          "将信息给付归入持续性债务，有利于证成经营者在长时段内负有维护用户利益的附随义务……用户住所地是信息给付履行地，该地法院取得管辖权。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "本文从“信息换给付”现象中提炼出信息给付概念，再将其整合入民法学的知识体系，由此把新事物的冲击转化为民法学发展的动力。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "建议直接进入六维评分。论文以中国数字交易与个人信息保护规范及司法实践为核心场域，针对“信息换给付”中的合同成立、给付性质、撤回权效力、管辖连接点等可争辩法学问题，系统提出“开放接口说”“条件型关联”“非真实信息掺入权”及“低信息给付模式”等具有明确规范构造与可复核性的民法学命题，理论转化充分，中国问题意识与自主知识体系建构导向高度契合。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "good",
+          "summary": "论文以'个人信息作为对待给付'为切入点，涉及给付内容与债法构造等法学争点，但整体偏向体系建构而非针对核心未决争议的深度交锋。",
+          "core_judgment": "论文存在可争辩的法学问题（如信息给付是'有效同意'还是'纯粹事实'），但实质论证更多表现为对既定立场的整合与阐释，问题引导下的理论交锋深度不足。",
+          "score_rationale": "可争辩性=2/4（有问题句但主题声明性强，实质理论分歧展开有限），枢纽性=2/4（影响多个制度，但争议焦点与理论基础挖掘不够），材料新颖性未触发上限，锚定good档下限，扣分后给65分。",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容...传统观点是'有效同意换给付'...新兴观点是'纯粹信息换给付'...",
+            "本文从'信息换给付'现象中提炼出信息给付概念，再将其整合入民法学的知识体系..."
+          ],
+          "strengths": [
+            "精准识别了'有效同意说'与'纯粹信息说'的对立，具备初步的理论分歧意识。",
+            "提出了'开放接口说'等具体法律构造，试图在民法体系中定位信息给付。"
+          ],
+          "weaknesses": [
+            "全文主要完成体系化介绍与立场选择，缺乏对反驳立场的深度逐条交锋和论证推进。",
+            "问题表述更接近体系建构声明（如'信息给付属于条件型关联'），而非持续牵引论证的可争辩焦点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大或偏向体系建构，论证未聚焦于核心争点交锋",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文虽提出问题争议，但整体结构沿概念界定、类型化、体系融入展开，实质是主题阐释而非围绕单一可争辩问题的深度论战。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且可争辩，不评文献综述、论证严密性或材料是否支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文提出了信息给付内容与债法关联形态的核心争点，创新性强。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将个人信息保护法与合同法深度对接。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。前置检查无扣分。",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容...传统观点是“有效同意换给付”...新兴观点是“纯粹信息换给付”",
+            "哪种关联形态能最好地兼容任意停止信息给付权？"
+          ],
+          "strengths": [
+            "提出可争辩的法学争点，明确呈现“有效同意说”与“纯粹信息说”的理论交锋。",
+            "问题枢纽性极强，横跨合同法、个人信息保护法与诉讼法等多个制度领域。"
+          ],
+          "weaknesses": [
+            "部分新概念（如“非真实信息掺入权”）的论证略显孤立，与核心债法构造的衔接稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'信息给付'概念并构建'开放接口说'，回应数字时代个人信息作为合同对待给付的法学争点。",
+          "core_judgment": "问题具有明确可争辩性，涉及民法与个人信息保护法交叉领域，但核心争点'信息给付内容界定'属于既有理论框架内的细化推进。",
+          "score_rationale": "可争辩性=3/4（有问题句、属法学层面、有理论分歧、非纯政策倡导），枢纽性=2/4（影响合同制度与个人信息保护制度、涉及给付理论核心概念，但制度连锁效应限于解释论层面），材料新颖性未触发上限，锚定good档，给72分。负面模式检查：检查1不扣分（'开放接口说'相对'有效同意说''纯粹信息说'有明确解释力提升）；检查2扣15分（有学者观点交锋但深度有限）；检查3不扣分（存在明确争点句）。扣分合计15分，正式评分87-15=72分。",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容，争议原因在于个人信息保护法对个人信息处理规定了合法性事由尤其是同意。对于同意是否为用户给付的一部分，有两种观点。",
+            "本文认为'纯粹信息说'的总体取向正确，但还需要进一步完善。信息给付的真正内容是用户向经营者开放收集信息的接口，本文观点可简称为'开放接口说'。"
+          ],
+          "strengths": [
+            "问题聚焦'信息给付内容'这一具体争点，有可辨识的理论对手与替代方案。",
+            "将个人信息保护法与民法债法理论交叉，问题具有制度穿透力。"
+          ],
+          "weaknesses": [
+            "核心争点'开放接口说'是对'纯粹信息说'的细化修正，理论突破性有限。",
+            "部分讨论偏向制度介绍与比较法梳理，问题张力可进一步强化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准提炼“信息换给付”的教义学争点，提出“开放接口说”与“条件型关联”构造，实现民法与个保法的体系融贯。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，理论建构扎实，显著推进了数字时代对待给付理论的教义学发展。",
+          "score_rationale": "负面检查扣0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容……传统观点是‘有效同意换给付’……新兴观点是‘纯粹信息换给付’",
+            "本文认为第二种观点更恰当，并进一步指出：如果经营者对个人信息进行商业化利用，通常应当肯定双方表达了法拘束意思"
+          ],
+          "strengths": [
+            "精准识别个保法撤回权与债法拘束力的核心冲突",
+            "提出‘开放接口说’与‘条件型关联’实现教义学简化"
+          ],
+          "weaknesses": [
+            "对‘非真实信息掺入权’的边界论证略显理想化",
+            "部分比较法经验本土化转化的制度成本分析不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.759328842163086,
+        "glm-5.1": 61.62586688995361,
+        "kimi-k2.6": 13.039368391036987,
+        "qwen3.6-plus": 62.48745584487915
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.2,
+      "std": 13.9,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 68,
+          "band": "good",
+          "summary": "论文在正文各处分散嵌入了大量国内外文献定位，构建了明确的到达点、未竟点与本文切入点，研究地图完整；但流派识别偏弱，争点虽多但演进脉络在学派归属上不够清晰。",
+          "core_judgment": "论文具备完整的研究地图三要素，通过分散式文献定位展现了充分的学术对话，但对话对象多为个别学者观点，对学派或流派的对立脉络整合不足。",
+          "score_rationale": "三要素=5/6，争点结构=2/2，法学流派=2个，锚定good档，因三要素总分5、争点2但法学流派仅2，落入75-84分档，结合部分争点的流派归属模糊性，给68分。",
+          "evidence_quotes": [
+            "学理上初步形成了“信息驱动型交易”的概念，其基本特征是个人信息在交易中并非附随现象，而是经营者追求的给付(商品)本身。",
+            "就“为合同履行所必需”…有观点主张应根据经营者在合同中的描述确定，即所谓“主观标准”。随着法律施行的深入，无论欧盟还是中国均未采纳这种观点。"
+          ],
+          "strengths": [
+            "分散式文献定位非常充分，到达点具体且具有跨国比较视野。",
+            "争点结构完整，清晰呈现了“有效同意说”与“纯粹信息说”等核心对立立场及其论证脉络。"
+          ],
+          "weaknesses": [
+            "文献梳理中以单个学者观点引用为主，对学派或理论阵营的抽象归类与命名不足。",
+            "“有效同意说”与“纯粹信息说”虽构成争点，但被定位为个别学者主张，未进一步提炼为更宏观的法学流派对立。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分关注文献定位的完整性与争点呈现，不评价“信息给付”这一概念本身是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 95,
+          "band": "excellent",
+          "summary": "深度梳理德中学说演变，争点结构完整，未竟点与切入点对应严密。",
+          "core_judgment": "论文呈现了完整的学术争辩脉络与解释路径分歧，现状洞察度极高，本维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=10个，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "传统观点是“有效同意换给付”…新兴观点是“纯粹信息换给付”…本文认为“纯粹信息说”的总体取向正确，但还需要进一步完善。",
+            "第一类立场的共同理论依据是德国学者关于私法上同意的“阶层理论”…第二类立场…一是“自然债务说”…二是“不真正义务说”…三是“恶意行为抗辩说”…四是“排除强制执行说”。"
+          ],
+          "strengths": [
+            "争点结构清晰，精准提炼出给付内容、拘束力冲突、关联形态等多个核心对立。",
+            "深度梳理德国学说演变，未竟点与切入点对应严密。"
+          ],
+          "weaknesses": [
+            "低信息给付模式部分对国内既有研究梳理稍弱，偏重欧盟与美国制度比较。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点梳理深度，不评“开放接口说”等理论创新性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了清晰的研究地图，呈现多学派争论，但三要素分散且部分未竟点表述可更明确。",
+          "core_judgment": "研究地图三要素基本成立，争点结构充分，法学流派识别达标，但到达点分散、未竟点与切入点对应可更清晰。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=2/2，法学流派=4个，锚定good档，给72分。",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容……传统观点是'有效同意换给付'……新兴观点是'纯粹信息换给付'",
+            "学理上提出了多种解决方案，形成了两类基本立场：第一类立场主张限制这种权利，第二类立场主张维持这种权利"
+          ],
+          "strengths": [
+            "明确呈现'有效同意说'与'纯粹信息说'等对立观点，争点结构清晰",
+            "系统梳理德国、欧盟及中国学界多种理论方案，跨法域文献覆盖较广"
+          ],
+          "weaknesses": [
+            "未竟点与本文切入点的对应关系分散于正文，缺乏集中表述",
+            "部分流派引用以脚注呈现，正文对'学界争论'的显性说明不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位与争点呈现，不涉及问题新颖性或论证严密性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理信息给付学理争点，精准定位理论局限并提出新路径，研究地图完整。",
+          "core_judgment": "本维度高度成立，文献定位精准且争点脉络严密，充分满足研究地图三要素。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容……传统观点是'有效同意说'……新兴观点是'纯粹信息说'。",
+            "学理上提出了多种解决方案，形成了两类基本立场：第一类主张限制权利，第二类主张维持权利。"
+          ],
+          "strengths": [
+            "精准提炼'有效同意说'与'纯粹信息说'等对立观点，文献脉络清晰。",
+            "明确指出现有理论在兼容任意撤回权时的局限，未竟点定位准确。"
+          ],
+          "weaknesses": [
+            "部分德文文献未附核心观点摘要，增加非德语读者理解门槛。",
+            "对国内早期实证裁判的归纳稍显分散，未集中提炼本土共识。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现深度，不涉及命题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.91779398918152,
+        "glm-5.1": 91.58882308006287,
+        "kimi-k2.6": 12.3039071559906,
+        "qwen3.6-plus": 82.65367603302002
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81.8,
+      "std": 13.7,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 81,
+          "band": "excellent",
+          "summary": "论文围绕“信息给付”这一核心概念，建构了“开放接口说”和“条件型关联”等原创分析框架，架构清晰且具备较强的可操作性。",
+          "core_judgment": "该文的框架建构力成立，提出了可重复适用的类型化标准和步骤化分析流程，并将跨学科概念成功转化为法学操作指引。",
+          "score_rationale": "框架可操作性得分=3/4（概念清晰、分类明确、步骤可循，但后文调用部分未完全按固定步骤展开）；法学转化度得分=3/4（将技术现象转化为“开放接口”给付、条件型关联等法学概念，并提供了裁判规则与制度设计方案）。锚定excellent档，给81分。",
+          "evidence_quotes": [
+            "在信息取代金钱型交易中，个人信息替代金钱成为唯一给付内容...信息减免金钱型交易中，个人信息减少给付中金钱所占比重。",
+            "信息给付的真正内容是用户向经营者开放收集信息的接口...用户需要做的仅是向经营者开放接口，至此用户已经完成了信息给付。"
+          ],
+          "strengths": [
+            "原创性地提出了“开放接口说”，为信息给付提供了清晰、可操作的法学界定。",
+            "通过“条件型关联”理论，巧妙地将任意撤回权等公法权利融入私法合同关系，提供了统一的解释框架。"
+          ],
+          "weaknesses": [
+            "部分关键概念如“个人信息暴利”的认定标准仍较为宏观，可操作性有待加强。",
+            "后文对“条件型关联”等核心框架的应用更多是理论阐释，与具体案例的穿插分析尚可更紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文核心优势在于框架本身的原创性和法学转化深度，评价聚焦于此，不涉及框架内推理的严密性评估。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "建构了“开放接口说+条件型关联”的原创框架，法学转化彻底。",
+          "core_judgment": "框架高度成立且可用，实现了从现象到裁判规则与制度设计的完整法学转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "信息给付的真正内容是用户向经营者开放收集信息的接口，本文观点可简称为‘开放接口说’",
+            "用户是否提供个人信息应当就每一时间单元单独判断……本文称为‘对每一时间单元单独作用的生效条件’"
+          ],
+          "strengths": [
+            "概念界定与类型化极度清晰，如开放接口说、条件型关联",
+            "法学转化彻底，提供了合同履行地、暴利认定等具体裁判规则"
+          ],
+          "weaknesses": [
+            "低信息给付模式的‘收费制’设计在实操中可能面临定价难题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与法学转化，不评价论证过程的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以'开放接口说'为核心，构建了信息驱动型交易的类型化分析框架，并尝试将其嵌入民法给付体系。",
+          "core_judgment": "分析框架具有原创性和可操作性，但法学转化深度在部分环节存在不足，整体处于'良好'水平。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循，但后文调用密度略降）；法学转化度得分=2/4（跨学科概念转化为法学分析步骤、提供裁判规则指引，但制度设计层面方案有限、部分转化步骤后文调用不足）；锚定good档，给72分",
+          "evidence_quotes": [
+            "信息驱动型交易的类型化线索是个人信息形成新的通用型给付手段，根据用户给付中金钱与个人信息所占比重的此消彼长，分为两类",
+            "信息给付属于给付行为之债、持续性债务...信息给付属于往取之债，用户住所地为合同履行地"
+          ],
+          "strengths": [
+            "原创提出'开放接口说'，明确区别于'有效同意说'和'纯粹信息说'",
+            "类型化框架贯穿全文，涵盖信息取代金钱型与信息减免金钱型交易"
+          ],
+          "weaknesses": [
+            "部分核心概念如'条件型关联'的后文调用密度不足，存在理论冗余风险",
+            "低信息给付模式的制度设计方案较为笼统，缺乏具体法条或程序设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文构建了“信息驱动型交易”的民法分析框架，概念界定清晰，类型化标准明确，理论推演与教义学转化高度融合。",
+          "core_judgment": "框架具备高度的可操作性与法学转化力，成功将数据保护规则内化为民法教义学分析工具。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念界定严密，分类与判断步骤可循且全程贯穿后文；跨领域概念已转化为民法义务构造、管辖认定与等值控制的具体教义学路径。",
+          "evidence_quotes": [
+            "信息驱动型交易的类型化线索是个人信息形成新的通用型给付手段，根据用户给付中金钱与个人信息所占比重的此消彼长，分为两类",
+            "用户是否提供个人信息应当就每一时间单元单独判断……本文称为‘对每一时间单元单独作用的生效条件’"
+          ],
+          "strengths": [
+            "概念重构精准，将数据撤回权转化为民法条件型关联，逻辑自洽",
+            "提供“有限真实标准”与“低信息给付模式”等可操作的教义学判断路径"
+          ],
+          "weaknesses": [
+            "部分制度建议偏向政策倡导，教义学约束力稍弱",
+            "对中小经营者合规成本的分析可进一步结合实证裁判细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.62697196006775,
+        "glm-5.1": 73.4368188381195,
+        "kimi-k2.6": 12.4131760597229,
+        "qwen3.6-plus": 48.231709003448486
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 81,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85,
+      "std": 10.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整，核心结论有充分支撑；反驳处理丰富，涵盖多派观点回应，逻辑严密性高。",
+          "core_judgment": "本文属于理论型论文，各章推理紧密围绕信息给付的法律构造展开，关键结论均可由前文推导，反驳处理涵盖显式反对、隐含分歧、边界与自身局限，逻辑链完整。",
+          "score_rationale": "推理链完整性得分=4/4（推理链清晰可复述、依赖度强、结论充分支撑、无关键跳步），反驳处理度得分=3/3（显式反对意见、实质性回应、承认局限均成立），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "有争议的是信息给付的内容...传统观点是'有效同意说'...新兴观点是'纯粹信息说'...本文观点可简称为'开放接口说'。",
+            "条件型关联的主要优势是无需任何补丁就能兼容用户的任意停止信息给付权...本文同样赞同条件型关联说，但认为现有论证有欠充分，以下进一步论证。"
+          ],
+          "strengths": [
+            "各章推理链环环相扣：从界定概念到检验制度，再到构建解决方案，删除前步则后续失去依据。",
+            "反驳处理全面：既呈现有效同意说、纯粹信息说，又系统回应牵连型、原因型关联，并主动声明确立条件型关联的优势与边界。"
+          ],
+          "weaknesses": [
+            "个别过渡依赖德国比较法资料，但未明确论证为何德国方案对中国必然可取，稍欠语境转化论证。",
+            "关于低信息给付模式收费制的合理性，论证较多依赖市场功能假设，对反竞争风险的反驳可进一步加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文严格属于理论型论文，逻辑链主要在概念界定、学说比较与理论构造间展开，评分为对其理论推理紧密度与反驳充分的判断，不涉及实务可行性的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过严密的逻辑推演，从概念界定逐步建构出“开放接口说”与“条件型关联”的理论体系。",
+          "core_judgment": "本维度高度成立，推理链层层递进且对分歧观点有实质性回应，结论可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理链依赖度高，反驳论证深入。",
+          "evidence_quotes": [
+            "将同意排除出给付内容有利于强化对用户的民法保护……越不遵守个人信息保护法反而对经营者越有利",
+            "信息给付属于给付行为之债……用户开放接口使经营者获取信息成为可能，就已经完成给付"
+          ],
+          "strengths": [
+            "推理链层层递进，从概念界定到学说建构依赖度极高。",
+            "对多种分歧路径（如牵连型关联、有效同意说）均有实质性反驳论证。"
+          ],
+          "weaknesses": [
+            "从“说谎权”类比推导“非真实信息掺入权”的过渡略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于“开放接口说”等结论的逻辑推出过程，而非其在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了'信息给付'概念的完整理论框架，推理链清晰，反驳处理充分。",
+          "core_judgment": "本维度成立，论文在理论型论文的逻辑推演上表现优秀，主要结论可由前文辩护性地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给82分。论文从'信息驱动型交易'界定出发，经有偿性论证、信息给付内容重构（开放接口说）、债法关系定位（条件型关联）、信息质量规则到制度配套（低信息给付模式），形成五步递进推理链；对'有效同意说''牵连型关联说''原因型关联说'等反对观点均作了实质性回应，并承认自身论证限于信息驱动型交易范畴。",
+          "evidence_quotes": [
+            "本文认为第二种观点更恰当，并进一步指出：如果经营者对个人信息进行商业化利用，通常应当肯定双方表达了法拘束意思，合同成立",
+            "本文同样赞同条件型关联说，但认为现有论证有欠充分，以下进一步论证"
+          ],
+          "strengths": [
+            "五步推理链环环相扣，前一步为后一步必要前提",
+            "对四种反对学说均作实质性回应并说明取舍理由"
+          ],
+          "weaknesses": [
+            "从'开放接口说'到'条件型关联'的过渡可更明确",
+            "低信息给付模式部分部分论证（如收费制第四点）略显重复"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链是否支撑结论，不评'开放接口说'本身是否最优理论选择。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "理论推演严密，反驳处理充分，核心结论可由前文规范分析与教义学建构稳健推出。",
+          "core_judgment": "逻辑链条完整且高度依赖，反驳处理覆盖显式反对、路径选择与适用边界，论证严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。概念推演与规范分析形成闭环，反驳回应实质且承认局限。",
+          "evidence_quotes": [
+            "传统观点是“有效同意换给付”……本文认为“纯粹信息说”的总体取向正确，但还需要进一步完善。",
+            "首先应当排除牵连型关联……主张此说的原因是牵连型关联被引入讨论时还不存在任意撤回权。"
+          ],
+          "strengths": [
+            "推理链条呈递进式，从概念界定到关联构造再到配套机制，逻辑依赖紧密。",
+            "对“有效同意说”等对立观点进行实质性批判，并给出规范与实务双重回应。"
+          ],
+          "weaknesses": [
+            "部分制度推演（如隐私评分、硬件开关）略偏政策建议，与纯教义学主线衔接稍显跳跃。",
+            "对“条件型关联”在极端技术垄断下的用户实质弱势论证可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与反驳处理，不评价“低信息模式”等制度方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 72.71354508399963,
+        "glm-5.1": 59.04046010971069,
+        "kimi-k2.6": 12.382143020629883,
+        "qwen3.6-plus": 66.46937894821167
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.8,
+      "std": 5.1,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "结论具备学术内核，但论文既未将自身主张定位到既有学术争论中，也未主动回应反对意见或承认局限，无法进入法教义学共同体的对话语境。",
+          "core_judgment": "论文结论虽具规范主张，但因缺乏共同体对话度（不回应既有争论、不讨论反对意见），结论难以被共同体认真定位和回应。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=2/4，论文为混合论文倾向制度论文轨道，因对话度≤1触发 unacceptable（0-49）上限，给42分。",
+          "evidence_quotes": [
+            "信息给付的真正内容是用户向经营者开放收集信息的接口...本文观点可简称为‘开放接口说’。",
+            "本文认为至少应当把握两点：第一，在研究目标上，应当坚守以人为本...第二，在研究方法上，应当坚持在知识脉络中回应新科技现象。"
+          ],
+          "strengths": [
+            "结论深度融入中国制度语境（民法典/PIPL/司法解释），制度兼容性强",
+            "对具体制度约束有明确回应，如区分参与主体、论证履行地等"
+          ],
+          "weaknesses": [
+            "结论未将‘开放接口说’等主张与既有学说的争议焦点明确对话，自说自话色彩明显",
+            "全文未在结论区主动承认或讨论反对意见、理论风险或自身论证局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0时总分上限50；本案对话度≤1触发相同的unacceptable上限控制",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论未说明与既有争论的关系，也未在结论部分讨论反对意见或局限，反对者无法定位讨论位置。"
+            }
+          ],
+          "boundary_note": "本维仅评结论能否进入共同体对话语境，不评论证严密性，也不评是否打开后续研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论并给出高度具体的制度转化方案，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话与制度可接受维度均表现优异，成功将理论主张转化为可争辩且可落地的制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文观点为'开放接口说'，将同意有效性变量排除在给付之外，使信息给付成为事实行为。",
+            "将提供个人信息解释为对每一时间单元单独作用的生效条件，妥当解释了给付可随时停止的现实。"
+          ],
+          "strengths": [
+            "明确修正既有学说，给出清晰可反驳的替代方案。",
+            "制度转化方案极为具体，涵盖条件型关联构造、掺入权限制及低信息给付模式。"
+          ],
+          "weaknesses": [
+            "低信息给付模式收费制与消费者保护直觉存在张力，可能面临反对。",
+            "非真实信息掺入权的边界界定稍显模糊，实务落地标准待明晰。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论能否被共同体及制度语境接受回应，不评论证严密性及未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出'开放接口说'等创新理论，积极回应国内外学术争论与中国制度语境，但部分制度转化方向尚待深化。",
+          "core_judgment": "理论创新充分进入共同体对话，制度兼容性良好，但低信息给付模式等建议的具体制度衔接可更明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=2/4，锚定good档，给78分。论文明确修正'有效同意说'、'纯粹信息说'等既有理论（标准1），反对者可清晰定位其'开放接口说'立场并构造反驳（标准2），结合中国民法典、个人信息保护法及司法案例展开（标准3），主动讨论'自然债务说''不真正义务说'等反对意见并承认局限（标准4）。制度层面不矛盾且回应中国法秩序（标准1、2），但低信息给付模式的收费制、区分制等建议虽有方向，具体制度转化路径可更明确（标准3部分满足），已考虑中国语境（标准4）。",
+          "evidence_quotes": [
+            "本文认为'纯粹信息说'的总体取向正确，但还需要进一步完善……本文观点可简称为'开放接口说'",
+            "第一类立场的取向是维护债法拘束力以及经营者利益……本文属于第二类立场"
+          ],
+          "strengths": [
+            "明确回应并修正国内外既有学说，定位清晰",
+            "结合中国民法典、个保法及大量本土案例展开论证"
+          ],
+          "weaknesses": [
+            "低信息给付模式的具体制度转化路径可更明确",
+            "部分建议如'数字产品信息安全法'立法路径较为笼统"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应既有学说争议，提出“开放接口说”与“条件型关联”，高度契合中国法秩序与司法实践。",
+          "core_judgment": "结论具备极强的共同体对话能力与制度兼容性，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文认为'纯粹信息说'总体取向正确……本文观点可简称为'开放接口说'。",
+            "低信息给付模式的法律上实现最好通过立法路径……条件型关联能够最妥当地实现在不同模式间的切换。"
+          ],
+          "strengths": [
+            "精准定位并修正主流学说，提出具可争辩性的新理论框架。",
+            "深度结合中国《民法典》《个保法》及本土裁判，语境高度契合。"
+          ],
+          "weaknesses": [
+            "结语偏向宏观范式宣示，具体裁判规则转化指引稍显抽象。",
+            "部分比较法制度本土化适配的实务成本论证可进一步充实。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.973719120025635,
+        "glm-5.1": 85.13645601272583,
+        "kimi-k2.6": 13.447012186050415,
+        "qwen3.6-plus": 61.569196701049805
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76,
+      "std": 23.6,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在多个实质性维度上提出了具体、可定位的未来研究方向，与核心结论衔接紧密，构成了清晰的延展路径。",
+          "core_judgment": "该文存在真实且具体的延展路径，而非空泛展望。",
+          "score_rationale": "原始分82分，对应bonus=5档。论文明确指出了个人信息市场定价、非真实信息掺入权等多项具体后续研究问题，路径清晰且与正文论证紧密衔接，远超空泛拔高。",
+          "evidence_quotes": [
+            "根本解决有待个人信息的市场定价完成，但在这之前，通过将民法规则应用于经济实践，可以搭建基础分析框架。",
+            "非真实信息掺入权在现有文献中尚未得到充分关注……自保护机制的合法性依据就在于非真实信息掺入权，在该权利界限内，使用自保护机制具有合法性。"
+          ],
+          "strengths": [
+            "提出了个人信息市场定价这一根本性未来难题，并指明了与等值性控制的衔接路径。",
+            "明确指出了“非真实信息掺入权”及“低信息给付模式”等具体概念的深化与构建方向，给予了后续研究明确的切入点。"
+          ],
+          "weaknesses": [
+            "结语部分对“面向新科技的民法学研究范式”的宏观呼吁略显宽泛，脱离了前文的具体制度延展线索。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估论文对未来研究方向的指引（如“市场定价”、“低信息给付模式的法律实现”），而非其当下结论是否已被妥善论证并被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在正文核心论证中嵌入了多条具体可定位的延展路径，结语虽宏观但正文延展扎实。",
+          "core_judgment": "存在真实延展路径，指明了个人信息暴利认定、隐私机器人法律定位及低信息给付立法方向。",
+          "score_rationale": "原始分82，对应bonus档位5分（>=80）。主要证据为正文明确指出了个人信息暴利认定需待市场定价、隐私机器人法律定位尚不明确、低信息给付模式需立法实现等具体深化与制度完善方向。",
+          "evidence_quotes": [
+            "个人信息暴利的认定是目前研究薄弱之处，其根本解决有待个人信息的市场定价完成",
+            "尤具前景的是基于人工智能的保护助手……但自保护机制的法律定位尚不明确"
+          ],
+          "strengths": [
+            "指明个人信息暴利认定及市场定价的后续深化方向",
+            "提出隐私机器人等自保护机制的法律定位作为新理论假设"
+          ],
+          "weaknesses": [
+            "结语偏向宏观范式呼吁，具体延展路径仅在正文散点提及"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "个人信息暴利认定框架与隐私机器人法律定位属于未来理论与制度深化方向，而非当下概念界定或结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语及多处提出理论深化、制度延伸和实务改进方向，延展路径明确且与正文紧密衔接。",
+          "core_judgment": "存在真实延展路径，包括非真实信息掺入权的深化、低信息给付模式的立法与实务展开、以及面向新科技的民法学研究范式转换。",
+          "score_rationale": "原始分72分，对应bonus=3的good档。论文在结语明确提出'面向新科技的民法学研究范式'，将'信息换给付'现象提炼为'信息给付'概念并整合入民法学体系；第五部分专论'低信息给付模式'的构造选择与实现路径，涉及收费制/区分制的制度完善方向；第四部分提出'非真实信息掺入权'并论及经营者容忍义务，为后续研究留下争点。但部分延展（如隐私评分、可信隐私评分）证据展开有限，精细度可进一步提升。",
+          "evidence_quotes": [
+            "本文详论的非真实信息掺入权、低信息给付模式就是此类手段",
+            "低信息给付模式的法律上实现最好通过立法路径，比如制定'数字产品信息安全法'或者国家、行业标准"
+          ],
+          "strengths": [
+            "结语将具体制度创新升华为民法学研究范式转换，理论延展层次清晰",
+            "低信息给付模式提出收费制/区分制的具体制度选择，有明确实施路径"
+          ],
+          "weaknesses": [
+            "部分延展方向（如隐私评分）仅作概括描述，缺乏具体机制设计",
+            "对新科技（如AI、物联网）的具体挑战回应不足，可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评未来延展方向，不评当下结论可接受性。论文结语提出的研究范式转换属于未来理论深化方向，低信息给付模式的立法建议属于制度完善方向，均非对当下结论的补救。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在构建核心理论后，明确指向个人信息市场定价、低信息给付模式立法及隐私技术协同等后续研究路径。",
+          "core_judgment": "存在真实且清晰的理论深化与制度衔接延展路径，与正文核心结论紧密咬合。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确指出“个人信息暴利根本解决有待市场定价完成”，并提出低信息给付模式的立法路径及条件型关联的司法适用场景，延展方向具体且紧扣理论建构。",
+          "evidence_quotes": [
+            "个人信息暴利的认定是目前研究薄弱之处, 其根本解决有待个人信息的市场定价完成",
+            "低信息给付模式的法律上实现最好通过立法路径, 比如制定“数字产品信息安全法”或者国家、行业标准"
+          ],
+          "strengths": [
+            "明确指出理论局限（市场定价未完成）并给出阶段性分析框架",
+            "提出低信息给付模式立法与标准制定的具体衔接路径"
+          ],
+          "weaknesses": [
+            "对隐私增强技术的法律规制细节未充分展开",
+            "跨法域比较框架的本土化转化路径可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于理论框架提出后指向的市场定价机制、立法路径及技术协同等未来研究议题，而非当下教义学结论的接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.026391983032227,
+        "glm-5.1": 58.449097871780396,
+        "kimi-k2.6": 13.153069734573364,
+        "qwen3.6-plus": 65.50238418579102
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 82,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 80.2,
+      "std": 5.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 88.21,
+      "weighted_total": 82.3
+    },
+    "aggregation_strictest": {
+      "final_score": 65.0,
+      "weighted_total": 68.1
+    },
+    "avg_std": 12.1,
+    "max_std": 23.6,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 23.2,
+    "composite_score": -12.1,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 23.6
+  }
+}

@@ -1,0 +1,1120 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/习近平法治思想中的构建新型诉讼格局理论.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号部分缺失或混入正文（如㉒㉓），但不影响核心论点定位",
+          "参考文献列表缺失，原文无，非抽取失败"
+        ],
+        "evidence_quotes": [
+          "㉒ 参见前注㉑，程雪阳文，第134 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献，目的在于构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局。",
+          "司法权从根本上说是中央事权。各地法院不是地方的法院，而是国家设在地方代表国家行使审判权的法院。",
+          "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展。",
+          "构建新型诉讼格局通过重新配置司法权力，健全以权力制约权力机制，实现司法权力对地方行政权力的制约。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号局部乱码或缺失，但不影响评审"
+      ],
+      "evidence_quotes": [
+        "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献，目的在于构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局。",
+        "司法权从根本上说是中央事权。各地法院不是地方的法院，而是国家设在地方代表国家行使审判权的法院。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全满足中国自主知识体系研究的四个项目口径信号，可直接进入六维评价。文本质量轻微瑕疵不影响评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落之间",
+          "脚注内容完整混入正文，打断阅读流",
+          "部分段落小标题排版残缺，缺少层级标记（如'格局分为...'、'把法院分为...'、'件划分为...'等直接以内容开头）",
+          "正文存在OCR替代符号残留（如黑方块■代替脚注编号）",
+          "参考文献列表抽取为空，但正文存在大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "中国法学 2022 年第5 期 6",
+          "① 参见习近平：《关于〈中共中央关于全面推进依法治国若干重大问题的决定〉的说明》...",
+          "格局分为传统诉讼格局和新型诉讼格局。",
+          "件划分为普通案件和特殊案件。",
+          "以2020 年全国法院审结的25.3万件一审环境资源案件■为例"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献，是新时代为解决影响司法公正和制约司法能力的深层次问题而进行的重要司法体制和机制创新，目的在于构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局。",
+          "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展，重在审理占少数、容易受到地方保护和行政干预影响的特殊案件，推动特殊案件跨行政区划集中管辖和公正审判，有效防止诉讼“主客场”现象。",
+          "将诉讼案件划分为普通案件和特殊案件，有利于在影响公正司法的众多因素中抓住主要矛盾和矛盾主要方面，统筹兼顾，维护整体公平正义。",
+          "跨行政区划法院作为综合性专门法院，在全国铺开设立跨行政区划法院符合宪法规定，无须修改宪法。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码与脚注混入正文，部分标题层级残缺，OCR符号残留，参考文献列表未成功抽取",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "构建新型诉讼格局理论是习近平法治思想的原创性成果...目的在于构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局",
+        "跨行政区划法院是综合性专门法院...无须修改宪法"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。后续文本工程需清洗混入的页码与脚注，修复残缺的段落标题层级，补全参考文献抽取。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如⑪⑫⑬等圆圈数字）",
+          "期刊页码混入正文（如'中国法学 2022 年第5 期'）",
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2022 年第5 期\n6",
+          "习近平法治思想中的构建新型诉讼格局理论 \n7"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献，是新时代为解决影响司法公正和制约司法能力的深层次问题而进行的重要司法体制和机制创新",
+          "普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局",
+          "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展",
+          "跨行政区划法院按省域内和跨省域两级设置",
+          "应当按照《宪法》和《人民法院组织法》的规定审视跨行政区划法院设置问题，寻求相应的宪法依据"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留（圆圈数字）",
+        "期刊页眉信息混入正文",
+        "参考文献列表未抽取"
+      ],
+      "evidence_quotes": [
+        "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献",
+        "普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局",
+        "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文完全符合项目口径，以中国司法体制改革为核心议题，具有明确的法学理论建构和制度命题，可直接进入六维评价。文本工程问题轻微，不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "分栏/OCR导致部分段落首字缺失（如“件划分为普通案件”“的核心要义之一”“和‘特’是新型诉讼格局”）",
+          "页码与期刊名混入正文行内（如“中国法学 2022 年第5 期 6”）",
+          "文末参考文献列表标注为（无），但正文含完整脚注引用"
+        ],
+        "evidence_quotes": [
+          "件划分为普通案件和特殊案件。",
+          "的核心要义之一，为构建新型诉讼格局提供了根本遵循。",
+          "和“特”是新型诉讼格局理论的本质特征"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献，是新时代为解决影响司法公正和制约司法能力的深层次问题而进行的重要司法体制和机制创新",
+          "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展，重在审理占少数、容易受到地方保护和行政干预影响的特殊案件",
+          "将诉讼案件划分为普通案件和特殊案件，有利于在影响公正司法的众多因素中抓住主要矛盾和矛盾主要方面，统筹兼顾，维护整体公平正义",
+          "专门法院设置标准应当从注重案件专业性向注重案件公正性转变"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：分栏截断导致少量首字缺失，需人工校对；项目口径：无边界争议"
+      ],
+      "evidence_quotes": [
+        "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献",
+        "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展",
+        "将诉讼案件划分为普通案件和特殊案件，有利于在影响公正司法的众多因素中抓住主要矛盾"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文紧扣中国司法体制改革核心难题（司法地方化与诉讼“主客场”现象），提出明确的制度命题（普通/特殊案件划分标准、跨区划法院的“综合性专门法院”宪法定位、两级组织体系与配套保障），具备可争辩的法学问题与中国实践解释力，完全符合“中国自主知识体系研究”项目口径。建议直接进入六维评分。仅需在后续排版或数据清洗阶段修复分栏导致的少量首字缺失及补充参考文献列表。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文的核心是阐释和宣传习近平法治思想中的“构建新型诉讼格局理论”，属于对既定立场的系统性阐释，而非提出一个可争辩的法学研究问题。",
+          "core_judgment": "论文主题重大，但不符合学术论文的“问题创新性”要求，因为它主要进行政策阐释和立场宣示，而非提出或解决一个法学层面的理论争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。因可争辩性≤1，触发上限规则，锚定unacceptable档。扣分合计=90分（检查1:25分，检查2:20分，检查3:30分，偏离学术问题核心加扣15分），但得分不低於30分，最终给40分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献...目的在于构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局。",
+            "司法权从根本上说是中央事权。各地法院不是地方的法院，而是国家设在地方代表国家行使审判权的法院。"
+          ],
+          "strengths": [
+            "对一项重大司法改革决策进行了系统性和结构化的梳理与阐释。",
+            "明确指出了当前司法实践中“诉讼主客场”的现实困境及其体制性根源。"
+          ],
+          "weaknesses": [
+            "全文是官方政策立场的演绎和具体化，未提出任何待检验的法学争点。",
+            "将复杂的改革简化为“普通”与“特殊”的二元划分，缺乏对不同理论路径或学者观点的交锋与辨析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学争点，仅有主题声明和政策阐释",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕“是什么、为什么、怎么办”展开，核心是证明习近平法治思想某一理论的正确性，而非求解“XX是否YY”或“如何ZZ”的法学难题。"
+            }
+          ],
+          "boundary_note": "本维度只评估研究问题是否成立、可争辩且具有理论重要性，不评价论文的政治正确性、文献梳理或论证逻辑。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "阐释既定政策理论，缺乏可争辩的法学问题与学术交锋。",
+          "core_judgment": "论文为政策阐释与制度构想，无核心法学争点，可争辩性极低。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档，基础分45分；前置扣分：新概念包装扣15分，宏观介绍扣20分，主题声明扣30分，合计扣65分，底线30分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献",
+            "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展"
+          ],
+          "strengths": [
+            "涉及司法体制多重制度领域，枢纽性较强"
+          ],
+          "weaknesses": [
+            "无法学争点，仅为政策阐释",
+            "缺乏学者观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅阐释新型诉讼格局理论，无任何法学争点问题句"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "依赖新概念但无实质研究推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以新型诉讼格局为创新依据，实为司法地方化旧问题新包装"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评制度构想是否周密或论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文系对既定政策立法的阐释与制度设计，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文为'构建新型诉讼格局'的政策阐释与制度构想，无学者观点交锋，无可争辩的法学争点，不构成研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明'构建新型诉讼格局'，无法律规范解释或适用争点，无理论分歧呈现），枢纽性=2/4（涉及司法制度多领域但基于政策而非理论），材料新颖性未触发上限。负面模式扣分：检查2扣20分（无学者观点交锋），检查3扣30分（无问题句，只有主题声明），合计扣50分。正式评分85分，扣50分后35分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献",
+            "跨行政区划法院按省域内和跨省域两级设置"
+          ],
+          "strengths": [
+            "主题涉及司法体制改革重要领域"
+          ],
+          "weaknesses": [
+            "全文为政策阐释，无学者观点交锋",
+            "无问题句，只有主题声明和制度设计"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，只有'构建新型诉讼格局'主题声明；无不同学者观点交锋，仅单向阐释既定政策立场"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦→最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文系对顶层司法改革政策的体系化阐释，缺乏可争辩的法学问题与学术交锋。",
+          "core_judgment": "问题本质为政策宣导与制度构想说明，不构成可争辩的法学研究命题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性未触发上限。锚定unacceptable档基础分45。负面检查扣分合计70分（新概念包装20+宏观介绍20+主题声明30），按保底规则最终给30分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局作为一项重大司法体制改革战略部署，一经提出，即引起广泛关注和强烈共鸣。",
+            "跨行政区划法院是综合性专门法院，是对传统专门法院的坚持与发展。"
+          ],
+          "strengths": [
+            "紧扣司法体制改革核心议题，涉及法院组织与管辖制度。",
+            "系统梳理了跨区划法院的宪法定位与配套保障路径。"
+          ],
+          "weaknesses": [
+            "全文仅为政策立场阐释，缺乏“是否/如何”等可争辩问题句。",
+            "未呈现学界实质观点交锋，论证偏向单向度的制度倡导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确争点问题句，仅为政策主题声明与单向阐释"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评政策价值或论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.053942918777466,
+        "glm-5.1": 51.407800912857056,
+        "kimi-k2.6": 14.938961744308472,
+        "qwen3.6-plus": 205.52078914642334
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 33.8,
+      "std": 4.8,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文未建立研究地图，既无参考文献列表，也未在正文中呈现可辨析的既有研究脉络、对立学说或学术争辩结构。",
+          "core_judgment": "完全缺失研究地图。无任何具体文献引用或学术流派呈现，未能勾画出现有研究的到达点、未竟点和本文切入路径。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "但是，由于理论研究和实践探索的不足，特别是设置跨行政区划法院面临法律障碍，迄今为止深化新型诉讼格局改革仍困难重重。",
+            "因此，跨行政区划法院应当成为专门法院的发展方向。"
+          ],
+          "strengths": [
+            "对实践中提级管辖、异地管辖等的局限性做了经验性归纳"
+          ],
+          "weaknesses": [
+            "全文无任何参考文献，未引用任何既有法学流派或学术对立观点；所谓“学界争论”仅以无出处的模糊判断一笔带过，无具体研究成果。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0分，无到达点、未竟点和本文切入点的学术地图支撑，研究地图完整缺失。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文无参考文献列表，且正文未引入任何具体的既有学术研究成果、争论流派或对立学说。"
+            }
+          ],
+          "boundary_note": "评价聚焦于学术文献图谱的缺失，不涉及司法改革命题本身是否具有创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现四个核心争点及对立立场，研究地图完整。",
+          "core_judgment": "现状洞察度成立，分散式文献定位精准，争点结构充分展开。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=8个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "目前争论较大的问题是跨行政区划法院本质上是地方各级人民法院还是专门法院",
+            "对于那些主张彻底打破...按照西方模式实行司法管辖区与行政区划完全分离的观点，要保持警惕"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了管辖改革、法院属性等争点",
+            "未竟点与切入点对应紧密，直指体制障碍"
+          ],
+          "weaknesses": [
+            "部分争点以引述学者观点代替学派脉络梳理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评制度方案本身的政治正确性或创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以政策阐释和制度建构为主，缺乏对既有学术研究的系统梳理与对话。",
+          "core_judgment": "研究地图三要素严重缺失，未建立清晰的学术争点结构，法学流派识别不足。",
+          "score_rationale": "三要素得分=2/6（到达点1分，未竟点1分，切入点0分），争点结构=0/2，法学流派=1个，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "目前争论较大的问题是跨行政区划法院本质上是地方各级人民法院还是专门法院",
+            "对于那些主张彻底打破司法管辖区与行政区划高度重合格局，按照西方模式实行司法管辖区与行政区划完全分离的观点，要保持警惕"
+          ],
+          "strengths": [
+            "提及跨行政区划法院性质的学术争论",
+            "对域外模式的批判性立场明确"
+          ],
+          "weaknesses": [
+            "未系统梳理既有研究成果及其贡献",
+            "未明确学术争点结构与研究缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文仅提及'争论较大'但未展开具体学者观点；未明确'尚未解决'的具体学术问题；切入点未与未竟点建立对应"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "仅识别'专门法院说vs地方法院说'一个潜在流派，且未明确学界争论脉络；'西方模式'批判未形成可区分的法学流派"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性；论文问题具有政策创新性，但学术对话不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文系统梳理了破除司法地方化的既有改革路径与宪法地位争议，精准定位理论缺口并构建完整分析框架。",
+          "core_judgment": "研究地图三要素完整，争点脉络清晰，流派覆盖达基准线，文献洞察度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "目前争论较大的问题是跨行政区划法院本质上是地方各级人民法院还是专门法院。",
+            "实践证明，通过法院自身推进的提级管辖……有着明显的局限性，无法解决体制原因造成的审判权不独立问题。"
+          ],
+          "strengths": [
+            "三要素完整，精准提炼既有管辖改革局限与宪法地位争议。",
+            "采用分散式文献定位，将政策演进与学界分歧有机融入论证。"
+          ],
+          "weaknesses": [
+            "缺乏独立文献综述章节，部分学术观点引述未充分展开交锋。",
+            "流派识别主要依赖制度路径分歧，纯理论学派对话略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉及该司法改革命题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.850087881088257,
+        "glm-5.1": 50.1295280456543,
+        "kimi-k2.6": 14.158165216445923,
+        "qwen3.6-plus": 70.46797513961792
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "mean": 60,
+      "std": 33.4,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文系统梳理了构建新型诉讼格局的政策理论，提出了行政区划法院与跨行政区划法院的二元分类，但未形成可重复适用的操作化分析框架。",
+          "core_judgment": "该框架属于政策理论梳理型，缺乏原创性分析步骤和严格的法学转化，可操作性不足。",
+          "score_rationale": "框架可操作性得分=2/4（仅概念界定和分类标准部分满足，但后文调用方式为政策阐释而非按步骤分析，且触发宏观介绍非深度分析降档），法学转化度得分=1/4（仅提供宏观制度设想，未转化为具体的裁判规则或法律适用流程）。锚定marginal档，上限60分，综合评定55分。",
+          "evidence_quotes": [
+            "构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局。",
+            "把法院分为行政区划法院和跨行政区划法院……把案件划分为普通案件和特殊案件。"
+          ],
+          "strengths": [
+            "对诉讼格局进行了清晰的二元化类型划分，区分了行政区划法院与跨行政区划法院的功能。",
+            "明确了区分普通案件与特殊案件的核心标准是受干扰程度而非专业性，具有问题导向性。"
+          ],
+          "weaknesses": [
+            "分析框架仅停留在“普通/特殊”“行政区划/跨行政区划”的宏观分类层面，缺乏具体的裁判推理步骤或判断流程。",
+            "未将“二元化逻辑结构”等理论表述转化为可操作的法学分析步骤，制度建议多为宏观保障构想。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_summary_ceiling",
+              "rule": "v0.7协议：政策理论梳理型论文，框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "论文主要工作是系统阐释习近平法治思想中的构建新型诉讼格局理论，核心术语来自权威表述，全文以归纳和梳理既有立场为主，未提出原创性分析步骤。"
+            }
+          ],
+          "boundary_note": "此为框架建构力评估，不涉及框架逻辑推理的严密性或观点本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "框架为对权威表述的二元提炼与制度映射，非原创分析工具。",
+          "core_judgment": "框架建构力受限于政策理论梳理属性，虽具详实制度设计但缺乏独立分析步骤。",
+          "score_rationale": "框架可操作性得分2/4（受政策理论梳理上限2限制），法学转化度得分1/4（受上限1限制），锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "新型诉讼格局理论蕴含着二元化逻辑结构和思维方法...格局分为传统诉讼格局和新型诉讼格局...把法院分为行政区划法院和跨行政区划法院...件划分为普通案件和特殊案件",
+            "在审判实践中，可以将跨行政区划法院管辖的特殊案件确定为重大行政案件，重大环境资源、食品药品安全案件，公益诉讼案件，跨地区重大民商事案件，破产案件等"
+          ],
+          "strengths": [
+            "制度设计方案具体详实，提出了两级法院设置及六大类特殊案件管辖范围。",
+            "二元分类标准明确，有效区分了普通与特殊案件及两类法院。"
+          ],
+          "weaknesses": [
+            "分析框架非原创，系对权威表述内在逻辑的提炼，缺乏独立分析步骤。",
+            "框架仅为分类映射，无法作为可重复适用的判断工具脱离具体语境。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review_ceiling",
+              "rule": "政策理论梳理型识别规则：框架核心术语来自权威表述而非论文原创，主要贡献为阐释与制度映射，而非提出原创分析框架",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "核心术语'普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理'直接来自党的十八届四中全会决定及习近平总书记说明"
+            }
+          ],
+          "boundary_note": "评框架是否原创可用有转化，不评制度设计合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以阐释习近平法治思想中新型诉讼格局的既定立场为主，缺乏原创分析框架。",
+          "core_judgment": "分析框架建构力不成立：核心术语来自权威表述，无原创概念界定或类型化，仅有政策梳理和制度描述。",
+          "score_rationale": "框架可操作性得分=1/4（仅有'普通案件/特殊案件'分类标准较明确，但无步骤化分析流程，核心术语如'新型诉讼格局''跨行政区划法院'未由论文原创定义；后文调用为政策阐释型重复，非分析框架调用），法学转化度得分=1/4（有制度设计方案如两级设置、案件管辖类型，但无跨学科概念转化，核心工作是将政治话语映射到制度层面）。触发v0.7政策理论梳理型上限规则，总分不超过60分；同时触发'宏观介绍非深度分析'负面模式，可操作性上限降为2。综合锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局理论是习近平法治思想的原创性成果和开创性贡献",
+            "普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理"
+          ],
+          "strengths": [
+            "案件分类标准（普通/特殊）有一定现实针对性",
+            "制度设计较具体，含两级法院设置方案"
+          ],
+          "weaknesses": [
+            "核心术语均为权威表述，论文未原创界定",
+            "无步骤化分析流程，仅有政策阐释和制度描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释习近平法治思想既定立场为主，核心术语'新型诉讼格局''跨行政区划法院'均为政策话语，论文贡献是'梳理''阐释'而非'建构''设计'原创框架"
+            },
+            {
+              "rule_id": "analytical_framework.macro_description",
+              "rule": "宏观介绍非深度分析：全文无具体问题的深入分析，只有宏观框架描述",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文主要完成新型诉讼格局的体系介绍、历史梳理和制度规划，未对任何具体案件或法律适用问题进行深度分析"
+            }
+          ],
+          "boundary_note": "本维度仅评框架本身是否成立可用，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文属政策理论梳理型，核心框架为权威表述归纳，缺乏原创分析步骤与可重复适用的判断标准。",
+          "core_judgment": "框架建构力较弱，主要完成政策阐释与制度构想，未形成独立可操作的法学分析工具。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。受v0.7协议限制，政策梳理型总分上限触发。",
+          "evidence_quotes": [
+            "构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局",
+            "将诉讼案件划分为普通案件和特殊案件，有利于在影响公正司法的众多因素中抓住主要矛盾"
+          ],
+          "strengths": [
+            "按干扰风险划分案件类型，分类边界清晰",
+            "提出两级法院设置与具体管辖清单，制度构想完整"
+          ],
+          "weaknesses": [
+            "核心框架依赖权威表述，缺乏原创分析步骤",
+            "未提供可重复适用的裁判规则或司法判断流程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_review_cap",
+              "rule": "政策理论梳理型识别规则：框架可操作性上限2，转化度上限1，总分≤60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释既定立场为主，无原创分析步骤，触发政策梳理型上限规则"
+            }
+          ],
+          "boundary_note": "仅评框架建构力与法学转化，不涉逻辑衔接或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.90799593925476,
+        "glm-5.1": 60.04926323890686,
+        "kimi-k2.6": 17.43266487121582,
+        "qwen3.6-plus": 205.9675612449646
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 58,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 55
+      },
+      "mean": 53.2,
+      "std": 5.7,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "论文作为政策阐释型文章，具备清晰的主线推理链，但在“跨行政区划法院属于专门法院”这一关键论证环节存在明显跳步，且反驳处理较为薄弱。",
+          "core_judgment": "推理主线清晰，但核心论证环节存在跳步，反驳处理仅停留在观点提及而未实质性回应，未达充分支撑标准。",
+          "score_rationale": "推理链完整性得分=2/4（标准1和2成立，标准3部分成立，标准4不成立），反驳处理度得分=2/3（标准1和3成立，标准2不成立），锚定good档（60-69），因核心论证跳步且缺乏实质性反驳回应，给68分。",
+          "evidence_quotes": [
+            "跨行政区划法院在机构设置、案件管辖、法官任免等方面与专门法院并无二致...应属于专门法院。（第14页）",
+            "究竟跨行政区划法院本质上是地方各级人民法院还是专门法院...争论较大。（第14页）"
+          ],
+          "strengths": [
+            "主线推理链清晰：从问题诊断（司法地方化）→逻辑结构（二元化思维）→制度方案（专门法院定位与管辖）可复述。",
+            "明确承认自身论证适用边界，指出现有探索局限和改革面临的困难。"
+          ],
+          "weaknesses": [
+            "“跨行政区划法院是专门法院”的论证有跳步：仅以特征相似和试点挂牌推论，未回应为何不能是新型地方法院。",
+            "对反对观点（如司法区划完全分离）仅提及而不做论证性回应，降低结论的可辩护性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文问题在于推理论证不充分而非框架本身不可操作：虽属实务型论文，但核心制度定位的推导缺乏充足依据。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文从司法地方化问题出发，经二元化逻辑结构推演，严密导出跨行政区划法院的制度方案。",
+          "core_judgment": "推理链完整且环环相扣，核心结论可由前文充分支撑并可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "目前争论较大的问题是跨行政区划法院本质上是地方各级人民法院还是专门法院……跨行政区划法院应属于专门法院",
+            "对于那些主张彻底打破司法管辖区与行政区划高度重合格局……的观点，要保持警惕"
+          ],
+          "strengths": [
+            "问题-理论-方案的推理链层层递进，依赖度高",
+            "对跨行政区划法院宪法地位的分歧路径给出了四点选择理由"
+          ],
+          "weaknesses": [
+            "对反对者的回应略显笼统，未具体展开反对论据",
+            "特殊案件1%的比例测算缺乏实证数据支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "1%比例测算属实证可行性问题，不纳入逻辑链条跳步评价",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "论文构建了'问题—理论—制度'的完整推理链，但反驳处理不足。",
+          "core_judgment": "推理链完整但反驳处理薄弱，核心结论可从前文推出但缺乏对反对意见的实质性回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4基本成立但存在局部跳步），反驳处理度得分=1/3（标准1勉强成立，标准2、3不成立），锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局，将数量大、受到干扰小……的普通案件交由行政区划法院审理，而将……特殊案件交由跨行政区划法院审理，以此实现……功能互补",
+            "跨行政区划法院是党的十八届四中全会提出的重大司法改革决策部署和伟大创举……关于跨行政区划法院的宪法地位和本质属性的讨论一直没有停止"
+          ],
+          "strengths": [
+            "二元化逻辑结构清晰，从'传统格局—新型格局''行政区划法院—跨行政区划法院''普通案件—特殊案件'三层递进展开",
+            "制度设计部分从宪法依据、组织体系、案件管辖、司法保障四方面形成支撑链条"
+          ],
+          "weaknesses": [
+            "对反对意见仅提及'认识误区''不乏反对者'，未展开任何实质性回应论证",
+            "从'专门法院设置标准应当转变'到'跨行政区划法院应当成为专门法院发展方向'存在价值预设跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价跨行政区划法院制度本身是否可行。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链条完整严密，结论可由前文充分支撑，反驳处理到位。",
+          "core_judgment": "逻辑严密性成立，核心结论基于问题诊断与规范分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "构建新型诉讼格局，将数量大、受到干扰小的普通案件交由行政区划法院审理，特殊案件交由跨区划法院审理。",
+            "考虑到我国社会主义初级阶段的基本国情和实际，完全由中央统一管理司法机关的人财物还存在一定困难。"
+          ],
+          "strengths": [
+            "推理链完整，从问题诊断到旧制局限再到新制设计层层递进。",
+            "有效回应了反对意见与合宪性争议，并承认财政保障的现实约束。"
+          ],
+          "weaknesses": [
+            "部分制度转化环节（如人财物省级统管如何具体落地）论证稍显简略。",
+            "对跨区划法院与现有专门法院职能重叠的潜在冲突分析可更深入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条的支撑度与结论可辩护性，而非制度方案的操作细节。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.77086305618286,
+        "glm-5.1": 38.01406502723694,
+        "kimi-k2.6": 11.798527956008911,
+        "qwen3.6-plus": 62.06319808959961
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 88,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 88
+      },
+      "mean": 76.5,
+      "std": 13.5,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 60,
+          "band": "good",
+          "summary": "论文系统阐释了习近平法治思想中的“构建新型诉讼格局”理论，但结论以正面论证和战略部署为主，未与法学界已有争论（如合宪性争议、跨区划法院性质分歧）展开对话，回应反对意见较弱。",
+          "core_judgment": "结论具有高度政治正确性与制度兼容性，但缺乏对学界争论的回应，共同体对话度不足，未能将结论转化为可争辩的学术主张。",
+          "score_rationale": "共同体对话度得分=2/4（标准1和标准2不满足），制度可接受度得分=3/4（标准4满足，标准3部分满足）。论文为理论论文，对话度≥2、制度度≥1，锚定good档（60-69分），因缺乏学术争鸣给60分。",
+          "evidence_quotes": [
+            "习近平总书记开创性提出构建普通案件在行政区划法院审理、特殊案件在跨行政区划法院审理的诉讼格局。",
+            "目前争论较大的问题是跨行政区划法院本质上是地方各级人民法院还是专门法院……跨行政区划法院应属于专门法院。"
+          ],
+          "strengths": [
+            "结论与中国宪法及司法体制高度兼容，制度可接受度较强。",
+            "明确将跨行政区划法院界定为“综合性专门法院”，指明了制度转化方向。"
+          ],
+          "weaknesses": [
+            "未回应学界既有争论，如跨区划法院合宪性争议、专门法院性质分歧的反对意见，自说自话色彩较重。",
+            "结论部分缺乏对自身局限或反对意见的讨论，影响了学术对话的可能性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅基于结论的可接受性与对话度，不涉及论文创新性及论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论高度回应学界争论与中国制度语境，提出具体制度转化方案，对话度与制度度均极佳。",
+          "core_judgment": "结论在共同体对话和制度兼容层面均高度成立，具备极强的可接受性与实践指向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "目前争论较大的问题是跨行政区划法院本质上是地方各级人民法院还是专门法院",
+            "跨行政区划法院组织体系按照省域内和跨省域两级设置"
+          ],
+          "strengths": [
+            "回应了跨行政区划法院属性的学界争论并给出明确结论",
+            "提出了两级设置及特殊案件管辖的具体制度转化方案"
+          ],
+          "weaknesses": [
+            "特殊案件1%的比例测算偏理想化，实务落地可能面临变数"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度语境可接受性，不评论证逻辑严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文为政策阐释型制度论文，结论与官方话语高度一致，但缺乏学术共同体对话与制度回应深度。",
+          "core_judgment": "结论可接受性处于marginal档：对话度勉强达标（2/4），制度可接受度因缺乏对反对意见的实质回应及制度转化细节而受限（2/4）。",
+          "score_rationale": "共同体对话度得分=2/4（回应了既有争论中的司法地方化问题、定位了与西方模式的区别，但未主动承认论文自身局限、未给反对者可定位的反驳靶点）；制度可接受度得分=2/4（与现行法秩序兼容、回应了宪法依据，但制度转化方向过于笼统、未回应设立跨行政区划法院的具体法律障碍）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "对于那些主张彻底打破司法管辖区与行政区划高度重合格局，按照西方模式实行司法管辖区与行政区划完全分离的观点，要保持警惕",
+            "目前完全打破司法管辖区与行政区划高度重合格局的改革设想并不现实"
+          ],
+          "strengths": [
+            "明确区分新型诉讼格局与西方模式，回应了制度路径争议",
+            "结合宪法与法院组织法论证专门法院定位，制度兼容性较强"
+          ],
+          "weaknesses": [
+            "未主动承认并讨论反对意见或自身论证局限",
+            "制度转化方向空泛，缺乏对法律修改、程序衔接的具体回应"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论当下可接受性，不评论证严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度契合司法改革语境，制度转化路径清晰，具备高度可接受性。",
+          "core_judgment": "结论有效嵌入共同体争论与现行法秩序，制度兼容性与转化方向明确，本维成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "构建新型诉讼格局，将数量大、受干扰小的普通案件交由行政区划法院审理，特殊案件交由跨区划法院审理。",
+            "跨行政区划法院作为综合性专门法院，在全国铺开设立符合宪法规定，无须修改宪法。"
+          ],
+          "strengths": [
+            "精准定位司法地方化争论，提出二元管辖模型，具备强可辩驳性。",
+            "制度设计紧扣现行宪法框架，配套保障方案具体且具操作性。"
+          ],
+          "weaknesses": [
+            "特殊案件1%比例的实证测算略显理想化，缺乏动态调整论证。",
+            "跨区划法院与巡回法庭职能重叠的协调路径论述稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 80.288250207901,
+        "glm-5.1": 35.90582489967346,
+        "kimi-k2.6": 55.14348387718201,
+        "qwen3.6-plus": 57.90751886367798
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 73.5,
+      "std": 20.5,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文指出了制度完善方向和现实障碍，但延展路径概括，缺乏精细的下一步研究问题或反驳入口，衔接需推断。",
+          "core_judgment": "存在延展方向，但较概括且与核心结论的衔接需推断，精细度不足。",
+          "score_rationale": "原始分45，对应bonus=2档。论文提出完善专门法院组织、构建两级体系、完善管辖与保障等宏观方向，但未形成具体后续研究问题、概念修正路径或可检验的反驳入口，精细度有限。",
+          "evidence_quotes": [
+            "当前应着眼于两级跨行政区划法院的全面布局和综合配套司法保障，推动跨行政区划法院从构想向实践转化。",
+            "构建新型诉讼格局阻力大、困难多，但办法总比困难多，只要方向正确，坚定不移向前推进，未来一定可期。"
+          ],
+          "strengths": [
+            "明确指出了从专门法院制度完善、组织体系构建、管辖制度及司法保障等宏观方向推进改革。",
+            "承认了改革面临法律障碍等现实局限，并提出坚持与发展的总体路径。"
+          ],
+          "weaknesses": [
+            "延展路径多为宏观方向与实施要点，缺乏具体的后续研究问题、理论深化或可检验的反驳入口。",
+            "部分表述如“未来一定可期”接近空泛展望，冲淡了具体延展的精准度。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，才进入0-39低分段。下列情形属于低分：只说‘具有重大意义’‘前景广阔’‘值得进一步研究’‘继续努力完善’，但没有说明具体问题、对象、机制、概念边界、制度路径或实务场景。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "构建新型诉讼格局阻力大、困难多，但办法总比困难多，只要方向正确，坚定不移向前推进，未来一定可期。"
+            }
+          ],
+          "boundary_note": "本文讨论的是制度完善方向与实施路径，属于未来延展问题；而非论证当下结论能否被共同体接受，后者属于结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出清晰的跨行政区划法院制度完善方向、适用边界与实施风险控制，延展路径可定位。",
+          "core_judgment": "存在真实且具体的制度延展路径，指明了组织体系构建、管辖标准动态调整及宪法法律障碍等后续推进方向。",
+          "score_rationale": "原始分85，bonus档位>=80（bonus=5）。论文指明了跨行政区划法院两级设置、管辖标准动态调整、案件规模测算等具体制度完善方向与风险控制，路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "需要经常性地调整特殊案件的范围和标准，让‘特’更加精准。",
+            "单独设区带来的迁移成本和监督难题暂时无法解决，牵一发也要动全身。"
+          ],
+          "strengths": [
+            "给出了跨行政区划法院两级设置及案件规模测算的具体制度完善方向。",
+            "明确了司法管辖与行政区划“适当分离”而非“完全分离”的适用边界。"
+          ],
+          "weaknesses": [
+            "结尾“未来一定可期”略显口号化，但未影响整体实质延展。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "司法管辖分离的宪法障碍及迁移成本，属未来制度实施需克服的延展难题，而非当下理论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文在制度完善方向上有明确延展，提出了跨行政区划法院两级设置、案件管辖标准、人大监督制度等具体改革路径，但缺乏对后续研究争点、理论修正方向或制度实施风险的深入探讨。",
+          "core_judgment": "存在真实延展路径，但主要集中于制度设计层面，对理论深化、后续研究问题及实施风险控制的延展不足。",
+          "score_rationale": "原始分52分，属40-59档，bonus=2。论文在第四部分系统提出了完善专门法院组织制度、人大监督制度、特殊案件管辖制度、司法保障制度的具体方向，如'跨行政区划法院按省域内和跨省域两级设置''建立中央财政和省级财政两级保障体系'等，可定位具体制度路径。但延展多停留在制度构想的宏观层面，未提出后续研究的具体争点（如合宪性争议的深化论证）、未承认正文局限并说明如何推进（如试点成效的实证检验缺失）、未给出不同意见者可进入的争论入口（如对'综合性专门法院'定位的学术质疑）。与正文核心结论的衔接主要体现为'应当如何改革'的政策建议，而非'下一步研究应解决什么'的学术延展。",
+          "evidence_quotes": [
+            "当前应着眼于两级跨行政区划法院的全面布局和综合配套司法保障，推动跨行政区划法院从构想向实践转化",
+            "跨行政区划法院是综合性专门法院，是对传统专门法院制度的坚持和发展，设立跨行政区划法院符合宪法规定"
+          ],
+          "strengths": [
+            "提出两级跨行政区划法院设置、案件管辖标准等具体制度完善方向",
+            "明确综合性专门法院定位，为专门法院制度改革提供可定位路径"
+          ],
+          "weaknesses": [
+            "未提出后续研究的具体争点或理论修正路径",
+            "未承认正文局限（如试点实证数据不足）并说明如何推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究或制度发展的指引能力，而非当下结论的可接受性。论文提出的制度完善方向属于未来延展问题，但其是否充分回应学术质疑、是否具备实证基础等属于结论可接受性和逻辑严密性问题，不在本维度评判。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文明确指向跨行政区划法院从构想到实践转化的制度落地路径与配套保障方向。",
+          "core_judgment": "存在真实延展路径，聚焦两级法院布局、案件管辖边界与综合配套保障的实施推进。",
+          "score_rationale": "原始分72，对应bonus=3。明确给出两级布局、财政人事保障及实践转化路径，与正文制度设计紧密衔接，但偏重政策推进，缺乏后续学术争点或理论检验入口。",
+          "evidence_quotes": [
+            "当前应着眼于两级跨行政区划法院的全面布局和综合配套司法保障，推动跨行政区划法院从构想向实践转化。",
+            "跨行政区划法院改革试点工作推进迟缓，在很大程度上影响传统专门法院改革。"
+          ],
+          "strengths": [
+            "明确指出制度落地路径（两级布局、配套保障）",
+            "结合案件规模与财政现实提出风险控制边界"
+          ],
+          "weaknesses": [
+            "延展偏向政策实施蓝图，缺乏后续学术争点",
+            "对合宪性争议的具体化解路径未作深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦制度落地后的配套保障与实践转化路径，而非当下结论的规范正当性或逻辑推演。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 95.79731726646423,
+        "glm-5.1": 35.56817317008972,
+        "kimi-k2.6": 29.590352773666382,
+        "qwen3.6-plus": 57.19523310661316
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 72
+      },
+      "mean": 63.5,
+      "std": 18.3,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 53.44,
+      "weighted_total": 55.9
+    },
+    "aggregation_strictest": {
+      "final_score": 36.65,
+      "weighted_total": 38.6
+    },
+    "avg_std": 16.0,
+    "max_std": 33.4,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 16.8,
+    "composite_score": -14.33,
+    "worst_dimension": "literature_insight",
+    "worst_std": 33.4
+  }
+}

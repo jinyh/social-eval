@@ -1,0 +1,1050 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/FXYJ2025006011_法学研究_2025_从直觉到证据：大模型法律语料库与法律解释客观化.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": [
+          "就刑法而言, 根据罪刑法定原则, 只要在文本可能的含义范围内, 解释是否有利于被告人都是允许的。",
+          "大模型法律语料库作为数字时代法律解释的新型辅助工具, 在提升法律解释的客观化和透明度方面展现出显著价值。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "就刑法而言, 根据罪刑法定原则, 只要在文本可能的含义范围内, 解释是否有利于被告人都是允许的。换言之, 文字可能的含义构成了法律解释的边界。",
+          "在我国立法整体较为粗疏的背景下, 无论是司法解释的制定, 还是个案中相关法律条文的解释, 都需要解释者详细阐述其解释过程。",
+          "大模型法律语料库通过海量语料分析, 能够可视化地呈现争议词语在类似语境中的高频用法及分布, 将通常含义的判断从主观直觉领域拉入客观证据领域。",
+          "引入大模型法律语料库作为辅助解释工具, 某种程度上可以倒逼解释者加强论证说理, 限制、校正解释者不合理的前见。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "就法律文本的解释, 尤其是刑法文本的解释而言, 其边界是“被解释规范的字面可能含义”, “字面可能含义”既可能具有一般的语言使用习惯, 也可能具有特殊的法律语言表达习惯。",
+        "我国学界和实务界早在2005年便开启了法律语言标准化建设的系统性探索...时至今日, 我国尚未建立真正实用意义上的法律语料库。",
+        "我国刑法条文较为粗疏, 存在大量的不确定法律概念, 某种程度上赋予了解释者更大的解释空间。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "进入六维评分。论文中心明确围绕中国刑法文本解释的客观化建构，将域外语料库语言学、大模型方法与我国粗疏立法、司法解释黑箱化、智慧司法等实践难题结合，形成了以中国问题为导向的法学命题，完全满足项目口径要求。文本质量正常，无需额外干预。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入期刊页码（如·6 8 1·）",
+          "脚注编号格式存在空格乱码（如〔1 〕）",
+          "作者信息与基金项目说明混入正文开头"
+        ],
+        "evidence_quotes": [
+          "·6 8 1·",
+          "〔1 〕 山东大学法学院副教授。",
+          "本文为山东省“ 泰山学者工程专项经费资助” ( tsqn202306038) 的阶段性成果"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "partial",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国立法整体较为粗疏的背景下，无论是司法解释的制定，还是个案中相关法律条文的解释，都需要解释者详细阐述其解释过程。引入大模型法律语料库作为辅助解释工具，某种程度上可以倒逼解释者加强论证说理",
+          "我国学界和实务界早在2005年便开启了法律语言标准化建设的系统性探索...我国尚未建立真正实用意义上的法律语料库",
+          "理想的法律语料库架构应采取‘通用型+监控型+融入大模型技术的解析型’的组合模式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "partial",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文需清洗混入的期刊页码及脚注编号乱码",
+        "项目口径：中国问题主要作为背景和适用对象（立法粗疏、司法解释黑箱），理论工具主要源自比较法与通用技术，需在后续评审中关注其本土理论转化的深度"
+      ],
+      "evidence_quotes": [
+        "在我国立法整体较为粗疏的背景下...引入大模型法律语料库作为辅助解释工具，某种程度上可以倒逼解释者加强论证说理"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，文本工程需清洗页码与脚注乱码；评审时关注其将比较法与技术理论转化为中国法学分析工具的深度及对中国实践的解释力。"
+    },
+    "kimi-k2.6": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留格式（如〔1〕〔2〕等），部分脚注内容混入正文",
+          "参考文献列表未完整抽取（标注为'无'），但正文引用信息可通过脚注定位",
+          "期刊页码信息偶有混入正文（如'·681·'等排版标记）"
+        ],
+        "evidence_quotes": [
+          "·681·∗〔1〕山东大学法学院副教授。本文为山东省“泰山学者工程专项经费资助”...",
+          "·781·法学研究2025年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国立法整体较为粗疏的背景下，无论是司法解释的制定，还是个案中相关法律条文的解释，都需要解释者详细阐述其解释过程",
+          "我国学界和实务界早在2005年便开启了法律语言标准化建设的系统性探索...我国首个法律语言基础语料库完成框架搭建",
+          "当前，在国家大力推动智慧司法的战略背景下...尝试以大模型技术赋能传统法律语料库，直接建设大模型法律语料库",
+          "我国刑法条文较为粗疏，存在大量的不确定法律概念...我国最高司法机关通过规范性的司法解释承担了很大一部分刑法解释任务"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式残留、期刊页码标记混入、参考文献列表未抽取，但核心论点可定位",
+        "项目口径：论文以中国刑法解释实践为核心关切，提出'大模型法律语料库'这一制度性命题"
+      ],
+      "evidence_quotes": [
+        "在我国立法整体较为粗疏的背景下，无论是司法解释的制定，还是个案中相关法律条文的解释，都需要解释者详细阐述其解释过程。引入大模型法律语料库作为辅助解释工具，某种程度上可以倒逼解释者加强论证说理",
+        "我国学界和实务界早在2005年便开启了法律语言标准化建设的系统性探索...我国首个法律语言基础语料库完成框架搭建。然而，遗憾的是，我国法律语料库的建设此后未能持续深入"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评价。文本质量风险为低等级，主要涉及脚注格式残留和页码标记，不影响核心论点评审。论文以中国刑法解释实践为中心，将大模型技术与法律语料库语言学相结合，提出具有可争辩性的法学命题和制度构想，符合项目口径。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与正文混排（如“· 6 8 1 ·”“· 7 8 1 ·”）",
+          "脚注编号格式残留（如“〔1 〕”“〔2 〕”）",
+          "部分段落存在OCR导致的异常换行与空格"
+        ],
+        "evidence_quotes": [
+          "就法律文本的解释, 尤其是刑法文本的解释而言, 其边界是“ 被解释规范的字面可能含义”",
+          "从直觉到证据: 大模型法律语料库与法律解释客观化"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国立法整体较为粗疏的背景下，无论是司法解释的制定，还是个案中相关法律条文的解释，都需要解释者详细阐述其解释过程。",
+          "本文探讨的“客观化”，意指方法论与程序意义上的理性化和限制任意性。其核心目的在于，通过引入可检验的技术性约束机制，将解释活动从依赖个人直觉转向透明、可辩驳的理性论辩。",
+          "大模型法律语料库作为数字时代法律解释的新型辅助工具，在提升法律解释的客观化和透明度方面展现出显著价值。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：少量OCR页码与脚注标记混入正文，建议清洗后阅读；项目口径：无"
+      ],
+      "evidence_quotes": [
+        "大模型法律语料库作为数字时代法律解释的新型辅助工具，在提升法律解释的客观化和透明度方面展现出显著价值。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦中国刑法解释与司法实践中的“通常含义”确定难题，系统批判直觉与词典解释的局限，提出“大模型赋能法律语料库”的方法论路径与风险规制框架。具备明确的中国问题意识、可争辩的法学命题及理论转化尝试，完全符合项目口径。文本存在轻微OCR格式残留，但不影响核心论点与论证结构定位。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文以“大模型法律语料库”辅助法律解释为议题，但全文主要是技术方案介绍和政策倡导，未形成可争辩的法学研究问题。",
+          "core_judgment": "论文未提出可争辩的法学争点，实质是技术应用方案陈述，且依赖新材料/新概念而未产生实质性研究推进，触动多项扣分上限规则。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性已触发material_novelty_without_thesis上限。同时触发no_justiciable_question上限，取最低上限50分。强制前置检查扣分：新概念包装旧问题扣20分，宏观介绍非深度分析扣20分，主题声明非研究问题扣30分。扣分后分数35分，最终锚定unacceptable档，42分。",
+          "evidence_quotes": [
+            "本文探讨的“客观化”，意指方法论与程序意义上的理性化和限制任意性。",
+            "大模型法律语料库的使用…可以为解释者提供更加透明的证据支撑和更加理性的论证依据。"
+          ],
+          "strengths": [
+            "论述了大模型技术应用于法律语料库的赋能路径与风险防范。"
+          ],
+          "weaknesses": [
+            "全文无明确法学争点句，属于技术方案介绍与政策倡导。",
+            "未呈现不同学者观点的交锋，仅系统归纳既定立场。",
+            "引入新术语但未说明其对既有概念的理论进步。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，触发no_justiciable_question上限，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无“XX是否YY”或“如何ZZ”的问题句，仅提出‘如何判定通常含义’等描述性议题，无真正可争辩的法学争点。"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖新材料/新概念但无实质研究推进，上限70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以“大模型法律语料库”作为核心创新点，但未说明其相对于既有法律解释工具的理论进步或问题设定改变。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的争辩性与重要性，不评论证严密性、材料支撑度或文献综述。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 70,
+          "band": "good",
+          "summary": "探讨大模型法律语料库辅助判定通常含义及促进法律解释客观化与论证义务。",
+          "core_judgment": "问题成立且枢纽性强，但核心创新依赖新概念包装既有解释客观化议题。",
+          "score_rationale": "可争辩性4/4，枢纽性4/4，材料未触发上限，锚定excellent档给85分；前置扣分合计15分（新概念包装旧问题有部分说明），最终70分。",
+          "evidence_quotes": [
+            "如何判定通常含义; 如何尽量限制解释者的主观性以保障解释过程的客观性...",
+            "部分学者主张法律专业用法优先于日常含义...鉴于此种观点对法律语言的通俗性缺乏关注..."
+          ],
+          "strengths": [
+            "争点明确，涉及解释客观化与通常含义的长期分歧。",
+            "枢纽性强，触及罪刑法定、司法解释与裁判说理等多制度。"
+          ],
+          "weaknesses": [
+            "核心创新过度依赖“大模型”技术概念包装既有法学议题。",
+            "大模型尚处构想阶段，对法学解释理论的实质推进待验证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维只评问题是否成立重要，不评论证严密性或大模型技术可行性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出大模型法律语料库可辅助法律解释客观化，但核心问题为技术工具应用型命题，缺乏真正可争辩的法学理论争点。",
+          "core_judgment": "本维度不成立：论文主题属于技术工具应用倡导，未形成具有理论张力的法学研究问题。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质为政策倡导，无真正理论分歧），枢纽性=2/4（涉及法律解释制度但连锁效应有限），材料新颖性已触发上限（大模型/语料库作为新材料但无实质理论推进），锚定marginal档，给55分。负面模式扣分：检查2扣15分（有提及分歧但未展开），检查3扣20分（问题句实质是政策倡导），合计扣35分。正式评分90分-35分=55分。",
+          "evidence_quotes": [
+            "能否将大模型技术运用到法律解释的过程中",
+            "引入大模型法律语料库作为一种极具潜力的解决方案"
+          ],
+          "strengths": [
+            "明确提出法律解释客观化的技术路径",
+            "涉及文义、历史、体系三种解释方法的工具应用"
+          ],
+          "weaknesses": [
+            "核心命题为政策倡导型，缺乏理论争点交锋",
+            "大模型语料库作为新材料未改变问题设定或解释路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文标题'从直觉到证据'涵盖范围过宽，实际聚焦技术工具应用，问题未能凝聚为具体法学争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "大模型法律语料库作为新概念新工具，但未改变法律解释的基本理论框架或规范命题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦法律解释“通常含义”判定难题，提出大模型语料库推动解释客观化的方法论转向。",
+          "core_judgment": "问题具有明确争点与法理基础，成功将技术工具引入传统解释学争议，创新性显著。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置检查无扣分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何判定通常含义; 如何尽量限制解释者的主观性以保障解释过程的客观性",
+            "大模型法律语料库的使用，并非旨在消除司法自由裁量权，而是要限制法官仅凭个人断言就判定语言用法的权力"
+          ],
+          "strengths": [
+            "精准锚定法律解释客观化这一经典争点",
+            "清晰界定技术工具与司法裁量权的边界"
+          ],
+          "weaknesses": [
+            "对技术内生风险的法学转化论证稍显技术化",
+            "跨部门法适用的具体场景展开略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的成立度与重要性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.832624197006226,
+        "glm-5.1": 88.0532739162445,
+        "kimi-k2.6": 15.655077934265137,
+        "qwen3.6-plus": 59.66535305976868
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 70,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 63.8,
+      "std": 19.8,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文采用分散式文献定位，锚定了“日常语言 vs 专业术语”等核心争点，但学派脉络的凝练稍显薄弱，未明确将引述立场归类为成型的法学流派对立。",
+          "core_judgment": "研究地图基本建立，散现多个对立场，但未明确凝练为可区分的法学流派，争点结构部分成立。",
+          "score_rationale": "三要素得分=5/6（到达点2/2+未竟点2/2+切入点1/2），争点结构=1/2（法学流派=0个），锚定good(70-79)档，上限79，给78分。",
+          "evidence_quotes": [
+            "部分学者主张法律专业用法优先于日常含义...[折中说则主张]普遍地将通常语言用法作为出发点。",
+            "就法律语料库语言学、法律语料库与大模型三者在推动法律解释客观化方面的逻辑关系而言..."
+          ],
+          "strengths": [
+            "精准捕捉了日常语言用法与专业术语的对立，构成清晰的未竟点和争点脉络。",
+            "对大模型语料库工具的引入，提出了可检验的程序性客观化路径，与既有直觉/词典方法形成有效对话。"
+          ],
+          "weaknesses": [
+            "引述的多种立场未被明确归类为“形式法治 vs 实质法治”或“日常语言学派 vs 专业语言学派”等法学流派。",
+            "本文切入点的表述相对宏观，与未竟点（如何客观确定通常含义）的对应稍欠紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题不在于大模型方案是否新颖，而在于文献梳理是否将争点结构化；本文做到了争点对立，但未上升为明确的学派归类。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰呈现了法律解释基准、工具及大模型应用的多重争点，研究地图完整。",
+          "core_judgment": "本维度高度成立，研究地图三要素充分，争点结构完整，法学流派覆盖丰富。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "部分学者主张法律专业用法优先于日常含义...折中说的观点主张，应普遍地将通常语言用法作为解释的出发点",
+            "单纯依靠大模型判断通常含义亦存在‘幻觉’问题...理想的做法应将传统法律语料库与大模型技术深度融合"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰呈现解释基准与工具的演进脉络",
+            "争点结构完整，呈现了专业/日常/折中、直觉/词典/语料库等多重对立"
+          ],
+          "weaknesses": [
+            "部分跨学科流派（如认知语言学）的法学转化论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非大模型语料库方案本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "研究地图残缺，三要素均未充分建立",
+          "core_judgment": "论文缺乏对既有研究地图的系统建构，未明确到达点、未竟点与本文切入点的对应关系",
+          "score_rationale": "三要素=2/6（到达点1+未竟点1+切入点0），争点结构=1/2，法学流派=1个，锚定marginal档，给55分",
+          "evidence_quotes": [
+            "部分学者主张法律专业用法优先于日常含义...折中说的观点主张...也有观点认为...",
+            "面对语言直觉和词典定义的不足，有观点认为，应引入法律语料库来确定法律用语的通常含义"
+          ],
+          "strengths": [
+            "提及了专业用法优先、折中说等对立观点",
+            "对语料库语言学方法有一定学术引述"
+          ],
+          "weaknesses": [
+            "未明确任何具体学者或研究成果的贡献，到达点模糊",
+            "未竟点与本文切入点脱节，未说明既有研究的具体不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及'部分学者''折中说'等模糊表述，无具体研究成果；未竟点未明确'尚未解决什么问题'；切入点未与未竟点建立对应"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题创新性，论文问题本身（大模型法律语料库）具有新颖性，但文献梳理不足",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理确定通常含义的既有路径，精准定位局限并提出融合方案。",
+          "core_judgment": "研究地图完整，争点脉络清晰，文献定位与论证高度咬合，现状洞察充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "目前，主要的辅助工具有三种：语言直觉、词典定义和法律语料库。",
+            "我国尚未建立真正实用意义上的法律语料库……尝试以大模型技术赋能传统法律语料库。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将既有研究融入论证各环节。",
+            "明确提炼直觉、词典、语料库三大路径的贡献与局限。"
+          ],
+          "weaknesses": [
+            "对大模型法学流派的内部理论交锋着墨稍显单薄。",
+            "部分外部文献未直接列出，依赖正文引注回溯。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，非评价大模型应用本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.2394540309906,
+        "glm-5.1": 64.80763912200928,
+        "kimi-k2.6": 13.662015914916992,
+        "qwen3.6-plus": 70.77676486968994
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 90
+      },
+      "mean": 78.2,
+      "std": 16.5,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文对既有解释工具进行了系统梳理与批判，但未构建出可操作的分析框架，缺乏原创的法学转化步骤。",
+          "core_judgment": "分析框架不成立。全文主要是对‘通常含义’判断工具的梳理与未来技术构想，没有提出可重复适用的分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定相对清晰），法学转化度得分=1/4（提出了大模型语料库构想但未转化为法学操作步骤），锚定unacceptable档，最终给38分。",
+          "evidence_quotes": [
+            "目前，主要的辅助工具有三种: 语言直觉、词典定义和法律语料库。",
+            "理想的法律语料库架构应采取‘通用型+监控型+融入大模型技术的解析型’的组合模式。"
+          ],
+          "strengths": [
+            "对语言直觉与词典定义的不足有清晰的批判性分析。"
+          ],
+          "weaknesses": [
+            "全文仅对既有工具进行归纳，未提出任何原创的分析步骤或判断标准。",
+            "‘大模型法律语料库’仅作为宏观技术构想被提出，未转化为如检索、验证流程等可操作的法学方法。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1，最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文缺少可循的分析步骤、分类标准，后文未实际调用任何框架步骤进行分析，核心是对既有方法和未来技术的介绍。"
+            }
+          ],
+          "boundary_note": "本文的问题在于未建构分析框架，而非框架内部的逻辑衔接不严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "建构了'大模型法律语料库'框架，概念清晰且调用充分，但缺乏供解释者逐步遵循的法学分析推理步骤。",
+          "core_judgment": "框架在概念界定与制度设计层面成立，但在法学分析步骤的操作化转化上存在黑箱，解释者缺乏可循的推理步骤。",
+          "score_rationale": "框架可操作性得分=3/4（缺分析步骤），法学转化度得分=3/4（缺推理步骤转化），锚定excellent档，给82分",
+          "evidence_quotes": [
+            "本文探讨的'客观化', 意指方法论与程序意义上的理性化和限制任意性...实为一种程序性客观或过程性客观。",
+            "大模型法律语料库系统可以自动运用自然语言处理技术对词语进行多维度分析: 横向维度展示...纵向维度呈现..."
+          ],
+          "strengths": [
+            "核心概念'客观化'与'大模型法律语料库'界定清晰，分类标准明确。",
+            "提供了具体的制度设计方案与司法程序操作指引（如论证义务、披露义务）。"
+          ],
+          "weaknesses": [
+            "缺乏供解释者逐步遵循的法学分析推理步骤，工具功能描述替代了分析步骤。",
+            "跨学科概念转化为工具功能而非法官的推理流程，存在分析黑箱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构力与法学转化，不评价大模型技术本身的可行性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出'大模型法律语料库'辅助法律解释客观化，但缺乏可操作的法学分析框架。",
+          "core_judgment": "分析框架建构力未成立：核心概念未转化为可重复适用的法学操作步骤，后文以功能描述和制度倡导为主，未形成闭环的分析框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定基本清晰、分类标准部分明确，但无步骤化分析流程，后文未实际调用框架步骤），法学转化度得分=1/4（语料库语言学概念有初步转化但未形成裁判规则或操作指引，制度设计层面仅有方向性建议），锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "本文探讨的'客观化'，意指方法论与程序意义上的理性化和限制任意性...通过引入可检验的技术性约束机制，将解释活动从依赖个人直觉转向透明、可辩驳的理性论辩。",
+            "大模型技术对法律语料库的赋能路径及客观化价值...其一...其二...其三..."
+          ],
+          "strengths": [
+            "对'大模型法律语料库'的功能定位有清晰描述，技术路径较为具体。"
+          ],
+          "weaknesses": [
+            "核心框架术语（如'客观化''透明度'）缺乏操作化定义，未转化为可重复的判断步骤。",
+            "后文以功能列举和制度倡导为主，未形成'提出框架—检验框架—修正框架'的闭环。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文虽提出'大模型法律语料库'概念，但未将其转化为可重复适用的法律解释操作步骤（如'第一步检索语料—第二步分析频次—第三步判断通常含义—第四步论证偏离理由'），后文以'赋能路径''提升透明度''倒逼论证'等功能描述展开，未调用任何框架步骤进行案例分析或规则检验。"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力，不涉及大模型技术可行性或法律解释理论正确性的实质判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“大模型法律语料库”辅助法律解释的方法论框架，具备清晰的操作步骤与制度转化路径。",
+          "core_judgment": "分析框架成立且具备高度的可操作性与法学转化度，有效衔接技术工具与法律解释程序。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念界定清晰，分类与架构明确，分析步骤可循且贯穿全文；成功将语料库语言学与大模型技术转化为法律解释的客观化检验流程与程序性规制方案。",
+          "evidence_quotes": [
+            "本文主张的法律解释客观化实为一种程序性客观或过程性客观。",
+            "理想的法律语料库架构应采取‘通用型+监控型+融入大模型技术的解析型’的组合模式。"
+          ],
+          "strengths": [
+            "提出“通用型+监控型+解析型”语料库架构，分类标准与边界清晰。",
+            "将技术工具转化为“偏离通常含义需强化论证”的程序性倒逼机制，法学转化彻底。"
+          ],
+          "weaknesses": [
+            "技术实现路径偏重理想化构想，对司法实务中算力与数据壁垒的应对略显不足。",
+            "部分风险规制措施（如第三方审计）的落地程序仍需进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与转化度，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.30557918548584,
+        "glm-5.1": 181.3504831790924,
+        "kimi-k2.6": 15.33884310722351,
+        "qwen3.6-plus": 56.2752251625061
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 82,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "mean": 64.2,
+      "std": 26.7,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "论文主线清晰，能推出大模型语料库的论证目标，但局部存在依赖并列论证和少量推理跳步，且未实质性回应外部反驳，导致逻辑严密性受限。",
+          "core_judgment": "论文论证链条基本完整，结论可从前文推出，但对反对方的具体论证和自身适用边界处理较弱，因此得分受限。",
+          "score_rationale": "推理链完整性得分=2/4（核心结论可推出，但段落多为并列论点，存在“AI幻觉”等关键跳步未展开）；反驳处理度得分=0/3（仅承认局限未回应实质分歧）。锚定good档，因弱推理结构触发上限，给62分。",
+          "evidence_quotes": [
+            "面对这一质疑，司法解释制定机关往往不将其解释过程予以客观展示，外界无从知晓其思考推论过程。",
+            "解释者一味以大模型法律语料库所展示的通常含义为理由，不适用缩小解释以作出有利于被告的判决，被告自然可以申辩..."
+          ],
+          "strengths": [
+            "从“通常含义”的界定出发，引出旧工具的不足，进而提出大模型语料库的方案，主线递进明确。",
+            "对语料库提升文义、历史、体系解释透明度的分析，提供了可辩护的技术性支撑。"
+          ],
+          "weaknesses": [
+            "对“AI幻觉”、“算法偏见”等关键风险仅给出解决方向，缺乏将它们与法律解释结论衔接的具体逻辑推演。",
+            "未正面处理算法能否真正替代人类共识判断等根本性外部质疑，反驳力度不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2且反驳处理度小于等于1 → 最高70分",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "论文主要依赖并列论证支持其客观化主张，且未对反对意见进行实质回应，构成弱推理结构。"
+            }
+          ],
+          "boundary_note": "论文的不足在于论证环节之间的衔接依赖并列而非层层推进，且风险回应尚停留在框架层面，属于逻辑链的局部松散，而非整体框架的不可操作性。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整闭环，反驳处理详实，核心结论可辩护推出。",
+          "core_judgment": "推理链形成充分支撑链条，结论可由前文可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "有观点质疑，法律语料库的使用会变相篡夺宪法赋予司法机关的解释权",
+            "大模型法律语料库的使用，虽然无法直接实现使法律解释更加客观的理想，但作为辅助解释工具，其可以使解释过程更加透明"
+          ],
+          "strengths": [
+            "从问题界定到方案提出与质疑反驳，推理环环相扣",
+            "对篡夺解释权与操纵风险等实务质疑给出了技术与制度协同的详尽回应"
+          ],
+          "weaknesses": [
+            "从传统语料库不足到直接建设大模型语料库的必要性过渡稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判的是大模型语料库方案推导的逻辑严密性，而非该方案在现实中的技术可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从法律解释边界界定到工具比较再到大模型语料库方案的逻辑链条，反驳处理较为充分。",
+          "core_judgment": "推理链完整且反驳处理基本到位，但存在局部跳步和结论泛化问题。",
+          "score_rationale": "推理链完整性得分=3/4（主要步骤可复述且相互依赖，核心结论可推出，但从'传统语料库有局限'到'大模型语料库是最佳方案'存在关键跳步）；反驳处理度得分=2/3（识别了'篡夺解释权'和'操纵风险'两种反对意见并实质回应，但缺乏对自身理论适用边界的明确承认）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "有观点质疑，法律语料库的使用会变相篡夺宪法赋予司法机关的解释权...然而，大模型法律语料库的使用，并非试图阻止解释者在法律解释中依赖自己的判断",
+            "有观点认为，大模型法律语料库的使用很可能引发操纵解释结论的风险...然而，上述可能的操纵风险并非不能控制与化解"
+          ],
+          "strengths": [
+            "从'法律解释边界'到'工具比较'再到'大模型方案'的三层推理链清晰",
+            "对两种核心反对意见的回应具有实质性论证"
+          ],
+          "weaknesses": [
+            "从传统语料库局限直接推导大模型语料库最优性，未充分论证替代方案不可行",
+            "未明确承认大模型语料库方法的适用边界（如仅适用于文义解释）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价大模型语料库方案本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“通常含义界定→传统工具局限→大模型语料库赋能→风险规制”的严密推理链，结论可辩护推出。",
+          "core_judgment": "推理链条完整且环环相扣，对反对意见与技术局限的回应充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "大模型法律语料库并非试图消除司法自由裁量权，而是要限制法官仅凭个人断言就判定语言用法的权力",
+            "当语料库数据表明某种解释属于非典型用法时，解释者若坚持此结论，其必须正面回应为何不适用通常含义"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从语义理论到技术赋能再到制度规制，逻辑依赖度高",
+            "对“篡夺解释权”与“算法操纵”等核心质疑均给出实质性技术/制度回应"
+          ],
+          "weaknesses": [
+            "技术可行性论证偏重理论推演，缺乏本土司法场景的实证检验支撑",
+            "“倒逼论证义务”的机制设计部分，程序性约束的推导略显理想化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与可辩护性，不涉及大模型语料库在实务中的技术落地难度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.47458600997925,
+        "glm-5.1": 77.18880105018616,
+        "kimi-k2.6": 12.188388109207153,
+        "qwen3.6-plus": 49.554511070251465
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79,
+      "std": 14.5,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文主张引入大模型法律语料库以增强刑法解释的客观性与透明度，结论与现有法秩序兼容，能进入共同体对话。",
+          "core_judgment": "结论明确将自身置于法律解释客观化争论中，回应了现有方法的不足并讨论了反对意见，具有较高的共同体对话度和制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4：明确讨论并折中现有观点(专业优先/日常语言)，回应语言直觉、词典等替代方案，结合中国司法语境，主动讨论反对意见。制度可接受度得分=2/4：结论不与罪刑法定等根本原则矛盾，回应了司法解释黑箱等中国制度约束，但以理论构想和比较法为主，具体制度转化方案有限。依据理论论文'对话度≥3且制度度≥2'锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "相较于专业用法优先的观点, 折中说更具有合理性。特别就刑法而言, 根据罪刑法定原则中的明确性要求, 应当从规范受众的视角来确定词语的语义范围。",
+            "大模型法律语料库的使用...并非旨在消除司法自由裁量权, 而是要限制法官仅凭个人断言就判定语言用法的权力...倒逼解释者加强论证说理。"
+          ],
+          "strengths": [
+            "主动回应并修正既有学说，将自身定位为理论修正者，搭建了清晰的学术对话框架。",
+            "结论明确回应了中国'司法解释黑箱'、裁判说理不足等本土制度性痛点与约束。"
+          ],
+          "weaknesses": [
+            "结论主要停留在技术构想和域外经验引介，对在具体中国制度流程中如何落地的方案着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价结论在共同体内的可接受性和制度兼容性，不评其技术可行性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论回应解释客观化争论，提出大模型语料库辅助方案，制度兼容且具转化方向。",
+          "core_judgment": "结论深度回应共同体争论并主动防范风险，与中国制度语境高度兼容且转化方向明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，因方案尚处构想阶段微调至85分。",
+          "evidence_quotes": [
+            "在我国立法整体较为粗疏的背景下...引入大模型法律语料库作为辅助解释工具，某种程度可以倒逼解释者加强论证说理",
+            "大模型法律语料库的核心价值不在替代人类判断，而在为解释者提供更透明的证据支撑"
+          ],
+          "strengths": [
+            "主动回应篡夺解释权与操纵风险等反对意见",
+            "给出通用型+监控型+解析型等具体制度转化方向"
+          ],
+          "weaknesses": [
+            "大模型语料库尚处构想阶段，实务验证不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体与制度可接受性，不评估论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文主张大模型法律语料库可辅助法律解释客观化，结论在理论层面具有对话性，但制度转化方向尚显笼统。",
+          "core_judgment": "共同体对话度3/4，制度可接受度2/4，属理论论文good档。",
+          "score_rationale": "共同体对话度得分=3/4：回应了法律解释客观化、语料库语言学等既有争论（标准1），反对者可定位其折中立场与技术乐观主义倾向并构造反驳（标准2），结合中国智慧司法与刑法解释语境展开（标准3），但未充分承认自身局限（标准4未完全满足）。制度可接受度得分=2/4：不与现行法秩序根本矛盾（标准1），对罪刑法定、司法解释等制度约束有原则回应（标准2），但制度转化方向较笼统（标准3未完全满足），中国制度语境讨论深度有限（标准4未完全满足）。锚定理论论文good档，给72分。",
+          "evidence_quotes": [
+            "在我国立法整体较为粗疏的背景下，无论是司法解释的制定，还是个案中相关法律条文的解释，都需要解释者详细阐述其解释过程。",
+            "需持续完善技术与制度协同治理框架，明确大模型法律语料库的核心价值不在于替代人类判断，而在于为解释者提供更加透明的证据支撑。"
+          ],
+          "strengths": [
+            "主动回应语料库语言学、法律解释客观化等既有理论争论，定位清晰。",
+            "结合中国智慧司法战略与刑法解释语境，避免直接移植外国理论。"
+          ],
+          "weaknesses": [
+            "未充分讨论大模型技术局限（如幻觉、偏见）对自身主张的深层挑战。",
+            "制度转化方向较笼统，缺乏与中国具体司法程序衔接的明确方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应解释客观化争论，立足中国司法语境提出大模型语料库辅助路径，并系统规制技术风险，具备高度可接受性。",
+          "core_judgment": "该结论深度嵌入法学共同体关于文义解释与客观化的核心争论，且与中国现行法秩序及智慧司法实践高度兼容，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位解释方法之争，主动回应技术风险质疑，契合中国司法语境，具备高度可接受性。",
+          "evidence_quotes": [
+            "大模型法律语料库本质上只是一种解释辅助工具，其目的不在于取消司法裁量权，而是通过提供透明、可验证的客观依据抑制主观随意性。",
+            "在我国立法整体较为粗疏的背景下，无论是司法解释的制定，还是个案中相关法律条文的解释，都需要解释者详细阐述其解释过程。"
+          ],
+          "strengths": [
+            "精准切入解释客观化争议，明确修正直觉与词典路径局限。",
+            "系统回应技术风险与司法权边界，结论具强可辩驳性与兼容性。"
+          ],
+          "weaknesses": [
+            "对语料库在刑事裁判中的程序衔接与证据效力位阶论述稍显宏观。",
+            "技术治理框架的落地成本与基层司法算力适配性未作充分评估。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.620496034622192,
+        "glm-5.1": 58.298959255218506,
+        "kimi-k2.6": 13.66661286354065,
+        "qwen3.6-plus": 57.49246001243591
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.8,
+      "std": 8.3,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结语及论证过程中明确指出了技术风险治理、个案正义平衡等具体后续研究命题，延展路径清晰可定位。",
+          "core_judgment": "存在明确、具体且与正文核心结论紧密衔接的延展路径，提出了可操作的后续研究问题与方向。",
+          "score_rationale": "原始分85分，对应bonus=5档。论文在“结语”及风险规制部分具体指明了“算法对人文价值的冲击”“数据客观性与个案正义平衡”等可定位的研究命题，并给出了技术与制度协同的深化方向，远非空泛口号。",
+          "evidence_quotes": [
+            "如何防范算法对司法裁判人文价值的冲击, 如何平衡数据客观性与个案正义, 将成为长期需要研究的理论与实践命题。",
+            "需持续完善技术与制度协同治理框架, 明确大模型法律语料库的核心价值不在于替代人类判断, 而在于为解释者提供更加透明的证据支撑和更加理性的论证依据。"
+          ],
+          "strengths": [
+            "明确提出了“人文价值冲击”与“个案正义平衡”两个可定位的后续核心争点。",
+            "延展方向与正文对“解释权篡夺”和“操纵风险”的分析紧密衔接，构成“风险识别—应对—待解”的完整链条。"
+          ],
+          "weaknesses": [
+            "对“技术与制度协同治理框架”的后续完善仅给出了原则性方向，未进一步结构化展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评的是结语中提出的未来需长期研究的命题（如个案正义平衡），属于后续研究规划，而非评判该结论当下是否充分（结论可接受性范畴）。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 70,
+          "band": "good",
+          "summary": "指明了大模型深度融入解释实践后防范算法冲击人文价值与平衡数据客观性同个案正义的后续命题。",
+          "core_judgment": "存在真实延展路径，明确提出了技术深度应用后的价值冲突与制度调适方向。",
+          "score_rationale": "原始分70，属good档（bonus=3）。结语指明“防范算法冲击人文价值”与“平衡数据客观性与个案正义”两个具体后续争点，与正文风险规制论证衔接，但路径精细展开有限。",
+          "evidence_quotes": [
+            "如何防范算法对司法裁判人文价值的冲击，如何平衡数据客观性与个案正义，将成为长期需要研究的理论与实践命题。",
+            "大模型法律语料库尚处于构想阶段，目前还没有具体案例出现"
+          ],
+          "strengths": [
+            "延展争点切中AI司法应用的核心价值冲突",
+            "与正文风险规制及人机协同论证紧密衔接"
+          ],
+          "weaknesses": [
+            "结语对延展路径的精细展开较为简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "防范算法冲击人文价值与个案正义的平衡属于未来技术深度融入司法后的价值与制度调适问题，而非当下大模型作为辅助工具的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语部分提出了大模型法律语料库应用中的长期研究命题，包括算法对司法裁判人文价值的冲击、数据客观性与个案正义的平衡等，并指出需持续完善技术与制度协同治理框架。",
+          "core_judgment": "存在真实但有限的延展路径，主要集中于技术应用风险与制度完善的宏观方向，缺乏具体的后续研究问题或理论深化设计。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文在结语明确提出了'如何防范算法对司法裁判人文价值的冲击''如何平衡数据客观性与个案正义'两个可定位的后续研究问题，并指出'需持续完善技术与制度协同治理框架'，属于制度/立法型论文的有效延展信号。但延展路径较概括，未形成具体的制度完善方案或规则衔接设计，精细度有限。",
+          "evidence_quotes": [
+            "如何防范算法对司法裁判人文价值的冲击，如何平衡数据客观性与个案正义，将成为长期需要研究的理论与实践命题",
+            "需持续完善技术与制度协同治理框架，明确大模型法律语料库的核心价值不在于替代人类判断"
+          ],
+          "strengths": [
+            "提出两个可定位的长期研究命题，与正文核心结论衔接",
+            "明确指向制度完善方向，符合制度/立法型论文的延展形态"
+          ],
+          "weaknesses": [
+            "未形成具体的后续研究问题或下一轮争点设计",
+            "缺乏对技术内生风险规制的具体制度路径展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究方向的延展性，而非当下结论的可接受性。论文提出的'算法对司法裁判人文价值的冲击''数据客观性与个案正义的平衡'属于未来需要继续探索的问题，而非对当前论证结论的即时评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在结语与风险规制部分明确指出了大模型语料库从理论构想走向司法实证检验、技术治理细化与价值平衡的具体延展路径。",
+          "core_judgment": "存在真实且可定位的延展路径，紧密衔接正文核心论证。",
+          "score_rationale": "原始分82分（对应bonus=5）。论文明确指出工具尚处构想阶段，并具体提出后续需围绕算法冲击人文价值、数据客观性与个案正义平衡及技术制度协同治理框架展开深化，路径清晰且与正文风险规制论证紧密咬合。",
+          "evidence_quotes": [
+            "如何防范算法对司法裁判人文价值的冲击, 如何平衡数据客观性与个案正义, 将成为长期需要研究的理论与实践命题。",
+            "大模型法律语料库尚处于构想阶段, 目前还没有具体案例出现, 但可借弱化版语料库验证其客观化功能。"
+          ],
+          "strengths": [
+            "明确承认工具尚处构想阶段，为后续实证检验预留接口",
+            "提出技术治理与价值平衡的具体理论争点，非空泛展望"
+          ],
+          "weaknesses": [
+            "未具体设计实证检验的样本选取与效果评估指标",
+            "跨部门法适用场景的延展边界论述相对简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于该工具从理论构想走向司法实证检验、技术治理框架细化及价值冲突调和的未来研究路径，而非评价当前论证结论的当下可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 19.56041431427002,
+        "glm-5.1": 47.3454852104187,
+        "kimi-k2.6": 11.330440998077393,
+        "qwen3.6-plus": 50.94322919845581
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 70,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 82
+      },
+      "mean": 74.8,
+      "std": 10.7,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 73.84,
+      "weighted_total": 72.2
+    },
+    "aggregation_strictest": {
+      "final_score": 49.06,
+      "weighted_total": 52.0
+    },
+    "avg_std": 16.1,
+    "max_std": 26.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.8,
+    "composite_score": -16.1,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 26.7
+  }
+}

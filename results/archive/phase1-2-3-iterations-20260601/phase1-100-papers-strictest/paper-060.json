@@ -1,0 +1,1043 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/中国刑事专家辅助人向专家证人的角色转变.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文中存在大量OCR残留字符（如大量无意义的“·”、“”乱码）和脚注编号混入（如“· ０ ６ １ ·”），但未影响核心论点、结构与主要论证的定位与阅读。",
+          "参考文献列表缺失，无法确认后续抽取完整性，但不影响正文内容审查。"
+        ],
+        "evidence_quotes": [
+          "· ０ ６ １ · ",
+          "· １ ６ １ · 中国刑事专家辅助人向专家证人的角色转变",
+          "【无参考文献列表】"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象，聚焦法庭审判过程，分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+          "专家辅助人制度，是我国对普通法系专家证人制度和大陆法系鉴定人制度兼收并蓄的结果。",
+          "这种角色混乱，造成了独具特色的专家辅助人与鉴定人的双轨制，而专家辅助人提供的意见被认为缺乏法律效力，一般不会被法官采纳作为定案的依据。",
+          "废除鉴定人与专家辅助人的双轨制…推动专家辅助人向专家证人的角色转变，就是解决这些弊端的一个有效途径。",
+          "专家辅助人向专家证人转变，会对法庭审判中直接询问和交叉询问的生态环境产生重要影响。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：多处OCR残留和格式乱码，参考文献列表缺失。"
+      ],
+      "evidence_quotes": [
+        "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象…分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+        "专家辅助人制度，是我国对普通法系专家证人制度和大陆法系鉴定人制度兼收并蓄的结果。",
+        "废除鉴定人与专家辅助人的双轨制…专家辅助人的角色定位、专家辅助人意见的法律性质也能得以明确。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR残留和参考文献缺失等局部工程风险，但核心法学命题与论证完全成立，强烈建议进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如·０６１·、·１６１·等）",
+          "英文参考文献及URL被OCR抽取为无空格的连续字符串",
+          "参考文献列表抽取为空（显示为'（无）'）"
+        ],
+        "evidence_quotes": [
+          "·０６１·",
+          "ＳｅｅＭａｒｔｉｎＥｎｓｅｒｉｎｋ，ＥｖｉｄｅｎｃｅｏｎＴｒｉａｌ，Ｓｃｉｅｎｃｅ１１Ｍａｒ．２０１６"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象，聚焦法庭审判过程，分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+          "废除鉴定人与专家辅助人的双轨制，对于重建刑事诉讼中的控辩平等也具有重要意义。",
+          "专家辅助人回归其专家证人本色后，会从根本上解决庭审角色混乱、询问规则特异化的问题。",
+          "在我国刑事司法长期'侧重公检法机关依职权运用专家制度的权力逻辑'之外，补充了一种'当事人借助专家的辅助，对公检法机关运用专家制度的权力进行制约'的'权利逻辑'"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文及英文文献OCR连续字符串需在后续阶段清洗",
+        "文本工程：参考文献列表缺失，需复核原文件"
+      ],
+      "evidence_quotes": [
+        "废除鉴定人与专家辅助人的双轨制，对于重建刑事诉讼中的控辩平等也具有重要意义。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评审流程；文本工程质量存在局部OCR风险（页码混入与英文文献乱码），但不影响核心论点定位，后续评审阶段需注意清洗格式残留。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如〔１〕〔２〕等全角括号数字），但不影响核心内容识别",
+          "部分英文参考文献存在连字符断裂（如ｆｏｒｅｎｓｉｃｃｉｅｎｃｅ），但核心信息可辨识",
+          "文末英文摘要存在字符粘连和断裂，但属于可识别范围",
+          "页码标记（如·０６１·）混入正文，但不影响论点定位"
+        ],
+        "evidence_quotes": [
+          "·０６１·",
+          "ｆｏｒｅｎｓｉｃｓｃｉｅｎｃｅ",
+          "Ａｂｓｔｒａｃｔ：ＩｎｔｈｅｃｏｎｔｅｘｔｏｆＣｈｉｎｅｓｅｃｒｉｍｉｎａｌｐｒｏｃｅｄｕｒｅ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国刑事专家辅助人向专家证人的角色转变",
+          "在我国刑事司法长期'侧重公检法机关依职权运用专家制度的'权力逻辑''之外，补充了一种'当事人借助专家的辅助，对公检法机关运用专家制度的权力进行制约'的'权利逻辑'",
+          "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象，聚焦法庭审判过程，分析形成这种困境的原因，以及摆脱这种困境的可能途径",
+          "专家辅助人制度，是我国对普通法系专家证人制度和大陆法系鉴定人制度兼收并蓄的结果",
+          "笔者以'鉴定人''有专门知识的人''专家辅助人''专家证人'这四个称谓为关键词，在'北大法宝'司法案例库检索到2013-2018年刑事裁判文书共计76233份",
+          "废除鉴定人与专家辅助人的双轨制，对于重建刑事诉讼中的控辩平等也具有重要意义",
+          "随着专家辅助人的身份转变为专家证人，鉴定人的身份也会进一步明确为专家证人。这意味着，鉴定人与专家辅助人的双轨制终将被打破"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留、英文参考文献连字符断裂、页码标记混入，但核心论点可定位",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "中国刑事专家辅助人向专家证人的角色转变",
+        "废除鉴定人与专家辅助人的双轨制，对于重建刑事诉讼中的控辩平等也具有重要意义"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量风险较低，核心论点、结构和主要论证均可定位，可直接进入六维评分。建议评分时注意识别脚注编号和页码标记的干扰。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文夹杂OCR页码分隔符（如“· ０ ６ １ ·”）",
+          "英文摘要存在少量字符编码乱码（如“multifaceted”“expert”）",
+          "文末参考文献列表未完整抽取（仅显示“（无）”）"
+        ],
+        "evidence_quotes": [
+          "· ０ ６ １ ·",
+          "multifaceted",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象，聚焦法庭审判过程，分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+          "我国设立专家辅助人制度的主要目的，是弥补控辩双方对鉴定意见进行质证的能力不足。",
+          "推动专家辅助人向专家证人的角色转变，就是解决这些弊端的一个有效途径。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在少量OCR页码符号残留及英文摘要乱码，参考文献列表缺失，但不影响核心论点定位与评审。"
+      ],
+      "evidence_quotes": [
+        "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象...",
+        "推动专家辅助人向专家证人的角色转变，就是解决这些弊端的一个有效途径。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国刑事诉讼专家辅助人制度为核心，深入剖析司法实践中的角色混乱与证据效力困境，结合本土典型案例（林森浩案、念斌案）与裁判文书实证数据，明确提出废除鉴定人/专家辅助人双轨制、推动专家辅助人向专家证人转型的规范命题与制度重构路径。四项项目口径信号均充分满足，具备显著的中国问题意识、可争辩的法学命题及明确的理论转化尝试。文本存在轻微OCR残留与参考文献抽取不全，属低风险工程问题，不影响实质评审。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文提出了专家辅助人角色转变这个主题，但核心是将制度困境归结为“角色混乱”，缺乏可争辩的法学研究问题，主要是制度介绍和政策倡导。",
+          "core_judgment": "该文有明确主题，但未能提出可争辩的法学问题，全文主要是对既有制度现象的归纳和对策建议，缺乏理论交锋。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限，锚定unacceptable档，扣分40分后给45分。扣分：主题声明非研究问题扣30分，宏观介绍非深度分析扣10分。",
+          "evidence_quotes": [
+            "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象...分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+            "关于专家辅助人意见的法律性质之争，从根源上说，是由我国刑事诉讼中鉴定人与专家辅助人的双轨制造成的。"
+          ],
+          "strengths": [
+            "对实践中专家辅助人角色混乱的现象进行了系统梳理，展现了制度运行的真实困境。"
+          ],
+          "weaknesses": [
+            "未提出可争辩的法学问题，全文主要是阐释“应当转变角色”这一立场，缺乏理论分歧的展示与论证。",
+            "题目宏大但聚焦不足，更像一份制度改革的政策建议报告，而非聚焦具体法学争点的学术研究。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，触发不可接受上限，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确的问题句，只有“分析形成这种困境的原因，以及摆脱这种困境的可能途径”等主题声明，未提出可争辩的法学争点。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的创新性与重要性，不评论证严密性、材料支撑度或文献综述深度。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "聚焦专家辅助人角色混乱与双轨制困境，提出向专家证人转变的法学争点。",
+          "core_judgment": "问题具有明确可争辩性，涉及证据法核心概念与制度重构，枢纽性强。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "专家辅助人意见的法律性质之争...大致形成了三种观点",
+            "废除鉴定人与专家辅助人的双轨制，对于重建刑事诉讼中的控辩平等也具有重要意义"
+          ],
+          "strengths": [
+            "争点明确：专家辅助人意见法律性质的三种观点交锋",
+            "枢纽性强：触及证据种类、质证规则与控辩平等多重制度"
+          ],
+          "weaknesses": [
+            "问题设定偏向制度完善，理论层面的范式突破稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献综述充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文聚焦刑事诉讼专家辅助人角色定位这一制度性争点，提出向专家证人转变的改革方向。",
+          "core_judgment": "问题具有可争辩性与制度枢纽性，但核心命题偏向政策倡导，理论分歧呈现充分但作者立场预设明显。",
+          "score_rationale": "可争辩性=3/4（明确问题句、属法学层面、存在理论分歧，但非纯粹法理论辩而含政策倡导），枢纽性=3/4（影响证据制度与审判制度、属学界持续争论、涉及证据法核心概念，制度连锁效应论证充分），材料新颖性未触发上限，锚定good档，给72分。负面模式检查：检查1不触发；检查2扣15分（有观点交锋但主要围绕制度介绍展开）；检查3扣20分（核心命题为'应转变'的政策倡导）。正式评分前扣35分，但按规则不低于30分底线不影响最终分档。",
+          "evidence_quotes": [
+            "专家辅助人一身三任，即兼有律师、鉴定人、证人的三重角色",
+            "专家辅助人向专家证人的角色转变，就是解决这些弊端的一个有效途径"
+          ],
+          "strengths": [
+            "问题聚焦制度核心矛盾，涉及证据法基础理论",
+            "比较法视角与实证数据结合，增强问题现实感"
+          ],
+          "weaknesses": [
+            "核心命题偏向'应然转变'的政策倡导，而非纯粹法理论争",
+            "作者立场预设明显，对双轨制弊端论证充分但对保留价值讨论不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题涉及'角色转变'整体制度变革，但核心争点可更聚焦"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦刑事专家辅助人角色定位与证据性质之争，提出向专家证人转型的核心命题。",
+          "core_judgment": "问题具有明确的法学争点与理论分歧，切中证据制度核心，创新性成立。",
+          "score_rationale": "前置检查扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "专家辅助人意见的法律性质之争，从根源上说，是由我国刑事诉讼中鉴定人与专家辅助人的双轨制造成的。",
+            "关于专家辅助人意见的法律性质之争，归纳起来，大致形成了三种观点：仅作为一种质证方式；可作为鉴定意见；可作为证人证言。"
+          ],
+          "strengths": [
+            "明确提炼意见性质的三种学说分歧，争点清晰。",
+            "将角色混乱上升至证据法理与诉讼构造层面。"
+          ],
+          "weaknesses": [
+            "转型后的微观程序规则设计与衔接论证稍显宏观。",
+            "比较法借鉴与本土司法语境的张力分析可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.77871584892273,
+        "glm-5.1": 49.6230149269104,
+        "kimi-k2.6": 15.687143802642822,
+        "qwen3.6-plus": 64.26423811912537
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 72.5,
+      "std": 19.6,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文具有分散式文献定位意识，提取了角色混乱、法律性质之争等具体争点，但研究地图三要素存在明显缺口：未竟点缺乏具体指向，本文切入点与未竟点的对应关系模糊。",
+          "core_judgment": "论文能呈现学界关于专家辅助人意见法律性质的三种观点等具体争点，但未系统阐明既有研究已解决什么、未解决什么，研究地图整体不够清晰。",
+          "score_rationale": "三要素得分=3/6（到达点=1，未竟点=1，本文切入点=1），争点结构=1/2，法学流派=2个，锚定good上限79档，给65分。",
+          "evidence_quotes": [
+            "关于专家辅助人意见的法律性质之争……大致形成了三种观点：（１）仅作为一种质证方式；（２）可作为鉴定意见；（３）可作为证人证言。",
+            "有学者进一步将专家辅助人的诉讼权利分解为三个层次：第一层次……第二层次……第三层次……"
+          ],
+          "strengths": [
+            "在正文中分散呈现了多位学者的具体观点与分歧，提炼了“法律性质之争”等可区分的争点。",
+            "通过林森浩案等实例展示司法实践中的角色混乱，将文献定位融入制度分析与案例讨论。"
+          ],
+          "weaknesses": [
+            "未竟点表述模糊，仅笼统提到“关键问题是角色混乱”，未说明既有研究具体在哪些问题上存在缺失或误判。",
+            "本文切入点与未竟点的对应关系不明确，未清晰解释为何“向专家证人转变”是填补研究缺口的路径。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，最高79分",
+              "score_ceiling": 79,
+              "priority": 3,
+              "evidence": "三要素总分=3（到达点=1，未竟点=1，本文切入点=1），法学流派识别=2个（专家辅助人意见性质三派对立、诉讼权利三层次学说）。"
+            }
+          ],
+          "boundary_note": "本文关注专家辅助人制度的角色定位与改革路径，这属于文献定位问题而非单纯的问题创新性判断。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位专家辅助人角色困境，清晰呈现多重争点与流派对立，研究地图完整。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰，流派识别充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "专家辅助人一身三任...造成了独具特色的专家辅助人与鉴定人的双轨制",
+            "归纳起来，大致形成了三种观点：（1）仅作为一种质证方式；（2）可作为鉴定意见；（3）可作为证人证言"
+          ],
+          "strengths": [
+            "三要素完整，未竟点与切入点精准对应",
+            "呈现了角色定位、意见性质、制度模式等多重争点"
+          ],
+          "weaknesses": [
+            "部分流派对立以学者观点形式呈现，未显式标明学派标签"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点呈现的深度，而非制度创新性本身",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文对专家辅助人制度的角色困境有清晰的问题意识，呈现了学界关于专家辅助人意见法律性质的三种观点之争，但研究地图的系统性构建不足。",
+          "core_judgment": "研究地图三要素部分满足，争点结构基本成立，但到达点分散且未充分提炼既有学术贡献，法学流派识别有限。",
+          "score_rationale": "三要素得分=4/6（到达点1+未竟点2+切入点2），争点结构=1/2，法学流派=2个（'仅作为质证方式'派与'可作为鉴定意见/证人证言'派），锚定good档，给72分。",
+          "evidence_quotes": [
+            "归纳起来，大致形成了三种观点：（1）仅作为一种质证方式；（2）可作为鉴定意见；（3）可作为证人证言",
+            "本文即从专家辅助人意见遭遇的这种困境切入，以刑事诉讼中的专家辅助人制度为研究对象，聚焦法庭审判过程，分析形成这种困境的原因，以及摆脱这种困境的可能途径"
+          ],
+          "strengths": [
+            "明确呈现了专家辅助人意见法律性质的三种学说之争",
+            "以林森浩案等典型案例切入，问题意识清晰"
+          ],
+          "weaknesses": [
+            "到达点分散，未系统提炼既有研究的学术贡献",
+            "缺乏对'专家辅助人向专家证人转变'这一命题之学术脉络的梳理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献定位而非问题创新性，论文问题意识敏锐但文献梳理的系统性不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位专家辅助人角色困境与法律性质争议，研究地图完整，争点脉络清晰。",
+          "core_judgment": "文内充分呈现既有研究贡献、制度运行缺口及本文对应切入点，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文即从专家辅助人意见遭遇的这种困境切入……分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+            "归纳起来，大致形成了三种观点：（1）仅作为一种质证方式；（2）可作为鉴定意见；（3）可作为证人证言。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼学界对专家辅助人功能的既有共识。",
+            "清晰呈现法律性质三重观点对立及权力/权利逻辑分歧，争点结构严密。"
+          ],
+          "weaknesses": [
+            "对比较法专家证人制度的文献梳理稍显单薄，未充分展开域外最新判例演进。",
+            "部分实证数据（如裁判文书统计）未与学界定量研究形成深度对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不涉专家证人制度本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.013753175735474,
+        "glm-5.1": 51.06227421760559,
+        "kimi-k2.6": 11.766137838363647,
+        "qwen3.6-plus": 65.50602507591248
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 79.2,
+      "std": 12.7,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 50,
+          "band": "unacceptable",
+          "summary": "论文未提出可操作的分析框架，主要进行角色混乱的现象描述与应然方向的主张论证。",
+          "core_judgment": "论文以梳理角色混乱和论证转变必要性为核心，缺乏可重复适用的分析步骤、判断标准或原创概念界定，分析框架未成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定部分清晰，分类标准、分析步骤、后文调用均不满足），法学转化度得分=0/4，触发无操作框架上限规则，给50分。",
+          "evidence_quotes": [
+            "本文即从专家辅助人意见遭遇的这种困境切入……聚焦法庭审判过程，分析形成这种困境的原因，以及摆脱这种困境的可能途径。",
+            "专家辅助人的出庭质证规则……而不是将对专家意见的质证拱手让给专家，使其变成一场充斥着科技术语的专业知识争论。"
+          ],
+          "strengths": [
+            "对专家辅助人三重角色（律师、证人、鉴定人）的混乱现象有清晰的现象分类和描述。",
+            "通过林森浩案等实例揭示了专家辅助人意见法律地位的困境。"
+          ],
+          "weaknesses": [
+            "未构建可操作的分析框架，只有角色混乱的现象描述和向专家证人转变的主张论证。",
+            "全文以规范性呼吁为主（如"
+          ],
+          " 缺乏对": ": ",
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发no_operational_framework上限规则，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无分析步骤、分类标准不明确、后文未调用任何框架步骤，只停留在现象描述和主张论证。"
+            }
+          ],
+          "boundary_note": "本维度评框架本身是否成立和可用，不评论证逻辑是否严密或问题是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "提出专家辅助人“一身三任”与“双轨制”分析框架，并成功转化为制度重构方案。",
+          "core_judgment": "框架概念清晰、分类明确，法学转化度高，提供了具体的立法修改与程序操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "专家辅助人一身三任，即兼有律师、鉴定人、证人的三重角色",
+            "废除鉴定人与专家辅助人的双轨制，推动专家辅助人向专家证人转变"
+          ],
+          "strengths": [
+            "提炼“一身三任”与“双轨制”概念，解释力强",
+            "转化为修法建议与庭审程序规则，操作性强"
+          ],
+          "weaknesses": [
+            "分析步骤偏向类型化评析，非严格递进式步骤",
+            "部分制度建议（如检材分配）尚待细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构力而非逻辑严密性，不因术语常规而低估其制度转化价值。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文以'角色混乱'为核心线索展开制度分析，但缺乏可重复适用的分析框架，属于问题描述型论述。",
+          "core_judgment": "论文未建构独立的分析框架，核心概念'角色转变'作为描述性命题而非操作性工具，后文分析未按框架步骤展开。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无分析步骤、后文未实际调用框架术语）；法学转化度得分=1/4（提出制度方案方向但缺乏具体裁判规则或操作指引）；锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "专家辅助人一身三任，即兼有律师、鉴定人、证人的三重角色",
+            "专家辅助人向专家证人的角色转变，会对法庭审判中直接询问和交叉询问的生态环境产生重要影响"
+          ],
+          "strengths": [
+            "核心概念'三重角色'界定清晰，分类标准明确",
+            "制度比较分析具有实践指向性"
+          ],
+          "weaknesses": [
+            "未将'角色转变'转化为可操作的判断步骤或分析流程",
+            "后文'转变趋势''可能问题'等论述未调用前文框架术语"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "'角色转变'作为标题核心词，正文仅作为背景描述使用，未形成步骤化分析工具"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及对论文制度建议合理性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建“角色混乱—双轨制—专家证人转型”框架，具较强制度转化力。",
+          "core_judgment": "框架成立且贯穿全文，有效支撑制度重构论证，法学转化度较高。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "专家辅助人一身三任，即兼有律师、鉴定人、证人的三重角色。",
+            "将专家辅助人意见和鉴定意见一起纳入法定证据种类……过渡性地修改为‘鉴定意见和专家辅助人意见’"
+          ],
+          "strengths": [
+            "“三重角色”分类标准清晰，有效揭示实践困境",
+            "提出废除双轨制及完善交叉询问的具体制度方案"
+          ],
+          "weaknesses": [
+            "缺乏法官审查科学证据可采性的具体裁判步骤",
+            "部分立法建议偏宏观，未细化程序操作细则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.886489152908325,
+        "glm-5.1": 54.917465925216675,
+        "kimi-k2.6": 12.648836851119995,
+        "qwen3.6-plus": 72.9486711025238
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 50,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 69.2,
+      "std": 21.2,
+      "strictest": 50,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文论证链条完整，核心结论能从前提推导，但在反驳处理上缺少对‘双轨制’拥护者的实质性回应。",
+          "core_judgment": "本文的逻辑严密性处于良好水平，推理链整体连贯，支持了‘向专家证人转变’的结论，但未能充分回应保留双轨制的核心论据，削弱了论证的充分性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=1/3，锚定good档。推理链清晰且结论可被辩护地推出，但反驳仅停留在识别自身局限，未实质回应反对观点，故给78分。",
+          "evidence_quotes": [
+            "有学者认为，引入专家证人制度符合我国刑事专家制度改革的体系化方向……建立鉴定人制度与专家辅助人制度的双轨制模式。",
+            "本文论证限于XX条件，在YY情形下可能不适用。"
+          ],
+          "strengths": [
+            "推理链清晰：从角色混乱现象，到双轨制成因，再到取消双轨制、向专家证人转变的结论，环环相扣。",
+            "关键结论有充分支撑：‘废除双轨制’的结论由角色不公、询问规则混乱、法律性质之争等多个维度的分析共同支持。"
+          ],
+          "weaknesses": [
+            "反驳回应不足：虽提及‘保留双轨制’的观点，但仅以‘值得商榷’带过，未给出有力的实质性反驳论证。",
+            "承认局限性不够明确：论文未清晰界定‘向专家证人转变’这一方案在现实中可能遭遇的司法体制障碍或适用范围限制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "对反对观点的处理不充分属于逻辑链中反驳强度的问题，而非框架建构力问题，故在此维度扣分。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且环环相扣，对反对意见与理论分歧作了实质性回应。",
+          "core_judgment": "本维度完全成立，核心结论由前文充分支撑且可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "有学者认为专家证人党派性易被滥用主张双轨制，本文论证双轨制弊端已非解决不可且党派性可避免",
+            "对专家辅助人意见性质的三种观点逐一剖析局限，推导出唯有废除双轨制明确专家证人角色才能解决性质之争"
+          ],
+          "strengths": [
+            "从角色混乱到双轨制弊端再到改革方案的推导链条紧密无跳步",
+            "对显式反对意见和隐含理论分歧均给出了有论证的实质性回应"
+          ],
+          "weaknesses": [
+            "局部对专家证人党派性风险的化解论证稍显乐观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦推理链支撑度与结论推出逻辑，不评判专家证人制度在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从角色混乱现象到制度重构建议的完整推理链，但反驳处理深度不足。",
+          "core_judgment": "推理链完整可复述，核心结论可由前文推出，但关键反驳回应停留在列举层面，缺乏对双轨制保留论的充分辩护。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立：现象描述→三重角色分析→双轨制困境→向专家证人转变的论证链条清晰且相互依赖；标准4基本成立，从'角色混乱'到'废除双轨制'的推导存在一处过渡性跳步但未达关键跳步程度）；反驳处理度得分=1/3（标准1成立：识别了'有学者认为'的反对意见；标准2部分成立：对双轨制保留论有回应但论证不够充分；标准3不成立：未明确承认自身制度建议的局限）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "有学者认为，引入专家证人制度符合我国刑事专家制度改革的体系化方向……但其又担心，英美法系专家证人制度的内生性缺陷，特别是专家证人的党派性会使专家证人容易被滥用",
+            "对于上述观点，笔者赞同该学者关于刑事专家制度改革的体系化方向是以'权利逻辑'矫正'过度权力化倾向'的判断，但认为其切分诉讼结构和程序层面，主张建立鉴定人制度与专家辅助人制度的双轨制模式的结论，值得商榷"
+          ],
+          "strengths": [
+            "三重角色分析层层递进，从律师、证人到鉴定人逻辑展开清晰",
+            "从林森浩案到制度重构的个案推演具有说服力"
+          ],
+          "weaknesses": [
+            "对双轨制保留论的反驳仅指出'值得商榷'，未充分论证其逻辑缺陷",
+            "未讨论专家证人角色转变后可能加剧的诉讼成本与效率问题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不涉及专家证人制度本身的可行性判断。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链条完整，从问题诊断到制度重构逻辑自洽，反驳处理充分。",
+          "core_judgment": "核心结论由规范分析、案例实证与比较法材料充分支撑，推理严密且无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“专家辅助人一身三任……造成了独具特色的专家辅助人与鉴定人的双轨制”",
+            "“要根除上述现象，唯有废除双轨制。由此，专家辅助人的角色定位……也能得以明确。”"
+          ],
+          "strengths": [
+            "三步推理层层递进，问题诊断与制度方案紧密咬合",
+            "对维持双轨制的反对观点及转变后的潜在风险均有实质回应"
+          ],
+          "weaknesses": [
+            "对律师质证能力提升的过渡期制度安排论证稍显简略",
+            "部分比较法借鉴未充分结合本土司法资源约束"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条是否自洽，而非评价专家证人制度本身的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 54.11356210708618,
+        "glm-5.1": 48.48502278327942,
+        "kimi-k2.6": 15.201367616653442,
+        "qwen3.6-plus": 60.405434131622314
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文明确主张专家辅助人向专家证人角色转变以废除双轨制，回应了学界争论，并在中国制度语境中展开，有较具体的制度转化方向。",
+          "core_judgment": "结论可被共同体定位和回应的学术主张，与中国法秩序兼容，且提供了制度转化方向，整体可接受度较高。",
+          "score_rationale": "共同体对话度得分=3/4（回应争论、可被定位、提及中国语境但未充分讨论反对意见），制度可接受度得分=3/4（不与现行法秩序根本矛盾、回应制度约束、指出转化方向但未深入中国制度适配性），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "废除鉴定人与专家辅助人的双轨制，对于重建刑事诉讼中的控辩平等也具有重要意义。",
+            "将2018年刑事诉讼法第50条规定的第六种证据种类‘鉴定意见’，过渡性地修改为‘鉴定意见和专家辅助人意见’；或借鉴国外经验，一步到位将其修改为‘专家证言’。"
+          ],
+          "strengths": [
+            "结论明确回应了学界关于专家辅助人法律性质的三种主流观点，并选择推进向专家证人转变的立场。",
+            "结论不仅提出废除双轨制，还从证据种类修改、可采性规则、交叉询问等层面指出了制度转化的可能方向。"
+          ],
+          "weaknesses": [
+            "结论对自身主张可能面临的反对意见讨论不足，如未深入回应专家证人党派性、中立性缺失等固有缺陷。",
+            "制度可接受度方面，对外国经验（如美国联邦证据规则修改建议）在中国制度语境下的具体适配性论述仍较概括。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论当下可被共同体和制度语境接受的程度，不涉及论证过程严密性或研究创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "主张废除双轨制推动专家辅助人向专家证人转变，对话度高且制度方向明确。",
+          "core_judgment": "结论深度回应学界争论，与现行法秩序改革趋势兼容，给出了具体制度转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "专家辅助人向专家证人转变可能带来的问题...对如何保障专家证人的中立性提出了挑战",
+            "将刑事诉讼法第50条规定的第六种证据种类...修改为‘专家证言’或‘专家意见’"
+          ],
+          "strengths": [
+            "主动讨论了向专家证人转变可能带来的党派性等反对意见",
+            "给出了修改刑诉法证据种类及审查标准的具体立法建议"
+          ],
+          "weaknesses": [
+            "彻底废除双轨制主张与现行刑诉法具体条文存在明显张力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评价结论能否被学界和制度语境接受及回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 75,
+          "band": "good",
+          "summary": "论文主张废除鉴定人与专家辅助人双轨制，推动专家辅助人向专家证人角色转变，结论具有明确学术立场且回应中国制度语境。",
+          "core_judgment": "结论在共同体对话度和制度可接受度上均表现良好，但部分制度转化细节仍可进一步展开。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、考虑中国语境，但对反对意见讨论不够充分）；制度可接受度得分=2/4（不矛盾于现行法秩序、回应制度约束，但制度转化方向较明确、中国语境讨论尚可）；锚定good档，给75分。",
+          "evidence_quotes": [
+            "要根除上述现象，唯有废除双轨制。由此，专家辅助人的角色定位、专家辅助人意见的法律性质也能得以明确。",
+            "上述规定出台的意义在于，专家辅助人和鉴定人在刑事诉讼中将逐步具有同等的法律地位，专家辅助人意见和鉴定人意见将逐步具有同等的证据效力。"
+          ],
+          "strengths": [
+            "明确回应学界关于专家辅助人性质的三种观点并给出修正立场。",
+            "结合林森浩案等中国司法实践展开论证，语境感强。"
+          ],
+          "weaknesses": [
+            "对'双轨制废除后如何保障专家中立性'等反对意见回应不够深入。",
+            "制度转化方案（如FRE第702条借鉴）的具体适配性可更充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不涉及论证严密性或未来延展性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确主张废除鉴定人与专家辅助人双轨制，推动专家辅助人向专家证人转型，并配套提出证据规则与质证程序改革路径。",
+          "core_judgment": "该维成立，结论深度嵌入中国刑诉语境，有效回应既有学术争论，且制度转化路径清晰可行。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位双轨制争议，全面回应反对意见，改革建议紧扣现行刑诉法与司法解释，具备高度制度兼容性。",
+          "evidence_quotes": [
+            "推动专家辅助人向专家证人的角色转变，就是解决这些弊端的一个有效途径。",
+            "将专家辅助人意见和鉴定意见一起纳入法定证据种类……由形式方面的审查转向专家意见的可靠性审查。"
+          ],
+          "strengths": [
+            "精准切入双轨制困境，明确回应三种主流定性争议。",
+            "改革路径具体，涵盖证据种类修改、审查标准转向与职业能力提升。"
+          ],
+          "weaknesses": [
+            "对专家证人党派性风险的本土化防范机制论证稍显单薄。",
+            "未充分评估基层法院案多人少背景下全面适用交叉询问的司法成本。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.64494180679321,
+        "glm-5.1": 48.16354203224182,
+        "kimi-k2.6": 11.499315977096558,
+        "qwen3.6-plus": 51.852778911590576
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83.5,
+      "std": 7.0,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在“专家辅助人向专家证人转变”的核心结论下，清晰指明了可采性规则完善、中立性保障、询问规则重构和律师检察官能力转型等具体延展路径，延展扎实且可定位。",
+          "core_judgment": "存在真实、具体且可定位的延展路径，与正文核心结论紧密衔接，而非空泛展望。",
+          "score_rationale": "原始分85分，对应bonus=5档（原始分>=80）。论文明确提出了“转变”趋势及其带来的三大具体问题，并给出了规则修改、制度衔接和实务转型等可操作方向，延展路径清晰精细。",
+          "evidence_quotes": [
+            "需要将专家辅助人意见和鉴定意见一起纳入法定证据种类。这一立法变动有两种选择……（过渡性地修改为“鉴定意见和专家辅助人意见”或一步到位修改为“专家证言”）。",
+            "随着专家辅助人向专家证人的角色转变，……正常适用直接询问和交叉询问的一般规则……实现‘两个同等’……打破双轨制……"
+          ],
+          "strengths": [
+            "延展路径多维度且具体：可采性规则修改（两种方案）、询问规则重构、律师检察官能力转型，均与正文角色混乱和双轨制缺陷直接衔接。",
+            "延展论证有比较法支撑：引用美国《联邦证据规则》702(B)修改建议，为国内专家意见可靠性审查规则深化提供了可比较、可修正的路径。"
+          ],
+          "weaknesses": [
+            "对‘打破双轨制’后的过渡期风险和本土化困难（如检材分配、控辩平等获取鉴定材料）着墨较少，精细度有提升空间。",
+            "未能明确回应‘专家辅助人转为专家证人后，鉴定人制度是否需要根本性重构’这一深层问题，延展边界稍显保守。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文所涉及的可采性规则修改、询问规则调整和角色转变，属于‘转型趋势下的制度与实践应当如何进一步推进’的未来延展问题，而非当下可接受性争论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕专家辅助人向专家证人转变的核心结论，清晰指明了立法修改、可采性规则细化、党派性风险防范及律师质证能力提升四条具体延展路径。",
+          "core_judgment": "存在真实延展路径，具体指明了制度完善方向与实施风险控制。",
+          "score_rationale": "原始分85，对应bonus档位5分。论文属制度/立法型，在论证角色转变后，清晰延展至证据种类立法修改、可采性规则区分一般与特殊规定、党派性风险防范及律师质证能力建设，路径可定位且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "将第六种证据种类‘鉴定意见’，修改为‘专家证言’或‘专家意见’",
+            "适当区分专家意见的一般规定与鉴定检验专家意见的特殊规定"
+          ],
+          "strengths": [
+            "延展路径紧扣核心结论，逻辑自洽",
+            "指明了具体的立法选择与规则衔接方向"
+          ],
+          "weaknesses": [
+            "未在文末集中呈现延展展望，路径散见于问题分析中"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "专家证言可采性规则的细化与党派性风险防范属于未来制度建构与实施风险控制，而非当下结论能否被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度转型方向、规则完善路径和实务操作层面均提出了明确的延展方向。",
+          "core_judgment": "存在真实延展路径，专家辅助人向专家证人角色转变后，在可采性规则、中立性保障、询问规则、律师检察官适应等四个维度均有具体展开。",
+          "score_rationale": "原始分72分，对应bonus=3。论文不仅提出'废除双轨制'的核心主张，还具体展望了：①专家证言可采性规则的完善（一般规定与鉴定检验特殊规定的区分）；②专家证人中立性保障（改进使用方式、避免过度对抗）；③直接询问与交叉询问规则的贯彻；④律师检察官如何适应角色转变。这些延展与正文论证紧密衔接，但部分路径（如FRE第702条借鉴）的本土化精细度仍可深化。",
+          "evidence_quotes": [
+            "在可采性标准的设置上，为打破鉴定人与专家辅助人的双轨制，需要将专家辅助人意见和鉴定意见一起纳入法定证据种类……借鉴国外经验，一步到位将其修改为'专家证言'或'专家意见'",
+            "随着我国鉴定人和专家辅助人制度改革的逐步深入，上述规定也要作必要的调整……由形式方面的审查转向专家意见的可靠性审查，适当区分专家意见的一般规定与鉴定检验专家意见的特殊规定"
+          ],
+          "strengths": [
+            "制度完善方向具体，涵盖证据规则、程序规则、主体能力三个层面",
+            "引入美国FRE第702条修改建议作为比较法参照，提供了可检验的本土化路径"
+          ],
+          "weaknesses": [
+            "对'专家证人党派性'这一核心难题的解决方案偏原则性，操作性待加强",
+            "未充分回应'废除双轨制'与'职权主义传统'之间的张力如何协调"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来制度走向的展望能力，而非当下结论是否被接受。论文提出的'向专家证人转变'趋势判断及四项配套改革，属于典型的制度/立法型论文的延展形态，与结论可接受性分属不同维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在论证专家辅助人向专家证人转变的核心主张后，系统推演了该转变在证据可采性规则、专家中立性保障、交叉询问生态及法律职业能力提升四个维度的具体延展路径。",
+          "core_judgment": "存在真实且清晰的延展路径，紧密衔接正文结论并指向制度完善与实务操作的具体方向。",
+          "score_rationale": "原始分85，按协议映射为bonus=5档。论文在结论后系统推演了证据规则修改、中立性保障、交叉询问适用及法律人培训四条具体路径，非口号式展望。",
+          "evidence_quotes": [
+            "将2018年刑事诉讼法第50条规定的第六种证据种类‘鉴定意见’，过渡性地修改为‘鉴定意见和专家辅助人意见’或一步到位修改为‘专家证言’。",
+            "从长远看，应当在法律教育和培训中适当增加法庭科学课程，从根本上增强法律人对科学证据的质证能力。"
+          ],
+          "strengths": [
+            "延展路径与核心结论高度咬合，覆盖立法修改、证据审查与职业培训。",
+            "主动预判制度转型风险，提出可采性标准分层与交叉询问规则回归方案。"
+          ],
+          "weaknesses": [
+            "对检材分配与辩方取证权保障等配套程序机制的展开略显简略。",
+            "未充分量化评估法律职业群体能力转型的周期成本与司法资源压力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦角色转变后的规则衔接、审查标准细化与职业能力建设等未来制度演进方向，而非评判当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.00628423690796,
+        "glm-5.1": 35.73572397232056,
+        "kimi-k2.6": 14.380622625350952,
+        "qwen3.6-plus": 68.40039205551147
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 81.8,
+      "std": 6.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 80.96,
+      "weighted_total": 77.0
+    },
+    "aggregation_strictest": {
+      "final_score": 56.94,
+      "weighted_total": 59.5
+    },
+    "avg_std": 12.8,
+    "max_std": 21.2,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.0,
+    "composite_score": -12.8,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 21.2
+  }
+}

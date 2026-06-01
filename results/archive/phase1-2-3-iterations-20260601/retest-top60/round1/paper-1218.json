@@ -1,0 +1,1008 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1218-法学研究-2015-3-侵害人视角下的正当防卫论-陈璇-中国人民大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注与参考文献OCR抽取残留：正文中存在[1o]、[11]等OCR数字识别混淆（字母o与数字0），脚注编号[10]等处识别有误；文末参考文献列表缺失（原文可能带有参考文献，但抽取为空），但这些均不影响核心论点的定位与理解。"
+        ],
+        "evidence_quotes": [
+          "[1o]",
+          "[11]",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文认为，正当防卫的本质是教义学范畴内的课题，需要以我国刑法第20条的规定为立足点。",
+          "对比我国刑法第20条和第21条，与防御性紧急避险相比，正当防卫明显更为强势，需要解释为何无需‘不得已’要件、放宽限度条件。",
+          "我国宪法第33条第2款、第4款分别规定：‘中华人民共和国公民在法律面前一律平等’；‘任何公民享有宪法和法律规定的权利，同时必须履行宪法和法律规定的义务。’据此，每一个公民都平等地负有尊重他人法益的义务。",
+          "本文提出侵害人视角下的正当防卫论：侵害人自陷险境且违反不得侵犯他人法益的义务，导致其法益值得保护性大幅下降，以此为正当防卫无需法益衡量、无需‘不得已’要件提供解释。",
+          "基于侵害人视角，对防卫限度判断提出‘情境性’判断原则，并针对我国司法实践中多个真实案例（袁某被围殴案、朱某侵入住宅案、张某某反杀案、驾车撞抢夺者案等）展开分析，指出司法对防卫限度掌握过严。",
+          "本文通过对法秩序维护说的批判（否定其以绝对国家观或一般预防为根据解释中国正当防卫的本质），并转而从侵害人视角建构理论，形成了可复核的法学命题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文末参考文献列表缺失，脚注中包含少量OCR识别错误（如将0识别为o），但正文核心论证完整可读，不影响评审。"
+      ],
+      "evidence_quotes": [
+        "我国宪法第33条第2款、第4款分别规定：‘中华人民共和国公民在法律面前一律平等’；‘任何公民享有宪法和法律规定的权利，同时必须履行宪法和法律规定的义务。’",
+        "侵害人既自陷险境又违反了不得侵犯他人法益的义务，故其法益的值得保护性势必发生……严重的降低。",
+        "防卫限度的宽严主要不取决于侵害行为所针对的法益种类，而是取决于侵害行为给他人有效、安全防卫所造成的阻力和困难的大小。",
+        "本文通过分析袁某被围殴刺伤案、朱某砍伤入室者案、张某某反杀案等中国司法案例，指出我国司法实践对防卫限度掌握过于严苛，存在‘绝对禁止为了保护财产法益而致使侵害人死亡’的观念，应予纠正。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量总体良好，仅有轻微OCR/格式瑕疵（脚注编号与参考文献抽取），不影响核心论证。论文以中国刑法条文、宪法规范及多个国内司法案例为基础，针对中国正当防卫制度的解释难题提出侵害人视角下的理论命题，并进行本土化论证与检验，完全符合‘中国自主知识体系研究’的六维评价入口条件，可直接进入评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码及OCR识别错误（如[1o]、[123]、[14]等）",
+          "部分德文文献及人名存在OCR残留乱码（如Notreehte、Auf1．、Schr6der等）",
+          "期刊页码及栏目名混入正文（如· 122 ·、法学研究 2015年第3期）"
+        ],
+        "evidence_quotes": [
+          "[1o] Vg1．Frlster……",
+          "· l23 ·",
+          "[123]由此可见……"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "防卫限度恰恰是我国正当防卫审判实践中最易引起争议，也最亟待解决的问题。",
+          "采取法益保护和侵害人法益的值得保护性下降相结合的原理，可以完整地说明正当防卫的本质。",
+          "《汉律》规定：“无故人人室宅庐舍……其时格杀之，无罪。”",
+          "对比刑法第20条和第21条的规定，我们不难发现……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、德文文献OCR残留及期刊页码混入正文，不影响核心论点定位，但需后续清理"
+      ],
+      "evidence_quotes": [
+        "防卫限度恰恰是我国正当防卫审判实践中最易引起争议，也最亟待解决的问题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分；后续文本工程处理时需注意清理脚注乱码、外文OCR残损及混入的期刊页码"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如[1o]应为[10]，[l7]应为[17]，【l7)应为[17]等）",
+          "部分德文文献引用存在字符乱码（如Einschr~ankungen、Verteidigung等）",
+          "参考文献列表缺失，但文内脚注完整可定位",
+          "期刊页码混入正文（如·122·、·123·等）"
+        ],
+        "evidence_quotes": [
+          "[1o]应为[10]",
+          "Einschr~ankungen",
+          "·122·",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法第20条、第21条的规定",
+          "我国刑法学通说实际上也采取了与该说基本相同的立场",
+          "我国宪法第33条第2款、第4款分别规定",
+          "司法实践中盛行的'绝对禁止为了保护财产法益而致使侵害人死亡'的观念应当被纠正",
+          "山东省枣庄市中级人民法院(2013)枣刑三终字第2号刑事判决书",
+          "河南省开封市中级人民法院(2009)汴刑终字第40号刑事判决书",
+          "《汉律》规定：'无故人人室宅庐舍...'",
+          "1997年刑法修订的过程中，特殊防卫的对象也曾一度包含非法侵入他人住宅"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留、德文文献字符乱码、期刊页码标记混入，但核心论点可定位",
+        "文本工程：参考文献列表未抽取，但文内脚注完整，不影响核心论证定位"
+      ],
+      "evidence_quotes": [
+        "本文的标题'侵害人视角下的正当防卫论'即表明其理论立场",
+        "我国刑法第20条第1款规定的'不法侵害'",
+        "司法实践中盛行的'绝对禁止为了保护财产法益而致使侵害人死亡'的观念应当被纠正",
+        "对正当防卫'必要限度'的理解，而防卫限度恰恰是我国正当防卫审判实践中最易引起争议，也最亟待解决的问题"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国刑法第20条正当防卫制度为核心研究对象，深入分析中国司法实践中的真实难题（防卫限度认定、挑拨防卫、预先设置防卫装置、特殊防卫等），并对中国传统刑法学通说及司法实践提出批判性反思，构建'侵害人视角'的正当防卫理论。虽存在脚注OCR残留、德文乱码等文本质量问题，但核心论点、结构和主要论证完全可定位，应进入六维评价。建议评分时关注其对中国正当防卫司法实践的解释力与理论建构贡献。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（如[1o]、【123、vs1．、f．等乱码）",
+          "期刊页码与正文混排（如· 122 ·、· l3l·）",
+          "部分德文文献引用格式断裂或字符替换"
+        ],
+        "evidence_quotes": [
+          "[1o] Vg1．Frlster，Die Notwehr im System der Notreehte，GA 1988，S．292．",
+          "【123由此可见，单纯的法益保护思想虽",
+          "vs1．Gallas，Zur Struktur des strafreehtlichenUnrechtsbegrifs，FS·Bockelmann，1979，S．168；"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "对比刑法第20条和第21条的规定，我们不难发现，与防御性紧急避险相比，在保护法益的力度上，正当防卫明显更为强势。",
+          "我国正当防卫审判实践中最易引起争议，也最亟待解决的问题。",
+          "采取法益保护和侵害人法益的值得保护性下降相结合的原理，可以完整地说明正当防卫的本质。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR噪声与页码混排，建议进行基础清洗；项目口径完全达标，无边界争议"
+      ],
+      "evidence_quotes": [
+        "侵害人视角下的正当防卫论",
+        "防卫限度的认定，实质上是关于不法侵害人法益的值得保护性在多大范围内不复存在的判断。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR噪声，建议清洗后进入六维评分。项目口径完全符合，以中国刑法第20条正当防卫制度为中心，批判通说并提出‘侵害人视角’与‘情境性判断’教义学命题，深度结合中国司法案例（如袁某案、朱某案、张某某案等）展开解释论分析，具备明确的理论转化与实践解释力，可直接进入正式评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以“正当防卫的本质”为主题，但未能提出可争辩的法学研究问题，流于立场阐释与体系归纳。",
+          "core_judgment": "该文主要是在阐释一个既定立场（侵害人视角），而未提出一个具有理论分歧的、可争辩的法学问题，未能满足问题创新性的基本要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限。因可争辩性≤1，触发no_justiciable_question上限规则，最高50分。论文存在宏观介绍、新概念包装旧问题等致命缺陷，最终给35分。",
+          "evidence_quotes": [
+            "“正当防卫的本质所要回答的问题是：作为一种对他人法益造成损害的行为，正当防卫合法化的实质根据和思想基础究竟何在?”",
+            "“通过以上分析我们发现，沿着防卫人视角进行的论证不可避免地进入了死胡同，那么接下来唯一的选择就是转换视角，从不法侵害人方面去探寻正当防卫的本质。”"
+          ],
+          "strengths": [
+            "对“法秩序维护说”的批判展现了作者的理论思辨能力。",
+            "尝试从侵害人视角构建解释论框架，具有一定理论抱负。"
+          ],
+          "weaknesses": [
+            "全文围绕“侵害人视角”展开阐释，实质是对既定立场的系统辩护，而非提出并论证一个可争辩的研究问题。",
+            "“侵害人视角”虽有新意，但未明确说明其相较于既有理论（如法秩序维护说、个人保护说）的解释力增益，存在新概念包装旧问题之嫌。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学问题句，主要为立场阐释与体系建构，而非围绕一个可证伪的争点展开论证。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文主标题为“侵害人视角下的正当防卫论”，核心任务是“转换视角”、“探寻本质”和“展开解释论”，通篇论证“侵害人利益降低”的合理性，未呈现需要解答的理论难题，亦无学者观点交锋。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否可争辩且重要，不评文献综述、论证严密性或材料支撑程度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文提出了正当防卫本质的明确争点，视角转换带来实质理论推进。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，视角转换带来实质解释力提升。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料未触发上限，扣分合计=0分，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "正当防卫合法化的实质根据和思想基础究竟何在?",
+            "不法侵害人的法益值得保护的程度出现了大幅下降，因为其自陷险境且违反了不得侵犯他人法益的义务。"
+          ],
+          "strengths": [
+            "提出了明确的法学争点并展示了法秩序维护说与侵害人视角的理论分歧",
+            "视角转换带来了实质的解释力提升，有效说明了正当防卫的强势特征"
+          ],
+          "weaknesses": [
+            "无明显弱点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "从侵害人视角重构正当防卫本质，提出法益值得保护性下降原理，并展开解释论应用。",
+          "core_judgment": "论文提出了具有可争辩性的刑法学核心争点，但主要贡献在于解释论展开而非问题本身的原创性提出。",
+          "score_rationale": "可争辩性=4/4，枢纽性=2/4，材料新颖性未触发上限。锚定good档，给72分。扣分合计=0分。",
+          "evidence_quotes": [
+            "正当防卫的本质所要回答的问题是：作为一种对他人法益造成损害的行为，正当防卫合法化的实质根据和思想基础究竟何在？",
+            "采取法益保护和侵害人法益的值得保护性下降相结合的原理，可以完整地说明正当防卫的本质"
+          ],
+          "strengths": [
+            "明确提出'侵害人视角'与'防卫人视角'的理论对立，具有清晰的问题意识",
+            "将法哲学原理与刑法解释论深度结合，对正当防卫限度等具体制度产生连锁影响"
+          ],
+          "weaknesses": [
+            "核心问题'正当防卫的本质'是刑法学长期讨论的经典议题，非作者首次提出",
+            "'侵害人视角'在德国刑法学中已有讨论，论文更多是在中国语境下的系统展开而非原创性理论建构"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以侵害人视角重构正当防卫本质，突破法秩序维护说通说，具有明确的教义学争点与理论推进。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，成功将经典本质之争转化为解释防卫限度的实质标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限。前置负面检查扣分合计0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "正当防卫合法化的实质根据和思想基础究竟何在?",
+            "沿着防卫人视角进行的论证不可避免地进入了死胡同，那么接下来唯一的选择就是转换视角，从不法侵害人方面去探寻正当防卫的本质。"
+          ],
+          "strengths": [
+            "明确提炼侵害人法益值得保护性下降的核心命题，理论交锋清晰。",
+            "将本质论争直接对接防卫限度司法难题，问题导向鲜明。"
+          ],
+          "weaknesses": [
+            "对侵害人视角可能导致的防卫权扩张边界论证稍显单薄。",
+            "部分案例归责分析偏向实务操作，理论抽象度略有稀释。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.88688516616821,
+        "glm-5.1": 54.02392220497131,
+        "kimi-k2.6": 10.004931688308716,
+        "qwen3.6-plus": 65.12753987312317
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 72.5,
+      "std": 26.8,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在正文和脚注中展开了分散式的文献定位和学派对话，构建了较为清晰的争点结构，但研究地图三要素中"
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位既有学说缺陷，成功构建双重争点结构，洞察度极佳。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "法秩序维护说，是德国刑法学界和判例的主流观点[15]",
+            "折中说之所以始终无法跳出...思路，其根源在于轻视了如下一点"
+          ],
+          "strengths": [
+            "精准批判法秩序维护说与折中说，未竟点明确",
+            "本质论与限度论形成双重争点结构"
+          ],
+          "weaknesses": [
+            "对法益保护说作为独立流派的界定稍显隐晦"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点构建，不评侵害人视角本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了以'法秩序维护说'为靶标的学术对话，呈现从防卫人视角到侵害人视角的理论转向，但研究地图的未竟点与切入点表述较为分散。",
+          "core_judgment": "研究地图三要素基本可识别但分散于论证中，争点结构清晰（法秩序维护说vs侵害人法益值得保护性下降说），法学流派覆盖2个，满足good档。",
+          "score_rationale": "三要素得分=4/6（到达点2：明确梳理法秩序维护说及一般预防论证；未竟点1：指出法秩序维护说'进入死胡同'但分散；切入点1：提出侵害人视角但对应关系隐含），争点结构=2/2（法秩序维护说vs侵害人视角），法学流派=2个（法秩序维护说、侵害人法益值得保护性下降说），锚定good档，给72分。",
+          "evidence_quotes": [
+            "上述思想可被概括为法秩序维护说，是德国刑法学界和判例的主流观点……我国刑法学界通说实际上也采取了与该说基本相同的立场",
+            "通过以上分析我们发现，沿着防卫人视角进行的论证不可避免地进入了死胡同，那么接下来唯一的选择就是转换视角，从不法侵害人方面去探寻正当防卫的本质"
+          ],
+          "strengths": [
+            "争点结构清晰，明确以法秩序维护说为批判靶标建立对立",
+            "中德文献引用丰富，理论纵深较好"
+          ],
+          "weaknesses": [
+            "未竟点与切入点分散于正文，缺乏集中表述",
+            "未充分呈现法秩序维护说内部的理论分歧"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位与争点结构，不评价'侵害人视角'本身是否新颖。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒正当防卫本质的“法秩序维护”与“侵害人利益降低”两条解释路径，并精准切入防卫限度争议。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "单纯的法益保护思想虽能揭示紧急权的共同根源，却无法说明正当防卫、紧急避险等各自的特点。",
+            "沿着防卫人视角进行的论证不可避免地进入了死胡同，那么接下来唯一的选择就是转换视角，从不法侵害人方面去探寻正当防卫的本质。"
+          ],
+          "strengths": [
+            "精准提炼法秩序维护说与侵害人视角两大对立解释路径，争点结构严密。",
+            "将文献批判融入教义学论证，分散式定位清晰呈现到达点与未竟点。"
+          ],
+          "weaknesses": [
+            "对德日相关学派的源流演变梳理稍显简略，未充分展开跨法域理论对话。",
+            "部分批判集中于通说折中说的实践局限，对替代方案的比较法支撑可更丰满。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，不涉及防卫限度理论本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.483967065811157,
+        "glm-5.1": 91.74495720863342,
+        "kimi-k2.6": 13.835514068603516,
+        "qwen3.6-plus": 70.46099376678467
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 80
+      },
+      "mean": 78.5,
+      "std": 8.5,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文以“侵害人视角”重构正当防卫本质论，提出了自陷险境与义务违反双核心的分析框架。",
+          "core_judgment": "该论文为制度/实务型，成功建构了可操作的分析框架，原创性强且法学转化充分。",
+          "score_rationale": "框架可操作性得分=3/4（概念清晰、分类明确、后文反复调用，仅步骤化稍弱但通过考量要素展开弥补），法学转化度得分=3/4（将侵害人法益贬值理论转化为防卫限度判断的具体规则与考量因素），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "侵害人法益的值得保护性大幅下降...一是侵害人自陷险境，二是侵害人违反不得侵犯他人法益的义务",
+            "防卫限度判断需考量：侵害行为给有效防卫造成的困难程度、给防卫人安全带来的危险程度、所损害法益的悬殊程度"
+          ],
+          "strengths": [
+            "提出侵害人法益值得保护性下降的双因素原创框架，彻底转换传统防卫人视角",
+            "成功将理论本质转化为防卫限度判断的具体、可操作的考量因素，且在后文案例中反复调用"
+          ],
+          "weaknesses": [
+            "分析步骤的流程化仍可加强，未形成“第一步-第二步-第三步”的显性判断流程",
+            "“情境性判断”作为基本原则之一，其操作指引可进一步提炼为更具约束力的判断标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅聚焦框架的可操作性与法学转化度，不涉及该框架在逻辑推理上的严密性及其与现有学说的衔接评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "原创侵害人视角框架，转化出清晰的防卫限度判断步骤与考量因素。",
+          "core_judgment": "框架建构力极强，提出了原创的侵害人视角并转化为可操作的防卫限度判断标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。框架概念清晰、分类明确、步骤可循且后文6个案例均实际调用，法学转化度高。",
+          "evidence_quotes": [
+            "不法侵害人的法益之所以被逐出法律庇护所，是因为值得保护的程度大幅下降。原因来自：1.自陷险境；2.违反不得侵犯他人法益的义务。",
+            "防卫限度的判断必须置身于实施防卫行为时的境地之中……考量因素包括：侵害行为给有效防卫造成的困难程度、给防卫人安全带来的危险程度、法益价值悬殊程度。"
+          ],
+          "strengths": [
+            "提出侵害人视角的原创分析框架，概念界定清晰",
+            "将理论框架转化为具体的防卫限度判断步骤与考量因素"
+          ],
+          "weaknesses": [
+            "防卫限度考量因素中'困难程度'与'危险程度'偶有交叉"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与法学转化，不评价推理逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "boundary_overlap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "本文提出'侵害人视角'理论框架，以'法益值得保护性下降'为核心，构建自陷险境与违反义务双重要件，并类型化防卫限度判断标准。",
+          "core_judgment": "分析框架成立且具有可操作性，核心概念界定清晰，分类标准明确，分析步骤可循，后文大量案例实际调用，属于典型的理论型论文框架。",
+          "score_rationale": "框架可操作性得分=4/4（概念界定清晰：'侵害人法益值得保护性下降'有明确定义；分类标准明确：自陷险境与违反义务双重要件；分析步骤可循：情境性判断原则+三维度考量因素；后文实际调用：案例1-6均运用框架分析）。法学转化度得分=3/4（跨学科概念转化为法学分析步骤：将被害人自我答责理论转化为防卫限度判断标准；提供裁判规则：'情境性判断''有效安全制止'等具体标准；制度设计层面：对预先设置防卫装置、挑拨防卫等提出处理方案；转化步骤被实际使用：后文案例均按框架展开）。锚定good档(60-79)，因理论原创性强、案例支撑充分，给72分。",
+          "evidence_quotes": [
+            "侵害人在本可避免的情况下自陷险境……侵害人违反了不得侵犯他人法益的义务",
+            "防卫限度的认定，实质上是关于不法侵害人法益的值得保护性在多大范围内不复存在的判断"
+          ],
+          "strengths": [
+            "双重要件结构清晰，将'自陷险境'与'违反义务'作为类型化标准",
+            "案例调用充分，6个案例均严格按框架步骤展开分析"
+          ],
+          "weaknesses": [
+            "部分核心术语如'情境性判断'缺乏更精细的操作化定义",
+            "三维度考量因素之间的权重关系未明确，存在适用冲突可能"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及三阶层犯罪论体系衔接等逻辑严密性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“侵害人视角”教义学框架，将法益值得保护性下降理论转化为防卫限度判断的具体规则与情境考量因素。",
+          "core_judgment": "框架成立且高度可用，核心概念界定清晰，分析步骤明确，并在后文案例解释中得到充分调用与验证。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。理论视角成功转化为裁判规则与情境判断标准。",
+          "evidence_quotes": [
+            "“防卫限度的认定，实质上是关于不法侵害人法益的值得保护性在多大范围内不复存在的判断。”",
+            "“在有效、安全地制止不法侵害的范围内，侵害人法益的值得保护性原则上归于消灭。”"
+          ],
+          "strengths": [
+            "视角转换精准，将抽象本质论转化为可操作的限度判断标准。",
+            "情境性判断原则与类型化考量因素高度契合司法裁判逻辑。"
+          ],
+          "weaknesses": [
+            "对“社会道德限制”等例外情形的体系定位略显单薄。",
+            "部分案例归责与限度判断的衔接可进一步精细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑推演严密性或问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.580029010772705,
+        "glm-5.1": 71.08935594558716,
+        "kimi-k2.6": 17.312530040740967,
+        "qwen3.6-plus": 54.555973291397095
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 10.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链条清晰完整，核心结论可从前文推导而来，且有效处理了多个层面的反驳观点。",
+          "core_judgment": "论文遵循“问题聚焦-旧视角批判-新视角提倡-解释论展开”的严密主线，结论有充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、依赖度高、结论可推出、无关键跳步）；反驳处理度得分=3/3（显式反对意见、实质性回应、承认适用边界）。锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "“法秩序维护说存在重大疑问。第一，很难说法秩序的维护具有绝对超越公民个人法益保护的独立价值……第二……把正当防卫看成了施加刑罚的行为……第三，法秩序维护说隐含着将防卫对象的范围扩大到无辜第三人的危险。”",
+            "“本文论证限于……对于所涉财产数额极其微小的不法侵害，绝对不允许使用明显具有致侵害人死亡危险的防卫措施……是……例外限定。反观我国，……理论上的当务之急应是着力树立原则，而不是一味强调例外。”"
+          ],
+          "strengths": [
+            "推理链高度整合：从本质论到解释论层层递进，各步骤紧密依赖前一步结论。",
+            "反驳体系化：系统批判法秩序维护说的三大缺陷，为转向侵害人视角提供了坚实的否定性前提。"
+          ],
+          "weaknesses": [
+            "必要时可进一步解释侵害人视角如何内在地兼容特殊防卫条款，而非仅依赖个案情境判断。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度不评框架本身的可操作性（如‘情境判断’是否足够精细），仅评逻辑链条的推出关系是否充分且连贯。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度强，反驳与局限处理出色，逻辑严密性极高。",
+          "core_judgment": "本维度完全成立，论文构建了从批判旧说、确立新本质到展开解释论的严密逻辑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "沿着防卫人视角进行的论证不可避免地进入了死胡同，那么接下来唯一的选择就是转换视角，从不法侵害人方面去探寻正当防卫的本质。",
+            "生命法益的值得保护性无论如何降低，也不可能连一个苹果、两只鸡蛋的价值都不如……这毕竟只是正当防卫的一种极端情况……"
+          ],
+          "strengths": [
+            "推理链层层递进，从破到立，逻辑依赖度极强。",
+            "对主流学说的反驳论证详实，且明确承认自身理论的例外边界。"
+          ],
+          "weaknesses": [
+            "从自陷险境推导义务违反的过渡稍显简略，但未构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评分聚焦于从本质论到限度论的逻辑推导链条，不评价防卫限度判断标准的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了'法益保护+侵害人值得保护性下降'的正当防卫本质论，推理链完整，反驳处理充分。",
+          "core_judgment": "主要推理步骤可复述、相互依赖且能支撑核心结论，对法秩序维护说的批判及自身理论局限的处理较为充分。",
+          "score_rationale": "推理链完整性得分=4/4（标准1-4均满足），反驳处理度得分=3/3（标准1-3均满足），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "沿着防卫人视角进行的论证不可避免地进入了死胡同，那么接下来唯一的选择就是转换视角，从不法侵害人方面去探寻正当防卫的本质",
+            "采取法益保护和侵害人法益的值得保护性下降相结合的原理，可以完整地说明正当防卫的本质"
+          ],
+          "strengths": [
+            "从法秩序维护说批判到侵害人视角建构，再到防卫限度具体判断，三步推理环环相扣",
+            "对法秩序维护说三大缺陷的反驳构成完整归谬链条"
+          ],
+          "weaknesses": [
+            "对'情境性判断'与'自我答责'的衔接论证可更精细",
+            "案例5、6的归责分析存在一定程度的循环论证风险"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'侵害人视角'框架本身的理论原创性或可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "理论推演严密，反驳充分，结论可辩护推出。",
+          "core_judgment": "推理链完整且环环相扣，对主流学说与实务争议的回应具有实质性论证支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "单纯以该思想为基础构建起来的紧急权呈现出两个特点……由此可见，单纯的法益保护思想虽能揭示紧急权的共同根源，却无法说明正当防卫、紧急避险等各自的特点。",
+            "既然侵害人以违反义务的方式使自己的法益与他人的法益发生了冲突，故他在法律上负有排除这一冲突的义务。"
+          ],
+          "strengths": [
+            "批判法秩序维护说逻辑递进，彻底切断旧理论前提。",
+            "从本质论到限度论的推导依赖度高，无关键跳步。"
+          ],
+          "weaknesses": [
+            "情境判断原则的个案适用标准稍显抽象。",
+            "部分案例归责与限度判断的衔接可更精简。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与可辩护性，不评价解释框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 75.07958889007568,
+        "glm-5.1": 53.63717293739319,
+        "kimi-k2.6": 11.610717296600342,
+        "qwen3.6-plus": 46.790661096572876
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89.2,
+      "std": 5.1,
+      "strictest": 85,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出了侵害人视角的正当防卫本质论，但结论部分几乎不回应既有学术争论与反对意见，限制了对共同体对话的进入。",
+          "core_judgment": "结论虽有理论价值且不与法秩序根本矛盾，但缺乏与既有学说的直接对话与对反对意见的回应，共同体对话度低。",
+          "score_rationale": "共同体对话度=1分（回应了中国语境，但未与法秩序维护说等对立观点明确争论，也未主动承认局限，可被定位但对话门槛高）。制度可接受度=3分（结论为现行法条提供解释论，有制度转化方向）。论文类型为理论/混合论文，因A=1落入‘marginal’档，上限50-59分，给58分。",
+          "evidence_quotes": [
+            "“法秩序维护说存在重大疑问……很难说法秩序的维护具有绝对超越公民个人法益保护的独立价值。”",
+            "“笔者打算着重探讨在侵害人法益的值得保护性已经下降……这种下降的具体幅度是如何确定的。”"
+          ],
+          "strengths": [
+            "结论紧密结合中国宪法平等权条款与刑法第20条进行解释论展开，制度语境回应较充分。",
+            "从侵害人视角出发为防卫限度判断提供了情境性、类型化的具体标准，制度转化方向明确。"
+          ],
+          "weaknesses": [
+            "结论部分未主动回应法秩序维护说可能提出的反驳，也未讨论自身理论的局限或例外情形。",
+            "未将论点明确置于共同体已有争论中定位，基本未提及与主流学说的对话关系，近似自说自话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0或≤1且结论被认定为无法进入共同体语境时，总分上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论虽与中国法条结合，但未明确说明与法秩序维护说等对立观点的争论关系，全文结论部分未讨论反对意见或自身局限，共同体对话度仅有标准3成立。"
+            }
+          ],
+          "boundary_note": "本文为理论与解释论混合论文，不评论证严密性或未来延展性。结论不要求主流认可，但缺乏与对立观点的明确争辩限制了对话度。",
+          "review_flags": [
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "结论深刻回应学界争论并重构正当防卫本质论，与中国制度语境高度兼容。",
+          "core_judgment": "结论成功进入共同体对话语境，理论创新与制度实践深度结合，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "仅从自陷险境这一点还不足以说明正当防卫的本质特征...会推导出如下荒唐的结论：不法侵害人对防卫人也享有正当防卫权",
+            "不法侵害人的法益之所以在相当大的程度上被逐出了法律的庇护所，是因为它值得保护的程度...出现了大幅下降"
+          ],
+          "strengths": [
+            "主动反思自身理论局限并补充违反义务要素",
+            "理论重构直接指导司法裁判限度的判断"
+          ],
+          "weaknesses": [
+            "对极端法益悬殊情形的例外处理略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度兼容性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "以侵害人视角重构正当防卫本质，理论创新性强，制度回应充分。",
+          "core_judgment": "理论论文，结论与法秩序兼容，对话度高，但部分制度转化表述可更明确。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定good档，给78分。论文明确回应法秩序维护说与法益保护说的争论，提出'侵害人法益值得保护性下降'新理论；主动讨论反对意见（如自陷险境的局限性）；结合中国刑法第20条、第21条及司法案例展开。制度可接受度：不矛盾于现行法（标准1满足），回应法条与实务（标准2满足），考虑中国语境（标准4满足），但制度转化方向虽有案例支撑，未明确提炼为'未来立法/司法方向'的概括性表述（标准3部分满足）。",
+          "evidence_quotes": [
+            "采取法益保护和侵害人法益的值得保护性下降相结合的原理，可以完整地说明正当防卫的本质。",
+            "司法实践中盛行的'绝对禁止为了保护财产法益而致使侵害人死亡'的观念应当被纠正。"
+          ],
+          "strengths": [
+            "明确挑战法秩序维护说，建构可反驳的替代理论。",
+            "结合中国刑法条文与大量本土案例展开分析。"
+          ],
+          "weaknesses": [
+            "制度转化方向分散于案例分析，缺乏概括性指引。",
+            "对'社会道德限制'的例外讨论略显保守，未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确挑战通说并构建侵害人视角框架，深度契合中国刑法语境与实务。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文结论修正了通说‘法秩序维护说’，主张从侵害人法益值得保护性下降视角重构正当防卫本质。",
+            "结合《刑法》第20条及中国判例，提出防卫限度应贯彻‘情境性’判断与风险向侵害人倾斜原则。"
+          ],
+          "strengths": [
+            "精准定位学说争论，提出可检验的替代性教义学标准。",
+            "深度回应司法实务痛点，提供明确的裁判解释路径。"
+          ],
+          "weaknesses": [
+            "对法益值得保护性下降的规范伦理基础可进一步深化。",
+            "情境判断标准在极端个案中的裁量边界仍需细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 68.6996591091156,
+        "glm-5.1": 60.220163106918335,
+        "kimi-k2.6": 11.35237979888916,
+        "qwen3.6-plus": 63.81099200248718
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 95,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.8,
+      "std": 16.9,
+      "strictest": 58,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文未提出具体后续研究问题、修正方向或明确延展路径，仅在侵害人视角框架内完成论证，缺乏对未来研究的具体指引。",
+          "core_judgment": "该维度不存在真实延展路径，结尾仅以具体案件分析收束，未说明未来还能往哪里走。",
+          "score_rationale": "原始分为30分，对应bonus=0档位。通篇无明确后续研究方向、概念修正路径或具体局限说明，仅结束于既有框架下的案件分析，属于口号式展望缺失。",
+          "evidence_quotes": [],
+          "strengths": [
+            "侵害人视角的论证结构完整，为后续研究提供了可参考的分析框架。"
+          ],
+          "weaknesses": [
+            "未提出具体的后续研究问题、理论修正方向或实务改进路径。",
+            "缺乏对正文局限的明确说明及未来如何推进的指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "全文无未来研究指向段落，未说明具体问题、对象、机制、概念边界或实务场景，结尾仅为具体案例分析和结论收束。"
+            }
+          ],
+          "boundary_note": "本维度仅评未来延展路径是否存在；论文论证了当下结论的可接受性，但未提供后续推进方向。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了侵害人视角下正当防卫解释论的多个具体延展路径，包括被害人自我答责的引入、挑拨防卫的重新界定及情境性判断标准的适用边界。",
+          "core_judgment": "存在真实延展路径，指明了理论修正方向与实务适用边界。",
+          "score_rationale": "原始分85，对应bonus档位5分（>=80）。论文基于侵害人视角核心结论，清晰指明了被害人自我答责介入防卫装置、挑拨防卫重构及情境性风险分担等具体延展路径，与正文衔接紧密。",
+          "evidence_quotes": [
+            "预先设置防卫装置的某些情形可以不通过正当防卫，而直接借助被害人自我答责的原理就能得到处理。",
+            "挑拨防卫是否影响防卫权的存在，取决于挑拨行为是否会使侵害人避免法益冲突的能力归于消失。"
+          ],
+          "strengths": [
+            "延展路径与核心结论（侵害人视角）紧密衔接，逻辑自洽",
+            "指明了被害人自我答责、挑拨防卫重构等具体理论修正方向"
+          ],
+          "weaknesses": [
+            "对极端法益悬殊下社会道德限制的本土化延展仅作暗示，未展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文指明的“社会道德限制”本土化及紧急权体系重构属于未来理论深化方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在侵害人视角理论框架下，明确提出了防卫限度判断中'情境性判断原则'的深化方向、被害人自我答责原理的扩展适用，以及挑拨防卫等具体问题的后续研究入口。",
+          "core_judgment": "存在真实延展路径：正文末尾将'侵害人法益值得保护性下降'原理向防卫限度判断的具体化延伸，并预留了多个可继续展开的实务争点。",
+          "score_rationale": "原始分72分，对应bonus=3的'good'档位。论文在第三部分明确提出了'情境性判断原则'作为未来深化方向（第129页），将被害人自我答责原理从预先设置防卫装置扩展至追逐类案件（第136-137页），并指出挑拨防卫、自招防卫等'值得反思'的具体问题（第127页）。但延展多散见于案例分析中，未形成系统性的后续研究框架，精细度有限。",
+          "evidence_quotes": [
+            "对侵害人法益值得保护性下降程度的认定，应当贯彻'情境性'的判断原则（第129页）",
+            "限于篇幅，笔者打算着重探讨在侵害人法益的值得保护性已经下降（即已经存在正当防卫权）的前提下，这种下降的具体幅度是如何确定的（第127页）"
+          ],
+          "strengths": [
+            "明确提出'情境性判断原则'作为防卫限度认定的深化方向",
+            "将被害人自我答责原理从典型场景扩展至追逐类新型案件"
+          ],
+          "weaknesses": [
+            "延展路径散见于案例分析，未形成系统的后续研究框架",
+            "对挑拨防卫等问题的讨论以'值得反思'一笔带过，未展开具体修正路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文为未来研究提供的可延展空间，而非当下结论是否被接受。论文提出的'情境性判断原则'和被害人自我答责的扩展适用，均属于'未来还能往哪里走'的问题，不涉及对当前结论可接受性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以侵害人法益值得保护性下降为核心，清晰勾勒出正当防卫限度认定的情境化判断路径与实务适用边界。",
+          "core_judgment": "存在真实延展路径，理论转向直接转化为防卫限度认定的具体教义学标准与案例检验框架。",
+          "score_rationale": "原始分85，映射为bonus=5。论文将侵害人视角转化为情境判断与风险分担原则，为防卫限度争议提供可操作的教义学延展路径，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "限于篇幅，笔者打算着重探讨在侵害人法益值得保护性下降前提下，其具体幅度如何确定。",
+            "对侵害人法益值得保护性下降程度的认定，应当贯彻情境性的判断原则。"
+          ],
+          "strengths": [
+            "理论视角转换直接导出防卫限度认定的具体教义学标准。",
+            "结合争议案例划定情境判断与风险分担的实务边界。"
+          ],
+          "weaknesses": [
+            "对极端财产防卫的例外情形仅作原则提示，未充分类型化。",
+            "未明确交代该框架在挑拨防卫等边缘场景的具体适用边界。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估该理论框架为后续教义学深化与司法裁判提供的可检验路径，非当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 54.37746787071228,
+        "glm-5.1": 47.391204833984375,
+        "kimi-k2.6": 13.061970949172974,
+        "qwen3.6-plus": 72.56702899932861
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 68,
+      "std": 26.1,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 83.08,
+      "weighted_total": 79.6
+    },
+    "aggregation_strictest": {
+      "final_score": 62.0,
+      "weighted_total": 60.0
+    },
+    "avg_std": 15.6,
+    "max_std": 26.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 21.1,
+    "composite_score": -15.6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 26.8
+  }
+}

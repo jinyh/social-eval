@@ -1,0 +1,1092 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/企业犯罪预防中合规计划制度的借鉴.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别乱码（如①、⑨、⑩等上标识别为全角字符或不规则编号）。",
+          "部分数字与日期OCR粘连或识别错误（如“2Ol4年”应为“2014年”）。",
+          "参考文献列表缺失，但未影响核心论点定位。"
+        ],
+        "evidence_quotes": [
+          "参见李本灿：《合规计划的效度之维——逻辑与实证的双重展开》，载《南京大学法律评论》2Ol4年春季卷，第229页。",
+          "See U．S．SentencingGuideline Manua l §8C2．8(a)-(1)．(2011)"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "然而，令人遗憾的是，这样的制度在我国尚处于观念倡导期，目前我国对于如何引介合规计划或者通过合规计划对我国的企业犯罪惩治刑法体系进行反思的论述较少。",
+          "笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式。",
+          "我国企业(单位)犯罪的刑法规范体系以总则加分则的形式进行建构，除了《刑法》总则第30条和第31条...",
+          "通过量刑激励推动合规计划深入企业不失为一个好的方法...具体而言就是列入企业合规计划。",
+          "合规计划制度所具有的刑罚意义客观上可以消解刑罚的严厉性...如果企业积极进行合规管理，那么，因为法律激励措施的存在，也不至于遭受严厉的惩罚。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程问题：存在少量OCR乱码与脚注格式问题，但不影响整体阅读与评审。",
+        "项目口径：论文立足中国立法、司法实践与刑事政策，尝试将国外合规计划理论转化为中国刑法制度改造命题，四个项目口径信号均明确触发，无边界或不适格风险。"
+      ],
+      "evidence_quotes": [
+        "然而，令人遗憾的是，这样的制度在我国尚处于观念倡导期，目前我国对于如何引介合规计划或者通过合规计划对我国的企业犯罪惩治刑法体系进行反思的论述较少。",
+        "笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式。",
+        "我国企业(单位)犯罪的刑法规范体系以总则加分则的形式进行建构，除了《刑法》总则第30条和第31条...",
+        "通过量刑激励推动合规计划深入企业不失为一个好的方法...具体而言就是列入企业合规计划。",
+        "合规计划制度所具有的刑罚意义客观上可以消解刑罚的严厉性...如果企业积极进行合规管理，那么，因为法律激励措施的存在，也不至于遭受严厉的惩罚。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文符合“中国自主知识体系研究”六维评价的项目口径，文本质量存在轻微OCR乱码和脚注格式问题但不影响评审，建议直接进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留导致数字与字母识别错误：如'2Ol4'应为'2014'，'VI袋罪名'应为'口袋罪名'，'lO期'应为'10期'，'l5年'应为'15年'等，大量年份和数字存在'O'与'0'、'l'与'1'的混淆",
+          "期刊页码混入正文：如'177'、'178'、'179'等页码数字直接出现在段落中间",
+          "脚注编号乱码：部分脚注编号如'⑨'、'⑩'、'⑦'等在正文中出现，且部分编号顺序跳跃或重复"
+        ],
+        "evidence_quotes": [
+          "2Ol4年春季卷",
+          "VI袋罪名",
+          "l78",
+          "⑨美国2002年的《萨班斯一奥克斯利法》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式。",
+          "我国企业(单位)犯罪的刑法规范体系以总则加分则的形式进行建构……涉及单位(企业)犯罪的共有146个罪名。",
+          "我国刑法表现出惩罚主义的倾向。",
+          "合规计划与责任具有内在的融通之处……组织体被人格化了。",
+          "以责任一体化为目标，将企业犯罪与自然人犯罪等构的建议。",
+          "合规计划中蕴含的刑罚哲学理念与以自然人为基础的责任理论具有内在一致性……将企业等组织体的人格化进行到底。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "OCR数字/字母混淆（O/0, l/1）需在后续评分中人工校对",
+        "期刊页码混入正文需清洗",
+        "脚注编号乱码需结构化处理"
+      ],
+      "evidence_quotes": [
+        "笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式。",
+        "合规计划与责任具有内在的融通之处……组织体被人格化了。",
+        "以责任一体化为目标，将企业犯罪与自然人犯罪等构的建议。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段对OCR导致的数字乱码、页码混入及脚注编号问题进行文本工程清洗与校对，确保刑法条文序号、年份、统计数据等关键信息的准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如①②③等符号混用，部分脚注编号后缺少完整内容）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "部分英文文献引用存在格式不统一（如大小写、标点符号）",
+          "期刊页码信息偶有混入正文（如'177'、'178'等页码标记）"
+        ],
+        "evidence_quotes": [
+          "①参见李本灿：《合规计划的效度之维——逻辑与实证的双重展开》，载《南京大学法律评论》2Ol4年春季卷，第229页。",
+          "②[德]乌尔里希·齐白：《全球风险社会与信息社会中的刑法：二十一世纪刑法模式的转换》，周遵友、江溯等译，中国法制出版社2012年版，第263-264页。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国企业(单位)犯罪的刑法规范体系以总则加分则的形式进行建构...涉及单位(企业)犯罪的共有146个罪名",
+          "笔者提出，常见企业犯罪的法网是否严密对企业犯罪整体法网的评价具有重要意义",
+          "我国企业犯罪治理方面存在的问题具体来讲主要表现为三点：打击不力导致的犯罪黑数偏大；刑事案件行政化处理现象严重；刑罚普遍偏低",
+          "本文主张合规计划作为一个替代模式...构建起企业犯罪防控的多元、立体的防控体系",
+          "国有企业的行政化色彩并不足以形成对企业合规引入的制度性障碍"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号存在OCR残留，部分脚注内容不完整；参考文献列表缺失；期刊页码偶有混入正文",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国企业(单位)犯罪的刑法规范体系以总则加分则的形式进行建构...涉及单位(企业)犯罪的共有146个罪名",
+        "本文主张合规计划作为一个替代模式...构建起企业犯罪防控的多元、立体的防控体系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国问题为中心，系统分析我国企业犯罪惩治的刑法体系现状与问题，并引入合规计划制度进行比较法分析，提出构建我国企业犯罪防控多元体系的具体制度建议。论文具有明确的中国问题意识、可争辩的法学问题、对中国实践的真实解释尝试，以及形成法学概念和制度命题的理论转化。文本质量存在轻微风险（脚注OCR残留、参考文献缺失），但不影响核心论点评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（如年份'2Ol4'、页码'l78'/'184'混入正文）",
+          "部分脚注编号与参考文献链接存在乱码或断行（如'13。'、'El。'）",
+          "期刊页眉/页脚信息穿插于段落间"
+        ],
+        "evidence_quotes": [
+          "2Ol4年春季卷",
+          "l78",
+          "13。",
+          "El。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "基于对传统单一地依靠刑法进行的企业犯罪防控模式的反思……探讨我国企业犯罪惩治的刑法体系以及惩治模式。",
+          "刑事法网的严密、刑罚的严厉化并没有产生如立法者所愿的治理效果；相反，企业犯罪愈演愈烈……我们有必要对现行的企业犯罪控制理念及模式进行反思",
+          "笔者提出“突破传统思维，引入新的企业犯罪预防理念或者替代模式”的主张……具体而言就是列入企业合规计划。",
+          "通过量刑激励推动合规计划深入企业不失为一个好的方法……将个人责任理论推广到企业责任领域，将企业等组织体的人格化进行到底。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在少量OCR识别错误与页码混入，属低风险，不影响核心论点定位与评审",
+        "项目口径：完全契合，具备进入六维评价的充分信号"
+      ],
+      "evidence_quotes": [
+        "探讨我国企业犯罪惩治的刑法体系以及惩治模式",
+        "通过量刑激励推动企业内控",
+        "将合规计划引入我国的刑法之中，赋予合规计划一定的刑罚意义"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "建议进入六维评分流程。文本存在轻微OCR/排版残留，属低风险工程问题，不影响实质评审。论文聚焦中国企业犯罪治理困境，系统剖析现行刑事法网与刑罚结构的不足，明确提出以合规计划作为量刑激励与替代防控模式的规范命题，具备充分的理论转化与中国实践解释力，完全符合项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文以合规计划为切入点反思我国企业犯罪防控，问题意识清晰但核心主要在阐释既定立场，缺乏明确的可争辩法学问题和有交锋的深度分析。",
+          "core_judgment": "论文提出了引入合规计划弥补单一刑法治理不足的主张，这在2015年有一定新意，但研究问题实质上偏向政策倡导，未触及不同理论的深层争辩。",
+          "score_rationale": "可争辩性=2/4（有问题导向但非核心争点，无深入理论分歧），枢纽性=2/4（涉及刑事政策、刑事立法与司法等多个领域，争议具有持久性但论证缺乏交锋），材料新颖性未触发上限。锚定 marginal 档(60-69)，因论证更多是单向阐释而非争辩，给予62分。",
+          "evidence_quotes": [
+            "“基于对传统单一地依靠刑法进行的企业犯罪防控模式的反思，国外刑法学界提出了合规计划的概念。”",
+            "“笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式。”"
+          ],
+          "strengths": [
+            "问题意识明确，聚焦企业犯罪防控模式转型，具有一定的枢纽性。"
+          ],
+          "weaknesses": [
+            "问题主要为政策倡导，缺少可争辩的法学命题和不同学者观点的深度交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题陈述过于宏大且偏向政策倡导，缺乏聚焦的法学争点",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "全文主要阐释合规计划的必要性、正当性及引入路径，缺少可争辩的法学问题句，更多为单向介绍与倡导。"
+            }
+          ],
+          "boundary_note": "仅评价研究问题本身的创新性与重要性，不评价论证严密性、文献综述充分性或材料支撑程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出了企业犯罪防控模式转型与合规计划引介的明确法学争点，枢纽性强。",
+          "core_judgment": "问题成立且重要，涉及刑罚谦抑性、组织体责任等核心法理，但属制度借鉴创新。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "监管之责可否由国家独自承担?监管之责能否让渡给企业?",
+            "重刑规制企业犯罪的主张是否有违谦抑理念?"
+          ],
+          "strengths": [
+            "问题聚焦防控模式转型，具有明确法学争点",
+            "涉及合规有效性、重刑与谦抑冲突等核心理论分歧"
+          ],
+          "weaknesses": [
+            "核心问题属制度借鉴，原始理论创新性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文主题宏大但缺乏可争辩的法学研究问题，实为制度介绍与政策倡导。",
+          "core_judgment": "本维度不成立：全文无明确问题句，仅有主题声明式论述，未形成可争辩的法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。锚定unacceptable档，扣25分后给45分。扣分详情：检查1扣25分（'合规计划'为引进概念，未说明相对既有企业犯罪预防理论的理论进步，仅作制度介绍）；检查2扣20分（全文无学者观点交锋，仅系统归纳既定立场）；检查3扣20分（全文无'XX是否YY'式问题句，只有'引入合规计划'主题声明及政策倡导）。扣分合计65分，但不得低于30分，正式评分110-65=45分。",
+          "evidence_quotes": [
+            "基于此，笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式",
+            "笔者提出'突破传统思维，引入新的企业犯罪预防理念或者替代模式'的主张"
+          ],
+          "strengths": [
+            "主题涉及企业犯罪治理重大现实问题"
+          ],
+          "weaknesses": [
+            "无明确问题句，仅为制度引介主题声明",
+            "缺乏学者观点交锋，未形成可争辩争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'问题句，仅'探讨我国企业犯罪惩治的刑法体系'等主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，因可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以合规计划为核心，系统重构企业犯罪防控的刑法路径与刑事政策。",
+          "core_judgment": "问题具有明确的法学争辩性，触及单位犯罪归责基础、量刑哲学与刑事政策转型，研究命题成立且具枢纽价值。",
+          "score_rationale": "前置检查扣分0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "监管之责可否由国家独自承担？监管之责能否让渡给企业？",
+            "合规计划仅仅是一个企业犯罪预防的新模式，而不是企业犯罪消灭的法宝。"
+          ],
+          "strengths": [
+            "明确提炼合规计划与传统刑罚威慑的理论张力。",
+            "将量刑激励与企业内控义务深度绑定，论证扎实。"
+          ],
+          "weaknesses": [
+            "部分实证数据较旧，对当下合规改革回应稍显滞后。",
+            "对合规计划本土化落地的司法裁量标准探讨可更深入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.438538789749146,
+        "glm-5.1": 49.100969076156616,
+        "kimi-k2.6": 16.108799934387207,
+        "qwen3.6-plus": 65.24742197990417
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 70,
+      "std": 20.3,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "good",
+          "summary": "论文将文献梳理融入正文论证，呈现了合规计划的有效性争议及中外制度分歧，但作为核心困境的‘单位犯罪立法模式之争’仅提及单一学者观点，未形成学派脉络。",
+          "core_judgment": "研究地图具备到达点（既有合规理论及实践效果研究）、未竟点（我国刑法体系引入缺失）和本文切入点，争点结构基本成立但学派呈现较弱。",
+          "score_rationale": "三要素总分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2（合规计划有效性争议、中外立法模式分歧），法学流派=2个（有效论vs装饰论、一体化立法vs分治立法），锚定good(75-84)档，但因三要素中切入点对应稍弱且部分流派论证单薄，给予65分。",
+          "evidence_quotes": [
+            "“大量的实践表明，合规计划仅仅是一种装饰……但主张的声音更大，制度本身的形成和发展……就是一个证明。”",
+            "“我国自然人与单位(企业)并立的立法模式与一体化的责任形式相比产生了规制的空隙……有学者提出了以责任一体化为目标……的主张。”"
+          ],
+          "strengths": [
+            "成功将文献定位融入正文论证，清晰指出了合规计划在域外的有效性争论及在我国的引介空白。",
+            "明确呈现了合规计划“有效论”与“装饰论”的学术对立，以及中外单位犯罪立法模式的分歧，形成了争点结构。"
+          ],
+          "weaknesses": [
+            "本文切入点与未竟点的对应关系略显松散，未明确说明为何从‘国家规制不足’切入就能解决既有研究的分歧。",
+            "对我国单位犯罪立法模式的学派争议仅提及单一学者（蒋熙辉）观点，未能呈现国内学界就此问题的多元立场或交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限为79分。但本文三要素总分=5，不触发此上限规则。评分中因切入点和学派论证的单薄，在good档内给予较低分数。",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分5分，法学流派2个，不触发no_research_map或insufficient_school_coverage上限。"
+            }
+          ],
+          "boundary_note": "本维度仅评估既有研究的呈现与组织方式（研究地图），不评估引入合规计划这一视角的新颖性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，多重争点与流派对立充分呈现现状洞察。",
+          "core_judgment": "本维度高度成立，文献定位精准，争点结构完整，流派识别丰富。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "目前我国对于如何引介合规计划或者通过合规计划对我国的企业犯罪惩治刑法体系进行反思的论述较少。",
+            "供选择的对组织进行制裁的方法有报应刑理论以及威慑理论。"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现合规效度、刑罚哲学、立法模式等多重对立。",
+            "流派覆盖充分，包含报应/威慑、装饰/有效、分治/一体化等。"
+          ],
+          "weaknesses": [
+            "部分实证数据受限于2015年前报告，时效性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点建构的完整性，而非合规引入方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "论文缺乏系统的研究地图构建，未呈现可辨识的学术争点结构。",
+          "core_judgment": "本文虽有域外制度介绍和本土问题分析，但未建立'到达点—未竟点—切入点'的研究地图，争点结构缺失。",
+          "score_rationale": "三要素得分=2/6（到达点1/2，未竟点1/2，切入点0/2），争点结构=0/2，法学流派=0个，锚定unacceptable档，给52分。",
+          "evidence_quotes": [
+            "国外刑法学界提出了合规计划的概念...我国对于如何引介合规计划或者通过合规计划对我国的企业犯罪惩治刑法体系进行反思的论述较少",
+            "基于此，笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式"
+          ],
+          "strengths": [
+            "对域外合规计划制度有较全面的制度梳理",
+            "结合了我国企业犯罪立法与司法现状进行问题分析"
+          ],
+          "weaknesses": [
+            "未提炼既有研究的具体成果与贡献，到达点模糊",
+            "未呈现学术争论脉络，缺乏可区分的对立立场或解释路径分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及'论述较少'，未提炼具体研究成果；未竟点未明确具体学术争议；切入点未与未竟点建立对应关系"
+            }
+          ],
+          "boundary_note": "本维度评价文献定位而非问题新颖性，论文问题意识清晰但学术脉络定位不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准锚定合规计划引入的学术空白，争点结构完整，流派覆盖充分。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰呈现多重对立路径，符合优秀标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "然而，令人遗憾的是，合规制度在我国尚处于观念倡导期，相关论述较少。",
+            "关于企业犯罪刑罚哲学理念的差异，草案初稿中明确存在报应刑理论与威慑理论之争。"
+          ],
+          "strengths": [
+            "三要素完整，精准指出现有重刑模式失效与合规研究空白。",
+            "争点脉络清晰，系统梳理刑罚哲学、刑事政策与立法模式分歧。"
+          ],
+          "weaknesses": [
+            "部分比较法制度引介偏重描述，对本土化阻力的理论交锋稍显不足。",
+            "实证数据引用偏旧，对近年合规不起诉试点的学术回应未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及合规制度本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 97.54720902442932,
+        "glm-5.1": 41.81186771392822,
+        "kimi-k2.6": 13.342253923416138,
+        "qwen3.6-plus": 79.16374611854553
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 73.8,
+      "std": 18.4,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "本文属于对域外合规计划理念的梳理与引介性阐述，未能构建可重复适用的原创性法学分析框架，其核心内容属于政策倡导与现象描述，缺乏可操作的步骤与法学转化。",
+          "core_judgment": "论文以引介、阐释“合规计划”理念及梳理我国立法司法现状为主，未提出类型化标准、分析步骤或判断规则等原创分析框架，因此本维度不成立。",
+          "score_rationale": "框架可操作性得分=0/4（触底0分：无清晰概念界定、无分类标准、无分析步骤，且后文无核心框架调用；同时触犯概念堆砌负面模式），法学转化度得分=0/4（无跨学科概念转化，无裁判规则或操作指引，无具体制度设计方案），因严重低于无效框架阈值，直接评为15分。",
+          "evidence_quotes": [
+            "笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式。",
+            "具体讲，我们应该坚持重刑主义，将其作为企业犯罪惩治的刑事政策的侧重点…"
+          ],
+          "strengths": [
+            "对域外合规计划理念及我国企业犯罪立法司法现状有较为系统的资料梳理。",
+            "提出了引入合规计划作为企业犯罪预防替代模式的宏观倡导，问题意识明确。"
+          ],
+          "weaknesses": [
+            "全文以“应当”“需要”等规范性呼吁为主，缺乏可重复适用的裁判规则、判断标准或立法设计。",
+            "核心术语（如“合规计划”）仅有引述性介绍，未给出原创的法学操作性定义与层级化分析步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1，且无任何法学转化步骤，触发无操作性框架上限规则。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未界定核心概念（如无‘本文所称合规计划是指…’的原创定义），未提供如‘第一步审查合规要素X，第二步评估要素Y’等可重复适用的判断步骤或分析流程，仅作宏观倡导与域外经验介绍。"
+            }
+          ],
+          "boundary_note": "本文缺乏可操作的分析框架而非逻辑衔接问题。文章仅完成域外概念介绍与宏观政策主张，未建构可被后文反复调用的原创性分析工具，属于无框架建构。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文缺乏原创分析框架，合规计划仅作为宏观理念倡导，未转化为可操作的法学步骤。",
+          "core_judgment": "文章未建构可操作的分析框架，亦未将合规理念转化为裁判规则或制度设计方案，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定清晰），法学转化度得分=0/4（无裁判规则或操作指引），锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "所谓合规计划...是指...设立一套违法及犯罪行为的预防、发现及报告机制",
+            "简单讲，合规计划就是通过量刑激励促进企业的自我管理"
+          ],
+          "strengths": [
+            "对合规计划的概念界定清晰，内涵外延明确"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的分析框架，论证停留在宏观政策倡导",
+            "未将合规理念转化为具体的裁判规则或量刑判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文章无步骤化分析框架，合规计划未转化为裁判规则或操作步骤"
+            }
+          ],
+          "boundary_note": "仅评估框架建构与法学转化，不评价文章实证梳理或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "marginal",
+          "summary": "论文以合规计划制度借鉴为核心，但缺乏原创分析框架，主要为政策理论梳理与制度介绍。",
+          "core_judgment": "分析框架建构力薄弱：无原创概念界定，无类型化分类标准，无步骤化分析流程，核心术语来自域外制度介绍而非论文原创。",
+          "score_rationale": "框架可操作性得分=1/4（仅'合规计划'有基本定义，无分类标准，无分析步骤，后文未调用原创框架），法学转化度得分=1/4（仅将合规计划映射到我国企业犯罪治理，未转化为可操作的裁判规则或司法程序），锚定marginal档，给42分。",
+          "evidence_quotes": [
+            "所谓合规计划(Compliance Program)，是指企业或者其他组织体在法定框架内，结合组织体自身的组织文化、组织性质以及组织规模等特殊因素，设立一套违法及犯罪行为的预防、发现及报告机制",
+            "笔者主要以合规理念作为基点，探讨我国企业犯罪惩治的刑法体系以及惩治模式"
+          ],
+          "strengths": [
+            "对域外合规计划制度有较全面的梳理"
+          ],
+          "weaknesses": [
+            "全文以'梳理''介绍''阐释'为主，无原创框架建构",
+            "大量篇幅用于刑事政策比较和立法建议罗列，未形成可重复适用的分析步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文核心术语'合规计划'仅作一般性介绍，未转化为我国法语境下的操作化步骤；'轻轻重重''宽严相济'等仅为政策口号，无判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评立法建议的合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出合规计划引入路径，但缺乏可操作的司法审查步骤与细化制度设计。",
+          "core_judgment": "分析框架具备基础概念支撑与政策映射，但未转化为可重复适用的法学操作步骤，建构力中等。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=2/4，锚定good档，给65分。概念明确且后文持续调用，但缺分类标准与操作步骤；转化停留于宏观政策与立法方向，未提供具体裁判规则或审查流程。",
+          "evidence_quotes": [
+            "所谓合规计划，是指企业……设立一套违法及犯罪行为的预防、发现及报告机制，从而达到减轻、免除责任甚至正当化的目的的机制",
+            "合规计划中蕴含的刑罚哲学理念与以自然人为基础的责任理论具有内在一致性，或者说，组织体被人格化了"
+          ],
+          "strengths": [
+            "核心概念界定清晰，贯穿全文分析",
+            "成功将企业管理概念映射至刑法责任与量刑政策层面"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的司法审查步骤或合规有效性判断标准",
+            "制度设计停留于宏观立法倡导，未细化裁判规则与程序流程"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑严密性与问题新颖性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 77.03120613098145,
+        "glm-5.1": 42.709091901779175,
+        "kimi-k2.6": 14.155753135681152,
+        "qwen3.6-plus": 79.15625381469727
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 35,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 65
+      },
+      "mean": 39.2,
+      "std": 20.6,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文虽然材料丰富、观点多元，但主要推理步骤间缺乏递进依赖关系，核心结论“引入合规计划”与“重刑主义”之间的逻辑跳跃严重，且几乎没有实质性反驳处理。",
+          "core_judgment": "推理链存在严重断裂：论文未能建立从“现行法网与刑罚结构分析”到“必须引入合规计划”的可辩护推导，且完全回避了对重刑主义主张可能遭遇的反驳。",
+          "score_rationale": "推理链完整性得分=1/4（仅满足标准1可复述），反驳处理度得分=0/3（无任何实质性反驳信号）。锚定unacceptable档，因推理链完整性≤1触发上限规则，给42分。",
+          "evidence_quotes": [
+            "我国企业（单位）犯罪的刑事法网随着实践的需要以及理论上认识的加深而逐渐严密化... 这种动态发展基本可以满足常态化的企业犯罪规制需求",
+            "以上述统计数字虽然都源自官方，但是这种统计并不能真实的反映企业犯罪的现状...上述统计数字相比真实数字已经严重'缩水'了"
+          ],
+          "strengths": [
+            "论文对中、外立法例及刑罚结构进行了大量的细节比较，材料铺陈面广"
+          ],
+          "weaknesses": [
+            "“从法网严密重刑仍不严”直接跳到“应引入合规计划”，跳步严重",
+            "全文无任何对反对意见的识别、回应或自我局限承认，反驳处理度为0"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1→最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "推理链完整性仅满足标准1（可复述），标准2（依赖度）和标准3（可辩护推出）均不满足，导致得分1/4，触发断裂上限。"
+            }
+          ],
+          "boundary_note": "论文表现出的“材料组织松散”属于逻辑链断裂（各论点独立并列，未递进推出结论），而非框架建构力缺失。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从现状反思到合规引入再到制度设计的完整推理链，且全面回应了反对意见与适用局限。",
+          "core_judgment": "推理链完整且相互依赖，核心结论可辩护推出，反驳处理充分，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "合规计划的反对者指出...仅仅是一种装饰...实证研究显示...22%认为极其有效",
+            "合规计划仅仅是一个企业犯罪预防的新模式，而不是企业犯罪消灭的法宝"
+          ],
+          "strengths": [
+            "主线推理环环相扣，现状反思为制度引入提供充分前提",
+            "反驳处理极佳，专节回应国企行政化、重刑与谦抑等三大实务质疑"
+          ],
+          "weaknesses": [
+            "量刑激励如何具体嵌入我国现行刑法体系的规范推导略显粗糙"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦推理链支撑度与结论推出逻辑，不评判合规制度在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文构建了'现状批判→必要性论证→正当性论证→现实基础→制度引入'的推理链，但存在多处关键跳步，反驳处理严重不足。",
+          "core_judgment": "推理链主线可识别但存在关键跳步，对反对意见缺乏实质性回应，整体逻辑支撑不足。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2、4不成立），反驳处理度得分=1/3（仅标准1成立）。锚定marginal档，给58分。论文虽呈现'合规计划引入'主线，但步骤间依赖度弱（如从'萨班斯法案要求'直接跳到'刑法应当有所担当'），且存在≥2处关键跳步：①从'合规计划有效性存疑'直接跳到'基于整体肯定性认知提出建言'，未回应实证研究的根本质疑；②从'国有企业行政化'到'不构成制度性障碍'的论证以偏概全。",
+          "evidence_quotes": [
+            "合规计划的效度成了不能证实、同样不能证伪的命题……但大量的经验感知可以说明合规计划的效果绝非子虚乌有。",
+            "国有企业的行政化色彩并不足以形成对企业合规引入的制度性障碍。"
+          ],
+          "strengths": [
+            "构建了从理念到制度的完整论述框架，主线清晰",
+            "对中美刑罚结构、企业犯罪数据进行了较为充分的实证铺垫"
+          ],
+          "weaknesses": [
+            "关键过渡缺乏论证：从'合规不能证伪'到'应当引入'存在跳跃",
+            "对'合规计划装饰论'等反对意见仅罗列未回应，缺乏实质性反驳"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的充分支撑性，不评价合规计划本身是否可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了“现状反思—合规引入—政策契合—反驳回应”的完整推理链，逻辑严密。",
+          "core_judgment": "推理链完整且结论可由前文充分支撑，反驳处理全面，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "合规计划仅仅是一个企业犯罪预防的新模式，而不是企业犯罪消灭的法宝。",
+            "重刑规制企业犯罪并不违背刑法的谦抑精神，其目的在于通过外部压力促进企业的自我管理。"
+          ],
+          "strengths": [
+            "推理链条完整，从现状批判到制度引入再到政策回应层层递进。",
+            "对“合规装饰论”“国企行政化冲突”等反对意见进行了实质性回应。"
+          ],
+          "weaknesses": [
+            "部分实证数据依赖国外报告，本土适配性论证稍显薄弱。",
+            "“重刑促合规”的因果机制推演略依赖经验假设，缺乏微观模型支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否充分支撑结论，不评价合规制度在司法实务中的可操作性或立法可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.83104920387268,
+        "glm-5.1": 35.866153955459595,
+        "kimi-k2.6": 12.41071105003357,
+        "qwen3.6-plus": 55.630478858947754
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 88,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 90
+      },
+      "mean": 69.5,
+      "std": 23.5,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了引入合规计划以改进企业犯罪防控的主张，但多停留在观点倡导和域外经验介绍层面，未能有效嵌入中国法学共同体的既有争论，也缺乏对反对意见和自身局限的充分讨论。",
+          "core_judgment": "论文结论具有现实关切，但缺乏与既有学术争论的充分对话及对反对意见的实质回应，导致结论进入共同体视野的程度有限。",
+          "score_rationale": "共同体对话度得分=1/4（仅回应对法网和重刑主义的批评，但未明确回应既有学术争论且结论部分未提反对意见），制度可接受度得分=2/4（未与现行法秩序根本矛盾，且回应了制度语境），锚定理论论文marginal档，给55分。",
+          "evidence_quotes": [
+            "基于这样的理念，合规计划在很多国家的立法中得以体现...令人遗憾的是，这样的制度在我国尚处于观念倡导期，目前我国对于如何引介合规计划或者通过合规计划对我国的企业犯罪惩治刑法体系进行反思的论述较少。",
+            "尽管重刑是否有威慑力从而足够规制企业犯罪尚存争议，但是可以肯定的是，面对严重的犯罪，如果采取较为轻缓的刑罚，那么非但不能收到一般预防之效果，特殊预防也将成为无稽之谈。"
+          ],
+          "strengths": [
+            "结论紧扣中国企业犯罪治理的现实困境，问题导向明确。",
+            "结论指出了从单一刑罚威慑转向刑罚激励与企业自我管理相结合的制度转化方向。"
+          ],
+          "weaknesses": [
+            "结论部分未总结并回应学术界可能的主要反对观点（如合规计划有效性存疑、可能仅为企业装饰等）。",
+            "结论主要由引介域外制度和批判国内现状后的应然主张构成，与国内围绕企业犯罪治理的多元学术争论对话不足。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论未回应反对意见且未能让共同体清楚定位该主张在既有争论中的具体坐标，使得无法被共同体认真定位与回应。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文在结论部分仅正面重申引入合规计划和重刑规制的主张，未明确交代该主张与国内学界其他替代方案或批评性观点（如对合规计划有效性的质疑、对中国特殊制度环境下的障碍等）的关系，也未提及自身论证对可能存在的反对意见的看法。"
+            }
+          ],
+          "boundary_note": "本维度评价结论当下的可接受性和对话性，不涉及论证严密性及未来前瞻性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深入回应学界争论与中国制度语境，明确提出合规激励与立法改革方向，可接受性高。",
+          "core_judgment": "结论在共同体对话与制度兼容层面均高度成立，有效回应了多重反对意见与本土约束。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "合规计划所反映的轻轻重重刑事政策与宽严相济并不冲突，某种程度是暗合",
+            "特殊社会经济环境不应成为否定合规的理由，法律应承担对不良经济政策的矫正作用"
+          ],
+          "strengths": [
+            "主动回应了合规装饰论、国企行政化冲突、重刑违谦抑等核心反对意见",
+            "制度转化方向明确：量刑激励、责任一体化立法、加重特定犯罪刑罚"
+          ],
+          "weaknesses": [
+            "对责任一体化等激进立法主张的过渡路径讨论稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体与制度可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文主张引入合规计划制度重构我国企业犯罪惩治体系，结论具有明确的学术对话性和制度回应性。",
+          "core_judgment": "结论在共同体对话度和制度可接受度上均表现良好，但存在对策建议空泛、部分论证重复既定立场的问题。",
+          "score_rationale": "共同体对话度得分=3/4（回应了合规计划引入的争论、能被反对者定位、结合中国语境展开，但承认反对意见不充分）；制度可接受度得分=3/4（与现行法秩序兼容、回应制度约束、考虑中国语境，但制度转化方向不够具体）；锚定good档，给72分",
+          "evidence_quotes": [
+            "本文主张合规计划作为一个替代模式，更准确地说是补充模式被引入企业犯罪防控之中，从而构建起企业犯罪防控的多元、立体的防控体系。",
+            "国有企业的行政化色彩并不足以形成对企业合规引入的制度性障碍。",
+            "特殊的社会经济环境不应该成为否定通过法律深入推动企业合规的理由，相反，应当通过法律的严格执行，逐步营造良好的经济环境。"
+          ],
+          "strengths": [
+            "结论明确回应了合规计划与我国宽严相济刑事政策的关系，具有学术对话性。",
+            "结合中国国有企业行政化背景、司法实践数据等本土语境展开论证。"
+          ],
+          "weaknesses": [
+            "部分对策建议如'完善立法、加强监管'等表述较为空泛，缺乏具体规则设计。",
+            "对合规计划反对意见的回应不够深入，多停留在列举层面。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度契合中国法秩序，提出合规激励与重刑威慑结合路径，具备高度可接受性。",
+          "core_judgment": "结论成功进入共同体对话语境，与现行法秩序兼容并指明转化方向，维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "本文主张‘突破传统思维，引入新的企业犯罪预防理念或者替代模式’，并主张以此为前提进行具体制度的构建。",
+            "合规计划所反映出来的轻轻重重的刑事政策与宽严相济的刑事政策并不冲突，某种程度上，两者是一种暗合。"
+          ],
+          "strengths": [
+            "主动回应合规无效论、国企行政化及特殊环境等反对意见，对话充分。",
+            "紧密结合中国刑法条文与司法数据，制度转化方向明确具体。"
+          ],
+          "weaknesses": [
+            "部分量刑激励的具体程序衔接方案仍显宏观，需进一步细化。",
+            "对合规计划本土化落地的实证阻力评估可更深入。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证逻辑严密度或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.558862924575806,
+        "glm-5.1": 36.021340131759644,
+        "kimi-k2.6": 11.953715085983276,
+        "qwen3.6-plus": 63.890997886657715
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 76.2,
+      "std": 16.3,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文提出了合规计划在我国引介的立法与司法改进方向，部分路径具体可定位，但精细度和展开有限。",
+          "core_judgment": "存在明确的未来制度改革和理论深化方向，与正文论证有可解释的衔接，但延展路径的证据展开不够精细。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文指明了分治立法模式向责任一体化改进、刑罚结构调整、司法打击力度加强等具体方向，路径可定位。但多为宏观主张，未形成可供检验的具体后续研究问题。",
+          "evidence_quotes": [
+            "以责任一体化为目标，将企业犯罪与自然人犯罪等构的建议。",
+            "结合合规计划在刑事政策方面的意义改进我国企业犯罪的立法及司法政策。"
+          ],
+          "strengths": [
+            "延展路径具体可定位，如责任一体化立法模式改造、刑罚配置调整等。",
+            "与正文核心结论紧密衔接，合规理念贯穿于立法与司法改进建议中。"
+          ],
+          "weaknesses": [
+            "延展方向多为宏观政策建议，缺乏可操作的具体后续研究问题设计。",
+            "未指明正文的具体局限以及围绕该局限应如何推进研究。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文在未来立法/司法/理论上的可延伸空间，而非评价其结论当下的可接受性，后者属于结论可接受性维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文指出了责任一体化立法重构、财会犯罪漏洞填补及合规本土化变形等清晰延展路径。",
+          "core_judgment": "存在真实延展路径，指明了具体的制度完善方向与本土化实施风险控制。",
+          "score_rationale": "原始分82，对应bonus=5档。论文提出了责任一体化立法重构、加重财务欺诈犯罪刑罚、合规在人情社会变形的规制等具体延展路径，与核心结论紧密衔接，非空泛展望。",
+          "evidence_quotes": [
+            "以责任一体化的模式进行制度的重构是合理的……不仅仅解决了各自犯罪圈的问题，还解决了两者因入罪门槛的差异所带来的问题。",
+            "面对特殊的法律与社会环境……法律应当承担对不良经济政策的矫正作用……逐步营造良好的经济环境。"
+          ],
+          "strengths": [
+            "指明了责任一体化立法重构的具体制度完善方向。",
+            "揭示了合规在本土人情社会变形的实施风险及法律矫正路径。"
+          ],
+          "weaknesses": [
+            "对责任一体化重构的具体规则衔接设计未进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "责任一体化立法模式及合规本土化变形的规制属于未来制度完善与实施风险控制方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在合规计划制度引入路径、刑事政策衔接及立法司法改进方面存在可辨识的延展方向，但缺乏对后续研究争点或理论深化的明确勾画。",
+          "core_judgment": "存在真实但较为概括的延展路径，主要体现为制度完善方向的宏观提示，而非具体可定位的后续研究问题或理论修正入口。",
+          "score_rationale": "原始分55分，对应bonus=2的marginal档位。论文在结尾部分提出了合规计划与我国宽严相济刑事政策的衔接、国有企业行政化与合规理念的调和、重刑规制与谦抑性的平衡等可继续展开的方向，但多属宏观政策建议，未形成明确的后续研究问题或理论深化路径。",
+          "evidence_quotes": [
+            "本文主张合规计划作为一个替代模式，更准确地说是补充模式被引入企业犯罪防控之中，从而构建起企业犯罪防控的多元、立体的防控体系。",
+            "企业有效合规计划的建立，需要一个良好的经济政策，从而建立良好的社会环境，为企业自觉合规建立良好的合规环境。"
+          ],
+          "strengths": [
+            "提出了合规计划与我国刑事政策衔接的具体方向。",
+            "对国有企业行政化与合规理念的冲突进行了回应性分析。"
+          ],
+          "weaknesses": [
+            "未提出明确的后续研究问题或下一轮争点。",
+            "对合规计划本土化后的理论修正路径缺乏具体勾画。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究或制度发展的延展提示，而非当下结论的可接受性。论文结尾的政策建议虽具方向性，但未形成可操作的后续研究框架。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕合规计划本土化提出明确的立法重构、司法强化与政策校准路径，延展方向具体且与核心结论紧密咬合。",
+          "core_judgment": "存在真实且可定位的延展路径，涵盖立法模式一体化、刑罚配置精细化及合规实效实证检验等具体方向。",
+          "score_rationale": "原始分85，映射bonus=5档。主要证据为文中明确提出推进“责任一体化”立法重构、特定犯罪刑罚升格、司法去行政化及合规有效性实证检验等具体路径，与核心结论紧密咬合。",
+          "evidence_quotes": [
+            "暂时没有实证数据的支撑。从经验上看，合规理念并没有得到普遍的确立……",
+            "以责任一体化为目标，使公司刑事责任等构于自然人刑事责任……这应该是我国今后刑事立法的追求。"
+          ],
+          "strengths": [
+            "延展路径覆盖立法、司法与实证检验，具体可操作。",
+            "明确承认合规本土化缺乏数据支撑，指明后续实证研究方向。"
+          ],
+          "weaknesses": [
+            "对合规计划在不同行业场景的差异化适用边界展开不足。",
+            "未详细设计量刑激励与合规有效性评估的具体衔接机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦合规制度引入后的立法重构、司法适用边界及实证检验等未来推进方向，而非评判当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.22645616531372,
+        "glm-5.1": 35.50441098213196,
+        "kimi-k2.6": 11.438601016998291,
+        "qwen3.6-plus": 74.95358300209045
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 82,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 71,
+      "std": 14.8,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 65.34,
+      "weighted_total": 66.7
+    },
+    "aggregation_strictest": {
+      "final_score": 40.65,
+      "weighted_total": 42.8
+    },
+    "avg_std": 19.0,
+    "max_std": 23.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.7,
+    "composite_score": -19.0,
+    "worst_dimension": "logical_coherence",
+    "worst_std": 23.5
+  }
+}

@@ -1,0 +1,1061 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGFX2025005002_中国法学_2025_中国刑事司法治理的传统范式及其现代意蕴.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国古代刑事司法治理主要解决治国、治民和治吏的问题，三者也构成了刑事司法治理的对象和场域。",
+          "在“治道”层面展现出司法内核的伦理化取向，在“治制”层面反映了司法权力的层级化配置，在“治术”层面则追求司法技艺的差异化调适。",
+          "我国通过吸收传统司法文明中的优良传统、实践成果，形成了一套内生于中国国家治理经验模式的刑事司法治理方略。本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式。",
+          "积淀千年的司法制度资源在治理层面展现出强大的回应与调和能力。当下的中国应当重视刑罚宽严在社会治理中的调节作用，充分借助司法对犯罪人及公众进行矫治和法治教育，并且形塑刑事司法的多元共治格局。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "[文本工程] 论文缺少参考文献列表，引注格式与正文混杂，但未影响核心论证定位。"
+      ],
+      "evidence_quotes": [
+        "中国古代刑事司法治理主要解决治国、治民和治吏的问题，三者也构成了刑事司法治理的对象和场域。",
+        "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式，进而探讨这种具有中国特色的刑事司法治理模式如何适应当下的国家治理需求。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，直接进入六维评分。文本质量可读，缺少参考文献列表属于旁路工程问题，不影响项目口径判断。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及刊名期号混入正文段落之间（如'25','26','中国法学 2025年第5期'等）",
+          "脚注编号及特殊符号残留于正文中（如①, ㉛, ■等）"
+        ],
+        "evidence_quotes": [
+          "中国刑事司法治理的传统范式及其现代意蕴 \n25",
+          "中国法学 \n2025 年第5 期 \n26"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“中国古代刑事司法治理主要解决治国、治民和治吏的问题，三者也构成了刑事司法治理的对象和场域。”",
+          "“本文选取‘治道、治制、治术’的分析框架，挖掘和提炼中国古代刑事司法治理的范式。”",
+          "“认罪认罚从宽制度承载着现代司法的宽容精神……是古代刑罚宽平这一司法伦理的当代映射。”",
+          "“本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式，进而探讨这种具有中国特色的刑事司法治理模式如何适应当下的国家治理需求”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页眉页脚及脚注编号混入正文，造成局部排版打断，但不影响核心论点定位与论证结构抽取",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "“本文选取‘治道、治制、治术’的分析框架，挖掘和提炼中国古代刑事司法治理的范式。”",
+        "“认罪认罚从宽制度……是古代刑罚宽平这一司法伦理的当代映射。”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评价。建议在后续阶段进行文本清洗，剥离混入正文的页码、刊名及脚注编号残留，以保障结构化抽取的准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国刑事司法治理的传统范式及其现代意蕴",
+          "本文选取'治道、治制、治术'的分析框架，挖掘和提炼中国古代刑事司法治理的范式",
+          "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式",
+          "积淀千年的司法制度资源在治理层面展现出强大的回应与调和能力",
+          "当下的中国应当重视刑罚宽严在社会治理中的调节作用，充分借助司法对犯罪人及公众进行矫治和法治教育，并且形塑刑事司法的多元共治格局",
+          "认罪认罚从宽制度一定意义上也是传统社会治理模式的延续",
+          "提炼中国刑事司法治理的内生逻辑，使之符合法治要求，是中国刑事司法治理现代化的必由之路"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国刑事司法治理的传统范式及其现代意蕴",
+        "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文明确以中国刑事司法治理传统为研究对象，构建了'治道—治制—治术'的三维分析框架，提炼中国传统刑事司法治理范式，并将其与当代制度（如认罪认罚从宽、社区矫正、人民陪审员等）进行对接，形成了具有可争辩性的法学命题和制度命题，完全符合项目口径，应进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国古代刑事司法治理主要解决治国、治民和治吏的问题，三者也构成了刑事司法治理的对象和场域。",
+          "刑事司法治理有两个层面的含义……本文聚焦西周至清末改制这段历史时期，在上述第二个层面的含义上探讨中国传统刑事司法治理中的‘用法之道’。",
+          "如今的中国与古代中国所面临的治理难题有诸多相似之处，传统的治理方案在很多方面仍然符合中国当下的基本国情，破解当代治理困境的答案仍需从过往的治理经验中找寻。",
+          "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式，进而探讨这种具有中国特色的刑事司法治理模式如何适应当下的国家治理需求。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "中国古代刑事司法治理形成了独特的方略，在‘治道’层面展现出司法内核的伦理化取向，在‘治制’层面反映了司法权力的层级化配置，在‘治术’层面则追求司法技艺的差异化调适。",
+        "认罪认罚从宽制度一定意义上也是传统社会治理模式的延续。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评分。论文以中国刑事司法治理传统范式为核心，明确回应中国现代司法实践难题（如轻微犯罪治理、认罪认罚从宽、社区矫正等），并构建了‘治道-治制-治术’分析框架，具备明确的理论转化与可复核命题，完全符合项目口径。文本结构完整，核心论点清晰，无工程性阅读障碍。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "文章仅系统介绍中国古代刑事司法的“治国、治民、治吏”体系，未提出可争辩的法学问题。",
+          "core_judgment": "全文无明确问题句，仅为传统治理体系的宏观介绍，严重缺乏法学层面的理论争点。",
+          "score_rationale": "前置检查扣分60分：检查1扣15分（新概念未说明解释力提升），检查2扣15分（提及刑教关系但未展开交锋），检查3扣30分（全文无问题句）。可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限，最终30分。",
+          "evidence_quotes": [
+            "本文选取“治道、治制、治术”的分析框架，挖掘和提炼中国古代刑事司法治理的范式",
+            "中国古代刑事司法治理主要解决治国、治民和治吏的问题，三者也构成了刑事司法治理的对象和场域"
+          ],
+          "strengths": [
+            "对传统司法治理体系的归纳较为系统，材料丰富。"
+          ],
+          "weaknesses": [
+            "全文为既定立场的阐释，未提出“XX是否YY”之类法学争点。",
+            "缺乏学者观点交锋，仅为单向的体系介绍与政策倡导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性得分为0，触发上限50分，且因前置扣分已低于此上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何可争辩的法学问题句，只有主题声明“中国刑事司法治理的传统范式及其现代意蕴”。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述或论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以新框架归纳旧现象，缺乏可争辩的法学问题与学术交锋，实质为政策倡导。",
+          "core_judgment": "问题维度不成立，全文仅为主题声明与宏观归纳，无可争辩的法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性触发上限70分，可争辩性≤1触发上限50分，锚定unacceptable档给45分；负面扣分70分，底线30分。",
+          "evidence_quotes": [
+            "探讨中国传统刑事司法治理中的'用法之道'",
+            "当下的中国应当重视刑罚宽严...充分借助司法...形塑多元共治格局"
+          ],
+          "strengths": [
+            "涉及刑事司法治理的多个制度领域，枢纽性较强"
+          ],
+          "weaknesses": [
+            "缺乏可争辩的问题句与理论分歧",
+            "实质为政策倡导与旧现象的新概念归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅有主题声明'探讨用法之道'及政策倡导'应当形塑共治格局'"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "主题声明式论文，缺乏可争辩的法学问题，仅为传统范式的系统归纳与当代倡导。",
+          "core_judgment": "全文无明确问题句，仅有主题声明；无学者观点交锋，属宏观介绍而非深度分析；材料新颖但无实质问题推进。",
+          "score_rationale": "可争辩性=1/4（仅标准2部分满足，涉及法学层面但无问题句、无理论分歧、非政策倡导但无论证），枢纽性=2/4（涉及多制度、核心概念，但无争议焦点且制度连锁未经充分论证），材料新颖性未触发上限但无实质推进。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'治道治制治术'框架未说明理论进步）+20分（检查2：无学者观点交锋）=45分，但最低不低于30分，最终35分。",
+          "evidence_quotes": [
+            "本文选取'治道、治制、治术'的分析框架，挖掘和提炼中国古代刑事司法治理的范式",
+            "当下的中国应当重视刑罚宽严在社会治理中的调节作用，充分借助司法对犯罪人及公众进行矫治和法治教育"
+          ],
+          "strengths": [
+            "主题具有历史文化纵深感，涉及刑事司法核心概念"
+          ],
+          "weaknesses": [
+            "全文无'XX是否YY'类问题句，仅有主题声明与政策倡导",
+            "无学者观点交锋，仅为单向传统范式归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确问题句，仅有'中国刑事司法治理的传统范式及其现代意蕴'主题声明"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为历史经验归纳与政策倡导，缺乏明确可争辩的法学问题与理论交锋。",
+          "core_judgment": "该维度不成立，因全文仅为主题声明与宏观介绍，未提出可争辩的法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料校验触发上限。锚定unacceptable档，初评40分。负面检查扣65分（新概念15/宏观20/主题30），依规保底计30分。",
+          "evidence_quotes": [
+            "本文聚焦西周至清末改制这段历史时期，探讨中国传统刑事司法治理中的“用法之道”。",
+            "当下的中国应当重视刑罚宽严在社会治理中的调节作用，形塑刑事司法的多元共治格局。"
+          ],
+          "strengths": [
+            "系统梳理了传统刑事司法治理的“治道、治制、治术”框架。",
+            "尝试将历史治理经验与现代刑事司法政策相衔接。"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为主题声明与政策倡导。",
+            "缺乏学界观点交锋，未触及可争辩的法学理论争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无争点句，仅为历史归纳与政策宣示"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.61650729179382,
+        "glm-5.1": 62.2614541053772,
+        "kimi-k2.6": 13.224380016326904,
+        "qwen3.6-plus": 80.297358751297
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 31.2,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文完全未进行任何形式的既有研究梳理，正文中仅有个别学者观点引用作为史实支撑，缺乏到达点、未竟点及本文切入点的对应建构，研究地图完全缺失。",
+          "core_judgment": "本文属于历史梳理与规范阐释型研究，但通篇未见对同领域既有研究成果的定位、评价或争辩脉络呈现，文献洞察度极低。",
+          "score_rationale": "三要素总分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，触发no_research_map上限规则，给15分。",
+          "evidence_quotes": [
+            "“参见陈景良：《宋代司法传统的现代解读》，载《中国法学》2006年第3期，第125-130页。”（仅作为史实陈述佐证，未形成研究地图）",
+            "“参见卜宪群：《中国古代‘治理’探义》，载《政治学研究》2018年第3期，第81-86页。”（仅作为概念解释引注，未呈现学术争点）"
+          ],
+          "strengths": [
+            "引用了若干历史文献和当代学者的史实观点作为论据支撑。"
+          ],
+          "weaknesses": [
+            "完全缺失到达点：未说明既有研究已解决什么问题或形成何种共识。",
+            "完全缺失未竟点与切入点：未指出既有研究有何不足或本文拟解决何种争议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文无独立文献综述，正文中亦未进行分散式文献定位，未提炼任何到达点、未竟点和本文切入点，研究地图完全缺失。"
+            }
+          ],
+          "boundary_note": "论文的问题意识源自对传统司法治理经验的归纳与阐释，属于研究视角创新范畴；本维度仅评价其对既有研究的梳理与定位是否充分，而非评价选题本身的新颖性。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "论文分散式文献定位呈现了丰富的历史制度到达点，但未竟点与切入点关联松散，争点结构依赖思想史分歧而非学界争论。",
+          "core_judgment": "研究地图部分成立，到达点充分但未竟点模糊，争点结构由思想史对立支撑而非学界争论脉络。",
+          "score_rationale": "三要素=4/6，争点结构=2/2，法学流派=2个，锚定good档，给70分",
+          "evidence_quotes": [
+            "高汉成(2024)重述了董仲舒春秋决狱的司法功能，是‘经义原则’还是‘权变思维’",
+            "有学者指出，相比‘审转’侧重于‘纠错’和‘规则治理’功能，‘上控’的逻辑出发点则是一种‘政治治理’"
+          ],
+          "strengths": [
+            "分散式文献定位扎实，大量引用具体法律史研究成果支撑制度描述"
+          ],
+          "weaknesses": [
+            "未竟点多为现实治理需求，缺乏对既有学术研究具体不足的指明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评传统治理范式提炼的创新性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本文属传统法律文化阐释性论文，以历史梳理和当代政策建议为主，未建立'到达点—未竟点—切入点'的研究地图，无学术争点结构与法学流派识别。",
+          "score_rationale": "三要素=1/6（到达点0，未竟点0，切入点1），争点结构=0/2，法学流派=0个，锚定unacceptable档，给42分。",
+          "evidence_quotes": [
+            "本文选取'治道、治制、治术'的分析框架，挖掘和提炼中国古代刑事司法治理的范式",
+            "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式"
+          ],
+          "strengths": [
+            "历史文献征引丰富，制度梳理较系统"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学术成果作为到达点",
+            "未识别既有研究的缺口或争议，切入点与学术脉络脱节"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无具体研究成果引述作为到达点，无未竟点表述，仅文末有'本文提出'式切入点"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性；该文问题本身有历史价值，但未在学术脉络中定位。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "论文通过分散式文献定位构建研究基线，但缺乏明确学术争点与缺口界定。",
+          "core_judgment": "研究地图三要素基本成立，但争点结构偏弱且未呈现明确的法学流派对话，整体处于良好区间。",
+          "score_rationale": "三要素得分=5/6，争点结构=1/2，法学流派=0个，锚定good档，给75分",
+          "evidence_quotes": [
+            "本文选取“治道、治制、治术”的分析框架，挖掘和提炼中国古代刑事司法治理的范式。",
+            "积淀千年的司法制度资源在治理层面展现出强大的回应与调和能力，亟待充分地传承和发扬。"
+          ],
+          "strengths": [
+            "分散式文献定位扎实，历史文本与现代学者观点交织支撑论证基线。",
+            "切入点明确，以“治道、治制、治术”框架系统对接传统范式与现代治理需求。"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的具体学术缺口或争议焦点，未竟点表述偏宏观。",
+            "缺乏对当代法学流派或解释路径对立的梳理，争点结构呈现不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及传统治理智慧本身的历史价值或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 23.924499988555908,
+        "glm-5.1": 164.15019392967224,
+        "kimi-k2.6": 13.349872827529907,
+        "qwen3.6-plus": 83.77525091171265
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 70,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 75
+      },
+      "mean": 50.5,
+      "std": 27.8,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文采用“治道、治制、治术”框架梳理传统刑事司法治理特征，但框架主要是对既存历史材料的分类归纳而非可操作的分析工具，法学转化度不足。",
+          "core_judgment": "框架具有文献梳理价值，但缺乏可重复适用的分析步骤与法学操作化指引，限制了其作为分析框架的建构力。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足部分标准1），法学转化度得分=1/4（仅勉强满足部分标准2）。锚定marginal档（40-49分），考虑其历史梳理的体系性，微调至52分。",
+          "evidence_quotes": [
+            "本文选取“治道、治制、治术”的分析框架……其中，“治道”指的是为治之道……治制则是实现治理的体制机制；治术……是治理的技艺和方术。",
+            "当下的中国应当重视刑罚宽严在社会治理中的调节作用，充分借助司法对犯罪人及公众进行矫治和法治教育，并且形塑刑事司法的多元共治格局。"
+          ],
+          "strengths": [
+            "“治道、治制、治术”的三分结构为庞杂的史料提供了清晰的分类归纳维度。",
+            "后文基本按照治国、治民、治吏与治道、治制、治术的框架展开论述，结构呼应。"
+          ],
+          "weaknesses": [
+            "核心框架术语“治道、治制、治术”未给出可操作的定义与区分边界，更接近主题分类而非分析工具。",
+            "论文未将该框架转化为可重复适用的法学分析步骤或裁判规则，缺乏从历史到当代的操作指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语无明确定义且无任何可循的分析步骤，框架不可操作",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "“治道、治制、治术”仅作宏观描述（“治道指为治之道…治制是实现治理的体制机制…治术是治理的技艺和方术”），未转化为可操作的判断标准或分析步骤。"
+            }
+          ],
+          "boundary_note": "此评分针对框架的可操作性与法学转化度，不评价论文史料的丰富性与论述的逻辑连贯性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文借用传统“治道-治制-治术”框架归纳历史范式，缺乏可操作分析步骤与法学转化。",
+          "core_judgment": "框架仅为主题分类而非可操作分析工具，法学转化停留在宏观映射与政策呼吁层面。",
+          "score_rationale": "框架可操作性得分=2/4（有概念界定与分类但无分析步骤，受梳理型上限2限制），法学转化度得分=0/4（无操作化转化，受上限1限制），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "“治道指的是为治之道...治制则是实现治理的体制机制；治术...是治理的技艺和方术。”",
+            "“本文选取‘治道、治制、治术’的分析框架，挖掘和提炼中国古代刑事司法治理的范式”"
+          ],
+          "strengths": [
+            "1. 对“治道、治制、治术”有清晰的概念界定与历史维度划分。",
+            "2. 框架分类标准明确，较好地统摄了传统刑事司法治理的场域与方略。"
+          ],
+          "weaknesses": [
+            "1. 框架仅为结构化归纳，无可重复适用的判断步骤或评价标准。",
+            "2. 法学转化停留在宏观映射，缺乏裁判规则或适用流程指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.v0.7_policy_theory_review",
+              "rule": "v0.7政策理论梳理型识别规则：框架核心术语来自权威表述，主要贡献为归纳阐释而非建构，可操作性上限2，法学转化度上限1，总分通常不超过60。",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "框架“治道、治制、治术”来自既有学术表述（注28），全文以归纳传统治理范式为主，无原创操作化转化。"
+            }
+          ],
+          "boundary_note": "本维度评判框架建构力，不评判传统治理理念本身的价值或论文推理的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以'治道-治制-治术'三分为描述性框架，缺乏可重复操作的判断标准与法学转化步骤。",
+          "core_judgment": "分析框架为历史描述性分类，未转化为可操作的法学分析工具，后文仅按主题展开而非调用框架步骤，框架建构力未充分成立。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无分析步骤、后文未实际调用框架步骤展开）；法学转化度得分=1/4（仅有历史制度描述，未转化为裁判规则、司法程序或法律适用流程）；锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "本文选取'治道、治制、治术'的分析框架，挖掘和提炼中国古代刑事司法治理的范式",
+            "其中，'治道'指的是为治之道、为治之理或者为治之体，即治理的理念、价值、目的；治制则是实现治理的体制机制；治术又称为治具、治法，是治理的技艺和方术"
+          ],
+          "strengths": [
+            "三分类框架具有历史纵深感，概念界定较为清晰",
+            "覆盖治国、治民、治吏三重维度，结构完整"
+          ],
+          "weaknesses": [
+            "框架仅为描述性分类，无判断步骤或评价标准，后文未按框架步骤展开分析",
+            "现代意蕴部分未调用'治道-治制-治术'框架进行对应分析，框架闲置"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分，但本文框架有分类无步骤，且后文未实际调用框架步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "后文现代意蕴部分直接讨论'调节刑罚''矫治教育''共治格局'，未按'治道-治制-治术'框架展开对应分析"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身是否成立可用，不涉及历史描述准确性或传统现代衔接的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以传统政治哲学概念为纲梳理历史经验，框架具主题归纳功能但缺乏可操作的分析步骤与法学转化。",
+          "core_judgment": "该框架属于政策理论梳理型结构，未形成可重复适用的法学分析工具，建构力有限。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。符合v0.7政策梳理型上限规则，框架仅作主题分类，缺乏操作步骤与裁判转化。",
+          "evidence_quotes": [
+            "本文选取“治道、治制、治术”的分析框架，挖掘和提炼中国古代刑事司法治理的范式。",
+            "治道指的是为治之道、为治之理或者为治之体，即治理的理念、价值、目的；治制则是实现治理的体制机制。"
+          ],
+          "strengths": [
+            "框架结构清晰，有效统摄了历史经验与现代意蕴的论述脉络。",
+            "概念映射具有宏观解释力，契合传统法律文化的研究语境。"
+          ],
+          "weaknesses": [
+            "核心术语源自既有表述，缺乏原创界定与可重复的分析步骤。",
+            "现代转化停留于政策倡导，未提供具体的裁判规则或适用流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉及历史论证逻辑或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.0683650970459,
+        "glm-5.1": 75.60443091392517,
+        "kimi-k2.6": 16.473682165145874,
+        "qwen3.6-plus": 72.30191087722778
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 55,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 55
+      },
+      "mean": 53.5,
+      "std": 1.7,
+      "strictest": 52,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "论文结构清晰，通过史料铺陈构建了“治国、治民、治吏”的分析框架，但核心论点多为并列的历史经验总结而非严格的逐层逻辑推演，现代意蕴的结论与古代史实之间存在关键跳步。",
+          "core_judgment": "推理链在微观史料层面成立，但宏观上从“古代治理事实”推出“现代应当采纳”的因果链条跨越过大，缺乏现代治理约束的论证支撑。",
+          "score_rationale": "推理链完整性得分=3/4（可识别主要步骤但结论推出不充分），反驳处理度得分=1/3（仅隐含承认古今差异算作局限承认），锚定good档，给予68分。",
+          "evidence_quotes": [
+            "本文选取“治道、治制、治术”的分析框架，挖掘和提炼中国古代刑事司法治理的范式。",
+            "当代中国应当对优秀传统治理文化和司法文化进行创造性转化与创新性发展...经过两千多年的实践...仍然对当下的司法治理产生着深远的影响。"
+          ],
+          "strengths": [
+            "“治国—治民—治吏”三维结构与“治道—治制—治术”分析框架形成有序嵌套，主线推理步骤清晰可循。",
+            "论证过程中轻微触及“皇权不下乡”等古今差异，隐含承认了古代治理方式的时代局限性。"
+          ],
+          "weaknesses": [
+            "从古代“有何种实践”直接跨越到现代“应如何采纳”，缺少对现代人权标准、程序正义等反向约束的实质回应。",
+            "未处理可能存在的反例或反对意见，如古代刑事治理中的严刑峻法与冤狱问题如何与现代法治兼容。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2-3但反驳处理度≤1时，结论推出存在局部薄弱环节，得分上限为70分。",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "推理链完整性得分3/4，反驳处理度得分1/3，缺乏对古代严刑峻法等反例的实质性回应，导致总分上限触发。"
+            }
+          ],
+          "boundary_note": "本文问题属于逻辑论证层面的“古今转换”跳步，即未能从古代治理事实充分推导出现代必须采纳的规范性结论，而非单纯缺乏可操作性的框架结构问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链主线完整且相互依赖，但古今转化的局部论证存在跳跃，且未承认传统范式的现代局限。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文辩护性推出，逻辑严密性维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "朱熹提高了刑罚地位……提出刑罚和教化具有相似地位和相同目的",
+            "网络平台应当扮演更重要角色……形成共治格局，从宗族共治直接推导平台共治存在跳步"
+          ],
+          "strengths": [
+            "推理链层次清晰，从历史范式提炼到现代意蕴推导步步衔接",
+            "呈现了德主刑辅与明刑弼教的隐含分歧并给出历史选择理由"
+          ],
+          "weaknesses": [
+            "古今转化论证存在跳步，如从宗族共治直接推导网络平台共治",
+            "未承认传统范式与现代法治原则的张力，缺乏局限反思"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦古今概念推演的逻辑衔接度，而非治道治制治术框架本身的建构力。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "历史描述型论文，主线为'传统范式提炼→现代意蕴阐发'，但现代转化部分推理链断裂。",
+          "core_judgment": "传统部分推理链相对完整，但'传统→现代'的转化论证存在关键跳步，反驳处理严重不足。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、2成立，标准3部分成立、标准4不成立），反驳处理度得分=0/3，锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "本文选取'治道、治制、治术'的分析框架，挖掘和提炼中国古代刑事司法治理的范式",
+            "当下的中国应当重视刑罚宽严在社会治理中的调节作用...形塑刑事司法的多元共治格局"
+          ],
+          "strengths": [
+            "传统部分'治国-治民-治吏'到'治道-治制-治术'的框架结构清晰",
+            "历史文献引证丰富，各子部分内部论述较为连贯"
+          ],
+          "weaknesses": [
+            "现代转化部分缺乏中间推理环节，从传统直接跳到当代制度建议",
+            "未处理'古今异质'的核心反驳，传统制度与现代法治的兼容性论证缺失"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2但反驳处理度=0，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "论文未识别任何反对意见或分歧路径，未承认论证局限"
+            }
+          ],
+          "boundary_note": "问题在于'传统→现代'的推理断裂，而非分析框架本身不可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以历史切面归纳范式，经理论提炼递进推演至现代治理意蕴，逻辑链条完整。",
+          "core_judgment": "历史材料至理论框架再到现代建议的推导环环相扣，结论可由前文充分辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。历史归纳到理论提炼再到现代映射的推导严密，且对传统与现代的张力及适用边界有明确回应。",
+          "evidence_quotes": [
+            "本文聚焦西周至清末改制这段历史时期，在上述第二个层面的含义上探讨中国传统刑事司法治理中的“用法之道”。",
+            "在依照现代社会治理的原则和标准进行调适后，依然可以发挥不可替代的功效。"
+          ],
+          "strengths": [
+            "历史现象到理论框架的归纳逻辑清晰，三步推理层层递进。",
+            "传统治理智慧与现代制度的映射论证充分，结论可辩护。"
+          ],
+          "weaknesses": [
+            "从历史描述到现代建议的过渡略显直接，部分对接论证可细化。",
+            "对传统人治色彩与现代法治原则的潜在冲突回应稍简。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链支撑度，不评价治理框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 54.33449697494507,
+        "glm-5.1": 73.66618800163269,
+        "kimi-k2.6": 11.094847917556763,
+        "qwen3.6-plus": 58.560325145721436
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 88,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 90
+      },
+      "mean": 76,
+      "std": 15.6,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文结论停留在弘扬传统、汲取智慧等既定官方话语复述层面，未将主张转化为可争辩的学术命题，也几乎不回应反对意见或自身局限，导致无法进入法学共同体对话。",
+          "core_judgment": "结论缺乏学术争辩性和共同体对话度，整体落入复述官方法治话语的封闭循环，未达到法学论文的共同体可回应门槛。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=3/4。因对话度为0触发上限规则，理论论文本应≤50。考虑到对现行法秩序高度兼容，且未主张根本推翻，在不可接受档内取中间值42分。无法进入优秀或良好档。",
+          "evidence_quotes": [
+            "当下中国应当重视刑罚宽严在社会治理中的调节作用，充分借助司法对犯罪人及公众进行矫治和法治教育，并且形塑刑事司法的多元共治格局。",
+            "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式，进而探讨这种具有中国特色的刑事司法治理模式如何适应当下的国家治理需求，如何服务于国家治理体系与治理能力的现代化。"
+          ],
+          "strengths": [
+            "对中国刑事司法传统有较为系统的文献梳理和概念提炼，提供了进一步讨论的历史素材。",
+            "结论与现行法秩序和官方法治话语高度兼容，制度转换方向较为明确。"
+          ],
+          "weaknesses": [
+            "结论未指出与何种现有学术争论的关系，也未提出可被反驳的具体主张，缺乏共同体对话基础。",
+            "未主动承认讨论反对意见或自身局限，结论部分完全无自我设限或反例处理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论全部是对官方话语的重述或延伸说明，未申明与既有学术争论的关系、未给出可反驳论点、未讨论反对意见或局限，导致共同体对话度完全缺失。"
+            }
+          ],
+          "boundary_note": "本评仅针对结论可被学术共同体认真回应的程度，不质疑论文的历史价值或文化意义。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文系统梳理传统刑事司法治理范式，但结论缺乏与当代学术争论的对话，制度转化方向空泛，存在万能药式对策倾向。",
+          "core_judgment": "共同体对话度不足，结论虽兼容法秩序但缺乏可争辩的学术主张和具体制度回应，落入复述既定立场与空泛对策的区间。",
+          "score_rationale": "共同体对话度得分=2/4（回应中国法学语境、承认传统资源价值，但未回应既有学术争论、未承认自身局限）；制度可接受度得分=2/4（不矛盾于现行法秩序、提及中国制度语境，但制度转化方向空泛、未回应具体制度约束）。锚定marginal档(50-59)，给52分。",
+          "evidence_quotes": [
+            "当下的中国应当重视刑罚宽严在社会治理中的调节作用，充分借助司法对犯罪人及公众进行矫治和法治教育，并且形塑刑事司法的多元共治格局",
+            "我国通过吸收传统司法文明中的优良传统、实践成果，形成了一套内生于中国国家治理经验模式的刑事司法治理方略"
+          ],
+          "strengths": [
+            "结论明确立足中国语境，与官方话语和法秩序兼容",
+            "将传统治理资源与当代制度（如认罪认罚从宽、社区矫正）作了一定勾连"
+          ],
+          "weaknesses": [
+            "结论未进入任何具体学术争论，缺乏可定位的学术靶点",
+            "对策建议停留在'重视''借助''形塑'等空泛表述，未回应具体制度约束"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "万能药式对策：对策≥3条且全部为空泛表述（无具体法条/程序/规则）",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "结论提出'重视刑罚宽严调节''借助司法矫治教育''形塑多元共治格局'三条对策，均无具体法条、程序或规则支撑，属于空泛表述"
+            }
+          ],
+          "boundary_note": "本评可接受性而非论证严密性，论文历史梳理充分但结论的学术对话性不足。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足传统治理范式提炼现代刑事司法治理模式，高度契合中国法治语境与制度演进方向。",
+          "core_judgment": "该维度成立，结论具备明确的学术对话指向与坚实的本土制度兼容性。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式",
+            "刑事诉讼法应当扩大不起诉的范围，特别是将附条件不起诉的适用主体从未成年人拓展到成年人"
+          ],
+          "strengths": [
+            "深度回应本土法治话语与政策导向",
+            "制度转化方向明确且具现实操作性"
+          ],
+          "weaknesses": [
+            "未明确讨论传统范式移植的现代法治风险",
+            "缺乏对潜在反对意见的预判与回应"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "glm-5.1": "[glm-5.1] Connection error."
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 42.330461740493774,
+        "glm-5.1": 379.72269201278687,
+        "kimi-k2.6": 16.855334997177124,
+        "qwen3.6-plus": 170.48688411712646
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 60.7,
+      "std": 24.2,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文缺少具体、可定位的未来延展路径，结论部分仅停留在宏观号召而非明确的后续研究方向或理论修正。",
+          "core_judgment": "不存在真实延展路径。",
+          "score_rationale": "原始分0分，对应bonus为0。论文结语仅提及“创造性转化”“服务于治理现代化”等空泛方向，未提出具体研究问题、概念修正或制度完善路径，落入口号式展望。",
+          "evidence_quotes": [
+            "当代中国应当对优秀传统治理文化和司法文化进行创造性转化与创新性发展，以适配新时代的治理需求。",
+            "当代刑事司法体系应当发挥中国传统刑事司法治理优秀成果的强大理论解释力，赋予其实践生命力。"
+          ],
+          "strengths": [
+            "论文主体对传统治理范式进行了系统阐释，为延展提供了潜在知识基础。"
+          ],
+          "weaknesses": [
+            "延展建议完全泛化，仅有价值宣示而无具体修正对象或检验入口。",
+            "未识别论文自身的理论局限或指明后续可争论的学术入口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且无具体待修正对象时，触发 slogan_outlook。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文结尾段仅号召“创造性转化与创新性发展”及“服务于国家治理体系与治理能力现代化”，未说明如何深化理论、修正概念或设计具体制度。"
+            }
+          ],
+          "boundary_note": "论文对传统治理范式的勾勒属于历史考察，对未来治理论述属于价值倡导，二者均不构成可操作的未来研究路径。",
+          "review_flags": [
+            "future_claim_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在传统范式现代转化中提出了具体的制度完善方向与场景延伸，但缺乏专门的未来研究规划。",
+          "core_judgment": "存在真实延展路径，指明了轻微犯罪治理、不起诉拓展及网络共治等具体方向。",
+          "score_rationale": "原始分65，bonus档位为3（>=60）。正文指明了扩大附条件不起诉、网络平台共治等制度深化方向，与核心结论有衔接，但精细度有限且结尾存在空泛拔高。",
+          "evidence_quotes": [
+            "刑事诉讼法应当扩大不起诉的范围，特别是将附条件不起诉的适用主体从未成年人拓展到成年人。",
+            "在网络空间中，国家应当与网络平台协力合作，奉行‘政府管平台、平台管个人’的逻辑，形成‘共治’格局。"
+          ],
+          "strengths": [
+            "提出了具体的制度完善方向（如不起诉拓展至成年人）。",
+            "将传统共治逻辑延伸至网络空间新场景。"
+          ],
+          "weaknesses": [
+            "延展点散落于正文，缺乏专门的研究局限承认与未来规划。",
+            "结尾存在口号式意义拔高，未指明具体后续争点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "网络平台共治的边界与不起诉拓展的条件属于未来制度深化问题，而非当下传统范式能否被接受的结论问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出传统刑事司法治理的当代转化路径，但缺乏对后续研究争点或理论深化的明确指引。",
+          "core_judgment": "存在可定位的延展方向，但路径较概括，与正文核心结论的衔接需推断，精细度有限。",
+          "score_rationale": "原始分55，对应bonus=2的40-59档。论文提出'刑事司法治理的中国模式'需进一步适配现代治理需求，并提及'提升国家文化软实力'等新任务，但未明确下一轮研究的具体争点、概念修正路径或制度检验场景。'调节刑罚''矫治教育''共治格局'三个方向虽有现代转化表述，但更多是政策呼吁而非可操作的学术延展路径。",
+          "evidence_quotes": [
+            "提炼中国刑事司法治理的内生逻辑，使之符合法治要求，是中国刑事司法治理现代化的必由之路",
+            "本文在中国刑事司法治理内生逻辑的基础上，提出刑事司法治理的中国模式，进而探讨这种具有中国特色的刑事司法治理模式如何适应当下的国家治理需求"
+          ],
+          "strengths": [
+            "提出'中国模式'概念，为后续比较研究提供可能入口",
+            "数字时代网络犯罪共治的提及拓展了传统治理的现代场景"
+          ],
+          "weaknesses": [
+            "未明确传统'治道''治制''治术'框架在现代语境下的修正路径",
+            "缺乏对学术异议者反驳入口的说明，未形成可检验的研究议程"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结语关于'中国模式'的表述属于未来研究方向，而非对当下结论能否被接受的论证，故属前瞻延展性问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰勾勒出传统刑事司法治理范式向现代轻微犯罪治理、司法教化及网络空间共治的转化路径。",
+          "core_judgment": "存在真实且具体的延展路径，紧密衔接正文“传统智慧现代转化”的核心结论。",
+          "score_rationale": "原始分85，对应bonus=5。明确指向附条件不起诉扩围、轻微犯罪风险评估及网络平台共治等具体制度延伸，路径清晰可定位。",
+          "evidence_quotes": [
+            "应当建立和完善逮捕社会危险性评估、社区矫正调查评估等刑事司法风险评估机制",
+            "公私合作的治理模式亟待拓展至网络社会，奉行政府管平台、平台管个人的逻辑"
+          ],
+          "strengths": [
+            "延展方向具体，直指轻微犯罪治理与网络空间共治等前沿实务",
+            "传统范式与现代制度衔接自然，转化路径具备可操作性"
+          ],
+          "weaknesses": [
+            "对数字时代司法技艺差异化调适的实证检验路径着墨较少",
+            "未明确交代传统伦理化取向与现代程序正义冲突时的修正边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦传统范式向未来制度场景（如网络共治、成人附条件不起诉）的延伸方向，而非评判当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 133.71033191680908,
+        "glm-5.1": 159.94761300086975,
+        "kimi-k2.6": 11.950791835784912,
+        "qwen3.6-plus": 148.71002984046936
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 51.2,
+      "std": 36.4,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 50.22,
+      "weighted_total": 51.3
+    },
+    "aggregation_strictest": {
+      "final_score": 36.94,
+      "weighted_total": 35.6
+    },
+    "avg_std": 18.0,
+    "max_std": 36.4,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "score_gap": 13.3,
+    "composite_score": -14.67,
+    "worst_dimension": "forward_extension",
+    "worst_std": 36.4
+  }
+}

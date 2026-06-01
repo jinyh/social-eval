@@ -1,0 +1,608 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/农地三权分置的法实现.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（页码、期刊刊头混入正文段落）",
+          "脚注编号与正文存在异常空格/断行（如“2 0 1 4 年”）",
+          "参考文献列表抽取缺失"
+        ],
+        "evidence_quotes": [
+          "• 103 •",
+          "中国社会科学2 0 1 7 年第5 期",
+          "2 0 1 4 年1 1 月中共中央办公厅"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "农地三权分置政策对农地法律制度的设计具有导向作用...实施农地三权分置政策，关键在于土地经营权的相对自由流转。",
+          "基于“所有权一用益物权一次级用益物权”权利架构，集体土地所有权人得为农户设定土地承包经营权，作为土地承包经营权人的农户得设定土地经营权，农户承包权成为土地经营权的母权。",
+          "解释论上，囿于物权法定原则的限制，土地经营权可以通过附属登记于土地承包经营权登记的方式获得对抗第三人的效力。立法论上，我国“民法典物权编”应将土地经营权作为法定的用益物权类型，实现经营权的法定化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR页码/刊头混入及脚注格式乱码，但不影响核心法学论证定位；参考文献列表未成功抽取，需人工核对引注完整性。"
+      ],
+      "evidence_quotes": [
+        "基于“所有权一用益物权一次级用益物权”权利架构...土地经营权是土地承包经营权人基于处分行为设定的独立用益物权。",
+        "解释论上，囿于物权法定原则的限制，土地经营权可以通过附属登记于土地承包经营权登记的方式获得对抗第三人的效力。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文紧扣中国农地制度改革实践，围绕“三权分置”展开深入的民法教义学分析，批判性回应学界争议，提出“次级用益物权”构造及登记物权化路径，具备明确的理论转化与可复核命题，完全符合进入六维评价口径。文本存在轻度OCR残留与参考文献缺失，属旁路工程风险，不影响实质评审，建议进入评分流程并提示后续排版修正。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR识别残留与排版异常：存在年份/数字空格异常（如'2 0 1 7 年'、'1 936年'）、错别字（如'曰'应为'日'、'筒称'应为'简称'、'2)14年'应为'2014年'、'2(16年'应为'2016年'）",
+          "期刊页码混入正文：如'• 103 •'、'• 104 •'等页码标记直接嵌入段落间",
+          "脚注内容与编号混入：脚注标记①②③及部分外文参考文献内容直接穿插在正文中",
+          "参考文献列表抽取失败：文末提示'参考文献列表：（无）'，但实际文献信息以脚注形式散落在正文中"
+        ],
+        "evidence_quotes": [
+          "2 0 1 7 年第5 期",
+          "1 0月3 0 曰印发的",
+          "© 2 0 1 4 年1 1 月",
+          "• 103 •",
+          "B idnG 'adner European Agriculture"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "农地三权分置的法实现",
+          "如何在保障农民不失去对土地控制的前提下，最大限度地促进农地流转，发挥农地的融资功能，提高农业生产效率，农地三权分置应运而生。",
+          "农户承包权为财产权而非身份权……将农户承包权认定为成员权，可能危及农地承包关系的稳定。",
+          "土地经营权是土地承包经营权人基于处分行为设定的独立用益物权。",
+          "解释论上，囿于物权法定原则的限制，土地经营权可以通过附属登记于土地承包经营权登记的方式获得对抗第三人的效力。立法论上，我国“民法典物权编”应将土地经营权作为法定的用益物权类型，实现经营权的法定化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR数字空格、错字及外文乱码需在后续清洗中修正",
+        "文本工程：期刊页码及脚注混入正文需结构化剥离",
+        "文本工程：参考文献需从散落脚注中重新聚合抽取"
+      ],
+      "evidence_quotes": [
+        "土地经营权是土地承包经营权人基于处分行为设定的独立用益物权。",
+        "解释论上……土地经营权可以通过附属登记于土地承包经营权登记的方式获得对抗第三人的效力。立法论上……应将土地经营权作为法定的用益物权类型，实现经营权的法定化。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分。但文本存在OCR残留、页码/脚注混入及参考文献抽取缺失等工程质量风险，后续评审及数据抽取需对正文进行清洗与结构化修正。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦农地三权分置中土地经营权的法律定性难题，提出次级用益物权构造与登记物权化路径，争点明确且具理论推进。",
+          "core_judgment": "该研究问题具备高度可争辩性与制度枢纽性，成功将政策话语转化为可操作的物权法教义学命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置检查扣分0，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何在保障农民不失去对土地控制的前提下，最大限度地促进农地流转，发挥农地的融资功能，提高农业生产效率，农地三权分置应运而生。",
+            "土地经营权是土地承包经营权人基于处分行为设定的独立用益物权。"
+          ],
+          "strengths": [
+            "精准提炼政策背后的物权法教义学争点，明确回应学界分歧。",
+            "构建“所有权-承包权-经营权”次级用益物权逻辑链条，论证严密。"
+          ],
+          "weaknesses": [
+            "对登记技术突破物权法定的边界论证略显理想化，缺乏实证检验。",
+            "部分论述偏向立法论建构，解释论层面的现行法衔接可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估问题本身的争辩性与枢纽价值，不评价文献综述、论证逻辑及材料支撑力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "围绕三权分置的法律实现提出明确的物权构造争点，枢纽性强。",
+          "core_judgment": "论文提出了可争辩的法学争点且涉及核心物权理论，问题成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置扣分合计=0分。",
+          "evidence_quotes": [
+            "学界对土地经营权性质的认识亦存在分歧，形成了以下三种主要观点：‘总括权利说’……‘两权说’……‘债权说’",
+            "将农户承包权认定为成员权存在以下体系性障碍：成员权并非取得承包权的充分条件……可能危及农地承包关系的稳定"
+          ],
+          "strengths": [
+            "提出了明确的法学争点（经营权物权vs债权、承包权财产权vs成员权）",
+            "争点涉及物权法核心理论且影响多部法律制度，枢纽性极强"
+          ],
+          "weaknesses": [
+            "问题由政策直接催生，自主理论发现感稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "只评问题成立性与重要性，不评物权构造论证的严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 56.24395298957825,
+        "glm-5.1": 49.63907599449158
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒农地权利性质之争，研究地图完整，争点脉络清晰。",
+          "core_judgment": "文内充分呈现既有成果、争议缺口与本文财产化切入点，研究地图成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "歧见纷呈的局面，直接导源于对新型农地权利财产化这一农地权利制度改革主线尚未形成共识。",
+            "学界对土地经营权性质的认识亦存在分歧，形成了总括权利说、两权说与债权说三种主要观点。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，有效提炼债权说与物权说等对立解释路径。",
+            "未竟点与本文切入点严密咬合，直接回应权利财产化共识缺失。"
+          ],
+          "weaknesses": [
+            "比较法引证偏重制度描述，理论对话深度可进一步拓展。",
+            "政策文件引述较多，纯学理争点的批判性梳理可更凝练。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及政策本身新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构丰满，流派识别充分，现状洞察度高",
+          "core_judgment": "论文清晰呈现既有学说分歧与局限，并精准提出财产化次级用益物权切入点，洞察度成立",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界对土地经营权性质的认识亦存在分歧，形成了以下三种主要观点：总括权利说、两权说、债权说",
+            "歧见纷呈的局面，直接导源于对新型农地权利财产化这一农地权利制度改革主线尚未形成共识"
+          ],
+          "strengths": [
+            "精准提炼经营权性质三派学说与承包权成员权说，争点结构清晰",
+            "未竟点与切入点紧密咬合，以权利财产化与次级用益物权破局"
+          ],
+          "weaknesses": [
+            "无"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评文献梳理与争点结构，不评三权分置问题本身的政策创新性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 67.92223405838013,
+        "glm-5.1": 50.30318307876587
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“所有权—用益物权—次级用益物权”的农地权利分置分析框架。",
+          "core_judgment": "框架概念清晰、分类明确、步骤可循且后文充分调用，法学转化度高，成立。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "基于'所有权一用益物权一次级用益物权'权利架构，集体土地所有权人得为农户设定土地承包经营权，作为土地承包经营权人的农户得设定土地经营权",
+            "土地经营权的设立及变动应以登记为生效要件...经营权存续期限届满、擅自变更用途或拖欠使用费等情形下可终止。"
+          ],
+          "strengths": [
+            "核心概念（承包权、经营权）界定清晰，权利派生逻辑严密。",
+            "提出“解释论登记对抗+立法论法定物权”的双轨转化路径，具强操作性。"
+          ],
+          "weaknesses": [
+            "政策演进部分篇幅较长，对裁判规则的具体适用场景推演稍显不足。",
+            "次级用益物权的登记技术配套论证偏理想化，实务衔接可再细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构了“所有权-用益物权-次级用益物权”框架，实现了三权分置政策的法学转化与制度设计。",
+          "core_judgment": "分析框架高度成立且可用，成功将政策概念转化为可操作的法学权利构造与制度方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "“土地经营权是土地承包经营权人基于处分行为设定的独立用益物权”",
+            "“经营权通过附属登记于土地承包经营权登记的方式获得对抗第三人效力”"
+          ],
+          "strengths": [
+            "将政策术语成功转化为“所有权-用益物权-次级用益物权”的法学分析框架",
+            "提供了完整的解释论（附属登记）与立法论（物权法定化）操作方案"
+          ],
+          "weaknesses": [
+            "无明显框架建构力缺陷"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架的成立与法学转化，不评价三权分置政策本身的创新性或政治逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 54.52247500419617,
+        "glm-5.1": 43.496092796325684
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以政策演进为起点，层层推演至权利定性与制度构造，逻辑链条完整且严密。",
+          "core_judgment": "推理链环环相扣，反驳处理充分，核心结论可由前文规范与法理充分支撑，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将农户承包权认定为成员权……必然遮蔽其财产权属性，影响农地资源的配置效率。",
+            "土地经营权是土地承包经营权人基于处分行为设定的独立用益物权。"
+          ],
+          "strengths": [
+            "历史政策与法理推演紧密衔接，步骤依赖度高。",
+            "对成员权说、债权说等反对观点进行了逐一批驳。"
+          ],
+          "weaknesses": [
+            "登记技术赋权论证稍显理想化，实务落地约束着墨较少。",
+            "部分政策到法理的过渡依赖比较法例证，本土规范衔接可更细。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦权利推导与制度构造的内在逻辑，非评价框架可操作性或结论接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整闭环，反驳处理扎实，逻辑严密性极佳。",
+          "core_judgment": "论文从演进逻辑到权利构造的推理链形成充分支撑，核心结论可辩护推出，本维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理链依赖度高，反驳有实质论证且承认局限。",
+          "evidence_quotes": [
+            "将农户承包权认定为成员权存在体系性障碍：成员权非取得承包权充分条件，且危及承包关系稳定，遮蔽财产属性。",
+            "囿于物权法定原则的限制，土地经营权并非法定的用益物权类型……解释论上，经营权可以通过附属登记……获得对抗第三人的效力。"
+          ],
+          "strengths": [
+            "推理链层层递进，从政策目标推导权利性质，再推导次级用益物权结构，逻辑闭环。",
+            "对学界歧见（成员权说、债权说等）均有实质性反驳论证，而非简单罗列。"
+          ],
+          "weaknesses": [
+            "从“登记技术进步”直接推出“债权约定可登记产生物权效力”，法理跳步稍显激进。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于“次级用益物权”结论是否由前文逻辑充分推出，不评判该物权构造在实务中是否具备可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.37750291824341,
+        "glm-5.1": 48.11550164222717
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度嵌入中国农地语境，体系化回应学说争议并指明制度转化路径。",
+          "core_judgment": "该结论高度契合现行法秩序与学术共同体语境，具备强可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "学界对土地经营权性质的认识亦存在分歧，形成了总括权利说、两权说与债权说。",
+            "立法论上，我国民法典物权编应将土地经营权作为法定的用益物权类型，实现经营权的法定化。"
+          ],
+          "strengths": [
+            "精准定位农地权利财产化主线，体系化回应主流学说争议。",
+            "提出次级用益物权构造，兼顾政策目标与物权法逻辑。"
+          ],
+          "weaknesses": [
+            "结论部分对解释论路径的潜在司法适用阻力着墨较少。",
+            "未充分讨论经营权物权化对集体所有权行使的潜在冲击。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论回应学界争论并提出具体法构造方案，制度兼容性强。",
+          "core_judgment": "结论在共同体对话和制度可接受度上均表现优异，提出了明确的立法论和解释论路径。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "将农户承包权认定为成员权存在体系性障碍...将土地经营权界定为债权必然降低固有意义",
+            "立法论上，我国'民法典物权编'应将土地经营权作为法定的用益物权类型"
+          ],
+          "strengths": [
+            "回应了学界关于承包权与经营权性质的既有争论",
+            "提出了具体的解释论（附属登记）与立法论（法定化）转化方向"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认自身次级用益物权构造论证的局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被共同体和制度语境接受，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.27001214027405,
+        "glm-5.1": 39.474385023117065
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 75
+      },
+      "mean": 71.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提出以民法典物权编立法与电子登记技术适配实现土地经营权法定化的明确延展路径。",
+          "core_judgment": "存在真实延展路径，清晰指向未来立法编纂与司法解释论的具体推进方向。",
+          "score_rationale": "原始分68，对应bonus=3。依据文末立法论与解释论两条明确路径，与正文权利财产化论证紧密衔接，但未展开实施风险与后续检验，精细度有限。",
+          "evidence_quotes": [
+            "立法论上，我国“民法典物权编”应将土地经营权作为法定的用益物权类型，实现经营权的法定化。",
+            "解释论上，囿于物权法定原则的限制，土地经营权可以通过附属登记于土地承包经营权登记的方式获得对抗第三人的效力。"
+          ],
+          "strengths": [
+            "明确指出立法论与解释论的具体延展路径",
+            "与正文“权利财产化”核心结论紧密衔接"
+          ],
+          "weaknesses": [
+            "未充分展开制度实施中的潜在冲突与风险控制",
+            "缺乏对后续实证检验或司法适用分歧的预判"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦未来立法编纂与登记技术适配的推进方向，而非当下结论的教义学可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文指明了土地经营权法定化及登记赋能等制度完善方向与风险控制，但缺乏显性的后续研究留白。",
+          "core_judgment": "存在真实延展路径，指明了立法完善方向与实施风险控制，但未显性提出后续研究争点。",
+          "score_rationale": "原始分75，bonus档位为good(3分)。文章提出了立法法定化、登记技术赋能债权物权化等制度完善方向及风险控制，与正文衔接可解释，但未显性留白后续研究问题，精细度有限。",
+          "evidence_quotes": [
+            "立法论上，我国‘民法典物权编’应将土地经营权作为法定的用益物权类型，实现经营权的法定化。",
+            "登记技术的进步使其成为规制财产的法律手段……打破了物权法定原则对当事人创新物权类型与内容的封锁。"
+          ],
+          "strengths": [
+            "明确指出了民法典物权编法定化的制度完善方向。",
+            "揭示登记技术进步对物权法定原则的冲击与修正路径。"
+          ],
+          "weaknesses": [
+            "缺乏对后续研究争点或理论局限的显性留白。",
+            "延展多内嵌于当下制度设计，未来研究指引稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是未来立法与登记技术演进方向，而非当下经营权物权构造结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 70.49063611030579,
+        "glm-5.1": 64.07572293281555
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.8,
+    "max_std": 4.9,
+    "weighted_total": 89.7,
+    "final_score": 93.71,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 8.2,
+    "worst_dimension": "forward_extension",
+    "worst_std": 4.9
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "农地三权分置政策对农地法律制度的设计具有导向作用，相关法律制度的创新及运行要服务于政策目标的实现。",
+          "基于上述分析，集体所有权、农户承包权与土地经营权三者的关系可以表述为：所有权是农户承包权的母权，农户承包权是经营权的母权，农户承包权与土地经营权同为用益物权。土地经营权派生于农户承包权，是土地承包经营权人基于处分行为设定的独立用益物权。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "从政治中心到效率主导是我国农地制度演进的基本逻辑",
+          "农地三权分置的权利结构为“集体土地所有权—土地承包经营权（农户承包权）—土地经营权”",
+          "土地经营权是土地承包经营权人基于处分行为设定的独立用益物权",
+          "解释论上，囿于物权法定原则的限制，土地经营权可以通过附属登记于土地承包经营权登记的方式获得对抗第三人的效力"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

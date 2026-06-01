@@ -1,0 +1,1024 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGFX2025005012_中国法学_2025_商业外观知识产权竞合问题研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "商业外观知识产权竞合问题研究",
+          "中国'王老吉'商标及'红罐'包装装潢纠纷案持续十余年...参见最高人民法院（2015）民三终3号民事判决书",
+          "本文将从商业外观的多元构成要素和多元权利架构出发...提出解决商业外观知识产权竞合问题的法律构想。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "缺乏中国自主知识体系的理论转化或可复核命题：全文以美国《兰哈姆法案》的商业外观概念为分析起点，主要运用德国拉伦茨的法条竞合理论、沟渠理论、权利竞合等域外理论工具，仅将中国司法案例作为域外理论的适用场景和印证材料，未形成具有中国自主性的法学概念、判断标准或解释路径。",
+          "未对中国实践中的真实难题进行理论解释：论文将中国案例（如王老吉案、晨光案）作为分析素材，但核心工作是运用既有（域外）权利竞合理论进行分类和解释，并非从中国实践中发现和提炼出新的法学问题或进行具有中国主体性的理论建构。"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：参考文献列表完全缺失，无法核对引证来源。",
+        "项目口径：论文以域外理论（拉伦茨法条竞合、美国商业外观概念）为分析框架，中国案例仅作为应用素材，缺乏中国自主知识体系的理论建构意图。"
+      ],
+      "evidence_quotes": [
+        "商业外观（Trade Dress）这一概念，源自美国规定商标和商业外观保护的《兰哈姆法案》。",
+        "在德国学者拉伦茨的著述中，'同一案件事实可以被多数法条所涉，即为法条的竞合'。上述学说观点，为我们分析知识产权权利竞合以及多种竞合状态提供了重要理论工具。",
+        "本文通过民法理论分析、司法实践总结和法律制度构想，对商业外观权利竞合问题作出探讨，旨在明晰法律规则，完善法律制度..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "理论范式为域外移植而非中国自主转化：全文以美国法'商业外观'概念为研究对象，以德国法'法条竞合'理论为核心分析工具，虽涉及大量中国司法案例，但未对中国场景下的'商业外观'进行概念重构或提出具有中国特色的法学理论，属于典型的域外理论框架下的中国素材填充。",
+        "未形成可复核的中国法学命题：论文结论中提出的'体系化规范建构'、'类型化规范适用'等建议是一般性立法司法建议，并非基于对中国实践的独特解释而生成的法学判断标准、制度命题或规范命题。"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文是法学领域内关于知识产权竞合的规范分析，但整体以域外理论和概念为框架，中国案例仅作为论证素材而非理论生长点，未体现出'中国自主知识体系'的理论转化或命题创新，应判定为obviously_ineligible，不予进入后续评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如227、228等）",
+          "脚注编号包含特殊符号（如㊱、■）存在OCR解析或排版抽取风险",
+          "参考文献列表抽取为空，但正文存在大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "227",
+          "228",
+          "■ 朱谢群：《创新性智力成果与知识产权》，法律出版社2004年版，第12页。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国现有法律对此有“商品装潢”“注册商标”“外观设计”“美术作品”等具体称谓。",
+          "在“广药集团与加多宝公司‘王老吉’商标及‘红罐’包装装潢纠纷案”中，最高人民法院终审判决认为...",
+          "商业外观权利竞合呈现以下独特的法律特征：首先，商业外观权利竞合是为同一法律位阶的权利竞合...",
+          "对商业外观的权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入、脚注特殊符号解析风险及参考文献列表缺失，需后续清洗修复；",
+        "项目口径：完全符合进入六维评价的候选信号，无口径边界问题。"
+      ],
+      "evidence_quotes": [
+        "对商业外观的权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场。",
+        "在“广药集团与加多宝公司‘王老吉’商标及‘红罐’包装装潢纠纷案”中..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国司法实践（如王老吉红罐案等）为中心，深入解释了商业外观知识产权竞合的法学难题，并提出了区别保护、分类保护与有限保护的法政策命题及具体裁判规则，完全符合项目口径，进入六维评分。建议在后续评分前清洗正文中的期刊页码及修复脚注编号乱码。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留符号（如⑪⑫⑬等圆圈数字），但不影响核心内容阅读",
+          "部分参考文献引用格式为混合中英文，属正常学术排版",
+          "文末参考文献列表标注为'（无）'，但正文脚注引用完整，不影响评审"
+        ],
+        "evidence_quotes": [
+          "① See Carl Caslowitz...",
+          "⑫ 孔祥俊：《论商品名称包装装潢法益的属性与归属》",
+          "■ 朱谢群：《创新性智力成果与知识产权》，法律出版社2004 年版，第12 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国现有法律对此有'商品装潢''注册商标''外观设计''美术作品'等具体称谓",
+          "中国'王老吉'商标及'红罐'包装装潢纠纷案持续十余年，最终于2015年由最高人民法院审结",
+          "本文将从商业外观的多元构成要素和多元权利架构出发，以客体要件、主体资格、本体内容为要点，研究各知识产权法的不同保护机制",
+          "解决权利竞合问题，实质上是对当事人之间的利益关系进行平衡和协调",
+          "基于以上研究，笔者提出以下三点结论性意见：第一，体系化规范建构问题...第二，类型化规范适用问题...第三，相关法律关系问题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号为特殊符号格式，建议确认是否需统一处理",
+        "文末参考文献列表缺失，但正文引用完整"
+      ],
+      "evidence_quotes": [
+        "我国现有法律对此有'商品装潢''注册商标''外观设计''美术作品'等具体称谓",
+        "中国'王老吉'商标及'红罐'包装装潢纠纷案持续十余年，最终于2015年由最高人民法院审结"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文符合项目口径要求，应进入六维评价。该文以中国司法实践（王老吉案、晨光案、茶颜悦色案等）为核心素材，系统分析商业外观知识产权竞合问题，提出'权利重叠''权利共存''权利冲突'三种类型化分析框架，并构建相应的法律适用规则，具有明确的中国问题意识和理论转化尝试。文本质量良好，脚注编号虽为特殊符号但不影响阅读。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文以中国司法实践中的‘王老吉红罐’‘新平衡N字’‘茶颜悦色’等典型商业外观纠纷为切入点，探讨商业外观权利重叠、共存、冲突纠纷中的法律适用问题。",
+          "基于以上研究，笔者提出以下三点结论性意见：第一，体系化规范建构问题……第二，类型化规范适用问题……第三，相关法律关系问题。",
+          "在商业外观权利体系中，商品装潢保护制度处于一个特别的地位……本部分以商品装潢法益为中心，结合司法判例，探讨商业外观权利竞合问题。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "无重大文本工程问题，期刊页眉/页码穿插属常规PDF提取特征，核心论点、法理推演与裁判规则归纳结构完整清晰。"
+      ],
+      "evidence_quotes": [
+        "商业外观的相关权益横跨知识产权与反不正当竞争两大法律部门，涉及创造性成果与经营性标记等多个法律制度",
+        "本文将以商品装潢法益为中心，结合司法判例，探讨商业外观权利重叠、共存、冲突纠纷中的法律适用问题。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文高度契合‘中国自主知识体系研究’项目口径。以中国商业外观知识产权竞合为核心议题，深度结合最高人民法院典型判例与现行法规范，提出体系化、类型化的裁判规则与司法解释构想，具备明确的法学争辩性与本土理论转化价值。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文系统梳理了商业外观的知识产权竞合类型，但核心问题是“如何解决竞合”，属于既有法律问题的分类化阐述，缺乏核心争点追问。",
+          "core_judgment": "问题具有现实背景，但主要是对既有法律现象的体系归纳与解决方案陈述，未提炼出可深度争辩的理论性议题。",
+          "score_rationale": "可争辩性=3/4（有明确主题、属法学层面、有理论分歧，但偏向解决方案陈述），枢纽性=1/4（仅影响1个领域），材料新颖性未触发上限，锚定marginal档，给65分。扣分合计=0分。",
+          "evidence_quotes": [
+            "商业外观的多元构成要素及其不同内在价值，使得同一知识产品可能成为不同部门法规定的权利客体。权利的重合、交叉常常引发企业争夺无形财产的诉讼大战",
+            "在多数权利冲突争议中，主张权利的请求方是为在先权利人，而被控侵权的抗辩方则为在后权利人"
+          ],
+          "strengths": [
+            "对商业外观权利竞合现象有系统的类型化梳理",
+            "结合司法案例揭示了竞合问题的实践复杂性"
+          ],
+          "weaknesses": [
+            "问题设定更多是“如何解决竞合”的现状归纳与方案建议，而非对某一核心法学命题（如为何某些竞合应被禁止）的追问",
+            "全文倾向于展示和分类竞合状态，缺乏贯穿始终的可争辩性焦点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文问题为“如何解决商业外观知识产权竞合”，涵盖重叠、共存、冲突三类，问题边界宽泛，未能聚焦于某一具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评估问题本身是否成立且重要，不评估文献综述、论证严密性或材料的逻辑支撑程度。",
+          "review_flags": [
+            "weak_problem_formulation"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 73,
+          "band": "good",
+          "summary": "商业外观知识产权竞合问题枢纽性强且可争辩，但新概念统摄旧问题的解释力提升论证稍弱。",
+          "core_judgment": "问题涉及多制度领域与长期学术分歧，成立且重要；但引入“商业外观”新概念包装旧竞合问题，解释力提升论证不足。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档给88分；前置检查1扣15分（新概念包装旧问题未充分说明解释力提升），最终73分。",
+          "evidence_quotes": [
+            "获得外观设计专利的构图形象，在其专利权终止后，能否依据反不正当竞争法继续获得保护？",
+            "有学者认为重叠保护背离平衡政策目标……也有学者认为法律原则上不禁止知识产权的重叠保护。"
+          ],
+          "strengths": [
+            "问题横跨多部知识产权法，影响范围广，枢纽性极强。",
+            "明确区分重叠、共存、冲突三种竞合状态，可争辩性充分。"
+          ],
+          "weaknesses": [
+            "引入“商业外观”概念未充分说明相对既有概念的解释力提升。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立性与重要性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文以商业外观知识产权竞合为研究对象，梳理权利重叠、共存、冲突三种情形，但缺乏真正的理论争点与学术交锋。",
+          "core_judgment": "主题声明明确，但问题可争辩性不足，未形成具有学术张力的核心争点，属于制度介绍型研究。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限，锚定marginal档，给58分。扣分合计=0分。",
+          "evidence_quotes": [
+            "总结已有司法裁判和学术研究成果，我们需要进一步关注的是：商业外观作为权利客体的多元要素构成以及各种法律的差异性授权条件...",
+            "对商业外观权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场"
+          ],
+          "strengths": [
+            "主题涉及知识产权与反不正当竞争法交叉，有一定制度关联性",
+            "对权利竞合三种类型有体系化分类"
+          ],
+          "weaknesses": [
+            "缺乏明确的问题句，全文为'论...'式主题声明，无'是否''如何'等可争辩设问",
+            "无学者观点交锋，多为制度归纳与规则罗列"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦商业外观知识产权竞合的类型化与规则建构，问题明确且具高度可争辩性与制度枢纽性。",
+          "core_judgment": "该问题成立且重要，清晰呈现了权利重叠、共存与冲突的法理分歧与规范建构需求。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置检查扣分合计=0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我们需要进一步关注的是……概言之，即知识产权的‘权利竞合’，具体包括‘权利重叠’‘权利共存’和‘权利冲突’三种情形。",
+            "关于权利相容竞合问题的探讨……有学者主张‘原则上禁止’，也有学者认为‘法律原则上不禁止’。"
+          ],
+          "strengths": [
+            "明确提炼竞合的三种类型，问题聚焦且具教义学纵深。",
+            "充分呈现学界对重叠保护与权利归属的理论分歧，争点清晰。"
+          ],
+          "weaknesses": [
+            "部分规则构想偏向现行法解释，突破性命题稍显不足。",
+            "跨法域比较引入较浅，未充分展开制度竞争分析。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.271069288253784,
+        "glm-5.1": 90.07543182373047,
+        "kimi-k2.6": 13.638875007629395,
+        "qwen3.6-plus": 53.2107310295105
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 73,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 72,
+      "std": 14.7,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了以权利竞合为核心的研究地图，通过分散式文献定位梳理了既有学术观点与司法裁判立场，并呈现了多组可区分的争点结构，但未在独立文献综述中集中呈现三要素。",
+          "core_judgment": "论文通过分散在正文中的学术观点引述和司法裁判梳理形成了有效的研究地图，具备清晰的争点结构，但对既有研究的归纳深度和法学流派的系统呈现有提升空间。",
+          "score_rationale": "三要素=4/6，争点结构=2/2，法学流派=5个，锚定good档（65-74），给72分。到达点部分满足(1分)，未竟点部分满足(1分)，本文切入点充分满足(2分)，争点结构完整，涵盖多组学术观点对立与制度分歧。",
+          "evidence_quotes": [
+            "持'商标附随理论'者主张……持'诚实贡献理论'者认为……（第234页）",
+            "学术界有“平行保护说”和“补充保护说”的不同看法：前者主张……后者认为……（第235页）"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现了至少5组可区分的学术对立或制度分歧（如平行保护说vs补充保护说、强制认定流派等）。",
+            "分散式文献定位有效，将德国法学方法论、民法权利竞合理论、知识产权专门学说融入正文论证，非孤立罗列。"
+          ],
+          "weaknesses": [
+            "到达点仅列举观点而未提炼具体研究成果的贡献（如缺少对曹新明1999、孔祥俊2017等文献贡献的明确归纳）。",
+            "未竟点表述零散（仅结尾处概括“解决方案有待完善”），缺乏对既有研究局限性的集中、具体刻画。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分，不触发流派上限",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分实际为4分，不触发本上限；但到达点和未竟点各仅得1分，研究地图部分缺项，扣减至72分。"
+            }
+          ],
+          "boundary_note": "本维度仅评价研究地图的完整性与争点结构，不评价商业外观权利竞合问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，呈现多个学界争点与对立流派，现状洞察深刻。",
+          "core_judgment": "论文通过分散式文献定位清晰构建了研究地图，充分呈现学界争点与流派分歧，本维成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "对此学界有两种观点：持‘商标附随理论’者主张……；持‘诚实贡献理论’者认为……",
+            "对于权利重叠保护，学界明显存在分歧。有学者认为……；也有学者认为……"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰呈现多个具体学术争点与对立理论。",
+            "三要素完整，未竟点与切入点高度对应，研究地图清晰。"
+          ],
+          "weaknesses": [
+            "无独立文献综述，部分争点在正文中分散呈现，整合性稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理深度与争点结构，不评商业外观竞合问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了商业外观权利竞合的研究地图，但三要素呈现分散且部分模糊。",
+          "core_judgment": "研究地图三要素基本可辨识，争点结构围绕'权利重叠''权利共存''权利冲突'展开，但到达点提炼不足，未竟点与本文切入点对应关系松散。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=2/2，法学流派=2个（禁止重叠说vs容忍/限制重叠说），锚定good档，给72分",
+          "evidence_quotes": [
+            "有学者认为，'重叠保护现象背离了知识产权的平衡政策目标……因而主张原则上禁止知识产权的重叠保护'",
+            "也有学者认为……'法律原则上不禁止知识产权的重叠保护'"
+          ],
+          "strengths": [
+            "争点结构清晰，以'权利重叠''权利共存''权利冲突'三元框架组织文献",
+            "比较法素材丰富，英日美案例与学说均有涉及"
+          ],
+          "weaknesses": [
+            "到达点多以制度描述替代学术成果提炼，缺乏具体学者贡献的精准定位",
+            "未竟点与本文切入点混同，'有待完善''具体方案似可在以下方面展开'等表述模糊"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4，实际未触发此规则；但三要素中未竟点与切入点对应关系松散，接近部分满足边界"
+            }
+          ],
+          "boundary_note": "本维度评价文献定位清晰度，不评价问题本身是否新颖；论文对'红罐'案等典型裁判的梳理属于制度分析而非文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准绘制商业外观知识产权竞合的研究地图，清晰梳理学术分歧与裁判脉络。",
+          "core_judgment": "研究地图三要素完整，争点结构严密，多流派学术对立明确，文献洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "总结已有司法裁判和学术研究成果，我们需要进一步关注的是……具体包括权利重叠、共存和冲突三种情形。",
+            "关于权利重叠保护，学界明显存在分歧……主张原则上禁止……也有学者认为法律原则上不禁止。"
+          ],
+          "strengths": [
+            "分散式文献定位精准嵌入各竞合类型分析，未竟点与切入点逻辑闭环严密。",
+            "系统提炼禁止/容忍重叠、附随/贡献理论等对立学说，争点脉络清晰。"
+          ],
+          "weaknesses": [
+            "部分裁判规则归纳偏重实务经验，对比较法深层理论争鸣的引证稍显单薄。",
+            "未竟点虽明确，但对新兴数字商业外观的文献覆盖可进一步拓展。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉及权利竞合方案本身的创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 136.82770013809204,
+        "glm-5.1": 84.33524894714355,
+        "kimi-k2.6": 12.667075872421265,
+        "qwen3.6-plus": 50.95337915420532
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81.5,
+      "std": 11.0,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 62,
+          "band": "good",
+          "summary": "论文通过“权利重叠-共存-冲突”三分法对商业外观竞合进行了系统归纳，但框架主要来自政策梳理与司法经验总结，缺乏可重复适用的分析步骤，原创建构力有限。",
+          "core_judgment": "框架具有结构化的分类和丰富的制度阐述，但本质上是对既有规则和立场的归纳，未提出可操作的原创分析步骤或判断标准，属于政策理论梳理型框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定较清晰，分类标准明确，但缺乏可循分析步骤，后文调用限于分类而非步骤化操作），法学转化度得分=2/4（提供了裁判规则归纳和原则指引，但未转化为可操作的适用流程）。锚定good档，给62分。",
+          "evidence_quotes": [
+            "权利竞合...包括'权利重叠''权利共存'和'权利冲突'三种情形。",
+            "解决权利竞合问题，实质上是对当事人之间的利益关系进行平衡和协调...具体方案似可在以下方面展开：限制权利重叠，合理进行权利配置；承认权利共存，规范各自权利行使；解决权利冲突..."
+          ],
+          "strengths": [
+            "三分法分类标准明确，将复杂竞合现象结构化为重叠、共存、冲突三种类型。",
+            "结合大量司法案例归纳了裁判规则，如保护在先权原则、利益平衡原则等，具有实务参考价值。"
+          ],
+          "weaknesses": [
+            "框架属于对既有立场和裁判经验的归纳整理，缺乏原创性分析步骤（如“第一步…第二步…”）或可重复适用的判断标准。",
+            "法学转化停留在原则宣示和规则归纳层面，未将三分法转化为可操作的法律适用流程或裁判推理步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此评分针对分析框架本身的建构力与可操作性，不涉及对论文所归纳裁判规则正确性或逻辑严密性的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建了商业外观权利竞合的三分框架及裁判规则，法学转化度高",
+          "core_judgment": "框架建构完整且法学转化充分，提供了类型化标准与可操作的裁判规则",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "权利竞合具体包括‘权利重叠’‘权利共存’和‘权利冲突’三种情形",
+            "对客体属性认定，可采取‘选择法’‘过滤法’‘比较法’依次进行"
+          ],
+          "strengths": [
+            "分类标准明确，将竞合精准区分为重叠、共存、冲突三种类型",
+            "法学转化深入，提炼出请求权选择自由、一重效果等具体裁判规则"
+          ],
+          "weaknesses": [
+            "部分制度构想（如善意共存协议）的适用边界尚可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与法学转化，不评理论推演的逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出'权利重叠''权利共存''权利冲突'三类型分析框架，但缺乏原创概念界定与可重复操作步骤，属于制度梳理型归纳而非建构型分析。",
+          "core_judgment": "框架具有类型化雏形但可操作性不足，法学转化停留在原则罗列层面，未形成可重复适用的裁判规则或判断步骤。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定借用既有术语，分类标准明确但分析步骤不可循，后文调用充分但多为描述性展开）；法学转化度得分=2/4（有裁判规则归纳但分散于案例，未整合为统一操作指引；制度设计层面仅有原则性建议）。锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "本文将从商业外观的多元构成要素和多元权利架构出发，以客体要件、主体资格、本体内容为要点，研究各知识产权法的不同保护机制",
+            "权利重叠的规制方法...权利共存的规制规范...权利冲突的处理原则和规则"
+          ],
+          "strengths": [
+            "三类型分类具有体系性，后文调用充分",
+            "结合中外案例进行规则归纳，有一定实务关照"
+          ],
+          "weaknesses": [
+            "核心术语如'权利重叠''权利共存'无原创定义，借用民法学通说",
+            "缺乏'第一步-第二步-第三步'式可重复判断流程，多为原则描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以'权利重叠''权利共存''权利冲突'为框架，但术语定义直接借用拉伦茨、王利明等既有学说，未进行法学操作化转化；后文分析多为案例描述与原则罗列，无'若...则...'式裁判规则或分步判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力与可操作性，不涉及案例论证的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“重叠-共存-冲突”三分法框架，配套类型化裁判规则与适用流程，体系严密且具强操作性。",
+          "core_judgment": "分析框架成立且高度可用，成功将抽象竞合理论转化为可重复适用的司法裁判指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，分类标准明确，三步检验法与三分法贯穿全文并直接产出裁判规则。",
+          "evidence_quotes": [
+            "本文将以客体要件、主体资格、本体内容为要点……提出解决商业外观知识产权竞合问题的法律构想。",
+            "对实体物品设计附载之利益属性进行识别……采取‘选择法’‘过滤法’‘比较法’依次进行。"
+          ],
+          "strengths": [
+            "三分法框架边界清晰，直接对应不同司法裁判路径。",
+            "提出“一重效果”“合理避让”等具体裁判规则，转化度高。"
+          ],
+          "weaknesses": [
+            "部分原则（如诚实信用）属民法通用，创新性稍弱。",
+            "对“限制重叠”的具体量化标准论述可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 156.95857119560242,
+        "glm-5.1": 137.51214289665222,
+        "kimi-k2.6": 15.858895063400269,
+        "qwen3.6-plus": 146.03005290031433
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 75.5,
+      "std": 18.0,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "推理链主干完整，从权利竞合法理到商业外观特征再到具体制度方案层层推进，但缺乏对明显反对观点的显式回应和自身局限的承认，导致反驳处理度不足。",
+          "core_judgment": "论文为理论型论文，核心结论可由前文可辩护地推出，但在反驳处理维度的实质性回应和局限承认上存在缺失。",
+          "score_rationale": "推理链完整性得分=4/4（四个标准均满足），反驳处理度得分=1/3（仅满足隐含分歧回应标准，缺显式回应和局限承认）。锚定good档，因主干推理链极强，给予78分。",
+          "evidence_quotes": [
+            "商业外观权利重叠有三种类型：一是创造性成果权领域的重合……一般应奉行‘禁止重叠’原则。二是识别性标志权领域的重合……应采‘容忍重叠’原则。三是……采取‘限制重叠’原则。",
+            "同一主体于商业外观之上同时享有商品装潢利益以及图形商标权、美术作品著作权、外观设计专利权……请求权规范竞合，只能择一适用。"
+          ],
+          "strengths": [
+            "推理链层次分明：先界定权利竞合、重叠、共存、冲突四型，基于类型推导规制方案，删除分类则具体方案失去依据。",
+            "判例分析紧扣规范逻辑，例如从“晨光案”有效推出客体利益独立存在与法律衔接保护的核心结论。"
+          ],
+          "weaknesses": [
+            "通篇未出现对“有学者反对/质疑”的直接引述与针对性批驳（如对重叠禁止原则的可能异议），属于理论论文中显式反驳信号的缺席。",
+            "论证策略近乎全知全能，未明确划定自身方案适用边界或存在的制度局限（如善意共存协议的执行难题）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于推理链是否能支撑结论、是否回应反对观点与承认局限，不涉及结论的实质正确性或制度建构的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，对反对意见有实质性分类回应，逻辑严密性高。",
+          "core_judgment": "论文推理链形成充分支撑，核心制度构想可由前文可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "有学者认为重叠保护背离平衡政策目标……原则上禁止知识产权的重叠保护；也有学者认为法律原则上不禁止",
+            "不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场"
+          ],
+          "strengths": [
+            "推理链依赖度高，从法理特征到制度构想层层递进",
+            "对重叠保护分歧作了实质性分类回应（禁止/容忍/限制）"
+          ],
+          "weaknesses": [
+            "局部过渡（如从法理到实证）偏重描述，论证密度稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价结论推出过程，不评价“禁止/容忍/限制”分类在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了较为完整的商业外观权利竞合分析框架，推理链基本完整，但反驳处理度不足。",
+          "core_judgment": "推理链完整性3/4，反驳处理度1/3，锚定good档，给78分。",
+          "score_rationale": "推理链完整性得分3/4：标准1成立（可识别'概念界定→类型划分→制度分析'三步链）；标准2成立（类型划分依赖概念界定，制度分析依赖类型划分）；标准3成立（'限制重叠''保护在先权'等结论由前文客体分析、比较法分析推出）；标准4不成立（从'权利重叠现象'到'区别保护、分类保护与有限保护'的过渡存在跳步，未充分论证为何不能全盘否定或肯定）。反驳处理度得分1/3：标准1部分成立（提及'有学者认为重叠保护背离平衡政策目标'等反对观点）；标准2不成立（对反对观点仅罗列未实质回应，未说明为何'限制重叠'优于'禁止重叠'）；标准3不成立（未承认自身理论局限）。锚定good(70-79)档，因推理链较完整但反驳处理薄弱，取78分。",
+          "evidence_quotes": [
+            "有学者认为，'重叠保护现象背离了知识产权的平衡政策目标……因而主张原则上禁止知识产权的重叠保护'",
+            "也有学者认为……法律原则上不禁止知识产权的重叠保护"
+          ],
+          "strengths": [
+            "三步推理链清晰：概念界定→类型三分→分别规制",
+            "比较法材料（英日判例、国际公约）支撑制度方案选择"
+          ],
+          "weaknesses": [
+            "对'禁止重叠保护'反对意见仅罗列未实质回应，未论证'限制重叠'的优越性",
+            "未承认'善意共存''善意取得'等建议的适用边界局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链与反驳处理，不评制度方案本身可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链完整严密，有效回应分歧，结论获充分支撑。",
+          "core_judgment": "逻辑严密性成立，核心结论由理论界定、案例实证与类型化规则推导而出，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。论证层层递进，分歧回应实质，结论可辩护推出。",
+          "evidence_quotes": [
+            "关于权利重叠保护……笔者认为，对商业外观的权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取区别保护立场。",
+            "个案判决没有也不可能形成体系化的裁判规则，因此有必要制定具准立法价值的司法解释。"
+          ],
+          "strengths": [
+            "理论分类与司法判例深度咬合，推理链条完整递进。",
+            "对学术分歧与裁判分歧均作实质性回应，论证可辩护性强。"
+          ],
+          "weaknesses": [
+            "部分制度移植（如善意取得）未充分论证与知识产权特性的适配性。",
+            "结论偏向宏观政策建议，具体规则的操作推演略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评价所提司法解释或分类规则在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.38690185546875,
+        "glm-5.1": 50.78658604621887,
+        "kimi-k2.6": 11.434035301208496,
+        "qwen3.6-plus": 85.72513675689697
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 88
+      },
+      "mean": 84,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论通过类型化方案系统回应了权利竞合难题，积极进入司法实践与既有学理争论的对话场域。",
+          "core_judgment": "结论将商业外观竞合划分为重叠/共存/冲突三类并提出分类规制方案，对反对意见和理论工具均有交代，具备进入共同体对话的完整结构。",
+          "score_rationale": "共同体对话度得分=4/4（回应既有争论、可被反对者定位、嵌入中国制度语境、回应反对意见），制度可接受度得分=3/4（与现行法秩序兼容、回应实务约束、指出制度转化方向），锚定理论论文 ≥3(A)+≥2(B) excellent档，给85分。",
+          "evidence_quotes": [
+            "对商业外观的权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场。",
+            "知识产权法与反不正当竞争法应是互补关系而非包容关系……其法律适用互不优先。"
+          ],
+          "strengths": [
+            "明确提出三重竞合状态的差异化解决方案，结构清晰，可被司法和学界直接讨论。",
+            "结论在“禁止重叠/容忍重叠/限制重叠”等主张上均给出原则性依据，便于反对者定位分歧点。"
+          ],
+          "weaknesses": [
+            "制度转化方向仍限于“体系化司法解释”“类型化适用”等大方向，缺乏具体的条文或程序设计锚点。",
+            "对域外立法例（如日本、英国）的参照只在中间论证展开，结论部分未明确其在中国转化时的具体约束条件。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分仅针对结论在共同体对话与制度语境下的可接受性，不评价其前瞻延展性或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "结论回应了既有争论并提出类型化方案，与中国法秩序高度兼容，指出了制度转化方向。",
+          "core_judgment": "结论在共同体对话和制度可接受性上表现良好，成功将理论主张转化为可争辩的学术命题。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给82分",
+          "evidence_quotes": [
+            "对商业外观的权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场。",
+            "有必要制定具准立法价值的司法解释...出台体系化司法解释尤为必要。"
+          ],
+          "strengths": [
+            "明确修正既有重叠保护观点，提出禁止/容忍/限制的分类法政策立场",
+            "结合中国司法判例与民法典语境，提出体系化司法解释的制度转化方向"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认自身论证局限或深入回应反对意见",
+            "制度转化方向偏宏观，缺乏更具体的裁判规则设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以商业外观知识产权竞合为研究对象，提出体系化规范建构、类型化规范适用及相关法律关系处理三点结论，回应了中国司法实践需求。",
+          "core_judgment": "结论具有明确的学术对话性和制度回应性，但主要停留在既有学说整理与司法经验总结层面，创新性学术主张不够突出，未充分回应反对意见。",
+          "score_rationale": "共同体对话度得分=3/4（回应了权利竞合理论争论、定位清晰、考虑中国语境，但未充分回应反对意见）；制度可接受度得分=3/4（与现行法秩序兼容、回应制度约束、考虑中国语境，但制度转化方向较笼统）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文通过民法理论分析、司法实践总结和法律制度构想，对商业外观权利竞合问题作出探讨，旨在明晰法律规则，完善法律制度",
+            "有必要制定具准立法价值的司法解释……出台体系化司法解释尤为必要"
+          ],
+          "strengths": [
+            "结论明确回应中国司法实践，引用大量本土判例和法条",
+            "提出'体系化规范建构'等具体方向，具有制度转化意识"
+          ],
+          "weaknesses": [
+            "结论未充分回应'禁止重叠保护'等反对学术观点",
+            "三点结论偏重于既有制度整理，创新性学术主张有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应既有学术争论，紧密契合中国法秩序与司法实践，具高度可接受性。",
+          "core_judgment": "该维成立，结论具备充分的共同体对话基础与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "对商业外观的权利重叠保护，不宜采取全盘否定或绝对肯定的价值取向，而可以采取一种区别保护、分类保护与有限保护的法政策立场。",
+            "在知识产权分散立法、权利重叠交叉的情况下，出台体系化司法解释尤为必要。"
+          ],
+          "strengths": [
+            "明确回应学界“禁止/容忍重叠”之争，提出分类保护立场。",
+            "紧密结合中国司法判例与现行法，对策具教义学支撑。"
+          ],
+          "weaknesses": [
+            "部分制度构想（如善意取得引入知产）缺乏具体程序衔接。",
+            "结论偏重宏观指引，微观裁判规则的可操作性可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.50446176528931,
+        "glm-5.1": 45.223361015319824,
+        "kimi-k2.6": 9.976673126220703,
+        "qwen3.6-plus": 51.355907917022705
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 82,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.8,
+      "std": 8.3,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结论部分提出了体系化规范建构、类型化规范适用和法律关系厘清三个明确的未来完善方向，延展路径可定位但与正文论证的衔接还不够精细。",
+          "core_judgment": "论文存在真实的、可定位的制度完善型延展路径，但路径的精细度和对自身局限的回应尚有不足。",
+          "score_rationale": "原始分62分，对应bonus=3档位。证据来自结论部分明确提出的司法解释制定、类型化规则适用及法条竞合关系定位三个方向，但延展路径较为宏观，未深入结合正文具体局限进行递进设计。",
+          "evidence_quotes": [
+            "有必要制定具准立法价值的司法解释……就权利竞合纠纷民事裁判规则作出总体性、协调性的统一规定。",
+            "未来法律构造应关注商业外观领域的立法框架安排和司法政策协调，着力体现权利竞合中的体系性、协同性和非冲突性的应然规范要求。"
+          ],
+          "strengths": [
+            "明确指出了体系化司法解释、类型化规则适用和法律关系厘清三个具体的制度完善方向。",
+            "延展方向与论文关于权利重叠、共存和冲突的核心分析框架紧密衔接，具有延续性。"
+          ],
+          "weaknesses": [
+            "延展路径停留在宏观方向层面，未进一步细化司法解释需解决的具体难点或条文构想。",
+            "未主动指出并回应该研究在比较法素材或实证样本方面的具体局限，以引出更具体的下一步研究问题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文是否指明了未来制度完善的走向（如司法解释制定），而非该结论本身当下是否被学界接受，后者属于结论可接受性范畴。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "提出体系化司法解释、类型化适用及法律关系定位等制度完善方向。",
+          "core_judgment": "存在真实延展路径，指明了宏观但可定位的制度完善与司法政策协调方向。",
+          "score_rationale": "原始分65，bonus档位为3（>=60）。论文提出体系化司法解释、类型化适用及法律关系定位等制度完善方向，与正文三种竞合类型规制论证衔接，但精细度有限。",
+          "evidence_quotes": [
+            "有必要制定具准立法价值的司法解释……出台体系化司法解释尤为必要。",
+            "未来法律构造应关注商业外观领域的立法框架安排和司法政策协调，着力体现……应然规范要求。"
+          ],
+          "strengths": [
+            "延展方向与正文三种竞合类型规制论证紧密衔接",
+            "指明了体系化司法解释与类型化适用等具体制度完善方向"
+          ],
+          "weaknesses": [
+            "延展路径偏向宏观制度构想，缺乏微观规则衔接或实施风险控制细节"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "体系化司法解释与类型化适用属于未来立法与司法政策延展问题，而非当下裁判规则可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文结尾提出司法解释制定、类型化规范适用、两法关系厘清三条延展路径，方向可定位但机制展开不足。",
+          "core_judgment": "存在真实延展路径，以制度完善和规则细化为主轴，但精细度有限。",
+          "score_rationale": "原始分68分，对应bonus=3档位。论文以三点结论性意见指明未来走向：出台体系化司法解释、类型化适用裁判规则、厘清反不正当竞争法与知识产权法关系。路径与正文核心结论（权利竞合三形态）衔接可解释，但各路径缺乏具体机制设计与操作方案，精细度与证据展开有限，未达80分以上档位。",
+          "evidence_quotes": [
+            "有必要制定具准立法价值的司法解释……出台体系化司法解释尤为必要。",
+            "未来法律构造应关注商业外观领域的立法框架安排和司法政策协调，着力体现权利竞合中的体系性、协同性和非冲突性的应然规范要求。"
+          ],
+          "strengths": [
+            "三点结论性意见可定位，分别指向制度、实务与理论维度。",
+            "延展路径与正文论证紧密衔接，非游离式展望。"
+          ],
+          "weaknesses": [
+            "各路径缺乏具体机制设计与操作方案，停留于方向性提示。",
+            "未明确承认正文局限并说明后续如何具体推进。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究或制度深化的指向，而非当下结论是否被接受；后者属于结论可接受性维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文指向体系化司法解释出台、类型化规则适用及反法与专门法关系厘清等制度延展路径。",
+          "core_judgment": "存在真实延展路径，明确指向未来立法框架安排与司法政策协调的具体方向。",
+          "score_rationale": "原始分68，对应bonus=3。结论明确提出制定体系化司法解释、类型化适用规则及厘清反法与专门法关系等具体方向，与正文竞合分析紧密衔接，但未展开具体条文设计或实证检验方案，精细度有限。",
+          "evidence_quotes": [
+            "最高人民法院曾草拟……但到目前为止，尚未就权利竞合纠纷民事裁判规则作出总体性、协调性的统一规定。",
+            "未来法律构造应关注商业外观领域的立法框架安排和司法政策协调，着力体现权利竞合中的体系性、协同性和非冲突性的应然规范要求。"
+          ],
+          "strengths": [
+            "明确指向体系化司法解释与类型化裁判规则的制度建构方向。",
+            "将反法与专门法关系厘清作为后续法条竞合适用的核心延展点。"
+          ],
+          "weaknesses": [
+            "未提供具体司法解释条文草案或实证检验路径。",
+            "对新型数字商业外观的竞合延展场景着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于竞合规则体系化建构与法条适用关系的未来推进方向，而非当下裁判结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 18.527394771575928,
+        "glm-5.1": 40.93139314651489,
+        "kimi-k2.6": 62.171451807022095,
+        "qwen3.6-plus": 50.51607704162598
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 65,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 68
+      },
+      "mean": 65.8,
+      "std": 2.9,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 80.68,
+      "weighted_total": 77.6
+    },
+    "aggregation_strictest": {
+      "final_score": 69.0,
+      "weighted_total": 66.4
+    },
+    "avg_std": 10.3,
+    "max_std": 18.0,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 11.7,
+    "composite_score": -8.63,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 18.0
+  }
+}

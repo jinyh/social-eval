@@ -1,0 +1,599 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/实体性查封优先权的理论证成及体系展开.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与期刊头尾信息混入正文（如‘· 1 5 1 ·’、‘法学研究 2025 年第2 期’）",
+          "脚注编号格式存在空格残留（如‘〔1 〕’）",
+          "部分段落存在PDF解析导致的异常换行"
+        ],
+        "evidence_quotes": [
+          "· 1 5 1 ·\n∗\n〔1 〕\n〔2 〕\n上海财经大学法学院讲师。",
+          "法学研究\n2025 年第2 期\n〔3 〕\n〔4 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题，旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性，为我国执行程序中查封行为的教义学体系构建提供理论基础。",
+          "我国现行执行法采“混合主义”模式……普通金钱债权人“按照执行法院采取执行措施的先后顺序受偿”到底是何含义……我国法上是否如奉行优先主义的德国法一样，承认债权人查封后即在查封物上取得实体性权利？",
+          "确立实体性查封优先权，对被执行人来说同样具有保护功能，即划定对债务人财产干涉的限度。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在PDF解析残留的页码、期刊头尾及脚注编号格式噪声，但不影响核心论证定位。"
+      ],
+      "evidence_quotes": [
+        "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题，旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性，为我国执行程序中查封行为的教义学体系构建提供理论基础。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版噪声，但项目口径高度契合。建议直接进入六维评分阶段，重点关注其对中国民事执行优先主义的教义学重构、比较法（德国法）理论的本土化转化，以及与实体法担保、代位、撤销制度的体系整合论证。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR空格残留（如〔1 〕、〔2 〕）",
+          "期刊页码混入正文段落之间（如· 1 5 1 ·、· 2 5 1 ·）",
+          "文末参考文献列表缺失，但正文脚注中已包含完整文献信息"
+        ],
+        "evidence_quotes": [
+          "〔1 〕",
+          "· 1 5 1 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "关于金钱债权的执行, 我国现行执行法采“ 混合主义” 模式, 即根据债务人性质及财产状况决定适用优先主义或平等主义。",
+          "普通执行债权人“ 按照执行法院采取执行措施的先后顺序受偿” 到底是何含义, 即先后采取查封措施的执行债权人获得的权利是何性质? 我国法上是否如奉行优先主义的德国法一样, 承认债权人查封后即在查封物上取得实体性权利?",
+          "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题, 旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性, 为我国执行程序中查封行为的教义学体系构建提供理论基础。",
+          "我国法上关于代位权行使的法律效果、代位权诉讼的当事人地位、判决效力的主观范围等问题存在较大争议, 根源在于同时规定了查封平等主义下的代位权制度与查封优先主义下的债权查封制度, 误将债权查封中查封债权人优先受偿的效果套用于代位权人。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR空格乱码及期刊页码混入正文，但不影响核心论点定位",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题, 旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性, 为我国执行程序中查封行为的教义学体系构建提供理论基础。",
+        "实体性查封优先权作为实现执行程序中财产归属变动的制度工具"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。论文以中国执行法上的查封优先权性质之争为核心法学问题，深入解释了中国司法实践中程序性优先权带来的风险及职权主义遮蔽处分权等真实难题，并成功将德国法扣押质权理论转化为构建中国实体性查封优先权教义学体系的分析工具，形成了可复核的制度命题。文本存在轻微OCR格式残留，但不影响评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 95
+      },
+      "mean": 91.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦查封优先权性质之争，提出构建实体性查封优先权的教义学命题。",
+          "core_judgment": "问题具有明确的法学争辩性与理论纵深，直击执行程序与实体法衔接的核心痛点，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，前置检查扣0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "普通执行债权人“按照执行法院采取执行措施的先后顺序受偿”到底是何含义...我国法上是否承认债权人查封后即在查封物上取得实体性权利？",
+            "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题，旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性"
+          ],
+          "strengths": [
+            "精准提炼程序性与实体性优先权的理论分歧，问题意识鲜明",
+            "将执行法问题置于破产法与民法典担保体系交叉视野，枢纽性强"
+          ],
+          "weaknesses": [
+            "对本土司法实践中程序性优先权形成的深层体制原因剖析稍显不足",
+            "实体性优先权与现行执行立案及查封程序的衔接论证可更具体"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估问题本身的争辩性与理论枢纽价值，不评价文献综述、论证逻辑或证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 95,
+          "band": "excellent",
+          "summary": "精准提出查封优先权性质之争，枢纽性极强，问题高度成立。",
+          "core_judgment": "问题成立且极为重要，触及执行法与实体法衔接的核心争点，影响多部门法体系。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的？",
+            "我国法上是否如奉行优先主义的德国法一样，承认债权人查封后即在查封物上取得实体性权利？"
+          ],
+          "strengths": [
+            "争点明确，直击执行优先主义下查封效力性质的理论分歧。",
+            "枢纽性极强，横跨执行法、破产法与物权法、债权法体系。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性及文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 71.47857785224915,
+        "glm-5.1": 52.049747943878174
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒查封优先权“程序性”与“实体性”之争及德国法三大理论，研究地图完整。",
+          "core_judgment": "文内充分呈现到达点、未竟点与切入点，争点脉络清晰且流派识别充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "尚待深入探讨的问题是……我国法上是否如奉行优先主义的德国法一样，承认债权人查封后即在查封物上取得实体性权利？",
+            "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题，旨在证成建立实体性查封优先权制度的必要性。"
+          ],
+          "strengths": [
+            "精准提炼程序性与实体性优先之争，未竟点指向明确。",
+            "系统梳理德国法私法说、公法说与混合说，比较法文献定位扎实。"
+          ],
+          "weaknesses": [
+            "对国内反对实体性优先的最新实证研究回应略显单薄。",
+            "分散式文献定位虽合规，但核心争点的批判性对话可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及命题本身创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位查封优先权性质之争，深入梳理中德两国多派学说，研究地图完整。",
+          "core_judgment": "现状洞察度极高，清晰呈现程序性与实体性优先权之争及德国三派学说演变，争点结构饱满。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者将该观点称为‘程序性优先’……有学者建议借鉴域外经验使查封产生担保物权的实体效力",
+            "围绕这一权利的性质……存在理论争议……德国目前关于扣押质权的通说即公私法混合说"
+          ],
+          "strengths": [
+            "精准提炼程序性与实体性优先权的核心争点",
+            "深入梳理德国法私法说、公法说与混合说的演变脉络"
+          ],
+          "weaknesses": [
+            "无明显缺陷"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦文献梳理与争点结构，不评价实体性优先权论证本身的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 82.15626001358032,
+        "glm-5.1": 46.41242980957031
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了实体性查封优先权的教义学分析框架，理论转化与体系整合度高。",
+          "core_judgment": "框架概念清晰、分类明确且后文深度调用，成功完成比较法理论的本土教义学转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念操作化与适用边界明确，体系整合路径符合理论型论文转化标准。",
+          "evidence_quotes": [
+            "本文即以'查封'一词统称我国现行法上的查封、扣押、冻结三种执行措施，并以'查封优先受偿权'统称……优先受偿地位。",
+            "实体性查封优先权是债权人在债务人特定财产上取得的旨在担保特定债权得以实现的权利。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，程序性与实体性优先权分类标准明确。",
+            "德国法教义学理论成功转化为本土分析框架，逻辑严密。"
+          ],
+          "weaknesses": [
+            "缺乏本土司法裁判数据的实证检验支撑。",
+            "制度融合方案偏重理论推演，程序衔接细节待细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了实体性查封优先权的双重要件分析框架，并成功将其转化为本土教义学体系。",
+          "core_judgment": "框架可操作性与法学转化度均极高，双重要件检验步骤清晰且后文充分调用。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文以‘查封优先受偿权’统称在执行或财产保全程序中债权人在被查封物上取得的优先受偿地位",
+            "扣押质权被视为意定质权、法定质权之外的第三种私法性质的质权…适用民法典关于质权的一般规则"
+          ],
+          "strengths": [
+            "双重要件（实体要件+程序要件）检验步骤清晰可循",
+            "将比较法概念成功转化为本土教义学体系并提供制度融合方案"
+          ],
+          "weaknesses": [
+            "对‘重要的程序性规定’与‘单纯的程序性规定’的区分标准尚需进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不评价实体性优先权相较于程序性优先权的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.29402923583984,
+        "glm-5.1": 48.212342977523804
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“破立结合”构建实体性查封优先权理论，推理严密且反驳处理充分。",
+          "core_judgment": "逻辑严密性成立，核心结论可由“目的批判—法理证成—比较借鉴—体系融合”链条可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证层层递进，反驳处理全面，无关键跳步。",
+          "evidence_quotes": [
+            "程序性优先权下，查封不会赋予债权人实体性权利，其无法抵御查封后债务人才陷入财务危机的风险。",
+            "德国目前关于扣押质权的通说即公私法混合说，正是基于实体要件与程序合法性双重要求建立。"
+          ],
+          "strengths": [
+            "“破立结合”推理链完整，从批判程序性优先权到证成实体性权利，步骤依赖紧密。",
+            "显式回应“不公平”质疑，以破产撤销与程序边界作实质性限缩，反驳充分。"
+          ],
+          "weaknesses": [
+            "担保物权规则准用至查封优先权时，部分公示与顺位衔接的论证略显简略。",
+            "债权人处分权在执行职权主义下的程序转化路径论证稍显理想化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否充分支撑结论，不评价实体性优先权在司法实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，反驳处理细致，核心结论可辩护地推出。",
+          "core_judgment": "论文逻辑严密性成立，通过批判程序性优先权、论证实体性优先权法理基础及借鉴德国法混合说，充分支撑了体系展开的结论。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "有观点认为...对其他债权人不公平。但在程序性优先权的理解下，被忽视的问题是...若债权人不能...获得独立的优先受偿权利，其应如何抵御...支付不能风险？",
+            "公法说虽简化了扣押质权的成立条件，但同时也舍弃了扣押质权作为债权人受偿基础的功能，无法解决执行债权能否通过强制执行优先受偿的实体问题。"
+          ],
+          "strengths": [
+            "推理链层层递进，从批判程序性优先权到证成实体性优先权再到体系展开，逻辑闭环。",
+            "反驳处理极为细致，对公平性质疑、无关紧要论等显式反对意见均有实质性回应。"
+          ],
+          "weaknesses": [
+            "从实体性优先权到与担保物权融合的过渡，虽论证了功能相似性，但公法行为与私法处分等同对待的理论跳跃稍大。",
+            "对代位权与收取之诉并存难题的解决方案（由债权人自行选择）稍显简略，未充分论证二者竞合时的优先顺序。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价从程序性优先权缺陷推出实体性优先权必要性的逻辑链，不评价该制度方案在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.77202892303467,
+        "glm-5.1": 46.09110617637634
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确挑战程序性优先通说，证成实体性查封优先权，高度契合法学争论与中国法秩序。",
+          "core_judgment": "该维度完全成立，结论具备强共同体对话能力与制度逻辑兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题，旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性",
+            "确立实体性查封优先权，对被执行人来说同样具有保护功能，即划定对债务人财产干涉的限度"
+          ],
+          "strengths": [
+            "精准定位并系统反驳程序性优先通说，对话度高",
+            "深度结合中国破产与执行制度语境，理论兼容性强"
+          ],
+          "weaknesses": [
+            "实体性优先权在现行司法解释下的具体适用路径仍需进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应既有争论，提供具体制度转化方案，高度兼容现行法秩序。",
+          "core_judgment": "结论在共同体对话与制度兼容维度均高度成立，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文结论修正了程序性优先权观点，主张在执行优先主义体系下建立实体性查封优先权制度。",
+            "实体性查封优先权可准用民法典担保物权规则，并与代位权、撤销权制度并行不悖。"
+          ],
+          "strengths": [
+            "结论精准回应程序/实体优先权之争，对话度高。",
+            "提供了具体的制度转化方案（准用担保物权规则）。"
+          ],
+          "weaknesses": [
+            "对撤销权重构为个别性权利的主张较激进，面临平等原则反驳。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被学界和制度语境接受并回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 51.117085218429565,
+        "glm-5.1": 43.36725187301636
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰指出实体性查封优先权确立后与担保物权、代位权及撤销权体系的教义学衔接路径。",
+          "core_judgment": "存在真实且具体的理论延展路径，紧扣核心结论并指明后续教义学整合方向。",
+          "score_rationale": "原始分85，达80分档对应bonus=5。论文明确提出与担保物权顺位协调、代位权与债权执行并行、撤销权个别化重构等具体教义学问题，延展路径清晰且与正文紧密衔接。",
+          "evidence_quotes": [
+            "能否妥当安排不同主体之间的权利顺位、不同制度之间的规范协调，也是确立实体性查封优先权需要进一步考察的问题。",
+            "如何妥当安排执行法上债权执行与民法上债权保全的制度构造的关系，使两者并行不悖，应为教义学解释工作的重点。"
+          ],
+          "strengths": [
+            "精准定位与民法担保、保全制度的体系冲突点",
+            "延展方向紧扣实体性优先权的核心论证逻辑"
+          ],
+          "weaknesses": [
+            "缺乏对规则冲突的实证检验或案例推演设计",
+            "部分教义学整合路径仍偏重理论推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是实体性查封优先权理论确立后，与既有民法体系衔接的后续研究空间，而非当下理论结论的共识度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了实体性查封优先权与代位权、撤销权及动产担保登记的体系整合与教义学深化方向。",
+          "core_judgment": "存在真实延展路径，指明了代位权与债权执行的功能区分、撤销权的个别化定位及动产查封公示规则更新等具体理论修正与制度衔接方向。",
+          "score_rationale": "原始分85，对应bonus档位>=80(bonus=5)。延展路径清晰可定位，如代位权与债权执行区分、撤销权个别化定位、动产查封登记对抗，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "如何妥当安排执行法上债权执行与民法上债权保全的制度构造的关系……应为教义学解释工作的重点。",
+            "撤销权人须同时为申请执行人……采取查封措施并取得查封优先权，才能获得……优先受偿的权利。"
+          ],
+          "strengths": [
+            "延展路径紧扣实体性查封优先权核心结论，体系衔接紧密。",
+            "提出了具体的教义学解释重点与制度修正方向（代位权、撤销权）。"
+          ],
+          "weaknesses": [
+            "对动产查封公示规则更新的延展仅提出准用原则，未深入探讨具体实施风险。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "代位权与撤销权的功能重构及与查封优先权的衔接，属于未来教义学体系构建与制度完善方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.91228485107422,
+        "glm-5.1": 45.22770380973816
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.6,
+    "max_std": 4.9,
+    "weighted_total": 91.5,
+    "final_score": 96.76,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 8.4,
+    "worst_dimension": "problem_originality",
+    "worst_std": 4.9
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题, 旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性, 为我国执行程序中查封行为的教义学体系构建提供理论基础。",
+          "确立实体性查封优先权, 也可更好地解释为何查封债权人可优先于未登记的动产抵押权人受偿……将实体性查封优先权融入担保物权体系, 该问题可迎刃而解。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国现行执行法采“混合主义”模式，即根据债务人性质及财产状况决定适用优先主义或平等主义。",
+          "普通执行债权人“按照执行法院采取执行措施的先后顺序受偿”到底是何含义……我国法上是否如奉行优先主义的德国法一样，承认债权人查封后即在查封物上取得实体性权利？",
+          "1998年“执行工作规定”起草者的观点是我国目前司法实践中的通行观点……有学者将该观点称为“程序性优先”。",
+          "本文以程序性优先权和实体性优先权何者更能实现民事执行优先主义的立法目的为主题，旨在证成执行优先主义体系下建立实体性查封优先权制度的必要性，为我国执行程序中查封行为的教义学体系构建提供理论基础。",
+          "实体性查封优先权与担保物权制度融合的理由……强制执行措施与处分行为的相似关系……两者在法律效果上却具有高度相似性，均是以特定的物为债权的清偿提供担保",
+          "结合执行优先主义，查封优先权整体的制度图景便是在多个债权人希望通过查封物获得金钱债权清偿的情形，顺位在先的执行债权人基于合法有效的查封行为，且在满足实体要件时，获得对查封物优先受偿的权利。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

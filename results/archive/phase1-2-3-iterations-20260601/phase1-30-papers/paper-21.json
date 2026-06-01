@@ -1,0 +1,558 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/当代中国政法体制的形成及意义.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR识别乱码（如C183、[2o]、【28]、D23等）",
+          "期刊排版页码混入正文段落（如· 5 ·、· 6 ·、· 7 ·等）",
+          "部分参考文献标记格式异常或断行"
+        ],
+        "evidence_quotes": [
+          "C183地方各级政法机关也相应设立党组。",
+          "· 5 ·",
+          "[2o]周恩来、董必武为此进行了工作改进。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“条条”与“块块” 是中国的本土概念……在条块关系中，形成了以块块管理为主由同级党委领导的政法体制。",
+          "研究当代中国政法体制的形成，重要的学术意义在于探索形成中国社会主义法治理论：中国的政法体制能否构成现代法治国家的一个理想类型?",
+          "这种法律与政治关系类型的形成至成熟，也说明法治并非只有西方式的发展道路和样态。",
+          "这就需要充分阐释本土概念，如政法、体制、条条、块块、归口管理、小组、党组、组织部、政法委员会、编制等等。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗脚注OCR乱码与混入页码，恢复标准引注格式",
+        "项目口径：无，四项核心信号均已明确触发"
+      ],
+      "evidence_quotes": [
+        "“条条”与“块块” 是中国的本土概念……在条块关系中，形成了以块块管理为主由同级党委领导的政法体制。",
+        "这就需要充分阐释本土概念，如政法、体制、条条、块块、归口管理、小组、党组、组织部、政法委员会、编制等等。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦中国政法体制的历史演进与“条块关系”制度逻辑，具有明确的中国问题中心性、可争辩的宪法/司法制度命题，并尝试以本土概念（条条/块块/归口管理/党组）构建中国自主法治理论解释框架，完全符合进入六维评价标准。文本仅存在少量OCR脚注乱码与页码混入，核心论证完整可读。建议进行基础文本清洗后直接进入六维评分流程。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码混入正文（如'· 5 ·', '· 6 ·', '· 7 ·'等）",
+          "脚注编号存在OCR乱码及格式异常（如'(16]', 'C183', '[243', '[5o]', '[6O]'）",
+          "局部字符识别错误（如'l9页'应为'19页', 'l4日'应为'14日'）"
+        ],
+        "evidence_quotes": [
+          "产党首要解决的问题就是，如何建立并进入全国性的国家政权体制，有效实现对国家各政法机关的领导。(16]",
+          "C183地方各级政法机关也相应设立党组。",
+          "· 5 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国的政法体制能否构成现代法治国家的一个理想类型？",
+          "中国共产党通过党内的条条管理实现了块块管理的任务。",
+          "研究当代中国政法体制的形成，重要的学术意义在于探索形成中国社会主义法治理论",
+          "需要充分阐释本土概念，如政法、体制、条条、块块、归口管理、小组、党组、组织部、政法委员会、编制等等。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码与脚注编号存在OCR乱码及格式残留，但不影响核心论点定位",
+        "项目口径：完全满足中国自主知识体系评价信号，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "中国的政法体制能否构成现代法治国家的一个理想类型？",
+        "中国共产党通过党内的条条管理实现了块块管理的任务。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；后续评审阶段需注意清理脚注编号及页码的OCR残留，但不影响对论文核心学术贡献的评判。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 73,
+        "glm-5.1": 30
+      },
+      "mean": 51.5,
+      "std": 30.4,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 73,
+          "band": "good",
+          "summary": "论文以历史制度视角切入政法体制形成逻辑，问题明确且具跨制度枢纽性。",
+          "core_judgment": "研究问题成立且重要，兼具清晰争点与理论纵深，但历史叙事多于当代法理交锋。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，因负面模式检查2扣15分，给73分。",
+          "evidence_quotes": [
+            "中国的政法体制能否构成现代法治国家的一个理想类型？",
+            "在条块关系中，形成了以块块管理为主由同级党委领导的政法体制。"
+          ],
+          "strengths": [
+            "聚焦党法关系与条块演变，争点清晰且具现实张力。",
+            "触及司法、检察与干部管理等多重制度，枢纽性强。"
+          ],
+          "weaknesses": [
+            "偏重历史档案梳理，当代学者观点交锋不足。",
+            "理论推进依附历史叙事，独立法理辩驳较弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以史料梳理政法体制形成过程，缺乏法学争点与学者交锋。",
+          "core_judgment": "问题表述宏大且未聚焦论证，实质为历史制度梳理与政策立场阐释。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料校验未触发上限，问题宏大触发65分上限，锚定good档给60分，负面扣35分，底线调整至30分。",
+          "evidence_quotes": [
+            "中国的政法体制能否构成现代法治国家的一个理想类型？",
+            "党对政法工作的领导，要按照全面推进依法治国的要求...在具体理念、方式上作出调整。"
+          ],
+          "strengths": [
+            "梳理了政法体制从党组到政法委的历史演变细节"
+          ],
+          "weaknesses": [
+            "缺乏学界理论观点交锋",
+            "核心问题宏大且未贯穿全文论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "结尾提出‘能否构成理想类型’但全文仅作历史梳理未论证"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评史料梳理是否充分或论证是否严密。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 94.84943413734436,
+        "glm-5.1": 68.76373100280762
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 82,
+        "glm-5.1": 85
+      },
+      "mean": 83.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文研究地图完整、争点结构清晰，三要素充分满足，流派覆盖达标，锚定good档。",
+          "core_judgment": "研究地图构建扎实，争点脉络明确，符合good档标准，流派数量未达excellent门槛但不影响核心评价。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给82分",
+          "evidence_quotes": [
+            "达玛什卡所讨论的关系类型……中国在司法和国家体制的关系之外，还多了党的维度。",
+            "用西方概念还是本土概念来表述在地法律经验，这在西方学术传统中曾有过激烈争论。"
+          ],
+          "strengths": [
+            "三要素完整，精准指出现有西方法治类型学无法涵盖中国“党管政法”维度。",
+            "争点结构清晰，围绕条块关系与干部业务管理权归属展开制度分歧梳理。"
+          ],
+          "weaknesses": [
+            "流派识别偏少，侧重历史制度梳理，缺乏对国内学界具体理论对立的深度交锋。",
+            "文献定位分散于脚注与结论，未集中呈现学术争鸣脉络。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉及政法体制历史考证本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过梳理政法体制形成史，指出了既有西方法治理论及概念的局限，确立了本土深描的切入点。",
+          "core_judgment": "研究地图基本完整，且呈现了中西法治道路与概念表述的争点结构，洞察度成立。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=4个，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "中国在司法和国家体制的关系之外，还多了党的维度……已经超出达玛什卡教授关于司法和国家权力关系的分类",
+            "用西方概念还是本土概念来表述在地法律经验，这在西方学术传统中曾有过激烈争论"
+          ],
+          "strengths": [
+            "明确指出了既有西方法治理论无法涵盖中国政法体制的未竟点",
+            "呈现了中西法治道路与概念表述的深刻争点结构"
+          ],
+          "weaknesses": [
+            "到达点梳理较弱，对苏力等既有学术研究只罗列引文未提炼贡献"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点梳理，而非政法体制问题本身的历史新颖性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 95.36868405342102,
+        "glm-5.1": 55.205402135849
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 55,
+        "glm-5.1": 55
+      },
+      "mean": 55,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "构建“条块关系”框架阐释体制演进，但缺可操作步骤与制度设计方案。",
+          "core_judgment": "框架具备历史解释力，但未转化为可重复适用的法学分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "“条条是指业务的上下级关系……块块是指同级各个机关之间的关系。”",
+            "在条块关系中，形成了以块块管理为主由同级党委领导的政法体制。"
+          ],
+          "strengths": [
+            "本土概念“条块关系”界定清晰，贯穿全文。",
+            "有效统摄干部管理与业务协调的制度脉络。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化分析流程或可重复适用的判断标准。",
+            "未将历史框架转化为具体裁判规则或制度设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文梳理政法体制演变，但核心框架属权威政策概念，缺乏原创操作步骤与法学转化。",
+          "core_judgment": "框架为既有政策概念的归纳阐释，未建构可重复适用的原创分析步骤，法学转化度低。",
+          "score_rationale": "框架可操作性得分=2/4（有概念界定与分类，无分析步骤），法学转化度得分=1/4（仅概念映射，无操作转化），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "“条条”是指业务的上下级关系……“块块”是指同级各个机关之间的关系",
+            "在条块关系中，形成了以块块管理为主的同级党委领导体制"
+          ],
+          "strengths": [
+            "对“条块”“归口”等本土概念有清晰界定",
+            "框架核心术语在后文历史梳理中被高频调用"
+          ],
+          "weaknesses": [
+            "核心框架术语来自权威表述而非原创",
+            "缺乏步骤化的分析流程与裁判层面的操作指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_summary",
+              "rule": "v0.7 协议对齐——政策理论梳理型识别规则：框架核心术语来自权威表述，主要贡献为归纳阐释而非建构，总分上限60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "核心术语‘条条’‘块块’‘归口’源自毛泽东及中央文件，全文主旨为归纳阐释体制演变而非建构原创框架"
+            }
+          ],
+          "boundary_note": "本维度评价框架的可操作性与法学转化，不评价历史叙事的逻辑严密性或文献考证深度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 84.4028377532959,
+        "glm-5.1": 68.32664489746094
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 85
+      },
+      "mean": 87.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链条完整严密，反驳与局限处理充分，逻辑自洽度高。",
+          "core_judgment": "论文以历史制度演进为轴，论证链条闭合，结论可由史料充分支撑。",
+          "score_rationale": "推理链完整性得分4/4，反驳处理度得分3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "在条块关系中，形成了以块块管理为主由同级党委领导的政法体制。",
+            "此项改革的最终效果如何，仍有待观察。"
+          ],
+          "strengths": [
+            "历史文献与制度演进链条完整，层层递进。",
+            "对“党法关系”争议及改革局限有明确回应。"
+          ],
+          "weaknesses": [
+            "部分历史细节堆砌略多，理论抽象提炼稍显不足。",
+            "对西方理论局限的批判偏重立场宣示，逻辑交锋略浅。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦历史制度推演链条的连贯性，非评价框架可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过条块与央地关系的史实梳理，严密推导出政法体制的形成逻辑，并有效回应理论分类局限。",
+          "core_judgment": "推理链完整且层层递进，核心结论可由前文充分辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "在条块关系中，形成了以块块管理为主的同级党委领导体制...各级党委通过归口管理...最终形成中央集中统一领导的体制。",
+            "这种党领导政法的体制...已经超出达玛什卡教授关于司法和国家权力关系的分类...中国在司法和国家体制的关系之外，还多了党的维度。"
+          ],
+          "strengths": [
+            "史实梳理与体制特征推导的逻辑链条严密无跳步",
+            "对达玛什卡理论分类的隐含分歧回应具有实质性"
+          ],
+          "weaknesses": [
+            "对核心论点的显式学术反对意见处理稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评价的是史实推导体制结论的逻辑严密性，而非“条块/央地”框架本身的建构力。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 50.814791202545166,
+        "glm-5.1": 55.42778134346008
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论立足本土政法体制演进史，明确回应党法关系学术争论，与现行法治秩序高度兼容并指向改革方向。",
+          "core_judgment": "该结论深度嵌入中国法学语境与制度实践，具备充分的共同体对话基础与制度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "中国的政法体制能否构成现代法治国家的一个理想类型？……已经超出达玛什卡教授关于司法和国家权力关系的分类。",
+            "如果省级以下地方法院人财物统一管理改革能够成功，这将是对现有政法体制的重大突破。"
+          ],
+          "strengths": [
+            "精准定位学术争论，以本土概念突破西方类型学框架。",
+            "紧密结合现行司法改革实践，指出制度转化方向。"
+          ],
+          "weaknesses": [
+            "对改革潜在阻力的理论回应略显保守。",
+            "未充分展开对反对意见的系统性辩驳。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深刻回应党与法关系争论及本土制度语境，兼容现行法秩序且指明改革方向。",
+          "core_judgment": "结论高度可接受，成功进入共同体对话并深植中国制度语境。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "政法体制…已超出达玛什卡…分类，中国在司法和国家体制的关系之外，还多了党的维度。",
+            "省级以下地方法院人财物统一管理…这将是对现有政法体制的重大突破。"
+          ],
+          "strengths": [
+            "回应党与法争论并挑战西方理论分类",
+            "结合司法改革指明制度突破方向"
+          ],
+          "weaknesses": [
+            "理论类型化的规范性论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体与制度可接受性，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.18936491012573,
+        "glm-5.1": 34.60325002670288
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 72,
+        "glm-5.1": 85
+      },
+      "mean": 78.5,
+      "std": 9.2,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文基于历史制度分析，明确指向省级以下法院人财物统一改革的实施效果观察，并提出以本土概念深描政法体制、超越达玛什卡分类的理论建构路径。",
+          "core_judgment": "存在真实延展路径，紧密衔接正文“条块关系”与“党的领导”核心结论，兼具制度观察与理论深化方向。",
+          "score_rationale": "原始分72，对应bonus=3。明确指出现行法院统管改革与党内分级领导体制的张力待观察，并提出以本土概念替代西方话语进行理论深描的具体路径，路径清晰但精细度有限。",
+          "evidence_quotes": [
+            "如果省级以下地方法院人财物统一管理改革能够成功……此项改革的最终效果如何，仍有待观察。",
+            "需要更多对‘物’——政法体制的研究……借助于本土概念对政法体制进行深描和阐释。"
+          ],
+          "strengths": [
+            "制度延展紧扣省级以下法院统管改革，指向明确的实施张力与观察节点。",
+            "理论延展提出超越达玛什卡分类、构建本土法治理想类型的清晰方向。"
+          ],
+          "weaknesses": [
+            "理论建构路径偏宏观，未细化本土概念的操作化指标或检验机制。",
+            "对改革风险控制的边界条件论述较少，多依赖“有待观察”的开放性表述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于历史制度分析后对当下司法改革效果观察与本土法治理论建构的未来指向，而非评判当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了省以下人财物统管改革与同级党委体制的衔接风险，并提出本土概念深描与理想类型建构的理论深化方向。",
+          "core_judgment": "存在真实且可定位的延展路径，具体指出了制度改革的张力与理论深化的本土概念方向。",
+          "score_rationale": "原始分85，bonus档位5（>=80）。制度延展明确指出人财物统管与同级党委体制的衔接风险及观察点；理论延展提出本土概念深描与理想类型建构，与正文条块归口体制结论紧密衔接。",
+          "evidence_quotes": [
+            "由于在党内的央地关系中，实行的是分级同级党委领导体制……此项改革的最终效果如何，仍有待观察。",
+            "更需要的或许是借助于本土概念对政法体制进行深描和阐释……有助于反思和建构真正意义上的社会主义法治理论。"
+          ],
+          "strengths": [
+            "制度延展精准，点明人财物统管与同级党委体制的张力与观察点。",
+            "理论延展具本土意识，提出对本土概念深描与理想类型建构方向。"
+          ],
+          "weaknesses": [
+            "理论理想类型的延展稍显宏观，未给出具体可检验的理论假设。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "省以下人财物统管改革的效果属于未来制度实施与观察问题，而非当下历史结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 78.7587239742279,
+        "glm-5.1": 40.242635011672974
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 7.8,
+    "max_std": 30.4,
+    "weighted_total": 70.9,
+    "final_score": 71.12,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": -1.13,
+    "worst_dimension": "problem_originality",
+    "worst_std": 30.4
+  }
+}

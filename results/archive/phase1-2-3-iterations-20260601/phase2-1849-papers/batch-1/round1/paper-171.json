@@ -1,0 +1,1018 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/保护规范理论的误解澄清与本土适用.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "保护规范理论的诞生源自对个体主观公权利的判定需要...",
+          "保护规范理论在我国的另一重要适用领域是举报投诉类案件...",
+          "在积累了一定数量的裁判文书后，这一理论在我国的具体适用，包括典型领域、诉讼类别、判定思路开始轮廓渐明...",
+          "要避免保护规范理论的空转，就应对作为背景的公权理论予以深刻体察，对这一理论所包含的统一的公法权利观及其思考精华予以有效吸收..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "保护规范理论在我国行政审判中的适用与问题...",
+        "刘广明案后保护规范理论在我国行政审判中获得迅速推广...",
+        "我国既往的行政审判主要通过实质影响、因果关系等标准来确定原告资格，但因为现代行政手段的日渐多样以及作用效果的不断扩散，上述较为粗放的标准已无法再准确划定...",
+        "保护规范理论既然与实体请求权为诉权的基础的认知相关，对于行政诉权的不同理解就会形成对是否接纳保护规范理论...的不同立场。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [],
+      "recommendation": "论文紧密围绕中国行政审判实践引入和适用保护规范理论这一中国问题，深入阐释制度背景与本土适用难题，形成法学理论转化与可复核命题，文本质量良好，建议进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如168, 169, 170等）",
+          "脚注编号乱码/特殊字符残留（如⑨, ⑩, ⑮, ㉛, ®等）",
+          "局部OCR识别错误（如'导岀'应为'导出', '媳变'应为'嬗变', '届分'应为'界分', '泯事诉讼'应为'民事诉讼', '题築法'应为'建筑法'）"
+        ],
+        "evidence_quotes": [
+          "168",
+          "169",
+          "⑨",
+          "㉛",
+          "导岀",
+          "媳变",
+          "届分"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "保护规范理论为我国行政审判青睐的原因",
+          "我国既往的行政审判主要通过“实质影响”“因果关系”等标准来确定原告资格……现代行政的复杂性却使“利害关系人”的确定和识别变得日趋困难",
+          "保护规范理论在我国的另一重要适用领域是举报投诉类案件",
+          "将行政诉讼的首要目标定位于个人主观权利保护",
+          "诉讼的二阶构造与保护规范理论的分阶处理"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "局部OCR识别错误与脚注乱码需文本工程清洗，但不影响核心论点定位与项目口径判断"
+      ],
+      "evidence_quotes": [
+        "我国既往的行政审判主要通过“实质影响”“因果关系”等标准来确定原告资格",
+        "将行政诉讼的首要目标定位于个人主观权利保护",
+        "诉讼的二阶构造与保护规范理论的分阶处理"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在文本工程阶段清洗页码混入、脚注乱码及局部OCR错字（如'导岀'、'媳变'、'届分'、'泯事诉讼'等），以确保后续评分的文本基准质量。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在德文文献引用格式残留（如Fn.7等），部分中文脚注编号格式不统一（如⑫⑬等符号混用）",
+          "期刊页码信息（如168-183）在正文中偶有混入",
+          "参考文献列表缺失，但正文引用信息完整可定位"
+        ],
+        "evidence_quotes": [
+          "中国法学 2020年第4期",
+          "保护规范理论的误解澄清与本土适用"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "保护规范理论在...被纳入我国行政审判后，所引发的争议又不仅限于此",
+          "我国既往的行政审判主要通过'实质影响''因果关系'等标准来确定原告资格",
+          "刘广明案后保护规范理论在我国行政审判中获得迅速推广...已有超过37篇裁判文书明确援引保护规范理论",
+          "要使保护规范理论获得有效运转,就需对作为背景的公权理论有更深理解",
+          "对行政诉讼予以主观化理解和塑造...会使保护规范理论与我国行政诉讼之间具备更大的亲和性和匹配度"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注格式存在德文法学引注残留（Fn.编号体系）与中文符号混用，需关注OCR识别准确性",
+        "参考文献列表未抽取，但正文引用完整"
+      ],
+      "evidence_quotes": [
+        "保护规范理论在我国行政审判中的适用与问题",
+        "我国既往的行政审判主要通过'实质影响''因果关系'等标准来确定原告资格",
+        "刘广明案后保护规范理论在我国行政审判中获得迅速推广",
+        "对行政诉讼予以主观化理解和塑造，不仅会强化对公民的权利救济"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文完全符合项目口径，应进入六维评价。论文核心贡献在于：将德国法上的保护规范理论引入中国行政审判实践分析，系统梳理了该理论在中国法院（尤其是'刘广明案'）的适用状况、存在问题及本土化调适路径，提出了'避免保护规范理论空转''确立行政诉讼主观化定位''引入诉讼二阶构造'等具有理论转化意义的制度命题。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致部分德文拼写错误（如GesetzesvoHziehungsanspruch、Biihler应为Bühler）",
+          "期刊页码（如168、169等）与正文段落混排",
+          "脚注编号与正文交叉出现，部分参考文献格式抽取不完整"
+        ],
+        "evidence_quotes": [
+          "保护规范理论为我国行政审判青睐的原因...复杂行政下权利边界的消弭和利害关系人的判定难题。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国既往的行政审判主要通过“实质影响”“因果关系”等标准来确定原告资格。但因为现代行政手段的日渐多样以及作用效果的不断扩散,上述较为粗放的标准已无法再准确划定个人应受法律保护的公法权利的范围。",
+          "保护规范理论在我国的另一重要适用领域是举报投诉类案件...此类案件的争议焦点往往凝结为举报投诉人是否具有行政诉讼的原告资格，但其本质又是如何确定行政机关对于民事争议的介入义务与受害人的法律执行请求权的问题。",
+          "诉讼的二阶构造以及对保护规范理论的分阶处理,同样会使这一理论既能发挥界别权利、防堵滥诉的功能，又不致因为过于严苛而产生限制权利保护的效果。",
+          "进行制度改进的首要问题就在于明确诉讼的基本定位，尤其是确保核心功能的纯化。而在核心功能的择定上，对公民主观权利的保障理应成为行政诉讼的首要目标。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR识别瑕疵与页码混排，需人工校对德文术语及脚注格式，但不影响核心法学命题的定位与评审。"
+      ],
+      "evidence_quotes": [
+        "保护规范理论为我国行政审判青睐的原因...复杂行政下权利边界的消弭和利害关系人的判定难题。",
+        "进行制度改进的首要问题就在于明确诉讼的基本定位，尤其是确保核心功能的纯化。而在核心功能的择定上，对公民主观权利的保障理应成为行政诉讼的首要目标。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR识别瑕疵与页码混排，但不影响核心论证阅读。论文聚焦中国行政诉讼原告资格判定难题，系统引入并本土化德国保护规范理论，提出二阶诉讼构造与主观权利保障定位等可复核命题，符合进入六维评价标准。建议进入正式评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文完成了对保护规范理论的体系介绍与误解澄清，但未提出可争辩的法学研究问题，仅为既定理论的阐释与辩护。",
+          "core_judgment": "全文缺乏明确的研究争点，只是系统介绍保护规范理论的演进、回应批评并描述其在本土的适用，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=0/4（无问题句，无法学分歧，属主题陈述），枢纽性=1/4（理论基础），材料新颖性未触发上限。前置检查：检查1扣20分（新概念未说明解释力提升），检查2扣20分（无观点交锋），检查3扣30分（无问题句）。锚定unacceptable档，扣分后得30分。",
+          "evidence_quotes": [
+            "“保护规范理论的核心要义始终未变：‘所涉及的客观法规范必须是纯为个人利益，或是在为公共利益外兼为个人利益时，该规范始生成主观公权利’。”",
+            "“下文就首先针对这些典型批评意见予以分析。”"
+          ],
+          "strengths": [
+            "对保护规范理论的历史演替和本土适用做了较详尽的资料梳理。"
+          ],
+          "weaknesses": [
+            "全文无明确研究问题句，仅以‘误解澄清’和‘本土适用’为主题框架，未提出可争辩的法学命题。",
+            "缺乏学者观点的真实交锋，主要是对批评意见的单向回应和辩驳，未呈现对立立场的实质争议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性为0/4，全文无任何问题句，只有主题声明，触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未见‘XX是否YY’或‘如何ZZ’等问题句，仅为保护规范理论演替、批评回应与本土适用的陈述。"
+            }
+          ],
+          "boundary_note": "本维度评问题是否成立且重要，不评文献综述充分性、论证严密性或材料支撑力度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "针对保护规范理论的误解澄清与本土制度改进，争点明确且枢纽性极强。",
+          "core_judgment": "问题成立且极具重要性，通过反驳误解和揭示本土空转原因，确立了可争辩的法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，负面扣分合计=0分，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "保护规范理论常常遭遇的另一批评在于...这一标准并不利于个人的公法权利保障。",
+            "主观公权利被隐匿或被忽略，那么保护规范理论就会不可避免地陷入空转。"
+          ],
+          "strengths": [
+            "针对学界三大典型误解进行有力反驳，争点明确。",
+            "问题枢纽性极强，触及行政诉权与实体请求权根本关联。"
+          ],
+          "weaknesses": [
+            "本土适用部分的争点偏向实务困境，理论原创性略弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献梳理充分度与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文围绕保护规范理论在我国行政审判中的适用展开，澄清误解并探讨本土适配问题。",
+          "core_judgment": "问题具有明确的法学争点，涉及主观公权利判定、行政诉讼定位等核心行政法理论分歧，但问题创新性受限于域外理论引介框架。",
+          "score_rationale": "可争辩性=3/4（明确争点：保护规范理论适用是否导致原告诉权收缩、如何本土适配；涉及法学层面规范解释与制度设计；存在理论分歧；非纯政策倡导），枢纽性=3/4（影响行政诉权、原告资格、实体法与诉讼法关系等多制度；系学界长期争论核心问题；涉及主观公权利、诉权等基础概念；结论隐含诉讼制度调整），材料新颖性未触发上限，锚定good档，给72分。负面模式检查：检查1不满足（无新概念包装）；检查2部分满足（有学者观点交锋但主要为德国法梳理，本土讨论交锋不足，扣15分）；检查3不满足（有问题句）。扣分合计15分，正式评分87-15=72分。",
+          "evidence_quotes": [
+            "保护规范理论将主观公权利的查明回溯至法律解释，并在其发展中形成了一整套'有助于法律解释的原则、方法和推定的集合'",
+            "我国行政诉讼的原告资格在适用保护规范理论后却显收紧之势。这一点亦成为反对者用以攻击保护规范理论的重要理由"
+          ],
+          "strengths": [
+            "问题聚焦保护规范理论本土适用中的核心争点，具有明确理论张力",
+            "将域外理论与我国行政审判实践对接，问题设定具有现实针对性"
+          ],
+          "weaknesses": [
+            "问题框架基本沿用德国法讨论脉络，本土问题创新性受限",
+            "部分讨论偏向制度介绍，对我国实践争点的理论提炼可更深入"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，实际可争辩性=3"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦保护规范理论本土适用的核心争点，系统回应理论误解并重构其与我国诉讼构造的匹配路径。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，精准切中行政诉权判定与实体法解释的交叉难题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。前置扣分合计=0，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "如何判定主观公权利就成为公法的恒久难题",
+            "保护规范理论的适用引发原告资格范围收紧的原因还在于如下问题"
+          ],
+          "strengths": [
+            "精准提炼理论三大误解并逐层澄清",
+            "结合中德制度差异提出分阶适用方案"
+          ],
+          "weaknesses": [
+            "对本土司法裁量权扩张的实证约束着墨较少",
+            "部分教义推演偏重德日理论移植"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.03105187416077,
+        "glm-5.1": 48.80911207199097,
+        "kimi-k2.6": 15.205649137496948,
+        "qwen3.6-plus": 59.97705006599426
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71,
+      "std": 28.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了扎实的研究地图，清晰呈现了保护规范理论的德国演进、争点结构和本土适用争议，对既有研究进行了系统梳理和反思。",
+          "core_judgment": "本文研究地图完整，三要素充分满足，争点结构清晰，覆盖多个法学流派对立立场，文献定位深入且分散融入正文论证。",
+          "score_rationale": "三要素得分=6/6（到达点2+未竟点2+本文切入点2），争点结构=2/2，法学流派≥5个，锚定excellent档，上限100，因法秩序比较丰富和对立观点充分展开，给92分。",
+          "evidence_quotes": [
+            "针对保护规范理论的质疑其实由来已久，在面对欧盟法冲击后这种质疑之声更达至顶峰。",
+            "保护规范理论始终都与德国法上的另一重要装置——主观公权利紧密相连。"
+          ],
+          "strengths": [
+            "论文精细梳理了保护规范理论从布勒到阿斯曼的演变脉络，并区分了到达点与未竟点。",
+            "通过德国模式与法国客观主义模式的制度对立，构建了清晰的跨法秩序争点结构。"
+          ],
+          "weaknesses": [
+            "部分批评观点的来源如'对诉讼有害'等虽有提及，但对学界反对派的具体代表人物和系统论证梳理稍显不足。",
+            "对中国本土学界关于保护规范理论的研究流派区分不够明确，更多聚焦于德法对比。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的争点呈现属于文献梳理深度问题，不涉及问题创新性评价，评分聚焦于研究地图的三要素完整性和争点结构。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒保护规范理论演变与争点，深入比较德法模式，研究地图完整。",
+          "core_judgment": "研究地图三要素充分满足，呈现多个核心争点与法学流派对立，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "传统的保护规范理论由布勒所创设，在二战后经巴霍夫以及施密特•阿斯曼等人修正，迄今在德国法中都居于通说地位",
+            "学界尚未展开对公权理论的充分研究,保护规范理论就已在行政审判中被率先适用,这就使保护规范理论在很多时候都与作为其背景的公权学说相互脱离"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了布勒、阿斯曼等学者的理论贡献",
+            "清晰呈现德法两国在规范性/事实影响、主观/客观诉讼上的制度对立"
+          ],
+          "weaknesses": [
+            "无明显缺陷"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非理论本身创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文系统梳理了德国保护规范理论的历史演变与核心争议，构建了清晰的学术史脉络，但研究地图三要素呈现分散，未竟点与切入点表述不够显明。",
+          "core_judgment": "论文以历史演进和理论澄清为主线，呈现了保护规范理论内部的重大转变与典型批评，但'三要素'分散于正文各处，未形成集中的研究缺口声明。",
+          "score_rationale": "三要素得分=4/6（到达点2分：详述布勒、巴霍夫、阿斯曼、耶利内克等多位学者贡献；未竟点1分：指出中国司法适用问题但未明确学术缺口；切入点1分：有本土适用指向但未与未竟点形成紧密对应），争点结构=2/2（'私益保护性'相对化、'一般法依赖'与'基本权依赖'张力、主观/客观诉讼模式之争），法学流派=3个（传统保护规范理论/现代保护规范理论、法国客观主义/德国主观主义、形式法治/实质法治隐含张力），锚定good档，给72分。",
+          "evidence_quotes": [
+            "传统的保护规范理论由布勒(Otto Bühler)所创设，在二战后经巴霍夫(Bachof)以及施密特·阿斯曼(Schmidt-Assmann)等人修正，迄今在德国法中都居于通说地位",
+            "这些批评意见在保护规范理论被纳入我国行政审判后，同样常被提起，也常被用来作为反对这一理论纳入的理由。下文就首先针对这些典型批评意见予以分析"
+          ],
+          "strengths": [
+            "历史脉络完整，从布勒到阿斯曼的演变清晰可辨",
+            "争点结构丰富，涵盖理论内部张力与跨法系比较"
+          ],
+          "weaknesses": [
+            "未竟点分散，缺乏'既有研究尚未解决XX'的明确表述",
+            "切入点与未竟点对应关系松散，本土适用问题未上升为明确学术命题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；三要素总分4但争点结构≥2且法学流派≥3，锚定good档",
+              "score_ceiling": 84,
+              "priority": 2,
+              "evidence": "三要素4分，争点结构2分，法学流派3个，按表应good(75-84)，取中位72分"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性；论文问题意识清晰但研究地图呈现分散。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理保护规范理论的德法演进与本土适用争议，研究地图完整，争点脉络清晰。",
+          "core_judgment": "本维度成立，文内充分呈现到达点、未竟点与切入点，争点结构与流派识别均达优秀标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "保护规范理论的核心要义始终未变……而系争规范是否具有私益保护指向，又依赖于对客观法规范的解释。",
+            "德国法主观诉讼与法国法客观诉讼模式在诉权定位上形成鲜明对立，塑成不同的权利判定基准。"
+          ],
+          "strengths": [
+            "精准提炼德法理论对立与解释路径分歧，争点组织严密。",
+            "将文献梳理融入正文论证，分散式定位清晰呈现理论演进与实务缺口。"
+          ],
+          "weaknesses": [
+            "部分域外文献引述未充分标注中文译介脉络，本土学术对话稍显单薄。",
+            "对国内反对派观点的文献归纳可进一步体系化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献定位与争点呈现，不涉及保护规范理论本土化命题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.14065408706665,
+        "glm-5.1": 46.52259397506714,
+        "kimi-k2.6": 17.373512983322144,
+        "qwen3.6-plus": 63.72873902320862
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87,
+      "std": 10.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文系统梳理了保护规范理论的内涵与演变，并归纳了我国适用中的问题，但未提出原创性的、可重复操作的分析框架。",
+          "core_judgment": "论文贡献在于“梳理归纳”而非“建构提出”，其框架核心术语源于既有理论，缺乏由论文原创的、可逐步操作的分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、后文实际调用，但缺乏明确分类标准和可循分析步骤），法学转化度得分=1/4（将域外理论映射到本土制度，但未提供新的操作化指引），锚定marginal(50-59)档，结合政策理论梳理型论文总分上限60分，给58分。",
+          "evidence_quotes": [
+            "主观公权利被定义为，“公法赋予个人为实现其权益而要求国家为或不为特定行为的权能”。",
+            "保护规范理论的核心要义始终未变：“所涉及的客观法规范必须是纯为个人利益，或是在为公共利益外兼为个人利益时，该规范始生成主观公权利”。"
+          ],
+          "strengths": [
+            "核心术语“主观公权利”“保护规范理论”有明确的概念界定和学理溯源。",
+            "论文后文实际调用“私益保护性”“一般法依赖”等框架术语对本土司法案例展开分析，调用频率高。"
+          ],
+          "weaknesses": [
+            "未提出论文原创的类型化标准或可逐步操作的分析步骤，框架可操作性不足。",
+            "法学转化主要停留在将域外理论映射到本土制度层面，未提供新的裁判规则或制度设计方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "该评价针对分析框架本身的建构力，不涉及论文逻辑衔接的严密性或问题的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构了包含“双重依赖性”理论与“二阶构造”制度的分析框架，法学转化与可操作性极强。",
+          "core_judgment": "框架高度成立，将域外教义学成功转化为本土裁判规则与诉讼构造方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "主观公权利的双重依赖性：一般法依赖与基本权依赖相互牵制",
+            "诉讼的二阶构造与保护规范理论的分阶处理：适法性阶段采可能性理论，理由具备性阶段严格检验"
+          ],
+          "strengths": [
+            "将域外理论转化为本土裁判规则与二阶审查流程",
+            "提出主观公权利双重依赖性，破除立法专断误解"
+          ],
+          "weaknesses": [
+            "对二阶构造在我国现行法下的具体衔接程序设计稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评框架建构力与法学转化，不评理论溯源的史学逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，系统阐释保护规范理论的历史演变与本土适用，缺乏原创分析框架。",
+          "core_judgment": "论文以梳理、归纳既有学说为主，未提出可重复适用的原创分析框架，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定清晰，无明确分类标准、分析步骤，后文未实际调用原创框架），法学转化度得分=1/4（有制度映射但无新的操作化转化，未提供裁判规则或适用流程），触发政策理论梳理型上限规则，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "保护规范理论的核心要义始终未变：'所涉及的客观法规范必须是纯为个人利益，或是在为公共利益外兼为个人利益时，该规范始生成主观公权利'",
+            "这些变化演替主要表现为如下方面：其一，从权利基础而言……其二，从适用场域而言……"
+          ],
+          "strengths": [
+            "对德国法上保护规范理论的演进脉络梳理清晰"
+          ],
+          "weaknesses": [
+            "全文以'阐释''澄清'既定学说为主，无原创概念界定或类型化",
+            "未将理论转化为可操作的本土裁判规则或适用步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "论文标题为'误解澄清与本土适用'，核心工作是系统归纳德国法上保护规范理论的立场演变、批评回应及在我国的适用情况，主要贡献为'梳理''归纳''阐释'而非'建构''提出''设计'"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构与转化，不涉及逻辑严密性或问题创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“规范识别-目的解释-权能提示”的保护规范理论本土化分析框架，并深度嵌入中国行政审判实践。",
+          "core_judgment": "框架概念清晰、步骤可循且在后文案例评析与制度建议中被反复调用，法学转化度高，建构力优秀。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念界定明确，提炼出“确定根据规范→客观解释保护目的→检验权能提示”的可循步骤，并将德国教义转化为契合中国诉讼构造的二阶审查指引，后文全程调用该框架剖析裁判实务。",
+          "evidence_quotes": [
+            "“导出主观公权利的素材不再只是行政行为的直接根据规范，而是含括基本权利条款在内的公法规范整体”",
+            "“只要客观法规范不是明显不具备保护特征即可……至于系争规范是否真的具备保护意旨，则留待诉的理由具备性阶段再行判断”"
+          ],
+          "strengths": [
+            "提炼出“规范识别-目的解释-权能提示”的清晰判定步骤",
+            "将域外教义成功转化为契合中国诉讼构造的二阶审查操作指引"
+          ],
+          "weaknesses": [
+            "对“基本权依赖性”在司法中的具体权衡标准仍偏理论化，缺乏更细化的裁判权重公式"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.24244999885559,
+        "glm-5.1": 48.305670738220215,
+        "kimi-k2.6": 12.635669946670532,
+        "qwen3.6-plus": 50.85540199279785
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 92,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 24.0,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以保护规范理论为核心，形成“历史沿革→误解澄清→本土适用与问题→制度背景分析”的严密推理链，结论可从前文充分推出，反驳回应有力且坦承适用局限。",
+          "core_judgment": "推理链完整、逻辑逐层递进，对反对意见进行实质性回应并承认理论适用边界，逻辑严密性高。",
+          "score_rationale": "推理链完整性得分=4/4（步骤清晰、环环相扣、结论可推出、无关键跳步），反驳处理度得分=3/3（识别人反对意见并回应、隐含分歧路径选择有理由、承认一般法依赖与本土制度局限），锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "保护规范理论将主观公权利的查明回溯至法律解释……在其发展中形成了一整套‘有助于法律解释的原则、方法和推定的集合’。",
+            "因为‘私益保护性’的相对化，保护规范理论的意涵在现代行政下也渐次发生改变……传统保护规范理论中的‘私益保护性’为范围更宽泛的‘特定保护目标’所替代。"
+          ],
+          "strengths": [
+            "反驳处理十分充分：逐一回应‘解释不确定’‘私益收缩’‘立法专断’三项批评，并坦陈本土适用中的‘空转’与‘定位差异’等局限。",
+            "推理链层层递进：从概念根源经历史演变到误解澄清，再链接本土实践与制度背景，每一步结论支撑后续分析。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文批评指向保护规范理论的本土适用缺陷，属于逻辑链内对制度条件的分析，并非分析框架本身不可操作，不涉及框架建构力维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文对保护规范理论的误解澄清与本土适用分析逻辑严密，反驳充分。",
+          "core_judgment": "本维成立，推理链完整且层层递进，核心结论可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理链无关键跳步，反驳处理显式且实质性。",
+          "evidence_quotes": [
+            "主观公权利的'客观法依赖'转化为'一般法依赖'……通过强调'基本权依赖性'，'一般法依赖'受到抑制，双重依赖性破除立法专断危险。",
+            "保护规范理论在我国适用引发原告资格收紧的原因还在于……根据规范的模糊和碎片……解释方法的主观与偏狭。"
+          ],
+          "strengths": [
+            "对三大显式批评的回应均有严密的理论演变与比较法论证支撑。",
+            "从误解澄清到本土适用问题再到深层原因，推理链层层依赖，无断裂。"
+          ],
+          "weaknesses": [
+            "在提出诉讼二阶构造解决方案时，与前文本土适用问题的逻辑衔接稍显跳跃，论证略薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价推理链支撑度与反驳逻辑，不评价保护规范理论框架在我国司法的操作可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "理论型论文，推理链完整但反驳处理存在局限。",
+          "core_judgment": "论文对保护规范理论的演化和批评回应形成了可辩护的推理链条，但部分关键反驳的回应深度不足。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4基本成立但存在局部跳步），反驳处理度得分=2/3（标准1、2成立，标准3局限承认不足），锚定good档，给78分。",
+          "evidence_quotes": [
+            "从'客观法依赖'到'一般法依赖'再到'基本权依赖性'的双重依赖性塑成，使第三人的主观公权利并非完全由立法者所处置。",
+            "'私益保护性'的相对化使得这一要素在主观公权利的判定中也开始不再居于绝对的支配性位置。"
+          ],
+          "strengths": [
+            "理论演化链条清晰：从布勒到巴霍夫再到现代保护规范理论的递进论证完整。",
+            "双重依赖性理论有效回应了'立法专断'批评，推理可辩护。"
+          ],
+          "weaknesses": [
+            "对'解释规则芜杂导致不确定'的反驳较弱，以'所有法律解释皆如此'回应有诉诸普遍化之嫌。",
+            "未充分回应保护规范理论适用后我国原告资格'显收紧'这一实证反例。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否支撑结论，不评'保护规范理论是否应纳入我国'这一结论本身的可接受性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以教义演进为主线，串联理论澄清、本土检视与制度建议，推理链完整且反驳充分。",
+          "core_judgment": "本维度成立，核心结论可由前文教义梳理、比较对照与实务批判充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。理论推演层层递进，反驳回应具实质论证力。",
+          "evidence_quotes": [
+            "保护规范理论的核心要义始终未变……而系争规范是否具有私益保护指向，又依赖于对客观法规范的解释。",
+            "通过强调主观公权利的“基本权依赖性”，主观公权利的“一般法依赖”受到抑制……危险也因此被破除。"
+          ],
+          "strengths": [
+            "理论演进与反驳回应紧密咬合，教义推演无断裂。",
+            "本土问题诊断与制度建议存在明确因果依赖。"
+          ],
+          "weaknesses": [
+            "部分实务案例的规范解释步骤展示略显简略。",
+            "诉讼定位转型的可行性论证可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度与结论可辩护性，不涉框架操作性或结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.0029661655426,
+        "glm-5.1": 45.18710017204285,
+        "kimi-k2.6": 10.172194957733154,
+        "qwen3.6-plus": 62.170989751815796
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88.5,
+      "std": 7.0,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 70,
+          "band": "good",
+          "summary": "结论是对保护规范理论的误解澄清与本土化适用建议，能与既有争论对话并回应实务问题，但对话度略欠全面，制度转化方向探讨充分。",
+          "core_judgment": "结论基本能与共同体对话，且对制度语境有较好回应，属可接受的学术主张，但主动回应反对意见和自身局限稍显不足。",
+          "score_rationale": "共同体对话度得分=3/4（回应争论、可被定位、说得通，但未集中讨论反对意见或局限），制度可接受度得分=3/4（不与法秩序根本矛盾、对制度约束有回应、指出转化方向，但未明确讨论中国制度适配性），锚定good档，评70分。",
+          "evidence_quotes": [
+            "“保护规范理论尽管在解释规则上展示出灵活开放，但还是通过对权利基础“规范性”的强调，来确保通过法解释方法析出个人公法权利的确定性。”",
+            "“基本权利对立法者的委托要求，也因此又被移转至司法……法官造法的补充只能发挥‘应急权能’，其对第三人基本权利所提供的也只能是‘最核心或是最低限度的担保’。”"
+          ],
+          "strengths": [
+            "结论清晰回应了学界对保护规范理论的典型批评，并在本土裁判文书分析基础上展开论证，具对话性。",
+            "对制度转化方向有具体讨论，如二阶构造的分阶处理、诉讼定位的主观化重塑等，提供了可操作的制度衔接路径。"
+          ],
+          "weaknesses": [
+            "全文未集中回应反对意见或明确承认自身论证的局限，仅分散批评某些观点，共同体对话度未达最优。",
+            "结论部分未充分讨论保护规范理论在中国公法语境下的适配性障碍与可能矛盾，制度语境回应稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维只评估结论的可接受性和对话性，不评价逻辑严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文深入回应学界质疑与中国实务困境，结论在共同体对话与制度兼容上表现极佳。",
+          "core_judgment": "结论有效回应反对意见并扎根中国司法语境，制度转化方向明确，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "保护规范理论将主观公权利的查明回溯至法律解释……引发司法的高度不确定也就成为最常被诟病之处",
+            "进行制度改进的首要问题就在于明确诉讼的基本定位……对公民主观权利的保障理应成为行政诉讼的首要目标"
+          ],
+          "strengths": [
+            "主动澄清三大核心误解，与反对者对话充分",
+            "基于裁判文书实证分析，制度转化方向具体"
+          ],
+          "weaknesses": [
+            "二阶构造与现行立案审查的潜在冲突讨论稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文澄清保护规范理论误解并论证其本土适用，结论具有学术对话性但制度转化方向可更明确。",
+          "core_judgment": "理论论文，结论进入中德公法学对话语境，回应了本土适用核心争议，但制度转化方向表述较为原则。",
+          "score_rationale": "共同体对话度得分=3/4（回应了'私益保护性''一般法依赖'等既有争论，定位了批评意见；但未明确说明与本土既有理论如'利害关系'学说的关系），制度可接受度得分=2/4（原则回应了与行政诉讼法的关系，指出与'立案登记制''诉权概括主义'的协调，但未充分回应'空转'问题的具体制度方案），锚定good档，给78分。",
+          "evidence_quotes": [
+            "保护规范理论尽管在解释规则上展示出灵活开放，但还是通过对权利基础'规范性'的强调，来确保通过法解释方法析出个人公法权利的确定性。",
+            "要使保护规范理论获得有效运转，就需对作为背景的公权理论有更深理解。"
+          ],
+          "strengths": [
+            "主动回应'司法不确定''权利收缩''立法专断'三大批评，构建反驳路径",
+            "结合中国行政审判37份裁判，分析本土适用问题"
+          ],
+          "weaknesses": [
+            "未明确与本土'法律上利害关系'理论的学术对话关系",
+            "制度转化方向较原则，分阶处理等建议缺乏具体程序衔接"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准回应保护规范理论争议，深度结合中国行政审判语境，提出具兼容性的本土化适用路径。",
+          "core_judgment": "结论高度契合学术共同体对话需求，且与中国现行行政诉讼制度逻辑兼容，具备强可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "针对司法不确定、权利收缩等典型批评，本文逐一进行教义学澄清与回应。",
+            "结合立案登记制与案件激增背景，指出该理论的过滤功能，并提出诉讼二阶构造的本土化方向。"
+          ],
+          "strengths": [
+            "精准定位学术争议焦点，教义学反驳逻辑严密。",
+            "深度嵌入中国行政审判语境，提出诉讼定位与审查阶层的适配方案。"
+          ],
+          "weaknesses": [
+            "对本土化具体裁判规则的细化程度仍有提升空间。",
+            "部分制度转化建议偏重宏观方向，缺乏微观程序衔接设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被学界与制度语境接纳，不评价论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.266263008117676,
+        "glm-5.1": 33.9366888999939,
+        "kimi-k2.6": 10.798340797424316,
+        "qwen3.6-plus": 54.42531108856201
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 82.5,
+      "std": 10.4,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "论文明确指出了保护规范理论本土适用中的制度差异问题，并围绕这些局限提出了具体改进方向，具备清晰的未来延展路径。",
+          "core_judgment": "存在明确、可定位的延展路径，与正文核心结论紧密衔接，但路径精细度和展开程度仍有提升空间。",
+          "score_rationale": "原始分75分，对应bonus=3档。论文围绕'制度差异与障碍'明确提出了主观公权利理论深化、行政诉讼主观定位纯化、诉讼二阶构造引入三个具体改进方向，延展信号真实且可定位，但与主论证衔接的展开细节尚嫌不足。",
+          "evidence_quotes": [
+            "主观公权利对保护规范理论的支配性作用又着重表现于以下方面：其一，因为反映的是“个人之于国家的关系”……公权概念必然是动态开放的。",
+            "进行制度改进的首要问题就在于明确诉讼的基本定位，尤其是确保核心功能的纯化……对行政诉讼予以主观化理解和塑造……在主观诉讼之外，同样辅以规范审查之诉、机关诉讼等客观类型作为补充。"
+          ],
+          "strengths": [
+            "延展路径明确具体，指向主观公权利理论深化、诉讼定位纯化和二阶构造引入三个可操作的改进方向。",
+            "延展方向紧扣正文对制度差异的分析，与核心结论衔接自然，非空泛展望。"
+          ],
+          "weaknesses": [
+            "对二阶构造的引入仅作初步勾勒，未展开说明该构造在我国制度环境下的具体实施步骤和相关风险。",
+            "对主观诉讼定位与客观诉讼补充之间的协调机制未作进一步延伸，精细度不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是保护规范理论如何在我国行政审判中改进适用，属于制度完善方向的未来延展问题，而非评判当下结论的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了公权理论深化、诉讼定位纯化与二阶构造引入三条清晰延展路径。",
+          "core_judgment": "存在真实延展路径，指明了理论深化与制度完善的具体方向。",
+          "score_rationale": "原始分85，对应bonus档位excellent（bonus=5）。论文提出了公权理论体察、诉讼主观化定位及二阶分阶处理三条清晰延展路径，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "要避免保护规范理论的空转，就应对作为背景的公权理论予以深刻体察",
+            "进行制度改进的首要问题就在于明确诉讼的基本定位，尤其是确保核心功能的纯化"
+          ],
+          "strengths": [
+            "延展路径具体可定位，紧扣正文诊断的空转与偏狭问题",
+            "涵盖理论深化、制度定位与实务构造三个层次"
+          ],
+          "weaknesses": [
+            "对二阶构造本土化的具体风险控制未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "诉讼定位纯化与二阶构造引入属于未来制度完善方向，而非当下理论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度完善和比较框架深化方面提出了明确的后续研究方向，包括公权理论本土化、诉讼二阶构造引入及分阶处理等可定位路径。",
+          "core_judgment": "存在真实延展路径，主要体现为对保护规范理论本土适用所需外挂条件的系统性揭示，以及德国法分阶处理机制引入的具体方向。",
+          "score_rationale": "原始分72分，对应bonus=3档位。论文明确指出了三项后续深化方向：主观公权利理论的本土化研究、行政诉讼主观/客观定位的澄清、诉讼二阶构造与分阶处理的引入。这些路径与正文核心结论紧密衔接，但部分路径（如二阶构造的具体制度设计）尚未充分展开，精细度有限。",
+          "evidence_quotes": [
+            "要使保护规范理论获得有效运转,就需对作为背景的公权理论有更深理解……借由保护规范理论和公权观念来型塑我国公法请求权体系同样无从谈起",
+            "诉讼的二阶构造与保护规范理论的分阶处理……下文即着重对德国法上的分阶处理予以阐释……但二阶构造并非与我国行政审判互相隔膜"
+          ],
+          "strengths": [
+            "明确揭示本土适用所需'外挂条件'，形成可操作的后续研究议程",
+            "德国法分阶处理机制的引介为我国诉讼制度改革提供具体参照"
+          ],
+          "weaknesses": [
+            "分阶处理的本土化方案仅停留在原则倡导，缺乏具体制度设计",
+            "公权理论本土化的方法论路径未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究指明的方向（如公权理论深化、二阶构造引入），而非当前结论是否被接受；后者属于结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰指出保护规范理论本土化需配套公权理论深化、诉讼定位明确及二阶构造引入等具体路径。",
+          "core_judgment": "存在真实且具体的延展路径，紧密衔接本土适用困境与制度改进方向。",
+          "score_rationale": "原始分85，对应bonus=5。明确指出公权理论深化、诉讼定位明确及二阶审查构造等可操作的后续研究方向，与正文论证紧密衔接。",
+          "evidence_quotes": [
+            "要使保护规范理论获得有效运转,就需对作为其背景的公权理论有更深理解。",
+            "进行制度改进的首要问题就在于明确诉讼的基本定位，尤其是确保核心功能的纯化。"
+          ],
+          "strengths": [
+            "延展路径具体且可定位，直指本土司法适用的核心瓶颈。",
+            "提出二阶构造与分阶处理方案，具备明确的程序法改进指向。"
+          ],
+          "weaknesses": [
+            "对本土立法衔接的具体风险与过渡方案着墨较少。",
+            "部分延展方向仍偏重教义学推演，缺乏实证检验设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于理论本土化后的制度配套、程序构造优化及后续教义学深化方向，而非评价当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.258416175842285,
+        "glm-5.1": 35.78646898269653,
+        "kimi-k2.6": 11.56587028503418,
+        "qwen3.6-plus": 59.490710973739624
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 79.2,
+      "std": 6.8,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 82.02,
+      "weighted_total": 79.4
+    },
+    "aggregation_strictest": {
+      "final_score": 53.82,
+      "weighted_total": 56.4
+    },
+    "avg_std": 14.5,
+    "max_std": 28.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 28.2,
+    "composite_score": -14.5,
+    "worst_dimension": "problem_originality",
+    "worst_std": 28.8
+  }
+}

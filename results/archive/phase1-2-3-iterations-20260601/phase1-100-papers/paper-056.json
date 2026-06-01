@@ -1,0 +1,599 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/合宪性解释在我国法院的实践.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在少量OCR识别错误（如年份‘2Ol2’、‘2016年1 1月’）",
+          "脚注编号格式错乱（如‘【5]’、‘(6]’、‘E12J’、‘UO 3’、‘[1O]’）",
+          "期刊页码混入正文（如‘· 107 ·’、‘· 108 ·’）"
+        ],
+        "evidence_quotes": [
+          "2Ol2年第5期",
+          "【5]而对我国的法律实践关注不多",
+          "· 107 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。",
+          "合宪性解释的具体方法有二：一是对法律文义的转换；二是在法律的多重含义中择一适用。据此，权且将合宪性解释划分为文义转换与择一适用两种类型。",
+          "我国司法裁判是否存在对合宪性解释方法的运用?……实际上，我国各级法院有意无意之间已经在频繁地运用合宪性解释方法处理案件，学界理应对这些司法实务予以整理和分析"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR噪声与脚注格式错乱，但不影响核心论证与结构定位；项目口径完全符合，可直接进入六维评分。"
+      ],
+      "evidence_quotes": [
+        "本文力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。这一方面是对实践的整理，另一方面也是对合宪性解释理论的检验。",
+        "合宪性解释之所以是司法过程的内在必然，其根源在于立法与司法的基本关系。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/格式噪声，建议进行基础清洗后进入六维评分。论文紧扣中国宪法解释体制与司法实践，提出‘文义转换’与‘择一适用’的类型化命题，具有明确的中国问题意识与理论转化能力，符合项目口径，建议直接进入下一阶段评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在大量OCR识别乱码及格式变异（如[24 3, [261, [743, [8), [12J等）",
+          "期刊页码混入正文（如· 107 ·, · l08 ·, · 109 ·等）",
+          "少量年份与外文单词OCR识别错误（如2Ol2, Revi sited, n Lawyer）"
+        ],
+        "evidence_quotes": [
+          "[24 3 1996年，黄某与本案被告周某发生婚外性关系",
+          "· 107 ·",
+          "2Ol2年第5期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。",
+          "本文尝试提出一种新的区分方法，也就是从合宪性解释方法本身人手进行的分类……权且将合宪性解释划分为文义转换与择一适用两种类型。",
+          "这里必须区分法律的表面违宪与适用违宪……如果在特定的个案中法律构成了对当事人基本权利的侵害，这也属于违宪。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号、页码及少量字符的OCR识别乱码，需在后续清洗中处理"
+      ],
+      "evidence_quotes": [
+        "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但在评分前需对脚注编号乱码、页码混入及OCR错字进行文本工程清洗。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文将合宪性解释从体制之争转向司法方法论研究，问题设定精准且具理论纵深。",
+          "core_judgment": "该研究问题成立且高度重要，成功将长期悬置的体制权限争议转化为可操作的司法裁判方法论争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，前置检查扣0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "我国司法裁判是否真有合宪性解释方法的运用，就是一个首先需要面对的问题。",
+            "合宪性解释之所以是司法过程的必然之理，就在于司法造法的普遍存在。"
+          ],
+          "strengths": [
+            "将体制权限之争转化为司法方法论争点，问题意识精准。",
+            "提出文义转换与择一适用的类型化框架，具解释力。"
+          ],
+          "weaknesses": [
+            "对合宪性解释的边界控制论证稍显简略。",
+            "部分案例的宪法说理转化过程可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的成立度与重要性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "基于本土司法实践验证合宪性解释的实然存在，并以适用违宪概念破解法院无审查权困境。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将抽象体制之争转化为实践与法理的深度交锋。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "我国司法裁判是否真有合宪性解释方法的运用，就是一个首先需要面对的问题。",
+            "真正的困难问题可能在于，当法律出现了适用违宪的强烈嫌疑...法院应当何去何从。"
+          ],
+          "strengths": [
+            "将抽象体制之争转化为本土实证检验，问题设定精准",
+            "引入适用违宪概念，有效破解法院无审查权之理论困境"
+          ],
+          "weaknesses": [
+            "对合宪性解释界限的讨论稍显简略，未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评案例归纳是否穷尽或论证严密性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.2485339641571,
+        "glm-5.1": 68.9783501625061
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 90
+      },
+      "mean": 85,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒合宪性解释研究的理论脉络与实践缺口，以实证案例回应学界核心争议，研究地图完整。",
+          "core_judgment": "研究地图三要素充分满足，争点结构清晰，流派识别达标，文献洞察度良好。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学者们对合宪性解释方法的讨论，大多重视其概念和原理的抽象层面……而对我国的法律实践关注不多。",
+            "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。"
+          ],
+          "strengths": [
+            "精准提炼学界抽象论证与实践脱节的未竟点",
+            "以本土司法案例为锚点系统回应理论争点"
+          ],
+          "weaknesses": [
+            "流派归类偏重立场对立，缺乏对跨学科视角的延伸",
+            "部分争点回应依赖个案推演，理论对话纵深稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点映射，不涉及合宪性解释命题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰构建了合宪性解释的学术争点地图，精准定位既有研究脱离实践的缺口。",
+          "core_judgment": "本维度充分成立，研究地图完整，争点结构清晰，流派识别丰富。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学者们对合宪性解释方法的讨论，大多重视其概念和原理的抽象层面……而对我国的法律实践关注不多。",
+            "有学者认为……法院无权解释宪法……更多学者则持乐观的看法……主张宪法第67条并非赋予全国人大常委会以专属性的宪法解释权"
+          ],
+          "strengths": [
+            "精准指出既有研究重理论轻实践的缺口",
+            "清晰呈现法院解释权归属与解释方法类型的对立争点"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非实践问题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 84.13499522209167,
+        "glm-5.1": 60.35742115974426
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文基于本土司法实践提炼出“文义转换”与“择一适用”的分类框架，并明确其适用边界与操作步骤。",
+          "core_judgment": "框架建构力极强，分类标准清晰且具备可重复适用的裁判指引功能，成功实现理论向实务的转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。分类标准明确且步骤可循，全文深度调用；成功将抽象理论转化为法官可操作的裁判技术路径。",
+          "evidence_quotes": [
+            "本文尝试提出一种新的区分方法……将合宪性解释划分为文义转换与择一适用两种类型。",
+            "合宪性解释的功能，就在于它是将个案正义的判断问题，在技术层面转换为法律在适用上是否与宪法相冲突的问题。"
+          ],
+          "strengths": [
+            "分类标准紧扣司法操作逻辑，边界清晰",
+            "将抽象宪法价值转化为具体裁判技术步骤"
+          ],
+          "weaknesses": [
+            "对框架的负面清单仅作原则性提示",
+            "未提供形式化的审查流程图"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文建构了“文义转换型”与“择一适用型”的合宪性解释分类框架，并成功转化为裁判规则。",
+          "core_judgment": "该维成立，论文提出了清晰且可操作的判例分类框架与裁判适用指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "合宪性解释的具体方法有二：一是对法律文义的转换；二是在法律的多重含义中择一适用。",
+            "在法律的数种解释方案中，有的存在违宪疑虑，有的没有，此时法院就应当以宪法为判准而选择没有违宪疑虑的解释方案。"
+          ],
+          "strengths": [
+            "分类标准明确且具可操作性，将抽象理论转化为裁判指引",
+            "框架在后文案例分析中被高频调用，分析逻辑与框架高度对应"
+          ],
+          "weaknesses": [
+            "未在制度设计层面给出可操作的立法建议或程序方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架的分类与转化，不评价案例选取的代表性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 71.60615968704224,
+        "glm-5.1": 53.19827318191528
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以实证案例为基，严密推演合宪性解释的司法必然性与类型化逻辑。",
+          "core_judgment": "推理链完整且环环相扣，反驳处理充分，结论可由前文案例与规范分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "法院以婚姻关系的特殊性限制了过错原则的适用，这已经超出了民法的框架，实际上是引入了位阶更高的宪法层面的考虑。",
+            "合宪性解释在理论上本来就是‘回避宪法判断’的司法技术，法院在此过程中并没有作出形式意义上的违宪判断，相反，它维持了法律的合宪性。"
+          ],
+          "strengths": [
+            "案例实证与类型划分紧密咬合，推理链条完整递进。",
+            "对‘无违宪审查权故不能解释’的反驳逻辑严密，有效化解体制性质疑。"
+          ],
+          "weaknesses": [
+            "部分案例的宪法价值填充过程略显跳跃，教义学论证可更精细。",
+            "对‘文义转换’与‘目的解释’的界限区分稍显模糊。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估从案例归纳到理论证成的推理链条，不评价类型学框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，对体制约束的反对意见有实质性回应，逻辑严密。",
+          "core_judgment": "本维度完全成立。论文构建了从实践存在到必然性再到体制兼容的完整推理链，且对核心反对意见给出了有力的理论回应。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。推理链从实证到理论层层依赖，对法院无审查权的反对意见通过适用违宪概念予以实质回应，逻辑支撑充分。",
+          "evidence_quotes": [
+            "反对者认为法院无违宪审查权不能进行合宪性解释，本文通过区分表面违宪与适用违宪予以回应",
+            "合宪性解释是回避宪法判断的司法技术，法院在此过程中并没有作出形式意义上的违宪判断"
+          ],
+          "strengths": [
+            "从实证到理论的推理链层层递进，依赖度高",
+            "对体制约束的反对意见给出了极具创造力的实质性回应"
+          ],
+          "weaknesses": [
+            "从“客观符合宪法价值”到“合宪性解释”的认定偶有解释性跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评价推理链支撑度与反驳回应，不评价合宪性解释分类框架的操作性或学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 82.07688093185425,
+        "glm-5.1": 61.646132946014404
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论扎根中国司法实践，有效回应宪法解释体制争议，兼具理论张力与制度兼容性。",
+          "core_judgment": "结论明确嵌入既有学术争论，充分回应中国法秩序约束，具备高度的共同体对话度与制度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。",
+            "合宪性解释在理论上本来就是‘回避宪法判断’的司法技术，法院在此过程中并没有作出形式意义上的违宪判断，相反，它维持了法律的合宪性。"
+          ],
+          "strengths": [
+            "精准定位学术争论，明确修正‘法院无权解释宪法’的主流观点。",
+            "深入剖析司法实践与宪法体制的张力，提出‘回避违宪判断’的兼容路径。"
+          ],
+          "weaknesses": [
+            "对合宪性解释的边界控制与程序衔接着墨较少，制度转化方案偏宏观。",
+            "未充分展开对‘过度解释可能僭越立法权’的具体防范机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论有效回应学界争论，提出适用违宪等理论，与中国制度语境高度兼容。",
+          "core_judgment": "结论修正了既有观点，论证了合宪性解释的实践必然性，对话度与制度兼容性均极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "主张我国法院不能对具体的法律规范进行合宪性解释...既难以在理论上得到证立，也漠视了我国法院对合宪性解释的普遍实践。",
+            "合宪性解释的方法还能弥补我国合宪性审查体制的制度性缺漏..."
+          ],
+          "strengths": [
+            "精准回应学界关于法院无权解释宪法的争论",
+            "主动承认合宪性解释存在僭越立法的危险等局限"
+          ],
+          "weaknesses": [
+            "对适用违宪概念的理论边界探讨稍显不足（自身已承认）"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分仅关注结论的可接受性与对话回应，不评价案例实证分析的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 62.29833102226257,
+        "glm-5.1": 43.180630922317505
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结语明确提出宪法教义精细化、部门法科际整合及合宪性解释边界控制等具体延展路径。",
+          "core_judgment": "存在真实且清晰的延展路径，与正文实证归纳紧密衔接，指向明确的理论深化与实务边界控制。",
+          "score_rationale": "原始分85，对应bonus=5档。结语精准提出宪法条款具体化、跨部门法整合及防僭越立法等可操作研究方向，非空泛展望。",
+          "evidence_quotes": [
+            "案例1和案例7都涉及婚姻在宪法上的定位……其意旨究竟为何？能否从第42条劳动权解释出职业自由？",
+            "如何从理论上的一般命题来评判我国法院实践，讨论问题成因及改进方向，将依然是学界重要任务。"
+          ],
+          "strengths": [
+            "提出具体宪法条款解释难题，指向教义学精细化",
+            "明确划定文义转换型解释的僭越风险，给出边界控制方向"
+          ],
+          "weaknesses": [
+            "未就制度动力不足提出具体程序性补救方案",
+            "对部门法整合的论述仍偏宏观，缺乏具体对接机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦未来宪法教义细化与解释边界控制的研究方向，而非当下结论的规范可接受性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出了合宪性解释的适用边界、理论精细化与科际整合等清晰延展路径，与正文核心论证紧密衔接。",
+          "core_judgment": "存在真实延展路径，指明了宪法解释具体化、宪法与部门法科际整合及合宪性解释界限等后续研究方向。",
+          "score_rationale": "原始分85，对应bonus=5档。论文在结语明确指出后续需推进宪法学理论精细化、宪法与部门法科际整合，并承认未详尽讨论合宪性解释界限的局限，延展路径清晰且与正文衔接紧密。",
+          "evidence_quotes": [
+            "法院对合宪性解释的操作，客观上需要宪法学理论的精细化。",
+            "限于篇幅和主题，本文没有详尽地对所描述的实践进行规范意义上的讨论和批评。"
+          ],
+          "strengths": [
+            "明确指出了宪法学理论精细化与科际整合的具体延展方向。",
+            "坦诚承认正文局限，并指出后续应围绕合宪性解释界限推进研究。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "探讨合宪性解释的理论精细化与科际整合属于未来研究应深化的方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.40076208114624,
+        "glm-5.1": 15.296210050582886
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.1,
+    "max_std": 7.1,
+    "weighted_total": 89.6,
+    "final_score": 94.76,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 6.23,
+    "worst_dimension": "literature_insight",
+    "worst_std": 7.1
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "学者们对合宪性解释方法的讨论，大多重视其概念和原理的抽象层面，有的则以引介国外理论为重点，而对我国的法律实践关注不多。",
+          "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。",
+          "本文尝试提出一种新的区分方法，也就是从合宪性解释方法本身人手进行的分类。合宪性解释的具体方法有二：一是对法律文义的转换；二是在法律的多重含义中择一适用。",
+          "合宪性解释之所以是司法过程的必然之理，其根源在于立法与司法的基本关系。",
+          "最高人民法院在2016年7月颁布的《人民法院民事裁判文书制作规范》指出，‘裁判文书不得引用宪法……但其体现的原则和精神可以在说理部分予以阐述’。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance",
+          "supervision"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "本文不拟就合宪性解释方法再进行理论上的反复证成，而力图对我国司法裁判中已经出现的合宪性解释实践进行初步的分析和归纳。",
+          "本文尝试提出一种新的区分方法，也就是从合宪性解释方法本身人手进行的分类。合宪性解释的具体方法有二：一是对法律文义的转换；二是在法律的多重含义中择一适用。",
+          "必须区分法律的表面违宪与适用违宪，前者是指法律在普遍意义上与宪法相冲突，后者是指法律在适用于特定的个案时不能达到合宪的结果。",
+          "合宪性解释的功能，就在于它是将个案正义的判断问题，在技术层面转换为法律在适用上是否与宪法相冲突的问题。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

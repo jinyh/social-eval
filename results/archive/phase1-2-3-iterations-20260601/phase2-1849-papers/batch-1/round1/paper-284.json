@@ -1,0 +1,1123 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/合规制度的公司法设计及其实现路径.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在少量OCR或排版导致的引注编号与正文间隔符残留（如'④'、'⑧'等），但不影响核心论点和论证结构。参考文献列表缺失，无法判断引用完整性。"
+        ],
+        "evidence_quotes": [
+          "④ ［德］乌尔里希•齐白：《全球风险社会与信息社会中的刑法...",
+          "⑧［德］弗里德里希•包尔生：《伦理学体系》..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "国资委在2018年11月9日发布的《中央企业合规管理指引（试行）》第2条中就将“合规”定义为...",
+          "截至目前，我国尚未建立以公司法为核心的系统合规法律制度，仅有的规定也主要散见于一些部门规章和规范性文件中...",
+          "在我国公司法中引入合规制度既是他国法治经验给我们带来的他山之石，同时也是我国社会实践造就的现实之需。",
+          "具体可于公司法中用但书的方式规定：“公司及其工作人员的行为虽给国家或社会造成一定损害，但如该行为不违反公司章程规定且符合商业习惯的，可以减轻或免除处罚..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：参考文献列表缺失，无法交叉验证；OCR残留：文中存在④⑧等上标编号残留"
+      ],
+      "evidence_quotes": [
+        "在我国公司法中引入合规制度既是他国法治经验给我们带来的他山之石，同时也是我国社会实践造就的现实之需。",
+        "具体可于公司法中用但书的方式规定：“公司及其工作人员的行为虽给国家或社会造成一定损害，但如该行为不违反公司章程规定且符合商业习惯的，可以减轻或免除处罚..."
+      ],
+      "boundary_reasons": [
+        "无"
+      ],
+      "obviously_ineligible_reasons": [
+        "无"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "可直接进入六维评分。文本质量存在参考文献缺失和少量OCR残留风险，但核心论证完整可读，建议在后续评审中注意引用完整性。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR/分栏抽取导致跨页段落首句截断缺失（如'公司作为营利性组织'、'信用是企业的生命线'、'商业道德风险的聚集'等前半句丢失）",
+          "脚注编号出现乱码或符号替换（如⑮变为®，⑯变为@)等）",
+          "期刊页眉及页码混入正文流（如'71 中国法学 2020年第2期'）"
+        ],
+        "evidence_quotes": [
+          "将合规要求进行公司法表达的理由主要有以下几点：守内部的各项守则...",
+          "利性组织，“赢利原则是竞争经济的一个历史—结构性的预先规定",
+          "® 根据韩国《金融公司治理结构法实施细则》...",
+          "71 中国法学 2020年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国现行法律中有关合规制度的规定及其不足...效力层次低...缺乏以公司法为代表的基础性、骨干性法律制度作支撑",
+          "合规要求在公司法总则中的制度设计...将其上升为公司活动和公司制度设计的基本原则",
+          "在未来公司法修改时，我们也应考虑将公司因违反合规义务和某些特别义务所产生的刑事责任,在公司法中通过专章的方式作出详细规定。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR跨页截断导致局部语句残缺，脚注编号乱码，页眉混入，需文本修复后方可进行精细评分",
+        "项目口径：无问题，明确满足中国问题中心性及理论转化信号"
+      ],
+      "evidence_quotes": [
+        "在我国公司法中引入合规制度既是他国法治经验给我们带来的他山之石，同时也是我国社会实践造就的现实之需。",
+        "合规要求在公司法总则中的制度设计...将其上升为公司活动和公司制度设计的基本原则"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评价标准，论文以中国公司法合规制度建构为核心，提出了具体的规范命题与制度设计路径。但文本工程质量存在中等风险（局部截断与乱码），建议在进入后续评分阶段前进行OCR/分栏修复，以确保论证链条的完整性评估不受影响。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留符号（如⑫⑬⑭⑮⑯⑰⑱⑲⑳等）",
+          "部分引用文献页码标注格式不统一",
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78",
+          "79",
+          "80",
+          "81",
+          "82",
+          "83",
+          "84",
+          "85",
+          "86",
+          "87"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国在实践中也采取了类似表述，国资委在2018年11月9日发布的《中央企业合规管理指引（试行）》第2条中就将'合规'定义为",
+          "截至目前，我国尚未建立以公司法为核心的系统合规法律制度，仅有的规定也主要散见于一些部门规章和规范性文件中",
+          "笔者认为，基于合规制度的内在要求和公司法的基本定位并根据我国的具体国情，我们在对合规制度进行公司法设计时应遵循以下基本要求",
+          "在未来公司法修改时，我们也应考虑将公司因违反合规义务和某些特别义务所产生的刑事责任，在公司法中通过专章的方式作出详细规定",
+          "将合规要求嵌入公司法中并非是一种单纯的理论演绎，更是回归公司社会角色定位的必然结果；不但是完善公司内部治理的迫切需要，同时也是抢占制度制高点的战略选择"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留符号需人工核对",
+        "参考文献列表缺失，但不影响核心论证定位"
+      ],
+      "evidence_quotes": [
+        "我国尚未建立以公司法为核心的系统合规法律制度...仅有的规定也主要散见于一些部门规章和规范性文件中",
+        "在未来公司法修改时，我们也应考虑将公司因违反合规义务和某些特别义务所产生的刑事责任，在公司法中通过专章的方式作出详细规定"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文以中国公司法合规制度构建为核心议题，具有明确的中国问题意识和法学理论贡献，建议直接进入六维评价。文本质量总体良好，脚注编号存在OCR符号残留但不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号OCR识别乱码（如④、®、@、㉑等符号混排）",
+          "期刊名《中国法学》及页码（71-87）重复插入段落间",
+          "个别外文标点识别异常（如•'compliance\"）"
+        ],
+        "evidence_quotes": [
+          "•'compliance\" 翻译而来",
+          "71\n\n中国法学\n2020年第2期",
+          "④ ［德］乌尔里希•齐白"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "截至目前，我国尚未建立以公司法为核心的系统合规法律制度，仅有的规定也主要散见于一些部门规章和规范性文件中...",
+          "将合规要求嵌入公司法中并非是一种单纯的理论演绎，更是回归公司社会角色定位的必然结果...",
+          "可考虑在公司法总则中专设一条并具体表述为：“公司活动应符合法律、法规、政府规章和章程的要求,遵守社会公共秩序和商业道德，遵守国际规约和商业惯例。”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR与排版残留，但不影响核心论证与制度命题的提取；建议评审时自动过滤页眉页脚与脚注乱码。"
+      ],
+      "evidence_quotes": [
+        "将合规要求嵌入公司法中并非是一种单纯的理论演绎，更是回归公司社会角色定位的必然结果",
+        "可考虑在公司法总则中专设一条并具体表述为：“公司活动应符合法律、法规、政府规章和章程的要求,遵守社会公共秩序和商业道德，遵守国际规约和商业惯例。”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在低风险（OCR脚注乱码与页码混排），但项目口径完全符合。核心围绕中国公司法合规制度缺失展开，提出明确的立法原则、机构设置与责任豁免命题，具备可争辩性与理论转化价值。建议直接进入六维评分，系统自动清洗格式干扰即可。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文仅在宏观层面声明合规制度公司法嵌入的必要性与原则，未能提出具体的、可争辩的法学研究问题。",
+          "core_judgment": "论文主要进行主题宣示和体系构建建议，缺乏明确的问题句和实质性的理论分歧，问题创新性不成立。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。锚定 unacceptable 档（0-49分），因可争辩性只有1分，触发no_justiciable_question上限，给45分。",
+          "evidence_quotes": [
+            "因此，将合规要求嵌入公司法中并非是一种单纯的理论演绎...不但是完善公司内部治理的迫切需要，同时也是抢占制度制高点的战略选择。",
+            "在具体制度设计上...（一）坚持个体效益与社会公共利益相统一...（二）坚持协调配合与精准调整相结合...（三）...（四）..."
+          ],
+          "strengths": [
+            "对合规概念进行了多维梳理和辨析。",
+            "详细引介了域外合规制度实践作为参照。"
+          ],
+          "weaknesses": [
+            "全文无明确可争辩的法学问题句，仅进行必要性及原则声明。",
+            "未呈现核心法学观点交锋或理论分歧，基本为单向度的体系介绍。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无明确问题句，仅为主题声明和体系介绍",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文主要阐释将合规要求嵌入公司法的必要性、原则和具体方案，未提出如‘XX是否应YY’或‘如何ZZ’等可争辩的法学问题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立、可争辩且重要，不评论证严密性、文献综述或材料是否支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文仅为合规制度入法的政策倡导与体系设计，缺乏可争辩的法学研究问题。",
+          "core_judgment": "问题不成立，全文系主题声明与立法建议，无理论分歧与法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性已触发上限70分，前置扣分50分（宏观介绍扣20，主题声明扣30），锚定unacceptable档，基础45分，扣后取最低30分",
+          "evidence_quotes": [
+            "将合规要求进行公司法表达的理由主要有以下几点",
+            "可以考虑在公司法总则中专设一条并具体表述为"
+          ],
+          "strengths": [
+            "涉及公司法与刑法等多制度联动，枢纽性尚可"
+          ],
+          "weaknesses": [
+            "无问题句与理论分歧，纯政策倡导",
+            "宏观介绍国外制度，无学者观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为'应将合规嵌入公司法'的主题声明与政策倡导"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_overclaim",
+              "rule": "主要依赖比较法新材料但无实质推进，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "以韩德日美合规制度作为主要创新依据，但仅作立法借鉴而无问题推进"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为制度介绍与立法建议型文章，缺乏可争辩的法学争点与理论交锋。",
+          "core_judgment": "全文以阐释合规制度内涵、介绍国外经验、提出立法建议为主，未提出并论证具有理论张力的法学问题。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明'合规制度的公司法设计及其实现路径'，无法律规范解释或法哲学层面的问题句），枢纽性=2/4（涉及公司法、刑法等多领域，但无理论分歧支撑），材料新颖性未触发上限。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'合规'作为核心概念未说明相对既有公司治理/内控概念的理论进步），扣20分（检查2：宏观介绍非深度分析，全文无学者观点交锋），扣0分（检查3：虽有问题句但实质是政策倡导）。扣分合计45分，正式评分80-45=35分。",
+          "evidence_quotes": [
+            "将合规要求嵌入公司法中，既是因为基本的合规要求是公司进入交易领域的必要准入门槛",
+            "在未来公司法修改时，我们也应考虑将公司因违反合规义务和某些特别义务所产生的刑事责任，在公司法中通过专章的方式作出详细规定"
+          ],
+          "strengths": [
+            "主题具有现实关照，涉及公司法与合规制度交叉领域"
+          ],
+          "weaknesses": [
+            "全文为制度介绍与立法建议，无学者观点交锋或理论分歧",
+            "未提出可争辩的法学问题句，仅有主题声明和政策倡导"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'式问题句，仅围绕'合规制度的公司法设计'展开制度介绍与立法建议"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦 → 最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "论文以合规制度嵌入公司法为主题，缺乏明确争点与学者交锋，属宏观制度设计。",
+          "core_judgment": "问题属既定立场阐释与规范建构，缺乏可争辩的法学核心争点，理论推进有限。",
+          "score_rationale": "可争辩性=2/4，枢纽性=3/4，材料新颖性未触发上限，锚定good档。前置检查扣50分，依规保底给30分。",
+          "evidence_quotes": [
+            "之所以必须把合规要求嵌入公司法中，既是因为基本的合规要求是公司进入交易领域的必要准入门槛",
+            "截至目前，我国尚未建立以公司法为核心的系统合规法律制度，仅有的规定也主要散见于部门规章"
+          ],
+          "strengths": [
+            "涉及多部门法联动，制度连锁效应显著",
+            "提出总则至责任的全链条设计，体系完整"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为合规入法的主题声明",
+            "缺乏学者观点交锋，属单向度制度归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文无具体争点句，属宏观规范建构与政策倡导"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.88178992271423,
+        "glm-5.1": 56.4280469417572,
+        "kimi-k2.6": 17.119550943374634,
+        "qwen3.6-plus": 100.48588371276855
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 35,
+      "std": 7.1,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 5,
+          "band": "unacceptable",
+          "summary": "论文未梳理任何既有学术研究成果，通篇为概念推演与制度构想，缺乏研究地图。",
+          "core_judgment": "论文完全缺失到达点、未竟点及本文与既有研究关系的说明，无法建立研究地图，且无参考文献列表。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，三要素总分为0触发no_research_map上限55分，鉴于完全无文献依托将分数压至极低，给5分。",
+          "evidence_quotes": [
+            "合规要求是否应当在公司法中有所体现并非一个单纯的理论推演，而必须有足够的法律实践加以支撑。实际上许多国家和国际组织已有将合规要求上升为法律或规范性文件的实践。",
+            "从一般意义上说，任何立法都既是国家为满足社会现实需要……"
+          ],
+          "strengths": [
+            "比较法素材罗列较为丰富。"
+          ],
+          "weaknesses": [
+            "未见任何对既有研究的系统梳理与定位。",
+            "未说明学界已解决与未解决问题，亦无本文切入点与既有研究之关联。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，研究地图严重残缺，论文未提及任何既有学术研究流派或争点，上限55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文无参考文献列表，正文中虽有引注但仅为工具性引证，未形成到达点、未竟点或本文切入点。"
+            }
+          ],
+          "boundary_note": "本文缺失的是文献梳理与学术定位，而非问题新颖性；其制度构想未建立在既有研究脉络之上。",
+          "review_flags": [
+            "no_research_map"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰构建了研究地图，比较法与立法模式争点结构完整。",
+          "core_judgment": "本维度成立，论文充分呈现了合规制度不同法秩序路径及立法模式的争点与流派对立。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "我国现行法律...缺陷也比较明显...缺乏以公司法为代表的基础性、骨干性法律制度作支撑",
+            "对刑事犯罪进行集中性的排他式调整并非各国的统一做法，许多国家实际采取的是分散主义的立法模式"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了萨班斯法案实证效果等到达点",
+            "比较法资源系统呈现了刑法威慑与公司法内化的路径分歧"
+          ],
+          "weaknesses": [
+            "合规与道德关系的讨论未明确置入学界争论脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是文献梳理与争点结构深度，而非合规制度设计本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "marginal",
+          "summary": "研究地图残缺，缺乏对既有学术争论的系统梳理",
+          "core_judgment": "论文以制度建构为导向，但未建立清晰的研究地图，三要素均严重缺失",
+          "score_rationale": "三要素=1/6（到达点1+未竟点0+切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，但存在部分比较法描述，给52分",
+          "evidence_quotes": [
+            "目前,无论在理论界还是立法例上，对'合规'或合规制度的概念和内容并无一致看法",
+            "合规要求的法律制度构建虽然在我国已取得了一些进展,但缺陷也比较明显"
+          ],
+          "strengths": [
+            "对多国制度进行了较系统的比较法梳理",
+            "识别了我国合规制度的四方面缺陷"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学术成果及其贡献",
+            "未呈现学界争论脉络或对立观点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及'无一致看法'无具体成果，未竟点与切入点均未建立"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性，论文问题意识清晰但学术对话不足",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "文献梳理扎实，精准指出现行缺陷并对接本文切入点。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，达到良好标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "我国尚未建立以公司法为核心的系统合规法律制度，现有规定缺陷明显",
+            "美国侧重刑事激励，韩国侧重商法强制，我国主要依赖行政规章推动"
+          ],
+          "strengths": [
+            "明确提炼我国合规立法四大缺陷，未竟点定位精准",
+            "系统梳理多国合规路径，比较法制度对照清晰"
+          ],
+          "weaknesses": [
+            "理论争点梳理偏重制度罗列，缺乏深层学理交锋",
+            "流派识别多依赖立法例，未充分转化为学界理论对话"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉制度设计创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 111.36521816253662,
+        "glm-5.1": 49.281965017318726,
+        "kimi-k2.6": 10.362425088882446,
+        "qwen3.6-plus": 67.80896210670471
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 5,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 80
+      },
+      "mean": 56.2,
+      "std": 37.5,
+      "strictest": 5,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文以梳理合规制度概念、必要性与设计建议为主，未构建出具有可操作步骤或法学转化力的原创分析框架。",
+          "core_judgment": "该文属于政策理论梳理型，框架可操作性得分低，法学转化度不足，仅止于宏观方向倡导而非可重复适用的分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定尚可），法学转化度得分=1/4（仅有宏观制度方案无操作化指引），锚定marginal档，触发no_operational_framework上限规则，给45分。",
+          "evidence_quotes": [
+            "“合规制度是一个具有丰富内涵和多维要求的综合性制度……从其内在机理来说，合规是一种以适应外在要求为目的、以有效改善内部控制和自我约束能力为核心的企业自律行为。”",
+            "“在公司法总则中……具体表述为：‘公司活动应符合法律、法规……遵守国际规约和商业惯例。’”"
+          ],
+          "strengths": [
+            "对合规的多元化内涵（外在规则、内在自律、企业文化）有较全面的界定",
+            "在制度设计部分提出了公司法总则、分则到责任的体系化设想"
+          ],
+          "weaknesses": [
+            "全文以梳理归纳政策表述和必要性为主，未形成可操作的法学分析步骤",
+            "具体的制度建议停留在“应当设立”“要求遵守”层面，缺乏可检测的判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1时触发，原因：核心术语无法学操作化定义，无分析步骤，且法学转化度仅1分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以阐释合规制度必要性、梳理各国立法及提出宏观设计为主，未提供可重复适用的分析步骤或判断标准"
+            }
+          ],
+          "boundary_note": "本评分针对分析框架的可操作性与法学转化度，不评价论证严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出了具体的制度设计方案和裁判规则，但缺乏可操作的分析框架和步骤化的判断流程。",
+          "core_judgment": "论文属于制度型论文，虽有具体法条设计，但未建构可重复适用的分析框架，仅完成制度主张。",
+          "score_rationale": "框架可操作性得分=1/4（触发概念堆砌降档上限1），法学转化度得分=3/4，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "将遵守合规要求作为所有类型公司和从业人员的共同要求;将建立系统的合规制度和合规机构作为特定类型的公司...的法定义务",
+            "公司有证据表明其业已制定有效完整的合规计划的，可以减轻或免除对其的处罚"
+          ],
+          "strengths": [
+            "提供了明确的制度设计方案和具体法条表述。",
+            "归纳了合规制度的裁判责任豁免规则。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的分析流程，仅有价值导向和结构设计。",
+            "核心术语缺乏操作化定义，触发概念堆砌降档。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.concept_stacking",
+              "rule": "概念堆砌：≥2个核心术语无明确定义，框架可操作性得分最高为1",
+              "score_ceiling": 1,
+              "priority": 1,
+              "evidence": "核心术语合规、道德风险、公司治理均无本文所称XX是指的明确定义"
+            }
+          ],
+          "boundary_note": "本维度评价分析框架的可操作性与法学转化，不评价制度主张本身的合理性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，缺乏原创分析框架，仅有制度设计罗列而无判断标准。",
+          "core_judgment": "框架建构力不成立：全文以梳理合规概念、介绍国外制度、提出立法建议为主，未形成可重复适用的分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=1/4（仅合规概念有界定，分类标准模糊，无步骤化分析流程，后文未调用框架术语），法学转化度得分=1/4（有制度设计方案但缺乏操作化步骤，未转化为裁判规则或法律适用流程），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "合规制度是一个具有丰富内涵和多维要求的综合性制度……从外在控制的角度来说……从企业内部运行来说……从社会文化角度来说",
+            "将遵守合规要求作为所有类型公司和从业人员的共同要求；将建立系统的合规制度和合规机构作为特定类型的公司……的法定义务"
+          ],
+          "strengths": [
+            "对合规概念进行了多维度界定，有一定理论梳理深度",
+            "提出了公司法总则、分则、责任部分的具体制度设计方案"
+          ],
+          "weaknesses": [
+            "制度设计仅为倡导性罗列，缺乏可重复适用的判断标准或操作步骤",
+            "核心术语'合规'定义宽泛，未转化为法学分析工具，后文未形成框架性调用"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以'梳理''评析''设计'为主，'合规'作为核心术语仅有描述性界定，未转化为裁判规则或法律适用流程；制度设计部分为'应当设置合规委员会''应当规定为义务'等口号式表述，无分析步骤或判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身是否成立可用，不评价立法建议的合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了合规制度嵌入公司法的“原则-分则-责任”三维设计框架，具备较强的制度转化力。",
+          "core_judgment": "该分析框架成立且具备较高的法学转化度，能有效指导公司法合规条款的立法设计。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "合规既是一种法律要求，同时也是一种道德要求，既“是法定的，有时又是伦理的或其他的。”",
+            "要求上市公司、国有独资公司和金融类公司应设置专门的合规机构和专职负责人。"
+          ],
+          "strengths": [
+            "分类标准清晰，按公司类型与主体层级细化合规义务。",
+            "制度设计具体，直接转化为公司法总则、分则与责任条款草案。"
+          ],
+          "weaknesses": [
+            "缺乏裁判适用或合规审查的具体操作步骤与判断标准。",
+            "部分概念界定偏宏观，未完全转化为可量化的合规评价指标。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 115.81980276107788,
+        "glm-5.1": 101.26044917106628,
+        "kimi-k2.6": 14.550896883010864,
+        "qwen3.6-plus": 84.98507905006409
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 45,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 56.8,
+      "std": 19.1,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链完整清晰，从概念界定、必要性论证、域外经验借鉴到具体制度设计层层递进，结论可被前文充分支撑。",
+          "core_judgment": "推理链完整且形成闭环，对反对观点有充分回应，逻辑严密性很高。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，因部分衔接依赖宏观价值论述而存在轻微非关键跳步，微调至85分。",
+          "evidence_quotes": [
+            "之所以必须把合规要求嵌入公司法中，既是因为基本的合规要求是公司进入交易领域的必要准入门槛...更是因为合规要求是公司为获取经济利益所必须支付的最低成本。",
+            "在具体制度设计上，可考虑对合规制度建设和合规义务遵守实行区别对待原则，即将遵守合规要求作为所有类型公司的共同要求；将建立系统合规制度作为特定类型公司的法定义务。"
+          ],
+          "strengths": [
+            "推理步骤清晰可追溯：概念梳理→必要性论证→域外经验→立法原则→具体制度设计（总则/分则/责任）→结语，层层递进。",
+            "反驳处理充分：对现有制度缺陷的批评、对不同立法模式的比较、对道德与效益可能冲突的调和均构成实质性回应。"
+          ],
+          "weaknesses": [
+            "从“域外经验”到“我国具体制度设计”的衔接部分，主要依赖规范移植的必要性论述，对本土制度约束的回应稍显薄弱。",
+            "分则部分多项建议（如合规委员会设置）的推出更多基于比较法参照而非严格的前文推导，但仍在可辩护推出范围内。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文从规范理念到制度方案的整体推导链完整，局部过渡依赖价值论证属于理论型论文的正常特征，不构成关键跳步。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了从概念到制度设计的完整推理链，并对替代路径进行了实质性反驳，逻辑严密性优良。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可辩护推出，反驳处理充分，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "传统的公司治理主要是通过严密的外部监管行为进行推动的……但由于企业的违法违规行为越来越复杂、越来越隐蔽，因此不通过深度介入公司内部很难发现。",
+            "完全脱离中国实际或特定发展水平的合规法律制度设计,不仅会增加公司的成本开支,降低公司的社会竞争力,而且也会因其不具备有效实施的观念条件而难以得到有效遵守。"
+          ],
+          "strengths": [
+            "推理链完整：从概念梳理→必要性→比较法与现状→制度方案，层层递进。",
+            "反驳处理实质：对传统外部监管、社会责任路径及刑法集中模式均给出替代论证。"
+          ],
+          "weaknesses": [
+            "局部跳步：从合规的道德内涵直接跃迁至公司法基本原则，论证稍显单薄。",
+            "张力未消解：主张公司法专章规定刑罚，与私法逻辑的张力论证不够充分。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评推理链是否充分支撑制度方案，不评方案本身在立法上是否可行或被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文构建'概念梳理→必要性论证→比较法考察→制度设计'的推理链，但核心制度方案与前文论证存在断裂。",
+          "core_judgment": "推理链表面完整但深层存在关键跳步，反驳处理严重不足，核心制度设计未能被前文充分支撑。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、2成立，标准3部分成立、标准4不成立），反驳处理度得分=1/3（仅标准1勉强成立）。锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "将合规要求嵌入公司法中……是回归公司社会角色定位的必然结果；不但是完善公司内部治理的迫切需要，同时也是抢占制度制高点的战略选择（结论部分，多重目标并列缺乏推导）",
+            "相比较而言，第三种方案更为可取……只需在现有的董事会内部设置中增加一个专门委员会即可（制度设计部分，'更为可取'的论证过于简略）"
+          ],
+          "strengths": [
+            "比较法部分形成'国际实践→本土借鉴'的推理链条",
+            "必要性分析从公司治理、经济效益、社会信用等多维度展开"
+          ],
+          "weaknesses": [
+            "从'合规重要性'到'公司法专章设计'缺乏关键过渡，未回应为何公司法而非其他法律",
+            "制度设计部分对三种方案的比较论证不足，'更为可取'的结论跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题在于推理链断裂而非框架不可操作，制度方案本身具有可实施性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链条完整，从概念到制度设计层层递进，反驳与局限处理充分。",
+          "core_judgment": "本维度成立，核心结论由前文规范分析与比较法经验充分支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。论证层层递进，有效回应了刑民边界与效益优先等分歧。",
+          "evidence_quotes": [
+            "之所以必须把合规要求嵌入公司法中……同时也是因为合规要求是公司为获取经济利益所必须支付的最低成本。",
+            "完全脱离中国实际或特定发展水平的合规法律制度设计……难以得到有效遵守。"
+          ],
+          "strengths": [
+            "概念到制度的推演依赖度高，主线清晰",
+            "明确区分强制与倡导适用对象，回应实务约束"
+          ],
+          "weaknesses": [
+            "部分过渡段落理论铺陈略长，压缩了核心推导空间",
+            "责任豁免的具体司法裁量标准论证稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦推理链条的支撑度与结论可辩护性，未评价制度方案的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 75.06022214889526,
+        "glm-5.1": 45.214330196380615,
+        "kimi-k2.6": 11.204988241195679,
+        "qwen3.6-plus": 61.432847023010254
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 88
+      },
+      "mean": 79,
+      "std": 14.1,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文结论虽回应了制度背景，但几乎未与既有法学争论对话，也未承认反对意见或局限，陷入自说自话。",
+          "core_judgment": "论文结论可接受度低，因共同体对话度严重不足，无法被学界认真回应，即使制度兼容性尚可。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=3/4，锚定unacceptable档，因对话度≤1，上限50分，给45分。",
+          "evidence_quotes": [
+            "我国尚未建立以公司法为核心的系统合规法律制度，仅有的规定也主要散见于一些部门规章和规范性文件中",
+            "在具体制度设计上，可考虑对合规制度建设和合规义务遵守实行区别对待原则……对其它类型的公司仅作倡导性要求"
+          ],
+          "strengths": [
+            "结论扎根中国制度语境，具体分析了公司法、规章及国际规则，制度兼容性强。",
+            "提出了从总则到分则再到法律责任的系统公司法修订方向。"
+          ],
+          "weaknesses": [
+            "全文未说明结论与任何既有学说、争论的关系，无法被反对者定位和回应。",
+            "结论部分无任何反对意见或自身局限的讨论，缺乏学术对话意识。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，论文未回应法学共同体已有争论，无法被反对者定位和回应，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论仅提出制度设计建议，未明确说明与既有争论的关系，未承认反对意见，通篇自说自话。"
+            }
+          ],
+          "boundary_note": "此处仅论结论可接受性，未讨论论证严密性或前瞻性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出了系统且具体的合规制度公司法化方案，高度回应共同体争论与中国制度语境。",
+          "core_judgment": "结论在共同体对话与制度可接受性上均表现优异，提出了可争辩、可落地的具体方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "在公司法总则中专设一条：公司活动应符合法律、法规……遵守国际规约和商业惯例",
+            "考虑将公司因违反合规义务所产生的刑事责任，在公司法中通过专章作出详细规定"
+          ],
+          "strengths": [
+            "制度转化方案极为具体，涵盖总则、分则与责任设计",
+            "主动回应了公司法规定刑罚等重大反对意见"
+          ],
+          "weaknesses": [
+            "主张公司法专章规定刑事责任在中国语境下较激进，虽论证充分但实践阻力大"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的可接受性与对话度，而非论证严密性或前瞻性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 62,
+          "band": "good",
+          "summary": "论文主张将合规制度嵌入公司法，提出具体制度设计方案，但结论缺乏对反对意见的回应，且部分制度建议与中国现行法秩序存在张力。",
+          "core_judgment": "结论具有明确的学术定位和制度指向，能进入法学共同体对话，但理论创新性与制度回应性之间平衡不足，部分主张过于激进。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=2/4，锚定good档(60-69)，给62分。论文回应了合规制度本土化的学术争论，定位清晰；但制度可接受度因主张公司法直接规定刑事责任、与现行刑法谦抑原则及统一刑法典体制冲突而受限。",
+          "evidence_quotes": [
+            "将公司因违反合规义务和某些特别义务所产生的刑事责任，在公司法中通过专章的方式作出详细规定",
+            "合规制度的公司法设计及其实现路径"
+          ],
+          "strengths": [
+            "明确回应合规制度本土化争论，提出中国方案",
+            "比较法分析详实，为制度设计提供参照"
+          ],
+          "weaknesses": [
+            "未回应反对意见，如刑法学者对分散立法模式的批评",
+            "主张公司法规定刑事责任，与现行统一刑法典体制存在根本张力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来延展性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论主张将合规嵌入公司法，提出总则原则、分则机构与责任豁免的具体修法路径。",
+          "core_judgment": "结论高度契合中国公司治理改革语境，具备明确的制度转化方向与可争辩性，本维成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将合规要求嵌入公司法中并非单纯理论演绎，更是回归公司社会角色定位的必然结果",
+            "要求上市公司、国有独资公司和金融类公司应设置专门的合规机构和专职负责人"
+          ],
+          "strengths": [
+            "精准回应中国公司治理碎片化痛点",
+            "提出分层分类修法路径与责任豁免机制"
+          ],
+          "weaknesses": [
+            "结语未显式回应潜在反对意见",
+            "合规成本测算缺乏实证数据支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.3774049282074,
+        "glm-5.1": 38.80538606643677,
+        "kimi-k2.6": 10.63901686668396,
+        "qwen3.6-plus": 54.66970181465149
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 88,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 22.2,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文指明了制度完善的宏观方向，但未提出具体后续研究问题或可操作的修正路径。",
+          "core_judgment": "存在概括的延展方向，与正文衔接需推断，精细度不足，属低档弱加分。",
+          "score_rationale": "原始分45，属40-59区间，bonus=2。主要证据：结语提出‘把握世界发展趋势’‘抢占制度制高点’等宏观方向，缺乏具体研究问题或可检验的后续争点。",
+          "evidence_quotes": [
+            "面对势不可挡的社会经济结构变革和日益严峻的国际形势，我们既要有把握世界发展趋势的能力，更要有洞察先机、抢占制度制高点的雄心和气魄。"
+          ],
+          "strengths": [
+            "结语明确将公司法定位为‘世界引领作用’的制度，提供了宏观政策延展方向。"
+          ],
+          "weaknesses": [
+            "未提出具体的后续研究问题或下一轮争点，仅停留在战略号召层面。",
+            "未说明正文局限或可反驳的入口，缺乏可继续检验的理论或制度边界。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有口号式展望、意义拔高，未说明具体延展路径，触发低分约束。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语中‘把握世界发展趋势’‘抢占制度制高点的雄心和气魄’等表述缺乏具体待修正对象。"
+            }
+          ],
+          "boundary_note": "结语的战略展望属于未来延展问题，而非读者对当前结论的接受性判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文为合规制度的公司法设计提供了清晰的制度完善方向与跨部门法规则衔接路径。",
+          "core_judgment": "存在真实延展路径，指明了公司法与刑法的规则衔接问题及合规成本与营利的平衡风险。",
+          "score_rationale": "原始分85，bonus档位为5分。论文指明了合规入公司法的具体制度完善方向，并提出公司法与刑法衔接、合规成本与营利平衡等可定位的延展路径，与正文论证紧密衔接。",
+          "evidence_quotes": [
+            "明确合规要求在公司法和其他法律中的不同作用定位，协同配合，共同形成制度合力。",
+            "完全脱离中国实际的合规法律制度设计,不仅会增加公司的成本开支,降低竞争力..."
+          ],
+          "strengths": [
+            "提出公司法与刑法等跨部门法的规则衔接与分工路径。",
+            "指出合规制度设计可能增加公司成本、降低竞争力的实施风险。"
+          ],
+          "weaknesses": [
+            "结语存在“抢占制度制高点”“世界引领作用”等口号式拔高，缺乏具体延展对象。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "公司法与刑法的分工协同及合规成本问题，属于未来立法与实施中需继续推进的延展问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在制度设计部分提出了较具体的立法路径，但结语部分的前瞻性表述趋于空泛口号化，整体延展路径存在但精细度不足。",
+          "core_judgment": "存在真实延展路径，主要体现在公司法分则与责任部分的制度设计方向，但缺乏对后续争点、修正路径或检验入口的明确交代。",
+          "score_rationale": "原始分45分，对应bonus=2的边际档位。论文在'（三）合规要求在公司法法律责任部分的制度设计'中提出刑法谦抑性与公司法分散立法模式的借鉴方向，具有可定位的延展性；但结语仅作宏观意义拔高，未指明具体后续研究问题或制度修正入口，精细度有限。",
+          "evidence_quotes": [
+            "在未来公司法修改时，我们也应考虑将公司因违反合规义务和某些特别义务所产生的刑事责任,在公司法中通过专章的方式作出详细规定",
+            "我们既要有把握世界发展趋势的能力，更要有洞察先机、抢占制度制高点的雄心和气魄"
+          ],
+          "strengths": [
+            "提出公司法分散立法模式的具体方向，有可操作性",
+            "对合规与刑法关系有明确的问题意识和路径提示"
+          ],
+          "weaknesses": [
+            "结语沦为口号式展望，缺乏具体待修正对象",
+            "未承认正文局限或指明下一轮研究争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究或制度发展的指引空间，而非当前结论是否被接受。论文提出的'分散立法模式'和'专章规定刑事责任'属于未来延展问题，而非对当下结论可接受性的判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 48,
+          "band": "marginal",
+          "summary": "论文提出合规入法的立法设计，但前瞻延展停留于宏观愿景，缺乏具体落地路径与后续研究规划。",
+          "core_judgment": "存在宏观制度延展方向，但缺乏具体实施边界与后续研究路径的明确指引。",
+          "score_rationale": "原始分48，对应bonus=2。正文提出刑责专章化等方向，但结语流于宏观口号，缺乏对实施成本、中小企业边界及后续实证检验的具体路径，证据较弱，故落入40-59档。",
+          "evidence_quotes": [
+            "在未来公司法修改时，我们也应考虑将公司因违反合规义务和某些特别义务所产生的刑事责任,在公司法中通过专章的方式作出详细规定。",
+            "惟有审时度势、顺势而为、扬德弘善、固本超越，这样的公司法才能真正成为具有世界引领作用且具有持久生命力的良好法律制度。"
+          ],
+          "strengths": [
+            "提出刑民责任衔接的具体立法路径",
+            "指明合规制度需与国际规则对标及本土化适配方向"
+          ],
+          "weaknesses": [
+            "结语偏向宏观愿景，缺乏实施风险推演",
+            "未明确后续实证检验或规则冲突的待解争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "仅含空泛拔高或口号式展望，缺乏具体待修正对象或机制路径",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅强调“抢占制度制高点”“顺势而为”等宏观愿景，未指明合规成本分摊、中小企业豁免边界或跨法域规则冲突的具体后续研究路径。"
+            }
+          ],
+          "boundary_note": "本维度聚焦立法建议提出后的规则衔接风险、实施成本测算及后续实证检验路径，而非评价当前合规入法建议本身的合理性或可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.4520468711853,
+        "glm-5.1": 48.94278693199158,
+        "kimi-k2.6": 11.662461996078491,
+        "qwen3.6-plus": 73.70389795303345
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 48
+      },
+      "mean": 55.8,
+      "std": 19.6,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 54.19,
+      "weighted_total": 56.0
+    },
+    "aggregation_strictest": {
+      "final_score": 33.35,
+      "weighted_total": 35.1
+    },
+    "avg_std": 19.9,
+    "max_std": 37.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.8,
+    "composite_score": -19.9,
+    "worst_dimension": "literature_insight",
+    "worst_std": 37.5
+  }
+}

@@ -1,0 +1,1041 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/迈向公私合作型行政法.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "含少量脚注编号乱码（如 {１} {２} 等），但不影响核心论点与结构识别",
+          "个别OCR残留可忽略，正文语义完整"
+        ],
+        "evidence_quotes": [
+          "公共行政既是行政法学者研究的有效对象，也是他们需要保持回应性的事项。重要的是，行政法应与其行政背景同步。〔１〕",
+          "参见［英］卡罗尔·哈洛、理查德·罗林斯：《法律与行政》上卷，杨伟东等译，商务印书馆２００４年版，第７６页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "改革开放四十年来，伴随着行政任务的持续更新和社会运行的风险叠加，人们对于政府的心理依赖普遍增强。",
+          "一种政府借助私人力量履行行政任务的合作治理模式在我国逐渐兴起。",
+          "如何建构富有中国本土特色的‘合作行政法’，如何实现‘法治国模式下的行政法学’转向‘合作国模式下的行政法学’，都是当下我国行政法学必须直面的前沿课题。",
+          "我国合作行政法的建构需从新思维的形塑入手，致力于新原则的确立和新范畴的引入，为现代行政法学回应公私合作治理的兴起奠定法理基础。",
+          "应当引入‘辅助性原则’和‘合作原则’...引入‘国家保留’和‘国家担保’概念...实现主体论、行为论和救济论的全面更新。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号混杂，建议后续评分时忽略格式噪声",
+        "文本中多处未格式化 OCR 尾注，但正文论证完整"
+      ],
+      "evidence_quotes": [
+        "如何建构富有中国本土特色的‘合作行政法’，如何实现‘法治国模式下的行政法学’转向‘合作国模式下的行政法学’，都是当下我国行政法学必须直面的前沿课题。",
+        "作为一种建构新的中观部门行政法的学术努力，本文提出应从三方面完成合作行政法的形塑，即引入‘与行政任务有效履行使命相适应的辅助性原则和合作原则’‘与界限论和责任论相适应的国家保留和国家担保概念’‘与合作国家模型相匹配的行政主体论、行为论和救济论’。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评分。论文以中国公私合作实践为中心，提出合作行政法的本土化构建，法学问题清晰且具有可复核的理论命题。文本质量正常，仅需忽略少量脚注乱码。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如·７３１·、·８３１·等）",
+          "英文摘要存在OCR换行连字符残留（如ｔｒａｎｓｉｔｉｏｎ、ｐｕｂｌｉｃｐｒｉｖａｔｅ）"
+        ],
+        "evidence_quotes": [
+          "·７３１·",
+          "ｔｒａｎｓｉｔｉｏｎ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "如何建构富有中国本土特色的“合作行政法”",
+          "应当吸收“国家保留”和“国家担保”概念，作为建构合作行政法的新范畴",
+          "在我国社会转型时期的行政实践中，已然呈现出“全景式”的公私合作治理新动向"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及英文摘要OCR残留，不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "如何建构富有中国本土特色的“合作行政法”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，建议在后续阶段清理英文摘要及页码OCR残留"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如〔１〕〔２〕等全角数字），但不影响核心内容识别",
+          "参考文献列表未完整抽取（标注为'无'），但正文引用完整",
+          "英文摘要存在连字符断裂（如'ｃｏｐｅｒａｔｉｖｅｇｏｖｅｒｎａｎｃｅ'），属PDF转文本常见现象"
+        ],
+        "evidence_quotes": [
+          "〔１〕 华东政法大学教授。本文是中国法学会２０１８年部级重点课题...",
+          "Ａｂｓｔｒａｃｔ：Ｉｎｔｈｅｐａｃｔｉｃｅｏｆｉｍｐｌｅｍｅｎｔｉｎｇｔｈｅａｄｍｉｎｉｓｔｒａｔｉｖｅｒｕｌｅｏｆｌａｗｉｎａｐｅｒｉｏｄｏｆｓｏｃｉａｌｔｒａｎｓｉｔｉｏｎ..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "如何建构富有中国本土特色的'合作行政法'...都是当下我国行政法学必须直面的前沿课题",
+          "在我国社会转型时期的行政实践中，已然呈现出'全景式'的公私合作治理新动向",
+          "本文提出应从三方面完成合作行政法的形塑，即引入'与行政任务有效履行使命相适应的辅助性原则和合作原则'...'与界限论和责任论相适应的国家保留和国家担保概念'...'与合作国家模型相匹配的行政主体论、行为论和救济论'",
+          "与欧美国家'重新建构行政法概念'不同的是，我国行政法学发展同时面临两方面的艰巨任务...合作行政模式的兴起，预示着国家形象的变迁，为行政法释义学的更新和新行政法学的发展提供了契机"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号全角数字残留、英文摘要连字符断裂，属低风险OCR问题",
+        "文本工程：参考文献列表未抽取，但正文引用完整可定位"
+      ],
+      "evidence_quotes": [
+        "如何建构富有中国本土特色的'合作行政法'...都是当下我国行政法学必须直面的前沿课题",
+        "本文提出应从三方面完成合作行政法的形塑...",
+        "与欧美国家'重新建构行政法概念'不同的是，我国行政法学发展同时面临两方面的艰巨任务"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，以中国公私合作治理实践为核心，系统提出'合作行政法'的理论建构方案（新原则、新范畴、主体论/行为论/救济论更新），具有明确的中国问题中心性和理论转化命题。文本质量风险低，可直接进入六维评分。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与期刊页码混入正文（如“· ７ ３ １ ·”）",
+          "脚注编号格式存在全角/半角混排及断行",
+          "英文摘要含部分乱码/异常连字符（如“ｔｒａｎｓｉｔｉｏｎ”）",
+          "文末参考文献列表未成功抽取（仅显示“无”）"
+        ],
+        "evidence_quotes": [
+          "· ７ ３ １ ·",
+          "〔１〕",
+          "ｔｒａｎｓｉｔｉｏｎ",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在当代中国激荡的社会变革进程中，已经形成了一种全新的合作行政模式",
+          "如何建构富有中国本土特色的‘合作行政法’，如何实现‘法治国模式下的行政法学’转向‘合作国模式下的行政法学’",
+          "应当引入‘国家保留’和‘国家担保’概念，作为建构合作行政法的新范畴",
+          "以‘行政任务履行’置换‘行政权力行使’作为认定行政主体的核心要素"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR页码残留、修复脚注排版及英文摘要乱码，补充参考文献元数据",
+        "项目口径：无，四项核心信号均充分满足"
+      ],
+      "evidence_quotes": [
+        "公私合作治理指的是，公共部门与私人部门为履行公共行政任务，经由特定的结构设计进行合作并由公共部门承担最终保障责任的制度安排。",
+        "合作行政法的建构，并非要逃逸传统行政法学理论体系的束缚，毋宁说是对传统行政法学理论的某种补强和更新，是主动因应‘法治国家’脸谱下的行政法学转向‘合作国家’脸谱下的行政法学的现实需要。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微工程风险（页码混入、脚注格式、摘要乱码、参考文献缺失），但核心论证完整、逻辑清晰，不影响学术评价。项目口径高度契合：以中国公私合作治理实践为中心，直面传统行政法教义学在主体、行为、救济层面的结构性挑战，提出‘合作行政法’中观理论框架及‘辅助性/合作原则’‘国家保留/担保’等可复核命题。建议直接通过预检，进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文将“公私合作治理”作为主题进行体系性介绍，但未提出可争辩的法学研究问题，整体属于宏观阐释而非深度理论交锋。",
+          "core_judgment": "全文以“合作行政模式兴起”为主题声明展开体系描述，缺乏“XX是否YY”式的问题句和实质性的学界观点交锋，不符合法学研究问题标准。",
+          "score_rationale": "可争辩性=1/4（仅满足法学层面），枢纽性=2/4（影响范围广、理论基础），但触发no_justiciable_question上限50分，材料新颖性未实质推进问题设定，因此最终得分42分。",
+          "evidence_quotes": [
+            "如何建构富有中国本土特色的“合作行政法”，〔4〕如何实现“法治国模式下的行政法学”转向“合作国模式下的行政法学”，都是当下我国行政法学必须直面的前沿课题。",
+            "引入“与行政任务有效履行使命相适应的辅助性原则和合作原则”“与界限论和责任论相适应的国家保留和国家担保概念”“与合作国家模型相匹配的行政主体论、行为论和救济论”"
+          ],
+          "strengths": [
+            "对公私合作实践进行了全景式扫描，材料丰富。",
+            "尝试构建“合作行政法”中观体系，视野宏大。"
+          ],
+          "weaknesses": [
+            "全文主要为体系描述与建构主张，缺少法学争点。",
+            "未呈现不同学者观点的实质交锋，只有立场归纳。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性得分≤1，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无“XX是否YY”式争点句，只有“如何建构”“如何实现”等主题声明，未形成可争辩的法学问题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否具有可争辩性与枢纽性，不评论证严密性、文献综述或结论正确性。",
+          "review_flags": [
+            "evidence_thin",
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文提出宏大的体系建构主张，但缺乏聚焦的可争辩法学争点。",
+          "core_judgment": "核心问题为宏大主题声明而非可争辩争点，局部争点未支撑全文。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性未触发上限，锚定good档(65分)，因问题表述过于宏大触发上限65分，前置扣分20分（主题声明非研究问题），给45分。",
+          "evidence_quotes": [
+            "如何建构富有中国本土特色的‘合作行政法’……都是当下我国行政法学必须直面的前沿课题",
+            "对于公私合作引发的法律争议能否通过传统行政诉讼加以解决，我国学理上存在不同看法"
+          ],
+          "strengths": [
+            "枢纽性极强，涉及行政法三大支柱的系统性反思",
+            "呈现了司法审查范围等具体法学争点的分歧"
+          ],
+          "weaknesses": [
+            "核心问题为宏大的体系建构主题声明，缺乏聚焦的可争辩争点",
+            "局部争点被包裹在政策倡导中，未成为全文论证枢纽"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文核心问题为‘如何建构合作行政法’，覆盖主体、行为、救济全领域，无法聚焦"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性",
+          "review_flags": [
+            "weak_problem_formulation"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'合作行政法'作为中观部门行政法的建构命题，具有明确的问题意识和理论建构意图。",
+          "core_judgment": "问题具有可争辩性和枢纽性，但核心命题偏向体系建构与制度设计，法学争点的交锋深度不足。",
+          "score_rationale": "可争辩性=3/4（有问题句、属法学层面、非纯政策倡导，但理论分歧呈现为作者单方面梳理而非真正交锋），枢纽性=3/4（影响范围广、涉及核心概念、制度连锁明显，但争议焦点属性因偏向建构而弱化），材料新颖性未触发上限，锚定good档，给72分。负面模式检查：检查1扣15分（'合作行政法'作为新概念有部分说明但不充分），检查2扣15分（有提及域内外分歧但未展开真正交锋），检查3不扣分（存在可争辩问题句），扣分合计30分，但按规则不低于30分。",
+          "evidence_quotes": [
+            "如何建构富有中国本土特色的'合作行政法'，如何实现'法治国模式下的行政法学'转向'合作国模式下的行政法学'，都是当下我国行政法学必须直面的前沿课题。",
+            "合作行政法的形塑，既非简单套用总论，也非完全另起炉灶，而是一项兼有重申和重述任务的事业。"
+          ],
+          "strengths": [
+            "问题覆盖行政法总论与部门法多个领域，枢纽性强。",
+            "明确提出'合作行政法'新范畴，具有理论建构意识。"
+          ],
+          "weaknesses": [
+            "理论分歧呈现为作者单方面梳理，缺乏真正学术交锋。",
+            "核心命题偏向体系介绍与制度设计，可争辩深度受限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文以'合作行政法'整体建构为命题，涵盖原则、范畴、主体、行为、救济等多维度，问题边界较宽，聚焦度不足。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准提炼公私合作实践对传统行政法学的结构性挑战，提出合作行政法重构命题，问题明确且具高度理论价值。",
+          "core_judgment": "该研究问题成立且重要，成功将新兴治理实践转化为可争辩的行政法学教义学重构命题。",
+          "score_rationale": "前置扣分合计=0。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何建构富有中国本土特色的‘合作行政法’，如何实现‘法治国模式下的行政法学’转向‘合作国模式下的行政法学’，都是当下我国行政法学必须直面的前沿课题。",
+            "传统行政法学在理念、原则和结构上面临的整体性挑战更为明显。"
+          ],
+          "strengths": [
+            "问题意识清晰，精准捕捉传统行政法范式与合作治理实践的张力。",
+            "枢纽性强，重构方案牵涉组织法、行为法与救济法多重制度联动。"
+          ],
+          "weaknesses": [
+            "部分新范畴（如合作原则）的教义化边界论证略显宏观。",
+            "对域外理论的本土转化路径可进一步细化争点交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.362074851989746,
+        "glm-5.1": 103.75857090950012,
+        "kimi-k2.6": 20.377703189849854,
+        "qwen3.6-plus": 76.31558775901794
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 45,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 61.8,
+      "std": 22.1,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在正文中分散性地完成了研究地图的铺设：既有研究的三点缺憾构成未竟点，本文建构“合作行政法”的切入点明确。但到达点仅依赖一段简化的文献概括，缺少对具体流派主张的辨析，争点结构较弱。",
+          "core_judgment": "既有研究的到达点、未竟点与本文切入点基本清晰，构成了有效的研究地图。但到达点的处理尚停留在“指出现象”层面，未能将学界立场组织为可区分的争辩脉络，争点结构得分受限。",
+          "score_rationale": "三要素得分=5/6（到达点=1、未竟点=2、本文切入点=2），争点结构=1/2，法学流派=2个（公私对立/传统行政法 vs 合作治理/新行政法），锚定good档，给75分。",
+          "evidence_quotes": [
+            "检视行政法学的既有相关成果，不难发现个中缺憾：其一，囿于语言翻译及法制传统…在很大程度上造成了概念使用的混乱…其二，对域外相关理论的介绍和套用居多…本土化研究较少。其三，十八大以来…立足整体性视角予以积极回应的论述亟待加强。",
+            "合作行政模式的兴起…传统行政法学知识体系因之需要进行结构性调整…在观念与原则、关系与主体、行为与责任等层面都面临诸多不适。"
+          ],
+          "strengths": [
+            "借助对既有研究的“三点缺憾”式批判，清晰地给出了研究未竟点，与后文建构“合作行政法”的切入点形成紧密的递进关系。",
+            "将“公私对立/传统行政法”与“合作治理/新行政法”梳理为一组结构性的对立学说，赋予了研究地图以理论纵深。"
+          ],
+          "weaknesses": [
+            "到达点仅以“相关成果可参见”列举一批文献，未提炼不同学者的具体贡献或争议，使得既有的研究成果停留在扁平化的信息层面。",
+            "全文缺少将国内学者就同一争点划分成可区别的解释路径或对立立场的辨析，争点结构未能充分展开，削弱了文献脉络的饱和度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文未设立集中文献综述，但通过既有研究缺憾的批判和“公私对立vs合作治理”的理论对立，实现了分散式文献定位。这属于研究地图完整性问题，与问题创新性无关。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰勾勒了公私合作行政法的学术脉络与争点，研究地图完整。",
+          "core_judgment": "本维度充分成立，文献定位精准且争点结构清晰，流派识别充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "我国学理上存在不同看法。支持者认为应将这类争议全部纳入行政诉讼，质疑者则认为未必皆应通过行政诉讼解决",
+            "囿于语言翻译及法制传统...概念使用的混乱...对域外理论套用居多，本土化研究较少，整体性视角回应亟待加强"
+          ],
+          "strengths": [
+            "明确指出既有研究在概念、本土化和整体性视角的三重缺口",
+            "清晰呈现了司法审查范围及德美制度路径的学术争点"
+          ],
+          "weaknesses": [
+            "部分比较法流派仅作制度介绍，未深入展开规范层面的对立争辩"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评合作行政法理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "研究地图完整呈现公私合作治理的学术脉络，但争点结构分散、流派识别有限。",
+          "core_judgment": "三要素基本成立，但争点结构以单线展开为主，法学流派识别不足，未形成充分的对立学术脉络。",
+          "score_rationale": "三要素得分=5/6，争点结构=1/2，法学流派=2个，锚定good档，给72分。到达点充分（概念混乱、本土化不足、回应性欠缺三个缺憾）；未竟点充分（传统行政法结构性挑战）；切入点明确（合作行政法建构）。争点结构仅1分：虽呈现传统行政法vs合作行政法的对立，但未在既有研究中展开可区分的学术流派争论。法学流派识别2个：'命令—服从'传统行政法模式 vs '协商—合作'新行政法模式，以及德美比较法上的制度路径差异。",
+          "evidence_quotes": [
+            "检视行政法学的既有相关成果，不难发现个中缺憾：其一……概念使用的混乱；其二……本土化研究较少；其三……论述亟待加强",
+            "传统行政法学的总体框架大体上仍然能够适用于合作行政，但在基本概念的重述和规范框架的扩展方面尚待用力"
+          ],
+          "strengths": [
+            "到达点清晰：明确提炼既有研究三缺憾",
+            "域外比较法脉络完整：德美制度经验均有涉及"
+          ],
+          "weaknesses": [
+            "争点结构单薄：未呈现学界对合作行政法的直接争论",
+            "流派识别不足：多为制度描述，缺乏对立学术立场交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素5分但争点结构仅1分，流派2个，未达excellent档"
+            }
+          ],
+          "boundary_note": "本文重在提出合作行政法的建构框架，而非梳理学术争论，故文献定位服务于制度建构而非争点呈现。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒传统与合作行政的理论分野，精准定位缺口并确立建构路径。",
+          "core_judgment": "研究地图完整，争点脉络清晰，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "检视行政法学的既有相关成果，不难发现个中缺憾：其一……概念使用的混乱……其二……本土化研究较少。",
+            "当代中国的行政法学发展正呈现出‘司法面相’与‘行政面相’激烈角逐的格局。"
+          ],
+          "strengths": [
+            "三要素完整闭环，未竟点精准指向本土化与整体性视角缺失。",
+            "争点结构立体，从观念、主体到救济层层展开理论对立。"
+          ],
+          "weaknesses": [
+            "部分域外理论引介偏重制度描述，学派交锋的学理纵深可进一步挖掘。",
+            "对传统行政法内部修正路径的文献覆盖略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有理论脉络梳理与争点定位，非评价合作行政命题本身的新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.68408012390137,
+        "glm-5.1": 96.38045501708984,
+        "kimi-k2.6": 15.128192663192749,
+        "qwen3.6-plus": 75.85138702392578
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.2,
+      "std": 10.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出了“合作行政法”建构的三重任务框架，概念界定较清晰，后文有调用，但法学操作指引主要集中在原则引入和范畴转化层面，具体制度方案有限。",
+          "core_judgment": "框架具备基本的可操作性，法学转化度较好，但因政策转型宏大叙事色彩较浓，具体裁判规则和操作指引有限，属于Good档。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定、分类明确、后文调用满足；分析步骤不可循），法学转化度得分=3/4（原则和范畴转化为法学指引，提供制度重述方向，但缺乏裁判规则或具体操作流程），锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "公私合作治理指的是，公共部门与私人部门为履行公共行政任务，经由特定的结构设计进行合作并由公共部门承担最终保障责任的制度安排。",
+            "合作行政法的形塑，应从新思维的形塑入手，致力于新原则的确立和新范畴的引入...具体表现在主体论、行为论和救济论的更新之中。"
+          ],
+          "strengths": [
+            "概念界定清晰，厘清“公私合作治理”等核心术语；",
+            "明确提出了新原则（辅助性/合作原则）和新范畴（国家保留/担保），并映射到主体论、行为论和救济论的重述。"
+          ],
+          "weaknesses": [
+            "分析步骤不可循：未形成可逐步操作的判断步骤或流程；",
+            "法学转化缺乏具体的裁判规则或程序设计方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "这是框架建构力问题，不评价框架内部逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "建构了“合作行政法”中观框架，概念清晰且转化了判断标准，但缺乏具体操作步骤与裁判规则。",
+          "core_judgment": "框架具有显著的体系建构力与法学转化度，但因具体制度方案不足而可操作性受限。",
+          "score_rationale": "框架可操作性得分=2/4（触发口号式呼吁降档），法学转化度得分=2/4（提供判断标准但无裁判规则），锚定good档，给65分",
+          "evidence_quotes": [
+            "公私合作治理指的是，公共部门与私人部门为履行公共行政任务，经由特定的结构设计进行合作并由公共部门承担最终保障责任的制度安排。",
+            "应当吸收“国家保留”和“国家担保”概念，作为建构合作行政法的新范畴。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，分类标准明确（横轴纵轴、界限论责任论）。",
+            "成功将域外理论转化为本土法学判断标准（国家保留、担保责任）。"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的分析流程或裁判审查标准。",
+            "制度设计方案偏向宏观原则指引，缺乏具体法条或程序设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架的成立与法学转化，不评价推理逻辑的严密性或问题的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出'合作行政法'建构框架，但缺乏可操作的判断步骤和制度方案，属于宏观理论倡导型论文。",
+          "core_judgment": "框架具有概念界定和结构分类，但分析步骤不可循、法学转化停留在原则宣示层面，未形成可重复适用的操作框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程、后文调用不足），法学转化度得分=1/4（有原则引入和范畴提出，但无裁判规则、司法程序或具体制度设计），锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "本文将这种直面公私合作挑战应运而生的中观部门行政法称为'合作行政法'",
+            "合作行政法的建构需从新思维的形塑入手，致力于新原则的确立和新范畴的引入"
+          ],
+          "strengths": [
+            "核心概念'合作行政法'界定清晰，'国家保留''国家担保'等范畴有明确内涵",
+            "主体论、行为论、救济论的三维结构分类标准明确"
+          ],
+          "weaknesses": [
+            "缺乏步骤化分析流程，'引入原则—确立范畴—更新论题'仅为内容提纲而非操作框架",
+            "后文未实际调用框架进行具体案例分析，多为理论描述和制度介绍"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文提出'辅助性原则''合作原则'等概念，但未转化为可重复适用的判断步骤或评价标准，仅为原则宣示"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力和法学转化，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "建构“合作行政法”中观框架，概念清晰、分类明确，成功转化为教义学重构路径。",
+          "core_judgment": "框架成立且具备强理论可操作性，有效将治理实践转化为行政法教义学分析工具。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "公私合作治理指的是，公共部门与私人部门为履行公共行政任务，经由特定的结构设计进行合作并由公共部门承担最终保障责任的制度安排。",
+            "合作行政法的建构需从新思维的形塑入手，致力于新原则的确立和新范畴的引入。"
+          ],
+          "strengths": [
+            "横纵轴分类清晰，系统勾勒公私合作全景图景。",
+            "提出国家保留/担保等新范畴，精准对接教义学重构需求。"
+          ],
+          "weaknesses": [
+            "偏重宏观理论建构，缺乏微观裁判规则或具体适用流程图示。",
+            "部分规范性表述未完全细化为可检验的司法审查标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 61.46031999588013,
+        "glm-5.1": 75.98147797584534,
+        "kimi-k2.6": 14.646238088607788,
+        "qwen3.6-plus": 81.52841711044312
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 70,
+      "std": 13.9,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文遵循“现象描述—挑战分析—理论建构”的清晰主线，推理步骤完整且高度依赖，但对反对意见的实质性回应不足。",
+          "core_judgment": "推理链完整，结论可从现象分析、挑战总结和域外借鉴中推出，但缺乏对合作行政可能引发合法性危机等深层质疑的回应，略显单向建构。",
+          "score_rationale": "推理链完整性得分=4/4（步骤可复述、强依赖、结论可推出、无关键跳步），反驳处理度得分=2/3（识别反对意见、承认局限，但缺实质性回应）。锚定excellent(80-100)档，因反驳处理度未达≥2且实质性回应缺失，微调至good(70-79)档，给78分。",
+          "evidence_quotes": [
+            "“公私合作的广泛推行…引发了‘公私合谋’ ‘公法遁入私法’ 的巨大争议”，随后论证辅助原则、国家担保责任以回应疑虑。",
+            "“本文提出应从三方面完成合作行政法的形塑…以使我国的公私合作治理获得最低程度的法律框架可资遵循。”"
+          ],
+          "strengths": [
+            "推理链高度整合：从行政横纵轴“全景式”现象，到传统法理的三重挑战，再到新原则、新范畴及主体/行为/救济三论的重述，层层递进。",
+            "结论可辩护推出：引入“辅助原则、国家保留/担保责任”等范畴，是基于先期对传统法失灵(条件模式转向目的模式)的论证，逻辑耦合度高。"
+          ],
+          "weaknesses": [
+            "反驳回应不足：虽引用了“公私合谋”“公法遁入私法”等忧虑，但后文主要通过制度建构来实现“克服”，缺乏针对具体批评的学理交锋与论证回应。",
+            "部分还原主义：将合作行政的复杂风险，主要转化为“界限论”和“责任论”的规范控制，对“契约失灵”等现实博弈因素的讨论较薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文问题在于对反对意见的“论证性回应”不足，而非推理链条断裂，故不触发broken_inference_chain上限，这属于逻辑回应力度问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文从现象到挑战再到制度建构，推理链完整且反驳回应充分，逻辑严密性高。",
+          "core_judgment": "推理链形成充分支撑，核心结论可辩护推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“引发了‘公私合谋’‘公法遁入私法’的巨大争议”",
+            "“合作行政模式并未完全颠覆传统行政法学的知识体系……重申传统行政法学的范畴和原则仍有必要”"
+          ],
+          "strengths": [
+            "推理链层层递进，从挑战推导出建构方案，逻辑依赖性强。",
+            "对反对意见有实质性制度回应，如以国家担保回应公法遁入私法。"
+          ],
+          "weaknesses": [
+            "局部从目的模式流行跳至面向行政的行政法学取代面向司法的，略显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦推理链是否支撑结论，不评估“国家担保”等概念的操作可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'现象描述—挑战分析—制度建构'的完整推理链，但反驳处理与局限承认不足。",
+          "core_judgment": "推理链完整可复述且步骤相互依赖，但反驳处理度仅满足1项标准，缺乏对反对意见的实质性回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在1处关键跳步：从'传统行政法面临挑战'到'应建构合作行政法'的规范推导缺乏充分论证）；反驳处理度得分=1/3（仅标准1成立：识别了'公私合谋''公法遁入私法'等争议及传统观念障碍，但标准2、3不成立）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "公私合作的广泛推行……引发了'公私合谋''公法遁入私法'的巨大争议",
+            "面对合作行政模式的兴起，行政行为理论的发展也面临着挑战……'有发生概念崩解的危险'"
+          ],
+          "strengths": [
+            "现象到规范的推理链清晰：从公私合作实践描述到传统行政法挑战再到合作行政法建构",
+            "三维度结构（原则/范畴/体系）层层递进，各部分内部逻辑衔接紧密"
+          ],
+          "weaknesses": [
+            "对'为何必须建构合作行政法而非完善传统行政法'的规范论证不足，存在目的论跳步",
+            "未回应'合作行政法可能削弱法治国基础'的核心理论质疑，反驳论证流于描述"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价'合作行政法'概念本身的理论价值。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“现象描述—传统理论挑战—合作行政法重构”的严密推理链，论证层层递进且有效回应了理论分歧与适用边界。",
+          "core_judgment": "本维度成立，核心结论可由前文经验观察与规范分析充分支撑并辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "传统行政法观念立基于‘人性恶’的前提预设……在公私合作治理兴起的背景下，行政法的观念与原则都亟待更新。",
+            "合作行政法的建构，并非要逃逸传统行政法学理论体系的束缚，毋宁说是对传统行政法学理论的某种补强和更新。"
+          ],
+          "strengths": [
+            "推理链条完整，从实践样态到理论挑战再到体系重构，逻辑依赖度高。",
+            "有效回应概念扩张风险与公权力处分争议，论证具有充分的可辩护性。"
+          ],
+          "weaknesses": [
+            "部分理论推演偏重宏观叙事，微观教义学衔接的论证密度可进一步提升。",
+            "对合作原则具体司法审查标准的推导略显简略，存在轻微过渡压缩。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否形成充分支撑链条，不评价合作行政法框架在实务中的可操作性或结论的共同体接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.29355978965759,
+        "glm-5.1": 53.05024480819702,
+        "kimi-k2.6": 16.08907914161682,
+        "qwen3.6-plus": 67.45269989967346
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.5,
+      "std": 9.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "结论立足中国合作行政实践提出建构“合作行政法”，回应了学界既有争论并考虑制度语境，但未主动讨论反对意见和自身局限。",
+          "core_judgment": "结论可被定位为对传统行政法学理论的补强与更新，能在共同体和制度语境中被接受和回应，但对话的开放性不足。",
+          "score_rationale": "共同体对话度得分=3/4（回应争论、可被反对者定位、结合中国语境，但未主动讨论反对意见或局限），制度可接受度得分=3/4（不与法秩序根本矛盾、回应制度约束、指出转化方向，但未充分讨论具体制度适配性）。按理论论文B≥2达excellent但对话度=3未达4，锚定good档，给78分。",
+          "evidence_quotes": [
+            "“合作行政法的建构，并非要逃逸传统行政法学理论体系的束缚，毋宁说是对传统行政法学理论的某种补强和更新”",
+            "“引入‘辅助性原则’和‘合作原则’，作为传统依法行政原则的适用指引和有益补充”"
+          ],
+          "strengths": [
+            "结论明确回应民营化、公私协力等既有概念争论，提出更具包容性的“公私合作治理”概念",
+            "结合中国行政实践（特许经营、辅警、购买服务等）展开论证，制度语境回应充分"
+          ],
+          "weaknesses": [
+            "结论部分未主动提及可能的反对意见或理论局限，削弱了共同体对话的开放性",
+            "对“合作行政法”可能面临的制度障碍（如公法遁入私法批评）未在结论中正面回应"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论当下在共同体和制度语境中的可接受性与回应性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构“合作行政法”理论框架，深度回应既有争论与中国制度语境，结论可接受性极高。",
+          "core_judgment": "结论在共同体对话和制度兼容上均表现优异，主动回应反对意见且与现行法秩序逻辑兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "可能带来‘削弱现行法的拘束力’……等负面效应，面临着理论上的本能质疑。",
+            "除了继续在相关行政领域制定或修改特别的公私合作促进法外，还应在行政法总则的制定中为公私合作的有序推行奠定法制基础。"
+          ],
+          "strengths": [
+            "主动承认并深入讨论了公私合作的观念障碍与负面效应。",
+            "结论与现行法秩序深度兼容，提出国家保留概念回应法治约束。"
+          ],
+          "weaknesses": [
+            "无明显弱点，在对话度与制度度上均达满分标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分仅关注结论的共同体对话与制度可接受性，不评价其论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "合作行政法建构主张回应中国公私合作实践，提出新原则、新范畴与三重论更新方向。",
+          "core_judgment": "作为理论论文，结论深度嵌入中国行政法学术脉络与制度语境，对话定位清晰，但主动回应反对意见和理论局限的篇幅有限。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位反驳、中国语境充分，但较少主动讨论反对意见与自身局限）；制度可接受度得分=3/4（不矛盾、回应制度约束、指出转化方向、中国语境充分）。锚定理论论文good档，给78分。",
+          "evidence_quotes": [
+            "与欧美国家‘重新建构行政法概念’不同的是，我国行政法学发展同时面临两方面的艰巨任务……",
+            "合作行政法的形塑，既非简单套用总论，也非完全另起炉灶，而是一项兼有重申和重述任务的事业。"
+          ],
+          "strengths": [
+            "明确回应中国行政法释义学与新行政法学双重任务",
+            "以本土实践素材支撑理论建构，避免直接移植"
+          ],
+          "weaknesses": [
+            "对反对意见和自身理论局限讨论不足",
+            "结语部分未充分展开与既有学说的对话交锋"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应传统行政法范式挑战，提出合作行政法框架，契合中国语境。",
+          "core_judgment": "该结论具备高度的学术对话能力与制度兼容性，可被法学共同体严肃对待并回应。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位既有学术争论，提出可争辩的理论主张，并充分回应中国制度语境与现行法秩序逻辑。",
+          "evidence_quotes": [
+            "本文提出应从三方面完成合作行政法的形塑，即引入辅助性原则和合作原则、国家保留和国家担保概念、重述主体论/行为论/救济论。",
+            "合作行政法的建构并非要逃逸传统行政法学理论体系的束缚，毋宁说是对传统行政法学理论的某种补强和更新。"
+          ],
+          "strengths": [
+            "精准回应传统行政法范式挑战，理论定位清晰。",
+            "充分结合中国本土立法实践，避免域外理论生搬硬套。"
+          ],
+          "weaknesses": [
+            "部分理论转化路径偏宏观，具体程序衔接方案待细化。",
+            "对合作范式可能带来的权力稀释风险，防范论证略单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下的可接受性与对话能力，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.79008722305298,
+        "glm-5.1": 44.0203902721405,
+        "kimi-k2.6": 12.111817121505737,
+        "qwen3.6-plus": 76.6336567401886
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85,
+      "std": 8.1,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语中明确指出了未来行政法学研究范式转型的两个具体方向，但延展证据的精细度有限，未详细展开研究步骤、方法论调整或不同意见的争点入口。",
+          "core_judgment": "存在明确、可定位的延展路径，但路径描述相对概括，未进入具体研究设计或概念修证细节。",
+          "score_rationale": "原始分为72，落入60-79区间，对应bonus=3档位。主要证据是结语中关于“行政面相与司法面相角逐”和“中观部门行政法研究”的两个具体推进方向，但未进一步细化。",
+          "evidence_quotes": [
+            "应当更加关注行政面相的行政法学研究……行政法学发展正呈现出‘司法面相’与‘行政面相’激烈角逐的格局。",
+            "应当更加关注中观面相的部门行政法研究……通过‘中度抽象水准’论题的提炼，生长出各具特色的中观面相的部门行政法。"
+          ],
+          "strengths": [
+            "延展路径与正文建构的“合作行政法”这一中观部门行政法核心主张紧密衔接。",
+            "明确提出了“行政面相”与“中观面相”两个未来研究范式，方向可定位。"
+          ],
+          "weaknesses": [
+            "延展内容停留在方向性宣示，未说明检验路径、反驳入口或可操作的研究问题。",
+            "未明确承认正文的具体局限（如合作行政法的普适性边界或实证检验方案），延展的动作比较有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语明确要求研究范式转型，这指向未来研究方向而非说服当下读者接受已有结论，因此属于前瞻延展性而非结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结语明确提出了未来行政法学研究范式转型的两条具体路径及中观部门行政法整合方向，延展路径清晰且与核心结论紧密衔接。",
+          "core_judgment": "存在真实延展路径，指明了从“司法面相”转向“行政面相”及中观部门行政法整合的具体深化方向。",
+          "score_rationale": "原始分85，bonus档位5分（>=80）。结语明确提出未来研究范式转型的两条具体路径（行政面相与中观面相）及中观部门行政法整合方向，延展路径清晰可定位，与正文建构合作行政法的核心结论紧密衔接。",
+          "evidence_quotes": [
+            "未来行政法学研究范式的转型，尚需从如下两方面努力：一方面，应当更加关注行政面相的行政法学研究……另一方面，应当更加关注中观面相的部门行政法研究。",
+            "合作行政法与规制行政法、风险行政法、发展行政法等更多初具规模的中观部门行政法的日臻完善，代表着我国未来新行政法学的发展方向。"
+          ],
+          "strengths": [
+            "明确提出未来研究范式转型的两条具体路径",
+            "指明合作行政法与其他中观部门行政法整合的深化方向"
+          ],
+          "weaknesses": [
+            "对合作行政法内部具体规则衔接的后续研究设计稍显概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "未来研究范式的转型方向属于前瞻延展性问题，而非当下合作行政法理论框架能否被接受的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语部分明确提出了未来行政法学研究的两大转型方向：行政面相研究和中观部门行政法研究，并指出合作行政法与规制行政法、风险行政法、发展行政法等中观部门行政法共同构成未来发展方向。",
+          "core_judgment": "存在真实延展路径，具体包括研究范式转型方向（行政面相/司法面相之争）和中观部门行政法体系化两个层面，与正文核心结论紧密衔接。",
+          "score_rationale": "原始分72分，对应bonus=3（60-79档）。论文未停留在空泛展望，而是明确提出了'行政面相的行政法学研究'和'中观面相的部门行政法研究'两个具体方向，并指出合作行政法与规制行政法、风险行政法、发展行政法等的关系。但延展路径的精细度有限，未展开具体研究问题或下一轮争点，证据展开仍有提升空间。",
+          "evidence_quotes": [
+            "未来行政法学研究范式的转型，尚需从如下两方面努力：一方面，应当更加关注行政面相的行政法学研究……另一方面，应当更加关注中观面相的部门行政法研究",
+            "合作行政法与规制行政法、风险行政法、发展行政法等更多初具规模的中观部门行政法的日臻完善，代表着我国未来新行政法学的发展方向"
+          ],
+          "strengths": [
+            "提出'行政面相'与'中观部门行政法'两个明确转型方向，非空泛口号",
+            "将合作行政法置于中观部门行政法体系中进行定位，具有框架性"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点，精细度不足",
+            "对'中观部门行政法'如何整合、如何检验修正总论，缺乏操作化说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究指明的方向和路径，而非当下结论是否被接受。论文结语提出的'行政面相'和'中观部门行政法'属于未来延展问题，不涉及结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结语明确提出向“行政面相”与“中观部门法”转型的研究范式，路径清晰且与正文理论建构紧密咬合。",
+          "core_judgment": "存在真实且具体的延展路径，明确指出了未来行政法学研究的两大范式转型方向及中观理论整合任务。",
+          "score_rationale": "原始分85，对应bonus=5。结语明确指向“行政面相”与“中观部门法”范式转型，路径清晰可定位，与正文核心论证紧密衔接。",
+          "evidence_quotes": [
+            "未来行政法学研究范式的转型，尚需从如下两方面努力：一方面，应当更加关注行政面相的行政法学研究。",
+            "合作行政法与规制行政法、风险行政法、发展行政法等更多初具规模的中观部门行政法的日臻完善，代表着我国未来新行政法学的发展方向"
+          ],
+          "strengths": [
+            "明确提出“行政面相”与“中观部门法”两大范式转型路径，具有学科指引价值。",
+            "延展方向与正文建构的“合作行政法”中观框架紧密咬合，逻辑自洽。"
+          ],
+          "weaknesses": [
+            "对“行政面相”研究的具体方法论与跨学科工具引入略显宏观。",
+            "未就新范式在实证检验或本土化落地中可能遇到的阻力给出具体预案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于作者指出的未来研究范式转型与中观理论整合路径，属于学科发展方向的延展，而非对当下“合作行政法”结论本身的可接受性评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.3619122505188,
+        "glm-5.1": 49.94071102142334,
+        "kimi-k2.6": 14.844757080078125,
+        "qwen3.6-plus": 62.65169405937195
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 78.5,
+      "std": 7.5,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 75.92,
+      "weighted_total": 74.4
+    },
+    "aggregation_strictest": {
+      "final_score": 58.41,
+      "weighted_total": 61.1
+    },
+    "avg_std": 11.8,
+    "max_std": 22.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 17.5,
+    "composite_score": -11.8,
+    "worst_dimension": "problem_originality",
+    "worst_std": 22.1
+  }
+}

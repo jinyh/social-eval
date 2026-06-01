@@ -11,7 +11,7 @@ from src.knowledge.schemas import Framework
 from src.knowledge.validator import validate_weights
 
 FRAMEWORK_DIR = Path(__file__).parent.parent.parent / "configs" / "frameworks"
-SCHEMA_V1_PATH = FRAMEWORK_DIR / "schema.json"
+SCHEMA_V1_PATH = FRAMEWORK_DIR / "archive" / "schemas" / "schema.json"
 SCHEMA_V2_PATH = FRAMEWORK_DIR / "schema_v2.json"
 DEFAULT_STD_THRESHOLD = 5.0
 

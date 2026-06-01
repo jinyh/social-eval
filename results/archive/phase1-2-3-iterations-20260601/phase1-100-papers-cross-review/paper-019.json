@@ -1,0 +1,962 @@
+{
+  "paper": "法学三大刊论文/中国法学/数字法学范畴体系的分层结构与逻辑展开.pdf",
+  "round1_source": "results/phase1-100-papers-strictest/paper-019.json",
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "models": [
+    "glm-5.1",
+    "qwen3.6-plus",
+    "deepseek-v4-pro",
+    "kimi-k2.6"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "round2_scores": {
+        "glm-5.1": 40,
+        "qwen3.6-plus": 35,
+        "deepseek-v4-pro": 30,
+        "kimi-k2.6": 38
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 30,
+          "revised": 40,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 30,
+          "revised": 35,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 55,
+          "revised": 30,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 25,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 35,
+          "revised": 38,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 30,
+          "revised_score": 40,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "体系建构完整但无核心法学争点与观点交锋，属主题声明而非争点型研究。",
+          "revision_rationale": "接受专家A关于论文具有“理论建构雄心”与“三阶构造逻辑完整性”的观点，论文在宏观-中观-微观推演及数字利益（私益/众益/公益）映射上展现了体系化努力，并非毫无逻辑的泛泛而谈；但坚持核心缺陷即无明确法学争点与学者交锋，纯体系推演替代了问题论证，无法推进学术对话，故仍属unacceptable档。分数从30微调至40，以体现其体系建构的完整度与局部概念（如众益、差序平衡）的推演深度。",
+          "accepted_points": [
+            "论文对数字法学概念体系进行了系统分层尝试，具有一定理论建构雄心。",
+            "宏观-中观-微观三阶构造及本体论/价值论/方法论到要素/宗旨/技术的映射，具有逻辑完整性。"
+          ],
+          "rejected_points": [
+            "专家A将评分定为55分（marginal档）。理由：无核心争点与学者交锋的纯体系阐释论文，其创新性仅停留在概念重组与框架映射层面，无法产生实质性的学术对话与理论推进，达不到marginal（勉强可接受）的标准，必须定性为unacceptable。"
+          ],
+          "new_evidence_found": [
+            "论文对“众益”概念的界定（介于私益与公益之间，针对平台涉众特征）以及对“差序平衡”方法的提出，显示了在旧有法理学框架下针对数字特殊性所做的实质性推演，而非纯粹空洞的宏观介绍。",
+            "论文在具体范畴层级将本体论/价值论/方法论落脚于数据/信息/算法三元结构，实现了从抽象理论到具体法治实践的闭环连接，体系建构具有自洽性。"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 30,
+          "revised_score": 35,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "全文属理论框架建构与主题声明，缺乏明确可争辩的法学问题句与实质学术交锋，新概念未展现对既有理论的解释力跃升，创新性不足。",
+          "revision_rationale": "采纳其他专家关于缺乏明确问题句与学者交锋的批评，确认可争辩性仅为1/4。鉴于三阶体系具一定理论整合价值，分数微调。但核心仍为单向推演而非争点研究，故维持原档位。",
+          "accepted_points": [
+            "缺乏明确可争辩的问题句（如‘XX是否YY’）",
+            "全文偏向主题声明与体系阐释，缺失实质性学术观点交锋",
+            "新概念/框架未充分论证相对既有部门法理论的解释力优势"
+          ],
+          "rejected_points": [
+            "专家A给予55分（marginal）的评分偏高。本文枢纽性仅涉及基础理论推演，未触及学界长期争点或要求调整具体制度，按规则不应锚定marginal档。"
+          ],
+          "new_evidence_found": [
+            "文中明确自述研究重心为‘解决为什么分层、依据、怎样分层、内容是什么’，属体系建构而非问题回应",
+            "引用张文显、马长山等学者观点仅作为理论铺垫或框架借鉴，未展开批判性对话或反驳",
+            "具体范畴（数据、信息、算法）的展开仍停留在立法宗旨与技术规制的原则性描述，缺乏教义学或实证层面的争点剖析"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 55,
+          "revised_score": 30,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 25,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文主要是单向度的体系建构与概念阐释，缺乏明确的法学争点、理论交锋和问题句，不符合学术创新性要求。",
+          "revision_rationale": "重新审视原文后，发现我之前高估了该文的可争辩性。论文通篇为作者设定的分层框架的阐释，无明确的研究问题句（如“XX是否YY”），也无不同学者观点的实质性交锋，仅为“主题声明”。这直接触发了规则中的重大负面检查（如主题声明），应将评分锚定在 unacceptable 档。专家A和B对此的判断更为准确，我的原评价未能严格执行此标准，故下调评分至30分（保底线）。",
+          "accepted_points": [
+            "论文无核心法学争点与问题句，仅为体系建构与主题声明。",
+            "缺乏学者观点交锋，单向理论建构。",
+            "新概念未充分论证对既有理论的解释力跃升，有以新概念包装旧议题之嫌。"
+          ],
+          "rejected_points": [],
+          "new_evidence_found": [
+            "全文详细论证了“为什么分层、分层的依据是什么、怎样分层”等解释性内容，但始终未提出一个可辩论的核心学术争点，本质是体系介绍。",
+            "文中引用学者观点仅作为研究背景铺垫，未形成不同立场间的实质性批判与对话。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 35,
+          "revised_score": 38,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "仍为范畴体系建构与理论框架阐释，但存在可辨识的学术对话意图与数字法学特殊性论证，距真正研究问题尚有距离。",
+          "revision_rationale": "重新审阅后，确认论文核心缺陷——无明确可争辩问题句、无学者观点交锋——依然成立。但注意到两点此前评估偏严之处：其一，论文并非完全无学术对话，其明确区分了数字法学范畴与部门法范畴（如'私益、众益、公益'对'个人利益、公共利益、社会利益'的替代），并与哈耶克分层理论、梅因'身份到契约'理论形成隐性对话；其二，'数字私权力'等概念具有数字法学特殊性，非纯粹旧概念包装。然而，这些对话均为单向陈述而非交锋，特殊性论证仍属框架内部推演而非问题驱动。枢纽性方面，论文涉及数据法、个人信息保护法、算法治理等多制度，但均为介绍性关联，未要求调整≥2制度。综合判断，原评分35分略偏严，上调至38分，仍属unacceptable档。",
+          "accepted_points": [
+            "专家B指出'触及数字法与传统部门法的逻辑关联，具有跨领域视野'——论文确实存在这一特征",
+            "专家A指出'涉及法学基本原理与跨部门法领域，影响范围较广'——范畴分层确实横跨多领域",
+            "专家B关于'构建了宏观至微观的三阶范畴体系，理论架构完整'的优点评述"
+          ],
+          "rejected_points": [
+            "专家A、B将枢纽性评至3-4分过高：论文虽涉及多制度，但均为介绍性关联，未形成'要求调整≥2制度'的枢纽性论证，枢纽性应维持2分",
+            "专家B认为'材料新颖性触发上限'——论文大量使用哈特曼、哈耶克、梅因等经典理论，新概念（如'数字私权力'）的解释力跃升论证不足，材料新颖性不应触发上限",
+            "专家A、B的'可争辩性=2/4'偏高：论文无'XX是否YY'问题句，无学者观点直接交锋，可争辩性应为1-2分"
+          ],
+          "new_evidence_found": [
+            "论文第177页明确将'私益、众益、公益'与部门法的'个人利益、公共利益、社会利益'对立，构成范畴替代主张，隐含学术对话意图",
+            "论文第178-179页对哈耶克三层规则的引用与区分，构成理论对话而非完全单向陈述",
+            "论文第182-183页提出'数字私权力'概念，并界定其'准行政权力属性'，具有一定创新性"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 49.66414213180542,
+        "qwen3.6-plus": 70.35919713973999,
+        "deepseek-v4-pro": 26.102543830871582,
+        "kimi-k2.6": 20.43900227546692
+      },
+      "round1_mean": 37.5,
+      "round2_mean": 35.8,
+      "round1_std": 11.9,
+      "round2_std": 4.3,
+      "convergence_improvement": 7.6
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 80,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 80
+      },
+      "round2_scores": {
+        "glm-5.1": 75,
+        "qwen3.6-plus": 78,
+        "deepseek-v4-pro": 80,
+        "kimi-k2.6": 72
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 80,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 80,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 2,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 80,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 2,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 17,
+          "confidence": "medium"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 80,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "三要素基本完整但未竟点泛化，理论路径对立清晰但缺乏真实学术争点梳理，学派识别缺失。",
+          "revision_rationale": "接受专家A意见，原评分将作者构建的“单一vs分层”理论框架对立误判为既有学术争点，且高估了两种方法论主张的流派属性。论文未竟点表述偏泛化，未将既有研究归类为明确学派，现状洞察度有所欠缺，故下调5分至75分。",
+          "accepted_points": [
+            "未将既有研究归类为明确的法学学派或理论流派，学派识别度较弱",
+            "部分贡献描述较模糊，如数字法学的理论证成未点明具体路径",
+            "单一与分层的对立是作者构建的解释路径分歧，而非严格意义上的既有学术争点"
+          ],
+          "rejected_points": [
+            "专家B认为三要素严重残缺（仅2/6）。论文到达点有具体文献支撑，切入点明确，未竟点虽泛化但指出了具体局限，三要素不至于严重残缺。"
+          ],
+          "new_evidence_found": [
+            "论文对'单一层次范畴推演'的批评未引用持该观点的具体学者，证实此对立为作者构建的理论靶子而非既有争点",
+            "论文提及的'权义对等'与'权力平衡'仅为方法论主张，未展开学派脉络梳理"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 80,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 2,
+          "revised_band": "good",
+          "revised_core_judgment": "三要素闭环完整，争点聚焦单一推演与分层架构的方法论对立，但文献贡献归纳偏概括，未显性对接教义学流派，故微调至78分。",
+          "revision_rationale": "采纳专家A意见，原文对文献贡献的提炼偏向整体概括，未逐一点明学者核心命题，流派识别亦停留于法哲学层面，缺乏教义学交锋。但明确反对专家B“三要素残缺”之论，原文脚注明确锚定到达点，第（一）节从历史、理论、实践三维度系统论证单一层次局限，争点结构清晰完整，故仅下调2分维持good档。",
+          "accepted_points": [
+            "文献贡献描述偏概括，未逐一点明具体学者的核心命题与证成路径",
+            "流派识别多依托法哲学基础，缺乏对数字法学内部教义学流派或形式/实质法治等学派的显性归类"
+          ],
+          "rejected_points": [
+            "专家B认为三要素严重残缺、未呈现可区分争点：原文明确引用三篇核心文献锚定到达点，第（一）节系统对比单一层次推演与分层法则在历史、理论、实践逻辑上的差异，争点结构清晰完整，该评价与文本事实不符。"
+          ],
+          "new_evidence_found": [
+            "脚注②③④明确对应金梦、张吉豫、马长山的具体文献，证实到达点并非模糊铺垫",
+            "正文第（一）节通过历史逻辑（部门法分立到领域法聚合）、理论逻辑（层级衍生）、实践逻辑（复合型法律关系）三维度，显性论证单一层次推演的局限，构成清晰的方法论争点"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 78,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 2,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图与争点结构完善，法学流派识别符合基础门槛。重读发现两种方法论主张可视为两个明确学派，应予计分。",
+          "revision_rationale": "第一轮评价时认为未将既有研究纳入学派争论。经重读原文，发现论文明确指出了方法论范畴层面的两种主张（权利义务对等、权利权力平衡），这在现行评价标准下应被视为两个可识别的法学流派或理论流派，符合基础门槛。因此，法学流派得分应从2个修正为2个，总分相应调整为80分。原评分依据中对部分贡献描述模糊的判断维持不变，不改变good档位。",
+          "accepted_points": [
+            "法学流派识别可仅依托方法论两种主张而达到基础门槛。"
+          ],
+          "rejected_points": [
+            "关于‘比较法制度对立未充分转化为规范解释路径的显性争论’的观点，因评价标准对比较法流派无硬性要求，仅加分项，故不影响基础评分。"
+          ],
+          "new_evidence_found": [
+            "论文第178页明确列出‘两种主张’，构成两个明确的法学方法论流派，可直接计为法学流派得分。",
+            "文献引用脚注②-④明确指向既有研究的贡献，支持三要素完整性。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 17,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图三要素基本完整，争点结构有所呈现，但法学流派识别仍显薄弱，整体达good档下限。",
+          "revision_rationale": "重新审读论文后，承认原评分存在低估。论文在'范畴分层法则'部分确实呈现了两种方法论主张的对立（权利义务对等规则vs权利权力平衡配置），构成可识别的争点结构；三要素中到达点（既有研究从特殊性角度分析新概念）、未竟点（逻辑衍生关系有待厘清、底层逻辑需发掘拆解）均有明确对应。但'good'档上限需满足'法学流派覆盖充分'，本文仅涉及方法论两种主张，未形成 broader 学派脉络（如规范法学vs社会法学、法教义学vs法社会学等），故定位good档下限。",
+          "accepted_points": [
+            "三要素完整性：到达点与未竟点确有对应，非'模糊泛化'",
+            "争点结构：方法论范畴层面'两种主张'构成显性争点",
+            "文献定位精准性：对金梦、张吉豫、马长山等成果的贡献有具体提炼"
+          ],
+          "rejected_points": [
+            "专家A/B所称'法学流派=2个'过于宽泛：两种方法论主张不等同于'法学流派'，论文未标识任何学派标签或学术传承脉络",
+            "专家B称'争点结构=2/2'过誉：仅方法论一处有明确对立，本体论、价值论范畴均无显性争点"
+          ],
+          "new_evidence_found": [
+            "第178页'方法论范畴层面出现了两种主张：其一...其二...'构成明确的争点表述",
+            "第171-172页对既有研究'从数字领域法区别于部门法的特殊性角度'的贡献提炼，到达点具体",
+            "第172页'单一层次范畴推演...均较难全面呈现'构成对未竟点的具体化论证"
+          ],
+          "confidence": "medium"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 47.86425805091858,
+        "qwen3.6-plus": 67.21470808982849,
+        "deepseek-v4-pro": 64.56344485282898,
+        "kimi-k2.6": 14.53334903717041
+      },
+      "round1_mean": 73.2,
+      "round2_mean": 76.2,
+      "round1_std": 12.2,
+      "round2_std": 3.5,
+      "convergence_improvement": 8.7
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 49,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "glm-5.1": 55,
+        "qwen3.6-plus": 78,
+        "deepseek-v4-pro": 49,
+        "kimi-k2.6": 72
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 90,
+          "revised": 55,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 35,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 14,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 49,
+          "revised": 49,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 52,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 20,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 55,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 35,
+          "revised_band": "marginal",
+          "revised_core_judgment": "框架为清晰的范畴分类与逻辑推演体系，但缺乏实务操作步骤与判断标准，属理论梳理型建构。",
+          "revision_rationale": "接受其他专家意见，原评价对“可操作性”评估过高。该框架虽逻辑自洽且完成概念映射，但仅为层级罗列与理论推演，未提供可重复的分析步骤或裁判/立法操作指引，核心理论亦非原创，应下调至理论梳理型框架的合理档位。",
+          "accepted_points": [
+            "框架仅为理论范畴的层级罗列与逻辑推演，缺乏可操作的判断标准或法学操作指引",
+            "缺乏可重复适用的操作步骤，无法操作化调用",
+            "框架核心术语来自哲学理论，非论文原创，属于对既有理论立场的系统归纳与结构化阐释"
+          ],
+          "rejected_points": [
+            "法学转化度为0（专家A观点）：论文确实将哲学分层法则映射为法学三阶构造及具体范畴（如数字私益/众益/公益），有一定法学转化度，而非完全未转化"
+          ],
+          "new_evidence_found": [
+            "论文在具体范畴部分提出的'差序平衡'、'数据财产安全、信息人格保护、算法程序公平'等仅为立法宗旨或理论主张，未转化为具体的裁判规则或立法操作流程，印证了操作性不足的判断"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 14,
+          "revised_band": "good",
+          "revised_core_judgment": "理论架构严密且逻辑自洽，成功实现哲学范畴向数字法学的体系化转译，但向教义学规则与裁判指引的转化仍停留在立法宗旨层面，实践可操作性不足。",
+          "revision_rationale": "采纳A、B专家关于“可操作性与教义学转化不足”的合理批评。重读发现，论文虽构建了清晰的三阶衍生链条并援引了欧盟法案等实证材料，但微观范畴仍止步于“要素/宗旨/技术”的抽象归类，未提供可重复适用的裁判步骤或具体规范构造。理论建构力强，但法学转化度未达excellent标准，故下调至good档。",
+          "accepted_points": [
+            "框架缺乏可重复适用的裁判步骤或具体规范构造，实践可操作性偏弱",
+            "微观范畴仍属理论阐释与立法宗旨归纳，未直接转化为教义学规则或司法适用流程"
+          ],
+          "rejected_points": [
+            "认为框架仅为范畴罗列且无逻辑推演（论文具有严密的始-中-终项衍生逻辑与马克思主义哲学指导下的体系化建构）",
+            "认为完全未实现法学转化（论文在微观范畴已对接数据/信息/算法立法实践与欧盟法案，具备理论向立法宗旨的转化路径）"
+          ],
+          "new_evidence_found": [
+            "论文在‘具体范畴’部分明确对接了《数字市场法案》《人工智能法案》及我国《数据安全法》等实证法，证明其尝试进行立法层面的转化",
+            "微观范畴（要素/宗旨/技术）的界定仍依赖‘立法目的/原则/程序公平’等抽象表述，缺乏构成要件与法律后果的教义学拆解"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 49,
+          "revised_score": 49,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "框架仅为理论范畴的层级罗列与逻辑推演，未提供可操作的判断标准或法学操作指引，可操作性严重不足。",
+          "revision_rationale": "重新阅读论文后，仍坚持原判。论文虽构建了精细的逻辑衍生关系，但停留在哲学层面的范畴推演，未转化为可操作的裁判规则、法律适用步骤或立法方案。框架仅罗列层级，无“第一步/第二步”式的可重复分析流程，法学转化度仍为0。其他专家意见未提供新的可操作性证据，故维持原评分。",
+          "accepted_points": [],
+          "rejected_points": [
+            "对方认为'三阶构造与三维映射推演步骤，可操作性强'，但论文并未给出可重复、可检验的分析步骤或裁判指引，仅是范畴间逻辑关系的描述，不构成法学操作框架。"
+          ],
+          "new_evidence_found": [
+            "论文在具体范畴层级提及要素范畴、宗旨范畴、技术范畴的对应关系，但仍停留在理论描述，未形成具体操作指引"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 52,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 20,
+          "revised_band": "good",
+          "revised_core_judgment": "框架具备三阶构造与三维映射的层级衍生逻辑，哲学分层法则向法学范畴的转化具有内在一致性，但操作步骤与裁判规则的转化仍较间接。",
+          "revision_rationale": "重新审视后，承认论文的'范畴分层法则'并非简单归纳，而是形成了从抽象到具体的层级推演结构：基石范畴（逻辑始项）→基本范畴（逻辑中项）→具体范畴（逻辑终项），且本体论/价值论/方法论三维在各层级有明确对应衍生关系（如私益→数字私益→数据要素）。这一'层级衍生逻辑对应关系'构成可重复的分析步骤，而非纯粹阐释性展开。但框架仍偏重理论推演，向具体裁判规则、司法程序的转化路径较间接，距'excellent'档的强操作性要求尚有距离，故上调至'good'档。",
+          "accepted_points": [
+            "三阶构造与三维映射形成可重复的推演步骤，非单纯归纳",
+            "哲学分层法则成功转化为法学范畴的层级衍生逻辑",
+            "后文严格依此框架展开，内在一致性强",
+            "本体论/价值论/方法论在各层级有对应衍生关系"
+          ],
+          "rejected_points": [
+            "专家A/B认为'法学转化度4/4'：论文未提供裁判规则、司法程序或制度设计方案，转化仍停留在理论范畴层面，未达最高档",
+            "专家B认为'完全契合理论型论文建构标准'：理论型论文仍需展示向实践转化的明确路径，本文此点不足"
+          ],
+          "new_evidence_found": [
+            "第175页：'数字法学范畴在逻辑始项、中项、终项三个方面，形成基石范畴、基本范畴、具体范畴三阶构造'——明确步骤化",
+            "第189页：本体论范畴'在对象范畴层级演化为数字私益、数字众益、数字公益整体协同，在要素范畴框定为数据、信息、算法三元结构'——展示跨层级衍生对应",
+            "第176-188页：价值论、方法论同样遵循始中终项的三阶推演，非仅罗列概念"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 43.33863401412964,
+        "qwen3.6-plus": 57.730844020843506,
+        "deepseek-v4-pro": 41.7804799079895,
+        "kimi-k2.6": 15.469651937484741
+      },
+      "round1_mean": 70.8,
+      "round2_mean": 63.5,
+      "round1_std": 23.4,
+      "round2_std": 13.7,
+      "convergence_improvement": 9.7
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "round2_scores": {
+        "glm-5.1": 82,
+        "qwen3.6-plus": 84,
+        "deepseek-v4-pro": 85,
+        "kimi-k2.6": 78
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 90,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 8,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 88,
+          "revised": 84,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 4,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 82,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 8,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链主体完整但破立过渡存在关键跳步，对竞争性理论反驳不足，结论可辩护推出但严密性受损。",
+          "revision_rationale": "重新审视后发现，从“单一层次局限”到“采纳分层法则及三阶构造”存在关键跳步，未论证分层法则的不可替代性及三阶的必然性；对哈耶克路径分歧的回应停留在描述性比较，缺乏实质性反驳；且全文未承认理论适用边界。这些瑕疵对逻辑严密性影响较大，原评分过高，故下调至82分。",
+          "accepted_points": [
+            "从单一层次局限到分层法则的过渡存在关键跳步，未充分论证为何分层法则优于其他替代方案",
+            "对哈耶克分歧的回应缺乏实质性反驳，仅停留在描述性比较而未论证自身路径的优越性",
+            "全文未承认自身范畴体系的适用边界或理论限度"
+          ],
+          "rejected_points": [
+            "专家B认为推理链完整性仅为3/4且锚定good档（70-79分），这一判断过于严苛。虽然存在前提确立的跳步，但一旦接受分层前提，后续三阶构造及各层级衍生逻辑（始项-中项-终项）步步依赖、极为严密，整体仍属excellent档位"
+          ],
+          "new_evidence_found": [
+            "论文在第一部分详述单一层次局限后，第二部分直接引入哈特曼法则，缺乏对'为何必须分层而非其他整合方式'的排他性论证",
+            "论文对哈耶克的回应仅指出其'形成于工业社会，侧重于实践逻辑'，而自身'形成于数字社会，侧重于理论逻辑'，这属于立场宣告而非逻辑反驳",
+            "全文通篇未涉及该三阶构造在非跨部门法领域或数字技术发展特定阶段可能面临的不适用或需修正的限度问题"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 88,
+          "revised_score": 84,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 4,
+          "revised_band": "excellent",
+          "revised_core_judgment": "逻辑链条完整严密，三阶构造推演清晰；但对替代方案的比较论证不足，且未明确理论适用边界，反驳处理度略有欠缺。",
+          "revision_rationale": "接受专家A关于“未承认适用边界”及“多层选择理由论述不够集中”的意见，将反驳处理度微调。论文内部推演高度自洽，所谓“跳步”属理论建构常态，故维持excellent档但适度降分。重读发现作者已明确提示“不能机械套用推演逻辑”，印证了对理论边界的自觉，但微观落地仍偏宏观。",
+          "accepted_points": [
+            "未明确承认自身范畴分层体系的适用边界或理论限度",
+            "对“为何采纳三层而非其他多层范式”的隐含分歧回应不够集中与深入"
+          ],
+          "rejected_points": [
+            "专家B指出的“从单一层次局限性到分层法则存在关键跳步”：理论建构中批判旧范式并引出新范式属标准逻辑，且文中已充分论证分层对跨部门法协调的必要性，非逻辑断裂。",
+            "专家B给出的“反驳处理度1/3”：作者对哈耶克分层进行了实质性的时代背景（工业vs数字）与逻辑侧重（实践vs理论）区分，并融入马克思主义哲学指导，已达到理论对话标准。"
+          ],
+          "new_evidence_found": [
+            "论文第184页明确指出“不能机械套用从基石范畴到基本范畴的数字化推演逻辑，而需立足数字技术实践要素”，表明作者对理论推演与实践转化的边界有清晰认知。",
+            "第174页详细论述了借鉴法理学/国际法分层逻辑后，为何在逻辑终项上改造为“具体范畴”，补强了分层结构选择的内在依据。"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 82,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "论文逻辑主线清晰且层层递进，有效回应了分层必要性与路径分歧，结论可从前期推导得出，但微观落地逻辑与自身理论边界讨论仍稍显薄弱。",
+          "revision_rationale": "接受专家B关于微观落地逻辑薄弱的指正，但该问题更偏向论证深度而非逻辑断裂，不构成降档。同时，专家A和B指出的过渡论证简略、哲学概念向法学转化抽象等，我原文评价已通过反驳处理度扣分部分覆盖。重新审视后，论文对哈耶克路径分歧的回应比我最初评估更充分，故接受专家A的合理观点，将反驳处理度从2分上调至3分，综合评分从82调整为85。",
+          "accepted_points": [
+            "对哈耶克路径分歧的回应比最初评估更充分，应纳入反驳处理度考量",
+            "论文从‘为何分层’到‘如何分层’的论证链条环环相扣，整体性较强"
+          ],
+          "rejected_points": [
+            "专家A和B给予反驳处理度满分（3/3）。我认为论文尚未承认自身论证的适用边界与局限，在理论自觉性上仍有欠缺，不满足完全满分标准，但可上调至2.5/3的逻辑等价位置（即85分）。我坚持此点。"
+          ],
+          "new_evidence_found": [
+            "论文明确指出‘这一构造与哈耶克的主张并不完全相同’，并详细对比了工业社会与数字社会分层逻辑的差异，从实践逻辑与理论逻辑双重角度为路径选择提供了实质性辩护，证据比我初评时引用的更为集中有力。"
+          ],
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链完整性4/4，反驳处理度2/3，锚定good档上限，给78分。",
+          "revision_rationale": "重新审阅后，承认原评价存在两处低估：第一，论文对'单一层次局限性→分层法则'的过渡并非关键跳步，而是通过历史逻辑（社会关系演变）、理论逻辑（部门法到领域法）、实践逻辑（复合型法律关系调整需求）三重维度充分论证，过渡论证完整；第二，对哈耶克分层规则的处理虽文字简略，但实质完成了'不完全相同'的比较性反驳——指出二者社会基础（工业社会vs数字社会）、侧重点（实践逻辑vs理论逻辑）、范畴属性（规则层级vs范畴层级）的三重差异，构成实质性回应。但'范畴分层是否必要'的替代性质疑仍未直接回应，且未承认自身范畴体系的适用边界，故反驳处理度由1/3提升至2/3，未达excellent。",
+          "accepted_points": [
+            "专家A指出'对哈耶克路径分歧给出了实质性回应理由'——接受，论文确实从社会基础、侧重点、范畴属性三方面比较，非简单'不完全相同'",
+            "专家B指出'从批判单一层次到确立分层法则，再到三阶构造展开，逻辑递进严密'——接受，三重逻辑维度的过渡论证完整",
+            "专家B指出'有效回应理论分歧，明确选择马克思主义哲学路径并论证其相较于哈耶克理论的适配性'——接受，马克思主义'从抽象到具体'进路与哈特曼分层法则的结合论证充分"
+          ],
+          "rejected_points": [
+            "专家A认为'无关键跳步'——拒绝，'单一层次局限性'到'应采用分层法则'之间，论文未穷尽论证其他替代方案（如网络型、扁平化范畴结构），直接预设分层为最优解，存在方法论预设",
+            "专家A、B均认为反驳处理度3/3——拒绝，论文未直接回应'范畴分层是否必要'的替代性质疑（如卢曼系统论的反层级主张），且未承认自身三阶构造的适用边界（如是否适用于所有数字法学子领域）"
+          ],
+          "new_evidence_found": [
+            "第172-173页：单一层次局限性论证包含历史逻辑（诸法合体→公私法分离→部门法分立→领域法）、理论逻辑（分层法则对应关系）、实践逻辑（复合型法律关系调整）三重维度，过渡论证充分，非关键跳步",
+            "第174-175页：对哈耶克的处理包含三重比较——社会基础（工业社会vs数字社会）、侧重点（实践逻辑vs理论逻辑）、范畴属性（规则层级vs范畴层级），构成实质性比较而非简单否定",
+            "第175页：明确区分'具体范畴'与'普通范畴'的差异，指出数字法学具体范畴具有'跨部门法属性'，体现对适用边界的局部自觉"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 39.388481855392456,
+        "qwen3.6-plus": 64.47659707069397,
+        "deepseek-v4-pro": 75.0071029663086,
+        "kimi-k2.6": 20.38849401473999
+      },
+      "round1_mean": 83,
+      "round2_mean": 82.2,
+      "round1_std": 8.1,
+      "round2_std": 3.1,
+      "convergence_improvement": 5.0
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "round2_scores": {
+        "glm-5.1": 75,
+        "qwen3.6-plus": 75,
+        "deepseek-v4-pro": 70,
+        "kimi-k2.6": 82
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 88,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 88,
+          "revised": 75,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 13,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 65,
+          "revised": 70,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 82,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 10,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 88,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "结论回应了既有分层理论但缺乏反对意见回应与自身局限承认，对话度受限；制度转化方向清晰，可接受度高。",
+          "revision_rationale": "接受A和B关于论文缺乏反对意见回应和自身局限承认的观点。论文虽修正了哈耶克与哈特曼理论，但构建的三阶体系过于自洽封闭，未留出可被反驳的锚点，也未讨论其他可能路径，导致共同体对话度受限。制度可接受度因紧密结合中国数字立法实践仍保持高分。综合下调至good档。",
+          "accepted_points": [
+            "结论缺乏可被反驳的具体锚点，反对者难以定位反驳路径",
+            "全文未提及自身局限或可能的反对意见，理论主张较为封闭"
+          ],
+          "rejected_points": [
+            "专家A认为对话度极低（1/4）且未指出修正何种观点。论文实际上明确修正了哈耶克分层规则和哈特曼范畴分层法则，并批判了单一层次推演，有明确的对话对象和理论贡献定位，对话度不应低至1分，应在2分左右。"
+          ],
+          "new_evidence_found": [
+            "论文在第二部分明确将自身理论与哈耶克的三层规则、哈特曼的范畴分层法则进行对比和修正，这证明了有对话对象，反驳了专家A'未指出修正或挑战了何种观点'的极端判断",
+            "全文确实未讨论为何必须是'三阶'而非其他构造，也未讨论可能的理论局限（如三元融合立法的现实阻力），印证了专家B'反对者难以定位反驳路径'的判断"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 88,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 13,
+          "revised_band": "good",
+          "revised_core_judgment": "理论建构完整且契合中国数字立法语境，但缺乏对具体学术争议的针对性对话与自身局限反思，学术对话度与可辩驳性不足。",
+          "revision_rationale": "采纳其他专家关于“共同体对话薄弱”与“缺乏反对意见回应/自我局限说明”的合理批评。原文虽批判“单一层次推演”并借鉴哈特曼、哈耶克理论，但未锚定具体当代数字法学争论，结论亦未设置理论边界或回应潜在质疑，导致学术对话度与可检验性打折。制度可接受度仍高，故综合下调至good档。",
+          "accepted_points": [
+            "论文未明确锚定具体的当代数字法学学术争议或对立学者观点，对话对象偏抽象",
+            "全文及结论均未讨论理论局限或潜在反对意见，缺乏可被反驳的具体锚点，理论呈现封闭性"
+          ],
+          "rejected_points": [
+            "专家A认为对话度仅为1/4（极低）：论文实际对哈特曼与哈耶克的分层/规则理论进行了明确辨析与扬弃，并回应了既有范畴分层理论，故对话度不应评为极低，修正为中等偏弱"
+          ],
+          "new_evidence_found": [
+            "原文第174-175页明确对比并修正了哈特曼工业社会范畴分层逻辑与哈耶克规则三阶构造，表明存在理论对话但偏向法哲学史而非当代部门法争议",
+            "结论段（第188-189页）仅做体系总结与立法展望，未提及框架适用边界、潜在理论冲突或实证检验难点"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 65,
+          "revised_score": 70,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "结论能与法秩序兼容，有对话意图但回应仍不足。共同体对话度从\"极低\"调整至\"有限\"，但仍未达\"良好\"标准。",
+          "revision_rationale": "重读后发现：1. 结论明确挑战了\"单一层次范畴推演\"并修正了\"哈耶克分层规则\"，具备基本对话对象；2. 与数字立法实践（如数据、个人信息保护法）的对接提高了制度可接受度。这提升了对话度得分（1→2），但因仍无明确反对意见回应和局限说明，对话度仅达\"有限\"，故仅从65上调至70，不达excellent档。",
+          "accepted_points": [
+            "结论确实修正了单一层次范畴推演和哈耶克分层规则，具备基本对话坐标",
+            "理论分层与中国现行数字立法语境有结合，制度可接受度高"
+          ],
+          "rejected_points": [
+            "对话度得分4/4评价过高：论文未引述、回应具体反对观点或说明自身局限，缺乏可被反驳的锚点，不符合理论论文高对话度要求",
+            "excellent档位过高：范畴分层逻辑庞杂和转化路径抽象的问题仍然存在，影响学术共识的达成"
+          ],
+          "new_evidence_found": [
+            "论文明确挑战'单一层次范畴推演'并提出'三阶构造'作为替代方案",
+            "论文提及哈耶克分层规则并主张不完全相同，建立了与既有理论争议的关联"
+          ],
+          "confidence": "medium"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "理论对话度与制度可接受度均有实质提升：三阶构造明确回应哈耶克分层规则并定位差异，三元融合立法指向具体制度转化，但反对意见回应与理论局限承认仍显不足。",
+          "revision_rationale": "重新审读论文后，发现作者并非仅'回应'哈特曼范畴分层理论，而是明确将其与哈耶克分层规则进行了对比分析（第175页），指出二者'不完全相同'并详细阐释了数字法学三阶构造在来源属性、逻辑侧重上的差异。这一对比使'反对者难以定位反驳路径'的判断有所松动——理论主张的开放性通过与其他理论的明确区分得以部分呈现。同时，论文第184-189页对'数据、信息、算法三元融合'的论证，从欧盟立法例到中国《数据安全法》《个人信息保护法》等具体制度，形成了较为完整的制度可接受性论证链条。但论文确实未设置专节讨论潜在反对意见或自我局限，'反对者定位反驳路径'的门槛仍然较高，故提升至good档上沿82分，未达excellent。",
+          "accepted_points": [
+            "论文明确将三阶构造与哈耶克分层规则进行对比，并非封闭性理论主张",
+            "制度转化方向具体，从要素范畴到宗旨范畴、技术范畴形成了可操作的转化路径",
+            "三元融合立法指向具有中国语境下的制度紧迫性"
+          ],
+          "rejected_points": [
+            "专家A认为'可被有效定位与反驳'：论文虽对比哈耶克，但未设置反对意见回应专节，反驳路径仍不清晰",
+            "专家B认为'精准定位学术争论坐标'：论文对'单一层次范畴推演'的批判较为笼统，未具体指向某一代表性学者或学派"
+          ],
+          "new_evidence_found": [
+            "第175页：'这一构造与哈耶克的主张并不完全相同'及其后详细对比，构成理论对话的关键证据",
+            "第184-186页：从欧盟《数字市场法案》《人工智能法案》到中国《数据安全法》《个人信息保护法》等，形成中外制度对照",
+            "第188页末段：以具体范畴为连接点，范畴理论逻辑转化为数字法治的实践逻辑，明确回应了'制度转化'质疑"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 59.329413175582886,
+        "qwen3.6-plus": 60.643911838531494,
+        "deepseek-v4-pro": 28.049561977386475,
+        "kimi-k2.6": 14.409819841384888
+      },
+      "round1_mean": 78.2,
+      "round2_mean": 75.5,
+      "round1_std": 11.6,
+      "round2_std": 4.9,
+      "convergence_improvement": 6.7
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 65
+      },
+      "round2_scores": {
+        "glm-5.1": 60,
+        "qwen3.6-plus": 58,
+        "deepseek-v4-pro": 35,
+        "kimi-k2.6": 62
+      },
+      "changes": {
+        "glm-5.1": {
+          "original": 65,
+          "revised": 60,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 65,
+          "revised": 58,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 7,
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original": 35,
+          "revised": 35,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 62,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 7,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "glm-5.1": {
+          "original_score": 65,
+          "revised_score": 60,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "存在基于理论推演的延展路径（分项立法向三元融合的两阶段进阶），但缺乏专门的前瞻论证与局限反思。",
+          "revision_rationale": "论文在正文具体范畴部分提出了“分项立法阻断损害”到“统一领域法实现三元融合”的两阶段演进路径，并非仅结尾泛泛提及，故不接受专家A的35分；但该路径属理论推演自然延伸，缺乏专门的前瞻研究设计、局限反思与争点设置，故下调5分至60分，处于good档位下限。",
+          "accepted_points": [
+            "延展路径缺乏精细度，未提出可检验的后续研究问题或下一轮争点",
+            "缺乏对自身理论体系局限性的反思与针对性修正路径"
+          ],
+          "rejected_points": [
+            "认为延展路径仅泛泛提及、不可定位（专家A）。论文正文第185页明确提出了立法的两阶段进阶路径，具有可定位性和一定的具体性，并非空泛拔高。"
+          ],
+          "new_evidence_found": [
+            "正文第185页关于立法进阶的两阶段论述：“第一个阶段……主要通过数据、信息、算法要素分项立法，阻断数字私益、众益、公益损害的发生。第二个阶段……通过制定统一的数字领域法……推动数据、信息、算法三元融合立法。”"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 65,
+          "revised_score": 58,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 7,
+          "revised_band": "marginal",
+          "revised_core_judgment": "存在明确的立法演进方向与理论转化路径，但缺乏具体学术争点、实证检验设计及理论局限交代，延展偏宏观规范导向。",
+          "revision_rationale": "采纳专家B意见，论文虽在正文勾勒出“分项立法阻断风险→统一立法三元融合”的两阶段路径，但全文未提出可检验的后续研究问题、学术争点或理论边界。延展主要停留在立法政策建议层面，学术前瞻性与精细度不足，故下调至边际档。",
+          "accepted_points": [
+            "延展路径缺乏具体后续研究问题与可检验的实证入口",
+            "未明确交代理论局限及可供反驳的边界条件",
+            "路径偏宏观，学术延展精细度有限"
+          ],
+          "rejected_points": [
+            "专家A认为仅泛泛提及‘三元融合’属空泛拔高（理由：正文第185-186页已详细论证分项立法与三元融合的两阶段逻辑与利益协调机制，并非仅结尾口号）"
+          ],
+          "new_evidence_found": [
+            "正文第185-186页明确划分数字利益保护两阶段：第一阶段通过分项立法阻断损害，第二阶段通过统一立法推动三元融合",
+            "第185页提及技术迭代将推动要素范畴发展，但未展开具体修正路径或变量设计"
+          ],
+          "confidence": "high"
+        },
+        "deepseek-v4-pro": {
+          "original_score": 35,
+          "revised_score": 35,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "不存在真实、可定位的延展路径，仅空泛提及“三元融合立法”，未指明障碍、问题或机制。",
+          "revision_rationale": "其他专家引用相同证据，将“提及方向”等同于“存在明确路径”，混淆了宣示与论证。论文结尾仅一句泛泛拔高，未分析分项立法如何融合、面临何种障碍、有何具体研究问题，更未反思自身局限或提供反驳入口。这不符合前瞻延展性维度对可定位、可进入争论路径的要求，原判35分不予修改。",
+          "accepted_points": [],
+          "rejected_points": [
+            "将“三元融合进阶”视为明确延展路径：论文未说明融合的具体机制或待解决问题，仅语词宣示不属于可定位路径。",
+            "将“要素范畴随技术迭代修正”视为延展路径：该句仅承认未来可能有新范畴，未指明自身理论边界或具体修正方向，不构成可进入争论的前瞻论证。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 62,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 7,
+          "revised_band": "good",
+          "revised_core_judgment": "存在较明确的延展路径与制度转化方向，但缺乏专门的前瞻论证与后续研究设计。",
+          "revision_rationale": "重新审读论文后，发现原文在要素范畴部分明确提出了'随着数字技术的迭代更新，要素范畴可能会有新的发展'以及'复合系统概念一般不宜作为具有基础性的要素范畴，而需进一步拆解其底层逻辑'，构成对理论范畴动态修正路径的预判；同时'推动数据、信息、算法要素分项立法向三元融合的进阶'与'数字法学范畴体系研究需要实现单一层次向范畴分层逻辑的进阶'形成双重进阶方向。这些表述比我最初判断的'路径较概括'更具精细度，与正文核心结论的衔接也更为直接，无需过多推断。但论文确实未提出可检验的后续研究问题或明确的理论局限性反思，故提升至good档位下限而非专家AB的65分。",
+          "accepted_points": [
+            "专家A指出的'要素范畴随技术迭代修正'路径确实存在，且与正文衔接紧密",
+            "专家B指出的'理论框架向立法实践转化的具体方向'判断准确，三元融合进阶具有明确的制度指向性",
+            "两位专家关于'与核心分层结论紧密衔接'的判断成立，具体范畴作为逻辑终项的设计使延展方向内嵌于理论结构"
+          ],
+          "rejected_points": [
+            "专家B认为'指明了后续争点'略有夸大，论文仅暗示技术迭代可能带来范畴更新，未明确形成可争论的学术争点",
+            "专家AB均未充分质疑'缺乏不同意见者进入争论的反驳入口'这一缺陷，论文确实未为批判性对话预留空间"
+          ],
+          "new_evidence_found": [
+            "第185页'随着数字技术的迭代更新，要素范畴可能会有新的发展'构成范畴动态演化的明确预判",
+            "第185页'复合系统概念一般不宜作为具有基础性的要素范畴，而需进一步拆解其底层逻辑'构成具体修正路径",
+            "第189页'数字法学范畴体系研究需要实现单一层次向范畴分层逻辑的进阶'与三元融合进阶形成方法论与制度双重进阶",
+            "要素范畴部分对欧盟《数字市场法案》《人工智能法案》的引用显示制度转化已具备比较法支撑，非空泛指向"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "glm-5.1": 37.1085159778595,
+        "qwen3.6-plus": 71.88994002342224,
+        "deepseek-v4-pro": 23.353419065475464,
+        "kimi-k2.6": 14.8052396774292
+      },
+      "round1_mean": 55,
+      "round2_mean": 53.8,
+      "round1_std": 14.1,
+      "round2_std": 12.6,
+      "convergence_improvement": 1.5
+    }
+  },
+  "overall": {
+    "round1_final_score_mean": 66.29,
+    "round2_final_score_mean": 64.5,
+    "group_changes": {
+      "a_group": {
+        "avg_change": -7.6,
+        "models": [
+          "glm-5.1",
+          "qwen3.6-plus"
+        ]
+      },
+      "b_group": {
+        "avg_change": 4,
+        "models": [
+          "deepseek-v4-pro",
+          "kimi-k2.6"
+        ]
+      }
+    }
+  }
+}

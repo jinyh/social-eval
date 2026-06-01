@@ -1,0 +1,1053 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/互构关系中社区矫正对象与性质定位研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文献引用格式存在OCR痕迹（如`*`替换原有的作者信息）",
+          "部分脚注号以圈码形式出现（`①②`），抽离为文本后不影响理解",
+          "摘要与出版信息内嵌有OCR产生的分隔符（如`**`标记作者单位）",
+          "参考文献列表缺失，可能为抽取失败"
+        ],
+        "evidence_quotes": [
+          "北京航空航天大学法学院教授。本文系北京市社会科学基金“后劳教时代北京市社区矫正的进一步探索”（项目批准号：16FXB0 0 9 ) 的阶段性成果之一。",
+          "①从逻辑上说，社区矫正的发展范式有两种：一种是理论先导式；另一种是实践先导式。我国社区矫正的发展属于实践先导式。参见翟中东：《中国社区矫正制度的建构与立法问题》，中国人民公安大学出版社2017年版，第16-17页。",
+          "2020年第1期",
+          "赵秉志、刘志伟、何荣功、周国良：《关于我国社区矫正立法若干问题的建议》，载赵秉志主编：《刑事法治研究报告(2006-2007年卷）》，中国人民公安大学出版社2008年版，第171页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "互构关系中社区矫正对象与性质定位研究",
+          "借鉴域外有益的成功经验，建议以社区服务取代现行刑法管制刑中所规定的缺乏刑罚可感性的一些虚化内容，并且在刑法中明确规定社区服务的期限和时数。",
+          "我国社区矫正自试点和正式实施以来，适用对象虽然前后略有调整，但一直坚守的底线或思路是：只有审后被判有罪的犯罪人才能适用社区矫正。",
+          "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献完全缺失，可能影响后续引证准确性的判断",
+        "部分OCR痕迹（如单位信息中的`**`标记）可能影响个别语句的理解，但不影响核心论证"
+      ],
+      "evidence_quotes": [
+        "互构关系中社区矫正对象与性质定位研究",
+        "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。",
+        "我国社区矫正自试点和正式实施以来，适用对象虽然前后略有调整，但一直坚守的底线或思路是：只有审后被判有罪的犯罪人才能适用社区矫正。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文核心论点清晰，围绕中国社区矫正的制度实践与规范问题进行理论建构，具备进入六维评价的完整信号。建议在评审时注意补充参考文献列表以核实引述完整性。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码及刊名频繁混入正文打断阅读流",
+          "脚注编号及部分文献信息格式散乱/乱码",
+          "参考文献列表抽取为空但正文存在大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "149\n中国法学\n2020年第1 期\n参见谢立中...",
+          "⑬\n参见张素敏...",
+          "②③\n④⑤⑥⑦\n⑧\n⑨\n150"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国社区矫正自2003年开始探索至今...在社区矫正的一些基本构建要素，例如矫正对象、机构、内容、方法等方面尚存在一些争议",
+          "社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当",
+          "针对管制，建议取消管制中内容空泛的规定，将其直接改为更具有惩罚内容的社区服务"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码与分栏标记频繁混入正文打断阅读流",
+        "文本工程：脚注编号乱码及文献信息散落",
+        "项目口径：完全符合进入六维评价"
+      ],
+      "evidence_quotes": [
+        "社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在文本工程阶段清洗页码、期刊名混入及脚注格式问题"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如⑬⑭⑮⑯⑰⑱⑲⑳㉑等符号混用，部分编号跳跃或重复）",
+          "参考文献列表缺失（标注为'（无）'）",
+          "期刊页码信息混入正文（如'149'、'150'等页码标记）"
+        ],
+        "evidence_quotes": [
+          "⑬参见张素敏：《管制刑社区矫正的困境与出路》……",
+          "⑭参见陈蓉：《管制刑适用的倡导……》",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国社区矫正自2003年开始在部分省市试点……在2011年刑法修正案（八）颁布之前实际上一直是在法外运行",
+          "笔者认为，在社区矫正性质定位问题上不能画地为牢……我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当",
+          "社区矫正对象和性质实际上也是两个密切联系并相互影响、相互作用和相互塑造的具有互构关系的问题",
+          "打开争议死结、破解争议僵局的首要方法……应从对象之规定是否合理、是否需要扩大适用、如何扩大适用入手"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留：部分脚注符号（如⑬⑭⑮⑯⑰⑱⑲⑳㉑）存在识别错误或排版混乱，但核心内容可辨识",
+        "参考文献列表未抽取：正文标注为'（无）'，但正文内引用信息完整，不影响核心论证定位",
+        "期刊页码标记混入：如'149'、'150'等页码数字散见于正文，属分栏/排版残留"
+      ],
+      "evidence_quotes": [
+        "社区矫正对象和性质实际上也是两个密切联系并相互影响、相互作用和相互塑造的具有互构关系的问题",
+        "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当",
+        "我国社区矫正自2003年开始在部分省市试点……在2011年刑法修正案（八）颁布之前实际上一直是在法外运行"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国社区矫正制度为核心研究对象，提出'互构关系'分析框架，主张将社区矫正性质重新定位为'非监禁性的刑事处遇方法'，并系统论证了对象扩大适用（如附条件不起诉人、剥夺政治权利罪犯）及性质重构问题。四个项目口径信号全部满足，应进入六维评价。文本质量方面存在脚注编号OCR残留、参考文献列表缺失、页码标记混入等问题，但核心论点、结构和主要论证均可定位，不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR符号（如®、①等）残留混入正文",
+          "期刊页码与刊名信息穿插于段落之间",
+          "脚注编号格式不统一且存在乱码"
+        ],
+        "evidence_quotes": [
+          "®社区矫正对象和性质实际上也是两个具有互构关系的问题。",
+          "149\n\n中国法学\n2020年第1 期\n参见谢立中：《超越个人与社会之间的二元对立—\n“社会互构论”理论意义浅析》",
+          "①从逻辑上说，社区矫正的发展范式有两种：一种是理论先导式；另一种是实践先导式。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "社区矫正对象和性质实际上也是两个密切联系并相互影响、相互作用和相互塑造的具有互构关系的问题。",
+          "我国社区矫正的四类对象，其中三类是由刑法规定的，剩下的一类监外执行虽然是由刑事诉讼法规定的...对象十分狭窄。",
+          "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。",
+          "针对管制，建议取消管制中内容空泛的规定，将其直接改为更具有惩罚内容的社区服务。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR符号残留、页码/刊名混排、脚注编号乱码",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "社区矫正对象和性质实际上也是两个密切联系并相互影响、相互作用和相互塑造的具有互构关系的问题。",
+        "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "建议进入六维评分。文本存在少量OCR排版噪声，但不影响核心法学命题与论证逻辑的提取。可重点关注其‘对象与性质互构’理论框架及‘非监禁刑事处遇’规范命题的原创性与对中国社区矫正立法/司法实践的解释力。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "全文围绕社区矫正对象与性质的互构关系展开工作定义与政策主张，既无明确可争辩的法学问题句，也未呈现学术分歧，实质是以新术语包装旧有讨论。",
+          "core_judgment": "本文未提出可争辩的法学研究问题，只是对社区矫正对象与性质作宏观关系介绍和政策建议，属于典型的主题声明而非研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性已触发上限。锚定unacceptable档，给15分。扣分合计：检查1（新概念包装旧问题，未说明解释力提升）扣25分；检查2（全文无学者观点交锋）扣20分；检查3（主题声明非研究问题，无问题句）扣30分，扣分后分数为15分（不低于30分下限豁免）。",
+          "evidence_quotes": [
+            "社区矫正对象和性质实际上也是两个具有互构关系的问题。",
+            "在社区矫正对象和性质这一具有互构关系的命题中，显然应先解决基础，即对哪些对象可以进行社区矫正，而后再探讨其性质。"
+          ],
+          "strengths": [
+            "对社区矫正对象与性质的关系进行了系统梳理。"
+          ],
+          "weaknesses": [
+            "仅有主题声明和工作定义，缺乏可争辩的法学问题句。",
+            "所引文献多为观点陈列，未展开学术交锋或揭示理论分歧。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，触发上限50分。全文无问题句，仅有主题声明，最高50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现“XX是否YY”或“如何ZZ”等问题句，仅在解释互构关系并建议先定对象后定性质。"
+            }
+          ],
+          "boundary_note": "本维度评问题是否成立且重要，不评文献综述、论证严密性或材料支撑结论。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "good",
+          "summary": "论文以“互构”视角重构社区矫正对象与性质的争议，提出非监禁刑事处遇定位。",
+          "core_judgment": "问题具有强可争辩性与枢纽性，但“互构”概念包装旧问题削弱了创新性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档给85分；前置扣分20分（新概念包装旧问题），最终65分。",
+          "evidence_quotes": [
+            "社区矫正对象和性质实际上也是两个具有互构关系的问题",
+            "在当今我国社区矫正对象和性质这一具有互构关系的命题中，显然应先解决基础"
+          ],
+          "strengths": [
+            "争议梳理详实，呈现多学派交锋",
+            "提出先定对象后定性质的解题路径"
+          ],
+          "weaknesses": [
+            "“互构”概念借用社会学，未说明解释力提升",
+            "问题设定虽有重构但实质仍属旧争议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出社区矫正对象与性质的互构关系，但实质是对既有学说的系统归纳与立场整合，缺乏真正的理论争点推进。",
+          "core_judgment": "主题声明明确，但可争辩性不足，问题创新性处于marginal档。",
+          "score_rationale": "可争辩性=2/4（有明确问题句且涉及法学层面，但理论分歧呈现为学说罗列而非真正交锋，且大量篇幅是政策倡导式建议），枢纽性=2/4（涉及刑事司法多个制度领域，触及基础概念，但制度连锁论证薄弱），材料新颖性未触发上限。锚定marginal档，给55分。负面模式检查：检查2'宏观介绍非深度分析'扣15分（有学者观点提及但未展开真正交锋）；检查3'主题声明非研究问题'扣20分（大量内容为政策倡导'应如何'而非可争辩的法学争点）。扣分合计35分，但按规则不低于30分。",
+          "evidence_quotes": [
+            "社区矫正对象和性质实际上也是两个具有互构关系的问题",
+            "笔者认为，在社区矫正性质定位问题上不能画地为牢，仅将目光禁锢在现行社区矫正对象的有关规定和范畴上"
+          ],
+          "strengths": [
+            "提出'互构'分析框架，试图整合对象与性质两个维度",
+            "触及刑事司法基础理论问题，涉及多个制度领域"
+          ],
+          "weaknesses": [
+            "学说罗列为主，缺乏真正的理论交锋与推进",
+            "大量篇幅为政策倡导式建议，非可争辩法学争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "互构关系框架宽泛，未能聚焦为具体可辩的法学命题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 73,
+          "band": "good",
+          "summary": "论文以“互构”视角重构社区矫正对象与性质关系，突破定性争议并提出非监禁刑事处遇定位。",
+          "core_judgment": "问题具明确争点与法学深度，但新概念理论增量说明不充分，经强制扣分后落入良好档。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档（88分）。触发新概念包装旧问题扣15分，最终得73分。",
+          "evidence_quotes": [
+            "社区矫正对象和性质实际上也是两个密切联系并相互塑造的具有互构关系的问题。",
+            "首要的问题应是合理确定对象，其次才是定位性质。"
+          ],
+          "strengths": [
+            "精准切入社区矫正性质与范围长期争议",
+            "系统交锋多派学说并提出解构路径"
+          ],
+          "weaknesses": [
+            "“互构”概念解释力提升论证不充分",
+            "部分论述偏向政策倡导与立法建议"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不涉文献综述、逻辑严密性与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 44.548389196395874,
+        "glm-5.1": 50.28502607345581,
+        "kimi-k2.6": 14.339186906814575,
+        "qwen3.6-plus": 99.15658521652222
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 73
+      },
+      "mean": 52,
+      "std": 25.7,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文以社区矫正对象与性质的互构关系为主线，梳理了性质定位、对象范围等多个争点，形成了较为清晰的研究地图，但欠缺对域外比较法流派或跨学科理论流派的系统呈现。",
+          "core_judgment": "论文呈现了多个可区分的学术争点（如性质之争的多派别、对象扩大之争等）和对立立场，研究地图三要素较为完整，但法学流派识别受限于国内法教义学内部争论，缺少更广泛的理论流派对话。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+本文切入点1），争点结构=2/2（性质之争、对象之争等多组对立），法学流派=2个（刑罚执行派 vs 综合处遇/预防矫治派），锚定good(75-84)档，给78分。",
+          "evidence_quotes": [
+            "社区矫正性质定位上的争议乱象...代表性的观点主要有：（1）非监禁刑罚执行说...（2）刑罚执行或社区刑罚执行说...（3）刑罚执行和社会工作说...",
+            "争议表明...首要的问题应是合理确定对象，其次才是定位性质。因为...先有现象...实践先行的路径。"
+          ],
+          "strengths": [
+            "争议梳理清晰：将性质之争组织为“基于法律规定”与“跳出法律规定”两大类，呈现了多组对立观点。",
+            "未竟点与本文切入点基本对应：明确指出现行对象规定的不合理之处，并提出以对象调整作为性质定位的前提。"
+          ],
+          "weaknesses": [
+            "本文切入点与未竟点对应稍弱：未竟点强调对象规定不合理，但本文切入点的具体方案在对应上尚不够直接。",
+            "域外流派或跨学科理论牵连缺失：主要限于国内法教义学内部争论，未系统引入比较法流派或风险管控等跨学科理论作为对话方。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评定的核心是文献梳理与争点呈现，不涉及论文问题的创新性高低；比较法资料未作为流派识别处理，是因为论文主要将其作为历史事实参照，而非作为对立的法学流派进行争论呈现。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "详尽梳理性质与对象多重争点，精准定位未竟点，研究地图完整",
+          "core_judgment": "现状洞察度极高，完整呈现学界流派对立与争点结构，精准切入对象与性质互构关系",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "当今理论和实务界在社区矫正性质问题上分歧巨大...有的是从法律和有关规定出发...而有的则是超出法律和有关规定",
+            "笔者认为...显然应先解决基础，即对哪些对象可以进行社区矫正，而后再探讨其性质"
+          ],
+          "strengths": [
+            "详尽梳理了性质定位的7种以上学说及对象范围争议",
+            "精准指出既有研究混淆现象与本质、忽视对象前提的未竟点"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理深度与争点结构，不评互构理论本身是否创新",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以'互构关系'为框架，系统梳理了社区矫正性质与对象的双向影响，呈现了多组学术争议。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但法学流派识别因分散式呈现而略显模糊，未充分提炼为明确的学派对立。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=2个，锚定good档，给72分。到达点充分：梳理了'刑罚执行说''综合性非监禁处遇措施说'等至少4种代表性观点及其贡献；未竟点充分：指出'简单植入'方式导致与刑法原规定龃龉、对象范围过窄等具体缺陷；切入点部分满足：提出从对象合理性入手再定位性质，但'本文拟'式表述不够明确。争点结构呈现≥2组：性质定位之争（刑罚执行vs非监禁处遇）、对象范围之争（四类罪犯vs扩大适用）。法学流派识别2个：'刑罚执行派'与'非监禁处遇派'构成对立，但保安处分论、风险管控论等未明确纳入学派脉络。",
+          "evidence_quotes": [
+            "前者突出的特点是基于社区矫正适用于被判处管制、宣告缓刑、假释和暂予监外执行的犯罪分子的规定，多数都是以'刑罚执行'为核心定位其性质",
+            "后者突出的特点是跳出'刑罚执行'定位其性质。代表性的观点主要有：（1）综合性非监禁处遇措施说"
+          ],
+          "strengths": [
+            "分散式文献定位有效，正文多处嵌入具体学者观点及文献",
+            "争点结构清晰，性质之争与对象之争形成双重对立"
+          ],
+          "weaknesses": [
+            "切入点表述分散，缺乏'本文拟'式集中声明",
+            "保安处分论、风险管控论等未明确归入学派争论脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性；论文对'互构关系'的原创性主张属于问题创新性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "系统梳理社区矫正性质与对象争议，精准定位既有研究局限，提出互构视角下的处遇定位。",
+          "core_judgment": "研究地图完整清晰，争点脉络分明，流派覆盖充分，文献定位能力卓越。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "当今理论和实务界在社区矫正性质问题上分歧巨大，但仔细梳理和审视各种观点后会发现存在着不同的视角",
+            "地基不牢，建房空劳。枉顾对象规定的不合理直接去定位其性质，不过是就事论事、将错就错。"
+          ],
+          "strengths": [
+            "精准提炼刑罚执行、保安处分、风险管控等五大对立学说脉络",
+            "以互构关系破局，将对象范围争议与性质定位深度绑定"
+          ],
+          "weaknesses": [
+            "部分域外经验引述未充分展开比较法层面的规范对话",
+            "对早期试点文件的批判性文献溯源略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有学说梳理与争议缺口定位，属典型文献洞察维度评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.156463861465454,
+        "glm-5.1": 38.09575605392456,
+        "kimi-k2.6": 13.210381984710693,
+        "qwen3.6-plus": 186.3702208995819
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文以“互构关系”作为分析视角，但未将其转化为可操作的分析框架，全文主要为对象与性质问题的梳理与政策阐释。",
+          "core_judgment": "“互构关系”仅为论文的论述视角而非分析框架，全文未提供可重复适用的分析步骤、判断标准或裁判规则，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（核心术语无明确定义、无分类标准、无分析步骤、后文未实际调用），法学转化度得分=0/4（无跨学科概念转化为法学步骤、无裁判规则或操作指引、无制度设计方案），锚定unacceptable档，给25分。",
+          "evidence_quotes": [
+            "互构是社会学领域经常使用的名词，是指两个事物之间的相互影响、相互作用和相互塑造。",
+            "在这种状况下，在社区矫正对象和性质这一具有互构关系的命题中，显然应先解决基础……而后再探讨其性质。"
+          ],
+          "strengths": [
+            "识别出对象与性质之间存在相互影响的思考路径，具有一定的启发性。"
+          ],
+          "weaknesses": [
+            "“互构关系”只作为宏观论述视角，未形成可操作的分析步骤或判断标准。",
+            "全文以“应如何”的应然主张为主，缺乏从互构概念到具体制度设计的分析框架。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分时触发，最高50分。核心术语无明确定义，无任何可循的分析步骤。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "“互构”仅定义为“相互影响、相互作用和相互塑造”，无分析步骤、无分类标准，全文围绕对象与性质争议展开梳理而非框架化分析。"
+            },
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用，最高60分。",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "“互构”在后文仅以统摄视角出现，未转化为可反复调用的分析步骤，后文各节以问题梳理和应然主张为主。"
+            }
+          ],
+          "boundary_note": "本文问题在于未建构可操作的分析框架，而非框架逻辑是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文将互构关系转化为先对象后性质的解构路径，并给出具体制度方案。",
+          "core_judgment": "框架可操作且法学转化扎实，成功将跨学科概念转化为制度设计指引。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "互构是指两个事物之间的相互影响、相互作用和相互塑造",
+            "首要的问题应是合理确定对象，其次才是定位性质"
+          ],
+          "strengths": [
+            "将社会学互构概念有效转化为先对象后性质的法学解构路径",
+            "提供了社区服务刑易科、分类矫正等具体制度操作方案"
+          ],
+          "weaknesses": [
+            "互构关系的分析步骤略显宏观，细化程度可进一步提升"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价互构理论本身的哲学严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文提出'互构关系'分析视角，但缺乏可操作的类型化框架与判断标准，实为政策理论梳理型论文。",
+          "core_judgment": "分析框架建构力不成立：核心术语'互构'未转化为法学分析步骤，后文未实际调用该框架展开分析。",
+          "score_rationale": "框架可操作性得分=1/4（仅'互构'概念有社会学来源说明，无明确界定、无分类标准、无分析步骤、后文未调用），法学转化度得分=1/4（仅有对象与性质的关联描述，无裁判规则/操作指引/制度设计方案，后文未使用转化步骤）。触发'政策理论梳理型'上限规则，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "互构是社会学领域经常使用的名词，是指两个事物之间的相互影响、相互作用和相互塑造",
+            "社区矫正对象和性质实际上也是两个具有互构关系的问题"
+          ],
+          "strengths": [
+            "选题具有制度现实意义，对象与性质关联视角有一定启发性"
+          ],
+          "weaknesses": [
+            "'互构'未转化为可重复适用的法学分析步骤，沦为描述性标签",
+            "后文未调用'互构'框架，各章节按传统问题展开"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释'互构'概念、梳理社区矫正性质争议、归纳既有观点为主，无原创概念界定或类型化，核心术语来自社会学移植而非论文原创"
+            },
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'互构'仅有社会学来源说明，无'本文所称互构是指...'的法学界定，未提供判断对象与性质互构关系的操作步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身是否成立，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以“互构关系”串联争议，但缺乏可操作分析步骤与明确概念界定。",
+          "core_judgment": "框架偏向宏观论证与文献梳理，未形成具备法学操作性的分析工具，建构力不足。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=1/4，锚定unacceptable档，给45分。核心术语无操作化定义，缺乏裁判步骤，转化仅停留立法倡导。",
+          "evidence_quotes": [
+            "互构是社会学领域经常使用的名词，是指两个事物之间的相互影响、相互作用和相互塑造。",
+            "首要的问题应是合理确定对象，其次才是定位性质。"
+          ],
+          "strengths": [
+            "以“互构关系”串联对象与性质争议，逻辑主线清晰。",
+            "结合管制刑缺陷与附条件不起诉等实务问题展开论证。"
+          ],
+          "weaknesses": [
+            "核心概念缺乏法学操作化定义，无分类边界与判断步骤。",
+            "框架未转化为裁判规则或适用流程，仅停留于立法倡导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无明确概念界定与可重复分析步骤，核心逻辑仅为论证顺序而非操作框架。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.69639015197754,
+        "glm-5.1": 36.60519313812256,
+        "kimi-k2.6": 16.072782039642334,
+        "qwen3.6-plus": 100.83448219299316
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 90,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 45
+      },
+      "mean": 51.2,
+      "std": 27.5,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文围绕“对象与性质互构”这一核心命题，构建了清晰的“现象描述→前提批判→对象重构→性质定位”推理链，结论可从前文推导而出。",
+          "core_judgment": "推理链完整，核心结论'非监禁刑事处遇方法'由先行的对象批判与重构扎实推出，虽反驳论证可进一步显化，但整体逻辑自洽。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3（隐含路径选择并回应了保安处分等替代观点），锚定excellent档，给予82分。",
+          "evidence_quotes": [
+            "首要的问题应是合理确定对象，其次才是定位性质。",
+            "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。"
+          ],
+          "strengths": [
+            "推理链环环相扣：确立互构关系→论证对象先行→逐一审查四类对象→析出性质乱象→导出定位，依赖度强。",
+            "隐含地处理了“保安处分论”等替代学说，并在论证中说明了拒绝理由。"
+          ],
+          "weaknesses": [
+            "反驳多为隐含性回应，缺少显式的反对意见援引，可能在争议处理上略显隐蔽。",
+            "个别人身危险性判断部分逻辑过渡较简，依赖读者理解，但未影响主线链。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论证绕开性质争议直接重构对象，是推理策略选择而非框架缺陷；对象与性质互构的论证已为后续推导提供支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链环环相扣，反驳详实且承认局限，逻辑严密性极高。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可辩护推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "社区矫正对象和性质实际上也是两个具有互构关系的问题...首要的问题应是合理确定对象，其次才是定位性质。",
+            "对于那种认为风险社会理论是当前研究社会问题的一种新范式...应保持一定的警醒。"
+          ],
+          "strengths": [
+            "主线推理依赖度高，对象分析为性质定位提供充分支撑。",
+            "对主流学说（保安处分论等）的驳斥有实质性论证而非仅罗列。"
+          ],
+          "weaknesses": [
+            "管制刑改为社区服务刑并易科监禁刑的局部推导稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估逻辑推导是否支撑结论，不评社区服务刑易科制度的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以'互构关系'为核心线索，构建了'先定对象、再定性质'的推理框架，主线逻辑清晰，但反驳处理不够充分。",
+          "core_judgment": "推理链基本完整，核心结论'非监禁性的刑事处遇方法'可从对象分析中推出，但反驳处理仅满足1项标准，局部存在跳步。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3满足：可复述三步推理链，步骤间有依赖关系，核心结论有前文支撑；标准4部分满足：从'对象扩大必要性'到'性质定位'的过渡有论证，但'刑事处遇方法'优于其他方案的推导存在选择性论证），反驳处理度得分=1/3（标准1满足：识别了'刑罚执行说''保安处分论'等反对意见；标准2不满足：对反对意见的回应多为否定性断言而非实质性论证；标准3不满足：未承认自身理论局限）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "社区矫正对象和性质实际上也是两个具有互构关系的问题...社区矫正对象的规定及范畴会影响到性质的定位；反过来，社区矫正性质的定位也会影响到对象的范畴。",
+            "笔者认为，在社区矫正性质定位问题上不能画地为牢...我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。"
+          ],
+          "strengths": [
+            "以'互构'概念统摄对象与性质的关系，避免单向决定论",
+            "历史分析路径清晰：从域外起源到我国实践先行，论证'先对象后性质'的合理性"
+          ],
+          "weaknesses": [
+            "对'保安处分论'等反对意见的回应以定性否定为主，缺乏对等论证",
+            "从'对象应扩大'到'性质应为刑事处遇'的推导中，未充分排除'刑罚执行说'经修正后仍成立的可能"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否支撑结论，不涉及'互构'框架本身的理论原创性或'刑事处遇'概念的可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“对象-性质互构”为主线，层层递进推导出“非监禁刑事处遇”的应然定位，论证链条完整且反驳充分。",
+          "core_judgment": "推理链严密闭环，核心结论可由前文规范分析与学理辨析可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "首要的问题应是合理确定对象，其次才是定位性质。",
+            "基于此,我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。"
+          ],
+          "strengths": [
+            "对象与性质互构的逻辑起点清晰，三步推理环环相扣。",
+            "对主流学说及实务分歧逐一回应，论证具有实质交锋。"
+          ],
+          "weaknesses": [
+            "部分制度建议的立法成本论证稍显简略。",
+            "对“处遇”概念的本土化适配性推演可进一步深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链是否形成充分支撑链条，不评框架本身是否可操作。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 57.89273691177368,
+        "glm-5.1": 39.62281918525696,
+        "kimi-k2.6": 14.016451120376587,
+        "qwen3.6-plus": 56.41663575172424
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.5,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 76,
+          "band": "good",
+          "summary": "结论提出“非监禁性的刑事处遇方法”定位，回应了刑罚执行说等主流争议，并联系中国制度语境，但未充分承认自身局限。",
+          "core_judgment": "结论可被共同体认真讨论，制度兼容性较好，但未主动回应反对意见，属良好但非卓越的可接受度。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，锚定理论论文excellent档（A≥3且B≥2），但因未满足标准4（主动承认反对意见/局限），在档内给出76分。",
+          "evidence_quotes": [
+            "社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。",
+            "应跳出发展初期有关文件关于其性质规定之窠臼……从基础，即矫正对象的有关规定是否合理……入手来探讨社区矫正性质之应然定位。"
+          ],
+          "strengths": [
+            "结论明确回应“非监禁刑罚执行说”等主流争论，定位清晰。",
+            "结合中国社区矫正立法困境与上位法掣肘，制度语境回应较好。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认“非监禁性刑事处遇方法”可能面临的挑战或自身局限。",
+            "对反对意见（如保安处分论、风险管控论）的回应集中在正文论证，结论中缺乏自我检视。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价结论的可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深度回应学界争议并提出具体制度转化方向，共同体对话与制度兼容性均极佳。",
+          "core_judgment": "结论成功进入共同体语境并给出可争辩的学术主张，且与现行法秩序兼容并指明制度转化路径。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，按制度论文锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "结论修正主流'刑罚执行说'，定位为'非监禁性的刑事处遇方法'并给出三点优势论证",
+            "针对管制刑缺陷，建议'取消空泛规定改为社区服务刑并规定易科制度'"
+          ],
+          "strengths": [
+            "深度回应既有争论并明确修正主流观点",
+            "提出具体的法条修改与对象扩大方案"
+          ],
+          "weaknesses": [
+            "结论对'处遇'概念可能带来的模糊性未充分自省"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体对话与制度可接受性，而非论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出社区矫正性质应定位为'非监禁性的刑事处遇方法'，通过对象与性质的互构关系展开论证，回应了学界主流争议。",
+          "core_judgment": "结论具有明确的学术对话意识和制度语境回应，但部分制度建议的实操性论证可更充分。",
+          "score_rationale": "共同体对话度得分=3/4（回应了非监禁刑罚执行说、保安处分论等主流争议，能被反对者定位；但主动承认的反对意见和自身局限讨论不足），制度可接受度得分=3/4（不与现行法秩序根本矛盾，回应了《社区矫正法》与上位法衔接的约束，考虑了中国制度语境；但制度转化方向可更明确）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者认为，在社区矫正性质定位问题上不能画地为牢，仅将目光禁锢在现行社区矫正对象的有关规定和范畴上",
+            "我国社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当"
+          ],
+          "strengths": [
+            "明确回应并挑战了非监禁刑罚执行说、保安处分论等主流观点",
+            "结合《社区矫正法》立法过程和中国实践困境展开论证"
+          ],
+          "weaknesses": [
+            "对反对意见的回应多分布于正文，结论部分未充分凝练承认自身局限",
+            "部分制度建议（如以社区服务取代管制刑）的实操论证可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论清晰回应学界争议，提出开放性刑事处遇定位及对象扩容方案，高度契合中国法治语境。",
+          "core_judgment": "该维度成立，结论具备强共同体对话能力与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "将社区矫正性质定位为具有相当开放性的非监禁性的刑事处遇方法更为妥当。",
+            "建议取消管制中内容空泛的规定，将其直接改为更具有惩罚内容的社区服务。"
+          ],
+          "strengths": [
+            "精准梳理并回应了刑罚执行说、保安处分论等主流争议。",
+            "制度建议具体明确，直指管制刑虚化与对象范围过窄等实务痛点。"
+          ],
+          "weaknesses": [
+            "对附条件不起诉人纳入矫正的程序衔接细节论证稍显不足。",
+            "社区服务刑易科制度的本土可行性需进一步实证支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.84098196029663,
+        "glm-5.1": 41.80504083633423,
+        "kimi-k2.6": 55.1721773147583,
+        "qwen3.6-plus": 56.608240842819214
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 76,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81,
+      "std": 8.2,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文结语指明了基于互构关系的具体立法修正方向与未来研究入口，延展路径有据可查，但限于宏观建议，精细度与操作性展开不足。",
+          "core_judgment": "存在基于互构分析的具体未来修正方向与审查重点，并非空泛展望，但路径仍较宏观。",
+          "score_rationale": "原始分65分，进入60-79区间，对应bonus=3。主要依据为明确要求修改上位法规定，并指明未来性质争议的审议困境与突破前提，构成可定位的延展路径。",
+          "evidence_quotes": [
+            "作为上位法的刑法、刑事诉讼法，未来应逐步调整和修改其社区矫正对象方面的规定，以为我国社区矫正的发展和立法完善提供前提和空间。",
+            "在社区矫正性质定位问题上不能画地为牢...必须为未来发展留有空间，必须从前瞻性角度考虑刑事法律有关规定的未来修改问题。"
+          ],
+          "strengths": [
+            "明确指向“刑法、刑事诉讼法”的具体修改，由“对象—性质”互构分析支撑，路径可识别。",
+            "点出《社区矫正法》回避性质规定的事实局限，为未来性质立法提供真实争点入口。"
+          ],
+          "weaknesses": [
+            "“逐步调整和修改”等表述仍偏向宏观方向，未进一步提出修改方案或检验条件。",
+            "对附条件不起诉人、剥夺政治权利罪犯的纳入未给出更细致的制度衔接或风险控制步骤。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文关于上位法修改的建议指向“争议应如何继续推进”，而不是说服读者接受当下结论，因此属于未来延展问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "提出了具体的制度修正路径与上位法完善方向，延展路径清晰可定位。",
+          "core_judgment": "存在真实延展路径，指明了社区矫正对象扩大与性质定位的具体制度修正方向及上位法衔接问题。",
+          "score_rationale": "原始分82，对应bonus档位5分（>=80）。文章提出了管制刑改为社区服务刑及易科制度、纳入剥权犯与附条件不起诉人等具体修正路径，结语明确指出需修改上位法对象规定，延展路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "针对管制，建议取消管制中内容空泛的规定，将其直接改为更具有惩罚内容的社区服务...应同时规定社区服务刑的易科制度",
+            "作为上位法的刑法、刑事诉讼法，未来应逐步调整和修改其社区矫正对象方面的规定，以为我国社区矫正的发展和立法完善提供前提和空间"
+          ],
+          "strengths": [
+            "提出了具体的制度修正路径（如社区服务刑及易科制度）。",
+            "明确指出了未来立法需解决的上位法衔接与对象扩大问题。"
+          ],
+          "weaknesses": [
+            "结语对未来立法完善的风险控制与实施细节展开较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "上位法修改与对象范围扩大属于未来制度延展方向，而非当下《社区矫正法》结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语及性质定位部分提出了明确的制度完善方向，包括上位法修改、对象范围扩展及性质重新定位，但缺乏对后续研究争点的系统梳理。",
+          "core_judgment": "存在真实延展路径，主要体现在制度完善方向与理论深化路径上，但精细度有限。",
+          "score_rationale": "原始分62分，bonus=3档。论文明确提出'上位法的刑法、刑事诉讼法未来应逐步调整和修改'、'为未来发展留有空间'等可定位的延展方向，并指出'非监禁性的刑事处遇方法'的开放性定位优势，但缺乏对下一轮研究争点的具体提炼，也未承认正文的具体局限并说明如何推进。",
+          "evidence_quotes": [
+            "作为上位法的刑法、刑事诉讼法，未来应逐步调整和修改其社区矫正对象方面的规定，以为我国社区矫正的发展和立法完善提供前提和空间。",
+            "笔者认为，在社区矫正性质定位问题上不能画地为牢……以发展的眼光来认识其性质定位问题……从刑事一体化角度认识其性质定位问题。"
+          ],
+          "strengths": [
+            "明确提出上位法修改与制度开放的具体方向。",
+            "从'刑事一体化'角度指出审前分流对象纳入的理论空间。"
+          ],
+          "weaknesses": [
+            "未系统提出后续研究争点或检验路径。",
+            "结语部分对正文局限承认不足，延展深度受限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的'上位法修改''对象扩大''性质重新定位'属于未来延展问题，而非当下结论能否被接受的问题；其关于'非监禁性的刑事处遇方法'的论证属于当下性质定位主张，已在前述维度评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于“对象与性质互构”逻辑，明确提出上位法修改与开放性处遇定位的未来延展路径。",
+          "core_judgment": "存在真实且具体的延展路径，紧密衔接正文核心结论。",
+          "score_rationale": "原始分85，对应bonus=5。结语明确指出刑法、刑诉法未来应逐步调整对象规定，正文亦给出管制刑易科、剥夺政治权利与附条件不起诉纳入等具体修法与理论深化方向，路径清晰可定位。",
+          "evidence_quotes": [
+            "作为上位法的刑法、刑事诉讼法，未来应逐步调整和修改其社区矫正对象方面的规定，以为我国社区矫正的发展和立法完善提供前提和空间。",
+            "我国社区矫正尚处于探索、发展阶段，具备相当的张力和可塑性，必须为未来发展留有空间，必须从前瞻性角度考虑刑事法律有关规定的未来修改问题。"
+          ],
+          "strengths": [
+            "延展方向与“互构关系”核心论证高度咬合，逻辑自洽。",
+            "明确指向具体上位法修订与处遇概念扩容，具备制度可操作性。"
+          ],
+          "weaknesses": [
+            "未详细展开修法后的配套程序衔接与执行风险控制机制。",
+            "对“刑事处遇”本土化适用的潜在理论争议预留的反驳入口较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于立法修订方向与理论概念的未来扩容空间，而非评价当前“非监禁刑事处遇”结论在学界的即时接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.250760078430176,
+        "glm-5.1": 36.93576192855835,
+        "kimi-k2.6": 11.435752153396606,
+        "qwen3.6-plus": 61.26317286491394
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 82,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "mean": 73.5,
+      "std": 11.7,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 69.8,
+      "weighted_total": 68.6
+    },
+    "aggregation_strictest": {
+      "final_score": 43.59,
+      "weighted_total": 47.4
+    },
+    "avg_std": 15.4,
+    "max_std": 27.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 26.2,
+    "composite_score": -15.4,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 27.5
+  }
+}

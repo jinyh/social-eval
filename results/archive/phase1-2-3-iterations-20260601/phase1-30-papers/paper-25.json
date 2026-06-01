@@ -1,0 +1,538 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/论算法的法律规制.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入期刊页码与分隔符（如“· 8 3 1 ·”）",
+          "脚注引用存在特殊字符乱码（如“􀆵”“􀆶”）",
+          "末尾英文摘要存在单词粘连与异常断行"
+        ],
+        "evidence_quotes": [
+          "· 8 3 1 ·",
+          "􀆵Algorithmic Challenges to Autonomous Choice",
+          "intoitsownoppositesanddevelopsintoanew externalalienforce"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在中国语境下，反算法歧视尤其应当注意这一点……应当将反算法歧视与精准扶贫等扶助弱势群体结合起来",
+          "算法规制应采取场景化的规制路径，根据不同场景类型对算法采取不同的规制方式，以实现负责任的算法为目标",
+          "我国《民法典》的人格权编除规定隐私权益受保护外，还规定了个人对自身个人信息的查阅、复制、更正等权利"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在OCR页码混入、脚注乱码及英文摘要格式异常，需清洗但不影响核心论证定位",
+        "项目口径：无。四项候选信号均明确触发"
+      ],
+      "evidence_quotes": [
+        "算法规制应采取场景化的规制路径，根据不同场景类型对算法采取不同的规制方式",
+        "在中国语境下，反算法歧视尤其应当注意这一点……应当将反算法歧视与精准扶贫等扶助弱势群体结合起来"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR与排版残留，属低风险工程问题，建议清洗后进入六维评分。论文以中国算法治理实践与本土法律规范为中心，系统批判传统规制路径的可行性与可欲性困境，明确提出“场景化规制”理论框架及差异化制度建构命题，具备高度的法学争辩性与中国实践解释力，完全符合项目口径，建议直接进入六维评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如·8 3 1·等）",
+          "脚注编号散落正文（如①②③等）",
+          "尾部英文摘要及前一篇文章摘要OCR残留且格式混乱（缺少空格与换行）"
+        ],
+        "evidence_quotes": [
+          "·8 3 1·",
+          "①例如在外卖送餐行业,算法被美团、饿了么等企业广为应用",
+          "intoitsownoppositesanddevelopsintoanew externalalienforce"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "算法规制应采取场景化的规制路径,根据不同场景类型对算法采取不同的规制方式,以实现负责任的算法为目标。",
+          "在中国语境下,反算法歧视尤其应当注意这一点……应当将反算法歧视与精准扶贫等扶助弱势群体结合起来。",
+          "我国《民法典》的人格权编除规定隐私权益受保护外,还规定了个人对自身个人信息的查阅、复制、更正等权利。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码、脚注编号及尾部英文摘要OCR残留噪音，需在后续阶段清洗",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "算法规制应采取场景化的规制路径",
+        "在中国语境下,反算法歧视尤其应当注意这一点……应当将反算法歧视与精准扶贫等扶助弱势群体结合起来"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，完全符合进入六维评价标准（以中国问题为中心，提出了场景化规制的法学命题并解释了中国实践难题）。文本存在局部OCR噪音但不影响核心论点定位，建议进入六维评分，并在后续文本工程中清洗页码、脚注标号及英文摘要残留。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 70
+      },
+      "mean": 77.5,
+      "std": 10.6,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "以场景化规制回应传统路径困境，问题明确且具跨部门法枢纽性。",
+          "core_judgment": "问题具备明确争点与法理深度，非单纯政策倡导，创新性成立。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分合计=0，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "如何看待算法崛起对法律规制挑战？本文力图对这一问题进行较为全面的分析。",
+            "算法规制应采取场景化的规制路径，根据不同场景类型对算法采取不同的规制方式"
+          ],
+          "strengths": [
+            "明确对比传统规制路径与场景化路径，呈现理论分歧",
+            "问题横跨公私法领域，触及算法中立性等核心法理"
+          ],
+          "weaknesses": [
+            "核心问题句表述偏宏观，聚焦度可进一步提升",
+            "场景分类的规范转化论证略显概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题争辩性与重要性，不评文献综述、逻辑严密性与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 70,
+          "band": "good",
+          "summary": "指出传统算法规制路径困境，提出场景化规制，问题可争辩且枢纽性强。",
+          "core_judgment": "问题成立且重要，但场景化规制核心概念对既有理论实质性推进稍弱。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档给85分，因新概念包装旧问题扣15分，最终70分。",
+          "evidence_quotes": [
+            "机械适用这些方式面临可行性与可欲性难题",
+            "算法规制应当建立在场景化思维的基础上"
+          ],
+          "strengths": [
+            "问题涉及多制度领域且存在理论分歧",
+            "对传统三大规制路径的困境有深入剖析"
+          ],
+          "weaknesses": [
+            "场景化规制核心概念借用既有理论，解释力提升说明不充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 88.33080697059631,
+        "glm-5.1": 47.66074514389038
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 92
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰勾勒传统规制路径与场景化新范式的学术脉络，研究地图完整，争点结构鲜明。",
+          "core_judgment": "文内充分呈现既有研究贡献、机械适用困境及场景化切入点，研究地图三要素完备。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "传统法律规制主要采取三种方式加以应对:算法公开、个人数据赋权与反算法歧视。",
+            "传统算法规制路径面临困境的根本原因在于忽视算法的场景性...算法规制应采取场景化的规制路径"
+          ],
+          "strengths": [
+            "精准提炼三大传统规制路径的学术贡献与核心主张",
+            "明确揭示机械适用既有路径的可行性与可欲性双重缺口"
+          ],
+          "weaknesses": [
+            "部分跨学科理论（如统计歧视经济学）的法学对话脉络可进一步深化",
+            "场景化分类标准的具体学术争议梳理略显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点脉络呈现，不涉及算法场景化规制命题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准洞察传统规制困境，引入多学科流派支撑场景化规制转向。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "算法公开面临技术不可行、公开无意义、用户算计与侵犯知识产权等难题",
+            "Helen Nissenbaum发展出场景公正理论，将其首先使用在个人数据的收集问题上"
+          ],
+          "strengths": [
+            "精准剖析传统三大规制路径的可行性与可欲性双重困境",
+            "有效引入认知心理学与统计歧视理论等跨学科流派深化争点"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献梳理与争点建构深度，不评问题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 84.62341809272766,
+        "glm-5.1": 727.3744440078735
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "提出“场景化规制”框架，清晰界定算法内涵与场景维度，并成功转化为差异化制度设计。",
+          "core_judgment": "该分析框架成立且具备强可操作性与高法学转化度，能有效指引算法规制路径。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念界定清晰，场景分类标准明确，分析逻辑贯穿全文并直接支撑制度建构。",
+          "evidence_quotes": [
+            "算法可被视为人类和机器交互的决策，即人类通过代码设置、数据运算与机器自动化判断进行决策的一套机制。",
+            "算法规制应当建立在场景化思维的基础上……根据算法运用的不同主体、算法针对的不同对象、算法涉及的不同领域而进行不同类型的规制。"
+          ],
+          "strengths": [
+            "场景分类维度（主体/对象/领域）边界清晰，具备强类型化分析能力。",
+            "将抽象场景理论精准转化为算法公开、数据赋权与反歧视的具体差异化规则。"
+          ],
+          "weaknesses": [
+            "场景化判断缺乏更精细的权重排序或冲突解决机制，多场景交叉时适用指引稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与转化度，不涉及逻辑衔接严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文建构了场景化规制框架，概念清晰、分类明确，法学转化度高，提供了具体制度方案。",
+          "core_judgment": "分析框架高度成立，将跨学科的场景理论成功转化为法学制度设计层面的分类适用流程。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "本文采取介于狭义与广义之间的中义算法定义...将算法界定为人类和机器交互的决策",
+            "算法规制应当采取场景化的规制路径，根据不同场景类型对算法采取不同的规制方式"
+          ],
+          "strengths": [
+            "场景化规制框架分类标准明确，区分主体、对象与问题",
+            "法学转化度高，将场景理论转化为具体的制度适用流程与设计方案"
+          ],
+          "weaknesses": [
+            "场景化规制的具体判断步骤未以显性的'第一步、第二步'等形式提炼",
+            "部分制度方案（如差别性影响审查）的实操细节仍待深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力与法学转化，不评价场景化理论在推理中的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 747.4155511856079,
+        "glm-5.1": 734.2746057510376
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 95
+      },
+      "mean": 92.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建“界定属性→批判传统→提出场景化→建构制度”的严密推理链。",
+          "core_judgment": "推理链条完整递进，核心结论由前文规范分析与场景比较充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "传统规制困境的根本原因在于忽视算法的场景性，故应采取场景化规制路径。",
+            "算法并非价值中立工具，而是深度嵌入价值判断的人机交互决策，具备可规制性。"
+          ],
+          "strengths": [
+            "推理链环环相扣，从属性界定到路径批判再到制度建构，逻辑依赖性强。",
+            "反驳结合可行性与可欲性双重维度展开，对技术中立论的回应扎实。"
+          ],
+          "weaknesses": [
+            "场景化原则向具体制度转化的过渡偏宏观，部分操作细节论证略简。",
+            "中美反歧视语境对比的引入稍显跳跃，与核心推导主线衔接可更紧密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度与反驳处理，不涉框架可操作性或结论偏好。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳处理充分，逻辑严密性极佳。",
+          "core_judgment": "论文从界定算法到批判传统路径再到推导场景化规制，逻辑链条闭环且无关键跳步，本维完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分。推理步骤紧密依赖，核心结论由前文充分支撑推出。",
+          "evidence_quotes": [
+            "一种观点认为算法价值中立……但现代社会中的算法并非实验室里的算法，已经深度介入社会生活的方方面面。",
+            "传统规制面临困境的根本原因在于忽视算法的场景性……算法规制应采取场景化的规制路径。"
+          ],
+          "strengths": [
+            "推理链依赖度高，每步论证为下一步奠定前提",
+            "反驳处理深入，不仅有显式回应还引入反例（如隐形资助）"
+          ],
+          "weaknesses": [
+            "制度建构部分略显发散，局部推理密度稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评价推理链是否充分支撑结论，不评价场景化规制框架本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 48.93756294250488,
+        "glm-5.1": 43.43735218048096
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应传统规制困境，提出场景化原则并完成制度建构，高度契合中国语境。",
+          "core_judgment": "结论具备强共同体对话能力与制度兼容性，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "机械运用传统规制方式……算法规制应当建立在场景化思维的基础上。",
+            "在中国语境下……应当将反算法歧视与精准扶贫等扶助弱势群体结合起来。"
+          ],
+          "strengths": [
+            "精准定位既有争论并提出场景化修正方案",
+            "制度建构紧扣中国本土实践与现行法框架"
+          ],
+          "weaknesses": [
+            "场景分类的司法裁量标准可进一步细化",
+            "跨部门法协同规制的程序衔接机制未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论提出场景化规制路径，与中国制度语境高度兼容，共同体对话充分。",
+          "core_judgment": "结论成功修正既有规制路径并给出具体制度建构方向，在共同体对话与制度兼容上表现优异。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "算法规制应当采取场景化的规制路径，根据不同场景类型对算法采取不同的规制方式",
+            "在中国语境下，反算法歧视尤其应当注意这一点...应当将反算法歧视与精准扶贫等扶助弱势群体结合起来"
+          ],
+          "strengths": [
+            "结论明确修正传统规制路径，提出场景化规制替代方案",
+            "制度建构紧密结合中国语境与现行法秩序，转化方向清晰"
+          ],
+          "weaknesses": [
+            "结论未主动承认场景化规制可能面临的碎片化或操作性局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.42582488059998,
+        "glm-5.1": 43.0053870677948
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 75
+      },
+      "mean": 77.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文以场景化规制为核心，清晰勾勒出算法公开分级、数据动态治理及本土化反歧视等制度深化路径。",
+          "core_judgment": "存在真实延展路径，明确指向制度细化方向与本土化适用场景。",
+          "score_rationale": "原始分80，映射bonus=5。论文基于场景化规制核心结论，明确指向算法公开分级、数据动态治理及本土化反歧视等制度深化方向，路径清晰且与正文紧密衔接，满足最高档加分条件。",
+          "evidence_quotes": [
+            "算法规制应当采取场景化的规制方式,根据不同场景类型而对算法采取不同的规制方式。",
+            "在中国,反算法歧视更应注重弱势群体保护,注重身份因素与弱势群体保护之间的关联。"
+          ],
+          "strengths": [
+            "场景化框架为后续制度细化提供明确坐标。",
+            "结合本土语境提出反歧视向弱势群体保护延伸。"
+          ],
+          "weaknesses": [
+            "未明确列出待检验的具体实证争点或反驳入口。",
+            "制度建构偏宏观，缺乏具体规则衔接的微观推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“场景化规制”框架提出后，未来制度细化与本土化适用的具体推进方向，而非评判该框架当下是否被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "提出场景化规制的宏观制度完善方向，指明不同场景下的规制边界，但缺乏具体后续研究问题与局限反思。",
+          "core_judgment": "存在真实延展路径，指明了场景化规制的制度深化方向与适用边界。",
+          "score_rationale": "原始分75，对应bonus档位3（>=60）。文章提出场景化规制作为制度完善方向，并给出公权力/商业等适用边界，路径明确但精细度有限，未提出具体后续研究问题。",
+          "evidence_quotes": [
+            "算法规制应当采取场景化的规制方式，根据不同场景类型而对算法采取不同的规制方式。",
+            "在中国，反算法歧视更应注重弱势群体保护，注重身份因素与弱势群体保护之间的关联。"
+          ],
+          "strengths": [
+            "提出场景化规制的宏观制度完善方向，与正文核心结论紧密衔接。",
+            "指明了算法公开、数据赋权在不同场景下的适用边界与风险控制。"
+          ],
+          "weaknesses": [
+            "缺乏对场景化规制自身局限的反思及后续精细化研究问题。",
+            "结尾存在“算法才有可能真正造福社会”的轻微口号式拔高。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "场景化规制的具体分类标准及场景冲突解决机制属于未来延展问题，而非当下结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.80118012428284,
+        "glm-5.1": 41.516438007354736
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 4.0,
+    "max_std": 10.6,
+    "weighted_total": 86.8,
+    "final_score": 90.03,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 4.33,
+    "worst_dimension": "problem_originality",
+    "worst_std": 10.6
+  }
+}

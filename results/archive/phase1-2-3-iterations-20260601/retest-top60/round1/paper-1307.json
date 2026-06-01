@@ -1,0 +1,998 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1307-法学研究-2020-4-刑民交叉实体问题的解决路径——_法律效果论_之展开-陈少青-对外经济贸易大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留脚注编号混入正文（如〔１〕〔２〕等），但不影响核心论点定位",
+          "文末英文摘要格式整齐可读，无严重抽取失败"
+        ],
+        "evidence_quotes": [
+          "最高人民法院《关于审理民间借贷案件适用法律若干问题的规定》（以下简称“民间借贷规",
+          "肯定犯罪行为影响合同效力的，参见最高人民法院（２０１３）民二终字第５１号民事判决书。否定的观点，参",
+          "见最高人民法院（２０１５）民申字第９５６号民事裁定书。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文通过反思民事违法概念，否定刑民规范在“行为评价”层面的可通约性，转而在“适用结果”层面确立刑民规范互通的媒介，以“法律效果”为连接点",
+          "根据法律效果论，如果刑民评价的法律事实不同，或刑民评价的法律事实相同且刑民规范目的整体一致，则刑民规范适用各自独立；如果刑民评价的法律事实相同但刑民规范目的明显对立，则刑民分立的处理模式预示着刑民规范适用最后还是要各自独立",
+          "帅英通过故意篡改被保险人年龄，找他人代为体检等方式...司法实践以评价对象为主线，剥离出刑民法律效果无法兼容的案件类型"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR残留或排版碎片，但核心论证可读",
+        "所提“法律效果论”是否形成可验证的命题，后续六维评分需进一步识别其在整体框架中的独立性"
+      ],
+      "evidence_quotes": [
+        "现实生活中，绝大部分刑事案件会同时涉及民事救济...狭义的刑民交叉是本文的研究对象。",
+        "问题的最终落脚点是刑法和民法的规范适用是否相互影响以及在何种范围内相互影响。",
+        "造成上述困境的原因在于，将刑民交叉实体问题的解决路径建立在违法性层面...确定有效的刑民规范适用连接点...以“法律效果”为连接点。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文项目口径完全符合进入六维评价的条件，文本质量存在低风险但不影响评审，可直接进入评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "日文文献人名及术语存在OCR乱码（如将“龟”识别为“!”、“仞”识别为“#”、“总”识别为“$”、“荣”识别为“&”、“团”识别为“(”等）",
+          "期刊页码混入正文段落之间（如·３７·、·４７·等）"
+        ],
+        "evidence_quotes": [
+          "［日］木村!二：《违法性の统一性の理论》",
+          "参见［日］佐伯千#：《刑法讲义（$论）》",
+          "［日］我妻&：《债'各论》下卷",
+          "·３７·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文通过反思民事违法概念，否定刑民规范在“行为评价”层面的可通约性，转而在“适用结果”层面确立刑民规范互通的媒介，以“法律效果”为连接点，判断刑民法律效果在法秩序中能否共存",
+          "以帅英骗保案、杨涛表见代理诈骗案等中国司法实践中的真实难题为分析对象，解释民法权利归属（如不可抗辩条款、表见代理）与刑法犯罪认定的冲突",
+          "剥离出刑民法律效果无法兼容的案件类型（相对冲突型与绝对冲突型），引入刑法补充性原则来贯彻法秩序统一性原则，为刑民交叉实体问题提供体系化的解决路径"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：日文文献人名及术语OCR乱码需后续人工校对修复",
+        "文本工程：混入的期刊页码需在清洗阶段剔除"
+      ],
+      "evidence_quotes": [
+        "转而在“适用结果”层面确立刑民规范互通的媒介，以“法律效果”为连接点"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；建议在后续文本工程阶段对日文文献人名OCR乱码（如木村!二、佐伯千#等）及混入的期刊页码进行清洗校对，以保障评分时引用证据的准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如〔１〕〔２〕等全角括号数字），但不影响内容识别",
+          "部分日文文献作者名存在OCR识别问题（如〔日〕木村!二、〔日〕佐伯千#等，符号替换为!、#）",
+          "文末英文摘要存在连字符缺失问题（如\"ｅｖａｌｕａｔｉｏｎ\"）",
+          "参考文献列表标注为\"（无）\"，实际为抽取失败，但文内脚注引用完整"
+        ],
+        "evidence_quotes": [
+          "〔１〕肯定犯罪行为影响合同效力的，参见最高人民法院（２０１３）民二终字第５１号民事判决书",
+          "［日］木村!二：《违法性の统一性の理论》",
+          "ｅｖａｌｕａｔｉｏｎ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文通过反思民事违法概念，否定刑民规范在'行为评价'层面的可通约性，转而在'适用结果'层面确立刑民规范互通的媒介",
+          "以'法律效果'为连接点，判断刑民法律效果在法秩序中能否共存；并且基于我国司法实践经验",
+          "帅英案、杨涛案等中国司法实践案例的体系化分析",
+          "引入刑法补充性原则来贯彻法秩序统一性原则，从而消解冲突，为刑民交叉实体问题提供体系化的解决路径"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：日文文献作者OCR符号替换问题",
+        "文本工程：文末参考文献列表抽取失败，但文内脚注完整可替代",
+        "文本工程：英文摘要连字符断裂，不影响中文主体评审"
+      ],
+      "evidence_quotes": [
+        "本文通过反思民事违法概念，否定刑民规范在'行为评价'层面的可通约性，转而在'适用结果'层面确立刑民规范互通的媒介，以'法律效果'为连接点",
+        "基于我国司法实践经验，以评价对象为主线，剥离出刑民法律效果无法兼容的案件类型，引入刑法补充性原则来贯彻法秩序统一性原则"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国刑民交叉实体问题为核心研究对象，基于中国司法实践（帅英案、杨涛案、非法集资案件等），提出'法律效果论'作为替代'违法论'的体系化解决方案，具有明确的中国问题意识、可争辩的法学理论命题和理论转化贡献。文本质量风险较低，仅存在局部OCR符号问题，不影响核心评审。建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致部分日文作者姓名及特殊符号乱码（如“!二”“#”“&”“?”等）",
+          "期刊页码标记（如“· ３ ７ ·”）与脚注编号混入正文行首",
+          "参考文献列表未完整抽取，仅保留正文脚注"
+        ],
+        "evidence_quotes": [
+          "〔５〕 ［日］木村!二：《违法性の统一性の理论》...",
+          "〔３５〕 参见［日］我妻&：《债'各论》下卷（一）...",
+          "· ３ ７ ·\n\n〔１〕\n对外经济贸易大学法学院讲师。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“狭义的刑民交叉是本文的研究对象。”",
+          "“本文通过反思民事违法概念，否定刑民规范在‘行为评价’层面的可通约性，转而在‘适用结果’层面确立刑民规范互通的媒介，以‘法律效果’为连接点……”",
+          "“基于我国司法实践经验，以评价对象为主线，剥离出刑民法律效果无法兼容的案件类型，引入刑法补充性原则来贯彻法秩序统一性原则……”",
+          "“最高人民法院《关于审理民间借贷案件适用法律若干问题的规定》……《全国法院民商事审判工作会议纪要》……”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在少量OCR乱码与页码混排，但不影响核心论证与结构定位；项目口径完全符合六维评价标准。"
+      ],
+      "evidence_quotes": [
+        "刑民交叉实体问题的处理应从违法论转向法律效果论，刑民交叉的本质并非违法性的交叉，而是法律效果的交叉。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留，建议人工校对脚注与参考文献格式；项目口径高度契合，具备明确的中国问题意识、可争辩的法学命题（违法论批判与法律效果论构建）及本土实践解释力，建议直接进入六维评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "本文提出了刑民交叉实体问题的“法律效果论”这一新分析路径，区分了相对冲突与绝对冲突两种类型，具有明确的理论争点。",
+          "core_judgment": "论文从否定“违法论”出发，提出以“法律效果”作为连接点，成功建构了一个可争辩的法学新问题并触及法秩序统一性等枢纽性议题。",
+          "score_rationale": "可争辩性=3/4，枢纽性=3/4，材料新颖性未触发上限，锚定 excellent 档，但可争辩性未满满足政策性锚定，给予 72 分。",
+          "evidence_quotes": [
+            "“本文通过反思民事违法概念，否定刑民规范在‘行为评价’层面的可通约性，转而在‘适用结果’层面确立刑民规范互通的媒介，以‘法律效果’为连接点。”",
+            "“在刑民交叉领域，违法性不是刑民规范适用的连接点，二次规范性概念应当被舍弃，以法律效果为对象的补充性原则是维系法秩序合目的性统一的唯一之选。”"
+          ],
+          "strengths": [
+            "明确质疑通行的“违法论”，提出“法律效果论”作为替代性分析框架，形成清晰的理论争议点。",
+            "问题不仅涉及法秩序统一性这一长期枢纽争点，还通过类型化思路给出了影响多个制度领域的解决方案。"
+          ],
+          "weaknesses": [
+            "论文部分描述属于体系建构，对“法律效果论”的理论进步性说明尚可进一步深化。",
+            "虽然提到了不同学者观点，但个别部分的交锋展开可以更充分。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题是否成立且可争辩，不评价文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "重构刑民交叉连接点，从违法性转向法律效果，解决实体冲突。",
+          "core_judgment": "问题成立且枢纽性极强，将经典争点从行为评价转向适用结果，范式转换成功。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "刑法上成立犯罪是否影响民事行为的效力？民法确立的权利归属是否影响刑法的犯罪认定？",
+            "否定行为评价层面可通约性，转而在适用结果层面确立刑民规范互通的媒介"
+          ],
+          "strengths": [
+            "争点明确，触及违法一元与相对论的核心分歧",
+            "范式转换带来解释路径与规范命题的实质推进"
+          ],
+          "weaknesses": [
+            "绝对冲突型中规范目的优先性的权衡标准稍显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "只评问题成立性与重要性，不评论证严密性与文献充分性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出'法律效果论'替代'违法论'，重构刑民交叉实体问题的解决路径。",
+          "core_judgment": "论文提出了明确可争辩的法学核心问题，以理论分歧为驱动，具有显著的枢纽性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。扣分合计=0分。",
+          "evidence_quotes": [
+            "上述问题的最终落脚点是刑法和民法的规范适用是否相互影响以及在何种范围内相互影响。",
+            "本文通过反思民事违法概念，否定刑民规范在'行为评价'层面的可通约性，转而在'适用结果'层面确立刑民规范互通的媒介。"
+          ],
+          "strengths": [
+            "问题明确聚焦刑民交叉核心争点，具有高度可争辩性。",
+            "理论建构具有枢纽性，影响刑法与民法多个制度领域。"
+          ],
+          "weaknesses": [
+            "部分案例讨论较为繁复，可能稀释核心问题的聚焦度。",
+            "对'法律效果论'的命名略显包装性，但实质推进充分。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准提炼刑民交叉难题，以法律效果论重构规范协调路径，理论推进显著。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，理论框架突破传统违法论，符合优秀标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置负面检查扣分合计0分。",
+          "evidence_quotes": [
+            "刑民交叉实体问题的解决路径，首先需要找到刑民规范适用的连接点。",
+            "本文通过反思民事违法概念，否定刑民规范在‘行为评价’层面的可通约性，转而在‘适用结果’层面确立刑民规范互通的媒介"
+          ],
+          "strengths": [
+            "精准识别违法论的理论缺陷与司法困境",
+            "提出法律效果论实现刑民规范目的协调"
+          ],
+          "weaknesses": [
+            "法律效果共通性的论证可进一步结合实证",
+            "刑民分立的适用边界在复杂案件中或存模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、逻辑严密性与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.063955068588257,
+        "glm-5.1": 71.1097481250763,
+        "kimi-k2.6": 13.544968843460083,
+        "qwen3.6-plus": 54.67322111129761
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83.8,
+      "std": 8.1,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，系统梳理了“违法一元论”与“违法相对论”两种对立路径，并在此基础上明确提出了理论转向的切入点。",
+          "core_judgment": "作者对“违法论”内部的理论争点和适用缺陷进行了深度剖析，形成了稳固的争点结构，法学流派定位精准。",
+          "score_rationale": "三要素得分=6/6（到达点2+未竟点2+切入点2），争点结构=2/2（呈现违法一元论与违法相对论的实质对立及与法律效果论的分歧），法学流派=2个（违法一元论、违法相对论），锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "现有理论将连接点定位于“违法性”概念...形成了违法一元论与违法相对论两种观点（统称为“违法论”）。",
+            "然而，违法论不能有效处理刑民交叉实体问题...本文将连接点转向“法律效果”层面。"
+          ],
+          "strengths": [
+            "争点结构完整：精准提炼了“违法一元论”与“违法相对论”的核心分歧，并深入剖析了各自的逻辑缺陷。",
+            "研究地图清晰：归纳了既有研究的贡献与误判，明确指出了“违法论”因连接点选择错误而陷入困境，进而确立了“法律效果论”的切入点。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评分的核心是作者对既有学术争论脉络的梳理深度（争点结构），而非其提出的“法律效果论”本身是否具有创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "精准定位既有违法论争点，提出法律效果论新路径，研究地图完整。",
+          "core_judgment": "文献洞察维度高度成立，清晰呈现违法一元论与相对论之争及本文切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "现有理论将连接点定位于‘违法性’概念……形成了违法一元论与违法相对论两种观点",
+            "然而，违法论不能有效处理刑民交叉实体问题……违法论未能厘清产生问题的根源"
+          ],
+          "strengths": [
+            "精准提炼既有违法论两大流派及理论缺陷，未竟点明确。",
+            "本文切入点与未竟点直接对应，争点结构清晰。"
+          ],
+          "weaknesses": [
+            "民法内部流派梳理稍弱，多聚焦具体学说而非宏观流派对立。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评法律效果论本身的逻辑严密性或创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文构建了以'违法论'到'法律效果论'的学术对话脉络，清晰呈现刑民交叉研究的争点结构与理论演进。",
+          "core_judgment": "研究地图三要素完整，争点结构明确，法学流派识别充分，满足文献洞察力的良好标准。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=3个（违法一元论、违法相对论、法律效果论），锚定good档，给82分。",
+          "evidence_quotes": [
+            "形成了违法一元论与违法相对论两种观点（统称为'违法论'）",
+            "然而，违法论不能有效处理刑民交叉实体问题……本文通过反思民事违法概念，否定刑民规范在'行为评价'层面的可通约性，转而在'适用结果'层面确立刑民规范互通的媒介"
+          ],
+          "strengths": [
+            "明确提炼'违法一元论vs违法相对论'的学术对立，并指出二者共同缺陷",
+            "以'法律效果论'作为新解释路径，形成三派理论对话格局"
+          ],
+          "weaknesses": [
+            "未充分引述国内既有'法律效果论'相关研究，到达点中国内文献稍显薄弱",
+            "对民法学者关于民事违法概念的既有研究梳理可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位清晰度，不评价'法律效果论'本身是否新颖或论证是否成立。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒刑民交叉连接点的学术脉络，精准定位违法论缺陷并确立法律效果论切入点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别准确，文献定位充分支撑本文论证。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "现有理论将连接点定位于“违法性”概念……形成了违法一元论与违法相对论两种观点",
+            "然而，违法论不能有效处理刑民交叉实体问题……造成困境的原因在于路径建立在违法性层面"
+          ],
+          "strengths": [
+            "三要素完整且高度对应，精准提炼既有理论贡献",
+            "争点结构严密，以违法论与法律效果论的对立展开论证"
+          ],
+          "weaknesses": [
+            "文献梳理集中于违法论内部，对跨部门法协同研究覆盖略窄",
+            "部分裁判观点引述未充分展开实证数据支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有理论脉络梳理与争点定位，非评价问题本身新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.638603925704956,
+        "glm-5.1": 84.3774139881134,
+        "kimi-k2.6": 12.987498998641968,
+        "qwen3.6-plus": 69.79191207885742
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 88,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 80
+      },
+      "mean": 85.5,
+      "std": 5.5,
+      "strictest": 80,
+      "strictest_model": "qwen3.6-plus"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出了原创的“法律效果论”分析框架，以“评价对象同一性”和“规范目的一致性”为分类标准，提供了可操作的解决路径，并在后文有效调用。",
+          "core_judgment": "该框架具有原创性和法学转化度，但其宏观层级的概念界定与部分微观操作步骤之间的衔接尚不充分，限制了其最高的可操作性得分。",
+          "score_rationale": "框架可操作性得分=3/4（概念清晰，分类明确，后文调用充分，但标准3分析步骤多针对最终类型而非统一前置判断流程），法学转化度得分=3/4（转化为裁判指引，提供制度设计方案，但理论到具体裁判规则的转化中间层级不够细化），锚定good档（60-69）但基于其高度原创性与后文强调用，上浮至78分。",
+          "evidence_quotes": [
+            "以‘法律效果’为连接点，判断刑民法律效果在法秩序中能否共存...引入刑法补充性原则来贯彻法秩序统一性原则。",
+            "以评价对象为主线...如果刑民评价对象不同，法律效果差异被容许；如果评价对象同一且规范目的对立，则需在事实层面拆分案件，实现刑民分立。"
+          ],
+          "strengths": [
+            "原创的“法律效果论”从根本上重构了刑民交叉的连接点，超越了传统的“违法论”争论，具有高度理论创新性。",
+            "框架提供了“评价对象同一性→规范目的一致性”的双层分类标准，将复杂的实践问题清晰地区分为三种处理类型，具备极强的可操作性。"
+          ],
+          "weaknesses": [
+            "标准3分析步骤存在断层：框架明确了“相对冲突”与“绝对冲突”的处理原则，但未抽象出统一的、前置化的判断操作步骤（如先判断X，再判断Y）。",
+            "核心术语“法律效果”定义为“实质的权利义务归属”，但在“相对冲突”类型中，该实质效果与形式上“合同有效/无效”的关系边界未能完全澄清。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅针对“法律效果论”框架本身的结构完整性与可操作性，不评价该理论本身是否完美解决了所有刑民交叉问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "框架建构力极强，提出了清晰可操作的“法律效果论”分析步骤。",
+          "core_judgment": "该维度完全成立，框架概念清晰、步骤可循且法学转化度高。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文中的“法律效果”限于实质层面，特指刑民规范评价所实现的权利义务归属。",
+            "以评价对象为主线，剥离出刑民法律效果无法兼容的案件类型，引入刑法补充性原则..."
+          ],
+          "strengths": [
+            "概念界定清晰，分类标准明确（评价对象同一性+规范目的一致性）。",
+            "分析步骤可循且后文完美调用（帅英案、杨涛案等）。"
+          ],
+          "weaknesses": [
+            "绝对冲突型的“目的性限缩”仍需价值权衡，操作客观性略有不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不评推理逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文建构了'法律效果论'替代'违法论'，以评价对象同一性、规范目的一致性为分析框架，提供相对冲突与绝对冲突的类型化解决路径。",
+          "core_judgment": "分析框架成立且具有可操作性，'法律效果论'作为原创核心概念贯穿全文，完成了从理论建构到案例应用的完整转化。",
+          "score_rationale": "框架可操作性得分=4/4（概念界定清晰、分类标准明确、分析步骤可循、后文实际调用）；法学转化度得分=3/4（转化为裁判分析步骤、提供类型化操作指引、有制度设计方案雏形、后文反复使用）；锚定excellent档，给82分。扣减因制度设计层面方案尚未完全展开。",
+          "evidence_quotes": [
+            "以'法律效果'为连接点，判断刑民法律效果在法秩序中能否共存；并且基于我国司法实践经验，以评价对象为主线，剥离出刑民法律效果无法兼容的案件类型",
+            "以刑民规范目的在整体上是否一致为标准，可以将法律效果冲突分为两种类型：相对冲突型与绝对冲突型"
+          ],
+          "strengths": [
+            "原创提出'法律效果论'替代既有'违法论'，概念界定清晰且体系自洽",
+            "类型化分析框架（相对冲突/绝对冲突）具有明确的判断标准和操作步骤"
+          ],
+          "weaknesses": [
+            "绝对冲突型的'刑民分立'方案对民法规范的限缩解释路径尚待细化",
+            "类型二（民事权利归属影响犯罪认定）的分析精细度优于类型一"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及具体案例论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“法律效果论”框架，以评价对象同一性与规范目的协调性为核心，提供刑民交叉体系化分析路径。",
+          "core_judgment": "框架概念清晰、分类明确、步骤可循且后文充分调用，法学转化度高，完全成立。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文中的“法律效果”限于实质层面，特指刑民规范评价所实现的权利义务归属。",
+            "若刑民规范目的整体一致则综合考量，若明显对立则对民法规范进行合目的性限缩解释。"
+          ],
+          "strengths": [
+            "核心概念界定清晰，构建“评价对象+规范目的”双层判断标准。",
+            "分析步骤严密可循，提供可重复适用的教义学分析路径。"
+          ],
+          "weaknesses": [
+            "“规范目的优先性”权衡标准偏抽象，司法裁量空间较大。",
+            "绝对冲突型方案依赖民法目的性限缩，跨法域协调成本较高。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.00135588645935,
+        "glm-5.1": 62.53623676300049,
+        "kimi-k2.6": 14.47412919998169,
+        "qwen3.6-plus": 52.216718673706055
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86,
+      "std": 7.1,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文理论框架清晰，推理链条完整，且积极回应了学界既有观点，逻辑支撑力较强。",
+          "core_judgment": "该文从批判旧范式到提出新范式，步步推进，核心结论可较好地从前文推出，逻辑成立。",
+          "score_rationale": "推理链完整性得分=4/4。反驳处理度得分=3/3。通过分析论文类型为理论型，其逻辑严密度表现卓越，锚定excellent档。因在规范目的论证环节局部有跳跃，给予82分。",
+          "evidence_quotes": [
+            "“违法论存在比较明显的理论缺陷...违法论未能厘清产生问题的根源...应将连接点转向适用结果”",
+            "“以刑民规范目的在整体上是否一致为标准，可以将法律效果冲突分为两种类型，分别为之设立解消冲突的路径”"
+          ],
+          "strengths": [
+            "推理主线极为完整：从诊断“违法论”局限，到确立“法律效果论”框架，再推导出具体解决方案，环环相扣。",
+            "反驳意识充分，不仅系统回应“违法一元论”与“相对论”，还通过承认规范目的“争议性”来展示自身适用边界。"
+          ],
+          "weaknesses": [
+            "从“规范目的”推导到“排除故意欺诈说”等具体民法解释结论时，论证跨度稍大，依赖外部理论资源。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "文中多次引用他国理论与案例，属于理论型论文中规范的概念推演，并非直接将外国法作为中国问题的逻辑前提，故不存在比较法基准不一致的逻辑问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文从批判违法论到建构法律效果论，推理链完整且反驳处理充分，逻辑严密。",
+          "core_judgment": "本维度完全成立，推理链形成充分支撑，核心结论可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "违法论不能有效处理刑民交叉实体问题……将刑民交叉实体问题的解决路径建立在违法性层面……才使解决思路发生偏离",
+            "在绝对冲突型中……需回溯产生冲突的缘由……对民法规范进行合目的性限缩解释"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从破到立再到用，依赖度极高",
+            "对对立理论及潜在疑虑均有实质性回应与论证"
+          ],
+          "weaknesses": [
+            "局部从绝对冲突到限缩民法规范的过渡略显跳跃，补充性原则的优先性论证可更细"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评判聚焦推演严密性，不评价不可抗辩条款限缩解释在民法界的可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建'违法论批判→法律效果论建构→类型化适用'的完整推理链，逻辑推进清晰。",
+          "core_judgment": "推理链完整且相互支撑，反驳处理充分，核心结论可由前文辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。论文先批判违法一元论与违法相对论，再提出法律效果论，进而类型化分析相对冲突型与绝对冲突型，最后回归具体案例检验，四步推理环环相扣；对两种违法论的批判均呈现反对意见并实质回应，且明确承认法律效果论适用边界。",
+          "evidence_quotes": [
+            "违法论试图在行为评价层面对接刑民规范，但是，民法侧重行为的有效／无效，刑法侧重行为的合法／违法，二者之间的错位使得规范互通变得不可能",
+            "刑民规范适用各自独立，没有交错的空间……这是因为，刑民规范即便适用于同一案件，二者评价的法律事实也可能不同"
+          ],
+          "strengths": [
+            "推理步骤环环相扣：批判违法论→提出法律效果论→引入补充性原则→类型化冲突→案例检验",
+            "对违法一元论和违法相对论的批判均呈现反对观点并给出实质回应"
+          ],
+          "weaknesses": [
+            "从'法律效果冲突'到'刑民分立'的过渡中，对'事实层面拆分'的操作标准论证可更充分",
+            "绝对冲突型中'规范目的优先性'的判断标准尚待细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'法律效果论'本身作为分析框架的建构力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了从“违法论”到“法律效果论”的完整推理链，核心结论由概念批判、连接点转换与类型化检验充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，对既有学说的反驳处理扎实，结论可辩护性强，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文通过反思民事违法概念，否定刑民规范在“行为评价”层面的可通约性，转而在“适用结果”层面确立刑民规范互通的媒介",
+            "在绝对冲突型中……真正可以调整的是同一案件事实，即在事实层面对刑民评价对象进行区分，为二者隔离出不同的规范适用区间"
+          ],
+          "strengths": [
+            "推理步骤清晰递进，批判旧说与建构新说形成严密逻辑闭环",
+            "对违法一元论与相对论的批驳结合典型案例，论证扎实且具针对性"
+          ],
+          "weaknesses": [
+            "“法律效果”实质共通性的论证稍显抽象，跨法域权利归属转换的教义学衔接可更细化",
+            "对民法规范目的性限缩的边界条件论述略简，实务操作中的裁量标准未充分展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链推导与反驳回应质量，不涉及“法律效果论”框架在司法实务中的可操作性评估。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.337113857269287,
+        "glm-5.1": 65.48842692375183,
+        "kimi-k2.6": 21.2846360206604,
+        "qwen3.6-plus": 54.66141700744629
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.8,
+      "std": 5.1,
+      "strictest": 82,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在批判主流“违法论”的基础上提出“法律效果论”，能与既有争论深度对话，对中国制度实践有所回应，但未充分讨论反对意见或自身局限。",
+          "core_judgment": "结论具备较高的共同体对话度和一定的制度兼容性，但缺乏对明显反对意见的直接回应，限制了其在学术市场中可被接受的广度。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，按理论论文锚定‘good’档（70-79分），因未讨论反对意见略减，给72分。",
+          "evidence_quotes": [
+            "造成上述困境的原因在于，将刑民交叉实体问题的解决路径建立在违法性层面。...本文通过反思民事违法概念...转而在“适用结果”层面确立刑民规范互通的媒介，以“法律效果”为连接点。",
+            "法律效果论注重对民法规范的解读，强调刑法和民法双向沟通、共同努力，而不要求刑法“削足适履”。"
+          ],
+          "strengths": [
+            "结论明确回应了主流学术争论（违法一元论与相对论），将自己置于争论中进行批判与重构，对话度强。",
+            "结论紧扣中国司法实践经验与具体案型（如帅英案、杨涛案），在制度语境中展开论证，非单纯理论移植。"
+          ],
+          "weaknesses": [
+            "结论部分未主动讨论或承认“法律效果论”可能面临的明显反对意见（如法律效果冲突判断标准的模糊性）。",
+            "对“刑民分立”最终结论可能削弱法秩序统一性功能的潜在质疑未做回应，缺乏自我局限的讨论。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证逻辑严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论提出法律效果论替代违法论，高度回应共同体争论与中国制度语境。",
+          "core_judgment": "结论在共同体对话度与制度可接受度上均表现优异，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "本文通过反思民事违法概念……转而在“适用结果”层面确立刑民规范互通的媒介，以“法律效果”为连接点",
+            "对于上述结论可能会有如下疑虑：在民法理论内部，围绕不可抗辩条款是否应排除故意欺诈仍不乏争议"
+          ],
+          "strengths": [
+            "明确提出法律效果论替代违法论，可被反对者定位反驳",
+            "主动承认并回应民法理论内部的反对疑虑"
+          ],
+          "weaknesses": [
+            "绝对冲突型下的目的性限缩解释在司法实务中可能缺乏明确操作标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "以法律效果论替代违法论处理刑民交叉问题，理论建构清晰且回应中国司法实践。",
+          "core_judgment": "论文结论在理论层面具有可接受性，成功进入刑法学共同体对话语境，与现行法秩序兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分。论文明确回应违法一元论与违法相对论之争，提出法律效果论作为替代方案；反对者可清晰定位其理论立场并构造反驳；结论基于中国司法实践（帅英案、杨涛案、民间借贷规定等）展开；主动讨论反对意见（如不可抗辩条款排除故意欺诈说的争议）。制度层面不矛盾，回应了刑法补充性原则与法秩序统一性的关系，指出制度转化方向（刑民分立、目的性限缩解释）。",
+          "evidence_quotes": [
+            "本文通过反思民事违法概念，否定刑民规范在'行为评价'层面的可通约性，转而在'适用结果'层面确立刑民规范互通的媒介",
+            "当然，对于上述结论可能会有如下疑虑：在民法理论内部，围绕不可抗辩条款是否应排除故意欺诈仍不乏争议，怎能将一种争议观点作为处理刑民交叉实体问题的良方？"
+          ],
+          "strengths": [
+            "明确回应并挑战违法一元论与违法相对论，理论主张定位清晰",
+            "以中国典型案例和司法解释为分析基础，语境适配性强"
+          ],
+          "weaknesses": [
+            "制度转化方向较为原则，未展开具体裁判规则设计",
+            "对民法理论内部争议的处理深度可进一步提升"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证过程严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应违法论争议，提出法律效果论并契合中国司法语境，兼具理论对话力与法秩序兼容性。",
+          "core_judgment": "该维度高度成立，结论精准切入共同体核心争论且与现行法秩序逻辑深度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论直面既有理论之争，提出可争辩框架；深度结合中国规范与案例，在法秩序统一性下提供教义学指引。",
+          "evidence_quotes": [
+            "刑民交叉实体问题的处理应从违法论转向法律效果论，刑民交叉的本质并非违法性的交叉，而是法律效果的交叉。",
+            "当然，对于上述结论可能会有如下疑虑：在民法理论内部，围绕不可抗辩条款是否应排除故意欺诈仍不乏争议……"
+          ],
+          "strengths": [
+            "精准定位并批判既有违法论，提出具可反驳性的替代框架",
+            "深度嵌入中国司法实践与规范语境，论证具有强现实回应力"
+          ],
+          "weaknesses": [
+            "法律效果论在绝对冲突型案件中的事实拆分标准仍需更多判例检验",
+            "对民法规范目的性限缩的边界论述可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下的可接受性与语境兼容性，非评价论证严密性或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.78107810020447,
+        "glm-5.1": 70.65969276428223,
+        "kimi-k2.6": 14.133155822753906,
+        "qwen3.6-plus": 59.67520213127136
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83.8,
+      "std": 8.1,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文未提出具体后续研究问题、未指明理论修正方向、未说明正文局限，仅以结语段落进行空泛意义拔高。",
+          "core_judgment": "不存在真实延展路径，只有口号式展望。",
+          "score_rationale": "原始分30分，对应bonus=0档。论文结语仅强调“具体路径的搭建及冲突消解需不断对话沟通协调”，未说明待修正的对象、概念边界、制度路径或具体研究问题，缺乏可定位的未来研究方向。",
+          "evidence_quotes": [
+            "对于具体路径的搭建以及刑民规范冲突的解消，刑民规范需不断对话、沟通、协调，故在过程层面，刑民相互影响，仍会交叉。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结语段落仅进行宏观意义拔高，未提出具体后续研究问题、理论修正路径或实务延伸方向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只说“具有重大意义”“前景广阔”“值得进一步研究”“继续努力完善”，但没有说明具体问题、对象、机制、概念边界、制度路径或实务场景。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅强调刑民规范需不断对话、沟通、协调，未指明具体待修正的理论概念、制度路径或后续研究问题。"
+            }
+          ],
+          "boundary_note": "本维度评未来研究路径，而非当下结论的可接受性或论证严密性。论文未提供任何具体延展指向，属于前瞻延展性本身缺失，而非对可接受性边界的误判。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出“法律效果论”框架及“合目的性限缩解释”的深化方向，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了理论深化方向与反驳入口。",
+          "score_rationale": "原始分85，对应bonus档位>=80(bonus=5)。文章提出“合目的性限缩”深化方向与刑民双向制约假设，脚注明确指出理论待完善，延展路径清晰可定位。",
+          "evidence_quotes": [
+            "区分说仅从抑制不法原则的角度限缩民法规范的适用范围，其理论尚需进一步完善。",
+            "允许刑法规范反向制约民法规范的适用范围，也是刑法和民法相互沟通的必然产物。"
+          ],
+          "strengths": [
+            "指明“合目的性限缩解释”的具体深化方向。",
+            "给出刑民双向制约的新理论假设与反驳入口。"
+          ],
+          "weaknesses": [
+            "缺乏集中的前瞻展望段落，延展信号散落。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是“法律效果论”未来如何深化及适用边界，而非当下“排除故意欺诈说”结论能否被共同体接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语及类型分析中隐含了明确的理论深化与制度适用延展路径，但缺乏独立的'未来研究'段落系统展开。",
+          "core_judgment": "存在真实延展路径：理论深化方向（法律效果论的进一步类型化）、制度适用边界（绝对冲突型案件的限缩解释规则）及比较法延伸（日本区分说的本土化）均有可定位证据。",
+          "score_rationale": "原始分72分，对应bonus=3档。论文通过'法律效果论'构建了'相对冲突—绝对冲突'的类型框架，并在帅英案、表见代理等分析中暗示了民法规范目的性限缩的后续研究方向；结语提出'刑民从交叉走向分立'的命题，为制度完善提供了可继续深化的路径。但延展内容散见于正文论证中，未形成集中的前瞻表述，精细度有限。",
+          "evidence_quotes": [
+            "对于具体路径的搭建以及刑民规范冲突的解消，刑民规范需不断对话、沟通、协调",
+            "法律效果论的适用不仅不应导致上述疑虑，反而有助于刑法和民法理论协同推进"
+          ],
+          "strengths": [
+            "类型化框架为后续研究提供明确接口：相对冲突/绝对冲突的区分可继续细化",
+            "民法规范目的性限缩的解释方法具有制度延展性，可适用于其他刑民交叉领域"
+          ],
+          "weaknesses": [
+            "缺乏独立的前瞻段落，延展信号分散于正文，未形成系统性的后续研究议程",
+            "对'区分说'等比较法资源的讨论止于例证，未展开本土化比较框架的深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文是否指明了未来可继续推进的理论方向与制度路径，而非当下结论是否正确。论文结语'刑民规范需不断对话、沟通、协调'属于未来延展问题，而非结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文以“法律效果论”替代“违法论”，为刑民交叉实体问题提供了清晰的理论深化路径与民法规范目的性限缩解释方向。",
+          "core_judgment": "存在真实延展路径，明确指向民法教义学的双向互动修正与法律效果论在其他交叉领域的适用检验。",
+          "score_rationale": "原始分80，映射为bonus=5。论文明确指出民法规范需随交叉处理进行目的性限缩解释，并以不可抗辩条款划定边界，延展路径与核心结论紧密衔接，符合最高加分档。",
+          "evidence_quotes": [
+            "对民法规范的解释并非既定不变，而应随着刑民交叉实体问题的处理进行有机调整。",
+            "不可抗辩条款的适用应限于重大过失以下的场合……理应赋予保险公司撤销合同的权利。"
+          ],
+          "strengths": [
+            "明确指出民法规范需进行目的性限缩解释以实现刑民双向沟通。",
+            "以具体条款为例划定适用边界，提供可检验的教义学修正路径。"
+          ],
+          "weaknesses": [
+            "未系统列举法律效果论可延伸适用的其他具体交叉场景。",
+            "对民法学者可能提出的体系性质疑缺乏更详尽的回应预案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“法律效果论”框架下民法教义学未来如何调整及该理论向其他交叉领域延伸的路径，而非当下结论在学界的接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.13811492919922,
+        "glm-5.1": 50.345826864242554,
+        "kimi-k2.6": 13.986356973648071,
+        "qwen3.6-plus": 63.90885591506958
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 80
+      },
+      "mean": 66.8,
+      "std": 25.1,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 88.53,
+      "weighted_total": 84.4
+    },
+    "aggregation_strictest": {
+      "final_score": 75.0,
+      "weighted_total": 74.4
+    },
+    "avg_std": 9.8,
+    "max_std": 25.1,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 13.5,
+    "composite_score": -9.8,
+    "worst_dimension": "forward_extension",
+    "worst_std": 25.1
+  }
+}

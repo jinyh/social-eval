@@ -1,0 +1,1050 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/刑事诉讼数据处理的全流程监管.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "刑事诉讼活动越来越倚重对数据的处理...目前尚无关于刑事诉讼数据处理监管的系统规定",
+          "检察机关更适合作为刑事诉讼数据处理的监管主体...由其作为刑事诉讼数据处理的监管机构，既有合理性，又有可行性",
+          "针对数据收集关联性的监管...从关联性、真实性、合法性三个方面展开",
+          "构建刑事诉讼数据处理全流程监管制度，先需确定其核心价值取向...权力行使与权利保障平衡"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "刑事诉讼活动越来越倚重对数据的处理...目前尚无关于刑事诉讼数据处理监管的系统规定",
+        "检察机关更适合作为刑事诉讼数据处理的监管主体...由其作为刑事诉讼数据处理的监管机构，既有合理性，又有可行性",
+        "针对数据收集关联性的监管...从关联性、真实性、合法性三个方面展开"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，建议进入六维评分体系。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落间（如186、187等）",
+          "OCR排版占位符残留（如■符号）",
+          "脚注编号及文献信息散落正文中"
+        ],
+        "evidence_quotes": [
+          "187\n处理的技术能力，在建设数据库、智能化办案平台时往往需要借助科技企业的力量。而",
+          "原则上要求在刑事诉讼目的完成后尽可能短的时间内（如6 个月至1 年）■删",
+          "■参见《法国刑事诉讼法典》，罗结珍译，中国法制出版社2006 年版，第612 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "目前我国尚无关于刑事诉讼数据处理监管的系统规定，《数据安全法》等法律中的相关规定较为零散。",
+          "相对于公安机关、国家安全机关和国家网信部门，笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+          "刑事诉讼中数据处理活动常在一定程度上影响案件的最终结果……须在国家公权力运行与公民个人权利保障之间寻求平衡，相较于其他领域的数据处理监管具有特殊性。",
+          "针对数据收集关联性的监管……参考数据最小化原则，审查数据收集是否与刑事诉讼目的充分相关。",
+          "全流程监管……应当以“面”“线”“点”监管相结合的方式，提升监管工作的质效。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在期刊页码混入、OCR占位符(■)残留及脚注编号散落，但不影响核心论点定位",
+        "项目口径：完全符合中国自主知识体系评价信号，无需边界复核"
+      ],
+      "evidence_quotes": [
+        "检察机关更适合作为刑事诉讼数据处理的监管主体",
+        "权力行使与权利保障平衡",
+        "“面”“线”“点”监管结合"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；评审前建议对正文中的期刊页码、脚注编号及OCR占位符(■)进行文本工程清洗，以提升阅读体验，但不影响当前评分资格"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留痕迹（如⑯⑰⑱等符号与正文混排）",
+          "部分参考文献链接和访问日期信息完整保留在正文中",
+          "文末参考文献列表缺失，但正文引用信息完整"
+        ],
+        "evidence_quotes": [
+          "参见刘艳红：《网络时代社会治理的消极刑法观之提倡》，载《清华法学》2022 年第2 期，第175-176 页。",
+          "See Directive (EU) 2016/680, at https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016L0680&from=EN (Last visited on June 24, 2024)."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "目前我国尚无关于刑事诉讼数据处理监管的系统规定，《数据安全法》等法律中的相关规定较为零散。",
+          "笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+          "欲实现刑事诉讼数据处理的全流程监管，必须回答三个问题：一是监管什么，即监管的内容有哪些；二是谁来监管，即监管的主体是哪一机构；三是谁被监管，即监管的对象是何者。",
+          "构建刑事诉讼数据处理全流程监管制度，先需确定其核心价值取向，再设定此种监管欲实现的基本目标，从而为全流程监管制度设计奠定基础。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号符号（如⑯⑰⑱等）与正文混排，存在局部OCR残留风险，但不影响核心论点阅读",
+        "文末参考文献列表缺失，但正文内引用信息完整，不影响评审"
+      ],
+      "evidence_quotes": [
+        "目前我国尚无关于刑事诉讼数据处理监管的系统规定，《数据安全法》等法律中的相关规定较为零散。",
+        "笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+        "欲实现刑事诉讼数据处理的全流程监管，必须回答三个问题：一是监管什么，即监管的内容有哪些；二是谁来监管，即监管的主体是哪一机构；三是谁被监管，即监管的对象是何者。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文质量良好，可直接进入六维评价。建议后续评分时关注其理论原创性与制度建构的可行性论证深度。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "鉴于数据处理活动贯穿于刑事诉讼全流程且可能带来上述问题或风险，有必要对刑事诉讼中的数据处理活动进行全流程监管。",
+          "相对于公安机关、国家安全机关和国家网信部门，笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+          "刑事诉讼数据处理的全流程监管至少应当有两个向度：一是基于刑事诉讼程序的全流程监管……二是基于数据全生命周期的监管……",
+          "应当以“面”“线”“点”监管相结合的方式，提升监管工作的质效。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "相对于公安机关、国家安全机关和国家网信部门，笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+        "刑事诉讼数据处理的全流程监管至少应当有两个向度：一是基于刑事诉讼程序的全流程监管……二是基于数据全生命周期的监管……"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "进入六维评分。论文聚焦中国刑事诉讼数字化转型中的数据处理监管制度空白，直面公权力数据行使与公民权利保障的现实张力，明确提出以检察机关为核心监管主体的“程序阶段+数据生命周期”双维监管架构，并细化“面线点”结合的工作机制与四阶段审查标准。具备鲜明的中国问题意识、明确的规范命题与可操作的制度建构路径，完全符合进入六维评价的项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文主要完成了对刑事诉讼数据处理监管的体系介绍与政策倡导，但未提炼出可争辩的法学研究问题。",
+          "core_judgment": "全文以介绍监管架构和主张检察监督为重心，缺乏明确的问题句和实质性的学者观点交锋，问题意识薄弱。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4（仅满足影响范围广和理论基础），材料新颖性未设限但问题本身创新不足，触发no_justiciable_question上限，给48分。",
+          "evidence_quotes": [
+            "刑事诉讼中的数据处理监管具有“特殊监管+系统监管”的特征。",
+            "鉴于数据处理活动贯穿于刑事诉讼全流程且可能带来上述问题或风险，有必要对刑事诉讼中的数据处理活动进行全流程监管。"
+          ],
+          "strengths": [
+            "清晰描述了数据处理在刑事诉讼中的全流程渗透及其潜在风险。",
+            "尝试构建以检察机关为核心的监管主体、对象和环节的体系框架。"
+          ],
+          "weaknesses": [
+            "全文缺少“XX是否应作为监管主体”“如何平衡数据流动与安全”等可辩争点。",
+            "仅在介绍欧盟比较对象和梳理国内规定时提及不同观点，但未展开法学层面的理论交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时触发上限，全文主要为既定立场的阐释性声明而非提出可辩驳的法学争点，最高不得超过50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文通篇以“有必要进行全流程监管”“检察机关是最适格监管主体”等应然主张推进，却未能转化为“检察机关作为监管主体是否与法律监督职能相冲突”“数据处理监管能否平衡权力行使与权利保障”等可争辩问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评研究问题的创造性与可争辩性；不评文献综述、论证严密性及材料是否支撑结论。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出刑诉数据全流程监管的三个核心问题，枢纽性强，可争辩性充分。",
+          "core_judgment": "问题成立且重要，横跨刑诉与数据法多制度领域，具有明确法学争点与理论分歧。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "欲实现刑事诉讼数据处理的全流程监管，必须回答三个问题：一是监管什么...二是谁来监管...三是谁被监管",
+            "公安机关和国家安全机关...在独立性和全程参与性方面存在明显缺陷...检察机关更适合作为刑事诉讼数据处理的监管主体"
+          ],
+          "strengths": [
+            "问题设定清晰，拆解为三个核心子问题",
+            "枢纽性极强，横跨刑诉法与数据法两大领域"
+          ],
+          "weaknesses": [
+            "全流程监管概念有一定体系归纳色彩，理论突破性稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性或文献充分度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "主题声明式论文，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文以'构建刑事诉讼数据处理全流程监管制度'为主题展开系统阐释，无明确问题句，无学者观点交锋，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明'有必要对刑事诉讼中的数据处理活动进行全流程监管'，无法律争点或理论分歧），枢纽性=2/4（涉及刑事诉讼与数据法交叉，但无制度连锁论证），材料新颖性未触发上限。锚定unacceptable档，给45分。负面模式扣分：检查1不扣（无新概念包装），检查2扣20分（无学者观点交锋，仅系统归纳），检查3扣30分（全文无问题句，只有主题声明）。扣分合计50分，但按规则不得低于30分，故实际扣分后上限为45分。",
+          "evidence_quotes": [
+            "欲实现刑事诉讼数据处理的全流程监管，必须回答三个问题：一是监管什么...二是谁来监管...三是谁被监管",
+            "鉴于此，有必要从数据处理的监管主体、监管内容、监管对象、监管的基本理念、具体的监管制度等方面研究刑事诉讼数据处理全流程监管问题"
+          ],
+          "strengths": [
+            "主题具有现实关切，回应数字时代刑事司法转型需求"
+          ],
+          "weaknesses": [
+            "全文为制度构建型叙述，无'是否''能否'等问题句",
+            "无学者观点交锋，仅单向阐述既定立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'构建...制度'为主题展开，无'XX是否YY'等问题句，仅有主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "提出刑诉数据全流程监管框架并论证检察机关主体地位，具制度建构价值但理论交锋不足。",
+          "core_judgment": "问题具明确可争辩性与跨领域枢纽性，但新概念理论增量阐释与学者观点交锋稍弱。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档。正式评分87，负面检查扣15分（宏观介绍非深度分析），最终得分72。",
+          "evidence_quotes": [
+            "欲实现刑事诉讼数据处理的全流程监管，必须回答三个问题：一是监管什么……二是谁来监管……三是谁被监管",
+            "检察机关是唯一符合专业性、独立性和全程参与性三方面要求的机关，由其作为监管机构既有合理性又有可行性。"
+          ],
+          "strengths": [
+            "明确提炼三大核心争点，问题意识清晰",
+            "跨刑诉法与数据法，制度连锁效应显著"
+          ],
+          "weaknesses": [
+            "缺乏对监管主体选择的深层学说交锋",
+            "全流程监管概念的理论增量阐释不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立度与重要性，不评论证严密性与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.890244007110596,
+        "glm-5.1": 39.5983521938324,
+        "kimi-k2.6": 15.318649053573608,
+        "qwen3.6-plus": 73.6170871257782
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 88,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 72
+      },
+      "mean": 63.2,
+      "std": 20.5,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文定位了国内研究在‘系统监管’和‘重视不足’上的缺口，但到达点薄弱，仅列举域外规范和碎片化的国内议题，缺乏对既有研究的争点结构化呈现。",
+          "core_judgment": "研究地图仅部分成立：有较清晰的未竟点和本文切入点，但到达点流于议题罗列，未梳理出可区分的学术争辩脉络，法学流派识别为零。",
+          "score_rationale": "三要素=4/6（到达点1/2，未竟点2/2，本文切入点1/2），争点结构=0/2，法学流派=0个，触发insufficient_school_coverage上限65分。",
+          "evidence_quotes": [
+            "我国尚无关于刑事诉讼数据处理监管的系统规定...学界对刑事诉讼中的数据处理问题也关注较少，且主要研究对象为某一具体问题。",
+            "当前研究主要有两方面的不足：一是对刑事诉讼中数据处理活动的监管重视不够，二是往往聚焦于某一具体的数据处理行为而缺乏对数据处理活动整体性、系统性的研究。"
+          ],
+          "strengths": [
+            "明确指出了国内研究‘碎片化’和‘重视不够’的缺口，未竟点描述具体。",
+            "本文切入点直接回应研究缺口，提出构建全流程监管的基本架构和制度方案。"
+          ],
+          "weaknesses": [
+            "到达点仅列举域外规范和若干国内具体议题，未提炼为可对立的学术观点或解释路径。",
+            "论文未将既有研究组织为争点结构，亦未识别任何法学流派，整体缺失学术争论脉络。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0 且 法学流派识别≤1, 最高65分",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "争点结构0分，法学流派0个，未呈现任何可区分的对立观点或学派分歧。"
+            }
+          ],
+          "boundary_note": "本文的缺口定位属于文献洞察范畴，而非问题创新性判断；得分低是因为未将已有研究组织为对话或争辩脉络。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，精准定位既有研究不足，并围绕多重争点展开系统论证。",
+          "core_judgment": "文献定位完整，争点结构丰富，流派识别充分，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "当前研究主要有两方面的不足：一是对刑事诉讼中数据处理活动的监管重视不够，二是往往聚焦于某一具体的处理行为而缺乏对数据处理活动整体性、系统性的研究。",
+            "数据本地化是数据主权理论的产物...即便主张数据自由的美国也对关键部门的数据提出了本地化的要求。"
+          ],
+          "strengths": [
+            "未竟点与切入点高度对应，精准指出既有研究缺乏系统性监管视角。",
+            "争点结构丰富，呈现了打击犯罪与保障人权、数据流动与安全等多重对立。"
+          ],
+          "weaknesses": [
+            "部分争点（如删除与销毁）偏向概念区分，深层理论交锋略欠。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献梳理与争点呈现深度，不评价监管方案本身的政策创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "研究地图残缺，三要素严重不足，缺乏有效文献定位。",
+          "core_judgment": "论文未建立清晰的研究地图，到达点、未竟点、切入点均严重缺失，争点结构与法学流派识别不足。",
+          "score_rationale": "三要素得分=1/6（到达点1，未竟点0，切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给52分",
+          "evidence_quotes": [
+            "目前我国尚无关于刑事诉讼数据处理监管的系统规定……学界对刑事诉讼中的数据处理问题也关注较少，且主要研究对象为某一具体问题",
+            "当前研究主要有两方面的不足：一是对刑事诉讼中数据处理活动的监管重视不够，二是往往聚焦于某一具体的数据处理行为而缺乏对数据处理活动整体性、系统性的研究"
+          ],
+          "strengths": [
+            "提及欧美立法与部分学者研究"
+          ],
+          "weaknesses": [
+            "未竟点描述空泛，未指出具体学术争议或理论分歧",
+            "未呈现任何可识别的法学流派或对立观点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅1个模糊提及，未竟点与切入点均未建立"
+            }
+          ],
+          "boundary_note": "本维度评文献定位，不评问题创新性。论文问题意识清晰，但文献支撑薄弱。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "文内清晰勾勒研究地图，三要素完备且争点结构明确，但流派对话较浅。",
+          "core_judgment": "研究地图完整成立，文献定位精准服务于制度建构，符合高分标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=1个，锚定good档，给78分",
+          "evidence_quotes": [
+            "学界对刑事诉讼中的数据处理问题也关注较少，且主要研究对象为某一具体问题。",
+            "当前研究主要有两方面的不足：一是对监管重视不够，二是缺乏整体性、系统性研究。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼既有研究贡献与具体缺口。",
+            "争点结构清晰，围绕监管主体、内容与对象展开系统性分歧。"
+          ],
+          "weaknesses": [
+            "未深入展开形式法治/实质法治等经典法学流派争论。",
+            "外部比较法文献仅作制度引证，未转化为理论流派对话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "流派识别≤1，上限受限于good档",
+              "score_ceiling": 84,
+              "priority": 2,
+              "evidence": "侧重制度建构，未系统梳理对立学术流派"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不涉及问题本身新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 105.98000001907349,
+        "glm-5.1": 78.89200401306152,
+        "kimi-k2.6": 18.029253005981445,
+        "qwen3.6-plus": 71.16313028335571
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 78
+      },
+      "mean": 71.2,
+      "std": 16.4,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文围绕“监管内容/主体/对象/理念/制度”展开系统梳理，但未提出可重复适用的原创分析框架，实质是政策制度阐释而非框架建构。",
+          "core_judgment": "全文以阐释检察机关作为监管主体的合理性及具体制度构想为主，核心术语来自政策表述，缺乏原创概念界定和可操作的分析步骤，分析框架建构力较弱。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定和分类标准明确，但无分析步骤且后文未调用），法学转化度得分=1/4（仅制度映射，无新操作化转化），触发政策理论梳理型上限，总分不超过60分，最终给45分。",
+          "evidence_quotes": [
+            "所谓刑事诉讼数据处理的全流程监管，监管的内容即是《数据安全法》所言之数据处理者的数据处理活动。",
+            "笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体……由此，刑事诉讼数据处理全流程监管的基本架构得以初步勾勒。"
+          ],
+          "strengths": [
+            "监管内容、主体、对象三个维度的梳理较为系统，为后续制度讨论提供了清晰的结构。"
+          ],
+          "weaknesses": [
+            "核心术语如“关联性监管”“合法性监管”直接借用证据法概念，未进行新的分析框架界定。",
+            "未提出可重复适用的判断步骤或分析标准，如“面-线-点”监管仅为工作方式描述，缺乏操作化步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "论文主要归纳既有政策立场和制度设计，未提出原创分析框架，框架可操作性得分上限2，法学转化度上限1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文核心架构为“监管什么/谁来监管/谁被监管/价值取向/具体制度”，是对既有法律规定的系统阐释和制度设计建议，非原创分析框架的建构。"
+            }
+          ],
+          "boundary_note": "本文问题在于未建构可操作的分析框架，而非制度方案的逻辑衔接是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了“主体-对象-方式-阶段”的刑事诉讼数据处理全流程监管框架，操作性与法学转化度极高。",
+          "core_judgment": "该维度完全成立，框架概念清晰、分类明确、步骤可循，且提供了详实的制度设计方案与操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。框架双维交叉分类清晰，数据科学概念成功转化为法学审查步骤。",
+          "evidence_quotes": [
+            "基于数据全生命周期的视角展开……可将监管重点聚焦于：收集、使用和加工、存储和传输、删除和销毁",
+            "按照上文所述的“面”“线”“点”结合的工作方式的要求，既要审查数据传输的整体安全性，更要关注关键风险节点"
+          ],
+          "strengths": [
+            "构建了“面线点”与“数据生命周期”双维交叉的监管框架，分类与步骤极为清晰",
+            "将数据科学概念成功转化为关联性、真实性、合法性等法学审查步骤与操作指引"
+          ],
+          "weaknesses": [
+            "部分监管步骤（如“面”上监管的考核评价体系）的法学属性稍弱，偏行政管理色彩"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不评价监管方案在现实中的推行阻力或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出'全流程监管'框架，但核心为制度描述与原则罗列，缺乏可重复适用的分析步骤。",
+          "core_judgment": "框架以'面线点'隐喻和四阶段生命周期为结构，但未转化为可操作的判断标准或程序步骤，属于宏观制度设计而非分析框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文调用为描述性展开而非框架驱动）；法学转化度得分=2/4（跨学科数据治理概念有制度映射，但缺乏裁判规则或司法程序层面的操作指引，'面线点'未转化为法学判断标准）。锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "所谓'面'上的监管……所谓'线'上的监管……所谓'点'上的监管……（第196页）——隐喻性描述，无判断标准",
+            "针对数据收集关联性的监管……针对数据收集真实性的监管……针对数据收集合法性的监管（第197-199页）——传统证据审查框架的套用，非原创分析步骤"
+          ],
+          "strengths": [
+            "四阶段生命周期分类标准明确，与刑事诉讼程序有较好对应",
+            "监管主体选择的三因素分析（专业性、独立性、全程参与性）具有制度论证力"
+          ],
+          "weaknesses": [
+            "'面线点'仅为修辞性隐喻，未转化为可重复适用的监管步骤或判断标准",
+            "四阶段监管内容多为原则性描述（如'审查关联性''审查真实性'），无具体判断阈值或程序节点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "未触发：'面线点'有描述性界定，四阶段有分类标准，但步骤化不足"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评制度建议的合理性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建了以数据生命周期为轴、面线点结合的全流程监管框架，并转化为具体审查规则。",
+          "core_judgment": "框架概念清晰、步骤可循、后文充分调用，法学转化度高，具备强制度建构力。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。双轴结构提供明确审查标准，完整转化为检察监管制度。",
+          "evidence_quotes": [
+            "可将监管重点聚焦于以下几个阶段：第一，数据的收集阶段……第二，数据的使用和加工阶段……第三，数据的存储和传输阶段……第四，数据的删除和销毁阶段。",
+            "以面、线、点监管相结合的方式……事前监管预防风险……事中监管同步审查……事后监管纠正惩戒。"
+          ],
+          "strengths": [
+            "生命周期与面线点维度交叉，形成结构化监管矩阵。",
+            "将数据治理概念精准转化为证据审查规则与检察程序。"
+          ],
+          "weaknesses": [
+            "检察机关角色冲突仅提内设分离，缺乏深层程序制约设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及论证逻辑或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.37555313110352,
+        "glm-5.1": 39.72729802131653,
+        "kimi-k2.6": 13.37243103981018,
+        "qwen3.6-plus": 68.97518467903137
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.2,
+      "std": 23.4,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了“三维架构→价值目标→具体制度”的清晰推理链，但缺乏对反对观点的实质性回应，限制了逻辑严密性的提升。",
+          "core_judgment": "论文结论可从前文推出，主体推理链完整，但反驳处理维度存在明显缺失，导致未能进入最高档。",
+          "score_rationale": "推理链完整性得分=3/4，反驳处理度得分=1/3。锚定good档(70-79)，因反驳处理度显著偏低(仅承认自身局限)，给72分。",
+          "evidence_quotes": [
+            "欲实现刑事诉讼数据处理的全流程监管，必须回答三个问题：一是监管什么...二是谁来监管...三是谁被监管...",
+            "检察机关如何既作为监管主体又作为被监管的对象、既做裁判员又做运动员的问题。从应然的视角看，此种制度设计确实存在不足之处，但从实然的角度看，这却可能是相对合理的选择。"
+          ],
+          "strengths": [
+            "主体推理链严密：从“监管内容-主体-对象”三大前提性问题出发，推导出以检察机关为核心的四阶段监管制度，步骤清晰且依赖性强。",
+            "结论可辩护推出：最终的具体监管方案（如面-线-点工作方式）均可回溯至前文关于监管主体职权、数据生命周期风险的分析。"
+          ],
+          "weaknesses": [
+            "反驳处理极度薄弱：全文未系统识别针对核心命题（如“检察机关唯一适合”）的实质反对意见，未回应“行政监管替代方案”等潜在路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文缺失的是逻辑链上的反驳性对话（如未讨论为何网信部门统筹不如检察主导），而非制度框架本身不可操作，故属逻辑严密性问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层依赖，对核心反对意见有实质性回应并承认局限，逻辑严密。",
+          "core_judgment": "论文逻辑严密性维度完全成立，制度方案的推导链条完整且可辩护，反驳与局限处理充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。推导层层递进无关键跳步，对角色混同质疑有实质回应与局限承认。",
+          "evidence_quotes": [
+            "此间还有个问题值得讨论，即检察机关如何既作为监管主体又作为被监管的对象、既做裁判员又做运动员的问题。",
+            "从应然的视角看，此种制度设计确实存在不足之处，但从实然的角度看，这却可能是相对合理的选择。"
+          ],
+          "strengths": [
+            "推理链层层递进，从必要性到架构再到具体制度，依赖度高。",
+            "坦诚承认自身方案局限（角色混同），并提出内部职司分离的实务应对。"
+          ],
+          "weaknesses": [
+            "从公安缺乏独立性到检察相对客观中立的推导略显理想化，但未突破底线。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评监管方案的逻辑推导是否自洽，不评“面线点”框架在实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了'问题提出—主体确立—制度设计'的完整推理链，但反驳处理存在明显薄弱。",
+          "core_judgment": "推理链完整但反驳处理不足，核心结论'检察机关作为监管主体'的替代方案讨论不充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=1/3，锚定good档，给78分。论文从数据处理风险出发，经三要素分析推出检察机关为最优主体，再展开四阶段监管制度，主线推理链完整；但仅承认'既做裁判员又做运动员'问题而未回应'为何不能创设独立机构'的核心质疑，反驳处理度不足。",
+          "evidence_quotes": [
+            "相对于公安机关、国家安全机关和国家网信部门，笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+            "此间还有个问题值得讨论，即检察机关如何既作为监管主体又作为被监管的对象、既做裁判员又做运动员的问题。"
+          ],
+          "strengths": [
+            "三要素筛选法（专业性、独立性、全程参与性）有效支撑检察机关作为监管主体的结论",
+            "四阶段监管设计（收集/使用加工/存储传输/删除销毁）形成完整制度闭环"
+          ],
+          "weaknesses": [
+            "对'创设专门独立数据监管机构'的替代方案仅末段提及，未在主体论证中充分回应",
+            "未处理'检察机关追诉职能与监管中立性冲突'的深层质疑，独立性论证存跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链是否充分支撑结论，不评'检察机关监管'框架本身的制度可行性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑严密，论证链条完整且有效回应了核心反驳。",
+          "core_judgment": "推理链完整无关键跳步，反驳处理充分，结论可由前文规范与事实分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "鉴于数据处理活动贯穿刑事诉讼全流程且可能带来上述问题或风险，有必要进行全流程监管。",
+            "从应然视角看该设计确有不足，但从实然角度看却是相对合理的选择。"
+          ],
+          "strengths": [
+            "推理链条完整，从风险识别到制度设计层层递进。",
+            "对替代监管主体及角色冲突有实质性回应。"
+          ],
+          "weaknesses": [
+            "技术外包监管的具体落地机制论证稍显简略。",
+            "检察机关内部职能分离的配套措施推演不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估前提至结论的推导严密性，不评价监管框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.44102621078491,
+        "glm-5.1": 46.680935859680176,
+        "kimi-k2.6": 10.705923080444336,
+        "qwen3.6-plus": 59.037405014038086
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "结论方案（检察机关作为监管主体）虽然试图回应制度语境，但回避了执法—立法、功能冲突等明显的反对意见，导致其无法进入学术共同体的有效对话。",
+          "core_judgment": "该论文在‘共同体对话度’上存在根本缺陷：它提出了一套监管方案，却未主动回应学界对检察职能冲突的常见质疑，导致其结论难以被反对者定位和认真回应。",
+          "score_rationale": "共同体对话度得分=2/4（缺乏对反对意见的主动讨论），制度可接受度得分=2/4。依据理论/混合论文锚定规则，对话度≤2且制度度≤1应进入unacceptable档，本案对话度虽为2，但因未回应明显反对意见而触发‘自说自话’上限规则，总分不超过50分，给42分。",
+          "evidence_quotes": [
+            "从实然的角度看，这却可能是相对合理的选择……应当考虑在检察机关内部将具体办理案件的部门与履行数据监管职责的部门进行必要的区分。",
+            "构建刑事诉讼领域数据处理的教育培训机制……建立刑事诉讼领域数据处理的考核评价体系……制定刑事诉讼领域数据处理的一般通用规则。"
+          ],
+          "strengths": [
+            "结论明确指向以检察机关为监管主体，具有较强的制度指向性，并系统论证了其专业性、独立性和全程参与性。"
+          ],
+          "weaknesses": [
+            "在提出检察机关作为监管主体时，仅以“相对合理的选择”一笔带过，未主动引证并回应学界对检察权扩张、监督者与被监督者身份冲突的尖锐批评。",
+            "对策部分出现“完善立法、加强监管、健全机制”等空泛表述，降低了制度可接受度的论证严谨性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论未主动承认并讨论反对意见或自身局限，导致其无法被反对者定位和认真回应。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文在“谁被监管”一节结尾仅以“相对合理的选择”带过检察机关既做裁判员又做运动员的缺陷，未展开讨论或引述学界反对观点。"
+            }
+          ],
+          "boundary_note": "仅评估方案当前的可接受性与对话度，不涉及其前瞻延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论系统回应了既有碎片化研究，提出检察机关全流程监管方案，制度兼容性强。",
+          "core_judgment": "结论可接受性高，成功进入共同体对话且与中国现行法秩序高度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "当前研究往往聚焦于某一具体的数据处理行为而缺乏对数据处理活动整体性、系统性的研究。",
+            "检察机关如何既作为监管主体又作为被监管的对象...应当在检察机关内部将具体办理案件的部门与履行数据监管职责的部门进行必要的区分。"
+          ],
+          "strengths": [
+            "主动承认并回应了“既做裁判员又做运动员”的反对意见。",
+            "制度方案具体，涵盖监管主体、对象及各生命周期阶段。"
+          ],
+          "weaknesses": [
+            "检察机关内部部门区分能否真正解决独立性疑虑，论证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "制度论文提出检察机关作为刑事诉讼数据处理全流程监管主体的方案，结论具有明确制度指向且回应中国法语境。",
+          "core_judgment": "结论进入法学共同体既有讨论（数据监管、检察监督），可被反对者定位回应，且在中国制度语境中具有可讨论性，但缺乏对反对意见和自身局限的充分讨论。",
+          "score_rationale": "共同体对话度得分=3/4（标准1、2、3成立，标准4不成立：未主动承认并讨论反对意见或自身局限）；制度可接受度得分=3/4（标准1、2、4成立，标准3部分成立但指向较泛）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "相对于公安机关、国家安全机关和国家网信部门，笔者认为检察机关更适合作为刑事诉讼数据处理的监管主体。",
+            "此间还有个问题值得讨论，即检察机关如何既作为监管主体又作为被监管的对象、既做裁判员又做运动员的问题。"
+          ],
+          "strengths": [
+            "结论明确回应中国法秩序，以检察机关为监管主体具有制度创新性",
+            "对'面''线''点'监管结合的工作方式有具体制度设计"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见，如法院作为监管主体的可能性或检察机关角色冲突的深层质疑",
+            "对'裁判员又做运动员'的回应停留在'相对合理'层面，未展开制度性克服方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确构建刑事诉讼数据全流程监管框架，高度契合中国法秩序与检察监督实践。",
+          "core_judgment": "该维度完全成立，结论具备强共同体对话能力与制度落地可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "当前研究对刑事诉讼数据处理监管重视不够，且缺乏整体性、系统性研究。",
+            "检察机关是唯一符合专业性、独立性和全程参与性三方面要求的机关，由其作为监管机构名正言顺。"
+          ],
+          "strengths": [
+            "精准定位既有研究空白，明确回应监管主体与对象的核心争议。",
+            "制度设计紧扣中国检察监督体制，提出“面线点”结合的实操路径。"
+          ],
+          "weaknesses": [
+            "对检察机关角色混同的内在冲突，化解方案仍偏重内部妥协。",
+            "科技企业外包监管的技术标准与问责机制论述可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性或未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 86.32626008987427,
+        "glm-5.1": 36.77800512313843,
+        "kimi-k2.6": 10.339584827423096,
+        "qwen3.6-plus": 55.39353013038635
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 74.5,
+      "std": 23.6,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "论文仅以一句笼统表述收尾，未提出任何具体后续研究问题、理论修正方向或制度延伸路径，本质上是口号式展望。",
+          "core_judgment": "论文不存在真实延展路径，其结语仅为泛泛的意义拔高。",
+          "score_rationale": "原始分10分，对应bonus=0档。唯一指向未来的句子极度空泛，无法定位具体延展对象，触发slogan_outlook规则，锁定低分段。",
+          "evidence_quotes": [
+            "对于此种监管制度革新之可能性，我们应当如同法律对待技术的姿态一般，抱有既审慎又开放的态度，在理论反思和实践探索中不断寻求更优方案",
+            "以确保刑事诉讼数据处理活动始终在法治轨道上进行，并以此促进刑事司法现代化的实现"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾仅表达开放态度和宏观愿景，未指明任何具体研究问题、制度创设步骤或理论深化方向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高、意义宣示或“继续完善”式表述，而没有说明具体问题、对象、机制、概念边界、制度路径或实务场景，进入0-39低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语部分仅提及“创设专门、独立的数据监管机构”的可能性并以“既审慎又开放的态度”等修辞收束，未具体化为何种机构、面临何种制度障碍、如何推进或验证，属于典型的口号式展望。"
+            }
+          ],
+          "boundary_note": "论文提出了对当下制度设计的可接受性论证（如选择检察机关作为监管主体），但未实质性转入“未来还往哪里走”的讨论。其结尾的展望是论说文的收束，而非可操作的延展方向。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "明确指出了创设专门独立监管机构的制度革新方向，以解决当前监管主体的角色混同局限。",
+          "core_judgment": "存在真实延展路径，指明了具体的制度修正方向与未来争点。",
+          "score_rationale": "原始分85，对应bonus=5档位。论文在结尾明确基于正文“角色混同”局限，提出创设专门独立数据监管机构的制度革新路径，与核心结论紧密衔接且可定位。",
+          "evidence_quotes": [
+            "创设专门、独立的数据监管机构以解决检察机关之数据处理与监管角色混同的问题。",
+            "从应然的视角看，此种制度设计确实存在不足之处...应当考虑在检察机关内部将具体办理案件的部门与履行数据监管职责的部门进行必要的区分"
+          ],
+          "strengths": [
+            "延展路径清晰，直接回应正文核心局限。",
+            "提出了具体的制度修正对象（专门独立监管机构）。"
+          ],
+          "weaknesses": [
+            "对未来独立监管机构的权力配置与衔接仅作方向性提示，未展开具体风险控制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "创设独立监管机构属于未来制度完善方向，而非当下检察机关作为监管主体的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结论部分提出检察机关监管角色混同问题的制度革新方向，并指出创设专门独立数据监管机构的可能性，但延展路径较为概括，缺乏具体研究问题或下一轮争点的展开。",
+          "core_judgment": "存在真实延展路径，但精细度有限，主要体现为制度完善方向的宏观提示而非具体深化路径。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文结尾明确提出'创设专门、独立的数据监管机构以解决检察机关之数据处理与监管角色混同的问题'这一制度革新方向，并指出'在理论反思和实践探索中不断寻求更优方案'，属于可定位的延展路径；但该路径仅为宏观提示，未形成具体后续研究问题或争点展开，精细度不足，故未达80分以上。",
+          "evidence_quotes": [
+            "但随着技术和制度的进步，刑事诉讼数据处理全流程监管的制度革新亦有可能，例如创设专门、独立的数据监管机构以解决检察机关之数据处理与监管角色混同的问题。",
+            "对于此种监管制度革新之可能性，我们应当如同法律对待技术的姿态一般，对其抱有既审慎又开放的态度，在理论反思和实践探索中不断寻求更优方案"
+          ],
+          "strengths": [
+            "明确指向检察机关角色混同这一真问题，提出独立监管机构的替代方案",
+            "以'审慎又开放'的态度表述，为不同意见者留下争论入口"
+          ],
+          "weaknesses": [
+            "未形成具体后续研究问题或争点清单",
+            "对'专门独立监管机构'的建构路径、比较法资源、权力配置等缺乏展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是未来研究还能往哪里走，而非当下结论是否被接受。论文结尾提出的制度革新方向属于未来延展问题，但其可接受性已在结论可接受性维度中评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结尾明确指出了创设专门独立数据监管机构以破解检察机关角色混同局限的未来制度革新方向。",
+          "core_judgment": "存在真实延展路径，明确指向独立监管机构的创设与现行检察监管模式的局限突破。",
+          "score_rationale": "原始分72，对应bonus=3档。文末明确指出创设专门独立数据监管机构以破解角色混同局限，路径清晰且与正文论证紧密衔接，但具体过渡机制与机构职权设计展开有限。",
+          "evidence_quotes": [
+            "例如创设专门、独立的数据监管机构以解决检察机关之数据处理与监管角色混同的问题。",
+            "应当考虑在检察机关内部将具体办理案件的部门与履行数据监管职责的部门进行必要的区分。"
+          ],
+          "strengths": [
+            "明确指出创设独立监管机构以破解现行检察监管角色混同的局限"
+          ],
+          "weaknesses": [
+            "未具体展开独立机构的职权配置与制度过渡路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于独立监管机构的创设等未来制度演进方向，而非评价现行检察监管方案当下的可接受性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.32242107391357,
+        "glm-5.1": 32.1536660194397,
+        "kimi-k2.6": 11.060734033584595,
+        "qwen3.6-plus": 69.7946879863739
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 10,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 72
+      },
+      "mean": 57.2,
+      "std": 32.9,
+      "strictest": 10,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 73.15,
+      "weighted_total": 70.8
+    },
+    "aggregation_strictest": {
+      "final_score": 53.0,
+      "weighted_total": 49.8
+    },
+    "avg_std": 21.1,
+    "max_std": 32.9,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 20.2,
+    "composite_score": -21.1,
+    "worst_dimension": "forward_extension",
+    "worst_std": 32.9
+  }
+}

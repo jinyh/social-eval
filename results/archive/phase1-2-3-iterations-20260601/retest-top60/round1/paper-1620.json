@@ -1,0 +1,1010 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1620-法学研究-2019-5-涉外知识产权归属的法律适用-阮开欣-华东政法大学知识产权学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR or formatting artifacts present: sporadic '' symbols, non-standard spacing (e.g., 'ｌｅｘｐｒｏｔｅｃｔｉｏｎｉｓ'), and page numbers ('１ ９ １') embedded in the text body disrupt reading flow but do not obscure the core argument.",
+          "Footnote numbering and placement appear inconsistent or corrupted (e.g., '〔１〕' appearing mid-page, multiple pages numbered within one line).",
+          "Reference list missing or not extracted; the abstract and keywords are included, suggesting incomplete reference extraction."
+        ],
+        "evidence_quotes": [
+          "权属分歧现象是知识产权领域法律属地主义的体现之一，并不符合全球化背景 · １ ９ １ · ",
+          "涉外知识产权归属的法律适用 · ３ ９ １ ·",
+          "ＫｅｙＷｏｒｄｓ：ｏｗｎｅｒｓｈｉｐｏｆｉｎｔｅｌｌｅｃｔｕａｌｐｒｏｐｅｒｔｙ..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "包括我国在内的一些国家通过成文立法明确规定，知识产权归属的准据法为被请求保护地法（ｌｅｘｐｒｏｔｅｃｔｉｏｎｉｓ），如我国涉外民事关系法律适用法第４８条。",
+          "国内有学者支持该规定，倾向于我国跟随国际的主流现状，对于知识产权归属采取“保护国原则”。",
+          "广州知识产权法院在２０１８年判决的“吴丰庆诉希美克公司、ＢＥＴＴＥＬＩ公司案”...原告依据中国专利法请求发明人报酬...广州知识产权法院最终支持了原告的主张。可以看出，涉案标的针对美国专利权，其被请求保护地应是美国，而最密切联系地较大可能是中国。该判决在实质上与权属普遍制相吻合。",
+          "对于强行法范畴的知识产权归属规则，不存在权属普遍制的适用空间，只能适用被请求保护地法律。",
+          "知识产权归属规则仅仅是一个“分蛋糕” 的问题，如何分都不会影响“蛋糕” 的大小...我国立法应当审时度势并顺应全球化的发展趋势，对于知识产权归属在一定程度上采用权属普遍制。",
+          "鉴于目前我国立法对于知识产权归属采取被请求保护国原则，我国司法实践对于被请求保护国原则的概念理解应当引入反致规则的适用..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "text_quality_risk: Embedded journal page numbers, stray symbols (''), and corrupted footnote markers may slightly complicate precise citation extraction during scoring.",
+        "Ethical or epistemological note: The text presents a strong normative proposal (universal ownership system) based on a developed theory and Chinese practice; standard six-dimension review applies."
+      ],
+      "evidence_quotes": [
+        "包括我国在内的一些国家通过成文立法明确规定，知识产权归属的准据法为被请求保护地法...如我国涉外民事关系法律适用法第４８条",
+        "广州知识产权法院在２０１８年判决的“吴丰庆诉希美克公司、ＢＥＴＴＥＬＩ公司案”...涉案标的针对美国专利权...该判决在实质上与权属普遍制相吻合。",
+        "我国立法应当审时度势并顺应全球化的发展趋势，对于知识产权归属在一定程度上采用权属普遍制。...我国司法实践对于被请求保护国原则的概念理解应当引入反致规则的适用..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文具有明确的中国问题中心性（中国立法/司法实践）、可争辩的法学问题（知识产权归属的冲突法选择与反致适用）和理论转化（提出“权属普遍制”概念并设计立法建议），应进入六维评分。文本质量因OCR杂讯和页数混入而存在低度风险，但不影响评审。主任务直接判为 enter_six_dimension_review，状态为 conditional_pass。"
+    },
+    "glm-5.1": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如·１９１·、·２９１·）",
+          "脚注编号及部分内容夹杂在正文中（如〔１〕华东政法大学知识产权学院副研究员）",
+          "英文字母间距异常导致单词断裂（如ｌｅｘｐｒｏｔｅｃｔｉｏｎｉｓ）"
+        ],
+        "evidence_quotes": [
+          "·１９１·",
+          "〔１〕华东政法大学知识产权学院副研究员。",
+          "ｌｅｘｐｒｏｔｅｃｔｉｏｎｉｓ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "partial",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "包括我国在内的一些国家通过成文立法明确规定，知识产权归属的准据法为被请求保护地法……如我国涉外民事关系法律适用法第４８条。",
+          "广州知识产权法院在２０１８年判决的“吴丰庆诉希美克公司、ＢＥＴＴＥＬＩ公司案”……该判决在实质上与权属普遍制相吻合。",
+          "涉外民事关系法律适用法第４８条需增加一款：“基于在先关系取得知识产权的，当事人可以协议选择知识产权初始归属的法律……优先适用该强制性规定。”"
+        ],
+        "boundary_reasons": [
+          "论文核心议题为涉外知识产权归属的国际私法普遍性规则（权属普遍制与被请求保护国原则之争），中国立法与司法实践仅作为比较法或适用对象之一，中国问题中心性不足，需专家裁断其是否符合“中国自主知识体系研究”口径"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "partial",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码、脚注及英文字母间距OCR残留影响阅读体验，但不影响核心论点定位",
+        "项目口径：中国问题中心性偏弱，属于比较法/国际私法普遍议题框架下的中国立法建议"
+      ],
+      "evidence_quotes": [
+        "笔者将这种现象称为“权属分歧现象”",
+        "涉外民事关系法律适用法第４８条需增加一款……"
+      ],
+      "boundary_reasons": [
+        "中国问题中心性不足：核心议题是国际私法普遍规则（权属普遍制）的构建，中国仅作为适用场景和立法修改建议对象，需专家裁断是否属于“中国自主知识体系研究”"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_boundary"
+      ],
+      "recommendation": "进入人工复核，由专家裁断其比较法/国际私法普遍议题框架下的中国立法建议是否足以满足“中国自主知识体系研究”的项目口径；同时需对文本进行工程清洗以去除页码和脚注混入。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与参考文献存在OCR残留和格式混乱，部分英文文献出现连字符断裂（如'Am.J.Comp.L.'）",
+          "文末英文摘要存在字符粘连和空格缺失（如'clarifi-cation'被断行）",
+          "参考文献列表标注为'（无）'，但实际文中有大量脚注引用，存在抽取失败"
+        ],
+        "evidence_quotes": [
+          "〔１〕参见陈立风：《版权法律冲突中“保护国原则” 之适用》，《法学》２０１２年第４期，第５１页。",
+          "ＡｃｔｓｏｆｔｈｅＷＩＰＯＤｉｐｌｏｍａｔｉｃＣｏｎｆｅｒｅｎｃｅｏｆ７－２０Ｄｅｃｅｍｂｅｒ２０００，ＩＡＶＰ／ＤＣ／３（２０００）．",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国涉外民事关系法律适用法第４８条",
+          "广州知识产权法院在２０１８年判决的'吴丰庆诉希美克公司、ＢＥＴＴＥＬＩ公司案'",
+          "我国立法应当审时度势并顺应全球化的发展趋势，对于知识产权归属在一定程度上采用权属普遍制",
+          "涉外民事关系法律适用法第４８条需增加一款……涉外民事关系法律适用法第４９条需增加一款",
+          "我国司法实践对于被请求保护国原则的概念理解应当引入反致规则的适用"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号为全角数字，部分英文文献OCR粘连；文末参考文献列表抽取失败，但正文脚注完整可定位",
+        "项目口径：论文以中国《涉外民事关系法律适用法》第48-49条为核心分析对象，提出具体的立法修改建议，属于典型的中国法学问题研究"
+      ],
+      "evidence_quotes": [
+        "我国涉外民事关系法律适用法第４８条……国内有学者支持该规定，倾向于我国跟随国际的主流现状",
+        "广州知识产权法院在２０１８年判决的'吴丰庆诉希美克公司、ＢＥＴＴＥＬＩ公司案'",
+        "涉外民事关系法律适用法第４８条需增加一款……第４９条需增加一款"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文完全符合项目口径，应进入六维评价。文本质量风险较低，核心论点、结构和主要论证均可定位，脚注引用虽存在OCR格式问题但不影响评审。建议在评分时关注其对中国立法和司法实践的具体建议部分。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码与分隔符混入正文（如“· １ ９ １ ·”）",
+          "脚注编号与正文存在局部粘连及全角字符残留",
+          "英文摘要部分存在断行与连字符OCR痕迹"
+        ],
+        "evidence_quotes": [
+          "· １ ９ １ ·\n\n〔１〕\n华东政法大学知识产权学院副研究员。",
+          "Ａｂｓｔｒａｃｔ：Ｔｈｅ“ｏｗｎｅｒｓｈｉｐｄｉｖｅｒｓｉｔｙｐｈｅｎｏｍｅｎｏｎ”ｒｅｆｌｅｃｔｓｔｅｒｒｉｔｏｒｉａｌｉｔｙｏｆｌａｗ..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者将这种现象称为“权属分歧现象”。包括我国在内的一些国家通过成文立法明确规定，知识产权归属的准据法为被请求保护地法（ｌｅｘｐｒｏｔｅｃｔｉｏｎｉｓ），如我国涉外民事关系法律适用法第４８条。",
+          "本文将分析涉外知识产权归属问题的类型，阐释权属普遍制的正当性以及知识产权地域性对于权属普遍制适用范围的限制，探讨权属普遍制的可行性及其障碍的解决，确立最密切联系的单一准据法，并解决权属普遍制和被请求保护国原则共存所引发的法律冲突难题，进而对我国的立法和司法实践提出建议。",
+          "鉴于我国涉外民商事交往的纵深发展，我国立法应当审时度势并顺应全球化的发展趋势，对于知识产权归属在一定程度上采用权属普遍制。涉外民事关系法律适用法第４８条需增加一款……"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "涉外民事关系法律适用法第４８条需增加一款：“基于在先关系取得知识产权的，当事人可以协议选择知识产权初始归属的法律。当事人没有选择的，适用本法对合同的有关规定。但是被请求保护地法律对知识产权初始归属有强制性规定的，优先适用该强制性规定。”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "建议直接进入六维评分。论文聚焦中国涉外知识产权归属的法律适用难题，提出“权属普遍制”与“最终准则”等可复核的规范命题，并针对《涉外民事关系法律适用法》提出具体修法方案与司法反致解释路径。中国问题意识明确，理论转化扎实，高度契合自主知识体系构建导向。文本存在轻微OCR页码残留，不影响核心论证定位。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文仅提出“权属分歧现象”这一新名词，并围绕“权属普遍制”进行体系介绍与政策倡导，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文未提出有理论分歧的法学争点，只是对涉外知识产权归属法律适用进行系统介绍和立法建议，不构成学术创新。",
+          "score_rationale": "扣分合计=70分（检查1:20分/检查2:20分/检查3:30分），负得42分，下调至最低30分。可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限，锚定unacceptable档。",
+          "evidence_quotes": [
+            "笔者将这种现象称为“权属分歧现象”。",
+            "本文将分析涉外知识产权归属问题的类型，阐释权属普遍制的正当性……进而对我国的立法和司法实践提出建议。"
+          ],
+          "strengths": [
+            "涉及国际私法与知识产权交叉领域，关注现实法律冲突。"
+          ],
+          "weaknesses": [
+            "提出“权属分歧”新概念，但未说明较既有讨论的解释力提升。",
+            "全文无学者观点交锋，仅系统介绍CLIP/ALI原则及立法建议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无问题句，只有主题声明与政策倡导，扣30分",
+              "score_ceiling": 30,
+              "priority": 1,
+              "evidence": "论文引言仅声明分析类型、阐释正当性并提立法建议，未形成可争辩的法学问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性、材料是否支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出了涉外知识产权归属中权属普遍制与被请求保护国原则的核心争点。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，触及国际私法与知识产权交叉领域的长期理论分歧与制度重构。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "对于知识产权的归属一揽子地适用被请求保护地的实体法的做法在国际上逐渐受到质疑和挑战",
+            "如何确定权属普遍制中适合的单一准据法，是亟待解决的问题"
+          ],
+          "strengths": [
+            "问题聚焦于知识产权归属冲突规范的核心分歧",
+            "理论枢纽性强，牵涉地域性与普遍主义的长期争论"
+          ],
+          "weaknesses": [
+            "权属普遍制概念虽具解释力，但与既有分割论的区别论证可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出涉外知识产权归属应否适用权属普遍制这一可争辩的冲突法命题，具有明确的法学争点。",
+          "core_judgment": "问题具有可争辩性与枢纽性，但材料新颖性校验未触发上限，锚定good档。",
+          "score_rationale": "可争辩性=4/4，枢纽性=3/4，材料新颖性未触发上限，锚定good档，给75分。扣分合计=0分。",
+          "evidence_quotes": [
+            "随着国际私法制度的发展，在一定程度上采取单一准据法适用于知识产品在各国的权属（以下称为'权属普遍制'），而非对于各个平行权利的归属分别适用各权利所属国的实体法",
+            "权属普遍制和被请求保护国原则共存所引发的法律冲突难题"
+          ],
+          "strengths": [
+            "明确提出'权属普遍制'与'被请求保护国原则'的冲突法争点",
+            "涉及国际私法、知识产权法、冲突规范多个制度领域"
+          ],
+          "weaknesses": [
+            "部分篇幅用于制度介绍与比较法梳理，理论交锋深度可加强",
+            "对反对权属普遍制的学者观点呈现不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦涉外知识产权归属法律适用争议，论证“权属普遍制”替代保护国法的正当性与路径。",
+          "core_judgment": "问题成立且重要，具备明确冲突法争点与理论分歧，非宏大叙事或政策倡导。",
+          "score_rationale": "负面模式扣分0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "对于知识产权的归属一揽子地适用被请求保护地的实体法的做法在国际上逐渐受到质疑和挑战。",
+            "如何确定权属普遍制中适合的单一准据法，是亟待解决的问题。"
+          ],
+          "strengths": [
+            "精准提炼权属分歧与普遍制对立，争点清晰",
+            "深入剖析国际条约分歧，教义学论证扎实"
+          ],
+          "weaknesses": [
+            "自创术语需进一步对接主流冲突法话语",
+            "反致机制引入的司法实操阻力论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评问题可争辩性与枢纽性，不涉文献综述与逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.612727880477905,
+        "glm-5.1": 60.618961811065674,
+        "kimi-k2.6": 13.993330001831055,
+        "qwen3.6-plus": 69.99186182022095
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 90,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 88
+      },
+      "mean": 69.5,
+      "std": 30.4,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 83,
+          "band": "good",
+          "summary": "论文清晰构建了研究地图：梳理了被请求保护国原则与权属普遍制的学术对立，结合俄塔社案、CLIP/ALI原则等标志性进展，指出单一准据法确定及法律冲突解决等缺口，并据此提出研究问题。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，多种法学流派或对立路径被纳入学术争论脉络，文献定位深入，现状洞察度良好。",
+          "score_rationale": "三要素得分=6/6（到达点2，未竟点2，切入点2），争点结构=2/2（存在被请求保护国原则 vs 权属普遍制等至少2个可区分争点），法学流派=2个（法律属地主义/普遍主义路径对立、国民待遇原则是否包含归属的学术立场分歧），锚定good档，给83分。",
+          "evidence_quotes": [
+            "根据目前的主流认识，知识产权的归属适用被请求保护地的实体法……国内有学者支持该规定……然而……国际上逐渐受到质疑和挑战。",
+            "如何确定权属普遍制中适合的单一准据法，是亟待解决的问题……为解决权属普遍制和被请求保护国原则共存所导致的权属法律冲突，法院审理外国知识产权归属问题时，应当遵循……最终准则。"
+          ],
+          "strengths": [
+            "争点结构充分，呈现了被请求保护国原则与权属普遍制在多层面的对立。",
+            "研究缺口具体且与本文切入点紧密对应，未被笼统表述所掩盖。"
+          ],
+          "weaknesses": [
+            "部分学术立场（如尼莫 vs 帕提之争）的引述略简，可进一步扩展流派对话深度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是知识产权归属冲突规范的分歧与融合，属于既有学术争论脉络的梳理，而非单纯评估问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准洞察权属分歧现象，清晰呈现保护国原则与权属普遍制的对立，研究地图完整。",
+          "core_judgment": "现状洞察维度成立，论文构建了完整的争点结构与研究地图，精准指出既有研究误判。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "国内有学者...在一定程度上意识到了冲突规范方面知识产权归属与其他知识产权事项的可分割性",
+            "王迁...基于最密切联系原则误以为权属普遍制已经适用于版权的归属...该错误认识恰恰反映了权属普遍制是法律应当发展的趋向"
+          ],
+          "strengths": [
+            "精准指出既有研究（如王迁）的误判，未竟点明确",
+            "清晰呈现属地主义与普遍主义、尼莫与帕提等多重争点"
+          ],
+          "weaknesses": [
+            "部分比较法制度差异仅作事实描述，未完全升格为争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点梳理深度，而非权属普遍制方案本身的创新性或逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 76,
+          "band": "good",
+          "summary": "论文构建了清晰的比较法研究地图，系统梳理了国际知识产权冲突法的制度演进与学术争论。",
+          "core_judgment": "研究地图三要素基本完整，争点结构明确，但法学流派识别以制度立场为主，理论流派深度有限。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=2个（被请求保护国原则派vs权属普遍制派），锚定good档，给76分。",
+          "evidence_quotes": [
+            "国内有学者支持该规定，倾向于我国跟随国际的主流现状……然而，权属分歧现象是知识产权领域法律属地主义的体现之一，不符合全球化背景下法律普遍主义的发展趋势",
+            "对于知识产权的归属一揽子地适用被请求保护地的实体法的做法在国际上逐渐受到质疑和挑战"
+          ],
+          "strengths": [
+            "比较法视野开阔，系统引介CLIP原则、ALI原则等示范法及美、法、德等国判例",
+            "争点结构清晰：被请求保护国原则与权属普遍制的对立贯穿全文"
+          ],
+          "weaknesses": [
+            "未明确提炼'学界争论'的学术脉络，多呈现为制度描述而非理论对话",
+            "切入点表述偏功能主义，未充分回应既有研究的具体理论缺口"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位完整性，不评价问题本身是否新颖或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒了知识产权归属冲突规范从“保护国原则”向“权属普遍制”演进的学术脉络与实务争议。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别充分，符合高分标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "国内有学者支持该规定，倾向于我国跟随国际的主流现状，对于知识产权归属采取“保护国原则”。",
+            "国际上的一些学术机构发布了示范法……均不同程度地否定了一刀切地适用被请求保护地法的做法。"
+          ],
+          "strengths": [
+            "分散式文献定位精准提取了保护国原则与权属普遍制的对立脉络。",
+            "明确指出单一准据法确定及制度共存冲突两大未竟点，并与本文切入点严密对应。"
+          ],
+          "weaknesses": [
+            "对部分早期判例与学者观点的批判性对话略显单薄，未充分展开理论交锋细节。",
+            "流派归纳偏重制度路径对立，对法哲学或法经济学等深层理论流派覆盖较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及问题本身的新颖性或论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.3517119884491,
+        "glm-5.1": 67.44097805023193,
+        "kimi-k2.6": 11.292492866516113,
+        "qwen3.6-plus": 65.46019101142883
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 83,
+        "glm-5.1": 90,
+        "kimi-k2.6": 76,
+        "qwen3.6-plus": 80
+      },
+      "mean": 82.2,
+      "std": 5.9,
+      "strictest": 76,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 68,
+          "band": "good",
+          "summary": "论文提炼出“权属普遍制”与“被请求保护国原则”的对立框架，并具体化为可循的法律适用步骤，框架后文实际调用度高，但原创性与法学操作指引仍主要依赖对现有示范法的归纳。",
+          "core_judgment": "分析框架成立且具有一定操作性，属于比较法/制度型论文中较好的类型化建构，但尚未提供完全原创的可重复适用标准。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=2/4，锚定good(60-69)档，因概念界定清晰且后文反复调用，结合负面模式检查无触发，给68分。",
+          "evidence_quotes": [
+            "笔者将这种现象称为“权属分歧现象”。",
+            "第一步...权属普遍制中单一准据法的确定...第二步...权属法律冲突的产生与解决...最终准则..."
+          ],
+          "strengths": [
+            "核心概念“权属普遍制”有明确定义，并通过与“被请求保护国原则”的对比，形成清晰的分类标准。",
+            "分析步骤具体可循：从准据法确定（意思自治→最密切联系→特征性履行）到法律冲突解决（反致规则→最终准则），后文实际调用充分。"
+          ],
+          "weaknesses": [
+            "框架核心要素（如最密切联系连结点选取规则）主要归纳自CLIP原则、ALI原则等既有示范法，原创建构性偏弱。",
+            "制度设计方案主要体现为立法条款建议，缺乏对其在司法程序中如何具体适用的深入推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价框架本身的可操作性与法学转化度，不涉及框架推理的逻辑衔接是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了清晰的权属普遍制分析框架，并提供了完整的法律适用步骤与立法方案。",
+          "core_judgment": "该维度高度成立，论文成功建构了包含概念界定、类型划分、适用步骤与冲突解决规则的完整法学分析框架。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。框架概念清晰、分类明确、步骤可循，且转化为具体立法条文与裁判规则。",
+          "evidence_quotes": [
+            "笔者将这种现象称为‘权属分歧现象’…采取单一准据法适用于知识产品在各国的权属（以下称为‘权属普遍制’）",
+            "涉外民事关系法律适用法第48条需增加一款：基于在先关系取得知识产权的，当事人可以协议选择知识产权初始归属的法律…"
+          ],
+          "strengths": [
+            "概念界定与类型划分清晰，构建了完整的权属普遍制适用流程。",
+            "提供了具体的立法修改条文和反致规则等裁判操作指引。"
+          ],
+          "weaknesses": [
+            "无明显框架建构缺陷。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不评理论推演的逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'权属普遍制'分析框架，对涉外知识产权归属进行类型化并设计冲突规范解决方案。",
+          "core_judgment": "框架具有明确的类型划分和制度设计，但核心术语'权属普遍制'的操作化步骤和法学转化深度仍可加强。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文调用充分，但'最终准则'的操作细节不足），法学转化度得分=2/4（提供了冲突规范设计和反致规则方案，但缺乏裁判规则层面的具体指引和程序步骤），锚定good档，给72分。",
+          "evidence_quotes": [
+            "知识产权的归属可以分为两种类型，即初始取得知识产权的归属和继受取得知识产权的归属",
+            "笔者将这种现象称为'权属分歧现象'"
+          ],
+          "strengths": [
+            "类型化框架清晰：以'初始取得/继受取得'二分法统领全文，逻辑严密",
+            "制度设计具体：提出'最终准则'和反致规则嵌入方案，具有立法建议价值"
+          ],
+          "weaknesses": [
+            "核心术语操作化不足：'权属普遍制'缺乏判断'最密切联系'的具体步骤或要素权重",
+            "法学转化深度有限：未将框架转化为裁判规则或司法审查流程，停留于冲突规范层面"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“权属普遍制”冲突法框架，分类清晰且提供准据法指引与立法草案。",
+          "core_judgment": "框架概念明确、步骤可循且深度嵌入全文，具备极强的法学转化与实务操作价值。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文所称权属普遍制，指采取单一准据法适用于知识产品在各国的权属",
+            "涉外民事关系法律适用法第４８条需增加一款：基于在先关系取得知识产权的……"
+          ],
+          "strengths": [
+            "初始与继受取得分类严密，边界清晰",
+            "提供具体冲突规范、反致路径及立法草案"
+          ],
+          "weaknesses": [
+            "“最终准则”嵌套反致的司法实操成本未评估",
+            "最密切联系地认定标准在复杂雇佣中仍偏抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.34332585334778,
+        "glm-5.1": 63.35647916793823,
+        "kimi-k2.6": 12.979244232177734,
+        "qwen3.6-plus": 73.64547204971313
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.5,
+      "std": 12.3,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文推理链条清晰完整，结论有充分支撑，且对主要反驳和自身局限进行了实质回应。",
+          "core_judgment": "论文从现象界定、类型化分析到正当性论证、障碍克服再到立法建议，形成了一条可辩护的严密逻辑链。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。推理步骤可复述且依赖性强，结论可从前文推出且无关键跳步；论文明确回应了反对意见和操作障碍，并承认了自身方案的适用边界。",
+          "evidence_quotes": [
+            "需要强调的是，知识产权作为私权已经得到普遍共识，一国的知识产权并不属于该国公权的范畴，而是知识产权人在该国的私人利益。",
+            "对于强行法范畴的知识产权归属规则，不存在权属普遍制的适用空间，只能适用被请求保护地法律。"
+          ],
+          "strengths": [
+            "推理层层递进：从问题类型化、正当性证成到障碍解决，逻辑依赖性强。",
+            "反驳回应扎实：正面回应对国际条约的妨碍说、准据法不明确等质疑，并承认强行法限制。"
+          ],
+          "weaknesses": [
+            "知识产权地域性与权属普遍制不矛盾的论证略有理论推演色彩，缺乏实证案例支撑。",
+            "从权属普遍制的正当性直接过渡到单一准据法确立，中间对替代方案的排除论证略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价基于论文内部推理链的连贯性，不涉及结论是否被实务界普遍接受或框架的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且反驳充分，核心结论可辩护推出。",
+          "core_judgment": "本维度成立，论文构建了从问题识别到制度方案的严密逻辑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "权属分歧现象是知识产权领域法律属地主义的体现之一，并不符合全球化背景下法律普遍主义的发展趋势。",
+            "对于强行法范畴的知识产权归属规则，不存在权属普遍制的适用空间，只能适用被请求保护地法律。"
+          ],
+          "strengths": [
+            "推理链环环相扣，从正当性到限制再到冲突解决，逻辑递进完整。",
+            "反驳处理深入，不仅回应显式反对意见，还主动设置假设情形检验方案。"
+          ],
+          "weaknesses": [
+            "从“知识产权是私权”到“不应只适用该国实体法”的过渡稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "反致规则在实务中的可操作性属于框架建构力，不纳入逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了完整的权属普遍制论证链条，但反驳处理存在局部薄弱。",
+          "core_judgment": "推理链完整可复述，核心结论可由前文推出，但关键反驳回应不足，限制在good档。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，但因反驳处理中标准2（实质性回应）未完全满足，降至good档上限，给78分。",
+          "evidence_quotes": [
+            "本文将分析涉外知识产权归属问题的类型，阐释权属普遍制的正当性以及知识产权地域性对于权属普遍制适用范围的限制，探讨权属普遍制的可行性及其障碍的解决",
+            "对于强行法范畴的知识产权归属规则，不存在权属普遍制的适用空间，只能适用被请求保护地法律"
+          ],
+          "strengths": [
+            "推理步骤清晰：类型划分→正当性论证→限制条件→可行性方案→冲突解决",
+            "关键跳步控制较好，地域性弱化与权属普遍制的衔接有充分铺垫"
+          ],
+          "weaknesses": [
+            "对'保护国原则'支持者的反驳多为隐含的文献罗列，缺乏直接回应",
+            "反致规则作为冲突解决方案的论证跨度较大，过渡可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的完整性与反驳处理，不涉及权属普遍制框架本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“现象批判→正当性证成→规则设计→立法建议”推理链，结论可辩护。",
+          "core_judgment": "推理链条严密递进，核心结论由规范分析与比较法充分支撑，逻辑成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "权属分歧现象是法律属地主义的体现，不符合全球化背景下法律普遍主义趋势。",
+            "为解决法律冲突，应遵循被请求保护国对本国知识产权归属规则享有最终决定权的准则。"
+          ],
+          "strengths": [
+            "推理步骤清晰递进，从问题提出到制度设计形成逻辑闭环。",
+            "对条约解释与反致规则的规范推演严密，有效回应了潜在质疑。"
+          ],
+          "weaknesses": [
+            "部分比较法引证向本土制度转化的逻辑过渡略显简略。",
+            "反致规则嵌入冲突规范的论证偏重理论，对司法实务阻力的回应稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与可辩护性，不评价立法建议的实务操作成本。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.00595998764038,
+        "glm-5.1": 58.868891954422,
+        "kimi-k2.6": 11.008944272994995,
+        "qwen3.6-plus": 49.66692113876343
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86.8,
+      "std": 6.7,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "结论主张以“权属普遍制”修正现行单一保护国原则，具备学术对话与制度兼容基础，提供了可回应的立法建议，整体可接受度较高。",
+          "core_judgment": "结论在比较法和中国语境下回应了主流观点，提出可行修正方案与冲突解决规则，能进入共同体认真讨论，但对中国强制性规则的回应可更集中。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，锚定理论论文excellent档，得82分。结论明确挑战被请求保护国原则，回应了既有争论，并在制度层面提出具体修法建议与冲突解决规则，具备较高可接受性。",
+          "evidence_quotes": [
+            "涉外民事关系法律适用法第48条需增加一款：“基于在先关系取得知识产权的，当事人可以协议选择知识产权初始归属的法律……”",
+            "本文主张的反致规则不存在损害国家立法主权的问题……最终指向的准据法只能是被请求保护国根据其冲突规范指向的知识产权归属准据法。"
+          ],
+          "strengths": [
+            "明确回应并挑战了主流“保护国原则”，提出了修正方案，能与反对者形成有效对话。",
+            "提供了具体的冲突法规则和立法建议，没有停留在空泛对策，制度指向清晰。"
+          ],
+          "weaknesses": [
+            "对反对意见的集中讨论较弱，结论部分未系统回应可能的批评，限制了对话深度。",
+            "对“强制性规定”保留的说明较原则，未进一步论证在中国法下如何识别与适用，可能影响制度转化明确性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价结论当下的学术对话能力与制度兼容性，不评价论证严密性或后续研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论挑战主流并给出具体立法方案，共同体对话与制度兼容性极佳。",
+          "core_judgment": "该维度完全成立，结论精准定位学术争论，提出具体法条修改方案并妥善处理与现行法秩序冲突。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "涉外民事关系法律适用法第48条需增加一款……但是被请求保护地法律对知识产权初始归属有强制性规定的，优先适用该强制性规定。",
+            "权属分歧现象是知识产权领域法律属地主义的体现之一，并不符合全球化背景下法律普遍主义的发展趋势。"
+          ],
+          "strengths": [
+            "结论明确挑战主流保护国原则，提出权属普遍制并给出具体立法修改条文。",
+            "主动承认并解决权属普遍制与现行法（反致排除）的冲突，制度兼容性极强。"
+          ],
+          "weaknesses": [
+            "无明显弱点，对话与制度回应均优。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出'权属普遍制'替代传统被请求保护国原则，结论具有明确学术对话性但制度转化路径可更具体。",
+          "core_judgment": "结论在知识产权国际私法领域进入既有学术争论，能被他国学者和反对者定位回应，且与中国现行法秩序兼容，但制度转化方向尚欠具体。",
+          "score_rationale": "共同体对话度得分=3/4（回应lex protectionis与权属普遍制之争、可被反对者定位、结合中国语境；但主动承认反对意见和自身局限不足），制度可接受度得分=2/4（不矛盾于现行法、原则回应制度约束；但制度转化方向较抽象、中国语境适配讨论有限），锚定good档，给78分。",
+          "evidence_quotes": [
+            "本文将分析涉外知识产权归属问题的类型，阐释权属普遍制的正当性以及知识产权地域性对于权属普遍制适用范围的限制",
+            "涉外民事关系法律适用法第48条需增加一款……第49条需增加一款"
+          ],
+          "strengths": [
+            "明确回应lex protectionis与权属普遍制的国际学术争论",
+            "结合中国《涉外民事关系法律适用法》提出立法建议"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见，如欧盟对权属普遍制的担忧",
+            "制度转化方向较原则，缺乏具体裁判规则设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文挑战“保护国原则”，提出“权属普遍制”及具体冲突规范，并给出中国法修订建议。",
+          "core_judgment": "结论深度嵌入中外学术争论与中国立法语境，制度转化路径清晰，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准回应国际私法前沿争论，主动界定适用边界与反致规则，并直接对接修法。",
+          "evidence_quotes": [
+            "我国立法应当审时度势并顺应全球化的发展趋势，对于知识产权归属在一定程度上采用权属普遍制。",
+            "涉外民事关系法律适用法第48条需增加一款：‘基于在先关系取得知识产权的，当事人可以协议选择……’"
+          ],
+          "strengths": [
+            "精准定位学术争点，对话意识强。",
+            "提出具体法条增修文本，制度转化明确。"
+          ],
+          "weaknesses": [
+            "对反致规则在我国现行法下的解释论突破论证稍简。",
+            "未充分评估修法可能引发的跨国司法协调成本。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.29919791221619,
+        "glm-5.1": 60.906673192977905,
+        "kimi-k2.6": 12.919857025146484,
+        "qwen3.6-plus": 56.33060622215271
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85,
+      "std": 6.0,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在立法、司法和理论三个层面均提出了可定位的具体延展方向，展望部分已转化为条文建议和冲突解决规则，非空泛拔高。",
+          "core_judgment": "本文存在真实、可定位的未来延展路径，延展路径与正文核心结论紧密衔接。",
+          "score_rationale": "原始分85分，属于excellent档，bonus=5。结语部分提出《法律适用法》第48、49条的明确条文案修正方案，并指出司法实践应引入反致规则，理论层面衔接海牙判决公约谈判，延展路径清晰且可操作。",
+          "evidence_quotes": [
+            "涉外民事关系法律适用法第48条需增加一款：\"基于在先关系取得知识产权的，当事人可以协议选择……\"",
+            "我国法院在审理外国知识产权的归属问题时，如果该国采取权属普遍制，根据被请求保护国原则所适用的该国法律应当包括该国关于知识产权归属的冲突法。"
+          ],
+          "strengths": [
+            "提出具体的立法修正条文方案，可定位且可验证。",
+            "指明司法实践中反致规则的引入路径及解释方法，延展具有实操性。"
+          ],
+          "weaknesses": [
+            "对理论假设（如权属法律冲突的第二种情形）的检验仅依赖单一假设，精细度有限。",
+            "未能进一步说明如何检验\"最终准则\"在不同法域法院中的实际接受度。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文涉及立法条文修改建议和反致规则的适用路径，属于规范层面的未来延展问题，而非对当下结论在共同体中可接受性的判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰指明了权属普遍制下单一准据法连结点选取的细化方向及反致规则衔接的立法完善路径。",
+          "core_judgment": "存在真实且可定位的延展路径，聚焦于连结点选取规则的明晰化与立法衔接风险控制。",
+          "score_rationale": "原始分85，bonus档位5（>=80）。论文明确指出单一准据法连结点选取顺位需进一步探讨，并提出反致规则与现行法衔接的立法完善方向，延展路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "在当事人之间缺乏准据法约定的情形，如何选取与知识产权合同关系具有最密切联系的准据法，是需要进一步探讨的问题。",
+            "选取规则的明晰化并在各国获得共识，是权属普遍制有效运行的前提。"
+          ],
+          "strengths": [
+            "明确指出了单一准据法连结点选取（如贡献率认定）的后续深化方向。",
+            "提出了反致规则与现行排除反致原则（第9条）的衔接与解释路径。"
+          ],
+          "weaknesses": [
+            "对国际谈判中推动权属普遍制的具体障碍与策略延展稍显宏观。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "单一准据法连结点选取顺位的细化及反致规则与现行法的解释衔接，属于未来制度完善与规则深化方向，而非当下结论是否可接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语和立法建议部分提出了明确的制度完善方向，包括具体的条文修改方案和反致规则的内化路径，但缺乏对理论深化方向或后续研究问题的明确展开。",
+          "core_judgment": "存在真实延展路径，主要体现在制度/立法型论文的立法完善方向和规则衔接问题上，但理论层面的后续研究问题展开不足。",
+          "score_rationale": "原始分72分，对应bonus=3的'good'档位。论文在结语部分提出了具体的立法建议（第48条、第49条的增订方案）和司法实践中的反致规则适用路径，属于可定位的制度完善方向。但论文未充分展开权属普遍制与数字时代网络传播权归属、人工智能生成物归属等新议题的衔接，也未提出明确的后续研究问题，延展深度有限。",
+          "evidence_quotes": [
+            "涉外民事关系法律适用法第48条需增加一款：'基于在先关系取得知识产权的，当事人可以协议选择知识产权初始归属的法律……'",
+            "我国司法实践对于被请求保护国原则的概念理解应当引入反致规则的适用，从而防止法律冲突的产生"
+          ],
+          "strengths": [
+            "提出具体立法条文增订方案，具有明确的制度完善方向",
+            "对反致规则的内化路径进行了可操作的规则设计"
+          ],
+          "weaknesses": [
+            "未提出后续理论研究问题或下一轮争点",
+            "缺乏对数字时代新场景（如网络传播、AI生成物）适用权属普遍制的延伸讨论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究方向和制度延展的提示，而非当下结论是否可被接受。论文的立法建议和反致规则设计属于'未来还能往哪里走'的制度完善路径，而非对当下结论正当性的论证。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文清晰规划了“权属普遍制”从理论建构向立法修法、司法反致适用及国际公约协调的延展路径。",
+          "core_judgment": "存在真实且具体的延展路径，涵盖国内修法草案、单一准据法细化及国际私法条约谈判方向。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确提出具体修法条文、单一准据法细化方向与国际谈判前景，路径清晰且与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "如何确定权属普遍制中适合的单一准据法，是亟待解决的问题。选取规则的明晰化并在各国获得共识，是权属普遍制有效运行的前提。",
+            "知识产权的国际私法公约很可能是未来国际谈判的讨论重点。"
+          ],
+          "strengths": [
+            "提出具体修法条文草案与单一准据法细化方向",
+            "指明国际条约谈判与司法反致适用的后续路径"
+          ],
+          "weaknesses": [
+            "最密切联系地连结点权重分配论证稍显简略",
+            "国际协调的实操阻力与过渡期风险可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“权属普遍制”理论提出后的立法转化、国际规则协调及司法反致适用等未来推进方向，而非评价该理论当下是否被共同体接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 76.42814683914185,
+        "glm-5.1": 51.43771004676819,
+        "kimi-k2.6": 11.527326822280884,
+        "qwen3.6-plus": 64.12443590164185
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 81.8,
+      "std": 6.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 83.5,
+      "weighted_total": 79.3
+    },
+    "aggregation_strictest": {
+      "final_score": 57.06,
+      "weighted_total": 59.9
+    },
+    "avg_std": 11.3,
+    "max_std": 30.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 26.4,
+    "composite_score": -11.3,
+    "worst_dimension": "problem_originality",
+    "worst_std": 30.4
+  }
+}

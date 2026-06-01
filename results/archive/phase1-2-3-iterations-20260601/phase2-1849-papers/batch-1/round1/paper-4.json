@@ -1,0 +1,1071 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/ESG对董事义务的改造：从商业判断到社会判断的进化.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号以带圈数字（①②③等）出现，部分连续脚注编号可能受OCR/排版影响，但未影响论点定位，核心论证、结构和引注脉络可清晰辨认。",
+          "论文末尾未提供独立的参考文献列表，所有引用均以前述脚注形式给出，不影响正文论证完整性，但属常规引用体系差异。"
+        ],
+        "evidence_quotes": [
+          "① 参见陈景善、何天翔：《公司ESG 分层治理范式：董事信义义务的嵌合模式选择》，载《郑州大学学报（哲学社会科学版）》2023 年第3 期，第43-51 页。",
+          "② 参见朱慈蕴：《公司的社会责任：游走于法律责任与道德准则之间》，载《中外法学》2008 年第1 期，第31 页；施天涛：《〈公司法〉第5 条的理想与现实：公司社会责任何以实施？》，载《清华法学》2019 年第5 期，第57-79 页。",
+          "“内容摘要”或“文章编号”等结构化前辅文未提供，不影响核心论证层级识别。",
+          "文末无参考文献列表，但脚注完整呈现引注信息，不影响学术论证评价。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从CSR 到ESG，二者的共性都是企业不能只以营利为目的而不关注社会、环境、消费者等特殊群体利益的保护。无论是CSR 还是ESG，几乎所有国家和公司均面临如何建立有效的实现机制问题。由此，引发了大量关于ESG 问责制的讨论……",
+          "我国新《公司法》第180 条，也对董事履行忠实、勤勉义务的标准进行了规范，特别要求勤勉义务应善意行使。",
+          "ESG 治理具有道德性、模糊性和主观性三个特征。道德性，即ESG 治理不限于以商业效益为导向之追求，还涵盖包括职工、人权、社区环境、社会公益等一系列道德元素……",
+          "因此，虽然在ESG 时代，董事会或董事将负担新的社会判断义务，但在具体交易决策时，董事如何履行其社会判断义务、商业判断义务与社会判断义务之间一旦发生冲突，如何协调？……下文将进一步细化公司社会判断义务之妥当履行的标准。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注/参考文献列表缺失可能影响引注可溯源性与文本规范化，但属文本工程问题，非项目口径阻却。",
+        "OCR/排版导致部分脚注编号以带圈数字呈现，未损及论文核心论证与问题识别。"
+      ],
+      "evidence_quotes": [
+        "从CSR 到ESG 仿佛并未发生什么实质性变化，……但很明显，ESG 关涉的范围要广于CSR。而且，ESG 试图将公司内部治理与环境和社会改善衔接起来……",
+        "因此，与其说是ESG（环境、社会和公司治理），不如说是GSE（公司治理、社会、环境）。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本整体质量允许进入六维评分，脚注编号格式与缺参考文献列表不影响核心论证定位。建议在后续评审中关注引注溯源便利性，无需中止或边界复审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页眉页脚（期刊名、年份、期数、页码）混入正文段落中",
+          "大量脚注编号被OCR识别为黑方块'■'，导致局部脚注标记乱码"
+        ],
+        "evidence_quotes": [
+          "中国法学 2024 年第4 期 90",
+          "■2002年召开的全球可持续发展峰会号召“通过政府采购政策鼓励环境友好产品（服务）的开发”。",
+          "■严格来说，如果承认公司的独立法人实体地位，董事就只能是公司的代理人..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国，因为政府倡导因素，国企远比私企更为关注ESG。国务院国资委先后出台了《关于中央企业履行社会责任的指导意见》...",
+          "我国证券交易所对上市公司ESG报告的披露要求，也呈现出明显的“阶段性差异”——披露内容日益广泛和完备，披露方式也从“自愿/鼓励披露”逐渐过渡到“强制披露与自愿披露”相结合。",
+          "《公司法》第20条第1款...要求公司从事经营活动，应当充分考虑公司职工、消费者等利益相关者的利益以及生态环境保护等社会公共利益，承担社会责任。",
+          "董事义务的履行标准从商业判断逐渐过渡到社会判断...社会判断将会与商业判断共同构成缺一不可的董事义务履行正当性的内核标准。",
+          "应采取“交错考量”的方式，平衡商业判断与社会判断的关系，使其互为“安全港”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页眉页脚及页码混入正文",
+        "文本工程：脚注编号OCR乱码（显示为■）"
+      ],
+      "evidence_quotes": [
+        "董事义务的履行标准从商业判断逐渐过渡到社会判断，社会判断将会与商业判断共同构成缺一不可的董事义务履行正当性的内核标准。",
+        "■参见陶锋、赵锦瑜、周浩..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程。后续评审阶段需注意清洗混入正文的期刊页眉页脚，并修复脚注编号的OCR乱码（■符号），但当前核心论点与论证结构清晰可辨，不影响项目口径判定与学术评价。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑫⑬⑭等编号与正文对应关系需核对）",
+          "部分英文参考文献格式残留（如“See Lisa M. Fairfax, supra note 6, 378”）",
+          "期刊页码混入正文（如“中国法学 2024 年第4 期 90”等）",
+          "参考文献列表缺失（标注为“（无）”）"
+        ],
+        "evidence_quotes": [
+          "中国法学 2024 年第4 期 90",
+          "See Lisa M. Fairfax, supra note 6, 378",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "《公司法》第180条在论及董事义务时，仅要求其为公司最大利益尽到管理者通常应有的合理注意，忽略了社会判断义务的独立价值",
+          "我国新《公司法》第180条，也对董事履行忠实、勤勉义务的标准进行了规范，特别要求勤勉义务应善意行使",
+          "在我国，也有人主张应当将ESG视为一项独立的义务，也即'ESG理念进入董事义务体系的最佳路径是将ESG理念嵌套至董事信义义务中，形成'忠实+勤勉+ESG'三元义务体系'",
+          "《公司法》也要求，公司从事经营活动，应当充分考虑公司职工、消费者等利益相关者的利益以及生态环境保护等社会公共利益，承担社会责任",
+          "我国ESG信息披露也存在行业差异。例如，2021年已对外披露ESG相关报告的1392家A股上市公司中",
+          "我国对ESG信息披露的行政规制也应采取差异化策略",
+          "随着2024年5月27日财政部发布《企业可持续披露准则——基本准则（征求意见稿）》"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号与正文对应关系需核对，存在OCR残留风险",
+        "文本工程：参考文献列表缺失，可能影响引证完整性核查",
+        "文本工程：期刊页眉信息混入正文，但不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "ESG对董事义务的改造：从商业判断到社会判断的进化",
+        "《公司法》第180条在论及董事义务时，仅要求其为公司最大利益尽到管理者通常应有的合理注意，忽略了社会判断义务的独立价值",
+        "我国新《公司法》第180条，也对董事履行忠实、勤勉义务的标准进行了规范，特别要求勤勉义务应善意行使",
+        "社会判断将会与商业判断共同构成缺一不可的董事义务履行正当性的内核标准"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国《公司法》修订为背景，核心命题为'ESG对董事义务的改造：从商业判断到社会判断的进化'，具有明确的中国问题中心性和法学理论转化价值。论文大量运用中国公司法条文、中国上市公司ESG披露数据、中国行政规制实践等本土材料，并非仅将中国作为比较法背景。理论层面提出了'社会判断义务'作为董事义务新类型、'交错考量'的决策方法等可复核命题。建议进入六维评分，同时关注脚注编号核对和参考文献补全。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "部分脚注编号存在OCR识别乱码（如■、㊱、㊳等），但正文结构完整，核心论点、论证逻辑与引注关系清晰可辨，不影响实质性评审。"
+        ],
+        "evidence_quotes": [
+          "ESG 对董事义务的改造：从商业判断到社会判断的进化",
+          "我国新《公司法》第180 条，也对董事履行忠实、勤勉义务的标准进行了规范，特别要求勤勉义务应善意行使。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国证券交易所对上市公司ESG 报告的披露要求，也呈现出明显的“阶段性差异”——披露内容日益广泛和完备，披露方式也从“自愿/ 鼓励披露”逐渐过渡到“强制披露与自愿披露”相结合。",
+          "我国新《公司法》第180条在论及董事义务时，仅要求其为公司最大利益尽到管理者通常应有的合理注意，忽略了社会判断义务的独立价值。",
+          "应采取“交错考量”的方式，平衡商业判断与社会判断的关系，使其互为“安全港”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "无重大文本工程问题；项目口径完全契合“中国自主知识体系”评价标准，具备直接进入六维评分条件。"
+      ],
+      "evidence_quotes": [
+        "董事义务的履行标准从商业判断逐渐过渡到社会判断，或者说从商业判断义务，逐渐过渡到社会判断义务。",
+        "如何在具体制度构造中，实现此种交错平衡，这是ESG 对公司法真正的挑战。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评分流程。本文以中国《公司法》修订与本土ESG监管实践（国资委指引、证监会披露规则、财政部准则草案）为制度背景，聚焦董事信义义务从“商业判断”向“社会判断”的范式转换，提出“交错考量”与“安全港”互构的规范命题，具备鲜明的中国问题意识、可争辩的教义学命题与明确的理论转化路径，完全符合项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文将ESG对董事义务的影响主题化为'社会判断'概念的兴起，但未形成可争辩的法学研究问题，实质是对既定立场的体系化阐释。",
+          "core_judgment": "全文仅有主题声明（'社会判断升起'），缺乏可争辩的法学争点，仅用新概念包装旧问题，不构成法学研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有模糊问题句，实为政策倡导），枢纽性=2/4（涉及公司治理与董事义务制度），材料新颖性触发上限（新概念包装旧问题，无实质推进）。锚定unacceptable档，扣除前置检查45分，最终35分。",
+          "evidence_quotes": [
+            "“从CSR到ESG，尽管企业追求实现社会责任的内涵、外延有所改变，但二者面临的共同问题并未发生变化。如何使ESG义务在公司得到顺利执行...这一问题并未完全解决。”",
+            "“ESG时代的董事义务：社会判断（Social judgment）的升起”"
+          ],
+          "strengths": [
+            "关注ESG规制对公司法董事义务的结构性影响，领域重要",
+            "试图从组织法、交易法、规制法多维度分析ESG实现机制"
+          ],
+          "weaknesses": [
+            "仅用'社会判断'新概念描述董事社会责任要求，未说明对既有理论的解释力提升",
+            "全文无学者观点交锋，仅是归纳各国规制现状和单向陈述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "无明确可争辩的法学问题句，仅有主题声明，触发可争辩性≤1的上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未提出'XX是否YY'或'如何ZZ'的法学争点，仅阐释ESG需要社会判断这一既定立场"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料的支撑力。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出了ESG时代董事义务从商业判断向社会判断进化的核心争点，枢纽性极强。",
+          "core_judgment": "问题成立且极具枢纽性，触及公司法长期争议焦点，属excellent档。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，扣分0，给85分",
+          "evidence_quotes": [
+            "为董事会或董事设定何种义务将有助于内化ESG目标和任务？",
+            "商业判断义务与社会判断义务之间一旦发生冲突，如何协调？"
+          ],
+          "strengths": [
+            "问题直击ESG与董事信义义务的核心冲突",
+            "争点涉及公司法基础理论的长期争议"
+          ],
+          "weaknesses": [
+            "前半部分ESG机制宏观介绍略显冗长"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性及文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文主题宏大但缺乏可争辩的法学问题聚焦，实为制度介绍性综述。",
+          "core_judgment": "全文以'ESG对董事义务的改造'为主题声明，未形成明确的法学争点，可争辩性不足。",
+          "score_rationale": "可争辩性=2/4（有问题意识但无真正争点），枢纽性=3/4（涉及董事义务、公司治理等基础概念），材料新颖性未触发上限，锚定marginal档，扣15分后给45分。",
+          "evidence_quotes": [
+            "ESG对董事义务的改造：从商业判断到社会判断的进化（标题）",
+            "无论是CSR还是ESG，几乎所有国家和公司都面临如何建立有效实现机制的问题"
+          ],
+          "strengths": [
+            "主题涉及公司法基础理论，具有一定理论关怀",
+            "对ESG实现机制进行了较系统的类型化整理"
+          ],
+          "weaknesses": [
+            "缺乏明确的问题句，全文为描述性阐释而非论证",
+            "无学者观点交锋，仅单向介绍制度现状"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "标题为'ESG对董事义务的改造'，但全文未聚焦具体争点，实为ESG机制综述"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦ESG背景下董事义务演进，提出商业判断与社会判断的冲突及平衡框架。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将ESG实践转化为公司法核心教义学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。前置负面检查无扣分，合计扣0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "董事义务的履行标准从商业判断逐渐过渡到社会判断，二者共同构成内核标准。",
+            "应采取“交错考量”的方式，平衡商业判断与社会判断的关系，使其互为“安全港”。"
+          ],
+          "strengths": [
+            "精准提炼商业判断与社会判断的教义学冲突",
+            "提出交错考量框架有效回应信义义务扩张难题"
+          ],
+          "weaknesses": [
+            "社会判断的司法审查标准仍显抽象",
+            "对双层制下监督机构的适配性分析略弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.77069687843323,
+        "glm-5.1": 43.304256200790405,
+        "kimi-k2.6": 12.58690881729126,
+        "qwen3.6-plus": 70.71000218391418
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 63.2,
+      "std": 27.2,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 73,
+          "band": "good",
+          "summary": "论文分散引述了多位学者的CSR/ESG概念辨析及ESG实现机制研究，但未点明既有研究的系统性缺口，流派识别集中于CSR与ESG的概念关系，争点展开不足。",
+          "core_judgment": "论文引述了丰富的研究成果，但未能将既有研究组织成清晰的对立争点结构，文献梳理在'到达点'和'未竟点'上不够集中和聚焦。",
+          "score_rationale": "三要素=4/6（到达点2/未竟点1/本文切入点1），争点结构=1/2（CSR vs ESG概念差异构成一个争点，但未充分展开分歧结构），法学流派=2个（CSR传统派与ESG进化派），锚定good(65-74)档，给73分。",
+          "evidence_quotes": [
+            "有学者认为，CSR与ESG存在四方面不同：……也有一些学者针对最近企业对ESG承诺的增加提出质疑，称其为虚幻的、机会主义的、漂绿的、纯粹的修辞。（正文第一部分）",
+            "这一问题并未完全解决。……有学者认识到这一改造的重要性，认为应将ESG治理嵌入董事信义义务……不过对ESG治理特性与董事信义义务的衔接还需加强论证（正文第三部分）"
+          ],
+          "strengths": [
+            "研究素材丰富：论文引用了Lisa Fairfax的调查、Bebchuk的'幻觉论'、陈景善的'三元义务体系'等多项具体研究成果。",
+            "问题意识连续：论文将CSR到ESG的演进贯穿始终，并指出既有实现机制的局限，形成了清晰的问题链。"
+          ],
+          "weaknesses": [
+            "未竟点模糊：论文在CSR/ESG概念辨析后，虽提到'如何使ESG在公司得到顺利执行'尚未完全解决，但未指明既有研究对这一缺口的具体论述。",
+            "争点结构单薄：论文呈现了CSR与ESG支持者/批判者的对立，但未将更多具体争议（如信义义务冲突、强制vs自愿披露等）组织为可区分的分歧脉络。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=4且争点结构≤1且法学流派≤2，不触发此规则。",
+              "score_ceiling": 0,
+              "priority": 0,
+              "evidence": "不适用"
+            }
+          ],
+          "boundary_note": "论文缺少集中文献综述，但分散式引述满足到达点要求。未竟点描述较弱是文献梳理的结构性问题，非问题创新性不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，呈现多个争点与流派对立，现状洞察度极高。",
+          "core_judgment": "文献定位充分，争点结构完整，法学流派对立清晰，本维度完全成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "也有一些学者针对最近企业对ESG承诺的增加提出质疑，称其为虚幻的、机会主义的、漂绿的",
+            "对ESG治理特性与董事信义义务的衔接还需加强论证，以避免可能产生各种不当嵌合而引发新的治理风险"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼了ESG承诺实质与幻觉的对立。",
+            "清晰指出了既有研究在ESG与信义义务衔接论证上的缺口。"
+          ],
+          "weaknesses": [
+            "无明显缺陷，文献梳理与争点建构紧密结合。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点结构，而非董事义务改造方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文呈现ESG与CSR概念辨析及董事义务改造路径，但缺乏系统的研究地图构建。",
+          "core_judgment": "研究地图三要素严重残缺，争点结构与法学流派识别均不足，未能建立清晰的学术对话脉络。",
+          "score_rationale": "三要素得分=2/6（到达点1/2，未竟点1/2，本文切入点0/2），争点结构=0/2，法学流派=0个，锚定unacceptable档，因三要素总分≤3触发上限79分，但争点结构与流派双重缺失，综合给55分。",
+          "evidence_quotes": [
+            "有学者认为，CSR与ESG存在四方面不同……也有一些学者针对最近企业对ESG承诺的增加提出质疑",
+            "如何将ESG治理嵌入董事信义义务以督促董事关注公司长期利益……但对ESG治理特性与董事信义义务的衔接还需加强论证"
+          ],
+          "strengths": [
+            "正文分散提及部分中外学者观点，有一定文献覆盖"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的具体贡献与不足，未竟点模糊",
+            "缺乏对学术争点的结构化呈现，未形成可辨识的学派对立"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分仅2分，法学流派0个，未触发流派覆盖条件"
+            },
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "本文切入点完全缺失，未竟点仅部分满足，研究地图严重残缺"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献定位完整性，不评价ESG议题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理了CSR向ESG演进及董事义务转型的学术争点，研究地图完整。",
+          "core_judgment": "本文精准锚定既有研究缺口，以董事义务改造为核心切入点，构建了清晰的文献对话网络。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“若无公司内部董事会的自觉遵循，外部压力下的规制成本将极为高昂且效果有限。”",
+            "“对ESG治理特性与董事信义义务的衔接还需加强论证，以避免可能产生各种不当嵌合而引发新的治理风险。”"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了CSR/ESG机制与董事义务转型的既有成果",
+            "明确指出现有外部规制路径的局限，自然导出内部信义义务改造的未竟点"
+          ],
+          "weaknesses": [
+            "对英美法系内部关于信义义务扩张的反对派观点着墨稍显单薄",
+            "部分实证数据引用未充分展开与核心争点的理论勾连"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点结构，不涉及ESG董事义务改造命题本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 57.74650526046753,
+        "glm-5.1": 52.48236584663391,
+        "kimi-k2.6": 16.010285139083862,
+        "qwen3.6-plus": 70.61100196838379
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 73,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 90
+      },
+      "mean": 77,
+      "std": 16.7,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文以梳理归纳ESG概念、实现机制及对董事义务的宏观影响为主，未建构出可重复适用的原创分析框架。",
+          "core_judgment": "本文属于政策理论梳理型论文，缺乏原创的分析框架，仅对既有现象和观点进行分类归纳，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（概念多为引述、无明确分析步骤，分类仅为主题归纳），法学转化度得分=0/4（未将任何理论转化为可操作的裁判规则或判断标准），锚定unacceptable档，触发了概念堆砌、宏观介绍及口号式呼吁等多个负面模式上限。",
+          "evidence_quotes": [
+            "从CSR到ESG，二者的共性都是企业不能只以营利为目的而不关注社会、环境、消费者等特殊群体利益的保护...几乎所有国家和公司均面临如何建立有效的实现机制问题。",
+            "在ESG时代，随着公司有关ESG承诺的增加，对董事会的ESG问责需求也随之增加，由此推动了董事会对公司履行ESG目标任务监督职责的强化。"
+          ],
+          "strengths": [
+            "对ESG议题的差异性及三大实现机制（组织法、交易法、规制法）进行了较为系统的梳理。"
+          ],
+          "weaknesses": [
+            "缺乏原创的分析框架，全文以归纳既有观点和现象为主，未提出如‘社会判断义务构成要件’等可操作的分析工具。",
+            "规范性呼吁多但无具体制度设计，如‘应采取交错考量的方式’未转化为可重复适用的法律判断步骤或裁判规则。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语无明确定义、无分析步骤且后文未实际调用，概念堆砌与宏观介绍触发负面模式上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语如‘社会判断’未给出‘本文所称社会判断是指...’的明确定义；‘交错考量’无具体的操作步骤。"
+            }
+          ],
+          "boundary_note": "本评分仅针对分析框架本身的建构力，不涉及论文的逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文建构了“商业判断-社会判断”二元义务框架及“交错考量”操作步骤，法学转化度高。",
+          "core_judgment": "框架成立且可用，成功将ESG跨学科概念转化为董事决策的法学操作步骤与裁判免责标准。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，因交错考量步骤量化标准稍弱，给88分。",
+          "evidence_quotes": [
+            "在进行商业决策时，要评估ESG风险...若不得不面对ESG风险，则需进一步评估公司的风险承受能力",
+            "坚持了上述准则，则无论是商业判断，还是社会判断，参与者均可寻求‘安全感’庇护...主张免责"
+          ],
+          "strengths": [
+            "将ESG转化为董事社会判断义务，法学转化彻底",
+            "提出交错考量步骤及免责安全港，操作性强"
+          ],
+          "weaknesses": [
+            "交错考量中ESG风险成本的量化评估标准稍显模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦框架建构与法学转化，不评价董事义务重构的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出ESG对董事义务改造的分析框架，但核心概念缺乏操作化界定，分析步骤模糊。",
+          "core_judgment": "框架以'社会判断义务'为核心术语，但未转化为可重复适用的判断标准或裁判规则，法学转化不足。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定模糊、分类标准不明确、分析步骤不可循、后文调用有限），法学转化度得分=1/4（跨学科概念未转化为法学分析步骤、未提供裁判规则、制度设计笼统、后文未实际使用转化步骤），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "社会判断将与商业判断共同构成缺一不可的董事义务履行正当性的内核标准——你中有我，我中有你",
+            "应采取'交错考量'的方式，平衡商业判断与社会判断的关系，使其互为'安全港'"
+          ],
+          "strengths": [
+            "提出'商业判断'到'社会判断'的演进视角，具有一定理论创新性"
+          ],
+          "weaknesses": [
+            "'社会判断义务'缺乏明确定义，未说明其构成要件与判断标准",
+            "'交错考量'等核心术语仅停留在口号层面，未转化为可操作的分析步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'社会判断义务'无'本文所称'式定义，'交错考量'无具体步骤，全文无第一步第二步等判断流程"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文成功将ESG商业概念转化为董事义务分析框架，提出“商业判断向社会判断演进”及“交错考量”路径。",
+          "core_judgment": "分析框架成立且具备较强的法学转化力与实务指引价值。",
+          "score_rationale": "框架可操作性得分3/4，法学转化度得分3/4，锚定excellent档，给85分。概念与分类清晰，但决策步骤偏原则化；成功实现ESG向董事信义义务的法学转化并提供冲突解决指引。",
+          "evidence_quotes": [
+            "董事义务的履行标准从商业判断逐渐过渡到社会判断，社会判断将与商业判断共同构成内核标准",
+            "应采取“交错考量”的方式，平衡商业判断与社会判断的关系，使其互为“安全港”"
+          ],
+          "strengths": [
+            "将ESG商业评价体系精准映射至董事信义义务构造，完成跨领域概念法学化",
+            "提出“交错考量”决策方法，为商业与社会利益冲突提供可回溯的分析路径"
+          ],
+          "weaknesses": [
+            "“交错考量”的具体司法审查标准与举证责任分配仍显抽象，缺乏量化阈值",
+            "框架对不同类型公司的差异化适用规则未充分展开为可操作的裁判步骤"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 95.4257881641388,
+        "glm-5.1": 48.80459904670715,
+        "kimi-k2.6": 13.601038932800293,
+        "qwen3.6-plus": 70.69840979576111
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 62.5,
+      "std": 29.8,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 65,
+          "band": "good",
+          "summary": "论文具有可识别的宏观推理链，但关键环节存在论证跳步，且实质性的反驳处理不足。",
+          "core_judgment": "推理链主线清晰（现状差异→多元机制困境→聚焦董事义务改造），但核心结论的推出依赖过多未经论证的断言，且未实质回应对立观点。",
+          "score_rationale": "推理链完整性得分=2/4（可复述主线但缺少关键衔接论证，依赖度不足，结论可辩护性弱）；反驳处理度得分=1/3（仅识别了隐含分歧，未实质回应或承认局限）。锚定good档(60-69)，给65分。",
+          "evidence_quotes": [
+            "因此，与其说是ESG（环境、社会和公司治理），不如说是GSE（公司治理、社会、环境）。",
+            "这就意味着需要对董事义务进行改造...有必要讨论ESG对董事会及董事义务的影响。"
+          ],
+          "strengths": [
+            "推理主线明确：从CSR与ESG的议题差异性，推导出多元实现机制的困境，最终聚焦于董事义务的改造。"
+          ],
+          "weaknesses": [
+            "从‘ESG议题存在差异’直接跳到‘需要对董事义务进行改造’缺乏中间论证，未解释为何其他机制（如交易法、规制法）的不足必须通过董事义务来解决。",
+            "引用了Bebchuk等学者的‘幻觉’论，但仅罗列观点而未进行任何实质性的反驳或吸收，削弱了立论的排他性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2但反驳处理度≤1，最高70分",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "推理链完整度不足（>=2处关键跳步），且反驳处理仅停留在列举对立观点，未提供实质性回应。"
+            }
+          ],
+          "boundary_note": "核心问题是论证链条断裂，而非分析框架本身不可操作。例如，从‘ESG议题差异’到‘董事义务改造’的推理缺乏必要性论证。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳与局限处理充分，核心结论可辩护推出。",
+          "core_judgment": "本维度成立，论文构建了从概念界定到义务改造再到履行模式的完整逻辑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。推理链层层依赖，核心结论由前文充分支撑推出。",
+          "evidence_quotes": [
+            "ESG义务的落实最终回归焦点问题——为董事会或董事设定何种义务将有助于内化ESG目标",
+            "应采取交错考量方式，平衡商业判断与社会判断的关系，使其互为安全港"
+          ],
+          "strengths": [
+            "推理链依赖度高，机制分析自然引出义务改造焦点",
+            "充分承认ESG模糊性及董事专业知识局限"
+          ],
+          "weaknesses": [
+            "对ESG幻觉批评的实质性回应稍弱，偏向绕过",
+            "交错考量互为安全港的论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价聚焦推导过程，不评价交错考量安全港的制度可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建'CSR→ESG→董事义务改造'的演进链条，主线推理完整，但反驳处理不足。",
+          "core_judgment": "推理链基本完整可复述，但缺乏对核心命题'社会判断义务'的充分反驳回应与自我限缩。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4存在局部跳步：从'ESG实现机制不足'直接推出'必须改造董事义务'，中间缺少对其他机制失效的充分论证；反驳处理度得分=1/3（仅标准1识别反对意见，标准2-3未满足）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "无论是运用组织法、交易法还是规制法的机制，ESG目标和任务的落实，最终会回归一个焦点问题——为董事会或董事设定何种义务将有助于内化ESG目标",
+            "将环境、社会等非受益人利益因素纳入投资决策范围，这与信托法中受托人应为受益人单一与最大化利益服务的经典信义义务理论存在冲突"
+          ],
+          "strengths": [
+            "三步推理链清晰：ESG概念界定→实现机制分类→董事义务改造核心命题",
+            "类型化分析细致，对组织法/交易法/规制法机制的梳理有层次"
+          ],
+          "weaknesses": [
+            "关键跳步：未充分论证为何前三类机制必然失效，即得出必须改造董事义务的结论",
+            "反驳处理薄弱：对'ESG与信义义务冲突'仅引述观点，未实质性回应如何协调"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链支撑度，不评'社会判断义务'概念本身的理论创新性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文逻辑链条完整，核心结论可由前文充分支撑并有效回应争议。",
+          "core_judgment": "推理链严密且依赖度高，反驳处理充分，符合优秀标准。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "若无公司内部董事会的自觉遵循，外部压力下的规制成本将极为高昂且效果有限。",
+            "应采取“交错考量”的方式，平衡商业判断与社会判断的关系，使其互为“安全港”。"
+          ],
+          "strengths": [
+            "推理链条完整，从概念演进到机制局限再到义务改造层层递进。",
+            "充分回应ESG与信义义务冲突等核心争议，论证具有可辩护性。"
+          ],
+          "weaknesses": [
+            "部分机制分析与核心结论的逻辑咬合稍显松散。",
+            "对“社会判断”的具体司法审查标准论证略欠操作性细节。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链支撑度，不评价制度方案的可操作性或结论接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.81102418899536,
+        "glm-5.1": 44.57587909698486,
+        "kimi-k2.6": 13.095508337020874,
+        "qwen3.6-plus": 54.358965158462524
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 78,
+      "std": 11.5,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出了“社会判断义务”这一明确学术主张，并将其嵌入与公司法传统理论的对话中，对中国制度语境有充分回应，结论具有较高的共同体可接受度。",
+          "core_judgment": "结论可接受性高，因其在中国法语境下提出了可辩论的“社会判断”命题，并与既有理论及制度实践形成有效对话。",
+          "score_rationale": "共同体对话度得分=4/4（回应争论、可被反驳、中国语境通、承认局限），制度可接受度得分=3/4（不根本矛盾、回应实务约束、未明确制度转化方向、考虑中国语境）。属理论论文，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“董事义务的履行标准从商业判断逐渐过渡到社会判断...社会判断将会与商业判断共同构成缺一不可的董事义务履行正当性的内核标准。”",
+            "“如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战。”（承认局限与开放问题）"
+          ],
+          "strengths": [
+            "结论明确修正了传统董事义务理论，挑战主流但提供了可反驳的“社会判断”框架，对话性强。",
+            "紧密结合中国公司法修订、披露规则及国企实践，制度语境回应充分。"
+          ],
+          "weaknesses": [
+            "对“社会判断义务”的具体制度转化方向（如立法措辞、审查标准）缺乏明确指引。",
+            "对反对意见（如“社会判断难以司法审查”）的讨论深度可进一步加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评价仅关注结论在共同体与制度中的可接受性，不涉及逻辑严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论提出董事义务从商业判断向社会判断进化，与共同体争论高度对话且兼容中国法秩序。",
+          "core_judgment": "结论成功回应既有争论并提出可反驳的“交错考量”理论，与中国制度语境深度兼容，可接受性高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论深度回应ESG幻觉等反对意见，并立足中国公司法第180条等制度约束提出转化方向。",
+          "evidence_quotes": [
+            "董事义务的履行标准从商业判断过渡到社会判断...采取'交错考量'的方式，平衡商业判断与社会判断的关系，让二者互为'安全港'。",
+            "《公司法》第180条在论及董事义务时，仅要求其为公司最大利益尽到合理注意，忽略了社会判断义务的独立价值。"
+          ],
+          "strengths": [
+            "明确回应Bebchuk等“ESG幻觉”质疑及信义义务冲突论，对话度高。",
+            "提出交错考量互为安全港，为裁判与立法提供清晰理论方向。"
+          ],
+          "weaknesses": [
+            "交错考量的具体裁判识别标准仍偏原则化，制度转化细节留待未来。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评交错考量理论的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出ESG时代董事义务应从商业判断向社会判断进化，结论在理论层面具有对话性，但制度转化回应不足。",
+          "core_judgment": "理论主张明确且可定位，但结论部分未充分回应反对意见，制度转化方向较为笼统。",
+          "score_rationale": "共同体对话度得分=3/4（回应了CSR与ESG的学术争论、定位了与既有理论的关系、结合中国公司法语境；但未主动讨论反对意见或自身局限）。制度可接受度得分=2/4（不与现行法秩序根本矛盾、提及中国《公司法》第20条和第180条；但未具体回应制度约束、未指出明确的制度转化方向）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "董事义务的履行标准从商业判断逐渐过渡到社会判断，或者说从商业判断义务，逐渐过渡到社会判断义务。社会判断将与商业判断共同构成缺一不可的董事义务履行正当性的内核标准。",
+            "我国新《公司法》第180条在论及董事义务时，仅要求其为公司最大利益尽到管理者通常应有的合理注意，忽略了社会判断义务的独立价值。"
+          ],
+          "strengths": [
+            "明确回应了CSR与ESG的学术争论，理论定位清晰。",
+            "结合中国《公司法》语境展开，未直接移植外国理论。"
+          ],
+          "weaknesses": [
+            "结论未主动讨论反对意见或自身论证局限。",
+            "制度转化方向较为笼统，未具体说明如何在中国法下落实。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应ESG与信义义务之争，提出“交错考量”改造路径，高度契合中国公司法语境。",
+          "core_judgment": "该结论具备高度的共同体对话度与制度兼容性，能够被学界定位、反驳并在中国法秩序内落地。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准切入信义义务与ESG冲突的核心争论，提出“交错考量”与互为“安全港”的教义学方案，充分回应中国《公司法》第180条局限及董事专业能力约束，具备强可争辩性与制度转化潜力。",
+          "evidence_quotes": [
+            "《公司法》第180条在论及董事义务时……忽略了社会判断义务的独立价值。",
+            "应采取“交错考量”的方式，平衡商业判断与社会判断的关系，使其互为“安全港”。"
+          ],
+          "strengths": [
+            "精准定位信义义务与ESG冲突，提出可操作的“交错考量”标准。",
+            "深度结合中国《公司法》修订、监管实践与企业类型差异。"
+          ],
+          "weaknesses": [
+            "“交错考量”的司法审查标准与举证责任分配仍需细化。",
+            "对董事专业知识匮乏难题，仅提引入专家，缺乏程序保障。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论当下能否进入学术对话与制度语境，不评判论证过程严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 67.00355696678162,
+        "glm-5.1": 52.15759587287903,
+        "kimi-k2.6": 12.325160026550293,
+        "qwen3.6-plus": 64.75102210044861
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85,
+      "std": 8.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文在结尾处仅以高度概括的设问句提示未来方向，未能提出可定位的后续研究问题、具体修正路径或可检验的反驳入口，前瞻延展停留在口号式展望层面。",
+          "core_judgment": "论文未提供真实、可定位的前瞻延展路径，未来研究指向过于空泛。",
+          "score_rationale": "原始分35分，属unacceptable档，bonus=0。论文末段仅提出“如何在具体制度构造中，实现此种交错平衡”这一空泛设问，缺乏具体研究对象、机制、概念边界或制度路径，属于口号式展望，缺乏真实延展路径。",
+          "evidence_quotes": [
+            "如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战。",
+            "何种原因导致此种认知差异，仍颇值研究。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾仅以宏观设问收束，未指明具体制度构造对象、修正路径或可检验的后续争点。",
+            "多处使用“仍颇值研究”等空泛表述，未说明待修正的理论、概念或制度环节。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "论文仅使用空泛拔高表述，未说明具体问题、对象、机制、概念边界、制度路径或实务场景，视为口号式展望。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战。"
+            }
+          ],
+          "boundary_note": "本维度仅评估论文是否指明了未来可推进的研究方向、修正路径或争议入口，不涉及当下结论是否可接受。论文结尾仅提出宏观挑战，未给出可操作的延展路径，此处属于前瞻延展性问题，而非结论可接受性问题。",
+          "review_flags": [
+            "evidence_thin",
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "指明了商业判断与社会判断交错平衡的具体制度构造及BJR衔接等延展路径。",
+          "core_judgment": "存在真实延展路径，指明了制度完善方向与规则衔接问题。",
+          "score_rationale": "原始分80，bonus档位为5分（>=80）。延展路径清晰可定位，如交错考量的制度构造、BJR与ESG衔接要件，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战。",
+            "应明确商业判断规则与ESG治理之衔接，厘清其要件、模式与适用场景。"
+          ],
+          "strengths": [
+            "延展路径与核心结论紧密衔接，指向交错平衡的制度构造",
+            "指明了BJR与ESG衔接的具体要件与适用场景"
+          ],
+          "weaknesses": [
+            "对交错考量互为安全港的制度构造未展开初步设想"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "交错平衡的具体制度构造属于未来立法完善方向，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结论部分提出了ESG董事义务'交错考量'的履行模式及具体制度构造的未竟挑战，但延展路径较为概括，缺乏对后续研究问题的精细化设计。",
+          "core_judgment": "存在真实但较概括的延展路径，主要体现为制度完善方向和理论深化方向，但精细度有限。",
+          "score_rationale": "原始分55分，对应bonus=2档。论文结尾明确提出'如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战'，指向制度完善方向；同时指出董事专业知识不足、信息不对称等实践障碍，为后续研究提供入口。但延展多停留于宏观命题，未形成可操作的后续研究问题清单或具体争点。",
+          "evidence_quotes": [
+            "如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战。",
+            "对董事而言，寻求社会判断免责的最大障碍可能在于信息不对称或无法充分知情……董事会可能没有必要的专业知识来适当地监督ESG。"
+          ],
+          "strengths": [
+            "提出'交错考量'的具体方法原则，为后续制度设计提供方向",
+            "指出董事专业知识不足等实践障碍，构成可检验的反驳入口"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "未承认正文具体局限并说明如何推进"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结尾'真正的挑战'属于未来延展问题而非当下结论可接受性；其关注的是制度如何具体化，而非论证结论本身是否成立。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 78,
+          "band": "good",
+          "summary": "论文明确指出ESG时代董事义务从商业判断向社会判断转型的制度构造挑战，并提出立法衔接与治理机制优化的具体延展方向。",
+          "core_judgment": "存在真实延展路径，聚焦于董事社会判断义务的具体制度构造、信义义务冲突化解及董事会专业能力补足。",
+          "score_rationale": "原始分78，对应bonus=3。文末明确指出ESG对公司法的制度构造挑战与《公司法》第180条的修法方向，延展路径清晰且紧扣核心结论，但具体裁判标准与差异化实证方案仍需后续细化。",
+          "evidence_quotes": [
+            "如何在具体制度构造中，实现此种交错平衡，这是ESG对公司法真正的挑战。",
+            "遗憾的是，《公司法》第180条在论及董事义务时……忽略了社会判断义务的独立价值。"
+          ],
+          "strengths": [
+            "明确指向《公司法》具体条款的修法需求与制度构造挑战。",
+            "结合董事会专业知识局限提出引入外部专家或调整治理结构的实务路径。"
+          ],
+          "weaknesses": [
+            "未就“交错考量”的具体司法审查标准或裁判规则给出细化方案。",
+            "对不同类型企业差异化履行社会判断义务的实证检验路径着墨较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于董事社会判断义务未来在立法修订、司法审查标准细化及公司治理结构优化中的具体推进路径，而非评价当下结论的学术共识度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.30050706863403,
+        "glm-5.1": 32.60100293159485,
+        "kimi-k2.6": 11.625433921813965,
+        "qwen3.6-plus": 63.38427710533142
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 80,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 78
+      },
+      "mean": 62,
+      "std": 21.3,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 72.81,
+      "weighted_total": 70.9
+    },
+    "aggregation_strictest": {
+      "final_score": 45.0,
+      "weighted_total": 47.2
+    },
+    "avg_std": 19.2,
+    "max_std": 29.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 27.8,
+    "composite_score": -19.2,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 29.8
+  }
+}

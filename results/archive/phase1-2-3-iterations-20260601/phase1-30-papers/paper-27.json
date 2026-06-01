@@ -1,0 +1,552 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/论民事司法成本的分担.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致百分比符号错误（如“2 9／6”、“80 9／6—90 9／6”）",
+          "期刊页码混入正文（如“· 93 ·”、“· 102 ·”）",
+          "个别字符乱码（如“Jl~,N 运营”应为“顺利运营”）",
+          "参考文献列表未独立抽取，但脚注引用完整"
+        ],
+        "evidence_quotes": [
+          "当事人负担的案件受理费尚不足司法公共成本的2 9／6",
+          "诉讼费用覆盖了法院运营成本的80 9／6—90 9／6",
+          "关系到司法能否Jl~,N 运营"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "对于中国而言，司法成本的分担关系到如何在一个人口大国合理分配司法资源，是让人民群众在每一个司法案件中感受到公平正义的基础条件。",
+          "我国自2007年起，明显降低了一般案件的诉讼成本，诉权行使的经济障碍被局部消除...我国目前并不具备免费司法的基础条件。",
+          "司法成本的第一层次分担规则...第二层次成本分担规则...第三层次的分担规则...",
+          "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR格式残留与页码混入，需清洗但不影响评审",
+        "论文核心命题明确，具备进入六维评价的全部项目口径信号"
+      ],
+      "evidence_quotes": [
+        "在整体上对民事司法成本解构，而非将其限缩为诉讼费用进行局部的观察分析，能够为审判成本和诉讼成本的分担找到正当化根据",
+        "基于现代司法的定位，从国家、当事人、社会(市场)三个层面探讨司法成本分散机制，厘清成本责任边界，构建一种分层、分类的司法成本分担机制"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本存在轻微OCR识别瑕疵（百分比符号、页码混入、个别乱码），但核心论点、三层成本分担架构及对中国司法实践的规范命题清晰可辨。建议后续评分重点关注其理论转化深度与制度建议的可操作性。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR百分号识别错误（如'2 9／6'、'80 9／6—90 9／6'、'7 一13 9／6'应为'2%'、'80%—90%'、'7%—13%'）",
+          "期刊页码混入正文（如'· 93 ·'、'· 95 ·'等）",
+          "期刊名与年份混入正文（如'中国社会科学 2016年第2期'）",
+          "个别乱码字符（如'Jl~,N 运营'应为'良性运营'）",
+          "英文书名OCR残缺（如'e Costs'应为'The Costs'）"
+        ],
+        "evidence_quotes": [
+          "仅具有象征意义。当事人负担的案件受理费尚不足司法公共成本的2 9／6",
+          "苏格兰是个极端例子，他们将大部分审判成本转化为诉讼费用，诉讼费用覆盖了法院运营成本的80 9／6—90 9／6",
+          "当前各级财政向法院的拨款以7 一13 9／6的增幅逐年递增",
+          "· 93 ·",
+          "中国社会科学 2016年第2期",
+          "可否为社会接近，以及法律职业能否得以Jl~,N 运营"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "对于中国而言，司法成本的分担关系到如何在一个人口大国合理分配司法资源，是让人民群众在每一个司法案件中感受到公平正义的基础条件。",
+          "将本应由国家负担的审判成本转化为诉讼成本，由当事人负担，即'审判成本诉讼化'；二是为扩大司法公共服务职能，将本应由当事人负担的诉讼成本转化或转嫁为审判成本，即所谓'诉讼成本审判化'。",
+          "我国目前的诉讼费用'收支两条线'，虽在外观上切断了法院从当事人那里直接获取资金的渠道，但改革的任务并未完成。法院靠诉讼费用获得财政拨款来维系自身运营的状况并未根本改变，只不过由过去直接收取诉讼费用，转变为间接地从财政部门获取，'明补'变为了'暗补'。",
+          "司法成本第三层次的分担规则，则应注重发挥法律服务市场及社会组织在诉讼成本分担上的作用，其成效取决于职业伦理建设及法律规制。",
+          "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "OCR百分号乱码需人工校对修复",
+        "页码及期刊名混入正文需清洗",
+        "个别乱码词汇需修正"
+      ],
+      "evidence_quotes": [
+        "对于中国而言，司法成本的分担关系到如何在一个人口大国合理分配司法资源",
+        "审判成本诉讼化",
+        "诉讼成本审判化",
+        "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本工程需在后续阶段清洗页码、期刊名混入正文的问题，并修复OCR造成的百分号乱码（如将'9／6'修复为'%'）及个别乱码字符。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 65,
+        "glm-5.1": 80
+      },
+      "mean": 72.5,
+      "std": 10.6,
+      "confidence": "low",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 65,
+          "band": "good",
+          "summary": "系统构建民事司法成本三层分担框架，但缺乏明确争点，偏向制度设计与政策倡导。",
+          "core_judgment": "问题具有现实与制度重要性，但缺乏可争辩的法学核心命题，创新性受限。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，因实质为政策倡导扣20分，最终给65分。",
+          "evidence_quotes": [
+            "司法成本既体现着正义分配的一般性原则，也展示着国家、当事人和市场间的合作与博弈。",
+            "按照什么样的标准确定司法入场费？答案应当是明确的：一方面，成本核算标准应当取决于国家与当事人间诉讼成本分摊比例、权利救济的难易。"
+          ],
+          "strengths": [
+            "系统整合国家、当事人与市场三层成本分担机制，视野开阔。",
+            "深入剖析英美德等国费用规则，工具性与目的性价值论证充分。"
+          ],
+          "weaknesses": [
+            "全文以制度建构与政策倡导为主，缺乏明确的法学争点句。",
+            "新概念与框架多为对既有比较法经验的归纳，理论交锋不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文将诉讼费用问题扩展为司法成本三层次分担的体系构建，枢纽性强但核心争点多为既有分歧的整合。",
+          "core_judgment": "问题成立且枢纽性极强，但创新性主要体现为分析框架的体系化整合，而非提出原创性法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给80分",
+          "evidence_quotes": [
+            "问题的实质在于，按照什么样的标准确定“司法入场费”？",
+            "当事人之间由谁负担诉讼成本的问题还悬而未决"
+          ],
+          "strengths": [
+            "将局部诉讼费用问题扩展为整体司法成本分担，问题设定有推进",
+            "涉及诉权、国家责任等多维度理论分歧，枢纽性极强"
+          ],
+          "weaknesses": [
+            "核心问题偏向宏大的制度设计，缺乏聚焦的原创性法学争点",
+            "理论分歧多为既有模式的复述与整合，深度交锋不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分度",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 90.37848687171936,
+        "glm-5.1": 479.2240059375763
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理司法成本分担脉络，清晰呈现国家、当事人与市场三层机制的学术争点与制度分歧。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰且流派覆盖充分，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "美国和英国给出了不同对策：败诉者负担诉讼费用即英国规则；当事人各自承担则是美国规则。",
+            "我国存在的问题是诉讼收费项目过于模糊，收费标准没有与审判成本挂钩，大幅超过实际成本。"
+          ],
+          "strengths": [
+            "三要素完整，明确提炼既有研究贡献与我国制度局限。",
+            "争点结构清晰，系统对比不同法系成本分担路径。"
+          ],
+          "weaknesses": [
+            "部分比较法经验引述偏重制度描述，理论交锋深度可进一步挖掘。",
+            "文献定位分散于各章节，缺乏集中式综述以强化脉络连贯性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评价议题本身新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了三层司法成本分担的完整研究地图，清晰呈现了多维度争点结构与比较法流派对立。",
+          "core_judgment": "研究地图三要素充分，争点结构完整，比较法与制度流派对立明确，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个(英美规则对立、免费/市场型对立、律师费纳入/排除、胜诉取酬支持/反对)，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "尽管将部分律师费用纳入诉讼费用已经成为主流观点，但反对的观点也颇有说服力。",
+            "在分担比例上，审判成本被划分为免费型和全部成本回收型……这极易招致诟病……与之相对的观点也不可取。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，明确提炼了方流芳等学者的具体贡献与制度局限。",
+            "争点结构层次分明，国家/当事人、当事人间、市场/社会三层面均呈现对立路径。"
+          ],
+          "weaknesses": [
+            "部分制度对立（如免费型vs回收型）偏重比较法描述，未显式标明为学界争论脉络。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评司法成本分担方案本身的制度创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 86.8088960647583,
+        "glm-5.1": 101.97597122192383
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“国家-当事人-市场社会”三层成本分担框架，逻辑清晰且贯穿全文。",
+          "core_judgment": "框架具备明确的概念界定、分层分类标准与制度转化路径，分析建构力强。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。三层分担结构界定清晰，后文逐层展开；经济学成本概念成功转化为诉讼费计算、评定程序及保险信托等具体制度方案。",
+          "evidence_quotes": [
+            "这里的司法成本，指具体民事诉讼中以货币来衡量的总耗费，它涵盖了以下几个部分：司法预算意义上的法院运营成本、当事人支付意义上的公共成本和私人成本……",
+            "基于现代司法的定位，从国家、当事人、社会(市场)三个层面探讨司法成本分散机制，厘清成本责任边界，构建一种分层、分类的司法成本分担机制"
+          ],
+          "strengths": [
+            "三层分类标准边界清晰，后文严格按此结构展开论证",
+            "将成本经济学概念转化为诉讼费计算、异议程序及保险信托等可操作制度"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的裁判适用流程图，更多依赖宏观分层论述",
+            "部分制度建议（如诉讼信托）的本土程序衔接细节可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建了司法成本三层分担框架，概念清晰且法学转化度高，提供了具体制度方案。",
+          "core_judgment": "框架建构力极强，将经济学成本概念成功转化为分层分类的法学制度设计，操作步骤可循。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "这里的司法成本，指具体民事诉讼中以货币来衡量的总耗费，它涵盖了以下几个部分...",
+            "司法成本第一层次的分担规则...第二层次成本分担规则...司法成本第三层次的分担规则..."
+          ],
+          "strengths": [
+            "三层分担框架分类标准明确，逻辑递进清晰。",
+            "法学转化彻底，提出了具体的诉讼费用计算与程序保障方案。"
+          ],
+          "weaknesses": [
+            "部分比较法制度建议（如按审理时间计费）的本土化适用条件论证稍简。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的可操作性与法学转化度，不评价制度建议的可行性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 65.35062599182129,
+        "glm-5.1": 676.7397089004517
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建三层成本分担框架，推理链条完整，反驳处理充分，逻辑严密性高。",
+          "core_judgment": "推理链完整且层层递进，核心结论可由前文充分支撑，反驳与局限处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分4/4，反驳处理度得分3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "以此为基础的司法成本第一层次分担规则……第二层次成本分担规则……第三层次的分担规则",
+            "尽管将部分律师费用纳入诉讼费用已经成为主流观点，但反对的观点也颇有说服力。"
+          ],
+          "strengths": [
+            "三层框架层层递进，逻辑衔接紧密",
+            "对争议观点均有实质性回应与边界限定"
+          ],
+          "weaknesses": [
+            "部分比较法经验向本土转化的论证略显简略",
+            "第三层次社会分担的规范依据支撑稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链条的支撑度与可辩护性，不涉及制度方案的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了“国家-当事人-市场/社会”三层次递进的司法成本分担推理链，反驳与局限处理充分。",
+          "core_judgment": "推理链完整且层层依赖，核心结论可辩护推出，本维度成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "司法成本的第一次分担机制...但问题只解决了一半，当事人之间由谁负担诉讼成本的问题还悬而未决",
+            "反对的观点也颇有说服力...将律师费用纳入诉讼费用是极度危险之不合理制度"
+          ],
+          "strengths": [
+            "三层次分担机制形成严密依赖链条，前一步为后一步奠基",
+            "显式回应反对意见并承认制度局限，论证客观"
+          ],
+          "weaknesses": [
+            "部分制度建议（如按审理时间计费）的实务约束回应稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦三层次推理链的递进支撑，不评价具体立法建议的实操细节。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 63.69541788101196,
+        "glm-5.1": 659.7613649368286
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论系统构建三层分担机制，深度契合中国司法语境，制度转化路径清晰。",
+          "core_judgment": "结论高度成立，有效回应学术争议并提供具象制度方案，与现行法秩序兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律。",
+            "我国目前并不具备免费司法的基础条件，但国家仍有必要明确财政支出责任，将非讼与公益诉讼纳入免费范围。"
+          ],
+          "strengths": [
+            "三层分担框架精准对接中国司法财政与诉权保障现实，学术对话充分。",
+            "制度建议具体可操作，明确指向收费上限、程序保障与单独立法路径。"
+          ],
+          "weaknesses": [
+            "诉讼信托与第三方资助的本土监管细则论证略显宏观。",
+            "法院经费完全脱钩后的财政替代方案缺乏量化测算支撑。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下可接受性，不评价论证过程严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论系统回应了司法成本分担争论，提出了兼容中国法秩序的分层改革方案。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，提出了可争辩且可转化的具体主张。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "以败诉方负担诉讼费用为原则，体现诉讼成本分担的正义性。同时，发挥诉讼费用成本分担中的工具性价值",
+            "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律"
+          ],
+          "strengths": [
+            "充分回应了败诉者负担等既有争论及反对意见",
+            "提出了分层分担机制及立法提升等具体制度转化方向"
+          ],
+          "weaknesses": [
+            "结论部分对市场与社会分担机制的可行性风险回应稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度可接受性，不评论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 57.654107332229614,
+        "glm-5.1": 41.46875715255737
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 82,
+        "glm-5.1": 85
+      },
+      "mean": 83.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文针对司法成本分担提出明确的制度完善方向、规则衔接路径与实施风险控制，延展路径清晰且与核心结论紧密衔接。",
+          "core_judgment": "存在真实延展路径，具体指向立法层级提升、第三方资助监管难题破解及成本分担机制的系统整合。",
+          "score_rationale": "原始分82，对应bonus=5。文末明确指向立法层级提升、第三方资助监管难题破解及规则系统整合，路径清晰可定位，与三层分担结论紧密衔接。",
+          "evidence_quotes": [
+            "其未来发展的走向，取决于立法支持的力度……以及如何解决由信息不对称和权利不对称带来的监管难题",
+            "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律"
+          ],
+          "strengths": [
+            "明确指出诉讼外资金资助的监管难题与立法依赖，提供具体风险控制方向",
+            "提出将分散规则整合升格为专门立法的制度衔接路径，具有实务可操作性"
+          ],
+          "weaknesses": [
+            "对新型成本分散机制的本土化实证检验路径着墨较少",
+            "立法建议偏宏观，未细化具体条文冲突的解决技术"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于制度落地后的规则衔接、监管难题破解及立法升格等未来推进方向，而非评判当前结论在学理或实务中的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了司法成本分担制度的立法整合方向及具体规则衔接与风险控制路径。",
+          "core_judgment": "存在真实且可定位的延展路径，指出了立法整合、规则配套及第三方资助监管等具体深化方向。",
+          "score_rationale": "原始分85，属excellent档（>=80），bonus=5。论文提出了制定专门法律、小额诉讼费用配套、诉讼保险滥诉抑制及第三方资助监管难题等清晰延展路径，与正文三层分担机制紧密衔接。",
+          "evidence_quotes": [
+            "建议由立法机关整合诉讼费用交纳、司法救助、法律援助甚至律师收费制度，制定有关司法成本分担机制的法律。",
+            "其未来发展的走向，取决于立法支持的力度……以及如何解决由信息不对称和权利不对称带来的监管难题。"
+          ],
+          "strengths": [
+            "提出了具体的立法整合与制度衔接方向（如制定专门法律、小额诉讼配套）。",
+            "明确指出了第三方资助等新机制的监管难题与风险控制路径。"
+          ],
+          "weaknesses": [
+            "对诉讼费用精算及评定程序的延展仅停留在原则层面，未指明具体机制设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是未来立法整合与第三方资助监管的延展方向，而非当下结论是否应被立法机关接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 76.21270704269409,
+        "glm-5.1": 37.63537287712097
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.8,
+    "max_std": 10.6,
+    "weighted_total": 84.9,
+    "final_score": 89.24,
+    "high_confidence_pct": 83.3,
+    "dimension_count": 6,
+    "composite_score": 5.53,
+    "worst_dimension": "problem_originality",
+    "worst_std": 10.6
+  }
+}

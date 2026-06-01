@@ -1,0 +1,1198 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法体制综合配套改革的路径和重点.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "degraded",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别偶有标点/空格错误（如脚注编号混入正文‘⑩前引⑧’）",
+          "文末参考文献列表缺失（未见引注条目）",
+          "期刊页码混入正文（如第39页页码数字）",
+          "正文包含多篇独立笔谈，结构为笔谈合集而非单篇论文"
+        ],
+        "evidence_quotes": [
+          "⑩ 前引⑧。",
+          "参见孟建柱：《深化司法体制改革》，载《人民日~}2o13年11月25日第6版。",
+          "党的十九大代表，最高人民法院副院长、二级大法官，中国法学会副会长。 39"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义。（中国问题：制度诊断）",
+          "司法体制综合配套改革重在深化改革……司法体制改革处于爬坡过坎的攻坚期……必须按照全面深化改革的思路，采取综合配套改革的方法予以解决。（实践解释尝试）",
+          "例如，完善司法责任制要求坚持素质与职责相匹配、权力与制约相统一、责任与保障相适应的原则。构建科学完备的司法管理体制，需要综合改革、配套改革、协调改革，才能取得实效。（法学命题：权力与制约相统一，法学概念转化）",
+          "综合配套改革就是把司法体制改革看作一个整体……增强各方面、各领域、各层次改革的协调联动。（理论化：系统性、整体性、协同性转化为可复核的制度命题）",
+          "要坚持有序放权与监督管理相统一，规范权力运行，明确追责程序……做到‘有权必有责，用权受监督，失职要问责，违法要追究’。（规范命题：权力运行机制与追责标准）",
+          "没有司法权威，司法机关就难以发挥化解纠纷、定分止争的功能。‘司法裁判的终局性是司法权威的关键性标志。’（法学理论命题）"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注格式不规范、参考文献列表缺失，但不影响核心论点定位",
+        "文本形式：本文为多作者笔谈合集，当前截取部分仅含两位作者文章，需确认评审单位是全文还是单篇，但不构成项目口径性问题"
+      ],
+      "evidence_quotes": [
+        "司法体制综合配套改革重在深化改革……采取综合配套改革的方法予以解决。",
+        "深化司法体制综合配套改革，要在党的十八大以来所部署的改革举措基础上，针对影响司法体制改革举措落地见效的瓶颈性问题，完善相关配套措施。",
+        "陈光中、肖沛权：《关于司法权威问题之探讨》，载《政法论坛)2011年第1期。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR和格式瑕疵，但核心论点和法学命题明确、可定位，可直接进入六维评分。建议评阅时注意全文可能包含多篇独立笔谈，按单篇独立评审或明确整体评价对象。"
+    },
+    "glm-5.1": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如39、40、41等）",
+          "脚注编号乱码及内容混入（如@、⑩及前引⑧等）",
+          "OCR错字（如“工资收人保障体系”应为“收入”）",
+          "栏目及作者身份信息混入正文段落"
+        ],
+        "evidence_quotes": [
+          "39 中国法学 2017年第6期",
+          "⑩ 前引⑧。",
+          "工资收人保障体系",
+          "党的十九大代表，最高人民法院副院长、二级大法官，中国法学会副会长。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义。",
+          "建设中国特色社会主义法治文化"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "纯政策复述与精神宣讲，缺乏可争辩的法学问题",
+          "未形成法学概念、判断标准、解释路径或可复核命题",
+          "中国实践仅作为政策落实的背景和对象，缺乏学术层面的解释尝试"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "项目口径：纯政策宣讲与笔谈，无学术争辩性与理论命题",
+        "文本工程：OCR错字、页码及脚注乱码混入正文"
+      ],
+      "evidence_quotes": [
+        "综合配套改革是事关司法体制改革全局和成败的重大举措，是党中央要求司法体制改革落地见效、全面决胜的集结号和动员令",
+        "工资收人保障体系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "纯政策复述与精神宣讲，缺乏可争辩的法学问题",
+        "未形成法学概念、判断标准、解释路径或可复核命题"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "project_scope_obviously_ineligible",
+        "text_quality_risk"
+      ],
+      "recommendation": "直接拒绝进入六维评审。该文为学习十九大报告的笔谈文章，属于政策宣讲与改革任务解读，缺乏法学学术意义上的可争辩问题与理论转化，不符合项目口径。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "论文包含两篇独立文章拼接：姜伟《司法体制综合配套改革的路径和重点》和张苏军《建设中国特色社会主义法治文化》，后者仅部分呈现",
+          "第二篇文章截断不完整，缺少后续内容",
+          "脚注编号存在乱码（如⑩⑩⑩等重复编号）",
+          "参考文献列表为空，但实际文中有脚注引用"
+        ],
+        "evidence_quotes": [
+          "学习十九大报告重要法治论述笔谈 司法体制综合配套改革的路径和重点 姜伟",
+          "建设中国特色社会主义法治文化 张苏军",
+          "⑩ 前引⑧。",
+          "⑩ 参见孟建柱：《深化司法体制改革》，载《人民日~}2o13年11月25日第6版。",
+          "⑩ 陈光中、肖沛权：《关于司法权威问题之探讨》，载《政法论坛)2011年第1期。",
+          "--- 参考文献列表： （无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "习近平总书记所作的党的十九大报告将'坚持全面依法治国'作为新时代坚持和发展中国特色社会主义的基本方略之一",
+          "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义",
+          "建设中国特色社会主义法治体系和法治国家的法治建设总目标"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "文本性质为政策宣讲和学习体会，而非学术论文。两篇文章均为对十九大报告法治论述的学习解读，属于政治文件学习材料",
+          "缺乏可争辩的法学问题。文章通篇是对党中央决策部署的阐释、复述和肯定，不存在规范、制度或理论层面的学术争论",
+          "没有形成法学概念、判断标准、解释路径或可复核命题。文章结构为'总体思路—基本遵循—重点任务'的政策分解模式，属于工作部署性文字",
+          "虽有中国实践描述，但仅为改革成就列举和政策目标陈述，未解释任何真实法律难题，更未将中国实践转化为分析对象进行学术论证",
+          "第二篇文章《建设中国特色社会主义法治文化》同样属于文化政策宣示，且文本严重残缺，无法判断其学术属性"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：两篇独立文章拼接，第二篇截断不完整；脚注编号系统混乱；参考文献抽取失败",
+        "项目口径：文本性质为政策学习笔谈，非学术法学论文，不具备可争辩法学问题和理论转化"
+      ],
+      "evidence_quotes": [
+        "学习十九大报告重要法治论述笔谈",
+        "习近平总书记所作的党的十九大报告……明确要求'深化司法体制改革'",
+        "我们要遵照习近平总书记关于'坚定不移将改革进行到底'的重要指示",
+        "建设中国特色社会主义法治文化……这为弘扬社会主义法治精神，建设中国特色社会主义法治文化指明了方向"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "政策宣讲文本，非学术法学论文",
+        "无独立法学问题意识，全文为对党中央决策部署的学习阐释",
+        "无理论转化或可复核命题，属于工作部署和政策复述"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该文本为《中国法学》2017年第6期的'学习十九大报告重要法治论述笔谈'专栏文章，属于政策学习性质的多人笔谈，不符合'中国自主知识体系研究'六维评价的学术标准。建议直接排除，不进入评分流程。如确需保留，可考虑将其归入'法治话语/政策话语'文献库，但不适用六维学术评价框架。"
+    },
+    "qwen3.6-plus": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留（如“一\\n个”、“党的十J九大”、“人民日~}2o13年”）",
+          "脚注编号乱码与符号错置（如“@”、“⑩”混排）",
+          "期刊页码与栏目名混入正文（如“中国法学 2017年第6期”、“39”、“40”等）"
+        ],
+        "evidence_quotes": [
+          "人民日~}2o13年",
+          "党的十J九大代表",
+          "一\\n个司法案件中"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义。",
+          "司法体制综合配套改革重在深化改革...贵在全面改革。",
+          "坚持党对司法工作的领导...坚持法治国家、法治政府、法治社会一体建设..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "文章为政策学习与工作部署性质的笔谈，核心内容是对十九大报告法治论述的政治阐释与改革方向宣示，未提出可争辩的法律规范、制度或法哲学问题",
+          "全文侧重原则性、方向性表述与任务部署，缺乏对中国司法实践真实难题的解释性分析与学术回应",
+          "未形成独立的法学概念、判断标准、解释路径或可复核的学术命题，属于政策复述与实施指引，不符合自主知识体系研究的学术争辩要求"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本存在OCR识别错误与排版残留，但不影响核心内容定位",
+        "文章性质为政策解读与工作部署，缺乏学术争辩性与理论建构，不符合自主知识体系评价的学术命题要求"
+      ],
+      "evidence_quotes": [
+        "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义。",
+        "司法体制综合配套改革重在深化改革...贵在全面改革。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "文章为政策学习与工作部署性质的笔谈，核心内容是对十九大报告法治论述的政治阐释与改革方向宣示，未提出可争辩的法律规范、制度或法哲学问题",
+        "全文侧重原则性、方向性表述与任务部署，缺乏对中国司法实践真实难题的解释性分析与学术回应",
+        "未形成独立的法学概念、判断标准、解释路径或可复核的学术命题，属于政策复述与实施指引，不符合自主知识体系研究的学术争辩要求"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "建议直接作拒评处理。本文系典型的政策解读与工作部署类笔谈，侧重政治宣示与宏观改革指引，缺乏可争辩的法学问题、实践解释尝试与理论转化命题，不满足进入六维评价的学术门槛。文本存在轻微OCR与排版残留，但不影响整体定性。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "全文为政策笔谈，仅阐释十九大报告既定部署，未提出可争辩的法学研究问题。",
+          "core_judgment": "文本属于政策宣讲与工作部署介绍，未能形成法学可争辩的研究问题，问题创新性不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限但无实际研究推进。触发 no_justiciable_question 上限规则，锚定 unacceptable 档，扣分合计=0，给 40 分。",
+          "evidence_quotes": [
+            "习近平总书记指出：‘深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义。’",
+            "司法体制综合配套改革重在深化改革。……必须按照全面深化改革的思路，采取综合配套改革的方法予以解决。"
+          ],
+          "strengths": [
+            "对司法体制综合配套改革的宏观思路进行了系统归纳。",
+            "提出了若干改革原则与重点任务，具有一定的政策参考价值。"
+          ],
+          "weaknesses": [
+            "全文无任何可争辩的法学理论或制度性问题句，仅为政策立场阐释。",
+            "没有呈现学者观点交锋或理论分歧，缺乏法学层面的论证与分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何可争辩的法学研究问题，只有主题声明与政策倡导。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕十九大报告部署展开，未出现‘XX是否YY’‘如何ZZ’等法学问题句，亦无理论分歧呈现。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述、论证严密性或材料支撑结论的程度。",
+          "review_flags": [
+            "no_justiciable_question",
+            "material_novelty_overclaim",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政策阐释与主题声明，无法学争点与理论分歧。",
+          "core_judgment": "该文无可争辩的法学研究问题，仅为对十九大报告的政策解读与立场阐释。",
+          "score_rationale": "前置扣50分(检查2扣20分无交锋,检查3扣30分无问题句)。可争辩性0/4，枢纽性0/4，触发no_justiciable_question上限50分，正式评40分。40-50保底30分。",
+          "evidence_quotes": [
+            "深化司法体制综合配套改革，全面落实司法责任制",
+            "坚持党对司法工作的领导...坚持遵循司法规律"
+          ],
+          "strengths": [
+            "紧扣最新政策部署，主题具有现实重要性"
+          ],
+          "weaknesses": [
+            "全文无问题句，仅为政策阐释与主题声明",
+            "无学者观点交锋与理论分歧，单向陈述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何问题句，只有主题声明和政策倡导"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进 → 最高 70 分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "完全依赖十九大报告新政策作为内容，无研究推进"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述与论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "政策阐释性文章，无独立法学研究问题。",
+          "core_judgment": "全文为对十九大司法体制综合配套改革政策的系统阐释与政策解读，未提出可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限，锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'综合配套改革'为政策术语无理论进步说明）+20分（检查2：无任何学者观点交锋）+30分（检查3：全文无问题句，只有主题声明），合计扣75分，但不得低于30分，给30分。",
+          "evidence_quotes": [
+            "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义",
+            "深化司法体制综合配套改革，必须以习近平新时代中国特色社会主义思想为指导思想和根本遵循"
+          ],
+          "strengths": [
+            "政策解读系统全面，覆盖改革多维度"
+          ],
+          "weaknesses": [
+            "无问题句，纯政策阐释与立场陈述",
+            "无学者观点交锋，无理论分歧呈现"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为'深化司法体制综合配套改革'的政策阐释，无'XX是否YY'等问题句"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文系政策解读笔谈，缺乏可争辩的法学问题与学术交锋，问题创新性不成立。",
+          "core_judgment": "全文为政策阐释与工作部署，未提出具可争辩性的法学争点，不符合学术研究问题标准。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发上限。锚定unacceptable档。负面检查扣50分（宏观介绍20+主题声明30），依规保底给30分。",
+          "evidence_quotes": [
+            "深化司法体制综合配套改革，重在深化改革，是新时代深化依法治国实践的重大举措。",
+            "司法体制综合配套改革应该坚持以下基本原则：一是坚持党对司法工作的领导。"
+          ],
+          "strengths": [
+            "系统梳理了司法改革总体思路与重点任务框架"
+          ],
+          "weaknesses": [
+            "全文仅为政策立场阐释，缺乏可争辩的法学问题句"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为政策部署与主题声明"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评政策意义。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 74.2396330833435,
+        "glm-5.1": 53.956562995910645,
+        "kimi-k2.6": 11.968866109848022,
+        "qwen3.6-plus": 92.35309386253357
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 32.5,
+      "std": 5.0,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文通篇为政策宣示与改革部署，未梳理任何既有学术研究，完全缺失研究地图三要素与争点结构。",
+          "core_judgment": "本文属于政策阐述型笔谈，未建立学术文献定位，无法与既有研究对话。",
+          "score_rationale": "三要素总分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，触发no_research_map上限规则，得0分。",
+          "evidence_quotes": [
+            "习近平总书记所作的党的十九大报告将“坚持全面依法治国”作为新时代坚持和发展中国特色社会主义的基本方略之一",
+            "司法体制综合配套改革重在深化改革。尽管司法体制改革已经初见成效……但影响司法公正、制约司法能力的深层次问题不可能通过一轮改革全部破解。"
+          ],
+          "strengths": [
+            "问题意识明确，紧扣司改政策前沿。"
+          ],
+          "weaknesses": [
+            "全文无任何既有学术研究的梳理、引用或对话，缺乏研究地图。",
+            "仅列出陈光中、孟建柱各一条文献，但未将其作为研究脉络进行定位或争辩。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无到达点、未竟点、本文切入点，也无争点结构或法学流派识别。"
+            }
+          ],
+          "boundary_note": "本文是对十九大报告的笔谈，未涉及文献综述或学术争鸣，属于体裁使然而非问题创新性或论证严密性不足。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "纯政策解读笔谈，无学术研究地图与文献梳理。",
+          "core_judgment": "论文完全缺失学术文献定位，未建立任何研究地图。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分",
+          "evidence_quotes": [
+            "影响司法公正、制约司法能力的深层次问题不可能通过一轮改革全部破解",
+            "我们要遵照习近平总书记关于“坚定不移将改革进行到底”的重要指示"
+          ],
+          "strengths": [
+            "紧扣最新政策精神与官方论述"
+          ],
+          "weaknesses": [
+            "无学术文献梳理与研究地图",
+            "无学术争点与理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无既有学术成果、研究缺口及本文切入点表述"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理深度，不评政策解读的政治正确性或现实意义。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "该文为政策解读与改革部署类笔谈，非学术文献综述型论文。",
+          "core_judgment": "本文未建立研究地图，无到达点、未竟点与切入点的学术文献定位，不符合本维度评价标准。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "综合配套改革是事关司法体制改革全局和成败的重大举措...对于建设公正高效权威的社会主义司法制度...具有十分重要的意义。",
+            "深化司法体制综合配套改革，必须以习近平新时代中国特色社会主义思想为指导思想和根本遵循...进一步完善司法体制和工作机制。"
+          ],
+          "strengths": [
+            "政策解读完整，对改革部署梳理清晰。"
+          ],
+          "weaknesses": [
+            "无任何学术文献引用与学术对话。",
+            "无研究问题、无学术争点、无文献定位三要素。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1时，最高55分（no_research_map）",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无参考文献，无'已有研究指出''但''本文拟'等任何研究地图要素表述。"
+            }
+          ],
+          "boundary_note": "本文属政策笔谈而非学术研究论文，本维度仅评文献定位能力，不评政策价值。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "本文系政策解读与工作部署，未构建学术研究地图，缺乏文献梳理与争点呈现。",
+          "core_judgment": "本维度不成立，全文为政策阐释而非学术研究，无文献定位与争点结构。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给20分",
+          "evidence_quotes": [
+            "司法体制改革中具有“四梁八柱”性质的改革主体框架基本确立",
+            "影响司法公正、制约司法能力的深层次问题不可能通过一轮改革全部破解"
+          ],
+          "strengths": [
+            "政策脉络梳理清晰，改革任务分层明确"
+          ],
+          "weaknesses": [
+            "完全缺失学术文献引证与既有研究评述",
+            "未呈现任何学界争点或解释路径分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文为政策部署与改革阐释，无学术成果到达点、未竟点及本文学术切入点"
+            }
+          ],
+          "boundary_note": "本文属政策阐释与实务指引，非学术研究，故不涉文献定位与问题创新性评价。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.40659523010254,
+        "glm-5.1": 38.1117103099823,
+        "kimi-k2.6": 9.558419942855835,
+        "qwen3.6-plus": 60.54644012451172
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 0,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 20
+      },
+      "mean": 8.8,
+      "std": 10.3,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "本文是对十九大报告法治论述的政策性阐释与工作部署，未提出任何可供操作或复用的原创分析框架。",
+          "core_judgment": "全文属于政策理论梳理与官方立场阐释，没有建构原创性的分析框架，不适用分析框架建构力评分。",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（无任何法学操作步骤转化），属于政策理论梳理型论文，触发多个上限规则，总分归零。",
+          "evidence_quotes": [
+            "“深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义。”",
+            "“一、司法体制综合配套改革的总体思路...二、司法体制综合配套改革的基本遵循...三、司法体制综合配套改革的重点任务”。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文结构为官方话语体系下的工作思路归纳，核心术语（如“综合配套改革”）来自权威政策表述，无论文自身的概念界定。",
+            "仅罗列宏观任务与原则（六个坚持、四个围绕），未形成任何可重复适用的分析步骤、判断标准或类型化方法。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "v0.7 协议对齐——政策理论梳理型识别规则：全文以阐释既定立场为主，无原创概念界定或类型化，框架核心术语来自权威表述而非论文原创。框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分。但本文更进一步，四项标准均为0。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕‘司法体制综合配套改革’等十九大报告表述展开，是纯粹的政策阐释与任务分解，未提出任何原创分析框架。"
+            },
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "口号式呼吁降档规则：规范性表述≥5处且无具体制度方案，框架可操作性最高为2。",
+              "score_ceiling": 2,
+              "priority": 2,
+              "evidence": "文中频繁使用‘应当’‘必须’‘需要完善’‘需要加强’等表述（如‘应该坚持以下基本原则’‘要进一步优化’），超过5处且均无具体法条或程序规则对应。"
+            }
+          ],
+          "boundary_note": "本文无分析框架可供评价，其缺陷并非框架衔接不严密或逻辑是否自洽的问题，而是根本上不存在可操作、可复用的分析框架。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文为政策理论梳理型，未建构原创分析框架，仅有主题提纲。",
+          "core_judgment": "该维不成立，论文仅阐释权威表述，缺乏可操作的分析框架与法学转化。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发多项上限规则，给15分。",
+          "evidence_quotes": [
+            "综合配套改革要在系统改革……需要综合改革、配套改革、协调改革",
+            "深化司法体制综合配套改革，应该坚持以下基本原则：一是坚持党对司法工作的领导……"
+          ],
+          "strengths": [
+            "紧扣最新政策精神，政治方向明确"
+          ],
+          "weaknesses": [
+            "仅为政策阐释与口号呼吁，无原创概念界定",
+            "缺乏可操作的分析步骤与法学转化机制"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，核心术语无定义且无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文核心术语来自权威表述，无定义，无分析步骤，无法学转化"
+            },
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文未被实际调用作为分析工具，最高60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "“六个坚持”“四个围绕”仅为内容提纲，未作为分析工具在后文调用"
+            }
+          ],
+          "boundary_note": "本维度评价框架建构力，不评价政策阐释本身的正确性或逻辑衔接。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策阐释型笔谈，无原创分析框架，仅有政策要点归纳。",
+          "core_judgment": "该文属于政策理论梳理型论文，以阐释既定立场为主，未建构可重复适用的法学分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足分类标准明确，有'四梁八柱''六个坚持'等结构化归纳，但无原创概念界定、无步骤化分析流程、无后文实际调用），法学转化度得分=1/4（仅将政策话语映射到制度层面，无新的操作化转化，未提供裁判规则或司法程序层面的操作指引），锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "司法体制改革中具有'四梁八柱'性质的改革主体框架基本确立...以司法责任制为核心的司法权运行机制初步形成...以审判为中心的诉讼制度改革有序推进...以司法人员分类管理为标志的司法保障体制逐步完善，以立案登记制为代表的便民利民举措不断深化。",
+            "深化司法体制综合配套改革，应该坚持以下基本原则：一是坚持党对司法工作的领导...二是坚持法治国家、法治政府、法治社会一体建设...三是坚持人民司法为人民...四是坚持遵循司法规律...五是坚持问题导向...六是坚持依法有序。"
+          ],
+          "strengths": [
+            "政策要点结构化归纳清晰，'四梁八柱''六个坚持'等表述便于记忆传播。"
+          ],
+          "weaknesses": [
+            "核心术语均来自权威表述，无原创概念界定或类型化。",
+            "仅有'应当如何'的规范性罗列，无具体裁判规则或制度设计方案。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释十九大报告和习近平总书记论述为主，无'本文所称XX是指'的原创定义，无步骤化分析流程，'六个坚持'等内容提纲未转化为可重复适用的判断步骤或评价标准。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评政策阐释的准确性或政治意义。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文属政策解读型笔谈，以阐释既定政策立场为主，未建构原创分析框架。",
+          "core_judgment": "分析框架不成立，全文为宏观政策梳理与规范性呼吁，缺乏可操作的法学分析工具。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给30分。触发政策梳理型规则，无原创框架与转化。",
+          "evidence_quotes": [
+            "司法体制综合配套改革重在深化改革...贵在全面改革。",
+            "深化司法体制综合配套改革，应该坚持以下基本原则：一是坚持党对司法工作的领导..."
+          ],
+          "strengths": [
+            "政策脉络梳理清晰，结构符合官方论述逻辑。",
+            "改革任务归纳全面，覆盖司法权运行与队伍建设。"
+          ],
+          "weaknesses": [
+            "核心术语无学术界定，缺乏类型化与判断标准。",
+            "通篇为宏观政策阐释，无可循的分析步骤与裁判指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型识别规则：框架可操作性上限2，法学转化上限1，总分通常不超60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文阐释既定立场，无原创概念与分析步骤，仅罗列改革任务。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 46.236438035964966,
+        "glm-5.1": 44.82054781913757,
+        "kimi-k2.6": 15.067737102508545,
+        "qwen3.6-plus": 63.383206844329834
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 15,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 30
+      },
+      "mean": 22.5,
+      "std": 19.4,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文为政策宣讲型笔谈，缺乏论证性推理链，结论依赖号召性语句而非逻辑推导。",
+          "core_judgment": "该文由并列的政策阐释段落构成，未形成从前提到结论的逻辑推导链条，核心观点无法由论证材料支撑推出。",
+          "score_rationale": "推理链完整性得分=0/4（无法识别≥3个有逻辑衔接的推理步骤，关键结论无前文论证支撑），反驳处理度得分=0/3（未回应任何反对意见或承认局限），触发上限规则，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "“司法体制综合配套改革重在深化改革...要在系统改革...贵在全面改革。”（并列口号，非推理步骤）",
+            "“我们要遵照习近平总书记关于‘坚定不移将改革进行到底’的重要指示...”（结论以号召而非论证支撑）"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无推理链：各部分为并列的政策阐述，删除前一部分不影响后续论证，结论依赖政治号召而非逻辑推导。",
+            "零反驳处理：未呈现任何反对意见、分歧路径、例外情形或自身局限，完全为单向政策宣示。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时触发上限规则，最高50分（实际0分推理链）。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无法提取出至少3个有逻辑衔接的推理步骤，各部分各自独立为政策要求陈述，核心结论无前文论证材料作为支撑。"
+            }
+          ],
+          "boundary_note": "本文属于政策宣讲而非法学论证，其结构为并列阐释而非逻辑推演，不构成论证缺失的论文；实为体裁不适于逻辑严密性评价。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 58,
+          "band": "marginal",
+          "summary": "政策宣讲式笔谈，推理链完整但缺乏学术论辩与反驳处理。",
+          "core_judgment": "推理链形成闭环但逻辑严密性因零反驳处理而受损，维度勉强成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=0/3，锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "综合配套改革重在深化改革……必须在综合配套、整体推进上下功夫",
+            "深化司法体制综合配套改革，要在……基础上，针对影响司法体制改革举措落地见效的瓶颈性问题，完善相关配套措施"
+          ],
+          "strengths": [
+            "从思路到原则到任务的推理链清晰连贯",
+            "核心任务由前文瓶颈问题可辩护推出"
+          ],
+          "weaknesses": [
+            "完全缺乏反对意见识别与回应",
+            "未承认自身论证局限，自封终结"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链问题体现在缺乏反驳处理而非政策框架本身不可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策宣讲型文本缺乏学术论证结构，无推理链与反驳处理。",
+          "core_judgment": "本文属于政策解读/政治论述文本，不符合法学学术论文的推理链要求，逻辑严密性维度不成立。",
+          "score_rationale": "推理链完整性得分=0/4，反驳处理度得分=0/3。文本为政策宣讲与改革部署说明，无学术论证所需的推理步骤衔接、结论推导及反驳处理，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义",
+            "一是坚持党对司法工作的领导...二是坚持法治国家、法治政府、法治社会一体建设"
+          ],
+          "strengths": [
+            "作为政策文本，结构清晰、语言规范"
+          ],
+          "weaknesses": [
+            "无学术推理链，仅有政策罗列",
+            "无反对意见识别与回应，无结论推导过程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策原则列举与改革措施罗列，无'前提→推导→结论'的学术论证结构，无法识别3个以上有逻辑衔接的推理步骤"
+            }
+          ],
+          "boundary_note": "本维度评推理链严密性，不评政策框架本身；此文本质是政治论述而非学术论证。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以“改革现状—总体思路—基本原则—重点任务”为链条，政策推导完整，结论可由前文充分支撑。",
+          "core_judgment": "推理链条完整且依赖度高，核心结论具备充分的前文支撑与可辩护性。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "影响司法公正的深层次问题不可能通过一轮改革全部破解，必然是一个持续不断的深化过程。",
+            "一些改革举措依存度高、耦合性强，是相互关联的有机整体，需要同步推进。"
+          ],
+          "strengths": [
+            "“现状—思路—原则—任务”四步推理环环相扣，依赖度高。",
+            "明确回应“单兵突进”局限，论证综合配套改革的必要性。"
+          ],
+          "weaknesses": [
+            "部分重点任务与前文原则的推导偏重政策宣示，学理演绎稍弱。",
+            "对潜在改革阻力或替代方案的学术性反驳处理较简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估“结论是否由前文可辩护推出”，不评价改革方案本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 25.068137884140015,
+        "glm-5.1": 47.604814767837524,
+        "kimi-k2.6": 9.04697299003601,
+        "qwen3.6-plus": 69.07523989677429
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 58,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 85
+      },
+      "mean": 52,
+      "std": 25.2,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "结论停留在政治表态与工作部署层面，未能转化为可争辩的法学学术主张，反对者无法定位与回应其论点。",
+          "core_judgment": "论文属于政策宣讲类笔谈，而非提出可进入法学共同体对话的学术结论，因复述既定立场、无反对意见回应，触发共同体对话度上限与总分上限规则。",
+          "score_rationale": "共同体对话度得分为0/4：未回应法学争论、无法被反对者定位回应、未讨论反对意见。制度可接受度因非论文属性未能评估，且结论未达学术主张标准。触发no_community_dialogue上限规则，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "“深化司法体制综合配套改革，...努力让人民群众在每一个司法案件中感受到公平正义。”",
+            "“综合配套改革...对于建设公正高效权威的社会主义司法制度...具有十分重要的意义。”"
+          ],
+          "strengths": [
+            "结论与中国官方法治话语高度一致，不存在制度冲突。"
+          ],
+          "weaknesses": [
+            "仅有政治号召与工作部署，未提出可供检验或反驳的法学论点。",
+            "全文未与任何既有法学理论争论对话，也未承认论证局限或回应反对意见。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为十九大报告学习笔谈，复述政策要求，未提出可争辩的学术主张，也未回应学术争论或反对意见。"
+            }
+          ],
+          "boundary_note": "本维度仅评估结论的可接受性与对话性，不涉及论证严密性或前瞻价值。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文复述官方政策立场，缺乏学术争辩与共同体对话，总分受限。",
+          "core_judgment": "结论为政策解读而非可争辩学术主张，无法进入共同体对话语境。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，因复述既定立场触发总分上限50，给45分。",
+          "evidence_quotes": [
+            "深化司法体制综合配套改革，是党中央要求司法体制改革落地见效的集结号和动员令",
+            "综合配套改革要坚持有序放权与监督管理相统一，规范权力运行，明确追责程序"
+          ],
+          "strengths": [
+            "制度契合度极高，完全符合现行法秩序与政策",
+            "指出了具体的制度改革方向与重点任务"
+          ],
+          "weaknesses": [
+            "仅复述官方政策立场，无学术争辩性",
+            "未回应任何反对意见或学术争论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场无争辩主张且不回应反对意见，对话度≤1，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为十九大报告政策解读，未提出可争辩学术主张，未回应反对意见"
+            }
+          ],
+          "boundary_note": "评价的是结论能否被学术共同体接受回应，而非政治正确性或制度可行性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "政策宣讲型文章，非学术共同体对话产物",
+          "core_judgment": "该文为官方政策解读与工作部署，未进入法学学术共同体对话语境，不满足论文基本学术标准",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4，锚定unacceptable档，给15分。对话度四项标准均不满足：未回应法学共同体争论、无法被反对者定位回应、非学术语境、未承认反对意见或局限；制度度部分满足不矛盾性和中国语境两项",
+          "evidence_quotes": [
+            "深化司法体制综合配套改革，全面落实司法责任制，努力让人民群众在每一个司法案件中感受到公平正义",
+            "我们要遵照习近平总书记关于'坚定不移将改革进行到底'的重要指示，进一步把思想和行动统一到党的十九大关于深化司法体制改革的决策部署上来"
+          ],
+          "strengths": [
+            "与官方法治话语高度一致，制度兼容性强"
+          ],
+          "weaknesses": [
+            "纯政策复述，未转化为可争辩学术主张",
+            "无反对意见讨论，无理论创新或制度批判"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策宣讲，无学术争论回应，无反对意见讨论，无理论创新主张"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性而非论证严密性；该文属政策文件而非学术论文",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文系政策阐释型笔谈，结论高度契合官方话语，但缺乏学术争鸣与可反驳主张。",
+          "core_judgment": "结论在制度层面高度兼容，但未进入法学共同体学术对话轨道，无法被实质性回应。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=1/4（触发万能药对策降档），锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "司法体制改革的目标在于兴利除弊……这必然是一个持续不断的深化过程。",
+            "综合配套改革要坚持有序放权与监督管理相统一……做到有权必有责，用权受监督。"
+          ],
+          "strengths": [
+            "高度契合中国司法改革语境与现行法秩序逻辑。",
+            "系统梳理了配套改革的政策方向与重点任务。"
+          ],
+          "weaknesses": [
+            "结论仅为官方政策复述，未提出可争辩的学术主张。",
+            "对策建议停留于宏观表述，缺乏具体规则或程序支撑。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "制度论文万能药对策触发上限65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "四项重点任务均为宏观政策导向，无具体法条或程序规则。"
+            }
+          ],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性或未来延展空间。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.98274898529053,
+        "glm-5.1": 32.303383111953735,
+        "kimi-k2.6": 12.299207925796509,
+        "qwen3.6-plus": 81.06011891365051
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 45,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 45
+      },
+      "mean": 37.5,
+      "std": 15.0,
+      "strictest": 15,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文未提出任何具体、可定位的未来研究方向或延展路径，仅以空泛的宏观拔高和口号式展望结尾。",
+          "core_judgment": "不存在真实延展路径，属于典型的 slogan_outlook。",
+          "score_rationale": "原始分为0分，对应bonus档位为0分。论文结尾仅为笼统的号召性语句，如“激发出司法体制改革的‘联动效益’和‘共生效应’”，未交代下一步研究需解决的具体问题、概念边界或制度推进方案。",
+          "evidence_quotes": [
+            "通过协同配套、整体推进形成合力，进一步增强改革的体系化、精细化和适应性，切实防止改革走偏、半途而废，激发出司法体制改革的“联动效益”和“共生效应”。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾仅有口号式拔高，无任何可定位的后续争点、概念修正或局限说明。",
+            "未能指明理论深化方向、制度衔接漏洞或实证检验空间，缺乏真实延展信号。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以“坚定不移将改革进行到底”“激发出……联动效益和共生效应”收束，缺乏对未来研究路径、制度边界或实证观察点的具体指引。"
+            }
+          ],
+          "boundary_note": "本文属于政策/制度阐释型笔谈，正常可给出制度完善或实施风险控制的未来方向；但当前仅作出意义拔高和宏观号召，未触及任何可检验或可推进的延展路径，故评判为前瞻延展性缺失，而非结论可接受性问题。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "指明了司法责任制配套、非法证据排除、责任界限及媒体介入边界等制度完善方向，但学术精细度有限。",
+          "core_judgment": "存在宏观但可定位的制度完善方向与规则衔接路径，缺乏具体学术研究问题设定。",
+          "score_rationale": "原始分65，属good档（bonus=3）。指出了员额制配套、司法责任与工作责任厘清、媒体介入界限等明确延展路径，但多为政策部署式方向，学术精细度不足。",
+          "evidence_quotes": [
+            "关于法官检察官的使用、考核、监督、保障、交流等配套举措仍需完善相关政策",
+            "明确新闻媒体介入司法的界限，防止不当舆论干扰司法"
+          ],
+          "strengths": [
+            "指出了多项具体的制度完善方向与规则衔接问题"
+          ],
+          "weaknesses": [
+            "延展路径偏向政策宣示，缺乏学术层面的精细深化机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "媒体介入界限、责任厘清等属于未来制度完善的延展问题，而非当下改革方案已完全可接受的结论。",
+          "review_flags": [
+            "mandatory_expert_review"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "该文为政策解读型笔谈，缺乏对未来研究或制度深化的具体延展路径，仅有方向性宣示。",
+          "core_judgment": "不存在真实延展路径，全文以政策阐释和改革部署为主，未提出可定位的后续研究问题或制度修正方向。",
+          "score_rationale": "原始分25分，bonus=0。文章虽在末尾提及'形成更多可复制可推广的经验做法'，但无具体机制、场景或待检验命题；'深化信息化和人工智能等现代科技手段运用'亦未展开技术路径或制度衔接。全文属于对十九大报告的即时政策解读，而非学术研究论文，不具备前瞻延展性维度所要求的真实延展信号。",
+          "evidence_quotes": [
+            "形成更多可复制可推广的经验做法，推动司法质量、司法效率和司法公信力全面提升",
+            "深化信息化和人工智能等现代科技手段运用"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅有改革方向宣示，无具体制度路径或研究问题",
+            "未承认正文局限或指出后续推进机制"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文末'形成更多可复制可推广的经验做法''深化信息化和人工智能等现代科技手段运用'等表述缺乏具体场景、机制或待检验命题，属于政策口号式展望"
+            }
+          ],
+          "boundary_note": "本文评估的是'未来还能往哪里走'，而非'当下结论是否可被接受'。文章作为政策笔谈，其结论的权威性来自政治宣示而非学术论证，但本维度不评价结论可接受性，仅评价是否存在面向未来的学术或制度延展路径。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文提出多项司法配套改革与制度衔接方向，具备基础延展路径，但偏向政策部署，学术延展精细度有限。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向与规则衔接的具体任务清单。",
+          "score_rationale": "原始分50，对应bonus=2。文本明确列出员额管理、诉访分离及修法程序等配套方向，满足制度型延展要求；但多为政策性倡议，缺乏学术局限反思与具体研究假设，精细度不足。",
+          "evidence_quotes": [
+            "关于法官检察官的使用、考核、监督、保障、交流等配套举措仍需完善相关政策",
+            "需要修改法律的，要在完善法律制度后再推开，以确保法制的统一和权威。"
+          ],
+          "strengths": [
+            "明确指向员额管理、诉访分离等具体制度衔接与完善方向。"
+          ],
+          "weaknesses": [
+            "延展多为政策性工作部署，缺乏学术争点提炼与局限反思。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估制度配套与规则衔接的未来推进路径，不涉当下结论的规范可接受性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.002543926239014,
+        "glm-5.1": 33.84556198120117,
+        "kimi-k2.6": 13.647496938705444,
+        "qwen3.6-plus": 71.24687314033508
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 65,
+        "kimi-k2.6": 25,
+        "qwen3.6-plus": 50
+      },
+      "mean": 35,
+      "std": 28.6,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 29.75,
+      "weighted_total": 30.8
+    },
+    "aggregation_strictest": {
+      "final_score": 17.65,
+      "weighted_total": 16.5
+    },
+    "avg_std": 17.2,
+    "max_std": 28.6,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 12.1,
+    "composite_score": -15.53,
+    "worst_dimension": "forward_extension",
+    "worst_std": 28.6
+  }
+}

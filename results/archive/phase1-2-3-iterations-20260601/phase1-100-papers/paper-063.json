@@ -1,0 +1,597 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/“直诉”源流通说辨正.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别残留与期刊页码混入正文（如‘· 176 ·’、‘l992’、‘2l5’）",
+          "脚注编号与正文段落交叉断裂，部分古籍引文排版存在扫描错位",
+          "参考文献列表未完整抽取，但核心论证与引注逻辑在正文中可追溯"
+        ],
+        "evidence_quotes": [
+          "通说以《周礼》所载为“直诉” 之渊源，常见表述如：“直诉，⋯⋯起源于《周礼》 \n [12] \n [13] \n [14] \n [15] \n [16] \n ·\n176 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "挑战‘直诉源于《周礼》路鼓肺石’通说，论证其初为行政沟通机制而非司法直诉程序",
+          "利用包山楚司法简实证战国时期楚国已存在成熟的越级直诉运行机制与审级二元结构",
+          "提出‘法律《周礼》化’理论命题，解释汉唐时期直诉制度定型、皇权监督与理论道统建构的历史逻辑"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR噪声与排版断裂，但不影响核心法学命题、史料考证与论证逻辑的定位"
+      ],
+      "evidence_quotes": [
+        "《周礼》所载‘路鼓’、‘肺石’制，从性质上来看不能视为后世司法上‘直诉’的渊源。",
+        "包山楚司法简的记录就证明了，在战国时期已经有了较为成熟的‘直诉’运行机制。",
+        "汉唐时期的‘法律儒家化’在立法层面上或许亦是‘法律《周礼》化’的进程。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合‘中国自主知识体系’评价标准，具备明确的本土问题意识、可争辩的法史命题与理论转化能力。建议直接进入六维评分阶段；评审时请提示专家注意核对OCR导致的古籍引文页码与脚注对应关系，不影响实质学术判断。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号存在大量OCR识别乱码及格式错误（如[183、[203、Ez3 J、[243、[33 3、[383、[393等）",
+          "期刊原始页码混入正文（如· 176 ·、· l77 ·、· 179 ·等）",
+          "部分文字存在OCR错字（如l992年、2l5页、大庭惰等）"
+        ],
+        "evidence_quotes": [
+          "[183其一，祭祀礼乐。",
+          "Ez3 J太仆为大司马属官",
+          "· 176 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“直诉”这一法史术语，用于描述的是越过常规审级，直接诉于君王的特别诉讼程序，至于之前是“上诉”或“再审”，均是以现代的诉讼审级制度作为根据的，是以今律古，并不妥恰。",
+          "包山楚司法简的记录就证明了，在战国时期已经有了较为成熟的“直诉”运行机制。由此，“直诉”成型的时间应提早至战国时期，而不是以往认为的南北朝时期。",
+          "汉唐时期的“法律儒家化”论，或许在更具体的层面上可以说是“法律《周礼》化”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR乱码、页码混入及个别错字需在后续阶段清洗修复",
+        "项目口径：完全满足，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "汉唐时期的“法律儒家化”论，或许在更具体的层面上可以说是“法律《周礼》化”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评价标准，论文以中国古代直诉制度为中心辨正通说，提出了可复核的制度命题与解释路径。但因存在较多脚注编号乱码与页码混入的文本工程风险，后续评分阶段需对文本进行清洗修复后再行评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "以出土简牍辨正直诉源流通说，前推制度成型期，争点明确且具枢纽价值。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，成功以实证材料重构传统法制史叙事，符合优秀标准。",
+          "score_rationale": "扣分合计=0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "通说以《周礼》所载为“直诉”之渊源……然细考辨之，则未必尽然。",
+            "包山楚司法简的记录就证明了，在战国时期已经有了较为成熟的“直诉”运行机制。"
+          ],
+          "strengths": [
+            "明确挑战法制史通说，争点清晰且具学术交锋性",
+            "以出土文献实证重构制度演进脉络，问题设定具推进力"
+          ],
+          "weaknesses": [
+            "对“直诉”概念在不同时期的内涵流变界定可更严密",
+            "部分考据偏重史实还原，法理抽象提炼稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑与材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "辨正直诉源流通说，利用出土文献重构直诉成型史，提出法律《周礼》化解释路径。",
+          "core_judgment": "问题成立且重要，对法史学界长期通说进行系统性争辩，并重构了制度史结论。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置检查扣0分。",
+          "evidence_quotes": [
+            "通说以《周礼》所载为“直诉”之渊源……然细考辨之，则未必尽然",
+            "汉唐时期的法律儒家化论，或许在更具体的层面上可以说是“法律《周礼》化”"
+          ],
+          "strengths": [
+            "对法史学界长期通说进行系统性争辩，问题明确",
+            "新史料运用改变了直诉成型时间的结论推进与解释路径"
+          ],
+          "weaknesses": [
+            "部分争点偏向史实考证，法学理论争辩深度稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评史料考证是否严密及文献综述充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 57.20165205001831,
+        "glm-5.1": 59.79527187347412
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒直诉源流学术谱系，清晰呈现通说与修正立场的对立。",
+          "core_judgment": "文内充分建立研究地图，争点结构清晰，三要素完整对应，符合高分标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "通说以《周礼》所载为'直诉'之渊源，代表性著作可参见胡留元、冯卓慧等。",
+            "以往认为在南北朝时期直诉成型的观点可能需要修正，本文拟以楚简辨正。"
+          ],
+          "strengths": [
+            "精准提炼通说贡献与局限，明确指出现有研究'以今律古'的误判。",
+            "将文献梳理融入制度辨正，分散式定位有效构建到达点与未竟点。"
+          ],
+          "weaknesses": [
+            "对域外或跨学科视角的直诉比较研究提及较少，流派覆盖略偏传统法史。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献脉络梳理与争点呈现，非评价出土文献考证本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准辨正直诉源流通说，构建了从战国楚简到法律《周礼》化的全新解释脉络。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派对立充分，现状洞察度极高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "遗憾的是，迄今为止坊间流行的各种中国法制史教科书、专著、论文往往直接就以《周礼》记载‘路鼓肺石’制度为西周制度",
+            "汉唐时期的法律儒家化论，或许在更具体的层面上可以说是‘法律《周礼》化’"
+          ],
+          "strengths": [
+            "精准定位通说误判，未竟点与切入点高度对应",
+            "提出法律《周礼》化新解释路径，争点结构丰富"
+          ],
+          "weaknesses": [
+            "无明显缺陷"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点结构，不评价直诉源流考辨的历史实证创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.52057433128357,
+        "glm-5.1": 63.68041181564331
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了清晰的历史制度辨析框架，通过概念重释与史料实证，有效解构了直诉源流通说。",
+          "core_judgment": "分析框架成立且高度可用，概念界定与历史演进分析路径具备明确的法学转化价值。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "直诉是指越过常规审级，直接诉于君王的特别诉讼程序",
+            "楚国直诉案件流程如下：第一受理，第二调查，第三审理，第四下判"
+          ],
+          "strengths": [
+            "核心概念界定清晰，明确区分司法直诉与行政上书机制",
+            "分析步骤严密可循，史料考证与程序重构形成完整闭环"
+          ],
+          "weaknesses": [
+            "框架主要服务于法制史考证，对当代司法实务的直接指引较弱",
+            "部分制度推演依赖单一出土文献，跨朝代普适性分析可拓展"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化能力，不涉及史料考证严密性或历史结论创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过概念重构与机制提炼，建构了清晰可操作的“直诉”法史分析框架。",
+          "core_judgment": "框架建构力维度完全成立，概念界定清晰、分类明确且法学转化充分。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "“直诉”…用于描述的是越过常规审级，直接诉于君王的特别诉讼程序",
+            "楚国“直诉”案件流程如下：第一，受理…第二，调查…第三，审理…第四，下判"
+          ],
+          "strengths": [
+            "概念界定与适用边界极其清晰，有效反驳通说",
+            "将出土文献转化为法学诉讼机制的四步分析流程"
+          ],
+          "weaknesses": [
+            "“法律《周礼》化”概念的操作化步骤稍弱于直诉机制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与法学转化，不评价史料考证的严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 53.07540726661682,
+        "glm-5.1": 37.57162594795227
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论证链条严密，反驳回应充分，结论由文献考辨与出土实证可辩护地推出。",
+          "core_judgment": "逻辑严密性成立，核心推理链完整且无关键跳步，反驳处理达到理论型论文高标准。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "《周礼》所载‘路鼓’设立的目的并非专门用于诉讼，而是用于上下讯息沟通。",
+            "包山楚司法简的记录就证明了，在战国时期已经有了较为成熟的‘直诉’运行机制。"
+          ],
+          "strengths": [
+            "推理链条完整，从辨伪通说到出土文献实证再到历史脉络重构，层层递进。",
+            "反驳处理扎实，逐一批驳学界主流观点并给出文献与制度功能层面的实质回应。"
+          ],
+          "weaknesses": [
+            "由楚国个案推演至战国整体‘直诉’成型，外推逻辑略显单薄。",
+            "部分概念（如‘单级直诉’与‘越级直诉’）的界定在历史语境中可进一步厘清。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的支撑力与反驳回应度，不评价史料选取的完备性或结论的史学接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过史料辨正否定通说，实证楚国直诉机制，逻辑链完整且反驳充分。",
+          "core_judgment": "推理链严密，破立结合，核心结论可由前文史料辨析与实证分析可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "有论者认为是一种越诉行为，不确……诣阙上书事项涉及面很广，个人诉冤只是其中一种",
+            "从包山楚司法简来看，尚未见到关于下判的完整记录，故具体情形尚不得而知"
+          ],
+          "strengths": [
+            "破立结合，否定旧渊源与确立新渊源逻辑依赖度高",
+            "对通说及隐含分歧的实质性回应论证详实"
+          ],
+          "weaknesses": [
+            "局部过渡中从楚制到秦汉消失的历史解释稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价限于推理链支撑度与反驳处理，不评价法史考证框架的操作性或结论的史学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 52.14027285575867,
+        "glm-5.1": 56.29616403579712
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文有力修正直诉源于《周礼》的通说，基于史料论证其战国成型，结论具高度对话性与解释力。",
+          "core_judgment": "结论明确回应法史学界争论，论证扎实且契合中国法制史语境，完全满足可接受性标准。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准定位法史争论且证据可检验，历史制度演进逻辑清晰，与中国传统法秩序高度兼容。",
+          "evidence_quotes": [
+            "通说以《周礼》所载为“直诉”之渊源……然细考辨之，则未必尽然。",
+            "由此，“直诉”成型的时间应提早至战国时期，而不是以往认为的南北朝时期。"
+          ],
+          "strengths": [
+            "精准挑战法史通说并给出可检验的出土文献证据",
+            "清晰勾勒制度从行政沟通向司法直诉转型的历史逻辑"
+          ],
+          "weaknesses": [
+            "对战国直诉机制向秦汉断代的具体制度衔接论证稍显简略",
+            "结论部分未显式列出研究局限或潜在反例"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被法史共同体接受，不涉论证细节严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 95,
+          "band": "excellent",
+          "summary": "结论成功挑战直诉源流通说，提出战国成型与法律《周礼》化新解。",
+          "core_judgment": "结论完全进入法史学界对话，精准定位并修正通说，制度语境契合度高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "更进言之，汉唐时期的法律儒家化论，或许在更具体的层面上可以说是‘法律《周礼》化’。",
+            "直诉成型的时间应提早至战国时期，而不是以往认为的南北朝时期。"
+          ],
+          "strengths": [
+            "精准挑战通说并给出可争辩的替代理论",
+            "充分承认出土文献碎片化局限"
+          ],
+          "weaknesses": [
+            "对战国直诉中断于秦汉的机制解释稍简"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被学界和制度语境接受回应，不评史料考证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 84.02197122573853,
+        "glm-5.1": 41.41982889175415
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出“法律《周礼》化”新命题，为传统法制史研究指明理论修正与深化方向。",
+          "core_judgment": "存在真实延展路径，明确指向“法律儒家化”概念的修正及《周礼》对后世立法影响的实证考察。",
+          "score_rationale": "原始分85，对应bonus=5档。结语明确提出“法律《周礼》化”命题及向后考察《周礼》立法影响的路径，与辨正结论紧密衔接，具备清晰的理论深化方向。",
+          "evidence_quotes": [
+            "在论及《周礼》对中国传统法制的影响方面，或许更需要向后看，即观察《周礼》对西汉以后立法的影响。",
+            "汉唐时期的‘法律儒家化’在立法层面上或许亦是‘法律《周礼》化’的进程。"
+          ],
+          "strengths": [
+            "提出“法律《周礼》化”概念修正路径，具理论启发性。",
+            "明确指向后世立法影响考察，延展方向具体可操作。"
+          ],
+          "weaknesses": [
+            "未具体设计检验该命题的文献或出土材料清单。",
+            "对秦汉直诉断层的历史机制探讨可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是“法律《周礼》化”命题及后世立法影响考察等未来研究方向，而非当下结论的史料支撑度或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出从“法律儒家化”到“法律《周礼》化”的理论修正路径及秦汉直诉断裂的后续争点。",
+          "core_judgment": "存在真实延展路径，指明了“法律《周礼》化”的理论深化方向与具体后续研究问题。",
+          "score_rationale": "原始分85，对应bonus档位5分。论文在辨正通说后，明确提出“法律《周礼》化”的新理论假设及秦汉直诉断裂的后续争点，延展路径清晰且与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "汉唐时期的‘法律儒家化’在立法层面上或许亦是‘法律《周礼》化’的进程。",
+            "既然‘直诉’在战国已经成型，为何在秦汉却又不详于史籍……上述问题的历史原因或在于……"
+          ],
+          "strengths": [
+            "提出“法律《周礼》化”新理论假设，深化了传统命题。",
+            "指明秦汉直诉断裂之谜作为具体后续争点。"
+          ],
+          "weaknesses": [
+            "对出土文献碎片化局限的后续推进方向说明稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "“法律《周礼》化”是对未来法制史理论研究的延展方向，而非当下直诉源流辨正结论的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 53.86331486701965,
+        "glm-5.1": 48.576602935791016
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.1,
+    "max_std": 2.1,
+    "weighted_total": 90.5,
+    "final_score": 95.47,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 8.9,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 2.1
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "not_applicable",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "直诉，⋯⋯用于描述的是越过常规审级，直接诉于君王的特别诉讼程序，至于之前是‘上诉’ 或‘再审’，均是以现代的诉讼审级制度作为根据的，是以今律古，并不妥恰。",
+          "《周礼》所载‘路鼓’、‘肺石’制，从性质上来看不能视为后世司法上‘直诉’ 的渊源。……汉唐时期的法律儒家化论，或许在更具体的层面上可以说是‘法律《周礼》化’。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "not_applicable",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "通说以《周礼》所载为“直诉”之渊源……然细考辨之，则未必尽然。",
+          "包山楚司法简的记录就证明了，在战国时期已经有了较为成熟的“直诉”运行机制。由此，“直诉”成型的时间应提早至战国时期，而不是以往认为的南北朝时期。",
+          "汉唐时期的“法律儒家化”论，或许在更具体的层面上可以说是“法律《周礼》化”。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

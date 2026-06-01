@@ -12,7 +12,9 @@ from src.evaluation.signal_check import _build_signal_result
 from src.ingestion.schemas import ProcessedPaper
 from src.knowledge.loader import load_framework
 
-FRAMEWORK_V2_46 = "configs/frameworks/law-v2.46-20260511.yaml"
+FRAMEWORK_V2_46 = (
+    "configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml"
+)
 
 
 def test_v2_46_precheck_prompt_keeps_project_scope_as_stage_one():
@@ -56,11 +58,15 @@ def test_v2_46_signal_prompt_comes_from_framework_yaml():
 
 def test_v0_16_doc_points_prompt_details_to_v2_46_yaml():
     doc = Path(
-        "docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md"
+        "docs/evaluation/archive/v0.1-v0.15-iterations-20260601/"
+        "law-ai-assisted-review-rules-v0.16-large-scale-candidate.md"
     ).read_text(encoding="utf-8")
 
     assert "六维评分的精确字段、字数限制、prompt 与 JSON 契约" in doc
-    assert "configs/frameworks/law-v2.46-20260511.yaml" in doc
+    assert (
+        "configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml"
+        in doc
+    )
 
 
 def test_v2_46_precheck_separates_text_quality_from_project_scope():

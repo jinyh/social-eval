@@ -1,0 +1,1057 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/中国在南海的历史性权利.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "文本存在大量OCR识别错误，如'Co rence'应为'Conference'，'O佑cial Reco~s'应为'Official Records'，'pm .25'应为'p.25'等，但核心论点、结构和主要论证仍可定位。",
+          "脚注、参考文献抽取存在部分缺失或格式化错误，但不影响对论文核心法学问题的判断。"
+        ],
+        "evidence_quotes": [
+          "A／CONF．62／C．2／L．24／Rev．1，1974，Third United C0 rence on the Law of the Sea，III O佑cial Reco~s，pm ．25",
+          "A／CONF．62／C．2／L．67，Thi rd United Conference on the L a w of the Sea，III Omcial Reco~s，pam．13．",
+          "⑩ D0c．A／CONF．62／C．2／L．91，1976，V O佑cial Reco~s，202(Colombia)．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国在南海的历史性权利 (标题及全文核心主题)",
+          "南海断续线关系历史性权利问题。有学者认为，《公约》建立的专属经济区制度取代了历史性权利，至少取代了历史性捕鱼权。截然相反的观点则认为... (提出可争辩的法学问题)",
+          "中国渔民世代在这些水域进行渔猎开发生产活动，历代中国政府采取了立法、管理等措施，行使了有效的管辖... (解释中国社会实践)",
+          "《专属经济区和大陆架法》第一次在中国的立法中出现'历史性权利'的概念。该法第14条规定：'本法的规定不影响中华人民共和国享有的历史性权利。' (形成国内法与国际法互动下的解释路径与制度命题)"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：OCR识别错误较多，需在后续评审中注意引用准确性。",
+        "项目口径：论文以南海断续线法律性质为核心，系统解释中国历史性权利，完全符合'中国自主知识体系研究'范围。"
+      ],
+      "evidence_quotes": [
+        "中国在南海的历史性权利",
+        "南海断续线关系历史性权利问题...截然相反的观点则认为，在《公约》确立了专属经济区制度之后，历史性捕鱼权仍应得到尊重。",
+        "中国渔民世代在这些水域进行渔猎开发生产活动，历代中国政府采取了立法、管理等措施，行使了有效的管辖...",
+        "《专属经济区和大陆架法》第14条规定：'本法的规定不影响中华人民共和国享有的历史性权利。'",
+        "本文正文约1.5万字，系统梳理历史性所有权、传统捕鱼权、历史性航行权等概念，并结合南海断续线进行法理分析。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在较多OCR识别错误，建议在进入六维评分前对脚注和关键术语进行人工校对，以确保后续评分的准确性。但论文核心论点明确，完全符合项目口径，可直接进入六维评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致部分英文专有名词乱码（如O佑cial Reco~s、C0 rence、Rep~ er—genera1）",
+          "正文局部存在OCR识别错误（如 纺艮鱼权利 应为 传统捕鱼权利）",
+          "期刊页码混入正文（182-201）",
+          "脚注编号乱码及URL断裂",
+          "参考文献列表抽取缺失"
+        ],
+        "evidence_quotes": [
+          "O佑cial Reco~s",
+          " 纺艮鱼权利",
+          "182",
+          "183",
+          "http：／／english．dipublico．o~s／1155／"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国在南海的历史性权利，并非取决于南海断续线。",
+          "对大陆架的非生物资源不能主张和取得历史性权利，而对大陆架定居种生物主张和取得历史性权利也仅属个案。",
+          "南海断续线不是领海基线或领海外部界限",
+          "历史性权利包括历史性所有权、传统捕鱼权、历史性航行权"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR残留、正文局部错字与页码混入需在后续阶段清洗",
+        "文本工程：参考文献列表缺失需尝试重新抽取"
+      ],
+      "evidence_quotes": [
+        "中国在南海的历史性权利，并非取决于南海断续线。",
+        " 纺艮鱼权利"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，以中国南海历史性权利为中心，具备可争辩法学问题（断续线法理属性、历史性权利与公约关系）及理论转化命题（历史性权利三分法、大陆架非生物资源不可主张历史性权利），直接进入六维评审。文本存在OCR乱码和页码混入等工程风险，需在后续阶段进行文本清洗修复，但不影响核心论点定位与评审。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留和乱码（如⑩、⑩等重复编号）",
+          "部分英文文献引用格式混乱，存在换行错误",
+          "参考文献列表缺失（标注为'无'）",
+          "少量英文单词存在字符粘连（如'Fisheries Jur isdiction'中间空格异常）"
+        ],
+        "evidence_quotes": [
+          "⑩ A／CONF．62／C．2／L．24／Rev．1，1974，Third United C0 rence on the Law of the Sea",
+          "Fisher ies Jur isdiction Case(Un／ed nd0m ．Iceland)"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国在南海的历史性权利",
+          "《专属经济区和大陆架法》第一次在中国的立法中出现'历史性权利'的概念。该法第14条规定：'本法的规定不影响中华人民共和国享有的历史性权利。'",
+          "南海断续线是中国政府于1948年正式公布的……中国政府从未主张和行使对南海全部海域的主权，没有把断续线内的全部海域认定为中国的领土",
+          "充分的历史和法理依据支撑中国对南海诸岛的领土主权、对部分南海海域的历史性所有权，以及对渔业资源的传统捕鱼权和在整个海域的历史性航行权",
+          "笔者认为，如果说历史性权利与大陆架及大陆架自然资源有关的话，它们的关联不过如此……国家不能对大陆架资源取得历史性权利"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留需人工核对，参考文献列表缺失但不影响核心论证定位",
+        "项目口径：论文核心命题清晰，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "中国在南海的历史性权利",
+        "《专属经济区和大陆架法》第一次在中国的立法中出现'历史性权利'的概念",
+        "南海断续线的法理属性……笔者尝试反列名单，采用排除法以图趋近答案",
+        "充分的历史和法理依据支撑中国对南海诸岛的领土主权、对部分南海海域的历史性所有权"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国南海历史性权利为核心研究对象，系统分析了历史性所有权、传统捕鱼权、历史性航行权等法学命题，并对中国相关立法实践和南海断续线的法理属性进行了深入论证，完全符合'中国自主知识体系研究'项目口径。文本质量方面存在轻微的OCR残留和脚注格式问题，但不影响核心论点评审，建议进入六维评分阶段。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别乱码与字符替换（如'O佑cial Reco~s'、'纺艚鱼权利'应为'传统捕鱼权利'、'l9l'等）",
+          "期刊页码与刊名混入正文段落（如'182'、'中国法学 2015年第3期'、'190'等）",
+          "脚注编号格式不统一，部分符号残留或断裂"
+        ],
+        "evidence_quotes": [
+          "O佑cial Reco~s",
+          "纺艚鱼权利",
+          "l9l"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "中国在南海的历史性权利，并非取决于南海断续线。",
+          "《专属经济区和大陆架法》第一次在中国的立法中出现“历史性权利”的概念。",
+          "笔者尝试反列名单，采用排除法以图趋近答案。",
+          "中国在南海的历史性权利，并非取决于南海断续线。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR识别残留与排版噪声，但不影响核心法学论证的定位与评审。"
+      ],
+      "evidence_quotes": [
+        "中国在南海的历史性权利，并非取决于南海断续线。",
+        "笔者尝试反列名单，采用排除法以图趋近答案。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR噪声，建议进入六维评分流程。论文聚焦南海历史性权利与九段线法理属性，具备明确的中国问题意识、可争辩的国际法/海洋法命题及对中国实践的体系化解释尝试，符合项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文主要是对历史性权利、断续线等概念进行体系化介绍，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文为体系介绍而非问题研究，未提出可争辩的法学争点，属于主题声明式写作。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发上限。扣分合计=50分(检查1:20分+检查2:20分+检查3:30分，取最低30分底线)。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "“南海断续线关系历史性权利问题。有学者认为，《公约》建立的专属经济区制度取代了历史性权利……截然相反的观点则认为……”",
+            "“关于南海断续线的法律性质有不同的观点。主要包括：海洋国界线、传统海疆线、历史性水域线、岛屿归属线……”"
+          ],
+          "strengths": [
+            "梳理了历史性所有权、传统捕鱼权、历史性航行权等概念的制度渊源。"
+          ],
+          "weaknesses": [
+            "全文无明确的研究问题句，仅有主题范围声明，缺乏可争辩的法学争点。",
+            "虽有学者观点罗列，但未形成深度交锋，实质是体系介绍而非问题论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明，可争辩性=0，上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文章各节均为'历史性所有权''传统捕鱼权'等概念的制度描述和历史叙述，未提出'XX是否YY'或'如何ZZ'等研究问题。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述是否充分、论证是否严密。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文系统阐释中国在南海的历史性权利立场，虽有法学论证但实质为政策辩护。",
+          "core_judgment": "问题实质为既定立场的法理阐释与政策辩护，而非可争辩的法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档(85分)，因宏观介绍非深度分析扣15分、主题声明非研究问题扣20分，给50分。",
+          "evidence_quotes": [
+            "关于南海断续线的法律性质有不同的观点...笔者尝试反列名单，采用排除法以图趋近答案",
+            "与其说南海断续线代表了...中国在南海的大陆架及对大陆架非生物资源的权利，不如说这种权利直接来源于《公约》"
+          ],
+          "strengths": [
+            "涉及多个国际法制度与长期争点，枢纽性较强",
+            "对断续线性质采用排除法分析，有一定论证结构"
+          ],
+          "weaknesses": [
+            "核心为阐释既定立场而非提出可争辩问题，实质偏向政策倡导",
+            "对学界分歧提及但未深度展开交锋，多为立场辩护"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "主题阐释型论文，无明确可争辩法学问题，仅为历史性权利概念梳理与南海立场论证。",
+          "core_judgment": "全文缺乏可争辩的法学问题句，仅为既定立场的系统阐释与政策主张，不满足研究问题的基本要件。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明'历史性权利'，无'XX是否YY'问题句；无法学层面理论分歧交锋，仅单向陈述中国立场），枢纽性=2/4（涉及国际海洋法多个制度但无问题驱动），材料新颖性未触发上限。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'历史性权利'为既有国际法概念未说明理论进步；检查2：宏观介绍非深度分析，无学者观点交锋扣20分；检查3：主题声明非研究问题，无问题句扣30分；合计扣75分，但不得低于30分，实际扣65分后35分）。",
+          "evidence_quotes": [
+            "中国在南海的历史性权利，并非取决于南海断续线。",
+            "充分的历史和法理依据支撑中国对南海诸岛的领土主权、对部分南海海域的历史性所有权"
+          ],
+          "strengths": [
+            "涉及国际海洋法多个制度领域，材料丰富"
+          ],
+          "weaknesses": [
+            "无明确问题句，仅为'论历史性权利'主题声明",
+            "无学者观点交锋，单向论证中国立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'问题句，仅'中国在南海的历史性权利'主题陈述"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "系统梳理南海历史性权利法理，明确回应断续线性质争议，问题设定清晰。",
+          "core_judgment": "该维度成立，问题聚焦国际海洋法核心争点，兼具理论深度与制度连锁效应。",
+          "score_rationale": "前置扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "南海断续线关系历史性权利问题。有学者认为，《公约》建立的专属经济区制度取代了历史性权利……截然相反的观点则认为……",
+            "关于南海断续线的法律性质有不同的观点。主要包括：海洋国界线、传统海疆线、历史性水域线、岛屿归属线……"
+          ],
+          "strengths": [
+            "明确呈现学界对断续线性质及历史性权利与《公约》关系的对立观点",
+            "问题贯穿领土主权、专属经济区、大陆架等多重海洋法制度"
+          ],
+          "weaknesses": [
+            "历史材料梳理篇幅较长，核心法理争点的交锋可进一步聚焦深化",
+            "对反向历史性权利的理论回应稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评文献综述与逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.87084293365479,
+        "glm-5.1": 97.68154096603394,
+        "kimi-k2.6": 15.090833187103271,
+        "qwen3.6-plus": 65.22911310195923
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 50,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 52,
+      "std": 25.0,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 12,
+          "band": "unacceptable",
+          "summary": "论文几乎完全未呈现法学界的既有研究争论、流派或学术对话，仅有一处引述了两位学者关于《公约》与历史性捕鱼权的对立观点，但未将冲突组织为可区分的争点结构。",
+          "core_judgment": "本文缺乏对法学既有研究的系统梳理，未建立研究地图，也未呈现法学流派或争辩结构，现状洞察度极低。",
+          "score_rationale": "三要素总分=1/6（到达点0，未竟点0，本文切入点1），争点结构=0/2，法学流派=0个，锚定unacceptable档，给12分",
+          "evidence_quotes": [
+            "“有学者认为...取代了历史性权利...截然相反的观点则认为...仍应得到尊重。”",
+            "“本文...采用排除法以图趋近答案”"
+          ],
+          "strengths": [
+            "大量引证公约条文与历史事实，材料丰富"
+          ],
+          "weaknesses": [
+            "未呈现法学流派、对立学术路径或争辩脉络",
+            "研究地图三要素严重缺失，无到达点和未竟点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺，上限55分；本文三要素总分1，实际给12分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "文中仅有约一处对立观点提及，但未展开为学界争论或流派，到达点和未竟点均未出现。"
+            }
+          ],
+          "boundary_note": "本文主要进行法律条文与历史事实的叙述，而非对既有法学研究图景的梳理，因此属于文献定位缺失而非问题创新性不足。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文详实梳理历史性权利判例与学说，以排除法厘清断续线争点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，本维度高分成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "关于南海断续线的法律性质有不同的观点。主要包括：海洋国界线、传统海疆线、历史性水域线、岛屿归属线...",
+            "有学者认为，《公约》建立的专属经济区制度取代了历史性权利...截然相反的观点则认为...历史性捕鱼权仍应得到尊重。"
+          ],
+          "strengths": [
+            "争点结构清晰，对断续线性质的三种学说展开排除法论证。",
+            "分散式文献定位精准，提炼了多个国际判例的法学贡献。"
+          ],
+          "weaknesses": [
+            "对部分争点（如捕鱼权保留论）的文献引述略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献梳理深度与争点结构，不评南海主权主张的政治创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点结构。",
+          "core_judgment": "本文虽系统梳理国际法规则与南海实践，但未建立'到达点—未竟点—切入点'的研究地图，未呈现学界对立观点与学术流派。",
+          "score_rationale": "三要素得分=1/6（仅要素1部分满足：提及国际法院判例等成果但无贡献提炼；要素2、3缺失），争点结构=0/2，法学流派=0个，锚定unacceptable档，给52分。",
+          "evidence_quotes": [
+            "国际法院在英挪渔业案中将历史性水域界定为内水。",
+            "关于南海断续线的法律性质有不同的观点。主要包括：海洋国界线、传统海疆线、历史性水域线、岛屿归属线、特殊的历史性水域线等等。"
+          ],
+          "strengths": [
+            "规则梳理较系统，引用国际条约与判例。",
+            "涉及多种制度比较，材料丰富。"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学术成果的贡献，无'到达点'。",
+            "未指出研究缺口，无'未竟点'与'切入点'。",
+            "未呈现学界争论脉络，无学术流派识别。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无具体研究成果贡献提炼，无研究缺口指出，无本文问题定位，三要素严重缺失。"
+            }
+          ],
+          "boundary_note": "本文属政策阐释型写作，非学术文献综述问题，但现状洞察度维度仍要求研究地图。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文系统梳理历史性权利渊源与学说分歧，清晰呈现断续线性质争点，研究地图完整。",
+          "core_judgment": "本维度成立，文内充分构建了到达点、未竟点与切入点的逻辑闭环，争点脉络清晰。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "关于南海断续线的法律性质有不同的观点。主要包括：海洋国界线、传统海疆线、历史性水域线、岛屿归属线等。",
+            "有学者认为，《公约》专属经济区制度取代了历史性权利；截然相反的观点则认为传统捕鱼权仍应得到尊重。"
+          ],
+          "strengths": [
+            "采用排除法系统辨析断续线性质的四种主流学说，争点结构严密。",
+            "精准定位《公约》制度与历史性权利的规范冲突，未竟点提炼准确。"
+          ],
+          "weaknesses": [
+            "部分对立观点仅以“有学者认为”概括，缺乏具体文献溯源。",
+            "对国际法最新仲裁实践的文献回应未在正文中充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献梳理与争点呈现深度，不涉及南海问题本身的创新性或政治立场。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 85.0887382030487,
+        "glm-5.1": 61.15495300292969,
+        "kimi-k2.6": 13.096190929412842,
+        "qwen3.6-plus": 65.30324411392212
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 12,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 90
+      },
+      "mean": 60.5,
+      "std": 36.7,
+      "strictest": 12,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "论文建构了以历史性所有权、传统捕鱼权、历史性航行权为核心的历史性权利分析框架，但框架主要为概念分类与归纳，缺乏可重复适用的独立分析步骤。",
+          "core_judgment": "框架通过类型化提供了概念识别维度，具有梳理和归纳价值，但尚未转化为可操作的法学分析步骤或判断标准。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、后文实际调用，但缺乏可循的分析步骤），法学转化度得分=2/4（提供了分类维度和部分适用指引，但未转化为裁判规则或明确的制度设计方案），锚定good档，给65分。",
+          "evidence_quotes": [
+            "从权利内涵的角度看，历史性权利包括历史性所有权、传统捕鱼权、历史性航行权...",
+            "历史性所有权不只体现在历史性海湾上，也存在于其他形式的历史性水域之中，包括多国历史性海湾、群岛间水域、邻接海岸的其他沿海水域、宽领海..."
+          ],
+          "strengths": [
+            "核心术语有较明确的定义和历史渊源追溯，概念边界可识别。",
+            "分类标准清晰，从权利内涵和海域空间两个维度进行类型化。"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的分析步骤或判断标准，如判断历史性权利成立的要件或步骤。",
+            "法学转化停留在概念归类层面，未提供裁判规则或操作化的法律适用流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架本身的可操作性与法学转化度，不涉及框架逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以类型化梳理替代原创框架建构，缺乏可操作的分析步骤与法学转化指引。",
+          "core_judgment": "该维度部分成立，论文提供了概念分类但未建构可重复适用的分析框架。",
+          "score_rationale": "框架可操作性得分=2/4（有分类无步骤），法学转化度得分=1/4（仅概念映射无操作指引），锚定marginal档，给55分",
+          "evidence_quotes": [
+            "“历史性权利包括历史性所有权、传统捕鱼权、历史性航行权；从海域空间的角度看，则有历史性水域……”",
+            "“笔者尝试反列名单，采用排除法以图趋近答案。”"
+          ],
+          "strengths": [
+            "对历史性权利进行了多维度的类型化梳理，边界相对清晰"
+          ],
+          "weaknesses": [
+            "类型化梳理未转化为可重复适用的判断步骤或评价标准",
+            "法学转化停留在概念映射层面，缺乏裁判规则或适用指引"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "前文提出的历史性权利三分类型在后文仅作为主题分类罗列，未作为分析步骤被调用"
+            }
+          ],
+          "boundary_note": "本维度评框架是否成立可用，不评概念梳理的体系性或历史考证的严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "该文为国际法制度梳理型论文，对历史性权利概念进行类型化归纳，但缺乏原创分析框架与可操作判断标准。",
+          "core_judgment": "分析框架建构力不成立：无原创概念界定，无步骤化分析流程，框架术语未在后文形成系统性调用。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足分类标准明确一项，概念界定依赖既有国际法术语，无步骤化分析流程，后文未系统性调用框架）；法学转化度得分=1/4（仅将历史性权利映射到南海情境，未转化为裁判规则或法律适用流程，未提供制度设计方案）。锚定unacceptable档，给35分。触发'政策理论梳理型'上限规则及'宏观介绍非深度分析'负面模式。",
+          "evidence_quotes": [
+            "历史性权利涉及历史性所有权、传统捕鱼权、历史性航行权；从海域空间的角度看，则有历史性水域",
+            "笔者试从以下方面予以总结……第一……第二……第三……第四"
+          ],
+          "strengths": [
+            "对历史性权利进行了较为系统的类型化梳理"
+          ],
+          "weaknesses": [
+            "核心术语均为国际法既有概念，无原创界定",
+            "仅有分类罗列，无步骤化判断标准或分析流程"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无原创定义+无步骤化分析流程+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'历史性所有权''传统捕鱼权''历史性航行权'等既有国际法概念展开，未提出原创分析步骤；'几点结论'仅为归纳性总结，无判断标准"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "论文主要工作是系统归纳历史性权利的既有学说、条约与判例，核心贡献为'梳理''总结'而非'建构''提出'"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力，不涉及南海主权主张的逻辑严密性或国际法推理正确性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建历史性权利类型化框架，并系统运用于南海断续线法理剖析。",
+          "core_judgment": "框架概念界定清晰、分类标准明确，且在后文南海权益分析中得到实质性调用，具备较强的理论建构与法学转化力。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=3/4，锚定excellent档，给82分。核心概念与三分法分类清晰，后文持续调用；理论推演完成概念操作化与适用边界厘清，符合理论型论文转化标准。",
+          "evidence_quotes": [
+            "历史性所有权...本质上就等同于领土主权，至少是具有领土主权性质的权利。",
+            "笔者尝试反列名单，采用排除法以图趋近答案。"
+          ],
+          "strengths": [
+            "构建“所有权-捕鱼权-航行权”三分法，分类边界清晰",
+            "运用排除法剖析断续线性质，逻辑路径可循"
+          ],
+          "weaknesses": [
+            "分析步骤偏重教义学推演，缺乏程序化裁判指引",
+            "历史事实梳理与框架调用衔接略显松散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与转化力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 69.60733795166016,
+        "glm-5.1": 15.930034875869751,
+        "kimi-k2.6": 15.448682069778442,
+        "qwen3.6-plus": 75.99694800376892
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 55,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 82
+      },
+      "mean": 59.2,
+      "std": 19.6,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文通过排除法得出断续线性质的结论，推理链较为清晰，但对“历史性权利”与“非生物资源”等关键反驳回应不足。",
+          "core_judgment": "论文的结论基本可由前文推出，但存在对关键竞争性主张回应不充分的问题，导致推理链在局部承压。",
+          "score_rationale": "推理链完整性得分=3/4（结论可从前文推出，无≥2处关键跳步），反驳处理度得分=1/3（仅满足隐含分歧回应），锚定good（70-79）档，考虑回应不足扣分，给72分。",
+          "evidence_quotes": [
+            "笔者尝试反列名单，采用排除法以图趋近答案。... 笔者以为，与其说南海断续线代表了...对大陆架非生物资源的权利，不如说这种权利直接来源于《公约》。"
+          ],
+          "strengths": [
+            "排除法推理步骤清晰：依次排除国界线、岛屿归属线、基线/外部界限等可能，层层递进。"
+          ],
+          "weaknesses": [
+            "对“历史性权利是否涵盖非生物资源”这一核心分歧缺乏实质性反驳论证，仅以“与其说...不如说...”一笔带过。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文对“非生物资源”的处理属于推理链依赖度问题（排除法得出结论需要反驳最强竞争主张），而非框架建构力问题。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳与自我限缩论证充分，逻辑严密性极佳。",
+          "core_judgment": "论文通过概念界定、事实论证与排除法分析，可辩护地推出核心结论，逻辑维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "考察南海断续线的产生、发展的历史之后，依然难以从正面得出确切的关于南海断续线法律性质的结论。笔者尝试反列名单，采用排除法以图趋近答案。",
+            "囿于沿海国对大陆架‘与生俱来’、不能被后天赋予的专属性固有权利，国家不能对大陆架资源取得历史性权利。"
+          ],
+          "strengths": [
+            "排除法分析断续线属性，逻辑推演清晰无跳步。",
+            "对大陆架非生物资源权利主张的自我限缩，体现逻辑严密。"
+          ],
+          "weaknesses": [
+            "排除法虽能排除错误选项，但剩余选项的正面确证稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评推理链支撑度与推出逻辑，不评断续线排除法框架的可操作性，亦不评权利主张的国际接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“概念界定—规范检验—历史实证—排除定性”的完整推理链，结论可辩护推出。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。概念推演与规范分析紧密衔接，排除法论证有效回应分歧。",
+          "evidence_quotes": [
+            "有学者认为《公约》专属经济区制度取代了历史性权利……截然相反的观点则认为仍应得到尊重。",
+            "笔者尝试反列名单，采用排除法以图趋近答案……排除断续线作为领海基线或领海的外部界限"
+          ],
+          "strengths": [
+            "推理步骤清晰，从国际法概念到南海实践层层递进，依赖度高。",
+            "采用排除法系统回应断续线性质争议，反驳论证扎实。"
+          ],
+          "weaknesses": [
+            "部分历史事实到法律权利的转化论证稍显简略。",
+            "对《公约》与习惯法冲突的深层法理张力着墨有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦规范与事实的推导链条，而非框架操作性或结论政治可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {
+        "kimi-k2.6": "[kimi-k2.6] JSON parse failed: Expecting ',' delimiter: line 5 column 252 (char 326). Raw: {\n  \"dimension\": \"logical_coherence\",\n  \"score\": 58,\n  \"band\": \"marginal\",\n  \"summary\": \"论文构建历史性权利类型体系，但核心结论'断续线非国界线\"                                                                                   "
+      },
+      "elapsed_times": {
+        "deepseek-v4-pro": 62.76577401161194,
+        "glm-5.1": 118.93170523643494,
+        "kimi-k2.6": 7.457102060317993,
+        "qwen3.6-plus": 72.782968044281
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "qwen3.6-plus": 88
+      },
+      "mean": 84,
+      "std": 10.6,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "论文结论以梳理国际法概念和中国固有权利为主，未形成可被共同体对话的明确学术主张，陷入立场复述。",
+          "core_judgment": "结论未转化为可争辩的学术主张，未回应反对意见，无法进入共同体对话，属于官方立场法理说明。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=3/4，理论论文B虽高但A=0触发上限规则，总分不得超过50。结论自说自话，未与既有争论对话，亦未承认局限或反对意见，故给42分。",
+          "evidence_quotes": [
+            "“国际法学界逐渐形成一个比较宽泛的历史性权利的概念，包括领土主权、通行权和捕鱼权。笔者试从以下方面予以总结。”",
+            "“中国在南海的历史性权利，并非取决于南海断续线。”"
+          ],
+          "strengths": [
+            "对中国国内立法演进和断续线历史脉络的梳理较为详细，为后续研究提供了制度背景。"
+          ],
+          "weaknesses": [
+            "结论部分完全未提及学术争议、反对观点或自身论证局限，未将中国实践转化为可争辩的理论命题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，论文结论未回应法学共同体争论，反对者无法定位和回应，属于自说自话。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文结论以归纳中国固有权利和消极排除法为主，未明确挑战或修正任何既有学术观点，也未承认反对意见。"
+            }
+          ],
+          "boundary_note": "本维仅评价结论的可接受性与可对话性，不评价论证严密性；论文因缺乏学术共同体对话接口而触发上限规则。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应断续线定性争论，与中国法秩序高度兼容，制度转化方向明确。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，可接受性极强。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "历届中国政府从未将南海断续线确定为“中外之界”，从未将线内全部海域空间视同内水或领海",
+            "传统捕鱼权也是主张捕捞其他国家专属经济区生物资源可捕量剩余部分的重要理由"
+          ],
+          "strengths": [
+            "精准排除断续线错误定性，确立复合法理属性",
+            "深度结合中国立法与《公约》制度约束"
+          ],
+          "weaknesses": [
+            "对历史性权利在争端强制解决程序中的抗辩风险未充分提示"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是结论当下的共同体与制度可接受性，非论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "国际法领域制度论文，系统论证中国在南海的历史性权利，结论具有明确学术定位与制度回应。",
+          "core_judgment": "论文结论明确回应国际海洋法关于历史性权利的学术争论，定位南海断续线非单一法律性质，制度可接受度良好。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4。论文明确回应了'岛屿归属线''历史性水域'等既有学说（标准1），提出了可反驳的'排除法'分析路径（标准2），结合中国立法实践与外交立场展开（标准3），但结论部分未充分讨论反对意见或自身局限（标准4未满足）。制度层面回应了《公约》条款与中国国内法衔接（标准1-2），指出制度转化方向（标准3），并考虑中国语境（标准4）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "考察南海断续线的产生、发展的历史之后，依然难以从正面得出确切的关于南海断续线法律性质的结论。笔者尝试反列名单，采用排除法以图趋近答案。",
+            "充分的历史和法理依据支撑中国对南海诸岛的领土主权、对部分南海海域的历史性所有权，以及对渔业资源的传统捕鱼权和在整个海域的历史性航行权。"
+          ],
+          "strengths": [
+            "采用排除法系统反驳既有学说，学术对话清晰",
+            "结合1958年领海声明、1996年领海基线声明等中国立法实践"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认并讨论反对意见或自身论证局限",
+            "对'逆向历史性权利'等创新概念未充分展开制度转化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论可接受性，不评论证严密性与未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论清晰界定南海历史性权利内涵与断续线法理属性，深度回应学界争议并与现行国际法秩序兼容。",
+          "core_judgment": "该维度完全成立，结论具备高度的学术对话能力与制度语境兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "《公约》所建立的专属经济区制度并没有否定传统捕鱼权，而是适当顾及了此项权利的效力。",
+            "中国政府从未主张和行使对南海全部海域的主权，没有把断续线内的全部海域认定为中国的领土"
+          ],
+          "strengths": [
+            "精准定位学术争论，采用排除法厘清断续线法理属性。",
+            "深度结合中国立法与外交实践，论证与国际法秩序兼容。"
+          ],
+          "weaknesses": [
+            "对周边国家反对立场的实质性法理回应略显单薄。",
+            "未深入探讨历史性权利在当代争端解决中的程序衔接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下的学术与制度可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.298311948776245,
+        "glm-5.1": 49.52900981903076,
+        "kimi-k2.6": 12.461976051330566,
+        "qwen3.6-plus": 69.18321299552917
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 74,
+      "std": 23.2,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出了若干可定位的宏观延展方向，但多数展望仍偏概括，衔接正文核心结论的精细度不足。",
+          "core_judgment": "存在延展方向，但主要停留在宏观制度完善与规则衔接层面，具体路径和反驳入口展开有限。",
+          "score_rationale": "原始分55分对应bonus=2档。论文虽点出后续制度完善、规则衔接等方向，但缺乏可操作的研究问题或概念修正路径，精细度有限。",
+          "evidence_quotes": [
+            "中国在南海的历史性权利，并非取决于南海断续线。",
+            "历史性权利理论不能作为沿海国对大陆架权利主张的法律根据。"
+          ],
+          "strengths": [
+            "对断续线法律性质采用排除法分析，为后续讨论留下明确边界。",
+            "指出传统捕鱼权在专属经济区制度下的张力，隐含制度衔接的延展方向。"
+          ],
+          "weaknesses": [
+            "展望部分多是“应尊重”“应继续研究”等倡议性表述，缺少具体待修正机制。",
+            "未给出不同意见者可从何处进入争论的反驳入口或可检验的具体假设。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，才进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分提到“历史性权利可以从多角度勾勒”“应妥为顾及惯常捕鱼国家的利益”等方向性论断，但缺乏具体可操作的研究设计或制度衔接方案。"
+            }
+          ],
+          "boundary_note": "本维度仅评价论文对未来研究方向的指引，不涉及当前结论的可接受性。论文提出的制度完善方向属于延展性范畴，但其接受度由其他维度衡量。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在正文中指出了垂直重叠权利规则构建、历史性权利与公约权利衔接等具体延展方向，但未集中展开。",
+          "core_judgment": "存在明确且可定位的延展路径，指出了规则衔接与权利重叠的理论深化方向。",
+          "score_rationale": "原始分65，属>=60档，bonus=3。论文指出了垂直重叠权利的国际法规则缺失、断续线内历史性与公约权利的衔接等具体深化方向，路径明确但精细度有限。",
+          "evidence_quotes": [
+            "这种“垂直重叠权利”多由国家间的双边协定做出安排，而难以从一般国际法规则中得到支持。",
+            "这些海域无论是现在被一些国家主张为专属经济区……还是将来中国与有关国家谈判划定海域界限……中国均可援引历史性权利，继续行使传统捕鱼权。"
+          ],
+          "strengths": [
+            "指明了垂直重叠权利等具体理论深化与规则衔接方向。",
+            "揭示了历史性权利与公约权利在断续线内的适用边界问题。"
+          ],
+          "weaknesses": [
+            "延展路径散落于正文，未在结论部分集中提炼与深化。",
+            "对后续争点（如断续线定性争议的回应路径）展开精细度不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "断续线内历史性权利与《公约》权利的界分及重叠权利的规则构建，属于未来制度完善与理论深化问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文对南海历史性权利进行了系统梳理，但在结论部分缺乏对未来研究争点、制度完善方向或理论修正路径的明确延展。",
+          "core_judgment": "存在概括性延展方向，但缺乏具体后续研究问题或明确的理论/制度深化路径，精细度不足。",
+          "score_rationale": "原始分45分，对应bonus=2档位。论文第五部分'几点结论'提及'历史性权利可以从多角度予以勾勒'并指出'逆向的历史性权利'等方向，但仅为概念性提及，未形成可操作的后续研究路径；对南海断续线性质的排除法分析止于当下判断，未指出何种新证据或比较法研究可推进该议题。",
+          "evidence_quotes": [
+            "从权利发展的方向来看，在正常的历史性权利主张的情况下，沿海国往往以牺牲国际社会的利益为代价取得某些权利。在逆向的历史性权利的情况下，是国际社会或其中的一些国家坚持已经存在的权利应该得到沿海国的尊重。",
+            "考察南海断续线的产生、发展的历史之后，依然难以从正面得出确切的关于南海断续线法律性质的结论。笔者尝试反列名单，采用排除法以图趋近答案。"
+          ],
+          "strengths": [
+            "提出'逆向的历史性权利'概念，为理论深化提供潜在入口。",
+            "对断续线性质的排除法分析可延伸至比较法研究。"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或待检验的反驳入口。",
+            "结论部分仅总结现状，未指明制度完善或理论修正方向。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结论部分关于'逆向历史性权利'的提及属于未来理论深化方向，但过于概括；断续线性质的'排除法'止于当下判断，未形成可继续推进的研究设计。这些均属于'未来还能往哪里走'的问题，而非当下结论是否可被接受。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文隐含指向历史性权利在未来海域划界谈判与双边协定中的适用路径，但缺乏明确的后续研究议程或局限说明。",
+          "core_judgment": "存在基于实务谈判与规则衔接的延展方向，但未形成清晰的学术推进路径。",
+          "score_rationale": "原始分45，对应bonus=2。论文指出传统捕鱼权在未来划界谈判及与群岛国协定中的适用空间，但未明示理论局限或具体研究问题，延展较概括且需推断，符合低档加分标准。",
+          "evidence_quotes": [
+            "这些海域无论是现在被一些国家主张为专属经济区……还是将来中国与有关国家谈判划定海域界限……中国均可援引历史性权利，继续行使传统捕鱼权。",
+            "中国与作为群岛国的菲律宾、印度尼西亚直接相邻……应该尊重中国在群岛水域内享有的历史性捕鱼权。"
+          ],
+          "strengths": [
+            "明确指向未来海域划界谈判中历史性权利与专属经济区制度的规则衔接场景。",
+            "以双边渔业协定为例，为传统捕鱼权的实务落地提供了可操作的延伸路径。"
+          ],
+          "weaknesses": [
+            "未承认正文在断续线定性上的理论局限，缺乏后续研究的具体问题设计。",
+            "延展方向多依附于实务推论，未独立构建学术深化的概念修正或检验入口。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是历史性权利理论在未来海洋划界、双边协定谈判中的规则适用与制度衔接方向，属于未来研究路径，而非当下结论的法理可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 49.98317313194275,
+        "glm-5.1": 41.05770492553711,
+        "kimi-k2.6": 11.794907093048096,
+        "qwen3.6-plus": 66.40681195259094
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 65,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 45
+      },
+      "mean": 52.5,
+      "std": 9.6,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 64.8,
+      "weighted_total": 63.4
+    },
+    "aggregation_strictest": {
+      "final_score": 38.29,
+      "weighted_total": 39.0
+    },
+    "avg_std": 20.8,
+    "max_std": 36.7,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 26.5,
+    "composite_score": -20.8,
+    "worst_dimension": "literature_insight",
+    "worst_std": 36.7
+  }
+}

@@ -1,0 +1,573 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/从立案审查到立案登记：法院在社会转型中的司法角色.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] [qwen3.6-plus] Empty response content"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致个别字词乱码（如'St会'应为'社会'，'锯纠纷'应为'纠纷'，'端I SI'应为'终端'）",
+          "脚注编号乱码（使用@、③、④等符号且顺序混乱，与正文标记不对应）",
+          "期刊页码（如209, 210...）及页眉（中国法学 2016年第2期）混入正文",
+          "参考文献列表抽取缺失"
+        ],
+        "evidence_quotes": [
+          "全社会诚信严重不足,St会各类纠纷突出",
+          "司法鞭长莫及力有不逮之处，正是多元化锯纠纷机制长袖善舞能够着力之地",
+          "司法端I SI是社会矛盾纠纷的最终集聚地",
+          "209 \n 中国法学 \n 2016年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "当下中国的司法图景出现这样一幅选择性司法的场景则有其必然性...社会转型是当代中国的主题。",
+          "从立案审查到立案登记：法院在社会转型中的司法角色",
+          "涉农嫁女“承包地征收补偿费用分配纠纷”...总体上属当前我国社会转型时期的利益冲突和碰撞...离开党委政府的支持，基层法院几乎难有作为",
+          "司法的职能构造和角色安排很大程度上取决于制度设计者的现实需求与选择而非司法的自我定位",
+          "确立司法有限的理念，明确受案范围的负面清单"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR乱码、剔除混入正文的页码页眉、修复脚注编号",
+        "文本工程：参考文献列表缺失，需复核原文完整性"
+      ],
+      "evidence_quotes": [
+        "司法的职能构造和角色安排很大程度上取决于制度设计者的现实需求与选择而非司法的自我定位",
+        "确立司法有限的理念，明确受案范围的负面清单"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评审条件，论文以中国立案登记制改革与选择性司法为切入点，提出了司法有限与角色定位的可复核命题。但文本存在OCR乱码、页眉页脚混入及脚注编号错乱等工程质量风险，需在后续评分阶段进行文本清洗与格式修复后再进行深度评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 35
+      },
+      "mean": 61.5,
+      "std": 37.5,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦立案登记制下法院受案范围与司法有限性的张力，提出负面清单与诉权规制路径。",
+          "core_judgment": "问题具有明确的可争辩性与核心枢纽地位，触及司法权边界与程序法理基础。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置检查无扣分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“有案必立、有诉必理”的前提是“依法应该受理的案件”，如何将两者区别开来需通过审查认定。",
+            "司法固有局限与纠纷多元化解决定了司法必须克制，明确受案范围负面清单是必然选择。"
+          ],
+          "strengths": [
+            "精准捕捉立案登记制与司法承载力之间的规范张力",
+            "融合程序法理、比较法与本土实践论证司法有限性"
+          ],
+          "weaknesses": [
+            "对“负面清单”的具体划定标准缺乏教义学精细展开",
+            "部分论述偏向宏观政策分析，微观裁判规则提炼不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "以立案登记制新政策复述司法有限旧立场，缺乏可争辩法学问题。",
+          "core_judgment": "问题实质为政策应对而非可争辩法学争点，依赖新政策包装旧观点，无实质研究推进。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性已触发上限70分，锚定excellent档给70分，前置扣分35分，最终35分。",
+          "evidence_quotes": [
+            "如何实行立案登记制并妥然应对由此而来的司法环境的改变",
+            "当下中国的司法图景出现这样一幅选择性司法的场景则有其必然性"
+          ],
+          "strengths": [
+            "触及立案登记制改革的核心现实痛点",
+            "涉及审理要件与登记要件区分的法学分析"
+          ],
+          "weaknesses": [
+            "核心问题为政策应对而非可争辩法学争点",
+            "用新政策复述司法有限论的旧立场"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "以立案登记制新政策为切入点，复述司法有限与选择性司法的旧立场"
+            }
+          ],
+          "boundary_note": "本维度只评问题创新性，不评论证严密性或文献充分度。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 71.36802911758423,
+        "glm-5.1": 74.12905406951904
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理了转型期司法角色、立案制度变革及多元解纷的学术脉络，研究地图完整。",
+          "core_judgment": "文内充分呈现到达点、未竟点与切入点，争点结构清晰且流派覆盖充分，研究地图维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "“将转型时期的社会矛盾相对集中地提交司法，中国司法的现实条件尚不足以保证司法承载这样的历史使命”",
+            "“司法的职能构造很大程度上取决于制度设计者的现实需求与选择而非司法的自我定位”"
+          ],
+          "strengths": [
+            "分散式文献定位精准嵌入三大成因论证，到达点扎实",
+            "明确揭示立案登记理想与司法有限现实的张力，未竟点与切入点高度咬合"
+          ],
+          "weaknesses": [
+            "部分比较法引证偏重制度描述，理论流派交锋的抽象提炼可进一步深化",
+            "对滥诉规制的域外经验梳理较详，但本土学理争鸣的脉络整合稍显分散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及立案登记制改革本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰呈现了司法角色、立案模式及纠纷解决的多元争点与流派分歧，研究地图完整。",
+          "core_judgment": "现状洞察度成立，论文有效构建了包含中外制度对立与解释路径分歧的争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "有的学者论及法院地位似乎美国三权分立、司法独立是唯一参照，实际上这样的模式也只是其中之一。",
+            "域外实行立案登记制的大致有两种模式：绝对模式和相对模式。如采用绝对模式的法国...采用相对模式的如德国、日本"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现了司法角色、立案模式、诉权与滥诉等多重对立分歧。",
+            "比较法制度对立（中美宪制、法德日立案模式）有效转化为法学流派识别。"
+          ],
+          "weaknesses": [
+            "未竟点更多指向立法与实践缺口，对纯学术理论缺口的集中梳理稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估文献定位与争点结构，不评估“立案登记制”问题本身的实践创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 72.13004803657532,
+        "glm-5.1": 90.61065602302551
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 65,
+        "glm-5.1": 45
+      },
+      "mean": 55,
+      "std": 14.1,
+      "confidence": "critical",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "论文构建了转型期司法克制与立案登记制适配的分析框架，但偏重政策阐释与宏观制度建议。",
+          "core_judgment": "框架具备一定制度设计指向与程序分流逻辑，但缺乏可重复适用的裁判步骤与严格概念界定。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=2/4，锚定good档，给65分。",
+          "evidence_quotes": [
+            "审理要件是指法院对本案实体权利义务争议问题继续进行审理并做出实体判决的要件",
+            "对于构成滥诉的，可从缺乏诉的利益、诉讼目的是否正当、是否有悖诚信几个方面进行审查"
+          ],
+          "strengths": [
+            "提出登记要件与审理要件二分逻辑，为立案审查提供程序分流思路",
+            "结合滥诉特征与负面清单，给出制度层面的配套改革方案"
+          ],
+          "weaknesses": [
+            "核心概念缺乏严格界定，分类边界依赖政策因素而非法律标准",
+            "分析流程偏宏观政策建议，未转化为法官可逐步操作的裁判规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "文章提出了具体的制度方案与裁判规则，但缺乏可操作的分析框架。",
+          "core_judgment": "分析框架仅为原因罗列，未提供可重复适用的分析步骤，但法学转化度较高。",
+          "score_rationale": "框架可操作性得分=0/4（无定义、无步骤、未调用），法学转化度得分=3/4（提供裁判规则与制度方案），锚定marginal档，触发未调用上限60分，给45分。",
+          "evidence_quotes": [
+            "背后原因我以为大致有这三个方面：第一，司法不能解决……第二，司法的职能构造……第三，司法的固有局限……",
+            "对于滥诉的认定……可以从缺乏诉的利益、目的不当、有悖诚信几个方面进行审查。"
+          ],
+          "strengths": [
+            "提供了滥诉认定等具体的裁判规则与制度设计方案。"
+          ],
+          "weaknesses": [
+            "核心框架仅为三大原因罗列，无操作化定义和可循分析步骤。",
+            "框架核心术语在后文未被作为分析工具实际调用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "三大因素仅在结语提及一次，后文四个问题分析未按此框架展开调用。"
+            }
+          ],
+          "boundary_note": "本维度评价框架建构力，不评价文章对司法改革逻辑的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 95.14628505706787,
+        "glm-5.1": 67.3116090297699
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“转型期司法局限→立案登记制现实张力→制度应对方案”的严密推理链，结论可辩护推出。",
+          "core_judgment": "推理步骤环环相扣且高度依赖，对“有案必立”的公众期待进行了实质性回应与边界限定，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。核心结论由三大制约因素自然推导至四项配套机制，无关键跳步；对“立案即审”误区及司法功能边界进行了充分回应与限定。",
+          "evidence_quotes": [
+            "“在法院通过立案审查制采取选择性司法的三大因素仍然存在……如何实行立案登记制并妥然应对……这对现阶段的法院和法官都是极大的考验。”",
+            "“纠纷不因‘诉’而当然进入审理程序，对其进行甄别审查是法院立案程序的固有内容。”"
+          ],
+          "strengths": [
+            "推理链呈“前提约束-制度张力-配套方案”递进，步骤间依赖性强",
+            "对“有案必立”的流行观点进行了法理与比较法层面的实质性回应"
+          ],
+          "weaknesses": [
+            "部分政策建议（如强制诉前调解）的规范依据论证稍显简略",
+            "对司法克制与诉权保障的潜在冲突未作更深层的利益衡量推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条是否完整支撑结论，不评价强制调解等方案在实务中的可操作性或政治接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且依赖度高，对对立观点有实质回应，逻辑严密性优秀。",
+          "core_judgment": "论文从选择性司法成因推导出立案登记制下的司法有限原则及配套方案，逻辑链条成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "社会普遍有一种法院应该敞开大门解决所有纠纷...即所谓‘有案就立，立案即审’。如何回应这种期待...",
+            "基于选择性司法的三大因素仍然存在...立案登记制的施行必须照应现实，在坚持司法有限原则的基础上，尽快同步进行相关机制改革"
+          ],
+          "strengths": [
+            "推理链层层递进，从成因分析到制度方案推导严密。",
+            "对‘有案就立’等对立期待给出了基于现实约束的实质性回应。"
+          ],
+          "weaknesses": [
+            "从‘政治敏感’直接推导‘不予受理’略显粗糙，缺乏规范层面的精细论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评判的是从成因到制度方案的逻辑推导是否充分，而非负面清单等方案本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.71651101112366,
+        "glm-5.1": 49.24783897399902
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 88
+      },
+      "mean": 88,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论立足中国转型语境，回应立案登记制争议，提出司法克制与多元解纷路径，具较强可接受性。",
+          "core_judgment": "结论深度嵌入中国司法改革语境，与既有争论有效对话，制度转化方向与现行法秩序兼容，共同体接受度高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论明确回应立案登记制争议，制度建议紧扣现行法框架与改革实践，未脱离中国语境。",
+          "evidence_quotes": [
+            "我国法院通过立案审查采取选择性司法有其历史必然性……立案登记制的施行必须照应现实",
+            "明确权力清单，合理划定受案范围，是一个合乎逻辑、与保障诉权并不矛盾的必然选择"
+          ],
+          "strengths": [
+            "精准定位转型期司法角色，有效回应立案登记制核心争议",
+            "制度建议具体可操作，负面清单与滥诉规制路径清晰"
+          ],
+          "weaknesses": [
+            "对司法有限原则的宪法基础论证可进一步深化",
+            "强制调解等对策的法定程序衔接细节仍需细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下能否被共同体与制度语境接受，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深刻回应了立案登记制下的选择性司法争论，提出了契合中国语境的具体制度转化方案。",
+          "core_judgment": "结论高度可接受，成功进入共同体对话并提出了契合中国制度语境的具体方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "立案登记制的施行必须照应现实，在坚持司法有限原则的基础上，尽快同步进行相关机制改革",
+            "由最高人民法院以司法解释的明确规定，实行‘非禁止即登记’原则"
+          ],
+          "strengths": [
+            "深刻回应了绝对诉权保障观的反对意见，对话度高",
+            "提出了负面清单、前置调解、滥诉规制等具体制度转化方向"
+          ],
+          "weaknesses": [
+            "对负面清单可能被滥用的风险防范讨论稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 73.66560387611389,
+        "glm-5.1": 36.01311802864075
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 80
+      },
+      "mean": 82.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕立案登记制改革，清晰提出受案负面清单、诉前强制调解及滥诉规制等具体制度延展路径。",
+          "core_judgment": "存在真实且可操作的延展路径，紧密衔接司法克制与转型期法院角色定位的核心结论。",
+          "score_rationale": "原始分85，映射bonus=5。论文未停留于宏观展望，精准锚定立案登记制配套改革，提出划定受案负面清单、构建诉前强制调解程序及细化滥诉审查标准等具体路径，与正文“司法有限”结论高度咬合。",
+          "evidence_quotes": [
+            "明确权力清单，合理划定受案范围，是一个合乎逻辑、与保障诉权并不矛盾的必然选择",
+            "建立法定前置调解制度，将部分不适宜直接通过诉讼程序处理的纠纷剥离出来，由调解机构先行调解"
+          ],
+          "strengths": [
+            "延展路径具体可操作，直指立案登记制配套机制短板",
+            "结合本土判例与比较法经验，提出滥诉规制的审查维度"
+          ],
+          "weaknesses": [
+            "对负面清单的具体边界与立法衔接机制论证稍显简略",
+            "诉前强制调解的强制效力与当事人诉权平衡缺乏深度推演"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦立案登记制落地后的配套制度构建与规则细化方向，属于未来司法改革与实务操作的推进路径，而非对当下结论正当性的评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "论文提出了立案登记制配套改革的明确制度完善方向与实施风险控制路径。",
+          "core_judgment": "存在真实延展路径，指明了受案负面清单细化、诉前强制调解法定化及滥诉规制等具体制度深化方向。",
+          "score_rationale": "原始分80，对应bonus档位为5分。论文基于核心结论提出了负面清单细化、前置调解法定化、滥诉规制机制三条清晰可定位的制度完善路径，与正文论证紧密衔接。",
+          "evidence_quotes": [
+            "不予受理的具体纠纷类型，笔者以为可以此为据细化明确。",
+            "在现行法律规范尚未对滥用获取政府信息权、滥用诉权行为进行明确规制的情形下……原告须举证说明其申请和诉讼是为了满足自身生产、生活、科研等特殊需要，否则将承担不利后果。"
+          ],
+          "strengths": [
+            "延展路径与正文“三大因素仍在”的核心结论紧密衔接。",
+            "提出了负面清单细化、前置调解法定化等可定位的制度完善方向。"
+          ],
+          "weaknesses": [
+            "延展偏向当下对策设计，对长远的理论争点或下一轮学术研究问题设定较少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "滥诉规制与负面清单细化属于未来制度完善与实施风险控制方向，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 59.28798508644104,
+        "glm-5.1": 48.47371196746826
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 10.8,
+    "max_std": 37.5,
+    "weighted_total": 75.0,
+    "final_score": 78.06,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": -4.13,
+    "worst_dimension": "problem_originality",
+    "worst_std": 37.5
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 7,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "当下中国的司法图景出现这样一幅选择性司法的场景则有其必然性。背后原因我以为大致有这三个方面：第一，司法不能解决因社会转型造成的利益调整、阶层分化而引发的所有矛盾纠纷；第二，司法的职能构造和角色安排很大程度上取决于制度设计者的现实需求与选择而非司法的自我定位；第三，司法的固有局限与纠纷的多元化解决定了司法必须克制。",
+          "明确权力清单，合理划定受案范围，是一个合乎逻辑、与保障诉权并不矛盾的必然选择，这也是司法权良性运行的关键。",
+          "对于滥诉的认定，除了形式上的起诉次数外，可以从申请人所提起的诉讼是否缺乏诉的利益、诉讼目的是否正当、是否有悖诚信几个方面进行审查。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance",
+          "supervision"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "当下中国的司法图景出现这样一幅选择性司法的场景则有其必然性。背后原因我以为大致有这三个方面：第一，司法不能解决因社会转型造成的利益调整、阶层分化而引发的所有矛盾纠纷；第二，司法的职能构造和角色安排很大程度上取决于制度设计者的现实需求与选择而非司法的自我定位；第三，司法的固有局限与纠纷的多元化解决定了司法必须克制。",
+          "我国实行的立案登记制类似于相对模式，主要解决在受案范围内应该依法立案而不予立案，以及实践中因法外因素(如政策)故意规避不接收材料、不出具不予立案裁定等问题。",
+          "基于诉状登记而立的案件，只是具备了初步的案件形式，而非具备审理要件的实质案件。",
+          "确立司法有限的理念，明确受案范围的负面清单",
+          "对于滥诉的认定，除了形式上的起诉次数外，可以从申请人所提起的诉讼是否缺乏诉的利益、诉讼目的是否正当、是否有悖诚信几个方面进行审查。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 7.5,
+    "signal_scores": [
+      7,
+      8
+    ]
+  }
+}

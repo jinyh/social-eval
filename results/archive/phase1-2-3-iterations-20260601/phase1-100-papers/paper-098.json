@@ -1,0 +1,605 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/人的尊严的法律属性辨析.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致期刊页码与分隔符混入正文（如“· 1 01 ·”、“·  1 O3 ·”、“· 1l7 ·”等）",
+          "个别字符识别错误（如“入的尊严”应为“人的尊严”，“~n4b人”应为“如外人”，“2o11年”应为“2011年”）",
+          "文末独立参考文献列表缺失（正文脚注引用完整，但无标准参考文献区块）"
+        ],
+        "evidence_quotes": [
+          "· 1 01 · \n\n中国社会科学 2016年第5期",
+          "例如，在“尊严概念的地位或重要性’’、“尊严的起源”以及“尊严的涵义”三个问题上，学术界争议颇多。③"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国诸多规范性法律文件已直接规定人的整体的尊严，并将尊严的保障确定为国家的重要任务。",
+          "本文认为，人的尊严不是也不能转换为法律上的权利，它应当是法律的伦理总纲、基本原则及指导思想，而在定位人的尊严的法律属性上，它只能是法律上人的地位而不是法律上人的权利。",
+          "人的尊严并非是由成文法所创造的基本概念，相反，人的尊严超越于实在法上，属于不依据实在法而存在的先在规范，是整合法律体系、调整法律位阶的基础规范"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR页码混排与个别错字，不影响核心论证提取",
+        "文末参考文献列表未抽取，需依赖正文脚注核对引文来源"
+      ],
+      "evidence_quotes": [
+        "本文认为，人的尊严不是也不能转换为法律上的权利，它应当是法律的伦理总纲、基本原则及指导思想，而在定位人的尊严的法律属性上，它只能是法律上人的地位而不是法律上人的权利。",
+        "近年来，我国诸多规范性法律文件已直接规定人的整体的尊严，并将尊严的保障确定为国家的重要任务……通过提供有力的物质帮助和完善的公共服务，使人的尊严可以获致来自于国家的经济保障，为尊严的真正实现奠定了必要的物质基础。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本存在轻微OCR识别瑕疵（页码混排、个别错字、参考文献列表缺失），但核心论点、论证结构与法理命题清晰完整。论文以“人的尊严的法律属性”为核心争点，明确提出“尊严是先在伦理规范与法律地位而非权利”的可复核命题，并紧密结合中国宪法平等原则、国家基本公共服务政策及弱势群体保障实践进行理论转化，高度契合中国自主法学知识体系构建口径。建议后续评分重点关注其“地位-权利”二分命题在部门法解释中的适用性与实证检验。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如'· 1 01 ·', '· 1 O3 ·', '· 1 1 O ·'）",
+          "局部OCR乱码或识别错误（如'(~n4b人)'应为'如仆人'之类，'情恣庸愚，识沈愩戾'）",
+          "段落换行与空格异常，部分脚注编号与正文粘连"
+        ],
+        "evidence_quotes": [
+          "· 1 01 ·",
+          "不少地方将处于依附地位的人们(~n4b人)排除在有人格的法律主体之外",
+          "· 1 1 O ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "partial",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国诸多规范性法律文件直接规定人的尊严，并将保障尊严确定为国家的重要任务。",
+          "人的尊严不是权利和基本权利，而是表征人在社会中立足和在法律中存在的与他人平等的法律地位。",
+          "在马克思的论述中，人的尊严的问题包含三个最基本的面向：人的解放、人的需求和人的发展。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "partial",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗混入的期刊页码及局部OCR乱码",
+        "项目口径：论文核心为普适性法理辨析，中国问题中心性偏弱，主要作为理论印证与落地场景"
+      ],
+      "evidence_quotes": [
+        "人的尊严不是权利和基本权利，而是表征人在社会中立足和在法律中存在的与他人平等的法律地位。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本工程需清洗页码混入与OCR乱码；评审时需注意论文虽以普适法理学辨析为主轴，但已将马克思主义理论转化为法学分析工具并提出了可复核命题，且结合了中国宪法、民生与脱贫实践进行印证，符合项目口径进入评审条件。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 88
+      },
+      "mean": 86.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文聚焦“人的尊严”法律属性之争，明确辨析其作为先在规范与平等法律地位而非具体权利的理论定位。",
+          "core_judgment": "问题具有明确的法学争辩性与基础理论枢纽价值，符合优秀档标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。负面模式扣分合计0分。",
+          "evidence_quotes": [
+            "确立人的尊严是因为人的优良品性，还是法律上对人的平等身份的确认?",
+            "人的尊严不是基本权利也不是普通权利，它所代表的是人在法律上的主体、主人地位。"
+          ],
+          "strengths": [
+            "明确提出尊严是权利还是地位的核心争点，问题意识清晰",
+            "系统梳理六种学说并展开法理交锋，理论纵深扎实"
+          ],
+          "weaknesses": [
+            "论证偏重传统法理综述，对当代新型权利冲突的回应稍显不足",
+            "部分结论偏向理论宣示，实证制度衔接的推演可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽性，不涉文献综述与逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "辨析人的尊严法律属性的经典争点，问题成立且枢纽性极强。",
+          "core_judgment": "问题成立且涉及法学基础理论核心分歧，枢纽性显著，虽非全新创设但解释路径有推进。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，扣分合计0分，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "确立人的尊严是因为人的优良品性，还是法律上对人的平等身份的确认?",
+            "人的尊严是一种法律上的权利，还是一种不同于法律权利的法律地位?"
+          ],
+          "strengths": [
+            "问题聚焦于人的尊严法律属性的经典争点，辨析清晰",
+            "呈现6种不同学说并予以交锋，理论分歧显著"
+          ],
+          "weaknesses": [
+            "问题本身为法学界长期讨论的经典议题，原创设问感稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性及文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 62.44024395942688,
+        "glm-5.1": 36.89656114578247
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准勾勒学界关于尊严法律属性的六类主张，清晰界定共识与分歧，研究地图完整。",
+          "core_judgment": "研究地图三要素充分满足，争点脉络清晰，流派覆盖全面，维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "对于人的尊严作为法律上基本原则与基础价值，学术界大致已经达成共识。",
+            "然而，在关于人的尊严是否为权利以及属于何种权利的问题上，却众说纷纭，大致可分为以下不同主张。"
+          ],
+          "strengths": [
+            "分散式文献定位精准提取六类学术主张，到达点扎实。",
+            "明确批判既有权利化路径的局限，未竟点与切入点严丝合缝。"
+          ],
+          "weaknesses": [
+            "对德日宪法教义学中尊严条款的微观解释分歧着墨较少。",
+            "部分流派归类偏重观点罗列，理论交锋深度可进一步挖掘。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及问题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现三个核心争点及多种对立解释路径，研究地图完整。",
+          "core_judgment": "现状洞察度极高，争点结构与流派识别充分，三要素完整对应。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "盖不论是着重程序公平的形式法治理论，或者追求实质正义的实质法治理论，最终都可统摄在人性尊严的价值概念底下",
+            "在关于人的尊严是否为权利以及属于何种权利的问题上，却众说纷纭，大致可分为以下不同主张"
+          ],
+          "strengths": [
+            "清晰梳理尊严属性的六种学术主张及对立",
+            "明确呈现形式法治与实质法治的分歧脉络"
+          ],
+          "weaknesses": [
+            "部分流派仅作为背景提及未深入展开内部争论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构，不评判尊严概念本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 60.70673108100891,
+        "glm-5.1": 45.91688299179077
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 90
+      },
+      "mean": 87.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "构建了以“平等法律地位”为核心的尊严概念框架，逻辑自洽且贯穿全文。",
+          "core_judgment": "该分析框架在法理层面成立，有效实现了伦理概念向法学范畴的转化。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给85分。概念界定清晰、分类明确且后文充分调用；作为理论型论文，成功将抽象尊严转化为“法律地位/基础规范”的操作化定义与关系映射，符合理论推演即转化的标准。",
+          "evidence_quotes": [
+            "人的尊严是由于人作为人类共同体成员所拥有的高贵与尊荣……是对人的平等身份的确认",
+            "尊严是前提、是基础，人格是显现、是表征，而平等身份则是尊严落实于具体法律之中的制度性规定"
+          ],
+          "strengths": [
+            "核心概念界定清晰，逻辑推演链条完整",
+            "理论框架贯穿全文，有效统摄规范分析与政策阐释"
+          ],
+          "weaknesses": [
+            "缺乏程序化或裁判层面的具体操作步骤",
+            "部分规范性表述偏宏观，未细化为可检验的教义学标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了“尊严-人格-地位”的理论推演框架，法学转化度高。",
+          "core_judgment": "分析框架成立且可用，成功将伦理尊严转化为法学概念重构路径与类型化分析步骤。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "尊严是前提、是基础，人格是显现、是表征，而平等身份则是尊严落实于具体法律之中的制度性规定。",
+            "在定位人的尊严的法律属性上，它只能是法律上人的地位而不是法律上人的权利。"
+          ],
+          "strengths": [
+            "将伦理尊严转化为法学地位/人格推演步骤，操作化定义清晰",
+            "对尊严与权利的六种观点进行类型化辨析，区分标准明确"
+          ],
+          "weaknesses": [
+            "理论推演步骤偏重概念逻辑，缺乏具体裁判情境的适用示范"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价概念辨析的逻辑严密程度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 69.6224627494812,
+        "glm-5.1": 62.831604957580566
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“平等身份→超越实在法的伦理总纲→法律地位而非权利”的严密推理链，并充分回应了学界分歧。",
+          "core_judgment": "本维度成立，核心结论由历史分析、规范理论与概念辨析充分支撑，推理链条完整且无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。理论推演层层递进，对六种对立观点逐一辨析并给出选择理由，且明确承认概念开放性与实现条件的局限。",
+          "evidence_quotes": [
+            "本文认为，人的尊严不是也不能转换为法律上的权利，它应当是法律的伦理总纲……只能是法律上人的地位而不是法律上人的权利。",
+            "人的尊严的概念是一个开放的概念，具体国情不同，历史文化差别，都会导致对人的尊严的理解上的歧异……"
+          ],
+          "strengths": [
+            "推理链呈递进式结构，从身份平等推演至规范基础再落脚于法律地位。",
+            "对六种主流反对观点进行类型化梳理并逐一给出实质性理论回应。"
+          ],
+          "weaknesses": [
+            "从“先在伦理规范”向“实在法地位”的转化机制论证略显抽象。",
+            "部分段落依赖经典理论引述，自身原创性逻辑衔接可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦概念推演链条与反驳回应是否充分支撑结论，不评价该地位理论在司法裁判中的具体适用框架。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且依赖性强，对反对意见有实质性回应，逻辑严密性极佳。",
+          "core_judgment": "论文通过身份、规范、地位三步递进推导核心结论，并详实反驳分歧路径，逻辑严密性维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文认为，人的尊严不是也不能转换为法律上的权利……它只能是法律上人的地位而不是法律上人的权利。",
+            "人的尊严的概念是一个开放的概念，具体国情不同，历史文化差别，都会导致对人的尊严的理解上的歧异。"
+          ],
+          "strengths": [
+            "三步推理链层层递进，从身份、规范到地位，逻辑依赖性强。",
+            "对六种将尊严视为权利的反对观点逐一实质性反驳，论证有力。"
+          ],
+          "weaknesses": [
+            "从伦理总纲过渡到法律地位时，对地位与原则的区分论证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估尊严作为地位而非权利的推理严密性，而非该理论在实务中是否可操作。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 56.2936749458313,
+        "glm-5.1": 48.0221848487854
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应学界争议，将尊严界定为伦理总纲与法律地位，理论自洽且高度兼容中国法治语境。",
+          "core_judgment": "结论深度嵌入既有学术争鸣，在原则层面与现行法秩序逻辑完全兼容，具备极强的共同体可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文认为，人的尊严不是也不能转换为法律上的权利，它应当是法律的伦理总纲、基本原则及指导思想，只能是法律上人的地位。",
+            "人的尊严超越于实在法上，属于不依据实在法而存在的先在规范，是整合法律体系、调整法律位阶的基础规范。"
+          ],
+          "strengths": [
+            "系统梳理六类既有学说，以“法律地位说”有效回应权利化降格风险。",
+            "理论建构深度结合中国宪法原则与民生政策，语境适配度高。"
+          ],
+          "weaknesses": [
+            "对“地位”向具体权利转化的司法裁判衔接机制着墨较少。",
+            "未充分展开该理论在部门法规范冲突中的具体适用边界。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文结论在理论层面深刻回应了既有争论，与中国制度语境高度兼容，可接受性强。",
+          "core_judgment": "结论明确挑战尊严为权利的既有观点，主张其为法律地位，与中国宪法及民生语境深度融合，对话度与制度兼容性均优。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "人的尊严不是也不能转换为法律上的权利，它应当是法律的伦理总纲、基本原则及指导思想，只能是法律上人的地位",
+            "人的尊严的概念是一个开放的概念，具体国情不同，历史文化差别，都会导致对人的尊严的理解上的歧异"
+          ],
+          "strengths": [
+            "清晰辨析6种既有观点并明确修正，对话度高",
+            "将理论与中国宪法平等原则及民生实务深度结合"
+          ],
+          "weaknesses": [
+            "对尊严作为地位如何具体派生权利的机制论述稍显抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体及制度语境接受回应，不评论证严密性与未来延展性",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 86.10134410858154,
+        "glm-5.1": 43.71658492088318
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 68,
+        "glm-5.1": 65
+      },
+      "mean": 66.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "理论型论文指出尊严概念的开放性与衍生权利的复杂性，并提出结合国情深化制度与物质基础的延展方向。",
+          "core_judgment": "存在真实延展路径，明确了概念开放边界与新型权利开发、制度潜力挖掘的具体方向。",
+          "score_rationale": "原始分68，对应bonus=3。文末明确尊严概念具开放性与衍生权利复杂性，提出结合国情深化制度与物质基础的方向，与正文核心结论衔接紧密，但具体研究路径与检验机制展开有限。",
+          "evidence_quotes": [
+            "人的尊严的概念是一个开放的概念，具体国情不同，历史文化差别，都会导致对人的尊严的理解上的歧异",
+            "至于人的尊严所衍生出的权利类型，将会随着人们需求的增加而呈现更为复杂的现象。"
+          ],
+          "strengths": [
+            "明确指向概念开放性与衍生权利复杂性的理论深化方向",
+            "将延展落脚于中国语境下的制度潜力与物质基础"
+          ],
+          "weaknesses": [
+            "未提出具体的后续研究问题或检验方法",
+            "对新型权利开发的路径描述仍偏宏观概括"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“尊严概念开放性”与“新型权利衍生”等未来理论深化与制度建构方向，而非评判当下“尊严非权利而是地位”结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指明了尊严衍生新型权利及制度潜力发掘的延展方向，但精细度有限。",
+          "core_judgment": "存在与正文“地位派生权利”衔接的延展路径，但路径展开较概括。",
+          "score_rationale": "原始分65，对应bonus=3档位（>=60）。延展路径（尊严衍生新型权利、发掘制度潜力）与正文核心结论衔接，但缺乏具体争点或修正路径的精细刻画，属于good档。",
+          "evidence_quotes": [
+            "人的尊严所衍生出的权利类型，将会随着人们需求的增加而呈现更为复杂的现象。",
+            "对于当代中国而言……则需要根据变化了的情况，开发更多的新型权利，为人的尊严在未来社会的发展奠定物质和制度基础。"
+          ],
+          "strengths": [
+            "延展方向与正文核心结论（地位派生权利）有逻辑衔接"
+          ],
+          "weaknesses": [
+            "延展路径较宏观概括，缺乏具体理论修正或争点的精细刻画"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "未来新型权利的衍生与制度支撑属于未来延展问题，而非当下尊严法律属性的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 64.39442825317383,
+        "glm-5.1": 43.60002899169922
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 2.0,
+    "max_std": 3.5,
+    "weighted_total": 87.6,
+    "final_score": 91.56,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 8.0,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 3.5
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 1,
+          "china_practice_explanation_attempted": 1,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 5,
+        "autonomous_signal_strength": "medium",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance",
+          "other"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "我国诸多规范性法律文件直接规定人的尊严，并将保障尊严确定为国家的重要任务。",
+          "人的尊严不是权利和基本权利，而是表征人在社会中立足和在法律中存在的与他人平等的法律地位。",
+          "在当下中国，详细说明人的尊严所肯认的基本价值理念，有助于将社会主义核心价值观有机地融人当代中国的立法、司法和执法的过程之中。"
+        ],
+        "risks": [
+          "china_material_as_background_only"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "external_theory_transformation": "partial",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 1,
+          "china_practice_explanation_attempted": 1,
+          "external_theory_transformation": 1,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 5,
+        "autonomous_signal_strength": "medium",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "在当下中国，详细说明人的尊严所肯认的基本价值理念，有助于将社会主义核心价值观有机地融人当代中国的立法、司法和执法的过程之中。",
+          "人的尊严并非是由实在法所设定，而是超越于实在法之上，属于不依据实在法而存在的先在规范，是整合法律体系的基础规范",
+          "人的尊严不是权利和基本权利，而是表征人在社会中立足和在法律中存在的与他人平等的法律地位。",
+          "我国诸多规范性法律文件直接规定人的尊严，并将保障尊严确定为国家的重要任务。人的尊严与生存和民生相关，通过提供物质帮助和完善公共服务，可以为尊严的实现奠定物质基础。"
+        ],
+        "risks": [
+          "china_material_as_background_only"
+        ],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 5.0,
+    "signal_scores": [
+      5,
+      5
+    ]
+  }
+}

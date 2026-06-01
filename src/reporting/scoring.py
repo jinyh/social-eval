@@ -12,7 +12,7 @@ def _legacy_weighted_total(
 
 
 def pick_ceiling(score: float, thresholds: list[dict[str, Any]]) -> float | None:
-    """根据结论可接受性分数查表确定总分上限（None 表示不上限）。"""
+    """根据学术共识度分数查表确定总分上限（None 表示不上限）。"""
     for threshold in sorted(
         thresholds, key=lambda item: float(item.get("min_score", 0.0)), reverse=True
     ):
@@ -59,7 +59,7 @@ def compute_bonus(
 ) -> float:
     """按 scoring_protocol.bonus_dimension 计算前瞻延展加分。
 
-    需满足 prerequisites：逻辑严密性 >= 60、结论可接受性 >= 60、核心四维均 >= 50。
+    需满足 prerequisites：逻辑连贯性 >= 60、学术共识度 >= 60、核心四维均 >= 50。
     """
     bonus_dimension = protocol.get("bonus_dimension", {}) or {}
     bonus_key = str(bonus_dimension.get("key", ""))
@@ -92,7 +92,7 @@ def compute_bonus(
 def compute_ceiling(
     dimension_scores: dict[str, float], protocol: dict[str, Any]
 ) -> float | None:
-    """按 scoring_protocol.ceiling_dimension 计算结论可接受性上限。"""
+    """按 scoring_protocol.ceiling_dimension 计算学术共识度上限。"""
     ceiling_dimension = protocol.get("ceiling_dimension", {}) or {}
     ceiling_key = str(ceiling_dimension.get("key", ""))
     if not ceiling_key:

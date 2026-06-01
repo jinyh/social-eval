@@ -1,0 +1,1054 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/内幕交易违法所得司法判断规则研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文内存在散乱的脚注编号与期刊页码混入痕迹（如 '24\"7'、'中国法学 20I5年第6期' 混入正文），但不影响核心论点、结构及论证的完整定位。"
+        ],
+        "evidence_quotes": [
+          "字之间具有相当因果关系，...... 这种介入因素影响的金融交易利润不能认定 为内幕交易行为的违法所得；",
+          "24\"7",
+          "中国法学 20I5年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下...",
+          "我国《刑法》第180条...",
+          "内幕交易违法所得认定是一种实际利益的司法计算...平仓金额等于交易量乘以平仓价格(基准价格)减去建仓成本...",
+          "通过对“解码”机制的分析，提出信息公开前平仓的拟制违法所得核定规则，并设定了具体的量化标准：单一交易日涨停或跌停等...",
+          "无论是金融市场机制最为发达的美国，还是金融一体化水平极高的欧盟，抑或是处于进一步深化金融改革阶段的中国...只有与重大未公开信息具有关联性的内幕交易获利或者避损才能认定为违法所得..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：正文中存在OCR导致的期刊名称、页码混入及少量乱码，建议后续处理时进行文本清洗，但不影响对核心法学命题的评审。"
+      ],
+      "evidence_quotes": [
+        "内幕交易违法所得认定问题在司法判断最初环节显然应当从法律规范与司法解释的条文内容中分析相关规则的科学性。",
+        "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构。",
+        "合理的解释路径在于，从法律与经济并轨的角度说明信息价值、交易行为、经济所得之间的因果关系。",
+        "笔者建议的量化标准是，……应当将该时间期限内的平仓收益列入内幕交易违法所得的计算范围。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国《刑法》和司法解释为核心，针对中国司法实践中的内幕交易违法所得认定难题展开深入分析，并提出了体系化的本土判断规则。文本质量存在轻微瑕疵（OCR混入），但核心论证完整清晰，建议直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如24\"7, 248, 249等）",
+          "OCR数字/字符识别错误（如20I5年, 1O个, 交易1 3, l4．8元, 2o12年, Phamaeeutieals等）",
+          "脚注编号乱码或异常符号（如⑩, ①, ③, ②, @, ⑧）",
+          "英文文献标题及作者名OCR残损（如O~'ervalued, ? Economic Models, Soci o-psychological等）"
+        ],
+        "evidence_quotes": [
+          "24\"7",
+          "中国法学 20I5年第6期",
+          "1O个交易1 3",
+          "O~'ervalued Equity"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构",
+          "内幕交易违法所得的认定原则上应当采用实际成交差额规则",
+          "内幕信息形成之后、尚未公开之前，相关金融商品市场价格出现以下情形之一，应当将该时间期限内的平仓收益列入内幕交易违法所得的计算范围：(1)单一交易日涨停或者跌停的；(2)连续3个交易日按照信息内容的指向日波动幅度超过5％的..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入与大量OCR字符识别错误需在后续阶段清洗",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下...",
+        "内幕交易违法所得的认定原则上应当采用实际成交差额规则"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，以中国刑法与司法实践为中心，提出了可争辩的法学问题及可复核的规范命题，直接进入六维评分。文本存在较多OCR残留和页码混入，需在后续文本工程阶段进行清洗，但不影响当前项目口径判定与核心论点定位。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码（如⑩、①、③、④、⑤等符号混用且编号不连续）",
+          "部分英文文献引用存在格式残留和拼写错误（如'O~'ervalued'、'Herd1ing'、'Inf1uence'等）",
+          "期刊页码信息混入正文（如'24\"7'、'248'、'249'等页码标记）",
+          "参考文献列表标注为'（无）'，但实际正文中有大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "24\"7",
+          "O~'ervalued Equity",
+          "Herd1ing Social Inf1uence",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构",
+          "笔者认为，内幕信息传递者所直接建议、泄露的对象本人没有从事知情交易，继续传递信息导致后续环节基于内幕信息实施金融商品交易的……",
+          "我国台湾地区的部分判例实践对于基于利空信息完成做空买卖的内幕交易违法所得适用与利好信息同样的实际成交差额规则",
+          "在近年引发资本市场高度关注的著名医药行业研究员、前中信证券首席分析师张明芳泄露内幕信息事件中……",
+          "内幕交易违法所得是内幕信息经济价值的犯罪化实现"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留乱码，但不影响核心论点定位",
+        "文本工程：英文引用存在拼写错误，但核心文献信息可辨识",
+        "文本工程：参考文献列表未正确抽取，但正文引用完整"
+      ],
+      "evidence_quotes": [
+        "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构",
+        "内幕交易违法所得是内幕信息经济价值的犯罪化实现"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国刑法第180条及司法解释为核心，系统构建内幕交易违法所得的司法认定规则，包括实际成交差额规则、市场吸收规则、'解码'机制下的拟制违法所得核定等理论命题，具有明确的中国问题中心性和理论转化价值。文本质量存在轻微OCR风险（脚注乱码、英文拼写错误、页码混入），但不影响核心评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与期刊头尾信息混入正文（如'24\"7'、'中国法学 2015年第6期'）",
+          "脚注编号存在OCR识别乱码或格式错位（如'⑩'、'①'、'③'、'@'等混用及错位）",
+          "部分段落存在异常换行与断句"
+        ],
+        "evidence_quotes": [
+          "24\"7 \n\n中国法学 \n20I5年第6期",
+          "⑩ See Z．Goshen & G．Parehomovsky，On Insider Trading...",
+          "③ 《刑事诉讼法》第192条第2款规定：公诉人、当事人和辩护人..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构",
+          "内幕交易违法所得的认定原则上应当采用实际成交差额规则...市场吸收规则应是内幕交易违法所得司法判断规则体系中的重要组成部分",
+          "笔者建议的量化标准是，内幕信息形成之后、尚未公开之前，相关金融商品市场价格出现以下情形之一...符合上述量化标准的...应当将建仓成本与平仓收益之间的价差核定为内幕交易违法所得",
+          "以重大信息公开后10个交易日金融商品市场平均价格为基准核定内线交易量所对应的经济数额，是在缺少实际成交价格的条件下对信息价值市场价格化表现的一种相对合理的推算"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR页码/期刊头尾混排及脚注编号乱码，需清洗后阅读",
+        "论文提出的量化标准（如10个交易日均价、特定波动幅度阈值）在司法适用中的可操作性与证据门槛需后续重点复核"
+      ],
+      "evidence_quotes": [
+        "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构",
+        "内幕交易违法所得的认定原则上应当采用实际成交差额规则...市场吸收规则应是内幕交易违法所得司法判断规则体系中的重要组成部分"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR干扰，但核心论证完整清晰。项目口径高度契合中国资本市场司法实践难题，提出了明确的司法计算原则、例外规则与拟制核定标准，具备显著的理论转化与可复核命题特征。建议直接进入六维评分阶段，评审时可重点关注其规则设计的规范依据、经济分析逻辑与本土司法适配度。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "这是一篇阐释既有立场的体系介绍性论文，缺乏可争辩的法学研究问题，更接近司法裁判规则的操作手册。",
+          "core_judgment": "全文无明确的问题句，仅围绕内幕交易违法所得认定规则进行体系化梳理，未提出可争辩的法学争点。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未单独触发上限。触发no_justiciable_question上限，锚定unacceptable档(0-49分)。扣分合计：检查1新概念包装旧问题扣20分，检查2宏观介绍非深度分析扣20分，检查3主题声明非研究问题扣30分，三项合计扣70分，扣分后分数不低于30分，最终给30分。",
+          "evidence_quotes": [
+            "内幕交易违法所得的认定原则上应当采用实际成交差额规则。",
+            "市场吸收规则应是内幕交易违法所得司法判断规则体系中的重要组成部分。"
+          ],
+          "strengths": [
+            "对特殊情形（股票分红/做空/信息传递）的规则细化有一定实务价值",
+            "对市场吸收规则的例外情形进行了类型化梳理"
+          ],
+          "weaknesses": [
+            "全文主要是规则介绍和既有立场的阐释，未见学者观点交锋",
+            "无明确研究问题句，仅围绕“如何认定违法所得”展开操作层面的说明"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无明确的问题句或可争辩的法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现“XX是否YY”“如何ZZ”等问题句，仅有主题声明式的规则阐释"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评论证严密性、文献综述或材料支撑度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "内幕交易违法所得认定争点明确、法学层面深、理论分歧显著且枢纽性极强。",
+          "core_judgment": "问题成立且重要，属于学界与实务长期争议的核心法学争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "究竟能否将内幕交易过程中实际获得的股票分红计算为内幕交易违法所得？",
+            "纯粹的经济分析强调信息价值与违法所得之间的直接对应性……单纯的法律分析直接使用内幕交易的不法全面替代所得利益的非法性"
+          ],
+          "strengths": [
+            "争点明确涉及司法实务核心难题",
+            "理论分歧清晰呈现经济分析与法律分析的冲突"
+          ],
+          "weaknesses": [
+            "核心问题属既有争点，问题设定层面的原创性有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文系统阐释内幕交易违法所得认定规则，但缺乏可争辩的法学争点。",
+          "core_judgment": "主题声明明确，但全文未提出可争辩的法学问题，仅为规则阐释与体系建构。",
+          "score_rationale": "可争辩性=1/4（有主题但无法学争点），枢纽性=2/4（涉及刑法与金融法交叉），材料新颖性未触发上限。锚定unacceptable档，扣30分（主题声明非研究问题），给45分。",
+          "evidence_quotes": [
+            "内幕交易违法所得的司法认定是一个纵深性的证明结构",
+            "合理的解释路径在于，从法律与经济并轨的角度说明信息价值、交易行为、经济所得之间的因果关系"
+          ],
+          "strengths": [
+            "主题具有实践意义，涉及金融刑法重要领域",
+            "规则建构较为系统，涵盖多种特殊情形"
+          ],
+          "weaknesses": [
+            "全文无法学争点，仅为规则阐释与制度介绍",
+            "缺乏学者观点交锋，无理论分歧呈现"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "主题声明非研究问题，全文无可争辩法学争点",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'内幕交易违法所得认定规则'为主题展开体系阐释，未出现'XX是否YY''如何ZZ'等问题句，仅有主题声明"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦内幕交易违法所得计算争议，构建“实际差额+市场吸收+拟制核定”的复合裁判规则。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，成功将经济因果难题转化为层次化的法学裁判命题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。前置负面检查扣0分。锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "究竟能否将内幕交易过程中实际获得的股票分红计算为内幕交易违法所得？",
+            "合理的解释路径在于，从法律与经济并轨的角度说明信息价值、交易行为、经济所得之间的因果关系。"
+          ],
+          "strengths": [
+            "精准提炼司法计算中的因果证明难题与拟制规则需求",
+            "构建原则与例外相衔接的层次化裁判规则体系"
+          ],
+          "weaknesses": [
+            "部分经济学术语的法教义学转化可更凝练",
+            "刑民功能界分的论证篇幅稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 77.47650098800659,
+        "glm-5.1": 36.20331907272339,
+        "kimi-k2.6": 11.748288869857788,
+        "qwen3.6-plus": 55.27991819381714
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 88,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "mean": 62.5,
+      "std": 32.8,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文缺乏系统的文献综述与争点结构，未清晰勾画既有研究脉络，导致研究地图严重残缺。",
+          "core_judgment": "虽在正文中有所触及部分观点，但未形成可区分的法学争点与流派脉络，且缺失参考文献，难以建立有效的研究地图。",
+          "score_rationale": "三要素得分=1/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "因为从现有的实证研究来看，目前仍然难以有效地辨识内幕信息...区别性影响。⑩（注：⑩系外文脚注）",
+            "纯粹的经济分析强调信息价值与违法所得...合理的解释路径在于，从法律与经济并轨的角度..."
+          ],
+          "strengths": [
+            "在正文论证中零星提及了个别域外实证困境与解释路径对比。",
+            "对自身研究切入点有明确表述，如从法律与经济并轨角度切入。"
+          ],
+          "weaknesses": [
+            "全文无参考文献列表，仅有个别外文脚注，无法判断文献覆盖的广度与深度。",
+            "未提炼既有研究争议或解释路径分歧，无到达点、未竟点的专门梳理，缺乏学派与争点意识。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，触发研究地图严重残缺上限",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素中仅本文切入点部分满足（得1分），到达点与未竟点均未提炼，且缺乏参考文献与学派对话。"
+            }
+          ],
+          "boundary_note": "本文核心在于规则建构与解释，而非文献梳理，但现状洞察维仅评文献地图完整性，不涉问题创新性。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了清晰的研究地图，充分呈现了内幕交易违法所得认定的争点结构与流派分歧。",
+          "core_judgment": "研究地图三要素完备，争点结构清晰，法学流派识别充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "纯粹的经济分析强调信息价值与违法所得之间的直接对应性...单纯的法律分析直接使用内幕交易的不法全面替代所得利益的非法性",
+            "从现有的实证研究来看，目前仍然难以有效地辨识内幕信息、其它市场信息...对于金融商品市场价格的区别性影响"
+          ],
+          "strengths": [
+            "明确指出了既有经济分析与法律分析的脱节这一核心未竟点",
+            "争点结构丰富，涵盖了原则与例外、基准价格选择等多重分歧"
+          ],
+          "weaknesses": [
+            "流派与争点多在正文论证中分散呈现，缺乏集中的学术脉络梳理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点呈现的完整性，而非规则设计本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "研究地图严重残缺，缺乏对既有学术研究的系统梳理与争点呈现。",
+          "core_judgment": "论文未建立有效的研究地图，三要素均缺失，未识别出任何法学流派或学术争点。",
+          "score_rationale": "三要素=0/6（到达点0/2，未竟点0/2，切入点0/2），争点结构=0/2，法学流派=0个，锚定unacceptable档，给42分。",
+          "evidence_quotes": [
+            "内幕交易违法所得认定问题在司法判断最初环节显然应当从法律规范与司法解释的条文内容中分析相关规则的科学性。",
+            "合理的解释路径在于，从法律与经济并轨的角度说明信息价值、交易行为、经济所得之间的因果关系。"
+          ],
+          "strengths": [
+            "正文穿插引用部分域外文献与判例。"
+          ],
+          "weaknesses": [
+            "未提炼任何具体研究成果及其贡献，到达点完全缺失。",
+            "未指出任何研究缺口或学术争议，未竟点与切入点均缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1分，研究地图严重残缺，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未出现任何'XX学者认为''已有研究表明'等研究定位表述，无到达点、未竟点、切入点"
+            }
+          ],
+          "boundary_note": "本维度仅评价文献定位完整性，不涉及问题本身是否新颖或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰识别司法实践与既有规则的未竟点，提出对应计算与拟制规则，争点结构完整。",
+          "core_judgment": "研究地图三要素基本成立，争点脉络清晰，流派识别辅助锚定充分，本维度评价成立。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "纯粹的经济分析强调信息价值与违法所得之间的直接对应性……单纯的法律分析直接使用内幕交易的不法全面替代所得利益的非法性",
+            "我国判例实践将利空信息发布当日开盘价格作为核定内幕交易规避损失基准价格是值得商榷的"
+          ],
+          "strengths": [
+            "明确指出既有规则与判例在价格基准、分红定性上的具体争议与局限",
+            "针对未平仓、规避损失等情形构建了层次分明的拟制核定规则体系"
+          ],
+          "weaknesses": [
+            "到达点部分对既有学术成果的具体贡献提炼不足，多依赖规范与实务描述",
+            "文献定位分散于脚注与正文夹叙中，缺乏集中式学术脉络梳理"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及所提规则本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.61686897277832,
+        "glm-5.1": 39.57934093475342,
+        "kimi-k2.6": 10.867329835891724,
+        "qwen3.6-plus": 64.97328305244446
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 88,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 80
+      },
+      "mean": 63.8,
+      "std": 23.6,
+      "strictest": 42,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文建构了“实际违法所得-拟制违法所得”双层认定框架，将内幕交易违法所得司法判断规则操作化为可重复适用的计算步骤和判断标准。",
+          "core_judgment": "分析框架高度可操作且具备深层法学转化，将经济机理与法律规则融合为具体的司法计算规则，后文全程调用该框架。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。核心概念明确，分类标准清晰，分析步骤可循，后文高频调用；跨学科概念已转化为裁判规则和量化标准。",
+          "evidence_quotes": [
+            "内幕交易违法所得的认定原则上应当采用实际成交差额规则……平仓金额等于交易量乘以平仓价格(基准价格)减去建仓成本。",
+            "内幕信息形成之后、尚未公开之前，相关金融商品市场价格出现以下情形之一，应当将该时间期限内的平仓收益列入内幕交易违法所得的计算范围：(1)单一交易日涨停或者跌停的……"
+          ],
+          "strengths": [
+            "提出了“实际违法所得”与“拟制违法所得”的清晰分类，并针对每种情形给出了具体的司法计算步骤和量化标准。",
+            "将资本市场“解码”机制等经济理论成功转化为可供司法适用的量化标准和证明责任分配规则。"
+          ],
+          "weaknesses": [
+            "市场吸收规则的具体量化方法（如扣除非信息因素影响）在操作上仍较复杂，缺乏更精细的次级操作指引。",
+            "部分例外规则（如信息影响力耗尽）的判断标准尚依赖“相当长的时间”等需进一步裁量的表述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架的可操作性与法学转化度，不涉及框架逻辑严密性或问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "构建了内幕交易违法所得的层级化司法判断规则，操作性与法学转化度极高。",
+          "core_judgment": "框架高度成立，将经济学理论成功转化为可量化的司法裁判规则与计算标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "以内幕信息公开后10个交易日市场平均价格作为计算未平仓部分违法所得的基准价格",
+            "连续3个交易日按照信息内容的指向日波动幅度超过5%的，应当将该期限内的平仓收益列入违法所得"
+          ],
+          "strengths": [
+            "将解码机制等经济理论转化为量化司法判断标准",
+            "构建了实际差额与拟制核定的双层计算规则体系"
+          ],
+          "weaknesses": [
+            "部分量化标准（如5%、30%）的设定依据稍显经验性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦于框架的操作性与法学转化，不评价量化标准设定的科学性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文构建了内幕交易违法所得认定的规则体系，但框架以制度梳理和原则阐述为主，缺乏原创分析工具。",
+          "core_judgment": "框架属于制度/实务型论文，提供了实际成交差额规则、市场吸收规则及例外情形的分类，但核心术语多为既有法律概念，未形成可重复适用的原创分析步骤。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰但无原创术语定义，分类标准明确但分析步骤未步骤化，后文调用充分但多为既有规则阐述）；法学转化度得分=2/4（跨学科概念如'解码'机制未充分转化为法学操作步骤，未提供裁判规则或司法程序指引，制度设计层面有具体方案但原创性有限）；锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "合理的解释路径在于，从法律与经济并轨的角度说明信息价值、交易行为、经济所得之间的因果关系",
+            "笔者建议的量化标准是，内幕信息形成之后、尚未公开之前，相关金融商品市场价格出现以下情形之一……"
+          ],
+          "strengths": [
+            "分类体系完整，涵盖实际违法所得与拟制违法所得两大类型及多种例外情形",
+            "部分规则具有可操作性，如10个交易日平均价格的量化标准"
+          ],
+          "weaknesses": [
+            "核心术语均为既有法律概念，无原创概念界定或类型化工具",
+            "'解码'机制等跨学科概念未转化为可重复的法学分析步骤，停留于经济机理描述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无原创定义，无原创分析步骤，法学转化有限",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文核心术语如'实际成交差额规则''市场吸收规则'均为既有法律概念，'解码'机制虽有量化标准但未形成可重复适用的法学判断步骤，整体以阐释和梳理既有规则为主"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“实际计算-例外扣除-特殊情形-拟制核定”的四阶司法认定框架，规则清晰且具强操作性。",
+          "core_judgment": "框架高度契合实务型论文标准，成功将经济金融机理转化为可重复适用的裁判计算规则与证明流程。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。框架提供明确分类、计算步骤与证明责任分配，且全篇严格调用，无口号堆砌。",
+          "evidence_quotes": [
+            "其一，内幕信息与交易行为之间的关联性证成内幕交易犯罪行为；其二，基于内幕信息的不法交易行为与获利或者避损之间的关联性证成内幕交易违法所得。",
+            "以信息公开后10个交易日市场平均价格为基准核定未平仓部分违法所得，是信息价值市场价格化的合理推算。"
+          ],
+          "strengths": [
+            "分类标准严密，覆盖实际获利、例外扣除、未平仓拟制等全场景。",
+            "将金融定价机制转化为法官可操作的基准价格选择与举证责任分配规则。"
+          ],
+          "weaknesses": [
+            "部分量化阈值（如10个交易日）缺乏本土司法实证数据支撑。",
+            "拟制规则与民事赔偿标准的界分论述稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.97328186035156,
+        "glm-5.1": 39.84264779090881,
+        "kimi-k2.6": 15.077723741531372,
+        "qwen3.6-plus": 55.53828191757202
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 95,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.2,
+      "std": 17.6,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文推理链完整且层层递进，核心结论有充分的前文支撑，反驳处理度高，体系严密。",
+          "core_judgment": "论文构建了从实际认定到拟制核定的完整逻辑体系，成功回应了“市场吸收”等反对观点并承认了方法论局限。",
+          "score_rationale": "推理链完整性得分=4/4（主要步骤可复述、依赖度高、结论可推出、无关键跳步）；反驳处理度得分=3/3（识别市场吸收反对意见并实质性回应，承认拟制方法的局限）。锚定excellent档(80-100)，给90分。",
+          "evidence_quotes": [
+            "不能完全无视内幕信息与违法所得关联性的抗辩问题，或者完全否定市场吸收规则的合理性与科学性。",
+            "目前仍然难以有效地辨识内幕信息、其它市场信息以及外部投资者所从事的相关金融商品交易行为对于金融商品市场价格的区别性影响。"
+          ],
+          "strengths": [
+            "推理链高度依赖：从法律规范关联性推导出实际获利计算原则，再由此生发出四种例外及四种拟制情形。",
+            "隐含反驳处理充分：在阐发实际成交差额规则时，系统性回应了“市场吸收规则”及因果关系抗辩等潜在反对观点。"
+          ],
+          "weaknesses": [
+            "拟制违法所得部分的量化标准（如10个交易日、涨跌幅阈值）虽有实务指引价值，但理论推导相对单薄，从“有效市场假说”到具体数字的衔接稍显跳跃。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "对于拟制部分量化标准的衔接不足属于理论建构的精细度问题，而非推理链断裂，前文已充分铺垫拟制之必要性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了从原则到例外再到特殊情形的完整推理链，并充分回应了实务约束与理论分歧。",
+          "core_judgment": "本维度成立，推理链完整且结论可辩护推出，反驳处理充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "纯粹的经济分析强调...绝对依赖数量金融工具却又无法提供普遍认可的标准；单纯的法律分析...忽略了重大未公开信息与违法所得关系的有效嫁接",
+            "从现有的实证研究来看，目前仍然难以有效地辨识内幕信息、其它市场信息...对于金融商品市场价格的区别性影响"
+          ],
+          "strengths": [
+            "推理链层层递进，从原则、例外到特殊情形依赖度高。",
+            "充分承认司法实务局限并以此作为拟制核定的推导依据。"
+          ],
+          "weaknesses": [
+            "从“解码”机制理论到具体量化标准（5%、30%）的局部过渡缺详细论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "量化标准（5%等）的实务可操作性不属于逻辑严密性维度，此处仅评价推导支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从原则到例外的完整规则体系，推理链基本完整，但反驳处理薄弱。",
+          "core_judgment": "推理链完整性3/4，反驳处理度1/3，锚定good档，给72分。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（原则→例外→特殊情形的三阶结构清晰）；标准2成立（例外规则依赖原则部分的'实际成交差额规则'展开）；标准3基本成立（核心结论可由前文推出）；标准4存在1处关键跳步（'解码'机制从理论描述到量化标准的过渡缺乏充分论证）。反驳处理度得分=1/3：标准1满足（提及'纯粹的经济分析''单纯的法律分析'等对立观点）；标准2不满足（未实质性回应'市场吸收规则'的实务操作难题）；标准3不满足（未承认自身量化标准的局限性）。锚定good(70-79)档，因推理链主线完整给72分。",
+          "evidence_quotes": [
+            "合理的解释路径在于，从法律与经济并轨的角度说明信息价值、交易行为、经济所得之间的因果关系",
+            "笔者认为，对于这些问题的回答，我们有必要使用法律与经济分析工具展开层进式的解释与说明"
+          ],
+          "strengths": [
+            "三阶结构（原则-例外-特殊情形）形成递进推理链",
+            "实际成交差额规则与市场吸收规则的适用条件界定清晰"
+          ],
+          "weaknesses": [
+            "'解码'机制从理论到量化标准的过渡论证不足",
+            "未回应市场吸收规则在实务中难以操作的批评"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价'10个交易日'等具体标准是否合理。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建内幕交易违法所得认定的完整司法计算规则体系。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可由规范分析与经济逻辑充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "纯粹的经济分析强调直接对应性……单纯的法律分析忽略信息价值滥用本质",
+            "刑事定罪量刑不可能完美精细量化，以10个交易日均价为基准符合司法成本要求"
+          ],
+          "strengths": [
+            "原则-例外-特殊情形三层结构严密递进",
+            "充分回应经济量化难题与司法成本约束"
+          ],
+          "weaknesses": [
+            "部分经济机制的实证支撑略显单薄",
+            "10日基准的普适性论证可结合本土数据"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度与结论可辩护性，不涉框架实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.68583297729492,
+        "glm-5.1": 42.218379974365234,
+        "kimi-k2.6": 11.039695978164673,
+        "qwen3.6-plus": 52.4746949672699
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 90,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 85,
+      "std": 8.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "结论在制度层面具有较强可接受性，但共同体对话度较弱，仅回应实践争议而未明确与既有法学理论争论对话。",
+          "core_judgment": "论文结论结合了中国司法实践与制度约束，可被共同体认真对待，但未明确说明与既有理论争论的关系，减弱了学术对话的深度。",
+          "score_rationale": "共同体对话度得分=1/4（未明确回应法学共同体已有争论），制度可接受度得分=3/4（回应了具体制度约束）。按制度论文锚定规则，对话度≤1判为unacceptable，但综合判断论文对制度约束有实质性回应，经边界调整评为68分。",
+          "evidence_quotes": [
+            "只有与重大未公开信息具有关联性的内幕交易获利或者避损才能认定为违法所得。",
+            "控方从法律与经济分析层面完成了上述证明过程，就可以确认实际交易差额就是内幕交易违法所得。"
+          ],
+          "strengths": [
+            "结论密切结合中国内幕交易司法解释与判例，可操作性强。",
+            "对实际违法所得与拟制违法所得进行了精细的类型化建构。"
+          ],
+          "weaknesses": [
+            "结论未明确回应内幕交易违法所得理论中“信息说”与“市场欺诈说”等既有争论。",
+            "未主动讨论拟制违法所得可能面临的罪刑法定或证据法上的反对意见。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评价结论当下的可接受性，不涉及论证严密性或未来延展性。论文结论未明确与法学共同体已有理论争论对话，但与中国制度语境兼容。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论提出具体司法计算与核定规则，深度回应共同体争论与中国实务约束。",
+          "core_judgment": "结论可接受性极高，在现行法秩序内提供精细裁判规则，对话与制度兼容俱佳。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "修正纯粹经济与法律分析局限，提出法律与经济并轨的解释路径",
+            "建议以内幕信息公开后10个交易日市场平均价格作为核定基准价格"
+          ],
+          "strengths": [
+            "提出极具操作性的量化标准与计算规则",
+            "深度回应司法证明责任与资源耗费等实务约束"
+          ],
+          "weaknesses": [
+            "部分量化标准（如3日波动超5%）的实证支撑稍显薄弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论能否被共同体与制度语境接受，而非论证过程严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出内幕交易违法所得认定的实际成交差额规则与市场吸收规则，构建了较为系统的司法判断规则体系。",
+          "core_judgment": "结论能够进入刑法学与金融刑法学的学术对话，对中国司法实践有明确回应，但部分规则设计的学术对话深度与反对意见回应存在提升空间。",
+          "score_rationale": "共同体对话度得分=3/4（回应了德美判例与本土司法解释的争论，能被反对者定位，结合中国刑法第180条及司法解释展开，但主动承认的反对意见与自身局限讨论不足）；制度可接受度得分=3/4（不与现行法秩序根本矛盾，回应了制度约束，指出了规则转化方向，充分考虑了中国制度语境）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "在我国《刑法》第180条内幕交易、泄露内幕信息罪的法律条文以及《内幕交易解释》的框架下，内幕交易违法所得的司法认定是一个纵深性的证明结构",
+            "行为人基于内幕信息建仓，并且利用信息公开之后金融商品市场价格波动平仓获取交易利润的，应当按照实际利益司法计算方法认定内幕交易违法所得"
+          ],
+          "strengths": [
+            "明确援引中国刑法条文与司法解释，制度语境充分",
+            "规则设计具有可操作性，回应了司法实践需求"
+          ],
+          "weaknesses": [
+            "对可能反对意见回应不足，学术对话深度有限",
+            "部分规则（如10个交易日标准）的正当性论证可更充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论可接受性，不涉及论证严密性与未来延展性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论提出内幕交易违法所得的精细化司法计算与拟制核定规则，高度契合中国资本市场司法实践。",
+          "core_judgment": "该结论明确回应实务争议，规则具体可操作，完全具备共同体对话与制度落地基础。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准对接中国刑法与司法解释，提出实际成交差额与市场吸收规则，并针对未平仓等情形给出量化标准，兼具理论自洽与裁判可操作性。",
+          "evidence_quotes": [
+            "原则上应当采用实际成交差额规则……除非辩方举出反证……就应当推定信息与价格具有相当因果关系",
+            "应以内幕信息公开后10个交易日市场平均价格作为计算未平仓部分的内幕交易违法所得的基准价格"
+          ],
+          "strengths": [
+            "规则设计具体量化，直接回应司法裁判痛点",
+            "兼顾控辩举证责任分配，符合刑事诉讼逻辑"
+          ],
+          "weaknesses": [
+            "部分量化阈值缺乏充分实证数据支撑",
+            "对做空机制等新兴交易的规则适配性论证稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 55.84001803398132,
+        "glm-5.1": 35.731127977371216,
+        "kimi-k2.6": 11.814157009124756,
+        "qwen3.6-plus": 56.55599093437195
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 12.8,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "结尾仅以高度概括的方式重复正文规则结论，未提出任何具体的后续研究问题、理论修正方向或实务改进路径，缺乏可定位的未来延展路径。",
+          "core_judgment": "论文未提供真实、具体的未来延展路径，结尾仅为正文结论的重述，属于口号式展望。",
+          "score_rationale": "原始分35分，bonus为0分。结语段落仅将正文结论浓缩重述，未指明后续待解决的问题、理论深化点或制度完善的具体方向，构成‘空泛拔高而无具体待修正对象’的情形。",
+          "evidence_quotes": [
+            "内幕交易违法所得是内幕信息经济价值的犯罪化实现。重大未公开信息价值转化为内幕交易者收益的过程，在经济上描述了内幕交易的行为机理，同时也在法律上指引了内幕交易犯罪司法判断的规则设计。",
+            "行为人基于内幕信息建仓……应当将内幕信息影响期间持仓平均获利数额核定为内幕信息传递者的违法所得。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结语部分仅概括正文已得出的规则，未明确任何可被后续研究定位的‘下一步’问题或修正方向。",
+            "未指出论文自身在理论或实务上的具体局限，也未说明后续应围绕何种局限推进研究。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入低分段。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅概括‘内幕交易违法所得是内幕信息经济价值的犯罪化实现……在法律上指引了司法判断的规则设计’，未提出任何后续待解决的问题、理论深化方向或实务适用边界上的试验性路径。"
+            }
+          ],
+          "boundary_note": "本维度不评结论本身的可接受性或论证严密性，仅评论文是否指明了‘未来还能往哪里走’。结语未提供此类信息。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文未主动指明未来延展路径，结语仅为当下规则总结，但正文对实务难题的揭示为后续研究留下了可推断的切入点。",
+          "core_judgment": "该维不存在作者主动建构的真实延展路径，仅有需读者推断的潜在延展方向。",
+          "score_rationale": "原始分45，对应bonus档位2（40-59档）。论文缺乏主动的前瞻设计，结语纯总结；但正文对市场吸收规则计算难题与解码机制不确定性的揭示，客观上为未来经济分析与司法规则衔接研究留下了可推断的延展空间，勉强进入marginal档。",
+          "evidence_quotes": [
+            "纯粹的经济分析强调信息价值与违法所得之间的直接对应性，绝对依赖数量金融工具却又无法提供普遍认可的标准",
+            "“解码”机制在经济机理上并不乏疑问……能够在多大程度上推动金融商品市场价格……实际上存在着相当不确定性与相对低效性"
+          ],
+          "strengths": [
+            "正文对实务计算难题与理论不确定性的坦诚揭示，客观上为后续深化研究提供了切入点"
+          ],
+          "weaknesses": [
+            "结语仅为当下规则总结，未主动指明未来理论深化或制度完善方向",
+            "缺乏对本文规则实施风险控制或后续争点的明确展望"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "经济分析与司法判断的张力、解码机制的实证检验属于未来如何深化规则的问题，而非当下规则能否被接受的问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语与部分章节中提出了制度完善方向与例外规则扩展路径，但缺乏对后续研究争点或理论深化的明确勾画。",
+          "core_judgment": "存在可定位的延展方向，但多嵌套于制度建议内部，未形成独立的后续研究议程。",
+          "score_rationale": "原始分55，对应bonus=2。论文在'市场吸收规则'的细化、'解码'机制的程序化、选择性披露的责任边界等方面留有明确延伸空间，但多数以'应当'句式呈现制度建议，而非提出待检验的研究问题或理论假设。",
+          "evidence_quotes": [
+            "更为疑难的问题是，在部分内幕信息传递且直接受领人并未实施交易的案件中……导致内幕信息传递链条中难以进行刑事归责。",
+            "笔者认为，上市公司内幕信息知情人员通过选择性披露向证券分析师等资本市场特定中介服务机构专业人员传递内幕信息，只有在其纯粹为了实现上市公司商业利益时才能豁免内幕交易犯罪责任。"
+          ],
+          "strengths": [
+            "对'解码'机制与选择性披露等前沿难题有明确问题意识。",
+            "未平仓、规避损失、信息传递三类拟制规则为后续研究提供了可扩展的分析框架。"
+          ],
+          "weaknesses": [
+            "结语部分以规则复述为主，未提出新的理论争点或下一轮研究问题。",
+            "对比较法维度（如美国、欧盟）的展开不足，本土化延伸有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文对'解码'机制、选择性披露等问题的讨论属于未来可继续深化的方向，而非对当下结论可接受性的论证。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在确立违法所得司法计算规则的同时，明确指出了刑民标准分野、做空机制延伸及信息解码量化阈值等具体延展方向。",
+          "core_judgment": "存在真实延展路径，规则设计与局限承认均指向明确的实务检验与制度衔接空间。",
+          "score_rationale": "原始分72，映射bonus=3档。论文未停留于空泛展望，而是通过区分刑民程序功能差异、提出做空交易适用边界及信息解码量化标准，为后续实证检验与规则衔接提供了可定位的延展入口。",
+          "evidence_quotes": [
+            "在民事赔偿程序中精确量化符合功能性要求，但在刑事定罪量刑中显得必要性较低。",
+            "伴随着做空市场规模的渐进发展，基于未公开利空信息卖空将逐步为司法实务所认知。"
+          ],
+          "strengths": [
+            "刑民程序功能区分清晰，为后续规则差异化建构指明方向。",
+            "针对做空交易与信息解码提出量化阈值，具备实务检验可操作性。"
+          ],
+          "weaknesses": [
+            "未明确交代量化阈值与10日均价规则的实证检验路径。",
+            "对选择性披露分析师的刑责边界仅停留在个案推演，缺乏体系化延伸。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于刑民标准分野、做空场景延伸及量化规则的后续实证检验，属于未来规则演进与实务适用边界问题，非当下结论的可接受性评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 52.671795129776,
+        "glm-5.1": 44.79560589790344,
+        "kimi-k2.6": 12.091267108917236,
+        "qwen3.6-plus": 64.52006411552429
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 45,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 72
+      },
+      "mean": 51.8,
+      "std": 15.8,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 73.93,
+      "weighted_total": 71.8
+    },
+    "aggregation_strictest": {
+      "final_score": 45.88,
+      "weighted_total": 47.5
+    },
+    "avg_std": 18.6,
+    "max_std": 32.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 28.1,
+    "composite_score": -18.6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 32.8
+  }
+}

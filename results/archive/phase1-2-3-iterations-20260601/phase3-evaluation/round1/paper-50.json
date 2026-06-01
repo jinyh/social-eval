@@ -1,0 +1,1031 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/ZGFX2025004014_中国法学_2025_我国民事公益诉讼诉权行使顺位研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表缺失：文末标注'参考文献列表：（无）'，可能为抽取失败或原文未提供，影响后续引证核查。",
+          "局部OCR/排版瑕疵：正文存在少量标点异常（如'㉗'等编码式字符）、空行布局等残留，但不影响核心论点识别。"
+        ],
+        "evidence_quotes": [
+          "参考文献列表：（无）",
+          "㉗ 张嘉军等：《公益诉讼比较研究》，法律出版社2024 年版，第268 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文研究的公益诉讼诉权行使顺位，即针对同一侵权行为，多个主体都可以提起民事公益诉讼时，在诉权行使顺位上何者应优先。（中国制度/规范问题）",
+          "我国民事公益诉讼诉权行使顺位亟待重塑。模式决定了程序的建构方向……未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴'行政机关优先'模式的基础上进行本土化改造。（中国实践解释与理论转化尝试）",
+          "基于上述法律和司法解释可知，中国语境下的民事公益诉讼诉权行使顺位，仅指检察机关提起民事公益诉讼后置于其他提起主体……可以称为'补充性诉权行使顺位'。（概念命题提炼）"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：参考文献列表缺失，仅标注'（无）'，后续评审需注意引注完整性。",
+        "文本工程：少量编码式字符（如'㉗'）可能干扰阅读，但未阻塞论证主干。"
+      ],
+      "evidence_quotes": [
+        "中国语境下的民事公益诉讼诉权行使顺位，仅指检察机关提起民事公益诉讼后置于其他提起主体……可以称为'补充性诉权行使顺位'。",
+        "我国基于法律和司法解释型塑的民事公益诉讼补充性诉权行使顺位，从司法实践运行以及诉权行使的基本理论上看，存在诸多实践问题和理论上的悖论。",
+        "未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴'行政机关优先'模式的基础上进行本土化改造，建立'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的民事公益诉讼诉权行使顺位新模式。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "None"
+      ],
+      "recommendation": "本文以中国民事公益诉讼诉权行使顺位的制度缺陷、实践困境和模式重塑为中心，具有明确的中国问题意识和法学可争辩性，并尝试提出本土化的规范命题（行政机关优先于检察机关优先于社会组织），完全满足 enter_six_dimension_review 条件。文本存在参考文献缺失等局部工程风险，但核心论点清晰可判，建议进入六维评分，并在后续环节关注引注恢复情况。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码（如267、268等）混入正文段落开头或中间",
+          "脚注内容及其编号直接嵌入正文文本流中，未作结构化分离",
+          "局部存在OCR/排版乱码符号（如■）"
+        ],
+        "evidence_quotes": [
+          "267\n公益诉讼诉权行使顺位问题存在两种理解...",
+          "我国民事公益诉讼诉权行使顺位研究\n269\n讼进程的影响不大...",
+          "作为社会化的公益诉权而言，■也应遵循诉权的基",
+          "① 参见《十四届全国人大常委会立法规划》（2023年9月7日）..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文研究的公益诉讼诉权行使顺位，即针对同一侵权行为，多个主体都可以提起民事公益诉讼时，在诉权行使顺位上何者应优先。",
+          "民事公益诉讼补充性诉权行使顺位是否科学合理？这样的程序构造引发了哪些司法实践问题？在即将制定的“检察公益诉讼法”中，我国民事公益诉讼诉权行使顺位应选取何种模式...",
+          "从全国来看，检察机关发布民事公益诉讼诉前公告后，绝大部分案件并未被社会组织或行政机关提起...在2020年至2023年的4年间，其他主体提起公益诉讼案件总数仅占检察机关发布公告案件总数的2.4%。",
+          "未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴“行政机关优先”模式的基础上进行本土化改造，建立“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的民事公益诉讼诉权行使顺位新模式。",
+          "学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离...民事公益诉讼补充性诉权行使顺位与谦抑性原则的原理相去甚远。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文、脚注内容未分离嵌入正文流、局部OCR乱码符号(■)",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "建立“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的民事公益诉讼诉权行使顺位新模式。",
+        "学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合进入六维评审条件，但文本存在低风险工程问题，建议在后续评审阶段前对混入的期刊页码、嵌入正文的脚注内容及局部乱码(■)进行文本清洗与结构化处理。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表缺失，但正文引用完整可定位",
+          "少量脚注编号存在OCR残留风险（如■符号替代原编号）",
+          "期刊页码信息（267-285）混入正文"
+        ],
+        "evidence_quotes": [
+          "■ 参见吴英姿：《作为人权的诉权理论》，法律出版社2017年版，第56-57页。",
+          "■ 参见《法国新民事诉讼法典》，罗结珍译，中国法制出版社1999年版，第85-86页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国民事公益诉讼诉权行使顺位研究",
+          "中国语境下的民事公益诉讼诉权行使顺位，仅指检察机关提起民事公益诉讼后置于其他提起主体",
+          "2023年9月，'检察公益诉讼法（公益诉讼法，一并考虑）'正式列入十四届全国人大常委会立法规划",
+          "笔者在对检察公益诉讼立法相关问题进行调研的过程中发现，不少检察院、法院甚至行政机关的工作人员提出民事公益诉讼补充性诉权行使顺位严重制约了检察公益诉讼的开展",
+          "未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴'行政机关优先'模式的基础上进行本土化改造，建立'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的民事公益诉讼诉权行使顺位新模式",
+          "基于2020年至2023年全国检察机关发布公告与受理案件的统计数据"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，但正文引用完整可定位",
+        "少量脚注编号存在OCR残留风险（■符号替代原编号）",
+        "期刊页码信息（267-285）混入正文"
+      ],
+      "evidence_quotes": [
+        "我国民事公益诉讼诉权行使顺位研究",
+        "中国语境下的民事公益诉讼诉权行使顺位，仅指检察机关提起民事公益诉讼后置于其他提起主体",
+        "未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴'行政机关优先'模式的基础上进行本土化改造，建立'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的民事公益诉讼诉权行使顺位新模式"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，进入六维评价。文本质量总体良好，仅存在脚注符号OCR残留和参考文献列表缺失问题，不影响核心评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文研究的公益诉讼诉权行使顺位，即针对同一侵权行为，多个主体都可以提起民事公益诉讼时，在诉权行使顺位上何者应优先。",
+          "笔者在对检察公益诉讼立法相关问题进行调研的过程中发现，不少检察院、法院甚至行政机关的工作人员提出民事公益诉讼补充性诉权行使顺位严重制约了检察公益诉讼的开展...",
+          "未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴“行政机关优先”模式的基础上进行本土化改造，建立“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的民事公益诉讼诉权行使顺位新模式。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "本文研究的公益诉讼诉权行使顺位，即针对同一侵权行为，多个主体都可以提起民事公益诉讼时，在诉权行使顺位上何者应优先。",
+        "未来中国在民事公益诉讼诉权行使顺位的模式选择上，应在借鉴“行政机关优先”模式的基础上进行本土化改造，建立“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的民事公益诉讼诉权行使顺位新模式。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评分。论文聚焦中国民事公益诉讼诉权顺位制度，结合最高检统计数据与多省实地调研，精准诊断现行“补充性诉权”模式导致的程序空转与效率损耗问题。通过批判性检视“谦抑性原则”的误用，并比较域外模式，提出“行政优先-检察次之-社会组织最后”的本土化程序重构方案及配套制度设计，具备鲜明的中国问题中心性、扎实的实践解释力与明确的规范命题，完全符合项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文提出重塑民事公益诉讼诉权行使顺位，但问题设定属于政策倡导性方案，缺乏可争辩的法学理论争点。",
+          "core_judgment": "全文围绕“应建立何种顺位”展开政策论证，未提炼出具有理论分歧的法学研究问题，仅是对现有制度的反思与改进建议。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限，但可争辩性≤1触发no_justiciable_question上限50分，扣分合计20分（宏观介绍非深度分析），最终45分。",
+          "evidence_quotes": [
+            "鉴于我国当下型塑的…存在诸多问题，笔者认为…建立‘行政机关优先于检察机关和社会组织，检察机关优先于社会组织’的民事公益诉讼诉权行使顺位新模式。",
+            "从谦抑性原则的原旨来看，学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离。"
+          ],
+          "strengths": [
+            "对现有诉前公告程序的实践困境有较系统的描述",
+            "引入域外比较法制度作为模式选择的参照"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅提出“应如何重塑”的政策倡导，未形成法学层面的理论争点",
+            "对学者观点的分歧（如谦抑性原则的适用）仅作单向否定，未展开真正的观点交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发，全文无明确问题句，仅有主题声明与政策倡导",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文开篇提出‘民事公益诉讼补充性诉权行使顺位是否科学合理？’属修辞性设问，实质旨在论证‘应建立新模式’，缺乏学术问题结构。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的可争辩性与重要性，不评论证严密性或文献综述深度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "问题聚焦诉权顺位法理基础，可争辩性强且枢纽性广。",
+          "core_judgment": "论文提出了明确的法学争点并深挖理论分歧，问题影响多个制度领域，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "民事公益诉讼补充性诉权行使顺位是否科学合理？",
+            "学界将顺位理论基础定位为谦抑性原则系对该原则的误读和背离。"
+          ],
+          "strengths": [
+            "问题聚焦且可争辩，直击诉权顺位配置的法理基础。",
+            "理论分歧挖掘深，对谦抑性原则适用提出有力反驳。"
+          ],
+          "weaknesses": [
+            "部分问题句偏向制度重构，法理争点与政策倡导边界偶有模糊。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性或比较法材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出民事公益诉讼诉权行使顺位的模式重塑问题，但核心争点聚焦在制度设计层面，理论创新性有限。",
+          "core_judgment": "问题具有可争辩性和一定制度重要性，但属于制度改良型议题，理论分歧深度不足，枢纽性受限。",
+          "score_rationale": "可争辩性=3/4（有问题句、涉法学层面、非纯政策倡导，但理论分歧主要围绕制度选择而非深层法理），枢纽性=2/4（影响民事公益诉讼多个制度环节，但争议焦点并非学界长期核心争论，制度连锁效应有限），材料新颖性未触发上限，锚定marginal档，给58分。负面模式检查：检查1不扣（无新概念包装）；检查2扣15分（有学者观点交锋但展开不充分，主要为制度比较而非理论交锋）；检查3不扣（有问题句）。扣分合计15分，正式评分73分，扣后58分。",
+          "evidence_quotes": [
+            "民事公益诉讼补充性诉权行使顺位是否科学合理？",
+            "未来中国民事公益诉讼诉权行使顺位应选取何种模式以及选择该模式的理由为何？"
+          ],
+          "strengths": [
+            "问题明确指向制度模式选择，具有现实针对性",
+            "涉及诉权理论、检察权定位等基础法学概念"
+          ],
+          "weaknesses": [
+            "理论分歧主要停留在制度比较层面，缺乏深层法理交锋",
+            "核心争点偏向'哪种制度更优'而非'为何如此'的根本性质疑"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题虽聚焦但理论深度不足，制度比较替代了法理建构"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦民事公益诉讼诉权顺位，批判谦抑性误读，提出行政优先新模式。",
+          "core_judgment": "问题明确具法学争辩性，枢纽性强，理论重构与程序改造方案扎实，创新性突出。",
+          "score_rationale": "负面检查扣0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "民事公益诉讼补充性诉权行使顺位是否科学合理？应选取何种模式？",
+            "学界将顺位理论基础定位为谦抑性原则系对该原则的误读和背离。"
+          ],
+          "strengths": [
+            "精准识别诉前公告程序空转与效率困境",
+            "有力驳斥谦抑性原则的跨域误用，理论自洽"
+          ],
+          "weaknesses": [
+            "对社会组织监管机制的论证略显单薄",
+            "行政优先模式在本土行政效能上的预设偏理想"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题成立度与重要性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.5818510055542,
+        "glm-5.1": 58.14919710159302,
+        "kimi-k2.6": 12.966172218322754,
+        "qwen3.6-plus": 64.05339074134827
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.2,
+      "std": 23.4,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 50,
+          "band": "unacceptable",
+          "summary": "论文未呈现明确的研究地图，通篇为作者基于调研数据的制度反思，缺乏对既有学术争论、对立学派或解释路径的系统梳理。",
+          "core_judgment": "论文未建立研究地图：无到达点，未展示学界已有成果；未竟点仅来自实践问题而非学术缺口；本文切入点缺乏对学术传统的回应。",
+          "score_rationale": "三要素总分=1/6，争点结构=0/2，法学流派=0个，锚定 unacceptable 档，给 50 分。上限规则触发 no_research_map。",
+          "evidence_quotes": [
+            "“笔者在对检察公益诉讼立法相关问题进行调研的过程中发现，不少检察院、法院甚至行政机关的工作人员提出民事公益诉讼补充性诉权行使顺位严重制约了检察公益诉讼的开展”",
+            "“从全国来看，检察机关发布民事公益诉讼诉前公告后，绝大部分案件并未被社会组织或行政机关提起。基于统计发现……”"
+          ],
+          "strengths": [
+            "提供了丰富的实证调研数据，揭示了现行制度的实践困境"
+          ],
+          "weaknesses": [
+            "全文无任何对既有学术研究、理论争论或学术流派的引述与回应",
+            "研究问题仅来源于实践困境，缺乏与已有学术文献的对话和定位"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺，触发上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点=0，未竟点=1（仅指出实践问题），本文切入点=1（仅提出自身方案）。全文无学界争论、无学术流派、无既有研究成果引述。总分=1/6。"
+            }
+          ],
+          "boundary_note": "本文的结构性问题在于缺乏对既有研究的任何交代，属文献定位缺失，而非问题创新性不足。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准定位谦抑性原则误读之未竟点，依托比较法三种模式构建争点结构。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离",
+            "民事公益诉讼诉权行使顺位主要存在如下三种模式：行政机关优先模式...检察机关、行政机关优先模式...检察机关优先模式"
+          ],
+          "strengths": [
+            "精准指出学界对谦抑性原则的误读，未竟点明确",
+            "比较法三种模式构成清晰的制度争点结构"
+          ],
+          "weaknesses": [
+            "对支持起诉原则争论的流派归属未充分展开学界脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构，不涉及模式选择本身的创新性评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了域外比较与本土反思的研究地图，但法学流派识别有限。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但法学流派覆盖不足，未呈现学术争论脉络。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=1个，锚定good档，给72分。到达点充分：梳理了美国'行政机关优先'、英国'检察机关与行政机关并行优先'、巴西俄罗斯'检察机关优先'三种域外模式及学者观点；未竟点明确指出我国'补充性诉权行使顺位'的实践悖论；切入点与未竟点对应但表述较分散。争点结构呈现'谦抑性原则误读''诉权顺位模式选择'两个核心争点。法学流派仅识别出'行政机关优先''检察机关优先'等制度模式差异，未形成学术流派争论。",
+          "evidence_quotes": [
+            "从两大法系来看……该模式应与公益诉讼的本质或本源相契合，绝不能与之背道而驰",
+            "然而，从谦抑性原则的原旨来看，学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离"
+          ],
+          "strengths": [
+            "域外三种模式比较系统，到达点清晰",
+            "争点结构完整：实践悖论与理论根基双重展开"
+          ],
+          "weaknesses": [
+            "法学流派识别不足，未呈现学术争论脉络",
+            "切入点分散于正文各处，缺乏集中表述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时上限79分；三要素≥4但法学流派不足时good档",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素5分但法学流派仅1个，未触发流派上限，但限制excellent档"
+            }
+          ],
+          "boundary_note": "本文献定位问题不涉及问题创新性判断，仅评估研究地图完整性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准勾勒现行顺位制度脉络，指出谦抑性理论误读，系统对比域外模式，研究地图完整。",
+          "core_judgment": "本维度成立，作者通过规范梳理与比较法对照，成功构建了从理论误读到制度重塑的完整研究路径。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离。",
+            "本文将在对域外民事公益诉讼诉权行使顺位模式进行比较研究的基础上展开分析。"
+          ],
+          "strengths": [
+            "规范演进与实证数据结合，精准定位现行公告程序的实践困境。",
+            "清晰剥离刑法谦抑性与民事诉权顺位的理论混淆，重构行政优先法理。"
+          ],
+          "weaknesses": [
+            "对社会组织优先模式的本土化阻力分析稍显单薄。",
+            "部分域外制度引介未充分结合中国行政体制特殊性展开深度对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，不涉及诉权顺位方案本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 99.2736611366272,
+        "glm-5.1": 58.80586218833923,
+        "kimi-k2.6": 12.94355821609497,
+        "qwen3.6-plus": 59.80927491188049
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 50,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 75.5,
+      "std": 19.1,
+      "strictest": 50,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 75,
+          "band": "good",
+          "summary": "论文建构了“行政机关—检察机关—社会组织”的顺位框架，并尝试提供程序改造方案，但其核心为比较法借鉴与政策主张，法学操作步骤不够清晰。",
+          "core_judgment": "框架在宏观模式选择上有类型化创新，但在微观层面缺乏可重复适用的法律判断步骤，导致法学转化度受限。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=2/4，锚定good（70-79）档，给75分。",
+          "evidence_quotes": [
+            "应当建立“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的民事公益诉讼诉权行使顺位新模式。",
+            "取消检察机关诉前公告程序，建立60日诉前通知程序，重塑法院受理公告制度，改革支持起诉制度，建构社会组织监管机制。"
+          ],
+          "strengths": [
+            "对域外模式进行类型化归纳（行政机关优先/检察优先/混合），提供了清晰的比较基准。",
+            "将框架细化为公告取消、通知程序、公告重塑等五项具体制度建议，具备一定的制度设计指向。"
+          ],
+          "weaknesses": [
+            "框架的核心逻辑是“模式选择+程序改造”，但未提炼出法官或检察官可逐步适用的判断标准或分析流程。",
+            "法学转化不足：顺位框架仅停留在主体优先性排序，未转化为权利冲突、管辖竞合时的法律适用规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "框架建构力问题集中于操作步骤的缺失，而非模式选择的逻辑衔接问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "提出民事公益诉讼诉权顺位重塑模式及五项具体程序改造方案，框架清晰可操作。",
+          "core_judgment": "分析框架高度成立，将比较法模式与本土法理转化为具体的诉权顺位与程序设计，法学转化彻底。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。模式分类明确，程序步骤可循，且后文实际调用。",
+          "evidence_quotes": [
+            "建立'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的诉权行使顺位新模式",
+            "在检察机关和社会组织提起民事公益诉讼前也应建立60日的诉前通知程序"
+          ],
+          "strengths": [
+            "顺位模式分类标准明确，程序改造步骤可循且可操作",
+            "法学转化彻底，将法理与比较法结论直接转化为立法程序方案"
+          ],
+          "weaknesses": [
+            "顺位模式对社会组织诉权的潜在限制虽有回应但论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与法学转化，不评顺位模式在法理上的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "制度型论文提出'行政机关优先于检察机关、检察机关优先于社会组织'的新顺位模式，但框架以规范描述和制度建议为主，缺乏可重复操作的分析步骤。",
+          "core_judgment": "分析框架处于'制度描述+政策建议'层面，未形成可重复适用的判断标准或操作步骤，法学转化停留在规则列举层面。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程，后文调用不足3次），法学转化度得分=2/4（有制度设计方案和裁判规则层面的程序建议，但跨学科概念未涉及，转化后的步骤未在后文反复使用），锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "我国民事公益诉讼诉权行使顺位应选取'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的模式",
+            "在检察机关和社会组织提起民事公益诉讼前也应建立60日的诉前通知程序"
+          ],
+          "strengths": [
+            "三种域外模式的类型化归纳较为清晰，分类标准明确",
+            "制度设计层面给出了具体的程序改造方案（取消公告、建立通知程序等）"
+          ],
+          "weaknesses": [
+            "核心框架为'模式描述+制度建议'，无步骤化的判断标准或分析流程",
+            "后文对'行政机关优先模式'的调用以规范论证为主，未形成可重复适用的操作步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用 → 最高60分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "'行政机关优先于检察机关和社会组织'作为核心框架术语，后文主要以规范描述和制度建议方式展开，未形成步骤化的分析调用"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及比较法论证的严密性或制度建议的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "提出“行政优先、检察次之、社会补充”顺位模型及五项配套程序改造。",
+          "core_judgment": "框架具备明确的类型化标准与可操作的程序步骤，法学转化充分，建构力强。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。概念与分类清晰，程序步骤明确且全文深度调用；比较分析成功转化为五项具体立法程序方案。",
+          "evidence_quotes": [
+            "建立‘行政机关优先于检察机关和社会组织，检察机关优先于社会组织’的民事公益诉讼诉权行使顺位新模式。",
+            "在检察机关和社会组织提起民事公益诉讼前也应建立60日的诉前通知程序……若被通知的行政机关在60日内未履职……"
+          ],
+          "strengths": [
+            "顺位模型类型化清晰，程序改造步骤具体可操作。",
+            "比较法维度与本土立法需求紧密结合，转化路径明确。"
+          ],
+          "weaknesses": [
+            "对“通知程序”可能引发的滥诉或拖延风险缺乏细化制约规则。",
+            "部分程序衔接的裁判规则仍显宏观，未完全细化至个案适用。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉逻辑推演严密性或问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 62.18061709403992,
+        "glm-5.1": 65.88330483436584,
+        "kimi-k2.6": 14.46727705001831,
+        "qwen3.6-plus": 59.28993892669678
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 88
+      },
+      "mean": 77.8,
+      "std": 14.8,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了一条从现状与问题、比较法模式萃取到理想模式建构与程序设计的长程推理链，整体可辩护地推出核心结论，但重构论据中反驳处理的深度尚显不足。",
+          "core_judgment": "推理链总体成立且可复述，关键结论有前文支撑，但在回应检察机关补充性顺位的理论依据时，转向谦抑性原则的驳斥稍显跳脱，反驳处理角度相对单一。",
+          "score_rationale": "推理链完整性得分=4/4（主要步骤清晰、相互衔接、结论有前文支撑、无使核心结论失效的关键跳步）；反驳处理度得分=1/3（仅识别了显式反对意见并进行了回应，但未成体系地讨论反例、例外情形或自身局限）。锚定good档，给75分。",
+          "evidence_quotes": [
+            "就公益诉讼与行政执法的关系而言，公益诉讼的'核心价值是为了弥补行政执法的不足'。行政机关保护公益的天然职责决定了行政执法优先于公益诉讼。",
+            "从谦抑性原则的原旨来看，学界将民事公益诉讼诉权行使顺位的理论基础定位为谦抑性原则系对该原则的误读和背离。谦抑性理论肇始于刑法领域。"
+          ],
+          "strengths": [
+            "推理主线清晰：完整呈现了'现状困境→比较法模式借鉴→理论溯源（行政执法优先）→理想模式确立→程序架构'的推演脉络。",
+            "对现有补充性顺位的批判系统性强：从效率、程序空转、诉权限制、司法风险四个维度展开，且引入了实证数据支撑，使得突破现状的论证较为坚实。"
+          ],
+          "weaknesses": [
+            "反驳处理相对单一：处理'后置于社会组织'的学理依据时，仅批驳'谦抑性原则'的误用，对'法律监督权克制性'等其他潜在支撑论证未展开深入辨析。",
+            "理想模式的本土化转换论证稍显薄弱：论述为何选取'行政机关优先于检察机关，检察机关优先于社会组织'模式时，主要依托域外经验与抽象原理，对本土制度约束的回应深度有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本论文属于制度设计类实务型论文，评估聚焦于其比较法素材、理论推导与制度建议之间的逻辑递推关系，而非评判其具体程序设计方案本身是否完美无缺。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整且层层依赖，对核心反对意见有实质性驳斥，逻辑严密性极佳。",
+          "core_judgment": "本维度完全成立，论文通过问题揭示、本质推导与方案建构形成了充分支撑的推理链，结论可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "民事公益诉讼补充性诉权行使顺位与谦抑性原则的原理相去甚远...仅仅是提起诉讼的顺位不同而已，并非更为严重、更为严厉的手段。",
+            "行政机关提起民事公益诉讼系其之前行政执法的延伸。这一定位决定了其提起民事公益诉讼必然要优先于检察机关、社会组织。"
+          ],
+          "strengths": [
+            "从问题揭示、理论重构到程序设计，推理链环环相扣且层层依赖。",
+            "对谦抑性原则的驳斥论证深入原旨，实质性回应了核心反对意见。"
+          ],
+          "weaknesses": [
+            "从“行政执法补充”到“行政机关起诉优先”的过渡稍显简略，依赖定性推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑严密性仅评估推理链条的支撑度与可辩护性，不评估程序方案在实务中的可操作性或结论在学界的接受度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'问题诊断—比较法分析—模式重塑—程序配套'的完整推理链，但谦抑性原则批判部分存在理论跳跃。",
+          "core_judgment": "推理链整体完整可复述，但谦抑性原则批判部分存在关键跳步，反驳处理度基本充分。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4因谦抑性原则批判部分从刑法领域直接跳至民事公益诉讼存在关键跳步），反驳处理度得分=2/3（识别反对意见并实质性回应，但未明确承认自身模式局限），锚定good档，给72分。",
+          "evidence_quotes": [
+            "从谦抑性原则的原旨来看，学界将民事公益诉讼诉权行使顺位……系对该原则的误读和背离。谦抑性理论……肇始于刑法领域……反观我国民事公益诉讼诉权行使顺位……与谦抑性原则的原理相去甚远。",
+            "或许有人还会担心，建构……模式，会让社会组织提起民事公益诉讼'空心化'……其实这种担心是多余的。"
+          ],
+          "strengths": [
+            "比较法分析到模式选择的推导链条清晰，三种模式的比较基准一致。",
+            "程序配套建议与模式选择形成呼应，制度设计具有内在一致性。"
+          ],
+          "weaknesses": [
+            "谦抑性原则批判部分从刑法直接跳跃至民事领域，未充分论证跨领域适用的不可行性。",
+            "未回应'行政机关优先'模式下行政机关怠于履职时的效率损失问题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链的充分支撑性，不评价'行政机关优先'模式本身的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以实践问题为起点，经理论纠偏与比较法论证，严密推导出诉权顺位重塑方案。",
+          "core_judgment": "逻辑严密性成立。核心结论由问题诊断、理论正本清源与比较法分析充分支撑，推理链完整且无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从实践困境到理论纠偏再到制度设计环环相扣，对谦抑性误读及效率担忧等反驳均作实质性回应。",
+          "evidence_quotes": [
+            "谦抑性原则的本意在于当有其他手段诸如民事、行政的手段可以制止违法行为时，就不得动用较为严厉的刑法手段...民事公益诉讼补充性诉权行使顺位与谦抑性原则的原理相去甚远。",
+            "建构'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的民事公益诉讼诉权行使顺位模式...优先提起仅为提起的顺位设计，'优先'并非'垄断'。"
+          ],
+          "strengths": [
+            "推理链条完整，从实践困境到理论纠偏再到比较法借鉴，层层递进支撑制度重塑结论。",
+            "对“谦抑性原则误用”“效率降低担忧”等反对意见进行了实质性法理与实证回应。"
+          ],
+          "weaknesses": [
+            "“检察机关优先于社会组织”的论证相对薄弱，主要依赖域外经验，本土法理支撑稍显不足。",
+            "对60日通知程序可能引发的行政拖延风险，仅以高整改率回应，缺乏更细致的程序制约设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的推导严密性，而非评估新制度在司法实践中的可操作性或成本收益。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 99.56643724441528,
+        "glm-5.1": 68.29284620285034,
+        "kimi-k2.6": 11.402111053466797,
+        "qwen3.6-plus": 69.66769099235535
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.8,
+      "std": 10.8,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "结论明确挑战现行补充性顺位并构建新方案，回应了立法进程，但与既有理论分歧点（如谦抑性原则）的对话尚不充分。",
+          "core_judgment": "结论提出了明确的新顺位模式，制度指向具体，但未能充分回应谦抑性等反对意见，共同体对话中存在未化解的争议点。",
+          "score_rationale": "共同体对话度得分=3/4（回应了争论，能被反驳，语境兼容，但未主动讨论反对意见），制度可接受度得分=2/4（不根本矛盾，回应了制度约束。理论类论文，制度度≥2，对话度≥3，锚定excellent档，但受限于未充分回应谦抑性质疑，综合评定为68分）。",
+          "evidence_quotes": [
+            "从谦抑性原则的原旨来看，学界将...定位为谦抑性原则系对该原则的误读和背离。",
+            "本文建构'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的新模式。"
+          ],
+          "strengths": [
+            "结论与《检察公益诉讼法》立法进程直接关联，制度指向性极强。",
+            "提出了从诉前公告到通知程序的完整制度转化方案，可操作性强。"
+          ],
+          "weaknesses": [
+            "未充分讨论谦抑性原则可能存在的合理内核与修正式适用，反对意见回应不足。",
+            "对替代模式下社会组织诉权空心化的担忧仅作原则性解释，缺乏深度论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "不评价论证是否严密及未来延展性，仅评估结论在当下共同体对话和制度语境中的可接受程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文结论有效回应学界争论，提出具体制度重塑方案，与中国法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话和制度可接受性上均表现优异，成功挑战现行模式并提出可行替代方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论不仅挑战现行补充性顺位，还主动回应反对意见，且制度方案具体可行。",
+          "evidence_quotes": [
+            "结论明确修正了以谦抑性原则为基础的补充性诉权顺位，指出其系对该原则的误读和背离。",
+            "提出‘行政机关优先于检察机关和社会组织，检察机关优先于社会组织’的新模式及具体程序架构。"
+          ],
+          "strengths": [
+            "主动回应社会组织‘空心化’等潜在反对意见，对话度高。",
+            "制度转化方案具体（60日通知、受理公告等），非空泛对策。"
+          ],
+          "weaknesses": [
+            "新模式下社会组织诉权行使周期拉长，实务阻力未充分预估。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出重塑民事公益诉讼诉权行使顺位，主张'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的新模式，结论具有明确的学术对话性和制度回应性。",
+          "core_judgment": "结论能够进入法学共同体对话，主动回应既有制度实践和理论争议，对中国制度语境有充分考量，但理论原创性的自我定位可更清晰。",
+          "score_rationale": "共同体对话度得分=3/4（回应了'谦抑性原则'误读、补充性顺位悖论等既有争论，可被反对者定位回应；但较少主动承认自身方案局限），制度可接受度得分=3/4（与现行法秩序兼容，回应了《检察公益诉讼法》立法背景，提出具体程序改造方向），锚定good档，给72分。",
+          "evidence_quotes": [
+            "谦抑性原则的本意在于当有其他手段诸如民事、行政的手段可以制止违法行为时，就不得动用较为严厉的刑法手段……民事公益诉讼补充性诉权行使顺位与谦抑性原则的原理相去甚远",
+            "未来中国也应改变检察机关提起民事公益诉讼后置于社会组织的程序框架，直接将检察机关提起民事公益诉讼前置于社会组织"
+          ],
+          "strengths": [
+            "主动挑战'谦抑性原则'作为诉权顺位理论基础的通说，具有学术锋芒",
+            "结合《检察公益诉讼法》立法规划和中国司法实践数据，语境意识强"
+          ],
+          "weaknesses": [
+            "未充分讨论'行政机关优先'模式可能导致的行政权扩张风险",
+            "对域外经验的批判性反思不足，有选择性引证之嫌"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性与对话性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应立法需求，提出“行政优先-检察次之-社会补充”顺位及配套程序改造方案。",
+          "core_judgment": "结论高度契合中国公益诉讼制度语境，具备强共同体对话能力与制度落地可行性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "未来中国民事公益诉讼诉权行使顺位应选取“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的新模式。",
+            "在即将制定的“检察公益诉讼法”中应摒弃检察机关发布诉前公告这一程序性装置，建立60日诉前通知程序。"
+          ],
+          "strengths": [
+            "精准批判谦抑性原则误用，重构诉权顺位法理基础。",
+            "配套程序改造具体且具可操作性，直击司法实践痛点。"
+          ],
+          "weaknesses": [
+            "对社会组织监管机制的具体责任主体与惩戒措施论述稍显简略。",
+            "未充分论证60日通知期与现行紧急公益保护需求的潜在冲突。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉逻辑严密性与前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.087648153305054,
+        "glm-5.1": 48.32881188392639,
+        "kimi-k2.6": 12.994929313659668,
+        "qwen3.6-plus": 42.60242700576782
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 12.8,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在制度/立法型框架下提出具体且可定位的顺位重塑方案，延展路径清晰，但部分机制如社会组织监管的论证深度有限。",
+          "core_judgment": "存在明确的制度修正路径和程序重建方案，与正文核心结论紧密衔接，属于真实延展。",
+          "score_rationale": "原始分65分，落入60-79档，对应bonus=3。论文明确提出了‘行政机关优先于检察机关，检察机关优先于社会组织’的新模式及五项具体程序改造，延展路径清晰，但部分建议（如监管机制）论证较概括。",
+          "evidence_quotes": [
+            "建立“行政机关优先于检察机关和社会组织，检察机关优先于社会组织”的民事公益诉讼诉权行使顺位新模式。",
+            "在即将制定的“检察公益诉讼法”中应摒弃检察机关发布诉前公告这一程序性装置，……建立……60日的诉前通知程序。"
+          ],
+          "strengths": [
+            "重构方案具体且与正文实务缺陷分析衔接紧密，延展方向明确。",
+            "域外模式比较与本土化改造不局限于理论空谈，指向具体的程序规则修正。"
+          ],
+          "weaknesses": [
+            "对社会组织行使诉权的监管机制论证较概括，缺乏具体监管要件设计。",
+            "对允许社会组织提行政公益诉讼的展望仅作回应性说明，展开有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是检察公益诉讼立法的模式选择与程序架构，属于未来制度应往何处走，而非当下结论能否被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于“行政优先”核心结论，清晰延伸至行民公益诉讼顺位及社会组织提起行政公益诉讼的制度完善方向，并给出了实施风险控制路径。",
+          "core_judgment": "存在真实且可定位的延展路径，将民事公益诉讼内部顺位延伸至行民诉讼顺位及社会组织起诉行政公益诉讼的制度完善。",
+          "score_rationale": "原始分85。论文属制度/立法型，延展路径清晰：将“行政优先”延伸至行民诉讼顺位及社会组织提起行政公益诉讼，并对通知程序异化、社会组织监管闭环给出风险控制。映射bonus档位为5（>=80）。",
+          "evidence_quotes": [
+            "就行政公益诉讼和民事公益诉讼二者行使的顺位而言，按照上述原理，行政公益诉讼同样要优先于民事公益诉讼。当然，允许社会组织等提起行政公益诉讼...",
+            "这一‘通知’并非申请审查或审批，而且也不能异化为申请审查或审批，否则将出现行政机关、检察机关垄断公益诉权，变相剥夺或控制其他主体提起公益诉讼的诉权。"
+          ],
+          "strengths": [
+            "延展方向紧扣核心结论，将行政优先逻辑延伸至行民诉讼顺位",
+            "对通知程序异化风险及社会组织监管闭环给出了具体的实施风险控制"
+          ],
+          "weaknesses": [
+            "对社会组织提起行政公益诉讼的具体规则衔接未作进一步展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "行政公益诉讼与民事公益诉讼的顺位关系及社会组织提起行政公益诉讼的开放，属于本文核心结论向更宏观制度体系的延伸，是未来立法需完善的规则衔接问题，而非当下民事顺位结论的可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在制度建构层面提出'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的新模式，并配套设计了通知程序、受理公告、支持起诉改革、社会组织监管等具体程序机制，延展路径明确可定位。",
+          "core_judgment": "存在真实延展路径：论文不仅提出模式转型方向，还具体设计了五项程序改造方案，并预判了效率性质疑、社会组织'空心化'担忧等反驳入口。",
+          "score_rationale": "原始分62分，bonus=3。论文在结论部分系统展开五项程序建构（取消诉前公告、建立通知程序、重塑受理公告、改革支持起诉、建构监管机制），每项均有具体操作路径和边界条件，与核心结论紧密衔接。但部分延展（如允许社会组织提起行政公益诉讼）仅点到为止，精细度有限；且对比较法框架的深化空间（如英国审批制改革的更多细节）未充分展开。",
+          "evidence_quotes": [
+            "在'行政机关优先于检察机关和社会组织，检察机关优先于社会组织'的诉权行使顺位模式下，为了强化行政机关积极行使保护公益的职责……在检察机关和社会组织提起民事公益诉讼前也应建立60日的诉前通知程序",
+            "或许有人还会担心，建构……模式，会让社会组织提起民事公益诉讼'空心化'……其实这种担心是多余的"
+          ],
+          "strengths": [
+            "五项程序改造方案具体可定位，与核心结论形成紧密衔接",
+            "主动预判并回应效率性质疑、社会组织空心化等反驳入口"
+          ],
+          "weaknesses": [
+            "部分延展方向（如社会组织提起行政公益诉讼）仅点到为止，缺乏程序展开",
+            "比较法维度未充分挖掘英国审批制改革、美国公民诉讼后续发展等深化空间"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究和制度发展指明的方向与路径，而非当下结论是否被接受。论文提出的程序改造方案属于'未来还能往哪里走'的制度设计，而非对现有规范的解释适用。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文紧扣“检察公益诉讼法”立法进程，提出取消诉前公告、建立60日通知程序及重塑受理公告等具体制度延展路径。",
+          "core_judgment": "存在真实且高度可操作的延展路径，紧密衔接正文核心结论并直接指向立法草案设计。",
+          "score_rationale": "原始分85，对应bonus=5。论文针对立法规划提出五项具体程序改造方案，路径清晰、证据扎实，与核心论证无缝衔接。",
+          "evidence_quotes": [
+            "在即将制定的“检察公益诉讼法”中，我国民事公益诉讼诉权行使顺位应选取何种模式以及选择该模式的理由为何？",
+            "在未来制定的“检察公益诉讼法”中应明确规定，在法院受理了……民事公益诉讼案件后，要发布30日的受理公告"
+          ],
+          "strengths": [
+            "延展路径直指立法草案，提出五项可落地的程序改造方案",
+            "精准识别谦抑性原则误读，为理论深化提供明确修正坐标"
+          ],
+          "weaknesses": [
+            "对社会组织监管机制的具体执法衔接缺乏细化论证",
+            "60日通知程序与现有行政履职期限的冲突未充分评估"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦立法草案的程序架构与制度衔接等未来走向，而非评价当下结论在学理或实务中的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 47.61639213562012,
+        "glm-5.1": 55.86673617362976,
+        "kimi-k2.6": 14.178509712219238,
+        "qwen3.6-plus": 59.08179259300232
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "mean": 74.2,
+      "std": 12.5,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 79.11,
+      "weighted_total": 76.5
+    },
+    "aggregation_strictest": {
+      "final_score": 54.82,
+      "weighted_total": 56.5
+    },
+    "avg_std": 15.6,
+    "max_std": 23.4,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 24.3,
+    "composite_score": -15.6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 23.4
+  }
+}

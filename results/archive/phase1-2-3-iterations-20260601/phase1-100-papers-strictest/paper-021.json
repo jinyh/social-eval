@@ -1,0 +1,1013 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/《行政处罚法》主观过错条款适用展开.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR 残留导致脚注编号与正文粘连（如“情形...⑲”）",
+          "正文中夹杂期刊排版信息（如“中国法学 2023 年第2 期 110”）",
+          "参考文献列表缺失，但不影响核心论证定位"
+        ],
+        "evidence_quotes": [
+          "情形......⑲ 俞叔平：《奥地利行政罚法之介绍》，载《刑事法杂志》1976 年第2 期，第23、38 页。",
+          "中国法学 2023 年第2 期 110",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2021 年新修订的《行政处罚法》第33 条第2 款规定……主观过错条款究竟如何适用，亟待理论解释。",
+          "对于主观过错条款在新《行政处罚法》中究竟扮演何种角色……理论界看法不一，存有“定罚论”和“量罚论”两种立场。",
+          "笔者持“定罚论”立场。……“量罚论”的上述主张并不成立，理由如下……",
+          "在过失认定上，是否需要区分不同类型的过失，选择不同的判断规则？……笔者主张……应以行为人标准判断过失是否成立。",
+          "新《行政处罚法》第33 条第2 款中“另有规定”……应确立一种目的性限缩解释的总体立场。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "[文本工程] OCR 残留与排版信息混入正文，脚注编号与正文粘连，参考文献缺失，但核心论点清晰。",
+        "[项目口径] 论文需在六维评价中进一步考察其理论转化深度（如目的性限缩解释、行为人标准等概念是否构成原创性贡献）。"
+      ],
+      "evidence_quotes": [
+        "2021 年新修订的《行政处罚法》（以下简称“新《行政处罚法》”）第33 条第2 款规定：“当事人有证据足以证明没有主观过错的，不予行政处罚。”",
+        "对于主观过错条款……存有“定罚论”和“量罚论”两种立场，并且“量罚论”在新《行政处罚法》实施以后呈现出占优趋势。",
+        "笔者持“定罚论”立场。……应创建以行为人标准为中心的过失判断规则。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻度的 OCR 残留与排版干扰，但核心论证完整且明确围绕中国法条解释与实践难题展开，建议直接进入六维评价，并在评分时关注文本质量是否影响细节理解。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落之间",
+          "脚注编号存在乱码及特殊符号残留（如■、㉙等）"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2023 年第2 期\n110",
+          "■ ［日］圆谷俊：《判例形成的日本新侵权行为法》",
+          "㉙ 参见熊樟林编：《中外行政处罚法汇编》"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "增设主观过错条款是此次《行政处罚法》修订中最具创新意义的制度。",
+          "主观过错条款究竟如何适用，亟待理论解释。概括来说，这主要包括如下几项问题：第一，该条在性质上如何认定？是否改变了传统的“客观归责”立场？",
+          "笔者主张，在量罚上，应当适度考虑故意与过失的区分意义，但这并非行政机关的一项法定义务。",
+          "在行政处罚归责过程中，应以行为人标准判断过失是否成立。",
+          "对于“另有规定”可能存在的上述种种描述，应当如何甄别和解释...应确立一种目的性限缩解释的总体立场。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及脚注编号乱码需在后续评审中忽略",
+        "项目口径：无边界问题，完全符合中国自主知识体系法学评价口径"
+      ],
+      "evidence_quotes": [
+        "新《行政处罚法》第33条第2款应被理解为具有定罚功能的主观过错条款，此后所有应受行政处罚行为都必须具有主观过错。",
+        "在行政处罚归责过程中，应以行为人标准判断过失是否成立。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；评审时需注意过滤页码混入及脚注乱码对阅读体验的轻微干扰，核心论点与论证结构完整可辨。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2021年新修订的《行政处罚法》（以下简称'新《行政处罚法》'）第33条第2款规定：'当事人有证据足以证明没有主观过错的，不予行政处罚。法律、行政法规另有规定的，从其规定。'",
+          "笔者持'定罚论'立场。所谓'定罚论'，是指新《行政处罚法》第33条第2款中确定的主观过错，应是所有应受行政处罚行为的必备要素。",
+          "在行政处罚归责过程中，应以行为人标准判断过失是否成立。",
+          "新《行政处罚法》第33条第2款应被理解为具有定罚功能的主观过错条款，此后所有应受行政处罚行为都必须具有主观过错。",
+          "主观过错条款中的'另有规定'应从严解释，只有如此，方能将我国行政处罚活动限定在责任主义框架之内。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "2021年新修订的《行政处罚法》（以下简称'新《行政处罚法》'）第33条第2款规定：'当事人有证据足以证明没有主观过错的，不予行政处罚。法律、行政法规另有规定的，从其规定。'",
+        "笔者持'定罚论'立场。所谓'定罚论'，是指新《行政处罚法》第33条第2款中确定的主观过错，应是所有应受行政处罚行为的必备要素。",
+        "在行政处罚归责过程中，应以行为人标准判断过失是否成立。",
+        "新《行政处罚法》第33条第2款应被理解为具有定罚功能的主观过错条款，此后所有应受行政处罚行为都必须具有主观过错。",
+        "主观过错条款中的'另有规定'应从严解释，只有如此，方能将我国行政处罚活动限定在责任主义框架之内。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文完全符合项目口径，直接进入六维评价。本文以中国《行政处罚法》第33条第2款的主观过错条款为核心研究对象，深入探讨了该条款的定罚功能、故意与过失的区分、过失判断标准以及'另有规定'的解释等关键法学问题，形成了明确的'定罚论'立场和系统的理论命题，具有显著的中国问题意识和理论转化贡献。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "2021 年新修订的《行政处罚法》……第33 条第2 款规定：“当事人有证据足以证明没有主观过错的，不予行政处罚。法律、行政法规另有规定的，从其规定。”",
+          "理论界看法不一，存有“定罚论”和“量罚论”两种立场，并且“量罚论”在新《行政处罚法》实施以后呈现出占优趋势。",
+          "在行政处罚归责过程中，应以行为人标准判断过失是否成立。……结合每一个行政相对人的资质、知识和能力，以案说案，实现个案正义。",
+          "新《行政处罚法》第33 条第2 款应被理解为具有定罚功能的主观过错条款……应创建以行为人标准为中心的过失判断规则。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "2021 年新修订的《行政处罚法》第33 条第2 款规定……主观过错条款究竟如何适用，亟待理论解释。",
+        "笔者持“定罚论”立场。所谓“定罚论”，是指新《行政处罚法》第33 条第2 款中确定的主观过错，应是所有应受行政处罚行为的必备要素。",
+        "在行政处罚归责过程中，应以行为人标准判断过失是否成立。……结合每一个行政相对人的资质、知识和能力，以案说案，实现个案正义。",
+        "对于“另有规定”的理解与适用上，应确立一种目的性限缩解释的总体立场。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评分流程。本文聚焦中国《行政处罚法》修订核心条款，围绕主观过错条款的性质（定罚/量罚）、过失判断标准（行为人标准/一般人标准）及“另有规定”的解释展开深度规范分析，提出了明确的可复核命题与解释路径，完全符合中国自主知识体系研究的项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文系统阐释了主观过错条款的适用立场，但全文主要是在阐释和辩护“定罚论”等既定立场，缺乏可争辩的法学研究问题。",
+          "core_judgment": "论文提出了“定罚论vs量罚论”等适用难题，但整体上是对立法选择和既定立场的体系化论证与维护，缺乏真正开放的法学理论争辩点。",
+          "score_rationale": "可争辩性=1/4（仅满足标准1，有明确的问题句；但无真正理论分歧，实质是体系化辩护），枢纽性=2/4（影响范围广且涉及基本原理），材料新颖性未触发上限。因可争辩性≤1，触发上限规则，锚定unacceptable档。扣分合计30分（检查3：主题声明非研究问题，全文主要是阐释既定立场，无真正可争辩的法学争点），最终得分=68-30=38分。",
+          "evidence_quotes": [
+            "“笔者持‘定罚论’立场……主观过错应是所有应受行政处罚行为的必备要素。”",
+            "“对于主观过错条款……理论界看法不一，存有‘定罚论’和‘量罚论’两种立场。”"
+          ],
+          "strengths": [
+            "问题涉及行政处罚法的核心条款，实践意义重大。",
+            "梳理了定罚论与量罚论的立场分歧，展示了现有的理论争议。"
+          ],
+          "weaknesses": [
+            "全文主要是对“定罚论”立场的体系化辩护，缺乏真正开放的法学争辩点。",
+            "论文更像是对立法选择的正当性论证，而非提出一个可争辩的研究问题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1分，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文主要是在阐释和辩护“定罚论”这一既定立场，虽有“量罚论”作为对立面，但论文并未将其视为需要真正辩驳的开放性问题，而是直接作为错误观点加以系统批驳，本质上是体系化解释而非研究问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评论证是否严密，不评文献综述是否充分。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "围绕主观过错条款适用提出定罚论等争点，分歧充分，枢纽性强。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，涉及归责原则根本立场，属优质法学研究问题。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。前置负面检查扣分合计0分。",
+          "evidence_quotes": [
+            "该条在性质上如何认定？是否改变了传统的‘客观归责’立场？",
+            "主观过错在定罚阶段被第一次评价后，是否需要在量罚阶段被第二次评价？"
+          ],
+          "strengths": [
+            "问题具体且聚焦于新法适用争点，非泛泛而谈。",
+            "呈现定罚论与量罚论等多重理论分歧，可争辩性极强。"
+          ],
+          "weaknesses": [
+            "部分问题（如过失类型区分）在民刑法已有讨论，原创性略减损。",
+            "行为人标准论证可能面临实务操作质疑，但属逻辑严密性范畴。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 72,
+          "band": "good",
+          "summary": "论文围绕《行政处罚法》第33条第2款主观过错条款的定罚/量罚之争、故意过失区分及'另有规定'解释展开，问题明确且具法学争点。",
+          "core_judgment": "论文提出了可争辩的法学问题，涉及行政处罚责任主义核心争点，但主要聚焦于单一制度内部的解释适用，枢纽性受限。",
+          "score_rationale": "可争辩性=4/4（有明确问题句、属法学层面、存在'定罚论'与'量罚论'交锋、非纯政策倡导），枢纽性=2/4（影响行政处罚归责制度，但主要集中于单一法律条款解释，未广泛波及≥2个制度领域；涉及责任主义基础理论但制度连锁效应有限），材料新颖性未触发上限，锚定good档，给72分。负面模式检查：检查1不满足（无新概念包装）；检查2不满足（有学者观点交锋）；检查3不满足（有问题句）。扣分合计=0分。",
+          "evidence_quotes": [
+            "对于主观过错条款在新《行政处罚法》中究竟扮演何种角色，它是否真的改变了传统的'客观归责'立场……理论界看法不一，存有'定罚论'和'量罚论'两种立场",
+            "主观过错评价还应被延伸至量罚阶段作二次考量，但其不宜作为行政机关的法定义务"
+          ],
+          "strengths": [
+            "明确呈现'定罚论'与'量罚论'的理论交锋",
+            "问题聚焦新法实施后的解释适用，具有现实紧迫性"
+          ],
+          "weaknesses": [
+            "问题主要局限于行政处罚单一制度内部，跨制度影响有限",
+            "部分讨论偏向法条释义，理论深度可进一步提升"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦新《行政处罚法》主观过错条款的定罚与量罚之争，提出明确可争辩的教义学问题。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，精准切入行政处罚归责理论的核心分歧，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "该条在性质上如何认定？是否改变了传统的“客观归责”立场？",
+            "理论界看法不一，存有“定罚论”和“量罚论”两种立场"
+          ],
+          "strengths": [
+            "明确提炼“定罚论”与“量罚论”对立，问题句清晰",
+            "深度介入归责原则与责任主义等基础法理争点"
+          ],
+          "weaknesses": [
+            "部分比较法借鉴偏重德奥，本土实证数据支撑稍弱",
+            "对“另有规定”的限缩解释论证可进一步结合司法判例"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 36.91746687889099,
+        "glm-5.1": 48.531721115112305,
+        "kimi-k2.6": 12.757688760757446,
+        "qwen3.6-plus": 97.78916215896606
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 73,
+      "std": 25.0,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "本文具备清晰的研究地图，在展开“定罚/量罚”之争中梳理了双方具体理由，并明确指出了本文的切入点与既有研究的未竟之处，但未系统识别更广泛的法学理论流派。",
+          "core_judgment": "论文通过深入展开“定罚论”与“量罚论”的争点，成功构建了具备基本轮廓的研究地图，但未能将争辩置入更宏观的法学理论流派脉络中。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给70分",
+          "evidence_quotes": [
+            "理论界已有数量可观的研究，但主要是为增设主观过错条款所作的正当性和必要性论证……主观过错条款究竟如何适用，亟待理论解释。",
+            "理论界看法不一，存有“定罚论”和“量罚论”两种立场，并且“量罚论”在《行政处罚法》实施以后呈现出占优趋势。"
+          ],
+          "strengths": [
+            "对“定罚论”与“量罚论”的争点进行了结构化呈现，并逐项反思双方理由，争点结构清晰。",
+            "明确指出了既有研究从正当性论证转向适用解释的未竟点，本文切入点与未竟点直接对应。"
+          ],
+          "weaknesses": [
+            "未将“定罚/量罚”之争或过失判断标准之争，系统性地联系到更广泛的法学流派（如客观归责主义、责任主义等）或跨学科理论脉络。",
+            "文献定位较为分散，缺乏对其余关键适用问题（如过失类型判断）既有研究地图的系统勾勒。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=2/2 且 法学流派≤2，触发 insufficient_school_coverage，上限 84 分",
+              "score_ceiling": 84,
+              "priority": 2,
+              "evidence": "论文明确呈现了“定罚论与量罚论”的争点，但仅识别出“定罚论”和“量罚论”两个法学解释立场，未能进一步联系到更广泛的法学理论流派。"
+            }
+          ],
+          "boundary_note": "本维度评分聚焦于论文对既有研究地图的呈现深度与争点结构化能力，不评判论文主题本身的可罚性构成或制度选择创新性。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "研究地图完整，多重争点对立充分，流派识别丰富。",
+          "core_judgment": "现状洞察维度完全成立，呈现了清晰的学术争辩脉络与解释路径分歧。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "理论界看法不一，存有“定罚论”和“量罚论”两种立场，并且“量罚论”在新法实施后呈现占优趋势。",
+            "主观过错条款究竟如何适用，亟待理论解释。概括来说，这主要包括如下几项问题：第一，性质如何认定……第四，“另有规定”究竟是指什么？"
+          ],
+          "strengths": [
+            "未竟点与切入点高度对应，四个适用问题逐一回应",
+            "争点结构清晰，定罚/量罚、客观/行为人标准等多重对立展开充分"
+          ],
+          "weaknesses": [
+            "开篇到达点概括较笼统，未集中提炼既有适用研究的具体贡献"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评主观过错条款适用方案的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文构建了清晰的'定罚论vs量罚论'争点结构，并有效整合了比较法与刑民法学资源。",
+          "core_judgment": "研究地图三要素基本完整，争点结构明确，但法学流派识别以对立立场为主，跨学科流派覆盖有限。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1，切入点与未竟点对应关系明确但分散），争点结构=2/2（定罚论/量罚论、过失判断标准之争），法学流派=3个（定罚论、量罚论、比较法上的责任主义立场），锚定good档，给82分。",
+          "evidence_quotes": [
+            "理论界看法不一，存有'定罚论'和'量罚论'两种立场，并且'量罚论'在新《行政处罚法》实施以后呈现出占优趋势。",
+            "在过失内部同样需要区分，因为这会直接影响到应受行政处罚行为的成立。"
+          ],
+          "strengths": [
+            "争点结构清晰，'定罚论vs量罚论'贯穿全文核心。",
+            "比较法资源运用充分，德奥日及我国台湾学说均有涉及。"
+          ],
+          "weaknesses": [
+            "未集中呈现文献综述，研究地图分散于正文各处。",
+            "民刑法学理论引入较多，但行政法学内部流派对话深度可加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价文献定位与争点呈现，不涉及问题本身新颖性或论证严密性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒主观过错条款适用争议，清晰呈现多维争点，研究地图完整。",
+          "core_judgment": "本维度成立，作者通过分散式文献定位构建了清晰的学术争辩脉络与明确的本文切入点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "理论界看法不一，存有“定罚论”和“量罚论”两种立场",
+            "行政处罚如何对待这一问题，理论界并没有深入讨论过"
+          ],
+          "strengths": [
+            "精准提炼定罚论与量罚论对立，争点脉络清晰",
+            "明确指出既有研究在量罚二次评价与过失标准上的空白"
+          ],
+          "weaknesses": [
+            "部分比较法引证偏重结论罗列，未充分展开学说交锋细节",
+            "对“另有规定”的流派争议梳理稍显单薄"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构呈现，不涉及主观过错条款本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 43.36863708496094,
+        "glm-5.1": 58.39329290390015,
+        "kimi-k2.6": 11.511163234710693,
+        "qwen3.6-plus": 75.06281805038452
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 88,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 70,
+          "band": "good",
+          "summary": "论文通过“定罚论/量罚论”类型化辨析及“过失三类型—行为人标准”规则建构，形成了有操作性的分析框架，但法学转化度限于制度解释方案，未提供具体的裁判流程或要件化判断步骤。",
+          "core_judgment": "分析框架基本成立，概念界定清晰且后文反复调用，但转化后的法学操作指引停留在解释论层面，缺乏可重复适用的标准化判断步骤。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=2/4，锚定good档（60-69分），但可操作性满分且后文调用充分，存在可操作的过失判断标准，调至70分。",
+          "evidence_quotes": [
+            "所谓“定罚论”，是指新《行政处罚法》第33条第2款中确定的主观过错，应是所有应受行政处罚行为的必备要素。",
+            "重大过失包含两个显著特征：（1）主观上对行为性质及损害后果有认识；（2）客观上制造了一种巨大危险。"
+          ],
+          "strengths": [
+            "“定罚论/量罚论”类型化划分标准明确，边界清晰。",
+            "“重大过失—一般过失—具体过失”三分法，为过失判断提供了可区分的概念工具。"
+          ],
+          "weaknesses": [
+            "法学转化主要停留在学说解释层面，未提炼出可逐步操作的“过失判断清单”或“审查步骤”。",
+            "“另有规定”的目的性限缩方案缺乏制度落地的操作指引，未给出具体适用流程或判断规则。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅考察框架的可操作性与法学转化度，不评价该框架的逻辑严密性或观点创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "框架可操作性因概念堆砌降档，但法学转化度较高，提供了具体判断规则与解释方案。",
+          "core_judgment": "分析框架部分成立，概念界定不清但提供了法学操作步骤与制度解释指引。",
+          "score_rationale": "框架可操作性得分=1/4（因概念堆砌降档），法学转化度得分=3/4，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "行政机关对于法律文本并未明确的‘过失’认定，应当以行为人标准为中心，结合每一个行政相对人的资质、知识和能力，以案说案",
+            "对于‘另有规定’可能存在的上述种种描述，应确立一种目的性限缩解释的总体立场，至少需要作四个方面的限制性理解"
+          ],
+          "strengths": [
+            "提供了过失判断的行为人标准，具有个案适用指引价值",
+            "对“另有规定”提出目的性限缩解释及四项限制性理解，方案具体"
+          ],
+          "weaknesses": [
+            "核心术语如“主观过错”“定罚论”等无“本文所称”式明确定义",
+            "缺乏步骤化的分析流程，行为人标准仅为原则而非可循步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.concept_heap",
+              "rule": "概念堆砌：核心术语≥3个无明确定义，可操作性得分上限为1",
+              "score_ceiling": 1,
+              "priority": 1,
+              "evidence": "核心术语“主观过错”“定罚论”“量罚论”等均无“本文所称XX是指…”的明确定义"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力而非逻辑衔接严密性或问题创新性。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 68,
+          "band": "good",
+          "summary": "论文构建了'定罚论'分析框架，对主观过错条款进行体系化解释，但框架的原创性和操作化程度有限。",
+          "core_judgment": "分析框架基本成立，属于制度/实务型论文，提供了可操作的法律适用步骤和判断规则，但核心概念多为法学通说转化，原创性类型化不足。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文实际调用；无负面模式触发），法学转化度得分=3/4（跨学科概念转化为法学分析步骤、提供裁判规则/操作指引、转化后的步骤在后文被实际使用；但制度设计方案不够具体）。锚定good档(60-69)，给68分。",
+          "evidence_quotes": [
+            "所谓'定罚论'，是指新《行政处罚法》第33条第2款中确定的主观过错，应是所有应受行政处罚行为的必备要素。",
+            "在重大过失之外，行政机关对于法律文本并未明确的'过失'认定，应当以行为人标准为中心，充分尊重行政相对人意志自由，结合每一个行政相对人的资质、知识和能力，以案说案，实现个案正义。"
+          ],
+          "strengths": [
+            "提出'定罚论''量罚论'二元对立框架，分类标准明确。",
+            "将主观过错类型化为故意/过失，过失再细分为重大过失、一般过失、具体过失，层次清晰。"
+          ],
+          "weaknesses": [
+            "核心术语'行为人标准''一般人标准'等为刑法学借用，原创性有限。",
+            "'另有规定'的四种限缩解释规则后文调用密度不足，部分沦为政策呼吁。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建主观过错条款完整适用框架，教义转化度高。",
+          "core_judgment": "框架成立且高度可操作，成功实现规范解释向裁判规则的转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "在行政处罚归责过程中，应以行为人标准判断过失是否成立……结合相对人资质以案说案。",
+            "对‘另有规定’应确立目的性限缩解释立场……禁止否定规定，剔除行政法规资格。"
+          ],
+          "strengths": [
+            "概念界定清晰，构建“定罚-量罚-过失认定-另有规定”完整适用链条。",
+            "提出“行为人标准”与“限缩四项规则”，具强裁判指引价值。"
+          ],
+          "weaknesses": [
+            "“行为人标准”在执法效率与个案正义间的平衡论证稍显理想化。",
+            "剔除行政法规资格的立法法依据论证可更充分。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 68.82094478607178,
+        "glm-5.1": 81.99836492538452,
+        "kimi-k2.6": 12.57568907737732,
+        "qwen3.6-plus": 72.1293432712555
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 45,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 92
+      },
+      "mean": 68.8,
+      "std": 19.2,
+      "strictest": 45,
+      "strictest_model": "glm-5.1"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文采用“驳论—立论—制度展开”的强逻辑主线，以对“量罚论”的系统反驳为支点，层层推进至过失判断规则与规范解释，推理链条清晰且环环相扣。",
+          "core_judgment": "核心结论“主观过错条款具有定罚功能”及后续的制度展开，均可从前文的体系性反驳和原则论证中充分推出，推理链完整且严密。",
+          "score_rationale": "推理链完整性得分=4/4（主要步骤可复述、高度依赖前步、结论有充分支撑、无关键跳步）；反驳处理度得分=3/3（显式响应反对意见、实质性驳斥、承认适用边界）。锚定excellent档，基于严密的层级递进结构和全方位的反驳处理，给出92分。",
+          "evidence_quotes": [
+            "“量罚论”认为…笔者持“定罚论”立场…“量罚论”的上述主张并不成立，理由如下：第一，从立法过程上看…",
+            "本文一方面承认行为人标准可能被质疑…另一方面逐一回应：‘认识能力不同，注意义务也应不同’…并不存在‘鼓励落后、打击先进’的问题。"
+          ],
+          "strengths": [
+            "反驳处理极为扎实：不仅显式列出“量罚论”的多项理由，还逐项进行体系性反驳与证据补充，形成强烈的辩证推进。",
+            "推理依赖度极高：从驳倒“量罚论“到确立“定罚论”，再到量罚阶段的二次评价与过失规则设计，每一步都以前一步的结论为基石，无孤立论证。"
+          ],
+          "weaknesses": [
+            "从“侵权法/刑法”的比较到“行政处罚应有限区分故意与过失”的推演，过渡稍显仓促，未充分论证为何行政处罚的“惩戒性”必然导向“裁量性区分”而非强制性义务。",
+            "在“禁止否定规定解释”的结论上，推理更依赖于价值选择而非必然逻辑推导，但作者已通过目的性限缩解释予以正当化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文为理论解释型论文，核心任务是确立规范含义与适用规则，推理的严密性体现在概念界定、体系解释和对立观点的逻辑排除上，而非经验数据的支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论证链条完整，对反对意见与反例回应充分，核心结论可辩护推出。",
+          "core_judgment": "推理链完整且依赖度高，反驳处理扎实，逻辑严密性维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "对‘量罚论’的逐项反思……笔者持‘定罚论’立场",
+            "对于‘能力低于一般人’的行为人……行为人标准所要科处的并非……而是‘从一开始就拒绝从事超出其能力的行为’的义务"
+          ],
+          "strengths": [
+            "对量罚论的五点逐项反驳逻辑严密，支撑定罚论结论",
+            "对行为人标准反例的回应巧妙，化解了逻辑危机"
+          ],
+          "weaknesses": [
+            "从‘另有规定’多元样态到目的性限缩的过渡略显跳跃"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "行为人标准在实务中的可操作性不属于逻辑严密性评价范围。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了完整的'定罚论'论证链条，但部分推理环节存在可商榷之处。",
+          "core_judgment": "推理链整体完整，核心结论可从前文推出，但'行为人标准'部分的反驳处理存在局部跳步。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3满足，标准4存在1处关键跳步：从'行为人标准优势'到'应以行为人标准为中心'的推导中，对'鼓励落后'质疑的回应依赖'向前追溯义务'的创造性解释，该解释本身需要更多规范依据支撑；反驳处理度得分=2/3（标准1-2满足，标准3未满足：论文未明确承认自身论证在行政效率约束下的适用边界）。锚定good档，给78分。",
+          "evidence_quotes": [
+            "对于上述两处质疑，可考虑作如下解释：（1）认识能力不同，注意义务也应不同……行为人标准所要评价的注意义务是向前追溯的",
+            "笔者主张，在量罚上，应当适度考虑故意与过失的区分意义，但这并非行政机关的一项法定义务"
+          ],
+          "strengths": [
+            "对'量罚论'的四维度逐项反驳形成递进结构，每步有独立论据",
+            "从'另有规定'的多元化样态到目的性限缩解释的推导具有制度分析深度"
+          ],
+          "weaknesses": [
+            "'行为人标准'回应'鼓励落后'质疑时，'向前追溯义务'的解释缺乏规范文本支撑，属理论创设",
+            "未回应'行政效率'作为实务约束对行为人标准适用的限制"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'行为人标准'作为制度方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑链条完整，反驳处理充分，核心结论可由前文规范分析与比较论证严密推出。",
+          "core_judgment": "逻辑严密性成立，推理步骤环环相扣且依赖前序结论，对反对意见与自身局限均有实质性回应与边界划定。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "与上述认识不同，笔者持‘定罚论’立场……‘量罚论’的上述主张并不成立，理由如下：第一，从立法过程上看……",
+            "对于上述两处质疑，可考虑作如下解释：（1）认识能力不同，注意义务也应不同……行为人标准并不存在‘鼓励落后、打击先进’的问题。"
+          ],
+          "strengths": [
+            "推理链条完整，从条款定性到量罚考量再到过失判断标准层层递进。",
+            "对‘量罚论’及‘行为人标准’潜在质疑均作实质性回应，论证闭环严密。"
+          ],
+          "weaknesses": [
+            "部分比较法借鉴与我国执法实践的衔接论证稍显简略。",
+            "‘另有规定’目的性限缩的规范效力层级论证可进一步结合《立法法》细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条是否自洽及结论是否可辩护推出，不涉及解释框架的实务可操作性或学界接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 81.70745420455933,
+        "glm-5.1": 46.42391896247864,
+        "kimi-k2.6": 12.32119607925415,
+        "qwen3.6-plus": 78.47505187988281
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 90,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88,
+      "std": 6.7,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文在‘定罚论’与‘量罚论’的学术争论中明确立场，对制度约束和反对观点进行了系统回应，结论既有理论创新又能嵌入中国行政处罚法秩序。",
+          "core_judgment": "结论可接受度很高，已在既有学术争论中明确对话位置，对制度语境和反对意见均有深入回应，且不与现行法秩序根本矛盾。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4。论文属于制度论文，锚定excellent档，在档内因对量罚论的反驳和对‘另有规定’的目的性限缩解释给予92分。",
+          "evidence_quotes": [
+            "与上述认识不同，笔者持‘定罚论’立场……‘量罚论’的上述主张并不成立，理由如下。",
+            "禁止‘否定规定’解释……应拒绝将‘否定规定’也列为‘另有规定’行列。‘另有规定’只能在主观过错上要求更为严格。"
+          ],
+          "strengths": [
+            "明确在‘定罚论’与‘量罚论’争论中定位，并逐项反驳对立观点，进入共同体对话。",
+            "对‘另有规定’进行目的性限缩解释，充分考虑行政处罚责任主义与中国行政法总则地位。"
+          ],
+          "weaknesses": [
+            "量罚阶段区分故意与过失的建议较审慎，但实务操作性论证略显不足。",
+            "对‘另有规定’排除行政法规资格的立法协调困难未充分展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅涉及结论可接受性，不涉及论证逻辑严密性或后续研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论，提出定罚论与行为人标准，制度转化方向明确。",
+          "core_judgment": "结论高度可接受，精准定位学术争论并提供详尽的制度适用方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "笔者持'定罚论'立场...主观过错应是所有应受行政处罚行为的必备要素",
+            "在行政处罚归责过程中，应以行为人标准判断过失是否成立"
+          ],
+          "strengths": [
+            "精准回应定罚论与量罚论之争，对话度高",
+            "提出目的性限缩解释等具体适用规则，制度转化强"
+          ],
+          "weaknesses": [
+            "行为人标准在实务中可能面临操作阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在既有学术争论中明确立场，提出'定罚论'及行为人标准等可争辩主张，制度兼容性强。",
+          "core_judgment": "结论深度嵌入中国行政处罚法修订语境，主动回应'量罚论'等反对意见，具备充分的共同体对话度和制度可接受度。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给82分。论文明确回应'量罚论'与'定罚论'之争，定位清晰；对'另有规定'作目的性限缩解释，提出禁止'否定规定'等四项限制规则，可被反对者定位反驳；结合中国《行政处罚法》立法过程与行政法非法典化特征展开，语境充分；承认行政效率等实践约束，主动讨论行为人标准可能遭受的质疑并回应。",
+          "evidence_quotes": [
+            "与上述认识不同，笔者持'定罚论'立场。所谓'定罚论'，是指新《行政处罚法》第33条第2款中确定的主观过错，应是所有应受行政处罚行为的必备要素。",
+            "在行政处罚归责过程中，应以行为人标准判断过失是否成立。行为人标准一方面不存在上述问题，另一方面，自身被诟病的缺陷也能够得到很好的解释。"
+          ],
+          "strengths": [
+            "明确嵌入'定罚论/量罚论'学术争论，可被定位反驳",
+            "对'另有规定'提出四项限制性解释规则，制度转化方向清晰"
+          ],
+          "weaknesses": [
+            "对行为人标准质疑的回应可更充分",
+            "未明确讨论与刑法、民法过错理论的体系协调"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文精准回应“定罚/量罚”之争，提出主观过错为定罚要件及“行为人标准”规则，具高度可接受性。",
+          "core_judgment": "结论深度嵌入现行法解释框架，有效回应学术争议与执法约束，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "笔者持“定罚论”立场……“量罚论”的上述主张并不成立",
+            "在行政处罚归责过程中，应以行为人标准判断过失是否成立"
+          ],
+          "strengths": [
+            "精准定位核心争议并逐一反驳",
+            "提出“行为人标准”破解客观归责困境"
+          ],
+          "weaknesses": [
+            "限缩解释的实务阻力评估不足",
+            "行为人标准对执法效率冲击论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维聚焦结论当下能否被学界与实务接纳，非论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.188854932785034,
+        "glm-5.1": 44.68399405479431,
+        "kimi-k2.6": 12.526422023773193,
+        "qwen3.6-plus": 81.61866211891174
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 90,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89,
+      "std": 4.8,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在结尾处概括性提出了过失判断规则、量罚二次考量及‘另有规定’限缩解释等宏观方向，构成了可定位的延展路径，但缺乏具体后续研究问题或反驳检验的精细设计。",
+          "core_judgment": "延展路径存在且可定位，但与正文衔接的精细度和展开证据有限，属于明确但有待深化的延展。",
+          "score_rationale": "原始分65分，对应bonus=3。论文末尾指明了‘行为人标准’制度完善方向、量罚阶段区别对待的实务延伸，但未将其转化为具体研究问题或概念修正路径，精细度不足。",
+          "evidence_quotes": [
+            "主观过错评价还应被延伸至量罚阶段作二次考量，但其不宜作为行政机关的法定义务。",
+            "应创建以行为人标准为中心的过失判断规则。"
+          ],
+          "strengths": [
+            "明确提出了行为人标准这一过失判断规则的制度完善方向，路径清晰可定位。",
+            "将‘另有规定’限缩解释为从严方向，为后续立法和司法适用提供了可展开的制度延伸路径。"
+          ],
+          "weaknesses": [
+            "延展方向停留在宏观结论层面，未将其转化为具体后续研究问题、可检验的反驳入口或不同意见的争论路径。",
+            "对量罚二次考量、‘另有规定’剔除行政法规资格等建议，未指明如何进一步检验其边界条件或实施风险。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评分仅关注未来深化方向和制度完善路径的可定位性，结论性主张的实质说服力及论证严密性已在逻辑严密性和结论可接受性等核心维度评估。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了主观过错条款适用的具体制度完善方向与规则衔接路径。",
+          "core_judgment": "存在真实延展路径，指明了“另有规定”目的性限缩的具体限制及行为人标准的适用边界。",
+          "score_rationale": "原始分85，bonus档位为5。文章指明了“另有规定”从严解释的四项具体限制（如剔除行政法规、禁止否定规定），及行为人标准在能力差异场景下的适用延伸，延展路径清晰可定位。",
+          "evidence_quotes": [
+            "对于‘另有规定’可能存在的上述种种描述，应当如何甄别和解释，同样也是新《行政处罚法》实施过程中将会遇到的棘手问题。",
+            "未来制定的法律只能提出与第33条第2款相同或者更高的主观过错要求，不能也没有资格规定‘无过错责任’。"
+          ],
+          "strengths": [
+            "给出了“另有规定”目的性限缩的四项具体制度完善方向。",
+            "指明了行为人标准在“能力过高/过低”场景下的适用边界与风险控制。"
+          ],
+          "weaknesses": [
+            "对行为人标准可能损害一般预防效果的回应稍显概括，后续实证检验路径未明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "“未来新法能否规定无过错责任”属于立法完善与制度延展方向，而非当下条款解释的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结论部分提出了制度完善方向与规则衔接问题，包括'另有规定'的目的性限缩解释、行为人标准的具体适用、主观过错二次评价等延展路径，但部分方向较概括，缺乏对下一轮争点的明确勾画。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向与规则衔接问题，但精细度和证据展开有限。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文在末尾明确提出了'另有规定'的四重限制性理解、行为人标准在过失判断中的具体适用、主观过错二次评价的边界等延展方向，可与正文核心结论形成衔接；但多数延展散落在各章节末尾，未形成集中的前瞻讨论，且对'下一轮争点'的勾画不足，精细度有限。",
+          "evidence_quotes": [
+            "在目的性限缩解释下，新《行政处罚法》第33条第2款中的'另有规定'，至少需要作如下四个方面的限制性理解",
+            "主观过错评价还应被延伸至量罚阶段作二次考量，但其不宜作为行政机关的法定义务"
+          ],
+          "strengths": [
+            "提出'另有规定'的四重限缩解释，具有明确制度完善方向",
+            "行为人标准与一般人标准的对比为实务提供可继续检验的反驳入口"
+          ],
+          "weaknesses": [
+            "延展方向分散于各章末尾，未形成集中前瞻讨论",
+            "缺乏对下一轮争点的明确勾画，如行为人标准的具体化操作规则"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价论文对未来研究或制度发展的指引，不涉及当下结论是否被接受。论文提出的'另有规定'限缩解释、行为人标准适用等属于未来延展问题，而非结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "围绕定罚属性提出行为人标准与限缩解释路径，为后续执法提供延展方向。",
+          "core_judgment": "存在真实延展路径，聚焦条款适用边界与部门法衔接。",
+          "score_rationale": "原始分72，对应bonus=3。清晰勾勒行为人标准与例外限缩路径，证据可定位，但未独立展开未来规划。",
+          "evidence_quotes": [
+            "对于‘另有规定’可能存在的上述种种描述，应当如何甄别和解释，同样也是新法实施过程中的棘手问题。",
+            "在行政处罚归责过程中，应以行为人标准判断过失是否成立，结合相对人资质以案说案。"
+          ],
+          "strengths": [
+            "提出具体适用路径，与核心结论紧密衔接。",
+            "明确指向部门法衔接与裁量控制等后续争点。"
+          ],
+          "weaknesses": [
+            "延展路径内嵌于论证，缺乏独立研究规划。",
+            "跨部门法应对机制偏宏观，实证入口未明示。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评述条款在未来部门法适用与修法衔接中的解释方向，属未来延展问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.144131898880005,
+        "glm-5.1": 48.708598136901855,
+        "kimi-k2.6": 13.25118374824524,
+        "qwen3.6-plus": 94.92811799049377
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 72
+      },
+      "mean": 71,
+      "std": 10.2,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 81.14,
+      "weighted_total": 78.9
+    },
+    "aggregation_strictest": {
+      "final_score": 56.18,
+      "weighted_total": 59.1
+    },
+    "avg_std": 12.6,
+    "max_std": 25.0,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 25.0,
+    "composite_score": -10.93,
+    "worst_dimension": "problem_originality",
+    "worst_std": 25.0
+  }
+}

@@ -1,0 +1,1123 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/“一带一路”争端解决制度研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR或格式转换导致大量脚注编号和引号异常（如\"一 带一路\"、\"⑥\"等乱码），但未影响核心论点、结构和主要论证的定位。"
+        ],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "针对“一带一路”倡议实施的特点，各参与国的习惯、文化与传统，对现有机制有所扬弃",
+          "《蓝皮书》的宗旨是“周虽旧邦，其命维新”，即通过创设一套具有中国特色，能反映中国传统文化和习惯的争端解决机制",
+          "主张仲裁员与调解员区隔的观点渐次得到国际社会的支持",
+          "世贸组织争端解决制度的另一缺陷是受影响的企业和个人无法得到赔偿...在世贸组织的制度下，受影响的企业均得不到赔偿。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量风险：存在OCR/格式导致的字符异常，建议后续评审注意辨识。",
+        "项目口径明确：论文以中国自主知识体系研究为核心，关注中国在国际争端解决机制中的角色和方案。"
+      ],
+      "evidence_quotes": [
+        "为“一带一路”量身定制一套解决争议的机制势在必行。",
+        "制定、完善“一带一路”争端解决机制，应有“中国方案”。",
+        "《蓝皮书》的起草是在充分考虑、分析国际上现有制度运作情况的基础上，提出一套涵盖斡旋、调解与仲裁的制度，目的在于既可体现东方文化的特点，又可改进国际上现行制度。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在较多OCR/格式残留导致的乱码，但不影响核心论点。建议对关键概念进行校对后进入六维评审。论文完全符合“中国自主知识体系研究”的口径，无需边界复核。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致英文单词断行/拼写错误（如Uni versit y, Whi te&Case, Art)i tration, Concil n Law等）",
+          "脚注编号乱码（如@代替圈码⑩）",
+          "期刊页码混入正文（如58, 59, 6l, 62, 63, 65, 66, 67, 68, 69, 70）",
+          "日期OCR识别错误（如28 1 3应为28日，l1月l 1 3应为11月1日）",
+          "网址URL存在OCR断行与拼写错误（如qmu1, uncitra1, eisg．1aw等）"
+        ],
+        "evidence_quotes": [
+          "Queen Mary Uni versit y of London和Whi te&Case律师行",
+          "于2015年所做的国际仲裁调查",
+          "4月28 1 3在联合国第31届大会通过",
+          "6l ",
+          "Internati onal Art)i tration and o New Model Concil n Law"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "如果涉及“一带一路”倡议的商事争议之仲裁沿用目前的制度，则西方发达国家的仲裁机构便事实上掌握了解释“一带一路”商事合同的权利。",
+          "“一带一路”参与国大多为非普通法系国家。采用非普通法的仲裁程序和庭审规则可能更适合“一带一路”参与国。",
+          "《蓝皮书》的宗旨是“周虽旧邦，其命维新”，即通过创设一套具有中国特色，能反映中国传统文化和习惯的争端解决机制，从而给国际社会提供一个新的选择，进而使“一带一路”参与国间的合作达到“致中和”或曰“中庸”的境界。",
+          "中国传统文化历来主张“和为贵”，在强调和解的同时还主张规则的作用，认为国家的大事小情均可和平解决，但“有所不行，知和而和，不以礼节之，亦不可行也”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR残留、脚注编号乱码、页码混入及URL拼写错误影响阅读体验，但不影响核心论点定位",
+        "项目口径：论文将中国传统文化资源（和为贵、致中和）转化为争端解决机制的制度命题与规范设计，属于典型的文化资源理论转化"
+      ],
+      "evidence_quotes": [
+        "《蓝皮书》的宗旨是“周虽旧邦，其命维新”，即通过创设一套具有中国特色，能反映中国传统文化和习惯的争端解决机制，从而给国际社会提供一个新的选择"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续阶段对OCR残留、页码混入及断行拼写问题进行文本清洗修复"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留：部分英文单词和数字存在连字符断裂（如'Uni\\nversit\\ny'、'Whi\\nte&Case'、'l1'等）",
+          "脚注编号存在乱码或格式异常（如⑩⑩重复使用、编号不连续）",
+          "参考文献列表缺失（标注为'（无）'），但正文引用信息基本完整",
+          "少量URL链接和访问时间信息混入正文"
+        ],
+        "evidence_quotes": [
+          "英国Queen Mary Uni\\nversit\\ny of London和Whi\\nte&Case律师行",
+          "载http：／／www．arbitration．qmu1．",
+          "最后访问时间：2017年11月1日"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "为'一带一路'量身定制一套解决争议的机制势在必行",
+          "构建一个适合'一带一路'参与国并由相关国家参与设立的争端解决机制是不二选择",
+          "《蓝皮书》建议的'一带一路'争端解决机制注重东方文化的特点和价值观",
+          "制定、完善'一带一路'争端解决机制，应有'中国方案'",
+          "《蓝皮书》建议的'一带一路'争端解决机制采'一站式服务'模式"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR残留导致部分英文专有名词断裂，但不影响核心内容理解",
+        "文本工程：脚注编号系统存在混乱，需核对原始文献",
+        "项目口径：论文提出'中国方案'和'东方文化'特色的争端解决机制，具有明确的中国问题中心性和理论建构意图"
+      ],
+      "evidence_quotes": [
+        "为'一带一路'量身定制一套解决争议的机制势在必行",
+        "《蓝皮书》建议的'一带一路'争端解决机制注重东方文化的特点和价值观",
+        "制定、完善'一带一路'争端解决机制，应有'中国方案'"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国'一带一路'倡议下的争端解决机制构建为核心议题，系统分析了现有国际商事仲裁、WTO争端解决、投资仲裁等机制的局限性，提出了具有中国特色的'蓝皮书'方案，包括斡旋/申诉、调解、仲裁和上诉制度的整合设计。论文具有明确的中国问题意识、法学理论深度和制度建构意图，完全符合'中国自主知识体系研究'的项目口径。文本质量存在轻微的OCR残留和脚注编号问题，但不影响核心评审，建议进入六维评价阶段。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR断词与乱码（如'Uni\\nversit\\ny'、'1\\n3'、'hllps'）",
+          "页码与期刊信息混入正文（如'58'、'中国法学 2017年第6期'、'61'）",
+          "脚注编号符号异常混排（如'@'、'⑩'、'⑥'替代正常上标）",
+          "部分参考文献URL链接断裂或包含多余换行"
+        ],
+        "evidence_quotes": [
+          "根据英国Queen Mary Uni\\nversit\\ny of London和Whi\\nte&Case律师行于2015年所",
+          "最后访问时间：2017年l1月l 1\\n3。",
+          "58 \\n\\n“\\n一\\n带一路”争端解决制度研究"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "构建一个适合“一带一路”参与国并由相关国家参与设立的争端解决机制是不二选择",
+          "《蓝皮书》的宗旨是……通过创设一套具有中国特色，能反映中国传统文化和习惯的争端解决机制",
+          "《蓝皮书》建议的机制得到来自于30个国家和地区的49位专家支持并作为发起人联合发起"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR断词、页码混排、脚注符号乱码需清洗；项目口径：无"
+      ],
+      "evidence_quotes": [
+        "构建一个适合“一带一路”参与国并由相关国家参与设立的争端解决机制是不二选择",
+        "《蓝皮书》的宗旨是……通过创设一套具有中国特色，能反映中国传统文化和习惯的争端解决机制"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR识别残留与排版混入问题，但不影响核心论点提取。论文以“一带一路”倡议为背景，深入剖析现有国际商事仲裁、WTO及投资仲裁机制的法律缺陷，并提出融合中国传统“和合”文化与程序正义的“一站式”争端解决制度方案（《蓝皮书》），具备明确的中国问题中心性、可争辩的法学命题及制度建构尝试，符合进入六维评价标准。建议进入正式评分流程，并提示校对文本格式。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文以'一带一路'争端解决机制构建为宏观主题，未提出可争辩的法学研究问题，仅完成了现有制度的综述与政策倡导。",
+          "core_judgment": "问题以主题声明形式出现，缺乏可争辩的法学争点，未触及理论分歧，属政策倡导而非学术研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有标准2涉及法学层面），枢纽性=2/4（影响范围与争议焦点勉强成立），材料新颖性未触发上限。锚定unacceptable档，给48分。扣分后分数不低于30分。",
+          "evidence_quotes": [
+            "为'一带一路'量身定制一套解决争议的机制势在必行。",
+            "新机制不应是现有机制的简单重复，而应是针对'一带一路'倡议实施的特点……对现有机制有所扬弃。"
+          ],
+          "strengths": [
+            "识别了现有争端解决机制的若干制度性问题。",
+            "涉及多个制度领域，具有较广的制度视野。"
+          ],
+          "weaknesses": [
+            "全文未提出可争辩的法学问题，仅系统介绍现有制度并倡导构建新机制。",
+            "无学者观点交锋，仅单向阐述现有制度的弊端。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何'是否''如何'等可争辩的问题句，仅以'构建机制势在必行'为主题声明。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑结论。",
+          "review_flags": [
+            "evidence_thin",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文以政策倡导替代法学争点，仅系统归纳现有机制并推介蓝皮书，无实质理论创新。",
+          "core_judgment": "问题缺乏可争辩性，实质为政策倡导而非法学研究问题，以新概念包装旧制度。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性触发上限70分，锚定excellent档基础85分；负面扣分55分（新概念包装20+宏观介绍15+政策倡导20），降至30分。",
+          "evidence_quotes": [
+            "构建一个适合‘一带一路’参与国并由相关国家参与设立的争端解决机制是不二选择。",
+            "《蓝皮书》的宗旨是‘周虽旧邦，其命维新’，即通过创设一套具有中国特色...的争端解决机制..."
+          ],
+          "strengths": [
+            "议题影响范围广，涉及贸易、投资与商事仲裁多个制度领域。"
+          ],
+          "weaknesses": [
+            "核心问题为政策倡导，缺乏可争辩的法学争点。",
+            "以‘东方文化’包装既有程序，未说明理论解释力提升。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "以‘一带一路’和‘蓝皮书’为新概念，仅组合既有程序未改变解释路径。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评蓝皮书制度设计的逻辑严密性或文献综述充分性。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "主题声明式介绍现有争端解决机制，未提出可争辩的法学研究问题。",
+          "core_judgment": "全文为制度介绍与政策倡导，缺乏法学层面的可争辩问题，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。锚定unacceptable档，扣25分（检查1：新概念包装旧问题）+20分（检查2：宏观介绍非深度分析）+30分（检查3：主题声明非研究问题）=75分，但下限30分，最终35分。",
+          "evidence_quotes": [
+            "基于前述现有的争议解决机制的局限性和存在的问题，为'一带一路'量身定制一套解决争议的机制势在必行",
+            "《蓝皮书》建议的'一带一路'争端解决机制注重东方文化的特点和价值观"
+          ],
+          "strengths": [
+            "涉及国际商事仲裁、投资仲裁等多领域制度梳理"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为主题声明和政策倡导",
+            "无学者观点交锋，仅为制度介绍与方案推介"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'类问题句，仅陈述'构建机制势在必行'"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "主题声明式表述无法聚焦具体法学争点",
+              "score_ceiling": 49,
+              "priority": 2,
+              "evidence": "题目为'一带一路'争端解决制度研究，但正文未提炼任何可争辩的法学问题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "good",
+          "summary": "论文侧重宏观制度梳理与政策倡导，缺乏可争辩的法学命题，枢纽性强但问题创新性不足。",
+          "core_judgment": "问题属政策与制度设计倡导，非典型法学争点，虽涉多领域但缺乏理论交锋与规范命题推进。",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料校验未触发上限。锚定good档，因问题宏大上限65分。前置检查扣35分（宏观介绍15+政策倡导20），最终得30分。",
+          "evidence_quotes": [
+            "涉及“一带一路”的争议是否可以通过现有的机制解决。",
+            "构建一个适合“一带一路”参与国并由相关国家参与设立的争端解决机制是不二选择。"
+          ],
+          "strengths": [
+            "涵盖商事仲裁、WTO、投资仲裁等多重制度，枢纽性强。",
+            "梳理了透明度、仲裁员角色等学界既有分歧。"
+          ],
+          "weaknesses": [
+            "核心为政策倡导与制度设计，缺乏可争辩的法学命题。",
+            "宏观介绍多于深度交锋，未触及规范解释的实质争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "全文以构建新机制为政策目标，缺乏具体规范争点"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.70381808280945,
+        "glm-5.1": 117.6162588596344,
+        "kimi-k2.6": 14.154078960418701,
+        "qwen3.6-plus": 82.8464879989624
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 35.8,
+      "std": 8.5,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文缺少明确的研究地图，未呈现既有研究的到达点、未竟点及本文切入点，也未识别可区分的法学流派或争点结构，文献定位严重缺失。",
+          "core_judgment": "本维度不成立：全文以描述现有机制（WTO、ICSID、仲裁调解等）运作情况为基本方式，未构建系统性的既有研究综述、争点脉络或学派对立框架。",
+          "score_rationale": "三要素总分=0/6（到达点0，未竟点0，本文切入点0），争点结构=0/2（未见可区分争点对立），法学流派=0个，触发 no_research_map 上限，锚定 unacceptable 档，给 28 分。",
+          "evidence_quotes": [
+            "“90％的受访者称会选择国际仲裁……56％只选择仲裁，另外34％选择仲裁或其他非诉讼方式解决争议。”",
+            "“《蓝皮书》建议的机制得到来自于30个国家和地区的49位专家支持并作为发起人联合发起。”"
+          ],
+          "strengths": [
+            "对WTO、ICSID、仲裁与调解等机制的运作实践与局限进行了有一定长度的描述。"
+          ],
+          "weaknesses": [
+            "完全缺失既有研究的到达点与未竟点整理，未见任何‘学者张三(2020)指出’式的研究定位。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=0，研究地图严重残缺，触发 no_research_map 规则，最高55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文正文中未出现任何关于既有学术研究的到达点、缺口或本文切入点的明确陈述，三要素均为0分。"
+            }
+          ],
+          "boundary_note": "本文的问题在于未对既有争端解决研究进行文献梳理与定位，而非其提出的机制建议是否创新。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文充分呈现了现有争端机制的局限与争点，并明确提出构建新机制的切入点。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，现状洞察度高。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "对此也有人持不同意见，认为调解员做仲裁员并无不妥，因为调解员通过调解更了解案情",
+            "西方发达国家主导的商事仲裁基本采用普通法的诉讼程序和技巧。然而，‘一带一路’参与国大多为非普通法系国家"
+          ],
+          "strengths": [
+            "分散式文献定位有效提炼了具体研究成果与局限",
+            "清晰呈现了普通法与非普通法、区隔与结合等多个争点结构"
+          ],
+          "weaknesses": [
+            "缺乏集中式文献综述，理论流派对话深度稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献定位与争点结构，而非机制方案本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以制度介绍和政策建议为主，缺乏对既有学术研究的系统梳理与对话。",
+          "core_judgment": "研究地图三要素严重缺失，未建立清晰的学术对话脉络，不符合文献洞察维度要求。",
+          "score_rationale": "三要素得分=1/6（到达点1+未竟点0+切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "基于前述现有的争议解决机制的局限性和存在的问题，为“一带一路”量身定制一套解决争议的机制势在必行",
+            "投资仲裁具有极大的不一致性、不确定性和不可预见性"
+          ],
+          "strengths": [
+            "对国际仲裁、WTO、ICSID等制度运作有实务观察"
+          ],
+          "weaknesses": [
+            "无具体学者成果引用，未提炼到达点",
+            "未识别任何学术争点或学派分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无'XX学者''已有研究'等表述，无具体学术成果引用，三要素总分仅1分"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性，论文虽具政策价值，但学术对话严重不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文系统梳理三大现有争端机制现状与缺陷，并据此提出“一带一路”专属机制构建方案。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰，流派识别达辅助标准，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "对于仲裁员是否可同时担任调解员有不同看法……主张区隔的观点渐次得到支持。",
+            "基于前述现有机制的局限性和问题，为“一带一路”量身定制解决机制势在必行。"
+          ],
+          "strengths": [
+            "精准提炼三大现有争端机制的制度缺陷与实务争议。",
+            "本文切入点与未竟点严密对应，提出针对性制度设计。"
+          ],
+          "weaknesses": [
+            "对部分国际法理论争点的学理溯源稍显简略。",
+            "流派识别偏重制度设计分歧，纯理论脉络覆盖有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及机制设计本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 104.46917390823364,
+        "glm-5.1": 45.64342188835144,
+        "kimi-k2.6": 9.436645746231079,
+        "qwen3.6-plus": 86.15804696083069
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 88,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 80
+      },
+      "mean": 60.2,
+      "std": 28.5,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文属于政策理论梳理型，以系统归纳现有制度为主，未提出原创的、可重复适用的分析框架。",
+          "core_judgment": "该论文的核心工作是梳理现有制度并提出原则性设计构想，未建构出具有可操作性的分析框架。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=1/4。根据v0.7协议对齐，该文属政策理论梳理型，触发了框架可操作性得分上限为2、法学转化度得分上限为1的规则，且框架核心术语在后文无实际调用分析，总分不超过60分。",
+          "evidence_quotes": [
+            "基于前述现有的争议解决机制的局限性和存在的问题，为“一带一路”量身定制一套解决争议的机制势在必行。",
+            "《蓝皮书》的宗旨是‘周虽旧邦，其命维新’，即通过创设一套具有中国特色，能反映中国传统文化和习惯的争端解决机制……"
+          ],
+          "strengths": [
+            "对现有国际争端解决制度的局限性进行了较为全面的梳理。",
+            "提出的‘一站式服务’、调解优先等设想具有现实针对性。"
+          ],
+          "weaknesses": [
+            "全文以‘应当’、‘需要’等规范性呼吁为主，缺乏可操作的裁判规则或判断标准。",
+            "仅罗列了《蓝皮书》的原则和构成，未形成可重复适用的分析步骤或类型化框架。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语无明确定义且无任何可循的分析步骤，更无裁判规则或判断标准，框架可操作性为0。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未对任何核心分析概念（如‘东方文化特点’、‘一站式服务’）给出可操作的定义或分析步骤，也未见在后文中将任何框架作为分析工具反复调用。"
+            }
+          ],
+          "boundary_note": "此为分析框架建构力缺失问题（仅提供原则性设想和制度描述），而非逻辑衔接问题。",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文未建构原创分析框架，仅进行现有制度梳理与蓝皮书方案介绍。",
+          "core_judgment": "本文缺乏可操作的分析框架，仅有制度设计方案，框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（无原创框架与分析步骤），法学转化度得分=3/4（提供程序指引与制度方案），锚定unacceptable档，触发上限规则最高50分，给45分。",
+          "evidence_quotes": [
+            "基于前述现有的争议解决机制的局限性和存在的问题，为“一带一路”量身定制一套解决争议的机制势在必行。",
+            "《蓝皮书》建议的“一带一路”争端解决机制采“一站式服务”模式，即所有经贸争议均可在建议的机制下获得解决。"
+          ],
+          "strengths": [
+            "提供了具体的制度设计方案与程序操作指引",
+            "对现有争端解决机制的缺陷梳理较为全面"
+          ],
+          "weaknesses": [
+            "未提出原创分析框架，缺乏步骤化的分析流程",
+            "传统文化概念未转化为法学分析步骤，仅作价值宣示"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且核心术语无定义、无分析步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创分析框架提出，仅有制度介绍与蓝皮书方案罗列，无步骤化分析流程"
+            }
+          ],
+          "boundary_note": "评估的是有无分析问题之框架，而非制度设计方案本身之优劣。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型论文，无原创分析框架，仅有制度介绍与政策呼吁。",
+          "core_judgment": "分析框架未成立：全文以既有制度介绍和'一带一路'机制倡导为主，无原创概念界定、类型化或分析步骤。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足'后文调用'标准，因'蓝皮书'内容在后文反复出现；但无清晰概念界定、无分类标准、无分析步骤），法学转化度得分=1/4（仅有制度描述性映射，无裁判规则或操作指引转化；'一站式服务''调解保密'等未转化为法学判断标准）。触发政策理论梳理型上限规则，总分不超过60分；同时触发'宏观介绍非深度分析'负面模式，可操作性上限强制降至2分。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "《蓝皮书》建议的'一带一路'争端解决机制注重东方文化的特点和价值观……采'一站式'服务模式",
+            "基于前述现有的争议解决机制的局限性和存在的问题，为'一带一路'量身定制一套解决争议的机制势在必行"
+          ],
+          "strengths": [
+            "对国际仲裁、WTO、ICSID等制度有较为系统的梳理"
+          ],
+          "weaknesses": [
+            "核心术语如'东方文化''中庸'无操作化定义，未转化为法学判断标准",
+            "全文以'应当建立''势在必行'等呼吁为主，缺乏具体制度设计的操作步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review_ceiling",
+              "rule": "政策理论梳理型论文：框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以阐释'一带一路'争端解决机制的必要性和《蓝皮书》内容为主，无原创概念界定或类型化，核心术语来自政策倡导而非论文原创"
+            },
+            {
+              "rule_id": "analytical_framework.macro_introduction_no_analysis",
+              "rule": "宏观介绍非深度分析：全文只有宏观框架描述，无具体问题的深入分析",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文仅介绍国际仲裁、WTO、ICSID等制度概况和《蓝皮书》内容，未对任何具体法律适用问题展开深度分析"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及对'一带一路'政策本身的价值判断或逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文侧重现有机制梳理与文末制度倡议，未构建贯穿全文的分析框架。",
+          "core_judgment": "分析框架建构力较弱，属“先述后建”型制度设计，缺乏前置框架的统摄与反复调用。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=2/4，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "《蓝皮书》建议的机制得到来自于30个国家和地区的49位专家支持并作为发起人联合发起。",
+            "《蓝皮书》倡导调解，同时希望国人以前人的智慧为基础，从理论上发扬光大调解这一东方瑰宝。"
+          ],
+          "strengths": [
+            "提出“一站式服务”与程序分流设计，契合制度型论文转化要求。"
+          ],
+          "weaknesses": [
+            "核心概念无明确定义，框架仅于文末提出且未在前文分析中调用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语无明确定义，无分类标准，框架仅于文末提出且未在前文调用。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化，不涉逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.09785509109497,
+        "glm-5.1": 68.89453506469727,
+        "kimi-k2.6": 17.01129674911499,
+        "qwen3.6-plus": 72.44693684577942
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 38.8,
+      "std": 7.5,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "推理链完整地提出了构建新机制的理由和方案，但对“中国方案”具体设计的论证跳步较多，且未实质性回应现有机制的反对观点。",
+          "core_judgment": "论文推理链主线清晰可复述，结论可从前文推出，但缺乏对反对意见的识别和回应，严格限制了得分。",
+          "score_rationale": "推理链完整性得分=3/4（步骤可复述、步骤间有依赖、结论可推出，但存在关键跳步），反驳处理度得分=1/3（承认局限），锚定good档，给68分。",
+          "evidence_quotes": [
+            "基于前述现有的争议解决机制的局限性和存在的问题，为“一带一路”量身定制一套解决争议的机制势在必行。",
+            "《蓝皮书》建议的机制得到来自于30个国家和地区的49位专家支持并作为发起人联合发起。"
+          ],
+          "strengths": [
+            "推理链宏观结构完整：先分析现有机制（世贸组织、投资仲裁）缺陷，再由此论证构建新机制的必然性，最后介绍《蓝皮书》方案。",
+            "结论的推导路径清晰：“现有机制有缺陷 + 不适合一带一路 → 需要新机制 → 提出蓝皮书方案”的推理主线贯穿全文。"
+          ],
+          "weaknesses": [
+            "缺乏对反对意见的识别：未提及任何对本方案合理性质疑（如重复建设、可行性等）的观点，也未进行回应。",
+            "结论跳步明显：从对现有机制的批判直接跳到鼓吹《蓝皮书》方案，中间缺少对该方案为何能针对性解决前述问题的具体推理。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2-3分且反驳处理度=0-1分时适用上限规则",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "推理链完整可得3分，但反驳处理度仅得1分，触发70分上限。"
+            }
+          ],
+          "boundary_note": "论文的缺陷在于缺乏对可能质疑的制度性回应，而非方案本身不可操作；这属于逻辑严密性不足，不是框架建构力问题。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过剖析现有机制缺陷，逻辑推导出构建新机制的必要性，推理链完整且反驳处理充分。",
+          "core_judgment": "本维度成立，核心结论可由前文对现有机制缺陷的剖析可辩护地推出，且对关键分歧有实质性回应。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。推理步骤依赖性强，对调解员兼任等反对意见有实质回应，且承认透明度规则的适用边界。",
+          "evidence_quotes": [
+            "对于仲裁员是否可同时担任调解员有不同看法...对此也有人持不同意见，认为调解员做仲裁员并无不妥",
+            "商事仲裁则不适用此透明度规则...商事仲裁仍沿袭目前广为采用的原则，包括...保密原则"
+          ],
+          "strengths": [
+            "从现有机制缺陷到新机制设计的推导链条紧密",
+            "对调解员兼任仲裁员的反对意见给出了基于信息披露风险的实质回应"
+          ],
+          "weaknesses": [
+            "从'现有机制有缺陷'到'必须另建新机制'略缺对'改革现有机制'路径的排除论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评推理链是否充分支撑结论；不评《蓝皮书》方案在实务中是否可操作或可被接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文以描述性介绍现有争端解决机制为主，缺乏向'应构建新机制'结论的严密推理链。",
+          "core_judgment": "主要推理步骤可识别但依赖度松散，从'现有机制有缺陷'到'应构建新机制'存在关键跳步，反驳处理严重不足。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2、4不成立），反驳处理度得分=1/3（仅标准3隐含承认局限）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "基于此，构建一个适合'一带一路'参与国并由相关国家参与设立的争端解决机制是不二选择。",
+            "前述种种充分说明，投资仲裁具有极大的不一致性、不确定性和不可预见性。此种情况不有利于国际投资的有效进行...故改革已成必然之势。"
+          ],
+          "strengths": [
+            "对现有机制的描述性梳理较为全面，为后续论证提供了材料基础。",
+            "部分段落存在隐性比较（如WTO缺陷与蓝书书的对比）。"
+          ],
+          "weaknesses": [
+            "从'现有机制有缺陷'到'应构建新机制'缺乏中间推理：未论证为何不能改良现有机制而非新建。",
+            "未处理关键反驳：为何'一带一路'需要独立机制而非依托现有ICSID、ICC等仲裁机构。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "问题在于结论无法由前文充分推出，而非分析框架本身不可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "逻辑链条完整，缺陷分析到制度设计推导严密，反驳充分。",
+          "core_judgment": "推理链具强依赖关系，核心结论由前文充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "基于现有机制缺陷与“一带一路”特性，论证构建专属争端解决机制的必要性。",
+            "针对调解员兼任仲裁员的争议，明确区隔程序并援引国际规则予以回应。"
+          ],
+          "strengths": [
+            "推理链完整，从缺陷分析到制度设计推导严密。",
+            "有效回应角色混同争议，论证具实务针对性。"
+          ],
+          "weaknesses": [
+            "上诉机制可行性论证略单薄，依赖经验移植。",
+            "对新机制政治经济约束的回应稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦问题诊断到方案推导的因果链条，非框架操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.938087224960327,
+        "glm-5.1": 53.012474060058594,
+        "kimi-k2.6": 10.668785095214844,
+        "qwen3.6-plus": 58.841245889663696
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 72.5,
+      "std": 15.8,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 42,
+          "band": "unacceptable",
+          "summary": "结论停留在复述既定立场和推介《蓝皮书》，未将主张转化为可争辩的学术命题，也未回应反对意见，无法进入学术共同体对话。",
+          "core_judgment": "论文结论缺乏学术对话性，仅重复必要性和方案介绍，不符合法学论文结论可接受性的最低要求。",
+          "score_rationale": "共同体对话度得分=0/4（全部标准未满足），制度可接受度得分=2/4（结论与现行法秩序兼容且回应制度约束，但缺乏对话度）。因共同体对话度=0，触发上限规则，最高50分，结合制度可接受度评分42分。",
+          "evidence_quotes": [
+            "基于前述现有的争议解决机制的局限性和存在的问题，为‘一带一路’量身定制一套解决争议的机制势在必行。",
+            "《蓝皮书》建议的‘一带一路’争端解决机制注重东方文化的特点和价值观。"
+          ],
+          "strengths": [
+            "详细分析了现有国际经贸争端解决机制的运作与不足，为制度设计提供了事实背景。"
+          ],
+          "weaknesses": [
+            "结论仅为倡导性表态，未形成可被学术共同体检验、质疑或支持的清晰学术主张。",
+            "全文未提及或回应任何反对意见或自身方案的局限性，封闭了学术对话的可能。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，论文结论无法被共同体认真回应，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论未说明与既有学术争论的关系，未形成可争辩主张，未回应反对意见，属于自说自话。"
+            }
+          ],
+          "boundary_note": "不评价方案本身价值，仅评论结论在学术共同体中的可对话性和可接受性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论提出“一带一路”专属争端解决机制，回应现有制度弊端，制度转化方向明确。",
+          "core_judgment": "结论在共同体对话和制度兼容层面均表现良好，提出了具体的制度替代方案。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "基于现有争端解决机制的前述问题和设立“一带一路”争端解决机制的必要性……草拟了一份集斡旋／申诉、调解、仲裁和上诉规则为一体的《“一带一路”争端解决机制》",
+            "《蓝皮书》建议的“一带一路”争端解决机制注重东方文化的特点和价值观……采“一站式服务”模式"
+          ],
+          "strengths": [
+            "提出了具体的《蓝皮书》制度方案作为替代",
+            "充分回应了WTO、ICSID等现有机制的弊端"
+          ],
+          "weaknesses": [
+            "结论部分对自身新机制可能面临的挑战与局限未作充分承认",
+            "部分论述带有宏大叙事色彩，削弱了学术争辩性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是结论能否被共同体和制度语境接受，而非论证逻辑或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文提出构建'一带一路'争端解决机制，但结论缺乏与法学共同体既有争论的对话，未回应反对意见，制度设计空泛。",
+          "core_judgment": "结论未能进入法学共同体可对话的学术语境，制度设计停留在口号层面，无法满足共同体对话度和制度可接受度的基本要求。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=1/4。论文虽提及中国语境，但未回应法学共同体关于国际争端解决机制的任何既有争论，未承认任何反对意见或局限；制度层面仅空泛提出'一站式服务'等框架，缺乏具体规则设计或与现行法秩序的深度对话，锚定unacceptable档，给48分。",
+          "evidence_quotes": [
+            "《蓝皮书》建议的'一带一路'争端解决机制注重东方文化的特点和价值观...采'一站式'服务模式",
+            "制定、完善'一带一路'争端解决机制，应有'中国方案'"
+          ],
+          "strengths": [
+            "结合中国传统文化语境提出'中国方案'，有一定本土意识"
+          ],
+          "weaknesses": [
+            "结论未回应任何既有学术争论，自说自话",
+            "制度设计空泛，缺乏具体规则或程序衔接方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论未与任何既有学术观点对话，未说明与现有WTO、ICSID等机制研究的关系，未回应可能的反对意见"
+            }
+          ],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证过程严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应国际争端机制缺陷，提出具象化“一带一路”一站式机制，兼具理论对话与制度落地性。",
+          "core_judgment": "该结论深度嵌入中国法治语境与国际规则演进脉络，具备高度的共同体可对话性与制度兼容度。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论精准对接国际仲裁与WTO机制争论，提出具象化“蓝皮书”方案，制度兼容度高且未触发降档。",
+          "evidence_quotes": [
+            "《蓝皮书》建议的机制得到来自于30个国家和地区的49位专家支持并作为发起人联合发起。",
+            "新设立的机制与现有机制应具相互补充的关系……针对“一带一路”倡议实施的特点，各参与国的习惯、文化与传统，对现有机制有所扬弃。"
+          ],
+          "strengths": [
+            "精准回应国际仲裁与WTO机制缺陷，提出具象化制度替代方案。",
+            "深度融合东方调解文化与现行国际规则，制度转化路径清晰。"
+          ],
+          "weaknesses": [
+            "对“中国方案”在沿线国主权让渡与执行层面的现实阻力论证稍显不足。",
+            "上诉机制与现有国际投资法庭改革的衔接细节可进一步展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.708176136016846,
+        "glm-5.1": 47.76628112792969,
+        "kimi-k2.6": 12.69889783859253,
+        "qwen3.6-plus": 55.93172907829285
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 85,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 92
+      },
+      "mean": 66.8,
+      "std": 25.4,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以“蓝皮书”建议收尾，但未就蓝皮书机制本身提出具体后续争点、修正方向、适用边界或可检验的深化路径，展望段以格言式拔高为主。",
+          "core_judgment": "论文虽有制度构想，但缺乏可定位、可检验的延展路径，属于口号式展望。",
+          "score_rationale": "原始分35，低于40，对应bonus=0。证据显示结尾仅用“君子之道...登高必自卑”等格言拔高，未指明机制的具体限制或下一轮待解决问题，触发slogan_outlook规则，上限被控制在50以下，最终评35。",
+          "evidence_quotes": [
+            "“中国方案”需得到“一带一路”参与国的广泛鼎力支持，方能得以实现。",
+            "“君子之道，譬如行远必自迩，比如登高必自卑”。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "结尾未提出蓝皮书机制的具体修正方向、争议点或可检验假设，缺乏真实延展路径。",
+            "展望仅依赖格言拔高，无法定位后续研究问题、适用边界或制度风险控制。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只说“具有重大意义”“前景广阔”“值得进一步研究”“继续努力完善”等口号，未说明具体问题、对象、机制、概念边界、制度路径或实务场景",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾段使用“君子之道，譬如行远必自迩，比如登高必自卑”以及“中国方案需得到广泛鼎力支持”等缺乏具体延展对象的话语"
+            }
+          ],
+          "boundary_note": "本维度仅评未来还能往哪里走，不评结论是否可接受。论文结尾的展望属于缺乏具体延展路径的口号，而不是结论本身的论证问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了“一带一路”争端解决机制的具体制度修正方向与适用边界，但结尾展望偏空泛。",
+          "core_judgment": "存在真实延展路径，体现在对调解与仲裁区隔、透明度适用边界及上诉机制修正方向的指明。",
+          "score_rationale": "原始分65，bonus档位3（60-79档）。正文指明了透明度适用边界、上诉机制修正方向等制度深化路径，但结尾仅泛泛呼吁“中国方案需广泛支持”，缺乏后续具体研究问题展开。",
+          "evidence_quotes": [
+            "《蓝皮书》建议的透明度规则包括规则的适用范围……商事仲裁则不适用此透明度规则。",
+            "这些规则针对投资仲裁中的问题……授权上诉机构主要就涉案的法律问题作出裁决。"
+          ],
+          "strengths": [
+            "明确了透明度原则的适用边界与商事仲裁保密原则的衔接",
+            "指出了上诉机制针对投资仲裁裁量权滥用的修正方向"
+          ],
+          "weaknesses": [
+            "结尾展望空泛，仅强调意义与呼吁支持，未提出具体后续研究争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文探讨的是机制构建的未来完善方向与适用边界，而非当下结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在提出'一带一路'争端解决机制蓝皮书后，指出了若干可深化方向，但多数延展停留在机制设计层面，缺乏对具体争点、理论修正或制度边界的进一步展开。",
+          "core_judgment": "存在真实延展路径，但精细度和可定位性不足，部分展望与正文结论高度重叠，尚未形成清晰的'下一步研究议程'。",
+          "score_rationale": "原始分55，对应bonus=2（40-59档）。论文提出新机制需'针对特点有所扬弃'、统一贸易投资争端解决、透明度规则适用边界等方向，但多为设计陈述而非待研究问题；'中国方案'需广泛支持等表述接近口号。未出现'继续研究'式空泛语，但亦未形成可检验的后续争点。",
+          "evidence_quotes": [
+            "新机制的设立应认真参考现有机制的经验和教训……新设立的机制与现有机制应具相互补充的关系",
+            "新的机制不应是现有机制的简单重复，而应是针对'一带一路'倡议实施的特点，各参与国的习惯、文化与传统，对现有机制有所扬弃"
+          ],
+          "strengths": [
+            "提出统一贸易投资争端解决、透明度规则适用边界等具体制度方向",
+            "明确区分商事仲裁与投资仲裁的透明度适用，具有规则衔接意义"
+          ],
+          "weaknesses": [
+            "多数'延展'实为蓝皮书内容复述，未形成待研究的后续争点",
+            "缺乏对机制实施风险、失败场景或比较验证路径的讨论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文评价的是'未来还能往哪里走'，而非当下结论是否被接受。作者提出'中国方案需广泛支持'属于未来实施路径，但因其缺乏具体机制或场景，延展性有限；这不同于质疑'一带一路机制是否可行'的可接受性问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出“一带一路”专属争端解决机制的构建方向，并指明调解理论深化与规则国际推广的后续路径。",
+          "core_judgment": "存在真实延展路径，聚焦于东方调解理论的法理深化与新机制的跨国适用衔接。",
+          "score_rationale": "原始分65，对应bonus=3。主要证据为文末明确指向调解理论法理建构与新机制跨国协商落地，路径清晰但缺乏具体实施风险与规则冲突的细化推演。",
+          "evidence_quotes": [
+            "希望国人以前人的智慧为基础，从理论上发扬光大调解这一东方瑰宝。",
+            "制定、完善'一带一路'争端解决机制……需得到'一带一路'参与国的广泛鼎力支持，方能得以实现。"
+          ],
+          "strengths": [
+            "明确指向东方调解理论的法理深化方向。",
+            "提出新机制需跨国协商落地的制度推广路径。"
+          ],
+          "weaknesses": [
+            "未细化新机制与《纽约公约》等现有规则的衔接冲突。",
+            "缺乏对机制落地后具体实施风险与场景边界的推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是新机制理论深化与跨国推广的未来路径，而非当下草案结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.38033890724182,
+        "glm-5.1": 44.42598295211792,
+        "kimi-k2.6": 11.983277797698975,
+        "qwen3.6-plus": 53.389031171798706
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 65,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 65
+      },
+      "mean": 55,
+      "std": 14.1,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 50.71,
+      "weighted_total": 52.5
+    },
+    "aggregation_strictest": {
+      "final_score": 34.71,
+      "weighted_total": 35.5
+    },
+    "avg_std": 16.6,
+    "max_std": 28.5,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 16.0,
+    "composite_score": -16.6,
+    "worst_dimension": "literature_insight",
+    "worst_std": 28.5
+  }
+}

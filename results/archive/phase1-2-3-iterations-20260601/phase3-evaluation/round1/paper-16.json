@@ -1,0 +1,1037 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/补充论文/FXYJ2025005004_法学研究_2025_司法人工智能的理由模式及其功能限度.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR识别/数字化残留：正文出现乱码片段如“ 性。”和大量HTML转义符（&nbsp;、&mdash;等），但未严重影响对核心论点和论证结构的把握。",
+          "脚注抽取异常：正文中嵌入的脚注编号〔2〕〔3〕等对应列表在论文末尾直接以“〔2 〕”等带空格的乱序/截断形式出现，未形成完整的参考文献列表，且混入期刊页码“·55·”、“·65·”等。",
+          "参考文献列表残缺：论文末尾标记“参考文献列表：（无）”，但正文脚注提及了大量文献及期刊信息，显示抽取失败。"
+        ],
+        "evidence_quotes": [
+          "性。上述趋势同时表明...",
+          "&nbsp;",
+          "&mdash;",
+          "〔2 〕 关于法院审判业务中人工智能技术的应用, 已有较为具体的研究。参见衣俊霖...",
+          "·55· 司法人工智能的理由模式及其功能限度"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "自2022 年以来, 上海市检察机关采用“ 一个罪名形成一个模型” 的项目化运作模式...构建形成专业化的案件司法数据库...典型如“ 危险驾驶案件全流程一网通办” 模型。",
+          "上海市J 区人民检察院2024 年7 月至12 月的相对不起诉率分别为20. 0%、18. 56%、28. 03%...",
+          "本文提出“理由模式”分析框架，用理由的优先性秩序描述司法数据规律...还原了案例语料库帮助人工智能学习裁判理由的过程...认为机器的真正缺陷在于缺乏从理论中学习的能力，只能进行逆向模仿，无法应对理论变革。",
+          "需建立弹性的“出库—入库”机制...建立“案例库对抗制”...不同法律知识群体独立地生成司法数据并形成相互制衡。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：脚注混入正文、OCR乱码、参考文献列表完全缺失。",
+        "项目口径候选条件全部满足，论文以中国上海市检察机关智能辅助办案模型为分析样本，切入司法人工智能理由模式，提出原创性分析框架并进行制度性建议，具有明确的中国自主知识体系建构意图。"
+      ],
+      "evidence_quotes": [
+        "（本文）以上海市人民检察院研发的智能辅助办案模型作为考察样本, 细致剖解人工智能嵌入司法办案的具体过程...将研究焦点限定于以自动化定罪量刑为主要内容的文书生成工作环节。",
+        "理由模式的分析框架有助于还原人工智能借助案例库学习裁判理由的过程...这种还原并非停留在形式与实质割裂的“两张皮”层面...而是实质地去描述人工智能如何“学会”作出司法决定。",
+        "在现有技术条件下，该困境尚无有效的解除方法，但可通过一定途径加以缓和...由人类依据法理论更新裁判理由并投喂给人工智能，则构成人工智能对人类智能的“第二次求助”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文可进入六维评分，但需注意脚注及参考文献抽取失败的问题。建议后续评审阶段，若涉及对参考文献完整性或引证规范性的项目要求，可酌情降级或要求作者补充材料，但该文本工程问题不构成拒稿或项目口径边界复核的理由。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落之间（如· 5 5 ·、· 6 5 ·）",
+          "脚注编号存在空格乱码残留（如〔2 〕、〔3 〕）"
+        ],
+        "evidence_quotes": [
+          "· 5 5 ·",
+          "〔2 〕"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "自2022年以来，上海市检察机关采用“一个罪名形成一个模型”的项目化运作模式，组织检察业务人员与技术公司展开对接，将特定罪名范畴内的同类型案件系统整合，构建形成专业的案件司法数据库……典型如“危险驾驶案件全流程一网通办”模型。",
+          "在我国正当防卫的刑事司法实践中或许存在一个所谓“2020年隐喻”，即在最高人民法院、最高人民检察院、公安部联合发布《关于依法适用正当防卫制度的指导意见》前，人工智能在正当防卫类型案件中所采纳的理由优先性秩序必须符合“基本相适应说”……2016年的于欢案与2018年的于海明案，推动法学界对正当防卫的起因条件、时间条件、对象条件、意图条件等作出根本性重构。",
+          "约翰·霍尔蒂提出的先例理由模式恰好满足上述两项条件，这是一套关于过往案例信息如何约束当下司法决策的理论框架……在智能辅助办案系统的运用过程中，司法数据所蕴含的内在规律恰好可以通过理由的优先性秩序加以描述，这与霍尔蒂提出的理由模式理论形成了契合。",
+          "应当构建案例库对抗制，即由不同法律知识群体独立地生成司法数据并形成相互制衡。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及脚注编号OCR残留需在后续阶段清洗，不影响核心论点定位"
+      ],
+      "evidence_quotes": [
+        "自2022年以来，上海市检察机关采用“一个罪名形成一个模型”的项目化运作模式……",
+        "约翰·霍尔蒂提出的先例理由模式恰好满足上述两项条件……在智能辅助办案系统的运用过程中，司法数据所蕴含的内在规律恰好可以通过理由的优先性秩序加以描述，这与霍尔蒂提出的理由模式理论形成了契合。",
+        "应当构建案例库对抗制，即由不同法律知识群体独立地生成司法数据并形成相互制衡。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分流程。建议在后续文本工程处理中清洗页码混入（如·55·）及脚注编号空格残留（如〔2〕），当前文本质量风险不影响核心论点与论证结构的提取。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码残留（如〔2〕〔3〕等），部分脚注内容混入正文",
+          "参考文献列表缺失（标注为'（无）'），但正文引用信息完整可辨识",
+          "存在OCR分栏痕迹（如'·5 5·'等页码标记残留）"
+        ],
+        "evidence_quotes": [
+          "·5 5·司法人工智能的理由模式及其功能限度",
+          "〔2 〕〔3 〕〔4 〕〔5 〕〔6 〕",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "上海市检察机关采用'一个罪名形成一个模型'的项目化运作模式",
+          "本文将研究焦点限定于以自动化定罪量刑为主要内容的文书生成工作环节",
+          "用理由的优先性秩序描述司法数据规律...聚焦于'如何通过优化案例库帮助人工智能习得裁判理由'这一核心问题",
+          "当法释义学和其他法理论内部发生激变和革新，而未及时传导给司法实践时，人工智能无法察觉变革",
+          "建立'案例库对抗制'...由不同法律知识群体独立地生成司法数据并形成相互制衡"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码残留、OCR分栏标记、参考文献列表缺失，但核心论点可定位",
+        "项目口径：无问题，论文完全符合六维评价标准"
+      ],
+      "evidence_quotes": [
+        "上海市检察机关采用'一个罪名形成一个模型'的项目化运作模式...构建形成专业化的案件司法数据库",
+        "用理由模式还原了案例语料库帮助人工智能学习裁判理由的过程",
+        "当法释义学和其他法理论内部发生激变和革新，而未及时传导给司法实践时，人工智能无法察觉变革"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国司法人工智能实践为核心研究对象，具有明确的中国问题意识和法学理论贡献，可直接进入六维评分。建议评分时关注其理论框架（理由模式/优先性秩序）的原创性贡献，以及对中国司法实践难题的解释力。文本质量风险较低，不影响评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入期刊页码标记（如“· 5 5 ·”）",
+          "脚注编号存在OCR残留与空格异常（如“〔2 〕”）",
+          "部分段落存在非标准换行符与断行"
+        ],
+        "evidence_quotes": [
+          "· 5 5 ·\n司法人工智能的理由模式及其功能限度",
+          "〔2 〕\n自2022 年以来, 上海市检察机关采用“ 一个罪名形成一个模型” 的项目化运作模式"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "以上海市人民检察院研发的智能辅助办案模型作为考察样本, 细致剖解人工智能嵌入司法办案的具体过程",
+          "引入约翰·霍尔蒂的先例理由模式...构建裁判理由的优先性秩序分析框架，以解释中国司法数据规律",
+          "提出司法人工智能的真正缺陷是缺乏理论创新能力，并构建“出库—入库”机制与“案例库对抗制”等本土化制度命题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程存在轻微页码与脚注OCR噪声，不影响实质评审"
+      ],
+      "evidence_quotes": [
+        "司法人工智能面临的核心困境是, 它缺少一种机制以使它在信息匮乏的状态下实现能动决策、塑造新的实践",
+        "应当构建案例库对抗制, 即由不同法律知识群体独立地生成司法数据并形成相互制衡"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在低级别OCR/排版噪声，但核心论证、理论框架与本土实践分析完整清晰。项目口径四项信号均明确触发，具备鲜明的中国问题意识、可争辩的法理命题（AI理由模式、理论创新限度）及制度转化尝试。符合进入六维评价标准，建议直接评分，评审时自动过滤格式残留。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "全文围绕司法人工智能的可解释性展开，但核心问题是阐释既定技术路径的理由模式及其功能限度，缺乏可争辩的法学研究问题。",
+          "core_judgment": "论文提出了司法人工智能理由模式的分析框架和功能限度，但未形成可争辩的法学争点，主要是在阐释和还原一个既定技术路径，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发独立上限，但可争辩性≤1触发no_justiciable_question上限50分，锚定unacceptable档，给45分。扣分合计=扣分前正式评分50-扣分合计5=45分，但不得低于30分。",
+          "evidence_quotes": [
+            "理由模式的分析框架有助于还原人工智能借助案例库学习裁判理由的过程，这种还原并非停留在形式与实质割裂的'两张皮'层面",
+            "司法人工智能所面临的真正困境，并非不能应对疑难个案，而是缺乏创新能力"
+          ],
+          "strengths": [
+            "对上海检察系统智能辅助办案模型进行了细致的微观描述",
+            "引入了霍尔蒂的理由优先性秩序框架，为分析司法人工智能提供了新视角"
+          ],
+          "weaknesses": [
+            "全文无明确可争辩的法学问题句，主要是阐释和还原既有技术路径",
+            "缺乏不同学者观点的实质交锋，主要是对技术过程的描述和对批评的回应"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无明确问题句，主要是主题声明",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕理由模式的分析框架展开，未提出'XX是否YY'或'如何ZZ'等可争辩的法学问题"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑结论的程度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出司法AI真正缺陷是缺乏创新能力而非无法推理，重构了问题设定。",
+          "core_judgment": "问题成立且重要，成功反驳传统批评并提出新诊断，理论分歧明确。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "人工智能的真正困境并非不能应对疑难个案，而是缺乏创新能力。",
+            "机器从数据中学习理由，而人类从理论中学习理由。"
+          ],
+          "strengths": [
+            "成功反驳传统批评并提出新诊断（缺乏创新能力而非无法推理）",
+            "问题枢纽性极强，触及裁判理由与法理论核心"
+          ],
+          "weaknesses": [
+            "后半部分制度方案（对抗制）的理论论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出司法人工智能的'理由模式'理论框架，但核心问题偏向技术路径描述与制度介绍，法学争点的可争辩性与枢纽性均不足。",
+          "core_judgment": "论文主题重大但问题设定偏向宏观介绍，缺乏明确的法学理论争点交锋，可争辩性较弱。",
+          "score_rationale": "可争辩性=2/4（有问题句但实质为制度功能分析，缺乏学者观点交锋），枢纽性=2/4（涉及司法制度与裁判理论但制度连锁论证不足），材料新颖性未触发上限，锚定marginal档，给52分。负面模式检查：检查2扣15分（有提及分歧但未展开），检查3扣20分（问题句实质是功能分析而非可争辩法学争点），合计扣35分。",
+          "evidence_quotes": [
+            "真正需要运用人工智能技术的模块，是在剥离量刑计算部分后，专门针对起诉/不起诉及实刑/缓刑决定的二值分类模型",
+            "司法人工智能所面临的真正困境，并非不能应对疑难个案，而是缺乏创新能力"
+          ],
+          "strengths": [
+            "引入'理由模式'法哲学框架分析司法人工智能，有一定理论包装意识",
+            "结合上海检察机关实证素材，问题具有现实关照"
+          ],
+          "weaknesses": [
+            "全文缺乏不同学者观点的直接交锋，多为单向技术描述",
+            "核心问题'理由模式如何运作'偏向功能阐释，非法学理论争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文以'司法人工智能的理由模式及其功能限度'为题，但实质是对技术路径的系统介绍，未形成聚焦的法学争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "以“理由优先性秩序”重构AI推理机制，精准回应可解释性争议并揭示理论创新局限，问题具高度争辩性与枢纽价值。",
+          "core_judgment": "问题明确聚焦AI裁判理由的习得机制与结构性缺陷，具备充分的法学争辩性与理论纵深。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。负面检查扣0分。",
+          "evidence_quotes": [
+            "深度学习是对人类思维的逆向工程……理由的优先性秩序中不仅仅只有法律理由，也有道德理由和审慎理由。",
+            "人工智能可以理解什么是旧的完整性，但它无法理解什么是新的完整性。"
+          ],
+          "strengths": [
+            "精准提炼“理由优先性秩序”框架，有效桥接算法技术与法学推理理论。",
+            "突破“AI无推理能力”的表层批评，深入揭示数据依赖导致的理论创新缺失。"
+          ],
+          "weaknesses": [
+            "对“案例库对抗制”的制度可行性论证稍显理想化，缺乏实证约束分析。",
+            "部分技术原理描述偏重科普，与核心法学命题的咬合可进一步收紧。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽性，不涉文献综述、论证逻辑及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.36089086532593,
+        "glm-5.1": 56.64240074157715,
+        "kimi-k2.6": 13.545426845550537,
+        "qwen3.6-plus": 62.52637004852295
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.8,
+      "std": 24.7,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文正文未嵌入任何系统性的文献综述、研究地图或争点梳理，几乎无法识别既有的学术研究脉络。",
+          "core_judgment": "研究地图完全缺失：正文中无任何对既有研究成果、对立观点或法学流派的呈现，导致现状洞察维度无法成立。",
+          "score_rationale": "三要素总分=0/6（到达点0，未竟点0，本文切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，因无研究地图触发上限，给35分。",
+          "evidence_quotes": [
+            "（论文正文无任何对既有研究或争点的系统性梳理与引用）"
+          ],
+          "strengths": [
+            "对上海检察系统人工智能模型的技术逻辑与运作流程有详尽的实证观察和描述。"
+          ],
+          "weaknesses": [
+            "全文未梳理任何既有学术文献，完全脱离法学理论或司法人工智能领域的学术争论脉络。",
+            "未呈现任何可区分的对立观点、学术流派或研究缺口，争点结构完全缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，完全无研究地图，无法识别到达点、未竟点与本文切入点。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文未引用或讨论任何学者的既有研究成果，仅以脚注形式提及少数几位学者姓名，但未构成对研究现状的梳理或争点呈现。"
+            }
+          ],
+          "boundary_note": "本文的薄弱在于对既有学术研究脉络（现状洞察）的完全忽视，而非其问题本身是否有创新性。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，精准定位既有批评的再描述谬误，引入理由模式重构AI习得机制。",
+          "core_judgment": "论文构建了清晰的争点结构与多流派对话，三要素充分满足，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "遗憾的是, 上述推论逻辑似乎陷入了再描述谬误的困境...去评价它们与人类理性推理能力究竟相似与否, 并无实质意义",
+            "理由模式的分析框架有助于还原人工智能借助案例库学习裁判理由的过程...实质地去描述人工智能如何‘学会’作出司法决定"
+          ],
+          "strengths": [
+            "精准识别既有批评的“再描述谬误”，未竟点定位深刻。",
+            "呈现算法透明派、批评派与案例推理派的对立，争点结构清晰。"
+          ],
+          "weaknesses": [
+            "部分流派仅以“有学者提出”概括，缺乏学派脉络的纵深梳理。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点梳理，而非AI理由模式理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文以技术描述和理论建构为主，缺乏对既有学术研究的系统梳理与争点呈现。",
+          "core_judgment": "研究地图三要素严重残缺，未建立清晰的到达点、未竟点和切入点，争点结构与法学流派识别均不足。",
+          "score_rationale": "三要素得分=2/6（到达点1+未竟点0+切入点1），争点结构=1/2，法学流派=1个，锚定marginal档，给62分。",
+          "evidence_quotes": [
+            "关于法院审判业务中人工智能技术的应用，已有较为具体的研究。参见衣俊霖……樊传明……",
+            "有学者提出，可通过公开算法源代码、架构、参数及权重等方式……这一思路面临的最大问题是……已有学者提供了强有力的理论论据"
+          ],
+          "strengths": [
+            "引用了部分具体学者观点作为理论支撑",
+            "对霍尔蒂理由模式的引介构成一个相对明确的理论到达点"
+          ],
+          "weaknesses": [
+            "未呈现司法人工智能领域的学术争论脉络，缺乏对既有研究缺口的明确识别",
+            "未说明本文理论框架与既有研究的对话关系，切入点模糊"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2时，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分仅2分，但识别到1个跨学科流派（法律与人工智能交叉研究）"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=0且法学流派≤1时，最高65分",
+              "score_ceiling": 65,
+              "priority": 3,
+              "evidence": "争点结构薄弱（仅1分），且实质法学流派仅1个（霍尔蒂理由模式），未形成有效学术对话"
+            }
+          ],
+          "boundary_note": "本维度仅评估文献定位与争点呈现，不涉问题新颖性；论文的技术描述深度不构成研究地图充分性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文精准勾勒司法AI研究脉络，以理由模式重构技术批判，清晰锚定理论创新缺失之缺口。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰，流派识别达标，文献洞察维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分。文献梳理深度融合论证，精准识别技术路径与规范评价之争。",
+          "evidence_quotes": [
+            "很多学者对司法人工智能提出批评……人工智能无法真正‘理解’其所处理的文书字段……不具备人类所拥有的常情常理",
+            "司法人工智能所面临的真正困境，并非不能应对疑难个案，而是缺乏创新能力……机器从数据中学习理由，而人类从理论中学习理由"
+          ],
+          "strengths": [
+            "三要素完整闭环，未竟点精准指向理论创新缺失。",
+            "争点结构立体，有效整合技术路径与法理批判脉络。"
+          ],
+          "weaknesses": [
+            "部分技术原理描述偏长，挤占文献对话空间。",
+            "跨学科流派的法学转化论述可更聚焦。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点建构的完整度，不涉及本文提出的“理由模式”本身是否具备学术首创性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.160747051239014,
+        "glm-5.1": 77.17395305633545,
+        "kimi-k2.6": 16.06483817100525,
+        "qwen3.6-plus": 62.50217604637146
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 69.8,
+      "std": 26.9,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文成功建构了基于“理由优先性秩序”的原创分析框架，用于描述司法人工智能学习裁判理由的机制，具有较高的可操作性和法学转化度。",
+          "core_judgment": "该框架成立。论文原创性地提出并操作化了“理由模式”分析框架，清晰描述了人工智能从案例库中发现、划定和巩固裁判理由的三阶段机制。",
+          "score_rationale": "框架可操作性得分=4/4（概念清晰、步骤可循、分类明确、后文充分调用），法学转化度得分=3/4（将机器学习原理转化为裁判理由习得的法学描述，提供了制度改进指引），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "裁判理由的学习过程通过案例库的持续强化得以实现，这其中主要包含理由的发现、理由分量的划定、理由的巩固三项工作。",
+            "理由的优先性秩序通过案例库的强化得到积累和丰富，理由排序列表越完整，就越有利于机器准确识别裁判理由。"
+          ],
+          "strengths": [
+            "原创性地将霍尔蒂的先例理由模式改造为适用于描述中国司法人工智能运作的分析框架，提供了可重复适用的分析步骤。",
+            "框架高度整合了经验观察与理论建构，后文始终围绕该框架展开分析，论证一致性强。"
+          ],
+          "weaknesses": [
+            "框架对“引入新理由”的质变场景（如法律修改）解释力有限，更多依赖外部的制度修补措施。",
+            "“理由的巩固”环节在框架中的结构性作用与“发现”和“划定”相比，其独立性论证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文所提“理由模式”分析框架的内部建构和法学转化，不评价其逻辑推理的严密性或其问题的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文成功将AI技术原理转化为法学“理由模式”框架，操作性与转化度极高。",
+          "core_judgment": "框架建构力极强，将跨学科概念成功转化为法学分析步骤并给出制度方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "所谓“要素”，特指能够影响法律结论的事实情节或事实陈述，它是人工智能所能识别的最小语义单位和意义片段",
+            "裁判理由的学习过程……主要包含理由的发现、理由分量的划定、理由的巩固三项工作"
+          ],
+          "strengths": [
+            "跨学科概念转化为清晰的法学三步分析步骤",
+            "提供了概念操作化定义与适用边界"
+          ],
+          "weaknesses": [
+            "符号化表达在复杂现实案例中的适用可能存在简化偏差"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构与法学转化，不评价推理严密性与问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 75,
+          "band": "good",
+          "summary": "论文以霍尔蒂理由模式为理论资源，构建了'理由发现—分量划定—巩固'的三阶分析框架，用于解释司法人工智能学习裁判理由的机制，并据此提出制度改进方案。",
+          "core_judgment": "分析框架具有原创性和可操作性，但法学转化深度受理论型定位限制，制度设计部分尚显薄弱。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文反复调用，但核心术语'理由优先性秩序'的符号化表述存在理解门槛）；法学转化度得分=2/4（跨学科概念转化为法学分析步骤、后文实际使用，但缺乏裁判规则层面的操作指引，制度设计方案较宏观）；锚定good档(60-69)，因框架原创性强、后文调用充分，上浮至75分。",
+          "evidence_quotes": [
+            "理由模式的分析框架有助于还原人工智能借助案例库学习裁判理由的过程",
+            "裁判理由的学习过程通过案例库的持续强化得以实现，这其中主要包含理由的发现、理由分量的划定、理由的巩固三项工作"
+          ],
+          "strengths": [
+            "原创性地将霍尔蒂理由模式转化为描述AI学习司法决策的三阶机制",
+            "后文严格依'发现—划定—巩固'步骤展开，框架调用充分"
+          ],
+          "weaknesses": [
+            "制度设计部分'出库—入库'机制、'案例库对抗制'等方案偏宏观，缺乏具体法条或程序细节",
+            "符号化表述（如Fa、Fb、>T）虽严谨但增加了法学读者的理解成本"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及框架内部逻辑严密性或问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以“理由优先性秩序”建构框架，拆解AI学习裁判理由的三阶机制，并推导制度优化方案。",
+          "core_judgment": "框架概念清晰、步骤可循且贯穿全文，成功实现技术逻辑向法学分析工具的转化，建构力强。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。三阶机制步骤明确且后文高频调用；将算法黑箱转化为法学分析路径，并据此提出具体制度方案。",
+          "evidence_quotes": [
+            "案件事实情节要素可分为三类：一是犯罪构成事实要素，二是通用量刑情节要素，三是特殊情节要素。",
+            "裁判理由的学习过程通过案例库的持续强化得以实现，主要包含理由的发现、理由分量的划定、理由的巩固三项工作。"
+          ],
+          "strengths": [
+            "三阶学习机制步骤清晰，提供可重复分析路径",
+            "将算法黑箱转化为“理由优先性秩序”法学维度"
+          ],
+          "weaknesses": [
+            "对抗制案例库的落地成本与数据壁垒论证稍显理想化",
+            "对非结构化文书转要素的技术可行性预设略强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 62.081562995910645,
+        "glm-5.1": 51.90595483779907,
+        "kimi-k2.6": 12.276312112808228,
+        "qwen3.6-plus": 61.364327907562256
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85.2,
+      "std": 8.3,
+      "strictest": 75,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文属理论型研究，通过引入“理由模式”框架，严密推演出司法AI的运作机理及其根本限度，推理链完整且反驳处理充分。",
+          "core_judgment": "论文论证成立：从实证模型到技术原理，再到理论框架的引入与适用，最后推出核心局限，逻辑链条完整且充分支撑结论。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档。论文从实证描述到技术分析、理论建构、批评回应直至核心论点的推出，每一步推理均依赖前文支撑，且系统性处理了多种反对意见并承认自身局限，故给予高分。",
+          "evidence_quotes": [
+            "深度学习的技术基础是多层神经网络...神经网络强大性能恰恰源于其‘黑箱’属性。",
+            "机器从数据中学习理由，而人类从理论中学习理由...人工智能无法察觉变革。"
+          ],
+          "strengths": [
+            "推理链清晰递进：从“要素提取→模型不可解释性→理由模式引入→理论vs数据的学习差异”层层深入，逻辑衔接极强。",
+            "反驳处理全面有力：不仅显式回应了“语义理解”、“价值判断”等经典批评，还通过“再描述谬误”等论证进行理论澄清，并承认了模型的适用边界。"
+          ],
+          "weaknesses": [
+            "从“理由的发现”等三项工作直接过渡到对批评的回应时，略欠一个显性的总结性桥梁句，但未构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的逻辑推演是针对其自建的理论框架（理由模式）展开的内在论证，而非评估该框架在实务中的可操作性，后者属于“分析框架建构力”维度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整且高度依赖，对多项反对意见作了实质性回应并承认局限。",
+          "core_judgment": "论文推理链严密，核心结论可辩护地推出，逻辑维度完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "有学者提出可通过公开算法源代码实现监督……这一思路面临的最大问题是，单纯的公开行为对‘理解算法运行逻辑’而言几乎无法发挥实质作用",
+            "一个最常见的批评是……人工智能不可复制人类的世界观和意义系统……然而，该观点是值得商榷的。基于理由模式的推论表明，人工智能并非不能学习价值判断"
+          ],
+          "strengths": [
+            "推理步骤环环相扣，从运作机理到理论框架再到缺陷与克服，依赖度极高",
+            "对显式反对意见（如公开算法、不能价值判断）均给出实质性理论或技术回应"
+          ],
+          "weaknesses": [
+            "从‘缺乏创新能力’到‘案例库对抗制’的推导略显跳跃，对抗制更多是制度构想而非逻辑必然"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价推理链是否充分支撑结论，不评价“案例库对抗制”等方案的现实可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "理论框架建构完整，推理链总体清晰，但存在两处关键跳步。",
+          "core_judgment": "论文在理论型论文的标准下，推理链基本完整且反驳处理充分，但核心结论的推导存在可辩护性不足。",
+          "score_rationale": "推理链完整性得分=3/4（存在两处关键跳步：价值判断编码机制缺失、'2020年隐喻'因果推导松散），反驳处理度得分=3/3（显式识别反对意见并实质回应，且承认局限），锚定excellent档，因跳步问题下调至82分。",
+          "evidence_quotes": [
+            "有学者提出，可通过公开算法源代码、架构、参数及权重等方式……这一思路面临的最大问题是，单纯的公开行为对'理解算法运行逻辑'而言，几乎无法发挥实质作用。",
+            "在现有技术条件下，该困境尚无有效的解除方法，但可通过一定途径加以缓和"
+          ],
+          "strengths": [
+            "理论框架层次分明，从技术描述到理由模式再到功能限度的推导链条完整",
+            "反驳处理充分，对公开源代码、缺乏可解释性、忽视个案特殊性等批评均有回应"
+          ],
+          "weaknesses": [
+            "从'理由模式描述案例学习'到'人工智能能进行价值判断'存在跳步，未说明价值如何被编码为数据",
+            "'2020年隐喻'的类比论证因果必然性不足，理论变革与数据滞后的关联缺乏实证支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否充分支撑结论，不评估'理由模式'理论本身的可接受性或建构力。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文以理由模式为核心，严密推演司法AI的运作机理、理论缺陷及制度缓释路径。",
+          "core_judgment": "推理链条完整且层层递进，反驳处理充分，核心结论可由前文理论框架与实证材料可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "深度学习依赖反向传播与梯度下降，其黑箱属性使公开代码无助于理解逻辑。",
+            "理由模式表明AI并非不能学习价值判断，其判断能力归根到底寄生于人类历史司法数据。"
+          ],
+          "strengths": [
+            "理论推演严密，理由模式与AI学习机制契合度高。",
+            "反驳处理扎实，有效回应语义理解与价值判断质疑。"
+          ],
+          "weaknesses": [
+            "部分技术原理描述略繁，与法学论证的衔接可更精炼。",
+            "制度建议的实务约束论证稍显理想化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的推导严密性，而非框架本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.150068998336792,
+        "glm-5.1": 66.16619277000427,
+        "kimi-k2.6": 32.340046882629395,
+        "qwen3.6-plus": 55.144102811813354
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 95,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 90
+      },
+      "mean": 89.8,
+      "std": 5.6,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "结论以理由模式重构了AI裁判的可解释性，与共同体主流争论密切对话，制度转化方向明确，但缺乏对反对意见的直接回应限制了对话的开放性。",
+          "core_judgment": "结论在共同体对话上基础扎实，能与主流批评形成有效争论，但因未充分讨论自身局限，共同体对话度被部分扣减，整体可接受。",
+          "score_rationale": "共同体对话度=3/4，制度可接受度=3/4。属理论论文，锚定good档(70-79)。因触发了标准4（未充分讨论反对意见/局限）导致对话度扣分，综合给72分。",
+          "evidence_quotes": [
+            "真正有意义的其实是可解释性的第二个维度，即裁判理由的可解释性。...合理的解释本质上是一种基于理由的解释。",
+            "问题的关键，不在于机器是使用代码还是自然语言...而在于它在任务执行中的表现是否足以让我们将人类的某种思维方式或者理性成就合理地归属于人工智能..."
+          ],
+          "strengths": [
+            "结论清晰地置身于“可解释性”的核心学术争论，修正了单纯技术透明论的观点。",
+            "为理论向制度转化指出了具体方向，如“出库—入库”机制和“案例库对抗制”。"
+          ],
+          "weaknesses": [
+            "结论部分未直接、充分地讨论可能的反对意见或理论自身的适用局限。",
+            "对“理由模式”在实践中可能导致的非正义或僵化风险仅作事后补救，未在结论中深入回应。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评估结论在当下共同体中的可争辩性与制度兼容性，不涉及论证严密性与未来延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应争论并提出具体制度方案，可接受性极高。",
+          "core_judgment": "结论成功进入共同体对话，修正主流观点，且与现行法秩序高度兼容并给出具体转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "人工智能并非不能学习价值判断……只要历史司法数据中隐含着价值判断，人工智能当然可以将价值判断编入神经网络",
+            "司法人工智能所面临的真正困境，并非不能应对疑难个案，而是缺乏创新能力"
+          ],
+          "strengths": [
+            "精准修正既有争论，指出AI真正缺陷是缺乏理论创新能力而非不能价值判断",
+            "制度转化方案具体可行，提出案例库对抗制与出库入库机制"
+          ],
+          "weaknesses": [
+            "理论创新能力缺失的论断较绝对，未充分讨论规则注入等混合路径的补救可能"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文提出'理由模式'理论框架解释司法人工智能运作机理，并设计了'出库—入库'机制与'案例库对抗制'两项制度方案，结论具有明确的学术对话性和制度回应性。",
+          "core_judgment": "论文结论能够有效进入法学共同体对话语境，对中国司法人工智能实践有具体回应，制度方案具有可操作性，但理论优势说明可更充分。",
+          "score_rationale": "共同体对话度得分=3/4（回应了关于司法人工智能可解释性、价值判断能力的既有争论，能被反对者定位回应，结合中国语境展开；但主动承认的反对意见讨论可更充分），制度可接受度得分=3/4（不与现行法秩序矛盾，回应了制度约束，指出了转化方向，考虑了中国制度语境），锚定good档，给78分。",
+          "evidence_quotes": [
+            "用理由模式的分析框架有助于还原人工智能借助案例库学习裁判理由的过程，这种还原并非停留在形式与实质割裂的'两张皮'层面",
+            "在理由模式下，人工智能虽能够从数据中学习裁判理由的提取方式，却并不掌握证成这些裁判理由的任何法理论"
+          ],
+          "strengths": [
+            "以霍尔蒂理由模式回应中国司法AI实践，理论本土化程度高",
+            "提出的'出库—入库'机制和'案例库对抗制'具有明确制度指向"
+          ],
+          "weaknesses": [
+            "对'理由模式'相对既有理论的优势说明可更充分",
+            "对可能的反对意见回应可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准回应AI可解释性争议，提出理由优先性框架与动态案例库机制，理论与制度兼容性强。",
+          "core_judgment": "结论高度契合学术共同体对话语境，且提出的辅助决策优化路径与中国现行司法体制及数据治理实践深度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文修正了“AI仅做概率计算”的批评，主张通过案例库理由优先性秩序实现裁判理由的功能等价。",
+            "提出“出库—入库”机制与“案例库对抗制”，为司法AI迭代提供明确的制度转化方向。"
+          ],
+          "strengths": [
+            "精准定位并回应AI缺乏理论创新的学术争议，论证逻辑自洽。",
+            "提出的动态案例库机制高度契合中国司法数据治理现状。"
+          ],
+          "weaknesses": [
+            "跨部门对抗制案例库的协调成本与数据壁垒在实务中较高。",
+            "对重大修法空白期的具体过渡程序可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证逻辑严密度或未来研究延展空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 74.71141314506531,
+        "glm-5.1": 56.99385094642639,
+        "kimi-k2.6": 11.727209329605103,
+        "qwen3.6-plus": 69.54649806022644
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 90
+      },
+      "mean": 83,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在构建理由模式分析框架后，系统指出了司法人工智能无法从理论中学习、缺乏创新能力的结构性缺陷，并据此提出了“出库—入库”机制与“案例库对抗制”两项具体、可操作的制度延展路径。",
+          "core_judgment": "存在清晰的延展路径，其提出的制度改进方向与正文核心结论紧密衔接，足以支持最高弱加分。",
+          "score_rationale": "原始分85分，对应bonus=5。本文属于制度/立法型论文，明确提出了“出库—入库”机制和“案例库对抗制”两项具体制度完善方向，路径可定位，与论文关于AI无法从理论中学习的核心缺陷论述直接衔接，精细度较高。",
+          "evidence_quotes": [
+            "若停止运行系统的成本过高，可考虑建立衔接性的“出库—入库”机制，明确旧案“出库”的条件和规模……实现案例库的动态更新。",
+            "应当构建案例库对抗制，即由不同法律知识群体独立地生成司法数据并形成相互制衡。"
+          ],
+          "strengths": [
+            "延展路径具体且可操作，直接针对正文论证的核心缺陷。",
+            "“案例库对抗制”设计了群体制衡的改进机制，具备制度想象力。"
+          ],
+          "weaknesses": [
+            "未具体说明“出库—入库”机制启动的评估标准。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论未来如何通过制度设计克服AI的固有缺陷，属于未来改进方向，而非论证当前结论是否可接受。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于AI缺乏理论创新能力的核心结论，提出了具体的案例库更新机制与对抗制设计，并指明了理由权重计算与行为数据替代的理论深化方向。",
+          "core_judgment": "存在真实且可定位的延展路径，包括具体的制度改进方案与明确的理论后续争点。",
+          "score_rationale": "原始分85，对应bonus档位为5分。延展路径清晰可定位，如“出库—入库”机制与“案例库对抗制”与核心结论紧密衔接，且指明了理由权重加总等理论深化方向。",
+          "evidence_quotes": [
+            "如果用‘办案行为数据’替代案例文书作为主要的语料库，能否让人工智能表现更佳，有待后续研究。",
+            "应当构建案例库对抗制，即由不同法律知识群体独立地生成司法数据并形成相互制衡。"
+          ],
+          "strengths": [
+            "提出了具体的“出库—入库”与“案例库对抗制”制度完善路径。",
+            "明确指出了理由权重加总计算等理论深化方向。"
+          ],
+          "weaknesses": [
+            "对“案例库对抗制”的实施风险与操作边界论述较简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "案例库对抗制的具体组织架构与实施风险属于未来制度延展问题，而非当下理论结论能否被共同体接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在揭示司法人工智能'理由模式'理论框架基础上，提出了'出库—入库'动态更新机制与'案例库对抗制'两项具体制度延展路径。",
+          "core_judgment": "存在真实延展路径，包括理论深化方向（理由模式与法理论的关系）与制度完善方向（动态更新机制与对抗制设计），且与正文核心结论紧密衔接。",
+          "score_rationale": "原始分72分，对应bonus=3档（>=60）。论文明确提出'第二次求助'理论命题，并具体化为'出库—入库'机制和'案例库对抗制'两项制度设计，路径可定位；但对抗制的层级设计（省级统筹）仍较概括，精细度有限。",
+          "evidence_quotes": [
+            "在变革发生时，由人类依据法理论更新裁判理由并投喂给人工智能，则构成人工智能对人类智能的'第二次求助'",
+            "建立'案例库对抗制'，即由不同法律知识群体独立地生成司法数据并形成相互制衡"
+          ],
+          "strengths": [
+            "提出'第二次求助'理论命题，将理论批判转化为可操作的制度路径",
+            "两项制度设计均直接回应正文揭示的'理论更新滞后'核心缺陷"
+          ],
+          "weaknesses": [
+            "对抗制的层级设计（省级统筹）较概括，缺乏具体实施标准",
+            "未明确'出库—入库'机制中'足够多'数据的量化判断标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究/制度改进指明的方向，而非当下结论是否被接受。'第二次求助'作为理论深化方向、两项制度作为完善路径，均属于'未来还能往哪里走'的范畴，不涉及结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于“理由模式”理论，清晰提出案例库动态更新机制与“案例库对抗制”等具体延展路径。",
+          "core_judgment": "存在真实且高度可操作的延展路径，紧密衔接正文关于AI数据依赖与理论滞后性的核心论断。",
+          "score_rationale": "原始分85，对应bonus=5档。论文精准指出AI在法理变革期的局限，并提出“出库—入库”机制、“偏离提示注入训练集”及“案例库对抗制”等具象化路径，与核心理论高度咬合。",
+          "evidence_quotes": [
+            "如果用‘办案行为数据’替代案例文书作为主要的语料库，能否让人工智能表现更佳，有待后续研究。",
+            "可考虑建立衔接性的‘出库—入库’机制……实现案例库的动态更新，以降低辅助决策误差率。"
+          ],
+          "strengths": [
+            "提出“出库—入库”与“案例库对抗制”等具象化制度路径，非空泛展望。",
+            "延展方向与“理由优先性秩序”核心理论紧密咬合，逻辑自洽。"
+          ],
+          "weaknesses": [
+            "对抗制跨层级训练的具体数据合规与隐私边界未充分展开。",
+            "行为数据替代文书语料的技术可行性论证仍偏简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于AI模型迭代、案例库治理机制及法理变革期的适应性等未来演进方向，而非评判当前“理由模式”结论的当下可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.551905870437622,
+        "glm-5.1": 50.824899196624756,
+        "kimi-k2.6": 14.276530027389526,
+        "qwen3.6-plus": 60.33880400657654
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 81.8,
+      "std": 6.5,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 82.22,
+      "weighted_total": 78.0
+    },
+    "aggregation_strictest": {
+      "final_score": 56.65,
+      "weighted_total": 59.0
+    },
+    "avg_std": 13.6,
+    "max_std": 26.9,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 25.6,
+    "composite_score": -13.6,
+    "worst_dimension": "literature_insight",
+    "worst_std": 26.9
+  }
+}

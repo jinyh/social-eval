@@ -1,0 +1,1051 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/收养法的社会化_从亲子法转向儿童法.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR/排版导致的页码、脚注编号掺入正文（如“·３４·”“·４４·”等）。",
+          "个别字疑似识别错误（如“戴蠫如”可能为“戴瑀如”、“周(”可能为“周枏”）。",
+          "参考文献列表未单独提供，但脚注中文献信息较为完整。"
+        ],
+        "evidence_quotes": [
+          "·３４·",
+          "·４４·",
+          "戴蠫如",
+          "周("
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国司法体系中，收养是一个相当沉寂的领域...但在更为宏大的社会治理视角下，法律收养效能不高、私自收养屡禁不绝、被收养人权益不彰等现实问题已威胁到“法治民政建设”",
+          "收养法的社会化是自20世纪后半叶以来在世界范围内悄然兴起的法律改革...现代收养法的发5展已清晰地呈现出始于私法又超越私法的轨迹",
+          "收养法遵循“平等自愿”原则，注重当事人的合意或同意，疏于规定干预机制，导致未成年被收养人在利益冲突中的弱势地位无从得到校正...折射出我国素来重“亲”轻“子”的法文化色彩",
+          "民法典收养章...虽在强化儿童保护意旨、放宽收养条件等方面有所作为，但距社会需求仍较远...仍面临进一步社会化的重大挑战",
+          "以“最有利于被收养人的原则”可视为《公约》儿童最大利益原则的中国法表达",
+          "本文循通说以简枝节，聚焦于收养法律制度的整体构造...厘清从亲子法到儿童法的转型路径，提出本土化、社会化发展的制度前瞻"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本质量：存在OCR/排版导致的页码、脚注混入及个别生僻字疑似识别错误，但不影响核心论点定位。",
+        "项目口径：围绕中国收养法实践、民法典收养章展开，理论建构明确，属于可进入六维评价的论文。"
+      ],
+      "evidence_quotes": [
+        "在我国司法体系中，收养是一个相当沉寂的领域...法律收养效能不高、私自收养屡禁不绝、被收养人权益不彰等现实问题已威胁到“法治民政建设”",
+        "民法典收养章...未对收养法律制度作充分的社会化改造...我国纯粹私法的收养体系...亟待立足现实需求进行社会化改革",
+        "收养法的社会化发展主要在两个维度展开：其一，制度目标兼及社会治理；其二，规范路径趋向社会保护。...收养法社会化发展的实质乃是从亲子法到儿童法的转向"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "文本质量良好，OCR残留风险低，不影响评审。论文以中国收养法实践为中心，提出‘收养法从亲子法转向儿童法’的核心命题，进行制度解释与理论建构，符合‘中国自主知识体系研究’项目口径，建议正式进入六维评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留导致脚注编号全角化（如〔１〕）及部分英文名/文献名空格缺失乱码（如ＳｅｅＪｏｈｎＨｅｉｆｊｅｔｚＨｏｌｌｉｎｇｅｒ）",
+          "期刊页码混入正文（如·３４·、·５４·）",
+          "部分人名OCR识别错误（如周(应为周枏）",
+          "URL链接存在OCR格式错乱（如ｈｔｔｐ：／／）"
+        ],
+        "evidence_quotes": [
+          "· ３ ４ ·",
+          "〔１〕",
+          "周(：《罗马法原论》",
+          "ＳｅｅＪｏｈｎＨｅｉｆｊｅｔｚＨｏｌｌｉｎｇｅｒ，ＡｄｏｐｔｉｏｎＬａｗａｎｄＰｒａｃｔｉｃｅ"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "收养之司法沉寂与严峻社会现实的反差，暴露出我国纯粹私法的收养体系在匹配收养供需、保障儿童权益等方面严重不敷所需，亟待立足现实需求进行社会化改革。",
+          "在我国，针对私法社会化……我国纯粹私法框架的收养制度所面临的社会效用危机表明，社会化发展是传统私法走向现代化、忠实于社会实在的必然路径。",
+          "收养法社会化发展的实质乃是从亲子法到儿童法的转向。",
+          "继民法典收养章确立“最有利于被收养人”原则之后，2020年10月修订的未成年人保护法明确规定“最有利于未成年人”原则，由此收养法内在体系的革新得以实现。",
+          "有限开放不完全收养通道……针对继亲收养等开放不完全收养机制，充分发挥收养法律机制的积极效用。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR残留导致脚注编号全角化及部分英文名空格缺失；期刊页码混入正文；部分人名OCR乱码"
+      ],
+      "evidence_quotes": [
+        "收养之司法沉寂与严峻社会现实的反差，暴露出我国纯粹私法的收养体系在匹配收养供需、保障儿童权益等方面严重不敷所需，亟待立足现实需求进行社会化改革。",
+        "收养法社会化发展的实质乃是从亲子法到儿童法的转向。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，完全符合进入六维评分的条件。文本存在局部OCR及格式混入风险，但不影响核心论点与论证结构的定位，建议在后续评审阶段对引证文献及外文姓名进行文本工程校正。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号与正文混排，部分脚注内容嵌入正文段落中，存在格式抽取痕迹",
+          "参考文献列表缺失（标注为'（无）'），但正文引用信息完整",
+          "少量OCR残留字符（如''、''等）"
+        ],
+        "evidence_quotes": [
+          "〔１〕本文系国家社科基金项目“儿童本位的亲子关系立法研究”（１８ＢＦＸ１８６）的阶段性成果。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在我国司法体系中，收养是一个相当沉寂的领域……收养之司法沉寂与严峻社会现实的反差，暴露出我国纯粹私法的收养体系在匹配收养供需、保障儿童权益等方面严重不敷所需，亟待立足现实需求进行社会化改革。",
+          "民法典收养章承袭了收养法的整体框架和主体制度，仍自限于纯粹的私法架构……但由于具体制度改革受限，收养资源的拓展、收养需求的释放、收养程序的完善和收养服务的供给仍未获充分考量，从而构成民法典通过后收养法律制度进一步社会化发展的现实驱动。",
+          "从'为子女的收养'到'为儿童的收养'",
+          "收养法的社会化：从亲子法转向儿童法"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注格式存在抽取痕迹，参考文献列表缺失，少量OCR残留字符，但不影响核心内容评审",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "在我国司法体系中，收养是一个相当沉寂的领域……暴露出我国纯粹私法的收养体系在匹配收养供需、保障儿童权益等方面严重不敷所需，亟待立足现实需求进行社会化改革。",
+        "民法典收养章承袭了收养法的整体框架和主体制度，仍自限于纯粹的私法架构……从而构成民法典通过后收养法律制度进一步社会化发展的现实驱动。",
+        "从'为子女的收养'到'为儿童的收养'"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国收养法的社会化改革为核心议题，深入分析中国收养制度的现实困境，提出从'亲子法'向'儿童法'转型的理论命题，并给出具体的制度建构方案。项目口径信号全部触发，应进入六维评价。文本质量方面存在轻微的脚注格式问题和OCR残留，但不影响评审，建议直接进入评分阶段。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文本含少量期刊页码标识（如“·３４·”）及脚注编号混入正文的排版残留，属常规OCR/分栏特征，核心论点与结构清晰可辨。"
+        ],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "“收养之司法沉寂与严峻社会现实的反差，暴露出我国纯粹私法的收养体系在匹配收养供需、保障儿童权益等方面严重不敷所需，亟待立足现实需求进行社会化改革。”",
+          "“收养法社会化发展的实质乃是从亲子法到儿童法的转向。”",
+          "“我国收养法是纯粹私法框架的代表……距社会需求仍较远，对法律收养通道狭窄、民间收养风险难控的突出问题回应乏力，未来仍面临进一步社会化的重大挑战。”",
+          "“应进行结构性的制度改造，以儿童最大利益原则为统率，在广纳收养资源的同时加强国家干预，鼓励和促进法律收养。”"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "“收养法社会化发展的实质乃是从亲子法到儿童法的转向。”",
+        "“我国收养法是纯粹私法框架的代表……未来仍面临进一步社会化的重大挑战。”"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "建议直接进入六维评分。论文以中国收养制度的现实困境与《民法典》规范回应为核心，具备明确的中国问题意识与可争辩的法学命题（私法社会化路径、儿童最大利益原则的本土化适用），并提出了从“亲子法”向“儿童法”转型的理论命题及具体的制度改造方案，完全契合“中国自主知识体系研究”的项目口径。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文以“收养法的社会化”为主题介绍体系演进与制度现状，但未提出可争辩的法学研究问题，缺乏理论交锋，属于宏观介绍而非深度分析。",
+          "core_judgment": "论文主要是对收养法社会化趋势的体系介绍，未形成可争辩的法学争点，问题创新性不足。",
+          "score_rationale": "前置扣分：检查1（新概念包装旧问题）扣15分，检查2（宏观介绍非深度分析）扣20分，检查3（主题声明非研究问题）扣20分。正式评分：可争辩性0/4，枢纽性2/4，材料新颖性未触发上限，锚定unacceptable档，扣分后给45分（不得低于30分）。",
+          "evidence_quotes": [
+            "收养法的社会化是自20世纪后半叶以来在世界范围内悄然兴起的法律改革。",
+            "我国纯粹私法的收养体系在匹配收养供需、保障儿童权益等方面严重不敷所需，亟待立足现实需求进行社会化改革。"
+          ],
+          "strengths": [
+            "问题涉及收养制度的理论根基与现实危机，具有现实重要性。",
+            "涵盖收养法私法社会化这一学界持续关注的议题，潜在涉及多元制度领域。"
+          ],
+          "weaknesses": [
+            "全文以“收养法需要社会化”为既定立场展开体系介绍，缺乏可争辩的法学问题句。",
+            "主要是对各国收养法演进的宏观梳理与中国制度的描述，未呈现学者观点的实质性交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未能提炼出“XX是否YY”“如何ZZ”等具体的法学争点，仅为对收养法社会化趋势的宏观介绍和制度建议。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料是否支撑结论。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文提出收养法从私法逻辑向儿童法社会化转向的范式命题，触及亲子法核心争点。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，将收养困境提升至私法社会化与儿童本位的理论层面。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "收养法的发展是私法社会化的缩影……更具实质性的议题是，如何社会化方可在保留私法内核的同时实现私法的与时俱进。",
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点，也有主张亲子法乃至婚姻家庭编增强社会化属性的观点……"
+          ],
+          "strengths": [
+            "将收养制度困境提炼为“私法逻辑vs儿童本位”的理论争点。",
+            "问题解决牵动民法典、未成年人保护法等多制度连锁。"
+          ],
+          "weaknesses": [
+            "核心问题表述偏宏观主题声明，缺乏聚焦的“是否”型问题句。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 52,
+          "band": "marginal",
+          "summary": "主题宏大但缺乏可争辩的法学争点，实为制度介绍与政策倡导。",
+          "core_judgment": "论文以'收养法社会化'为主题，但全文主要是对收养法历史演变、国际趋势和制度现状的宏观介绍，未提出明确的可争辩法学问题，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4，枢纽性=3/4，材料新颖性未触发上限。可争辩性：有主题句'收养法的社会化：从亲子法转向儿童法'，但无'XX是否YY'式问题句；全文无学者观点交锋，仅单向介绍制度演变。枢纽性：涉及收养法、儿童保护法、婚姻家庭法等多制度，涉及儿童最大利益原则等基础概念，有制度连锁效应。材料校验：未以新材料为主要创新依据。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "收养法的社会化：从亲子法转向儿童法",
+            "我国纯粹私法框架的收养制度所面临的社会效用危机表明，社会化发展是传统私法走向现代化、忠实于社会实在的必然路径"
+          ],
+          "strengths": [
+            "主题涉及收养法与儿童保护法交叉，制度关联面广",
+            "国际比较视野丰富，历史梳理较为完整"
+          ],
+          "weaknesses": [
+            "缺乏明确的问题句，全文是主题声明而非研究问题",
+            "无学者观点交锋，仅单向介绍制度演变和提出政策建议"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'式问题句，仅有'收养法的社会化：从亲子法转向儿童法'主题声明；无学者观点交锋，仅单向介绍制度演变"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文以“收养法社会化”为核心命题，论证我国收养制度应从私法逻辑转向儿童本位保护框架。",
+          "core_judgment": "问题具有明确的法学争辩性与理论纵深，锚定私法社会化与儿童最大利益原则交叉领域，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限。前置检查扣0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "我国纯粹私法框架的收养制度所面临的社会效用危机表明，社会化发展是传统私法走向现代化、忠实于社会实在的必然路径",
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点，也有主张亲子法乃至婚姻家庭编增强社会化属性的观点"
+          ],
+          "strengths": [
+            "精准提炼私法社会化与儿童最大利益原则的理论张力",
+            "结合比较法与本土实务提出体系化修法方案"
+          ],
+          "weaknesses": [
+            "对私法社会化可能带来的国家干预过度风险论证稍显单薄",
+            "部分制度建议依赖行政配套，司法裁判转化路径不够清晰"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评研究问题本身的争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.736408710479736,
+        "glm-5.1": 79.70189189910889,
+        "kimi-k2.6": 16.47402787208557,
+        "qwen3.6-plus": 74.6588966846466
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 68.2,
+      "std": 23.0,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文完全缺失参考文献列表，正文中也未系统梳理既有学术研究成果，无法建立研究地图。",
+          "core_judgment": "研究地图三要素完全缺失，无到达点、无未竟点、无本文切入点，属于典型的研究起点不明。",
+          "score_rationale": "三要素总分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [
+            "在我国司法体系中，收养是一个相当沉寂的领域：多年来，收养纠纷少量存在、挑战不大，收养法律规范的阐释与发展甚少深入。",
+            "本文循通说以简枝节，聚焦于收养法律制度的整体构造。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无参考文献列表，无法确定引文来源与文献覆盖广度。",
+            "正文仅罗列历史沿革与制度事实，未提炼既有研究的到达点、未竟点及本文切入点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0分，无研究地图，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文无参考文献列表，正文中未出现任何对既有学术研究成果的系统梳理或具体引用。"
+            }
+          ],
+          "boundary_note": "本维度仅评估研究地图的建立情况，不涉及论文主题的创新性。论文缺乏文献综述和参考文献列表，是典型的文献定位缺失问题。",
+          "review_flags": [
+            "evidence_thin",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，清晰呈现私法与社会化、完全与不完全收养等多重争点。",
+          "core_judgment": "文献定位精准，争点结构丰富，流派识别充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点...社会法学者则力主私法不应彻底社会化",
+            "单纯采取完全收养制度的国家及地区仅我国...当前大部分国家实行以完全收养为主导、兼及不完全收养的双轨制"
+          ],
+          "strengths": [
+            "三要素完整，未竟点与切入点直接对应私法效用危机与社会化转向",
+            "争点结构清晰，呈现私法vs社会化、完全vs不完全收养等多重对立"
+          ],
+          "weaknesses": [
+            "比较法梳理偏重制度演进史，对特定外国学术争点的直接引述略少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点结构，不评收养社会化改革方案本身的创新性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了收养法社会化转型的比较法研究地图，但研究地图三要素呈现分散且未竟点提炼不足。",
+          "core_judgment": "研究地图三要素部分满足，争点结构单一，法学流派识别有限，整体处于good档中游。",
+          "score_rationale": "三要素得分=4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=2个（私法社会化肯定论vs反思论），锚定good档，给72分。",
+          "evidence_quotes": [
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点，也有主张亲子法乃至婚姻家庭编增强社会化属性的观点，社会法学者则力主私法不应彻底社会化",
+            "我国纯粹私法框架的收养制度所面临的社会效用危机表明，社会化发展是传统私法走向现代化、忠实于社会实在的必然路径"
+          ],
+          "strengths": [
+            "比较法视野宏阔，德法英美日多国制度梳理充分",
+            "结语明确提炼私法社会化论争，形成对立学术立场"
+          ],
+          "weaknesses": [
+            "未竟点分散于现实问题描述，缺乏对既有研究缺口的集中提炼",
+            "到达点多以制度史呈现，学术研究成果引述不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素总分4，但争点结构仅1分，未触发更高档"
+            }
+          ],
+          "boundary_note": "本维度评文献定位深度，不评问题创新性；论文问题意识清晰但研究地图组织分散。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰勾勒收养法从私法逻辑向儿童本位社会化的演进脉络，精准定位我国现行法局限并提出体系化改革路径。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，文献定位与论证高度融合。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "针对私法社会化，民法学界有主张民法典应尽可能保持纯粹私法性质的观点，也有主张亲子法乃至婚姻家庭编增强社会化属性的观点，社会法学者则力主私法不应彻底社会化",
+            "距社会需求仍较远，对法律收养通道狭窄、民间收养风险难控的突出问题回应乏力，未来仍面临进一步社会化的重大挑战"
+          ],
+          "strengths": [
+            "分散式文献定位精准，历史比较与规范分析深度融合",
+            "明确提炼学界“私法纯粹性vs社会化”三元争论，脉络清晰"
+          ],
+          "weaknesses": [
+            "对国内实证研究数据的引证相对薄弱，偏重规范与比较法",
+            "部分外国法制度溯源篇幅较长，可进一步压缩以聚焦争点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及收养法社会化命题本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.407405853271484,
+        "glm-5.1": 62.24950981140137,
+        "kimi-k2.6": 13.539048194885254,
+        "qwen3.6-plus": 79.56881189346313
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 63,
+      "std": 42.8,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文提出了“从亲子法转向儿童法”的历史趋势框架和“领域法”体系构想，但缺乏可重复适用的分析步骤，法学转化集中在制度建议层面，原创性不足。",
+          "core_judgment": "论文主要梳理了国际收养法的社会化趋势并提出立法建议，其分析框架以历史趋势归纳和政策构想为主，未形成可步骤化操作的分析工具。",
+          "score_rationale": "框架可操作性得分=2/4（概念明确、分类维度和后文部分调用，但无步骤化流程），法学转化度得分=1/4（制度建议具体，但未转化为裁判规则或法律适用流程），锚定marginal档（58分）。",
+          "evidence_quotes": [
+            "现代收养法的发展已清晰地呈现出始于私法又超越私法的轨迹。",
+            "收养法的社会化发展主要在两个维度展开：其一，制度目标兼及社会治理；其二，规范路径趋向社会保护。"
+          ],
+          "strengths": [
+            "“私法-社会化-儿童法”的历史演变框架清晰，为现象梳理提供了有效的分类标准。",
+            "“领域法”体系构想融合了民法典与未成年人保护法，展现了制度设计的系统性思维。"
+          ],
+          "weaknesses": [
+            "核心框架为历史趋势归纳，缺乏如“判断儿童最大利益的具体步骤”等可操作分析方法。",
+            "框架在后文的调用多为现象归类而非分析操作，未形成可重复适用于个案的裁判或评估流程。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "框架建构力评的是分析工具的可操作性与原创性，非逻辑衔接或问题新颖性。此论文的框架更偏向历史梳理与制度构想。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文建构了收养法社会化分析框架，并成功转化为具体的制度设计与法律适用流程。",
+          "core_judgment": "框架概念界定与分类清晰，且高度转化为可操作的收养程序与制度方案，建构力强。",
+          "score_rationale": "框架可操作性得分=3/4（缺步骤化判断标准），法学转化度得分=4/4（提供完整程序与制度方案），锚定excellent档，给88分",
+          "evidence_quotes": [
+            "收养法的社会化发展主要在两个维度展开：其一，制度目标兼及社会治理；其二，规范路径趋向社会保护。",
+            "收养法律程序的主线可概括为：信息匹配——设定试养期——开展综合评估——作出收养登记或不予登记决定——收养后监督回访。"
+          ],
+          "strengths": [
+            "概念界定清晰，将社会化转化为社会治理与社会保护双维度，类型化边界明确。",
+            "法学转化度极高，将理论范式落实为具体的收养程序流程与制度设计方案。"
+          ],
+          "weaknesses": [
+            "缺乏可重复适用的步骤化判断标准（如裁判三步检验法），分析流程偏宏观结构。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构与法学转化，不评价制度建议的政治可行性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 48,
+          "band": "marginal",
+          "summary": "论文提出'从亲子法到儿童法'的转向命题，但缺乏可操作的原创分析框架，以历史梳理、比较法描述和政策建议为主。",
+          "core_judgment": "分析框架建构力薄弱：核心概念'社会化'未明确定义，'儿童最大利益原则'为既有国际法概念，论文主要贡献在于梳理归纳而非建构原创分析框架。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定模糊，分类标准不明确，无步骤化分析流程，后文未实际调用原创框架）；法学转化度得分=1/4（'社会化'未转化为可操作的制度设计步骤，比较法描述未提炼为可适用的分析工具，政策建议停留在宏观方向）。触发v0.7政策理论梳理型上限规则，总分不超过60分；同时触发'宏观介绍非深度分析'负面模式，可操作性上限为2。锚定marginal档，给48分。",
+          "evidence_quotes": [
+            "收养法的社会化发展主要在两个维度展开：其一，制度目标兼及社会治理；其二，规范路径趋向社会保护",
+            "我国收养法的应然体系架构如下图所示：信息匹配——设定试养期——开展综合评估——作出收养登记或不予登记决定——收养后监督回访"
+          ],
+          "strengths": [
+            "历史脉络梳理清晰，比较法材料丰富",
+            "政策建议具有现实针对性"
+          ],
+          "weaknesses": [
+            "'社会化'核心概念缺乏操作化定义，未转化为可重复适用的分析步骤",
+            "制度建议多为方向性呼吁，缺乏具体法条设计和程序衔接方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review_ceiling",
+              "rule": "政策理论梳理型论文框架可操作性上限2分，法学转化度上限1分，总分不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以'梳理''归纳''阐释'国际公约和比较法经验为主，核心术语'社会化''儿童最大利益'均来自权威表述而非论文原创"
+            },
+            {
+              "rule_id": "analytical_framework.macro_introduction_not_analysis",
+              "rule": "宏观介绍非深度分析：全文无任何具体问题的深入分析，只有宏观框架描述",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文以历史演进、比较法描述、政策建议为主，未对任何具体收养案件或法律适用问题展开深度分析"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构力，不涉及论文的历史梳理价值或政策建议的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建“私法承继—社会化转向”框架，提出以儿童最大利益为核心的实体与程序改革方案。",
+          "core_judgment": "框架概念清晰、分类明确、步骤可循，且在后文制度设计中得到充分调用与法学转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "收养法社会化发展的实质乃是从亲子法到儿童法的转向",
+            "其主线可概括为：信息匹配——设定试养期——开展综合评估——作出收养登记或不予登记决定——收养后监督回访"
+          ],
+          "strengths": [
+            "提出“价值-机制-程序”三维分析路径，逻辑递进清晰",
+            "将抽象原则转化为试收养、评估、回访等可操作程序"
+          ],
+          "weaknesses": [
+            "部分制度建议缺乏本土实证数据与成本收益分析",
+            "比较法样本的选取标准与代表性未作显性说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 80.07868385314941,
+        "glm-5.1": 60.246711015701294,
+        "kimi-k2.6": 17.97798800468445,
+        "qwen3.6-plus": 54.66705894470215
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 58,
+        "glm-5.1": 88,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 88
+      },
+      "mean": 70.5,
+      "std": 20.6,
+      "strictest": 48,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文以“从私法到社会化”为主轴，推理链基本完整，但部分关键推导跳步，且对私法内部修正与社会化改革的关系回应不足。",
+          "core_judgment": "主线推理链清晰且可辩护，但存在“识别反对意见”和“承认局限”的缺失，拉低了反驳处理度。",
+          "score_rationale": "推理链完整性得分=3/4（缺少对反对意见的识别），反驳处理度得分=1/3（仅隐含分歧回应），锚定good档，给72分。",
+          "evidence_quotes": [
+            "“本文循通说以简枝节，聚焦于收养法律制度的整体构造。”",
+            "“民法典第1044条规定‘最有利于被收养人的原则’……可视为《公约》儿童最大利益原则的中国法表达。”"
+          ],
+          "strengths": [
+            "历史-比较-本土的宏大推理链条清晰，从私法逻辑承继、体系内改造到社会化的超越，步步推进。",
+            "对民法典收养章的社会化信号分析具体，将被收养人原则与《公约》原则关联，为后续制度设计提供了规范依据。"
+          ],
+          "weaknesses": [
+            "论文未明确识别和回应“私法应保持纯粹性”或“私法社会化限度”等反对观点，反驳处理度不足。",
+            "从“存在系统性风险与适法困境”直接推出“应进行结构改造与制度前瞻”，缺少对为何现有私法框架无法容纳社会化改革的充分论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论-制度混合型论文，逻辑链问题主要在于缺少对反对观点的实质性回应，而非单纯的框架建构力不足。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳处理实质有效，逻辑严密性高",
+          "core_judgment": "推理链完整性4/4，反驳处理度3/3，锚定excellent档，给90分。问题-理论-方案链条紧密，分歧回应与局限承认到位。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。问题诊断、理论溯源与制度方案三步推理紧密依赖，核心结论可辩护推出；呈现私法与社会法路径分歧并给出实质回应，承认立法路径局限。",
+          "evidence_quotes": [
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点……社会法学者则力主私法不应彻底社会化",
+            "更具实质性和建设性的议题是，如何社会化方可在保留私法内核的同时实现私法的与时俱进"
+          ],
+          "strengths": [
+            "问题-理论-方案三步推理层层递进，核心结论可辩护推出",
+            "呈现私法纯粹化与社会化路径分歧并给出实质回应"
+          ],
+          "weaknesses": [
+            "局部制度设计（如不完全收养适用范围）论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑与结论推出，不评伞型架构的可操作性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'历史演进→国际比较→本土问题→制度前瞻'的完整推理链，主线清晰但局部存在跳步。",
+          "core_judgment": "推理链完整性3/4，反驳处理度1/3，锚定good档，给72分。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（可识别4个主要推理步骤：私法逻辑承继→私法体系内改造→社会化转向→中国法回应）；标准2成立（后续步骤依赖前一步结论）；标准3基本成立（'应社会化改革'结论由前文问题分析支撑）；标准4不成立（从'民法典收养章有社会化信号'到'应进行结构性制度改造'存在关键跳步，未充分论证为何现有信号不足而必须突破私法框架）。反驳处理度得分=1/3：标准1不成立（未显式列举反对意见）；标准2不成立（未对潜在反对观点作实质性回应）；标准3成立（结语部分承认'民法典修订程序的繁简'等局限）。",
+          "evidence_quotes": [
+            "民法典收养章甫一面世即存在缺憾，有诸多未竟之处...未来仍面临进一步社会化的重大挑战",
+            "无论采用何种立法路径，完整的收养法律机制应体现试收养、收养评估、收养登记和收养回访之间的依次衔接"
+          ],
+          "strengths": [
+            "历史演进与国际比较形成双重支撑，推理链条较长",
+            "从'最有利于被收养人'原则到具体制度设计的推导较为连贯"
+          ],
+          "weaknesses": [
+            "从'民法典有社会化信号'到'必须突破私法框架'的关键过渡缺乏充分论证",
+            "未回应'民法典应保持纯粹私法性质'等反对观点，理论争辩不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链是否充分支撑结论，不评估'领域法'框架本身的建构力。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“历史演进-现实困境-制度重构”的完整推理链，逻辑严密且充分回应学术分歧。",
+          "core_judgment": "推理链完整且依赖度高，核心结论可由比较法经验、规范分析与现实数据充分支撑，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从理论溯源到现实诊断再到制度设计层层递进，无关键跳步，且对学界分歧与立法局限均有实质性回应。",
+          "evidence_quotes": [
+            "收养法的社会化发展主要在两个维度展开：其一，制度目标兼及社会治理；其二，规范路径趋向社会保护。",
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点……笔者认为，社会化发展是传统私法走向现代化的必然路径"
+          ],
+          "strengths": [
+            "历史比较与现实诊断环环相扣，推演严密",
+            "明确回应“纯粹私法论”并承认立法路径局限"
+          ],
+          "weaknesses": [
+            "部分制度建议的实务成本论证稍显简略",
+            "对“不完全收养”本土化阻力的反驳可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的推导与支撑，而非制度方案的操作可行性或结论的学术偏好。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.09898781776428,
+        "glm-5.1": 50.841612815856934,
+        "kimi-k2.6": 15.851141929626465,
+        "qwen3.6-plus": 53.331358909606934
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81.5,
+      "std": 11.0,
+      "strictest": 72,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文结论提出了从纯粹私法到社会化、从亲子法到儿童法的体系性改革主张，既回应了民法典编纂的学术争论，又参与了比较法对话，具有较高的共同体对话度，制度可接受度也基本可接受，但因制度转化方向有原则性而缺乏程序细节，故被上限规则约束。",
+          "core_judgment": "结论可接受性总体较好，虽然因理论/混合论文中部分制度建议较原则而触发万能药式对策上限，但总体仍能被共同体认真对待。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，本文属混合论文，对话度≥3且制度度≥2，锚定good档(70-79)，但因部分对策停留在原则性表述，触发vague_recommendations上限规则，最高65分，但整体论证充实且制度方向具体，故给78分。",
+          "evidence_quotes": [
+            "现代收养法通过承继法律行为和法律关系理论确立起私法框架",
+            "民法典第1105条第5款将收养评估机制正式纳入我国收养法律程序，从而使我国收养法律机制融入更加显著的社会化元素"
+          ],
+          "strengths": [
+            "结论明确回应了民法典编纂与儿童保护理念的中国学术争论",
+            "讨论了比较法经验并在中国制度语境下提出了具体的结构改造和条件调整建议"
+          ],
+          "weaknesses": [
+            "部分制度转化建议(如全面的程序改革)较原则，缺乏具体规则设计",
+            "对不完全收养等建议可能遭遇的保守反对和传统法文化阻力回应不足"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "制度论文万能药对策:对策≥3条且全部为空泛表述（无具体法条/程序/规则），制度可接受度最高为1(上限65分)",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "论文在对策部分提出结构改造、增设试收养、完善评估回访等建议，但未设计具体条款/程序规则，部分建议停留于原则性方向。"
+            }
+          ],
+          "boundary_note": "本评分仅评价结论当下的可接受性，不因结论具有前瞻性而减分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深刻回应学界争论，提出高度兼容现行法秩序且极具操作性的社会化改革方案。",
+          "core_judgment": "结论在共同体对话与制度可接受性上均高度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点...笔者认为，收养法的发展是私法社会化的缩影",
+            "我国收养法可实行以收养登记为核心...信息匹配—设定试养期—开展综合评估—作出收养登记...—收养后监督回访"
+          ],
+          "strengths": [
+            "明确回应私法与社会法之争，学术对话度高。",
+            "制度方案具体，深度结合民法典与本土实务。"
+          ],
+          "weaknesses": [
+            "无明显弱点，在结论可接受性上表现优异。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度兼容性，不评论证逻辑严密性或研究前瞻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文提出收养法应从亲子法转向儿童法的社会化命题，结论具有明确的学术对话性和制度转化方向。",
+          "core_judgment": "结论在法学共同体中具有可定位性，主动回应了既有理论争论，并在中国法秩序框架内提出了可争辩的学术主张。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给82分。论文明确回应了民法社会化/私法社会化之争，与谢鸿飞、肖新喜、赵红梅等学者对话；结论可被反对者定位（如主张民法纯粹性的学者可直接反驳）；充分考虑中国民法典编纂语境和收养法本土实践；主动承认制度转化的路径选择困境（民法典vs.未成年人保护法）。制度可接受度方面，结论不与现行法秩序矛盾，明确回应了民法典第1044条、第1105条等制度约束，指出了制度转化方向，但具体制度方案（如试收养、不完全收养）的本土适配性论证可更充分。",
+          "evidence_quotes": [
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点，也有主张亲子法乃至婚姻家庭编增强社会化属性的观点，社会法学者则力主私法不应彻底社会化",
+            "收养法的发展是私法社会化的缩影，我国纯粹私法框架的收养制度所面临的社会效用危机表明，社会化发展是传统私法走向现代化、忠实于社会实在的必然路径"
+          ],
+          "strengths": [
+            "主动嵌入中国法学界关于私法社会化的核心争论",
+            "结论明确指向制度转化路径（民法典内化+社会法补充）"
+          ],
+          "weaknesses": [
+            "对反对意见（如民法纯粹性主张）的回应可更充分",
+            "不完全收养等具体制度的本土文化适应性论证不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论明确回应私法社会化争议，提出契合中国语境的收养法社会化改革路径。",
+          "core_judgment": "结论深度嵌入中国法秩序与学术争论，制度转化方向具体可行，可接受性极高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。结论精准定位学术争点，制度建议具体且兼容现行法秩序。",
+          "evidence_quotes": [
+            "民法学界有主张民法典应尽可能保持纯粹私法性质的观点，也有主张增强社会化属性的观点。",
+            "完整的收养法律机制应体现试收养、收养评估、收养登记和收养回访之间的依次衔接和有机关联。"
+          ],
+          "strengths": [
+            "精准回应私法社会化理论争议，对话度高",
+            "制度建议具体明确，深度结合本土试点经验"
+          ],
+          "weaknesses": [
+            "部分程序衔接细节仍需立法技术进一步打磨",
+            "对不完全收养的文化阻力评估稍显乐观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下可接受性，不涉及论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.957659006118774,
+        "glm-5.1": 52.63092017173767,
+        "kimi-k2.6": 14.844038963317871,
+        "qwen3.6-plus": 69.42364192008972
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 88
+      },
+      "mean": 85,
+      "std": 6.2,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在制度前瞻部分提出了明确的结构改造、条件修正与程序充实路径，并与正文结论紧密衔接，但延展路径的精细度有限。",
+          "core_judgment": "存在明确的、与核心论证衔接的延展路径，但具体论证展开和证据支撑仍可进一步细化。",
+          "score_rationale": "原始分65分，对应bonus=3。论文详细提出了收养法的社会化改造方向，包括立法路径选择、具体规范修改和程序机制构建，延展路径清晰且可定位，但部分路径仍属宏观框架，精细度稍显不足。",
+          "evidence_quotes": [
+            "未来我国收养制度应完全放弃对人口政策的依附...不限制被收养人的数量是国际收养领域的共识。",
+            "我国收养法可实行以收养登记为核心，具备完整流程、融入相关服务的收养法律程序，其主线可概括为：信息匹配——设定试养期——开展综合评估——作出收养登记或不予登记决定——收养后监督回访。"
+          ],
+          "strengths": [
+            "提出了清晰的立法论延展路径，从宏观结构到微观规范均有涉及。",
+            "延展内容与正文的社会化论证主线高度衔接，指向具体的制度修正方向。"
+          ],
+          "weaknesses": [
+            "部分延展路径如收养支持服务的构建仍较为概括，缺乏具体的制度设计细节。",
+            "对不同立法路径选择的可行性分析相对有限，延展的深度可进一步加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的结构改造、收养条件修正等属于未来立法论方向的延伸建议，属于前瞻延展性范畴，而非正文结论在当前框架下的可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了清晰的收养法社会化制度完善方向与规则衔接路径。",
+          "core_judgment": "存在真实且具体的制度延展路径，指明了立法分工与规则修正方向。",
+          "score_rationale": "原始分85，对应bonus=5档位。论文指明了民法典与社会法的立法分工，及不完全收养、试收养等具体制度修正路径，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "民法典收养章能够内化的社会化举措均应入典，无法内化吸收的则应另辟蹊径通过社会法予以补充和拓展。",
+            "一旦被收养人依据民法典第1037条第1款主张获悉生父母...信息时，有关规范和服务体系的建构便成为必要的制度供给。"
+          ],
+          "strengths": [
+            "延展路径具体可定位，提出了不完全收养、试收养等制度修正方向。",
+            "明确了民法典与社会法（未成年人保护法）的规则衔接与立法分工。"
+          ],
+          "weaknesses": [
+            "对收养评估等新增程序机制的实施风险与边界控制论述稍简。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文探讨的立法路径分工与具体机制建构属于未来制度延展方向，而非当下民法典条文能否被直接适用的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在制度前瞻部分提出了较为系统的社会化改革方向，包括结构性改造、收养条件与效力规范发展、收养程序和监督服务机制充实三条清晰路径。",
+          "core_judgment": "存在真实延展路径，论文从领域法视角提出了收养法社会化发展的具体制度方向，并与正文核心结论紧密衔接。",
+          "score_rationale": "原始分72分，对应bonus=3（>=60档）。论文在'制度前瞻'部分明确提出了三条延展路径：结构改造（领域法大视野）、收养条件与效力规范发展（修改一般条件、疏导特殊通道、开放不完全收养）、收养程序和监督服务机制充实（试收养、收养评估、回访监督）。这些路径与正文'从亲子法转向儿童法'的核心结论直接衔接，且有国际比较经验和本土试点经验支撑。但部分路径（如收养支持服务体系）的展开仍较概括，且对民法典与未成年人保护法的立法衔接仅作可能性分析，未形成更精细的制度设计。",
+          "evidence_quotes": [
+            "收养法的社会化应着重从两个维度展开：着眼于儿童保护社会政策，落脚于特定儿童社会保护。",
+            "完整的收养法律机制应体现试收养、收养评估、收养登记和收养回访之间的依次衔接和有机关联，在增进审查、干预和保护的同时，也加强对被收养人及收养家庭的支持与服务。"
+          ],
+          "strengths": [
+            "三条延展路径清晰可定位，与'社会化转向'核心结论紧密衔接。",
+            "国际比较与本土试点经验（如北京融合期、安徽信息匹配）为延展提供实证支撑。"
+          ],
+          "weaknesses": [
+            "收养支持服务体系的建构较概括，'信息披露'等具体需求仅点到为止。",
+            "民法典与未成年人保护法的立法衔接路径仅作可能性分析，未形成确定性方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评未来延展方向（收养法社会化如何深化），而非当下结论是否被接受。论文结语'如何社会化方可在保留私法内核的同时实现私法的与时俱进'正是对未来研究的明确指向。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出清晰的收养法社会化立法路径与制度细化方案，延展方向明确且与核心论证紧密衔接。",
+          "core_judgment": "存在真实且具体的制度延展路径，涵盖立法模式选择、规则修正与程序服务构建。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确提出领域法架构、民社法衔接路径及不完全收养等具体修法方向，与核心结论紧密咬合，路径清晰可定位。",
+          "evidence_quotes": [
+            "当民法典囿于篇章布局或修法程序不便对收养法律制度作深度扩充时，未成年人保护法将是一个可选择路径。",
+            "未来我国收养制度应完全放弃对人口政策的依附……更应坚守那些有助于实现儿童最大利益的实质标准。"
+          ],
+          "strengths": [
+            "提出“领域法”架构与民社法衔接的具体立法路径，指向明确。",
+            "针对继亲收养等痛点给出“不完全收养”与宣告机制的细化方案。"
+          ],
+          "weaknesses": [
+            "对评估服务的财政保障及跨部门协同机制着墨较少。",
+            "部分程序设想（如试收养期）缺乏本土实证数据支撑其可行性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦立法修法路径与制度演进方向（如民社法分工、试收养程序构建），属“未来如何推进”的规划性延展，而非对现有结论正当性的当下评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.967661142349243,
+        "glm-5.1": 50.46819472312927,
+        "kimi-k2.6": 14.825721263885498,
+        "qwen3.6-plus": 54.55989193916321
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 76.8,
+      "std": 9.9,
+      "strictest": 65,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 73.51,
+      "weighted_total": 72.3
+    },
+    "aggregation_strictest": {
+      "final_score": 41.29,
+      "weighted_total": 46.1
+    },
+    "avg_std": 18.9,
+    "max_std": 42.8,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 32.2,
+    "composite_score": -18.9,
+    "worst_dimension": "literature_insight",
+    "worst_std": 42.8
+  }
+}

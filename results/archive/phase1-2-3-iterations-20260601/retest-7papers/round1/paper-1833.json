@@ -1,0 +1,1057 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1833-法学研究-2017-4-预防刑法的扩张及其限度-何荣功-武汉大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "参考文献列表缺失，但正文引用格式完整（含脚注与引用标志），核心论点、结构和论证可清晰定位，不影响评审。"
+        ],
+        "evidence_quotes": [
+          "[21] 参见[日]川岛武宜：《现代化与法》，申政武等译，中国政法大学出版社2004年版，第221页。",
+          "[23] 参见劳东燕：《风险社会中的刑法：社会转型与刑法理论的变迁》，北京大学出版社2015年版，第33页。",
+          "[38] [德]拉德布鲁赫：《法学导论》，米健译，商务印书馆2013年版，第141页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "预防刑法作为一项时代命题，对应着一定的时代背景与现实社会需求。",
+          "围绕危险防御和秩序管制的思维，有造成社会系统风险之虞的行为自然应受刑法规范的调整。因此，可以认为，刑法立法的预防转向只是现代社会法律整体价值立场转换的一个具体面相，是无法避免的时代趋势。",
+          "在我国的主流观念语境中，“保守”通常具有一定的贬义，但刑罚权的发动及行使界限事关公民基本权利，国家对此需要坚持理性和慎重的态度，而不能因为传统刑法具有保守性，就简单地认为其已不符合现代社会的发展趋势。",
+          "刑法修正案(九)新增拒不履行信息网络安全管理义务罪和帮助信息网络犯罪活动罪，将网络服务提供者的社会责任和管理义务，径直提升为刑法义务，不能不说在很大程度上超越了对刑法的属性及其体系地位的传统定位，这一立法修正所彰显的正是优先保护网络安全的价值取向。",
+          "立足于宪法原则和精神，即便眼下面临信息社会、风险社会所带来的各种复杂问题，国家还是要强调刑法参与社会治理的谦抑立场和最后手段性，社会治理应当优先考虑使用非刑罚措施。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "参考文献列表缺失，需补充后用于正式评审。",
+        "项目口径信号中'理论转化或可复核命题'为partial：文章对预防刑法的限制条件进行了理论建构，但尚处于规范命题初构阶段，需在六维评分中关注其命题的可复核性与体系化程度。"
+      ],
+      "evidence_quotes": [
+        "预防刑法是社会需求的产物，具有种种合理性和优势，但预防总是与无限制相联系，具有不确定性和难以捉摸的特性，具有与生俱来的‘越早越好’的内在扩张逻辑。",
+        "虽然理论上刑法的根本任务被定位为法益保护，但在风险社会中刑法的根本任务仍然是保护法益，那么预防刑法的正当性就仍然必须围绕法益来展开。",
+        "笔者提倡将预防刑法条款主要限制在超个人法益（主要是针对公共安全）犯罪或者法益侵害具有弥散性特点的犯罪领域。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量风险可控，项目口径信号全部触发，直接进入六维评分。建议评审时关注：1. 参考文献列表的补全；2. '理论转化或可复核命题'是否已形成清晰、可评判的法学概念或制度命题；3. 是否存在潜在的伦理风险（如对国家安全、社会稳定等敏感议题的论述是否妥当）。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在轻微OCR乱码，如括号不匹配、数字与正文融合（如(21 3, (23 7, (247, [3o)）",
+          "期刊页码混入正文（如· 143 ·, · 144 ·）"
+        ],
+        "evidence_quotes": [
+          "(21 3预防刑法作为一项时代命题",
+          "(23 7因此，社会需要国家提供一套担保仪式",
+          "· 143 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "刑法修正案(九)将刑法第3 1 l条修改为拒绝提供间谍犯罪、恐怖主义、极端主义犯罪证据罪，公民的刑法义务扩张至与国家合作打击恐怖主义、极端主义犯罪",
+          "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实，但这并不妨碍从理论上尝试提出种种限制措施",
+          "确立法益侵害危险作为法益保护的限度...第一，“危险”要件...第二，“重大”危险要件...第三，避免对“无辜”行为的处罚...第四，预防的有效性"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号轻微乱码及页码混入，不影响核心论点定位",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "确立法益侵害危险作为法益保护的限度...第一，“危险”要件...第二，“重大”危险要件...第三，避免对“无辜”行为的处罚...第四，预防的有效性"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续评审中注意脚注编号的OCR乱码还原及页码清理。"
+    },
+    "kimi-k2.6": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注编号存在OCR残留，如【21】【22】【23】等混用全角半角括号，部分脚注编号格式不统一（如(21与[21]混用）",
+          "参考文献列表缺失，文末仅有“参考文献列表：（无）”",
+          "期刊页码混入正文（如“· 143 ·”“· 144 ·”等）",
+          "部分脚注引用存在格式异常，如“前引【8】”“前引(17】”等编号错误",
+          "正文存在分栏残留标记“法学研究 2017年第4期”重复出现"
+        ],
+        "evidence_quotes": [
+          "(21",
+          "【21】",
+          "(22]",
+          "· 143 ·",
+          "法学研究\n2017年第4期",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "刑法修正案(九)将刑法第311条修改为拒绝提供间谍犯罪、恐怖主义犯罪、极端主义犯罪证据罪",
+          "刑法修正案(九)新增拒不履行信息网络安全管理义务罪和帮助信息网络犯罪活动罪",
+          "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实",
+          "我国目前并未真正建立如部分西方国家那样“司法机关限制处罚范围”的完善司法制度",
+          "我国宪法虽然没有明确规定比例原则，但宪法第5条、第13条第3款以及立法法第6条，均内含比例原则的精神",
+          "我国采取的是违法与犯罪相区分的二元体系",
+          "如陆勇案那样的刑法适用上的尴尬"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号格式混乱，需核对原始文献；参考文献列表缺失，需补全；期刊页码标记需清理",
+        "项目口径：论文以中国刑法立法实践为核心分析对象，具有明确的中国问题中心性"
+      ],
+      "evidence_quotes": [
+        "刑法修正案(九)将刑法第311条修改为拒绝提供间谍犯罪、恐怖主义犯罪、极端主义犯罪证据罪",
+        "我国宪法虽然没有明确规定比例原则，但宪法第5条、第13条第3款以及立法法第6条，均内含比例原则的精神",
+        "预防刑法条款只应针对导致法益侵害危险的行为"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国预防刑法立法实践为核心研究对象，对中国刑法修正案（九）的具体条款、中国违法与犯罪二元体系、中国司法实践中的积极入罪思维等进行了深入的法学理论分析，并提出了“危险”要件、“重大”危险要件、避免对“无辜”行为的处罚、预防的有效性等具有可复核性的理论命题，完全符合项目口径。建议进入六维评价，但需在评分前清理文本工程问题，特别是补全参考文献列表、统一脚注格式。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号OCR识别粘连或格式错乱（如'(21'、'(23 7'、'[3o)'、'(383'等）",
+          "期刊页眉页脚及页码混入正文段落间（如'· 143 ·'、'法学研究 2017年第4期'）"
+        ],
+        "evidence_quotes": [
+          "(21\n\n3预防刑法作为一项时代命题",
+          "· 143 · \n\n法学研究 \n2017年第4期",
+          "(383国家的法治图像在根本上塑造着刑"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "上述情形在我国同样存在。“乱世用重典” 的法律文化传统、刑法作为社会问题解决手段的工具性理念，使得我国社会中一直存在对刑法的旺盛需求",
+          "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实，但这并不妨碍从理论上尝试提出种种限制措施。",
+          "笔者提倡将预防刑法条款主要限制在超个人法益(主要是针对公共安全)犯罪或者法益侵害具有弥散性特点的犯罪领域。",
+          "第一，“危险” 要件...第二，“重大” 危险要件...第三，避免对“无辜”行为的处罚...第四，预防的有效性。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在局部脚注编号乱码与页眉混入，建议在评分前进行轻量级清洗，不影响核心论证定位。",
+        "项目口径：四项信号均明确触发，中国问题中心性突出，理论命题完整，无需人工复核口径。"
+      ],
+      "evidence_quotes": [
+        "预防刑法的扩张及其限度",
+        "立足于宪法原则和精神，即便眼下面临信息社会、风险社会所带来的各种复杂问题，国家还是要强调刑法参与社会治理的谦抑立场和最后手段性",
+        "第一，“危险” 要件...第二，“重大” 危险要件...第三，避免对“无辜”行为的处罚...第四，预防的有效性。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本具备明确的中国问题意识与可争辩的法学命题，已构建出限制预防刑法扩张的宪法-教义学双层框架，完全符合进入六维评价的口径。仅存在轻微OCR脚注与页码混入风险，建议直接进入评分流程，评审时忽略格式噪声即可。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文系统阐述了预防刑法的合理性、困境与限制，但核心是基于既有立场的观点归纳，缺乏明确且尖锐的理论争点。",
+          "core_judgment": "论文主要采用“现状-风险-对策”的规范阐释框架，未能提炼出可争辩的法学问题，削弱了其在理论创新层面的贡献。",
+          "score_rationale": "可争辩性=2/4，枢纽性=2/4，材料新颖性未触发上限。问题属于‘主题声明’型论述，缺乏核心争议句，锚定marginal档。扣分合计：检查1扣0分；检查2扣15分（有提及分歧但未展开交锋）；检查3扣30分（全文无问题句）。最终分数=85-15-30=40。修正为55分：因枢纽性满足2项，且涉及对谦抑性原则的宏观争议，在学术讨论层面有一定价值，但问题创新性不足、未形成尖锐争点，故给55分。",
+          "evidence_quotes": [
+            "“预防刑法是否会威胁和改变法治国的核心价值?倘若刑法一意追求预防导向，是否会模糊刑法干预社会的应有界限?”",
+            "“刑法谦抑性是一种理念，也是一种行动……笔者并不赞同将刑法谦抑性的重心转移至司法环节。”"
+          ],
+          "strengths": [
+            "敏锐捕捉了预防刑法在回应社会需求与潜藏的法治风险之间的张力。",
+            "将谦抑性原则的争论提升到宪法层面，试图建立二元限制框架，有一定枢纽性。"
+          ],
+          "weaknesses": [
+            "全文缺乏清晰的问题句与核心争点，更像立场声明而非围绕争议的深度研究。",
+            "本质上是对不同学者观点的归纳与回应，未展开观点的实质性交锋与推进。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无可争辩的法学争点，主要是对预防刑法合理性及其限制的立场阐释。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以‘预防刑法的扩张及其限度’为主题声明，虽提及风险但未形成‘XX是否YY’等可争辩的问题结构，未进入核心论点交锋层面。"
+            }
+          ],
+          "boundary_note": "本维度仅评价问题本身的创新性与可争辩性，不评价论证严密性、文献综述或材料的支撑程度。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出了预防刑法与法治国核心价值冲突的清晰争点，枢纽性强。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，涉及刑法根本立场与宪法原则，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "预防刑法是否会威胁和改变法治国的核心价值?倘若刑法一意追求预防导向，是否会模糊刑法干预社会的应有界限?",
+            "笔者并不赞同将刑法谦抑性的重心转移至司法环节...立足于宪法原则和精神，国家还是要强调刑法参与社会治理的谦抑立场"
+          ],
+          "strengths": [
+            "问题直击风险社会下刑法预防转向与法治国核心价值的深层冲突。",
+            "呈现了积极立法观与谦抑性原则的明确理论分歧，争点清晰。"
+          ],
+          "weaknesses": [
+            "部分论证偏向宏观价值宣示，具体限度的教义学落地稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且枢纽性强，不评论证严密性或文献覆盖度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文主题明确但缺乏真正可争辩的法学问题，实为对预防刑法合理性的单向度阐释。",
+          "core_judgment": "全文以'预防刑法的扩张及其限度'为题，但实质是对预防刑法实践合理性的系统论证与限制框架的提出，缺乏与对立观点的真正学术交锋。",
+          "score_rationale": "可争辩性=2/4（有问题句但缺乏真正交锋），枢纽性=2/4（涉及刑法根本任务与宪法原则，但制度连锁论证不足），材料新颖性未触发上限，锚定marginal档，给55分。负面模式检查：检查1不扣（无新概念包装），检查2扣20分（无学者观点交锋，仅单向论证），检查3扣20分（问题句实质是政策倡导型框架构建），扣分合计40分，但规则要求扣分后不低于30分，故有效。",
+          "evidence_quotes": [
+            "预防刑法作为一项时代命题，对应着一定的时代背景与现实社会需求",
+            "如何在开放与公正之间保持适当的平衡，构建实现平衡的可行框架"
+          ],
+          "strengths": [
+            "主题触及刑法哲学核心，涉及国家权力与公民自由关系"
+          ],
+          "weaknesses": [
+            "全文无真正学术交锋，仅单向论证预防刑法的合理性与限制",
+            "问题表述宏大，'扩张及其限度'沦为政策框架而非可争辩法学争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "标题'预防刑法的扩张及其限度'涵盖面过宽，实际论述未形成具体争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦预防刑法扩张与法治限缩的张力，提出宪法与教义学双重限制框架。",
+          "core_judgment": "问题具有明确争点与深厚法理基础，契合刑法学核心争议，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限。锚定excellent档，给88分。负面模式扣分0。",
+          "evidence_quotes": [
+            "预防刑法是否会威胁和改变法治国的核心价值？倘若刑法一意追求预防导向，是否会模糊刑法干预社会的应有界限？",
+            "立足于宪法原则和精神，即便眼下面临信息社会、风险社会所带来的各种复杂问题，国家还是要强调刑法参与社会治理的谦抑立场和最后手段性。"
+          ],
+          "strengths": [
+            "明确提炼预防扩张与法治限缩的核心争点",
+            "系统整合宪法比例原则与刑法教义学限制路径"
+          ],
+          "weaknesses": [
+            "部分限制要件（如重大危险）的教义学界定仍偏宏观",
+            "对司法生态制约的论证略多于规范建构"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题争点与理论价值，不涉文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 30.348172903060913,
+        "glm-5.1": 86.7768566608429,
+        "kimi-k2.6": 14.405519723892212,
+        "qwen3.6-plus": 54.749449014663696
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "mean": 72,
+      "std": 19.6,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文通过分散式引述呈现了预防刑法相关的学术讨论，但未形成清晰的研究地图，缺乏对既有研究的系统到达点和未竟点提炼。",
+          "core_judgment": "虽然本文在论述中引用了多位学者观点并触及了刑法谦抑性等核心争点，但文献梳理以支持作者论证为主，未能构建出可区分的既有研究脉络和待解难题。",
+          "score_rationale": "三要素总分=3/6（到达点=1，未竟点=1，本文切入点=1），争点结构=1/2，法学流派=2个，锚定good上限79档，因三要素总分3且争点结构仅1，给65分。",
+          "evidence_quotes": [
+            "“张明楷以网络时代为背景指出……我国刑法应当从‘限定的处罚’转向‘妥当的处罚’。周光权在阐述了积极刑法立法观之后……表达了比较折中的意见。”",
+            "“预防刑法的出现和成长还与既有规范面对风险时的治理无效或不足密切相关……当其他制度规范的整体性供给不足时，刑法的功能就会被倚重，刑法就会扩张、膨胀。”"
+          ],
+          "strengths": [
+            "在论证中引用了劳东燕、张明楷、周光权、胡萨克等多位学者的具体观点，显露一定学术对话意识。",
+            "触发了刑法谦抑性应置于立法还是司法的核心争点，形成了学术立场的初步对比。"
+          ],
+          "weaknesses": [
+            "三要素严重残缺：既无具体研究成果的贡献提炼（到达点薄弱），也未明确系统指出既有研究的缺口（未竟点模糊），本文切入点与文献缺口缺少直接对应。",
+            "引文主要服务于作者观点铺陈，缺乏对既有研究的结构化梳理，导致研究地图几乎未能建立。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，上限79分，因三要素总分仅3且争点结构仅1，结合整体研究地图薄弱，定为65分。",
+              "score_ceiling": 79,
+              "priority": 1,
+              "evidence": "三要素总分为3（各1分），法学流派识别2个（预防刑法观与谦抑刑法观的对立），但争点结构仅1分，仅呈现了刑法谦抑性重心之争。"
+            }
+          ],
+          "boundary_note": "此评分仅针对论文对既有研究的梳理与整合程度，不评价预防刑法问题的创新性及论证严密性。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "文献梳理深入，争点结构清晰，充分呈现预防刑法正当性与限制路径的学界分歧。",
+          "core_judgment": "研究地图完整，明确指出了积极立法观与谦抑性之争及限制路径缺口，切入精准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "理论上要求松弛刑法谦抑性要求的观点正变得越来越有力。张明楷……周光权……笔者并不赞同将刑法谦抑性的重心转移至司法环节。",
+            "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实……只有回到刑法本身，才能找到限制预防刑法的切实可行路径。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰提炼了积极立法观与坚守谦抑性的对立。",
+            "争点结构立体，涵盖正当性、谦抑性去向及限制路径三重分歧。"
+          ],
+          "weaknesses": [
+            "对风险刑法与敌人刑法的流派引述稍显单薄，仅作为背景提及。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点梳理深度，不评预防刑法限制方案本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点结构。",
+          "core_judgment": "本文虽有大量引注，但未建立'到达点—未竟点—切入点'的研究地图，争点结构缺失。",
+          "score_rationale": "三要素得分=2/6（到达点1分，未竟点1分，切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，给52分。",
+          "evidence_quotes": [
+            "参见前引[23]，劳东燕书，第33页。",
+            "参见前引[54]，Douglas Husak书，第161页以下。"
+          ],
+          "strengths": [
+            "引注丰富，涉及中外多学者观点"
+          ],
+          "weaknesses": [
+            "未提炼既有研究的具体贡献与不足",
+            "缺乏'学界争论'表述，无对立立场呈现"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅提及劳东燕等观点但未提炼贡献；未竟点仅暗示'忧虑'但未明确具体学术缺口；切入点未与未竟点对接"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位而非问题新颖性，其预防刑法主题本身具有讨论价值。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒预防刑法扩张的学术脉络与规范争议，研究地图完整，争点结构明确。",
+          "core_judgment": "研究地图三要素充分满足，争点结构完整，流派识别达标，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "我国刑法应当从“限定的处罚”转向“妥当的处罚”",
+            "笔者并不赞同将刑法谦抑性的重心转移至司法环节"
+          ],
+          "strengths": [
+            "三要素完整，精准提炼既有研究贡献与局限",
+            "争点结构清晰，宪法与教义学双轨限制路径明确"
+          ],
+          "weaknesses": [
+            "流派识别仅停留在立场对立，未深入梳理理论谱系",
+            "文献定位分散，缺乏集中式综述整合"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，非评价预防刑法议题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.068708181381226,
+        "glm-5.1": 89.360591173172,
+        "kimi-k2.6": 12.784589052200317,
+        "qwen3.6-plus": 67.54346966743469
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 88,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 80
+      },
+      "mean": 71.2,
+      "std": 16.0,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文梳理了预防刑法的现实需求与法治困境，并提出了限制框架，但缺乏可操作的分析步骤与法学转化，属于政策理论梳理型归纳，未能建构起可重复适用的分析框架。",
+          "core_judgment": "该文主要贡献在于归纳既有的理论立场与现实需求，而非提出原创的、具有可操作性的分析框架，因此框架建构力维度不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅满足概念界定基本清晰，但分析步骤及后文调用存在缺陷），法学转化度得分=0/4，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "我们应当在正视刑法体系应时所需而经历演变的基础上，思考刑法体系的开放性与公正性之间的关系，寻求如何在开放与公正之间保持适当的平衡，构建实现平衡的可行框架。",
+            "立法上如要设置预防刑法条款，除了需具备犯罪化的一般条件，还有必要充分考虑以下限制条件：第一，“危险”要件……第二，“重大”危险要件……第三，避免对“无辜”行为的处罚。第四，预防的有效性。"
+          ],
+          "strengths": [
+            "从社会需求、国家职能与民主政治等宏观维度系统梳理了预防刑法的背景，问题意识明确。",
+            "提出了“危险 vs 风险”、“重大危险”等初步的类型化区分概念，展现了限制国家刑罚权的理论努力。"
+          ],
+          "weaknesses": [
+            "核心限制框架仅为要件罗列，缺乏如“比例原则三阶审查”那样明确、可重复适用的分析步骤。",
+            "概念堆砌严重：“危险”、“风险”、“重大危险”等核心术语缺乏严格定义与操作化边界，未转化为裁判或立法审查的具体标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "v0.7协议对齐：论文主要工作为梳理归纳既有立场而非提出原创分析框架，框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释预防刑法的合理性、困境及应然限制为主，核心术语多来自法治国、谦抑性、比例原则等既有概念，未形成可逐步操作的判断标准或分析步骤。"
+            }
+          ],
+          "boundary_note": "此维度仅评价框架本身的可用性与操作性。文中对谦抑性立场的坚持与危险要件的列举属于观点阐述，而非逻辑严密性的问题，不涉及推理衔接评价。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文建构了限制预防刑法的四要件分析框架，具有高度可操作性与法学转化度。",
+          "core_judgment": "分析框架成立且可用，成功将风险社会理论转化为具体的刑法立法与适用限制标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "所谓‘危险’，是指行为具有造成法益侵害的确定性...与此不同，‘风险’则指的是法益侵害可能发生，也可能不发生",
+            "立法上如要设置预防刑法条款...有必要充分考虑以下限制条件：第一，‘危险’要件...第二，‘重大’危险要件...第三，避免对‘无辜’行为的处罚...第四，预防的有效性"
+          ],
+          "strengths": [
+            "提出了清晰可循的四要件分析步骤",
+            "将抽象理论转化为具体的刑法立法与适用判断标准"
+          ],
+          "weaknesses": [
+            "部分要件（如预防有效性）的实证检验标准仍偏抽象"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构力，不评价预防刑法理论本身的创新性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 42,
+          "band": "marginal",
+          "summary": "论文为预防刑法的限制提出理论框架，但缺乏可操作的判断步骤和类型化标准。",
+          "core_judgment": "分析框架建构力较弱，核心概念虽有提及但未转化为可重复适用的法学操作步骤。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定部分清晰但无明确分类标准和步骤化流程），法学转化度得分=1/4（提出'危险''重大'等要件但未转化为裁判规则或司法适用流程），锚定marginal档，给42分。触发政策理论梳理型识别规则，框架核心为'梳理''阐释'既有理论而非原创建构。",
+          "evidence_quotes": [
+            "立法上如要设置预防刑法条款，除了需具备犯罪化的一般条件，还有必要充分考虑以下限制条件",
+            "第一，'危险'要件……第二，'重大'危险要件……第三，避免对'无辜'行为的处罚……第四，预防的有效性"
+          ],
+          "strengths": [
+            "提出'危险''重大''无辜''有效性'四要件作为限制标准，有一定结构化努力",
+            "结合宪法比例原则和刑法谦抑性进行理论整合，体现一定理论深度"
+          ],
+          "weaknesses": [
+            "四要件仅为理论主张罗列，未转化为可重复适用的判断步骤或裁判规则",
+            "核心术语如'重大危险''无辜行为'缺乏操作化定义和边界界定"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型识别规则：框架可操作性上限2分，法学转化度上限1分",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释预防刑法的合理性、困境及限制为主，核心贡献是'梳理''归纳'既有理论（胡萨克、罗克辛、格林等），而非原创建构分析框架；'四个限制条件'为理论主张的平铺罗列，无原创概念界定或类型化转化"
+            }
+          ],
+          "boundary_note": "本维度仅评框架本身是否可操作、有法学转化，不评论证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了宪法与教义学双轨并行的预防刑法限制框架，概念清晰且步骤可循。",
+          "core_judgment": "该分析框架具备高度的可操作性与明确的法学转化路径，能够有效指导立法与司法审查。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。核心概念界定清晰，四步限制要件构成可重复适用的判断流程，并在后文具体罪名分析中被充分调用，完成从风险社会理论到刑法教义学审查标准的转化。",
+          "evidence_quotes": [
+            "本文所称'危险'，是指行为具有造成法益侵害的确定性……与此不同，'风险'则指的是法益侵害可能发生，也可能不发生。",
+            "立法设置预防刑法条款需满足四项限制条件：危险要件、重大危险要件、避免处罚无辜行为及预防有效性。"
+          ],
+          "strengths": [
+            "提出'危险/风险'二分及四步限制要件，形成清晰的教义学审查流程。",
+            "将宏观风险社会理论转化为具体的立法正当性检验标准，转化路径扎实。"
+          ],
+          "weaknesses": [
+            "部分要件（如预防有效性）的司法证明标准仍偏理论化，缺乏程序性操作细则。",
+            "宪法比例原则与教义学要件的衔接逻辑可进一步细化为裁判指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力与转化度，不涉及逻辑推演严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 100.99409413337708,
+        "glm-5.1": 53.14309287071228,
+        "kimi-k2.6": 22.886749029159546,
+        "qwen3.6-plus": 62.724616050720215
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 90,
+        "kimi-k2.6": 42,
+        "qwen3.6-plus": 90
+      },
+      "mean": 64.2,
+      "std": 29.9,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文推理链完整清晰，逐层推导出预防刑法的限制方案，并对关键反驳做了实质性回应，结论可由前文辩护性地推出。",
+          "core_judgment": "论文从社会需求分析出发，经宪法定位与体系限制，推导出内部外部双重制约方案，整体逻辑链条自洽且牢固。",
+          "score_rationale": "推理链完整性得分为4/4，满足全部四项条件；反驳处理度得分为3/3，满足三项条件。锚定excellent档，给予90分。",
+          "evidence_quotes": [
+            "面对种种强烈的社会需求...理论上要求松弛刑法谦抑性要求的观点正变得越来越有力...笔者理解上述观点所依据的理论基础，但并不赞同将刑法谦抑性的重心转移至司法环节。",
+            "法治国对刑法立法的要求是从宪法原则中推导出来的...界定危险预防的刑法界限，还必须明确刑法是否有必要坚持谦抑性这一根本问题。"
+          ],
+          "strengths": [
+            "推理链条环环相扣：先论证预防刑法的现实合理性，再揭示其法治困境，最后据此提出宪法与刑法双重限制方案，递进严密。",
+            "反驳处理扎实有力，不仅准确识别了对立观点的主张与理由，还从制度配套、刑罚结构等实干维度给予了实质性回应。"
+          ],
+          "weaknesses": [
+            "从宪法原则推导刑法谦抑性的部分，对宪法条文的比例原则内涵论证略薄，缺乏直接文本分析。",
+            "引入胡萨克的外部限制思路后，外部制约路径的具体构建稍显简略，可能导致此分支的推演力度弱于内部限制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评价推理衔接与反驳处理的质量，不评价限制框架本身在实践中的可操作性（属于分析框架建构力维度）。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "推理链完整闭环，反驳处理扎实，核心结论可辩护推出。",
+          "core_judgment": "论文逻辑严密性成立，从预防刑法合理性推导出法治困境，进而推导出具体限制要件，链条完整且反驳有力。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "期待刑事司法权谦抑行使，这本身就是对司法机关的‘苛求’",
+            "眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实"
+          ],
+          "strengths": [
+            "推理链层层递进，从合理性到困境再到限制方案，逻辑闭环",
+            "对反对意见的回应结合中国司法生态，论证极具说服力"
+          ],
+          "weaknesses": [
+            "从法益保护根本任务到四个具体要件的推导略显发散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价的是要件推导的严密性，而非要件本身在司法中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'预防刑法合理性→法治困境→限制路径'的完整推理链，但反驳处理存在明显薄弱。",
+          "core_judgment": "推理链完整但反驳处理度不足，核心结论可从前文推出，但部分关键过渡存在论证压缩。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3成立，标准4部分成立：'危险'与'风险'的区分论证有跳步，从'宪法定位'到'比例原则'的过渡较顺，但'法益侵害危险作为限度'的具体推导中，'重大'要件的量化标准未充分展开；反驳处理度得分=1/3（标准1成立：识别了张明楷、周光权等反对意见；标准2部分成立：对'大犯罪圈'观点有回应但不够深入；标准3不成立：未明确承认自身'危险/风险'区分框架的适用边界）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "笔者理解上述观点所依据的理论基础，但并不赞同将刑法谦抑性的重心转移至司法环节。首先……其次……",
+            "立足于宪法原则和精神，即便眼下面临信息社会、风险社会所带来的各种复杂问题，国家还是要强调刑法参与社会治理的谦抑立场和最后手段性"
+          ],
+          "strengths": [
+            "三步递进结构清晰：合理性论证→困境揭示→限制路径，依赖度强",
+            "从宪法框架到刑法体系再到具体要件，层级推演有序"
+          ],
+          "weaknesses": [
+            "对'危险/风险'区分仅作概念界说，未回应'风险行为'结果犯化的实践难题",
+            "'重大危险'要件的判断标准未充分展开，从理论到规范的推导有压缩"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不涉及'危险/风险'概念框架本身的建构力评价。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文逻辑链条完整，反驳回应充分，结论可辩护推出。",
+          "core_judgment": "推理链形成闭环，核心结论由前文规范分析与现实考察充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "笔者并不赞同将刑法谦抑性的重心转移至司法环节……较之于立法，刑事司法背弃谦抑性立场的现象更为严重。",
+            "预防刑法条款只应针对导致法益侵害危险的行为……立法需要区分法益侵害的‘危险行为’和‘风险行为’。"
+          ],
+          "strengths": [
+            "推理链条完整，从现实合理性推演至法治困境，再导出宪法与教义学双重限制框架。",
+            "反驳处理扎实，针对谦抑性重心转移说结合本土司法生态进行实质性回应。"
+          ],
+          "weaknesses": [
+            "危险与风险的界分论证稍显简略，部分依赖学理预设而非严密推演。",
+            "宪法比例原则向刑法谦抑性的教义学衔接略跳跃，推导过程可更细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链支撑度，不评限制框架的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 53.40614581108093,
+        "glm-5.1": 60.801395893096924,
+        "kimi-k2.6": 18.643388032913208,
+        "qwen3.6-plus": 67.78391599655151
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 90,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.2,
+      "std": 10.4,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文结论在深入回应学界争论并承认自身局限的基础上，对预防刑法扩张进行了有限度的接纳，同时提出具体的限缩条件，与中国法秩序相容，构成可进入对话的学术主张。",
+          "core_judgment": "结论具有很高的共同体对话度，它明确回应了张明楷、周光权等学者的主张，并主动承认宪法制约的局限，同时通过内部/外部双重限制方案与现有法秩序逻辑兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4（理论论文），锚定理论论文excellent档，考虑极强对话特质，给85分。",
+          "evidence_quotes": [
+            "笔者理解上述观点所依据的理论基础，但并不赞同将刑法谦抑性的重心转移至司法环节。",
+            "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实，但这并不妨碍从理论上尝试提出种种限制措施。"
+          ],
+          "strengths": [
+            "结论与张明楷、周光权观点进行明确交锋，反对声音可清晰定位并构造反驳路径，对话度高。",
+            "结论主动承认宪法层面正式制约机制的暂时缺失，并以此为基础构建理论方案，体现了理论真诚。"
+          ],
+          "weaknesses": [
+            "对预防刑法“有效性预防”要件的论述尚停留在原则层面，针对具体罪名的制度转化方向可操作性有待增强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否进入共同体对话并与法秩序兼容，不评其论证过程是否严密或是否打开未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论在共同体对话与制度语境中高度可接受，提出了具体的预防刑法限制要件。",
+          "core_judgment": "结论直接回应学界争论并提出具体制度限制要件，在共同体和制度层面均高度可接受。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论回应了积极立法观争论，结合中国二元体系提出了四个具体限制要件。",
+          "evidence_quotes": [
+            "笔者并不赞同将刑法谦抑性的重心转移至司法环节……立法上贯彻谦抑性具有更为基础的意义",
+            "确立法益侵害危险作为法益保护的限度……充分考虑危险要件、重大危险要件等限制条件"
+          ],
+          "strengths": [
+            "直接回应张明楷、周光权等关于谦抑性的主流争论，对话度高。",
+            "提出四个具体限制要件，制度转化方向明确且非空泛。"
+          ],
+          "weaknesses": [
+            "\"危险\"与\"风险\"的区分标准在实务中可能面临界定模糊的挑战。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估结论的共同体与制度可接受性，不评估论证逻辑严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文对预防刑法的实践合理性、法治困境及限制路径进行了系统论证，结论具有明确的学术对话意识和制度关怀。",
+          "core_judgment": "结论能够进入刑法学共同体语境，与既有理论形成对话，并对中国制度语境有所回应，但制度转化方向的具体性不足。",
+          "score_rationale": "共同体对话度得分=3/4（回应了风险社会理论、积极刑法立法观等争论，能被反对者定位回应，承认中国语境；但未充分讨论反对意见或自身局限）。制度可接受度得分=2/4（不与现行法秩序根本矛盾，对制度约束有原则性回应；但未明确指向制度转化方向，中国语境讨论集中于司法生态批评而非制度适配）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "笔者理解上述观点所依据的理论基础，但并不赞同将刑法谦抑性的重心转移至司法环节",
+            "立足于宪法原则和精神，即便眼下面临信息社会、风险社会所带来的各种复杂问题，国家还是要强调刑法参与社会治理的谦抑立场和最后手段性"
+          ],
+          "strengths": [
+            "明确回应并挑战了张明楷、周光权等学者的积极刑法立法观",
+            "结合中国二元违法体系与司法生态展开讨论，具有本土意识"
+          ],
+          "weaknesses": [
+            "未充分讨论反对意见或承认自身论证局限",
+            "制度转化方向较抽象，缺乏具体规则设计或程序衔接方案"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性，不涉及论证严密性或未来研究空间的评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应谦抑性争论，立足中国二元体系提出宪法与教义学双重限制框架，高度契合现行法秩序逻辑。",
+          "core_judgment": "结论明确嵌入既有学术对话，提出可检验的限制要件，与中国制度语境高度兼容，具备强可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "笔者理解上述观点所依据的理论基础，但并不赞同将刑法谦抑性的重心转移至司法环节。",
+            "立法如果肯定预防刑法的合法性，就必须证立放弃民事行政措施转而采取刑罚的正当性。"
+          ],
+          "strengths": [
+            "精准定位主流学者观点并展开针对性修正。",
+            "结合中国二元体系及司法生态论证限制路径。"
+          ],
+          "weaknesses": [
+            "宪法限制机制论述偏重应然，对违宪审查缺位应对稍显理想。",
+            "“重大危险”要件的司法认定标准仍需进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 60.81214690208435,
+        "glm-5.1": 70.53446006774902,
+        "kimi-k2.6": 13.500150918960571,
+        "qwen3.6-plus": 66.23073196411133
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.8,
+      "std": 9.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文未提出具体、可定位的未来研究问题或理论修正路径，仅以宏观方向性论述收尾，缺乏真实的延展路径。",
+          "core_judgment": "该文未能满足有效延展信号的要求，仅以空泛的制度方向总结代替了具体的研究拓展。",
+          "score_rationale": "原始分30分，处于0-39低分段，对应bonus=0。论文在结语部分仅提出‘寻求如何在开放与公正之间保持适当的平衡’等宏观方向，未指明具体后续研究问题、概念修正路径或反驳入口，属于口号式展望。",
+          "evidence_quotes": [
+            "寻求如何在开放与公正之间保持适当的平衡，构建实现平衡的可行框架。",
+            "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实，但这并不妨碍从理论上尝试提出种种限制措施。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "展望流于宏观口号，缺乏具体后续研究问题或争点。",
+            "未指明理论深化方向或概念修正路径，仅重复正文已论述的平衡理念。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "结语仅提及‘寻求如何在开放与公正之间保持适当的平衡’、‘从理论上尝试提出种种限制措施’等，属于口号式意义拔高与泛泛‘继续研究’。"
+            }
+          ],
+          "boundary_note": "本维度评价论文是否指明了未来的研究路径。论文结论部分讨论的是当下刑法体系的应然立场，属于结论可接受性范畴，而非提出下一步研究的具体问题或修正方向。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "提出了预防刑法的宪法与教义学双层限制框架及四个具体适用要件，延展路径清晰。",
+          "core_judgment": "存在真实延展路径，指明了制度修正方向、适用边界与理论争点入口。",
+          "score_rationale": "原始分82，对应bonus档位5分（>=80）。论文在限制预防刑法部分提出了宪法定位、比例原则及四个具体要件，并给出“危险/风险”概念区分的反驳入口，路径清晰可定位，与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "笔者这里使用‘危险’和‘风险’概念，旨在对两种不同情形进行区分描述。表达是否妥当，期待学界同仁指正。",
+            "预防刑法条款只应针对导致法益侵害危险的行为……立法上对‘风险行为’进行犯罪化时，应尽可能采用结果犯的构成要件设置"
+          ],
+          "strengths": [
+            "提出了具体的制度适用边界与风险控制要件（危险、重大危险等）。",
+            "明确给出理论争点入口，邀请同仁对概念区分指正。"
+          ],
+          "weaknesses": [
+            "缺乏对自身论证局限的明确承认及后续推进路径的集中阐述。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "预防有效性及避免处罚无辜属于未来制度实施的风险控制与场景延伸，而非当下结论能否被共同体接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在限制预防刑法的具体路径上提出了'危险'要件、'重大'危险要件、避免处罚'无辜'行为、预防有效性等四重限制框架，并指出法益侵害危险作为预防限度的核心方向，但缺乏对后续研究争点的明确勾连。",
+          "core_judgment": "存在可定位的延展方向，但路径精细度有限，未形成明确的后续研究问题或下一轮争点。",
+          "score_rationale": "原始分55分，对应bonus=2的边际档位。论文在'危险'与'风险'的区分、'重大'危险的判断标准、超个人法益的限定等领域提出了可继续深化的概念修正路径，但多数延展方向停留于制度完善方向的概括性表述，未明确后续研究的具体争点或检验入口。",
+          "evidence_quotes": [
+            "笔者这里使用'危险'和'风险'概念，旨在对两种不同情形进行区分描述。表达是否妥当，期待学界同仁指正。",
+            "从法益侵害的类型看，笔者提倡将预防刑法条款主要限制在超个人法益（主要是针对公共安全）犯罪或者法益侵害具有弥散性特点的犯罪领域。"
+          ],
+          "strengths": [
+            "提出'危险'与'风险'的区分及'重大'危险要件，为后续概念精细化提供路径。",
+            "对预防有效性问题的揭示，为批判象征性立法提供可延伸的实务切入点。"
+          ],
+          "weaknesses": [
+            "未明确后续研究的具体争点或检验框架，延展方向较概括。",
+            "对'无辜'行为界定、预防有效性判断标准等关键概念，缺乏进一步操作化的方向指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文是否为未来研究或制度发展提供了可继续推进的路径，而非评价当下结论是否被接受。论文关于比例原则、法益侵害危险限度的讨论属于未来可深化的方向，而非对当下结论可接受性的判断。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在宪法控制与教义学内部双重框架下，清晰勾勒了预防刑法的限缩路径与后续争点。",
+          "core_judgment": "存在真实且具体的延展路径，涵盖宪法定位、教义学概念修正及司法过滤机制构建。",
+          "score_rationale": "原始分85，对应bonus=5。论文明确提出“危险/风险”区分、重大危险量化、司法过滤机制缺失等具体待解问题，延展路径清晰且与核心结论紧密咬合。",
+          "evidence_quotes": [
+            "在我国，眼下试图通过正式宪法机制来实现对预防刑法的有效限制，还不太现实，但这并不妨碍从理论上尝试提出种种限制措施。",
+            "笔者这里使用“危险”和“风险”概念，旨在对两种不同情形进行区分描述。表达是否妥当，期待学界同仁指正。"
+          ],
+          "strengths": [
+            "明确区分危险与风险概念，为教义学精细化提供修正入口。",
+            "指出我国二元违法体系下司法过滤机制缺失，指明制度衔接研究方向。"
+          ],
+          "weaknesses": [
+            "宪法控制路径的本土化落地机制仍偏宏观，缺乏具体程序法衔接设计。",
+            "对“重大危险”的量化标准仅举例说明，未提供可操作的教义学检验模型。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于论文提出的“危险/风险”概念修正、宪法控制机制构建及司法过滤路径等未来研究议程，而非评价当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 93.51950693130493,
+        "glm-5.1": 55.84030199050903,
+        "kimi-k2.6": 23.787785053253174,
+        "qwen3.6-plus": 55.857274770736694
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 82,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 85
+      },
+      "mean": 63,
+      "std": 25.8,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 77.01,
+      "weighted_total": 74.5
+    },
+    "aggregation_strictest": {
+      "final_score": 54.76,
+      "weighted_total": 55.2
+    },
+    "avg_std": 18.4,
+    "max_std": 29.9,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 22.3,
+    "composite_score": -18.4,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 29.9
+  }
+}

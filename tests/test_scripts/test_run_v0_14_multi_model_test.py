@@ -6,7 +6,11 @@ from pathlib import Path
 
 
 SCRIPT_PATH = (
-    Path(__file__).resolve().parents[2] / "scripts" / "run_v0.14_multi_model_test.py"
+    Path(__file__).resolve().parents[2]
+    / "scripts"
+    / "archive"
+    / "experiments-20260601"
+    / "run_v0.14_multi_model_test.py"
 )
 
 
@@ -29,7 +33,10 @@ def test_default_review_models_use_gpt_5_5() -> None:
 def test_default_framework_uses_v2_46_large_scale_candidate() -> None:
     v0_14_test = _load_script_module()
 
-    assert v0_14_test.DEFAULT_FRAMEWORK == "configs/frameworks/law-v2.46-20260511.yaml"
+    assert (
+        v0_14_test.DEFAULT_FRAMEWORK
+        == "configs/frameworks/archive/v2.0-v2.54-20260522/law-v2.46-20260511.yaml"
+    )
 
 
 def test_parser_accepts_custom_review_models() -> None:

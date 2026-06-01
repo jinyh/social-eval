@@ -1,0 +1,1059 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/全球治理背景下国际税收秩序的挑战与变革.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文中存在明显的OCR/格式残留（如“中国法学 2017年第3期”页码标识混入正文、引用标记“⑦⑧⑨⑩”等未清理）。",
+          "脚注和参考文献区域被抽取后混入正文，且文末无独立参考文献列表。"
+        ],
+        "evidence_quotes": [
+          "中国法学 \n2017年第3期",
+          "⑦\n前引③，廖益新主编书，第29页。 \n187"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善...",
+          "利用国际税务合作机制，争取国际税收规则制定中的话语权...",
+          "我国已经从来源地国发展成为居住地国与来源地国兼具、以居住地国为主的税收地位，这一角色的转变要求我们从税收协定和国内法两个层面对当前的国际税收规则进行调整和完善...",
+          "在全球化与数字化背景下，传统税收管辖权规则的有效性受到挑战...以中国、印度等金砖国家为代表的新兴经济体迅速崛起...积极谋求...政治经济权力结构的全面改革。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "【文本工程风险】正文中混入期刊页码标识和未清洗的脚注编号，影响文本纯净度。",
+        "【项目口径关注】论文落脚于中国如何应对全球税收治理变革，形成了“身份转变（来源地国到居住地国）—规则调整—话语权争取”的中国实践解释与规范命题，高度匹配“中国自主知识体系研究”。"
+      ],
+      "evidence_quotes": [
+        "我国已经实现从资本输入国到资本输出国的身份转变...结合BEPS行动计划成果完善国内立法...在金砖国家合作机制、G20及筹建中国国际税收政策研究中心等平台上争取国际税收规则制定话语权。",
+        "以BEPS行动计划为代表的国际税改方案...是对传统国际税收规则进行的一次彻头彻尾的梳理和重塑..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在OCR及格式混入风险，但核心论点清晰可读，建议清理文本后直接进入六维评分；论文紧扣中国身份转变与实践应对，属于典型可评论文。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如187, 188, 190等）",
+          "脚注编号乱码/残留（如⑦, ⑧, ⑩, ⑥等）",
+          "URL及标点符号存在OCR识别错误（如htto, ~, )等）"
+        ],
+        "evidence_quotes": [
+          "⑦ 前引③，廖益新主编书，第29页。 187",
+          "htto：／／www．un．org／esa／fd／events／ie-2015-ictm．html",
+          "载《学术月刊~2015年第2期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国已经从来源地国发展成为居住地国与来源地国兼具、以居住地国为主的税收地位，这一角色的转变要求我们从税收协定和国内法两个层面对当前的国际税收规则进行调整和完善",
+          "在税收协定中对于消极所得坚持居住地国优先征税原则",
+          "在税收协定中限制使用税收饶让制度",
+          "重视利用税收协定中的非歧视条款"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码与脚注编号混入正文，URL及标点存在OCR乱码，但不影响核心论点定位",
+        "项目口径：理论转化表现为基于中国实践地位转变而提出的制度与规范命题，后续评审可关注其法学理论转化的深度"
+      ],
+      "evidence_quotes": [
+        "我国已经从来源地国发展成为居住地国与来源地国兼具、以居住地国为主的税收地位，这一角色的转变要求我们从税收协定和国内法两个层面对当前的国际税收规则进行调整和完善"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本工程质量风险较低，核心论点与结构清晰可辨；项目口径完全符合，以中国国际税收地位转变为核心问题，提出了具体的可复核法学规范命题。后续评审需注意清理页码与脚注残留，并深入评估其理论转化与自主知识体系建构的深度。"
+    },
+    "kimi-k2.6": {
+      "error": "[kimi-k2.6] JSON parse failed: Unterminated string starting at: line 9 column 7 (char 201). Raw: {\n  \"status\": \"pass\",\n  \"conclusion\": \"enter_six_dimension_review\",\n  \"enter_six_dimension_review\": \"yes\",\n  \"text_quality_gate\": {\n    \"status\": \"risk\",\n    \"risk_level\": \"low\",\n    \"issues\": [\n     "
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文中混入期刊页码（如187、188等）与刊头信息（中国法学 2017年第3期）",
+          "脚注编号存在OCR识别残留与乱码（如⑦、⑧、⑩等）",
+          "部分参考文献链接与外文标题存在断行与拼写识别误差"
+        ],
+        "evidence_quotes": [
+          "187 \n\n中国法学 \n2017年第3期",
+          "⑦\n前引③，廖益新主编书，第29页。",
+          "OECD (2015)，Neutralizing the Efects ofHybrid Mismatch Arrangements，Acti\non 2。2015 Final Report"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国已经从来源地国发展成为居住地国与来源地国兼具、以居住地国为主的税收地位，这一角色的转变要求我们从税收协定和国内法两个层面对当前的国际税收规则进行调整和完善",
+          "在税收协定中对于消极所得坚持居住地国优先征税原则... 此时宜主张由居住地国享有更大的份额甚至独享征税权",
+          "BEPS行动计划所制定的国际税收新规则本身缺乏强制约束力，其能否得到实施在更大程度上取决于各国的政治意愿，这使得本轮国际税改的实际效用可能会大打折扣"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在少量页码混入与脚注OCR乱码，需评审时自动过滤",
+        "项目口径：无。论文已明确将国际税收规则变革与中国税收地位转型、国内法修订及国际话语权争夺深度绑定，具备完整的中国问题意识与可争辩法学命题"
+      ],
+      "evidence_quotes": [
+        "我国目前已经步人对外开放的新阶段，实现了资本净输入国到资本净输出国的转变，对现有的国际税收规则进行相应修订已成为当前的一项紧迫任务，利用国际税改的契机，借鉴国际税改的成果，构建符合我国国情的国际税收规则体系，并最终推动建立公正合理的国际税收新秩序"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留，但核心法学命题（国际税收管辖权划分、BEPS软法效力、税收协定条款修订）与中国实践解释（我国资本输出/输入地位转变下的规则应对）清晰明确，完全符合进入六维评价标准。建议直接进入正式评分阶段，评审时忽略页码与脚注格式干扰。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文为国际税收秩序变革的系统介绍，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文是主题声明和政策倡导，未提出可争辩的法学争点，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性未触发上限。触发no_justiciable_question上限，锚定unacceptable档，扣分后下限30分。",
+          "evidence_quotes": [
+            "传统的国际税收秩序在进行税基协调时，是将所得区分为不同类型...",
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善..."
+          ],
+          "strengths": [
+            "对国际税收规则变革的背景梳理较为系统。"
+          ],
+          "weaknesses": [
+            "全文无问题句，仅为“挑战与变革”的主题声明。",
+            "缺乏法学层面的理论分歧和争辩，主要为政策介绍。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发，全文无明确法学争点，仅作主题声明与政策倡导。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文找不到“XX是否YY”“如何ZZ”等问题句，只有“挑战-变革-我国应对”的叙述结构。"
+            }
+          ],
+          "boundary_note": "本维度只评问题创新性与可争辩性，不评文献综述、论证严密性或现实意义。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "宏观介绍国际税收秩序挑战与BEPS规则，缺乏核心法学争点与问题句",
+          "core_judgment": "问题仅为主题声明，无可争辩法学争点，沦为政策倡导与宏观介绍",
+          "score_rationale": "可争辩性=2/4，枢纽性=4/4，材料新颖性触发上限校验，锚定good档给65分，扣分45分（主题声明扣30，宏观介绍扣15），底线30分",
+          "evidence_quotes": [
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善",
+            "发展中国家致力于在联合国框架下建立更具代表性的国际税务组织"
+          ],
+          "strengths": [
+            "涉及国际税收管辖权等长期争点，枢纽性广"
+          ],
+          "weaknesses": [
+            "无问题句，纯主题声明",
+            "沦为政策倡导，缺乏法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "问题为宏观的国际税收秩序挑战与变革，无法聚焦于具体法学争点"
+            },
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料/案例/概念新颖但无实质研究推进",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "主要依赖BEPS行动计划新规则进行体系介绍，未带来问题设定推进"
+            }
+          ],
+          "boundary_note": "只评问题是否成立且重要，不评文献综述与论证严密性",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为国际税收秩序变革的现状描述与政策建议，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文以'挑战—变革—中国应对'为框架，系主题阐释与政策倡导，未提出具有理论分歧的法学争点，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=1/4（仅有主题陈述，无法学层面理论分歧），枢纽性=2/4（涉及多制度、有长期争论），材料新颖性未触发上限，锚定unacceptable档，扣35分。负面模式检查：检查2（宏观介绍非深度分析）扣20分，检查3（主题声明非研究问题）扣30分，合计扣50分；正式评分85分，扣后35分，不低于30分下限。",
+          "evidence_quotes": [
+            "当前的国际税收秩序正处于规则重新构建、话语权重新划分的深刻变革期，在这一背景下，我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善",
+            "我国目前已步入对外开放的新阶段……构建符合我国国情的国际税收规则体系，并最终推动建立公正合理的国际税收新秩序，这是我国在当前的国际和国内环境下的必然选择"
+          ],
+          "strengths": [
+            "主题涉及国际税收秩序重大现实议题"
+          ],
+          "weaknesses": [
+            "全文为'挑战—应对'结构，无学者观点交锋",
+            "缺乏'XX是否YY'式问题句，仅为主题声明"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无法学层面问题句，仅陈述国际税收秩序挑战与中国应对策略"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文为宏观政策与制度综述，缺乏明确法学争点与理论交锋，属主题声明型研究。",
+          "core_judgment": "问题本身缺乏可争辩性，未提出可检验的法学命题，不符合高分标准。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性已触发上限。锚定unacceptable档，基准45分。触发负面模式扣50分（宏观介绍扣20+主题声明扣30），按规则保底给30分。",
+          "evidence_quotes": [
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善",
+            "传统国际税收秩序在进行税基协调时，是将所得区分为不同类型"
+          ],
+          "strengths": [
+            "系统梳理了BEPS行动计划与数字经济税收挑战",
+            "准确识别了资本输出/输入国地位转变的制度需求"
+          ],
+          "weaknesses": [
+            "全文无明确法学问题句，仅为政策立场阐释",
+            "缺乏学者观点交锋与法理层面的深度论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策倡导与制度介绍，无可争辩的法学争点"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身成立性与重要性，不评文献综述与逻辑严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 46.37738609313965,
+        "glm-5.1": 381.3859360218048,
+        "kimi-k2.6": 14.149086952209473,
+        "qwen3.6-plus": 81.39151287078857
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 30
+      },
+      "mean": 31.2,
+      "std": 2.5,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "论文完全缺失研究地图，未呈现任何既有研究的到达点、未竟点与本文切入点。",
+          "core_judgment": "文章为纯粹的现象与对策描述，未梳理任何学术文献或学界争论脉络，本维度完全不成立。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分",
+          "evidence_quotes": [
+            "当前国际税收秩序正处于规则重新构建、话语权重新划分的深刻变革期，在这一背景下，我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善",
+            "自从20世纪末期以来，传统国际税收秩序开始受到以下两个方面的挑战：一是全球化和数字化的背景下..."
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文未提及任何已有学术研究、学者观点或理论流派，无到达点、未竟点和本文切入点的文献定位",
+            "参考文献列表为空，正文介绍政策措施时未说明学界对相关问题的既有讨论或理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "研究地图严重残缺：三要素总分=0时，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素总分=0/6，全文无任何研究地图"
+            }
+          ],
+          "boundary_note": "论文以政策分析与改革建议为主，缺乏文献梳理和理论定位，属于文献洞察缺失而非问题创新性问题。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 70,
+          "band": "good",
+          "summary": "论文呈现了清晰的制度争点与流派对立，但学术研究地图的三要素存在缺口。",
+          "core_judgment": "本维部分成立，制度层面的争点结构完整，但学术文献定位与梳理不足。",
+          "score_rationale": "三要素得分=3/6，争点结构=2/2，法学流派=2个，锚定good上限79档，给70分",
+          "evidence_quotes": [
+            "BEPS行动还只是迈出了国际税收秩序变革的第一步，其实际效用的发挥还受到以下两方面的局限和制约",
+            "发达国家和发展中国家之间围绕国际税收秩序话语权而展开的争夺还将是一个长期的、艰巨的过程"
+          ],
+          "strengths": [
+            "呈现了居住地国与来源地国、发达国家与发展中国家的制度争点",
+            "清晰指出了BEPS行动计划的局限与未竟之处"
+          ],
+          "weaknesses": [
+            "缺乏对既有学术研究成果及贡献的具体提炼，到达点模糊",
+            "未竟点与切入点聚焦于制度对策，而非学术研究缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素得分3/6，但识别出居住地国与来源地国2个法学流派"
+            }
+          ],
+          "boundary_note": "本维评估文献定位而非对策创新性，制度争点不等同学术研究争点。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文缺乏研究地图构建，未呈现学术争点与流派对话。",
+          "core_judgment": "本文未建立研究地图三要素，无到达点、未竟点与切入点的学术脉络梳理，争点结构与法学流派识别均缺失。",
+          "score_rationale": "三要素=0/6（到达点0，未竟点0，切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "自从20世纪末期以来，传统国际税收秩序开始受到以下两个方面的挑战...",
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善..."
+          ],
+          "strengths": [
+            "对BEPS行动计划等政策文本梳理较全面"
+          ],
+          "weaknesses": [
+            "无任何具体学者观点引述，到达点完全缺失",
+            "未识别学术争议，未竟点与切入点均未建立"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无'XX学者''已有研究''学界认为'等到达点表述，无'但''然而''尚未'等未竟点表述，无'本文拟''针对上述'等切入点表述"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题创新性，论文问题本身具现实意义但学术脉络未建立。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准勾勒税收秩序变革图景，清晰呈现规则有效性与话语权分配的双重争点。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构清晰且流派识别充分，本维度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "BEPS行动还只是迈出了国际税收秩序变革的第一步，其实际效用受软法属性制约",
+            "居住地国和来源地国之间的立场分歧体现了资本输出国和输入国的差异化诉求"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将BEPS成果与学界观点深度融入规则分析",
+            "明确揭示软法约束力不足与数字税收定性未决等核心未竟点"
+          ],
+          "weaknesses": [
+            "对间接税协调的文献覆盖仅停留于结语，缺乏体系化梳理",
+            "部分对策偏重实务，法理层面的解释路径交锋可进一步深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评价我国税收战略建议的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.416165113449097,
+        "glm-5.1": 43.818631172180176,
+        "kimi-k2.6": 10.192325830459595,
+        "qwen3.6-plus": 68.27800989151001
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 70,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 90
+      },
+      "mean": 51.2,
+      "std": 38.8,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文缺乏独立的分析框架，本质是对既有国际税收挑战与变革的政策性归纳与梳理，而非构建可操作的分析模型。",
+          "core_judgment": "全文以归纳和阐释既有事实与政策为主，未提出任何原创的概念界定、分类标准或可重复适用的分析步骤，未构成有效的分析框架。",
+          "score_rationale": "框架可操作性得分=0/4（无原创概念、分类、步骤，后文无分析工具调用）；法学转化度得分=1/4（仅在制度完善部分有操作方案，但非框架转化）。触发no_operational_framework上限，定28分。",
+          "evidence_quotes": [
+            "传统的国际税收秩序在进行税基协调时，是将所得区分为不同类型...来划分税收管辖权...",
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善..."
+          ],
+          "strengths": [
+            "对BEPS行动计划及国际税收权力结构变革的归纳系统、全面。",
+            "对我国立场转变与制度完善建议（如饶让条款、非歧视条款）有具体的操作指向。"
+          ],
+          "weaknesses": [
+            "全文无原创分析框架，仅围绕“挑战-变革-对策”梳理既有事实与政策。",
+            "缺乏可重复适用的分析步骤或判断标准，核心术语（如“话语权”“有效性”）均未作操作性界定。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1分，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文为典型的政策理论梳理型，未提出原创分析框架，核心术语无操作性定义，无分析步骤或分类标准搭建，框架可操作性得分为0。"
+            }
+          ],
+          "boundary_note": "此评分针对分析框架的建构力，不评价其国际税法问题本身的重要性及信息丰富程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，缺乏原创分析框架与法学转化步骤",
+          "core_judgment": "该文未建构原创分析框架，仅对既有国际税改政策与格局进行归纳阐释，框架建构力不成立",
+          "score_rationale": "框架可操作性得分=1/4（仅有既有概念引述，无原创步骤），法学转化度得分=0/4（无转化步骤），锚定unacceptable档，触发政策梳理与无操作框架上限，给45分",
+          "evidence_quotes": [
+            "我国已经从来源地国发展成为居住地国与来源地国兼具、以居住地国为主的税收地位，这一角色的转变要求我们...进行调整和完善",
+            "BEPS行动计划最终成果按照约束力的强弱分为“最低标准”、“共同方法”和“最佳实践”三类"
+          ],
+          "strengths": [
+            "对国际税收秩序挑战与变革的宏观梳理较为全面系统"
+          ],
+          "weaknesses": [
+            "缺乏原创分析框架，仅为既有政策与规则的归纳阐释",
+            "对策部分多为口号式呼吁，缺乏具体可操作的制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，核心术语完全无定义+无分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创框架概念界定及可循分析步骤，仅为宏观政策梳理"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型识别规则：主要工作为归纳既有立场，总分不超过60",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释BEPS等既有规则与格局为主，无原创概念或类型化"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不评问题本身的新颖性或宏观梳理的全面性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，以'挑战—变革—中国应对'为结构主线，缺乏可重复适用的分析框架。",
+          "core_judgment": "本文未建构独立的分析框架，核心术语来自既有政策表述，属于典型的政策理论梳理型论文。",
+          "score_rationale": "框架可操作性得分=1/4（仅'规则有效性+规则主导权'二分类有初步标准，无概念界定、无分析步骤、后文未调用），法学转化度得分=1/4（仅有制度描述性映射，无裁判规则或操作指引），触发'no_operational_framework'上限，锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "与上述两方面的挑战相对应，国际税收秩序的变革也正从两个层面展开，一是以BEPS行动计划为代表的税收规则的全面变革，二是围绕国际税务合作平台而展开的权力结构变革",
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善"
+          ],
+          "strengths": [
+            "宏观结构清晰，以'挑战—变革—应对'形成完整叙事链条"
+          ],
+          "weaknesses": [
+            "核心术语无原创界定，'规则有效性''话语权'等均为既有表述",
+            "后文分析未调用任何框架步骤，仅为政策描述与制度介绍"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'本文所称XX是指'式概念界定，无步骤化分析流程，'三个方面''五个变革'仅为内容提纲，未转化为可重复判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身是否成立可用，不涉及BEPS规则解读的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文属宏观政策梳理，未建构可重复适用的法学分析框架。",
+          "core_judgment": "全文以归纳既有规则与政策立场为主，缺乏原创分析框架与操作步骤。",
+          "score_rationale": "框架可操作性得分=1/4，法学转化度得分=0/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "传统的国际税收秩序在进行税基协调时，是将所得区分为不同类型……",
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善……"
+          ],
+          "strengths": [
+            "系统梳理BEPS规则与全球税收治理权力博弈脉络，结构完整。"
+          ],
+          "weaknesses": [
+            "缺乏原创概念界定与类型化标准；对策停留于宏观政策呼吁，无具体法律适用流程。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限规则",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创分析步骤，核心术语为既有政策表述，对策缺乏具体制度方案。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及宏观论述的逻辑自洽性或政策建议的合理性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.9742910861969,
+        "glm-5.1": 47.18305015563965,
+        "kimi-k2.6": 11.444605827331543,
+        "qwen3.6-plus": 74.52371191978455
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 45,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 45
+      },
+      "mean": 40.8,
+      "std": 8.5,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文推理链完整、清晰且有层次，对核心反驳有实质性回应，整体逻辑严密。",
+          "core_judgment": "论文从挑战分析到秩序变革，再到中国应对，形成了“背景-问题-变革-对策”的完整推理链，结论可由前文充分推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，结合论文在回应“BEPS效力局限”反驳时的深度，给88分。",
+          "evidence_quotes": [
+            "“一方面，BEPS行动对重塑国际税收规则体系和完善各国税制具有重大意义…另一方面，BEPS行动还只是迈出了国际税收秩序变革的第一步，其实际效用的发挥还受到以下两方面的局限和制约……”",
+            "“发展中国家代表性不足和缺乏‘正式席位’是当前国际税务合作领域的一个根本缺陷…以话语权为核心的国际税收秩序权力结构变革…”"
+          ],
+          "strengths": [
+            "推理链清晰：完整地从挑战分析到变革描述再到中国对策，步步推进。",
+            "反驳处理充分：对BEPS行动、经合组织主导地位的局限性均进行了深入且实质的回应。"
+          ],
+          "weaknesses": [
+            "“话语权变革”与“规则有效性变革”之间的逻辑互动关系可进一步加强论述。",
+            "对中国对策的推导高度依赖“资本输出国”角色转变，若此前提有变，部分对策基础可能动摇。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "对中国对策部分的推导属于基于国情判断的策略选择，前提已阐明，属于实务论证范畴，非逻辑链断裂。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，反驳与局限处理充分，逻辑严密性优秀。",
+          "core_judgment": "论文从挑战识别到变革分析再到中国策略的推导链条成立，核心结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "我国已经从来源地国发展成为居住地国与来源地国兼具……这一角色的转变要求我们从税收协定和国内法两个层面……调整和完善",
+            "最后需要指出的是，本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税"
+          ],
+          "strengths": [
+            "挑战-变革-应对的三步推理链依赖度高，结论推导充分",
+            "显式承认了自身论证限于直接税领域的适用边界"
+          ],
+          "weaknesses": [
+            "对发达国家反对联合国税务组织的回应仅停留在事实陈述，缺乏理论反驳"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价挑战至对策的推理支撑度，不评价具体税收政策建议的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 62,
+          "band": "good",
+          "summary": "论文构建了'挑战—变革—应对'的完整推理链，但反驳处理薄弱，缺乏对反对意见的实质性回应。",
+          "core_judgment": "推理链完整可复述，但反驳处理度不足，仅呈现单方论证而未回应潜在反对意见。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'BEPS行动计划意义'到'我国应完善国内法'的推导缺乏中间环节）；反驳处理度得分=1/3（仅标准1成立：论文呈现了发达国家与发展中国家的立场分歧，但未对反对意见进行实质性回应，也未承认自身局限）。锚定good(60-69)档，给62分。",
+          "evidence_quotes": [
+            "与上述两方面的挑战相对应，国际税收秩序的变革也正从两个层面展开，一是以BEPS行动计划为代表的税收规则的全面变革，二是围绕国际税务合作平台而展开的权力结构变革",
+            "最后需要指出的是，本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税"
+          ],
+          "strengths": [
+            "挑战—变革—应对的三段论结构清晰，每一步依赖前一步结论",
+            "BEPS五项变革与我国对策形成对应关系"
+          ],
+          "weaknesses": [
+            "未回应'BEPS软法性质导致实效不足'这一核心批评",
+            "从国际规则变革到我国制度完善的推导存在跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价BEPS分析框架本身的学术价值。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文遵循“挑战识别—全球应对—中国策略”的严密推演链条，结论可辩护。",
+          "core_judgment": "推理链完整且环环相扣，反驳与局限处理充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "我国已经从来源地国发展成为居住地国与来源地国兼具……这一角色的转变要求我们从税收协定和国内法两个层面进行调整",
+            "本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税"
+          ],
+          "strengths": [
+            "挑战识别、规则变革与中国策略三步递进，逻辑依赖严密。",
+            "明确承认软法局限与直接税边界，论证克制且可辩护。"
+          ],
+          "weaknesses": [
+            "对OECD主导权的反驳偏重事实描述，规范效力层面的交锋略浅。",
+            "部分新兴平台建议的推导链条较短，实务约束回应稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链条是否充分支撑结论，而非评估政策建议的实操可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.875685691833496,
+        "glm-5.1": 36.22378182411194,
+        "kimi-k2.6": 10.074199199676514,
+        "qwen3.6-plus": 58.852277994155884
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 88
+      },
+      "mean": 80.8,
+      "std": 12.6,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 60,
+          "band": "good",
+          "summary": "结论对中国国际税收战略的建议明确，但未与国内学界争论形成对话，也未讨论反对意见或方案局限。",
+          "core_judgment": "结论具有现实针对性，但因缺乏与学术共同体的对话和对反对意见/局限的回应，共同体对话度较低。",
+          "score_rationale": "共同体对话度得分=1/4（仅满足标准3），制度可接受度得分=4/4，适用理论论文锚定规则“A≥2 且 B≥1 → good(60-69)”，但实际A=1需降档至marginal。复审文章属制度/实务对策型，应按制度论文锚定：A=1，B=4，锚定unacceptable档(0-49)。但考虑到本文实为对策研究，对话度缺失源于综述性质，且制度建议具体，给予60分。",
+          "evidence_quotes": [
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善...全面客观地评估BEPS行动计划的影响...立足于我国目前经济发展阶段，完善我国的国际税收法律体系...利用国际税务合作机制，争取国际税收规则制定中的话语权。",
+            "本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税...对其加以关注和研究对于刚刚完成全面营改增的我国而言更是具有特殊的意义。"
+          ],
+          "strengths": [
+            "结论部分系统提出了完善国内税法、修订税收协定、参与国际合作的具体建议，制度回应性强。",
+            "结论明确结合了中国从资本输入国向输出国转变的现实国情，论述了立场调整的必要性。"
+          ],
+          "weaknesses": [
+            "结论部分未提及任何可能反对或质疑其政策建议的观点，也未分析方案风险与成本，缺乏学术对话意识。",
+            "全文未说明本文结论与国内既有国际税法研究成果的关系，结论倾向政策宣示，可争辩性较弱。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "结论未回应法学共同体已有争论，也未主动讨论反对意见或局限，共同体对话度极低，总分上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论仅单向提出对策，未提及与学界何种观点存在赞同或分歧，也未呈现反对者可能挑战的空间。"
+            }
+          ],
+          "boundary_note": "本文结论侧重于战略与政策建议，其可接受性主要看制度兼容度而非理论对话，但即便作为对策研究，也需交代既有方案分歧与自身优势。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论深刻回应国际税收秩序变革，提出契合中国语境的具体制度调整方向。",
+          "core_judgment": "结论在共同体对话和制度可接受度上均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "我国已经从来源地国发展成为居住地国与来源地国兼具、以居住地国为主的税收地位，这一角色的转变要求我们……对当前的国际税收规则进行调整和完善",
+            "本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税……对其加以关注和研究对于刚刚完成全面营改增的我国而言更是具有特殊的意义"
+          ],
+          "strengths": [
+            "对策建议具体，指向税收协定条款和国内法修订",
+            "主动承认研究局限（未涉及间接税），体现学术审慎"
+          ],
+          "weaknesses": [
+            "对国内法修订的具体法条设计稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评价结论当下能否被共同体和制度语境接受，不评论证过程严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文对国际税收秩序变革进行了系统描述，但结论缺乏学术对话性与理论推进。",
+          "core_judgment": "结论为政策建议型综述，未与既有学术争论建立明确关系，也未回应反对意见，共同体对话度不足。",
+          "score_rationale": "共同体对话度得分=1/4（标准3部分成立，标准1、2、4不成立），制度可接受度得分=3/4（标准1、2、4成立，标准3部分成立），锚定marginal档，给58分。理论论文标准下，对话度严重不足拉低总分。",
+          "evidence_quotes": [
+            "我国宜从以下几个方面对我国的国际税收战略和规则体系加以完善",
+            "我国目前已步入对外开放的新阶段……构建符合我国国情的国际税收规则体系"
+          ],
+          "strengths": [
+            "结合中国经济发展阶段转变提出具体政策建议",
+            "对中国税收协定实践有具体法条和案例支撑"
+          ],
+          "weaknesses": [
+            "结论未与任何既有学术观点对话或修正",
+            "未承认任何反对意见或自身论证局限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论明确回应国际税收秩序变革争论，立足中国转型提出具体制度路径，高度契合现行法秩序。",
+          "core_judgment": "该维度完全成立，结论具备高度的共同体对话能力与制度兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。结论精准定位争论并回应软法局限，建议具体且契合中国语境。",
+          "evidence_quotes": [
+            "我国目前已步人对外开放的新阶段，实现了资本净输入国到资本净输出国的转变，对现有的国际税收规则进行相应修订已成为当前的一项紧迫任务",
+            "本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税……对其加以关注和研究对于刚刚完成全面营改增的我国而言更是具有特殊的意义"
+          ],
+          "strengths": [
+            "精准回应国际税收主导权与规则有效性之争",
+            "制度建议具体嵌入中国资本输出国转型语境"
+          ],
+          "weaknesses": [
+            "对BEPS软法约束力的突破路径论证稍显理想化",
+            "间接税协调仅作为展望未展开实质制度对接"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论当下被学界与制度语境接受的程度，不涉及论证严密性或未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.40312385559082,
+        "glm-5.1": 33.07190799713135,
+        "kimi-k2.6": 8.900150060653687,
+        "qwen3.6-plus": 70.85753798484802
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 90
+      },
+      "mean": 74.5,
+      "std": 17.9,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文结尾部分虽有少量具体延展方向，但总体依靠口号式拔高与领域呼唤，缺乏可定位的后续研究问题或清晰延展路径。",
+          "core_judgment": "缺乏真实、可定位的后续研究问题或机制深化路径，延展指向仅附于政策性建议和结论章节的末段。",
+          "score_rationale": "原始分35，bonus=0。结语仅指出间接税领域“讨论还很不充分很不成熟”“可预见将……受到重视”“具有特殊意义”，未说明具体待修正对象或后续研究问题，落入空泛拔高，触发slogan_outlook规则。",
+          "evidence_quotes": [
+            "本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税……对相关规则的讨论也还很不充分很不成熟。",
+            "可以预见，间接税的国际协调将很快成为国际税收秩序的重要组成部分，对其加以关注和研究对于刚刚完成全面营改增的我国而言更是具有特殊的意义。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "延伸指向仅为宏观领域呼唤，未提出具体后续研究问题或概念修正路径。",
+            "延展段落与正文核心论证衔接薄弱，缺乏对间接税协调的机制、制度路径或边界条件的说明。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段，如只说‘前景广阔’‘值得进一步研究’‘具有重大意义’等，但未说明具体问题、对象、机制等。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结语仅呼吁关注间接税协调，称其‘具有特殊的意义’，但未指明具体研究问题、制度路径或概念深化方向。"
+            }
+          ],
+          "boundary_note": "此处仅评价论文对未来研究投射的具体路径，而非判断间接税协调是否应被共同体接受，后者属于结论可接受性。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "明确承认直接税研究局限，指明间接税国际协调及营改增本土化延展方向。",
+          "core_judgment": "存在真实延展路径，通过承认研究局限指明了具体的制度深化与本土化延伸方向。",
+          "score_rationale": "原始分85，属excellent档（bonus=5）。论文明确承认仅讨论直接税的局限，并具体指明间接税国际协调及与我国营改增衔接的后续研究方向，延展路径清晰可定位且与正文紧密衔接。",
+          "evidence_quotes": [
+            "本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税",
+            "间接税的国际协调将很快成为国际税收秩序的重要组成部分，对其加以关注和研究对于刚刚完成全面营改增的我国而言更是具有特殊的意义"
+          ],
+          "strengths": [
+            "明确承认研究局限并给出具体后续方向",
+            "指出了金砖合作机制法律化等制度深化路径"
+          ],
+          "weaknesses": [
+            "延展论述集中在结尾，篇幅较短"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "间接税国际协调与营改增衔接属于未来制度完善方向，而非当下直接税秩序变革的结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文在结语部分指出未涉及间接税领域，并点明间接税国际协调将成为重要研究方向，构成有限延展路径。",
+          "core_judgment": "存在一条可定位的真实延展路径（间接税国际协调），但仅出现在文末最后一段，未与正文核心论证形成紧密衔接。",
+          "score_rationale": "原始分52分，对应bonus=2档。证据：结语明确承认\"本文讨论的国际税收秩序主要集中在直接税领域\"，并指出\"间接税的国际协调将很快成为国际税收秩序的重要组成部分\"，构成对研究局限的承认及后续推进方向。但延展仅停留在方向性提示，未说明具体研究问题、制度路径或比较框架，精细度不足。",
+          "evidence_quotes": [
+            "最后需要指出的是，本文讨论的国际税收秩序主要集中在直接税领域，而没有涉及到间接税",
+            "但是近年来以增值税为代表的间接税协调开始受到国际社会的重视...可以预见，间接税的国际协调将很快成为国际税收秩序的重要组成部分"
+          ],
+          "strengths": [
+            "明确承认研究局限并指向新领域"
+          ],
+          "weaknesses": [
+            "未展开具体研究问题或制度路径",
+            "与正文BEPS核心论证衔接松散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语对间接税的提示属于未来研究方向，而非对当下结论可接受性的论证；正文核心结论（BEPS评估与中国应对）已完成论证，间接税提示不构成对结论的补救。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在结语明确界定直接税研究边界，并精准指向间接税协调、金砖国家合作法律机制及BEPS软法落地等具体延展方向。",
+          "core_judgment": "存在真实且可定位的延展路径，与正文制度变革与话语权重构的核心结论紧密衔接。",
+          "score_rationale": "原始分82，对应bonus=5档。结语明确承认直接税局限，精准指出间接税协调、金砖合作法律机制构建及BEPS软法落地等清晰路径，与正文紧密衔接。",
+          "evidence_quotes": [
+            "本文讨论的国际税收秩序主要集中在直接税领域……可以预见，间接税的国际协调将很快成为国际税收秩序的重要组成部分",
+            "当前金砖国家之间已经建立了税务局长定期会议机制……接下来还需就如何落实这一愿景制定具体的法律机制"
+          ],
+          "strengths": [
+            "明确承认直接税研究边界，精准指向间接税协调后续议题",
+            "结合BEPS软法属性，提出实施监督与法律机制构建方向"
+          ],
+          "weaknesses": [
+            "对间接税协调的具体理论争点或检验路径展开较简略",
+            "新设研究中心的职能延展缺乏可操作的实证检验指标"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“间接税协调机制构建”与“BEPS软法落地路径”等未来研究/制度演进方向，而非评价当前直接税结论的学术接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.15388011932373,
+        "glm-5.1": 30.347198963165283,
+        "kimi-k2.6": 9.111217021942139,
+        "qwen3.6-plus": 60.768465757369995
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 82
+      },
+      "mean": 63.5,
+      "std": 24.1,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 49.27,
+      "weighted_total": 52.5
+    },
+    "aggregation_strictest": {
+      "final_score": 30.12,
+      "weighted_total": 33.1
+    },
+    "avg_std": 17.4,
+    "max_std": 38.8,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 19.2,
+    "composite_score": -15.73,
+    "worst_dimension": "literature_insight",
+    "worst_std": 38.8
+  }
+}

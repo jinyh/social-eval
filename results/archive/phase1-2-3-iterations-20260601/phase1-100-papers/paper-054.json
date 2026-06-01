@@ -1,0 +1,609 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/法学研究/建设用地国有制的逻辑、挑战及变革.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号格式存在OCR识别乱码（如(2]、【3]、E15 3等）",
+          "期刊页码及分隔符混入正文（如· 93 ·、· 94 ·）",
+          "部分年份/数字识别错误（如l953、i954）"
+        ],
+        "evidence_quotes": [
+          "(2]不过，同样作为土地公有之具体形态的集体所有",
+          "【3]也有学者尝试在土地利用管制的视角上",
+          "l953年起，根据过渡时期的总路线",
+          "· 93 ·"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "依宪法第6条及第10条第1、2款的规定，我国实行土地的社会主义公有制。",
+          "1998年土地管理法打破了长期以来实行的建设用地城乡二元管理和使用制度，确立了有例外的建设用地国有制。",
+          "本文尝试通过爬梳建设用地国有制的历史生成、基本逻辑，分析建设用地国有制存在的问题，以为集体土地使用具体制度的改造提供些许参考。",
+          "应当剥离两种公有制形态承载的、由国家或集体据此实施直接权力性支配的职能，真正让市场在资源的配置中发挥决定性作用"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在轻微OCR及排版残留，需工程清洗；项目口径信号完整，无需人工复核口径"
+      ],
+      "evidence_quotes": [
+        "建设用地国有制的逻辑、挑战及变革",
+        "应当剥离两种公有制形态承载的、由国家或集体据此实施直接权力性支配的职能"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR及排版残留，但不影响核心论点定位。论文聚焦中国土地公有制与建设用地国有制的规范逻辑与制度变革，具有明确的中国问题意识、可争辩的法学命题及理论转化尝试，符合进入六维评价标准。建议清洗脚注与页码后直接评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留导致脚注编号严重乱码（如(2], [123, (223, [823等）",
+          "期刊页码混入正文（如· 93 ·, · 94 ·等）",
+          "部分外文参考文献及人名拼写残缺或错乱（如Mattcucci, Seoea, Piani ficazione等）",
+          "部分段落存在断行或字符粘连错漏（如“不能等 ，农村集体经济组织”）"
+        ],
+        "evidence_quotes": [
+          "· 93 ·",
+          "(2] 关于社会主义、公有制和消灭剥削制度这三个马克思科学社会主义理论要素之间的逻辑联系",
+          "[123根据过渡时期的总路线",
+          "不能等 ，农村集体经济组织是农村社会公共服务的承担主体。[95]因 同于一般的私法团体所有"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "对于宪法上“二元公有”即国家所有和集体所有的法律性质，论者莫衷一是，由此导致了土地公有的公共职能和土地权利的私法使命之间的含混不清。",
+          "建设用地国有制的生成，是以社会主义公有制在土地利用中的权力性支配为逻辑，是权力透过公有制对土地所有权构造施以的内在影响。",
+          "剥离土地公有制的权力性支配职能。",
+          "重新审视土地集体所有制的公共职能。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR脚注编号乱码及期刊页码混入",
+        "文本工程：需修复外文文献及局部正文字符残缺/错乱"
+      ],
+      "evidence_quotes": [
+        "对于宪法上“二元公有”即国家所有和集体所有的法律性质，论者莫衷一是",
+        "剥离土地公有制的权力性支配职能"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径明确，以中国土地制度为中心，提炼了“权力性支配框架”等法学解释命题，完全符合进入六维评分的条件；但文本存在中度OCR及排版抽取风险，需文本工程清洗修复后再进行深度评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 90
+      },
+      "mean": 91,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文以“权力性支配”与“市场/社会管制”的逻辑张力为核心，系统检视建设用地国有制的正当性危机与变革路径。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，精准切入土地公有制转型中的核心法理争议，研究命题成立且极具理论纵深。",
+          "score_rationale": "前置扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "在市场经济体制下，各类建设项目在失去“国家计划性”和“国家需要”的转介以后，如何实现征收正当化的叙述，便成为了重大的问题。",
+            "建设用地国有制是否可以与有关建设权利公共化的论述作同构性的讨论，实际上存在着诸多的疑问。"
+          ],
+          "strengths": [
+            "精准提炼“权力性支配”与“市场逻辑”的法理张力，问题意识尖锐。",
+            "深度融合历史演进与规范分析，理论分歧呈现充分。"
+          ],
+          "weaknesses": [
+            "部分历史制度梳理篇幅较长，核心争点聚焦可进一步前置。",
+            "对集体土地入市后的具体权利构造论证略显宏观。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文围绕建设用地国有制的正当性危机，提出可争辩的法学争点并重构解释路径。",
+          "core_judgment": "问题成立且枢纽性强，通过反驳既有证成逻辑揭示了权力性支配框架的深层危机。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分。扣分合计=0分。",
+          "evidence_quotes": [
+            "同样作为土地公有之具体形态的集体所有，缘何在建设使用的规则上要与国家所有作区别性对待？",
+            "行政对土地利用施加的外部管制，能否在土地所有权之外创设一项原本属于所有权当然之内容的公共性权利？"
+          ],
+          "strengths": [
+            "争点明确，直击建设用地国有制正当性危机",
+            "理论分歧呈现充分，反驳有力"
+          ],
+          "weaknesses": [
+            "部分问题表述隐含在历史梳理中，显性问题句稍少"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与枢纽性，不评论证严密性与文献充分度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 68.93277168273926,
+        "glm-5.1": 50.59620904922485
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 90
+      },
+      "mean": 90,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "精准梳理既有证成路径并指出局限，明确缺口与切入点，争点脉络清晰。",
+          "core_judgment": "研究地图完整，三要素充分满足，争点结构与流派识别均达优秀标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者试图通过叙述历史事实、发掘制度理性以尊重和理解的立场去看待建设用地国有制",
+            "但必须指出的是，该方案中作为论述基础的农地非农化的国家征收并非历史事实"
+          ],
+          "strengths": [
+            "分散式定位精准提取三大证成路径及其学术贡献",
+            "明确批判既有方案史实偏差与理论局限，未竟点清晰"
+          ],
+          "weaknesses": [
+            "部分路径偏向政策逻辑，纯学理交锋脉络可进一步深化",
+            "比较法文献仅作辅助论证，未深度展开跨国学派对话"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及土地制度改革方案本身的新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位既有证成路径并揭示其逻辑缺陷，构建了多层次的争点结构。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派覆盖充分，现状洞察度高。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者试图通过叙述‘历史事实’、发掘‘制度理性’……也有学者尝试在土地利用管制的视角上……此外，在土地溢价归公的视角上……",
+            "但必须指出的是，该方案中作为论述基础的‘农地非农化的国家征收’并非上世纪50年代以来的历史事实"
+          ],
+          "strengths": [
+            "精准提炼三种证成路径并逐一反驳，未竟点清晰。",
+            "引入比较法争点深化了建设权利性质的分歧结构。"
+          ],
+          "weaknesses": [
+            "无明显缺陷"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点构建深度，而非问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 75.97193098068237,
+        "glm-5.1": 57.969188928604126
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 88
+      },
+      "mean": 90,
+      "std": 2.8,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“权力性支配框架”分析土地制度演变，逻辑严密且贯穿全文，具备高可操作性与法学转化力。",
+          "core_judgment": "分析框架成立且高度可用，成功将政治社会学概念转化为土地法制度变革的分析工具。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "本文尝试通过爬梳建设用地国有制的历史生成、基本逻辑，分析……存在的问题",
+            "剥离土地公有制的权力性支配职能，由市场机制来配置土地资源"
+          ],
+          "strengths": [
+            "“权力性支配”概念界定清晰且贯穿全文",
+            "历史与规范分析结合，提供明确制度剥离路径"
+          ],
+          "weaknesses": [
+            "偏重宏观历史叙事，微观裁判规则提炼稍显不足",
+            "部分政策表述未完全转化为可操作的审查标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "提出“权力性支配”与“社会性管制”二元框架，深刻揭示制度逻辑并给出系统变革方案。",
+          "core_judgment": "分析框架原创且有效，成功将政治社会学概念转化为法学制度分析维度与设计方案。",
+          "score_rationale": "框架可操作性得分=3/4（概念与分类清晰、后文调用充分，但缺细化操作步骤），法学转化度得分=4/4（跨学科概念转化、提供制度方案且后文实际使用），锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "国家及社队组织分别以全民所有制和集体所有制为根据，对城乡建设用地实施直接的权力性支配。",
+            "剥离土地公有制的权力性支配职能…建立平等容纳两类土地的利用和市场管制规则。"
+          ],
+          "strengths": [
+            "原创“权力性支配”概念，精准揭示土地制度深层逻辑",
+            "法学转化彻底，提出分类使用与收益分享的具体制度方案"
+          ],
+          "weaknesses": [
+            "分析步骤偏宏观逻辑推演，缺乏微观裁判或审查的步骤化标准"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构力，不评判历史梳理的详实度或改革建议的政治可行性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.24257302284241,
+        "glm-5.1": 66.86875295639038
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以历史演进为基，层层推演制度困境，最终导出市场化改革方案，逻辑严密。",
+          "core_judgment": "推理链完整且环环相扣，核心结论可由前文历史分析与挑战检视充分辩护推出，反驳处理到位，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。历史-挑战-对策链条完整，对反对观点有实质回应，无关键跳步。",
+          "evidence_quotes": [
+            "1998年土地管理法打破了长期以来实行的建设用地城乡二元管理和使用制度，确立了有例外的建设用地国有制。",
+            "不过，建设用地国有制是否可以与有关建设权利公共化的论述作同构性的讨论，实际上存在着诸多的疑问。"
+          ],
+          "strengths": [
+            "历史生成、现实挑战与改革方案形成严密递进链条，逻辑自洽。",
+            "对“建设权利公共化”等反对学说进行实质性批驳，论证扎实。"
+          ],
+          "weaknesses": [
+            "部分历史政策引证较繁，对核心逻辑主线的聚焦偶有稀释。",
+            "改革方案的实务落地路径（如收益分配机制）论证稍显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估推理链条是否充分支撑结论，不评价制度方案的可操作性或结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整严密，对反对意见回应扎实，结论可辩护推出。",
+          "core_judgment": "本维度高度成立，论文通过历史与逻辑分析推导出制度挑战，进而推出变革方案，逻辑严密。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "作为论述基础的‘农地非农化的国家征收’并非上世纪50年代以来的历史事实...所谓‘制度理性’，至多是...国家立场上的‘经济理性’",
+            "在中国的建设用地国有制的生成史中，实际上并不具有类似的土地利用管制背景"
+          ],
+          "strengths": [
+            "推理链环环相扣：历史生成→逻辑定性→挑战剖析→变革方案，层层递进。",
+            "对三种主流证成路径的驳斥精准有力，实质性回应充分。"
+          ],
+          "weaknesses": [
+            "从“背离市场逻辑”到“应剥离权力支配”的过渡略带价值预设，但可辩护。",
+            "无明显逻辑弱点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评推理链条是否充分支撑结论，不评改革方案的现实可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 60.72481369972229,
+        "glm-5.1": 45.86903190612793
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 85
+      },
+      "mean": 88.5,
+      "std": 4.9,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应土地公有制论争，立足修法实践提出市场化改革路径，兼具学术对话性与制度兼容性。",
+          "core_judgment": "该结论完全成立，既精准嵌入中国法学共同体核心论争，又与现行法秩序及改革方向高度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文尝试通过爬梳建设用地国有制的历史生成、基本逻辑，分析建设用地国有制存在的问题，以为集体土地使用具体制度的改造提供些许参考。",
+            "应当剥离两种公有制形态承载的、由国家或集体据此实施直接权力性支配的职能……由市场机制来配置土地资源。"
+          ],
+          "strengths": [
+            "精准批判既有学说，对话意识强。",
+            "改革路径具体，明确区分自住与市场需要。"
+          ],
+          "weaknesses": [
+            "权力剥离后的基层治理衔接论证稍简。",
+            "收益公共化分配机制缺乏细化设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文结论深刻回应学界争论，与现行法秩序兼容且指明制度转化方向，共同体对话与制度可接受度均高。",
+          "core_judgment": "结论成功进入共同体语境，挑战主流但给出可反驳论点，且在原则层面回应制度约束并指明转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "论文明确挑战建设权利公共化等主流学说，提出“剥离土地公有制的权力性支配职能”的替代方案。",
+            "结语指出改革应“由市场机制来配置土地资源，并通过健全规划、标准、许可等社会性管制机制”，回应了现行法秩序约束。"
+          ],
+          "strengths": [
+            "精准定位并挑战既有学说（如建设权利公共化），对话度高。",
+            "结论与深化改革方向及现行法秩序逻辑兼容，制度可接受度强。"
+          ],
+          "weaknesses": [
+            "对反对意见（如耕地流失疑虑）的回应虽在正文有，结语中略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.45958399772644,
+        "glm-5.1": 16.13562798500061
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 85
+      },
+      "mean": 85,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结语中清晰勾勒出剥离公有制权力支配职能与重构集体所有制公共职能的双轨改革路径，延展方向具体且与核心论证紧密咬合。",
+          "core_judgment": "存在真实且可操作的制度延展路径，明确指向未来具体规则衔接与实施机制设计。",
+          "score_rationale": "原始分85，对应bonus=5档。结语明确提出剥离权力支配职能、分离所有权与管理权、建立自住与市场分类使用及收益适度公共化机制，路径清晰可定位，与正文历史逻辑分析高度衔接。",
+          "evidence_quotes": [
+            "未来的具体制度设计中，有必要重新检视社会主义公有制下土地权利的私法使命和土地集体所有制的公共职能，在两个方面稳妥推进改革。",
+            "建立分别针对“自住需要”和“市场需要”的建设用地分类使用制度，形成土地增值收益的国家分享与集体留存机制。"
+          ],
+          "strengths": [
+            "延展路径与正文“权力支配向市场逻辑转型”的核心命题高度咬合。",
+            "提出分类使用、收益适度公共化及监管主体分离等具体制度接口。"
+          ],
+          "weaknesses": [
+            "对改革试点中存量入市限制等现实阻力的应对策略着墨较少。",
+            "未明确给出不同利益主体博弈下的规则衔接优先级或过渡期安排。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估未来制度重构与规则衔接的推进方向，不涉及当下结论在法学共同体的接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "指明了剥离权力性支配与重塑公共职能两大制度深化方向及具体机制路径。",
+          "core_judgment": "存在真实且可定位的制度延展路径，提出了分类使用与收益适度公共化等具体后续制度设计方向。",
+          "score_rationale": "原始分85，对应bonus=5档。论文在结语明确指出了剥离权力支配职能、重塑公共职能两大制度完善方向，并给出了分类使用、收益分享等具体机制路径，与正文逻辑紧密衔接。",
+          "evidence_quotes": [
+            "未来的具体制度设计中，有必要重新检视...土地权利的私法使命和土地集体所有制的公共职能，在两个方面稳妥推进...改革",
+            "建立分别针对‘自住需要’和‘市场需要’的建设用地分类使用制度...应当建立集体土地收益的适度公共化实现机制"
+          ],
+          "strengths": [
+            "延展路径与正文‘权力性支配’批判逻辑紧密衔接",
+            "给出了分类使用制度与收益分享机制等可定位的具体延展方向"
+          ],
+          "weaknesses": [
+            "对实施风险控制（如收益分享的具体比例或冲突）的延展稍显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "探讨未来制度设计方向（分类使用、收益机制）属于前瞻延展，而非当下结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 53.64910387992859,
+        "glm-5.1": 47.08927607536316
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 1.5,
+    "max_std": 4.9,
+    "weighted_total": 90.3,
+    "final_score": 95.82,
+    "high_confidence_pct": 100.0,
+    "dimension_count": 6,
+    "composite_score": 8.5,
+    "worst_dimension": "conclusion_consensus",
+    "worst_std": 4.9
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "本文尝试通过爬梳建设用地国有制的历史生成、基本逻辑，分析建设用地国有制存在的问题，以为集体土地使用具体制度的改造提供些许参考。",
+          "我国建设用地国有制的生成，是以社会主义公有制在土地利用中的权力性支配为逻辑，是权力透过公有制对土地所有权构造施以的内在影响。",
+          "应当剥离两种公有制形态承载的、由国家或集体据此实施直接权力性支配的职能，真正让市场在资源的配置中发挥决定性作用，优化资源的配置效率。",
+          "在集体建设用地使用制度的改革中，可以根据土地集体所有制之居住权利保障和确保土地利益公平分配两个不同公共职能取向，建立分别针对“自住需要”和“市场需要”的建设用地分类使用制度。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "yes",
+        "evidence_quotes": [
+          "对于宪法上“二元公有”即国家所有和集体所有的法律性质，论者莫衷一是，由此导致了土地公有的公共职能和土地权利的私法使命之间的含混不清。",
+          "社会主义公有制承载了生产资料的权力性支配职能。以社会主义公有制为基础，作为社会整体之统合力量的国家，直接拥有和控制各类生产资料，并基于社会整体利益进行管理和分配。",
+          "在行政法原理上……许可的法律结构体现为‘私性自由—公益性一般禁止’……但在特许中，并不存在私人原本拥有的自由或权利……国内部分学者有关建设权利公共化的讨论……实际上存在着诸多的疑问。",
+          "剥离土地公有制的权力性支配职能……重新审视土地集体所有制的公共职能……建立分别针对‘自住需要’和‘市场需要’的建设用地分类使用制度。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

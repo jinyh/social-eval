@@ -1,0 +1,601 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国社会科学/行政改革试验授权制度的法理分析.pdf",
+  "models": [
+    "qwen3.6-plus",
+    "glm-5.1"
+  ],
+  "paper_structure_status": "detected",
+  "precheck": {
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入OCR识别的期刊页码（如'· 6 3 1 ·'、'· 7 3 1 ·'）",
+          "脚注编号与正文段落交叉，部分引文格式断裂",
+          "文末英文摘要存在换行与拼写粘连问题",
+          "参考文献列表标注为'（无）'，实际引用文献未完整抽取"
+        ],
+        "evidence_quotes": [
+          "· 6 3 1 ·",
+          "① 2014年10月23日中国共产党第十八届中央委员会第四次全体会议通过。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "行政改革试验授权是介于立法授权与行政授权之间的一种新型授权制度,具有独立的法律地位。",
+          "2014年《中共中央关于全面推进依法治国若干重大问题的决定》...要求'实践条件还不成熟、需要先行先试的,要按照法定程序作出授权'",
+          "暂时调整或者暂停部分法律适用是法律施行力的中止和新试验法的制定的有机组合,不属于有些学者所主张的法律修改",
+          "将暂时调整或者暂停适用决定授予特定试验主体实施是类似于行政特许的立法特别授权。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清理OCR页码残留与脚注乱码，补全参考文献列表以支持引证复核。",
+        "项目口径：完全契合，无需额外边界裁断。"
+      ],
+      "evidence_quotes": [
+        "行政改革试验授权是介于立法授权与行政授权之间的一种新型授权制度,具有独立的法律地位。",
+        "暂时调整或者暂停部分法律适用是法律施行力的中止和新试验法的制定的有机组合"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR页码混入及参考文献缺失，但不影响核心法理命题定位。建议进入六维评分，重点关注其对中国'先行先试'改革授权的法教义学重构、'立法施行力中止'概念的创新性，以及明确性原则与比例原则在试验授权中的规范适用论证。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文段落间（如·6 3 1·）",
+          "脚注编号及部分脚注内容穿插在正文中，造成局部阅读中断",
+          "文末混入英文摘要残片"
+        ],
+        "evidence_quotes": [
+          "·6 3 1·",
+          "① ❋ 本文为江苏省“333”高层次人才培养工程研究课题...",
+          "powerconstructionhasnotonlyinspiredtheoriesrelatingtotypesandconceptsofright..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "行政改革试验授权是介于立法授权与行政授权之间的一种新型授权制度，具有独立的法律地位。",
+          "前者是法律施行力的中止和新试验法的制定两种因素的有机组合，不属于法律修改；后者是类似于行政特许的立法特别授权。",
+          "在改革试验授权实践过程中，法学界便围绕改革试验授权的法律属性、授权的合法性与正当性等问题产生了激烈争论。",
+          "'先改革后修法'与'先立法后行政'的法治原理相抵触。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗混入的期刊页码、脚注内容及英文残片，不影响核心论证定位",
+        "项目口径：完全符合进入六维评审条件"
+      ],
+      "evidence_quotes": [
+        "前者是法律施行力的中止和新试验法的制定两种因素的有机组合，不属于法律修改；后者是类似于行政特许的立法特别授权。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；建议在后续文本工程阶段对页码、脚注穿插及英文残片进行清洗格式化。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "scores": {
+        "qwen3.6-plus": 88,
+        "glm-5.1": 90
+      },
+      "mean": 89,
+      "std": 1.4,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "聚焦改革试验授权法律性质，破解修法争议并确立独立制度定位。",
+          "core_judgment": "问题具明确法学争点与理论分歧，跨制度影响显著，符合优秀档标准。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，负面模式扣分合计0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "法学界便围绕改革试验授权的法律属性、授权的合法性与正当性等问题产生了激烈争论。",
+            "行政改革试验授权是介于立法授权与行政授权之间的一种新型授权制度，具有独立的法律地位。"
+          ],
+          "strengths": [
+            "精准提炼“立法施行力中止”概念，有效破解“法律修改论”争议。",
+            "系统构建程序、形式与实体三重法治边界，问题意识鲜明。"
+          ],
+          "weaknesses": [
+            "对授权决定事后司法审查机制的探讨相对不足。",
+            "本土化裁量基准的构建路径可进一步具体化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评文献综述、论证逻辑及材料支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出了明确的法学争点，且具有高度的枢纽性。",
+          "core_judgment": "论文提出了可争辩的法学争点，且涉及多个制度领域和基础理论，问题创新性高。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "第一，行政改革试验授权在现行授权制度体系中的地位...第二，行政改革试验授权行为的法律性质...",
+            "学界便围绕改革试验授权的法律属性、授权的合法性与正当性等问题产生了激烈争论。"
+          ],
+          "strengths": [
+            "问题明确且具有可争辩性，呈现了法律修改论与非修改论的交锋",
+            "枢纽性极强，涉及立法法、行政法及宪法基本原则"
+          ],
+          "weaknesses": [
+            "无明显弱点"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 82.02357912063599,
+        "glm-5.1": 46.591574907302856
+      }
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "scores": {
+        "qwen3.6-plus": 80,
+        "glm-5.1": 90
+      },
+      "mean": 85,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒授权制度研究脉络，精准定位既有理论缺口，并据此展开体系化论证。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别达标，文献定位扎实。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "法学界便围绕改革试验授权的法律属性……产生了激烈争论。",
+            "可见，不论是法律修改论还是其否定意见，均没有完成说明改革试验授权行为法律性质的任务。"
+          ],
+          "strengths": [
+            "精准提炼“法律修改论”与“非法律修改论”对立脉络",
+            "分散式文献定位有效串联授权体系分类与效力理论"
+          ],
+          "weaknesses": [
+            "对跨学科或比较法视角的授权理论援引相对有限",
+            "部分文献贡献提炼偏重结论复述而非方法论评析"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点建构，不涉及改革试验授权问题本身的创新性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰梳理了改革试验授权的法律属性争论及概念体系分歧，研究地图完整。",
+          "core_judgment": "现状洞察度极高，精准定位学界对立观点与理论缺口，切入点明确。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界就开始了持续讨论，其中有法律修改论和非法律修改论两种对立观点。",
+            "不论是法律修改论还是其否定意见，均没有完成说明改革试验授权行为法律性质的任务。"
+          ],
+          "strengths": [
+            "精准提炼法律修改论及其反对理由的具体内容与局限。",
+            "明确指出立法学缺乏效力体系理论这一深层理论缺口。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献争点梳理与缺口定位，而非问题本身的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 77.67405700683594,
+        "glm-5.1": 59.66885805130005
+      }
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 95
+      },
+      "mean": 93.5,
+      "std": 2.1,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建“定位-定性-边界”三维框架，法学转化度高且具强可操作性。",
+          "core_judgment": "框架概念清晰、步骤可循且全文深度调用，成功将抽象法理转化为可操作的审查标准。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "行政改革试验授权决定包含“暂调或者暂停部分法律的适用”和“将该决定授予特定试验主体实施”两个方面的内容。",
+            "试验方案须符合正当目的、妥当性、必要性及经济性四项要求，构成不可逾越的法律界限。"
+          ],
+          "strengths": [
+            "概念界定精准，清晰剥离“法律修改”与“施行力中止”。",
+            "程序/形式/实体三维分析框架严密，具强可操作性。"
+          ],
+          "weaknesses": [
+            "实体审查标准偏重行政法比例原则，立法裁量特性挖掘稍浅。",
+            "缺乏对授权后事中事后监督机制的框架延伸。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化，不涉及逻辑衔接严密性或问题新颖度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "框架建构力极强，概念重构精准，分类体系严密，法学转化彻底且具有高度解释力。",
+          "core_judgment": "该维度高度成立，论文成功建构了具有独立法律地位的分析框架，并完成了深度的法学概念转化与操作指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。概念界定与分类极清晰，分析步骤可循且被实际调用；跨学科概念成功转化为法学分析步骤，并提供了具体的程序类推与原则适用指引。",
+          "evidence_quotes": [
+            "前者是法律施行力的中止和新试验法的制定两种因素的有机组合...后者是类似于行政特许的立法特别授权",
+            "法律对于它的要求便可从这三个方面来分析：行为的作出程序、行为的表达形式和行为的实体内容"
+          ],
+          "strengths": [
+            "1. 概念重构精准，将“暂停适用”转化为“法律施行力中止”，极具法学解释力。",
+            "2. 分类体系严密，将授权制度按内容与方式清晰分层，定位准确。"
+          ],
+          "weaknesses": [
+            "1. 裁量权规范的四项要求（正当目的等）偏向原则宣示，具体操作化稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的成立性、可用性与法学转化，不评价推理的逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 74.52730011940002,
+        "glm-5.1": 50.018054723739624
+      }
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "scores": {
+        "qwen3.6-plus": 90,
+        "glm-5.1": 95
+      },
+      "mean": 92.5,
+      "std": 3.5,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文推理链条严密，有效回应学术争议并承认论证边界，逻辑自洽度高。",
+          "core_judgment": "核心结论可由体系比较、效力分析与原则推导可辩护地推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "“暂时调整或者停止适用部分法律就是法律施行力的中止”",
+            "“授权仅仅解决了行政改革试验启动的合法性……不能实现事中、事后制约”"
+          ],
+          "strengths": [
+            "推理链条完整，从体系定位到性质界定再到规范约束层层递进",
+            "对“法律修改论”等反对观点进行了实质性法理辨析与回应"
+          ],
+          "weaknesses": [
+            "立法效力中止理论类比行政行为的论证略显跳跃，需更多立法学支撑",
+            "部分规范推导依赖比较法原则，本土实证衔接稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文规范与概念推演充分支撑，而非评价制度框架的实操性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "三步推理层层递进，对法律修改论的反驳引入效力分层理论，论证严密且坦诚局限。",
+          "core_judgment": "推理链完整且步步相依，核心结论可辩护推出，本维完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "法律修改其实是由法律废止和法律创制两个核心要素有机组成的……在废止一个法律规范的同时，与其事实构成要件相同的另一个法律规范必须同时被创制出来",
+            "授权仅仅实现了对于行政改革试验的事前制约，但不能实现对行政改革试验的事中、事后制约"
+          ],
+          "strengths": [
+            "三步问题导向推理步步相依，无关键跳步",
+            "引入立法效力分层理论实质反驳法律修改论"
+          ],
+          "weaknesses": [
+            "局部类比推理（如类比行政行为效力）虽可辩护但非必然推出"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价效力分层理论是否支撑结论，不评价该理论在法学界的可接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 55.46160697937012,
+        "glm-5.1": 45.540006160736084
+      }
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "scores": {
+        "qwen3.6-plus": 92,
+        "glm-5.1": 92
+      },
+      "mean": 92,
+      "std": 0.0,
+      "confidence": "high",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论清晰回应既有争议，提出新型授权定性，契合中国立法实践且明确承认局限。",
+          "core_judgment": "结论高度契合学术共同体语境与现行法秩序，维度完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "暂时调整或者暂停部分法律适用是法律施行力的中止和新试验法的制定的有机组合，不属于法律修改。",
+            "授权仅仅解决了行政改革试验启动的合法性……对于行政改革试验过程的法律规范和约束将是进一步要研究的问题。"
+          ],
+          "strengths": [
+            "精准回应“法律修改论”争议，提出新型授权定性，论点可辩。",
+            "紧扣《立法法》与人大授权实践，中国法治语境契合度高。"
+          ],
+          "weaknesses": [
+            "对授权后事中事后监督机制的制度转化路径着墨较少。",
+            "比例原则等实体边界在本土立法裁量中的具体适用可更细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准回应学界争论并扎根中国制度语境，可接受性极高。",
+          "core_judgment": "结论成功修正既有理论且与现行法秩序高度兼容，对话与制度维度均成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "暂时调整或者暂停部分法律适用是法律施行力的中止和新试验法的制定的有机组合，不属于法律修改",
+            "授权仅仅解决了行政改革试验启动的合法性、正当性问题...对于行政改革试验过程的法律规范和约束将是进一步要研究的问题"
+          ],
+          "strengths": [
+            "明确挑战'法律修改论'并提出'法律施行力中止'新框架",
+            "主动承认自身局限，指出仅解决事前制约问题"
+          ],
+          "weaknesses": [
+            "对'立法特别授权'的反对意见回应可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性与前瞻性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 78.07689476013184,
+        "glm-5.1": 38.51171803474426
+      }
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "scores": {
+        "qwen3.6-plus": 85,
+        "glm-5.1": 75
+      },
+      "mean": 80,
+      "std": 7.1,
+      "confidence": "medium",
+      "raw_outputs": {
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在结论处明确界定授权仅具事前控制功能，并据此提出聚焦事中事后规制的清晰延展路径。",
+          "core_judgment": "存在真实延展路径，基于对事前授权局限的自觉承认，精准锚定事中事后法律约束的后续研究方向。",
+          "score_rationale": "原始分85，对应bonus=5档。文末明确承认仅覆盖事前授权局限，并精准指向事中事后规制这一具体后续争点，路径清晰且与核心论证紧密衔接。",
+          "evidence_quotes": [
+            "授权仅仅解决了行政改革试验启动的合法性、正当性问题,仅仅为改革试验提供了入场券。",
+            "授权制度仅仅实现了对于行政改革试验的事前制约,但不能实现对行政改革试验的事中、事后制约。"
+          ],
+          "strengths": [
+            "明确指出授权仅具事前控制功能，自觉揭示研究边界。",
+            "精准锚定事中事后法律规制方向，与正文论证紧密咬合。"
+          ],
+          "weaknesses": [
+            "未具体展开事中事后制约的潜在制度工具或评估指标。",
+            "延展路径相对单一，缺乏跨域比较或实证检验的延伸设想。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“事中事后规制机制”这一待开拓的研究领域，属未来学术推进方向，而非对本文授权定性结论的当下效力评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "明确承认本文仅解决事前制约局限，将事中事后制约作为后续制度完善方向。",
+          "core_judgment": "存在真实延展路径，明确从“事前制约”延伸至“事中事后制约”的制度完善方向。",
+          "score_rationale": "原始分75，bonus档位为3（60-79档）。结尾明确承认本文仅解决事前制约局限，指明事中事后制约为后续研究方向，路径清晰且与核心结论衔接，但精细度展开有限。",
+          "evidence_quotes": [
+            "授权制度仅仅实现了对于行政改革试验的事前制约，但不能实现对行政改革试验的事中、事后制约。这种情况下，对于行政改革试验过程的法律规范和约束将是进一步要研究的问题。"
+          ],
+          "strengths": [
+            "延展路径与正文核心结论（事前制约）紧密衔接",
+            "明确承认研究局限并给出具体后续研究方向"
+          ],
+          "weaknesses": [
+            "对后续研究方向的精细度展开有限，仅作概括性指明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "事中事后制约属于未来制度完善方向，而非当下授权制度本身的可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "qwen3.6-plus": 56.88003921508789,
+        "glm-5.1": 40.45538520812988
+      }
+    }
+  },
+  "overall": {
+    "avg_std": 3.5,
+    "max_std": 7.1,
+    "weighted_total": 89.4,
+    "final_score": 94.68,
+    "high_confidence_pct": 66.7,
+    "dimension_count": 6,
+    "composite_score": 3.17,
+    "worst_dimension": "literature_insight",
+    "worst_std": 7.1
+  },
+  "autonomous_knowledge_signals": {
+    "per_model": {
+      "qwen3.6-plus": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "2014年《中共中央关于全面推进依法治国若干重大问题的决定》……要求‘实践条件还不成熟、需要先行先试的，要按照法定程序作出授权’……由于法律规定比较简单，在改革试验授权实践过程中，法学界便围绕改革试验授权的法律属性、授权的合法性与正当性等问题产生了激烈争论。",
+          "行政改革试验授权是介于立法授权与行政授权之间的一种新型授权制度，具有独立的法律地位。……前者是法律施行力的中止和新试验法的制定两种因素的有机组合，不属于法律修改；后者是类似于行政特许的立法特别授权。"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      },
+      "glm-5.1": {
+        "china_problem_centered": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "external_theory_transformation": "sufficient",
+        "verifiable_concept_or_thesis": "yes",
+        "signal_scores": {
+          "china_problem_centered": 2,
+          "china_practice_explanation_attempted": 2,
+          "external_theory_transformation": 2,
+          "verifiable_concept_or_thesis": 2
+        },
+        "autonomous_signal_score": 8,
+        "autonomous_signal_strength": "strong",
+        "involves_special_chinese_institutional_issue": "yes",
+        "issue_types": [
+          "state_governance"
+        ],
+        "uses_traditional_cultural_resource": "no",
+        "evidence_quotes": [
+          "行政改革试验授权是介于立法授权与行政授权之间的一种新型授权制度,具有独立的法律地位",
+          "暂时调整或者停止适用法律的部分规定就是法律施行力的中止",
+          "将暂时调整或暂停适用决定授予特定试验主体实施是类似于行政特许的立法特别授权",
+          "借鉴上述原则,规范行政改革试验裁量权...行政改革试验及其授权必须具有妥当性...必要性...经济性"
+        ],
+        "risks": [],
+        "triggers_review": false,
+        "review_reason": ""
+      }
+    },
+    "avg_signal_score": 8.0,
+    "signal_scores": [
+      8,
+      8
+    ]
+  }
+}

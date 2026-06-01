@@ -1,0 +1,956 @@
+{
+  "paper": "法学三大刊论文/补充论文/FXYJ2025006011_法学研究_2025_从直觉到证据：大模型法律语料库与法律解释客观化.pdf",
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "round1_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 70,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 88
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 58,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 78
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 42,
+          "revised": 42,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 70,
+          "revised": 58,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 12,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 17,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 88,
+          "revised": 78,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 10,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 42,
+          "revised_score": 42,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "unacceptable",
+          "revised_core_judgment": "论文未提出可争辩的法学争点，实质是技术应用方案陈述，且依赖新材料/新概念而未产生实质性研究推进，触发多项扣分上限规则。",
+          "revision_rationale": "其他专家将“如何判定通常含义”误认为法学争点，但论文仅以此引出技术工具介绍，未就法学理论分歧展开论证、提出论点或进行辩驳。全文无对立观点交锋，缺乏法学问题应有的可争辩性。引入“大模型法律语料库”这一新概念，但未说明其对既有法学理论的实质性推进，仍触发material_novelty_without_thesis上限。论文实质是技术方案陈述与政策倡导，符合no_justiciable_question上限条件，故维持原判。",
+          "accepted_points": [],
+          "rejected_points": [
+            "专家A/B认为“如何判定通常含义”构成明确法学争点。但论文仅将其作为技术引介的铺垫，未围绕该问题展开对立论证或提出自身论点，不符合可争辩性要求。",
+            "专家A/B认为枢纽性强，触及多制度。但论文仅泛泛提及罪刑法定、司法解释等，未深入分析这些制度如何因技术引入而产生关联、冲突或变革，缺乏真正的制度性穿透。",
+            "专家A认为核心创新过度依赖新概念，但仅扣15分。新概念未带来实质性法学理论推进，应触发material_novelty_without_thesis上限，降档至unacceptable更合理。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 70,
+          "revised_score": 58,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 12,
+          "revised_band": "marginal",
+          "revised_core_judgment": "核心命题属技术工具应用倡导，缺乏法学理论争点交锋；大模型作为新材料未改变解释路径，属新概念包装旧问题。",
+          "revision_rationale": "接受专家关于“缺乏法学争点、实为政策倡导”的批评。重读发现，论文开篇的术语之争仅为铺垫，核心部分聚焦大模型语料库的赋能路径与风险规制，未触及解释客观化的理论分歧（如语料证据的规范性地位），大模型构想亦未实质推进解释理论。故下调创新性评分至marginal档。",
+          "accepted_points": [
+            "核心命题为政策倡导型，缺乏理论争点交锋",
+            "大模型语料库作为新材料未改变问题设定或解释路径",
+            "全文主要属于技术方案介绍与风险防范"
+          ],
+          "rejected_points": [
+            "论文完全未提出可争辩的法学争点（开篇的专业术语与日常语言之争是成立的，只是未贯穿全文）",
+            "枢纽性极低为1/4（论文确实触及罪刑法定与司法解释制度，有一定枢纽性，虽未深度展开）"
+          ],
+          "new_evidence_found": [
+            "论文明确承认大模型法律语料库尚处构想阶段且无具体案例，印证了其对法学理论的实质推进待验证",
+            "论文以人民诉哈里斯案展示语料库导致不同结论，却仅用于论证‘透明度’，未深入探讨语料方法本身的不确定性争点"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 17,
+          "revised_band": "good",
+          "revised_core_judgment": "论文问题成立且具有枢纽性，但核心创新仍属技术赋能传统议题，理论推进有限。",
+          "revision_rationale": "重新审视后接受专家A、B的部分合理观点：论文确实锚定了'通常含义'判定标准这一长期理论争点（可争辩性4/4），且触及罪刑法定、司法解释、裁判说理等多制度节点（枢纽性4/4）。但坚持认为'大模型'作为新概念包装既有'法律解释客观化'议题的特征明显——语料库语言学方法在法学界已有十余年讨论，大模型仅是其技术升级而非理论范式转换。论文未充分回应'技术工具如何改变解释本体论'这一关键问题，材料新颖性触发部分上限。从marginal上调至good档下限，反映问题成立但创新深度不足。",
+          "accepted_points": [
+            "问题具有明确争点：'通常含义'的判定标准是法律解释客观化的经典理论分歧",
+            "枢纽性强：涉及罪刑法定原则、司法解释权限、裁判说理义务等多制度",
+            "大模型语料库对提升解释透明度有实质论证，非纯粹政策倡导",
+            "论文对'技术不替代裁量权'的边界意识有清晰界定"
+          ],
+          "rejected_points": [
+            "专家B认为'创新性显著'：大模型仅为语料库的技术升级，未改变'通常含义=高频用法'的核心预设，理论推进有限",
+            "专家A的85分锚定过高：'新概念包装旧问题'的扣分应更重，大模型'幻觉'等技术风险论述已暴露工具局限性"
+          ],
+          "new_evidence_found": [
+            "论文明确区分'技术透明'与'算法透明'，强调语料库是'论证范式透明'而非黑箱（第59页）",
+            "对'法律语料库语言学—法律语料库—大模型'三层关系的定位显示作者清醒意识到技术工具的从属性（第41页）",
+            "结语坦承'无法直接实现客观化理想'，弱化技术乌托邦色彩，增强理论审慎性"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 88,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 10,
+          "revised_band": "good",
+          "revised_core_judgment": "论文将语料库语言学与大模型结合，为法律解释客观化提供具操作性的程序方案，但理论争点偏向方法应用，对解释学深层张力挖掘有限。",
+          "revision_rationale": "采纳A、B专家关于“偏重技术应用与程序倡导、理论争点张力不足”的合理批评。论文虽系统引介语料库语言学并提出大模型赋能路径，但将“客观化”限缩为程序透明与经验验证，回避了法解释学中主客观性的核心哲学争议。整体属扎实的增量研究，未达理论突破标准，故下调至good档。",
+          "accepted_points": [
+            "论文核心偏向技术应用方案与程序性倡导，缺乏对法解释学深层理论争点（如实质客观性、解释者前见不可消除性）的实质性交锋",
+            "引入大模型作为新材料，主要优化了传统语料库的技术效能，并未根本改变法律解释的问题设定或核心论证路径"
+          ],
+          "rejected_points": [
+            "拒绝“全文无明确法学争点句”的绝对化判断：论文清晰锚定“通常含义判定”的方法论难题，并系统论证了从直觉到证据的范式转换",
+            "拒绝“未产生实质性研究推进”：论文在比较法语料库方法本土化、大模型防幻觉架构（RAG+语料锚定）及跨解释方法赋能上具有明确的学术增量"
+          ],
+          "new_evidence_found": [
+            "论文明确将“客观化”界定为“方法论与程序意义上的理性化”，主动规避实质客观性争议以契合技术工具定位",
+            "详细构建了“通用型+监控型+解析型”语料库架构及检索增强生成（RAG）机制以规制技术内生风险",
+            "对历史解释与体系解释的赋能路径有具体展开，突破了单一文义解释的局限"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.091187953948975,
+        "glm-5.1": 73.54833912849426,
+        "kimi-k2.6": 14.765326023101807,
+        "qwen3.6-plus": 64.83787393569946
+      },
+      "round1_mean": 63.8,
+      "round2_mean": 62.5,
+      "round1_std": 19.8,
+      "round2_std": 16.0,
+      "convergence_improvement": 3.8
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "round1_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 90
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 78,
+          "revised": 78,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 55,
+          "revised": 72,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 17,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 90,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "revised_score": 78,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "good",
+          "revised_core_judgment": "研究地图基本建立，梳理了专业/日常、直觉/词典/语料库的对立，但未凝练为可区分的法学流派，争点结构部分成立。",
+          "revision_rationale": "坚持原判。其他专家将“日常vs专业”“直觉vs词典vs语料库”等研究路径对立直接等同于“法学流派”，这是对“法学流派”概念的泛化。论文精准呈现了工具演进脉络，但并未将这些对立归类为形式法治/实质法治或学派论争。流派的缺位导致争点结构未完全成立，上限仍锚定good档，79分，维持78分。",
+          "accepted_points": [
+            "论文确实清晰呈现了解释基准与工具的演进脉络，形成了‘直觉—词典—语料库’的多重对立。"
+          ],
+          "rejected_points": [
+            "将‘日常语言vs专业语言’或‘直觉vs词典vs语料库’的对立等同于“法学流派”成立。这些是研究路径或方法论偏好，并非已形成稳定理论阵营和学派对话的“法学流派”。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "excellent",
+          "revised_core_judgment": "三要素充分且对应明确，争点实质对立清晰，但未以法学流派标签显式归类立场",
+          "revision_rationale": "接受专家A关于论文未明确使用法学流派标签的合理批评，论文确实以\"部分学者主张\"\"折中说\"等泛称呈现立场，而非\"日常语言学派vs专业语言学派\"等流派式归类，这是表述层面的不足。但实质上论文呈现了专业优先/日常优先/折中三派对立及直觉/词典/语料库方法论对立，争点结构完整；三要素（到达点=既有立场与工具不足、未竟点=如何客观确定通常含义、切入点=大模型语料库）对应关系明确，引用了克莱默、Simon等具体学者。故维持excellent档，适度下调5分。",
+          "accepted_points": [
+            "论文未以法学流派标签显式归类各对立场，仅用'部分学者主张''折中说'等泛称",
+            "切入点表述偏宏观，与未竟点的紧密度可进一步加强"
+          ],
+          "rejected_points": [
+            "专家B称'未明确任何具体学者贡献'——论文脚注明确引用克莱默、Simon、Tsoumanis等多位学者及具体著作页码",
+            "专家B称'未竟点与切入点脱节'——论文明确论证了大模型语料库如何回应'如何客观确定通常含义'这一未竟问题"
+          ],
+          "new_evidence_found": [
+            "论文脚注2-4引用了克莱默、Dannecker/Schuhr、Simon等具体学者与页码，到达点并非模糊",
+            "论文明确将'如何判定通常含义'等系列问题列为未竟点，并以大模型语料库作为切入点直接回应",
+            "论文使用'折中说'作为立场分类标签，虽非流派标签但具备分类功能，实质构成流派性对立"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 55,
+          "revised_score": 72,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 17,
+          "revised_band": "good",
+          "revised_core_judgment": "论文构建了'直觉—词典—语料库'三阶演进的研究地图，争点结构完整，但三要素中到达点与切入点的对应关系仍显薄弱，法学流派覆盖有限。",
+          "revision_rationale": "重新审阅后，承认论文在争点结构呈现上优于初评判断：专业/日常/折中说、直觉/词典/语料库的双重对立脉络清晰，且'大模型法律语料库'作为新切入点的论证较为充分。但专家A、B对'三要素=6/6'的评价过高——论文未明确标识'到达点'（具体学者贡献）与'未竟点'（既有研究不足）的对应关系，'部分学者''有观点认为'等模糊表述仍大量存在，且法学流派集中于解释方法论，缺乏对认知语言学、计算法学等跨学科流派的深度转化。综合上调至good档下限。",
+          "accepted_points": [
+            "争点结构完整，呈现了专业/日常/折中、直觉/词典/语料库等多重对立",
+            "大模型法律语料库作为新切入点的论证具有现实针对性",
+            "分散式文献定位将既有研究融入论证各环节"
+          ],
+          "rejected_points": [
+            "专家A称'三要素=6/6'：论文未明确任何具体学者的代表性成果，'到达点'模糊；'未竟点'与切入点虽有关联但缺乏显性对应说明",
+            "专家B称'文献定位与论证高度咬合'：正文引注依赖脚注回溯，且大量德语文献未充分消化为论证资源，存在'堆砌感'",
+            "专家A称'法学流派覆盖丰富'：实际仅涉及传统法律解释学、语料库语言学，对大模型法学流派的内部交锋（如Engel与批评者）着墨单薄"
+          ],
+          "new_evidence_found": [
+            "论文明确将'大模型法律语料库'定位为'传统法律语料库与大模型技术深度融合'，而非简单替代，体现了对技术局限性的自觉",
+            "第〔40〕脚注引用2024年Snell案，显示对美国最新司法实践的跟踪，但该案作为'到达点'的学术价值未充分展开",
+            "结语承认'如何防范算法对司法裁判人文价值的冲击'为'长期需要研究的理论与实践命题'，暗示未竟点与切入点的自我认知"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 90,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "excellent",
+          "revised_core_judgment": "研究地图完整，工具演进脉络清晰，文献与论证咬合紧密；但对立场未作明确流派归类，理论交锋深度略有不足，整体仍属优秀。",
+          "revision_rationale": "采纳专家A关于“未明确凝练为可区分法学流派”的合理意见，论文侧重方法论工具演进而非法理流派交锋，理论纵深稍逊；但驳斥专家B“未列具体学者、未竟点与切入点脱节”之论断，原文已系统梳理直觉/词典/语料库三路径并精准锚定大模型赋能的切入点。故微调分数，维持优秀档位。",
+          "accepted_points": [
+            "采纳专家A关于论文未将既有立场明确归类为形式/实质法治或日常/专业语言学派的合理批评，理论流派辨识度可进一步提升"
+          ],
+          "rejected_points": [
+            "拒绝专家B关于‘未明确具体学者贡献、到达点模糊、未竟点与切入点脱节’的评价，因原文已详引Kramer、Tobia、Mouritsen等学者成果，并清晰构建了‘工具局限→客观化需求→大模型语料库切入’的逻辑链条"
+          ],
+          "new_evidence_found": [
+            "原文脚注〔2〕-〔9〕及正文系统引证了齐默尔曼、克莱默、Simon、Tsoumanis、Gries、Tobia、Mouritsen、Lee等中外学者文献，明确构建了‘专业优先vs日常优先vs折中说’的争点谱系",
+            "原文清晰界定‘客观化’为程序性/过程性客观，并将大模型语料库定位为破解直觉易错性与词典去语境化的实证检验工具，未竟点与切入点高度对应"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 22.11676001548767,
+        "glm-5.1": 84.86417984962463,
+        "kimi-k2.6": 17.691524028778076,
+        "qwen3.6-plus": 78.12756419181824
+      },
+      "round1_mean": 78.2,
+      "round2_mean": 80,
+      "round1_std": 16.5,
+      "round2_std": 6.3,
+      "convergence_improvement": 10.2
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "round1_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 82,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 65,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 84
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 38,
+          "revised": 82,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 44,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 82,
+          "revised": 65,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 17,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 45,
+          "revised": 68,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 23,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 84,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 8,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 38,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 44,
+          "revised_band": "excellent",
+          "revised_core_judgment": "论文提出了“程序性客观”的原创分析框架，并成功将技术构想转化为可操作的法学论证义务机制，具有理论建构力。",
+          "revision_rationale": "重新阅读后，我发现之前严重低估了论文的理论建构。论文并非简单罗列工具，而是以“程序性客观”为核心，将大模型语料库构想转化为“偏离通常含义需强化论证”的倒逼机制，并具体设计了披露义务、透明度基准等制度方案。这提供了可重复适用的分析步骤（如确定基线、要求偏离论证），实现了从技术描述到法学操作的转化，框架具备可操作性与原创性，应提升至excellent档。",
+          "accepted_points": [
+            "接受了“核心概念界定清晰，分类标准明确”的观点，论文对“客观化”界定为“程序性客观”是贯穿全文的原创分析框架。",
+            "接受了“提供了具体的制度设计方案与司法程序操作指引”的观点，如论证义务、披露义务等，构成了可重复适用的法学分析步骤。",
+            "接受了“成功将技术工具转化为‘偏离通常含义需强化论证’的程序性倒逼机制”的观点，这确实是法学转化的关键一步。"
+          ],
+          "rejected_points": [
+            "拒绝了“仅是对既有工具进行归纳”的初始判断，该判断忽略了贯穿全文的‘程序性客观’框架和倒逼机制的设计。",
+            "拒绝了“技术构想未转化为法学操作步骤”的判断，论文第四部分明确将透明度与论证义务挂钩，实现了法学转化。"
+          ],
+          "new_evidence_found": [
+            "论文明确将‘客观化’界定为‘方法论与程序意义上的理性化和限制任意性’，提出了‘程序性客观’的原创框架。",
+            "论文第四部分设计了‘偏离通常含义需强化论证’的程序性倒逼机制，并规定了具体的披露义务和透明度基准，构成了可操作的法学分析步骤。",
+            "论文对历史解释、体系解释的辅助功能进行了具体设计，展示了该框架在多种解释方法中的应用潜力。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 82,
+          "revised_score": 65,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 17,
+          "revised_band": "good",
+          "revised_core_judgment": "框架在概念与制度构想层面成立，但核心概念未转化为可操作的法学推理步骤，工具功能替代法官推理，法学转化度不足。",
+          "revision_rationale": "接受A和B关于“缺乏法学分析推理步骤”的核心批评。原评价对“制度设计成立”权重过高，忽视了法学理论框架必须具备方法论操作步骤的根本要求。论文提出的大模型语料库架构属于宏观技术系统构想，未转化为法官在个案中逐步遵循的法学推理流程，存在分析黑箱，法学转化度存在重大缺陷，故下调至good档。",
+          "accepted_points": [
+            "核心概念未转化为可重复适用的法学操作步骤或判断标准。",
+            "大模型法律语料库仅作为宏观技术构想被提出，工具功能描述替代了法学分析步骤。",
+            "未形成“提出框架—检验框架—修正框架”的闭环，后文以功能列举和制度倡导为主。"
+          ],
+          "rejected_points": [
+            "评审专家A认为“分析框架不成立”“仅对既有工具归纳，无任何原创构想”。论文对“客观化”的概念界定（程序性客观）及大模型赋能语料库的整合架构仍有理论建构价值，并非纯粹归纳，不应降至unacceptable档。"
+          ],
+          "new_evidence_found": [
+            "论文在风险规制部分提出的“披露义务”“动态校验机制”“技术选择的可辩驳性”等，均属于外部的制度性约束或倡导，而非法官内在的法学分析推理步骤，进一步印证了“制度倡导替代法学推理流程”的缺陷。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 45,
+          "revised_score": 68,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 23,
+          "revised_band": "good",
+          "revised_core_judgment": "框架在概念界定与制度设计层面基本成立，但核心概念向法学操作步骤的转化仍存缺口，分析流程的闭环性不足。",
+          "revision_rationale": "重新审阅后，承认原评分偏低。论文确有超出'功能描述和制度倡导'的实质内容：'通用型+监控型+解析型'的三层架构具有明确的分类标准与边界；'偏离通常含义需强化论证'的程序性倒逼机制，已将技术工具转化为具有法学意义的操作规则；对透明度、论证义务的讨论亦具规范效力。但坚持认为，框架尚未形成'步骤化分析流程'——解释者如何逐步调用语料库、如何具体比对数据与规范、如何在数据与规范冲突时进行权衡，缺乏可重复的步骤指引。'客观化'作为核心概念，其操作化定义仍显模糊。故从marginal上调至good档，但未达excellent。",
+          "accepted_points": [
+            "评审专家A指出的'核心概念界定清晰，分类标准明确'——三层架构确有清晰边界",
+            "评审专家B指出的'程序性倒逼机制'——偏离通常含义需强化论证具有法学转化意义",
+            "评审专家A、B均认可的'制度设计方案与司法程序操作指引'——透明度、论证义务、披露义务等具有规范约束力",
+            "评审专家B指出的'跨学科概念转化为法律解释的客观化检验流程'——RAG+语料锚定、可重复性要求等确实构成检验流程"
+          ],
+          "rejected_points": [
+            "评审专家B的'框架可操作性4/4'评分——论文未提供解释者逐步遵循的推理步骤，'如何判定通常含义'仍停留在功能描述层面，未形成'输入-处理-输出'的闭环步骤。专家B将'分类架构'等同于'分析步骤'，混淆了工具设计与操作指引",
+            "评审专家A的'excellent档'定位——其自身也承认'缺乏供解释者逐步遵循的法学分析推理步骤'，此缺陷与excellent档存在张力",
+            "评审专家B的'法学转化度4/4'——语料库检索方法的选择、结果的分析仍由解释者主观决定，'技术选择的可辩驳性'是程序性要求而非操作步骤，未能完全消解'分析黑箱'"
+          ],
+          "new_evidence_found": [
+            "论文明确提出'偏离通常含义需强化论证'的程序性规则（第791页），构成具有规范效力的法学转化",
+            "RAG+语料锚定的技术方案（第802页）提供了遏制'幻觉'的具体操作路径，具有可验证性",
+            "对'解释黑箱'问题的回应（第798-799页）包含具体的制度设计：论证义务触发条件、备案审查制度衔接、裁判文书说理要求",
+            "三层架构中'解析型语料库'借助大模型优化句法分析，降低人工编辑成本（第791页），确有具体技术路径而非空泛倡导"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 84,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 8,
+          "revised_band": "good",
+          "revised_core_judgment": "框架具备理论自洽性与程序规制价值，但偏重宏观构想与制度倡导，缺乏可重复的精细化操作步骤与量化检验标准，法学转化尚未完全落地。",
+          "revision_rationale": "采纳A、B专家关于“缺乏可重复操作步骤”与“偏重功能描述”的合理批评。重读发现，文中“倒逼论证义务”“透明度基准”等确属程序性原则，但未提供法官可直接调用的检索阈值、提示词规范或验证闭环。技术路径仍具理想化色彩，故下调至good档，但肯定其理论建构与程序规制方向的创新价值。",
+          "accepted_points": [
+            "分析框架偏重宏观构想与制度倡导，缺乏可重复适用的精细化操作步骤",
+            "核心概念（如客观化、透明度）未完全转化为可量化的裁判检验标准",
+            "后文以功能描述为主，未形成“提出框架—检验框架—修正框架”的实证闭环"
+          ],
+          "rejected_points": [
+            "拒绝“分析框架不成立/完全未转化”的极端判断。理由：论文已构建“语料库架构+程序性倒逼+风险规制”的完整逻辑链，并将技术工具转化为“偏离通常含义需强化论证”的程序性义务，具备明确的法学转化路径与可操作性雏形，仅缺微观操作细则。"
+          ],
+          "new_evidence_found": [
+            "文中明确提出“确立解释透明度基准”“全流程技术可重复性与结论可推广性”“RAG+语料锚定遏制幻觉”“技术选择可辩驳性”等程序性控制机制",
+            "引用People v. Harris案展示语料库检索的实际对抗过程与透明度价值",
+            "提出“基础认知—操作规范—伦理反思”三位一体的法律职业培训体系"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.21606707572937,
+        "glm-5.1": 65.70074701309204,
+        "kimi-k2.6": 20.108391284942627,
+        "qwen3.6-plus": 74.54098272323608
+      },
+      "round1_mean": 64.2,
+      "round2_mean": 74.8,
+      "round1_std": 26.7,
+      "round2_std": 9.6,
+      "convergence_improvement": 17.1
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "round1_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 80
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 62,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 16,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 90,
+          "revised": 85,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 80,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 12,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 62,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 16,
+          "revised_band": "good",
+          "revised_core_judgment": "论文论证主线清晰，对关键外部质疑提供了实质回应，但技术风险的具体推演仍显薄弱，结论可推出但补强空间明显。",
+          "revision_rationale": "重新阅读后发现，论文对“篡夺解释权”和“操纵风险”两大外部质疑均设计了正面、具体的反驳段落（如权力不替代论、RAG技术方案、透明度基准等），并非仅承认局限。这弥补了原先反驳处理度的明显短板，使论证结构更完整。但“AI幻觉”如何衔接解释结论的逻辑推演仍较简略，故维持good档，上调至该档上限78分。",
+          "accepted_points": [
+            "论文对“篡夺解释权”与“算法操纵”等核心质疑给出了实质性的技术与制度协同回应，反驳力度优于我第一轮判断。",
+            "推理链条从语义理论到技术赋能再到制度规制，环节较为完整，逻辑依赖度较高。"
+          ],
+          "rejected_points": [
+            "对技术可行性论证偏重理论推演、缺乏本土司法场景实证检验的支持这一批评成立，但此属实证支撑问题，并非逻辑连贯性维度的核心否定因素。",
+            "“倒逼论证义务”机制设计略显理想化虽属实，但论文已通过层级化论证展开，在逻辑上可自洽，不构成严重断裂。"
+          ],
+          "new_evidence_found": [
+            "论文明确阐述了“大模型法律语料库并非试图消除司法自由裁量权，而是要限制法官仅凭个人断言就判定语言用法的权力”，构成了对“篡权说”的直接反驳。",
+            "对操纵风险从技术内生、人为外生两个层面展开分析，并提出了RAG+语料锚定、过程可重复/可推广等具体规制方案，形成了可辨识的应对链条。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 90,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 5,
+          "revised_band": "excellent",
+          "revised_core_judgment": "推理链完整且反驳实质，但传统到大模型过渡论证稍弱且适用边界未明确，整体仍属excellent。",
+          "revision_rationale": "接受专家B关于推理存在局部跳步及缺乏适用边界明确承认的观点，将分数从90微调至85；拒绝专家A关于反驳仅承认局限未回应实质分歧的观点，因论文对篡夺解释权与操纵风险（含AI幻觉）给出了技术与制度协同（如RAG锚定）的详尽回应，并非仅给方向。",
+          "accepted_points": [
+            "从传统语料库局限到大模型语料库最优性的推导存在关键跳步，未充分论证'先建设后升级'的替代路径为何不可行。",
+            "缺乏对自身理论适用边界的明确承认，未界定大模型语料库在何种解释方法或特定场景下不宜使用。"
+          ],
+          "rejected_points": [
+            "专家A认为反驳仅承认局限未回应实质分歧。论文对'篡夺解释权'给出了'辅助而非替代、倒逼论证义务'的实质性反驳；对'操纵风险与AI幻觉'给出了'RAG+语料锚定、全流程公开、可重复可推广'的具体技术与制度协同逻辑，并非仅给解决方向。",
+            "专家A认为未正面处理算法能否替代人类共识判断。论文在'变相篡夺解释权之否定'部分已明确回应，主张大模型不替代人类判断，最终判断仍由解释者完成，而是提供透明证据支撑。"
+          ],
+          "new_evidence_found": [
+            "论文在提出大模型语料库前，先排除了'单独使用大模型'的替代方案（指出其存在幻觉、数据难追溯等问题），这部分弥补了推理跳步，但'摒弃先建设后升级'的论证仍显单薄。",
+            "论文对AI幻觉的回应并非仅给方向，而是提出了具体的'检索增强生成（RAG）+语料锚定'技术逻辑，要求模型输出前必须检索原始文本片段供核验，衔接了技术与解释结论。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "推理链完整且反驳处理较为充分，从传统语料库到大模型语料库的过渡论证有所补强，但关键跳步与适用边界问题仍未完全消除。",
+          "revision_rationale": "重新审读论文后，发现作者对传统语料库局限性的论证比我最初评估的更为充分：明确指出了传统语料库'语料覆盖狭窄、成本高、门槛高、分析能力弱'等四重缺陷，并强调大模型语料库并非'从零开始'而是'技术迭代'，具备'连续性和可操作性'。此外，论文对'篡夺解释权'的反驳确实明确限定了工具定位——'并非试图消除司法自由裁量权，而是要限制法官仅凭个人断言就判定语言用法的权力'，这一限定比我初评时认识的更清晰。但'从传统语料库有局限'到'大模型语料库是最佳方案'的推导中，对'替代方案不可行'的论证仍不充分（如未排除纯大模型方案、未充分论证改造传统语料库不如新建大模型语料库）；且'仅适用于文义解释'的适用边界仍未明确承认，尽管论文提及对历史解释、体系解释的辅助作用，但未说明大模型语料库在这些解释方法中的功能边界与局限性。因此上调6分至78分，仍锚定good档。",
+          "accepted_points": [
+            "专家A、B指出的'技术与制度协同回应'确实成立，论文对两种反对意见的反驳具有实质性",
+            "从传统语料库到大模型语料库的过渡论证存在'技术迭代'而非'从零开始'的补强论述",
+            "大模型语料库的工具定位限定较为明确：'并非试图消除司法自由裁量权'"
+          ],
+          "rejected_points": [
+            "专家A、B给出的90/92分过高：其未充分关注'最佳方案'论证中的替代方案排除问题，且对'适用边界'的缺失关注不足；专家B指出的'技术可行性偏重理论推演'虽成立，但这属于另一维度（论证深度/实证支撑）而非逻辑连贯性维度的核心问题",
+            "专家B认为'推理步骤层层递进，逻辑依赖度高'——我承认结构清晰，但'层层递进'不等于无跳步，从'传统不足'到'大模型最优'的推导仍缺乏对替代方案的排除论证"
+          ],
+          "new_evidence_found": [
+            "论文明确指出传统法律语料库'语料覆盖狭窄、成本高、门槛高、分析能力弱等固有缺陷'，并强调大模型语料库建设'并非从零开始的初创性工程，而是在传统法律语料库已有基础之上的技术迭代与功能拓展'",
+            "论文明确限定工具定位：'大模型法律语料库的使用，并非试图阻止解释者在法律解释中依赖自己的判断'，'并非试图消除司法自由裁量权，而是要限制法官仅凭个人断言就判定语言用法的权力'",
+            "论文在结语中承认'技术进步始终伴随风险'，但未明确大模型语料库方法的适用边界（如是否仅适用于文义解释）"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 80,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 12,
+          "revised_band": "good",
+          "revised_core_judgment": "推理主线清晰且回应了核心质疑，但技术替代论证存在跳步，风险规制偏重制度构想，缺乏实证与边界限定，逻辑严密性未达卓越。",
+          "revision_rationale": "采纳专家B指出的“传统语料库局限至大模型最优性存在跳步”及专家A指出的“幻觉/偏见风险与法律结论衔接推演不足”的合理意见。重读发现论文虽提出RAG与可重复性机制，但多为技术/制度框架设想，未深入论证其如何必然转化为法律解释的客观性，且未明确适用边界。故下调评分至good档。",
+          "accepted_points": [
+            "技术路径替代论证存在关键跳步，未充分排除其他技术方案的可行性",
+            "对AI幻觉与算法偏见的回应偏重方向性指引，缺乏与法律解释结论衔接的严密逻辑推演",
+            "未明确界定大模型语料库方法的适用边界（如是否仅限于文义解释）"
+          ],
+          "rejected_points": [
+            "专家A认为论文未回应算法能否替代人类共识的根本质疑。理由：论文已明确界定语料库为“辅助工具”而非“替代判断”，并通过“倒逼论证义务”机制将技术输出置于人类理性论辩框架下，已实质回应此质疑。"
+          ],
+          "new_evidence_found": [
+            "论文提出通过“RAG+语料锚定”及“全流程可重复性”规制风险，但属程序性构想，缺乏本土司法实证检验",
+            "论证大模型赋能时直接断言其能“消解专业壁垒”“实现多维度语境还原”，未对比论证传统NLP或专家系统为何不可行，存在技术最优性推导跳跃"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 21.617239952087402,
+        "glm-5.1": 69.27163815498352,
+        "kimi-k2.6": 20.160435914993286,
+        "qwen3.6-plus": 71.16631293296814
+      },
+      "round1_mean": 79,
+      "round2_mean": 80.2,
+      "round1_std": 14.5,
+      "round2_std": 3.3,
+      "convergence_improvement": 11.2
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "round1_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 82,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 86
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 82,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 85,
+          "revised": 82,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 3,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 72,
+          "revised": 78,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 92,
+          "revised": 86,
+          "changed": true,
+          "direction": "down",
+          "magnitude": 6,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 82,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论明确嵌入解释客观化争论，深度回应反对意见，并提供通用型/监控型/解析型等具体制度转化构想，共同体对话度与制度可接受度均高。",
+          "revision_rationale": "重新阅读发现，论文确实在第三部分（二）和（三）及第四部分详细阐述了“通用型+监控型+解析型”架构及倒逼论证义务的具体制度落地方向，回应了“解释黑箱”等本土约束。专家A和B指出了这些我之前低估的制度转化方案和风险防范论述，其评分理由成立，故将制度可接受度从2/4调至3/4（或4/4），整体评分上调至85，以更准确反映论文的制度兼容性与对话深度。",
+          "accepted_points": [
+            "论文确实提出了通用型、监控型、解析型等具体制度转化方向，且论述较为完整。",
+            "结论主动回应了篡夺解释权与技术操纵等反对意见，具有强可辩驳性与制度兼容性。"
+          ],
+          "rejected_points": [
+            "专家B将其制度可接受度直接设为4/4并给分92，略有过高之嫌，因方案仍属理论构想，实务衔接验证尚存宏观性。"
+          ],
+          "new_evidence_found": [
+            "论文第三部分（二）和（三）明确阐述了“通用型+监控型+融入大模型技术的解析型”组合模式，以及提升透明度、倒逼论证义务等具体制度落地机制。",
+            "第四部分系统回应了篡夺解释权与操纵风险，并给出技术与制度协同治理的全流程规制方案。"
+          ],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 85,
+          "revised_score": 82,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论深度回应共同体争论并主动防范风险，但制度转化偏宏观构想，缺乏具体司法程序衔接，制度兼容度受限。",
+          "revision_rationale": "接受其他专家关于制度转化方案偏宏观构想的合理批评，将制度可接受度从4/4下调至2/4。论文虽提出了语料库架构与风险规制框架，但确未深入司法解释制定或个案裁判的具体操作流程，制度落地性不足。但坚持共同体对话度为4/4，因论文主动回应了篡夺解释权、操纵风险及大模型幻觉等核心反对意见。综合调整，评分下调至82分。",
+          "accepted_points": [
+            "制度转化方向较笼统，缺乏与中国具体司法程序衔接的明确方案",
+            "结论主要停留在技术构想阶段，实务验证与具体落地路径不足"
+          ],
+          "rejected_points": [
+            "未充分讨论大模型技术局限（幻觉、偏见）对自身主张的深层挑战。理由：论文在“操纵解释结论的风险规制”部分专门讨论了“幻觉”问题，并提出了RAG+语料锚定等技术应对与制度规制方案，已主动回应此挑战。"
+          ],
+          "new_evidence_found": [
+            "论文提出了RAG技术、动态校验机制、跨学科审查小组、重构法律职业伦理等风险规制方案，但这些方案均属宏观框架，未涉及具体诉讼程序中的质证、采信规则等微观制度衔接，印证了制度转化方案笼统的批评。"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 72,
+          "revised_score": 78,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "共同体对话度3.5/4，制度可接受度3/4，锚定good档偏上，给78分。",
+          "revision_rationale": "重新审读论文后，发现其对技术风险的回应比我初评时更为充分：专设'操纵解释结论的风险规制'一节，系统讨论了技术内生风险与人为外生风险，并提出'全流程公开''可重复可推广''RAG+语料锚定'等具体规制方案，非'未充分承认自身局限'。制度转化方面，'通用型+监控型+解析型'的语料库架构设计、人机协同的解释权分配范式、法律职业伦理的数字化适应机制等，已超出'较笼统'的判断。但'中国制度语境讨论深度有限'的判断仍可维持——论文虽提及智慧司法战略，却未深入讨论中国刑事诉讼程序中证据效力位阶、基层法院算力适配等具体问题，与A、B专家'高度兼容中国制度'的判断仍有距离。",
+          "accepted_points": [
+            "A专家关于'主动回应篡夺解释权与操纵风险等反对意见'的判断——论文专节讨论技术风险，回应确实充分",
+            "B专家关于'系统回应技术风险与司法权边界'的判断——论文对解释权边界、技术风险的讨论具有体系性",
+            "A专家关于'通用型+监控型+解析型等具体制度转化方向'的观察——该架构设计确实较为具体"
+          ],
+          "rejected_points": [
+            "A、B专家'共同体对话度4/4'的评分——论文虽回应了语料库语言学、法律解释客观化等争论，但对大模型'幻觉'问题的回应仍嵌入'操纵风险'框架下，未作为独立核心挑战展开；且对'客观化'概念本身的哲学争议（如哈贝马斯vs.德沃金之争）缺乏讨论",
+            "B专家'制度可接受度4/4'及'与中国现行法秩序高度兼容'的判断——论文对中国制度语境的讨论仍停留在原则层面，未涉及刑事裁判中语料库证据的效力位阶、基层法院技术条件、与现有司法解释备案审查程序的衔接等具体问题",
+            "A、B专家锚定excellent档的判断——论文整体仍处于'构想阶段'，缺乏实务验证，且核心创新在于'大模型+法律语料库'的整合，而非理论原创性突破"
+          ],
+          "new_evidence_found": [
+            "论文第102-103页专设'操纵解释结论的风险规制'一节，系统区分'技术内生风险'与'人为外生风险'",
+            "提出'检索增强生成(RAG)+语料锚定'的技术方案以遏制大模型'幻觉'（第104页）",
+            "提出'基础认知—操作规范—伦理反思'三位一体的培训体系（第105页）",
+            "明确'人机协同的解释权分配范式'及'技术选择的可辩驳性'原则（第105页）",
+            "结语明确'大模型法律语料库的核心价值不在于替代人类判断，而在于为解释者提供更加透明的证据支撑'"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 92,
+          "revised_score": 86,
+          "score_changed": true,
+          "change_direction": "down",
+          "change_magnitude": 6,
+          "revised_band": "excellent",
+          "revised_core_judgment": "结论深度嵌入解释客观化争论，理论对话充分；虽制度落地方案偏宏观，但技术风险回应与本土语境契合度高，整体成立。",
+          "revision_rationale": "采纳专家A、B关于制度转化偏宏观的合理批评，将制度可接受度由4/4下调至3/4。论文虽提出协同治理框架，但未细化至中国刑诉证据规则与具体审判程序衔接，故扣分。但论文已设专节详述幻觉规制、RAG技术与可重复性校验，反驳了专家B“未充分讨论技术局限”的观点。综合对话度4/4与制度度3/4，微调至86分，仍属excellent。",
+          "accepted_points": [
+            "制度转化方向较笼统，缺乏与中国具体司法程序（如证据规则、庭审质证）衔接的明确方案",
+            "基层司法算力适配与技术落地成本评估不足"
+          ],
+          "rejected_points": [
+            "专家B认为“未充分讨论大模型技术局限（幻觉、偏见）”：论文第三部分已专节论述技术内生风险，并提出RAG锚定、全流程公开、动态校验等具体规制路径，已作充分回应。"
+          ],
+          "new_evidence_found": [
+            "论文提出“检索增强生成(RAG)+语料锚定”技术路径以遏制幻觉",
+            "明确构建“基础认知—操作规范—伦理反思”三位一体的法律职业培训体系",
+            "强调全流程技术操作与结论的“可重复性”与“可推广性”作为正当性支撑"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.281188249588013,
+        "glm-5.1": 44.12767267227173,
+        "kimi-k2.6": 20.8808650970459,
+        "qwen3.6-plus": 62.78529405593872
+      },
+      "round1_mean": 82.8,
+      "round2_mean": 82.8,
+      "round1_std": 8.3,
+      "round2_std": 3.6,
+      "convergence_improvement": 4.7
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "round1_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 70,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 82
+      },
+      "round2_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 75,
+        "kimi-k2.6": 68,
+        "qwen3.6-plus": 85
+      },
+      "changes": {
+        "deepseek-v4-pro": {
+          "original": 85,
+          "revised": 85,
+          "changed": false,
+          "direction": "unchanged",
+          "magnitude": 0,
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original": 70,
+          "revised": 75,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 5,
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original": 62,
+          "revised": 68,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 6,
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original": 82,
+          "revised": 85,
+          "changed": true,
+          "direction": "up",
+          "magnitude": 3,
+          "confidence": "high"
+        }
+      },
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "original_score": 85,
+          "revised_score": 85,
+          "score_changed": false,
+          "change_direction": "unchanged",
+          "change_magnitude": 0,
+          "revised_band": "excellent",
+          "revised_core_judgment": "存在明确、具体且与正文核心结论紧密衔接的延展路径，提出了可操作的后续研究问题与方向。",
+          "revision_rationale": "评审专家 A 和 B 提出的缺点，如路径精细度有限、未设计实证指标等，确实存在，但这属于前瞻延展性的更高要求，不影响当前评分为 excellent 档位。论文结语明确提出了“人文价值冲击”与“个案正义平衡”两个可定位的后续核心争点，并与正文风险规制论证紧密衔接，已远非空泛口号，符合 bonus=5 的核心标准。因此，维持原评分 85 分。",
+          "accepted_points": [],
+          "rejected_points": [
+            "评审专家 A 认为延展路径精细展开有限，应将评分降至 good（70 分）。但“精細展开有限”并不削弱其已提供明确、具体后续研究路径的核心事实，论文已满足 excellent 档位要求，不应降档。",
+            "评审专家 B 认为未具体设计实证检验指标、跨部门法适用论述简略等缺点。这些属于更高阶的完善建议，但并非 excellent 档位的否定性条件，不影响现有评分。"
+          ],
+          "new_evidence_found": [],
+          "confidence": "high"
+        },
+        "glm-5.1": {
+          "original_score": 70,
+          "revised_score": 75,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 5,
+          "revised_band": "good",
+          "revised_core_judgment": "延展争点与正文风险论证紧密衔接构成完整链条，远非空泛口号，但路径精细展开与结构化设计仍有限。",
+          "revision_rationale": "接受专家A意见，认可延展争点（人文价值冲击、个案正义平衡）与正文对解释权篡夺、操纵风险的分析紧密衔接，构成完整逻辑链条，提升了延展深度。但结语对协同治理框架仅给出原则性方向，未进一步结构化展开或提出可操作的后续研究设计，精细度仍有限，故维持good档位，分数微调上调至75分。",
+          "accepted_points": [
+            "延展方向与正文对“解释权篡夺”和“操纵风险”的分析紧密衔接，构成“风险识别—应对—待解”的完整链条",
+            "明确提出了“人文价值冲击”与“个案正义平衡”两个可定位的后续核心争点，远非空泛口号"
+          ],
+          "rejected_points": [
+            "认为延展路径具体且可操作（专家A）：结语仅提出宏观命题与原则方向，未给出可操作的后续研究设计或结构化展开，故未达excellent标准"
+          ],
+          "new_evidence_found": [
+            "正文对“变相篡夺司法机关解释权”和“操纵解释结论的风险规制”的详细论证，直接为结语“防范算法对司法裁判人文价值的冲击”和“平衡数据客观性与个案正义”的延展争点提供了前置逻辑支撑"
+          ],
+          "confidence": "high"
+        },
+        "kimi-k2.6": {
+          "original_score": 62,
+          "revised_score": 68,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 6,
+          "revised_band": "good",
+          "revised_core_judgment": "存在真实且可定位的延展路径，与正文风险规制论证紧密衔接，但精细展开仍显不足。",
+          "revision_rationale": "重新审视后，认可专家B关于'工具尚处构想阶段'为实证检验预留接口的观察，以及专家A指出的与正文'人机协同论证'的衔接。论文结语不仅提出两个研究命题，还明确'需持续完善技术与制度协同治理框架'，并强调核心价值'不在于替代人类判断'，体现了对技术边界的人文自觉。但延展路径仍缺乏具体制度设计方案或规则衔接设计，未形成可操作的后续研究议程，故上调至68分，仍未达excellent档。",
+          "accepted_points": [
+            "专家B指出'明确承认工具尚处构想阶段，为后续实证检验预留接口'，这一观察准确",
+            "专家A指出延展争点与正文'风险规制及人机协同论证紧密衔接'，确有依据",
+            "结语'核心价值不在于替代人类判断'的表述体现了技术边界意识"
+          ],
+          "rejected_points": [
+            "专家B评分82分（excellent档）过高：论文虽提出'技术与制度协同治理框架'，但未展开具体制度设计，'协同治理框架'仍属宏观方向性表述，缺乏规则衔接细节",
+            "专家B所谓'提出技术治理与价值平衡的具体理论争点'中的'具体'一词评价过宽，两个争点实为价值冲突的概括性表述，未形成可检验的研究假设"
+          ],
+          "new_evidence_found": [
+            "结语明确'大模型法律语料库的核心价值不在于替代人类判断，而在于为解释者提供更加透明的证据支撑'，体现了技术辅助定位的清醒认知",
+            "正文第三部分系统论述了'操纵解释结论的风险规制'，包括技术内生风险与人为外生风险的双重规制路径，为结语延展提供了论证基础"
+          ],
+          "confidence": "high"
+        },
+        "qwen3.6-plus": {
+          "original_score": 82,
+          "revised_score": 85,
+          "score_changed": true,
+          "change_direction": "up",
+          "change_magnitude": 3,
+          "revised_band": "excellent",
+          "revised_core_judgment": "延展路径清晰且与正文“风险识别—规制应对”逻辑严密咬合，提出具象化理论争点与技术制度协同方案，非空泛展望。",
+          "revision_rationale": "采纳专家A关于“风险识别—应对—待解”链条的洞察。重读发现正文第四部分已详细展开RAG技术锚定、动态校验、伦理培训及“技术选择可辩驳性”等具体路径，原评低估了其制度设计的精细度。虽仍缺实证检验设计，但作为理论型论文，其延展的学理深度与逻辑闭环已属优秀，故上调。",
+          "accepted_points": [
+            "专家A指出的延展方向与正文“风险识别—应对—待解”逻辑严密咬合，构成完整论证链条"
+          ],
+          "rejected_points": [
+            "专家B认为“缺乏具体制度路径展开”及“未形成具体后续争点”。理由：正文已详细论述RAG技术、动态校验机制及可辩驳性范式，结论亦明确点出两大核心争点，并非空泛。"
+          ],
+          "new_evidence_found": [
+            "正文第四部分详细提出的“检索增强生成(RAG)+语料锚定”技术路径、“动态校验机制”、“技术选择的可辩驳性”范式及“三位一体”职业伦理培训体系，为协同治理框架提供了具体制度支撑。"
+          ],
+          "confidence": "high"
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.7711501121521,
+        "glm-5.1": 50.91743803024292,
+        "kimi-k2.6": 15.895951271057129,
+        "qwen3.6-plus": 63.72743606567383
+      },
+      "round1_mean": 74.8,
+      "round2_mean": 78.2,
+      "round1_std": 10.7,
+      "round2_std": 8.3,
+      "convergence_improvement": 2.4
+    }
+  },
+  "overall": {
+    "round1_avg_std": 16.08,
+    "round2_avg_std": 7.85,
+    "std_improvement": 8.23,
+    "round1_max_std": 26.7,
+    "round2_max_std": 16.0,
+    "dimensions_converged": 3,
+    "total_dimensions": 6,
+    "round1_final_score_mean": 73.79,
+    "round2_final_score_mean": 76.42
+  }
+}

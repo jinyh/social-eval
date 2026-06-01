@@ -1,0 +1,1116 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法判决中的指导性案例.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "表格内OCR残留乱码（如2012血、2013生等应为2012年、2013年）",
+          "参考文献列表缺失或未抽取",
+          "部分年代及数字OCR识别错误（如2ot2应为2012）"
+        ],
+        "evidence_quotes": [
+          "2012血 2013生 2014 生 2015车 2016．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文对司法适用指导性案例的实证分析是基于全样本进行的",
+          "指导性案例在我国司法审判实践中多有涉及",
+          "案例指导制度没有有效解决制度设计与法律理念、制度运行与适用方法之间的深刻鸿沟",
+          "如何从程序上确保指导性案例的合理‘入场’和充分‘在场’",
+          "如何从法律方法上保证指导性案例的合理适用",
+          "作为一项重要的制度创新，案例指导制度在学界存有广泛的共识基础，但这种基础毕竟仅仅是来源于精英阶层的卓越远见"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：表格OCR残留乱码，但核心论点、结构与主要论证清晰可辨",
+        "法律方法讨论具备理论转化潜能，后续六维评分应重点关注其对本土制度的解释力"
+      ],
+      "evidence_quotes": [
+        "指导性案例究竟如何适用，不只是一个理论问题，也是一个重大司法实践问题",
+        "根据《最高人民法院关于案例指导工作的规定》及其实施细则明确指出指导性案例在司法判决中只能作为‘参照’而引用",
+        "法官适用指导性案例的过程，是司法方法和裁判技术实践的过程",
+        "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR识别错误，不影响核心论证与法学问题的识别，建议直接进入六维评分；在后续阶段注意表格数据校验。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "high",
+        "issues": [
+          "OCR识别错误导致大量表格数据乱码（如年份识别为'2012血 2013生 2015车'，数字识别为'5∞'，百分比识别为'1o0．O％'、'n7'、'O．o％'）",
+          "表4、表11、表13的图表部分严重不可读，存在大量乱码字符（如'___ 涉及具体指导案例的数量'、'翦强国∞蔫m 5霉 5 52爨陂晕堑094O55 弱嚣'）",
+          "期刊页码混入正文（如'131'、'132'、'133'等）",
+          "脚注编号及部分内容乱码（如'⑤'、'⑩'、'⑩'等）"
+        ],
+        "evidence_quotes": [
+          "2012血 2013生 2014 生 2015车 2016．皋",
+          "5∞",
+          "1o0．0％",
+          "___ 涉及具体指导案例的数量",
+          "翦强国∞蔫m 5霉 5 52爨陂晕堑094O55 弱嚣",
+          "131"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文对司法适用指导性案例的实证分析是基于全样本进行的……或者说至少在中国裁判文书网所收纳的司法判决文书范围内是属于全样本的。",
+          "如何理解指导性案例的法律定位和价值取向……指导性案例，从其创设的初衷来说，就是要解决案件裁判经常存在的‘同案不同判’问题。",
+          "如何从程序上确保指导性案例的合理‘人场’和充分‘在场’?",
+          "如何从法律方法上保证指导性案例的合理适用?……适用指导性案例所需要的案情‘类似’的论证，要充分利用‘指导性案例’中特地标示出来的‘关键词’，再结合裁判要点来进行‘相似性判断’。",
+          "实现案例指导制度的中国化和本土化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：表格数据大面积OCR乱码及图表不可读，需后续人工校对或重新抽取",
+        "项目口径：完全符合进入六维评价标准，无需特别关注"
+      ],
+      "evidence_quotes": [
+        "实现案例指导制度的中国化和本土化。",
+        "适用指导性案例所需要的案情‘类似’的论证，要充分利用‘指导性案例’中特地标示出来的‘关键词’，再结合裁判要点来进行‘相似性判断’。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，以中国案例指导制度的司法实践与法理反思为中心，具备可争辩的法学问题与理论转化命题。但文本工程质量存在高风险（实证数据表格大面积OCR乱码、图表严重不可读），建议进入六维评分，但需在后续阶段对实证数据表格进行人工校对或重新OCR处理，以免影响对实证分析维度的准确评判。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR残留：部分年份数字识别错误（如'2012血''2013生''2014生''2015车''2016螽'等）",
+          "表格格式混乱：多处表格线断裂、数字错位、列标题与数据不对齐",
+          "脚注编号乱码：部分脚注标记显示异常（如'⑤'后内容混排）",
+          "页码混入：期刊页码'131''132'等散落于正文",
+          "参考文献抽取失败：文末标注'（无）'但实际文中有脚注引用"
+        ],
+        "evidence_quotes": [
+          "2012血 2013生 2014 生 2015车 2016．",
+          "⑤ [美]李殷离、罗纳德·N·福索佛：《分析复杂调查数据》(第2版)，张卓妮译，格致出版社、上海人民出版社2ot2年版，第15页。",
+          "131",
+          "中国法学 2017年第6期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文对司法适用指导性案例的实证分析是基于全样本进行的，或者说至少在中国裁判文书网所收纳的司法判决文书范围内是属于全样本的",
+          "作为一种全新制度，我国现有法律并没有规定指导性案例的适用程序，即指导性案例是不是像法律规则一样，是法律发现的重要对象，这不仅是一个理论问题，也是一个重大司法实践问题",
+          "如何适用指导性案例，或者说指导性案例的适用方法尚未普及",
+          "案例指导制度尚未有效解决制度设计与法律理念、制度运行与适用方法之间的深刻鸿沟，存在运行不畅、方法缺位等现象",
+          "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR年份识别错误、表格格式混乱、脚注编号异常、页码混入，但核心论点可定位",
+        "项目口径：论文聚焦中国案例指导制度，具有明确的中国问题中心性和法学理论贡献"
+      ],
+      "evidence_quotes": [
+        "本文对司法适用指导性案例的实证分析是基于全样本进行的，或者说至少在中国裁判文书网所收纳的司法判决文书范围内是属于全样本的",
+        "作为一种全新制度，我国现有法律并没有规定指导性案例的适用程序，即指导性案例是不是像法律规则一样，是法律发现的重要对象，这不仅是一个理论问题，也是一个重大司法实践问题",
+        "案例指导制度尚未有效解决制度设计与法律理念、制度运行与适用方法之间的深刻鸿沟，存在运行不畅、方法缺位等现象",
+        "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评价。文本质量风险为低等级，OCR残留和格式问题不影响核心论点评审，建议在评分时忽略格式瑕疵，关注论文的实质性学术贡献。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "表格数据OCR识别存在严重乱码与错位（如年份显示为“血/生/车/皋”、百分比符号“O/0”混用、列对齐断裂）",
+          "脚注编号在正文中重复或乱序（如⑩多次出现且对应不同文献）",
+          "部分英文参考文献格式断裂及标点全半角混排"
+        ],
+        "evidence_quotes": [
+          "2012血 2013生 2014 生 2015车 2016．皋",
+          "100．O％ 100．0％ l0o．O％",
+          "⑩ See William 0．Douglas．Stare Decisis．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文对司法适用指导性案例的实证分析是基于全样本进行的……所得出的结论具有科学性、准确性。",
+          "如何从程序上确保指导性案例的合理“人场”和充分“在场”？……应当依照传统的法律发现程序，将指导性案例的发现与适用纳入到法律发现与适用的庭审辩论程序当中",
+          "如何从法律方法上保证指导性案例的合理适用？……适用指导性案例所需要的案情“类似”的论证，要充分利用“指导性案例”中特地标示出来的“关键词”，再结合裁判要点来进行“相似性判断”",
+          "增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "表格OCR乱码需人工校对原始数据",
+        "脚注编号需核对原文以确保引注准确性"
+      ],
+      "evidence_quotes": [
+        "指导性案例作为裁判依据和裁判理由，这两者的效力、作用是完全不一样的。",
+        "如何确定案件“相类似”？……主要从以下三个方面来理解：一是案件的主要问题相似；二是案件构成的基本事实相似；三是案件争议相似。",
+        "案例指导制度尚未有效解决制度设计与法律理念、制度运行与适用方法之间的深刻鸿沟"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在表格OCR识别错位与脚注编号乱码，但不影响核心论点、实证结构与法理论证定位。论文聚焦中国指导性案例制度的司法适用全样本实证，并深入反思其法源地位、程序入场机制、相似性判断标准与裁判要点的规范效力，具备明确的中国问题中心性、可争辩的法学命题及制度/方法论转化尝试。符合进入六维评价标准，建议按常规流程进入评分，评分时注意提示专家核对表格原始数据与引注。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 5,
+          "band": "unacceptable",
+          "summary": "全文仅是对指导性案例适用情况的统计描述，未提出任何可争辩的法学研究问题。",
+          "core_judgment": "该文是宏观现状描述，无明确的问题句、无学者观点交锋、无理论分歧，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限（无实质研究推进）。锚定 unacceptable 档（0-49 分）。扣分前置检查：检查 2 扣 20 分（无任何学者观点交锋），检查 3 扣 30 分（全文无问题句，只有主题声明）。扣分后分数低于 30 分，最终给 5 分。",
+          "evidence_quotes": [
+            "本文的实证研究部分尽可能地客观描述指导性案例的适用场景，从而反映出指导性案例在司法当中适用的整体趋势、基本特征和可能问题。",
+            "通过对上现象的观察，可以发现，...背后还存在更为深厚的成因。"
+          ],
+          "strengths": [
+            "基于全样本数据，避免了抽样误差。",
+            "对指导性案例的适用现状进行了多维度的统计描述。"
+          ],
+          "weaknesses": [
+            "全文无任何可争辩的法学问题句，仅为“指导性案例适用现状”这一主题声明。",
+            "无任何学者观点的交锋或理论分歧的展示，仅是对现象的归纳和解释。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明，属于典型的无问题创新性论文。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未出现如“如何确保”、“是否应当”、“XX与YY的关系”等任何可争辩的问题句，只是对适用情况进行统计和描述。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评数据分析的准确性或论证的严密性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "material_novelty_overclaim",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文基于实证数据提炼出指导性案例适用中的法理争点，问题明确且枢纽性强。",
+          "core_judgment": "论文提出了明确的法学争点且涉及长期理论分歧，问题成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "指导性案例是不是法律渊源，学术界存在两种不同的看法",
+            "法官是不是可以直接依据指导性案例确定的裁判要点进行法律推理？"
+          ],
+          "strengths": [
+            "提出了明确的法学争点与理论分歧",
+            "问题涉及多制度领域与核心法理"
+          ],
+          "weaknesses": [
+            "部分问题由实证现象直接推导，理论预设深度略显不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评实证数据可靠性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "实证描述指导性案例适用现状，缺乏可争辩的法学问题。",
+          "core_judgment": "全文为描述性统计与制度介绍，未提出可争辩的法学争点，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。负面模式检查：检查2扣20分（无学者观点交锋），检查3扣30分（无问题句，只有主题声明）。扣分合计50分，但不得低于30分。锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "本文的描述性分析非常真实，且不存在任何投机行为",
+            "为了反思这些现象，笔者认为需要反思的法理问题至少有四个"
+          ],
+          "strengths": [
+            "全样本实证方法具有一定材料价值"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，仅为现象描述与制度介绍",
+            "未呈现学者观点交锋，缺乏理论分歧讨论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为'司法判决中的指导性案例'主题描述，无'XX是否YY'等问题句"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "基于全样本实证数据精准提炼指导性案例适用争点，问题意识明确且具理论纵深。",
+          "core_judgment": "该维度成立，论文成功将实证现象转化为可争辩的法学核心问题，兼具理论分歧与制度连锁效应。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料/方法校验未触发上限。前置检查扣分0分。锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "如何理解指导性案例的法律定位和价值取向？如何从程序上确保其合理入场？",
+            "关于指导性案例是不是重要的法律渊源，学术界存在两种不同的看法：一种认为不是，另一种认为是。"
+          ],
+          "strengths": [
+            "问题句明确，直击法源地位与适用方法核心",
+            "实证数据与法理反思深度咬合，非单纯现象描述"
+          ],
+          "weaknesses": [
+            "部分程序建议偏向应然倡导，规范构造论证可更聚焦",
+            "对比较法先例技术的移植论证稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、逻辑严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 26.214335918426514,
+        "glm-5.1": 33.80532097816467,
+        "kimi-k2.6": 13.513551235198975,
+        "qwen3.6-plus": 54.00776696205139
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 5,
+        "glm-5.1": 85,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 88
+      },
+      "mean": 53.2,
+      "std": 40.3,
+      "strictest": 5,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文完全未进行文献综述或研究地图构建，仅聚焦于实证数据描述，未呈现任何既有学术研究、争点或法学流派。",
+          "core_judgment": "本文缺失研究地图三要素，未识别任何法学流派或争点结构，无法满足现状洞察度要求。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "本文对司法适用指导性案例的实证分析是基于全样本进行的…描述性分析非常真实，且不存在任何投机行为。",
+            "作为一种全新制度，我国现有法律并没有规定指导性案例的适用程序…这不仅是一个理论问题，也是一个重大司法实践问题。"
+          ],
+          "strengths": [
+            "实证数据分析较为详实，展示了指导性案例适用的多维特征。"
+          ],
+          "weaknesses": [
+            "完全缺失文献综述或研究地图，未说明既有研究到达点、未竟点及本文切入点。",
+            "未识别或呈现任何法学流派、理论争点或解释路径分歧，学术脉络空白。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分=0，研究地图完全缺失，论文无任何既有研究的到达点、未竟点或切入点表述。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无引述任何既有学术成果或学者观点，无文献综述章节或分散文献定位，三要素均为缺失。"
+            }
+          ],
+          "boundary_note": "本文缺陷在于未梳理既有文献和学术争点，属于文献定位问题；其问题本身是否新颖不在本维度评判。",
+          "review_flags": [
+            "evidence_thin",
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位清晰呈现了研究地图，并展现了多个法学争点与流派对立。",
+          "core_judgment": "现状洞察度成立，论文充分展示了既有研究到达点、未竟点与本文切入点，并构建了多层次的争点结构。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "关于指导性案例是不是重要的法律渊源，学术界存在两种不同的看法：一种观点认为……不是法律渊源……另一种观点认为……是法律渊源",
+            "现有理论和新颁布的‘实施细则’并没有给出必要的回答或者指引，因而在实践当中出现了指导性案例的‘适用难题’"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼了法源地位之争等核心到达点",
+            "明确指出了制度设计与法律理念、适用方法之间的鸿沟等未竟点"
+          ],
+          "weaknesses": [
+            "实证数据描述篇幅较长，理论争点的文献梳理略显分散"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦于文献梳理与争点结构的呈现，而非实证数据本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "实证描述充分但研究地图严重缺失，未建立学术对话脉络。",
+          "core_judgment": "论文以数据统计为主，未呈现既有研究的到达点、未竟点和本文切入点，缺乏研究地图三要素。",
+          "score_rationale": "三要素得分=1/6（到达点1+未竟点0+切入点0），争点结构=0/2，法学流派=0个，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "关于指导性案例是不是重要的法律渊源，学术界存在两种不同的看法：一种观点认为指导性案例不是法律渊源……另一种观点认为指导性案例是法律渊源",
+            "从方法上看，还应当追问的问题是……然而，到底如何理解'相类似'，又如何看待'裁判要点'，现有理论和'实施细则'并没有给出必要的回答或者指引"
+          ],
+          "strengths": [
+            "提及法律渊源之争，有微弱流派意识"
+          ],
+          "weaknesses": [
+            "未提炼任何具体学者的研究成果作为到达点",
+            "未指出研究缺口与本文问题的对应关系"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文仅提及'学术界存在两种不同看法'一处到达点，未竟点和切入点均缺失"
+            }
+          ],
+          "boundary_note": "本维度评文献定位而非问题新颖性，该文问题具实证价值但学术脉络呈现失败。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 78,
+          "band": "good",
+          "summary": "论文以实证数据揭示适用现状，围绕定位、程序、方法与理念构建理论反思，研究地图清晰。",
+          "core_judgment": "本文立足实证缺口提炼四重理论争点，文献定位与问题意识高度契合，研究地图成立。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=2个，锚定good档，给78分",
+          "evidence_quotes": [
+            "关于指导性案例是不是重要的法律渊源，学术界存在两种不同的看法：一种认为非渊源，另一种认为是。",
+            "现有制度未有效解决理念与制度设计、运行与适用方法间的深刻鸿沟，存在实践难题。"
+          ],
+          "strengths": [
+            "实证数据与理论反思紧密结合，精准定位程序与方法缺口。",
+            "明确提炼法源地位之争等学界分歧，争点脉络清晰可辨。"
+          ],
+          "weaknesses": [
+            "文献呈分散式嵌入，缺乏对既有实证研究成果的系统梳理。",
+            "比较法与跨学科流派对话较浅，多停留于制度描述层面。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献梳理与争点呈现，不涉实证方法科学性或结论创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 72.44603085517883,
+        "glm-5.1": 42.66801309585571,
+        "kimi-k2.6": 13.5249342918396,
+        "qwen3.6-plus": 68.30113291740417
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 88,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 78
+      },
+      "mean": 60.2,
+      "std": 27.3,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "全文为基于全样本数据的描述性统计和政策阐释，未建构任何可被重复操作的分析框架。",
+          "core_judgment": "论文无原创分析框架，仅为统计描述与政策归因，不具备分析框架建构力。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，触发负面模式降档和无操作框架上限规则，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "本文对司法适用指导性案例的实证分析是基于全样本进行的...描述性分析非常真实，且不存在任何投机行为。",
+            "为了反思这些现象，笔者认为需要反思的法理问题至少有四个..."
+          ],
+          "strengths": [
+            "提供了系统的全样本统计数据，覆盖多种变量维度。",
+            "对指导性案例适用现状进行了细致的现象描述。"
+          ],
+          "weaknesses": [
+            "未提出任何概念界定、分类标准或分析步骤，完全依赖SPSS卡方检验描述相关性。",
+            "四个法理问题的讨论为阐释性梳理，未转化为可操作的裁判规则或判断标准。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分。论文无任何核心术语定义、分类标准、分析步骤或后文调用分析框架。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文由统计表格和百分比构成，后文仅用‘笔者认为’展开阐释，无步骤化判断流程或可重复适用的评价标准。"
+            },
+            {
+              "rule_id": "analytical_framework.empty_framework",
+              "rule": "政策理论梳理型识别规则触发：全文以归纳、描述现象为主，框架核心术语来自权威表述，非原创建构。",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "论文仅提出‘需要反思四个法理问题’，属问题罗列而非分析框架，未提出任何可操作化的法学分析步骤。"
+            }
+          ],
+          "boundary_note": "本文缺乏任何可称为‘分析框架’的结构，问题在于根本没有框架，而非框架逻辑衔接不严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文缺乏统领性分析框架，仅有局部适用方法转化与散点问题反思。",
+          "core_judgment": "该维不成立，全文未建构步骤化分析框架，仅以实证统计维度和四个反思问题替代框架。",
+          "score_rationale": "框架可操作性得分=0/4（无核心术语界定与全文分析步骤），法学转化度得分=3/4（有局部裁判规则转化），锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "一个案件与指导性案例是否相似，主要从以下三个方面来理解：一是案件的主要问题相似；二是案件构成的基本事实相似；三是案件争议相似。",
+            "笔者认为需要反思的法理问题至少有四个。先谈第一个问题...第二个问题...第三个问题..."
+          ],
+          "strengths": [
+            "将普通法区分技术转化为本土相似性判断三标准",
+            "基于实证数据提出了程序入场与回应的具体规则"
+          ],
+          "weaknesses": [
+            "缺乏统领全文的步骤化分析框架",
+            "四个反思问题仅为问题清单而非操作框架"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无统领性法学转化步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无核心框架术语定义与可循步骤，仅罗列四个反思问题与局部适用方法"
+            }
+          ],
+          "boundary_note": "本维度评价框架建构力，不评价实证统计的详实度或反思问题的深刻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "实证描述有余，分析框架建构不足，缺乏可重复适用的裁判规则或方法论提炼。",
+          "core_judgment": "论文以数据统计和现象描述为主，未形成可操作的指导性案例适用分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅案件类型、审理程序等分类标准明确，但无步骤化分析流程，核心术语未严格定义，后文未调用任何框架性步骤）；法学转化度得分=1/4（有裁判规则归纳如'参照裁判要点式'等五种适用方式，但未转化为可重复适用的判断标准或程序步骤，缺乏方法论升华）。锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "法院适用指导性案例最常见的方式有五种，从适用频次的多寡从高到低分别为：第一种是参照裁判要(观)点式……第二种方式是直接参照式……第三种方式是案情类似式……第四种类型是作为支撑依据式……第五种方式是裁判精神式",
+            "一个案件与指导性案例是否相似，主要从以下三个方面来理解：一是案件的主要问题相似；二是案件构成的基本事实相似；三是案件争议相似"
+          ],
+          "strengths": [
+            "五种适用方式的类型化归纳具有一定分类标准",
+            "相似性判断三要素尝试提炼裁判技术"
+          ],
+          "weaknesses": [
+            "核心术语如'参照''相似性'缺乏明确定义与操作步骤",
+            "后文未调用任何框架性步骤，实证与理论部分脱节"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无步骤化分析流程，'相似性判断'三要素仅一次性出现，未在后文实证分析中调用；核心术语未定义"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不评价统计方法的科学性或数据真实性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 65,
+          "band": "good",
+          "summary": "基于实证数据构建分类统计框架并提出适用指引，但缺乏原创分析步骤与严密概念界定。",
+          "core_judgment": "框架以实证分类与规范反思为主，具备基础可操作性与转化度，但未形成闭环的原创分析模型。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=2/4，锚定good档，给65分。",
+          "evidence_quotes": [
+            "适用指导性案例所需要的案情“类似”的论证，要充分利用“关键词”结合裁判要点进行判断。",
+            "将指导性案例的发现与适用纳入庭审辩论程序，使法律适用辩论更符合程序要义。"
+          ],
+          "strengths": [
+            "实证分类维度清晰，数据支撑充分，类型划分边界明确。",
+            "提出的相似性判断标准与程序回应规则具备实务操作价值。"
+          ],
+          "weaknesses": [
+            "核心术语缺乏明确定义，未提供可重复适用的步骤化分析流程。",
+            "转化后的操作指引仅停留在规范建议层面，后文未作案例验证调用。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与转化度，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 85.17542386054993,
+        "glm-5.1": 59.42339015007019,
+        "kimi-k2.6": 13.483922243118286,
+        "qwen3.6-plus": 75.60001182556152
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 40,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 65
+      },
+      "mean": 46.2,
+      "std": 13.1,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文缺乏连贯的逻辑推理链，实证数据罗列与法理反思之间严重脱节，导致核心结论无法从分析中有效推出。",
+          "core_judgment": "论文呈现了大量描述性统计数据，但缺乏将它们整合为支撑结论的推理链条，存在核心结论跳步，逻辑严密性极低。",
+          "score_rationale": "推理链完整性得分=1/4（仅能识别数据描述这一步），反驳处理度得分=0/3（未回应任何反面观点），锚定unacceptable档，触发最高上限50分，综合给35分。",
+          "evidence_quotes": [
+            "本文的描述性分析非常真实，且不存在任何投机行为。",
+            "为了反思这些现象，笔者认为需要反思的法理问题至少有四个。"
+          ],
+          "strengths": [
+            "提出了多个值得探讨的法理问题，具有一定的理论敏感度。"
+          ],
+          "weaknesses": [
+            "实证分析仅止步于对数据的描述和常识性推测（如“制度的力量”），未形成可推导出结论的因果或解释性链条。",
+            "四个法理反思与前面的数据分析相互独立，删除所有数据部分对法理论述几乎无影响。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性得分 ≤ 1，触发最高上限50分。论文的推理步骤无法被清晰地复述为一系列逻辑上相互依赖的步骤。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "从“表1-表13”的数据描述，直接跳至“第一个问题…第二个问题…”的法理反思，中间缺乏将数据证据与法理主张相关联的分析性推理环节。"
+            }
+          ],
+          "boundary_note": "本文的问题并非仅在于分析框架不可操作，而在于其论证过程根本没有形成一个能使结论得到辩护的推理链，即各论证单元（数据、推测、法理）彼此孤立。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "实证描述到法理反思再到制度建议的推理链完整，反驳与局限处理充分。",
+          "core_judgment": "推理链形成充分支撑，核心结论可辩护地推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "有不少的法官认为...可以坚持可有可无的‘参照’态度...我们认为这种观点实际是比较消极",
+            "案例指导制度在我国的根基依然浅薄...尚未有效解决制度设计与法律理念...之间的深刻鸿沟"
+          ],
+          "strengths": [
+            "实证问题与理论反思紧密扣合，推理依赖度高",
+            "对反对观点与制度局限有实质性回应与承认"
+          ],
+          "weaknesses": [
+            "裁判要点作为推理大前提的论证略显摇摆"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "区别技术标准宽泛属框架可操作性问题，非逻辑跳步",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 52,
+          "band": "marginal",
+          "summary": "实证描述充分但理论建构薄弱，推理链断裂于'现象→制度建议'之间。",
+          "core_judgment": "作为实务型论文，制度建议缺乏从实证发现到规范推导的完整逻辑链条，关键跳步明显。",
+          "score_rationale": "推理链完整性得分=2/4（标准1、3成立，标准2、4不成立），反驳处理度得分=1/3（仅标准1成立）。锚定marginal档(50-59)，给52分。",
+          "evidence_quotes": [
+            "从上述实证分析来看，指导性案例的采纳适用与案件类型、案由……等有显著相关性，这说明……存在运行不畅、方法缺位等现象。为了反思这些现象，笔者认为需要反思的法理问题至少有四个。",
+            "未来如有可能，还需要有更高层级的法律规定对案例指导制度进行更为详细的规定，特别是需要将其法律地位阐述得更加准确。"
+          ],
+          "strengths": [
+            "实证数据与描述性结论之间衔接紧密，统计呈现规范。",
+            "对'山东案''福建案'的比较分析形成了较完整的案例推理链。"
+          ],
+          "weaknesses": [
+            "从'现象描述'到'应然建议'缺乏规范推导：未论证'适用率低'为何推出'需提高法律位阶'而非其他方案。",
+            "制度建议未回应替代方案：未考虑'维持现状''废除指导性案例'等可能，直接跳跃至'需要更高层级法律规定'。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文问题在'现象→规范'的推理断裂，非分析框架本身不可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以实证数据为起点，逻辑递进至程序、方法与理念层面的制度反思，推理严密。",
+          "core_judgment": "推理链完整且依赖度高，核心结论由实证发现可辩护地推出，反驳处理充分，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "有学者认为...可以坚持可有可无的“参照”态度...我们认为这种观点实际是比较消极。",
+            "从实证分析来看，指导性案例的采纳适用与案件类型、案由...有显著相关性...存在运行不畅、方法缺位等现象。"
+          ],
+          "strengths": [
+            "实证数据与规范分析紧密衔接，问题识别与对策推导逻辑连贯。",
+            "明确回应学界分歧与司法实践对立做法，论证具有针对性。"
+          ],
+          "weaknesses": [
+            "部分统计相关性直接推导制度缺陷，因果机制论证稍显单薄。",
+            "对策建议偏宏观，缺乏具体程序规则设计的严密推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估数据到结论的推导链条是否完整，不评价统计模型本身或对策的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.2586760520935,
+        "glm-5.1": 36.31363916397095,
+        "kimi-k2.6": 12.697080850601196,
+        "qwen3.6-plus": 75.36728978157043
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 85
+      },
+      "mean": 64.2,
+      "std": 24.9,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文结论多为对数据的事后合理化解释或空泛呼吁，未将结论转化为可争辩的学术主张，也基本不回应反对意见，难以进入法学共同体对话。",
+          "core_judgment": "结论缺乏与既有争论的对话，多为描述性归纳和口号式展望，制度可接受度极低，属于无法被认真回应的自说自话。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=1/4。论文未将结论与既有学术争论关联，也未主动讨论反对意见，结论多为空泛对策。触发no_community_dialogue上限规则，总分≤50，锚定unacceptable档，给30分。",
+          "evidence_quotes": [
+            "指导性案例并没有完全地融入司法领域。...但不能否定指导性案例的重大实践价值，因为一项制度的推行并非一蹴而就...需要长期的沉淀...",
+            "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化。"
+          ],
+          "strengths": [
+            "注意到了实证数据中指导性案例适用率低、法院回应缺失等现象，有描述性发现。"
+          ],
+          "weaknesses": [
+            "结论多为对统计数据的合理化解释，空泛呼吁完善制度、培育理念，未形成可反驳的学术命题。",
+            "完全未回应学界关于指导性案例效力、适用方法等的既有争论，也未提及反对意见或自身论证局限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度为0，结论自说自话，无法被学界认真回应，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文结论未说明与已有学术争论的关系，未回应反对意见，未形成可争辩的学术主张，对话度为0。"
+            },
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "万能药式对策：完善立法、加强程序、培育理念等空泛建议≥3条",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "结论部分提出从程序、方法、理念等层面着手，实现中国化本土化，均为空泛无具体方案的对策。"
+            }
+          ],
+          "boundary_note": "本评分仅评价结论的可接受性与对话度，不评价实证分析的描述价值或论证严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论与制度约束，提出具体程序与方法转化方向，可接受性高。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，能有效定位反对意见并给出本土化制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "关于指导性案例是不是重要的法律渊源，学术界存在两种不同的看法……另一种观点认为指导性案例是法律渊源",
+            "应当依照传统的法律发现程序，将指导性案例的发现与适用纳入到法律发现与适用的庭审辩论程序当中"
+          ],
+          "strengths": [
+            "明确回应了指导性案例法源地位的学术争论",
+            "提出了具体的程序入场（庭审辩论）与方法适用（区别技术）方向"
+          ],
+          "weaknesses": [
+            "末段'从程序、方法和理念等层面着手'稍显宽泛"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受，不评实证统计过程是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 62,
+          "band": "good",
+          "summary": "实证研究型制度论文，结论具有中国语境回应性但理论对话深度不足。",
+          "core_judgment": "论文以实证数据描述指导性案例适用现状，结论回应中国司法实践问题，但缺乏与既有学术争论的明确对话，制度建议较为笼统。",
+          "score_rationale": "共同体对话度得分=2/4（回应中国语境、承认制度局限；但未明确回应学术争论、未让反对者定位回应）；制度可接受度得分=3/4（不矛盾、回应制度约束、考虑中国语境；但制度转化方向较笼统）。锚定good档，给62分。",
+          "evidence_quotes": [
+            "从实证分析来看，指导性案例的采纳适用与案件类型、案由、指导性案例的提供主体、律师代理、提供指导性案例的方式、审理程序和法院级别等有显著相关性",
+            "增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化"
+          ],
+          "strengths": [
+            "结论扎根中国司法实践，基于全样本实证分析",
+            "承认制度运行问题，体现自我反思"
+          ],
+          "weaknesses": [
+            "未明确回应学界关于指导性案例法源地位的争论",
+            "制度建议较笼统，未具体回应反对意见"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论立足实证数据，精准回应指导性案例适用难题，提出程序与方法优化路径，兼具学术对话力与制度兼容性。",
+          "core_judgment": "结论明确嵌入中国司法语境与既有学术争论，提出可检验的程序与适用规则，完全满足可接受性要求。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。结论深度回应法源地位与适用方法争议，且与现行法秩序高度兼容。",
+          "evidence_quotes": [
+            "指导性案例的规范效力至少应当在司法机关内部形成高度统一...未来如有可能，还需要有更高层级的法律规定",
+            "应当依照传统的法律发现程序，将指导性案例的发现与适用纳入到法律发现与适用的庭审辩论程序当中"
+          ],
+          "strengths": [
+            "实证数据与规范分析紧密结合，结论具有强现实针对性",
+            "明确区分裁判理由与依据，提出可操作的相似性判断标准"
+          ],
+          "weaknesses": [
+            "对指导性案例与司法解释的效力层级冲突探讨稍显不足",
+            "程序转化建议虽具体，但缺乏对基层法院案多人少压力的考量"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.53097581863403,
+        "glm-5.1": 43.44720005989075,
+        "kimi-k2.6": 11.510945796966553,
+        "qwen3.6-plus": 63.016072034835815
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 92
+      },
+      "mean": 67.2,
+      "std": 27.9,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结论部分明确指出了制度、程序、方法和理念四个层面的具体完善方向，构成了可定位的延展路径，但路径的精细度和与正文核心发现的衔接仍有提升空间。",
+          "core_judgment": "存在明确的未来制度与理论深化方向，与正文实证发现衔接基本清晰，构成真实延展路径，但部分延伸论证较为概括。",
+          "score_rationale": "原始分72分，对应bonus档位为3分。论文明确提出了提升法律位阶、完善发现与回应程序、细化相似性判断方法及培育本土理念等具体方向，且多源于前文的实证缺陷分析，衔接真实。但如“更高层级的法律规定”等路径仍偏宏观，未涉及具体规则设计方案或后续研究问题，精细度有限。",
+          "evidence_quotes": [
+            "未来如有可能，还需要有更高层级的法律规定对案例指导制度进行更为详细的规定，特别是需要将其法律地位阐述得更加准确。",
+            "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化。"
+          ],
+          "strengths": [
+            "延展方向具体且多元：基于实证发现的‘运行不畅、方法缺位’，提出了法律定位、入场程序、适用方法和文化理念四个明确的未来完善维度。",
+            "衔接真实可追溯：对程序性后果、相似性判断标准等延展讨论，直接呼应了前文关于法院不回应、适用方式混乱等具体实证缺陷。"
+          ],
+          "weaknesses": [
+            "部分路径宏观有余、精细不足：如‘更高层级的法律规定’、‘理念积淀’等方向未进一步转化为可检验的制度方案或具体研究争点。",
+            "缺乏对实证结论局限性的反思：例如基于裁判文书网数据的偏误、未纳入其他质量因素等，未说明应如何改进以推进后续研究。",
+            "部分呼吁偏向应然：如‘需要慎之又慎’等表述，未明确说明未来研究应围绕何种机制或边界条件展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文在文末提出的程序、方法、理念等维度，属于基于现有实证发现的制度修正与理论深化建议，是‘未来还能往哪里走’的问题；而论证其规范效力、程序正当性属于当下结论的可接受性论证，本维度未予评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "基于实证缺陷提出程序入场、适用方法等具体后续争点与实务改进路径。",
+          "core_judgment": "存在真实延展路径，指明了指导性案例程序回应机制、裁判要点适用方法等具体后续争点与制度完善方向。",
+          "score_rationale": "原始分80，对应bonus档位5分。论文基于实证结论提出法官回应程序后果、裁判要点能否直接推理等具体争点，延展路径清晰且与正文紧密衔接。",
+          "evidence_quotes": [
+            "如果法官在裁判文书中没有回应当事人提出来的指导性案例，会有何种程序性后果？",
+            "法官是不是可以直接依据指导性案例确定的裁判要点进行法律推理？"
+          ],
+          "strengths": [
+            "基于实证缺陷提出具体后续争点（程序后果、适用方法）。",
+            "延展路径与正文实证发现（回应率低、方法混乱）紧密衔接。"
+          ],
+          "weaknesses": [
+            "最终宏观展望“中国化和本土化”稍显泛化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "法官回应的程序性后果、裁判要点能否作为推理大前提等问题，属于未来制度与实务应如何完善的延展方向，而非当下实证结论能否被接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文结尾虽有改进呼吁，但缺乏具体可定位的后续研究路径或制度深化方向。",
+          "core_judgment": "不存在真实延展路径，仅有口号式展望和泛泛'继续完善'。",
+          "score_rationale": "原始分35分，bonus=0。论文末段提出'从程序、方法和理念等层面着手'，但未指明具体修正对象、机制或下一轮争点；'实现案例指导制度的中国化和本土化'为空泛拔高，无待修正的具体制度路径或比较维度，落入低分段。",
+          "evidence_quotes": [
+            "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化。",
+            "我国的案例指导制度虽然已是实践着的制度，但是在理念上、在方法上，还需要有更深层的积淀。"
+          ],
+          "strengths": [
+            "文末意识到程序、方法、理念三层面存在不足，有一定问题意识。"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或制度修正路径，'中国化和本土化'缺乏可操作内涵。",
+            "未承认正文具体局限并说明如何推进，也未给出不同意见者可进入的争论入口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "从未来发展的角度看，增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化。"
+            }
+          ],
+          "boundary_note": "本维度评估未来延展方向，而非当下结论是否被接受。论文结尾的'中国化''本土化'等表述属于未来方向，但缺乏具体化，故评前瞻延展性而非结论可接受性。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 80,
+          "band": "excellent",
+          "summary": "基于实证数据指出指导性案例在立法地位、适用程序与裁判方法上的不足，并明确后续制度完善与理论深化的具体路径。",
+          "core_judgment": "存在真实延展路径，明确指向立法层级提升、程序规则嵌入与裁判技术细化。",
+          "score_rationale": "原始分80，对应bonus=5。论文基于实证数据明确提炼出立法地位澄清、庭审程序嵌入、裁判方法细化及理念培育四大延展路径，与核心结论紧密衔接，符合制度/实务型论文的深化要求。",
+          "evidence_quotes": [
+            "未来如有可能，还需要有高层级的法律规定对案例指导制度进行更为详细的规定，特别是需要将其法律地位阐述得更加准确。",
+            "增强指导性案例的实效，需要从程序、方法和理念等层面着手，实现案例指导制度的中国化和本土化。"
+          ],
+          "strengths": [
+            "明确指向立法层级提升、庭审程序嵌入及裁判方法细化等具体延展路径。",
+            "延展方向与实证发现的“适用率低、程序缺位、方法混乱”问题紧密咬合。"
+          ],
+          "weaknesses": [
+            "对“相似性判断”的具体操作标准仍停留在理论呼吁，缺乏可检验的细化方案。",
+            "理念本土化路径偏宏观，未给出跨学科或实证追踪的具体研究切入点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于实证结论所指向的后续立法完善、程序规则建构与方法论细化方向，而非对当前案例指导制度效力或裁判结果的当下可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 63.94267392158508,
+        "glm-5.1": 34.62976002693176,
+        "kimi-k2.6": 13.176564931869507,
+        "qwen3.6-plus": 61.06108093261719
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 80,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 80
+      },
+      "mean": 66.8,
+      "std": 21.5,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 56.2,
+      "weighted_total": 57.8
+    },
+    "aggregation_strictest": {
+      "final_score": 23.24,
+      "weighted_total": 24.5
+    },
+    "avg_std": 25.8,
+    "max_std": 40.3,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 33.0,
+    "composite_score": -25.8,
+    "worst_dimension": "problem_originality",
+    "worst_std": 40.3
+  }
+}

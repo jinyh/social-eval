@@ -1,0 +1,1066 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/论国家所有权与行政权的关系.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号混入正文（如③、④等），但不影响核心论点定位",
+          "参考文献列表缺失"
+        ],
+        "evidence_quotes": [
+          "参见肖厚国：《所有权的兴起与衰落》，山东人民出版社2003年版，第56页。③",
+          "参见张千帆：《城市土地“国家所有”的困惑与消解》，载《中国法学》2012年第3期。④"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从民法意义上理解我国《宪法》规定的“国家所有”受到了越来越多的批判。",
+          "宪法意义上的国家所有权首先是由立法机关来代表国家行使的。",
+          "国务院代表国家行使的所有权依然只是抽象所有权，并为规划审批权和行政立法权所取代，与行政权完全融合。",
+          "将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。",
+          "国家所有权的行使也必须服务于公共利益，并受到公共利益的诸多限制。这与行政权的行使必须服务于公共利益，并受到公共利益的诸多限制的情形是一致的。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献抽取失败，无法验证引注完整性（文本质量旁路风险）",
+        "脚注编号混入正文，可能由OCR导致（文本质量旁路风险）"
+      ],
+      "evidence_quotes": [
+        "从民法意义上理解我国《宪法》规定的“国家所有”受到了越来越多的批判。",
+        "国务院代表国家行使的所有权依然只是抽象所有权，并为规划审批权和行政立法权所取代，与行政权完全融合。",
+        "将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "直接进入六维评分。文本质量存在低风险（脚注编号混入、参考文献列表缺失），但核心论点、结构和论证完整可读，不影响评审。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如使用@符号代替⑩等）",
+          "期刊页码及栏目名（如'95 中国法学 2016年第6期'、'99'等）混入正文段落",
+          "脚注内容与正文段落交错穿插，抽取边界存在混淆风险",
+          "表格排版存在轻微错位，但不影响核心信息读取"
+        ],
+        "evidence_quotes": [
+          "最高行政法院认为公产的所有权是公产管理行为的根据。”@二是认为，受我国当时计划经济体制的影响",
+          "95 \n\n中国法学 \n2016年第6期",
+          "参见税兵：《自然资源国家所有权双阶构造说》，载《法学研究)\n)2013年第5期。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "由于此种民法上的“所有权”概念自身并不能保障我国宪法关于消灭剥削、维护社会公平、发展社会主义公用事业、保障公民基本权利的目的的实现，因此，从民法意义上理解我国《宪法》规定的“国家所有”受到了越来越多的批判。",
+          "宪法上的“国家所有”并非单纯民法意义上的“国家所有”，相反，它的层次更高、范围更广……对应的国家所有权是公权而非私权，是一种体现平等主义的公共所有权。",
+          "从我国现行体制看，国务院代表国家行使的所有权已经逐渐被国务院行使的规划权以及制定行政法规的权力所取代……具体负责出让国有土地使用权的市县土地部门并非代表国务院行使国家所有权，并不具有民事主体的“意思自治”特征……而是以行政主体的身份在执行法律的规定。",
+          "按照宪法的安排，将国有财产作出生产资料和生活资料的二元划分……当某项国有财产的用途被确定为生产资料之后，代表国家行使收益权等所有权权能的国家机关就应当与负责对国有财产的开发利用进行限制的行政执法机关分离。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号乱码、页码/栏目名混入正文、脚注与正文段落交错，需在后续阶段清洗",
+        "项目口径：完全满足进入六维评价条件，无需额外关注"
+      ],
+      "evidence_quotes": [
+        "按照宪法的安排，将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。",
+        "由于此种民法上的“所有权”概念自身并不能保障我国宪法关于消灭剥削、维护社会公平……的目的的实现，因此，从民法意义上理解我国《宪法》规定的“国家所有”受到了越来越多的批判。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦中国宪法上的国家所有权与行政权关系，提出了生产资料与生活资料的二元划分理论来解释中国国有财产配置实践，具有明确的中国问题中心性和可争辩法学命题，完全符合进入六维评价的口径。文本存在脚注乱码、页码混入等工程问题，但不影响核心论点定位，建议在后续评分阶段进行文本清洗后正常推进评审。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如③④⑤⑥⑦⑧⑨⑩⑩⑩⑩等连续编号异常，部分编号重复或跳跃）",
+          "参考文献列表缺失（标注为'（无）'），但正文引用信息完整可定位",
+          "期刊页码信息混入正文（如'95'、'99'、'100'、'101'、'102'、'103'、'104'、'105'、'106'等孤立数字）",
+          "部分外文文献作者名格式不统一（如'See Epstein，Joseph M．'与'[美]乔尔·s．米格代尔'混用）"
+        ],
+        "evidence_quotes": [
+          "③参见肖厚国：《所有权的兴起与衰落》……",
+          "95",
+          "中国法学 2016年第6期",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "从民法意义上理解我国《宪法》规定的'国家所有'受到了越来越多的批判",
+          "宪法上的'国家所有'并非单纯民法意义上的'国家所有'，相反，它的层次更高、范围更广",
+          "我国《宪法》第2条第1款规定：'中华人民共和国的一切权力属于人民。'",
+          "建议国家尽快制定《国有财产管理法》",
+          "目前的国有土地使用权出让合同就应当定性为行政协议",
+          "将国有财产作出生产资料和生活资料的区分，原则上就划定了社会主义市场经济中可以进入市场交易的国有财产使用权的范围"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留：部分编号重复（如多个⑩），但核心引用信息可辨识",
+        "参考文献列表未抽取，但正文脚注引用完整，不影响核心论证定位",
+        "期刊页码数字混入正文，属分栏残留，不影响阅读"
+      ],
+      "evidence_quotes": [
+        "论国家所有权与行政权的关系",
+        "我国《宪法》第10条第1款和第2款解读为土地制度条款",
+        "将国有财产作出生产资料和生活资料的区分……划定了社会主义市场经济中可以进入市场交易的国有财产使用权的范围",
+        "目前的国有土地使用权出让合同就应当定性为行政协议"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该文完全符合项目口径，应进入六维评价。文本质量风险较低，脚注编号乱码和参考文献列表缺失不影响核心论点评审，建议在评分时以正文内容为准。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页眉页脚（期刊名、年份、期号、页码）混入正文段落",
+          "脚注编号OCR识别异常（如@、∞替代数字）",
+          "表格结构在纯文本中呈现列错位，但核心数据逻辑可还原"
+        ],
+        "evidence_quotes": [
+          "中国法学 \n 2016年第6期",
+          "④ [英]戴维·朗西曼：《国家的概念：一种想象的主权》...",
+          "法律与规范 所有权人 \n 相关规划 \n 资源分..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "由于此种民法上的‘所有权’概念自身并不能保障我国宪法关于消灭剥削、维护社会公平……因此，从民法意义上理解我国《宪法》规定的‘国家所有’受到了越来越多的批判。",
+          "将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。",
+          "当某项国有财产的用途被确定为生产资料之后……分离收益权与行政执法权就显得非常必要。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在页码/刊名混入及脚注符号乱码，需清洗；项目口径：无，四项核心信号均明确触发。"
+      ],
+      "evidence_quotes": [
+        "宪法上的国家所有权更强调的是政府的责任和义务……体现为一种服务于公共利益的公共控制权",
+        "只有当特定国有财产的用途被确立为生产资料……才存在国家所有权权能与行政权分离的必要性",
+        "目前的国有土地使用权出让合同就应当定性为行政协议"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR格式干扰，建议预处理清洗页眉页脚与脚注乱码。论文深度聚焦中国宪法与行政法交叉地带的国家所有权性质争议，直面地方土地财政与资源配置实践难题，创新性地提出‘生产资料/生活资料’二元划分框架及‘所有权与行政权分离/合一’的规范命题，具备明确的理论转化与可复核性，高度契合中国自主知识体系研究口径，建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "good",
+          "summary": "论文提出“国家所有权本质是公共控制权”这一可争辩命题，但问题聚焦稍显宽泛，材料驱动成分较重。",
+          "core_judgment": "问题涉及国家所有权与行政权关系这一法学争点，具有可争辩性，但主要依赖制度梳理，法学争议交锋不深，问题创新性一般。",
+          "score_rationale": "可争辩性=3/4，枢纽性=2/4，材料新颖性触发weak_problem_formulation上限（65分），锚定good档，给62分。",
+          "evidence_quotes": [
+            "国家所有权在不同的时空中是以不同的形态出现的，其行使呈现出明显的与行政权一样的“流动性”和“碎片化”的特点。",
+            "宪法上的国家所有权更强调的是政府的责任和义务……体现为一种服务于公共利益的公共控制权，虽不能否定其具有私权的属性，但本质上属于公权。"
+          ],
+          "strengths": [
+            "核心问题具有法学争辩性，挑战了传统私法所有权路径。"
+          ],
+          "weaknesses": [
+            "问题表述宏大，未能聚焦为具体、可操作的争点。",
+            "主要创新点部分依赖于新概念包装，理论推进深度有限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦，上限65分。",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "问题从‘民法所有权’与‘宪法所有权’的区分宏观展开，但全文更像国有财产管理制度的系统梳理，而非围绕一个清晰可辨的争点展开辩论。"
+            }
+          ],
+          "boundary_note": "本维评问题是否成立且可争辩，不评论证是否严密或结论是否正确。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文提出了国家所有权与行政权可分性的条件问题，枢纽性极强。",
+          "core_judgment": "问题成立且极具枢纽性，通过生产/生活资料二元划分重构了既有争论的解释路径，属优秀问题创新。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0分，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "抽象层面的国家所有权与立法权和行政权的行使无法分离，并不意味着针对某一具体财产的所有权权能的行使也是不能与行政权分离的。",
+            "学界对宪法上国家所有权有公权说与公私权二重性说之分，作者批评双阶构造说忽视了行政法上的所有权。"
+          ],
+          "strengths": [
+            "提出生产/生活资料二元划分的新解释路径，推进了所有权与行政权关系的争论",
+            "问题枢纽性极强，横跨宪法、行政法与民法三大领域"
+          ],
+          "weaknesses": [
+            "二元划分的理论边界与具体判定标准尚需进一步精细化论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证是否严密或文献综述是否充分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文主题宏大但缺乏可争辩的法学问题，实为政策阐释与制度介绍。",
+          "core_judgment": "全文以'国家所有权与行政权关系'为对象，但无真正法学争点，属于主题声明式论述，不满足问题创新性要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限。可争辩性仅标准3部分满足（存在'公权vs私权'分歧提及），但无问题句、非法学层面争辩、实为政策倡导；枢纽性标准2、3满足，但标准1、4不满足。锚定unacceptable档，扣30分后给45分。",
+          "evidence_quotes": [
+            "本文基于此种考虑而展开的论证得出了以下几点结论",
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排"
+          ],
+          "strengths": [
+            "触及宪法与民法交叉领域，主题具有制度重要性"
+          ],
+          "weaknesses": [
+            "无明确问题句，只有主题声明'论国家所有权与行政权的关系'",
+            "结论为政策倡导式'建议制定《国有财产管理法'，缺乏法学论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "标题为'论国家所有权与行政权的关系'，全文无'XX是否YY''如何ZZ'等问题句，结语为政策建议"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "问题表述过于宏大无法聚焦",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "主题涵盖宪法、民法、行政法三重维度，但论文实际只完成制度描述与政策主张，未形成聚焦争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "精准切入国家所有权与行政权关系之争，以用途二分法重构规范路径。",
+          "core_judgment": "问题具有高度可争辩性与跨部门法枢纽价值，成立且重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，负面模式扣0分，材料新颖性未触发上限，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "宪法上的国家所有权更强调的是政府的责任和义务……本质上属于公权。",
+            "只有当特定国有财产的用途被确立为生产资料……才存在国家所有权权能与行政权分离的必要性。"
+          ],
+          "strengths": [
+            "明确回应公权/私权属性之争，提出生产/生活资料二分法。",
+            "深度剖析现行法配置现状，论证行政权与所有权融合机理。"
+          ],
+          "weaknesses": [
+            "“生活资料”与“生产资料”的宪法教义学界定略显抽象。",
+            "对地方实践复杂性的实证支撑稍弱，偏重规范推演。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题争辩性与枢纽性，不评文献综述、论证逻辑或证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.767505168914795,
+        "glm-5.1": 1016.5364022254944,
+        "kimi-k2.6": 14.048282146453857,
+        "qwen3.6-plus": 1041.9168498516083
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 90,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 85
+      },
+      "mean": 70.5,
+      "std": 20.9,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 75,
+          "band": "good",
+          "summary": "论文在正文中分散式地梳理了国家所有权在公私法维度的既有阐释，并基于公权/私权、生产资料/生活资料等区分展开讨论，但未附参考文献列表，研究地图的完整性存在一定局限。",
+          "core_judgment": "论文呈现了至少两个可区分的法学争点（宪法所有权与民法所有权的关系、公权说与双重属性说），争点结构成立，但三要素中的到达点较为碎片化，且参考文献列表缺失，研究地图不够完整。",
+          "score_rationale": "三要素=4/6（到达点1分、未竟点2分、本文切入点1分），争点结构=2/2，法学流派=3个（公权派、双重属性派、双阶构造派），锚定good档，给75分。",
+          "evidence_quotes": [
+            "一种是宪法意义上的国家所有，完全区别于民法意义上的国家所有……是一种体现平等主义的公共所有权。",
+            "另一种是……在计划经济体制下……对应的国家所有权既具有公权的属性，也具有私权的属性，即公权和私权的二重性。"
+          ],
+          "strengths": [
+            "将分散在正文中的多种学说（公权说、双重属性说、双阶构造说等）组织成了清晰的争辩脉络。",
+            "未竟点明确：批评既有研究忽视行政法上所有权的存在，并指出在公权私权不分的情况下理解国家所有权的局限。"
+          ],
+          "weaknesses": [
+            "到达点不够具体，仅以“学界有观点认为”“学界又有两种观点”带出，未给出明确的研究者姓名或里程碑性成果。",
+            "论文无参考文献列表，无法确认学术定位的完整性和可追溯性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分≤3且法学流派≥2，最高79分，因三要素=4未触发该上限，但参考文献缺失影响到达点得分。",
+              "score_ceiling": 79,
+              "priority": 3,
+              "evidence": "三要素实际得分为4，已达good档，但到达点仅有模糊的群像式表述，且无参考文献列表支撑。"
+            }
+          ],
+          "boundary_note": "本评分仅评估论文对既有研究的定位能力，不评判文章本身对国家所有权理论创新的贡献。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派识别充分。",
+          "core_judgment": "论文通过分散式文献定位构建了清晰的研究地图，呈现了多个对立解释路径与争点。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界又有两种观点：一是宪法意义上的国家所有……对应的国家所有权是公权而非私权……二是认为……对应的国家所有权既具有公权的属性，也具有私权的属性",
+            "但却忽视了行政法上所有权的存在……理论界长期以来主要是从私法的意义上来理解国家所有权"
+          ],
+          "strengths": [
+            "分散式文献定位清晰，准确提炼了学界对国家所有权性质的多种解释路径及其局限",
+            "争点结构明确，围绕所有权性质之争与行政权可分性之争展开"
+          ],
+          "weaknesses": [
+            "无独立参考文献列表，部分引文标注为脚注序号但文本中未完整显示脚注内容"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献定位与争点梳理深度，而非国有财产分类理论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文呈现宪法国家所有权与行政权关系的新阐释，但研究地图构建不足。",
+          "core_judgment": "三要素总分4/6，争点结构1/2，法学流派2个，锚定marginal档，给62分。",
+          "score_rationale": "三要素得分4/6（到达点2+未竟点1+切入点1），争点结构=1/2，法学流派=2个（宪法所有权公权派vs公私权二重性派）。到达点充分：梳理了'名义所有/抽象所有/公权'与'公权私权二重性'两种学说；未竟点部分满足，指出'忽视了行政法上所有权的存在'但未充分展开缺口；切入点与未竟点对应不够紧密。争点结构仅1个（宪法国家所有权性质之争），未形成第二个独立争点。触发insufficient_school_coverage上限65分。",
+          "evidence_quotes": [
+            "学界又有两种观点：一是宪法意义上的国家所有……是一种体现平等主义的公共所有权……二是认为……国家所有权既具有公权的属性，也具有私权的属性",
+            "但却忽视了行政法上所有权的存在，因为'行政主体对公产享有行政法上的所有权'"
+          ],
+          "strengths": [
+            "明确区分宪法所有权两种学说并引用具体学者",
+            "以比较法视角引入美国、法国制度增强分析深度"
+          ],
+          "weaknesses": [
+            "未竟点与本文切入点衔接松散，'行政法所有权'缺口未充分展开",
+            "缺乏对既有研究批判性反思，未形成可辨识的第二个争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "三要素总分4但争点结构≤1且法学流派≤2，上限65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "仅呈现一个核心争点（宪法国家所有权性质之争），未形成第二个独立争点结构"
+            }
+          ],
+          "boundary_note": "本维度评文献定位，不评问题创新性。论文问题意识清晰，但研究地图构建有缺陷。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒国家所有权性质之争，精准定位既有研究盲区并确立二元划分切入点。",
+          "core_judgment": "研究地图三要素完整，争点结构清晰，流派识别达标，文献洞察度良好。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学界又有两种观点：一是宪法意义上的国家所有……是一种体现平等主义的公共所有权。二是认为……即公权和私权的二重性。",
+            "长期以来，人们受到《宪法》第6条规定的影响，都有一个误解……国有财产的用途也应区分为生产资料和生活资料"
+          ],
+          "strengths": [
+            "清晰梳理公权说与二重性说等既有立场，准确提炼理论分歧",
+            "以财产用途二元划分为切入点，精准对接既有解释路径的局限"
+          ],
+          "weaknesses": [
+            "对行政法所有权流派的文献引证相对单薄，未充分展开比较法脉络",
+            "部分争点（如规划权性质）的学界对立状态呈现略显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现，不涉及该选题本身的新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 1050.219132900238,
+        "glm-5.1": 1018.8321769237518,
+        "kimi-k2.6": 15.757848978042603,
+        "qwen3.6-plus": 1042.0814092159271
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 90,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 80
+      },
+      "mean": 76.8,
+      "std": 11.6,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文原创性地提出了“生产资料/生活资料”的二元分类框架，但框架的操作步骤缺失，后文调用有限，导致可操作性不足。",
+          "core_judgment": "框架有创新性但缺乏可重复适用的分析步骤，法学转化停留在分类层面，未提供具体的裁判规则或制度操作流程。",
+          "score_rationale": "论文类型为制度/实务型。框架可操作性得分=1/4（概念界定较清晰，但无分析步骤，后文未按步骤调用，且存在“需要完善”等口号式呼吁降档风险），法学转化度得分=2/4（提出了制度二分法但未提供操作指引）。锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "按照宪法的安排，将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。",
+            "当某项国有财产的用途被确定为生产资料之后，代表国家行使收益权等所有权权能的国家机关就应当与负责对国有财产的开发利用进行限制的行政执法机关分离。"
+          ],
+          "strengths": [
+            "原创性提出生产资料/生活资料的二元分类，为理解国家所有权与行政权的关系提供了新的分析维度。",
+            "分类框架能够映射到制度层面，区分了市场配置与非市场配置的边界，具有一定的制度设计指向。"
+          ],
+          "weaknesses": [
+            "框架缺乏可操作的分析步骤（如“第一步判断用途→第二步分类配置”），后文未形成逐步调用的分析流程。",
+            "法学转化不足，未提供具体的裁判规则或法律适用流程，仅停留在理论阐释和宏观建议层面。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语在后文出现且被实际调用的次数不足，且缺乏可重复适用的分析步骤。",
+              "score_ceiling": 60,
+              "priority": 3,
+              "evidence": "后文未按照“生产资料/生活资料”框架的步骤展开分析，仅作为分类标签提及，未形成“步骤1→步骤2”的可调用流程。"
+            }
+          ],
+          "boundary_note": "本评价限于框架本身的可操作性与法学转化度，不评价其逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "以国有财产用途二元划分为核心框架，精准转化为法律适用流程与制度方案。",
+          "core_judgment": "分析框架高度成立，将政治经济学概念成功转化为可操作的法学类型化标准与裁判指引。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。",
+            "将相应的许可区分为‘对物的许可’与‘对人的许可’两个阶段……前者受行政法调整，后者主要由民法加以调整。"
+          ],
+          "strengths": [
+            "类型化标准（生产/生活资料）边界清晰，分析步骤可循。",
+            "法学转化彻底，提供了两阶段许可流程与行政协议定性指引。"
+          ],
+          "weaknesses": [
+            "生产资料与生活资料的区分在实践中可能存在模糊地带。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构力而非逻辑严密性，不评判生产/生活资料划分在实务中的界定难度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文提出'生产资料-生活资料'二元划分框架分析国家所有权与行政权关系，但框架操作化不足，法学转化有限。",
+          "core_judgment": "框架核心分类标准明确但分析步骤不清晰，后文调用不充分，法学转化停留在制度定性层面，未形成可重复适用的判断标准。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但无步骤化分析流程、后文调用不足），法学转化度得分=2/4（跨学科概念有法学转化、提供制度定性指引，但无裁判规则或具体法律适用流程、制度设计方案笼统），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点",
+            "当某项国有财产的用途被确定为生产资料之后，代表国家行使收益权等所有权权能的国家机关就应当与负责对国有财产的开发利用进行限制的行政执法机关分离"
+          ],
+          "strengths": [
+            "核心分类标准'生产资料-生活资料'具有原创性且边界相对清晰",
+            "框架贯穿宪法、行政法、民法多学科视角，有一定理论整合力"
+          ],
+          "weaknesses": [
+            "缺乏'判断国有财产用途'的具体步骤或标准，可操作性不足",
+            "后文对'二元划分'的调用多为描述性展开，未形成步骤化分析"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.framework_unused",
+              "rule": "框架核心术语在后文出现少于3次且未被实际调用",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "二元划分框架在正文后半部分虽多次提及，但多为描述性应用而非步骤化操作；'生产资料''生活资料'作为分类标签使用，未转化为'第一步判断用途→第二步确定权能归属→第三步选择法律适用'等可重复步骤"
+            }
+          ],
+          "boundary_note": "本维度评框架建构力，不评'国家所有权本质'等实体论证是否成立。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“生产资料/生活资料”二元分类框架，清晰界定国家所有权与行政权的分合逻辑。",
+          "core_judgment": "框架成立且具强可操作性，通过用途二分法将抽象宪法概念转化为可重复适用的法律适用与制度设计标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。分类标准明确，提供裁判与立法指引，后文充分调用。",
+          "evidence_quotes": [
+            "将国有财产作出生产资料和生活资料的二元划分，将为我们探讨两者的关系提供一个很好的切入点。",
+            "当某项国有财产的用途被确定为生产资料之后……应当与负责对国有财产的开发利用进行限制的行政执法机关分离。"
+          ],
+          "strengths": [
+            "概念界定与分类标准清晰，提供可重复适用的法律判断步骤。",
+            "成功将宪法抽象所有权转化为公法/私法适用的具体操作指引。"
+          ],
+          "weaknesses": [
+            "二元划分在复杂混合用途财产上的边界界定略显理想化。",
+            "立法建议部分较宏观，缺乏具体条款草案或程序细则设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化，不涉及逻辑衔接严密性与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 1008.5383660793304,
+        "glm-5.1": 1002.0295259952545,
+        "kimi-k2.6": 14.587235689163208,
+        "qwen3.6-plus": 1023.4478690624237
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 52,
+        "glm-5.1": 95,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 92
+      },
+      "mean": 72.8,
+      "std": 24.0,
+      "strictest": 52,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文推理链完整、坚实，基本结论皆可由前文推出，对反方立场有充分回应。",
+          "core_judgment": "逻辑严密性整体成立：主线清晰，从宪/民区分到权能配置分析再到二元划分与规范结论，推论链条自洽；反驳处理充分，多处回应反对意见并明确自身适用边界。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，因论证厚实给予82分。",
+          "evidence_quotes": [
+            "由于此种民法上的“所有权”概念自身并不能保障……因此，从民法意义上理解“国家所有”受到了越来越多的批判。",
+            "从这一意义上讲，将国家所有权视同公权力，按照控制立法权和行政权的思路……对国家所有权加以控制是非常必要的。"
+          ],
+          "strengths": [
+            "推理链清晰可复述：宪法民法的区分→权能配置实证分析→二元用途划分→规范方案，每一步依赖前一步。",
+            "反驳处理周全：显式回应民法所有权说、双阶构造说，承认思路限于特定条件，并回应反对意见的局限。"
+          ],
+          "weaknesses": [
+            "局部论证跳步感存在但未阻断整体链条，例如从“国务院代表所有权”直接过渡到“退隐”缺少一小段中间论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "局部跳步不构成关键跳步，主线仍可推出结论；属于逻辑密度问题而非框架建构问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，对反对意见有实质性回应，核心结论可辩护推出。",
+          "core_judgment": "本文逻辑严密性维度完全成立，主线推理无关键跳步且反驳处理充分。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "忽视了行政法上所有权的存在……公产的所有权是公产管理行为的根据",
+            "虽不能否定其具有私权的属性，但本质上属于公权"
+          ],
+          "strengths": [
+            "从批判私权理解到建构生产/生活资料二元划分，推理链依赖度高",
+            "对双阶构造说等反对意见给出了具体的理论反驳与规范依据"
+          ],
+          "weaknesses": [
+            "引入生产/生活资料二元划分时，理论过渡稍显解释性而非必然推出"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "二元划分的合理性属于框架建构力，本维度只评该划分能否逻辑推出后续结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从宪法国家所有权到行政权融合再到用途二分分离的完整推理链，但反驳处理不足。",
+          "core_judgment": "推理链完整可复述，核心结论可由前文推出，但缺乏对反对意见的显式回应与自身局限承认。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4存在1处关键跳步：从'国家所有权与行政权融合'到'用途二分后分离'的过渡缺乏充分论证）；反驳处理度得分=1/3（仅标准1成立：呈现了'宪法所有权vs民法所有权'的分歧路径，但未实质性回应'二重性'观点，无显式反对意见处理，无自身局限承认）。锚定good档(70-79)，给72分。",
+          "evidence_quotes": [
+            "财产国有化的目的，最终都是以立法权的行使为媒介，并以行政权的方式分解到不同的行政机关并依法加以行使来实现的",
+            "将国有财产作出生产资料和生活资料的区分，原则上就划定了社会主义市场经济中可以进入市场交易的国有财产使用权的范围"
+          ],
+          "strengths": [
+            "推理步骤清晰：从抽象所有权与行政权融合，到用途二分后的分离，逻辑递进",
+            "大量现行法规范与比较素材支撑核心结论"
+          ],
+          "weaknesses": [
+            "关键跳步：未充分论证为何'用途二分'足以构成国家所有权与行政权分离的充分条件",
+            "反驳处理薄弱：对'公权私权二重性'观点仅罗列未回应，未处理'行政法上所有权'的批评"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'用途二分'框架本身的理论创新性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链条完整，概念辨析与制度推导严密，结论可从前文充分辩护推出。",
+          "core_judgment": "逻辑严密性成立，核心结论由规范分析与类型划分层层递进支撑，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。论证步骤环环相扣，有效回应学界分歧并划定适用边界。",
+          "evidence_quotes": [
+            "国务院代表国家行使的所有权依然只是名义上的抽象所有权……与行政权完全融合。",
+            "只有当特定国有财产的用途被确立为生产资料……才存在国家所有权权能与行政权分离的必要性。"
+          ],
+          "strengths": [
+            "概念推演严密，从宪法属性到权能配置层层递进。",
+            "有效整合规范梳理与理论分类，支撑制度结论。"
+          ],
+          "weaknesses": [
+            "生产/生活资料二分法的宪法文本依据略显单薄。",
+            "部分过渡段落依赖政策预设，法教义学论证可深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦规范解释与权能推导的逻辑自洽，非框架操作性或结论可接受性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 1017.4754118919373,
+        "glm-5.1": 1004.4092228412628,
+        "kimi-k2.6": 12.974400043487549,
+        "qwen3.6-plus": 1017.9487700462341
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 88
+      },
+      "mean": 81.8,
+      "std": 6.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 54,
+          "band": "marginal",
+          "summary": "结论提出了基于用途二元划分的公权控制框架，但未与现有法教义学或主流反对意见形成有效对话，自说自话色彩较重，导致可接受度受限。",
+          "core_judgment": "论文结论虽有理论创新，但基本未回应学界已有的批判观点，也未讨论自身方案的限制，导致共同体难以定位和严肃回应。",
+          "score_rationale": "共同体对话度得分=1/4（仅满足标准3），制度可接受度得分=3/4（满足标准1/2/4），理论论文锚定marginal档，因对话度过低触发上限规则，给54分。",
+          "evidence_quotes": [
+            "宪法上的“国家所有”并非单纯民法意义上的“国家所有”，它的层次更高、范围更广。",
+            "国有财产实际上可以区分为两种服务于不同目的的财产…生活资料的国家所有权与行政权的不可分性…生产资料的国家所有权与行政权的可分性。"
+          ],
+          "strengths": [
+            "结论紧密结合中国宪法文本和现行法规，与中国制度语境高度兼容。",
+            "提出了生产资料/生活资料二元划分，对制度转化方向有具体指向。"
+          ],
+          "weaknesses": [
+            "结论仅综述学界既有观点，未明确说明自身结论与反对者的具体关系，缺乏实质对话。",
+            "全文未讨论或回应可能的反对意见，也未承认论证的局限，降低了共同体接受度。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度≤1时，总分上限为50分，但因理论论文制度可接受度较高（B=3）且结论未根本否定法秩序，上限适用稍放宽，实际评分最高不超过55分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "对话度仅满足标准3（中国语境），不满足标准1（未回应已有争论）、标准2（反对者难以定位回应）、标准4（未讨论反对意见或局限）。"
+            }
+          ],
+          "boundary_note": "本维仅评结论可接受性，而非论证逻辑或后续延展性，论文的理论价值须由其他维度评估。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻回应学界争论，提出国家所有权公权属性及二元划分理论，并给出具体立法建议。",
+          "core_judgment": "结论具备高度的共同体对话度和制度可接受度，虽挑战主流私法定性但论证充分且给出转化方向。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "虽不能否定其具有私权的属性，但本质上属于公权",
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排...的规范与控制"
+          ],
+          "strengths": [
+            "精准回应私法理解主流观点并提出公权替代方案",
+            "深入梳理现行法权能配置现状并给出具体立法建议"
+          ],
+          "weaknesses": [
+            "将出让合同定性为行政协议挑战现行法秩序，实务接受度存疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价结论能否被共同体和制度语境接受回应，不评价论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出宪法国家所有权本质为公共控制权，主张生产资料与生活资料二分，结论具有明确学术定位但制度转化回应不足。",
+          "core_judgment": "结论在共同体对话度上表现良好，明确回应了学界宪法所有权与民法所有权之争；制度可接受度因理论论文属性而达标，但具体制度转化方向略显薄弱。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、可被定位回应、考虑中国语境，但未充分讨论反对意见），制度可接受度得分=2/4（不与法秩序根本矛盾、原则回应制度约束，但制度转化方向不够具体、中国语境讨论尚可）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文基于此种考虑而展开的论证得出了以下几点结论：一是政府代表国家行使国家所有权的活动属于公共活动……二是……三是……",
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排以及对国有财产使用权的配置的规范与控制"
+          ],
+          "strengths": [
+            "明确修正税兵'双阶构造说'，提出行政法所有权维度",
+            "生产资料/生活资料二分法具有可争辩性，反对者可定位回应"
+          ],
+          "weaknesses": [
+            "未充分讨论'公权说'反对意见，如私权保护不足担忧",
+            "结语对策'制定《国有财产管理法''略显空泛，缺乏程序衔接"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论有效回应公私权属性之争，立足中国宪法语境提出公共控制权理论，并指明立法与合同定性方向。",
+          "core_judgment": "结论具备充分的共同体对话基础与制度兼容性，符合理论论文的可接受性标准。",
+          "score_rationale": "判定为理论论文。共同体对话度得分=3/4，制度可接受度得分=4/4，锚定excellent档，给85分。结论明确修正民法所有权视角，嵌入中国宪法与现行法体系，提出立法与定性转化路径，未触发降档规则。",
+          "evidence_quotes": [
+            "宪法上的国家所有权更强调的是政府的责任和义务……本质上属于公权。",
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排……"
+          ],
+          "strengths": [
+            "精准定位公私权理论争议并给出修正路径",
+            "紧密结合中国宪法文本与现行资源配置实践"
+          ],
+          "weaknesses": [
+            "结论部分未显式回应潜在反对意见或论证局限",
+            "生产/生活资料二分法的实务操作性需进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.385565996170044,
+        "glm-5.1": 49.463125705718994,
+        "kimi-k2.6": 10.52861499786377,
+        "qwen3.6-plus": 68.01900696754456
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 54,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 74,
+      "std": 14.7,
+      "strictest": 54,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在结语部分提出了制定《国有财产管理法》等具体制度延伸路径，并结合国有财产二元划分给出了生产资料与生活资料适用边界的延展方向，但路径展开仍较宏观，后续研究问题挖掘不够精细。",
+          "core_judgment": "存在明确且可定位的制度延展路径，与正文结论紧密衔接，但路径精细度和证据展开有限，未形成具体的后续研究争点。",
+          "score_rationale": "原始分72分，对应bonus=3档（原始分≥60）。主要依据：提出制定《国有财产管理法》的制度完善方向和二元划分的适用边界，延展路径清晰且与核心结论衔接，但制度路径具体内容展开不足，缺乏后续研究问题的精细化设定。",
+          "evidence_quotes": [
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排以及对国有财产使用权的配置的规范与控制。",
+            "将国有财产作出生产资料和生活资料的二元划分……具体层面的国家所有权应当如何行使，必须根据国有财产用途的不同分别加以规范。"
+          ],
+          "strengths": [
+            "明确提出制定《国有财产管理法》的制度完善方向，延展路径可定位且与核心结论衔接紧密。",
+            "基于国有财产二元划分，给出了生产资料与生活资料适用不同规制逻辑的边界条件延伸。"
+          ],
+          "weaknesses": [
+            "未进一步提出围绕《国有财产管理法》的具体立法争点或后续研究问题，制度路径精细度有限。",
+            "对二元划分后行政协议定性等延展方向未给出可操作的后续研究入口或反驳检验点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的制度完善方向及二元划分适用边界属于未来制度走向和规范建构问题，而非当下结论的可接受性评判，未涉及用延展补救核心论证缺陷。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了国有财产二元划分的适用边界及制定《国有财产管理法》的具体制度完善方向。",
+          "core_judgment": "存在真实延展路径，指明了具体的制度完善方向与规则适用边界。",
+          "score_rationale": "原始分85，对应bonus档位为5（>=80）。论文基于核心结论指明了生产/生活资料划分的适用边界与立法方向，路径清晰可定位。",
+          "evidence_quotes": [
+            "对于哪些国有财产应被作为生产资料使用，哪些应被作为生活资料使用……也明确了……可以通过市场机制配置的资源范围和不能通过市场机制配置的资源范围",
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排以及对国有财产使用权的配置的规范与控制。"
+          ],
+          "strengths": [
+            "延展路径紧扣正文“二元划分”核心结论，衔接紧密。",
+            "给出了具体的立法建议和规则适用边界，非空泛展望。"
+          ],
+          "weaknesses": [
+            "未明确承认正文局限或给出可供检验的反驳入口。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "划分标准的具体界定及立法建议属于未来制度构建与完善方向，而非当下结论能否被共同体接受的问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结语部分提出了制定《国有财产管理法》的制度完善方向，并明确了生产资料与生活资料区分标准对法律适用的指导意义，延展路径较为明确。",
+          "core_judgment": "存在真实延展路径，主要体现在立法建议、制度完善方向及法律适用标准的具体化上。",
+          "score_rationale": "原始分62分，bonus=3档。论文提出制定《国有财产管理法》的具体立法建议，明确了生产资料与生活资料区分对法律适用的指导，但缺乏对后续研究争点或理论修正方向的进一步展开，精细度有限。",
+          "evidence_quotes": [
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排以及对国有财产使用权的配置的规范与控制",
+            "对于哪些国有财产应被作为生产资料使用，哪些应被作为生活资料使用，不仅是判断国家是否切实履行了保障公民平等合理利用国有财产的权利这一宪法职责的标准，也明确了社会主义市场经济条件下可以通过市场机制配置的资源范围和不能通过市场机制配置的资源范围"
+          ],
+          "strengths": [
+            "提出具体立法建议《国有财产管理法》，制度完善方向明确",
+            "生产资料与生活资料的区分标准为法律适用提供可操作的判断框架"
+          ],
+          "weaknesses": [
+            "未提出后续具体研究问题或下一轮理论争点",
+            "缺乏对反驳入口或不同意见争论空间的说明"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文对未来研究方向和制度完善的展望，而非当下结论是否被接受。论文提出的立法建议和区分标准属于未来延展问题，不涉及结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文以“生产资料/生活资料”二元划分划定规则边界，并明确提出制定《国有财产管理法》的立法延展路径。",
+          "core_judgment": "存在真实且清晰的制度延展路径，为后续立法建构与规则衔接提供了可操作的框架。",
+          "score_rationale": "原始分82，对应bonus=5。论文明确提出专门立法建议，并以二元分类框架划定民行法调整边界，延展路径清晰且与核心结论紧密衔接，满足最高档加分条件。",
+          "evidence_quotes": [
+            "建议国家尽快制定《国有财产管理法》，以加强对国有财产用途的安排以及对国有财产使用权的配置的规范与控制。",
+            "对于哪些国有财产应被作为生产资料使用，哪些应被作为生活资料使用……明确了可以通过市场机制配置的资源范围。"
+          ],
+          "strengths": [
+            "明确提出制定《国有财产管理法》的立法建议，制度延展方向具体可操作。",
+            "构建“生产/生活资料”二元框架，清晰划定后续民行法规则衔接路径。"
+          ],
+          "weaknesses": [
+            "对立法落地过程中的部门权限冲突与实施风险控制缺乏具体预案。",
+            "未提供二元分类在司法实务中的具体识别标准与裁判指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估论文提出的立法方向与分类框架如何指引未来制度建构，而非评价当下结论的学术可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.84877109527588,
+        "glm-5.1": 38.616719245910645,
+        "kimi-k2.6": 10.231546878814697,
+        "qwen3.6-plus": 191.31627488136292
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 72,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 82
+      },
+      "mean": 75.2,
+      "std": 10.4,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 75.0,
+      "weighted_total": 75.0
+    },
+    "aggregation_strictest": {
+      "final_score": 56.59,
+      "weighted_total": 56.6
+    },
+    "avg_std": 14.8,
+    "max_std": 24.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 18.4,
+    "composite_score": -14.8,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 24.0
+  }
+}

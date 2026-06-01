@@ -1,0 +1,1053 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/国家所有的法律表达及其解释.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "国家所有权概念人法究竟是怎么发生的?本文认为，这至少与三个方面的背景因素有关。",
+          "本文梳理了国家所有问题迄今为止的发展脉络及其相关理论争论。简要地说，所谓国家所有问题，是宪法所规定的‘生产资料国家所有’如何通过具体的法律制度设计予以真正实现的问题。",
+          "宪法关于社会主义公有制的规定，面临的主要是新中国建立后至20世纪80年代初的社会发展背景...以物权法为代表的私法，在某些方面超越了宪法规范的内涵，但同时又不得不接受宪法规范的牵引。",
+          "可以适度消解国家所有权概念的抽象性，并切实使得目前的物权实现机制更加符合宪法上国家所有的规范要求。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "国家所有权概念人法究竟是怎么发生的?",
+        "本文梳理了国家所有问题迄今为止的发展脉络及其相关理论争论。",
+        "宪法关于社会主义公有制的规定...以物权法为代表的私法，在某些方面超越了宪法规范的内涵，但同时又不得不接受宪法规范的牵引。",
+        "通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分，可以适度消解国家所有权概念的抽象性。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文明确围绕中国宪法和物权法中的‘国家所有/国家所有权’问题展开，属于典型的中国自主知识体系研究，文本质量良好，建议直接进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "脚注内容大段混入正文段落之间，影响正文连贯性",
+          "期刊页码及栏目名混入正文（如“中国法学 2016年第2期”、“92”、“93”等）",
+          "OCR数字识别错误残留（如“8O年代初”、“l2期”、“l18条”、“o．4”、“2oo3”等）",
+          "脚注编号符号混乱（如@、⑩、④、③、②、⑤等交错使用）"
+        ],
+        "evidence_quotes": [
+          "⑩ 参见柳经纬：《我家住在小河边》，载《法学家茶座》第19辑……",
+          "中国法学 2016年第2期",
+          "92",
+          "自新中国建立至20世纪8O年代初",
+          "o．4以上(2oo3-2o14年的数值分别为o．479"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "国家所有权概念人法究竟是怎么发生的?",
+          "国家所有权概念不符合民法上所有权基本原理的看法，大抵已经成为法学界的共识。",
+          "旨在消灭剥削的社会主义理论一公有制一公法(宪法)规范一国家所有制；重在发展生产力的社会主义理论-市场经济一私法(物权法)规范一国家所有权。",
+          "通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分，可以适度消解国家所有权概念的抽象性"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗混入正文的脚注段落、期刊页码及栏目名，修正OCR数字乱码",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "旨在消灭剥削的社会主义理论一公有制一公法(宪法)规范一国家所有制；重在发展生产力的社会主义理论-市场经济一私法(物权法)规范一国家所有权。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，以中国宪法与物权法上的国家所有/国家所有权张力为核心，具有强烈的可争辩法学问题与中国实践解释，直接进入六维评分。但文本工程存在中度风险，需在后续阶段清洗混入正文的脚注、页码及修正OCR数字乱码后方可正常评分。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩、⑩、⑩等重复编号）",
+          "部分参考文献引用格式因OCR或分栏导致编号异常",
+          "文末参考文献列表缺失，但文内引用基本可辨识"
+        ],
+        "evidence_quotes": [
+          "⑩参见柳经纬：《我家住在小河边》，载《法学家茶座》第19辑...",
+          "⑩这29部法律是：文物保护法(1982年...",
+          "⑩除此以外，不少法律文本中使用了..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文认为，这至少与三个方面的背景因素有关...",
+          "国家所有权概念人法究竟是怎么发生的?",
+          "国家所有权概念得以确立的法学原理尚未真正确立，建立在这一概念基础上的物权实现机制，也存在诸多学术上的难题",
+          "两组要素之间的张力，通过宪法上的国家所有制与物权法上的国家所有权表达出来，而连接国家所有制与国家所有权的桥梁是'国家所有的法律实现机制'",
+          "嵌入在社会转型宏观背景中的国家所有问题的最终解决...有赖于科学社会主义理论的进一步发展，有赖于经济、政治、社会和法律不同领域之间的调适"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号存在OCR残留/乱码问题，但不影响核心论点定位",
+        "文末参考文献列表缺失，需关注但非项目口径障碍"
+      ],
+      "evidence_quotes": [
+        "国家所有权概念人法究竟是怎么发生的?",
+        "国家所有权概念得以确立的法学原理尚未真正确立，建立在这一概念基础上的物权实现机制，也存在诸多学术上的难题",
+        "两组要素之间的张力，通过宪法上的国家所有制与物权法上的国家所有权表达出来"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "该论文以中国宪法上的'国家所有'与物权法上的'国家所有权'之间的张力为核心问题，深入分析了中国特色社会主义法治转型中的制度难题，具有明确的中国问题意识、法学理论深度和实践解释力。文本质量风险较低，脚注编号问题不影响评审，建议直接进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR字符识别错误（如'8O年代初'应为'80年代初'、'l00'应为'100'、'o．479'应为'0.479'）",
+          "脚注编号符号异常/乱码混排（如'@'、'⑩'、'③'、'②'等非标准上标格式）",
+          "部分段落因PDF解析导致换行断裂"
+        ],
+        "evidence_quotes": [
+          "自新中国建立至20世纪8O年代初",
+          "l00",
+          "o．479、o．473"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "所谓国家所有问题，是宪法所规定的“生产资料国家所有”如何通过具体的法律制度设计予以真正实现的问题。",
+          "两组要素之间的张力，通过宪法上的国家所有制与物权法上的国家所有权表达出来，而连接国家所有制与国家所有权的桥梁是“国家所有的法律实现机制”。",
+          "通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分，可以适度消解国家所有权概念的抽象性，并切实使得目前的物权实现机制更加符合宪法上国家所有的规范要求。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR残留数字/字母混淆及脚注特殊符号，统一引注格式",
+        "项目口径：无异常，四项核心信号均明确触发，具备完整中国问题意识与规范命题构建"
+      ],
+      "evidence_quotes": [
+        "所谓国家所有问题，是宪法所规定的“生产资料国家所有”如何通过具体的法律制度设计予以真正实现的问题。",
+        "两组要素之间的张力，通过宪法上的国家所有制与物权法上的国家所有权表达出来，而连接国家所有制与国家所有权的桥梁是“国家所有的法律实现机制”。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分。文本存在轻微OCR识别瑕疵与脚注符号乱码，但不影响核心论点定位、论证逻辑与规范命题的审查。建议后续环节对引注格式及数字字符进行标准化校对后直接评分。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文缺乏可争辩的法学研究问题，主要呈现为对国家所有权制度沿革与困境的宏观介绍和立场阐释，未提出具体争点。",
+          "core_judgment": "全文无明确的问题句，仅围绕主题展开描述和既存争议罗列，不符合研究问题成立的基本要求。",
+          "score_rationale": "可争辩性=1/4，枢纽性=1/4，材料新颖性未触发上限。可争辩性≤1触发no_justiciable_question上限50分。锚定unacceptable档，因缺乏核心法学争点及观点交锋，扣负面模式检查分后给出35分。负面检查扣分：检查1（新概念包装旧问题）扣20分（说填补空白但未说明解释力提升），检查2（宏观介绍非深度分析）扣20分（无学者观点交锋），检查3（主题声明非研究问题）扣30分（全文无问题句，只有主题声明）。原正式评分=105，扣分后=105-70=35（不低于30分）。",
+          "evidence_quotes": [
+            "国家所有权概念人法究竟是怎么发生的?本文认为，这至少与三个方面的背景因素有关。",
+            "以物权法为代表的私法，在某些方面超越了宪法规范的内涵，但同时又不得不接受宪法规范的牵引，犹豫踟蹰。"
+          ],
+          "strengths": [
+            "对国家所有权制度的法治演进与现实困境进行了历史性梳理。"
+          ],
+          "weaknesses": [
+            "仅有历史追溯和宏观立场陈述，未提出可辩论的法学争点。",
+            "问题意识停留在制度沿革解读层面，缺乏不同解释路径之间的交锋论证。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1，最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无“XX是否YY”“如何ZZ”等可争辩的问题句，仅有主题声明和对制度困境的阐释。"
+            }
+          ],
+          "boundary_note": "本维度仅评价问题本身的成立与重要性，不评价文献综述、论证严密性或结论正确性。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "mandatory_expert_review"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文揭示了宪法国家所有制与物权法国家所有权之间的深层张力，对既有理论进行了有力反驳。",
+          "core_judgment": "问题具有高度可争辩性与枢纽性，成功将宏观制度争议转化为法学理论层面的核心争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“国家所有权概念不符合民法上所有权基本原理的看法，大抵已经成为法学界的共识……很多学者纷纷从不同角度对其作出新的理解”",
+            "“既往研究通过所有制与所有权‘一体两面’关系的习惯性看法……掩盖了国家所有制和国家所有权之间……的张力”"
+          ],
+          "strengths": [
+            "揭示了宪法公有制与物权法所有权之间的深层理论张力",
+            "对学界多种国家所有权解释路径进行了有力的交锋与反驳"
+          ],
+          "weaknesses": [
+            "开头问题句偏历史解释，核心理论争点在文中逐渐浮现而非明确提出",
+            "短期解决方案偏向政策设计，法理论证稍弱"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文梳理国家所有权概念的历史演变与制度困境，但缺乏明确可争辩的法学问题。",
+          "core_judgment": "主题重大但问题意识模糊，未形成可争辩的法学争点，属于主题阐释而非问题研究。",
+          "score_rationale": "可争辩性=1/4（有制度描述但无明确问题句），枢纽性=2/4（涉及宪法与物权法交叉、国家所有权基本原理），材料新颖性未触发上限。锚定unacceptable档，给45分。前置检查：检查1扣20分（'国家所有的法律表达'作为核心概念未说明相对既有概念的理论进步），检查2扣15分（有提及学者分歧但未展开交锋），检查3扣20分（全文无真正问题句，只有主题声明），合计扣55分，但不得低于30分。",
+          "evidence_quotes": [
+            "国家所有权概念入法究竟是怎么发生的？本文认为，这至少与三个方面的背景因素有关。",
+            "所谓国家所有问题，是宪法所规定的'生产资料国家所有'如何通过具体的法律制度设计予以真正实现的问题。"
+          ],
+          "strengths": [
+            "主题重大，涉及宪法与物权法核心交叉领域。",
+            "梳理了国家所有权概念的历史演变与理论脉络。"
+          ],
+          "weaknesses": [
+            "全文无明确可争辩的法学问题句，只有主题声明。",
+            "学者观点呈现为并列介绍，未形成真正交锋。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'国家所有的法律表达及其解释'为主题，无'XX是否YY'等问题句，只有历史梳理和制度描述。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准提炼宪法“国家所有”与物权法“国家所有权”的规范张力，问题意识明确且具高度可争辩性。",
+          "core_judgment": "该维度成立，问题兼具法理深度与制度枢纽价值，非单纯主题陈述或材料堆砌。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "国家所有权概念入法究竟是怎么发生的?",
+            "宪法上的国家所有制与物权法上的国家所有权表达出来，连接两者的桥梁是法律实现机制。"
+          ],
+          "strengths": [
+            "明确呈现多派学说交锋，问题具强可争辩性",
+            "贯通宪法与物权法领域，枢纽性与制度连锁显著"
+          ],
+          "weaknesses": [
+            "历史背景铺陈略长，核心争点可更聚焦",
+            "对策偏宏观，具体规范转化路径待深化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证逻辑或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.719698905944824,
+        "glm-5.1": 40.52785396575928,
+        "kimi-k2.6": 13.808098077774048,
+        "qwen3.6-plus": 58.96667695045471
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 90,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 64.5,
+      "std": 28.6,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 48,
+          "band": "unacceptable",
+          "summary": "论文对历史背景和实践困境的梳理细密，但极为薄弱的研究地图使其成为一篇孤立的宏大叙事，未系统定位既有研究。",
+          "core_judgment": "本文几乎完全缺失对既有研究成果、学术流派和争点的系统性梳理与定位，研究地图处于空白状态，使论证缺乏与学界对话的基础。",
+          "score_rationale": "三要素总分=1/6（到达点0，未竟点1，切入点0），争点结构=1/2，法学流派=0个，触发no_research_map规则，锚定unacceptable档，给48分。",
+          "evidence_quotes": [
+            "“早在《物权法》出台前，就有学者将此种……称为‘国家所有权神话’。……截至目前，‘国家所有权’概念不符合民法上所有权基本原理的看法，大抵已经成为法学界的共识。”",
+            "“至于从一开始就将宪法上的‘国家所有’理解为‘国家所有权’，然后又反过来区分宪法所有权和民法所有权……这些做法虽然尝试构建国家所有权的法律原理，却都明显找错了方向。”"
+          ],
+          "strengths": [
+            "对宪法规范与物权实践之间的张力剖析深刻，体现了极强的历史感和现实关怀。"
+          ],
+          "weaknesses": [
+            "全文缺少对既有研究成果的到达点提炼，仅将零星学者观点作为批判靶子而非研究地图。",
+            "未呈现清晰的学术流派或争点结构，导致理论对话基础严重薄弱，难以定位本文的创新入口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤2，研究地图严重残缺或不存在，无法定位既有研究的到达点、未竟点及本文切入点。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "正文中唯一的集中文献引用仅为脚注⑩，未提炼任何具体研究成果的贡献；虽有零散观点提及，但无系统梳理。"
+            }
+          ],
+          "boundary_note": "本文的问题并非缺乏新颖性，而在于未能将自身置于既有的学术争论脉络中，导致研究起点模糊。",
+          "review_flags": [
+            "needs_external_context",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文通过分散式定位精准勾勒国家所有权学术争点脉络，洞察度极佳。",
+          "core_judgment": "本维度完全成立，研究地图三要素齐备且争点结构丰满，流派覆盖充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=6个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "截至目前，这一概念得以确立的法学原理还没有真正形成...都尚未从根本上解决物权实现机制面临的全部难题",
+            "既往研究通过所有制与所有权‘一体两面’关系的习惯性看法...从而掩盖了国家所有制和国家所有权之间...的张力"
+          ],
+          "strengths": [
+            "分散式文献定位精准提炼各流派贡献与局限，未竟点刻画深刻。",
+            "争点结构清晰呈现私权论、公权论、三层结构论等多路径对立。"
+          ],
+          "weaknesses": [
+            "无明显缺陷，仅在结尾方案部分略显仓促，但不影响现状洞察。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估聚焦文献梳理与争点呈现深度，不评判国家所有权问题本身是否新颖或方案是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了国家所有权问题的历史脉络与理论争议地图，但三要素呈现分散且未竟点与切入点对应不够紧密。",
+          "core_judgment": "研究地图三要素部分满足，争点结构呈现2组对立，法学流派识别2个，达到good档。",
+          "score_rationale": "三要素得分=4/6（到达点2分：梳理了苏联理论引入、'一体两面'说等；未竟点1分：指出国家所有权概念'法学原理尚未真正形成'但分散多处；切入点1分：有政策建议但未明确对应未竟点），争点结构=2/2（宪法公有制vs物权市场化、国家所有权私权性vs公法性），法学流派=2个（苏联'统一唯一国家所有权'学派、'超越所有权'的公法/管理权学派），锚定good档，给72分。",
+          "evidence_quotes": [
+            "将所有制和所有权视为'一体两面'，也是我国20世纪80年代初就很普遍的看法",
+            "截至目前，'国家所有权'概念不符合民法上所有权基本原理的看法，大抵已经成为法学界的共识。在发现无法按照所有权逻辑来完整解释国家所有权概念的情况下，很多学者纷纷从不同角度对其作出新的理解"
+          ],
+          "strengths": [
+            "清晰呈现'国家所有权'概念的历史生成与理论争议脉络",
+            "有效识别苏联法学影响与本土理论转型的对立结构"
+          ],
+          "weaknesses": [
+            "未竟点与本文切入点对应松散，政策建议未直接回应理论缺口",
+            "缺乏独立文献综述，研究地图分散于正文各处，增加提取难度"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献定位完整性，不评问题创新性；论文问题意识清晰但研究地图组织分散。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理国家所有权理论演进与学术争议，精准定位法理基础与实现机制缺口，并提出多维消解方案。",
+          "core_judgment": "研究地图完整清晰，争点脉络分明，流派覆盖充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "截至目前，这一概念得以确立的法学原理还没有真正形成。",
+            "既往研究通过所有制与所有权‘一体两面’关系的习惯性看法……掩盖了……张力。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，历史脉络与学说争议交织论证。",
+            "明确提炼既有方案局限，未竟点与本文切入点严密对应。"
+          ],
+          "weaknesses": [
+            "部分学说归类可进一步凝练，避免交叉重叠。",
+            "短期对策的学理证成略显简略，可深化与既有流派的对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有学说梳理与争点定位，未越界评价问题本身新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 66.2333357334137,
+        "glm-5.1": 55.07008671760559,
+        "kimi-k2.6": 12.566551208496094,
+        "qwen3.6-plus": 55.72024202346802
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 48,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 76,
+      "std": 20.9,
+      "strictest": 48,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 60,
+          "band": "marginal",
+          "summary": "本文对“国家所有”问题进行系统的脉络梳理与张力分析，但未提出可重复适用的原创分析框架。",
+          "core_judgment": "论文主要贡献是历史梳理与理论归纳，虽有一个“两组要素紧张关系”的观察模型，但未转化为可操作的分析框架或裁判规则。",
+          "score_rationale": "框架可操作性得分=1/4（概念清晰但分类/步骤/后文调用不足），法学转化度得分=2/4（有概念界定与张力模型，但未提供裁判规则或制度操作步骤），锚定marginal档，给60分。",
+          "evidence_quotes": [
+            "国家所有问题的现状定位在两组要素之间的紧张关系中：旨在消灭剥削的社会主义理论-公有制-公法规范-国家所有制；重在发展生产力的社会主义理论-市场经济-私法规范-国家所有权。",
+            "国家对土地之所有权……是社会主义国家独享的权利。"
+          ],
+          "strengths": [
+            "对“国家所有”概念的法学演进与困境进行了清晰的历史-逻辑梳理",
+            "提炼出“规范性要求vs现实性需要”的张力结构，具有理论洞察力"
+          ],
+          "weaknesses": [
+            "全文未提出可逐步操作的裁判规则、制度设计流程或分析步骤",
+            "“两要素紧张”模型仅为宏观观察，后文未将其作为固定分析工具反复调用"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的问题不在于逻辑衔接，而在于缺乏一个可供他人重复使用的分析框架，属于框架建构力不足而非逻辑不严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文以梳理归纳既有理论脉络为主，缺乏原创操作化分析框架。",
+          "core_judgment": "该维不成立，论文仅完成理论梳理与宏观定位，未建构可重复适用的分析框架。",
+          "score_rationale": "框架可操作性得分=2/4，法学转化度得分=1/4，锚定marginal档，给55分",
+          "evidence_quotes": [
+            "可以将国家所有问题的现状定位在两组要素之间的紧张关系中：旨在消灭剥削的社会主义理论-公有制-公法规范-国家所有制；重在发展生产力的社会主义理论-市场经济-私法规范-国家所有权。",
+            "这些思路无疑是极其初步的，而由于所涉论题重大，其具体展开需另外撰文论述。"
+          ],
+          "strengths": [
+            "对国家所有权历史脉络与学术争议的梳理清晰",
+            "对国家所有物及利用方式的分类标准明确"
+          ],
+          "weaknesses": [
+            "两组要素紧张关系仅为宏观诊断而非操作框架",
+            "提出的解决思路停留在初步方向，缺乏具体制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "v0.7_policy_theory_review_ceiling",
+              "rule": "政策理论梳理型识别规则：框架可操作性上限2，法学转化度上限1，总分通常不超过60",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文主要贡献为梳理国家所有权入法背景与学术争议，核心术语来自权威表述而非原创"
+            }
+          ],
+          "boundary_note": "评框架是否成立可用，不评理论梳理的逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文以历史梳理和理论阐释为主，缺乏原创分析框架，未形成可重复适用的判断步骤或操作标准。",
+          "core_judgment": "该文属于制度/理论梳理型论文，核心贡献在于历史脉络梳理与理论争议归纳，而非建构可操作的法学分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅有'国家所有制—国家所有权'二元张力描述，无明确分类标准或分析步骤；概念界定依赖既有理论，未形成原创术语体系），法学转化度得分=1/4（提出'三个维度'区分但仅为初步思路，未转化为具体裁判规则或制度方案，后文未实际调用）。锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "两组要素之间的张力，通过宪法上的国家所有制与物权法上的国家所有权表达出来，而连接国家所有制与国家所有权的桥梁是'国家所有的法律实现机制'",
+            "通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分，可以适度消解国家所有权概念的抽象性"
+          ],
+          "strengths": [
+            "历史脉络梳理清晰，呈现了国家所有权概念的演进逻辑",
+            "理论争议归纳较为全面，涉及多学科视角"
+          ],
+          "weaknesses": [
+            "核心术语'国家所有制''国家所有权'未作原创性界定，依赖既有表述",
+            "'三个维度'仅为初步思路，未转化为可操作的制度方案或判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'梳理''阐释'为主，无原创概念界定或类型化，'三个维度'仅为结尾初步设想，未形成可重复适用的分析步骤"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构力，不涉及历史梳理的准确性或理论阐释的深刻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文构建了“宪法所有制-私法所有权”张力分析框架，并提出三维利用区分方案，框架完整且具理论转化力。",
+          "core_judgment": "该分析框架成立且具备较强的法学转化能力，能有效统摄规范解释与制度设计。",
+          "score_rationale": "框架可操作性得分=3/4，法学转化度得分=4/4，锚定excellent档，给85分。概念界定与分类清晰，后文充分调用；虽缺严格步骤化流程，但理论型适配下张力映射与三维方案满足转化要求。",
+          "evidence_quotes": [
+            "将国家所有问题定位在两组要素之间的紧张关系中……连接国家所有制与国家所有权的桥梁是‘国家所有的法律实现机制’",
+            "通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分，可以适度消解国家所有权概念的抽象性"
+          ],
+          "strengths": [
+            "构建了公法规范与私法权利互动的张力分析框架，逻辑自洽",
+            "提出三维利用区分方案，为制度调适提供了可操作的路径"
+          ],
+          "weaknesses": [
+            "缺乏步骤化的法律适用或裁判检验流程，操作性偏重理论阐释",
+            "部分核心概念（如‘法律实现机制’）的边界界定仍显宏观"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 57.62177300453186,
+        "glm-5.1": 44.43494391441345,
+        "kimi-k2.6": 12.964379072189331,
+        "qwen3.6-plus": 80.49806094169617
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 55,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 85
+      },
+      "mean": 61.2,
+      "std": 17.0,
+      "strictest": 45,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 70,
+          "band": "good",
+          "summary": "论文推理链完整，结论可由前文充分支撑，但反驳处理仅回应了隐含分歧，缺少对局限性的明确承认。",
+          "core_judgment": "本文逻辑链条清晰，能从前文充分推出核心结论，但对反对意见的回应多为隐含路径选择，且对自身论证边界缺乏明确交代，整体论证较为严密但存在局部缺口。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=1/3，锚定good(70-79)档。推理步骤连贯可复述，依赖度高，结论由前文推导而出且无关键跳步；反驳方面呈现了隐含分歧并给予回应，但未明确承认自身局限，故取该档下限，给70分。",
+          "evidence_quotes": [
+            "当宪法对国家与物的关系在国家内部作出公有制安排时，意味着国家内部不能在公民中再次分配这些公有物的‘所有权’……国家所有权并不能解决公有物的内部利用问题。",
+            "本文将国家所有问题的现状定位在两组要素之间的紧张关系中：旨在消灭剥削的社会主义理论-公有制-公法规范-国家所有制；重在发展生产力的社会主义理论-市场经济-私法规范-国家所有权。"
+          ],
+          "strengths": [
+            "推理链高度完整：从历史背景、概念入法原因到物权机制困境再到理论张力定位，环环相扣。",
+            "隐含分歧回应有力：通过剖析“一体两面”认识误区及“超越所有权的国家所有权”等学说，展示了不同路径并说明了为何它们无法成立。"
+          ],
+          "weaknesses": [
+            "缺乏对自身适用边界的明确承认：未指出其理论张力分析在何种条件下可能失效或需修正。",
+            "未直面潜在强硬反驳：对主张“国家所有权就是公共权力/管理权”的观点，以“以偏概全”带过，未深入论证此种路径为何完全不通。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2但反驳处理度=0时触发，现推理链=4且反驳=1，不触碰该上限。实际未触发任何存在上限的致命规则。",
+              "score_ceiling": 0,
+              "priority": 0,
+              "evidence": "无"
+            }
+          ],
+          "boundary_note": "本文的结构是历史-逻辑推演，而非制度方案建构，其核心结论是揭示张力而非提供唯一解方，因此不要求唯一性推定，只需论证为何现有路径均存在逻辑矛盾。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "推理链完整且层层递进，对反对意见有实质性回应并承认局限，逻辑严密性高。",
+          "core_judgment": "论文逻辑严密性维度成立，核心结论可由前文充分支撑且可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给88分。推理链从历史背景到概念争议再到机制困境层层依赖，反驳处理对多种学术路径均有论证性回应。",
+          "evidence_quotes": [
+            "以‘管理权能’来界定‘国家所有权’的性质，显然犯了以偏概全的错误，在逻辑上更是不通。",
+            "这些思路无疑是极其初步的，而由于所涉论题重大，其具体展开需另外撰文论述。"
+          ],
+          "strengths": [
+            "推理链依赖度高，从概念生成到机制困境步步紧扣。",
+            "对分歧路径有实质性论证回应，非仅罗列。"
+          ],
+          "weaknesses": [
+            "短期制度方案的推导稍显简略，但未构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评判聚焦于推理链是否充分支撑结论，不评判短期方案的具体可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'历史背景→概念入法→物权机制→困境反思→未来展望'的完整推理链，主线清晰，但反驳处理不足。",
+          "core_judgment": "推理链完整可复述，核心结论'国家所有权概念无法解决公有物内部利用问题'可由前文推出，但缺乏对替代方案的充分反驳回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1-3满足：步骤可复述、依赖度成立、结论可推出；标准4存在1处关键跳步：从'国家所有权概念空洞'到'应区分三维利用'的过渡缺乏充分制度推导）；反驳处理度得分=1/3（标准1满足：识别了'国家所有权神话'等反对意见；标准2不满足：对反对意见的回应多为'找错方向'式断言而非实质论证；标准3不满足：未承认自身方案局限）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "将所有制和所有权视为'一体两面'，也是我国20世纪80年代初就很普遍的看法...按照这种认识，国家所有制的法律表现形式理所当然地就是国家所有权。",
+            "在宪法公有制的硬约束之下，国家所有权并不能解决公有物的内部利用问题，截至目前，这一概念得以确立的法学原理还没有真正形成。"
+          ],
+          "strengths": [
+            "历史分析到规范分析的过渡自然，三步背景因素构成递进支撑",
+            "对国家所有权与民法所有权张力的揭示具有理论纵深感"
+          ],
+          "weaknesses": [
+            "对'公法法人所有权'等替代方案的反驳停留在断言层面，未展开实质逻辑交锋",
+            "结尾'三维区分'方案与前文'概念无法成立'的诊断之间存在断裂，缺乏推导中介"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否充分支撑结论，不评价'三维区分'方案本身的制度可行性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了从历史背景、市场转型到理论继受与立法建构的完整推理链，核心结论可辩护推出。",
+          "core_judgment": "推理链条完整且环环相扣，对学术争议进行了实质性回应并承认论证边界，逻辑严密性优秀。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。历史-市场-理论推演严密，反驳回应充分且承认边界。",
+          "evidence_quotes": [
+            "第一，自新中国建立至20世纪80年代初，我国并没有建立起国家所有制的法律实现机制",
+            "可以将国家所有问题的现状定位在两组要素之间的紧张关系中"
+          ],
+          "strengths": [
+            "历史演进与制度需求推导严密，步骤间依赖度高",
+            "对主流学术批评逐一批驳，论证具有防御性"
+          ],
+          "weaknesses": [
+            "短期制度建议部分与前文理论推演的衔接略显跳跃",
+            "部分反驳（如公共信托理论）的否定论证可更展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦结论是否由前文规范与历史材料充分支撑，而非评价制度方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.45095300674438,
+        "glm-5.1": 40.32015776634216,
+        "kimi-k2.6": 13.465723991394043,
+        "qwen3.6-plus": 60.676265239715576
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 70,
+        "glm-5.1": 88,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.5,
+      "std": 11.1,
+      "strictest": 70,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "结论仅将矛盾归入‘社会转型的张力’，未形成可被反驳的学术主张，也未回应既有争论，共同体对话度不足。",
+          "core_judgment": "论文结论停留在宏观社会矛盾的描述，未能转化为可争辩的法学观点，反对者无法定位和回应，且未讨论自身局限，导致结论难以进入学术对话。",
+          "score_rationale": "共同体对话度得分=0/4（结论未回应既有争论、无法被反对者定位、未讨论反对意见或局限），制度可接受度得分=2/4（不与法秩序根本矛盾，但对制度约束回应微弱）。因对话度=0触发上限规则，最高50分，给予38分。",
+          "evidence_quotes": [
+            "国家所有问题...定位在两组要素之间的紧张关系中...既往研究...掩盖了...张力。",
+            "通过全面改革和法治发展，国家所有问题...最终都将得到解决。"
+          ],
+          "strengths": [
+            "结论承认国家所有权面临物权理论逻辑与公有制规范的双重困境，不与现行法秩序根本矛盾。",
+            "长期思路指出了宪法修改或重新阐释社会主义本质的可能方向，含有宏观制度转化意识。"
+          ],
+          "weaknesses": [
+            "结论只把问题定性为‘两组要素的张力’，未提出可争辩的学术主张，反对者无法进行有效反驳或对话。",
+            "全文未主动承认并讨论自身论证的反对意见或局限性，也无回应任何既有学术争论的定位。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0时，结论无法进入学术对话，总分上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论未说明与既有争论的关系，未形成可被反驳的论点，且未讨论反对意见或自身局限。"
+            }
+          ],
+          "boundary_note": "本维度仅评价结论的可接受性和对话度，不涉及论证严密性（逻辑问题）或后续研究空间（前瞻延展性）。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论深刻回应学界争论并揭示宪法与物权法张力，与中国语境高度兼容。",
+          "core_judgment": "结论清晰定位学界争议，主动承认局限，且在原则层面充分回应制度约束，可接受性成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "既往研究通过所有制与所有权“一体两面”关系的习惯性看法，掩盖了...张力",
+            "这些思路无疑是极其初步的，而由于所涉论题重大，其具体展开需另外撰文论述"
+          ],
+          "strengths": [
+            "精准回应并修正了既有学说",
+            "主动承认论证局限与初步性"
+          ],
+          "weaknesses": [
+            "短期对策方向仍偏原则性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文在既有学术争论中定位清晰，提出了国家所有权概念困境的深层分析，但结论部分对反对意见的回应和制度转化方向略显不足。",
+          "core_judgment": "论文结论能够进入法学共同体对话，明确回应了国家所有权理论的学术争议，但制度可接受度因缺乏具体转化方案而受限。",
+          "score_rationale": "共同体对话度得分=3/4（回应了既有争论、可被定位回应、考虑中国语境，但未充分讨论反对意见），制度可接受度得分=2/4（不与现行法秩序根本矛盾、对制度约束有原则回应，但制度转化方向不够具体、中国语境讨论尚可），锚定good档，给72分。",
+          "evidence_quotes": [
+            "在发现无法按照所有权逻辑来完整解释国家所有权概念的情况下，很多学者纷纷从不同角度对其作出新的理解，发展出多种多样的'超越所有权的国家所有权'概念",
+            "基于国家所有制的规范要求，国家所有权概念并不适用于国家与公民的关系，不能将公民排除在'国家'之外"
+          ],
+          "strengths": [
+            "明确将结论置于国家所有权学术争论中定位",
+            "结合中国宪法与物权法互动语境展开分析"
+          ],
+          "weaknesses": [
+            "结论未充分回应'公共信托理论'等替代方案的挑战",
+            "制度转化方向仅为初步思路，缺乏具体规则设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间的评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应国家所有权理论争议，在宪法与物权法张力中提出务实制度调适路径。",
+          "core_judgment": "结论高度契合中国法学共同体语境，与现行法秩序兼容且具明确转化方向，本维完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "既往研究通过所有制与所有权‘一体两面’关系的习惯性看法……掩盖了国家所有制和国家所有权之间……的张力。",
+            "从短期着眼……尽可能完善这一机制、消解来自各方的张力，就是务实之选。"
+          ],
+          "strengths": [
+            "精准定位宪法公有制与物权法市场化的核心张力",
+            "提出区分生活/生产、市场/非市场的务实制度路径"
+          ],
+          "weaknesses": [
+            "短期对策的规范转化路径仍显初步，需专文展开",
+            "对公法法人所有权等替代方案的批驳可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.9199378490448,
+        "glm-5.1": 31.737826108932495,
+        "kimi-k2.6": 11.134221076965332,
+        "qwen3.6-plus": 59.07142400741577
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 71.8,
+      "std": 24.0,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文在结语中提出了宏观的制度完善方向与具体操作维度，存在可定位的延展路径，但精细度与证据展开仍有限。",
+          "core_judgment": "存在明确且可定位的延展路径，与正文核心结论紧密衔接，但路径精细度不足。",
+          "score_rationale": "原始分65分对应bonus=3档位。主要证据：结语提出了‘生活消费类利用与生产经营类利用’等三个维度的区分思路，指明了‘税收、转移支付’等短期配套方向，但均为极初步的概括，尚未展开。",
+          "evidence_quotes": [
+            "通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分，可以适度消解国家所有权概念的抽象性。",
+            "在公有制的硬约束取消之前，通过税收、转移支付等财富再分配机制，解决已经形成的贫富分化现象，并建立完善的社会保障制度，是极其必要的。"
+          ],
+          "strengths": [
+            "结语未停留于口号式展望，而是给出了‘三个维度区分’的具体制度完善抓手。",
+            "指明了长远（宪法规范修改）与短期（物权机制完善、再分配）两条可操作的延展路径。"
+          ],
+          "weaknesses": [
+            "所提的三维度区分仅为极初步的思路，未具体说明各维度下的制度设计方案。",
+            "对‘另需撰文论述’的核心机制，在本文中缺乏初步的概念化或框架性阐释。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文讨论的是‘国家所有问题最终解决有赖于理论发展与不同领域调适’以及对物权实现机制的具体完善方向，这属于未来制度如何改进的延展性问题，而非当下结论能否被论证过程或证据所接受的问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出了清晰且可定位的短期制度完善三维度区分路径及长远宪法修正方向。",
+          "core_judgment": "存在真实延展路径，指明了消解张力的具体制度修正方向与后续研究争点。",
+          "score_rationale": "原始分85，bonus档位excellent（bonus=5）。文末提出短期三维度区分的制度完善路径及长远宪法修正方向，与正文两组要素张力结论紧密衔接，并承认思路初步需另撰文，路径清晰可定位。",
+          "evidence_quotes": [
+            "通过公有财产的生活消费类利用和生产经营类利用、市场与非市场类生产经营、政府与市场主导这三个维度的区分，可适度消解国家所有权概念的抽象性",
+            "这些思路无疑是极其初步的，而由于所涉论题重大，其具体展开需另外撰文论述。"
+          ],
+          "strengths": [
+            "提出具体可操作的短期制度完善三维度路径",
+            "明确承认局限并指明需另撰文推进"
+          ],
+          "weaknesses": [
+            "长远延展方向（宪法修改）相对宏观，但符合制度型论文要求"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "长远宪法修正与短期三维度区分属于未来制度完善方向，而非当下物权机制能否被接受的结论判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在结尾部分提出了国家所有权问题的未来解决路径，包括长期宪法修改方向和短期制度完善方案，延展方向明确但精细度有限。",
+          "core_judgment": "存在真实延展路径，包括科学社会主义理论发展、宪法规范修改、物权机制完善三个层面，但部分路径较宏观，具体制度设计留待后续研究。",
+          "score_rationale": "原始分62分，对应bonus=3档位。论文末段明确提出'长远来看'的宪法修改方向和'短期着眼'的三维区分方案（生活消费/生产经营、市场/非市场、政府/市场主导），属于可定位的延展路径；但'具体展开需另外撰文论述'表明精细度不足，且部分展望依赖'科学社会主义理论进一步发展'等宏观前提。",
+          "evidence_quotes": [
+            "长远来看，通过对社会主义本质的重新阐释，对宪法相关规范的修改完善，或可以彻底解决国家所有问题",
+            "从短期着眼……尽可能完善这一机制、消解来自各方的张力……通过公有财产的生活消费类利用和生产经营类利用、市场类的生产经营与非市场类的生产经营、政府主导与市场主导这三个维度的区分"
+          ],
+          "strengths": [
+            "明确区分长期宪法修改与短期制度完善两条路径",
+            "短期方案提出三维区分框架，具有可操作指向"
+          ],
+          "weaknesses": [
+            "承认'具体展开需另外撰文论述'，当前论证精细度有限",
+            "长期路径依赖理论发展，缺乏具体争点或检验入口"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文末段的展望聚焦于未来如何解决国家所有权困境，属于'未来还能往哪里走'的问题；而关于当前国家所有权概念能否成立的判断，属于结论可接受性范畴，不在本维度评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文在厘清国家所有权理论困境后，明确区分长短期路径，提出宪法规范调适与物权机制精细化改良的具体延展方向。",
+          "core_judgment": "存在真实且清晰的延展路径，紧密衔接正文核心张力，并给出可操作的后续研究切入点。",
+          "score_rationale": "原始分85，对应bonus=5档位。文末明确区分长短期制度完善方向，提出公产利用分类、政府角色限缩等具体路径，且自承“需另外撰文论述”，延展清晰可定位。",
+          "evidence_quotes": [
+            "长远来看，通过对社会主义本质的重新阐释，对宪法相关规范的修改完善，或可以彻底解决国家所有问题。",
+            "从短期着眼……尽可能扩大国家财产直接满足公民基本生活类需要的范围……进一步区分市场与非市场两种类型。"
+          ],
+          "strengths": [
+            "长短期路径划分清晰，与正文公法/私法张力结论紧密咬合。",
+            "提出公产利用分类与政府退出市场等具体制度改良场景，非空泛展望。"
+          ],
+          "weaknesses": [
+            "部分延展方向（如宪法修改）跨度过大，缺乏具体法教义学衔接。",
+            "自认思路初步，未展开反驳入口或实证检验方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦于“国家所有权”概念未来在宪法与民法协调、制度精细化改良上的研究走向，而非评判当下理论能否被学界接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.83835792541504,
+        "glm-5.1": 34.419045209884644,
+        "kimi-k2.6": 12.768342971801758,
+        "qwen3.6-plus": 49.363096952438354
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 85
+      },
+      "mean": 74.2,
+      "std": 12.5,
+      "strictest": 62,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 73.39,
+      "weighted_total": 70.7
+    },
+    "aggregation_strictest": {
+      "final_score": 48.06,
+      "weighted_total": 47.8
+    },
+    "avg_std": 19.0,
+    "max_std": 28.6,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 25.3,
+    "composite_score": -19.0,
+    "worst_dimension": "problem_originality",
+    "worst_std": 28.6
+  }
+}

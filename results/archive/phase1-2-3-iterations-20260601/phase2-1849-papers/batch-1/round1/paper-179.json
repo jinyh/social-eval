@@ -1,0 +1,1183 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/健全公正执法司法体制机制.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": [
+          "《决定》在党的二十大报告提出的...将监察机关一并纳入执法司法制约监督体系",
+          "完善事前审查、事中监督、事后纠正等工作机制",
+          "建立轻微犯罪记录封存制度"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "将监察机关一并纳入执法司法制约监督体系，体现了党中央对健全公正执法司法体制机制的高度重视。",
+          "从改革的实践效果来看：一是有助于排除少数行政机关的不当干预...但改革也存在一些共性问题。例如，跨区域管辖改革后，行政争议处理离开案发地...行政争议实质化解难度进一步加大。",
+          "深化行政案件管辖改革，要在坚持正确政治方向...建立向上提级管辖与上级法院指定管辖、向下移送管辖相结合的管辖机制...",
+          "建立轻微犯罪记录封存制度...与宽严相济刑事政策相契合...推动进一步完善立法，合理界定轻微犯罪范围...",
+          "司法责任制改革...要妥善处理独任法官、合议庭办案责任制和院庭长审判管理监督的关系..."
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "健全完善监察权、侦查权、检察权、审判权、执行权相互配合、相互制约的体制机制...",
+        "深化行政案件级别管辖、集中管辖、异地管辖改革...从改革的实践效果来看...但改革也存在一些共性问题...",
+        "司法责任制改革...核心是建立严格的审判责任制...",
+        "建立轻微犯罪记录封存制度...与宽严相济刑事政策相契合..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "直接进入六维评价。论文以中国司法体制改革实践为中心，提出并分析了监察与司法衔接、司法责任制、行政案件管辖改革、轻微犯罪记录封存等具体法学命题，包含制度比较、现实困境反思和完善建议，具有鲜明的中国问题导向和制度创新意图。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文（如'中国法学 2024 年第5 期 18'）",
+          "栏目名称混入正文（如'“完善中国特色社会主义法治体系”笔谈 19'）",
+          "脚注编号及内容混入正文（如'⑬ 参见...'）",
+          "作者身份标注及责任编辑信息混入正文",
+          "参考文献列表抽取缺失，但正文存在明显脚注引用"
+        ],
+        "evidence_quotes": [
+          "中国法学 2024 年第5 期 18",
+          "“完善中国特色社会主义法治体系”笔谈 19",
+          "⑬ 参见《关于完善人民法院司法责任制的若干意见》（法发〔2015〕13 号）第1 条。",
+          "（责任编辑：王  楷）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "健全完善监察权、侦查权、检察权、审判权、执行权相互配合、相互制约的体制机制",
+          "审判组织审判权与院庭长审判监督管理权是司法责任制改革的“一体两面”",
+          "跨区域管辖改革导致原告起诉、被告应诉、法院办案等成本不断增加……行政争议实质化解难度进一步加大",
+          "建立轻微犯罪记录封存制度"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "文本工程：页码、栏目名、脚注、责编信息混入正文；参考文献列表缺失",
+        "项目口径：文体为政策笔谈，理论转化深度受文体限制偏浅，但仍有明确制度命题与法学分析框架"
+      ],
+      "evidence_quotes": [
+        "审判组织审判权与院庭长审判监督管理权是司法责任制改革的“一体两面”",
+        "建立轻微犯罪记录封存制度"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，但需在后续文本工程阶段清理混入的页码、脚注、栏目及责编信息，并尝试补全抽取脚注引用文献；评审时需注意笔谈文章的理论论证深度可能受限。"
+    },
+    "kimi-k2.6": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文存在期刊页码混入（如'18'、'19'、'20'、'21'、'22'等孤立页码标记）",
+          "脚注编号乱码或格式残留（如⑬⑭⑮⑯等圆圈数字脚注标记）",
+          "参考文献列表抽取失败（标注为'（无）'）",
+          "存在作者身份标注（如'* 最高人民法院党组成员、副院长'）与正文混排",
+          "多篇文章拼接痕迹明显（'完善推进法治社会建设机制'为另一独立文章开头）"
+        ],
+        "evidence_quotes": [
+          "中国法学 2024 年第5 期 18",
+          "* 最高人民法院党组成员、副院长。",
+          "⑬ 参见《关于完善人民法院司法责任制的若干意见》（法发〔2015〕13 号）第1 条。",
+          "（责任编辑：王 楷）",
+          "完善推进法治社会建设机制 李 林"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "健全完善监察权、侦查权、检察权、审判权、执行权相互配合、相互制约的体制机制",
+          "推进司法责任制改革，总的目标是'让审理者裁判、由裁判者负责'",
+          "建立轻微犯罪记录封存制度",
+          "深化行政案件级别管辖、集中管辖、异地管辖改革"
+        ],
+        "boundary_reasons": [
+          "文本为多篇文章拼接的'笔谈'体，非单一学术论文，缺乏统一论证主线",
+          "文章性质偏向政策解读与改革部署说明，而非对具体法学问题的学术争辩",
+          "虽有中国实践描述，但多为制度介绍和改革举措罗列，缺乏对实践难题的深入解释和理论转化",
+          "轻微犯罪记录封存制度部分有一定理论转化尝试，但整体被政策复述淹没"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "文本工程：多篇文章拼接，结构破碎；期刊页码、脚注编号、作者信息混排",
+        "项目口径：文章为政策解读型'笔谈'，非严格学术论文，法学问题可争辩性不足"
+      ],
+      "evidence_quotes": [
+        "'完善中国特色社会主义法治体系'笔谈",
+        "党的二十届三中全会擘画了进一步全面深化改革、推进中国式现代化的宏伟蓝图"
+      ],
+      "boundary_reasons": [
+        "文本为多篇文章拼接的'笔谈'体，非单一学术论文，缺乏统一论证主线",
+        "文章性质偏向政策解读与改革部署说明，而非对具体法学问题的学术争辩",
+        "虽有中国实践描述，但多为制度介绍和改革举措罗列，缺乏对实践难题的深入解释和理论转化",
+        "轻微犯罪记录封存制度部分有一定理论转化尝试，但整体被政策复述淹没"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "text_quality_risk",
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议人工复核：该文本为《中国法学》'笔谈'栏目文章，由多位作者分段撰写，整体属于政策解读与改革部署说明。需专家判断此类'笔谈'体文章是否属于'中国自主知识体系研究'的评审范围。若进入六维评分，建议重点关注'轻微犯罪记录封存制度'部分的有限理论转化，但整体预期学术贡献度较低。文本质量风险可控，核心论点可定位。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "期刊页眉页脚信息（如“中国法学 2024 年第5 期 18/19/20/21/22”）混入正文段落流",
+          "脚注编号（⑬⑭⑮⑯）及作者单位/身份脚注穿插于正文中",
+          "参考文献列表缺失（仅标注“（无）”）"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2024 年第5 期\n18",
+          "⑬ 参见《关于完善人民法院司法责任制的若干意见》（法发〔2015〕13 号）第1 条。",
+          "* 最高人民法院党组成员、副院长。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "《决定》在党的二十大报告提出的……将监察机关一并纳入执法司法制约监督体系",
+          "深化行政案件级别管辖、集中管辖、异地管辖改革……解决法院设置和行政区划高度重合导致的诉讼“主客场”问题",
+          "《决定》提出“建立轻微犯罪记录封存制度”……该制度适用对象和范围将从刑法规定的未成年人有关犯罪拓展至其他轻微犯罪"
+        ],
+        "boundary_reasons": [
+          "文本为典型的权威政策解读与改革部署阐释（“笔谈”体），核心逻辑是对中央《决定》精神的贯彻与制度实施路径规划，缺乏明确的学术争辩性问题设定与对立观点交锋；",
+          "实践解释与命题构建多直接源于政策文件转化或既有改革经验总结，学术理论转化、独立概念提炼与可复核命题特征较弱，需专家裁断其是否属于本项目“自主知识体系”学术评价范畴。"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "项目口径边界：政策阐释与学术研究界限需专家确认",
+        "文本工程：页眉页脚及脚注混排，参考文献缺失"
+      ],
+      "evidence_quotes": [
+        "《决定》要求，深化行政案件级别管辖、集中管辖、异地管辖改革。",
+        "建立轻微犯罪记录封存制度应当注意：一是已被封存的犯罪记录原则上不得向任何单位和个人提供……"
+      ],
+      "boundary_reasons": [
+        "侧重政策复述与改革部署，学术争辩性不足，理论转化程度待专家评估"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议进入六维评分流程，由领域专家重点评估其政策阐释内容是否具备可转化为法学学术命题的潜力，或仅作为改革背景与制度说明材料处理。文本核心论点与结构清晰，可直接评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 60,
+          "band": "good",
+          "summary": "论文是对《决定》中执法司法改革部署的系统阐释与政策解读，而非提出可争辩的法学研究问题。",
+          "core_judgment": "全文呈现为宏观政策介绍与既定立场阐释，缺乏明确的理论争点和学者观点交锋，法学问题创新性不足。",
+          "score_rationale": "扣分合计=40分（检查1扣15分，检查2扣20分，检查3不扣分，因全文有政策阐释但实质是既定立场→扣5分，最终取20分）。正式评分=100-40=60。可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限，锚定good档（60-69），给60分。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的……基础上，将监察机关一并纳入执法司法制约监督体系，体现了党中央对健全公正执法司法体制机制的高度重视。",
+            "一要妥善处理司法责任制改革和审判权运行机制改革的关系。……二要妥善处理独任法官、合议庭办案责任制和院庭长审判管理监督的关系。"
+          ],
+          "strengths": [
+            "主题聚焦当前重大改革部署，具有强烈的现实背景。"
+          ],
+          "weaknesses": [
+            "全文为政策文件解读，无任何可争辩的法学研究问题或理论分歧。",
+            "内容为宏观工作介绍，缺乏学者观点的交锋与深度分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无任何问题句，只有主题声明和政策阐释，无可争辩的法学争点，触发不可接受档上限，但结合前置扣分后最终入good档的边际案例。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以‘健全……体系’‘深化……改革’‘完善……制度’等宏观工作部署为主题，未见‘XX是否YY’或‘如何ZZ’等可争辩问题。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题是否成立且重要，不评价论证严密性或材料支撑度。",
+          "review_flags": [
+            "no_justiciable_question",
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "纯政策阐释无法学争点，缺乏理论分歧与问题意识。",
+          "core_judgment": "该维不成立，文章仅为政策解读与制度介绍，无可争辩的法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性已触发上限，锚定unacceptable档，给40分；前置扣分50分，最终30分",
+          "evidence_quotes": [
+            "健全完善监察权、侦查权、检察权、审判权、执行权相互配合、相互制约的体制机制",
+            "建立轻微犯罪记录封存制度"
+          ],
+          "strengths": [
+            "涉及多个重要司法制度改革领域，现实关切强"
+          ],
+          "weaknesses": [
+            "全文无法学争点与问题句，仅为政策阐释",
+            "无学者观点交锋，纯政策倡导无理论论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅有主题声明如“健全完善...体制机制”"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性与文献充分性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政策解读与制度介绍，无可争辩的法学研究问题。",
+          "core_judgment": "该文系对党的二十届三中全会《决定》的权威政策阐释与制度部署说明，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=0/4，材料新颖性未触发上限。全文无问题句，仅有主题声明；无学者观点交锋，纯系既定立场阐释；无理论分歧，属政策倡导型笔谈。锚定unacceptable档，扣25分（检查1：新概念包装旧问题，'完善中国特色社会主义法治体系'等表述无理论进步说明）+20分（检查2：宏观介绍非深度分析，无学者交锋）+30分（检查3：主题声明非研究问题，全文无可争辩法学争点）=75分，但受'扣分后不得低于30分'规则限制，最终30分。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的'健全公安机关、检察机关、审判机关、司法行政机关各司其职、相互配合、相互制约的体制机制'的基础上...体现了党中央对健全公正执法司法体制机制的高度重视",
+            "党的二十届三中全会擘画了进一步全面深化改革、推进中国式现代化的宏伟蓝图，对'完善中国特色社会主义法治体系'作出专门部署"
+          ],
+          "strengths": [
+            "主题重大，涉及司法体制改革核心领域"
+          ],
+          "weaknesses": [
+            "全文为政策文件解读，无研究问题意识",
+            "无学术对话与理论争辩，纯系权威立场复述"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，仅为主题声明与政策阐释"
+            },
+            {
+              "rule_id": "problem_originality.mandatory_floor",
+              "rule": "扣分后分数不得低于30分",
+              "score_ceiling": 30,
+              "priority": 2,
+              "evidence": "负面模式扣分合计75分，触发最低30分保护"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文系政策解读与工作部署，缺乏可争辩的法学研究问题与学术交锋。",
+          "core_judgment": "作为法学研究问题不成立，实质为政策阐释与制度落实指南。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未触发上限，锚定unacceptable档，给40分。前置检查扣50分（宏观介绍扣20，主题声明扣30），保底30分。",
+          "evidence_quotes": [
+            "健全执法司法制约监督体系，还要强化系统思维。坚持顶层设计和法治实践相结合",
+            "推进司法责任制改革，总的目标是“让审理者裁判、由裁判者负责”；核心是建立严格的审判责任制"
+          ],
+          "strengths": [
+            "涵盖监察、诉讼、司法责任等多领域制度衔接",
+            "紧扣中央改革部署，现实指向明确"
+          ],
+          "weaknesses": [
+            "全文为政策宣示与工作部署，无明确法学争点",
+            "缺乏学者观点交锋与独立法理推演"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅含主题声明与政策落实路径，无“是否/如何”等可争辩问题句"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评政策落实价值或论证严密性。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.03164601325989,
+        "glm-5.1": 44.209081172943115,
+        "kimi-k2.6": 15.060354709625244,
+        "qwen3.6-plus": 79.58566808700562
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 60,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 37.5,
+      "std": 15.0,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "论文通篇为政策解读与制度阐释，未呈现任何既有学术研究地图、争点结构或法学流派，无参考文献列表。",
+          "core_judgment": "本文无文献综述、无学术争点呈现、无参考文献，研究地图完全缺失，不符合最低要求。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，触发no_research_map上限55分，基于严重欠缺实际给10分。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的‘健全公安机关、检察机关...’的基础上...",
+            "司法责任制改革，总的目标是‘让审理者裁判、由裁判者负责’..."
+          ],
+          "strengths": [
+            "对中央政策文件的梳理较为详尽，展现了改革框架的整体面貌。"
+          ],
+          "weaknesses": [
+            "完全回避学术对话：正文无任何学者理论引证，参考文献列表为空。",
+            "未识别法学流派或理论分歧：所有论述均为单向度的政策主张，无对立观点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无到达点/未竟点/本文切入点，研究地图不存在。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "正文无一学者观点引用，无参考文献列表，全文为政策阐释性话语。"
+            }
+          ],
+          "boundary_note": "本文完全缺失文献梳理，而非问题创新性或论证严密性问题。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 10,
+          "band": "unacceptable",
+          "summary": "纯政策解读与实践对策建议，完全未构建学术研究地图。",
+          "core_judgment": "论文未呈现任何学术文献脉络与争点，现状洞察维度不成立。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给10分",
+          "evidence_quotes": [
+            "重放权、轻监督的问题仍然存在；“审理者裁判”基本实现，“裁判者负责”尚不到位。",
+            "实现刑事案件律师辩护全覆盖尚面临一些问题和困难。"
+          ],
+          "strengths": [
+            "对政策演进脉络与实践痛点有清晰描述"
+          ],
+          "weaknesses": [
+            "完全缺乏学术文献梳理与争点呈现",
+            "将实践问题误作学术未竟点，无研究缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "三要素得分为0，无学术到达点、未竟点与切入点"
+            }
+          ],
+          "boundary_note": "评估的是学术文献定位缺失，而非政策解读或对策建议本身的价值",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "该文为政策解读型笔谈，无研究地图构建。",
+          "core_judgment": "本文未建立任何研究地图，三要素全部缺失，不符合学术论文的文献定位要求。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的……基础上……体现了党中央对健全公正执法司法体制机制的高度重视。",
+            "党的二十届三中全会擘画了进一步全面深化改革、推进中国式现代化的宏伟蓝图……"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无到达点：未引述任何既有学术研究成果或理论争议。",
+            "无未竟点与切入点：全文为政策条文解读与改革部署说明，未识别任何学术争议或研究缺口。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0-1，最高55分，研究地图严重残缺",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无'已有研究''学界争议''本文拟解决'等任何研究地图要素，三要素总分=0"
+            }
+          ],
+          "boundary_note": "本文属政策笔谈而非学术研究论文，本维度仅评文献定位，不评问题创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 60,
+          "band": "marginal",
+          "summary": "政策部署型笔谈，实践缺口明确但缺乏学术文献梳理与理论争点建构。",
+          "core_judgment": "研究地图三要素部分成立，但缺失学术文献定位与流派覆盖，未达优秀标准。",
+          "score_rationale": "三要素得分=4/6，争点结构=1/2，法学流派=0个，锚定marginal档，给60分",
+          "evidence_quotes": [
+            "重放权、轻监督的问题仍然存在；审理者裁判基本实现，裁判者负责尚不到位。",
+            "跨区域管辖改革后，行政争议处理离开案发地，管辖法院与属地党委、政府的有效沟通机制不畅。"
+          ],
+          "strengths": [
+            "精准识别司法责任制与管辖改革中的实践痛点与制度缺口。",
+            "对策建议与指出的未竟点高度对应，逻辑链条完整。"
+          ],
+          "weaknesses": [
+            "缺乏对既有学术研究成果的系统梳理与文献定位。",
+            "未呈现学界理论争点或对立解释路径，流派识别为零。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "三要素总分4但争点结构≤1且法学流派≤1",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "全文侧重政策解读与实务部署，未梳理学术文献与理论流派。"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理与争点建构，不评价政策议题本身的新颖性或实务价值。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.244194984436035,
+        "glm-5.1": 34.9360191822052,
+        "kimi-k2.6": 9.805654048919678,
+        "qwen3.6-plus": 71.44325923919678
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 10,
+        "glm-5.1": 10,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 60
+      },
+      "mean": 20,
+      "std": 27.1,
+      "strictest": 0,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "本文是对中央《决定》部署的权威阐释与政策梳理，未提出任何可重复适用的原创分析框架。",
+          "core_judgment": "全文以归纳、阐释既定政策立场为主，核心术语如“互相配合、互相制约”等均源自权威表述，未形成具有可操作性的分析概念或步骤。",
+          "score_rationale": "框架可操作性得分=0/4（概念无原创定义，无分析步骤，无分类标准，后文无独立框架调用），法学转化度得分=0/4，锚定unacceptable档，给20分。",
+          "evidence_quotes": [
+            "健全完善监察权、侦查权、检察权、审判权、执行权相互配合、相互制约的体制机制",
+            "推进司法责任制改革，总的目标是“让审理者裁判、由裁判者负责”；核心是建立严格的审判责任制"
+          ],
+          "strengths": [
+            "对司法改革政策的归纳较全面。"
+          ],
+          "weaknesses": [
+            "全文为政策梳理型，仅罗列制度，无原创分析框架。",
+            "“应当”“需要完善”等规范性呼吁达十余处，但缺乏可操作的具体制度方案。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1分且无分析框架",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "无任何概念界定、分析步骤或分类标准，后文未调用任何框架，仅为政策阐述。"
+            }
+          ],
+          "boundary_note": "本文属政策理论梳理型，不是逻辑衔接问题，而是根本未建构分析框架。",
+          "review_flags": [
+            "concept_instability",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文为政策理论梳理型，无原创分析框架，仅阐释权威表述与既有制度。",
+          "core_judgment": "该文缺乏原创分析框架建构，仅为政策与制度的归纳阐释，维度不成立。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给25分",
+          "evidence_quotes": [
+            "一是司法理念上...二是司法原则上...三是标准统一上...四是工作机制上...",
+            "《决定》要求...完善事前审查、事中监督、事后纠正等工作机制"
+          ],
+          "strengths": [
+            "对现行政策与法律条文梳理全面，体系归纳清晰"
+          ],
+          "weaknesses": [
+            "无原创概念界定与类型化，仅为政策口号罗列",
+            "大量'应当''必须'等呼吁缺乏源自框架的具体方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无分析步骤+无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'本文所称XX是指'定义，无步骤化分析，纯政策阐释"
+            },
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文，法学转化度上限1，总分上限60",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "主要工作为归纳《决定》等权威表述，无原创框架建构"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架的建构与法学转化，不评价政策梳理的全面性或逻辑衔接。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "政策理论梳理型论文，无原创分析框架，仅对既定立场进行阐释归纳。",
+          "core_judgment": "分析框架建构力不成立，全文以政策阐释和制度介绍为主，未形成可重复适用的原创分析框架。",
+          "score_rationale": "框架可操作性得分=1/4（仅标准1部分满足：核心术语如'司法责任制''执法司法制约监督'有政策语境下的内涵，但无原创定义；无明确分类标准；无步骤化分析流程；后文无框架术语的系统性调用），法学转化度得分=1/4（标准1部分满足：将政策话语映射到制度层面，但无新的操作化转化；无裁判规则或操作指引；无具体制度设计方案；后文未使用转化后的法学操作步骤）。根据v0.7协议，该文属于政策理论梳理型论文，框架可操作性上限2分，法学转化度上限1分，总分通常不超过60分。锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "健全完善监察权、侦查权、检察权、审判权、执行权相互配合、相互制约的体制机制...一是司法理念上...二是司法原则上...三是标准统一上...四是工作机制上...",
+            "推进司法责任制改革，总的目标是'让审理者裁判、由裁判者负责'；核心是建立严格的审判责任制；基本原则是坚持以审判权为核心..."
+          ],
+          "strengths": [
+            "政策话语体系完整，对中央部署的梳理较为系统"
+          ],
+          "weaknesses": [
+            "无原创概念界定或类型化，核心术语均来自权威表述",
+            "仅有'一是...二是...三是...'的内容提纲，未转化为可重复适用的分析步骤或判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1时最高50分（政策理论梳理型论文框架可操作性上限2分，法学转化度上限1分）",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释既定立场为主，无原创概念界定或类型化；框架核心术语如'司法责任制''执法司法制约监督'均来自权威表述；仅有'一是二是三是'内容提纲，无步骤化分析流程"
+            }
+          ],
+          "boundary_note": "本维度仅评价分析框架本身的建构力，不涉及逻辑衔接严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文系政策解读与制度梳理型笔谈，缺乏原创分析框架与可操作步骤。",
+          "core_judgment": "该维度不成立，全文以阐释既定政策立场为主，未建构可重复适用的法学分析框架。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "一是司法理念上…二是司法原则上…三是标准统一上…四是工作机制上…",
+            "事前审查机制…事中监督机制…事后纠正机制…"
+          ],
+          "strengths": [
+            "政策脉络梳理清晰，体系化呈现了改革部署要点。"
+          ],
+          "weaknesses": [
+            "核心概念无明确定义，缺乏类型化标准与可重复分析步骤。",
+            "全文停留于宏观制度介绍与规范性呼吁，未提供具体裁判规则或操作指引。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发最高50分上限",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无原创概念界定与分析步骤，仅罗列政策要点与规范性呼吁。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉及逻辑衔接与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.83431100845337,
+        "glm-5.1": 55.19831991195679,
+        "kimi-k2.6": 15.440330982208252,
+        "qwen3.6-plus": 61.041106939315796
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 20,
+        "glm-5.1": 25,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 35
+      },
+      "mean": 31.2,
+      "std": 11.1,
+      "strictest": 20,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "文章为政策宣讲汇编，各政策要点并列罗列，缺乏串联各论点的核心推理链条与论证推演。",
+          "core_judgment": "论文无核心论点，各部分为独立部门法政策解读，未形成从前提推出结论的线性逻辑结构，无法满足学术论文的推理链要求。",
+          "score_rationale": "推理链完整性得分=1/4（仅能识别‘引用政策→说明现状→提出改革方向’的松散结构），反驳处理度得分=0/3（未回应任何反对意见或理论分歧），触发‘broken_inference_chain’上限规则，定位 unacceptable 档，给出35分。",
+          "evidence_quotes": [
+            "一是司法理念上...二是司法原则上...三是标准统一上...四是工作机制上...",
+            "一要妥善处理...二要妥善处理...三要妥善处理..."
+          ],
+          "strengths": [
+            "准确地复述了历次党代会与法律的条文要求。"
+          ],
+          "weaknesses": [
+            "全文为并列式政策宣讲，各节之间无逻辑依赖关系，删除任何一节均不影响其他部分。",
+            "未设置任何对立观点、理论分歧或实践难点进行论证回应，缺乏学术对话性。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性 ≤ 1 → 最高 50分。论文无核心论点与线性推导，仅以‘第一/第二’串联并列观点。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文章结构为‘监察监督…司法责任制…行政诉讼管辖…强制措施…律师辩护…犯罪记录封存’等互不相干的政策建议堆砌，缺乏总论点与分层论证的推理链。"
+            }
+          ],
+          "boundary_note": "本文本质为多个政策解读模块的物理拼接，缺乏抽象概念辨析与逻辑推导。其问题不在于结论错误或框架不可操作，而在于完全不存在将材料串联为完整推理链的意识。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "文章为政策解读拼盘，各板块并列无主线推理链，缺乏反驳处理。",
+          "core_judgment": "本维度部分成立，局部有问题到对策的短促推导，但整体推理链断裂，无反驳处理。",
+          "score_rationale": "推理链完整性得分=2/4（满足结论推出与无关键跳步，但并列结构无依赖），反驳处理度得分=0/3，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "但改革也存在一些共性问题。例如，跨区域管辖改革后，行政争议处理离开案发地...行政争议实质化解难度进一步加大。",
+            "建立轻微犯罪记录封存制度应当注意：一是已被封存的犯罪记录原则上不得向任何单位和个人提供..."
+          ],
+          "strengths": [
+            "局部板块能从实践问题推导出对策建议",
+            "指出了行政管辖改革等实践中的反例与共性问题"
+          ],
+          "weaknesses": [
+            "全文为并列的政策解读板块，无主线推理链依赖",
+            "完全缺乏对反对意见或理论分歧的识别与回应"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.weak_local_reasoning",
+              "rule": "推理链完整性=2但反驳处理度=0，最高70分",
+              "score_ceiling": 70,
+              "priority": 2,
+              "evidence": "推理链完整性=2（并列结构无依赖），反驳处理度=0"
+            }
+          ],
+          "boundary_note": "并列板块缺乏主线串联是逻辑链断裂问题，而非分析框架建构力问题。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "笔谈式政策宣示文本，缺乏论证性推理链。",
+          "core_judgment": "本文非学术论证文本，无严格推理链，逻辑严密性维度不适用但按规则评分。",
+          "score_rationale": "推理链完整性得分=1/4（仅标准1部分成立：可识别政策部署步骤但无依赖关系；标准2-4均不成立），反驳处理度得分=0/3（无任何反对意见、反例或局限承认）。锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "一是司法理念上……二是司法原则上……三是标准统一上……四是工作机制上",
+            "一要妥善处理……二要妥善处理……三要妥善处理"
+          ],
+          "strengths": [
+            "政策要点罗列清晰，便于理解改革部署"
+          ],
+          "weaknesses": [
+            "并列式政策列举替代因果推理，步骤间无逻辑依赖",
+            "无反事实分析或反对意见处理，结论不可辩护推出"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策解读与改革部署并列陈述，无'前提→推导→结论'的论证结构，删除任一部分不影响其他部分成立"
+            }
+          ],
+          "boundary_note": "本维度评推理链严密性，不评政策框架本身；该文属政策阐释而非学术论证。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 65,
+          "band": "good",
+          "summary": "政策阐释型笔谈，规范依据与对策对应清晰，但推理呈并列式，缺乏严密递推。",
+          "core_judgment": "逻辑链基本完整，结论可由政策与规范支撑推出，但步骤间依赖度较弱，属可辩护的政策推导。",
+          "score_rationale": "推理链完整性得分=2/4，反驳处理度得分=3/3，锚定good档，给65分",
+          "evidence_quotes": [
+            "《决定》要求深化行政案件管辖改革……但改革也存在一些共性问题。",
+            "统筹监督行政机关依法行政与行政争议实质化解，统筹排除地方不当干预与司法便民……"
+          ],
+          "strengths": [
+            "规范依据与改革对策对应明确，政策推导路径清晰。",
+            "主动揭示改革实践瓶颈，并给出统筹平衡方案。"
+          ],
+          "weaknesses": [
+            "各对策多为并列罗列，步骤间缺乏逻辑依赖与递进。",
+            "主题切换频繁，整体缺乏贯穿全文的核心论证主线。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估政策规范到制度建议的推导链条是否充分支撑，不评价方案可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 58.43234205245972,
+        "glm-5.1": 42.61168098449707,
+        "kimi-k2.6": 10.329836130142212,
+        "qwen3.6-plus": 77.60821580886841
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 55,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 65
+      },
+      "mean": 50,
+      "std": 12.9,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文系统复述了中央《决定》的既定立场，但未将结论转化为可争辩的学术主张，缺乏对反对意见或自身局限的讨论，无法被学术共同体认真回应。",
+          "core_judgment": "结论完全附属于官方政策话语，属于工作部署而非学术论证，缺乏共同体对话基础。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4。论文仅复述政策，未回应任何既有学术争论，触发共同体对话度上限规则，强制落入 unacceptable 档，给45分。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的‘健全公安机关、检察机关、审判机关、司法行政机关各司其职、相互配合、相互制约的体制机制’的基础上，将监察机关一并纳入执法司法制约监督体系。",
+            "一要妥善处理司法责任制改革和审判权运行机制改革的关系……二要妥善处理独任法官、合议庭办案责任制和院庭长审判管理监督的关系……"
+          ],
+          "strengths": [
+            "结论严密遵循现行法秩序与官方话语，与宪法及《决定》高度一致，制度兼容性强。"
+          ],
+          "weaknesses": [
+            "全文皆为对中央决定的阐释与展开，未提出任何可争辩的学术主张，属于政策复述而非学术结论。",
+            "完全未引入或回应任何共同体的反对意见、学术争议或自身局限，反对者无法定位并进入对话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，结论未回应法学共同体已有争论，无法被反对者定位和回应",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文主旨是阐述如何贯彻《决定》的司法体制改革要求，结论为‘应然’工作部署，未与任何既有学术观点交锋。"
+            }
+          ],
+          "boundary_note": "不评判文章是否符合政策精神或政治正确性，仅评价其结论在法学学术共同体中的可接受与对话程度。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文复述官方立场，缺乏学术争辩性，共同体对话度极低。",
+          "core_judgment": "结论仅为政策解读与贯彻落实表态，无法被学术共同体争辩与回应。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，因仅复述既定立场无学术争辩，给45分",
+          "evidence_quotes": [
+            "结论多为“必须不折不扣抓好贯彻落实”等政策表态",
+            "提到“去行政化”等同于“去管理”的误区但未转化为学术争辩"
+          ],
+          "strengths": [
+            "制度兼容性极强，完全契合现行法秩序",
+            "提出了具体的制度转化方向如诉讼化改造"
+          ],
+          "weaknesses": [
+            "仅复述官方既定立场，缺乏学术争辩性",
+            "反对者无法对政策表态构造反驳路径"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_academic_debate",
+              "rule": "论文只是复述既定立场、没有把结论转化为可争辩的学术主张，总分通常不得超过50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论多为“必须不折不扣抓好贯彻落实”等政策宣讲，无学术争辩"
+            }
+          ],
+          "boundary_note": "评价结论能否被共同体和制度语境接受回应，不评价论证严密性或前瞻延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "本文是对中央政策文件的复述性解读，缺乏学术性结论与共同体对话。",
+          "core_judgment": "该文为政策宣讲型笔谈，未提出可争辩的学术主张，无法进入法学共同体对话语境。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4。锚定unacceptable档，给35分。全文是对《决定》的政策性阐释，未回应任何法学争论，无反对意见讨论，属于'复述既定立场'。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的'健全公安机关、检察机关、审判机关、司法行政机关各司其职、相互配合、相互制约的体制机制'的基础上...体现了党中央对健全公正执法司法体制机制的高度重视。",
+            "党的十八届三中全会提出'让审理者裁判、由裁判者负责'...党的十九大报告提出'全面落实司法责任制'...《决定》进一步提出'落实和完善司法责任制'"
+          ],
+          "strengths": [
+            "紧密结合中国法治实践与政策语境"
+          ],
+          "weaknesses": [
+            "无学术性结论，仅为政策复述",
+            "未进入任何法学学术争论"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分（no_community_dialogue）",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为对中央《决定》的政策性解读，未提出与既有法学争论相关的学术主张，未说明与任何学术观点的关系，无反对意见或自身局限讨论。"
+            }
+          ],
+          "boundary_note": "本维度评结论可接受性，不评论证过程严密性；本文问题在于缺乏学术结论而非论证瑕疵。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "结论高度契合现行法秩序，但属政策复述，缺乏学术对话。",
+          "core_judgment": "制度兼容性强，但未转化为可争辩学术主张，无法进入共同体对话语境。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，给45分。",
+          "evidence_quotes": [
+            "《决定》在党的二十大报告提出的基础上，将监察机关一并纳入执法司法制约监督体系",
+            "深化行政案件管辖改革，要在坚持正确政治方向，坚持于法有据、稳妥有序基础上优化顶层设计"
+          ],
+          "strengths": [
+            "紧密对接现行法条与司法改革，制度转化路径清晰。",
+            "充分考量实务约束与改革成本，对策具可操作性。"
+          ],
+          "weaknesses": [
+            "仅复述政策立场，未提炼可争辩学术命题或回应分歧。",
+            "缺乏对反对意见的学术反思，难引发实质性对话。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场且无学术主张，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以政策阐释为主，未定位学术争论或回应反对观点"
+            }
+          ],
+          "boundary_note": "本维仅评当下可接受性，不涉论证严密性或前瞻延展。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 71.29503893852234,
+        "glm-5.1": 53.73288893699646,
+        "kimi-k2.6": 12.4858980178833,
+        "qwen3.6-plus": 72.62652111053467
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 45,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 45
+      },
+      "mean": 42.5,
+      "std": 5.0,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在部分改革领域提出了宏观的制度完善方向，但整体缺乏具体、可定位的未来研究问题或路径，延展路径多为政策性部署。",
+          "core_judgment": "存在概括性的延展方向，但与正文核心论证的衔接较松散，缺乏可操作的研究推进路径。",
+          "score_rationale": "论文提出了若干制度完善方向（如轻微犯罪记录封存立法、管辖机制优化）作为延展路径，但未转化或具体化为学术研究问题，路径空泛。原始分45，对应bonus=2档位。",
+          "evidence_quotes": [
+            "深化行政案件级别管辖、集中管辖、异地管辖改革，是党中央部署的重大改革任务...通过持续调整优化，进一步提升改革成效...",
+            "推动进一步完善立法，合理界定轻微犯罪范围，进一步健全完善犯罪记录封存管理制度。"
+          ],
+          "strengths": [
+            "指出了优化集中管辖法院设置、建立向上提级管辖与向下移送管辖相结合等宏观改革方向。",
+            "对轻微犯罪记录封存制度的未来立法完善提出了明确议题。"
+          ],
+          "weaknesses": [
+            "延展方向多为政策落实层面的工作部署，缺乏明晰的学术争论点或后续研究问题。",
+            "多个领域仅提出宏观制度完善方向，未提炼出可供后续研究深化的理论或概念路径。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文的问题在于延展路径仅停留在宏观制度完善层面，属前瞻延展性不足，而非当前结论是否被接受的问题。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "提出了多项具体可定位的制度完善与立法深化方向，但作为笔谈文章精细度与展开有限。",
+          "core_judgment": "存在真实延展路径，指明了轻微犯罪范围界定、赔偿程序诉讼化改造等具体制度修正方向。",
+          "score_rationale": "原始分65，对应bonus=3档（60-79）。文章指明了轻微犯罪范围界定、赔偿程序诉讼化改造、赔偿费用两级列支等具体制度完善方向，路径明确可定位，但作为笔谈展开精细度有限。",
+          "evidence_quotes": [
+            "推动进一步完善立法，合理界定轻微犯罪范围，进一步健全完善犯罪记录封存管理制度。",
+            "对司法赔偿程序作诉讼化改造，提升程序公正性……将赔偿费用列支模式改为中央、省两级财政列支。"
+          ],
+          "strengths": [
+            "指明了多项具体可定位的制度完善方向（如赔偿程序诉讼化改造）。",
+            "延展路径与《决定》改革部署的核心结论紧密衔接。"
+          ],
+          "weaknesses": [
+            "作为笔谈文章，对各项延展路径的精细度与证据展开不足。",
+            "部分展望停留在原则性统筹（如统筹监督与便民），缺乏具体机制设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "轻微犯罪范围界定与赔偿程序改造属于未来立法与制度完善的延展问题，而非当下裁判规则或理论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为政策解读与制度现状梳理型笔谈，缺乏对未来研究或制度深化的具体延展路径。",
+          "core_judgment": "不存在真实延展路径，仅停留在政策复述与既有制度描述，未提出可定位的后续研究方向或制度修正对象。",
+          "score_rationale": "原始分35分，bonus=0。论文虽提及'建立轻微犯罪记录封存制度应当注意'等表述，但仅为原则性列举，未指明具体后续研究问题、理论修正方向或制度边界条件；其余部分均为政策复述与现状描述，无有效延展信号。",
+          "evidence_quotes": [
+            "建立轻微犯罪记录封存制度应当注意：一是已被封存的犯罪记录原则上不得向任何单位和个人提供……二是推动进一步完善立法，合理界定轻微犯罪范围",
+            "深化行政案件管辖改革，要在坚持正确政治方向……进一步优化顶层设计和实践探索"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文为政策笔谈体，无学术性前瞻设计",
+            "所谓'注意'仅为原则罗列，无具体修正对象或研究问题"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "'推动进一步完善立法，合理界定轻微犯罪范围'等表述未说明如何界定、依据什么标准、存在哪些争点，属于口号式展望"
+            }
+          ],
+          "boundary_note": "本维度仅评估未来延展可能性。论文对司法责任制、管辖改革、强制措施、犯罪记录封存等制度的描述均停留在'应当完善''应当注意'层面，未打开任何可继续推进的具体学术或制度空间，属于典型的当下政策复述而非未来方向设计。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "论文针对多项司法与执法制度改革，明确提出了管辖机制优化、立法界定及财政保障等具体实施路径。",
+          "core_judgment": "存在真实延展路径，主要体现为制度完善方向与规则衔接的具体操作指引。",
+          "score_rationale": "原始分72，对应bonus=3。证据集中于行政管辖机制优化与轻微犯罪记录封存立法界定，路径清晰且与正文改革部署紧密衔接，但偏重政策落实指引，理论争点延展有限。",
+          "evidence_quotes": [
+            "建立向上提级管辖与上级法院指定管辖、向下移送管辖相结合的管辖机制，优化集中管辖法院设置",
+            "推动进一步完善立法，合理界定轻微犯罪范围，进一步健全完善犯罪记录封存管理制度"
+          ],
+          "strengths": [
+            "明确指向制度衔接与立法完善的具体路径，如管辖机制优化与犯罪记录封存范围界定"
+          ],
+          "weaknesses": [
+            "延展多属政策落实与机制细化，缺乏对理论争点或实证检验路径的深入展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦改革落地后的下一步制度建构与规则细化方向，而非评判现有结论在学理或实务中的当下接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 39.97576904296875,
+        "glm-5.1": 35.93346881866455,
+        "kimi-k2.6": 12.846138954162598,
+        "qwen3.6-plus": 54.52430605888367
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 65,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 72
+      },
+      "mean": 54.2,
+      "std": 17.2,
+      "strictest": 35,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 35.21,
+      "weighted_total": 36.9
+    },
+    "aggregation_strictest": {
+      "final_score": 22.35,
+      "weighted_total": 24.2
+    },
+    "avg_std": 14.7,
+    "max_std": 27.1,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 12.9,
+    "composite_score": -13.03,
+    "worst_dimension": "literature_insight",
+    "worst_std": 27.1
+  }
+}

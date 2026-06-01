@@ -1,0 +1,1200 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/习近平法治思想关于“坚持抓住领导干部这个‘关键少数’”的若干原创性贡献.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "习近平法治思想科学指明了领导干部在全面依法治国中肩负的重要责任",
+          "创造性提出各级领导干部在推进依法治国方面肩负着重要责任，全面依法治国必须抓住领导干部这个'关键少数'",
+          "创造性提出党政主要负责人要履行推进法治建设第一责任人职责，这是推进法治建设的重要组织保证",
+          "创造性提出把能不能遵守法律、依法办事作为考察干部的重要内容",
+          "创造性提出深化国家监察体制改革，组建各级监察委员会...推进公权力运行法治化"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "习近平法治思想科学指明了领导干部在全面依法治国中肩负的重要责任",
+        "创造性提出各级领导干部在推进依法治国方面肩负着重要责任，全面依法治国必须抓住领导干部这个'关键少数'",
+        "创造性提出党政主要负责人要履行推进法治建设第一责任人职责，这是推进法治建设的重要组织保证",
+        "创造性提出把能不能遵守法律、依法办事作为考察干部的重要内容，在相同条件下，优先提拔使用法治素养好、依法办事能力强的干部"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文围绕习近平法治思想中'关键少数'的原创性贡献展开，涉及中国法治实践中的领导干部法治责任、法治素养等核心法学命题，有明确的制度论证和可复核的规范命题，文本质量良好，建议进入六维评价。"
+    },
+    "glm-5.1": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "页码混入正文（如12, 13, 14等期刊页码）",
+          "脚注编号及部分脚注内容穿插在正文中，存在OCR/排版抽取风险"
+        ],
+        "evidence_quotes": [
+          "中国法学 2022 年第4 期 12",
+          "① 参见习近平：《在“不忘初心、牢记使命”主题教育总结大会上的讲话》",
+          "⑩ 参见前注⑤，习近平文，第139 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "partial",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "党的十八大以来，习近平总书记……创造性提出了关于全面依法治国的一系列具有原创性、标志性的新理念新思想新战略，形成了习近平法治思想……",
+          "一是创造性提出各级领导干部在推进依法治国方面肩负着重要责任……",
+          "四是创造性提出各级领导班子一把手是“关键少数”中的“关键少数”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "纯政策复述与政治思想宣讲，缺乏可争辩的法学规范、制度或法哲学问题",
+          "未形成法学概念、判断标准或可复核的学术命题，仅为政治概念的直接搬用与阐释",
+          "对中国实践难题（如一把手监督）的解释停留在政策话语层面，缺乏法学理论转化或学术解释尝试"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "partial",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：期刊页码与脚注内容混入正文，存在格式抽取风险",
+        "项目口径：论文属纯政策复述与思想宣讲，无法学争辩性与理论转化，明显不适格"
+      ],
+      "evidence_quotes": [
+        "党的十八大以来，习近平总书记……创造性提出了关于全面依法治国的一系列具有原创性、标志性的新理念新思想新战略，形成了习近平法治思想，为发展马克思主义法治理论作出了重大原创性贡献。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "纯政策复述与政治思想宣讲，缺乏可争辩的法学规范、制度或法哲学问题",
+        "未形成法学概念、判断标准或可复核的学术命题，仅为政治概念的直接搬用与阐释"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "因论文属纯政策复述与思想宣讲，缺乏可争辩法学问题与理论转化，判定为明显不适格，予以拒绝。文本存在页码与脚注混入的工程风险，但不影响不适格判断。"
+    },
+    "kimi-k2.6": {
+      "status": "reject",
+      "conclusion": "obviously_ineligible",
+      "enter_six_dimension_review": "no",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在残留标记（如⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉕㉖㉗㉘等），但核心内容可读",
+          "参考文献列表缺失，但正文引用格式基本可辨",
+          "部分段落存在期刊页码混入（如'中国法学 2022 年第4 期 14'等），但不影响核心论点定位"
+        ],
+        "evidence_quotes": [
+          "⑫ 参见前注⑤，习近平文，第141 页。",
+          "中国法学 2022 年第4 期 14",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "obviously_ineligible",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "no",
+          "china_practice_explanation_attempted": "no",
+          "theory_transformation_or_verifiable_thesis": "no"
+        },
+        "evidence_quotes": [
+          "习近平法治思想围绕'坚持抓住领导干部这个'关键少数''，提出了一系列具有原创性、时代性的概念、判断、范畴、理论",
+          "创造性提出各级领导干部在推进依法治国方面肩负着重要责任",
+          "创造性提出领导干部对法治建设既可以起到关键推动作用，也可能起到致命破坏作用",
+          "创造性提出坚持抓'关键少数'和管'绝大多数'相统一",
+          "创造性提出各级领导班子一把手是'关键少数'中的'关键少数'",
+          "创造性提出领导干部要做尊法学法守法用法的模范",
+          "创造性提出领导干部要提高运用法治思维和法治方式的能力",
+          "创造性提出领导干部要牢固树立正确的权力观",
+          "创造性提出要发挥领导干部在依法治国和以德治国中的关键作用",
+          "创造性提出高级干部做尊法学法守法用法的模范",
+          "创造性提出政法干警要把法治精神当作主心骨",
+          "创造性提出党政主要负责人要履行推进法治建设第一责任人职责",
+          "创造性提出对各级领导干部，不管什么人，不管涉及谁，只要违反法律就要依法追究责任",
+          "创造性提出把能不能遵守法律、依法办事作为考察干部的重要内容",
+          "创造性提出深化国家监察体制改革，组建各级监察委员会",
+          "创造性提出反腐败斗争关系民心这个最大的政治"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": [
+          "文本性质为政治理论阐释与领导人思想宣讲，而非法学学术论文",
+          "全文为对习近平法治思想的系统性复述、总结与宣传，缺乏可争辩的法学问题",
+          "不存在法律规范分析、制度批判或理论建构，仅有政策宣示性陈述",
+          "'创造性提出'均为对既有政策话语的归纳，未形成可检验、可辩驳的法学命题或解释框架",
+          "无真实中国实践难题的解释尝试，中国材料仅作为政策背景而非分析对象",
+          "文本功能为政治文献学习解读，不符合'中国自主知识体系研究'的学术评价标准"
+        ]
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "no",
+        "china_practice_explanation_attempted": "no",
+        "theory_transformation_or_verifiable_thesis": "no"
+      },
+      "issues": [
+        "文本工程：脚注编号残留、参考文献缺失、期刊页码混入，但核心内容可读",
+        "项目口径：文本为政治理论宣讲文献，非法学学术论文，不具备可争辩法学问题与学术命题"
+      ],
+      "evidence_quotes": [
+        "党的十八大以来，习近平总书记以马克思主义政治家、思想家、战略家的非凡理论勇气、卓越政治智慧、强烈使命担当，在领导全面依法治国、建设法治中国的伟大实践中，创造性提出了关于全面依法治国的一系列具有原创性、标志性的新理念新思想新战略，形成了习近平法治思想",
+        "习近平法治思想围绕'坚持抓住领导干部这个'关键少数''，提出了一系列具有原创性、时代性的概念、判断、范畴、理论",
+        "广大法学会干部要深刻领会'两个确立'的决定性意义，增强'四个意识'、坚定'四个自信'、做到'两个维护'，深入学习研究宣传阐释习近平法治思想原创性贡献"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [
+        "文本性质为政治理论阐释与领导人思想宣讲，而非法学学术论文",
+        "全文为对习近平法治思想的系统性复述、总结与宣传，缺乏可争辩的法学问题",
+        "不存在法律规范分析、制度批判或理论建构，仅有政策宣示性陈述",
+        "'创造性提出'均为对既有政策话语的归纳，未形成可检验、可辩驳的法学命题或解释框架",
+        "无真实中国实践难题的解释尝试，中国材料仅作为政策背景而非分析对象",
+        "文本功能为政治文献学习解读，不符合'中国自主知识体系研究'的学术评价标准"
+      ],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该文本为政治理论宣传文献，不属于法学学术论文范畴，不满足'中国自主知识体系研究'六维评价的入口条件。建议直接排除，不进入评分流程。文本质量方面存在轻微OCR/格式问题，但不影响项目口径判断。"
+    },
+    "qwen3.6-plus": {
+      "status": "manual_review",
+      "conclusion": "boundary_review",
+      "enter_six_dimension_review": "boundary",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码与页眉页脚混入正文段落间",
+          "部分脚注引用符号（如■、㉑、㉒等）存在OCR识别残留或排版错位",
+          "参考文献列表标注为“（无）”，实际文中存在大量脚注引文，需人工核对引注完整性"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2022 年第4 期\n12\n党的十八大以来，习近平总书记以马克思主义政治家...",
+          "■ 参见前注⑤，习近平文，第141-142 页。",
+          "㉑ 参见前注⑤，习近平文，第142 页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "boundary_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "partial",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "partial"
+        },
+        "evidence_quotes": [
+          "创造性提出各级领导干部在推进依法治国方面肩负着重要责任，全面依法治国必须抓住领导干部这个“关键少数”。",
+          "创造性提出领导干部对法治建设既可以起到关键推动作用，也可能起到致命破坏作用。",
+          "创造性提出党政主要负责人要履行推进法治建设第一责任人职责，这是推进法治建设的重要组织保证。"
+        ],
+        "boundary_reasons": [
+          "文章高度聚焦中国法治建设与干部治理实践，中国问题中心性明确；",
+          "整体行文偏向对中央政策、领导人讲话与权威论述的系统归纳与政治阐释，缺乏传统法学意义上的可争辩命题、规范批判或教义学分析；",
+          "对中国实践的解释多作为政策论断的例证，未深入剖析具体制度运行中的真实法学难题；",
+          "理论转化层面主要停留在对既有官方表述的体系化梳理，尚未形成独立的可复核法学概念、判断标准或制度命题，需专家裁断其是否满足“自主知识体系”所需的学术争辩性与理论原创度。"
+        ],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "partial",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "partial"
+      },
+      "issues": [
+        "文本工程：页码/页眉混入及脚注符号OCR残留，不影响核心论点定位；",
+        "项目口径：政策阐释与理论归纳色彩浓厚，学术争辩性与独立命题构建较弱，需确认是否符合六维评分的学术标准。"
+      ],
+      "evidence_quotes": [
+        "党的十八大以来，习近平总书记...创造性提出了关于全面依法治国的一系列具有原创性、标志性的新理念新思想新战略",
+        "创造性提出各级领导班子一把手是‘关键少数’中的‘关键少数’"
+      ],
+      "boundary_reasons": [
+        "文章高度聚焦中国法治实践与政治话语，明确涉及中国问题；但整体偏向对中央政策与领导人讲话的系统阐释与归纳，缺乏可争辩的独立法学命题或批判性理论建构；实践解释多为政策背书而非学理难题剖析，需专家裁断其是否具备‘自主知识体系’所需的学术争辩性与理论转化度。"
+      ],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": true,
+      "review_flags": [
+        "project_scope_boundary"
+      ],
+      "recommendation": "建议进入边界复核。该文为《中国法学》发表的权威政策解读与理论阐释文章，中国问题中心性明确，但学术争辩性、独立理论命题构建较弱。需由领域专家判断其‘原创性贡献’归纳是否构成可复核的法学命题，或仅属政策复述。文本质量良好，不影响实质评审。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文是对习近平法治思想中“关键少数”论述的体系介绍和官方阐释，缺乏可争辩的法学研究问题。",
+          "core_judgment": "问题不成立：全文无问题句，仅为既定立场的主题声明与政策倡导，不构成法学研究问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学理论分歧、非法学论证、纯政策阐释），枢纽性=0/4，材料新颖性未触发上限。锚定unacceptable档（0-49分），扣分后的分数不低于30分，最终给30分。",
+          "evidence_quotes": [
+            "“创造性提出各级领导干部在推进依法治国方面肩负着重要责任，全面依法治国必须抓住领导干部这个‘关键少数’。”",
+            "“创造性提出领导干部要做尊法学法守法用法的模范，带动全党全国共同全面推进依法治国。”"
+          ],
+          "strengths": [
+            "主题明确，系统梳理了习近平法治思想中关于“关键少数”的多项论述。"
+          ],
+          "weaknesses": [
+            "全文为权威论述的复述或体系化介绍，未提出可争辩的法学问题。",
+            "缺乏不同学者观点的交锋与法学理论层面的分析，属于宏观介绍而非深度研究。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无任何问题句，只有主题声明与政策阐释，属于no_justiciable_question，触发上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文标题为“若干原创性贡献”的列举，正文通篇为“创造性提出”的叙述，无“XX是否YY”“如何ZZ”等问题句。"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且可争辩，不评论证严密性或文献综述。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政策阐释与立场归纳，缺乏可争辩的法学研究问题。",
+          "core_judgment": "本文无法学争点与理论分歧，仅为主题声明与政策倡导，问题创新性不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=1/4，材料新颖性已触发上限，锚定unacceptable档，给30分；前置扣分50分，最终取底线30分。",
+          "evidence_quotes": [
+            "创造性提出各级领导干部在推进依法治国方面肩负着重要责任",
+            "各级领导干部必须带头尊崇法治、敬畏法律"
+          ],
+          "strengths": [
+            "主题涉及法治建设现实重要性"
+          ],
+          "weaknesses": [
+            "全文无法学争点与问题句",
+            "仅为政策立场阐释，无理论分歧"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，无可争辩的法学争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述、论证严密性或材料支撑。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政策阐释与理论总结，无可争辩的法学研究问题。",
+          "core_judgment": "该文系对习近平法治思想中'关键少数'论述的系统归纳与政策阐释，未提出任何可争辩的法学问题。",
+          "score_rationale": "可争辩性=0/4（无问题句、无法学层面争点、无理论分歧、纯政策倡导），枢纽性=0/4（无制度连锁、无理论分歧需解决），材料新颖性未触发上限，锚定unacceptable档，扣25+20+30=75分，但最低30分。",
+          "evidence_quotes": [
+            "创造性提出各级领导干部在推进依法治国方面肩负着重要责任",
+            "创造性提出领导干部对法治建设既可以起到关键推动作用，也可能起到致命破坏作用"
+          ],
+          "strengths": [
+            "主题重大，涉及全面依法治国核心命题"
+          ],
+          "weaknesses": [
+            "全文为'创造性提出'的并列罗列，无学术对话",
+            "无任何问题句，仅有主题声明与政策归纳"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，仅陈述'创造性提出'若干观点"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，因可争辩性=0"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政治立场与政策脉络的系统阐释，缺乏可争辩的法学研究问题。",
+          "core_judgment": "该文本属政策阐释型文献，未提出可争辩的法学争点，问题创新性维度不成立。",
+          "score_rationale": "可争辩性=0/4，枢纽性=3/4，材料新颖性未触发上限，负面扣50分。锚定unacceptable档，依规保底给30分。",
+          "evidence_quotes": [
+            "创造性提出各级领导干部在推进依法治国方面肩负着重要责任",
+            "党政主要负责人要亲力亲为，不能当甩手掌柜"
+          ],
+          "strengths": [
+            "系统梳理了法治建设中的干部责任脉络"
+          ],
+          "weaknesses": [
+            "全文无学术交锋与问题意识，仅为既定立场阐释"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，仅为政策立场系统归纳"
+            }
+          ],
+          "boundary_note": "本维度仅评问题争辩性与枢纽性，不评政策归纳完整度或现实指导意义。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.39875817298889,
+        "glm-5.1": 43.810559034347534,
+        "kimi-k2.6": 13.33701205253601,
+        "qwen3.6-plus": 210.34251809120178
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 30,
+        "kimi-k2.6": 30,
+        "qwen3.6-plus": 30
+      },
+      "mean": 30,
+      "std": 0.0,
+      "strictest": 30,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "本文是对习近平法治思想中“关键少数”论述的梳理与阐释，未对既有法学研究进行任何文献综述或批评性定位，缺乏研究地图。",
+          "core_judgment": "该文不构成法学研究论文，而是对习近平法治思想的正面阐释与宣传，完全缺失对既有学术文献的梳理、批评与定位，未形成任何研究地图。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分",
+          "evidence_quotes": [
+            "习近平法治思想围绕“坚持抓住领导干部这个‘关键少数’”，提出了一系列具有原创性、时代性的概念、判断、范畴、理论。",
+            "党的十八大以来，习近平总书记……创造性提出了关于全面依法治国的一系列具有原创性、标志性的新理念新思想新战略，形成了习近平法治思想。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无任何对既有法学研究的引用或学术批评，未讨论任何学术争点或对立观点。",
+            "没有参考文献列表，也未见任何对已有研究成果的梳理、评述或定位，完全未构建研究地图。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0：无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无任何到达点、未竟点或本文切入点的文内证据，无参考文献列表，缺少对既有学术研究的任何梳理。"
+            }
+          ],
+          "boundary_note": "本维度仅评文献梳理，不评问题创新性；本文缺乏任何形式的学术文献定位，属于文献梳理完全缺失。",
+          "review_flags": []
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 20,
+          "band": "unacceptable",
+          "summary": "论文纯为政治思想阐释，完全缺乏学术文献梳理与研究地图。",
+          "core_judgment": "本维度不成立，论文未建立任何学术研究地图，无到达点、未竟点和切入点。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给20分",
+          "evidence_quotes": [
+            "创造性提出各级领导干部在推进依法治国方面肩负着重要责任",
+            "像英国、美国等西方国家呈现自下而上社会演进模式，像新加坡等主要是政府自上而下推动法治化"
+          ],
+          "strengths": [
+            "体系化阐释了习近平法治思想关于关键少数的原创性贡献"
+          ],
+          "weaknesses": [
+            "完全缺乏学术文献梳理与学界争点呈现",
+            "无任何研究地图三要素（到达点、未竟点、切入点）"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1，研究地图严重残缺，上限55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无任何学术文献梳理、学界争点或研究缺口描述，三要素得分为0"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理深度，不评政治思想阐释本身的正确性或体系性",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 0,
+          "band": "unacceptable",
+          "summary": "该文为政策阐释性文章，完全未建立学术研究地图。",
+          "core_judgment": "本文不存在法学文献梳理、争点结构或学派识别，不满足现状洞察度维度的基本评价条件。",
+          "score_rationale": "三要素=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给0分。全文为习近平法治思想的原创性贡献阐释，无任何既有学术研究成果的引述、学术争议的呈现或研究缺口的分析，参考文献列表为空。",
+          "evidence_quotes": [
+            "党的十八大以来，习近平总书记……形成了习近平法治思想，为发展马克思主义法治理论作出了重大原创性贡献",
+            "（无）"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "无到达点：未引述任何具体学术成果或学者观点",
+            "无未竟点：未识别任何学术争议或研究缺口"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0分，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文无'已有研究''学界认为''但''然而'等学术对话标识；参考文献列表为空"
+            }
+          ],
+          "boundary_note": "本文属政治理论阐释与政策解读，非学术性法学论文，本维度仅评文献梳理能力，不涉及问题创新性评判。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "全文为政策阐释型论述，未建立学术研究地图，缺乏文献梳理与争点对话。",
+          "core_judgment": "本维度不成立，论文未呈现任何既有研究脉络、学术缺口或对立观点。",
+          "score_rationale": "三要素得分=0/6，争点结构=0/2，法学流派=0个，锚定unacceptable档，给25分",
+          "evidence_quotes": [
+            "党的十八大以来，习近平总书记创造性提出了关于全面依法治国的一系列新理念新思想",
+            "一是创造性提出各级领导干部在推进依法治国方面肩负着重要责任，必须抓住关键少数"
+          ],
+          "strengths": [
+            "政策文本归纳系统完整",
+            "论述逻辑紧扣中央精神"
+          ],
+          "weaknesses": [
+            "完全缺失学术文献梳理与对话",
+            "未呈现任何研究缺口或对立观点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分0，无研究地图",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "全文仅罗列政策表述，未提及任何学界既有成果、争议或未竟问题"
+            }
+          ],
+          "boundary_note": "属政治阐释文本，非学术争鸣，故仅评文献定位缺失。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.29963779449463,
+        "glm-5.1": 44.29019093513489,
+        "kimi-k2.6": 10.932106018066406,
+        "qwen3.6-plus": 50.52281594276428
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 0,
+        "glm-5.1": 20,
+        "kimi-k2.6": 0,
+        "qwen3.6-plus": 25
+      },
+      "mean": 11.2,
+      "std": 13.1,
+      "strictest": 0,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "全文为习近平法治思想中“关键少数”论述的系统性阐释与归纳，未提出任何原创性、可操作的法律分析框架。",
+          "core_judgment": "该文属于典型的政策理论梳理型论文，缺少原创分析框架建构，仅对既有权威表述进行梳理，框架建构力维度不成立。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定勉强相关），法学转化度得分=0/4，锚定unacceptable档，触发上限规则no_operational_framework（上限50分），但因纯政策梳理无框架建构，实际给35分。",
+          "evidence_quotes": [
+            "创造性提出各级领导干部在推进依法治国方面肩负着重要责任，全面依法治国必须抓住领导干部这个‘关键少数’。",
+            "一是创造性提出领导干部要做尊法学法守法用法的模范…二是创造性提出领导干部要提高运用法治思维和法治方式的能力…"
+          ],
+          "strengths": [
+            "对习近平法治思想进行了系统化的主题归纳和结构梳理。"
+          ],
+          "weaknesses": [
+            "全文仅为权威论述的汇编与阐释，无任何原创分析框架或概念界定。",
+            "缺乏法学操作层面的分析步骤、裁判指引或制度设计，无法重复适用于具体法律问题分析。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1且无原创法学转化步骤",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文仅将“关键少数”的权威论述归纳为“三个核心要义”等既定表述，未定义可操作的分析框架，后文无框架调用。"
+            }
+          ],
+          "boundary_note": "此评价针对分析框架的建构力，不涉及论文的政治立场、理论价值或对政策阐释的贡献。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文属政策理论梳理型，无原创分析框架，仅罗列阐释权威表述。",
+          "core_judgment": "该维不成立，论文未建构任何可操作且具法学转化的分析框架。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，触发上限规则，给30分",
+          "evidence_quotes": [
+            "一是创造性提出各级领导干部在推进依法治国方面肩负着重要责任…二是创造性提出…（仅主题提纲罗列，非分析框架）",
+            "各级领导干部必须带头尊崇法治、敬畏法律…必须认认真真讲法治、老老实实抓法治（口号式呼吁，无操作指引）"
+          ],
+          "strengths": [
+            "对习近平法治思想中关于'关键少数'的论述进行了系统归纳与分类阐释"
+          ],
+          "weaknesses": [
+            "仅有'若干原创性贡献'的主题提纲罗列，无可重复适用的判断步骤或评价标准",
+            "大量使用'必须''应当'等口号式呼吁，缺乏具体裁判规则或制度设计方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义+无任何可循的分析步骤+无法学转化，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅阐释权威表述，核心术语无定义，无分析步骤，无法学转化"
+            }
+          ],
+          "boundary_note": "本维度评价分析框架是否成立可用有法学转化，不评价逻辑衔接或问题新颖性",
+          "review_flags": [
+            "concept_instability"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政策理论梳理型论文，无原创分析框架，仅对权威表述进行归纳阐释。",
+          "core_judgment": "该文属于典型的政策理论梳理型论文，未建构可重复适用的分析框架，分析框架建构力不成立。",
+          "score_rationale": "框架可操作性得分=0/4（无核心术语定义、无分类标准、无分析步骤、无后文调用），法学转化度得分=0/4（无跨学科概念转化、无裁判规则、无制度设计方案、无操作步骤使用），锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "党的十八大以来，习近平总书记……创造性提出了关于全面依法治国的一系列具有原创性、标志性的新理念新思想新战略",
+            "一是创造性提出……二是创造性提出……三是创造性提出……四是创造性提出……"
+          ],
+          "strengths": [
+            "结构清晰，按'关键少数'的多维度展开梳理"
+          ],
+          "weaknesses": [
+            "全文为权威表述归纳，无原创概念界定或类型化",
+            "无分析步骤、判断标准或操作指引，仅有政策宣示"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性 ≤ 1 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "核心术语完全无定义，无任何可循分析步骤，仅罗列'创造性提出'的七点内容，无法学转化"
+            },
+            {
+              "rule_id": "policy_theory_review.type_recognition",
+              "rule": "政策理论梳理型论文：框架可操作性上限2，法学转化度上限1，总分通常不超60",
+              "score_ceiling": 60,
+              "priority": 2,
+              "evidence": "全文以阐释既定立场为主，核心术语来自权威表述，主要贡献是'梳理''归纳''阐释'"
+            }
+          ],
+          "boundary_note": "本维度仅评框架本身是否成立可用，不评逻辑衔接或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "全文系政策理论梳理，未建构原创分析框架，无可操作步骤与法学转化。",
+          "core_judgment": "该维度不成立，论文属政策阐释型，缺乏可重复适用的分析框架与法学转化路径。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=0/4，锚定unacceptable档，给40分。",
+          "evidence_quotes": [
+            "一是创造性提出各级领导干部在推进依法治国方面肩负着重要责任...",
+            "党政主要负责人应当切实履行依法治国重要组织者、推动者和实践者的职责..."
+          ],
+          "strengths": [
+            "结构完整，系统归纳了权威论述的核心要点。"
+          ],
+          "weaknesses": [
+            "核心术语无学术界定，全篇为规范性呼吁，无分析步骤。",
+            "未将政治表述转化为可操作的法学判断标准或裁判规则。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为政策立场归纳，无原创概念界定与可重复分析步骤。"
+            }
+          ],
+          "boundary_note": "本维度仅评框架建构力，不涉逻辑衔接与问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.288721323013306,
+        "glm-5.1": 45.669617891311646,
+        "kimi-k2.6": 14.553977012634277,
+        "qwen3.6-plus": 74.522705078125
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 40
+      },
+      "mean": 35,
+      "std": 4.1,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文为纯粹的政治宣讲文本，缺乏法学论文的核心要素，无推理链可言。",
+          "core_judgment": "全文仅罗列领导人讲话要点，未形成任何学术推理链，不具备逻辑严密性的评价基础。",
+          "score_rationale": "推理链完整性得分=0/4，反驳处理度得分=0/3。无法识别可串联的论证步骤和逻辑衔接，无任何反对意见或局限承认，触发broken_inference_chain上限，锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "一是创造性提出各级领导干部在推进依法治国方面肩负着重要责任...二是创造性提出领导干部对法治建设既可以起到关键推动作用...",
+            "三是创造性提出坚持抓“关键少数”和管“绝大多数”相统一..."
+          ],
+          "strengths": [
+            "无。"
+          ],
+          "weaknesses": [
+            "全文为并列式政治观点罗列，无“问题→推演→结论”的学术论证结构。",
+            "零反驳意识，未涉及任何反对意见、理论分歧或适用边界。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文完全由“X点创造性提出...”的并列段落构成，各点之间无逻辑推导关系，无法识别出依赖前一步结论的推理步骤。"
+            }
+          ],
+          "boundary_note": "本文问题在于完全缺失学术推理链，而非结论是否可接受或解读是否顺畅。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文构建了“地位-要求-保障”的完整阐释链条，但在理论分歧回应上较弱。",
+          "core_judgment": "推理链完整且相互依赖，核心结论可辩护推出，本维成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=2/3，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "就我国而言……必须自上而下、自下而上双向互动地推进法治化",
+            "领导干部对法治建设既可以起到关键推动作用，也可能起到致命破坏作用"
+          ],
+          "strengths": [
+            "构建了地位、要求、保障三层递进的完整推理链",
+            "在法治化路径比较中给出了选择理由"
+          ],
+          "weaknesses": [
+            "缺乏对理论界深层分歧的显式回应",
+            "未承认自身论证的适用边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链关注推导支撑，而非思想阐释框架的政治正确性或可操作性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "政治宣导文本，缺乏学术论证结构，推理链断裂。",
+          "core_judgment": "本文不符合学术论文的逻辑严密性标准，无法构成可辩护的学术推理链。",
+          "score_rationale": "推理链完整性得分=1/4，反驳处理度得分=0/3。文本为政策宣导而非学术论证，无推理步骤依赖关系，无反对意见识别与回应，锚定unacceptable档，给35分。",
+          "evidence_quotes": [
+            "党的十八大以来，习近平总书记...形成了习近平法治思想，为发展马克思主义法治理论作出了重大原创性贡献",
+            "一是创造性提出...二是创造性提出...三是创造性提出..."
+          ],
+          "strengths": [
+            "文本内部有并列式列举结构"
+          ],
+          "weaknesses": [
+            "无学术推理链，仅有政策论断堆砌",
+            "无任何反对意见或理论分歧的识别与回应"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "logical_coherence.broken_inference_chain",
+              "rule": "推理链完整性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为'创造性提出'的并列罗列，无前提-结论的推导关系，删除任一部分不影响其他部分，步骤间无依赖"
+            }
+          ],
+          "boundary_note": "本维度仅评推理链质量，不评政治立场；该文本质是政策阐释而非学术论证。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文为政策阐释体，论点平行罗列，缺乏递推与反驳，逻辑严密性中等偏下。",
+          "core_judgment": "推理链呈平行归纳结构，结论可获支撑但缺乏学术辩驳与逻辑递进，严密性中等偏下。",
+          "score_rationale": "推理链完整性得分=2/4，反驳处理度得分=0/3，锚定marginal档，给55分。",
+          "evidence_quotes": [
+            "一是创造性提出各级领导干部在推进依法治国方面肩负着重要责任……二是创造性提出领导干部对法治建设既可以起到关键推动作用……",
+            "全文未呈现对立学术观点或理论分歧路径，仅对政策文本与讲话精神进行体系化归纳。"
+          ],
+          "strengths": [
+            "分点清晰，体系化程度高",
+            "引证权威规范与讲话，论据扎实"
+          ],
+          "weaknesses": [
+            "论证呈平行罗列，缺乏逻辑递进",
+            "未回应学术争议或界定适用边界"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属政策阐释，逻辑问题在于论点平行罗列缺乏推演依赖，而非分析框架不可操作。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 65.93063616752625,
+        "glm-5.1": 35.63577198982239,
+        "kimi-k2.6": 10.923184156417847,
+        "qwen3.6-plus": 67.42023801803589
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 88,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 55
+      },
+      "mean": 48.2,
+      "std": 31.1,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "本文为官方政治文件和讲话的系统梳理，未形成可被法学共同体争辩的学术结论，缺乏与既有学理争论的对话。",
+          "core_judgment": "论文本质上是官方话语的复述与汇编，未提出可被学界回应的独立学术主张，完全不具备结论可接受性维度的基本要求。",
+          "score_rationale": "共同体对话度得分=0/4（未回应任何法学争论，自说自话，无法被反对者定位回应），制度可接受度得分=2/4（与现行法秩序不矛盾，回应了部分制度语境，但无独立学术主张）。因对话度为0触发上限规则，最高50分，且属复述既定立场无对话，总分从严控制在30分。",
+          "evidence_quotes": [
+            "习近平法治思想围绕'坚持抓住领导干部这个关键少数'，提出了一系列具有原创性、时代性的概念、判断、范畴、理论……",
+            "各级领导干部必须深刻认识到，维护宪法法律权威就是维护党和人民共同意志的权威……"
+          ],
+          "strengths": [
+            "系统梳理了官方话语中关于'关键少数'的论述，素材覆盖面广。"
+          ],
+          "weaknesses": [
+            "全文为官方讲话的汇编转述，无独立学术观点，无法进入法学共同体的批评与对话。",
+            "结论部分仅为号召性、表态性表述，未提出任何可被质疑或修正的学术命题。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0，论文未提出可争辩的学术结论，无法与既有法学争论对话",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结论部分仅为'深入学习研究宣传阐释习近平法治思想原创性贡献'等表态性语句，未与任何学界观点形成对话或提出可被回应和批评的学术命题。"
+            }
+          ],
+          "boundary_note": "本维度仅评结论可否被共同体和制度语境接受，不评选题政治正确性或文献梳理的全面性。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文复述官方立场，缺乏学术争辩性与共同体对话。",
+          "core_judgment": "结论仅为政治话语复述，未转化为可争辩学术主张，无法进入学术对话。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=4/4，锚定unacceptable档，给45分",
+          "evidence_quotes": [
+            "创造性提出各级领导干部在推进依法治国方面肩负着重要责任",
+            "必须把法治建设成效作为衡量各级领导班子和领导干部工作实绩重要内容"
+          ],
+          "strengths": [
+            "与中国现行法秩序和制度语境高度兼容",
+            "明确指出了理论向制度转化的具体方向"
+          ],
+          "weaknesses": [
+            "仅复述官方既定立场，缺乏学术争辩性",
+            "完全未回应反对意见或自身论证局限"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述既定立场无争辩性，对话度≤1，总分上限50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅单向阐释官方话语，未说明与既有学术争论关系"
+            }
+          ],
+          "boundary_note": "本维评价结论能否被学术共同体接受回应，而非论证严密性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "该文为政治宣传文本，非学术共同体可对话的法学论文。",
+          "core_judgment": "论文缺乏学术共同体对话性，结论为既定政治话语复述，无法被反对者定位回应，不符合法学论文标准。",
+          "score_rationale": "共同体对话度得分=0/4，制度可接受度得分=2/4。该文为政治宣传文本，非学术法学论文，但按最低标准锚定unacceptable档，给15分。",
+          "evidence_quotes": [
+            "党的十八大以来，习近平总书记...形成了习近平法治思想，为发展马克思主义法治理论作出了重大原创性贡献",
+            "广大法学会干部要深刻领会'两个确立'的决定性意义...以实际行动迎接党的二十大胜利召开"
+          ],
+          "strengths": [
+            "提及中国法治语境与制度背景"
+          ],
+          "weaknesses": [
+            "无学术争论回应，纯复述既定立场",
+            "无反对意见讨论，无法被学界认真回应"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0 → 最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文为习近平法治思想宣传阐释，未与任何学术观点对话，未回应反对意见，结论无法被反对者定位反驳"
+            }
+          ],
+          "boundary_note": "本维评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "本文系官方立场复述，缺乏学术争辩与可检验命题。",
+          "core_judgment": "结论停留于政策宣示，未进入学术共同体对话语境，无法满足可接受性标准。",
+          "score_rationale": "共同体对话度得分=1/4，制度可接受度得分=2/4，锚定unacceptable档，给45分。因复述既定立场且无学术争辩，触发上限规则。",
+          "evidence_quotes": [
+            "本文结论为“创造性提出各级领导干部在推进依法治国方面肩负着重要责任”",
+            "结论强调“把能不能遵守法律、依法办事作为考察干部的重要内容”"
+          ],
+          "strengths": [
+            "高度契合中国现行法治话语体系",
+            "系统归纳了政策层面的规范表述"
+          ],
+          "weaknesses": [
+            "未转化为可争辩的学术命题",
+            "缺乏对既有争论与反对意见的回应"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "复述立场无学术主张，对话度≤1则总分≤50",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文系官方论述复述，无学术争辩定位与局限说明"
+            }
+          ],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证逻辑或未来延展。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.413676023483276,
+        "glm-5.1": 111.1625497341156,
+        "kimi-k2.6": 11.383697986602783,
+        "qwen3.6-plus": 88.43113780021667
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 30,
+        "glm-5.1": 45,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 45
+      },
+      "mean": 33.8,
+      "std": 14.4,
+      "strictest": 15,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文仅作口号式展望，未提出任何具体可定位的延展路径。",
+          "core_judgment": "该维度不存在真实延展路径，仅有笼统号召和意义拔高。",
+          "score_rationale": "原始分15分，对应bonus=0档。全文未指明任何后续研究问题、理论修正方向、制度完善路径或具体局限，结尾对法学会干部的号召属空泛拔高，无具体待修正对象。",
+          "evidence_quotes": [
+            "广大法学会干部要深刻领会“两个确立”的决定性意义...推动习近平法治思想学习研究宣传贯彻不断取得新进展新成果。",
+            "在全面依法治国新征程中展现新担当、实现新作为，以实际行动迎接党的二十大胜利召开。"
+          ],
+          "strengths": [
+            "结尾对法学会干部提出明确的政治要求和行为准则，但这不是学术延展路径。"
+          ],
+          "weaknesses": [
+            "未指明任何具体后续研究问题或下一轮争点。",
+            "未说明正文局限或理论、制度、实务的修正方向，仅有空泛号召。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "触发口号式展望规则：只说‘取得新进展新成果’‘展现新担当’等，没有具体问题、对象、机制或制度路径。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾段对法学会干部提出‘推动...取得新进展新成果’‘展现新担当、实现新作为’等笼统号召。"
+            }
+          ],
+          "boundary_note": "结尾对法学会干部的要求属于政治号召和实践要求，不构成对法学理论的未来延展路径，亦非结论可接受性问题。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文仅有口号式展望，缺乏具体可定位的延展路径。",
+          "core_judgment": "该维度不存在真实延展路径，仅停留在意义拔高和泛泛号召层面。",
+          "score_rationale": "原始分25，属0-39低分段，bonus=0。论文结尾仅提出“取得新进展新成果”等空泛展望，未指明具体理论深化方向、概念修正路径或后续争点，触发低分约束。",
+          "evidence_quotes": [
+            "推动习近平法治思想学习研究宣传贯彻不断取得新进展新成果",
+            "在全面依法治国新征程中展现新担当、实现新作为"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "仅空泛拔高，未提出具体后续研究问题或概念深化方向",
+            "缺乏对理论适用边界或制度实施风险的延展探讨"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾仅号召“取得新进展新成果”“展现新担当”，未说明具体研究问题或机制路径"
+            }
+          ],
+          "boundary_note": "文中提及的“一把手监督难题”等属于当下理论阐释与制度确立内容，而非对未来学术研究延展的指明；结尾号召属于政治愿景而非学术延展路径。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "该文为习近平法治思想的阐释性、宣介性文章，全文重在系统梳理和论证已有理论贡献，未提供任何面向未来的研究问题、修正方向或延展路径。",
+          "core_judgment": "不存在真实延展路径，仅有对既有政策话语的总结与强化。",
+          "score_rationale": "原始分15分，bonus=0。该文属于理论阐释型论文，但通篇为对习近平法治思想已有论述的整理与宣介，未提出任何待深化的理论问题、概念修正路径或后续研究争点。文末以号召性语句收束，属于典型的口号式展望，无具体待修正对象或研究入口。",
+          "evidence_quotes": [
+            "广大法学会干部要深刻领会'两个确立'的决定性意义...推动习近平法治思想学习研究宣传贯彻不断取得新进展新成果",
+            "以实际行动迎接党的二十大胜利召开"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文无后续研究问题或理论深化方向",
+            "结尾仅有政策号召，无具体延展对象"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "文末'推动习近平法治思想学习研究宣传贯彻不断取得新进展新成果''以实际行动迎接党的二十大胜利召开'等表述，仅为政策口号式展望，未说明具体研究问题、制度路径或理论修正方向。"
+            }
+          ],
+          "boundary_note": "该文结尾的号召性语句属于政治宣示而非学术延展，不涉及结论能否被接受的问题，也不涉及论证严密性，但完全无法回答'未来还能往哪里走'。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "全文为政治阐释型文本，缺乏学术研究意义上的未来延展路径。",
+          "core_judgment": "未发现真实学术延展路径，仅以政治号召与意义拔高收尾。",
+          "score_rationale": "原始分30，对应bonus=0。全文为政治阐释文本，结尾仅以口号收尾，未提出具体理论修正、实证入口或概念边界，触发低分约束。",
+          "evidence_quotes": [
+            "推动习近平法治思想学习研究宣传贯彻不断取得新进展新成果。",
+            "以实际行动迎接党的二十大胜利召开。"
+          ],
+          "strengths": [
+            "无显著延展优势。"
+          ],
+          "weaknesses": [
+            "仅以政治号召替代学术展望。",
+            "缺乏对理论局限或可检验争点的说明。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "仅以空泛拔高或口号式展望收尾，未指明具体研究对象、机制或路径。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾仅呼吁推动学习研究取得新进展及迎接大会，无学术延展设计。"
+            }
+          ],
+          "boundary_note": "本维度专评未来研究路径，本文结尾的政治动员属当下立场宣示，非学术意义上的可延展性论证。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.132400035858154,
+        "glm-5.1": 46.70156192779541,
+        "kimi-k2.6": 12.799439191818237,
+        "qwen3.6-plus": 66.38611197471619
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 25,
+        "kimi-k2.6": 15,
+        "qwen3.6-plus": 30
+      },
+      "mean": 21.2,
+      "std": 7.5,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 30.74,
+      "weighted_total": 30.6
+    },
+    "aggregation_strictest": {
+      "final_score": 19.41,
+      "weighted_total": 18.8
+    },
+    "avg_std": 11.7,
+    "max_std": 31.1,
+    "high_confidence_pct": 33.3,
+    "dimension_count": 6,
+    "score_gap": 11.3,
+    "composite_score": -8.37,
+    "worst_dimension": "logical_coherence",
+    "worst_std": 31.1
+  }
+}

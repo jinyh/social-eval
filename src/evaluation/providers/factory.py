@@ -28,6 +28,7 @@ _PROVIDER_MAP: dict[str, type[BaseProvider] | type] = {
     "deepseek-v4-pro": lambda: DashScopeProvider("deepseek-v4-pro"),
     # FUCHEERS 模型
     "gpt-5.5": lambda: FucheersProvider("gpt-5.5"),
+    "gpt-5.5-high": lambda: FucheersProvider("gpt-5.5", reasoning_effort="high"),
     "fucheers-gpt-5.5": lambda: FucheersProvider("gpt-5.5"),
     # KETAN 模型
     "ketan-gpt-5.5": lambda: KetanProvider("gpt-5.5"),

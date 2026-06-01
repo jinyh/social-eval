@@ -1,0 +1,992 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/人民团体规章：概念、体系和效力.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "none",
+        "issues": [],
+        "evidence_quotes": []
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国宪法序言即表明，人民团体是中国共产党领导的广泛的爱国统一战线的重要参加者。",
+          "人民团体并非民法意义上的'社会团体'，而是公法语境中的'社会团体'。",
+          "本文试图描述和分析的现象并不是人民团体本身，而是其制定的与规范性文件相比更为规范化的规章制度。",
+          "人民团体规章似可被认为是我国法的一种'认知渊源'。",
+          "从表现形式方面确定其外延则相对直接、简单……如果'人民团体规章'可作概念使用，宜先从外延角度予以界定。",
+          "人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则。",
+          "将人民团体的规章制度直接称为'人民团体规章'，并从党内法规学的框架和理论进行分析，旨在揭示其概念、体系和效力。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [],
+      "evidence_quotes": [
+        "人民团体并非民法意义上的'社会团体'，而是公法语境中的'社会团体'。",
+        "人民团体规章似可被认为是我国法的一种'认知渊源'。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "该论文以中国特有的“人民团体规章”为研究对象，具有明确的法学问题意识和中国实践解释意图，尝试提出概念界定、体系分类和效力分析等可复核命题，完全符合“中国自主知识体系研究”六维评价的项目口径，建议直接进入评分。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码及刊名混入正文（如“中国法学 2023 年第3 期 144”等分栏页脚残留）",
+          "脚注编号使用特殊符号（如①、㉑、■等），存在抽取或解析乱码风险"
+        ],
+        "evidence_quotes": [
+          "中国法学\n2023 年第3 期\n144",
+          "①2017 年，党的十九大审议通过《中国共产党章程（修正案）》。",
+          "■ 习近平：《在庆祝中国共产主义青年团成立100 周年大会上的讲话》，载《人民日报》2022 年5 月11 日，第2 版。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "本文试图描述和分析的现象并不是人民团体本身，而是其制定的与规范性文件相比更为规范化的规章制度。",
+          "人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则。",
+          "人民团体规章似可被认为是我国法的一种“认知渊源”。更加准确地说，人民团体规章应当属于……可以作为裁判说理的依据的一种规范性文件。",
+          "部分实定法化和具有对外效力这两个特征已经可以将人民团体规章同一般社会组织内部规范区别开来，确认其为广义的“社会规范”中一个独立的类型。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及刊名混入正文段落，脚注编号含特殊符号需清洗",
+        "项目口径：完全满足进入六维评价的信号条件，无边界争议"
+      ],
+      "evidence_quotes": [
+        "部分实定法化和具有对外效力这两个特征已经可以将人民团体规章同一般社会组织内部规范区别开来，确认其为广义的“社会规范”中一个独立的类型。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，直接进入六维评分流程。后续评审阶段需对正文中的期刊页码/刊名混入及特殊脚注符号进行文本工程清洗，以免影响结构化抽取。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如⑪⑫⑬等圆圈数字格式）",
+          "期刊页码混入正文（如'中国法学 2023 年第3 期 144'等）",
+          "参考文献列表缺失，但正文引用信息完整可定位"
+        ],
+        "evidence_quotes": [
+          "中国法学 2023 年第3 期 144",
+          "人民团体规章：概念、体系和效力 145"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "人民团体规章指人民团体所制定的专门规章制度",
+          "人民团体规章的效力应当整体低于实定法",
+          "人民团体规章应当属于《关于裁判文书引用法律、法规等规范性法律文件的规定》第6条所称法律法规之外'根据审理案件的需要，经审查认定为合法有效的，可以作为裁判说理的依据'的一种规范性文件",
+          "人民团体规章和党内法规的关系也值得提及",
+          "人民团体规章体系可由履行职责规章制度、团体组织规章制度和自身建设规章制度构成"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR格式残留",
+        "期刊页码信息混入正文",
+        "参考文献列表未抽取但正文引用完整"
+      ],
+      "evidence_quotes": [
+        "本文试图描述和分析的现象并不是人民团体本身，而是其制定的与规范性文件相比更为规范化的规章制度",
+        "人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则",
+        "人民团体规章应当属于……可以作为裁判说理的依据的一种规范性文件",
+        "对'工青妇'三大人民团体的规章进行比较，团内规章更类似于党内法规体系的附属体系"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文质量良好，可直接进入六维评分。建议评分时关注其理论建构的原创性程度，以及'人民团体规章'概念界定的学术贡献。"
+    },
+    "qwen3.6-plus": {
+      "error": "[qwen3.6-plus] Connection error."
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文主要对“人民团体规章”进行概念、体系与效力的体系介绍，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文为既定立场的阐释和体系归纳，未提出可争辩的法学争点，学术创新性不足。",
+          "score_rationale": "可争辩性=1/4（仅标准2部分满足），枢纽性=1/4（仅标准3满足），材料新颖性未触发上限。触发负面模式检查：新概念包装旧问题（-20分）、宏观介绍非深度分析（-20分）、主题声明非研究问题（-30分），合计扣70分。最终得分=65（锚定基础）-30（取最低）≈35分。",
+          "evidence_quotes": [
+            "本文试图描述和分析的现象并不是人民团体本身，而是其制定的与规范性文件相比更为规范化的规章制度。",
+            "人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则。"
+          ],
+          "strengths": [
+            "系统梳理了人民团体规章的外延和体系构成，具有一定资料价值。",
+            "注意到人民团体规章与党内法规、国家法律的效力位阶关系。"
+          ],
+          "weaknesses": [
+            "全文无明确问题句，本质上是主题介绍而非研究问题驱动。",
+            "缺乏学者观点交锋，仅进行既定制度的描述和归类，未触及深层理论争议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，全文无明确问题句或可争辩的法学争点，触发上限50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文围绕概念外延、体系分类和效力位阶展开描述，未提出如“人民团体规章的性质是否为法源”等问题句。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文以新概念包装既有现象，实质为体系归纳与政策倡导，缺乏可争辩的法学争点。",
+          "core_judgment": "问题创新性不成立，主要为宏观体系介绍而非深度争辩分析。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性已触发上限(70分)，锚定excellent档，扣负面35分，给35分",
+          "evidence_quotes": [
+            "为了论述的方便，以下拟将人民团体所制定的较规范性文件更加规范化的规章制度直接称为'人民团体规章'。",
+            "人民团体规章似可被认为是我国法的一种'认知渊源'。"
+          ],
+          "strengths": [
+            "涉及多个制度领域和长期争议焦点，枢纽性较强"
+          ],
+          "weaknesses": [
+            "核心概念仅为称呼方便而设，缺乏实质解释力提升",
+            "实质为体系归纳与政策倡导，缺乏可争辩的法学争点"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖新概念包装旧问题，未实质改变解释路径或结论推进",
+              "score_ceiling": 70,
+              "priority": 1,
+              "evidence": "引入'人民团体规章'概念仅为称呼方便，结论套用既有认知渊源理论"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文系统介绍人民团体规章的概念、体系与效力，但缺乏可争辩的法学问题。",
+          "core_judgment": "全文以概念界定、体系描述和制度介绍为主，未提出具有理论分歧的法学争点，属于主题声明而非研究问题。",
+          "score_rationale": "可争辩性=1/4（仅有描述性主题，无明确问题句；无学者观点交锋；无理论分歧；非政策倡导但亦无法学论证），枢纽性=2/4（涉及多制度但无连锁调整需求），材料新颖性未触发上限。锚定unacceptable档，扣25分（新概念包装旧问题：'人民团体规章'未说明相对'社会规范''党内法规'等既有概念的理论进步），扣20分（宏观介绍非深度分析：无学者观点交锋），扣30分（主题声明非研究问题：全文无可争辩法学争点），合计扣75分，但不得低于30分，故最终45分。",
+          "evidence_quotes": [
+            "本文试图描述和分析的现象并不是人民团体本身，而是其制定的与规范性文件相比更为规范化的规章制度",
+            "人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则"
+          ],
+          "strengths": [
+            "选题涉及规范体系边缘地带，有一定制度关照价值"
+          ],
+          "weaknesses": [
+            "全文为描述性体系建构，未提出可争辩的法学问题",
+            "无学者观点交锋，仅单向陈述制度现状"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'等问题句，仅有'本文试图描述和分析'主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文系统界定“人民团体规章”概念，剖析其规范体系与司法效力，填补交叉领域空白。",
+          "core_judgment": "问题具有明确的法学争点与跨制度枢纽价值，虽偏重体系描述但理论推进扎实，创新性成立。",
+          "score_rationale": "可争辩性=3/4，枢纽性=4/4，材料新颖性未触发上限，前置检查扣分合计=0分，锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "人民团体并非民法意义上的“社会团体”，而是公法语境中的“社会团体”。",
+            "人民团体规章似可被认为是我国法的一种“认知渊源”。"
+          ],
+          "strengths": [
+            "精准提炼独立概念，厘清其与党内法规及国家法的规范边界。",
+            "结合司法案例与规范文本，深入论证其效力位阶与裁判说理功能。"
+          ],
+          "weaknesses": [
+            "缺乏显性争点句，问题意识偏重体系描述而非尖锐理论交锋。",
+            "对规章与实定法冲突时的具体审查标准论证稍显薄弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的争辩性与枢纽价值，不评文献综述与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 33.69928693771362,
+        "glm-5.1": 440.56601095199585,
+        "kimi-k2.6": 14.157953977584839,
+        "qwen3.6-plus": 72.59462571144104
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 35,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 82
+      },
+      "mean": 49.2,
+      "std": 22.3,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位，清晰构建了研究地图，呈现了多组学理争点和对立观点，三要素完整，争点结构清晰，法学流派识别充分。",
+          "core_judgment": "研究地图清晰，争点结构突出，法学流派覆盖良好，现状洞察度优秀。",
+          "score_rationale": "三要素得分=5/6（到达点2，未竟点1，本文切入点2），争点结构=2/2，法学流派=3个，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“对于人民团体的性质…既往研究一般将其简单地认定为政府体制的一部分…因此，将人民团体完全等同于政府组织、行政机关并不确切。”（到达点与未竟点）",
+            "“在法学研究中，对前述《社会团体登记管理条例》的规定存在两种解释。一是，人民团体属于广义的社会团体…二是，人民团体不同于一般的社会团体。”（争点结构）"
+          ],
+          "strengths": [
+            "分散式文献定位扎实：将既有研究观点（如政府体制说、民法社会团体说、公法社会团体说）有机融入正文，清晰勾勒出研究脉络。",
+            "法学流派识别充分：明确区分了形式法治语境下的公法定位、民法解释路径和党内法规学分析框架，形成了跨部门法的争点结构。"
+          ],
+          "weaknesses": [
+            "未竟点表述可更凝练：虽多处指陈既有定性研究的局限，但“尚未解决XX问题”的集中提炼稍显含蓄，可进一步加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评分为文献梳理的完整性与深度，不涉及问题本身是否新颖或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文清晰呈现了人民团体性质与规章定位的学术争点，研究地图完整。",
+          "core_judgment": "本维度成立，论文构建了完整的研究地图并呈现多重争点结构。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "在法学研究中，对前述规定存在两种解释。一是，人民团体属于广义的社会团体...二是，人民团体不同于一般的社会团体",
+            "已有研究从政治学、民法学等角度对人民团体所作定性分析容易将人民团体混同于党政机关或一般社会组织，而难以突出特点"
+          ],
+          "strengths": [
+            "争点结构清晰，呈现了人民团体法律性质与规章定位的双重对立",
+            "未竟点与切入点对应精准，指出既有定性混淆并提出党内法规学视角"
+          ],
+          "weaknesses": [
+            "未显式使用传统法学学派标签，但解释路径对立充分"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估的是文献梳理与争点呈现深度，而非人民团体规章概念本身的新颖性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 52,
+          "band": "unacceptable",
+          "summary": "研究地图残缺，三要素严重不足，争点结构与流派识别均缺失。",
+          "core_judgment": "本文缺乏对既有学术研究的系统梳理，未建立清晰的研究地图，未呈现可区分的学术争点或法学流派。",
+          "score_rationale": "三要素得分=1/6（到达点部分满足1分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，给52分。",
+          "evidence_quotes": [
+            "对于人民团体的性质，社会科学界虽多有关注，但迄今为止尚无完全明晰的界定。既往研究一般将其简单地认定为政府体制的一部分。",
+            "已有研究从政治学、民法学等角度对人民团体所作定性分析容易将人民团体混同于党政机关或一般社会组织，而难以突出人民团体及其所制定规章制度的特点。"
+          ],
+          "strengths": [
+            "提及社会科学界对人民团体性质的关注及简单定性。"
+          ],
+          "weaknesses": [
+            "未竟点与切入点均缺失，未明确既有研究的具体不足及本文要解决的问题。",
+            "无学术争点梳理，无对立观点呈现，无法学流派识别。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时，最高55分（no_research_map：研究地图严重残缺）",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "到达点仅1个模糊成果（'既往研究一般将其简单地认定为政府体制的一部分'），未竟点与切入点完全缺失，三要素总分仅1分。"
+            }
+          ],
+          "boundary_note": "本文问题在于文献定位而非问题新颖性，作者未在学术脉络中定位自身研究。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文精准定位既有定性分歧，构建清晰争点结构并有效衔接研究缺口。",
+          "core_judgment": "研究地图三要素完整，争点结构明确且流派识别充分，文献洞察度达到优秀水平。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "在法学研究中，对前述《社会团体登记管理条例》的规定存在两种解释。一是人民团体属于广义的社会团体……二是人民团体不同于一般的社会团体。",
+            "已有研究从政治学、民法学等角度对人民团体所作定性分析容易将人民团体混同于党政机关或一般社会组织，而难以突出其规章制度的特点。"
+          ],
+          "strengths": [
+            "精准提炼民法与公法解释路径分歧，构建清晰的规范定位争点结构。",
+            "分散式文献定位有效串联到达点、未竟点与本文切入点。"
+          ],
+          "weaknesses": [
+            "对党内法规学流派的既有学术争论脉络着墨较少，偏重单方引入。",
+            "效力争议部分未充分展开司法适用中的对立裁判观点与学说交锋。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估文献梳理与争点呈现深度，不涉及对人民团体规章研究选题本身的新颖性评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 45.78267812728882,
+        "glm-5.1": 53.06343913078308,
+        "kimi-k2.6": 10.888590812683105,
+        "qwen3.6-plus": 67.56440997123718
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 88,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 79.5,
+      "std": 18.4,
+      "strictest": 52,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "unacceptable",
+          "summary": "论文主要完成对人民团体规章现象的系统梳理与定性，未提出可供他人重复适用的分析框架或法学分析步骤。",
+          "core_judgment": "该论文属于政策理论梳理型研究成果，以归纳现有规则与司法案例为主，未构建出可操作的分析框架。",
+          "score_rationale": "框架可操作性得分=0/4（无明确分析步骤和分类标准），法学转化度得分=0/4（无裁判规则或操作指引），触发无框架上限规则，定位为unacceptable档，给45分。",
+          "evidence_quotes": [
+            "本文试图描述和分析的现象并不是人民团体本身，而是其制定的与规范性文件相比更为规范化的规章制度。",
+            "各人民团体规章…和党内法规体系相比缺少了监督保障板块。"
+          ],
+          "strengths": [
+            "对三大人民团体规章进行了详尽的制度现状梳理。",
+            "借助司法案例揭示了规章的实际效力形态。"
+          ],
+          "weaknesses": [
+            "全文未提出任何可重复适用的分析步骤或判断标准，属纯粹的现象归纳。",
+            "核心术语仅做外延列举，缺乏概念上的操作化定义与分析框架建构。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，触发无操作框架上限规则，最高不超过50分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无分析步骤、无分类标准，仅为对人民团体规章现象的描述性归纳。"
+            }
+          ],
+          "boundary_note": "该判断聚焦于论文未建立分析框架本身，不评价其论述逻辑的严密性或问题选择的新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文成功建构“人民团体规章”概念及体系效力分析框架，法学转化度高。",
+          "core_judgment": "框架建构力强，将政治社会概念成功转化为法学分析对象，体系分类与效力定位清晰可用。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则。",
+            "人民团体规章应当属于……法律法规之外……可以作为裁判说理的依据的一种规范性文件。"
+          ],
+          "strengths": [
+            "概念外延界定清晰，将政治表述转化为法学概念。",
+            "体系三分法与效力四维度分析框架在后文案例中被有效调用。"
+          ],
+          "weaknesses": [
+            "体系分类比照党内法规，自身独特性论证稍弱。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价框架建构与法学转化，不评价案例分析的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文以'人民团体规章'为核心概念，构建了'概念外延—体系构成—效力定位'的三层分析框架，但框架原创性有限，多为既有政策话语和党内法规学框架的移植套用。",
+          "core_judgment": "分析框架基本成立但原创性不足，属于政策理论梳理型论文，框架可操作性受限，法学转化度一般。",
+          "score_rationale": "框架可操作性得分=2/4（概念界定清晰、分类标准明确，但分析步骤化不足、后文调用有限），法学转化度得分=2/4（有跨学科转化尝试和制度层面分析，但裁判规则提炼不足），锚定marginal档，给52分。",
+          "evidence_quotes": [
+            "人民团体规章指人民团体所制定的专门规章制度……人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则",
+            "各人民团体规章应当至少包括履行职责规章制度、团体组织规章制度、自身建设规章制度三个子集"
+          ],
+          "strengths": [
+            "概念界定清晰，明确区分'人民团体规章'与规范性文件、党内法规的边界",
+            "体系建构完整，借鉴党内法规学框架形成三板块分类"
+          ],
+          "weaknesses": [
+            "框架核心术语来自权威表述和政策话语，原创概念界定不足",
+            "分析多为描述性归纳，缺乏可重复适用的判断步骤或评价标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化时，最高50分",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "论文核心框架'履行职责—团体组织—自身建设'三分类直接借鉴党内法规学'1+4'框架，未转化为独立的法学分析步骤；'部分实定法化''对外效力'等分析维度缺乏明确判断标准"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架本身的建构力与法学转化，不涉及具体论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "概念界定清晰，体系分类明确，法学转化充分，属优秀理论框架。",
+          "core_judgment": "框架成立且具备强法学转化力，能有效指导规范定位与司法审查。",
+          "score_rationale": "框架可操作性得分3/4，法学转化度得分4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "“人民团体规章即人民团体制定的章程、准则、条例、规定、办法、规则、细则。”",
+            "“人民团体规章能否得到司法机关的承认，关键取决于它是否符合基本法律原则。”"
+          ],
+          "strengths": [
+            "核心概念界定清晰，外延以规范形式明确划定。",
+            "体系三分法逻辑严密，并在后文案例与效力分析中反复调用。"
+          ],
+          "weaknesses": [
+            "缺乏程序化的裁判适用步骤，操作指引偏重理论阐释。",
+            "监督保障板块的缺失未转化为具体的审查规则设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.457890033721924,
+        "glm-5.1": 37.3603150844574,
+        "kimi-k2.6": 12.214316606521606,
+        "qwen3.6-plus": 64.54470109939575
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 88
+      },
+      "mean": 68.8,
+      "std": 23.6,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "论文对“人民团体规章”的概念、体系、效力进行了四步式推演，但存在理论层的关键跳步。",
+          "core_judgment": "实务描述层面的推理链尚算完整，但从描述到核心理论定性（如“认知渊源”）的论证存在关键跳步，削弱了整体严密性。",
+          "score_rationale": "推理链完整性得分=3/4（主要步骤可复述，结论可推出，但存在≥1处使核心结论无法充分推出的关键跳步），反驳处理度得分=1/3（仅隐含回应了民法解释分歧），锚定good档（70-79），因关键跳步扣分至68分。",
+          "evidence_quotes": [
+            "从以上案件中，可以得到一些规律性的认识……在全部四个案件中，最终引导司法机关作出裁判的都是基本法律原则。当人民团体规章的规定与基本法律原则相契合时，就会被法院援用，否则就会被忽视。",
+            "按照前述理论，人民团体规章似可被认为是我国法的一种“认知渊源”。更加准确地说，人民团体规章应当属于……“可以作为裁判说理的依据”的一种规范性文件。"
+          ],
+          "strengths": [
+            "核心论证主线清晰：从概念外延界定，到体系类型划分，再到效力探讨，层层递进。",
+            "较好地结合了大量司法判例与实定法条文来支撑效力部分的论证，使实务推理链较为扎实。"
+          ],
+          "weaknesses": [
+            "存在关键跳步：司法案例的效力分析（作为裁判说理依据）直接推导出法理上的“认知渊源”这一理论定性，中间缺乏对效力渊源与认知渊源区分标准的充分论证，属于结论性跳跃。",
+            "反驳处理不足：仅隐含地回应了民法上对人民团体性质的两种解释路径，未实质回应或提出反对意见来强化自身理论的排他性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处扣分是因“司法适用分析”到“认知渊源理论定性”之间缺乏论证链条，属于逻辑推理链的断裂，而非对理论框架本身可操作性的评价。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整层层递进，反驳充分，核心结论可辩护推出。",
+          "core_judgment": "维度成立，从概念界定到体系建构再到效力分析形成严密支撑链条。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "将人民团体等同于政府组织并不确切…参公管理只是对工作人员身份认定而非团体定性",
+            "当规章与基本法律原则相契合时被援用…否则被忽视，似可被认为是我国法的一种认知渊源"
+          ],
+          "strengths": [
+            "概念-体系-效力推理链紧密咬合，依赖度高",
+            "对反对意见和自身局限有实质性回应与承认"
+          ],
+          "weaknesses": [
+            "从政治定位到公法属性的局部过渡稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评推理链支撑度，不评体系框架可操作性，不评结论学界可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'概念界定—体系建构—效力分析'的完整推理链，但反驳处理与关键过渡论证存在薄弱。",
+          "core_judgment": "推理链完整性3/4，反驳处理度1/3，锚定good档，给72分。",
+          "score_rationale": "推理链完整性得分=3/4：标准1成立（概念外延→体系三分→效力四维度→比较定位）；标准2成立，体系分析依赖概念界定；标准3基本成立，'认知渊源'结论由司法案例分析支撑；标准4存在1处关键跳步：从'司法适用'直接推出'认知渊源'，未充分回应'效力渊源'与'认知渊源'区分的理论争议。反驳处理度得分=1/3：标准1满足（信号②，呈现'广义社会团体'与'非社会团体'两种解释路径并选择后者）；标准2部分满足（选择有理由但理论争辩回应不足）；标准3不满足（未承认'人民团体规章'概念本身的局限）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "人民团体并非民法意义上的'社会团体'，而是公法语境中的'社会团体'",
+            "人民团体规章应当属于……可以作为裁判说理的依据的一种规范性文件"
+          ],
+          "strengths": [
+            "概念到体系的推理依赖关系清晰，删除'公法语境'定义后体系分析失去根基",
+            "司法案例与理论框架的对应关系论证较为充分"
+          ],
+          "weaknesses": [
+            "'认知渊源'结论的推导存在跳步，未充分回应雷磊理论的应用边界",
+            "未处理'人民团体规章'与'党内法规'概念类比可能引发的质疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链是否支撑结论，不评价'社会规范体系'框架本身的理论原创性。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“概念界定—体系划分—效力分析—规范定位”的严密推理链，核心结论获充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理充分，结论可辩护推出，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。概念到体系再到效力的推导严密，对既有观点与潜在疑虑均有实质回应。",
+          "evidence_quotes": [
+            "已有研究从政治学、民法学等角度对人民团体所作定性分析容易将人民团体混同于党政机关或一般社会组织",
+            "人民团体规章能否得到司法机关的承认，关键取决于它是否符合基本法律原则"
+          ],
+          "strengths": [
+            "推理步骤呈递进式依赖，逻辑衔接紧密",
+            "对既有反对观点进行了实质性法理回应与路径选择论证"
+          ],
+          "weaknesses": [
+            "对监督保障板块缺失的制度成因分析稍显简略，未充分展开理论边界限定"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的推导严密性与结论可辩护性，而非评价其提出的规范体系框架是否具备实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 78.78256916999817,
+        "glm-5.1": 44.16696071624756,
+        "kimi-k2.6": 11.135205030441284,
+        "qwen3.6-plus": 54.70665001869202
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81,
+      "std": 12.8,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "结论提出人民团体规章是独立规范类型并获得认知渊源定位，能进入共同体对话，但理论框架对反对意见和制度转化路径回应不足。",
+          "core_judgment": "结论的可接受性良好，能与现行法秩序及党内法规研究传统对话，但将规章定性为“认知渊源”的论证未能充分回应反对意见和制度转化路径。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4。论文为制度论文（A≥3, B=3），锚定good档，因缺乏对反对意见的充分回应和制度转化路径设计，给78分。",
+          "evidence_quotes": [
+            "人民团体规章应当属于……“根据审理案件的需要，经审查认定为合法有效的，可以作为裁判说理的依据”的一种规范性文件。",
+            "人民团体规章似可被认为是我国法的一种“认知渊源”。"
+          ],
+          "strengths": [
+            "结论明确回应了法学界关于人民团体性质的争论，将讨论从民法转向公法语境，具有对话性。",
+            "通过大量司法判例论证规章的效力，结论与我国现行司法实践高度兼容，制度可接受度强。"
+          ],
+          "weaknesses": [
+            "结论部分未主动承认或讨论“认知渊源”定位可能面临的反对意见（如与效力渊源的模糊边界）。",
+            "对于人民团体规章如何在制度层面转化为明确的裁判规则或备案审查机制，缺少方向性指引。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评估结论当下的可接受性，不涉及论证过程严密性或未来延展性，也不对结论的正确性做终局判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文结论在共同体对话度和制度可接受度上均表现优异，有效回应既有争论并与中国法秩序高度兼容。",
+          "core_judgment": "结论成功将人民团体规章定位为独立的规范类型，回应了法学界对其性质的争论，且与现行法秩序逻辑兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "既往研究一般将其简单地认定为政府体制的一部分……将人民团体完全等同于政府组织、行政机关并不确切。",
+            "人民团体规章应当属于……法律法规之外‘根据审理案件的需要，经审查认定为合法有效的，可以作为裁判说理的依据’的一种规范性文件。"
+          ],
+          "strengths": [
+            "明确修正了既往将人民团体等同于政府机关或一般社会组织的观点，回应了学术争论。",
+            "结论提出人民团体规章作为法之“认知渊源”的定位，为中国规范体系安顿了新类型。"
+          ],
+          "weaknesses": [
+            "对反对意见（如认为其仅为内部规范）的讨论虽在正文有，但结论部分未显式承认局限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体和制度语境接受、回应，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "论文提出'人民团体规章'作为独立规范类型，在理论建构与制度回应间取得平衡，但对话深度有限。",
+          "core_judgment": "结论具有学术对话性和制度兼容性，但主动回应反对意见不足，共同体对话度受限。",
+          "score_rationale": "共同体对话度得分=3/4（回应了人民团体定性争论、能被定位回应、结合中国语境，但未充分讨论反对意见）；制度可接受度得分=3/4（不与法秩序矛盾、回应制度约束、考虑中国语境，但制度转化方向不够明确）。锚定good档，给72分。",
+          "evidence_quotes": [
+            "人民团体并非民法意义上的'社会团体'，而是公法语境中的'社会团体'",
+            "人民团体规章应当属于《关于裁判文书引用法律、法规等规范性法律文件的规定》第6条所称……可以作为裁判说理的依据"
+          ],
+          "strengths": [
+            "明确区分人民团体与一般社会组织、党政机关，定位清晰",
+            "结合宪法、民法典、党内法规等多维度制度语境展开论证"
+          ],
+          "weaknesses": [
+            "未充分讨论'人民团体规章'概念可能面临的理论质疑",
+            "对'认知渊源'定位的反对意见回应不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不评论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论精准定位人民团体规章的独立规范地位，兼具理论对话与制度回应。",
+          "core_judgment": "结论明确回应既有定性争议，在现行法秩序内完成规范定位，具备高度可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "已有研究……容易将人民团体混同于党政机关或一般社会组织，而难以突出其特点。",
+            "人民团体规章能否得到司法机关的承认，关键取决于它是否符合基本法律原则。"
+          ],
+          "strengths": [
+            "精准辨析既有理论误区，确立独立规范类型定位。",
+            "深度结合司法裁判与实定法授权，制度回应扎实。"
+          ],
+          "weaknesses": [
+            "对非“工青妇”群团规章的差异化论证稍显简略。",
+            "未系统展开备案审查等程序衔接的具体方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密度或未来研究延展。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 75.4060959815979,
+        "glm-5.1": 15.1232430934906,
+        "kimi-k2.6": 8.770005226135254,
+        "qwen3.6-plus": 55.13406014442444
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 85,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 81.8,
+      "std": 8.7,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文在结论部分提出了宏观的制度完善方向，但未能定位具体的研究问题、概念边界或理论深化路径，延展信号较弱。",
+          "core_judgment": "论文存在概括性的延展方向，但缺乏可定位的具体后续研究问题或概念修正路径，与正文论证的衔接较松散。",
+          "score_rationale": "原始分45，对应bonus=2档位。论文虽提出将人民团体规章纳入社会规范体系建设，但未指明具体待修正对象或理论争议点，缺乏可操作的深化方向。",
+          "evidence_quotes": [
+            "促进包括“团体规章”在内的“社会规范体系”建设，是提高全过程人民民主制度化、规范化、程序化水平……的题中之义。",
+            "工人、青年、妇女等团体生活的法治化水平到达高位，也就意味着我们全民族和全体人民的社会生活基本实现了法治化。"
+          ],
+          "strengths": [
+            "将人民团体规章建设与全过程人民民主制度化、法治社会建设等宏观目标关联。"
+          ],
+          "weaknesses": [
+            "延展方向高度概括，未提出具体后续争点或理论修正路径。",
+            "未系统说明正文局限及未来研究应围绕何种具体问题展开。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文将法治化水平提升作为未来方向，属于制度完善方向的宏观展望，尚未进入结论可接受性评价范畴。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文指明了将研究对象扩展至其他群团组织及在规范体系中精确安顿人民团体规章的延展路径。",
+          "core_judgment": "存在清晰可定位的延展路径，将核心结论向其他群团组织适用及规范体系定位深化。",
+          "score_rationale": "原始分85，bonus档位为5分。论文明确将核心结论（实定法化与对外效力）向科协、残联等其他群团组织延伸，并提出在规范体系中安顿人民团体规章的理论深化方向，路径清晰可定位。",
+          "evidence_quotes": [
+            "以部分实定法化和具有对外效力来看，人民团体规章的外延也同样可以包括其他人民团体、群团组织制定的专门规章制度。",
+            "人民团体规章在我国规范体系中如何定位的问题，即在法律规范体系、党内法规体系……中如何安顿人民团体规章。"
+          ],
+          "strengths": [
+            "延展路径与正文核心结论紧密衔接，非空泛展望。",
+            "明确指出向科协、残联等其他群团组织扩展的具体对象。"
+          ],
+          "weaknesses": [
+            "对规范体系安顿问题的延展仅提出问题，未指明具体修正机制。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "规范体系安顿问题属于未来理论建构与制度衔接方向，而非当下结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文在结语部分提出人民团体规章外延可扩展至其他群团组织，并指出社会规范体系建设方向，但缺乏具体后续研究问题或明确的理论修正路径。",
+          "core_judgment": "存在概括性延展方向，但路径较粗、证据不足，与正文核心结论的衔接需要推断。",
+          "score_rationale": "原始分58，对应bonus=2档位。论文末尾提出'其他群团组织的人民团体规章'及'社会规范体系建设'两个方向，但仅为宏观提示，未形成具体后续争点或制度深化方案；正文核心在于'工青妇'三团体的比较分析，向外扩展缺乏充分论证支撑。",
+          "evidence_quotes": [
+            "以部分实定法化和具有对外效力来看，人民团体规章的外延也同样可以包括其他人民团体、群团组织制定的专门规章制度",
+            "促进包括'团体规章'在内的'社会规范体系'建设，是提高全过程人民民主制度化、规范化、程序化水平……的题中之义"
+          ],
+          "strengths": [
+            "指出人民团体规章可扩展至科协、残联等其他群团组织",
+            "将研究置于'社会规范体系'和'法治社会'建设宏观框架下"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题或下一轮争点",
+            "缺乏对'工青妇'之外群团组织规章特征的实质性比较分析"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文结语关于其他群团组织和社会规范体系的讨论属于未来研究方向，而非对当下结论可接受性的论证，故归入前瞻延展性维度。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 50,
+          "band": "marginal",
+          "summary": "论文提出向其他群团组织延展及融入社会规范体系建设的方向，但路径偏宏观。",
+          "core_judgment": "存在可定位的宏观延展方向，但缺乏具体争点设计与机制论证。",
+          "score_rationale": "原始分50，对应bonus=2。论文指出向其他群团组织延展及融入社会规范体系的方向，但表述偏宏观，缺乏具体研究问题或机制设计，属低档延展。",
+          "evidence_quotes": [
+            "也许有人会问，‘工青妇’之外的其他群团组织是否也有人民团体规章呢？……各群团组织……势必具有区别于一般社会组织内部规范的特征。",
+            "促进包括‘团体规章’在内的‘社会规范体系’建设，是提高全过程人民民主制度化、规范化、程序化水平……的题中之义。"
+          ],
+          "strengths": [
+            "明确指向其他群团组织规章的比较研究空间",
+            "将微观规章建设衔接至法治社会宏观目标"
+          ],
+          "weaknesses": [
+            "延展路径偏宏观，未提出具体后续争点",
+            "缺乏对理论修正或制度衔接的机制设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦未来理论与制度研究的拓展路径，而非评判当前结论的规范可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 51.34221315383911,
+        "glm-5.1": 36.60993266105652,
+        "kimi-k2.6": 9.228688955307007,
+        "qwen3.6-plus": 66.89798092842102
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 85,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 50
+      },
+      "mean": 59.5,
+      "std": 17.8,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 67.27,
+      "weighted_total": 68.3
+    },
+    "aggregation_strictest": {
+      "final_score": 48.53,
+      "weighted_total": 50.7
+    },
+    "avg_std": 17.3,
+    "max_std": 23.6,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 18.7,
+    "composite_score": -17.3,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 23.6
+  }
+}

@@ -1,0 +1,1119 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "法学三大刊论文/中国法学/司法改革背景下逮捕的若干问题研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "期刊页码混入正文：正文中混入'中国法学 2017年第3期'以及多处页码数字（如26,27,28等），属于排版残留。",
+          "OCR/脚注格式错乱：多处注释编号与正文粘连，如'学刊}2015年第3期''学报~2015年第3期'等，存在标点符号及括号乱码。",
+          "参考文献列表缺失：论文末尾无参考文献列表，仅有'参考文献列表：（无）'标注。",
+          "少量OCR残留：如'l10一l18页''2o16年第1期'等字母数字识别错误，但不影响核心论点理解。"
+        ],
+        "evidence_quotes": [
+          "中国法学 2017年第3期",
+          "载《国家检察官学院学报}2015年第3期。",
+          "载《中国律师)20o0年第9、lO期",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "逮捕作为最严厉的一种刑事强制措施，直接关系公民的人身自由。为充分保障人权，解决逮捕制度存在的突出问题...",
+          "我国逮捕制度既是宪法制度、刑事司法制度，也是中国特色社会主义检察制度有机组成部分...",
+          "以社会危险性为核心，使逮捕必要性真正成为如何适用逮捕、不捕与运用少捕政策的'分水岭'...",
+          "构建一种检察官居中裁断，侦查机关、辩护律师充分参与、相互对抗的司法审查程序...",
+          "完善逮捕制度，实现控制犯罪与保障人权的合理平衡是关键，也是本文要表达的核心理念。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程风险：参考文献列表缺失，部分OCR/脚注格式错乱，但不影响核心论证识别。",
+        "项目口径：论文以中国逮捕制度为研究中心，具有明确的中国问题中心性与法学问题意识，建议进入六维评分。"
+      ],
+      "evidence_quotes": [
+        "我国逮捕制度既是宪法制度、刑事司法制度，也是中国特色社会主义检察制度有机组成部分...",
+        "逮捕的定位：控制犯罪与保障人权平衡",
+        "构建以社会危险性为核心的逮捕条件",
+        "从构罪即捕向比例原则转变",
+        "探索建立诉讼式机制"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在OCR/脚注格式错乱和参考文献缺失，但不影响核心论点定位。论文聚焦中国逮捕制度的定位、理念更新、条件体系与诉讼化转型，具备明确的中国法学问题意识与理论建构尝试，建议进入六维评分，在后续评审中提示专家关注文本抽注风险。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号及参考文献存在OCR乱码、期刊名称括号错位（如使用}、)代替]或缺失括号）及年份数字识别错误（如2olo、2o14、2Oo4、2ox2等）",
+          "部分脚注内容与正文混排，存在页码及期刊名残留"
+        ],
+        "evidence_quotes": [
+          "参见樊崇义：《法律监督职能哲理论纲》，载《人民检察)2olo年第l期。",
+          "参见卞建林：《论我国审前羁押制度的完善》，载《法学家) )2ox2年第3期。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国逮捕制度既是宪法制度、刑事司法制度，也是中国特色社会主义检察制度的有机组成部分，受检察制度一般规律的制约。",
+          "构建以社会危险性为核心的逮捕条件……进而，逮捕的一体化证明方式应当转化为递进式、双层次的证明方式。",
+          "双层次证明标准符合刑事证明的基本原理……将逮捕证明标准进行分层，对于事关重大人身权益的证明采用严格的证明方式……对于程序性事实采取自由证明方式。",
+          "逮捕诉讼化转型，是指改变以往审查逮捕程序书面、封闭、行政化审查方式，构建一种检察官居中裁断，侦查机关、辩护律师充分参与、相互对抗的司法审查程序。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注及参考文献存在OCR乱码、括号错位及年份数字识别错误，但不影响正文核心论点定位"
+      ],
+      "evidence_quotes": [
+        "构建以社会危险性为核心的逮捕条件",
+        "双层次证明标准",
+        "逮捕诉讼化转型"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评审，但需在后续阶段注意脚注及参考文献OCR乱码的校正与清理"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在乱码（如⑩、⑨、③等混用且部分重复）",
+          "参考文献列表未抽取（标注为“无”）",
+          "部分页码和期刊信息混入正文（如“中国法学 2017年第3期”）"
+        ],
+        "evidence_quotes": [
+          "⑨数据来源于最高人民检察院案件管理办公室。",
+          "⑩参见孙谦：《关于修改后刑事诉讼法执行情况的若干思考》，载《国家检察官学院学报}2015年第3期。",
+          "中国法学 2017年第3期",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "司法改革背景下逮捕的若干问题研究",
+          "我国逮捕制度既是宪法制度、刑事司法制度，也是中国特色社会主义检察制度的有机组成部分",
+          "构建以社会危险性为核心的逮捕条件",
+          "建立双层次的逮捕证明标准",
+          "探索逮捕程序的诉讼化转型",
+          "羁押审查一体化是指对犯罪嫌疑人、被告人的羁押审查——逮捕、延长侦查羁押期限、羁押必要性审查——应当“一体化”对待"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号存在OCR残留乱码，但不影响核心内容定位；参考文献列表未抽取，但正文引用完整",
+        "项目口径：论文明确以中国司法改革中的逮捕制度为研究对象，具有充分的中国问题中心性和法学理论转化价值"
+      ],
+      "evidence_quotes": [
+        "司法改革背景下逮捕的若干问题研究",
+        "我国逮捕制度既是宪法制度、刑事司法制度，也是中国特色社会主义检察制度的有机组成部分",
+        "构建以社会危险性为核心的逮捕条件",
+        "建立双层次的逮捕证明标准",
+        "探索逮捕程序的诉讼化转型"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文符合项目口径，进入六维评分。建议评分时注意脚注和参考文献的OCR问题，但不影响主体评审。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "OCR识别导致部分脚注编号（如⑨、⑩、@等）及乱码混入正文段落",
+          "部分专业术语因换行或OCR识别出现断字/错字（如“社会危险l性”“社会危险I生”“社会危险『生”）",
+          "期刊页眉、页码及栏目名称（如“中国法学 2017年第3期”“26”“27”等）穿插于正文行间"
+        ],
+        "evidence_quotes": [
+          "社会危险l性条件",
+          "中国法学 \n2017年第3期",
+          "⑨\n数据来源于最高人民检察院案件管理办公室。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国逮捕制度既是宪法制度、刑事司法制度，也是中国特色社会主义检察制度的有机组成部分，受检察制度一般规律的制约。",
+          "在司法改革背景下，审查逮捕的理念应做到“三个转变”...从构罪即捕向比例原则转变",
+          "将逮捕证明标准进行分层...双层次证明标准符合刑事证明的基本原理",
+          "构建以社会危险性条件为核心的逮捕条件...进而构建羁押审查一体化机制"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗OCR脚注乱码、修复断字、剔除穿插页码，建议进行自动化文本规整",
+        "项目口径：无。四项核心信号均明确触发，具备直接进入六维评价的充分条件"
+      ],
+      "evidence_quotes": [
+        "以社会危险性条件为核心...构建羁押审查一体化机制",
+        "建立双层次的逮捕证明标准...兼顾社会安全与公民自由、侦查效率与程序正义"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文聚焦中国刑事司法改革中的逮捕制度，深入探讨检察机关审查逮捕的司法化转型、社会危险性核心地位及双层次证明标准等可争辩命题，具有鲜明的中国问题意识与理论转化能力。文本存在轻微OCR与排版残留，但不影响核心论点定位。建议清洗格式后直接进入六维评分流程。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "论文是对逮捕制度改革的宏观阐述，缺乏可争辩的法学研究问题，整体呈现为政策倡导和理念宣讲。",
+          "core_judgment": "全文未提出任何可争辩的法学问题，仅围绕既定改革立场进行体系化介绍，不构成法学研究命题。",
+          "score_rationale": "可争辩性=0/4，枢纽性=2/4，材料新颖性未触发但被负面模式扣分。触发检查1扣20分、检查2扣20分、检查3扣30分，扣分合计70分，扣分后不低于30分。原始分50分(可争辩性≤1触发上限)，扣减后最终得分38分。",
+          "evidence_quotes": [
+            "强化人权司法保障，是深化司法体制改革的一项重要任务。为充分保障人权，解决逮捕制度存在的突出问题，必须正确认识逮捕的定位，更新司法理念。",
+            "在司法改革背景下，完善逮捕制度，实现控制犯罪与保障人权的合理平衡是关键，也是本文要表达的核心理念。"
+          ],
+          "strengths": [
+            "对逮捕制度的定位、理念和条件进行了系统性梳理，结构清晰。",
+            "涉及社会危险性条件、比例原则和诉讼化改革等实务议题，具有现实关注度。"
+          ],
+          "weaknesses": [
+            "全文为政策倡导和理念宣讲，未提出可争辩的法学问题，缺乏学者观点交锋。",
+            "将逮捕制度改革作为既定命题进行阐释，未说明研究问题或理论分歧所在。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1触发上限，最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无任何'XX是否YY'、'如何ZZ'等问题句，只有主题声明和政策倡导。"
+            },
+            {
+              "rule_id": "negative_pattern_check_1",
+              "rule": "新概念包装旧问题，扣20分",
+              "score_ceiling": null,
+              "priority": 2,
+              "evidence": "引入'司法审查'、'比例原则'等概念，但未说明相对既有概念的理论进步，多为既有理念的复述。"
+            },
+            {
+              "rule_id": "negative_pattern_check_2",
+              "rule": "宏观介绍非深度分析，扣20分",
+              "score_ceiling": null,
+              "priority": 3,
+              "evidence": "全文无任何学者观点交锋，仅系统归纳学界既定立场。"
+            },
+            {
+              "rule_id": "negative_pattern_check_3",
+              "rule": "主题声明非研究问题，扣30分",
+              "score_ceiling": null,
+              "priority": 4,
+              "evidence": "全文无任何问题句，只有'必须正确认识逮捕的定位'等政策倡导声明。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证严密性及材料支撑结论的程度。",
+          "review_flags": [
+            "problem_validity_unclear",
+            "evidence_thin",
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 30,
+          "band": "unacceptable",
+          "summary": "论文缺乏可争辩的问题句，以主题声明和政策倡导为主，虽有枢纽性但问题性不足。",
+          "core_judgment": "论文问题创新性极低，仅为制度完善的宏观阐释，无核心法学争点。",
+          "score_rationale": "可争辩性=1/4，枢纽性=4/4，材料新颖性未触发上限，锚定unacceptable档，给40分；前置扣分45分，底线30分",
+          "evidence_quotes": [
+            "为充分保障人权，解决逮捕制度存在的突出问题，必须正确认识逮捕的定位，更新司法理念",
+            "逮捕是否客观中立，关键不在于权力归属，而在于程序设置"
+          ],
+          "strengths": [
+            "逮捕制度涉及多领域，枢纽性强"
+          ],
+          "weaknesses": [
+            "无问题句，纯主题声明与政策倡导",
+            "阐释既定立场，未展开理论交锋"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性 ≤ 1 → 最高 50 分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无问题句，只有主题声明与政策倡导，无可争辩的法学争点"
+            }
+          ],
+          "boundary_note": "本维度只评问题是否成立且重要，不评文献综述充分性或论证严密性",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为政策阐释型文章，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文以'应当如何完善逮捕制度'为主线，系对既定改革立场的系统阐释，未提出真正的法学争点。",
+          "score_rationale": "可争辩性=1/4（仅有主题声明，无问题句；涉及法学规范但无理论分歧交锋；实为政策倡导），枢纽性=2/4（涉及逮捕、羁押多制度，有理论基础），材料新颖性未触发上限。负面模式扣分：检查2扣20分（无学者观点交锋）+检查3扣30分（无问题句，只有主题声明）=50分。正式评分锚定unacceptable档，原档内给35分，扣50分后低于30分底线，按规则取30分。",
+          "evidence_quotes": [
+            "完善逮捕制度，实现控制犯罪与保障人权的合理平衡是关键，也是本文要表达的核心理念",
+            "具体从以下进路加以完善：一是在制度设计和司法理念上秉持司法审查原则"
+          ],
+          "strengths": [
+            "主题涉及刑事司法核心制度，有一定实践意义"
+          ],
+          "weaknesses": [
+            "全文为'应当如何'的政策倡导，无真正的法学争点",
+            "缺乏不同学术观点的交锋与对话"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1时最高50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文无'XX是否YY'类问题句，只有'应当如何完善逮捕制度'的主题声明"
+            },
+            {
+              "rule_id": "problem_originality.weak_problem_formulation",
+              "rule": "可争辩性=2但问题表述过于宏大无法聚焦时最高65分",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "不适用，因可争辩性仅1分"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述、论证严密性或材料支撑。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦逮捕制度定位、条件逻辑与证明标准，主张以社会危险性为核心重构体系。",
+          "core_judgment": "问题具有明确的法学争辩性，触及刑诉法核心制度与基础理论，枢纽性强，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。负面检查扣0分。",
+          "evidence_quotes": [
+            "逮捕三条件之间存在内在逻辑关系……社会危险性条件是核心条件。",
+            "学界对于社会危险性条件的证据应采取何种证明标准存在差异……确立优势证据的证明标准为宜。"
+          ],
+          "strengths": [
+            "明确提炼社会危险性核心地位与双层次证明标准，争点清晰。",
+            "深度介入行政化审批与司法化审查的长期理论分歧，论证扎实。"
+          ],
+          "weaknesses": [
+            "部分改革建议偏向实务操作指引，理论抽象度可进一步提升。",
+            "对国际公约本土化适用的法理冲突探讨略显简略。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身是否成立且重要，不评文献综述、论证逻辑与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.991962909698486,
+        "glm-5.1": 39.618502140045166,
+        "kimi-k2.6": 17.72596502304077,
+        "qwen3.6-plus": 63.09167695045471
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 30,
+        "kimi-k2.6": 35,
+        "qwen3.6-plus": 92
+      },
+      "mean": 48.8,
+      "std": 29.0,
+      "strictest": 30,
+      "strictest_model": "glm-5.1"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 65,
+          "band": "marginal",
+          "summary": "论文通过注释大量引证了既有研究成果，触及了逮捕权归属、审查程序行政化等争点，但未将外部文献明确塑造为可对立的学派脉络。",
+          "core_judgment": "研究地图三要素基本具备，但文献定位分散于注释，缺少将争论组织为多学派对立的争点结构，仅呈现了权力归属与程序模式两类分歧。",
+          "score_rationale": "三要素得分=5/6，争点结构=2/2，法学流派=2个（逮捕权归属中法院审查派与检察审查派、书面审行政化与司法化程序派），锚定good(75-84)档，但因论文未在正文中明确将学术争论梳理为可区分的流派脉络，且三要素中未竟点与切入点的对应关系稍弱，综合评定给65分。",
+          "evidence_quotes": [
+            "检察官是否具有履行决定羁押权所要求的客观性和公正性，关系到逮捕的正当性，不仅在国际上有许多讨论，也是我国逮捕权归属争论的焦点。",
+            "现有的逮捕程序具有较浓厚的行政审批色彩……与逮捕制度重在对审前羁押进行法律监督这一制度定位和要求不相吻合。"
+          ],
+          "strengths": [
+            "注释中引用了大量国内外刑法、刑诉法学者的观点与著作，到达点较为扎实。",
+            "明确提出了逮捕权归属、审查程序行政化等核心争议，并作为本文切入点的基础。"
+          ],
+          "weaknesses": [
+            "文献引用多集中在注释，正文未将不同学术立场系统组织为可对立的法学流派。",
+            "未竟点与本文切入点的对应逻辑稍显松散，缺少“针对上述缺口，本文拟解决X”的明确句式。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "争点结构=2但法学流派≤2，未在正文中将既有学术争论组织为明确的学派脉络。",
+              "score_ceiling": 65,
+              "priority": 1,
+              "evidence": "论文在注释中呈现了逮捕权归属、审查程序行政化与司法化、证明标准等争论，但正文未以“形式法治/实质法治”、“德日路径/英美路径”等术语明确将其梳理为学派对立。"
+            }
+          ],
+          "boundary_note": "本评聚焦于文献梳理脉络的完整性，不涉及问题本身是否新颖或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，呈现多个核心争点与对立流派，洞察度极高。",
+          "core_judgment": "本维度完全成立，文献定位清晰，争点结构丰满，流派识别充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=7个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "学界对于社会危险性条件的证据应采取何种证明标准存在差异，有主张优势证据、合理根据证明标准、高度盖然性等几种证明标准。",
+            "西方一些国家将逮捕审查交由法院行使...在我国，检察机关是独立于行政机关、审判机关之外专门的法律监督机关"
+          ],
+          "strengths": [
+            "分散式文献定位精准，未竟点与切入点高度对应",
+            "呈现犯罪控制/正当程序、法院/检察审查等多重争点与流派对立"
+          ],
+          "weaknesses": [
+            "部分争点（如证明标准）的流派梳理稍显简略，未深入展开各流派内部论证"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦于文献定位与争点结构，不涉及问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文缺乏系统的研究地图构建，未呈现既有研究的到达点、未竟点与本文切入点的清晰结构。",
+          "core_judgment": "本文虽涉及逮捕制度的多方面讨论，但未建立有效的文献对话机制，研究地图三要素严重缺失。",
+          "score_rationale": "三要素=1/6（到达点部分满足1分，未竟点0分，切入点0分），争点结构=0/2，法学流派=0个，锚定unacceptable档，但存在部分理论引述，综合给55分。",
+          "evidence_quotes": [
+            "有论者认为该标准过高，等同于公诉、审判的犯罪事实证明标准；有论者认为该标准过低...也有论者认为该标准比较合理。",
+            "学界对于社会危险性条件的证据应采取何种证明标准存在差异，有主张优势证据、合理根据证明标准、高度盖然性等几种证明标准。"
+          ],
+          "strengths": [
+            "部分章节提及不同学者观点，有一定文献引述。",
+            "涉及比较法内容（如美国审前羁押、英国保释制度）。"
+          ],
+          "weaknesses": [
+            "未明确提炼既有研究的具体成果与贡献，到达点模糊。",
+            "未指出研究缺口或学术争议，未竟点与切入点均缺失。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "三要素总分≤1时最高55分",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "论文未建立到达点、未竟点、切入点的清晰结构，仅零散引述学者观点，无明确研究地图。"
+            }
+          ],
+          "boundary_note": "本维度评文献梳理完整性，不评问题新颖性或论证严密性；论文问题本身有实践价值，但文献定位不足。",
+          "review_flags": [
+            "needs_external_context"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文系统梳理逮捕制度既有研究，精准锚定实践缺口，提出诉讼化转型与双层次证明标准切入点。",
+          "core_judgment": "研究地图完整清晰，争点脉络分明，流派识别充分，完全满足本维度高分标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "关于我国审查逮捕程序存在诸多批评声音，包括逮捕行政化审批、司法属性不明显……",
+            "对于‘有证据证明有犯罪事实’，理论上存在较多争议：有论者认为该标准过高……"
+          ],
+          "strengths": [
+            "精准提炼证明标准与羁押模式的多维学术分歧，到达点扎实。",
+            "未竟点与切入点高度对应，直接回应司法改革中的诉讼化转型需求。"
+          ],
+          "weaknesses": [
+            "部分比较法经验引述偏重制度描述，理论对话深度可进一步挖掘。",
+            "对‘社会危险性’评估的跨学科流派覆盖略少。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "聚焦既有文献梳理与争点呈现，未涉及问题本身新颖性或论证逻辑评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 114.99448704719543,
+        "glm-5.1": 42.43800210952759,
+        "kimi-k2.6": 14.509394884109497,
+        "qwen3.6-plus": 60.50812387466431
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 65,
+        "glm-5.1": 90,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 92
+      },
+      "mean": 75.5,
+      "std": 18.4,
+      "strictest": 55,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "论文对逮捕制度进行了系统的理念梳理和制度分析，但未提出可操作的分析框架，核心术语依赖政策表述，缺乏原创性结构工具。",
+          "core_judgment": "本文属于政策理论梳理型论文，未建构出可重复适用的分析框架，法学转化度低，可操作性不足。",
+          "score_rationale": "框架可操作性得分=1/4（仅概念界定勉强清晰），法学转化度得分=1/4（仅有比例原则的粗略操作指向），触发政策梳理型上限规则，锚定unacceptable档，但因有部分操作意图给45分。",
+          "evidence_quotes": [
+            "逮捕的定位：控制犯罪与保障人权平衡...从价值、制度、角色三方面审视逮捕定位。",
+            "审查逮捕的理念应做到“三个转变”：从注重打击犯罪向重视保障人权转变...从构罪即捕向比例原则转变。"
+          ],
+          "strengths": [
+            "对逮捕定位、条件逻辑关系等进行了系统的学理阐释。"
+          ],
+          "weaknesses": [
+            "核心概念如“社会危险性”缺乏明确的操作性定义和判断步骤。",
+            "大量使用“应当”“需要”等规范呼吁，但缺乏具体的制度设计方案。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "政策理论梳理型论文：框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以阐释逮捕定位和司法理念更新为主，核心术语来自权威表述，主要贡献是梳理和归纳，未提出可重复适用的分析步骤或判断标准。"
+            }
+          ],
+          "boundary_note": "本文不评逻辑衔接或问题新颖性，仅评分析框架的建构力与法学转化度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "构建了以社会危险性为核心的逮捕条件逻辑与双层次证明标准框架，法学转化度高。",
+          "core_judgment": "分析框架高度成立且可用，成功将抽象理念转化为具体的司法审查规则与制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "证据和刑罚条件是前提、基础条件，社会危险性条件是核心条件，进而转化为递进式、双层次的证明方式",
+            "双层次证明标准：第一层次是对逮捕犯罪事实的证明标准，第二层次是对社会危险性的证明标准"
+          ],
+          "strengths": [
+            "提出了递进式逮捕条件逻辑与双层次证明标准，操作性强",
+            "将比例原则等理念转化为具体的司法审查步骤与诉讼化程序方案"
+          ],
+          "weaknesses": [
+            "诉讼化转型的七点方案稍显庞杂，步骤间的衔接可进一步精炼"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评分聚焦框架的操作性与法学转化，不评价其论证逻辑的严密程度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 48,
+          "band": "marginal",
+          "summary": "论文提出'以社会危险性为核心'的逮捕制度分析框架，但核心概念界定模糊，分析步骤缺乏可操作性，法学转化停留在政策阐释层面。",
+          "core_judgment": "框架建构力未成立：虽有'三定位''三转变''一体化'等结构化表述，但均为政策理论梳理型归纳，未转化为可重复适用的法学分析步骤或裁判规则。",
+          "score_rationale": "框架可操作性得分=1/4（仅分类标准部分明确，概念界定不清、分析步骤不可循、后文调用不足）；法学转化度得分=1/4（社会危险性核心地位有制度指向但无操作化转化，双层次证明标准有雏形但未形成可重复判断步骤）。触发'政策理论梳理型'上限规则，锚定marginal档，给48分。",
+          "evidence_quotes": [
+            "逮捕的价值定位：控制犯罪与保障人权平衡……逮捕的制度定位：法律监督之下的司法审查……逮捕的角色定位：客观中立",
+            "审查逮捕的理念应做到'三个转变'……从注重打击犯罪向重视保障人权转变……从书面审查为主向司法化审查转变……从构罪即捕向比例原则转变"
+          ],
+          "strengths": [
+            "结构化归纳较完整，涵盖价值、制度、角色三维度",
+            "提出'社会危险性为核心'具有一定问题意识"
+          ],
+          "weaknesses": [
+            "核心术语'社会危险性'无操作化定义，缺乏判断标准",
+            "'三转变''一体化'等仅为政策口号，未转化为可重复分析步骤"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.policy_theory_review",
+              "rule": "政策理论梳理型论文：框架可操作性得分上限为2，法学转化度得分上限为1，总分通常不超过60分",
+              "score_ceiling": 60,
+              "priority": 1,
+              "evidence": "全文以'三定位''三转变''一体化'等权威表述/政策框架为主，无原创概念界定或类型化，主要贡献是'梳理''归纳'而非'建构''设计'"
+            },
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架核心术语完全无定义+无任何可循分析步骤+无法学转化",
+              "score_ceiling": 50,
+              "priority": 2,
+              "evidence": "'社会危险性'作为核心术语未给出'本文所称社会危险性是指……'的明确定义；'三转变''一体化'等缺乏第一步、第二步等可操作流程；后文分析仅为制度描述而非框架调用"
+            }
+          ],
+          "boundary_note": "本维度仅评框架本身是否成立可用，不评'以审判为中心'等观点的逻辑正确性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建以社会危险性为核心的逮捕条件与双层次证明标准，配套诉讼化程序，框架完整且具强操作性。",
+          "core_judgment": "分析框架成立且高度可用，成功将抽象司法理念转化为可操作的审查步骤与制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰、分类明确、步骤可循且后文充分调用；理念已完全转化为双层次证明标准、社会危险性评估及诉讼化审查流程等具体制度方案。",
+          "evidence_quotes": [
+            "证据和刑罚条件是前提、基础条件，社会危险性条件是核心条件。",
+            "将逮捕证明标准进行分层……第一层次是对逮捕犯罪事实的证明标准，第二层次是对社会危险性的证明标准。"
+          ],
+          "strengths": [
+            "核心概念（社会危险性、双层次证明标准）界定清晰且贯穿全文论证。",
+            "提供从条件审查、证明标准到诉讼化程序的完整制度设计方案。"
+          ],
+          "weaknesses": [
+            "部分程序转化（如第三方评估机制）缺乏具体证据规则衔接。",
+            "诉讼化审查的繁简分流标准可进一步量化以增强实操性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化能力，不涉及逻辑推演严密性或问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 70.8608660697937,
+        "glm-5.1": 35.560078859329224,
+        "kimi-k2.6": 20.12698793411255,
+        "qwen3.6-plus": 59.550373792648315
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 45,
+        "glm-5.1": 90,
+        "kimi-k2.6": 48,
+        "qwen3.6-plus": 92
+      },
+      "mean": 68.8,
+      "std": 25.7,
+      "strictest": 45,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 68,
+          "band": "good",
+          "summary": "论文推理链完整，结论有支撑，但未系统处理反驳与局限，拉低了分数。",
+          "core_judgment": "论文形成了较完整的理论推演链，结论可从前文推导得出，但因缺乏反驳处理和局限承认，逻辑严密性受限。",
+          "score_rationale": "推理链完整性得分=3/4（缺少关键结论的提炼总结致一步轻微跳步），反驳处理度得分=1/3（仅见隐含分歧回应），锚定good档，给68分。",
+          "evidence_quotes": [
+            "证据条件并非逮捕的专属条件...刑罚条件只是判断社会危险性条件的前提...社会危险性条件是核心条件。",
+            "我国宪法和刑事诉讼法既赋予了检察机关法律监督权，也规定了对逮捕措施的司法控制，在事实上确立了逮捕的司法审查原则。"
+          ],
+          "strengths": [
+            "推理链清晰可循：从定位→理念→条件解析→证明标准→程序转型，层层推进。",
+            "核心观点如“以社会危险性为核心”条件体系的构建，有较扎实的制度与理论推导支撑。"
+          ],
+          "weaknesses": [
+            "全文未明确回应学界反对意见或实质性质疑，呈现单边论证。",
+            "未承认任何适用局限或例外情形，削弱了论证的可驳辩性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文主要缺陷在于未回应反驳和承认局限，而非推理链断裂，故不触发断裂规则。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "推理链完整且层层依赖，反驳处理充分，结论可辩护推出。",
+          "core_judgment": "本维度完全成立，论文构建了从价值定位到制度转型的严密逻辑链条，并有效回应了实务分歧。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "逮捕三条件之间存在内在逻辑关系...证据和刑罚条件是前提，社会危险性条件是核心条件。",
+            "侦查机关普遍认为诉讼化审查会暴露证据...本文回应：审查逮捕是司法审查程序，应奉行司法权内在规律。"
+          ],
+          "strengths": [
+            "推理链层层递进，从定位理念到条件证明再到制度转型，逻辑闭环。",
+            "对实务反对意见（如侦查保密）给出了有力的法理回应。"
+          ],
+          "weaknesses": [
+            "局部实务建议（如第三方评估）推导稍简略，但未构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价聚焦于定位到转型的推导支撑，不评价第三方评估等方案的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从逮捕定位到制度完善的完整推理链，但反驳处理不足。",
+          "core_judgment": "推理链完整但反驳处理薄弱，核心结论可从前文推出但缺乏对反对意见的充分回应。",
+          "score_rationale": "推理链完整性得分=3/4（主要步骤可复述、依赖度成立、结论可推出，但存在局部跳步），反驳处理度得分=1/3（识别了部分分歧但未实质性回应，未承认局限），锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "逮捕的价值定位：控制犯罪与保障人权平衡→逮捕的制度定位：法律监督之下的司法审查→逮捕的角色定位：客观中立",
+            "构建羁押审查一体化机制……以社会危险性条件为核心"
+          ],
+          "strengths": [
+            "三维度定位形成递进推理链，从价值到制度再到角色层层推进",
+            "羁押审查一体化机制将逮捕、延押、羁押必要性审查贯通，逻辑自洽"
+          ],
+          "weaknesses": [
+            "对'法官行使逮捕权'的反对意见仅罗列未实质回应，反驳处理流于形式",
+            "未承认自身理论局限，如检察机关中立性不足的可能性质疑未涉及"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链支撑度，不评'检察机关行使逮捕权'结论本身是否可接受。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“理念更新—条件重构—证明分层—程序诉讼化”的严密推理链，核心结论由前文充分支撑。",
+          "core_judgment": "推理链条完整且环环相扣，反驳处理兼顾理论争辩与实务约束，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "证据和刑罚条件是前提、基础条件，社会危险性条件是核心条件。进而，逮捕的一体化证明方式应当转化为递进式、双层次的证明方式。",
+            "现阶段，不能一刀切要求所有案件都实行逮捕诉讼化审查，而应当根据案件的不同需要，当繁则繁，当简则简。"
+          ],
+          "strengths": [
+            "推理步骤呈递进式依赖，从价值定位自然推导至程序改造方案。",
+            "对“检法职权配置争议”与“证明标准分歧”均给出实质性回应。"
+          ],
+          "weaknesses": [
+            "诉讼化审查的配套救济机制论证稍显简略，实务落地路径可更细化。",
+            "部分比较法经验引入较快，本土化适配的逻辑衔接可再加强。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文聚焦制度推导与规范解释的逻辑自洽，而非单纯评价框架可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 62.963314056396484,
+        "glm-5.1": 38.75425934791565,
+        "kimi-k2.6": 12.268378257751465,
+        "qwen3.6-plus": 69.68561911582947
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 80.5,
+      "std": 12.3,
+      "strictest": 68,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 68,
+          "band": "good",
+          "summary": "结论稳健地回应当前司法改革共识，但多是在既定政策框架内阐述，未充分转化为可争辩的学术主张。",
+          "core_judgment": "结论对共同体对话有回应，但主动回应反对意见不足，学术争议性较弱，暂未触及强制复核规则。",
+          "score_rationale": "共同体对话度得分=2/4（回应了已有争论，在中国语境中说得通，但未明确说明与既有争论的关系，也未主动讨论反对意见），制度可接受度得分=3/4（符合法秩序、回应了制度约束、指出了转化方向）。触发理论论文降档例外，但作为制度/混合论文，锚定good(60-69)档，给68分。",
+          "evidence_quotes": [
+            "逮捕程序既是检察机关的审查逮捕权监督制约侦查权的体现，是静态制衡与动态制衡的结合。",
+            "从我国司法实际出发，检察官作为审查逮捕主体具有理论合理性和现实必要性，是中国特色司法制度的必然要求。"
+          ],
+          "strengths": [
+            "结论融入了中国检察制度特色，对现有司法改革话语有较强兼容性。",
+            "对逮捕的定位、条件、证明标准等核心问题提出了较为系统的制度化论述。"
+          ],
+          "weaknesses": [
+            "结论未能将“法律监督下的司法审查”等主张转化为可被反对者明确反驳的学术命题，有自洽有余、交锋不足之感。",
+            "全文未主动回应学界对检察审查逮捕中立性的重大质疑，也未讨论自身论证的局限。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.no_community_dialogue",
+              "rule": "共同体对话度=0时触发，但此处对话度=2，故不触发上限规则。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "本规则未实际触发，为满足输出结构空设。"
+            }
+          ],
+          "boundary_note": "本维度仅评价结论当下的可接受性，不评价论证逻辑严密性或未来延展价值。",
+          "review_flags": [
+            "community_dialogue_gap"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论充分回应学界争论并提出具体制度完善进路，与现行法秩序高度兼容。",
+          "core_judgment": "结论在共同体对话和制度语境中均高度可接受，提出了可争辩且可操作的制度方案。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "明确逮捕法定条件之间的递进关系，突出社会危险性在逮捕和羁押条件中的核心地位",
+            "探索逮捕程序的诉讼化转型，科学设置诉讼化审查范围、审查程序、配套机制"
+          ],
+          "strengths": [
+            "主动承认并讨论逮捕诉讼化面临的公正与效率、侦查保密等实务难题",
+            "结论提出了双层次证明标准等具体制度转化方向"
+          ],
+          "weaknesses": [
+            "部分制度转化方向（如诉讼化审查范围）仍需更细致的规则支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评结论的可接受性，不评论证逻辑严密性或研究前瞻性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 58,
+          "band": "marginal",
+          "summary": "论文结论为制度改良型主张，但缺乏与既有学术争论的明确对话，制度转化路径空泛。",
+          "core_judgment": "共同体对话度不足，结论虽与法秩序兼容但未能被反对者有效定位回应，制度可接受度因缺乏具体方案而受限。",
+          "score_rationale": "共同体对话度得分=2/4（回应了部分制度语境和实务约束，但未明确与既有争论的关系，也未主动承认局限）；制度可接受度得分=2/4（与现行法秩序兼容并回应了制度约束，但制度转化方向空泛，未考虑中国语境下的具体适配）。锚定marginal档，给58分。",
+          "evidence_quotes": [
+            "具体从以下进路加以完善：一是在制度设计和司法理念上秉持司法审查原则、司法救济原则、比例原则等国际通行的审前羁押原则",
+            "探索逮捕程序的诉讼化转型，科学设置诉讼化审查范围、审查程序、配套机制"
+          ],
+          "strengths": [
+            "结论与现行刑事诉讼法及司法改革方向基本兼容",
+            "结合了中国检察制度特色进行论述"
+          ],
+          "weaknesses": [
+            "结论未明确回应学界关于逮捕权配置、诉讼化改革等核心争论的既有观点",
+            "完善进路停留在原则宣示层面，缺乏可操作的制度方案"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "conclusion_consensus.vague_recommendations",
+              "rule": "万能药式对策：对策建议全部停留在完善立法、加强监管、健全机制层面，无具体法条/程序/规则",
+              "score_ceiling": 65,
+              "priority": 2,
+              "evidence": "结论部分提出'秉持司法审查原则''构建羁押审查一体化机制''建立双层次逮捕证明标准'等，均为原则性表述，未提供具体法条修改建议或程序规则设计"
+            }
+          ],
+          "boundary_note": "本维度仅评结论可接受性，不评论证过程严密性或未来研究空间。",
+          "review_flags": [
+            "community_dialogue_gap",
+            "evidence_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论紧密契合司法改革语境，系统回应逮捕制度核心争议，提出具可操作性的程序与证明标准优化路径。",
+          "core_judgment": "该维度成立，结论具备高度的共同体对话能力与现行法秩序兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "明确主张“社会危险性条件是核心条件”及“双层次证明标准”，修正传统构罪即捕观念。",
+            "直面“程序公开与侦查保密”“公正与效率”等实务冲突，并提出繁简分流与诉讼化审查程序。"
+          ],
+          "strengths": [
+            "精准定位中国司法改革语境，论证与现行刑诉法及检察制度高度兼容。",
+            "主动剖析检警关系、律师参与率等现实障碍，结论具备强可争辩性与回应性。"
+          ],
+          "weaknesses": [
+            "部分诉讼化程序设计仍偏宏观，缺乏具体证据开示规则的细化论证。",
+            "对法官预断风险的防范机制论述稍显单薄，未充分展开配套程序衔接。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性与未来研究延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 50.3466796875,
+        "glm-5.1": 33.685142993927,
+        "kimi-k2.6": 14.311357975006104,
+        "qwen3.6-plus": 65.63121581077576
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 68,
+        "glm-5.1": 90,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 88
+      },
+      "mean": 76,
+      "std": 15.6,
+      "strictest": 58,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语部分提出了制度完善的宏观进路，并局部指出社会危险性评估证据链缺失等具体局限，但延展路径多为方向性概括，缺乏可直接操作的具体后续研究问题或争论入口。",
+          "core_judgment": "存在延展方向，但较概括，与正文论证的衔接需推断，属于可支持低档弱加分的情形。",
+          "score_rationale": "原始分55分，落入40-59区间，对应bonus=2。主要证据是结语中四条完善进路及正文关于第三方评估偏向性的局限指认，但路径精细度有限。",
+          "evidence_quotes": [
+            "但对较轻犯罪应当适当降低逮捕率。而对严重犯罪，做出不捕决定应当十分慎重。但需要注意的是，不能仅凭侦查机关收集的相关证据来进行社会危险性评估，因其控诉的立场会导致所收集的证据具有偏向性。",
+            "如何实现两者的价值，是司法工作的永恒命题，逮捕诉讼化转型也是如此……要求侦查机关向辩方开示证据也存在一定的法律障碍……缺乏明确的法律依据，还有待理论研究和实践探索。"
+          ],
+          "strengths": [
+            "明确承认侦查机关单方取证导致社会危险性评估偏向性，为后续引入中立第三方评估提供了具体修正对象。",
+            "指明了诉讼化转型中侦查保密与程序公开、公正与效率等多组张力，可支撑后续程序细化研究。"
+          ],
+          "weaknesses": [
+            "延展路径过于宏观：结语中四条完善进路（司法审查原则、社会危险性核心化、双层次证明标准、诉讼化转型）更像政策呼吁，未转化为可操作的后续研究问题。",
+            "未提出具体的反驳入口或不同意见者可从何处进入争论，减弱了延展对理论对话的推动作用。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评的是文中提到的未来完善方向是否具体、可定位，而非这些方向本身作为结论是否已被论证充分或能被共同体接受。后者属于结论可接受性范围。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了具体的制度完善方向与规则衔接路径。",
+          "core_judgment": "存在真实且可定位的制度延展路径，与正文核心结论紧密衔接。",
+          "score_rationale": "原始分85，bonus档位为5（>=80）。文章提出了羁押审查一体化、第三方社会危险性评估、认罪认罚对接、值班律师等具体制度完善方向，延展路径清晰可定位，与正文核心结论紧密衔接。",
+          "evidence_quotes": [
+            "探索社会危险性的科学评估方法...采取中立第三方评估可以借鉴我国一些地方未成年人检察工作及国外羁押实践中已行之有效的方法。",
+            "需要完善社会危险性评估机制...需要注意与认罪认罚从宽制度的对接。"
+          ],
+          "strengths": [
+            "延展路径具体，如第三方评估、认罪认罚对接、值班律师制度。",
+            "紧扣正文社会危险性核心与诉讼化转型结论进行制度延伸。"
+          ],
+          "weaknesses": [
+            "对诉讼化转型中侦查保密与程序公开冲突的后续解决路径稍显概括。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "诉讼化转型中侦查保密与公开的冲突属于未来制度规则衔接问题，而非当下逮捕制度可接受性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在制度完善方向上有一定延展，但多为宏观路径复述，缺乏具体后续研究问题或争点设计。",
+          "core_judgment": "存在制度完善方向的延展，但路径较概括，与正文核心结论的衔接需要推断，精细度有限。",
+          "score_rationale": "原始分55分，对应bonus=2的marginal档。论文末段提出'具体从以下进路加以完善'的四点方向（国际通行原则、社会危险性核心、双层次证明标准、诉讼化转型），可定位；但多为正文已论述内容的概括复述，未提出新的后续研究问题、下一轮争点或具体修正对象，延展深度不足。",
+          "evidence_quotes": [
+            "具体从以下进路加以完善：一是在制度设计和司法理念上秉持司法审查原则、司法救济原则、比例原则等国际通行的审前羁押原则...",
+            "二是明确逮捕法定条件之间的递进关系，突出社会危险性在逮捕和羁押条件中的核心地位...三是建立双层次的逮捕证明标准...四是探索逮捕程序的诉讼化转型..."
+          ],
+          "strengths": [
+            "末段以'四进路'形式给出可定位的制度完善方向。",
+            "部分方向与正文论证形成呼应，如诉讼化转型、双层次证明标准。"
+          ],
+          "weaknesses": [
+            "延展内容多为正文结论的概括复述，缺乏新的后续研究问题或争点。",
+            "未承认正文具体局限并说明如何推进，也未给出不同意见者可进入的争论入口。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是'未来还能往哪里走'，而非当下结论是否被接受。论文末段的'完善进路'属于未来延展方向，但其内容主要是对正文已有主张的总结，而非开辟新的研究空间，故置于marginal档。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文围绕逮捕诉讼化与社会危险性审查，提出多项可操作的制度深化与实务改进路径。",
+          "core_judgment": "存在真实且清晰的延展路径，紧密衔接正文核心结论。",
+          "score_rationale": "原始分82，对应bonus=5。提出中立第三方评估、认罪认罚衔接、值班律师与救济机制等具体路径，非空泛展望。",
+          "evidence_quotes": [
+            "协调侦查保密与逮捕公开的关系……还有待理论研究和实践探索。",
+            "应当探索将犯罪嫌疑人认罪认罚作为考量社会危险性的重要因素，并纳入逮捕诉讼化审查的内容。"
+          ],
+          "strengths": [
+            "提出第三方评估、认罪认罚对接等具体制度深化路径。",
+            "延展方向与“社会危险性核心”主线紧密咬合，逻辑自洽。"
+          ],
+          "weaknesses": [
+            "侦查保密与公开平衡仅点出难题，未给出具体规则衔接方案。",
+            "缺乏对改革潜在阻力与实施成本的实证检验设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦逮捕诉讼化转型与证明标准细化的未来制度推进路径，而非当下结论的规范接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 46.207043170928955,
+        "glm-5.1": 48.05668115615845,
+        "kimi-k2.6": 12.890617847442627,
+        "qwen3.6-plus": 55.373815059661865
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 85,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 82
+      },
+      "mean": 69.2,
+      "std": 16.5,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 66.07,
+      "weighted_total": 67.2
+    },
+    "aggregation_strictest": {
+      "final_score": 47.47,
+      "weighted_total": 48.9
+    },
+    "avg_std": 19.6,
+    "max_std": 29.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 6,
+    "score_gap": 18.6,
+    "composite_score": -19.6,
+    "worst_dimension": "problem_originality",
+    "worst_std": 29.0
+  }
+}

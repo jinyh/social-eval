@@ -21,8 +21,9 @@ from src.knowledge.contract_helpers import (
 )
 from src.knowledge.loader import load_framework
 
-V2_44_PATH = "configs/frameworks/law-v2.44-20260508.yaml"
-V2_45_PATH = "configs/frameworks/law-v2.45-20260510.yaml"
+ARCHIVE_DIR = "configs/frameworks/archive/v2.0-v2.54-20260522"
+V2_44_PATH = f"{ARCHIVE_DIR}/law-v2.44-20260508.yaml"
+V2_45_PATH = f"{ARCHIVE_DIR}/law-v2.45-20260510.yaml"
 
 
 def test_v2_45_loads_with_contract_fields():
@@ -84,7 +85,7 @@ def test_v2_45_precheck_prompt_identical_to_v2_44():
 
 def test_legacy_framework_still_loads_without_new_fields():
     """v2.0 等老框架仍可加载，新字段为 None（向后兼容）。"""
-    fw = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    fw = load_framework(f"{ARCHIVE_DIR}/law-v2.0-20260413.yaml")
     assert fw.autonomous_knowledge_signals is None
     assert fw.aggregate_output_contract is None
     assert fw.review_report is None

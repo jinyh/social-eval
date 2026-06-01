@@ -1,0 +1,1056 @@
+{
+  "framework": "configs/frameworks/law-v2.50.2-20260514.yaml",
+  "framework_version": "2.50.2",
+  "paper": "法学三大刊论文/中国法学/新出土金文所见西周罚金刑研究.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "正文中夹杂期刊页码标注（如188、189、190等），属于版式残留，未影响正文连贯性和论点定位",
+          "脚注编号和格式存在抽取残留（如①、②、③、④等上标直接嵌入正文），但主论点、论证结构和核心引文均可清晰辨识",
+          "参考文献列表完全缺失，需在后续阶段提示人工补全"
+        ],
+        "evidence_quotes": [
+          "罚金刑是中国古代一项重要的刑罚制度。春秋以降,罚金刑就是国家刑罚体系中 非常重要的一种。",
+          "重庆大学法学院副教授，法学博士。本文系2018年度中央高校基本科研业务费“商周赎刑演变考论— 以新出土 金文、简牍为中心的考察\"（项目批准号：2018CDJSK08YJ02 ）的阶段性成果。",
+          "188",
+          "189",
+          "190"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "罚金刑是中国古代一项重要的刑罚制度。春秋以降,罚金刑就是国家刑罚体系中非常重要的一种。然而罚金刑究竟起源于何时？学术界对此重要问题尚存在争议。",
+          "沈家本认为《吕刑》中的“五罚”与《周礼•秋官•职金》中的“金罚”相同，即西周存在罚金刑。",
+          "本文充分利用出土文献与传世文献,着力解决围绕西周罚金刑有争议的重要问题：第一，西周罚金刑的有无问题。",
+          "本文的研究先从西周法制的代表作品《尚书•吕刑》入手，分析西周的罚金刑制度，继而从新近出土的西周金文研究司法实践中的罚金刑制度……",
+          "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑。",
+          "因此，研究西周罚金刑对于认识中国古代的罚金刑和刑罚体系具有重要的意义。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "[文本工程] 正文明确含有期刊页码数字（188-200），可能为排版残留，需在编辑环节清理",
+        "[文本工程] 参考文献列表缺失，需确认是否因抽取失败导致，后续评分需人工核查参考文献",
+        "[项目口径] 无"
+      ],
+      "evidence_quotes": [
+        "罚金刑是中国古代一项重要的刑罚制度。春秋以降,罚金刑就是国家刑罚体系中非常重要的一种。",
+        "本文充分利用出土文献与传世文献,着力解决围绕西周罚金刑有争议的重要问题：第一，西周罚金刑的有无问题。",
+        "从传世文献《吕刑》中“五刑不简，正于五罚”来看，西周罚金刑（五罚）应为附加刑，即五刑（主刑）之外的刑罚。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国西周罚金刑制度为中心，提出并解释了一个可争辩的中国法律史问题，并尝试通过传世文献与出土金文构建可复核的制度命题，明显符合“中国自主知识体系研究”的口径。当前文本存在页码残留和参考文献缺失等格式风险，但不影响对核心论点和论证结构的把握，建议进入六维评价阶段，并在后续审读中提示校对脚注/参考文献。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如188、189、190等）",
+          "古文字/度量衡单位存在OCR识别残留或异体字乱码（如'镶'、'镀'、'铮'、'寻'、'馒'等混用）",
+          "出版机构名称OCR错误（如'岀版社'应为'出版社'）",
+          "脚注编号及部分引文内容穿插于正文之中"
+        ],
+        "evidence_quotes": [
+          "188",
+          "罚百镶",
+          "罚千铮",
+          "商务印书馆2009年版，第72-107页。 188",
+          "上海古籍岀版社2007年版"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "西周罚金刑的有无问题。对于西周是否有罚金刑这一重大问题，学术界尚未有足够的研究。",
+          "与五刑相对应的“五罚”应为直接依法判处的财物惩罚，是一种罚金刑；而“墨辟疑赦，其罚百鍰”之“罚鍰”应为由于疑罪而被赦免所缴纳的财物之罚，其与秦汉的赎刑有类似之处，是一种类似赎刑的刑罚制度。",
+          "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑。",
+          "西周罚金刑有三个能够得到证实的等次:300寻，500寻与1000寻。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：需清洗混入正文的期刊页码及脚注编号",
+        "文本工程：需校对古文字度量衡单位（鍰/锾/寻/铮）及常见OCR错字（岀->出）",
+        "项目口径：无待解决问题"
+      ],
+      "evidence_quotes": [
+        "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "项目口径完全符合，进入六维评分。建议在后续文本工程阶段清洗页码、脚注及OCR乱码，以保障评审阅读体验与引证准确性。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛等）",
+          "部分脚注内容混入正文",
+          "参考文献列表缺失（标注为'（无）'）"
+        ],
+        "evidence_quotes": [
+          "⑫ 前注①，胡留元、冯卓慧书，第389页。",
+          "⑬ 参见前注①,胡留元、冯卓慧书，第390页。",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "西周罚金刑的有无问题。对于西周是否有罚金刑这一重大问题，学术界尚未有足够的研究。",
+          "本文充分利用出土文献与传世文献,着力解决围绕西周罚金刑有争议的重要问题",
+          "从《吕刑》的规定来看，西周存在五种等级的罚金刑（即五罚）",
+          "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑",
+          "西周罚金刑实为后世法制中罚金刑制度的源头，因此研究西周罚金刑对于认识中国古代的罚金刑和刑罚体系具有重要的意义"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "脚注编号OCR残留及脚注内容混入正文，但不影响核心论点定位",
+        "参考文献列表缺失，但正文引用信息完整可定位"
+      ],
+      "evidence_quotes": [
+        "西周罚金刑的有无问题。对于西周是否有罚金刑这一重大问题，学术界尚未有足够的研究。",
+        "本文充分利用出土文献与传世文献,着力解决围绕西周罚金刑有争议的重要问题",
+        "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文通过项目口径预检，可进入六维评价。文本质量总体良好，脚注编号OCR残留和参考文献列表缺失不影响核心内容评审，建议在评分阶段注意核实具体引文出处。"
+    },
+    "qwen3.6-plus": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "文本工程：存在少量期刊页码（如188、189等）混入正文段落，及OCR识别导致的个别古文字计量单位用字偏差（如‘锾’偶作‘铮’/‘寻’），但不影响核心论点定位与学术评审。"
+        ],
+        "evidence_quotes": [
+          "新出土金文所见西周罚金刑研究",
+          "罚金刑是中国古代一项重要的刑罚制度。春秋以降,罚金刑就是国家刑罚体系中非常重要的一种。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "学者们的争议集中在西周是否有罚金刑这一关键问题上。学者们的争议源自对《尚书•吕刑》中的‘五罚’的不同理解。",
+          "前面的‘五罚’是一种刑罚，而后面的‘罚锾’仅仅是对疑罪的替代惩罚措施……前面的‘五罚’实则是罚金刑",
+          "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑。",
+          "本文充分利用出土文献与传世文献,着力解决围绕西周罚金刑有争议的重要问题"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：少量页码混入及OCR古文字计量单位识别偏差；项目口径：无"
+      ],
+      "evidence_quotes": [
+        "前面的‘五罚’实则是罚金刑,后面的‘墨辟疑赦，其罚百锾’之‘罚锾’类似后世赎刑所缴纳的赎罚。",
+        "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "符合中国自主知识体系研究项目口径。论文以中国古代刑罚制度（西周罚金刑）为中心，具有明确的法学争点（罚金刑与赎刑的规范界分），通过新出金文与传世文献互证解释历史司法实践，并提炼出可复核的制度命题与适用标准。建议直接进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "问题创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文围绕西周罚金刑的有无与内容展开材料辨析，但核心为复述和印证既有立场，缺乏可争辩的法学研究问题。",
+          "core_judgment": "全文主要是对传世和出土文献中罚金刑实例的体系化介绍与验证，未提出可争辩的法学命题或理论推进。",
+          "score_rationale": "可争辩性=0/4（无明确问题句，仅为立场申明；无法学层面争议；无学者观点交锋；纯材料印证），枢纽性=1/4（仅涉及罚金刑一个制度），材料新颖性未实质改变问题设定，扣分后最终得35分。",
+          "evidence_quotes": [
+            "本文充分利用出土文献与传世文献,着力解决围绕西周罚金刑有争议的重要问题：第一，西周罚金刑的有无问题。",
+            "对于这一主流观点，也有极少数学者持反对的态度。崔永东对周厉王时期《散氏盘》铭文进行研究后认为铭文中的“隐千罚千”就是西周的罚金刑。"
+          ],
+          "strengths": [
+            "引入新出土金文材料，对西周罚金刑的具体形态进行了详细的考据与梳理。"
+          ],
+          "weaknesses": [
+            "问题主要表现为事实层面的“有无”判断，缺乏法学理论层面的争辩与推进。",
+            "全文未展现不同法学观点的交锋，仅是围绕文献材料的解读分歧，属于事实认定而非法学争点。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性为0，全文无明确的法学问题句，只有主题声明和事实辨析，触发最高分50分的上限。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文仅提出'西周罚金刑的有无问题'，这属于材料印证与事实辨析，未形成'XX是否YY'的法学理论争点。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的争辩性与理论枢纽性，不评文献利用是否充分或论证是否严密。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文围绕西周罚金刑有无及内容的长期争议提出明确法学争点。",
+          "core_judgment": "问题成立且具枢纽性，通过新材料推进了法律史核心争议的解决。",
+          "score_rationale": "扣分合计=0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "西周究竟有没有罚金刑？这是本文着力要解决的首要问题。",
+            "沈家本认为《吕刑》中的“五罚”与《周礼》中的“金罚”相同，即西周存在罚金刑。"
+          ],
+          "strengths": [
+            "争点明确，直击法律史长期争议",
+            "问题涉及刑罚体系与赎刑等核心概念"
+          ],
+          "weaknesses": [
+            "问题主要依赖新材料推进，理论抽象度有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评金文释读是否正确或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "good",
+          "summary": "论文以出土金文为核心材料，重新论证西周罚金刑的存在及其制度内涵，挑战'西周无罚金刑'的主流观点。",
+          "core_judgment": "问题具有可争辩性与学术史价值，但核心争点属于法制史中的事实考证问题，理论枢纽性有限。",
+          "score_rationale": "可争辩性=3/4（明确争点'西周是否有罚金刑'，涉及法学制度层面，存在沈家本与主流学派的观点交锋，非纯政策倡导；但争点偏向史实考证，理论分歧深度有限）。枢纽性=2/4（涉及刑罚制度起源，影响后世罚金刑理解，但主要局限于法制史单一领域，未连锁调整≥2个制度领域）。材料新颖性未触发上限（金文材料确实推进了问题设定与结论）。锚定good档(60-69)，给62分。",
+          "evidence_quotes": [
+            "那么西周究竟有没有罚金刑？这是本文着力要解决的首要问题",
+            "沈家本认为《吕刑》中的'五罚'与《周礼·秋官·职金》中的'金罚'相同，即西周存在罚金刑"
+          ],
+          "strengths": [
+            "以出土金文挑战主流观点，问题明确可辩",
+            "呈现沈家本与杨鸿烈、李力等学派的学术交锋"
+          ],
+          "weaknesses": [
+            "核心争点偏向史实考证，理论深度有限",
+            "问题集中于单一法制史领域，枢纽性不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身的可争辩性与枢纽性，不评文献综述充分性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "本文聚焦西周罚金刑存废之争，以新出金文厘清“五罚”与赎刑界限，推进古代刑罚体系研究。",
+          "core_judgment": "问题具有明确的历史法学争点，理论分歧清晰，且新材料实质性改变了传统解释路径，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分。负面模式扣0分。",
+          "evidence_quotes": [
+            "西周究竟有没有罚金刑？这是本文着力要解决的首要问题。",
+            "前面的'五罚'实则是罚金刑，后面的'罚鍰'类似后世赎刑所缴纳的赎罚。"
+          ],
+          "strengths": [
+            "明确提炼“五罚”与赎刑的法理界限，争点聚焦。",
+            "新出金文与传世文献互证，实质性推进历史解释。"
+          ],
+          "weaknesses": [
+            "部分金文释读仍存学界争议，论证略显单向。",
+            "对罚金刑与后世制度的法理衔接探讨稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述与逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 42.5356240272522,
+        "glm-5.1": 39.94438600540161,
+        "kimi-k2.6": 11.742144107818604,
+        "qwen3.6-plus": 70.25970482826233
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 88
+      },
+      "mean": 67.5,
+      "std": 24.6,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 79,
+          "band": "good",
+          "summary": "论文清晰梳理了西周罚金刑有无之争，并指出既有研究缺乏专论与出土文献利用不足，但法学流派识别未达高层次。",
+          "core_judgment": "研究地图清晰，争点结构明确，但法学流派覆盖仅为围绕赎刑与罚金刑区分的两条解释路径，未构成更广泛的法学理论流派对话。",
+          "score_rationale": "三要素得分=5/6（到达点2分，未竟点2分，本文切入点1分），争点结构=2/2，法学流派=2个，锚定 good 档，给79分。因三要素总分5且争点结构2，上限79分。",
+          "evidence_quotes": [
+            "学术界一般认为夏商两代没有罚金刑。…学者们的争议集中在西周是否有罚金刑这一关键问题上。",
+            "已有的研究成果缺少研究西周罚金刑的专论…未能充分利用丰富的出土文献来研究西周的罚金刑。"
+          ],
+          "strengths": [
+            "研究地图三要素齐备，清晰呈现了到达点（汉以来经师与现代学者的赎刑说）、未竟点（缺专论、未用出土文献）及本文切入点。",
+            "争点结构突出，将赎刑说与罚金刑说两大对立立场及其代表人物（沈家本、崔永东 vs 杨鸿烈、李力等）完整展开。"
+          ],
+          "weaknesses": [
+            "法学流派覆盖较窄，仅围绕赎刑与罚金的单一争点，未引入更宏观的刑罚理论或跨学科视角。",
+            "本文切入点与未竟点的对应关系稍显笼统，仅言“充分利用出土文献与传世文献”解决争议。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.no_research_map",
+              "rule": "不触发，因三要素总分5且争点结构2分。",
+              "score_ceiling": 55,
+              "priority": 1,
+              "evidence": "无"
+            },
+            {
+              "rule_id": "literature_insight.insufficient_school_coverage",
+              "rule": "不触发，因争点结构为2分，具备争点结构，不适用此规则。",
+              "score_ceiling": 65,
+              "priority": null,
+              "evidence": "争点结构=2"
+            }
+          ],
+          "boundary_note": "本维度仅评估文献梳理的完整性与深度（研究地图），不涉及本文对罚金刑制度本身的创新性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "文献梳理详实，争点明确，清晰呈现罚金刑与赎刑的解释对立。",
+          "core_judgment": "研究地图完整，争点结构成立，流派对立清晰，本维度成立。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学者们的争议源自对《尚书•吕刑》中的“五罚”的不同理解...沈家本认为《吕刑》中的“五罚”与《周礼》中的“金罚”相同，即西周存在罚金刑。",
+            "已有的研究成果缺少研究西周罚金刑的专论...在文献利用方面，已有研究未能充分利用丰富的出土文献来研究西周的罚金刑。"
+          ],
+          "strengths": [
+            "清晰呈现“罚金刑”与“赎刑”两种对立解释路径的学术史脉络。",
+            "未竟点与切入点精准对应出土文献的利用缺口。"
+          ],
+          "weaknesses": [
+            "流派对立集中于单一解释争点，缺乏更广泛的理论流派对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构，不评出土文献考证的论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了清晰的学术史脉络，围绕西周罚金刑有无之争梳理了经学传统与现代法史学的对立，但三要素中未竟点与切入点对应可更明确。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但法学流派数量有限，属于'good'档。",
+          "score_rationale": "三要素得分=4/6（到达点2分：沈家本、杨鸿烈、李力、崔永东等具体成果及贡献明确；未竟点2分：指出缺少专论、出土文献利用不足；切入点1分：有研究问题但与未竟点对应关系不够紧密），争点结构=2/2（'五罚'是罚金刑还是赎刑的千年之争、金文'罚'字性质之争），法学流派=2个（传统经学/主流法史学派 vs 沈家本-崔永东少数派），锚定good档，给72分。",
+          "evidence_quotes": [
+            "汉代以来的经师都将其解释为'赎刑'而不是罚金……沈家本是最早对这种说法提出质疑的人",
+            "学术界已有研究为本文的研究打下了坚实的基础，但已有的研究成果缺少研究西周罚金刑的专论……在文献利用方面，已有研究未能充分利用丰富的出土文献"
+          ],
+          "strengths": [
+            "到达点扎实：具体引述郑玄、孔安国、沈家本、杨鸿烈、李力、崔永东等学者观点及贡献",
+            "争点结构清晰：围绕'五罚'性质形成经学传统/主流法史学与沈家本-出土文献派的对立"
+          ],
+          "weaknesses": [
+            "切入点与未竟点对应不够紧密：未充分说明'利用出土文献'如何回应'专论缺乏'的缺口",
+            "法学流派数量有限：主要呈现为'有/无罚金刑'二元对立，未呈现更多解释路径分歧"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评文献定位完整性，不评问题新颖性；论文对西周罚金刑的论证属于问题创新性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 80,
+          "band": "good",
+          "summary": "论文清晰勾勒西周罚金刑争议脉络，明确研究短板并精准切入金文互证。",
+          "core_judgment": "研究地图完整，争点结构清晰，流派识别充分，符合良好档标准。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=2个，锚定good档，给80分",
+          "evidence_quotes": [
+            "学术界已有研究……但已有的研究成果缺少研究西周罚金刑的专论……未能充分利用丰富的出土文献",
+            "对于《尚书•吕刑》中的‘五罚’，汉代经师解为赎刑……沈家本最早质疑并主张罚金刑"
+          ],
+          "strengths": [
+            "分散式文献定位精准，清晰呈现赎刑说与罚金刑说的学术交锋脉络。",
+            "未竟点与切入点高度咬合，直接以出土金文填补传世文献解释空白。"
+          ],
+          "weaknesses": [
+            "流派识别偏重法制史考据，未进一步提炼为现代法理学解释范式对立。",
+            "对主流观点的批驳集中于文本训诂，缺乏制度功能层面的比较法对话。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价文献梳理与争点呈现，不涉及金文考证结论本身的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 121.1595299243927,
+        "glm-5.1": 48.26531195640564,
+        "kimi-k2.6": 14.883593082427979,
+        "qwen3.6-plus": 79.07641792297363
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 79,
+        "glm-5.1": 80,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 80
+      },
+      "mean": 77.8,
+      "std": 3.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "分析框架建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 35,
+          "band": "unacceptable",
+          "summary": "论文为考据型法制史研究，旨在利用出土金文辨析西周罚金刑的存在、内容及适用，但并未建构出可操作的分析框架。",
+          "core_judgment": "本文未提出任何分析框架，仅围绕具体史料进行考证、辩驳与归纳，不满足分析框架建构力的基本要求。",
+          "score_rationale": "框架可操作性得分=0/4（无概念界定、无分类标准、无分析步骤、术语非框架式调用），法学转化度得分=0/4（无跨学科转化、无裁判指引、无制度方案、无操作步骤），触发no_operational_framework上限规则，锚定unacceptable档，给予35分。",
+          "evidence_quotes": [
+            "本文充分利用出土文献与传世文献，着力解决围绕西周罚金刑有争议的重要问题：第一，西周罚金刑的有无问题。第二，如果西周有罚金刑，那么这个罚金刑的内容是什么？",
+            "从《吕刑》的规定来看，西周存在五种等级的罚金刑（即五罚）。但由于某种原因，《吕刑》的重点在于讨论五刑的问题，故五罚的内容并不明确。"
+          ],
+          "strengths": [
+            "核心问题意识清晰，聚焦于西周罚金刑的有无、内容及适用对象的考证。",
+            "史料运用扎实，结合传世文献与出土金文进行细致的文字考释与案情分析。"
+          ],
+          "weaknesses": [
+            "全文仅为史料考证与学术史辩驳的集合，未提炼出任何类型化、步骤化的分析框架。",
+            "论文的贡献是“梳理”“归纳”“考证”，而非“建构”“提出”“设计”，缺乏可重复适用的判断标准或操作步骤。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性得分≤1分时，总分上限为50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文核心术语无定义、无分类标准、无分析步骤，全文为考据性论证，未见可操作的分析框架。"
+            }
+          ],
+          "boundary_note": "此处评的是分析框架本身是否成立，不评价其史料考证的严谨性或结论的创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "通过概念界分与史料考证，成功建构西周罚金刑的运作规则框架。",
+          "core_judgment": "分析框架成立，清晰界分罚金刑与赎刑，并提炼出古代刑罚适用规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "与五刑相对应的‘五罚’应为直接依法判处的财物惩罚，是一种罚金刑……后者针对涉及‘五刑’的疑难案件",
+            "具体包括以下四种情形：（1）罚金刑适用于不构成‘五刑’的轻罪……（4）背弃誓言"
+          ],
+          "strengths": [
+            "概念界分清晰，明确区分罚金刑与赎刑的法学标准",
+            "从出土文献中有效提炼出刑罚适用的具体规则与等次"
+          ],
+          "weaknesses": [
+            "制度方案为历史复原，无现代制度设计"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价的是罚金刑与赎刑界分及适用规则框架的建构力，非考证逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 45,
+          "band": "marginal",
+          "summary": "制度型论文，以文献考据和史实还原为主，缺乏可重复适用的分析框架。",
+          "core_judgment": "分析框架建构力不成立：论文未构建可操作的法学分析框架，核心工作为史料考证与制度描述。",
+          "score_rationale": "框架可操作性得分=1/4（仅有'五刑-五罚-五过'层级描述，无明确分类标准、分析步骤或判断标准；后文未调用任何框架术语），法学转化度得分=1/4（虽涉及刑罚制度，但无裁判规则、法律适用流程或制度设计方案；核心贡献为史料考证而非法学转化）。锚定marginal档，给45分。",
+          "evidence_quotes": [
+            "西周时期的五刑与五罚类似于当代中国刑罚中的主刑与附加刑",
+            "本文充分利用出土文献与传世文献，着力解决围绕西周罚金刑有争议的重要问题"
+          ],
+          "strengths": [
+            "史料梳理系统，对金文材料的运用较为扎实",
+            "对'五罚'与'赎刑'的区分有一定理论辨析"
+          ],
+          "weaknesses": [
+            "无原创概念界定或类型化框架，核心术语均来自传统经学表述",
+            "后文分析纯为史料排比，未调用前文任何分析步骤或判断标准"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "核心术语完全无定义 + 无任何可循的分析步骤 + 无法学转化",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文以'五刑''五罚''赎刑'等传统术语展开，无'本文所称XX是指'的明确定义；无步骤化分析流程；后文金文分析未调用任何框架术语"
+            }
+          ],
+          "boundary_note": "本维度仅评价框架建构力，不涉及史料考证的可靠性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文通过文献与金文互证，清晰界定罚金与赎刑边界，重构了五刑-五罚-五过的适用阶梯与规则。",
+          "core_judgment": "分析框架成立且具备强可操作性，成功将历史文献争议转化为可重复适用的法律史考证与规则重构路径。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给88分。概念界定清晰，分类与考证步骤可循，后文全面调用；历史制度成功转化为现代法学维度的规则映射。",
+          "evidence_quotes": [
+            "前面的“五罚”实则是罚金刑……后面的“罚锾”类似后世赎刑所缴纳的赎罚。",
+            "西周罚金刑是一种既可以单独适用也可以依附主刑适用的附加刑。"
+          ],
+          "strengths": [
+            "核心概念（罚金/赎刑）界定清晰，有效破除传统经学混淆。",
+            "构建“文献辨析-金文印证-规则归纳”的标准化考证流程。"
+          ],
+          "weaknesses": [
+            "部分罚金等次依赖合理推断，直接实证支撑稍显薄弱。",
+            "框架偏重历史制度复原，对当代司法适用的直接映射有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及历史考证的逻辑严密性或史料真伪。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 79.90584969520569,
+        "glm-5.1": 49.90031981468201,
+        "kimi-k2.6": 14.91885495185852,
+        "qwen3.6-plus": 56.363653898239136
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 35,
+        "glm-5.1": 85,
+        "kimi-k2.6": 45,
+        "qwen3.6-plus": 88
+      },
+      "mean": 63.2,
+      "std": 27.2,
+      "strictest": 35,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑严密性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文围绕西周罚金刑的有无、内容与适用展开，推理链基本完整，能有效处理对立观点，但部分论证衔接可加强。",
+          "core_judgment": "论文通过辨析《吕刑》文本并佐以多件金文材料，可为结论提供可辩护的支撑，推理链条清晰有力。",
+          "score_rationale": "推理链完整性得分=3/4（主要步骤可复述，依赖度高，结论有支撑，无关键跳步）。反驳处理度得分=2/3（识别并实质回应了传统观点，但未明确承认自身论证的适用边界）。锚定excellent档下限，给78分。",
+          "evidence_quotes": [
+            "'言五罚，是罚有五等，五罚次于五刑，则五刑当各有罚，此五罚常刑也，非疑而赦者也' ——直接引入沈家本观点支撑核心论点。",
+            "'罚女（汝）三百爭'与'牧牛辞誓成，罚金' ——引用金文实例，有力证明了罚金刑在西周司法实践中的存在与名称。"
+          ],
+          "strengths": [
+            "推理链依赖度高：从辨析'五罚'与'罚镘'的区别，到通过金文证实罚金刑，最后总结其内容，层层递进。",
+            "反驳处理充分：明确指出了从郑玄到李力等学者将'罚金'混同于'赎刑'的逻辑漏洞，并给出了实质性的辨析。"
+          ],
+          "weaknesses": [
+            "对部分金文的释读存在多义性，但未充分论证为何本文的释读比其他学者（如李学勤）更具优势，此步推理稍弱。",
+            "结论推断'五罚'具体等次时，未言明是'合理推断'，对于从300、500、1000銒到100-1000五个档次的跳跃，推导依据需更严密。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于判例型与理论辨析相结合的论文，其逻辑链核心在于文本与金文的互证，释读分歧属于分析框架内的论证，非逻辑跳步。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过概念辨析与金文实证，严密论证了西周罚金刑的存在及制度内容。",
+          "core_judgment": "本维成立，推理链完整且反驳处理充分，核心结论可辩护推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "旧说罚金即赎刑，然以《吕刑》之文考之，则罚与赎当为二事……此五罚常刑也，非疑而赦者也",
+            "这只是一个合理的推断，有待于将来发现新的金文材料的支撑"
+          ],
+          "strengths": [
+            "概念辨析精准，成功剥离罚金刑与赎刑",
+            "金文实证与传世文献互证，反驳详尽"
+          ],
+          "weaknesses": [
+            "罚金刑五等次推断稍显薄弱，依赖间接推论"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "逻辑链评价聚焦概念辨析与实证支撑的推导，不评价制度重构的完备性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了从文献辨析到金文实证再到制度归纳的完整推理链，但反驳处理深度不足。",
+          "core_judgment": "推理链基本完整可复述，核心结论可由材料支撑推出，但反驳处理仅停留在列举层面，缺乏对反方观点的实质性回应。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4基本成立但存在局部跳步），反驳处理度得分=1/3（标准1成立，标准2部分成立，标准3不成立），锚定good档，给72分。",
+          "evidence_quotes": [
+            "从《吕刑》的规定来看，西周存在五种等级的罚金刑（即五罚）……但由于某种原因，《吕刑》的重点在于讨论五刑的问题，故五罚的内容并不明确。",
+            "管仲这段话里谈到的是罚金刑而不是赎刑……不能因管仲用'赎'字就说是赎刑"
+          ],
+          "strengths": [
+            "三步推理链清晰：文献辨析→金文实证→制度归纳，环环相扣",
+            "对霸姬盘、师旃鼎等四件金文逐层分析，材料支撑充分"
+          ],
+          "weaknesses": [
+            "对'赎刑说'的反驳多为列举而非实质回应，未充分回应'五罚即赎刑'的核心论据",
+            "从'疑罪罚锾'五等次直接推断'五罚'也有五等次，存在关键跳步"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文是判例型/考证型论文，重点在'事实→制度'的推导逻辑，而非框架建构。",
+          "review_flags": [
+            "counterargument_missing"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文通过文献重释与金文互证，严密推演出西周罚金刑的独立地位与适用体系。",
+          "core_judgment": "推理链完整且高度依赖，反驳处理全面，结论可由前文史料与法理分析充分支撑。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给90分。",
+          "evidence_quotes": [
+            "“前面的‘五罚’是一种刑罚，而后面的‘罚锾’仅仅是对疑罪的替代惩罚措施……实则是罚金刑”",
+            "“当然，这只是一个合理的推断，有待于将来发现新的金文材料的支撑。”"
+          ],
+          "strengths": [
+            "概念辨析清晰，严格区分“五罚”与“罚锾”的法理属性",
+            "反驳处理扎实，逐一批驳传统经师与现代学者的混淆逻辑"
+          ],
+          "weaknesses": [
+            "部分金文释读存在争议，未充分展开对立释文方案的比较",
+            "罚金刑五档次的推断依赖赎刑等次，逻辑跳跃略大"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估论证链条的推导严密性，不评价史料考据真伪或结论的史学接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 35.02195620536804,
+        "glm-5.1": 57.71343278884888,
+        "kimi-k2.6": 12.314265251159668,
+        "qwen3.6-plus": 63.25815415382385
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 90
+      },
+      "mean": 82.5,
+      "std": 9.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "结论可接受性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文通过新出土金文结合传世文献论证西周存在罚金刑，结论在学术争论中立场清晰，有明确的制度语境回应，但对传统经学误解的批判略显绝对，且未充分讨论反对意见。",
+          "core_judgment": "结论可被学界定位和回应，挑战了主流观点并给出了具体论据，具备进入共同体对话的基本条件。",
+          "score_rationale": "共同体对话度得分=3/4，制度可接受度得分=3/4，属理论/制度混合论文，锚定good档，因回应了反对意见、有制度语境意识且引用金文实证，给78分。",
+          "evidence_quotes": [
+            "这种上千年误解的根源在于将“五刑不简，正于五罚”中的“五罚”之“罚”与“墨辟疑赦，其罚百鍰”中的“罚”混为一谈...前面的“五罚”实则是罚金刑，后面的...类似后世赎刑所缴纳的赎罚。",
+            "铭文在此处明确出现“罚金”一词，这直接证实了在西周司法实践中存在着罚金刑的名称与实质内容。"
+          ],
+          "strengths": [
+            "结论直接回应了“西周无罚金刑”的主流观点，给出了明确的反对立场和论据。",
+            "通过金文实证材料为理论结论提供了中国制度史语境下的支撑。"
+          ],
+          "weaknesses": [
+            "将汉代以来经师观点判定为“上千年误解”，语气较为绝对，可能妨碍与持不同意见者的对话。",
+            "结论部分未主动讨论自身论证的局限或可能的反对意见（如对铭文释读的其他可能解释）。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评价结论在学术共同体中的可定位性和制度语境回应，不涉及结论最终是否正确或论证是否严密。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 90,
+          "band": "excellent",
+          "summary": "结论精准修正主流学说，对话度高，与中国历史制度语境高度兼容。",
+          "core_judgment": "结论成功进入共同体语境，清晰挑战主流并回应反对意见，制度兼容性良好。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "本文结论修正了传统经师及现代主流观点，认为‘五罚’是罚金刑而非赎刑",
+            "承认自身推断局限：‘这只是一个合理的推断，有待于将来发现新的金文材料的支撑’"
+          ],
+          "strengths": [
+            "精准回应学界千年争议，结论清晰可反驳",
+            "充分基于中国出土文献与传世文献，语境契合度高"
+          ],
+          "weaknesses": [
+            "对现代法秩序的制度转化指向较弱，仅停留在历史溯源意义"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的共同体对话与制度语境可接受性，不评出土文献释读的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 72,
+          "band": "good",
+          "summary": "西周罚金刑考证结论具有学术对话性，制度可接受度良好。",
+          "core_judgment": "论文结论明确回应了法律史学界关于西周罚金刑有无的核心争议，能与既有研究形成有效学术对话，且结论与中国古代法制史研究语境兼容。",
+          "score_rationale": "共同体对话度得分=3/4（回应既有争论、能被反对者定位、承认讨论反对意见；中国语境自然满足），制度可接受度得分=2/4（不与法秩序矛盾、回应制度约束；未指出制度转化方向、未充分讨论中国语境特殊性——但作为法制史考证论文，后者权重降低），锚定good档，给72分。",
+          "evidence_quotes": [
+            "沈家本认为《吕刑》中的'五罚'与《周礼·秋官·职金》中的'金罚'相同，即西周存在罚金刑。然而，后世的法学研究者对此有不同的观点……本文充分利用出土文献与传世文献，着力解决围绕西周罚金刑有争议的重要问题",
+            "从本质上看，'五刑不简，正于五罚'中的'五罚'与'五刑之疑有赦……其罚百锾'中的'罚锾'是两回事"
+          ],
+          "strengths": [
+            "主动回应沈家本、杨鸿烈、李力等学者观点，定位清晰",
+            "以出土金文新证挑战主流学说，反对者可循材料反驳"
+          ],
+          "weaknesses": [
+            "结论未讨论西周罚金刑对后世制度的具体影响路径",
+            "未充分回应'五罚'名称与后世'罚金'术语差异的质疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评结论可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "结论明确回应法史学界争议，论证扎实，历史制度语境契合度高。",
+          "core_judgment": "该结论具备充分的学术对话基础与历史法秩序兼容性，维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分",
+          "evidence_quotes": [
+            "“五罚”只能理解为一种独立的刑罚种类，即罚金刑。",
+            "当然，这只是一个合理的推断，有待于将来发现新的金文材料的支撑。"
+          ],
+          "strengths": [
+            "精准定位并挑战法史学主流观点，对话意识强。",
+            "结合出土金文与传世文献，历史制度逻辑自洽。"
+          ],
+          "weaknesses": [
+            "作为历史理论论文，未延伸至现代罚金刑制度的启示。",
+            "部分金文释读与等次推断仍存学术争议空间。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 80.41591596603394,
+        "glm-5.1": 46.74260091781616,
+        "kimi-k2.6": 14.42941427230835,
+        "qwen3.6-plus": 68.59927988052368
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 85
+      },
+      "mean": 81.2,
+      "std": 7.9,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 25,
+          "band": "unacceptable",
+          "summary": "论文未提出明确、具体的后续研究方向、概念修正路径或实务延伸，仅以空泛拔高结尾。",
+          "core_judgment": "不存在真实的延展路径，结尾展望仅为口号式的“具有重要意义”而无具体待修正对象。",
+          "score_rationale": "原始分为25分，对应bonus=0档。论文结尾只有一句“具有重要的意义”，未指明未来研究的具体问题、对象或机制，符合slogan_outlook低分特征。",
+          "evidence_quotes": [
+            "所以研究西周罚金刑对于认识中国古代的罚金刑和刑罚体系具有重要的意义。",
+            "有待于将来发现新的金文材料的支撑。"
+          ],
+          "strengths": [
+            "文中一处提及未来新材料可能支撑推断，微露延伸方向。"
+          ],
+          "weaknesses": [
+            "结尾展望极为空泛，未提出具体的延展问题、概念边界或制度路径。",
+            "全文未系统指出自身研究局限或给出后续修正方向。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "结尾仅称“具有重要的意义”，未说明具体的问题、对象、制度路径或实务场景。"
+            }
+          ],
+          "boundary_note": "本维度不评估论文对西周罚金刑的存在性结论是否成立，只评估其是否给出了清晰可循的未来研究路径。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出了确定五罚具体内容的难题，并明确推断需未来新出土金文支撑，构成真实延展路径。",
+          "core_judgment": "存在真实延展路径，但路径精细度有限，主要依赖未来考古发现而非内生理论深化。",
+          "score_rationale": "原始分65，对应bonus档位3分。论文明确指出“确定五罚具体内容是难题”且推断“有待将来发现新金文支撑”，构成真实延展路径，但未展开具体研究设计或理论修正机制，精细度有限。",
+          "evidence_quotes": [
+            "对于古代法制的研究者而言，如何去确定五罚的具体内容是一个很大难题。",
+            "当然，这只是一个合理的推断，有待于将来发现新的金文材料的支撑。"
+          ],
+          "strengths": [
+            "明确承认核心推断的局限，并指出需新出土文献验证。",
+            "提出了“确定五罚具体内容”这一具体后续研究问题。"
+          ],
+          "weaknesses": [
+            "延展路径主要依赖外部考古发现，缺乏理论或概念层面的内生深化方向。",
+            "结尾仅泛泛提及“重要意义”，缺乏制度衔接或演变的具体延展设计。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "依赖新出土金文验证推断属于未来延展问题，而非当下结论可接受性缺陷；当下结论是基于现有材料的合理推断，其最终证实属于未来研究方向。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 52,
+          "band": "marginal",
+          "summary": "论文在结尾处提出西周罚金刑五等次的合理推断及待新金文材料验证，但缺乏系统的后续研究问题或理论深化方向。",
+          "core_judgment": "存在可定位的延展方向，但路径较概括，证据展开有限，精细度不足。",
+          "score_rationale": "原始分52分，对应bonus=2的边际档位。论文末段提出'五罚'五等次的合理推断（100、200、300、500、1000锾），并指出'有待于将来发现新的金文材料的支撑'，构成可定位的后续研究入口；同时提及罚金用途'归政府'的推测路径。但两处延展均较简略，未形成具体的研究问题设计或方法论说明，与正文核心结论的衔接需读者自行推断，精细度有限。",
+          "evidence_quotes": [
+            "借鉴罚钱的等次，我们可以合理的推断，西周罚金刑（五罚）也有五个档次，即100、200、300、500、1000锾。当然，这只是一个合理的推断，有待于将来发现新的金文材料的支撑。",
+            "战国秦汉以来的罚金刑制度成为政府获取财源、充实武备的重要手段，因此，我们也可以合理推测西周罚金刑制度中所获得的罚金应有很大一部分归政府所支配。"
+          ],
+          "strengths": [
+            "提出五罚等次的可验证假设，指明新金文材料验证方向。",
+            "罚金用途推测触及制度功能延伸，有后续比较研究空间。"
+          ],
+          "weaknesses": [
+            "未形成具体后续研究问题或方法论设计。",
+            "延展内容集中于文末，与正文论证的衔接较松散。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文是否指明未来可继续推进的研究路径，而非判断'西周罚金刑五等次推断'这一当下结论能否被接受；后者属于结论可接受性范畴。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文指出需待新出土金文验证罚金刑五等次推断，并提示对后世刑罚体系溯源的研究价值。",
+          "core_judgment": "存在真实延展路径，明确指向以新考古材料验证正文核心推断。",
+          "score_rationale": "原始分65，映射bonus=3。正文承认文献局限，明确指出需待新出土金文验证“五罚”等次推断，路径具体且紧扣核心结论；但未提供主动研究设计，精细度有限。",
+          "evidence_quotes": [
+            "当然，这只是一个合理的推断，有待于将来发现新的金文材料的支撑。",
+            "由于文献不足的原因,夏商的罚金刑已不可考……研究西周罚金刑对于认识中国古代的罚金刑和刑罚体系具有重要的意义。"
+          ],
+          "strengths": [
+            "明确指出需以新出土金文验证五罚等次推断，路径具体可定位。",
+            "将西周罚金刑定位为后世制度源头，提示刑罚体系演进方向。"
+          ],
+          "weaknesses": [
+            "延展表述偏被动，仅依赖新材料发现，缺乏主动理论深化设计。",
+            "未具体说明新金文应如何检验推断，后续方法论指引不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦“未来如何推进验证与体系溯源”，而非评价当下历史考据结论的学术接受度或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.84476971626282,
+        "glm-5.1": 43.33829593658447,
+        "kimi-k2.6": 14.15262508392334,
+        "qwen3.6-plus": 65.15918898582458
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 25,
+        "glm-5.1": 65,
+        "kimi-k2.6": 52,
+        "qwen3.6-plus": 65
+      },
+      "mean": 51.8,
+      "std": 18.9,
+      "strictest": 25,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 74.69,
+      "weighted_total": 72.5
+    },
+    "aggregation_strictest": {
+      "final_score": 52.41,
+      "weighted_total": 53.0
+    },
+    "avg_std": 15.2,
+    "max_std": 27.2,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 22.3,
+    "composite_score": -13.53,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 27.2
+  }
+}
