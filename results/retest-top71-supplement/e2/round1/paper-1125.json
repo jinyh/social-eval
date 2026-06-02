@@ -1,0 +1,1015 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1125-法学研究-2018-4-不真正不作为犯的边界-姚诗-湖南大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "存在少量 OCR 残留，如表格和脚注中的特殊字符 (\f,  , ) 和页码混入 (·301·, ·401· 等)，但不影响核心论点与论证结构的理解。",
+          "参考文献列表缺失，无法进行引用校验，但正文脚注信息基本完整，可支持评审。"
+        ],
+        "evidence_quotes": [
+          "·301·\f",
+          "·401·\n法学研究\n２０１８年第４期",
+          "湖南大学法学院副教授。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者在中国裁判文书网以“不作为”为检索词...共得43个判决...司法实践适用不真正不作为犯的概貌如下...",
+          "不真正不作为犯的终极问题是边界问题。在法律并无明文规定的情况下，不真正不作为犯可以说是游走在罪刑法定原则的灰色地带，但它又是犯罪治理不可缺少的手段，因此如何把握其合理边界就成为关键。",
+          "有必要从真正不作为犯和不真正不作为犯的关系入手来考察...以两类不作为犯的教义学区分为逻辑起点，发现真正不作为犯的立法规律，从而反推不真正不作为犯的罪名适用空间。",
+          "笔者认为，在通过理论修正无法满足现实需要的情况下，应大胆补正，将先行行为视为例外，在结果原因支配说之外单独考虑其理论基础...以结果原因支配说为原则、以先行行为为例外的二元保证人理论...",
+          "我国宜放宽对保证人地位的认定以满足后工业社会的刑事治理需要...考虑到我国司法实践对不真正不作为犯的处罚实际上是持可以从宽处罚的态度，这传递了降低入罪门槛、放宽保证人地位认定的信号。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "[文本工程] 存在少量 OCR 残留和页码混入，但不影响阅读。",
+        "[文本工程] 缺少参考文献列表。",
+        "[项目口径确认] 论文是否明确属于“中国自主知识体系研究”？请后续评委留意其与比较法（德日）研究的关系，论文核心是中国问题的解决方案，应属本项目范畴。"
+      ],
+      "evidence_quotes": [
+        "不真正不作为犯的终极问题是边界问题...如何把握其合理边界就成为关键。",
+        "笔者在中国裁判文书网...共得43个判决...司法实践适用不真正不作为犯的概貌如下...",
+        "从德日两国的对比可知，不真正不作为犯的适用规模基本上取决于一国的立法和司法导向。从我国的立法和司法实践看，不真正不作为犯的适用应朝以下方向发展..."
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "直接进入六维评价。文本存在少量 OCR 残留和缺参考文献列表，但不影响评审；论文围绕中国司法实践与教义学方案展开，符合项目口径。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如·３０１·、·４０１·等）",
+          "脚注内容与编号穿插在正文中，影响阅读连贯性",
+          "部分外文文献及德语术语存在全角字符及空格缺失（如ＣｈｒｉｓｔｏｐｈＬａｎｄｓｃｈｅｉｄｔ）"
+        ],
+        "evidence_quotes": [
+          "正不作为犯认定的有３３个判决；同时在北大法宝数据库以“不作为” 或“义务” 为核心术语进行检索，另得到１０个以不真正不作为犯认定的判决。综合两份数据，共得４３个判决。·４０１·法学研究２０１８年第４期〔３〕〔４〕数据检索时间为２０１６年１２月１４日。",
+          "〔１〕参见何荣功：《不真正不作为犯的构造与等价值的判断》，《法学评论》２０１０年第１期，第１０６页。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者在中国裁判文书网以‘不作为’为检索词……通过对这43个判决进行分析，我国司法实践适用不真正不作为犯的概貌如下",
+          "不真正不作为犯的终极问题是边界问题。在法律并无明文规定的情况下，不真正不作为犯可以说是游走在罪刑法定原则的灰色地带",
+          "对于以超个人法益为侵害目标的犯罪，不宜成立不真正不作为犯；对于以个人重要的人身、财产法益为侵害目标的犯罪……则可以成立不真正不作为犯",
+          "以结果原因支配说为原则、以先行行为为例外的二元保证人理论"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码及脚注编号与内容混入正文，需在后续阶段清洗",
+        "项目口径：无风险，完全符合进入六维评审标准"
+      ],
+      "evidence_quotes": [
+        "以结果原因支配说为原则、以先行行为为例外的二元保证人理论"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分流程；后续评审阶段需注意剔除混入正文的页码标记与脚注内容，以还原纯净的论证结构。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码（如〔１〕〔２〕等全角符号）",
+          "部分德文、日文文献引用存在格式混杂",
+          "文末英文摘要存在连字符断裂和OCR识别误差（如ｒｅｇａｒｄｅｄ）",
+          "参考文献列表标注为'（无）'但实际文中有大量脚注引用"
+        ],
+        "evidence_quotes": [
+          "〔１〕参见何荣功...",
+          "Ａｂｓｔｒａｃｔ：ＣｒｉｍｉｎａｌｏｍｉｓｓｉｏｎｓｉｎＣｈｉｎａ...",
+          "参考文献列表：（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国关于不真正不作为犯的研究，理论纵深性始终不足，对司法实践难以形成应有关照",
+          "笔者在中国裁判文书网以'不作为'为检索词...共得43个判决",
+          "从我国的立法和司法实践看，不真正不作为犯的适用应朝以下方向发展",
+          "我国宜放宽对保证人地位的认定以满足后工业社会的刑事治理需要",
+          "结果原因支配说能够适应我国的实际需求，较好地确定保证人地位的范围"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号全角符号OCR残留，但不影响内容识别",
+        "文本工程：文末英文摘要存在字符断裂，但核心内容可辨识",
+        "文本工程：参考文献列表抽取失败，但文内脚注引用完整可定位"
+      ],
+      "evidence_quotes": [
+        "我国关于不真正不作为犯的研究...对司法实践难以形成应有关照",
+        "从我国的立法和司法实践看，不真正不作为犯的适用应朝以下方向发展",
+        "结果原因支配说能够适应我国的实际需求"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国刑法中不真正不作为犯的边界问题为核心，基于中国裁判文书网的实证数据，结合德日比较法分析，提出'结果原因支配说'的本土化方案及'先行行为例外'的二元理论构造，具有明确的中国问题意识、法学理论深度和可复核命题。文本质量风险较低，不影响评审，建议进入六维评分。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "页码与分隔符OCR残留（如“· ３ ０ １ ·”混入正文）",
+          "部分德文/英文参考文献及脚注存在全半角混排与乱码",
+          "英文摘要存在字符间距异常与断行问题"
+        ],
+        "evidence_quotes": [
+          "· ３ ０ １ ·",
+          "ＣｈｒｉｓｔｏｐｈＬａｎｄｓｃｈｅｉｄｔ，ＺｕｒＰｒｏｂｌｅｍａｔｉｋｄｅｒＧａｒａｎｔｅｎｐｆｌｉｃｈｔｅｎ...",
+          "Ａｂｓｔｒａｃｔ：ＣｒｉｍｉｎａｌｏｍｉｓｓｉｏｎｓｉｎＣｈｉｎａ，ａｌｔｈｏｕｇｈｏｃｃａｓｉｏｎａｌｌｙａｐｐｌｉｅｄｉｍｐｒｏｐｅｒｌｙ..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "笔者在中国裁判文书网以“不作为” 为检索词...综合两份数据，共得４３个判决。",
+          "我国刑法目前还没有关于不真正不作为犯的总则性规定...不真正不作为犯不可能像作为犯一样被普遍接受，而是被视为附属于作为犯的补充型犯罪。",
+          "以结果原因支配说为原则、以先行行为为例外的二元保证人理论...为司法实践区别处理不同义务类源类型的不作为犯提供了依据。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在OCR页码残留与脚注乱码，需后续清洗，但不影响核心论证定位。",
+        "项目口径：四项信号均明确触发，无边界争议。"
+      ],
+      "evidence_quotes": [
+        "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美，但二元理论凸显出先行行为与其他作为义务来源在本质上的不同，为司法实践区别处理不同义务类源类型的不作为犯提供了依据。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本质量存在轻微OCR/排版残留，但核心论点、实证数据与教义学推演完整清晰。项目口径四项信号全部触发，明确以中国刑法实践与立法现状为中心，提出“限制罪名范围+结果原因支配说为主+先行行为政策例外”的可复核命题。建议直接通过预检，进入六维评分阶段。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 62,
+          "band": "marginal",
+          "summary": "论文提出了“如何确定不真正不作为犯的合理边界”这一法学争点，但问题聚焦有限，主要围绕罪名范围和保证人地位展开调整性讨论。",
+          "core_judgment": "论文有明确的法学争点并存在理论分歧，但问题设定偏重体系构建而非深层理论推进，且主要依赖比较法材料，创新上限受限。",
+          "score_rationale": "可争辩性=3/4，枢纽性=2/4，材料新颖性已触发上限（material_novelty_without_thesis），锚定good档但有弱问题表述，扣5分后得65分；因上限规则取70分，但可争辩性=2判定为弱问题表述，最终上限65分。综合后给62分。",
+          "evidence_quotes": [
+            "不真正不作为犯的终极问题是边界问题。在法律并无明文规定的情况下，不真正不作为犯可以说是游走在罪刑法定原则的灰色地带……如何把握其合理边界就成为关键。",
+            "在我国……罪名范围应有所限制……保证人地位的认定……宜持较为宽松的态度……结果原因支配说能够适应我国的实际需求……将先行行为视为例外。"
+          ],
+          "strengths": [
+            "明确提出了“边界问题”这一可争辩的法学争点，而非单纯主题声明。",
+            "通过比较法（德日）展现了不同制度路径的理论分歧，具有一定枢纽性。"
+          ],
+          "weaknesses": [
+            "核心创新仅依赖比较法材料和现有理论整合，未提出显著改变解释路径或规范命题的新理论。",
+            "问题措辞较为宏大（如“发展方向”），焦点不够集中，部分讨论偏向立法与司法政策倡导。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.material_novelty_without_thesis",
+              "rule": "主要依赖材料新颖（德日比较、实证数据）但无实质研究命题推进，上限70分",
+              "score_ceiling": 70,
+              "priority": 3,
+              "evidence": "论文核心创新在于引入德日比较和我国实证数据，但结论仍为边界划定和理论选择，未带来问题设定或解释路径的根本改变。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述是否充分、论证是否严密或材料是否真正支撑结论。",
+          "review_flags": [
+            "material_novelty_overclaim"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文围绕不真正不作为犯的边界提出可争辩的法学争点，枢纽性极强。",
+          "core_judgment": "问题成立且极为重要，具有充分的法学可争辩性与理论分歧，对刑法教义学有显著推进。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "不真正不作为犯真的被滥用了吗？",
+            "对于这一情形的处理，司法实践和学界存在重大对立。"
+          ],
+          "strengths": [
+            "争点明确且具长期争议性，涉及罪刑法定与法益保护权衡",
+            "理论分歧显著，与既有观点深入交锋"
+          ],
+          "weaknesses": [
+            "问题属学界长期讨论的经典老问题，全新性略有不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性与文献充分度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文围绕不真正不作为犯的边界问题展开，提出罪名适用范围与保证人地位认定两个核心争点，具有明确的问题意识和理论交锋。",
+          "core_judgment": "论文提出了可争辩的刑法学问题，涉及不真正不作为犯的适用范围与保证人理论选择，存在学界长期争论的理论分歧。",
+          "score_rationale": "可争辩性=4/4，枢纽性=3/4，材料新颖性未触发上限。锚定good档，给75分。扣分合计=0分。",
+          "evidence_quotes": [
+            "不真正不作为犯的终极问题是边界问题。在法律并无明文规定的情况下，不真正不作为犯可以说是游走在罪刑法定原则的灰色地带",
+            "不真正不作为犯在我国的适用并未实质展开"
+          ],
+          "strengths": [
+            "问题明确：从罪名和保证人地位两个维度划定边界",
+            "理论交锋充分：与高艳东、白建军、黎宏等学者观点展开对话"
+          ],
+          "weaknesses": [
+            "部分问题表述偏宏大，如'发展方向'类论述可更聚焦",
+            "德日比较部分偏重描述，理论提炼可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性、材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "聚焦不作为犯边界与保证人地位争点，结合实证与比较法提出二元理论，问题极具可争辩性与枢纽性。",
+          "core_judgment": "问题明确聚焦刑法教义学核心争议，兼具理论深度与实践关照，研究问题成立且极具学术价值。",
+          "score_rationale": "扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "不真正不作为犯真的被滥用了吗？",
+            "不真正不作为犯的罪名界限在哪里，是否任何罪名都可以成立不真正不作为犯？"
+          ],
+          "strengths": [
+            "精准提炼司法与理论对立焦点，问题意识鲜明。",
+            "以实证与比较法支撑，有效推进保证人理论争辩。"
+          ],
+          "weaknesses": [
+            "部分罪名边界推演略显理想化，实务转化路径待细化。",
+            "超个人法益排除论证可进一步结合最新立法动态。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身的可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 28.83902621269226,
+        "glm-5.1": 45.29360318183899,
+        "kimi-k2.6": 10.669126987457275,
+        "qwen3.6-plus": 66.75728416442871
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 62,
+        "glm-5.1": 88,
+        "kimi-k2.6": 75,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79.2,
+      "std": 13.6,
+      "strictest": 62,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文以分散式文献定位精准勾勒了「滥用论/限缩论」与「扩张论」的学术争点，并通过德日比较呈现制度方案分歧，研究地图完整但流派数量有限。",
+          "core_judgment": "论文清晰呈现了到达点（滥用论/限缩论阵营）、未竟点（边界不清、理论滞后）与本文切入点（从罪名与保证人地位两维划定边界），争点结构充分成立。",
+          "score_rationale": "三要素=5/6，争点结构=2/2，法学流派=2个，锚定good档，给82分。",
+          "evidence_quotes": [
+            "有学者抨击上述“滥用” 现象，主张大力限缩不真正不作为犯的适用...白建军、高艳东得出了较为一致的结论：不真正不作为犯只应在轻罪中成立。",
+            "保证人理论大致可以分成规范性阵营和事实性阵营。前者是德国刑法理论的主流...后者是日本刑法理论的绝对多数..."
+          ],
+          "strengths": [
+            "对「滥用/限缩论」与「扩张论」两大阵营的争点梳理极为透彻，直接支撑论文核心问题。",
+            "引入德日立法与司法导向的制度分歧作为外部对照，深化了争点结构的学理层次。"
+          ],
+          "weaknesses": [
+            "仅聚焦于「滥用/限缩」及「德日路径差异」两大流派，未呈现认知心理学、实验法学等跨学科法学流派，流派多样性稍弱。",
+            "文献定位高度分散于驳论之中，未专门提炼既定领域的公认结论（到达点），对既有研究共识的正面梳理可更集中。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "扣分仅因法学流派数量偏少，但不影响争点结构的充分性；论文的跨法系对比已构成可区分的解释路径分歧，属于文献定位深度问题而非创新性不足。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "论文精准定位既有研究误判，构建了多维争点结构与丰富流派对立，研究地图完整。",
+          "core_judgment": "现状洞察度极高，清晰呈现了限缩论与扩张论、规范与事实阵营等多重争点。",
+          "score_rationale": "三要素=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "有学者抨击上述‘滥用’现象，主张大力限缩不真正不作为犯的适用范围...但是，不真正不作为犯真的被滥用了吗？",
+            "保证人理论大致可以分成规范性阵营和事实性阵营。前者是德国刑法理论的主流...后者是日本刑法理论的绝对多数..."
+          ],
+          "strengths": [
+            "精准反驳既有“滥用论”与“轻罪论”，未竟点明确具体。",
+            "呈现德日路径、规范与事实阵营等多重对立争点与流派。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点结构，不评问题创新性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了德日比较与本土实证的研究地图，呈现多维度争点。",
+          "core_judgment": "研究地图三要素基本成立，争点结构清晰，但法学流派识别以解释路径为主，未形成充分对立的学派争论。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=2个（德国独立性路径/日本附属性路径），锚定good档，给72分。",
+          "evidence_quotes": [
+            "德国偏向广泛适用不真正不作为犯，日本则与之相反...德国刑法第13条对不真正不作为犯作了明确规定，日本刑法中则无相应规定",
+            "保证人理论大致可以分成规范性阵营和事实性阵营。前者是德国刑法理论的主流...后者是日本刑法理论的绝对多数"
+          ],
+          "strengths": [
+            "德日制度对比呈现清晰的解释路径分歧",
+            "对白建军、高艳东等具体学术观点有明确回应与批评"
+          ],
+          "weaknesses": [
+            "规范性/事实性阵营仅作理论介绍，未充分展开为学界争论脉络",
+            "未明确提炼既有研究的具体未竟点，切入点与未竟点对应不够直接"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "literature_insight.partial_map_with_schools",
+              "rule": "三要素总分3且法学流派≥2时上限79分",
+              "score_ceiling": 79,
+              "priority": 2,
+              "evidence": "三要素得5分但切入点与未竟点对应松散，流派识别以制度路径为主而非学派争论"
+            }
+          ],
+          "boundary_note": "本维度评价文献定位充分性，不评价问题本身是否新颖或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "精准勾勒研究地图，德日制度对比与理论阵营梳理清晰，争点结构严密。",
+          "core_judgment": "研究地图三要素完整，争点脉络与流派对立明确，文献定位深度充分支撑论证。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "保证人理论大致可以分成规范性阵营和事实性阵营……前者是德国刑法理论的主流，后者是日本刑法理论的绝对多数",
+            "我国关于不真正不作为犯的研究，理论纵深性始终不足，对司法实践难以形成应有关照"
+          ],
+          "strengths": [
+            "德日制度路径与保证人理论阵营对比清晰，准确提炼学界对立观点。",
+            "实证数据与教义学争点结合紧密，未竟点与本文切入点高度对应。"
+          ],
+          "weaknesses": [
+            "对英美法系相关判例与理论的引介相对单薄，比较视野可进一步拓宽。",
+            "部分流派观点（如社群主义刑法观）仅作为辅助论证，展开深度稍显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点呈现，不涉及对不真正不作为犯边界命题本身的新颖性评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 34.387458086013794,
+        "glm-5.1": 63.47079515457153,
+        "kimi-k2.6": 13.315043926239014,
+        "qwen3.6-plus": 75.47340512275696
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84,
+      "std": 9.1,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以“罪名+保证人地位”双维框架统摄全文，并将比较法对照与教义学分析转化为可操作的边界划定标准，法学转化度高。",
+          "core_judgment": "分析框架建构力成立且优秀：双维边界框架清晰、可循，并在罪名限制、保证人理论选择及先行行为例外等具体教义学分析中被反复调用。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=3/4。锚定excellent档（80-100），给85分。框架有明确维度、可判断步骤且后文深度调用，法学转化体现为判断标准与制度设计。",
+          "evidence_quotes": [
+            "有必要从罪名和保证人地位两个维度划定不真正不作为犯的合理边界。",
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论……为司法实践区别处理不同义务类型的不作为犯提供了依据。"
+          ],
+          "strengths": [
+            "“罪名边界+保证人地位”双维框架贯穿全篇，结构清晰，后文分析严格按此展开。",
+            "将比较法启示与教义学理论筛选转化为可直接用于立法和司法的判断标准（如罪名限于个人法益、保证人二元论），操作性强。"
+          ],
+          "weaknesses": [
+            "法学转化度略有扣分：在罪名维度的具体判断流程上，未给出法官可步步遵循的审查清单或步骤图。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分仅评价分析框架的建构力与法学转化度，不涉及其教义学结论的正确性或逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 90,
+          "band": "excellent",
+          "summary": "建构了罪名适用与保证人地位的二元分析框架，法学转化度高。",
+          "core_judgment": "分析框架成立且极具可操作性，成功将理论转化为裁判规则与适用流程。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "“结果原因支配说……要求一种事先的常态支配……来自于主动承担保护责任或持续的紧密的社会关联”",
+            "先行行为与其他作为义务人并存时“应让位……对前者宜认定为正犯，对后者宜认定为帮助犯”"
+          ],
+          "strengths": [
+            "二元保证人理论（原则+例外）分类清晰、步骤可循",
+            "提供夫妻自杀、场所管理者等具体裁判规则与操作指引"
+          ],
+          "weaknesses": [
+            "场所管理者支配的“层升要素搭配”权衡标准仍略显模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构力，不评价先行行为例外理论在教义学上的逻辑自洽性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'罪名维度+保证人地位维度'的双层分析框架，并以'结果原因支配说'为核心提出保证人地位的认定标准，框架具有较清晰的理论建构和一定的实践指引性。",
+          "core_judgment": "分析框架基本成立，属于制度/实务型论文中理论建构较强的类型，但核心概念'支配'的操作化程度不足，且存在部分理论补正的逻辑跳跃。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定较清晰、分类标准明确、分析步骤基本可循，但'支配'的具体判断标准仍较抽象；后文实际调用充分），法学转化度得分=2/4（提供了保证人地位的认定方向和类型化分析，但缺乏裁判规则层面的具体操作指引，制度设计方案不足），锚定good档(60-79)，给72分。",
+          "evidence_quotes": [
+            "有必要从罪名和保证人地位两个维度划定不真正不作为犯的合理边界",
+            "支配是一个类型概念，包括两个可区分等级的要素"
+          ],
+          "strengths": [
+            "双层维度框架（罪名+保证人地位）具有创新性和体系性",
+            "对德日比较后的理论选择有明确的问题意识和本土关怀"
+          ],
+          "weaknesses": [
+            "'支配'核心概念缺乏可操作的判断标准，类型化程度不足",
+            "先行行为作为例外的理论补正与结果原因支配说的融贯性存疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构力和法学转化，不涉及逻辑严密性和问题新颖性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建二元保证人理论框架，提供清晰的司法适用顺位与量刑指引。",
+          "core_judgment": "分析框架成立且具备高度的教义学可操作性与裁判转化力。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰、分类明确、步骤可循且全文调用；成功将支配理论转化为保证人地位判断标准与量刑规则。",
+          "evidence_quotes": [
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，为司法实践区别处理提供了依据。",
+            "在先行行为人和其他作为义务人都在场时，先行行为应让位于其他义务来源，且可罚性更低。"
+          ],
+          "strengths": [
+            "提出二元理论，明确原则与例外的适用顺位与量刑差异。",
+            "将抽象支配理论操作化为具体场景的判断步骤。"
+          ],
+          "weaknesses": [
+            "先行行为例外的政策论证强于教义推演，边界可细化。",
+            "量刑建议缺乏直接法条映射，依赖法官自由裁量。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "仅评框架建构与转化，不涉逻辑衔接与问题创新。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 37.39560103416443,
+        "glm-5.1": 53.42408299446106,
+        "kimi-k2.6": 14.538604736328125,
+        "qwen3.6-plus": 67.59005308151245
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.8,
+      "std": 9.0,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 75,
+          "band": "good",
+          "summary": "论文构建了“立法—教义学—司法”的分析框架，推理链较为完整，但部分关键环节存在依赖性和跳步问题，且反驳处理覆盖不足。",
+          "core_judgment": "整体推理链可复述，结论可从前文推出，但依赖个别有争议的前提，且对关键反驳（如“未滥用”判断与实证数据的关系）回应不足。",
+          "score_rationale": "推理链完整性得分=3/4，反驳处理度得分=1/3，锚定good档，给出75分。推理链缺少对‘未滥用’结论如何从‘扩张趋势’数据中直接推出的关键性解释；反驳处理仅满足隐含分歧回应标准。",
+          "evidence_quotes": [
+            "本文并非依靠绝对数量来说明不真正不作为犯的适用情况，而是通过判决数增长速度、罪名分布和保证人地位的类型分布等来说明问题，因此这些数据仍具有一定的研究价值。",
+            "刑法第133条的规定就显示了立法者对先行行为的态度...既然‘刑法并不仅仅是逻辑现象，更是社会现象’，...在确定理论无法满足现实需求时，就应当进行相应的理论修正。"
+          ],
+          "strengths": [
+            "比较法研究推理清晰，从立法差异系统推导出对罪名范围和保证人地位认定的不同影响。",
+            "结论部分将罪名适用范围与保证人理论选择整合到统一的分析框架中，形成闭环。"
+          ],
+          "weaknesses": [
+            "从实证数据（判决数上升、类型扩张）推出‘不真正不作为犯未被滥用’的结论跳步明显，缺乏对‘滥用’标准的明确界定。",
+            "对‘未滥用’判断的反驳仅隐含于对批评者的定位反驳，未明确回应实证扩张与限缩主张的逻辑冲突。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "从数据增长直接推出‘未实质展开（未被滥用）’的跳跃属于核心结论能否被充分支撑的逻辑链问题，而非分析框架本身的可操作性问题。",
+          "review_flags": [
+            "counterargument_missing",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "推理链完整依赖度高，反驳扎实且坦诚局限，逻辑严密性极佳",
+          "core_judgment": "本维度完全成立，构建了从实证到教义学的充分支撑链条，结论可辩护推出",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。推理紧密依赖，结论由前文充分推出；实质回应反对意见且承认局限",
+          "evidence_quotes": [
+            "二元理论固然存在教义学上的不完美，但凸显出先行行为与其他义务来源在本质上的不同",
+            "若因存在不当定罪就认为必须限缩，则缺乏充分根据，该判断未能正确定位不真正不作为犯"
+          ],
+          "strengths": [
+            "从实证、比较法到教义学建构层层递进，推理链紧密依赖",
+            "对高艳东等反对意见进行实质性反驳，论证扎实"
+          ],
+          "weaknesses": [
+            "从真正不作为犯特征反推不真正不作为犯边界，过渡稍显生硬"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "先行行为引入刑事政策补正属框架建构力问题，本文逻辑闭环自洽，不因框架纯粹性扣分",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'实证描述—比较法分析—教义学建构'的完整推理链，反驳处理较为充分，但存在局部跳步。",
+          "core_judgment": "推理链整体完整可复述，核心结论可从前文推出，但'结果原因支配说'的择取论证及先行行为例外化处理存在关键跳步。",
+          "score_rationale": "推理链完整性得分=3/4（标准1、2、3成立，标准4部分成立：'结果原因支配说'择取时对其他理论的排除论证不足，先行行为例外化的教义学融贯性论证有跳步）；反驳处理度得分=2/3（标准1、2成立：明确回应高艳东、白建军等反对意见并实质论证；标准3未显式承认局限）。锚定good(70-79)档，给72分。",
+          "evidence_quotes": [
+            "笔者拟以两类不作为犯的教义学区分为逻辑起点，发现真正不作为犯的立法规律，从而反推不真正不作为犯的罪名适用空间",
+            "结果原因支配说虽然能够为大多数作为义务来源提供理论根据，但是……与先行行为很难相容……应大胆补正，将先行行为视为例外"
+          ],
+          "strengths": [
+            "德日比较→原因分析→中国方案的三段论结构清晰，步骤间依赖紧密",
+            "对高艳东、白建军的批评进行了逐点实质回应"
+          ],
+          "weaknesses": [
+            "从'真正不作为犯特征'反推'不真正不作为犯边界'的推理存在归纳跳跃",
+            "先行行为作为'例外'与结果原因支配说的融贯性论证不足，有政策论取代教义学之嫌"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链的充分支撑性，不涉及'结果原因支配说'本身作为分析框架的建构力评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文推理链完整严密，反驳处理充分，结论可由前文可辩护地推出。",
+          "core_judgment": "逻辑严密性成立，主要推理步骤环环相扣，核心结论在充分回应反对意见与承认理论局限的基础上得出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "若因为存在不当定罪的情况，就认为必须对不真正不作为犯的适用进行限缩，则缺乏充分根据。",
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美，但二元理论凸显出先行行为与其他作为义务来源在本质上的不同"
+          ],
+          "strengths": [
+            "推理链条完整，从实证检视、比较法借鉴到教义学建构层层递进，依赖度高。",
+            "对高艳东、白建军等反对观点进行逐一批驳，论证扎实且回应充分。"
+          ],
+          "weaknesses": [
+            "先行行为作为“例外”的刑事政策证成略显单薄，教义学融合度可进一步深化。",
+            "部分判例数据检索存在天然局限，虽已说明但可能影响实证结论的普适性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦论证链条的推导严密性与反驳处理，不涉及所提二元理论在司法实务中的具体操作难度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 27.070618867874146,
+        "glm-5.1": 70.97474408149719,
+        "kimi-k2.6": 13.843478679656982,
+        "qwen3.6-plus": 69.8972978591919
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 82.8,
+      "std": 10.8,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论通过理论与实证对话共同体，在中国制度语境下提出兼具限制与宽松的二元方案，具有较强的可接受性。",
+          "core_judgment": "结论回应了学界争议，定位清晰，与我国现行法秩序兼容且指出了制度转化方向，能被共同体有效回应。",
+          "score_rationale": "共同体对话度得分=4/4（明确回应争议、反对者可定位、中国语境、讨论局限），制度可接受度得分=4/4（不根本矛盾、回应实务约束、指向制度转化、考虑中国语境）。锚定理论论文excellent档，给92分。",
+          "evidence_quotes": [
+            "针对高艳东就我国刑法部分条文所展开的解读，笔者提出以下商榷意见...",
+            "从刑事政策出发，应拣选履行作为义务的负担相对最轻的主体...将先行行为视为例外，在结果原因支配说之外单独考虑其理论基础。"
+          ],
+          "strengths": [
+            "精准回应了“滥用论”“轻罪限定论”等具体学术对手，对话性强。",
+            "结论从罪名限制与保证人宽松认定二元维度展开，兼顾制度约束与治理需求。"
+          ],
+          "weaknesses": [
+            "“超个人法益犯罪不宜成立不真正不作为犯”的边界论证可操作性有待进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评仅关注结论的共同体可回应性与制度兼容性，不判断结论最终是否被接受或是否开启后续研究。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深度回应学界争论与中国实务，提出具体适用边界与二元保证人理论，可接受性高。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，明确挑战既有观点并提供具体裁判指引，可接受性维度成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "对于以超个人法益为侵害目标的犯罪，不宜成立不真正不作为犯...对于以个人重要的人身、财产法益为侵害目标的犯罪...则可以成立",
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美，但...为司法实践区别处理提供了依据"
+          ],
+          "strengths": [
+            "明确挑战高艳东、白建军等既有观点，对话度高",
+            "结合中国实证数据与立法现状，制度转化方向具体"
+          ],
+          "weaknesses": [
+            "二元保证人理论自认教义学不完美，可能面临体系化质疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评估结论能否被学界和制度语境接受、回应，不评论证严密性或前瞻延展性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文提出不真正不作为犯应限缩于个人法益犯罪并采结果原因支配说，制度导向明确且回应中国语境。",
+          "core_judgment": "结论可接受性成立，论文有效进入刑法学共同体对话，制度方案与现行法秩序兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给85分。论文回应了限缩论与扩张论之争，提出'结果原因支配说+先行行为例外'的二元方案，基于中国裁判数据与刑法立法展开，可被反对者定位反驳；制度方案具体可操作，与现行法秩序兼容。",
+          "evidence_quotes": [
+            "笔者拟以两类不作为犯的教义学区分为逻辑起点，发现真正不作为犯的立法规律，从而反推不真正不作为犯的罪名适用空间",
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美"
+          ],
+          "strengths": [
+            "明确回应白建军、高艳东等既有学说并展开商榷",
+            "基于中国裁判文书网实证数据提出制度方案"
+          ],
+          "weaknesses": [
+            "先行行为作为例外的刑事政策论证略显仓促",
+            "二元理论的教义学融贯性可进一步展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维评价结论当下能否被接受，不涉及论证严密性或未来研究空间。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确回应学界争议，提出契合中国语境的二元保证人理论，兼具教义学严谨性与制度兼容性。",
+          "core_judgment": "该结论深度嵌入中国刑法教义学与司法实践语境，具备高度的共同体可对话性与制度逻辑兼容性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "笔者拟以两类不作为犯的教义学区分为逻辑起点，发现真正不作为犯的立法规律，从而反推不真正不作为犯的罪名适用空间。",
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美，但凸显出先行行为与其他作为义务来源在本质上的不同。"
+          ],
+          "strengths": [
+            "精准定位并修正既有学说，提出契合中国司法量刑趋势的二元保证人框架。",
+            "充分回应高艳东、白建军等学者观点，论证具有强可争辩性与对话性。"
+          ],
+          "weaknesses": [
+            "二元理论承认教义学不完美，对先行行为例外的规范边界仍需进一步厘清。",
+            "对超个人法益犯罪的排除适用标准在复杂经济犯罪中可能面临解释张力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下能否被共同体与制度语境接受，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 41.66096115112305,
+        "glm-5.1": 55.99137592315674,
+        "kimi-k2.6": 28.969592094421387,
+        "qwen3.6-plus": 73.07479500770569
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 92,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90.2,
+      "std": 3.5,
+      "strictest": 85,
+      "strictest_model": "kimi-k2.6"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 42,
+          "band": "marginal",
+          "summary": "论文指明了不真正不作为犯在罪名边界和保证人地位上的未来研究议题，但延展路径较为概括，缺乏精细的操作化步骤或具体争点展开。",
+          "core_judgment": "存在概括的延展方向，但与正文核心结论的衔接需推断，证据展开有限。",
+          "score_rationale": "原始分42，符合bonus=2档（≥40且<60）。论文在罪名限制和保证人理论选择上指出了‘值得深入探讨’和‘亟待解决’的方向，但未形成具体后续研究问题或精细路径。",
+          "evidence_quotes": [
+            "不真正不作为犯的罪名界限在哪里，是否任何罪名（真正不作为犯除外）都可以成立不真正不作为犯？这一问题值得深入探讨。",
+            "如何构建适合我国实际需求的保证人理论体系，是亟待解决的问题。"
+          ],
+          "strengths": [
+            "基于实证数据和比较法分析，明确指出了罪名适用范围和保证人地位认定的未来研究议题。"
+          ],
+          "weaknesses": [
+            "延展方向停留在提出宏观议题（如“值得深入探讨”、“亟待解决”）阶段，未给出具体研究假设或操作化路径。",
+            "对保证人理论的二元修正虽提出了原则与例外，但未说明后续如何进一步检验或细化该框架。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文提出的未来研究方向属于研究议程设定，而非要求共同体立即接受其结论，因此属于前瞻延展性问题。",
+          "review_flags": [
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 85,
+          "band": "excellent",
+          "summary": "提出了具体的罪名界限探讨、保证人理论修正路径及实务场景边界延伸，延展路径清晰可定位。",
+          "core_judgment": "存在真实延展路径，指明了二元保证人理论的深化方向与罪名适用界限的后续争点。",
+          "score_rationale": "原始分85，对应bonus=5档。论文明确提出罪名界限的后续争点、二元理论的教义学修正路径及中间层级场景的权衡方向，延展路径与核心结论紧密衔接。",
+          "evidence_quotes": [
+            "不真正不作为犯的罪名界限在哪里，是否任何罪名都可以成立不真正不作为犯？这一问题值得深入探讨。",
+            "对于处于中间层级的搭配情况，则应当进行具体的权衡讨论。笔者初步认为……"
+          ],
+          "strengths": [
+            "指出二元保证人理论在教义学上的不完美及后续修正方向。",
+            "给出先行行为让位于其他义务、可罚性降低等具体后续争点。"
+          ],
+          "weaknesses": [
+            "对超个人法益犯罪不成立不真正不作为犯的边界风险控制未作进一步延展。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "罪名适用界限与中间层级场景的权衡属于未来教义学与实务需继续推进的延展问题，而非当下结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 62,
+          "band": "good",
+          "summary": "论文在制度型与理论型延展上均有涉及，提出了二元保证人理论的补正方向及先行行为的例外地位，但部分延展路径的精细度仍可加强。",
+          "core_judgment": "存在真实延展路径，主要体现在理论修正方向（结果原因支配说的补正、二元保证人理论构建）和制度适用方向（罪名范围限制、量刑差异化处理）两个维度。",
+          "score_rationale": "原始分62分，对应bonus=3档。论文明确提出了'以结果原因支配说为原则、以先行行为为例外的二元保证人理论'这一理论深化方向，并具体指出了先行行为在作为义务体系中的附属地位及量刑差异化路径；同时就罪名适用范围限制提出了'个人法益类犯罪'的判定标准。但延展路径在操作层面的精细度有限，如二元理论的具体适用规则、先行行为与其他义务来源的竞合处理等尚未充分展开。",
+          "evidence_quotes": [
+            "笔者认为，在通过理论修正无法满足现实需要的情况下，应大胆补正，将先行行为视为例外，在结果原因支配说之外单独考虑其理论基础",
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美，但二元理论凸显出先行行为与其他作为义务来源在本质上的不同"
+          ],
+          "strengths": [
+            "提出二元保证人理论的具体建构方向，具有理论深化价值",
+            "明确先行行为的例外地位及量刑差异化路径，具有实务指导意义"
+          ],
+          "weaknesses": [
+            "二元理论的具体操作规则展开不足，精细度有限",
+            "对'个人法益类犯罪'的边界判定标准仍可进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文提出的理论修正方向和制度完善路径是否具备未来延展性，而非评价'二元保证人理论'本身能否被学界接受——后者属于结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文在确立二元保证人理论与罪名限制结论后，明确指出了教义学整合难点、具体场景权衡标准及量刑差异化路径，延展方向清晰且与核心论证紧密咬合。",
+          "core_judgment": "存在真实且具体的延展路径，聚焦于二元理论的教义学补正、特定场景支配边界细化及量刑规则实证检验。",
+          "score_rationale": "原始分82，对应bonus=5档。主要证据为：明确承认二元理论存在教义学不完美并提出政策补正路径；指出支配边界中间情形需具体权衡，为后续研究提供精确入口。",
+          "evidence_quotes": [
+            "以结果原因支配说为原则、以先行行为为例外的二元保证人理论，固然存在教义学上的不完美",
+            "对于处于中间层级的搭配情况，则应当进行具体的权衡讨论。"
+          ],
+          "strengths": [
+            "明确承认理论局限并给出刑事政策补正路径",
+            "针对支配边界与量刑差异提出可操作的后续检验场景"
+          ],
+          "weaknesses": [
+            "对罪名限制的具体清单未作穷尽式推演",
+            "量刑差异化建议缺乏配套实证数据支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是理论框架提出后待修正的教义学缝隙与待检验的实务场景，而非对当前结论本身是否成立的评判。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 88.46398210525513,
+        "glm-5.1": 56.903846979141235,
+        "kimi-k2.6": 13.335543870925903,
+        "qwen3.6-plus": 61.726913928985596
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 42,
+        "glm-5.1": 85,
+        "kimi-k2.6": 62,
+        "qwen3.6-plus": 82
+      },
+      "mean": 67.8,
+      "std": 20.0,
+      "strictest": 42,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 85.16,
+      "weighted_total": 82.2
+    },
+    "aggregation_strictest": {
+      "final_score": 70.47,
+      "weighted_total": 68.8
+    },
+    "avg_std": 11.0,
+    "max_std": 20.0,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 14.7,
+    "composite_score": -9.33,
+    "worst_dimension": "forward_extension",
+    "worst_std": 20.0
+  }
+}

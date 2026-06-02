@@ -1,0 +1,286 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1510-法学研究-2023-5-数字私力救济——基于远程控制网联物的权利实现-王琦-北京航空航天大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 40,
+          "band": "unacceptable",
+          "summary": "论文以“数字私力”新概念描述远程控制自助救济现象，但全文主要是在描述实践现状和阐释既定立场，缺少可争辩的法学核心问题。",
+          "core_judgment": "本文提出了一个实务新现象，但未能将其转化为明确的、存在理论分歧的法学争点，更像是一篇政策倡导和技术风险规避建议。",
+          "score_rationale": "负面模式扣分合计=50分。其中，检查1（新概念包装旧问题）扣25分，检查2（宏观介绍非深度分析）扣20分，检查3（主题声明非研究问题）扣30分（仅取一重，按最高扣分30分计，但第三项单独触发no_justiciable_question上限）。正式评分为可争辩性1/4，枢纽性2/4，因可争辩性≤1触发上限50分，再扣除负面模式30分后不低于30分，最终得40分。材料新颖性未实质改变问题设定，触发了material_novelty_overclaim上限。",
+          "evidence_quotes": [
+            "本文以下将首先论证数字私力救济的正当性，然后讨论如何通过民法机制来规制数字私力……（结构上展现的是论证立场而非提出争点）",
+            "往观历史，有助于回答应否允许远程控制作为私力救济手段的问题。"
+          ],
+          "strengths": [
+            "敏锐捕捉到“远程控制自助救济”这一跨技术、跨法域的实践新样态，并提供了丰富的中美德案例素材。"
+          ],
+          "weaknesses": [
+            "核心问题句“应否允许”更接近政策倡导，全文未围绕该争点展开不同法学立场的交锋；大量篇幅用于描述现象和给出制度建议，而非进行理论层面的争议探究。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "全文无明确可争辩的法学问题句，主要为政策倡导和应然主张",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文开篇即声明要论证正当性并讨论规制，且后文多为“允许+积极规制”的立场阐释，缺少不同解释路径或理论派别的正面交锋。"
+            }
+          ],
+          "boundary_note": "本维度仅评问题本身的创新性与可争辩性，不涉及论证是否严密或文献是否充分。",
+          "review_flags": [
+            "material_novelty_overclaim",
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "数字私力救济的合法性与规制触及物权与合同双重体系，极具枢纽性。",
+          "core_judgment": "问题成立且极为重要，成功将新技术现象转化为深层的民法体系争点。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "是否允许远程控制作为私力救济手段？",
+            "软件锁定是否为'占有妨害'概念所涵盖，存在解释空间"
+          ],
+          "strengths": [
+            "将技术现象转化为占有与合同的深层法学争点",
+            "呈现了中德学界对数字私力与占有妨害的理论分歧"
+          ],
+          "weaknesses": [
+            "法政策论证部分略显单向，但核心争点扎实"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立及重要，不评论证严密性与文献充分度",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文以'数字私力'为核心，系统论证远程控制作为私力救济手段的合法性边界与民法法规制，问题聚焦且具重大理论价值。",
+          "core_judgment": "研究问题成立且重要，通过新概念有效整合物权法与合同法争点，推动传统制度的现代化解释。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。论文围绕远程控制能否作为私力救济手段，在占有保护、共同占有、抗辩权、格式条款等多层面展开可争辩的法学分析，涉及制度广泛且触及法学基础理论。",
+          "evidence_quotes": [
+            "远程控制在法律上有着巨大应用空间，其中最重要也最有争议的一种应用，是作为私力救济的手段",
+            "数字私力引发了数字世界力量和物理世界秩序的直接碰撞，对以司法救济为中心的传统法律秩序有着体系性冲击力"
+          ],
+          "strengths": [
+            "问题层次丰富：从合法性证成到类型化建构，再到物权法与合同法分层规制",
+            "理论交锋充分：德国法与中国法、物理紧密性说与主要功能保护说等多维度对话"
+          ],
+          "weaknesses": [
+            "部分概念（如'数字共同占有'）的本土化论证深度可进一步加强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文聚焦数字私力合法性与规制路径，问题明确且具高度可争辩性。",
+          "core_judgment": "问题精准切入物联网时代民法解释难题，理论纵深与制度辐射力强，维度高度成立。",
+          "score_rationale": "前置检查扣分合计0分。可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "应否允许远程控制作为私力救济手段？",
+            "软件锁定是否为‘占有妨害’概念所涵盖，存在解释空间"
+          ],
+          "strengths": [
+            "精准提炼新概念并展开教义学交锋",
+            "贯通物权占有保护与合同法抗辩权体系"
+          ],
+          "weaknesses": [
+            "对数据合规交叉影响着墨较少",
+            "部分比较法论证可进一步本土化限缩"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题可争辩性与枢纽性，不评文献综述、论证严密性及材料支撑度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 38.71512293815613,
+        "glm-5.1": 74.56145000457764,
+        "kimi-k2.6": 37.08734107017517,
+        "qwen3.6-plus": 80.64959812164307
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 40,
+        "glm-5.1": 92,
+        "kimi-k2.6": 92,
+        "qwen3.6-plus": 92
+      },
+      "mean": 79,
+      "std": 26.0,
+      "strictest": 40,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文构建了一个原创的“数字私力救济”分析框架，通过类型化建构和可操作的规制路径，实现了从现象到规制的法学转化。",
+          "core_judgment": "框架可操作性高，法学转化充分，类型建构和规制路径设计具有原创性，可被视为一个成熟的法学分析框架。",
+          "score_rationale": "框架可操作性得分=4/4（概念清晰、分类明确、步骤可循、后文调用充分），法学转化度得分=3/4（提供了裁判规则和制度设计方案），锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "将数字私力分为“闭锁或取走型”“程序锁定型”“云服务停止型”三种类型，并分别讨论其在占有保护中的规制路径。",
+            "本文提出“有限的主要功能保护说”，主张将为行使权利而限制网联物主要功能的行为排除在占有妨害之外，并提供具体判断标准。"
+          ],
+          "strengths": [
+            "概念界定清晰，原创性地提出了“数字私力”“有限的主要功能保护说”等核心术语并给出定义。",
+            "框架具备极强的可操作性，提供了详尽的三阶段“数字私力正当程序”规制方案，可直接为司法实践提供指引。"
+          ],
+          "weaknesses": [
+            "“数字共同占有理论”等部分论证过于依赖德国学说，对中国本土裁判资源的深度挖掘和构造略显不足。",
+            "“有限的主要功能保护说”的判断标准（“交易观念”）较为抽象，在边界案件中可能引发新的解释争议。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本评分只关注分析框架的可操作性和法学转化度，不评价其与德国学说的衔接严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "概念界定清晰，类型建构明确，提供完整的物权与合同双层规制分析步骤及制度方案。",
+          "core_judgment": "该维度完全成立，论文建构了极具操作性和法学转化度的“数字私力”双层规制框架。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "本文所谓的‘数字私力’，强调权利人不是经由司法机关而是自行主张权利，属于私力救济范畴。",
+            "数字私力的三大类型需与占有保护的两类进行关联，闭锁型构成侵夺，程序与云服务型不构成妨害。"
+          ],
+          "strengths": [
+            "概念与类型化标准极为清晰，区分依据明确",
+            "提供物权法与合同法双层检验的完整分析步骤"
+          ],
+          "weaknesses": [
+            "云服务停止型论证稍弱，与程序锁定型边界在极端云端化时可能模糊"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架建构力，不评价占有保护等具体论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'数字私力'的三类型分析框架与多层规制体系，具有较强可操作性。",
+          "core_judgment": "分析框架基本成立，类型化标准明确且贯穿全文，但法学转化深度在部分环节仍可加强。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准明确、分析步骤可循且后文实际调用；但'有限的主要功能保护说'等核心术语的后文调用频次可更清晰），法学转化度得分=2/4（跨学科概念已转化为法学分析步骤，提供了裁判规则和操作指引，但制度设计方案的系统性可进一步提升），锚定good档，给72分。",
+          "evidence_quotes": [
+            "本文将其称为'闭锁或取走型'私力……本文将其称为'程序锁定型'私力……更恰当的表述应为'云服务停止型'私力。",
+            "笔者提出'有限的主要功能保护说'，其要点有二。一是应当将网联物的主要功能纳入占有保护……二是需要区分正当与不正当的功能限制，将正当的功能限制排除在占有保护范围之外。"
+          ],
+          "strengths": [
+            "三类型分类标准清晰，贯穿物权法、合同法分析",
+            "从占有保护到合同法规制的多层递进结构完整"
+          ],
+          "weaknesses": [
+            "'数字私力正当程序'的具体操作步骤可更细化",
+            "部分比较法分析（如德国'电池锁定案'）的转化深度可加强"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价框架本身的建构与转化，不涉及具体论证的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了“概念-类型-物权边界-合同规制”框架，逻辑严密且具高度可操作性。",
+          "core_judgment": "框架成立且转化充分，为数字私力救济提供了清晰的裁判路径与制度设计方案。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念清晰、分类明确、步骤可循且全文高频调用；成功将技术特征转化为占有保护与合同规制规则，并输出正当程序操作指引。",
+          "evidence_quotes": [
+            "本文所谓的“数字私力”，是指权利人不是启动司法程序，而是对网联物实施远程控制以实现权利。",
+            "笔者提出“有限的主要功能保护说”，区分正当与不正当功能限制，标准在于交易观念。"
+          ],
+          "strengths": [
+            "类型化标准清晰，精准对接物权法占有侵夺与妨害要件。",
+            "提出“数字私力正当程序”，全链条规制具强司法操作性。"
+          ],
+          "weaknesses": [
+            "云服务停止排除占有保护的论证在公共网络场景下略显单薄。",
+            "正当程序的具体宽限期与比例阈值仍需司法实践进一步类型化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构与转化力，不涉及具体论证逻辑严密性或问题新颖性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 56.909461975097656,
+        "glm-5.1": 47.072701930999756,
+        "kimi-k2.6": 13.373225927352905,
+        "qwen3.6-plus": 61.144049882888794
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 92,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 84.5,
+      "std": 9.6,
+      "strictest": 72,
+      "strictest_model": "kimi-k2.6"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 42.79,
+      "weighted_total": 36.4
+    },
+    "aggregation_strictest": {
+      "final_score": 26.82,
+      "weighted_total": 22.8
+    },
+    "avg_std": 17.8,
+    "max_std": 26.0,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 2,
+    "score_gap": 16.0,
+    "composite_score": -17.8,
+    "worst_dimension": "problem_originality",
+    "worst_std": 26.0
+  }
+}

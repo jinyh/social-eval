@@ -1,0 +1,1005 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1546-法学研究-2018-3-构成要件错误的本质_故意行为危险的偏离-柏浪涛-华东师范大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "medium",
+        "issues": [
+          "OCR残留严重：正文夹杂‘· 6 3 1 ·’、‘· 7 3 1 ·’、‘· 8 3 1 ·’等多处页码及期刊信息（《法学研究》2018年第3期）残留，可能来自PDF转文本或扫描件",
+          "脚注编号与正文混排（如〔１〕华东师范大学法学院副教授...），参考文献列表缺失，但核心论点与论证结构清晰完整",
+          "部分德文专有名词OCR残留乱码（如‘a d ｑuate Gefahr’）"
+        ],
+        "evidence_quotes": [
+          "· 6 3 1 ·  〔１〕 〔２〕 华东师范大学法学院副教授。 本文系教育部人文社会科学研究青年基金项目...",
+          "· 7 3 1 · 构成要件错误的本质：故意行为危险的偏离 〔３〕 ...",
+          "Ｖｇｌ．Ｊｏａｃｈｉｍ Ｖｏｇｅｌ，Ｓｔｒａｆｇｅｓｅｔｚｂｕｃｈ Ｌｅｉｐｚｉｇｅｒ Ｋｏｍｍｅｎｔａｒ...",
+          "法学研究 ２０１８年第３期"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在错误论领域，我国刑法学界的主流分析路径是法定符合说和具体符合说。",
+          "张明楷提供了详细的论证理由...第１８条第１款规定...",
+          "我国及大多数国家的刑法处罚过失犯罪，均以造成实害结果为前提，这就是过失行为危险本身不值得科处刑罚的明证。",
+          "故意行为危险的实现标准...能够揭示构成要件错误的发生机理",
+          "在分析构成要件错误问题时，效果论重视效果比对，忽略错误的发生机理，其根本原因在于重视结果不法、忽视行为不法。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：OCR残留与页码混排较多，但核心论点和论证结构完整可读，不影响评分",
+        "项目口径：无，明确进入六维评价"
+      ],
+      "evidence_quotes": [
+        "在错误论领域，我国刑法学界的主流分析路径是法定符合说和具体符合说。",
+        "张明楷提供了详细的论证理由...",
+        "故意行为危险的实现标准...能够揭示构成要件错误的发生机理"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本OCR残留较多但不影响可读性，项目口径完全符合，建议进入六维评价"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如·６３１·、·７３１·）",
+          "脚注编号及部分内容混入正文段落",
+          "外文单词及文献信息OCR连写无空格（如ｏｂｊｅｋｔｉｖｅＺｕｒｅｃｈｎｕｎｇ、Ｓｔｒａｆｇｅｓｅｔｚｂｕｃｈ）"
+        ],
+        "evidence_quotes": [
+          "·６３１·",
+          "〔１〕华东师范大学法学院副教授。",
+          "ｏｂｊｅｋｔｉｖｅＺｕｒｅｃｈｎｕｎｇ译为“客观归属”"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "partial",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "在错误论领域，我国刑法学界的主流分析路径是法定符合说和具体符合说。",
+          "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理",
+          "构成要件错误的本质问题是，故意行为危险是否发生偏离。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "partial",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：页码、脚注及外文连写OCR残留，不影响核心论点定位",
+        "项目口径：论文主要聚焦刑法教义学理论建构与学说争辩，对中国司法实践难题的直接解释偏弱，但对中国法学理论争辩的解释充分，且形成了可复核命题"
+      ],
+      "evidence_quotes": [
+        "我国刑法学界的主流分析路径是法定符合说和具体符合说",
+        "故意行为危险是否发生实质偏离"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，但需在后续评审中注意文本工程清理（页码、脚注、外文空格），并关注其理论建构与中国司法实践解释的关联度。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留乱码（如〔１〕〔２〕等全角符号），但不影响核心内容识别",
+          "部分德文文献引用存在字符编码问题（如ｏｂｊｅｋｔｉｖｅＺｕｒｅｃｈｎｕｎｇ等），但核心信息可辨识",
+          "文末英文摘要存在OCR粘连和字符错误（如ｅｓｓｅｎｔｉａｌｌｙ等），但不影响主体评审",
+          "参考文献列表标注为\"（无）\"，但实际文中有大量脚注引用，属于抽取失败而非缺失"
+        ],
+        "evidence_quotes": [
+          "Ａｂｓｔｒａｃｔ：Ｒｅｇａｒｄｉｎｇｔｈｅｉｓｓｕｅｏｆｅｒｒｏｒｏｆｃｏｎｓｔｉｔｕｔｉｖｅｅｌｅｍｅｎｔｓ...",
+          "（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法学界的主流分析路径是法定符合说和具体符合说",
+          "刑法第１４条第１款规定：'明知自己的行为会发生危害社会的结果，并且希望或者放任这种结果发生，因而构成犯罪的，是故意犯罪。'",
+          "本文研究的错误论问题限于事实认识错误（构成要件错误），并且是同一犯罪构成内的错误",
+          "我国通说将构成要件错误划分为对象错误、打击错误及因果关系错误",
+          "我国法定符合说的代表人物张明楷提供了详细的论证理由",
+          "我国及大多数国家的刑法处罚过失犯罪，均以造成实害结果为前提"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留为全角符号，德文引文存在编码问题，文末英文摘要OCR粘连，参考文献列表抽取失败",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "我国刑法学界的主流分析路径是法定符合说和具体符合说",
+        "刑法第１４条第１款规定：'明知自己的行为会发生危害社会的结果...'",
+        "本文研究的错误论问题限于事实认识错误（构成要件错误），并且是同一犯罪构成内的错误"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "论文以中国刑法中的构成要件错误问题为核心研究对象，系统回应中国刑法学界关于法定符合说与具体符合说的理论争论，对中国刑法第14条进行解释论分析，并针对中国司法实践中的典型案件类型（打击错误、对象错误、隔离犯、共犯错误等）提出\"故意行为危险的实现标准\"这一理论命题，完全符合项目口径。文本质量风险较低，不影响核心评审，建议进入六维评价。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "存在OCR识别残留（如全角数字脚注〔１〕、页码混入·６３１·）",
+          "部分德文/英文字符全角化（如ｏｂｊｅｋｔｉｖｅＺｕｒｅｃｈｎｕｎｇ）",
+          "期刊页码与正文混排，参考文献列表未完整抽取"
+        ],
+        "evidence_quotes": [
+          "在错误论领域，〔１〕我国刑法学界的主流分析路径是法定符合说和具体符合说。",
+          "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理..."
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法学界的主流分析路径是法定符合说和具体符合说。",
+          "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理...",
+          "提出‘故意行为危险的实现标准’，并系统应用于对象错误、打击错误、隔离犯、共犯等中国刑法实务与理论争议场景。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本存在OCR格式噪声与页码混入，但不影响核心法理命题定位；项目口径完全符合，可直接进入六维评分。"
+      ],
+      "evidence_quotes": [
+        "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理...",
+        "构成要件错误的本质问题是，故意行为危险是否发生偏离。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本核心论证完整，项目口径信号充分，具备进入六维评价资格。建议按conditional_pass流转，评审时忽略OCR格式噪声，重点考察其‘机理论’替代‘效果论’的理论创新度、对中国刑法教义学体系的解释力及命题可复核性。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 75,
+          "band": "good",
+          "summary": "论文提出以“危险偏离机理”替代传统效果比对思路，重构构成要件错误的分析框架，具有明确的法学争点和理论创新意图。",
+          "core_judgment": "问题创新性较好：明确质疑主流学说并提炼出“效果论vs机理论”的可争辩法理分歧，已超越主题声明或政策倡导。",
+          "score_rationale": "可争辩性=4/4，枢纽性=2/4（影响范围广、涉及基本原理），材料新颖性未触发上限（机理论是理论框架而非新概念包装），锚定excellent档下限，扣15分（新概念包装检查1触发：未充分说明机理论相对于既有理论在解释力上何以提升），给75分。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理，即实际侵害结果是不是行为人初创危险的现实化结果。",
+            "构成要件错误的本质问题是，故意行为危险是否发生偏离。"
+          ],
+          "strengths": [
+            "提炼出“效果论vs机理论”的争点，超越对具体符合说与法定符合说的重复描述。",
+            "以故意行为危险的偏离作为统一标准，打通对象错误、打击错误与因果关系错误的分析框架。"
+          ],
+          "weaknesses": [
+            "“效果论”“机理论”等新术语与既有学说（客观归责、危险现实化）的关系及解释力提升论证尚不充分。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.check1_new_concept_packaging",
+              "rule": "论文引入新概念/新术语作为核心创新点，但未明确说明新概念相对既有概念的理论进步",
+              "score_ceiling": 15,
+              "priority": 1,
+              "evidence": "论文提出“效果论”与“机理论”作为核心创新框架，但未系统论证机理论相对于客观归责/危险现实化理论的解释力优势，只说填补空白但说明不充分。"
+            }
+          ],
+          "boundary_note": "本维度只评问题本身的可争辩性与枢纽性，不评文献综述是否充分、论证是否严密或材料是否最终支撑结论。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 92,
+          "band": "excellent",
+          "summary": "提出构成要件错误的本质是故意行为危险偏离，从效果论转向机理论，争点明确且枢纽性极强。",
+          "core_judgment": "论文提出了可争辩的法学争点，且触及刑法核心理论分歧，问题成立且极为重要。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "构成要件错误的核心问题……因果流程是不是故意的认识内容",
+            "故意行为危险是否发生实质偏离"
+          ],
+          "strengths": [
+            "争点明确，直击错误论核心理论分歧",
+            "问题枢纽性极强，牵涉故意、过失、既遂等多制度"
+          ],
+          "weaknesses": [
+            "新概念“机理论”与既有客观归责理论的边界需进一步厘清"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题成立性与重要性，不评论证严密性及文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 85,
+          "band": "excellent",
+          "summary": "以'故意行为危险的偏离'重构构成要件错误本质，挑战法定符合说与具体符合说的效果论路径。",
+          "core_judgment": "论文提出可争辩的刑法学核心争点：效果论vs机理论的分析路径之争，具有明确问题意识与理论创新性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，给85分。负面模式检查：检查1'机理论'概念有实质理论推进（区分效果论、揭示危险发生机理），不扣分；检查2有多处学者观点交锋（张明楷vs作者、罗克辛计划实现理论、弗里施风险理论、普珀故意危险理论等），不扣分；检查3有明确问题句'故意行为危险是否发生偏离'，不扣分。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理",
+            "构成要件错误的本质问题是，故意行为危险是否发生偏离"
+          ],
+          "strengths": [
+            "问题聚焦刑法学核心争点，理论纵深强",
+            "构建'危险偏离'分析框架，统摄多种错误类型"
+          ],
+          "weaknesses": [
+            "对'机理论'与德国既有理论关联说明可更清晰",
+            "部分案例论证有循环论证之嫌"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文重构错误论分析路径，以危险偏离机理替代效果比对，问题具有高度可争辩性与理论枢纽价值。",
+          "core_judgment": "问题明确聚焦刑法错误论核心分歧，涉及基础概念与长期学术争点，具备优秀的问题创新性。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料校验未触发上限，前置扣分0分，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "“事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理”",
+            "“故意行为危险与过失行为危险不是同一危险，二者具有重大区别”"
+          ],
+          "strengths": [
+            "直击刑法错误论核心争点，理论交锋充分",
+            "提出“机理论”替代传统“效果论”，解释力显著提升"
+          ],
+          "weaknesses": [
+            "新概念“机理论”与既有客观归责理论边界需进一步厘清",
+            "部分案例推演结论（如打击错误定未遂）实务接受度存疑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估研究问题的可争辩性与枢纽性，不评价论证逻辑与文献综述。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 64.572833776474,
+        "glm-5.1": 51.364646911621094,
+        "kimi-k2.6": 14.061556816101074,
+        "qwen3.6-plus": 60.33190703392029
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 75,
+        "glm-5.1": 92,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 88
+      },
+      "mean": 85,
+      "std": 7.3,
+      "strictest": 75,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文通过分散式文献定位，清晰梳理了法定符合说与具体符合说的效果论分析路径及其不足，提炼出本文机理论切入点，并系统辨识了多组对立流派与争点。",
+          "core_judgment": "本文研究地图完整，争点结构突出，法学流派识别充分，文献定位虽分散但饱满，能有效支撑理论创新。",
+          "score_rationale": "三要素得分=5/6（到达点2，未竟点2，本文切入点1），争点结构=2/2，法学流派≥3个（效果论/机理论、法定符合说/具体符合说、人的不法论/客观不法论），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "我国刑法学界的主流分析路径是法定符合说和具体符合说……这种效果比对的思路具有孤立性和静止性，其实，更需要追问的是发生偏差的机理。",
+            "主流故意理论将行为人制造不被允许的危险视为故意与过失的相同特征，而没有对故意危险与过失危险进行区分，这是一个基本错误。"
+          ],
+          "strengths": [
+            "对法定符合说与具体符合说的对立路径有精准提炼，并将其统一归结为“效果论”，为提出“机理论”提供了清晰的对手。",
+            "深入讨论了客观不法论与人的不法论、故意危险与过失危险等多组对立立场，争点结构丰富且法学流派归属明确。"
+          ],
+          "weaknesses": [
+            "本文切入点与未竟点的直接对应性可进一步强化（如直接声明“针对上述危险混同的未竟点，本文拟从发生机理切入”）。",
+            "部分程序与计划实现理论等德国流派的讨论，如果能更明确上升到学派性对立（如目的行为论对新古典体系）会更有穿透力。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文将既有学说的不足视为“研究地图的未竟点”，并据此提出新路径，核心是文献整理问题，而非论证严密性或问题新颖性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了完整的研究地图，精准识别效果论与机理论等核心争点，流派覆盖充分。",
+          "core_judgment": "现状洞察维度高度成立，文献定位清晰，争点结构完整，流派交锋呈现充分。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=7个，锚定excellent档，给92分。论文精准定位既有研究缺口，呈现多层级争点对立与流派交锋。",
+          "evidence_quotes": [
+            "我国刑法学界的主流分析路径是法定符合说和具体符合说……然而，这种效果比对的思路具有孤立性和静止性",
+            "争议观点呈现为以下几种：一类是宽松的要求……一类是严格的要求……相当性标准"
+          ],
+          "strengths": [
+            "争点结构清晰，效果论与机理论对立贯穿全文",
+            "流派梳理细致，涵盖法定符合说、人的不法论及多种故意归属理论"
+          ],
+          "weaknesses": [
+            "无明显缺陷，研究地图极为完整"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评文献定位与争点结构深度，不评危险偏离理论本身的逻辑严密性或创新性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 82,
+          "band": "good",
+          "summary": "论文系统梳理了构成要件错误领域的学说脉络，建立了从效果论到机理论的研究转向，呈现了多组对立观点。",
+          "core_judgment": "研究地图三要素基本完整，争点结构清晰，法学流派识别充分，但到达点的具体成果提炼可更明确。",
+          "score_rationale": "三要素得分=5/6（到达点2+未竟点2+切入点1），争点结构=2/2，法学流派=4个，锚定good档，给82分。",
+          "evidence_quotes": [
+            "我国刑法学界的主流分析路径是法定符合说和具体符合说...然而，这种效果比对的思路具有孤立性和静止性",
+            "根据因果流程与故意认识的关系的紧密程度，争议观点呈现为以下几种：一类是宽松的要求...一类是严格的要求"
+          ],
+          "strengths": [
+            "清晰呈现效果论与机理论的对立，争点结构完整",
+            "系统引介德日刑法理论，流派覆盖较全面"
+          ],
+          "weaknesses": [
+            "到达点多以学者观点呈现，具体成果贡献提炼不足",
+            "未明确说明既有研究的具体缺口，切入点与未竟点对应可更清晰"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位清晰度，不涉及问题本身新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒构成要件错误领域的研究脉络，精准定位效果论局限并转向机理论，研究地图完整。",
+          "core_judgment": "文内充分呈现到达点、未竟点与切入点，争点结构严密，流派识别充分，本维度高度成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "我国刑法学界的主流分析路径是法定符合说和具体符合说。",
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理。"
+          ],
+          "strengths": [
+            "精准提炼法定符合说与具体符合说的核心分歧及效果论局限。",
+            "系统梳理因果流程偏离的四种学说标准，争点脉络清晰。"
+          ],
+          "weaknesses": [
+            "对德日最新客观归责理论的交叉引证可进一步细化。",
+            "部分学说批判集中于国内通说，比较法纵深略显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及问题本身的新颖性或论证逻辑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.55984115600586,
+        "glm-5.1": 68.000079870224,
+        "kimi-k2.6": 12.964798927307129,
+        "qwen3.6-plus": 57.22446608543396
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 87.8,
+      "std": 5.1,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文原创性地构建了",
+          " 故意行为危险的实现标准": ",从危险发生机理出发,提供了一套可重复适用的判断步骤与实质偏离标准。",
+          "core_judgment": "分析框架完全成立,概念清晰、步骤可循,并在后文各类型错误分析中被系统调用。",
+          "score_rationale": "框架可操作性得分=4/4,法学转化度得分=4/4,锚定excellent档,框架的法学操作性和后文调用均为满分,故给95分。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论,考察危险的发生机理,即实际侵害结果是不是行为人初创危险的现实化结果",
+            "如果初创的危险是故意行为危险,而导致结果发生的危险是过失行为危险,则表明危险发生实质偏离,结果不能归属于故意行为危险"
+          ],
+          "strengths": [
+            "核心术语定义明确,如故意行为危险、过失行为危险均有系统辨析",
+            "分析步骤可操作性强,将\"危险是否实质偏离\"贯穿对象错误、打击错误、因果关系错误等全类型"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "此处评估框架的可操作性与法学转化度,不涉及框架内部推理的逻辑严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "提出并系统应用了“故意行为危险实现标准”的机理论框架，替代传统效果论。",
+          "core_judgment": "框架建构力极强，概念清晰、步骤可循且全面应用于各类错误情形的法学转化。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "考察危险的发生机理，即实际侵害结果是不是行为人初创危险的现实化结果",
+            "应直接判断是否存在故意意志支配下的行为，以及该行为是否制造了危险"
+          ],
+          "strengths": [
+            "核心概念界定清晰，故意与过失危险区分标准明确",
+            "分析步骤可操作，且后文7类错误情形均有效调用"
+          ],
+          "weaknesses": [
+            "部分判断标准（如危险流是否脱逸既定轨道）仍具一定主观性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估框架建构与法学转化，不评价危险偏离理论在教义学上的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文建构了'故意行为危险的实现标准'作为分析框架，以'危险是否发生实质偏离'为核心判断标准，系统重构了构成要件错误的分析路径。",
+          "core_judgment": "该论文的分析框架成立且可用，具有明确的理论型论文特征，'效果论→机理论'的范式转换及'故意行为危险/过失行为危险'的类型区分具有原创性，法学转化充分。",
+          "score_rationale": "框架可操作性得分=4/4（核心概念'故意行为危险''实质偏离'均有界定；以'目的性思维能力'为分类标准明确区分故意/过失行为危险；提出'危险是否发生实质偏离'的判断步骤；后文逐一应用于对象错误、打击错误、隔离犯、共犯、因果关系错误等7种情形，调用充分）。法学转化度得分=4/4（'目的性思维''危险流'等概念转化为刑法不法论分析步骤；提供'故意行为危险的实现标准'作为裁判规则层面的操作指引；提出'危险偏离'的判断标准并应用于具体错误类型；后文反复使用该标准进行案例分析）。锚定excellent档，给82分。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理，即实际侵害结果是不是行为人初创危险的现实化结果；初创危险与导致实害结果的最终危险是不是同一危险，危险是否发生了实质偏离。",
+            "故意行为危险是否发生实质偏离，可以根据故意行为危险的属性特征来判断……当危险流的发展不再受到这种目的性指引与支配，而呈现出盲目性和任意性时，就意味着该危险流属于过失行为危险流。"
+          ],
+          "strengths": [
+            "框架原创性强：以'机理论'替代'效果论'，提出'故意行为危险的实现标准'，实现了范式转换。",
+            "类型化应用充分：框架适用于对象错误、打击错误、隔离犯、共犯、狭义因果关系错误、结果推迟/提前发生等7种情形，验证力强。"
+          ],
+          "weaknesses": [
+            "框架术语（如'目的性思维能力'）源自目的行为论，虽经转化但理论渊源较深，对实务操作者的专业要求较高。",
+            "部分边界判断（如隔离犯中'宽泛危险域'与'单一危险流'的区分）标准仍可进一步细化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架本身的建构与转化，不涉及'危险偏离'标准在具体案件中的逻辑严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "构建“故意行为危险实现标准”框架，以危险流偏离为核心重构错误论分析路径。",
+          "core_judgment": "框架概念清晰、步骤可循，后文全面调用，具备极强的教义学可操作性与理论转化力。",
+          "score_rationale": "框架可操作性得分4/4，法学转化度得分4/4，锚定excellent档，给92分。核心概念界定明确，提供危险流追踪与偏离判断的教义学步骤，并全面应用于各类错误场景，符合理论型论文转化标准。",
+          "evidence_quotes": [
+            "判断标准可称为故意行为危险的实现标准……如果初创的危险是故意行为危险，而导致结果发生的危险是过失行为危险，则表明危险发生实质偏离",
+            "故意行为危险具有目的性……当危险流的发展不再受到这种目的性指引与支配……就意味着该危险流属于过失行为危险流"
+          ],
+          "strengths": [
+            "提出“危险偏离机理”替代传统效果比对，分析步骤清晰可循",
+            "框架在后文七类错误场景中均被实质性调用，逻辑闭环完整"
+          ],
+          "weaknesses": [
+            "部分教义学概念（如目的性思维）的实务裁判转化仍需进一步细化"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评框架建构力与法学转化度，不涉及逻辑衔接严密性与问题新颖性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 48.725202322006226,
+        "glm-5.1": 46.313018798828125,
+        "kimi-k2.6": 17.662190914154053,
+        "qwen3.6-plus": 61.70605993270874
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 95,
+        "glm-5.1": 92,
+        "kimi-k2.6": 82,
+        "qwen3.6-plus": 92
+      },
+      "mean": 90.2,
+      "std": 5.7,
+      "strictest": 82,
+      "strictest_model": "kimi-k2.6"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文以“效果论→机理论”转型为主线，推理链完整，反驳处理充分，结论可辩护推出。",
+          "core_judgment": "核心推理链清晰，从批评效果论到建构机理论，再以“故意行为危险实现标准”检验各类错误，逻辑紧密。",
+          "score_rationale": "推理链完整性得分=4/4（可复述、依赖度高、结论可推出、无关键跳步），反驳处理度得分=3/3（识别反对意见、实质回应、承认局限），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理，即实际侵害结果是不是行为人初创危险的现实化结果。",
+            "故意行为危险与过失行为危险不是同一危险，二者具有重大区别，危险在此确有实质偏离。"
+          ],
+          "strengths": [
+            "推理链高度依赖：先批判效果论，再建构机理论，最后以“故意行为危险实现标准”统一检验各类错误，删除前序步骤后后续分析将失去基础。",
+            "反驳处理全面：显式回应法定符合说代表人物的两个核心论证，隐含回应多种理论路径并说明选择理由。"
+          ],
+          "weaknesses": [
+            "逻辑链条在执行层面仍可能由于刑法教义学的复杂性，使得对某种具体案例的判断无法完全摆脱解释者个人立场的干扰，但这种局部的弱化不影响整体结论的可推出性。",
+            "对“故意行为危险”与“过失行为危险”的区分虽充分论证，但在个别边缘案例中，读者可能仍感觉存在细微的跳跃感，但不足以构成关键跳步。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文属于理论型刑法教义学论文，重点关注理论概念的逻辑推演及对既有学说的回应，推理链完整且反驳处理充分，不涉及框架可操作性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文从批判效果论到建构机理论，推理链完整且反驳处理详尽，逻辑严密性极高。",
+          "core_judgment": "推理链形成充分支撑，核心结论可由前文可辩护地推出，本维完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分。",
+          "evidence_quotes": [
+            "效果论因其孤立性与静止性，会导致诸多不足...更需要追问的是发生偏差的机理。",
+            "故意行为危险是否发生实质偏离...当危险流的发展不再受到目的性指引与支配，而呈现出盲目性和任意性时，就意味着该危险流属于过失行为危险流。"
+          ],
+          "strengths": [
+            "推理步骤层层递进，从破到立再到应用，依赖度极高。",
+            "对显式与隐含反对意见均给出实质性回应与选择理由。"
+          ],
+          "weaknesses": [
+            "局部概念过渡（如“危险流”隐喻）虽有脚注承认局限，但仍略带修辞色彩。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评价聚焦推理链支撑度与结论推出逻辑，不评价危险偏离框架的操作性或理论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 85,
+          "band": "excellent",
+          "summary": "理论型论文，以'机理论'替代'效果论'为核心命题，构建了完整的概念分析框架。",
+          "core_judgment": "推理链完整，反驳处理充分，核心结论'故意行为危险的偏离'可由前文可辩护地推出。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent(80-100)档，给85分。论文从效果论批判→机理论建构→故意/过失行为危险区分→具体类型检验，形成完整推理链；对法定符合说、客观范畴标准、客观归属标准、结果关联标准、相当性标准等均进行了显式反驳与回应，并承认自身理论适用边界。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理",
+            "成立故意犯罪既遂，要求结果一方面在客观上能够归属于构成要件行为，另一方面在主观上能够归属于构成要件故意"
+          ],
+          "strengths": [
+            "推理步骤清晰：批判效果论→建构机理论→区分故意/过失危险→检验具体类型",
+            "反驳处理全面：对张明楷法定符合说、罗克辛计划实现理论等均作实质性回应"
+          ],
+          "weaknesses": [
+            "隔离犯、共犯等疑难情形的类型化处理略显复杂，个别过渡可更简洁",
+            "对'相当性标准'的批判集中于客观归属与主观归属的区分，可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评推理链是否支撑结论，不评'机理论'本身是否优于'效果论'。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "理论推演严密，从批判旧说至建构新标准并类型化适用，逻辑链条完整且反驳充分。",
+          "core_judgment": "逻辑严密性成立，核心结论由前文理论批判与规范分析可辩护地推出，无关键跳步。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。理论推演严密，反驳处理充分。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理",
+            "故意行为危险与过失行为危险不是同一危险，二者具有重大区别，危险在此确有实质偏离。"
+          ],
+          "strengths": [
+            "推理链条完整，从批判效果论到建构机理论再到类型化适用，层层递进。",
+            "对法定符合说等主流观点进行逐层反驳，论证具有实质性交锋。"
+          ],
+          "weaknesses": [
+            "部分概念（如目的性思维）的界定与教义学通说衔接略显跳跃。",
+            "危险实质偏离的具体判断在部分边缘案例中仍依赖价值权衡。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评推理链自洽与结论可辩护性，不涉框架实务操作性或结论通说接受度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 58.38925004005432,
+        "glm-5.1": 48.739129066467285,
+        "kimi-k2.6": 13.275003910064697,
+        "qwen3.6-plus": 64.2287118434906
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 95,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89.2,
+      "std": 5.1,
+      "strictest": 85,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 82,
+          "band": "excellent",
+          "summary": "论文挑战主流学说并提出独立的“机理论”替代方案，结论深度嵌入既有共同体争论，且与中国刑法教义学基本兼容。",
+          "core_judgment": "结论作为理论主张，能够被共同体定位和回应，在原则层面与现行法秩序兼容，可接受度较高。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4理论论文标准），锚定excellent档，给82分。结论回应了法定符合说等核心争论，主动回应反对意见并指出制度适用方向，理论兼容性良好。",
+          "evidence_quotes": [
+            "张明楷支持法定符合说的第二个理由是，故意与过失不是违法要素...然而，这种观点值得推敲。",
+            "构成要件错误的本质问题是，故意行为危险是否发生偏离。"
+          ],
+          "strengths": [
+            "结论明确挑战主流学说（法定符合说），并系统回应了反对意见，共同体对话度极高。",
+            "以‘故意行为危险偏离’重构错误论，结论在原则层面与我国刑法第14条等规范兼容。"
+          ],
+          "weaknesses": [
+            "结论更多在理论层面重构分析框架，缺乏对具体裁判规则或程序衔接的进一步说明。",
+            "虽提及中国刑法条文，但对中国司法实务中错误论裁判习惯的回应尚显不足。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本论文为理论论文，其贡献在理论层面，故不要求提供具体制度方案，制度可接受度仅考察是否与现行法秩序逻辑兼容。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 88,
+          "band": "excellent",
+          "summary": "结论深刻回应主流学说，提出故意危险偏离标准，与中国法秩序高度兼容",
+          "core_judgment": "结论成功进入共同体对话，挑战主流但给出清晰反驳路径，且与现行法秩序逻辑兼容",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给88分",
+          "evidence_quotes": [
+            "本文结论修正了法定符合说与具体符合说的效果论，主张从机理论考察危险偏离",
+            "结论结合刑法第14条与第18条，为故意归属与行为能力提供解释方向"
+          ],
+          "strengths": [
+            "精准定位并反驳主流学说，对话度高",
+            "将抽象理论转化为具体类案的裁判方向"
+          ],
+          "weaknesses": [
+            "打击错误定未遂可能面临实务与公众观念阻力"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论的对话与制度兼容性，不评论证逻辑严密性",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 85,
+          "band": "excellent",
+          "summary": "以'故意行为危险的偏离'重构错误论，有效回应法定符合说与具体符合说之争。",
+          "core_judgment": "理论主张定位清晰，与既有学说形成有效对话，制度兼容性良好。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=3/4，锚定excellent档，给85分。论文明确回应法定符合说/具体符合说之争，提出机理论替代效果论，可被反对者定位反驳；结合《刑法》第14条、第18条展开，制度转化方向明确。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理",
+            "成立故意犯罪既遂，要求结果一方面在客观上能够归属于构成要件行为，另一方面在主观上能够归属于构成要件故意"
+          ],
+          "strengths": [
+            "明确挑战主流学说并给出替代方案",
+            "对中国刑法条文有具体回应"
+          ],
+          "weaknesses": [
+            "理论资源主要依赖德国学说，本土化可更深入"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估结论的可接受性，不涉及论证严密性或未来研究空间评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "本文以“故意行为危险偏离”重构错误论，深度回应学说争议，契合中国刑法教义语境。",
+          "core_judgment": "结论高度融入共同体对话，理论框架与现行法秩序兼容，具备强可接受性。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "分析路径应从效果论转向机理论，考察危险的发生机理",
+            "故意行为危险具目的性支配性，过失危险具盲目任意性，不可等同视之"
+          ],
+          "strengths": [
+            "精准批判主流符合说，定位清晰",
+            "提出危险偏离标准，教义指引明确"
+          ],
+          "weaknesses": [
+            "理论高度抽象，实务转化待细化",
+            "偏重教义推演，缺乏实证检验支撑"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉论证严密性与未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 32.352997064590454,
+        "glm-5.1": 56.447638750076294,
+        "kimi-k2.6": 24.448858976364136,
+        "qwen3.6-plus": 56.523581981658936
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 82,
+        "glm-5.1": 88,
+        "kimi-k2.6": 85,
+        "qwen3.6-plus": 92
+      },
+      "mean": 86.8,
+      "std": 4.3,
+      "strictest": 82,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文在结语中概括性地提出了深化方向，但未形成具体、可定位的未来研究问题或修正路径。",
+          "core_judgment": "论文存在抽象的延展方向，但与正文核心论证的衔接较为概括，缺乏具体的后续研究指引。",
+          "score_rationale": "原始分55分，对应bonus=2。证据为结语中“必须考察主观不法”等方向性陈述，但未指明具体修正对象或后续研究问题，精细度不足。",
+          "evidence_quotes": [
+            "......必须考察主观不法,因为主观不法阐明了事件的目的性(“为什么”的问题)。",
+            "这种目的性特征上的差异,决定了故意行为与过失行为给法益制造的危险具有不同特征......"
+          ],
+          "strengths": [
+            "结语提炼了“由效果论转向机理论”及“重视主观不法”的宏观方向，与正文论证有一致性。"
+          ],
+          "weaknesses": [
+            "仅停留在方向性概括，未提出后续需要解决的具体争点、概念边界或制度衔接问题。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "结语部分的论述是对正文结论的延伸性评论，属于未来可能的研究方向，而非当下结论的可接受性论证，故归入前瞻延展性维度评估。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "提出故意危险与过失危险的实质区分及故意归属新标准，为错误论及故意论体系重构提供可定位的理论深化路径。",
+          "core_judgment": "存在真实延展路径，通过新理论假设与概念修正指明了错误论向机理论深化的方向。",
+          "score_rationale": "原始分75，对应bonus=3档。论文提出故意危险实现标准及危险偏离概念修正路径（脚注4），延展路径可定位且与核心结论衔接，但未设专门展望章节，精细度有限。",
+          "evidence_quotes": [
+            "实际上，‘危险发生偏离’的说法并不十分确切……行为在开始时就可能同时蕴含故意行为危险和过失行为危险。",
+            "成立故意犯罪既遂……不仅要求行为人认识到构成要件行为的危险，还要求行为人认识到该危险现实化为结果。"
+          ],
+          "strengths": [
+            "提出故意危险实现标准，为故意认识内容体系重构提供明确争点。",
+            "承认危险偏离概念局限，指明同时蕴含双重危险的概念修正路径。"
+          ],
+          "weaknesses": [
+            "缺乏显性的未来研究设计或局限展望章节。",
+            "对新标准在更复杂多因一果场景下的适用边界未作进一步延展说明。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "故意危险与过失危险的体系地位重构及故意认识内容的扩张属于未来理论深化问题，而非当下结论可接受性问题。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 58,
+          "band": "marginal",
+          "summary": "理论框架提出后可向多类型错误适用扩展，但缺乏明确的后续研究问题与争点入口设计。",
+          "core_judgment": "存在真实但较概括的延展路径，主要体现为理论适用场景的延伸，但精细度不足。",
+          "score_rationale": "原始分58分，对应bonus=2的低档弱加分。论文提出'故意行为危险的实现标准'可适用于多种错误类型，形成明确理论深化方向；但与具体理论对手的对话尚未完成，未提出下一轮研究问题，也未承认自身局限，精细度有限，不足以支撑更高加分。",
+          "evidence_quotes": [
+            "根据故意行为危险的实现标准……可以贯彻于构成要件错误的各种情形，以下逐一进行阐释",
+            "复杂场合应具体分析"
+          ],
+          "strengths": [
+            "理论框架可向多类型错误适用延伸",
+            "与德日理论对话关系明确，留有学术讨论空间"
+          ],
+          "weaknesses": [
+            "未提出具体后续研究问题清单",
+            "未承认正文局限并说明推进路径"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估未来理论深化方向，而非评价'故意行为危险的实现标准'本身能否被学界接受，后者属于结论可接受性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 68,
+          "band": "good",
+          "summary": "论文构建了“故意行为危险实现标准”，为错误论教义学提供了明确的理论修正与深化路径。",
+          "core_judgment": "存在真实延展路径，体现为从效果论向机理论的概念修正及新分析框架的提出。",
+          "score_rationale": "原始分68，对应bonus=3。论文明确提出“效果论向机理论转向”的修正路径，构建的危险偏离标准可自然延伸至其他归责难题，但结语未显式交代局限或下一轮具体争点，路径精细度有限。",
+          "evidence_quotes": [
+            "事实认识错误的分析路径应从效果论转向机理论，考察危险的发生机理",
+            "这种判断标准可贯彻于构成要件错误的各种情形，以下逐一进行阐释"
+          ],
+          "strengths": [
+            "明确提出理论修正路径，为后续教义学争点提供清晰入口",
+            "构建的分析框架具有强解释力，可自然延伸至其他复杂归责场景"
+          ],
+          "weaknesses": [
+            "未显式说明本文理论局限或后续检验的具体问题",
+            "结语仅做论证总结，缺乏对下一步研究方向的直接指引"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是该理论框架提出后，学界可继续深化的方向（如特殊认知、共犯归责的进一步检验），而非当下结论是否被接受。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 31.38807201385498,
+        "glm-5.1": 54.765336751937866,
+        "kimi-k2.6": 18.957371950149536,
+        "qwen3.6-plus": 77.10851097106934
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 55,
+        "glm-5.1": 75,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 68
+      },
+      "mean": 64,
+      "std": 9.2,
+      "strictest": 55,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 90.56,
+      "weighted_total": 86.3
+    },
+    "aggregation_strictest": {
+      "final_score": 82.24,
+      "weighted_total": 79.2
+    },
+    "avg_std": 6.1,
+    "max_std": 9.2,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 8.3,
+    "composite_score": -4.43,
+    "worst_dimension": "forward_extension",
+    "worst_std": 9.2
+  }
+}

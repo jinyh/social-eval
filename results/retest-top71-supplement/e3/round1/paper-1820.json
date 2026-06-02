@@ -1,0 +1,163 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1820-法学研究-2023-6-防卫过当的阶层式判断规则-高巍-云南大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": null,
+  "dimensions": {
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 28,
+          "band": "unacceptable",
+          "summary": "论文未提出任何具体、可定位的后续研究问题、制度延伸路径或概念修正方向，仅在结论部分有泛泛的体系性展望，缺乏真实延展路径。",
+          "core_judgment": "不存在真实延展路径，仅有口号式展望和体系性拔高，没有明确具体问题、对象、机制或实务场景。",
+          "score_rationale": "原始分28分，对应bonus=0档。论文未指明后续研究方向、未指出正文具体局限、未给反驳入口，结尾仅为体系性的一般价值宣告，属于低分约束中的空泛拔高。",
+          "evidence_quotes": [
+            "防卫过当的判断可区分为递进的两个阶层：第一阶层是必要限度的质的判断，第二阶层是可罚限度的量的判断",
+            "在整体上，阶层式判断规则所划定的可罚的防卫过当的范围，未必一定大于一元论和二分说。"
+          ],
+          "strengths": [],
+          "weaknesses": [
+            "全文仅在建构自身规则，无任何一节明确提出后续研究问题、理论深化方向或制度适用边界",
+            "结尾无具体待修正对象，仅停留在已构建规则的体系性归结，属于口号式展望"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入0-39低分段",
+              "score_ceiling": 39,
+              "priority": 1,
+              "evidence": "论文末段仅重申阶层式判断规则，未说明具体后续研究、制度完善方向、实务场景延伸或理论修正路径，属于典型的意义拔高。"
+            }
+          ],
+          "boundary_note": "论文的体系构建和规则论证属于结论可接受性和逻辑严密性范畴，未来延展问题应当指出从现有结论出发还能往哪个具体方向推进，但本文完全未涉及。",
+          "review_flags": [
+            "future_claim_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 75,
+          "band": "good",
+          "summary": "阶层式框架下要素具体化与跨法域衔接提供了明确延展路径，但精细度有限。",
+          "core_judgment": "存在真实延展路径，指明了防卫手段层级序列建构与跨部门法评价协调方向。",
+          "score_rationale": "原始分75，bonus=3档。延展路径明确，如层级序列建构与跨法域评价，与核心论证衔接，但精细度与证据展开有限。",
+          "evidence_quotes": [
+            "建构较为清晰、普遍的规则，如层级性的工具序列，作为强度判断的具体化标准",
+            "不罚的防卫过当只是刑法上的不罚事由……在其他部门法中有不同的可罚性评价"
+          ],
+          "strengths": [
+            "延展路径从阶层式框架自然生长，衔接紧密",
+            "指明了层级序列建构等具体理论深化方向"
+          ],
+          "weaknesses": [
+            "缺乏专门结语集中阐述延展方向",
+            "对层级序列建构仅点到为止，展开有限"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "跨部门法评价协调属于未来制度与理论衔接延展，而非当下阶层式规则可接受性本身。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文提出防卫过当阶层式判断规则后，对'明显'与'重大损害'的具体化路径进行了较详细的规则展开，但未明确后续研究问题或理论修正方向。",
+          "core_judgment": "存在可定位的延展方向——'明显'与'重大损害'的层级性要素具体化及嵌套结构，但缺乏对后续争点或理论深化的明确指引。",
+          "score_rationale": "原始分55分，对应bonus=2档。论文在第四部分对'明显'和'重大损害'的事实性要素进行了层级化、类型化展开，提出了工具序列、防卫方式、损害程度等具体化路径，构成可继续深化的制度方向；但未提出明确的后续研究问题，也未回应阶层式规则与刑法第20条第3款特殊防卫的衔接、与紧急避险制度的协调等延伸议题，精细度有限。",
+          "evidence_quotes": [
+            "这些要素主要包括两方面：其一，防卫工具……其二，防卫方式……除了防卫工具和防卫方式，防卫时机、防卫优势条件等也是提示'明显'程度的事实性要素",
+            "提示'明显'程度的事实性要素和提示'重大损害'的事实性要素，统一于可罚性范畴之中，二者相互补充……形成了两个层次的嵌套结构"
+          ],
+          "strengths": [
+            "对'明显'与'重大损害'进行了可操作的层级化展开，为实务判断提供具体路径",
+            "嵌套结构理论具有继续深化的空间，可延伸至其他罪量要件解释"
+          ],
+          "weaknesses": [
+            "未提出明确的后续研究问题或下一轮争点",
+            "未回应阶层式规则与特殊防卫、紧急避险等制度的衔接问题"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价的是论文是否指明了未来可继续推进的研究方向或制度完善路径，而非当下结论是否被接受。论文对'明显'和'重大损害'的具体化属于未来可继续深化的制度方向，但缺乏对后续争点的明确指引，故处于中等偏下水平。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 65,
+          "band": "good",
+          "summary": "论文提出防卫过当阶层判断规则，并指向理性第三人标准与民刑交叉评价的未来深化路径。",
+          "core_judgment": "存在真实延展路径，聚焦于标准人形象争议与部门法体系衔接的理论深化。",
+          "score_rationale": "原始分65，对应bonus=3。论文构建阶层规则，明确指向“理性第三人”标准争议与民刑体系衔接的深化方向，延展路径清晰且与核心论证衔接，但未展开具体后续研究设计。",
+          "evidence_quotes": [
+            "关于理性第三人的标准人形象是否应当考虑防卫人的具体能力, 还存在争议。",
+            "防卫过当在不同部门法中有不同的可罚性评价, 因此, 对正当防卫和刑法上不罚的防卫过当不能作相同的体系归属。"
+          ],
+          "strengths": [
+            "理论边界清晰，指明概念修正与跨部门法适用的深化方向。",
+            "延展路径与阶层构造紧密衔接，具备可定位的后续争点。"
+          ],
+          "weaknesses": [
+            "缺乏对具体适用场景或实证检验路径的明确规划。",
+            "未直接交代理论局限与后续研究议程，展开有限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估理论框架提出后，概念修正与跨部门法适用的未来深化方向，而非当下阶层规则本身的逻辑自洽或结论可接受性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 24.54754090309143,
+        "glm-5.1": 54.94218397140503,
+        "kimi-k2.6": 14.026226282119751,
+        "qwen3.6-plus": 77.47737908363342
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 28,
+        "glm-5.1": 75,
+        "kimi-k2.6": 55,
+        "qwen3.6-plus": 65
+      },
+      "mean": 55.8,
+      "std": 20.2,
+      "strictest": 28,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 0.0,
+      "weighted_total": 2.8
+    },
+    "aggregation_strictest": {
+      "final_score": 0.0,
+      "weighted_total": 1.4
+    },
+    "avg_std": 20.2,
+    "max_std": 20.2,
+    "high_confidence_pct": 0.0,
+    "dimension_count": 1,
+    "score_gap": 0.0,
+    "composite_score": -20.2,
+    "worst_dimension": "forward_extension",
+    "worst_std": 20.2
+  }
+}

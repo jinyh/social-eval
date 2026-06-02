@@ -1,0 +1,1013 @@
+{
+  "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+  "framework_version": "2.55",
+  "paper": "raw/fullpaper/1772-法学研究-2021-3-诈骗罪中的处分意识_必要性及判别-袁国何-复旦大学法学院.pdf",
+  "models": [
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus"
+  ],
+  "aggregation_mode": "both",
+  "paper_structure_status": "detected",
+  "precheck": {
+    "deepseek-v4-pro": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号和页码数字（如“·3 3 1 ·”）存在抽取残留，但未影响正文论点识别。",
+          "参考文献列表缺失，可能因抽取失败，但论文本身围绕核心争议展开，不影响评分。"
+        ],
+        "evidence_quotes": [
+          "·3 3 1 · * 〔1 〕 复旦大学法学院副教授。 本文受到上海市浦江人才计划( 18PJC020) 资助。"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "财产处理的自动化、电子化对处分意识必要说形成了极大冲击。... 有必要检讨: 处分意识是否为诈骗罪的必要构成要件要素。",
+          "机票款案即为适例: 行为人声称未收到孙某网银支付的机票款，要求孙某通过ATM 机“联网操作”... 此类案件在司法实务中多被认定为诈骗罪。",
+          "我国通说认为，行为人“自觉地” 为财产处分，是诈骗罪的突出特点; 基于处分意识必要说的立场，...（才能）避免不当扩大诈骗罪的处罚范围。",
+          "应将诈骗罪中的认识错误限定为动机错误... 在诈骗罪中建构财产减损与被害人间归属关联的财产处分，还具有排除盗窃罪构成要件行为的功能。",
+          "在我国，基于数额标准、入罪情节等方面的差异，对盗窃罪的制裁实质上重于诈骗罪。其原因在于: 正是由于诈骗罪中的交付行为是“基于意思的转移”，诈骗罪才是所谓“自我损害型犯罪”。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "参考文献列表缺失，可能因抽取失败，需在后续阶段确认原文是否有完整参考文献。"
+      ],
+      "evidence_quotes": [
+        "财产处理的自动化、电子化对处分意识必要说形成了极大冲击。因此有必要检讨: 处分意识是否为诈骗罪的必要构成要件要素。",
+        "臧进泉等盗窃、诈骗案，是最高人民法院发布的唯一涉及盗窃罪与诈骗罪界分的指导性案例... 法院并未对处分意识必要说加以论证，从而未能消弭处分意识必要说与不要说之争。",
+        "我国刑法将盗窃罪、诈骗罪的客体均规定为“公私财物”，一般认为包括有体财物和财产性利益。我国刑法也没有将盗窃罪的构成要件行为界定为“拿走”。鉴于此种立法差别... 中国可以有不同于日本、德国的选择。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文符合项目口径，可进入六维评价。文本质量轻微瑕疵（脚注/页码残留、参考文献缺失）不影响评分，建议后续阶段关注参考文献完整性。"
+    },
+    "glm-5.1": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "期刊页码混入正文（如'· 3 3 1 ·', '· 4 3 1 ·'等）",
+          "部分脚注排版存在断行或特殊字符残留（如'琼 97 刑终311号'断开，德文文献符号'Ｒn．'等）"
+        ],
+        "evidence_quotes": [
+          "· 3 3 1 ·",
+          "海南省第二中级人民法院( 2016 ) 琪\n97 刑终311 号刑事判决书"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "臧进泉等盗窃、诈骗案，是最高人民法院发布的唯一涉及盗窃罪与诈骗罪界分的指导性案例，其对处理网络钓鱼类案件具有重要的指导意义。",
+          "与德、日刑法不同，我国刑法将盗窃罪、诈骗罪的客体均规定为‘公私财物’，一般认为包括有体财物和财产性利益。我国刑法也没有将盗窃罪的构成要件行为界定为‘拿走’。鉴于此种立法差别，‘在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择’。",
+          "应在诈骗罪中坚持彻底的处分意识必要说。",
+          "对处分行为之财产意义的认识，有三项前提：客体认知、前提认知、后果认知。对其他要素的认知，则并非肯定处分意识的前提。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：期刊页码混入正文及脚注排版断行残留",
+        "项目口径：无"
+      ],
+      "evidence_quotes": [
+        "与德、日刑法不同，我国刑法将盗窃罪、诈骗罪的客体均规定为‘公私财物’……鉴于此种立法差别，‘在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择’。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "进入六维评分，建议在后续评审前清理正文中的期刊页码混入及脚注排版断行残留。"
+    },
+    "kimi-k2.6": {
+      "status": "pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "ok",
+        "risk_level": "low",
+        "issues": [
+          "脚注编号存在OCR残留（如〔1 〕〔2 〕等编号后有空格）",
+          "部分德文文献引用存在字符编码问题（如Schrder、Kindhuser等作者名显示异常）",
+          "参考文献列表缺失（标注为'（无）'），但正文脚注引用完整可定位"
+        ],
+        "evidence_quotes": [
+          "本文受到上海市浦江人才计划( 18PJC020) 资助",
+          "参见王伟等:《网站虚假代售机票案件如何处理》，《人民检察》2013 年第12 期，第42 页。",
+          "Vgl．Tiedemann，in: LK-StGB，12．Aufl．，2012，§ 263 Ｒn．118．"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国通说认为，行为人'自觉地'为财产处分，是诈骗罪的突出特点",
+          "与德、日刑法不同，我国刑法将盗窃罪、诈骗罪的客体均规定为'公私财物'",
+          "鉴于此种立法差别，'在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择'",
+          "臧进泉等盗窃、诈骗案，是最高人民法院发布的唯一涉及盗窃罪与诈骗罪界分的指导性案例",
+          "在我国，承认利益盗窃，具有学理和实践可行性"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：脚注编号OCR残留空格，德文作者名存在编码异常，参考文献列表未抽取但正文引用完整",
+        "项目口径：无显著问题，论文以中国刑法教义学问题为中心，具有明确理论命题"
+      ],
+      "evidence_quotes": [
+        "我国刑法将盗窃罪、诈骗罪的客体均规定为'公私财物'，一般认为包括有体财物和财产性利益。我国刑法也没有将盗窃罪的构成要件行为界定为'拿走'。鉴于此种立法差别，'在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择'。在我国，承认利益盗窃，具有学理和实践可行性。",
+        "为准确理解该指导性案例，仍有必要对处分意识是否必要、处分意识如何判别这两个问题展开理论剖析。",
+        "笔者认为，原则上，只能针对被害人确切认识到的数量之财产，肯定处分意识。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "none"
+      ],
+      "recommendation": "论文质量良好，可直接进入六维评价。建议评分时注意：该文虽大量援引德日文献，但核心命题是回应中国刑法教义学问题（盗窃罪与诈骗罪界分、指导性案例评析、电子支付新型犯罪），并提出了'严格的处分意识说'这一可复核的理论主张，属于典型的比较法资源中国化运用。"
+    },
+    "qwen3.6-plus": {
+      "status": "conditional_pass",
+      "conclusion": "enter_six_dimension_review",
+      "enter_six_dimension_review": "yes",
+      "text_quality_gate": {
+        "status": "risk",
+        "risk_level": "low",
+        "issues": [
+          "正文混入期刊页码与页眉页脚信息（如“· 3 3 1 ·”“法学研究 2021 年第3 期”）",
+          "脚注编号存在OCR空格残留（如“〔1 〕”）",
+          "文末参考文献列表抽取显示为“（无）”，实际引用均以内嵌脚注形式存在"
+        ],
+        "evidence_quotes": [
+          "· 3 3 1 ·",
+          "〔1 〕",
+          "参考文献列表：\n（无）"
+        ]
+      },
+      "project_scope_precheck": {
+        "conclusion": "enter_six_dimension_review",
+        "triggered_signals": {
+          "involves_china_issues": "yes",
+          "has_legal_question": "yes",
+          "china_practice_explanation_attempted": "yes",
+          "theory_transformation_or_verifiable_thesis": "yes"
+        },
+        "evidence_quotes": [
+          "我国刑法将盗窃罪、诈骗罪的客体均规定为“公私财物”……“在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择”。",
+          "处分意识必要说能够妥当界分盗窃罪与诈骗罪……只有坚持处分意识必要说，才能确保诈骗罪构成要件的明确内涵。",
+          "应否定缓和的处分意识说，理应坚持严格的处分意识说……对财产具体属性的认识要求（客体、前提、后果认知）。"
+        ],
+        "boundary_reasons": [],
+        "obviously_ineligible_reasons": []
+      },
+      "triggered_signals": {
+        "involves_china_issues": "yes",
+        "has_legal_question": "yes",
+        "china_practice_explanation_attempted": "yes",
+        "theory_transformation_or_verifiable_thesis": "yes"
+      },
+      "issues": [
+        "文本工程：存在页码混入、脚注格式残留及参考文献列表未抽取问题，需后续清洗，但不影响核心论证阅读。",
+        "项目口径：完全符合，聚焦中国新型电子支付场景下的刑法定性争议，提出本土化教义学标准。"
+      ],
+      "evidence_quotes": [
+        "新型支付方式的出现，使得权利人的客观处分行为和主观处分意愿能够分离，故有必要检讨：处分意识是否为诈骗罪的必要构成要件要素。",
+        "在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择。",
+        "均应否定缓和的处分意识说，理应坚持严格的处分意识说。"
+      ],
+      "boundary_reasons": [],
+      "obviously_ineligible_reasons": [],
+      "requires_manual_confirmation": false,
+      "review_flags": [
+        "text_quality_risk"
+      ],
+      "recommendation": "文本存在轻微OCR排版与格式残留，但核心论点、论证结构与教义学推演完整清晰。项目口径高度契合，以中国新型支付实践与司法裁判为切入点，深入辨析诈骗罪与盗窃罪的界分标准，明确提出“严格的处分意识必要说”及具体判别规则，具备显著的中国问题意识与理论转化能力。建议直接进入六维评分阶段，文本工程问题可在后续环节自动清洗或人工微调。"
+    }
+  },
+  "dimensions": {
+    "problem_originality": {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "problem_originality",
+          "score": 43,
+          "band": "unacceptable",
+          "summary": "论文以司法实践争议引出处分意识必要性与判别问题，但全文主要阐释既定的处分意识必要说立场，核心问题句缺失，学术争点薄弱。",
+          "core_judgment": "论文缺乏可争辩的法学研究问题，更像是基于主流学说的体系性介绍与现状梳理，未形成真正的问题创新。",
+          "score_rationale": "可争辩性=1/4，枢纽性=2/4，材料新颖性未单独触发上限。前置检查扣分合计=65分（检查1扣15分，检查2扣20分，检查3扣30分）。正式评分=108分，但可争辩性≤1触发上限50分，材料无实质推进但非主要扣分项。最终取50分，扣减65分后不得低于30分，实际给43分。",
+          "evidence_quotes": [
+            "故有必要检讨:处分意识是否为诈骗罪的必要构成要件要素。",
+            "处分意识必要说能够妥当界分盗窃罪与诈骗罪"
+          ],
+          "strengths": [
+            "系统梳理了处分意识必要说与不要说的对立框架",
+            "在新型支付场景下展示了传统理论的解释张力"
+          ],
+          "weaknesses": [
+            "全文无明确的研究问题句，只有主题声明",
+            "缺乏学者观点的实质交锋，多为对主流立场的单方论证"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "problem_originality.no_justiciable_question",
+              "rule": "可争辩性≤1，触发上限50分",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "全文未找到'XX是否应YY'或'如何ZZ'等明确研究问题句，只有'有必要检讨'、'亟待明确'等主题声明。"
+            }
+          ],
+          "boundary_note": "本维度仅评价问题是否可争辩及具有枢纽性，不涉及论证严密性、文献综述或结论说服力。",
+          "review_flags": [
+            "problem_validity_unclear"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦诈骗罪处分意识的必要性及判别标准，问题经典且具枢纽性。",
+          "core_judgment": "问题高度成立且枢纽，将旧争点推进至具体判别标准，解释路径有实质深化。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，锚定excellent档，负面扣分0，给88分",
+          "evidence_quotes": [
+            "故有必要检讨：处分意识是否为诈骗罪的必要构成要件要素。",
+            "问题的关键是，要肯定处分意识，需要权利人认识到哪些要素，是否包括财产的数量。"
+          ],
+          "strengths": [
+            "争点明确且为财产犯罪界分核心。",
+            "问题设定从必要性延伸至判别标准，深化了传统议题。"
+          ],
+          "weaknesses": [
+            "处分意识必要性本身为长期旧争点，初始创新度受限。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题是否成立且重要，不评论证严密性或文献综述充分度。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "problem_originality",
+          "score": 78,
+          "band": "good",
+          "summary": "论文围绕诈骗罪处分意识的必要性与判别标准展开教义学分析，问题明确且具理论深度。",
+          "core_judgment": "问题具有可争辩性与理论枢纽性，但主要依托新型支付案例对传统理论进行应用性检讨，材料新颖未转化为问题层面的实质推进。",
+          "score_rationale": "可争辩性=4/4（明确问题句'处分意识是否为诈骗罪必要构成要件要素'，涉及刑法教义学核心争点，呈现严格说与缓和说交锋，非政策倡导）；枢纽性=3/4（影响盗窃罪与诈骗罪界分、涉及财产犯罪基本理论，但制度连锁效应集中于刑法内部，未跨越多部门法）；材料新颖性未触发上限（新案例辅助说明但未作为核心创新依据）。锚定good档(70-79)，给78分。",
+          "evidence_quotes": [
+            "处分意识是否为诈骗罪的必要构成要件要素",
+            "要肯定处分意识，需要权利人认识到哪些要素，是否包括财产的数量"
+          ],
+          "strengths": [
+            "问题聚焦刑法核心争点，具有明确可争辩性",
+            "呈现德日学说与本土实务的多重理论交锋"
+          ],
+          "weaknesses": [
+            "新型支付案例仅作为引子，未改变问题设定",
+            "核心结论仍属对严格处分意识说的传统立场重申"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度只评问题本身是否成立且重要，不评文献综述充分性与论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "problem_originality",
+          "score": 88,
+          "band": "excellent",
+          "summary": "论文聚焦诈骗罪处分意识必要性及程度之争，问题明确且具深厚教义学价值。",
+          "core_judgment": "问题具备高度可争辩性与枢纽性，属经典刑法教义学核心争点，创新性成立。",
+          "score_rationale": "可争辩性=4/4，枢纽性=4/4，材料新颖性未触发上限，前置扣分0，锚定excellent档，给88分。",
+          "evidence_quotes": [
+            "处分意识是否为诈骗罪的必要构成要件要素。",
+            "要肯定处分意识，需要权利人认识到哪些要素，是否包括财产的数量。"
+          ],
+          "strengths": [
+            "明确提炼处分意识必要性及程度两大争点。",
+            "深度交锋必要说、不要说与区别说。"
+          ],
+          "weaknesses": [
+            "问题属传统教义学范畴，前沿突破性有限。",
+            "对新型支付场景的规范回应稍显滞后。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评问题本身成立度与重要性，不评文献综述、论证逻辑与证据支撑。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.55539608001709,
+        "glm-5.1": 45.028825998306274,
+        "kimi-k2.6": 11.650018692016602,
+        "qwen3.6-plus": 63.159085273742676
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 43,
+        "glm-5.1": 88,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 88
+      },
+      "mean": 74.2,
+      "std": 21.4,
+      "strictest": 43,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "literature_insight": {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "confidence": "high",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "literature_insight",
+          "score": 85,
+          "band": "excellent",
+          "summary": "论文研究地图清晰，有力呈现了处分意识必要说与不要说的争点结构，并引入德国法教义学流派作为参照，文献定位扎实。",
+          "core_judgment": "本文通过分散式文献定位，系统梳理了处分意识必要说与不要说等核心争点，并明确引入德日刑法教义学流派，研究地图完整且深度充足，本维度成立。",
+          "score_rationale": "三要素得分=6/6（到达点2分，未竟点2分，本文切入点2分），争点结构=2/2（形式法治vs实质法治、必要说vs不要说等），法学流派=4个（处分意识必要说、不要说、区别说、德日刑法教义学），锚定excellent档，给85分。",
+          "evidence_quotes": [
+            "我国通说认为，行为人'自觉地'为财产处分…但是，处分意识不要说也是有力主张。此外，还有主张财物诈骗须具备处分意识而利益诈骗无需处分意识的区别说。",
+            "德国主流见解认为，处分意识是财物诈骗的必备要素，却非利益诈骗的前提。…我国刑法将盗窃罪、诈骗罪的客体均规定为'公私财物'，一般认为包括有体财物和财产性利益。"
+          ],
+          "strengths": [
+            "争点结构极为清晰：论文将处分意识必要说、不要说、区别说等对立观点组织为可区分的争辩脉络，深度展开各方论证。",
+            "法学流派覆盖充分：系统引入德日刑法教义学（盗窃罪vs诈骗罪作为夺取罪vs交付罪）及德国文献作为流派参照，各国立法差异分析到位。"
+          ],
+          "weaknesses": [
+            "到达点与未竟点分散于正文各处，缺乏集中式文献综述，部分引述依赖国外文献，国内实证或实务研究的具体成果提炼可更充实。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评的是文献梳理深度与争点结构，不评处分意识本身是否属于理论创新或论证是否无懈可击。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点与流派呈现充分。",
+          "core_judgment": "论文清晰构建了处分意识必要性与判别标准的争点脉络，洞察度极佳。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=5个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "我国通说持必要说，不要说亦为有力主张，区别说则主张财物诈骗须具备而利益诈骗无需处分意识。",
+            "新型支付对必要说形成冲击，迫切要求界定处分意识程度要求，并协调利益盗窃否定说与必要说的紧张关系。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，三要素完整对应。",
+            "争点结构立体，呈现必要/不要/区别及严格/缓和等多重对立。"
+          ],
+          "weaknesses": [
+            "无明显缺陷。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "评估文献梳理与争点建构深度，非评问题新颖性或论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "literature_insight",
+          "score": 90,
+          "band": "excellent",
+          "summary": "研究地图完整，争点结构清晰，流派覆盖充分",
+          "core_judgment": "本文建立了清晰的学术研究地图，系统呈现了处分意识必要说、不要说、区别说及严格/缓和说的对立，争点结构完整",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=4个，锚定excellent档，给90分",
+          "evidence_quotes": [
+            "财产处分历来被认为是诈骗罪不成文的构成要件要素，而处分行为是否以处分意识为必要则有争论",
+            "就处分意识的程度要求而言，存在着严格的处分意识说与缓和的处分意识说之争"
+          ],
+          "strengths": [
+            "系统梳理德日中三国学说，比较法视野开阔",
+            "争点层层递进，从必要性到程度要求再到具体判断"
+          ],
+          "weaknesses": [
+            "参考文献列表缺失，仅见脚注引用",
+            "部分学者观点引用较简略，未充分展开其论证脉络"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价文献定位的完整性与深度，不评价问题本身是否新颖或论证是否严密",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "literature_insight",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文清晰勾勒处分意识必要性及程度要求的学术争点，精准定位新型支付场景下的理论缺口与本文切入点。",
+          "core_judgment": "研究地图完整，争点脉络清晰，文献定位与理论剖析高度契合，本维度充分成立。",
+          "score_rationale": "三要素得分=6/6，争点结构=2/2，法学流派=3个，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "新型支付方式的出现……故有必要检讨：处分意识是否为诈骗罪的必要构成要件要素。",
+            "就处分意识的程度要求而言，存在着严格的处分意识说与缓和的处分意识说之争。"
+          ],
+          "strengths": [
+            "分散式文献定位精准，将既有学说融入必要性及程度要求的双重争点剖析中。",
+            "明确提炼必要说、不要说、严格说与缓和说等对立解释路径，争点结构立体。"
+          ],
+          "weaknesses": [
+            "对德日最新判例与我国司法实务的互动关系梳理可进一步深化。",
+            "部分文献引述偏重教义学推演，实证数据支撑略显单薄。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦文献梳理与争点结构，不涉及问题本身的新颖性或论证严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.91862392425537,
+        "glm-5.1": 49.957029819488525,
+        "kimi-k2.6": 35.45879006385803,
+        "qwen3.6-plus": 52.71693801879883
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 85,
+        "glm-5.1": 90,
+        "kimi-k2.6": 90,
+        "qwen3.6-plus": 92
+      },
+      "mean": 89.2,
+      "std": 3.0,
+      "strictest": 85,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "analytical_framework": {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "analytical_framework",
+          "score": 38,
+          "band": "unacceptable",
+          "summary": "该文属于长篇论证性论文，未建构可操作的分析框架，核心逻辑为理论辨析而非框架建构。",
+          "core_judgment": "论文未提出任何原创性分析框架，全文是围绕‘处分意识必要说’的理论论证，缺乏可重复适用的分析步骤或判断标准，不满足分析框架建构力的基本门槛。",
+          "score_rationale": "框架可操作性得分=0/4，法学转化度得分=1/4，因可操作性为0触发上限规则，上限50分。法学转化有概念界定，但无分析框架建构，综合评定38分。",
+          "evidence_quotes": [
+            "“应从行为人采取主要手段和被害人有无处分财物意识方面区分盗窃与诈骗。”",
+            "“要肯定处分意识，需要权利人认识到哪些要素……客体认知……前提认知……后果认知”"
+          ],
+          "strengths": [
+            "对处分意识的必要内容（客体认知、前提认知、后果认知）进行了清晰的三要素归纳，具有概念界定价值。"
+          ],
+          "weaknesses": [
+            "三要素归纳仅为概念内涵的阐释，未转化为分步判断流程或裁判规则适用步骤。",
+            "全文无框架性术语在后文反复调用，论证方式是理论推演而非框架应用。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "analytical_framework.no_operational_framework",
+              "rule": "框架可操作性≤1，最高50分。论文无可循分析步骤，无实际调用的分析框架。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文未提出任何分析步骤（如第一步、第二步），未构建可重复适用的判断流程或分类框架，核心工作是对处分意识必要说的理论辩护与细化。"
+            }
+          ],
+          "boundary_note": "本维度评价的是分析框架的可操作性和法学转化度，不评价论文的理论深度、论证逻辑或创新性。该文的理论辨析充分，但完全缺乏分析框架建构。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "analytical_framework",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论文建构了以“客体/前提/后果认知”为核心的处分意识判断框架，操作性强且法学转化彻底。",
+          "core_judgment": "分析框架高度成立，将抽象的处分意识概念成功转化为可重复适用的法学判断步骤与裁判规则。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给95分。框架概念清晰、步骤可循且后文充分调用，法学转化提供了操作化定义与适用边界。",
+          "evidence_quotes": [
+            "对处分行为之财产意义的认识，有三项前提：客体认知、前提认知、后果认知",
+            "对于包装物，处分人是通过包装的物理外观来甄别被包装的财物的"
+          ],
+          "strengths": [
+            "将处分意识拆解为三项认知前提，概念操作化程度极高",
+            "区分必要与非必要内容、本体与价值属性，适用边界清晰"
+          ],
+          "weaknesses": [
+            "整体性处分意识的例外判断标准稍显模糊，依赖交易观念"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评价框架建构力，不评价处分意识必要说本身的逻辑严密性或理论争议。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "analytical_framework",
+          "score": 72,
+          "band": "good",
+          "summary": "论文构建了'客体认知—前提认知—后果认知'的处分意识判别框架，并发展出严格的处分意识说，具有教义学分析深度。",
+          "core_judgment": "分析框架成立且具法学转化力，但类型化标准可更明确，部分核心术语的操作边界有模糊空间。",
+          "score_rationale": "框架可操作性得分=3/4（概念界定清晰、分类标准较明确、分析步骤可循且后文实际调用；但'整体性处分意识'的例外标准可更精细），法学转化度得分=3/4（跨学科概念已转化为刑法教义学分析步骤、提供裁判规则指引、制度设计层面有具体方案、后文反复调用；但'处分意识程度'的量化判断标准可更具体），锚定good档，给72分。",
+          "evidence_quotes": [
+            "对处分行为之财产意义的认识，有三项前提：其一，客体认知……其二，前提认知……其三，后果认知……",
+            "对于包装物，处分人的处分意识在于处分特定主物及其包装……对于非包装物，处分人是通过财物本身的物理外观来甄别财物的"
+          ],
+          "strengths": [
+            "三要件框架具有教义学创新性，为处分意识判别提供清晰分析步骤",
+            "案例运用充分，后文反复调用框架分析具体案件，验证力强"
+          ],
+          "weaknesses": [
+            "‘整体性处分意识’的例外标准较抽象，缺乏可重复操作的判断细则",
+            "‘价值属性’与‘本体属性’的区分在部分疑难案件中可能重叠"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的建构与转化，不涉及盗窃罪与诈骗罪区分标准的实质正当性论证。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "analytical_framework",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了严密的处分意识教义学框架，兼具理论深度与司法适用指引。",
+          "core_judgment": "框架成立且高度可用，成功将抽象概念转化为可重复适用的裁判判别标准。",
+          "score_rationale": "框架可操作性得分=4/4，法学转化度得分=4/4，锚定excellent档，给92分。概念界定清晰，分类与步骤明确，后文高频调用，理论推演直接转化为教义学操作指引。",
+          "evidence_quotes": [
+            "对处分行为之财产意义的认识，有三项前提: 其一，客体认知……其二，前提认知……其三，后果认知。",
+            "对于包装物，处分人的处分意识在于处分特定主物及其包装，而不是处分包装及其内容。"
+          ],
+          "strengths": [
+            "构建“三认知”要件与“严格说”标准，提供清晰的教义学分析步骤。",
+            "将抽象处分意识转化为包装物/数量/价值的具体判别规则，可操作性强。"
+          ],
+          "weaknesses": [
+            "部分例外情形（如整体性处分意识）的边界划定仍依赖一般交易观念，略显抽象。",
+            "对新型电子支付场景的自动化处分机制探讨可进一步结合技术特征深化。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价分析框架的建构与转化能力，不涉及逻辑推演严密性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 73.28850507736206,
+        "glm-5.1": 57.22465920448303,
+        "kimi-k2.6": 12.944067001342773,
+        "qwen3.6-plus": 52.160321950912476
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 38,
+        "glm-5.1": 95,
+        "kimi-k2.6": 72,
+        "qwen3.6-plus": 92
+      },
+      "mean": 74.2,
+      "std": 26.2,
+      "strictest": 38,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "logical_coherence": {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "confidence": "medium",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "logical_coherence",
+          "score": 87,
+          "band": "excellent",
+          "summary": "论文构建了“必要性-程度要求-具体判别”的严密递进推理链，论证材料充分支撑核心结论。",
+          "core_judgment": "逻辑严密性成立。主要推理步骤清晰可复述，关键结论均有前文充分支撑，反驳处理全面且具有实质性。",
+          "score_rationale": "推理链完整性得分=4/4（所有标准均满足），反驳处理度得分=3/3（所有标准均满足），锚定excellent档。推理链环环相扣，反驳回应论证深入，给予87分。",
+          "evidence_quotes": [
+            "处分意识不要说的部分论证，是建立在有瑕疵的方法论基础上的……以‘在司法实践中，此类案件无一不以诈骗性质认定’为由，否定处分意识的必要性，混淆了实然与应然。",
+            "从有效保护财产权的角度出发，绝不能因为权利人有处分某个具体财产的意图，而撤去对其全部财产静态控制关系的保护。"
+          ],
+          "strengths": [
+            "推理链高度递进：从“必要性”论证，自然过渡到“程度要求”探讨，最终落实到“具体判别”操作，前后步骤依赖性强。",
+            "反驳处理极具实质性：不仅枚举反对意见，更从方法论瑕疵、法益逻辑、实定法差异等角度给予深入论证回应。"
+          ],
+          "weaknesses": [],
+          "limit_rule_triggered": [],
+          "boundary_note": "论文对主物/从物、集合物等概念的精细分析属于推理链对处分意识判别的具体展开，并非单纯的框架建构或结论可接受性判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "logical_coherence",
+          "score": 95,
+          "band": "excellent",
+          "summary": "论证层层递进，反驳充分且承认局限，逻辑严密性极高。",
+          "core_judgment": "推理链完整且相互依赖，核心结论可被辩护地推出，本维完全成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给95分",
+          "evidence_quotes": [
+            "仅在极少数情形中，即针对能被无意识处分且缺乏可转移性的财产性利益，才可能因坚持处分意识必要说而造成处罚漏洞。",
+            "缓和的处分意识说忽略了财产处分在盗窃罪构成要件中的意义，因而不应被采纳。"
+          ],
+          "strengths": [
+            "推理链层层递进，从必要性论证到内容界定再到程度要求，依赖度强。",
+            "对反对意见（不要说、区别说、缓和说）均有实质性论证回应。"
+          ],
+          "weaknesses": [
+            "无明显关键跳步或逻辑缺陷。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本文评的是从必要性到具体判别规则的逻辑推出链条，而非该严格说框架在司法实务中的可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "logical_coherence",
+          "score": 78,
+          "band": "good",
+          "summary": "论文构建了完整的'处分意识必要性→处分意识判别标准→具体属性认知要求'三层推理链，反驳处理较为充分。",
+          "core_judgment": "推理链完整且相互依赖，核心结论可由前文推出；反驳处理涵盖显式反对意见回应与自身理论边界说明，但缺乏对'缓和说'的充分回应。",
+          "score_rationale": "推理链完整性得分=4/4（标准1-4均满足：可复述三步推理链；步骤间依赖紧密；结论由前文推出；无明显关键跳步）。反驳处理度得分=2/3（标准1满足：识别'处分意识不要说''区别说'等反对意见；标准2满足：对'不要说'进行方法论批评与实质回应；标准3未满足：未明确承认自身'严格说'在极端情形下的适用边界）。锚定good(70-79)档，给78分。",
+          "evidence_quotes": [
+            "只有坚持处分意识必要说，才能确保诈骗罪构成要件的明确内涵，才能彰显其自我损害型犯罪的特质",
+            "处分意识的有无决定着法益侵害类型的差别，不能为了避免处罚漏洞而在利益诈骗中放弃处分意识必要说"
+          ],
+          "strengths": [
+            "三步推理链环环相扣：从必要性论证到判别标准再到具体属性要求",
+            "对'不要说'的批评具有方法论自觉，指出其混淆实然与应然"
+          ],
+          "weaknesses": [
+            "未充分回应缓和处分意识说的核心论据，存在'以结论替代论证'之嫌",
+            "对严格说可能导致的处罚漏洞仅作轻描淡写处理，未充分论证其可接受性"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评价推理链完整性，不涉及'严格说'本身是否合理这一实体判断。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "logical_coherence",
+          "score": 92,
+          "band": "excellent",
+          "summary": "论文构建了从处分意识必要性到具体判别标准的严密教义学推理链，充分回应反对观点并划定理论边界。",
+          "core_judgment": "推理链条完整且环环相扣，核心结论由前文规范分析与案例检验充分支撑，逻辑严密性成立。",
+          "score_rationale": "推理链完整性得分=4/4，反驳处理度得分=3/3，锚定excellent档，给92分。论证从必要性推导至程度标准，依赖度高且无关键跳步；显式列举并实质反驳不要说与区别说，同时承认处罚漏洞的有限性。",
+          "evidence_quotes": [
+            "只有坚持处分意识必要说，才能确保诈骗罪构成要件的明确内涵，才能彰显其自我损害型犯罪的特质。",
+            "原则上，只能针对被害人确切认识到的数量之财产，肯定处分意识。"
+          ],
+          "strengths": [
+            "推理链呈“必要性证成→反驳对立学说→具体判别标准”递进结构，逻辑衔接紧密。",
+            "对不要说及区别说的反驳均结合教义学功能与比较法差异展开，论证充分。"
+          ],
+          "weaknesses": [
+            "部分段落对德日立法差异的过渡稍显简略，依赖读者具备前置知识。",
+            "对“整体性处分意识”例外的适用边界可进一步细化以增强可操作性。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦推理链是否形成闭环及结论是否可辩护推出，不涉及教义学框架本身的实务可操作性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 84.33026194572449,
+        "glm-5.1": 52.95160508155823,
+        "kimi-k2.6": 13.027771711349487,
+        "qwen3.6-plus": 60.19853115081787
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 87,
+        "glm-5.1": 95,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 88,
+      "std": 7.4,
+      "strictest": 78,
+      "strictest_model": "kimi-k2.6"
+    },
+    "conclusion_consensus": {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "confidence": "low",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文结论（处分意识必要说兼严格的处分意识说）明确回应了既有争论，承认利益盗窃可罚性以填补漏洞，并讨论了中国制度语境，但未集中讨论自身局限或主要反对意见。",
+          "core_judgment": "结论能与共同体对话，且与现行法秩序逻辑兼容，回应了制度约束，但缺乏对反对意见的系统性承认与回应。",
+          "score_rationale": "共同体对话度得分=3/4（回应争论、反对者可定位、中国语境说得通，但未主动承认反对意见或自身局限），制度可接受度得分=3/4（不与法秩序根本矛盾、回应了制度约束、考虑了中国语境，但制度转化方向不够明确），理论论文分档锚定excellent(80-100)，因对话度未达4且未讨论局限，微调至78分。",
+          "evidence_quotes": [
+            "处分意识必要说能够妥当界分盗窃罪与诈骗罪……若采处分意识不要说，则处分行为无法发挥这一界分功能。",
+            "在德、日刑法中，财产性利益只是诈骗罪的客体……与德、日刑法不同，我国刑法将盗窃罪、诈骗罪的客体均规定为“公私财物”，一般包括有体财物和财产性利益。"
+          ],
+          "strengths": [
+            "结论明确卷入处分意识必要说/不要说之争，并给出清晰立场。",
+            "注意中国法与德日刑法的实定法差异，以利益盗窃可罚性回应处罚漏洞关切。"
+          ],
+          "weaknesses": [
+            "结论部分未集中承认本文主张可能面临的挑战或论证局限。",
+            "对严格的处分意识说可能导致的处罚漏洞，回应较为分散，缺乏集中的制度转化方案。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维只评估结论当下的可接受性与对话度，不评论证严密性；论文挑战了处分意识不要说，这本身不扣分。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论深刻回应学界争论并立足中国语境，可接受性极高。",
+          "core_judgment": "结论在共同体对话与制度兼容上均表现优异，完全成立。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分",
+          "evidence_quotes": [
+            "应在诈骗罪中坚持彻底的处分意识必要说...理应坚持严格的处分意识说",
+            "与德、日刑法不同，我国刑法将盗窃罪、诈骗罪的客体均规定为‘公私财物’...承认利益盗窃，具有学理和实践可行性"
+          ],
+          "strengths": [
+            "精准回应必要说/不要说及严格/缓和说之争",
+            "立足中国实定法差别化解处罚漏洞质疑"
+          ],
+          "weaknesses": [
+            "对极少数处罚漏洞的立法填补建议稍显简略"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论能否被共同体与制度语境接受回应，不评论证严密性。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "conclusion_consensus",
+          "score": 78,
+          "band": "good",
+          "summary": "论文在诈骗罪处分意识必要说问题上构建了系统的理论主张，积极回应了德日学说与中国实务，具备较强的学术对话能力。",
+          "core_judgment": "论文结论在刑法学共同体语境中可被定位和回应，与现行法秩序兼容，但制度转化方向表述不够明确。",
+          "score_rationale": "共同体对话度得分=3/4（回应了处分意识必要说与不要说之争、区别说等既有争论，反对者可定位其立场；承认并讨论了处罚漏洞等反对意见；结合中国刑法第266条、指导性案例等语境；但未明确说明自身理论相对既有理论的具体优势），制度可接受度得分=2/4（不与现行法秩序根本矛盾，回应了制度约束，但未明确指出制度转化方向，中国语境讨论充分），锚定good档，给78分。",
+          "evidence_quotes": [
+            "与德、日刑法不同，我国刑法将盗窃罪、诈骗罪的客体均规定为'公私财物'……鉴于此种立法差别，'在财产犯罪理论的构建上，中国可以有不同于日本、德国的选择'",
+            "像德国、日本对待计算机诈骗那样，承认处罚漏洞并通过立法填补，才是更值得赞赏、更符合罪刑法定原则的选择"
+          ],
+          "strengths": [
+            "明确回应处分意识必要说、不要说及区别说等既有争论，学术定位清晰",
+            "结合中国刑法条文、指导性案例及司法实务展开论证，语境意识强"
+          ],
+          "weaknesses": [
+            "未充分说明'严格的处分意识说'相对既有学说的具体理论优势",
+            "结论部分未明确指出理论框架向制度转化的可能方向"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度仅评估结论的可接受性与对话度，不涉及论证严密性评价。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "conclusion_consensus",
+          "score": 92,
+          "band": "excellent",
+          "summary": "结论明确坚持处分意识必要说与严格说，深度回应教义学争议并契合中国司法语境。",
+          "core_judgment": "该维成立。结论精准定位学术争论坐标，反对路径清晰，且与中国现行刑法教义体系高度兼容。",
+          "score_rationale": "共同体对话度得分=4/4，制度可接受度得分=4/4，锚定excellent档，给92分。",
+          "evidence_quotes": [
+            "综上，应在诈骗罪中坚持彻底的处分意识必要说。",
+            "均应否定缓和的处分意识说，理应坚持严格的处分意识说。"
+          ],
+          "strengths": [
+            "精准回应必要说与不要说之争，论证层次严密。",
+            "结合中国指导案例与新型支付场景，本土适配性强。"
+          ],
+          "weaknesses": [
+            "对“整体性处分意识”例外情形的司法适用边界可进一步细化。",
+            "未充分展开与现行司法解释具体条款的衔接论证。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维仅评结论当下可接受性，不涉及论证严密性或未来延展性。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 40.524415016174316,
+        "glm-5.1": 49.403995990753174,
+        "kimi-k2.6": 14.219768762588501,
+        "qwen3.6-plus": 55.168145179748535
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 78,
+        "glm-5.1": 92,
+        "kimi-k2.6": 78,
+        "qwen3.6-plus": 92
+      },
+      "mean": 85,
+      "std": 8.1,
+      "strictest": 78,
+      "strictest_model": "deepseek-v4-pro"
+    },
+    "forward_extension": {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "confidence": "critical",
+      "raw_outputs": {
+        "deepseek-v4-pro": {
+          "dimension": "forward_extension",
+          "score": 15,
+          "band": "unacceptable",
+          "summary": "论文未提出任何具体的未来研究方向或延展路径，仅在结论部分隐含了理论立场，缺乏对后续研究问题、理论修正方向或实践边界的明确指引。",
+          "core_judgment": "本文没有展示出真实的延展路径，仅呈现为一种理论主张的断言，未指出该理论未来可如何深化、修正或接受检验。",
+          "score_rationale": "原始分15分，归属bonus=0档。全文以论证处分意识必要说及严格标准为核心，结尾无未来研究问题、概念修正路径或实务延伸建议，仅止于既有结论的重复。",
+          "evidence_quotes": [],
+          "strengths": [],
+          "weaknesses": [
+            "文章在结语部分仅重申立场，未指出理论未来可能的深化方向或需回应的后续争点。",
+            "全文未提出具体后续研究问题，也未指明本文结论在何种条件下需要修正或如何接受检验。"
+          ],
+          "limit_rule_triggered": [
+            {
+              "rule_id": "forward_extension.slogan_outlook",
+              "rule": "只有空泛拔高且没有具体待修正对象时，进入低分段（0-39）。论文仅以'应在诈骗罪中坚持彻底的处分意识必要说'结尾，无任何具体未来延展路径。",
+              "score_ceiling": 50,
+              "priority": 1,
+              "evidence": "论文以'综上，应在诈骗罪中坚持彻底的处分意识必要说'结束全文，未指出后续研究问题、理论修正方向或实务适用边界。"
+            }
+          ],
+          "boundary_note": "本维度仅评价论文是否指明未来研究或实务延伸路径，不评价其结论是否可接受或论证是否严密。论文未提供任何未来延展信息。",
+          "review_flags": [
+            "future_claim_thin",
+            "evidence_thin"
+          ]
+        },
+        "glm-5.1": {
+          "dimension": "forward_extension",
+          "score": 72,
+          "band": "good",
+          "summary": "基于核心结论指明了处罚漏洞的立法填补方向及严格处分意识说在复杂场景的适用深化路径",
+          "core_judgment": "存在明确延展路径，指明了处罚漏洞的立法填补方向及严格处分意识说在具体交易场景中的适用边界与深化判别需求",
+          "score_rationale": "原始分72，落入>=60档，bonus=3。论文基于坚持严格处分意识说的核心结论，明确指出了极少数处罚漏洞需通过立法填补的制度延展方向，并为该理论在集合物等复杂场景中的适用指明了需结合一般交易观念深化的判别路径，路径可定位且与正文衔接，但精细度有限。",
+          "evidence_quotes": [
+            "像德国、日本对待计算机诈骗那样，承认处罚漏洞并通过立法填补，才是更值得赞赏、更符合罪刑法定原则的选择。",
+            "在判断财产性利益的数量对处分意识的影响时，也应结合一般交易观念和具体交易类型来进行……只有在这些特定的交易方式下，才能肯定权利人对其财产性利益的整体性处分意识。"
+          ],
+          "strengths": [
+            "基于核心结论精准定位了极少数处罚漏洞的立法延展方向",
+            "为严格处分意识说在集合物等复杂场景的适用指明了深化判别路径"
+          ],
+          "weaknesses": [
+            "缺乏集中展望，延展路径散见于论证中",
+            "对立法填补和整体性处分意识的具体深化设计未作进一步展开"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "立法填补计算机诈骗漏洞属于未来制度完善方向，而非当下诈骗罪教义学可接受性范畴；整体性处分意识的场景细化属于未来实务延展，而非当下逻辑严密性范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "kimi-k2.6": {
+          "dimension": "forward_extension",
+          "score": 58,
+          "band": "marginal",
+          "summary": "理论型论文在处分意识判别标准上存在多向延展空间，但延展信号分散、精细度不足，未形成系统展望。",
+          "core_judgment": "存在真实延展路径，但多为方向性提示而非清晰可操作的后续研究设计。",
+          "score_rationale": "原始分58分，属于40-59档，bonus=2。论文在新型支付方式适用、比较法本土化、处分意识程度精细化等方向有明确提示，但延展信号分散于正文，未在结论处系统总结；且对'整体性处分意识'等创新概念未充分展开适用边界，精细度有限，不足以支撑更高加分。",
+          "evidence_quotes": [
+            "随着经济交往方式的变化，特别是自动化、电子化交易方式、操作方式的不断发达，不通过权利人的处分行为也可以转移财产性利益变得并非不可能。",
+            "只有在这些特定的交易方式下，才能肯定权利人对其财产性利益的整体性处分意识。"
+          ],
+          "strengths": [
+            "新型支付方式的实务分析为技术演进预留了适用入口",
+            "中德日比较法差异提示了本土化制度构建方向"
+          ],
+          "weaknesses": [
+            "未在结论处系统总结后续研究方向",
+            "对'整体性处分意识'等创新概念的适用边界展开不足"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度评估的是论文为未来研究留下的延展空间，而非当前结论是否被接受。论文对处分意识必要性的论证是完整的，但对其判别标准在新技术场景下的适用边界、与相关制度的协调等问题，属于'未来还能往哪里走'的范畴。",
+          "review_flags": [
+            "none"
+          ]
+        },
+        "qwen3.6-plus": {
+          "dimension": "forward_extension",
+          "score": 55,
+          "band": "marginal",
+          "summary": "论文构建了严格的处分意识判别框架，为新型支付场景下的罪界划分提供理论标尺，但缺乏显式未来研究规划。",
+          "core_judgment": "存在真实延展路径，主要体现为教义学标准向新型财产犯罪实务检验的隐性延伸。",
+          "score_rationale": "原始分55，对应bonus=2档。论文确立严格处分意识标准并划定适用边界，隐含后续实务检验与理论深化方向，但未显式提出具体待解争点或研究局限，延展表述较内敛。",
+          "evidence_quotes": [
+            "若认为商家的指示行为使自己对顾客享有的货款请求权被让与给行为人，或许可以检讨行为人是否就商家针对顾客的货款请求权成立盗窃罪，这需要结合盗窃罪的构成要件加以考虑。",
+            "只有在这些特定的交易方式下，才能肯定权利人对其财产性利益的整体性处分意识。"
+          ],
+          "strengths": [
+            "确立严格的客体与数量认知标准，为新型支付案件提供清晰教义学标尺。",
+            "明确区分处分意识与受损意识，划定理论适用边界。"
+          ],
+          "weaknesses": [
+            "缺乏显式的未来研究规划或局限说明。",
+            "延展路径依赖读者自行推演，未直接指明下一轮争点。"
+          ],
+          "limit_rule_triggered": [],
+          "boundary_note": "本维度聚焦该理论框架如何指引后续新型财产犯罪教义学检验与实务适用边界拓展，而非当下结论的学术共识度。",
+          "review_flags": [
+            "none"
+          ]
+        }
+      },
+      "errors": {},
+      "elapsed_times": {
+        "deepseek-v4-pro": 29.778035879135132,
+        "glm-5.1": 58.65446400642395,
+        "kimi-k2.6": 22.905900955200195,
+        "qwen3.6-plus": 62.10910892486572
+      },
+      "model_scores": {
+        "deepseek-v4-pro": 15,
+        "glm-5.1": 72,
+        "kimi-k2.6": 58,
+        "qwen3.6-plus": 55
+      },
+      "mean": 50,
+      "std": 24.5,
+      "strictest": 15,
+      "strictest_model": "deepseek-v4-pro"
+    }
+  },
+  "overall": {
+    "aggregation_mean": {
+      "final_score": 82.98,
+      "weighted_total": 79.8
+    },
+    "aggregation_strictest": {
+      "final_score": 60.24,
+      "weighted_total": 59.8
+    },
+    "avg_std": 15.1,
+    "max_std": 26.2,
+    "high_confidence_pct": 16.7,
+    "dimension_count": 6,
+    "score_gap": 22.7,
+    "composite_score": -13.43,
+    "worst_dimension": "analytical_framework",
+    "worst_std": 26.2
+  }
+}

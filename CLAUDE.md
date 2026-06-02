@@ -197,6 +197,32 @@ SMTP_FROM=noreply@socialeval.local
 - ⚡ **异步测试**：使用 `pytest-asyncio`，测试函数标记 `@pytest.mark.asyncio`
 - 📊 **覆盖率**：核心业务逻辑（evaluation, knowledge, reliability）需要测试覆盖
 
+### Paper ID 映射（关键数据源）
+
+**⚠️ 警告**：项目中存在多个 Paper ID 映射文件，使用不当会导致分析错误。
+
+**权威数据源**：
+- ✅ `results/merged-metadata.csv`（1962 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
+- ✅ `results/fullevaluation/round2/paper-{id}.json`（1918 个文件）：评审结果，ID 与 CSV 一致
+- ✅ `results/archive/phase1-2-3-iterations-20260601/paper-list.json`（1920 条）：论文列表，ID 与 CSV 一致
+
+**常见错误**：
+- ❌ **错误示例**：使用错误的 ID 映射导致 paper-1238（"债权人代位权的类型化构造"，2024年）的分数被标到"党政体制如何塑造基层执法"（paper-1244，2017年）上
+- ❌ **根因**：从中间文件、缓存或手动构建的映射表中读取 ID，导致 +1~+7 的偏移
+- ✅ **正确做法**：始终从 `results/merged-metadata.csv` 读取 `编号` 字段作为 Paper ID，不要从其他来源构建映射
+
+**验证方法**：
+```bash
+# 检查特定论文的 ID 和标题
+python3 -c "
+import csv
+with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
+    for row in csv.DictReader(f):
+        if '党政体制' in row['题目']:
+            print(f\"ID={row['编号']}, 年份={row['年份']}, 标题={row['题目']}\")
+"
+```
+
 ### 评价样本目录
 
 框架迭代样本统一放在 `raw/` 下，按用途分组，避免调参集、测试集和验证集混用：
