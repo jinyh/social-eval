@@ -12,7 +12,7 @@
 论文上传 → 预处理 → 多模型并发评价 → 一致性验证 → [专家复核] → 报告输出
 ```
 
-- **六维评价框架**：问题创新性、现状洞察度、理论建构力、逻辑严密性、学术共识度、前瞻延展性
+- **六维评价框架**：研究创新性、现状洞察度、理论建构力、逻辑连贯性、学术共识度、前瞻延展性
 - **多模型并发**：同一维度同时调用多个 AI 模型（GPT-4o、Claude、DeepSeek 等），结果取均值并计算标准差
 - **可靠性验证**：标准差 ≤ 阈值 → 高置信度；超出阈值 → 低置信度，自动进入专家复核队列
 - **知识体系可配置**：评价维度、权重、提示词模板均通过 YAML 文件定义，新增学科无需改代码
@@ -49,12 +49,17 @@ social-eval/
 ├── docs/
 │   ├── requirements/    # 需求文档
 │   ├── architecture/    # ADR（架构决策记录）
-│   └── archive/         # 历史版本归档
+│   └── reports/         # 当前报告与摘要
+├── results/
+│   ├── fullevaluation/  # Phase 2 全量评审结果
+│   └── top101/          # 当前 E2=101 候选池摘要与 manifest
 ├── tests/               # 镜像 src/ 结构
 ├── .env.example
 ├── .gitignore
 └── README.md
 ```
+
+归档目录与逐篇原始输出保留在本地忽略区，不进入 Git；当前仓库只保留活跃代码、核心元数据、当前报告摘要和必要 manifest。
 
 ---
 
@@ -72,8 +77,10 @@ social-eval/
 ## 文档
 
 - 需求文档：`docs/requirements/SocialEval-requirements-v0.4.md`
-- 当前法学框架：`configs/frameworks/law-v2.0-20260413.yaml`
+- 当前法学框架：`configs/frameworks/law-v2.56.6-20260522.yaml`
 - 架构决策：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
+- 当前报告：`docs/reports/china-autonomous-knowledge-innovation-index-report.md`
+- Top101 manifest：`results/top101/MANIFEST.md`
 - 部署与运维说明：`docs/deployment/SocialEval-deployment-and-operations-guide.md`
 - 开发路线图：`development-roadmap.md`
 - 参考资料：`ref/` 目录（法学论文评价方法论、AI 评价系统方案）
@@ -99,7 +106,7 @@ npm install
 npm run dev
 ```
 
-前端默认开发地址：`http://localhost:5173`  
+前端默认开发地址：`http://localhost:5173`
 后端默认开发地址：`http://localhost:8000`
 
 ---
@@ -109,7 +116,8 @@ npm run dev
 - Session 登录 + API Key 认证
 - 邀请制账号激活
 - 论文单篇/批量上传
-- v2.0 准入检查 + 六维评分 + 可靠性计算
+- v2.56.6 准入检查 + 六维评分 + Round 2 交叉评审可靠性计算
+- E2=101 候选池与 E3=45 选择性补测报告链
 - 内部/公开报告生成与 JSON/PDF 导出
 - 专家复核队列、分配、提交
 - 审计日志、管理员重试/关闭、批量任务状态聚合

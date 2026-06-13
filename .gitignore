@@ -49,6 +49,10 @@ data/
 Thumbs.db
 **/.DS_Store
 
+# Local-only archives
+archive/
+**/archive/
+
 # Claude worktrees
 .claude/worktrees/
 worktrees/
@@ -57,8 +61,25 @@ worktrees/
 docs/superpowers/*.tmp
 docs/superpowers/
 
+# Local historical plans/reports superseded by the Top101 report pipeline
+docs/ppt_update_summary.md
+docs/ppt_update_v2_checklist.md
+docs/retest_top71_execution_plan.md
+results/diagnosis_e2_e3_scoring_standards.md
+results/final_rankings.json
+results/top71_candidates.json
+results/top71_candidates_report.md
+scripts/retest_top71_supplement.py
+scripts/retest_category_supplement.py
+scripts/retest_e2_e3_45papers.py
+scripts/retest_e3_new_top30.py
+scripts/unified_scoring.py
+
 # 法学三大刊论文数据（42GB，不提交）
 法学三大刊论文/
+
+# 人工评审意见原始文件（本地资料，不提交）
+raw/review_comments/
 
 # Phase 1 评估数据（不提交）
 raw/phase1-100-papers/
@@ -80,9 +101,13 @@ results/phase2-1849-papers-test/
 results/phase2-test-10/
 results/phase3-evaluation/
 results/retest-7papers/
+results/retest-*/
 results/retest-top60/
 results/single-paper-test-032/
 results/top30-signals/
+results/top101/E*/
+results/top101/paper-*.json
+results/top101/top50.json
 
 # 已被 fullevaluation 覆盖的大规模旧结果，本地归档但不默认提交
 results/archive/phase2-superseded-20260601/

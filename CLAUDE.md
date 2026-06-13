@@ -94,22 +94,18 @@ configs/
     law-v2.56.6-20260522.yaml   # Phase 2 Round 1 生产 prompt（六维锚定规则）
     law-v2.55-cross-review.yaml # 交叉评审版本（Round 2 用）
     law-v2.50.2-20260514.yaml   # 嵌入评分步骤（历史基线）
-    archive/                    # 历史版本归档（v2.0 ~ v2.54）
 docs/
   requirements/    # 需求文档
   architecture/    # ADR（架构决策记录）
   evaluation/      # 评价方法论文档
-    archive/       # 历史版本归档（v0.8-v0.14）
     concept-operationalization-v1.0.md  # 概念操作化定义
     std-analysis-summary-20260423.md    # 标准差分析总结
     v0.15-phase1-test-report-20260511.md # v0.15 第一阶段测试报告
     law-ai-assisted-review-rules-v0.16-large-scale-candidate.md # 当前活跃规程
   discussion/      # 设计讨论记录
-  archive/         # 临时分析文档和历史需求归档
 tests/             # 测试（镜像 src/ 结构）
 alembic/           # 数据库迁移脚本
 scripts/           # 工具脚本
-  archive/         # 归档的测试脚本（供应商测试、模型测试）
   analyze_iteration.py
   dashboard.py
   export_convergence_reports.py
@@ -121,14 +117,13 @@ scripts/           # 工具脚本
   run_convergence_test.py
   run_v0.14_*.py/sh
 results/           # 测试结果与评价报告
-  archive/         # 归档的历史测试结果
-    convergence-tests/  # v2.8-v2.31 收敛性测试
-    model-tests/        # 模型对比和端到端测试
-    v0.14-tests/        # v0.14 版本测试
-    v0.15-tests/        # v0.15 版本测试
+  fullevaluation/  # Phase 2 全量评审结果
+  top101/          # 当前 E2=101 候选池摘要、Top50 专家审阅清单与 manifest
+  report_*.json/csv # 当前报告统计派生文件
   autoresearch/    # 当前活跃的自动研究测试
-    archive/       # 历史版本测试（v2.32-v2.40）
 ```
+
+> 归档目录（如 `archive/`、`docs/**/archive/`、`results/**/archive/`、`scripts/archive/`、`configs/frameworks/archive/`）只作为本地保留区使用，已被 `.gitignore` 忽略，不再作为仓库内容维护。
 
 ---
 
@@ -202,9 +197,9 @@ SMTP_FROM=noreply@socialeval.local
 **⚠️ 警告**：项目中存在多个 Paper ID 映射文件，使用不当会导致分析错误。
 
 **权威数据源**：
-- ✅ `results/merged-metadata.csv`（1962 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
-- ✅ `results/fullevaluation/round2/paper-{id}.json`（1918 个文件）：评审结果，ID 与 CSV 一致
-- ✅ `results/archive/phase1-2-3-iterations-20260601/paper-list.json`（1920 条）：论文列表，ID 与 CSV 一致
+- ✅ `results/merged-metadata.csv`（1920 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
+- ✅ `results/fullevaluation/round2/paper-{id}.json`（1920 个文件）：评审结果，ID 与 CSV 一致
+- ✅ `results/top101/ranking.json`（101 条）：当前 E2 候选池真源；每年至少 5 篇、每学科至少 5 篇
 
 **常见错误**：
 - ❌ **错误示例**：使用错误的 ID 映射导致 paper-1238（"债权人代位权的类型化构造"，2024年）的分数被标到"党政体制如何塑造基层执法"（paper-1244，2017年）上
@@ -238,7 +233,7 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 
 新增样本时必须先说明用途并归入明确分组；不要把已经参与调参的样本重新标记为验证集。
 
-- `raw/fullpaper/`：全量评审集。当前 1920 篇 PDF，用于 Phase 2 大规模评审。元数据见 `results/merged-metadata.csv`（1962 条记录，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）。
+- `raw/fullpaper/`：全量评审集。当前 1920 篇 PDF，用于 Phase 2 大规模评审。元数据见 `results/merged-metadata.csv`（1920 条记录，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）。
 
 ---
 
@@ -247,7 +242,7 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 ### 权威真源
 
 - **方法论规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`（四阶段流程、评分协议、复核规则、大规模评估执行规则）
-- **实现框架**：`configs/frameworks/law-v2.48-20260512.yaml`（prompt、输出模板、JSON 契约、量化映射）
+- **实现框架**：`configs/frameworks/law-v2.56.6-20260522.yaml`（Phase 2 Round 1 生产 prompt、输出模板、JSON 契约、量化映射）
 - **概念操作化**：`docs/evaluation/concept-operationalization-v1.0.md`
 - **标准差分析**：`docs/evaluation/std-analysis-summary-20260423.md`
 - **架构决策**：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
@@ -260,7 +255,7 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 | v2.55 | 交叉评审版本（Round 2 用） | 基于 v2.50.2，维度命名已更新为标准命名 |
 | v2.56.6 | **Phase 2 Round 1 生产 prompt** | v2.56 + 6 轮锚定规则优化，std 28.16→6.22（-77.9%） |
 
-历史版本（v1.0 ~ v2.54）已归档至 `configs/frameworks/archive/v2.0-v2.54-20260522/`。
+历史版本（v1.0 ~ v2.54）保留在本地忽略归档区，不进入 Git。
 
 **维度命名更新**（2026-05-22）：
 - 统一六维度中文名称：研究创新性、现状洞察度、理论建构力、逻辑连贯性、学术共识度、前瞻延展性
@@ -358,7 +353,7 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 **验证结论**：
 - ✅ 测试通过：Round 2 交叉评审机制非常有效
 - ✅ Round 1 标准差偏高可接受：交叉评审后显著收敛
-- ✅ 可进入 Phase 2 完整评审（1836 篇）
+- ✅ 可进入 Phase 2 完整评审
 
 **对比前 100 篇**：
 - 前 100 篇：Round 1 平均 std 17.59，Round 2 部分维度收敛率 80%+
@@ -408,7 +403,7 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 3. 剩余分歧是真实学术分歧，不是 prompt 问题
 4. autoresearch 迭代的是 Round 1 的锚定规则（v2.56.6），R2 机制是独立的
 
-**R2 耗时**：1103s ≈ 18分钟/篇（4 模型 × 6 维度 = 24 次 API 调用，每次需读全文）。1849 篇大规模运行时需考虑此成本。
+**R2 耗时**：1103s ≈ 18分钟/篇（4 模型 × 6 维度 = 24 次 API 调用，每次需读全文）。全量运行时需考虑此成本。
 
 **脚本位置**：`scripts/test_single_paper_two_rounds.py`，结果：`results/single-paper-test-032/`
 
@@ -420,13 +415,13 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 - 框架：v2.55（交叉评审版本）
 - 模型：4 个（deepseek-v4-pro, glm-5.1, kimi-k2.6, qwen3.6-plus）
 - 原始论文：`raw/fullpaper/`（1920 篇 PDF）
-- 元数据：`results/merged-metadata.csv`（1962 条，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）
+- 元数据：`results/merged-metadata.csv`（1920 条，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）
 
 **结果目录结构**：
 
 ```
 results/fullevaluation/
-├── round2/            # 1913 篇完整评审结果（paper-{id}.json）
+├── round2/            # 1920 篇完整评审结果（paper-{id}.json）
 │   └── paper-{id}.json  # 自包含 R1+R2：round1_scores, round2_scores, changes, raw_outputs
 └── round1-err/        # Round 1 问题论文分类（64 篇，已排除空状态）
     ├── 2-all-reject/      # 4 模型全拒（5 篇）
@@ -508,7 +503,7 @@ results/fullevaluation/
 - **框架版本**：v2.55（交叉评审版本）+ R2 逻辑，不再用 autoresearch 迭代 R2 prompt
 - **DeepSeek 顽固性是设计正确行为**：B 组严格模型看到 A 组宽松评价后系统性拒绝调整，属锚定效应，防止模型向均值漂移；不是 bug，不需要修
 - **未收敛维度（std > 8）的处理**：剩余分歧多为真实学术判断差异（如"论文是否提出可争辩理论问题"），prompt 无法修复，交由专家终审
-- **Phase 2 大规模执行**：已完成（2026-05-27）。v2.55 + R2 逻辑，1913 篇完整结果存于 `results/fullevaluation/round2/`；64 篇 Round 1 问题论文已分类存于 `round1-err/`（空状态 90 篇已全部补测完成并清理）
+- **Phase 2 大规模执行**：已完成（2026-05-27）。v2.55 + R2 逻辑，1920 篇完整结果存于 `results/fullevaluation/round2/`；64 篇 Round 1 问题论文已分类存于 `round1-err/`（空状态 90 篇已全部补测完成并清理）
 
 详细分析见 `results/single-paper-test-032/`
 
@@ -550,7 +545,7 @@ results/fullevaluation/
 
 - `socialeval-convergence-report-export`（2026-06-01 归档）
   - 原因：convergence-test 格式已被 Phase 2 fullevaluation 替代
-  - 归档位置：`agent-skills/archive/deprecated-20260601/`
+  - 归档位置：本地忽略归档区 `agent-skills/archive/deprecated-20260601/`
 
 ### 使用约定
 
@@ -562,78 +557,37 @@ results/fullevaluation/
 
 ## 归档管理
 
-### 归档策略（2026-06-01 大规模清理）
+### 归档策略（2026-06-07 更新）
 
-为保持项目目录清晰，**仅保留最终成果**，所有中间迭代已归档。
+为保持仓库边界清晰，归档文件只保留在本地忽略区，不再进入 Git。当前 Git 只保留活跃代码、当前报告/摘要、核心元数据、必要 manifest 和可复现生成脚本。
 
-#### 配置文件归档（configs/frameworks/archive/）
-- **v2.0-v2.54-20260522/**：59 个历史版本（law_v1.yaml + law-v2.0 至 law-v2.54）
-  - 包含所有实验版本、失败版本和被替代的稳定版本
-  - 保留完整的版本演进历史和测试数据
-  - 归档说明：`configs/frameworks/archive/v2.0-v2.54-20260522/README.md`
-- **schemas/**：历史 schema 文件
-  - `schema.json`（v1，已废弃）
-  - `schema_v3.json`（v3 实验版本，未启用）
-  - 归档说明：`configs/frameworks/archive/schemas/README.md`
+#### 当前 Git 保留范围
 
-#### 原始数据归档（raw/archive/）
-- **phase1-papers-20260601/**：Phase 1 原始论文（已有评审结果）
-  - `phase1-100-papers/` - 100 篇论文
-  - `phase1-30-papers/` - 30 篇论文
-  - `sample/` - 样本论文
+1. **配置文件**：3 个生产/基线版本（v2.56.6, v2.55, v2.50.2）+ `schema_v2.json`
+2. **原始数据指针**：`results/merged-metadata.csv` 和必要说明；大语料、逐篇原始输出保留本地
+3. **评审结果摘要**：`results/fullevaluation/`、`results/top101/ranking.json`、`results/top101/top50-proportional.*`、`results/report_*`
+4. **脚本**：当前可复跑、可维护的核心工具脚本
+5. **文档**：当前活跃规程、当前报告、README/CLAUDE/manifest
 
-#### 测试结果归档（results/archive/）
-- **phase1-2-3-iterations-20260601/**：Phase 1/2/3 所有中间迭代（~70MB）
-  - Phase 1：6 个迭代版本（100-papers, 100-papers-cross-review, 100-papers-strictest, 30-papers 等）
-  - Phase 2：被 fullevaluation 完全替代的迭代（1849-papers, test-10, metadata 等）
-  - Phase 3：evaluation 迭代
-  - 重测：retest-7papers, retest-top60, single-paper-test-032
-  - 临时文件：cross-review 分析、round2 报告、PDF 评价报告（6 个）
-- **autoresearch-history-20260601/**：autoresearch 历史迭代（~2.7MB）
-  - v2.47 测试结果（~30 个 JSON）
-  - quick-verify, verify-v2.*, autoresearch-log, stability-test
-  - autoresearch-v2.51（失败版本）
-- **convergence-tests/**：v2.8 - v2.31 收敛性测试（56 个文件）
-- **model-tests/**：模型测试、端到端管道测试（11 个文件）
-- **v0.14-tests/**：v0.14 版本测试（8 个文件/目录）
-- **v0.15-tests/**：v0.15 版本测试（2 个文件/目录）
+#### 本地忽略范围
 
-#### 脚本归档（scripts/archive/）
-- **iterations-and-tests-20260601/**：迭代和测试脚本（~80 个）
-  - 分析脚本：analyze_autoresearch_progress, analyze_cross_review, analyze_high_*, analyze_precheck_*, compare_v2.*, 等
-  - 测试脚本：test_*, check_*, debug_*, diagnose_*, find_*, extract_*, benchmark_*
-  - Phase 脚本：phase1_*, phase2_test_10_papers, run_convergence_test, run_cross_review, 等
-  - 生成脚本：export_phase1_100_report, generate_phase2_summary, generate_phase3_summary, 等
-- **experiments-20260601/**：实验脚本（15 个）
-- **model-tests/**：模型测试脚本（7 个）
-- **provider-tests/**：供应商测试脚本（11 个）
+- `archive/` 与所有 `**/archive/`
+- `results/top101/E*/`、`results/top101/paper-*.json` 等逐篇 AI 原始输出
+- `results/retest-*/`、旧候选/Top50 诊断文件、补测中间产物
+- `raw/review_comments/`、`raw/fullpaper/`、`法学三大刊论文/`
+- 缓存、虚拟环境、系统文件和临时日志
 
-#### 文档归档（docs/）
-- **evaluation/archive/v0.1-v0.15-iterations-20260601/**：v0.1-v0.15 评审规则和评分规则
-- **evaluation/archive/v2.19-v2.51-iterations-20260601/**：v2.19-v2.51 版本文档
-  - 版本对比、测试报告、实现计划、优化报告
-  - v0.14, v2.47, v2.48, v2.49, v2.51 相关文档
-  - 一致性验证、收敛性测试、稳定性测试
-- **evaluation/archive/reference-20260601/**：参考文档
-  - validation-sample-plan, pattern-redesign-analysis, citalaw-paper-analysis
-  - scite-api-evaluation, sample-papers-database-schema, legal-paper-six-dimensions-guide
-  - law-framework-v2.2-research-notes, how-to-use-law-v2-config, README-20260423
-- **evaluation/archive/autoresearch-20260601/**：autoresearch 配置文档（6 个）
-- **evaluation/archive/v0.8-v0.14/**：v0.8-v0.14 评审规则（10 个文件）
-- **archive/completed-projects-20260601/**：已完成项目文档
-  - design/, discussion/, presentations/, specs/, superpowers/
-  - SocialEval-current-user-manual-2026-04-21.md
-- **archive/**：历史需求、规划、分析文档
+这些文件可在本机用于审计或重生结果，但不作为仓库制品提交；需要共享时应另做外部数据包或仓库瘦身/发布方案。
 
-#### 归档原则（2026-06-01 更新）
-1. **配置文件**：仅保留 3 个生产版本（v2.56.6, v2.55, v2.50.2）+ schema_v2.json
-2. **原始数据**：仅保留 fullpaper + 3 个测试集 + top30_paper + validation
-3. **评审结果**：仅保留 fullevaluation（Phase 2 最终成果）+ merged-metadata.csv + autoresearch/v2.56
-4. **脚本**：仅保留 17 个核心工具（analyze, generate, evaluate, verify, dashboard, rubric_reflector 等）
-5. **文档**：仅保留当前活跃版本（v0.16, concept-operationalization-v1.0, std-analysis-summary, v0.15-test-report）
-6. **保留标准**：只保留最终成果，所有中间迭代全部归档
+#### 当前 E2/E3 口径
 
-#### 查找归档文件
+- E2 候选池真源：`results/top101/ranking.json`，共 101 篇
+- 覆盖约束：每年至少 5 篇、每学科至少 5 篇
+- E3 选择性补测：45 篇
+- 专家审阅展示清单：`results/top101/top50-proportional.json`
+- 轻量 manifest：`results/top101/MANIFEST.md`
+
+#### 查找本地归档文件
 ```bash
 # 查看归档目录结构
 tree -L 2 results/archive/ scripts/archive/ docs/evaluation/archive/ configs/frameworks/archive/

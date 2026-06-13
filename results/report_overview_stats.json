@@ -1,0 +1,545 @@
+{
+  "generated_at": "2026-06-07T19:24:55",
+  "sources": {
+    "metadata": "results/merged-metadata.csv",
+    "rankings": "results/unified_rankings.json",
+    "top101_ranking": "results/top101/ranking.json",
+    "round2_dir": "results/fullevaluation/round2",
+    "round1_err": "results/fullevaluation/round1-err/error-summary.json",
+    "top50_proportional": "results/top101/top50-proportional.json"
+  },
+  "corpus_counts": {
+    "metadata_rows": 1920,
+    "ranking_papers": 1920,
+    "round2_files": 1920
+  },
+  "unified_ranking_metadata": {
+    "description": "Unified E1/E2/E3 scoring with Top101 E2 candidate overlay",
+    "pipeline": "E1 R2 baseline → E2 candidate pool 101 → E3 selective pool 45",
+    "aggregation": "E1 only: mean(4); E1+E2: median(8); E1+E2+E3: median(12)",
+    "weights": {
+      "problem_originality": 0.3,
+      "literature_insight": 0.2,
+      "analytical_framework": 0.15,
+      "logical_coherence": 0.2,
+      "conclusion_consensus": 0.1,
+      "forward_extension": 0.05
+    },
+    "total_papers": 1920,
+    "e2_pooled": 101,
+    "e3_pooled": 45,
+    "top101_source": "results/top101/ranking.json",
+    "top101_metadata": {
+      "description": "Top 101 E2 论文 — E1+E2+E3 pooled aggregation",
+      "total": 101,
+      "weights": {
+        "problem_originality": 0.3,
+        "literature_insight": 0.2,
+        "analytical_framework": 0.15,
+        "logical_coherence": 0.2,
+        "conclusion_consensus": 0.1,
+        "forward_extension": 0.05
+      },
+      "aggregation_rule": "单源→mean; 双源→median; 三源→median",
+      "source_distribution": {
+        "E1": 0,
+        "E1+E2": 56,
+        "E1+E3": 0,
+        "E1+E2+E3": 45
+      }
+    },
+    "base_source": "results/unified_rankings.json"
+  },
+  "score_distribution": {
+    "count": 1920,
+    "mean": 71.016,
+    "median": 74.487,
+    "min": 23.25,
+    "p10": 54.162,
+    "p25": 64.9,
+    "p75": 79.837,
+    "p90": 83.3,
+    "p95": 84.763,
+    "p99": 87.55,
+    "max": 89.225
+  },
+  "weighted_std_distribution": {
+    "count": 1920,
+    "mean": 8.034,
+    "median": 7.76,
+    "min": 1.72,
+    "p10": 4.32,
+    "p25": 5.66,
+    "p75": 10.0,
+    "p90": 12.22,
+    "p95": 13.58,
+    "p99": 16.51,
+    "max": 20.85
+  },
+  "top_threshold_counts": {
+    "gte_80": 463,
+    "gte_85": 82,
+    "gte_88": 7,
+    "gte_90": 0
+  },
+  "source_counts": {
+    "E1+E2+E3": 45,
+    "E1+E2": 56,
+    "E1": 1819
+  },
+  "e2_override_count": 101,
+  "e3_merged_count": 45,
+  "dimension_stats": [
+    {
+      "dimension": "problem_originality",
+      "name_zh": "研究创新性",
+      "score": {
+        "count": 1920,
+        "mean": 62.944,
+        "median": 67.5,
+        "min": 0.0,
+        "p10": 33.75,
+        "p25": 50.5,
+        "p75": 77.25,
+        "p90": 83.25,
+        "p95": 85.25,
+        "p99": 88.0,
+        "max": 92.0
+      },
+      "std": {
+        "count": 1920,
+        "mean": 11.114,
+        "median": 9.63,
+        "min": 0.0,
+        "p10": 2.5,
+        "p25": 5.0,
+        "p75": 16.66,
+        "p90": 21.55,
+        "p95": 24.04,
+        "p99": 29.72,
+        "max": 44.68
+      }
+    },
+    {
+      "dimension": "literature_insight",
+      "name_zh": "现状洞察度",
+      "score": {
+        "count": 1920,
+        "mean": 71.546,
+        "median": 77.0,
+        "min": 0.0,
+        "p10": 49.25,
+        "p25": 64.75,
+        "p75": 83.25,
+        "p90": 86.25,
+        "p95": 88.0,
+        "p99": 90.0,
+        "max": 92.5
+      },
+      "std": {
+        "count": 1920,
+        "mean": 8.636,
+        "median": 5.71,
+        "min": 0.0,
+        "p10": 1.91,
+        "p25": 3.27,
+        "p75": 11.39,
+        "p90": 20.62,
+        "p95": 26.41,
+        "p99": 34.85,
+        "max": 42.88
+      }
+    },
+    {
+      "dimension": "analytical_framework",
+      "name_zh": "理论建构力",
+      "score": {
+        "count": 1920,
+        "mean": 66.783,
+        "median": 70.0,
+        "min": 10.0,
+        "p10": 43.25,
+        "p25": 55.75,
+        "p75": 79.5,
+        "p90": 85.0,
+        "p95": 86.75,
+        "p99": 89.75,
+        "max": 93.0
+      },
+      "std": {
+        "count": 1920,
+        "mean": 8.744,
+        "median": 7.14,
+        "min": 0.0,
+        "p10": 2.5,
+        "p25": 4.24,
+        "p75": 11.79,
+        "p90": 17.08,
+        "p95": 20.97,
+        "p99": 27.93,
+        "max": 41.0
+      }
+    },
+    {
+      "dimension": "logical_coherence",
+      "name_zh": "逻辑连贯性",
+      "score": {
+        "count": 1920,
+        "mean": 82.005,
+        "median": 84.0,
+        "min": 0.0,
+        "p10": 73.5,
+        "p25": 80.0,
+        "p75": 86.75,
+        "p90": 88.5,
+        "p95": 89.5,
+        "p99": 91.25,
+        "max": 93.0
+      },
+      "std": {
+        "count": 1920,
+        "mean": 4.179,
+        "median": 3.56,
+        "min": 0.0,
+        "p10": 1.63,
+        "p25": 2.45,
+        "p75": 5.26,
+        "p90": 7.0,
+        "p95": 8.85,
+        "p99": 14.0,
+        "max": 30.64
+      }
+    },
+    {
+      "dimension": "conclusion_consensus",
+      "name_zh": "学术共识度",
+      "score": {
+        "count": 1920,
+        "mean": 79.126,
+        "median": 82.5,
+        "min": 0.0,
+        "p10": 68.0,
+        "p25": 77.0,
+        "p75": 85.75,
+        "p90": 87.5,
+        "p95": 88.0,
+        "p99": 90.0,
+        "max": 92.5
+      },
+      "std": {
+        "count": 1920,
+        "mean": 5.398,
+        "median": 3.56,
+        "min": 0.0,
+        "p10": 1.5,
+        "p25": 2.06,
+        "p75": 6.5,
+        "p90": 12.08,
+        "p95": 16.28,
+        "p99": 25.63,
+        "max": 38.03
+      }
+    },
+    {
+      "dimension": "forward_extension",
+      "name_zh": "前瞻延展性",
+      "score": {
+        "count": 1920,
+        "mean": 69.846,
+        "median": 73.25,
+        "min": 11.25,
+        "p10": 55.0,
+        "p25": 65.0,
+        "p75": 78.0,
+        "p90": 80.75,
+        "p95": 82.0,
+        "p99": 84.0,
+        "max": 86.25
+      },
+      "std": {
+        "count": 1920,
+        "mean": 5.707,
+        "median": 4.47,
+        "min": 0.0,
+        "p10": 1.92,
+        "p25": 2.94,
+        "p75": 6.78,
+        "p90": 11.09,
+        "p95": 14.7,
+        "p99": 22.56,
+        "max": 38.03
+      }
+    }
+  ],
+  "round2_reliability": {
+    "round1_avg_std": {
+      "count": 1920,
+      "mean": 14.873,
+      "median": 14.77,
+      "min": 6.15,
+      "p10": 10.62,
+      "p25": 12.6,
+      "p75": 17.05,
+      "p90": 19.3,
+      "p95": 20.47,
+      "p99": 23.4,
+      "max": 27.52
+    },
+    "round2_avg_std": {
+      "count": 1920,
+      "mean": 7.237,
+      "median": 6.925,
+      "min": 1.65,
+      "p10": 3.97,
+      "p25": 5.33,
+      "p75": 8.9,
+      "p90": 10.8,
+      "p95": 12.03,
+      "p99": 14.48,
+      "max": 17.17
+    },
+    "std_improvement": {
+      "count": 1920,
+      "mean": 7.636,
+      "median": 7.53,
+      "min": 1.2,
+      "p10": 5.02,
+      "p25": 6.15,
+      "p75": 8.98,
+      "p90": 10.47,
+      "p95": 11.32,
+      "p99": 12.95,
+      "max": 15.08
+    },
+    "round2_avg_std_bands": {
+      "lte_5": 409,
+      "lte_8": 1246,
+      "lte_12": 1819,
+      "gt_12": 101
+    },
+    "full_dimension_convergence_papers": 247,
+    "dimension_convergence": {
+      "dimensions_converged": 8063,
+      "total_dimensions": 11520,
+      "ratio": 0.7
+    }
+  },
+  "round1_process_issues": {
+    "total": 154,
+    "1-empty-status": 90,
+    "2-all-reject": 5,
+    "3-majority-reject": 19,
+    "4-single-reject": 15,
+    "5-boundary-only": 25
+  },
+  "top101_e2_candidates": {
+    "selection_strategy": "E2 候选池：Top60 + 每年至少 5 篇 + 每学科至少 5 篇",
+    "source": "results/top101/ranking.json",
+    "total_candidates": 101,
+    "composition": {
+      "top60_count": 60,
+      "coverage_supplement_count": 41,
+      "year_minimum": 6,
+      "discipline_minimum": 5
+    },
+    "score_distribution": {
+      "count": 101,
+      "mean": 84.297,
+      "median": 85.875,
+      "min": 61.4,
+      "p10": 82.025,
+      "p25": 84.25,
+      "p75": 87.225,
+      "p90": 87.75,
+      "p95": 88.075,
+      "p99": 88.625,
+      "max": 89.225
+    },
+    "weighted_std_distribution": {
+      "count": 101,
+      "mean": 5.513,
+      "median": 5.09,
+      "min": 2.58,
+      "p10": 3.13,
+      "p25": 3.62,
+      "p75": 6.54,
+      "p90": 8.57,
+      "p95": 11.21,
+      "p99": 13.45,
+      "max": 13.89
+    },
+    "source_distribution": {
+      "E1": 0,
+      "E1+E2": 56,
+      "E1+E3": 0,
+      "E1+E2+E3": 45
+    },
+    "journal_counts": {
+      "法学研究": 69,
+      "中国社会科学": 5,
+      "中国法学": 27
+    },
+    "year_counts": {
+      "2023": 12,
+      "2020": 9,
+      "2025": 10,
+      "2024": 10,
+      "2016": 8,
+      "2022": 11,
+      "2018": 7,
+      "2015": 6,
+      "2019": 11,
+      "2021": 11,
+      "2017": 6
+    },
+    "category_counts": {
+      "民商法学": 19,
+      "刑法学": 20,
+      "法学理论": 10,
+      "知识产权法学": 5,
+      "诉讼法学": 9,
+      "宪法学与行政法学": 8,
+      "环境与资源保护法学": 5,
+      "经济法学": 5,
+      "国际法学": 5,
+      "法律史": 5,
+      "党内法规学": 5,
+      "数字法学": 5
+    }
+  },
+  "top50_proportional": {
+    "selection_strategy": "按全量 1920 篇学科占比分配 Top50 配额，在各学科内择优形成专家审阅版。",
+    "source": "results/top101/top50-proportional.json",
+    "metadata": {
+      "description": "Top 50 proportional ranking by full-corpus discipline allocation",
+      "source_markdown": "results/top101/top50_proportional.md",
+      "allocation_base": "full 1920-paper discipline distribution",
+      "allocation_method": "discipline quota proportional to full-corpus distribution",
+      "score_range": [
+        89.22,
+        82.6
+      ],
+      "total": 50,
+      "generated": "2026-06-06",
+      "canonical_for_ppt": true,
+      "superseded_archive": "results/archive/top50-superseded-20260606/"
+    },
+    "total": 50,
+    "score_distribution": {
+      "count": 50,
+      "mean": 86.799,
+      "median": 87.235,
+      "min": 82.6,
+      "p10": 84.92,
+      "p25": 86.0,
+      "p75": 87.7,
+      "p90": 88.08,
+      "p95": 88.62,
+      "p99": 89.22,
+      "max": 89.22
+    },
+    "weighted_std_distribution": {
+      "count": 50,
+      "mean": 4.858,
+      "median": 4.325,
+      "min": 2.58,
+      "p10": 2.94,
+      "p25": 3.33,
+      "p75": 5.83,
+      "p90": 7.06,
+      "p95": 8.84,
+      "p99": 11.21,
+      "max": 11.21
+    },
+    "weighted_std_bands": {
+      "lte_5": 31,
+      "lte_8": 47,
+      "gt_8": 3
+    },
+    "discipline_quotas": {
+      "民商法学": 12,
+      "刑法学": 9,
+      "宪法学与行政法学": 6,
+      "诉讼法学": 6,
+      "法学理论": 6,
+      "知识产权法学": 2,
+      "国际法学": 2,
+      "环境与资源保护法学": 2,
+      "经济法学": 2,
+      "法律史": 2,
+      "党内法规学": 1
+    },
+    "discipline_quota_total": 50,
+    "journal_counts": {
+      "法学研究": 35,
+      "中国社会科学": 2,
+      "中国法学": 13
+    },
+    "year_counts": {
+      "2015": 2,
+      "2016": 2,
+      "2017": 1,
+      "2018": 2,
+      "2019": 4,
+      "2020": 3,
+      "2021": 7,
+      "2022": 6,
+      "2023": 7,
+      "2024": 8,
+      "2025": 8
+    },
+    "category_counts": {
+      "民商法学": 12,
+      "刑法学": 9,
+      "法学理论": 6,
+      "知识产权法学": 2,
+      "诉讼法学": 6,
+      "宪法学与行政法学": 6,
+      "环境与资源保护法学": 2,
+      "经济法学": 2,
+      "国际法学": 2,
+      "法律史": 2,
+      "党内法规学": 1
+    },
+    "source_distribution": {
+      "E1+E2+E3": 33,
+      "E1+E2": 17
+    }
+  },
+  "id_integrity": {
+    "generated_at": "2026-06-07T19:24:55",
+    "join_rule": "必须用 results/merged-metadata.csv 的 编号 字段与 pid 连接，不得使用 CSV 行号或列表下标。",
+    "counts": {
+      "metadata": 1920,
+      "unified_rankings": 1920,
+      "round2": 1920,
+      "top101_e2_candidates": 101,
+      "top50_proportional": 50
+    },
+    "id_sets_equal": {
+      "metadata_vs_unified_rankings": true,
+      "metadata_vs_round2": true,
+      "unified_rankings_vs_round2": true
+    },
+    "id_range": {
+      "min": 1,
+      "max": 1926,
+      "missing_numeric_ids": [
+        353,
+        588,
+        926,
+        1019,
+        1123,
+        1584
+      ]
+    },
+    "missing": {
+      "metadata_missing_from_rankings": [],
+      "rankings_missing_from_metadata": [],
+      "metadata_missing_from_round2": [],
+      "round2_missing_from_metadata": [],
+      "top101_missing_from_rankings": [],
+      "top50_missing_from_rankings": []
+    }
+  }
+}
