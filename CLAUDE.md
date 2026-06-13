@@ -317,6 +317,41 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 
 预检（项目口径判断）→ 六维评分（0-100）→ 自主知识体系信号校验（0-8，不入基础分）→ 评价层复核判断
 
+### 总分计算公式（final_score）
+
+`final_score = min(base + bonus, ceiling)`
+
+- **base**（基础分）：核心四维加权平均 = (研究创新性×0.3 + 现状洞察度×0.2 + 理论建构力×0.15 + 逻辑连贯性×0.2) / 0.85
+- **ceiling**（学术共识度封顶）：<60→最高65；60-74→最高75；≥75→不限
+- **bonus**（前瞻延展性加分）：0-5分，前提：逻辑连贯性≥60、学术共识度≥60、核心四维均≥50
+- 实现真源：`src/reporting/scoring.py` → `calculate_weighted_total()`
+
+### 五轴位置归属度评价
+
+独立于六维质量评价的"中国法学自主知识体系位置归属度"结构化评估（v0.2）：
+
+- **五轴**：对象归属度、材料归属度、范畴自主度、解释目标归属度、体系映射度
+- **量尺**：每轴 0-2 分，总分 0-10（0=无证据，1=局部证据，2=核心结构证据）
+- **强度分档**：strong=8-10，medium=5-7，weak=2-4，absent=0-1
+- **不与六维加总**：只用于候选分层、专家复核优先级、知识体系覆盖分析
+- **方法论真源**：`docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md`
+- **旧四信号**（中国问题中心性/中国实践解释/外部理论转化/可复核概念）降级为兼容字段，不再作为位置归属度主结构
+
+**两轮评估流程（R1→R2）**：
+- R1：deepseek-v4-pro + qwen3.6-plus 独立五轴评估
+- R2 按分歧条件触发：skip（完全一致，~33%）、light（路径/节点分歧，~45%）、full（轴分/置信度分歧，~23%）
+- Top101 实测：R1 两模型平均总分差 0.53，严重分歧（≥4）仅 4%；R2 实际触发率 67%
+- 实现脚本：
+  - Top101：`scripts/evaluate_top101_position_assessment_two_rounds.py`（101 篇已完成，v0.2 结果在 `results/top101-position-assessment-v0.2/`）
+  - 交大法学期刊：`scripts/evaluate_jiaodafaxue_position.py`（311 篇 final_score > 55，R1+R2）
+
+**交大法学期刊评估**：
+- 原始论文：`raw/jiaodafaxue/`（642 篇 .md 文件，期刊：交大法学）
+- 论文列表：`results/jiaodafaxue-paper-list.json`（ID 1-642，独立于 merged-metadata.csv）
+- 六维评审：`results/jiaodafaxue-evaluation/round2/paper-{id}.json`（642 篇已完成）
+- 五轴评估输出：`results/jiaodafaxue-position-assessment/`（round1/ + round2/ + merged/）
+- 分数阈值可调：`--min-score 55`（默认，311 篇）、`--min-score 60`（280 篇）、`--min-score 70`（175 篇）
+
 ### 推荐模型配置
 
 - **主力模型**：Qwen3.6-Plus / GLM-5.1（阿里百炼平台），Temperature 0.3
@@ -535,13 +570,13 @@ results/fullevaluation/
 
 ### 当前可用
 
-- `socialeval-project-context`
-  - 文件：`agent-skills/socialeval-project-context/SKILL.md`
-  - 触发场景：在本仓库里做功能开发、修复、测试、方案设计时
-  - 作用：统一加载项目背景、领域约束、目录约定与实现边界
-  - 最后更新：2026-06-01（更新框架版本为 v2.56.6）
+当前无启用的项目专属 skill。项目上下文以本文件为准。
 
 ### 已废弃
+
+- `socialeval-project-context`（2026-06-13 归档）
+  - 原因：本文件已完整承载项目上下文，继续保留 skill 会造成重复维护和额外读取成本
+  - 归档位置：本地忽略归档区 `agent-skills/archive/deprecated-20260613/socialeval-project-context/`
 
 - `socialeval-convergence-report-export`（2026-06-01 归档）
   - 原因：convergence-test 格式已被 Phase 2 fullevaluation 替代
@@ -549,9 +584,9 @@ results/fullevaluation/
 
 ### 使用约定
 
-- 需要项目上下文时，优先读取对应的 `agent-skills/<name>/SKILL.md`
-- 新增项目专属工作流时，在 `agent-skills/` 下新增独立目录，避免继续扩写本文件
-- 若本地代理支持用户级 skill 目录，可用 `scripts/install_project_skills.py` 把仓库内 skill 软链接到本机技能目录，例如 `~/.agents/skills/`
+- 项目通用上下文优先维护在本文件，避免与 skill 重复维护
+- 只有当某个项目工作流需要独立触发规则、脚本或参考材料时，才在 `agent-skills/` 下新增独立 skill
+- 若重新启用项目专属 skill，可用 `scripts/install_project_skills.py` 把仓库内 skill 软链接到本机技能目录，例如 `~/.agents/skills/`
 
 ---
 
