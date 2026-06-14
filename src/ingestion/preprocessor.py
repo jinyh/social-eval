@@ -12,6 +12,7 @@ PARSERS: dict[str, type[BaseParser]] = {
     "pdf": PDFParser,
     "docx": DocxParser,
     "txt": TxtParser,
+    "md": TxtParser,  # Markdown 复用 TXT 解析器（纯文本读取）
 }
 
 
