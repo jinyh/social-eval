@@ -118,7 +118,7 @@ scripts/           # 工具脚本
   run_v0.14_*.py/sh
 results/           # 测试结果与评价报告
   fullevaluation/  # Phase 2 全量评审结果
-  top101/          # 当前 E2=101 候选池摘要、Top50 专家审阅清单与 manifest
+  top101/          # E2-Top102 候选池 ranking、Top50 专家审阅清单
   report_*.json/csv # 当前报告统计派生文件
   autoresearch/    # 当前活跃的自动研究测试
 ```
@@ -199,7 +199,7 @@ SMTP_FROM=noreply@socialeval.local
 **权威数据源**：
 - ✅ `results/merged-metadata.csv`（1920 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
 - ✅ `results/fullevaluation/round2/paper-{id}.json`（1920 个文件）：评审结果，ID 与 CSV 一致
-- ✅ `results/top101/ranking.json`（101 条）：当前 E2 候选池真源；每年至少 5 篇、每学科至少 5 篇
+- ✅ `results/top101/ranking_v5_pool.json`（102 条）：E2-Top102 候选池真源；五轴≥9 且 E1≥80，Top80 + 学科≥5 + 年≥5 + 2 篇补入
 
 **常见错误**：
 - ❌ **错误示例**：使用错误的 ID 映射导致 paper-1238（"债权人代位权的类型化构造"，2024年）的分数被标到"党政体制如何塑造基层执法"（paper-1244，2017年）上
@@ -614,13 +614,39 @@ results/fullevaluation/
 
 这些文件可在本机用于审计或重生结果，但不作为仓库制品提交；需要共享时应另做外部数据包或仓库瘦身/发布方案。
 
-#### 当前 E2/E3 口径
+#### E2-Top102 候选池（v5，2026-06-15）
 
-- E2 候选池真源：`results/top101/ranking.json`，共 101 篇
-- 覆盖约束：每年至少 5 篇、每学科至少 5 篇
-- E3 选择性补测：45 篇
+**入池规则**：
+
+| 层级 | 规则 | 说明 |
+|------|------|------|
+| 硬条件 | 五轴 ≥ 9 **且** E1(六维加权分) ≥ 80 | 不满足则不入池 |
+| 选入 | Top 80（按 E1 加权分降序） | 前 80 名直接入选 |
+| 学科保底 | 每学科 ≥ 5 篇 | 从硬条件合格池中按分数补入 |
+| 年度保底 | 每年（2015–2025）≥ 5 篇 | 从硬条件合格池中按分数补入 |
+| 不足容忍 | 学科/年度保底可不满 | 如果硬条件池内该学科/年度论文不足，接受缺口 |
+
+**实际结果**（sandakan-new-metadata.csv 分类）：
+
+- 全库满足硬条件：421 篇
+- Top 80 直接入选：80 篇
+- 学科保底补入：16 篇
+- 年度保底补入：4 篇
+- **最终池：102 篇**（100 + 2 篇补入用于 Top 50 缺额填补）
+- 学科不足：国际法 4（缺1）、法律史 2（缺3）、党内法规 1（缺4）
+
+**关键文件**：
+
+- 候选池 ranking：`results/top101/ranking_v5_pool.json`（102 篇，E1+E2 中位数聚合）
+- E2 评测原始数据：`results/e2-top102/round1/` + `round2/`
+- 学科分类：`results/sandakan-new-metadata.csv`
+- E2 补跑脚本：`scripts/e2_supplement_concurrent.py`（5 论文并发）
 - 专家审阅展示清单：`results/top101/top50-proportional.json`
-- 轻量 manifest：`results/top101/MANIFEST.md`
+
+**历史口径（v3/v4，已废弃）**：
+
+- 旧 E2 候选池：`results/top101/ranking.json`，共 101 篇（旧分类）
+- E3 选择性补测：45 篇
 
 #### 查找本地归档文件
 ```bash

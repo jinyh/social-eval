@@ -55,6 +55,13 @@ def aggregate_scores(model_scores: dict[str, float], mode: str) -> dict:
 
     result = {"model_scores": model_scores}
 
+    if not scores:
+        # 所有模型均失败，返回空结果避免 statistics.mean([]) 崩溃
+        result["mean"] = 0.0
+        result["std"] = 0.0
+        result["strictest"] = 0.0
+        return result
+
     if mode in ["mean", "both"]:
         result["mean"] = round(statistics.mean(scores), 1)
         result["std"] = round(statistics.stdev(scores), 1) if len(scores) > 1 else 0.0
