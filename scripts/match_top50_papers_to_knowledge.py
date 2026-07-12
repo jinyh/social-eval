@@ -3,7 +3,7 @@
 Match the current expert-review Top50 papers to the law knowledge tree.
 
 This script uses the current Top50 source file as the paper-ID authority:
-results/top101/top50-proportional.json
+results/e2-pool/top50-proportional.json
 
 Outputs:
 - results/top101/top50-knowledge-matching-v2.csv

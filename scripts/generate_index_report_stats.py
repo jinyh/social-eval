@@ -11,13 +11,19 @@ from __future__ import annotations
 import csv
 import json
 import statistics
+import sys
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+import yaml  # noqa: E402
+from src.reporting.scoring import calculate_weighted_total  # noqa: E402
+
+FRAMEWORK_YAML = ROOT / "configs" / "frameworks" / "law-v2.56.6-20260522.yaml"
 
 METADATA_PATH = ROOT / "results" / "merged-metadata.csv"
 RANKINGS_PATH = ROOT / "results" / "unified_rankings.json"
@@ -25,9 +31,9 @@ ROUND2_DIR = ROOT / "results" / "fullevaluation" / "round2"
 ROUND1_ERR_PATH = (
     ROOT / "results" / "fullevaluation" / "round1-err" / "error-summary.json"
 )
-TOP101_RANKING_PATH = ROOT / "results" / "top101" / "ranking.json"
+TOP101_RANKING_PATH = ROOT / "results" / "e2-pool" / "ranking_v5_pool.json"
 TOP50_PROPORTIONAL_PATH = (
-    ROOT / "results" / "top101" / "top50-proportional.json"
+    ROOT / "results" / "e2-pool" / "top50-proportional.json"
 )
 
 OVERVIEW_OUT = ROOT / "results" / "report_overview_stats.json"
@@ -120,6 +126,16 @@ def load_metadata() -> dict[int, dict[str, str]]:
             pid = parse_paper_id(row.get("编号", ""))
             if pid is not None:
                 rows[pid] = row
+    # 叠加 sandakan 学科分类（专家分类优先，否则原分类），覆盖 merged 原分类
+    sandakan_path = ROOT / "results" / "sandakan-new-metadata.csv"
+    if sandakan_path.exists():
+        with sandakan_path.open("r", encoding="utf-8-sig", newline="") as fh:
+            for row in csv.DictReader(fh):
+                pid = parse_paper_id(row.get("编号", ""))
+                if pid is not None and pid in rows:
+                    subj = (row.get("专家分类") or "").strip() or (row.get("原分类") or "").strip()
+                    if subj:
+                        rows[pid]["分类"] = subj
     return rows
 
 
@@ -168,6 +184,14 @@ def load_rankings() -> tuple[
 
     for paper in top101_papers:
         by_pid[int(paper["pid"])] = top101_to_unified_row(paper)
+
+    # 统一 weighted_score 到 core_ceiling_bonus（从每行 dim_avgs 重算），
+    # 覆盖基座 unified_rankings.json 的简单加权和口径。
+    protocol = yaml.safe_load(FRAMEWORK_YAML.read_text(encoding="utf-8"))["scoring_protocol"]
+    for paper in by_pid.values():
+        dim_avgs = paper.get("dim_avgs", {})
+        if dim_avgs:
+            paper["weighted_score"] = calculate_weighted_total(dim_avgs, protocol)
 
     papers = sorted(
         by_pid.values(),

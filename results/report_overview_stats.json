@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-07T19:24:55",
+  "generated_at": "2026-07-12T16:18:49",
   "sources": {
     "metadata": "results/merged-metadata.csv",
     "rankings": "results/unified_rankings.json",
-    "top101_ranking": "results/top101/ranking.json",
+    "top101_ranking": "results/e2-pool/ranking_v5_pool.json",
     "round2_dir": "results/fullevaluation/round2",
     "round1_err": "results/fullevaluation/round1-err/error-summary.json",
-    "top50_proportional": "results/top101/top50-proportional.json"
+    "top50_proportional": "results/e2-pool/top50-proportional.json"
   },
   "corpus_counts": {
     "metadata_rows": 1920,
@@ -26,12 +26,12 @@
       "forward_extension": 0.05
     },
     "total_papers": 1920,
-    "e2_pooled": 101,
-    "e3_pooled": 45,
-    "top101_source": "results/top101/ranking.json",
+    "e2_pooled": 139,
+    "e3_pooled": 7,
+    "top101_source": "results/e2-pool/ranking_v5_pool.json",
     "top101_metadata": {
-      "description": "Top 101 E2 论文 — E1+E2+E3 pooled aggregation",
-      "total": 101,
+      "description": "E2 候选池 110 篇 — E1 候选选取与 E2 重排名均用 core_ceiling_bonus",
+      "total": 110,
       "weights": {
         "problem_originality": 0.3,
         "literature_insight": 0.2,
@@ -40,84 +40,84 @@
         "conclusion_consensus": 0.1,
         "forward_extension": 0.05
       },
+      "e1_method": "core_ceiling_bonus",
+      "ranking_method": "core_ceiling_bonus (median 池化六维)",
       "aggregation_rule": "单源→mean; 双源→median; 三源→median",
+      "classification": "sandakan 专家分类(优先)→原分类",
       "source_distribution": {
-        "E1": 0,
-        "E1+E2": 56,
-        "E1+E3": 0,
-        "E1+E2+E3": 45
+        "E1+E2": 110
       }
     },
     "base_source": "results/unified_rankings.json"
   },
   "score_distribution": {
     "count": 1920,
-    "mean": 71.016,
-    "median": 74.487,
-    "min": 23.25,
-    "p10": 54.162,
-    "p25": 64.9,
-    "p75": 79.837,
-    "p90": 83.3,
-    "p95": 84.763,
-    "p99": 87.55,
-    "max": 89.225
+    "mean": 72.358,
+    "median": 76.28,
+    "min": 22.13,
+    "p10": 51.47,
+    "p25": 64.19,
+    "p75": 82.88,
+    "p90": 87.09,
+    "p95": 88.74,
+    "p99": 91.94,
+    "max": 94.32
   },
   "weighted_std_distribution": {
     "count": 1920,
-    "mean": 8.034,
+    "mean": 8.047,
     "median": 7.76,
     "min": 1.72,
-    "p10": 4.32,
-    "p25": 5.66,
+    "p10": 4.35,
+    "p25": 5.68,
     "p75": 10.0,
     "p90": 12.22,
-    "p95": 13.58,
+    "p95": 13.56,
     "p99": 16.51,
     "max": 20.85
   },
   "top_threshold_counts": {
-    "gte_80": 463,
-    "gte_85": 82,
-    "gte_88": 7,
-    "gte_90": 0
+    "gte_80": 702,
+    "gte_85": 333,
+    "gte_88": 133,
+    "gte_90": 61
   },
   "source_counts": {
-    "E1+E2+E3": 45,
-    "E1+E2": 56,
-    "E1": 1819
+    "E1+E2": 132,
+    "E1+E2+E3": 7,
+    "E1": 1781
   },
-  "e2_override_count": 101,
-  "e3_merged_count": 45,
+  "e2_override_count": 139,
+  "e3_merged_count": 7,
   "dimension_stats": [
     {
       "dimension": "problem_originality",
       "name_zh": "研究创新性",
       "score": {
         "count": 1920,
-        "mean": 62.944,
+        "mean": 62.985,
         "median": 67.5,
         "min": 0.0,
         "p10": 33.75,
-        "p25": 50.5,
-        "p75": 77.25,
-        "p90": 83.25,
-        "p95": 85.25,
+        "p25": 50.75,
+        "p75": 77.5,
+        "p90": 83.5,
+        "p95": 85.5,
         "p99": 88.0,
-        "max": 92.0
+        "max": 90.75
       },
       "std": {
         "count": 1920,
-        "mean": 11.114,
-        "median": 9.63,
+        "mean": 11.129,
+        "median": 9.635,
         "min": 0.0,
         "p10": 2.5,
         "p25": 5.0,
         "p75": 16.66,
-        "p90": 21.55,
+        "p90": 21.5,
         "p95": 24.04,
         "p99": 29.72,
-        "max": 44.68
+        "max": 37.65
       }
     },
     {
@@ -125,7 +125,7 @@
       "name_zh": "现状洞察度",
       "score": {
         "count": 1920,
-        "mean": 71.546,
+        "mean": 71.554,
         "median": 77.0,
         "min": 0.0,
         "p10": 49.25,
@@ -138,13 +138,13 @@
       },
       "std": {
         "count": 1920,
-        "mean": 8.636,
-        "median": 5.71,
+        "mean": 8.651,
+        "median": 5.72,
         "min": 0.0,
-        "p10": 1.91,
+        "p10": 2.0,
         "p25": 3.27,
-        "p75": 11.39,
-        "p90": 20.62,
+        "p75": 11.46,
+        "p90": 20.61,
         "p95": 26.41,
         "p99": 34.85,
         "max": 42.88
@@ -155,27 +155,27 @@
       "name_zh": "理论建构力",
       "score": {
         "count": 1920,
-        "mean": 66.783,
+        "mean": 66.82,
         "median": 70.0,
         "min": 10.0,
         "p10": 43.25,
         "p25": 55.75,
-        "p75": 79.5,
+        "p75": 79.75,
         "p90": 85.0,
-        "p95": 86.75,
+        "p95": 87.0,
         "p99": 89.75,
         "max": 93.0
       },
       "std": {
         "count": 1920,
-        "mean": 8.744,
+        "mean": 8.754,
         "median": 7.14,
         "min": 0.0,
         "p10": 2.5,
-        "p25": 4.24,
+        "p25": 4.27,
         "p75": 11.79,
         "p90": 17.08,
-        "p95": 20.97,
+        "p95": 20.88,
         "p99": 27.93,
         "max": 41.0
       }
@@ -191,14 +191,14 @@
         "p10": 73.5,
         "p25": 80.0,
         "p75": 86.75,
-        "p90": 88.5,
+        "p90": 88.75,
         "p95": 89.5,
         "p99": 91.25,
         "max": 93.0
       },
       "std": {
         "count": 1920,
-        "mean": 4.179,
+        "mean": 4.19,
         "median": 3.56,
         "min": 0.0,
         "p10": 1.63,
@@ -215,8 +215,8 @@
       "name_zh": "学术共识度",
       "score": {
         "count": 1920,
-        "mean": 79.126,
-        "median": 82.5,
+        "mean": 79.153,
+        "median": 82.75,
         "min": 0.0,
         "p10": 68.0,
         "p25": 77.0,
@@ -228,13 +228,13 @@
       },
       "std": {
         "count": 1920,
-        "mean": 5.398,
+        "mean": 5.407,
         "median": 3.56,
         "min": 0.0,
         "p10": 1.5,
-        "p25": 2.06,
-        "p75": 6.5,
-        "p90": 12.08,
+        "p25": 2.08,
+        "p75": 6.56,
+        "p90": 12.09,
         "p95": 16.28,
         "p99": 25.63,
         "max": 38.03
@@ -245,7 +245,7 @@
       "name_zh": "前瞻延展性",
       "score": {
         "count": 1920,
-        "mean": 69.846,
+        "mean": 69.829,
         "median": 73.25,
         "min": 11.25,
         "p10": 55.0,
@@ -258,14 +258,14 @@
       },
       "std": {
         "count": 1920,
-        "mean": 5.707,
-        "median": 4.47,
+        "mean": 5.726,
+        "median": 4.535,
         "min": 0.0,
-        "p10": 1.92,
+        "p10": 2.0,
         "p25": 2.94,
-        "p75": 6.78,
+        "p75": 6.81,
         "p90": 11.09,
-        "p95": 14.7,
+        "p95": 14.72,
         "p99": 22.56,
         "max": 38.03
       }
@@ -334,127 +334,121 @@
   },
   "top101_e2_candidates": {
     "selection_strategy": "E2 候选池：Top60 + 每年至少 5 篇 + 每学科至少 5 篇",
-    "source": "results/top101/ranking.json",
-    "total_candidates": 101,
+    "source": "results/e2-pool/ranking_v5_pool.json",
+    "total_candidates": 110,
     "composition": {
       "top60_count": 60,
-      "coverage_supplement_count": 41,
-      "year_minimum": 6,
+      "coverage_supplement_count": 50,
+      "year_minimum": 5,
       "discipline_minimum": 5
     },
     "score_distribution": {
-      "count": 101,
-      "mean": 84.297,
-      "median": 85.875,
-      "min": 61.4,
-      "p10": 82.025,
-      "p25": 84.25,
-      "p75": 87.225,
-      "p90": 87.75,
-      "p95": 88.075,
-      "p99": 88.625,
-      "max": 89.225
+      "count": 110,
+      "mean": 88.91,
+      "median": 89.81,
+      "min": 57.12,
+      "p10": 86.79,
+      "p25": 88.71,
+      "p75": 91.41,
+      "p90": 92.47,
+      "p95": 93.18,
+      "p99": 93.76,
+      "max": 94.32
     },
     "weighted_std_distribution": {
-      "count": 101,
-      "mean": 5.513,
-      "median": 5.09,
+      "count": 110,
+      "mean": 5.349,
+      "median": 4.845,
       "min": 2.58,
-      "p10": 3.13,
-      "p25": 3.62,
-      "p75": 6.54,
-      "p90": 8.57,
-      "p95": 11.21,
-      "p99": 13.45,
-      "max": 13.89
+      "p10": 3.17,
+      "p25": 3.69,
+      "p75": 6.34,
+      "p90": 7.53,
+      "p95": 10.1,
+      "p99": 12.55,
+      "max": 13.35
     },
     "source_distribution": {
-      "E1": 0,
-      "E1+E2": 56,
-      "E1+E3": 0,
-      "E1+E2+E3": 45
+      "E1+E2": 110
     },
     "journal_counts": {
-      "法学研究": 69,
-      "中国社会科学": 5,
-      "中国法学": 27
+      "法学研究": 77,
+      "中国法学": 25,
+      "中国社会科学": 8
     },
     "year_counts": {
-      "2023": 12,
+      "2025": 15,
+      "2015": 5,
+      "2024": 14,
+      "2023": 16,
+      "2021": 12,
+      "2022": 12,
       "2020": 9,
-      "2025": 10,
-      "2024": 10,
-      "2016": 8,
-      "2022": 11,
-      "2018": 7,
-      "2015": 6,
+      "2018": 5,
       "2019": 11,
-      "2021": 11,
-      "2017": 6
+      "2016": 6,
+      "2017": 5
     },
     "category_counts": {
-      "民商法学": 19,
-      "刑法学": 20,
-      "法学理论": 10,
+      "民商法学": 34,
+      "宪法学与行政法学": 7,
+      "刑法学": 27,
       "知识产权法学": 5,
-      "诉讼法学": 9,
-      "宪法学与行政法学": 8,
+      "诉讼法学": 6,
       "环境与资源保护法学": 5,
+      "法学理论": 6,
       "经济法学": 5,
       "国际法学": 5,
       "法律史": 5,
-      "党内法规学": 5,
-      "数字法学": 5
+      "党内法规学": 5
     }
   },
   "top50_proportional": {
     "selection_strategy": "按全量 1920 篇学科占比分配 Top50 配额，在各学科内择优形成专家审阅版。",
-    "source": "results/top101/top50-proportional.json",
+    "source": "results/e2-pool/top50-proportional.json",
     "metadata": {
-      "description": "Top 50 proportional ranking by full-corpus discipline allocation",
-      "source_markdown": "results/top101/top50_proportional.md",
+      "description": "Top 50 proportional ranking by full-corpus discipline allocation (core_ceiling_bonus)",
       "allocation_base": "full 1920-paper discipline distribution",
       "allocation_method": "discipline quota proportional to full-corpus distribution",
       "score_range": [
-        89.22,
-        82.6
+        94.32,
+        86.24
       ],
       "total": 50,
-      "generated": "2026-06-06",
-      "canonical_for_ppt": true,
-      "superseded_archive": "results/archive/top50-superseded-20260606/"
+      "scoring_method": "core_ceiling_bonus",
+      "underflow": {}
     },
     "total": 50,
     "score_distribution": {
       "count": 50,
-      "mean": 86.799,
-      "median": 87.235,
-      "min": 82.6,
-      "p10": 84.92,
-      "p25": 86.0,
-      "p75": 87.7,
-      "p90": 88.08,
-      "p95": 88.62,
-      "p99": 89.22,
-      "max": 89.22
+      "mean": 91.018,
+      "median": 91.545,
+      "min": 86.24,
+      "p10": 88.82,
+      "p25": 89.47,
+      "p75": 92.41,
+      "p90": 93.18,
+      "p95": 93.35,
+      "p99": 94.32,
+      "max": 94.32
     },
     "weighted_std_distribution": {
       "count": 50,
-      "mean": 4.858,
-      "median": 4.325,
-      "min": 2.58,
-      "p10": 2.94,
-      "p25": 3.33,
-      "p75": 5.83,
-      "p90": 7.06,
-      "p95": 8.84,
-      "p99": 11.21,
-      "max": 11.21
+      "mean": 5.275,
+      "median": 4.75,
+      "min": 2.67,
+      "p10": 3.07,
+      "p25": 3.58,
+      "p75": 6.5,
+      "p90": 7.36,
+      "p95": 11.21,
+      "p99": 13.35,
+      "max": 13.35
     },
     "weighted_std_bands": {
-      "lte_5": 31,
-      "lte_8": 47,
-      "gt_8": 3
+      "lte_5": 27,
+      "lte_8": 46,
+      "gt_8": 4
     },
     "discipline_quotas": {
       "民商法学": 12,
@@ -471,49 +465,47 @@
     },
     "discipline_quota_total": 50,
     "journal_counts": {
-      "法学研究": 35,
-      "中国社会科学": 2,
-      "中国法学": 13
+      "法学研究": 37,
+      "中国法学": 11,
+      "中国社会科学": 2
     },
     "year_counts": {
+      "2025": 8,
       "2015": 2,
-      "2016": 2,
-      "2017": 1,
+      "2024": 7,
+      "2023": 8,
+      "2021": 5,
+      "2022": 6,
+      "2020": 5,
       "2018": 2,
       "2019": 4,
-      "2020": 3,
-      "2021": 7,
-      "2022": 6,
-      "2023": 7,
-      "2024": 8,
-      "2025": 8
+      "2016": 3
     },
     "category_counts": {
       "民商法学": 12,
+      "宪法学与行政法学": 6,
       "刑法学": 9,
-      "法学理论": 6,
       "知识产权法学": 2,
       "诉讼法学": 6,
-      "宪法学与行政法学": 6,
       "环境与资源保护法学": 2,
+      "法学理论": 6,
       "经济法学": 2,
       "国际法学": 2,
       "法律史": 2,
       "党内法规学": 1
     },
     "source_distribution": {
-      "E1+E2+E3": 33,
-      "E1+E2": 17
+      "E1+E2": 50
     }
   },
   "id_integrity": {
-    "generated_at": "2026-06-07T19:24:55",
+    "generated_at": "2026-07-12T16:18:49",
     "join_rule": "必须用 results/merged-metadata.csv 的 编号 字段与 pid 连接，不得使用 CSV 行号或列表下标。",
     "counts": {
       "metadata": 1920,
       "unified_rankings": 1920,
       "round2": 1920,
-      "top101_e2_candidates": 101,
+      "top101_e2_candidates": 110,
       "top50_proportional": 50
     },
     "id_sets_equal": {

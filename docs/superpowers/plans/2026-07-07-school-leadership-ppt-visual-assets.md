@@ -32,7 +32,7 @@
 - Create: `ref/image/school-leadership-ppt-assets/README.md`
 - Create directory: `ref/image/school-leadership-ppt-assets/journals/`
 
-- [ ] **Step 1: Create directories**
+- [x] **Step 1: Create directories**
 
 Run:
 
@@ -42,7 +42,7 @@ mkdir -p ref/image/school-leadership-ppt-assets/journals
 
 Expected: directories exist.
 
-- [ ] **Step 2: Create initial manifest**
+- [x] **Step 2: Create initial manifest**
 
 Write `ref/image/school-leadership-ppt-assets/README.md` with:
 
@@ -66,7 +66,7 @@ Purpose: visual assets for one school-leadership body slide using `ref/交大模
 To be filled during Task 3 after image generation.
 ```
 
-- [ ] **Step 3: Verify manifest exists**
+- [x] **Step 3: Verify manifest exists**
 
 Run:
 
@@ -84,7 +84,7 @@ Expected: exit code 0.
 - Create: `ref/image/school-leadership-ppt-assets/journals/china-legal-science-cover.*`
 - Modify: `ref/image/school-leadership-ppt-assets/README.md`
 
-- [ ] **Step 1: Search authoritative sources**
+- [x] **Step 1: Search authoritative sources**
 
 Use web search/browser lookup for recent formal covers of:
 
@@ -100,7 +100,7 @@ Priority:
 
 Avoid low-resolution shopping/subscription images unless no better source exists.
 
-- [ ] **Step 2: Save each selected cover**
+- [x] **Step 2: Save each selected cover**
 
 Save covers under `ref/image/school-leadership-ppt-assets/journals/` with stable names:
 
@@ -112,7 +112,7 @@ china-legal-science-cover.<ext>
 
 Do not overwrite if files already exist; use `-v2` suffix if needed.
 
-- [ ] **Step 3: Record provenance**
+- [x] **Step 3: Record provenance**
 
 Update the manifest table with:
 
@@ -120,7 +120,7 @@ Update the manifest table with:
 - Journal issue/year if known.
 - Any caveat about source quality.
 
-- [ ] **Step 4: Inspect dimensions**
+- [x] **Step 4: Inspect dimensions**
 
 Run:
 
@@ -143,7 +143,7 @@ Expected: all three covers open successfully and have plausible portrait dimensi
 - Create: `ref/image/school-leadership-ppt-assets/right-card-campus-promotion-loop.png`
 - Modify: `ref/image/school-leadership-ppt-assets/README.md`
 
-- [ ] **Step 1: Use imagegen skill**
+- [x] **Step 1: Use imagegen skill**
 
 Use @imagegen with the built-in `image_gen` tool, not the CLI fallback.
 
@@ -158,7 +158,7 @@ Composition: centered closed-loop workflow with abstract academic document stack
 Constraints: no readable text, no Chinese, no English, no numbers, no logos, no watermark, no fake UI screenshots, no human faces, no blue-green knowledge network, no dark background, no cyberpunk, no neon, no sci-fi dashboard.
 ```
 
-- [ ] **Step 2: Save selected image into workspace**
+- [x] **Step 2: Save selected image into workspace**
 
 Copy or move the selected built-in output into:
 
@@ -168,7 +168,7 @@ ref/image/school-leadership-ppt-assets/right-card-campus-promotion-loop.png
 
 Never leave the project-bound asset only under `$CODEX_HOME/generated_images`.
 
-- [ ] **Step 3: Inspect generated output**
+- [x] **Step 3: Inspect generated output**
 
 Check visually that:
 
@@ -177,7 +177,7 @@ Check visually that:
 - It has enough whitespace for later labels.
 - It looks like a card illustration for `ref/交大模版.pptx`, not a tech poster.
 
-- [ ] **Step 4: Update manifest prompt section**
+- [x] **Step 4: Update manifest prompt section**
 
 Paste the final prompt and image filename into `README.md`.
 
@@ -186,7 +186,7 @@ Paste the final prompt and image filename into `README.md`.
 **Files:**
 - Modify: `ref/image/school-leadership-ppt-assets/README.md`
 
-- [ ] **Step 1: Add placement instructions**
+- [x] **Step 1: Add placement instructions**
 
 Add a `## PPT Placement Notes` section:
 
@@ -201,7 +201,7 @@ Add a `## PPT Placement Notes` section:
 - Keep all exact values editable: `1920`, `Top102`, `Top50`, `14.873 -> 7.237`, `175 项对应`.
 ```
 
-- [ ] **Step 2: Verify no forbidden raster text reliance**
+- [x] **Step 2: Verify no forbidden raster text reliance**
 
 Run:
 
@@ -217,7 +217,7 @@ Expected: values appear only in placement notes or manifest instructions, not as
 - Read: `ref/image/school-leadership-ppt-assets/README.md`
 - Read/inspect images under `ref/image/school-leadership-ppt-assets/`
 
-- [ ] **Step 1: Verify expected files**
+- [x] **Step 1: Verify expected files**
 
 Run:
 
@@ -231,7 +231,7 @@ Expected:
 - three journal cover image files
 - `right-card-campus-promotion-loop.png`
 
-- [ ] **Step 2: Verify image readability**
+- [x] **Step 2: Verify image readability**
 
 Run:
 
@@ -249,7 +249,7 @@ PY
 
 Expected: every saved image opens successfully.
 
-- [ ] **Step 3: Visual QA**
+- [x] **Step 3: Visual QA**
 
 Open or inspect:
 
@@ -263,7 +263,7 @@ Expected:
 - knowledge network is unchanged;
 - generated right-card illustration matches the body-template style and contains no unwanted text.
 
-- [ ] **Step 4: Report final paths**
+- [x] **Step 4: Report final paths**
 
 Report:
 

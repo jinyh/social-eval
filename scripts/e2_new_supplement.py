@@ -9,7 +9,7 @@
 特性:
     - 5 篇论文并发执行（可 --concurrency 调整）
     - 断点续传: 已完成的 round1/round2 自动跳过
-    - 输出到 results/new-e2-top102/round1/ 和 round2/
+    - 输出到 results/e2-pool/round1/ 和 round2/
 """
 import argparse
 import asyncio
@@ -34,9 +34,9 @@ import yaml
 # === 配置 ===
 FRAMEWORK_PATH = "configs/frameworks/law-v2.55-cross-review.yaml"
 MODELS = A_GROUP + B_GROUP  # glm-5.1, qwen3.6-plus, deepseek-v4-pro, kimi-k2.6
-R1_DIR = Path("results/new-e2-top102/round1")
-R2_DIR = Path("results/new-e2-top102/round2")
-POOL_FILE = "results/new-e2-top102/e2-pool-final.json"
+R1_DIR = Path("results/e2-pool/round1")
+R2_DIR = Path("results/e2-pool/round2")
+POOL_FILE = "results/e2-pool/e2-pool.json"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -253,7 +253,7 @@ async def main():
     log.info(f"  模型: {MODELS}")
     log.info(f"  待评测: {total} 篇")
     log.info(f"  并发: {args.concurrency} 篇论文")
-    log.info(f"  输出: results/new-e2-top102/")
+    log.info(f"  输出: results/e2-pool/")
     log.info("=" * 60)
 
     framework = load_framework()
@@ -286,7 +286,7 @@ async def main():
         for pid, _ in failed:
             log.info(f"    ❌ PID {pid}")
     log.info(f"  耗时: {elapsed / 60:.1f} 分钟")
-    log.info(f"  输出: results/new-e2-top102/")
+    log.info(f"  输出: results/e2-pool/")
     log.info("=" * 60)
 
 
