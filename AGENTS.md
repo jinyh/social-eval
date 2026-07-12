@@ -118,7 +118,7 @@ scripts/           # 工具脚本
   run_v0.14_*.py/sh
 results/           # 测试结果与评价报告
   fullevaluation/  # Phase 2 全量评审结果
-  top101/          # E2-Top102 候选池 ranking、Top50 专家审阅清单
+  e2-pool/         # E2 候选池（ranking/Top50/评测数据 round1+round2）
   report_*.json/csv # 当前报告统计派生文件
   autoresearch/    # 当前活跃的自动研究测试
 ```
@@ -199,7 +199,7 @@ SMTP_FROM=noreply@socialeval.local
 **权威数据源**：
 - ✅ `results/merged-metadata.csv`（1920 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
 - ✅ `results/fullevaluation/round2/paper-{id}.json`（1920 个文件）：评审结果，ID 与 CSV 一致
-- ✅ `results/top101/ranking_v5_pool.json`（102 条）：E2-Top102 候选池真源；五轴≥9 且 E1≥80，Top80 + 学科≥5 + 年≥5 + 2 篇补入
+- ✅ `results/e2-pool/ranking_v5_pool.json`（110 条）：E2 候选池真源；五轴≥9 且 E1(core_ceiling_bonus)≥80，Top80 + 学科保底 max(5,Top50配额) + 年≥5；E1 候选选取与 E2 重排名均用 core_ceiling_bonus
 
 **常见错误**：
 - ❌ **错误示例**：使用错误的 ID 映射导致 paper-1238（"债权人代位权的类型化构造"，2024年）的分数被标到"党政体制如何塑造基层执法"（paper-1244，2017年）上
@@ -600,53 +600,72 @@ results/fullevaluation/
 
 1. **配置文件**：3 个生产/基线版本（v2.56.6, v2.55, v2.50.2）+ `schema_v2.json`
 2. **原始数据指针**：`results/merged-metadata.csv` 和必要说明；大语料、逐篇原始输出保留本地
-3. **评审结果摘要**：`results/fullevaluation/`、`results/top101/ranking.json`、`results/top101/top50-proportional.*`、`results/report_*`
+3. **评审结果摘要**：`results/fullevaluation/`、`results/e2-pool/ranking_v5_pool.json`、`results/e2-pool/top50-proportional.*`、`results/report_*`
 4. **脚本**：当前可复跑、可维护的核心工具脚本
 5. **文档**：当前活跃规程、当前报告、README/CLAUDE/manifest
 
 #### 本地忽略范围
 
 - `archive/` 与所有 `**/archive/`
-- `results/top101/E*/`、`results/top101/paper-*.json` 等逐篇 AI 原始输出
+- `results/e2-pool/round1/`、`results/e2-pool/round2/` 等逐篇 AI 原始输出
 - `results/retest-*/`、旧候选/Top50 诊断文件、补测中间产物
 - `raw/review_comments/`、`raw/fullpaper/`、`法学三大刊论文/`
 - 缓存、虚拟环境、系统文件和临时日志
 
 这些文件可在本机用于审计或重生结果，但不作为仓库制品提交；需要共享时应另做外部数据包或仓库瘦身/发布方案。
 
-#### E2-Top102 候选池（v5，2026-06-15）
+#### E2 候选池（v5，2026-06-15 选入；2026-07-12 口径切 core_ceiling_bonus）
 
 **入池规则**：
 
 | 层级 | 规则 | 说明 |
 |------|------|------|
-| 硬条件 | 五轴 ≥ 9 **且** E1(六维加权分) ≥ 80 | 不满足则不入池 |
-| 选入 | Top 80（按 E1 加权分降序） | 前 80 名直接入选 |
-| 学科保底 | 每学科 ≥ 5 篇 | 从硬条件合格池中按分数补入 |
-| 年度保底 | 每年（2015–2025）≥ 5 篇 | 从硬条件合格池中按分数补入 |
-| 不足容忍 | 学科/年度保底可不满 | 如果硬条件池内该学科/年度论文不足，接受缺口 |
+| 硬条件 | 五轴 ≥ 9 **且** E1(core_ceiling_bonus 总分) ≥ 80 | 不满足则不入池 |
+| 选入 | Top 80（按 E1 ccb 降序） | 前 80 名直接入选 |
+| 学科保底 | 每学科 ≥ max(5, Top50 配额) | 从五轴≥9 宽池按 ccb 补入；配额大的学科保底相应提高 |
+| 年度保底 | 每年（2015–2025）≥ 5 篇 | 从五轴≥9 宽池按 ccb 补入 |
+| 不足容忍 | 学科/年度保底可不满 | 如果池内该学科/年度论文不足，接受缺口 |
 
-**实际结果**（sandakan-new-metadata.csv 分类）：
+**E1 总分口径（E1 候选选取）**：`calculate_weighted_total(scoring_protocol=core_ceiling_bonus)`，即
+`min(base + bonus, ceiling)`——base=核心四维加权平均(0.85归一化)、bonus=前瞻分档弱加分(0–5)、ceiling=学术共识度封顶。
+**E2 重排名口径**：同样 core_ceiling_bonus，作用于 E1+E2 median 池化的六维 pooled_avg。
+两层均用 ccb，口径一致。实现真源 `src/reporting/scoring.py`，协议 `configs/frameworks/law-v2.56.6-20260522.yaml:425-467`。
+**不再用**六维简单算术平均或简单加权和（旧 v5 池口径）。**E3 选择性补测已弃用**（E1+E2 median(8) 对 92% 论文已收敛；剩余高分歧多为真实学术判断差异，多轮同模型补测无法修复，交专家终审）。
 
-- 全库满足硬条件：421 篇
+**学科分类口径**：`results/sandakan-new-metadata.csv` 的 **专家分类（33 篇专家纠正）优先 → 否则原分类**。
+AI 主分类（6 轮迭代产物）因过度归并到法学理论等可疑归类，已被弃用并从该文件删除相关列。
+
+**实际结果**（2026-07-12 ccb 重选，原分类+专家分类）：
+
+- 全库满足硬条件（五轴≥9 且 ccb≥80）：**637 篇**（旧简单均值口径 421 篇 → ccb 拯救核心四维强但前瞻/共识一般的论文）
 - Top 80 直接入选：80 篇
-- 学科保底补入：16 篇
+- 学科保底补入：26 篇
 - 年度保底补入：4 篇
-- **最终池：102 篇**（100 + 2 篇补入用于 Top 50 缺额填补）
-- 学科不足：国际法 4（缺1）、法律史 2（缺3）、党内法规 1（缺4）
+- **最终池：110 篇**（旧 117 篇简单均值池 → ccb 110 篇，新增 30 / 剔除 37）
+- 池内 ranking：`weighted_score` = core_ceiling_bonus(median 池化六维)，区间 ~60–93.97
+
+**Top50 比例配额**（按全库 1920 篇学科比例分配，池内按 ccb 选取）：
+
+- 配额：民商12/刑法9/宪法6/诉讼6/法理6/知产2/国际2/环境2/经济2/法律史2/党内1 = 50
+- Top50 score 区间 86.24–93.97，**无 underflow**
 
 **关键文件**：
 
-- 候选池 ranking：`results/top101/ranking_v5_pool.json`（102 篇，E1+E2 中位数聚合）
-- E2 评测原始数据：`results/e2-top102/round1/` + `round2/`
-- 学科分类：`results/sandakan-new-metadata.csv`
-- E2 补跑脚本：`scripts/e2_supplement_concurrent.py`（5 论文并发）
-- 专家审阅展示清单：`results/top101/top50-proportional.json`
+- 候选池 ranking：`results/e2-pool/ranking_v5_pool.json`（110 篇，E1+E2 median 聚合 + ccb 总分）
+- 入池选择清单：`results/e2-pool/e2-pool.json`（110 篇，e1_score=E1-only ccb）
+- 重选对照清单：`results/e2-pool/e2-pool-diff.md`（新 ccb 池 vs 旧 117 简单均值池）
+- E2 评测原始数据：`results/e2-pool/round1/` + `round2/`（110 篇 E2）
+- 学科分类：`results/sandakan-new-metadata.csv`（原分类 + 专家分类）
+- 重选/重建脚本：`scripts/reselect_e2_pool_ccb.py`（E1 ccb 重选）、`scripts/rebuild_ranking_v5_ccb.py`（E2 ccb 重排名）、`scripts/rebuild_top50_proportional_ccb.py`（Top50）
+- E2 补跑脚本：`scripts/e2_new_supplement.py`（5 论文并发，断点续传）
+- 专家审阅展示清单：`results/e2-pool/top50-proportional.json` + `results/e2-pool/top50-ccb-list.md`
 
-**历史口径（v3/v4，已废弃）**：
+**历史口径（已废弃）**：
 
-- 旧 E2 候选池：`results/top101/ranking.json`，共 101 篇（旧分类）
-- E3 选择性补测：45 篇
+- 旧 E2-Top102（v5，2026-06-15）：102 篇，E1 用六维简单算术平均；2026-07-12 切 ccb 后调整为 110 篇
+- `results/e2-top102/`、`results/top101/`（旧 E2 数据/候选池目录，已被 `results/e2-pool/` 取代并删除）
+- `results/top101/ranking.json`：v3/v4 旧候选池（101 篇，旧分类，简单加权和）
+- E3 选择性补测（45 篇）：已弃用（E1+E2 已收敛，高分歧交专家终审）
 
 #### 查找本地归档文件
 ```bash

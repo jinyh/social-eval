@@ -49,7 +49,7 @@ from src.knowledge.law_ontology import (  # noqa: E402
 )
 from src.knowledge.node_retrieval import RetrievedNode, retrieve_nodes  # noqa: E402
 
-RANKING_PATH = Path("results/top101/ranking.json")
+RANKING_PATH = Path("results/e2-pool/ranking_v5_pool.json")
 METADATA_PATH = Path("results/merged-metadata.csv")
 KNOWLEDGE_PATH = Path("knowledge/中国法学自主知识体系-树状知识库.md")
 ONTOLOGY_PATH = Path("knowledge/law_ontology.json")

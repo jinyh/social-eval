@@ -171,7 +171,7 @@ def main():
     # 旧池基线（git HEAD 的 117 简单均值池）
     import subprocess
     try:
-        r = subprocess.run(["git", "show", "HEAD:results/new-e2-top102/e2-pool-final.json"],
+        r = subprocess.run(["git", "show", "main:results/new-e2-top102/e2-pool-final.json"],
                            cwd=PROJECT_ROOT, capture_output=True, text=True, check=True)
         old = json.loads(r.stdout)
     except Exception:

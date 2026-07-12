@@ -250,7 +250,7 @@ def load_top101_candidates(
     """Load the actual E2 candidate pool.
 
     The E2 pool is not recomputed from the current full-corpus ranking. The
-    materialized 101-paper pool under ``results/top101/ranking.json`` is the
+    materialized E2 candidate pool under ``results/e2-pool/ranking_v5_pool.json`` is the
     current source of truth.
     """
     data = read_json(TOP101_RANKING_PATH)
