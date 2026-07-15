@@ -250,7 +250,7 @@ def load_top101_candidates(
     """Load the actual E2 candidate pool.
 
     The E2 pool is not recomputed from the current full-corpus ranking. The
-    materialized E2 candidate pool under ``results/e2-pool/ranking_v5_pool.json`` is the
+    materialized E2 candidate pool under ``results/rankings/e2-ccb-v5/ranking.json`` is the
     current source of truth.
     """
     data = read_json(TOP101_RANKING_PATH)
@@ -400,7 +400,7 @@ def id_integrity(
 
     return {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "join_rule": "必须用 results/merged-metadata.csv 的 编号 字段与 pid 连接，不得使用 CSV 行号或列表下标。",
+        "join_rule": "必须用 results/datasets/three-journals/metadata.csv 的 编号 字段与 pid 连接，不得使用 CSV 行号或列表下标。",
         "counts": {
             "metadata": len(metadata_ids),
             "unified_rankings": len(ranking_ids),

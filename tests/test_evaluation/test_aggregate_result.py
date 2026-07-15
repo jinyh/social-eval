@@ -13,7 +13,7 @@ from src.evaluation.schemas import SignalCheckResult
 from src.knowledge.loader import load_framework
 from src.reliability.schemas import ReliabilityReport
 
-FRAMEWORK_V2_45 = "configs/frameworks/law-v2.45-20260510.yaml"
+FRAMEWORK_V2_45 = "configs/frameworks/law-v2.56.6-20260522.yaml"
 
 
 @pytest.fixture
@@ -168,7 +168,10 @@ def test_legacy_framework_no_scoring_protocol_gracefully_handled(
     no_contradiction_signal, reliability_reports
 ):
     """旧框架无 scoring_protocol 时，base/bonus/ceiling 都应为 0/None 而非崩溃。"""
-    fw = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    current = load_framework(FRAMEWORK_V2_45)
+    raw_config = dict(current.raw_config)
+    raw_config.pop("scoring_protocol", None)
+    fw = current.model_copy(update={"raw_config": raw_config})
     precheck = _adapt_to_v014_contract(PrecheckResult(status="pass"), fw)
     result = aggregate_result(
         {"problem_originality": 80, "literature_insight": 70},

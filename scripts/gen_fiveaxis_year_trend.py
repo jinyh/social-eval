@@ -4,11 +4,10 @@
 每条画 mean 折线（+ 可选 P25-P75 IQR 带）。输出 PNG/SVG + 审计 CSV。
 
 数据口径（三源五轴 total_score，量尺 0-10，每轴 0-2）：
-- 三大刊：results/fullpaper-5axis-results.csv（1920 篇，含 编号/期刊/年份/五轴总分）
-- 交大法学：results/jiaodafaxue-position-assessment/merged/paper-{id}.json → final.total_score
+- 三大刊：五轴 summary.csv 与 metadata.csv 按 paper_id 关联
+- 交大法学：results/datasets/jiaodafaxue/five-axis/position-v0.2/per-paper/paper-{id}.json → final.total_score
           年份从 paper 文件名（含“_YYYY_交大法学_”）正则提取
-- 学术月刊：results/xueshuyuekan-position-assessment/merged/paper-{id}.json → final.total_score
-           年份从 results/xueshuyuekan/paper-list.json 的 year 字段（id 映射）
+- 学术月刊：规范数据集五轴 per-paper 结果，年份从论文路径提取
 - 比较区间 2015-2025（交大 2026 丢弃）
 - 三源五轴全量覆盖、同量尺，口径一致可比
 """
@@ -36,22 +35,25 @@ GROUP_COLOR: dict[str, str] = {
 GROUP_ORDER = list(GROUP_COLOR.keys())
 
 ROOT = Path(__file__).resolve().parent.parent
-FIVEAXIS_CSV = ROOT / "results" / "fullpaper-5axis-results.csv"
-JIAODA_MERGED = ROOT / "results" / "jiaodafaxue-position-assessment" / "merged"
-XUESHU_MERGED = ROOT / "results" / "xueshuyuekan-position-assessment" / "merged"
-XUESHU_LIST = ROOT / "results" / "xueshuyuekan" / "paper-list.json"
+THREE_BASE = ROOT / "results" / "datasets" / "three-journals"
+FIVEAXIS_CSV = THREE_BASE / "five-axis" / "position-v0.2" / "summary.csv"
+THREE_METADATA = THREE_BASE / "metadata.csv"
+JIAODA_MERGED = ROOT / "results" / "datasets" / "jiaodafaxue" / "five-axis" / "position-v0.2" / "per-paper"
+XUESHU_MERGED = ROOT / "results" / "datasets" / "xueshuyuekan" / "five-axis" / "position-v0.2" / "per-paper"
 OUT_DIR = ROOT / "docs" / "presentations" / "assets"
 
 YEAR_MIN, YEAR_MAX = 2015, 2025
 
 
 def load_three_journals() -> list[tuple[int, str, float]]:
-    """三大刊合并：从 fullpaper-5axis-results.csv 读五轴总分。"""
+    """三大刊合并：五轴摘要与权威元数据按 paper_id 关联。"""
     rows: list[tuple[int, str, float]] = []
+    with THREE_METADATA.open("r", encoding="utf-8-sig", newline="") as f:
+        years = {int(r["编号"]): int(r["年份"]) for r in csv.DictReader(f)}
     with FIVEAXIS_CSV.open("r", encoding="utf-8-sig", newline="") as f:
         for r in csv.DictReader(f):
             try:
-                year = int(r["年份"])
+                year = years[int(r["paper_id"])]
                 score = float(r["五轴总分"])
             except (KeyError, ValueError, TypeError):
                 continue
@@ -86,37 +88,23 @@ def load_jiaodafaxue() -> list[tuple[int, str, float]]:
 
 
 def load_xueshuyuekan() -> list[tuple[int, str, float]]:
-    """学术月刊：遍历 merged JSON 取 final.total_score，年份从 paper-list id→year 映射。"""
+    """学术月刊：遍历五轴 JSON，从论文路径提取年份。"""
     rows: list[tuple[int, str, float]] = []
-    if not XUESHU_LIST.exists() or not XUESHU_MERGED.exists():
-        print("[警告] 学术月刊 paper-list 或 merged 不存在，跳过学术月刊")
+    if not XUESHU_MERGED.exists():
+        print("[警告] 学术月刊五轴结果不存在，跳过学术月刊")
         return rows
-    id_to_year: dict[int, int] = {}
-    plist = json.loads(XUESHU_LIST.read_text(encoding="utf-8"))
-    for p in plist.get("papers", []):
-        try:
-            id_to_year[int(p["id"])] = int(p["year"])
-        except (KeyError, ValueError, TypeError):
-            continue
     for p in sorted(XUESHU_MERGED.glob("paper-*.json")):
         try:
-            m = re.search(r"paper-(\d+)\.json", p.name)
-            if not m:
-                continue
-            pid = int(m.group(1))
             data = json.loads(p.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError, ValueError):
+        except (OSError, json.JSONDecodeError):
             continue
         score = (data.get("final") or {}).get("total_score")
         if score is None:
             continue
-        year = id_to_year.get(pid)
-        if year is None:
-            # fallback：从 paper 文件名取年份
-            m2 = re.search(r"_(\d{4})_学术月刊_", data.get("paper", "") or "")
-            if not m2:
-                continue
-            year = int(m2.group(1))
+        m2 = re.search(r"_(\d{4})_学术月刊_", data.get("paper", "") or "")
+        if not m2:
+            continue
+        year = int(m2.group(1))
         if not (YEAR_MIN <= year <= YEAR_MAX):
             continue
         rows.append((year, "学术月刊（法学版块）", float(score)))

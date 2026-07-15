@@ -5,7 +5,7 @@
 docs/evaluation/four-signals-vs-five-axes-comprehensive-report-20260613.md
 
 关键约束：
-- 不用六维分或旧四信号预筛，默认从 results/merged-metadata.csv 全量读取。
+- 不用六维分或旧四信号预筛，默认从三大刊数据集元数据全量读取。
 - 五轴 prompt 不读取六维分、六维评语或排名；六维和预检只在合并结果中后置 join。
 - 复用 Top101 已验证的五轴 v0.2 prompt、条件 Round 2 和保守聚合逻辑。
 
@@ -13,7 +13,7 @@ docs/evaluation/four-signals-vs-five-axes-comprehensive-report-20260613.md
     # Stage 0：抽 120 篇分层校准样本
     python scripts/evaluate_fullpaper_position_assessment.py \
         --stage0-sample-size 120 \
-        --output-dir results/fullpaper-position-assessment-stage0
+        --output-dir results/runs/three-journals-position
 
     # 单篇 dry-run
     python scripts/evaluate_fullpaper_position_assessment.py --pid 1510 --limit 1
@@ -38,7 +38,7 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.evaluate_top101_position_assessment_two_rounds import (  # noqa: E402
+from src.evaluation.position.workflow import (  # noqa: E402
     CONCURRENT_PAPERS,
     MAX_TEXT_CHARS,
     METADATA_PATH,
@@ -57,10 +57,16 @@ from scripts.evaluate_top101_position_assessment_two_rounds import (  # noqa: E4
 
 KNOWLEDGE_PATH = Path("knowledge/中国法学自主知识体系-树状知识库.md")
 PAPER_DIR = Path("raw/fullpaper")
-SIX_DIM_EVAL_DIR = Path("results/fullevaluation/round2")
-SIX_DIM_ROUND1_DIR = Path("results/fullevaluation/round1")
-SIX_DIM_ROUND1_ERR_DIR = Path("results/fullevaluation/round1-err")
-OUTPUT_DIR = Path("results/fullpaper-position-assessment")
+SIX_DIM_EVAL_DIR = Path(
+    "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper"
+)
+SIX_DIM_ROUND1_DIR = Path(
+    "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/audit/round1-standalone"
+)
+SIX_DIM_ROUND1_ERR_DIR = Path(
+    "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/audit/round1-errors"
+)
+OUTPUT_DIR = Path("results/runs/three-journals-position")
 
 logger = logging.getLogger("fullpaper-position-assessment")
 

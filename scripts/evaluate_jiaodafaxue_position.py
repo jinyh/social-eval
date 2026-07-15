@@ -48,7 +48,7 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.evaluate_top101_position_assessment_two_rounds import (
+from src.evaluation.position.workflow import (
     AXIS_KEYS,
     ROUTE_VALUES,
     SEVERE_DISPUTE_AXES,
@@ -74,11 +74,13 @@ from src.knowledge.node_retrieval import RetrievedNode, retrieve_nodes
 
 # ── 配置 ──────────────────────────────────────────────
 
-PAPER_LIST_PATH = Path("results/jiaodafaxue-paper-list.json")
-EVAL_DIR = Path("results/jiaodafaxue-evaluation/round2")
+PAPER_LIST_PATH = Path("results/datasets/jiaodafaxue/metadata.json")
+EVAL_DIR = Path(
+    "results/datasets/jiaodafaxue/six-dimension/phase2-r2-v2.55/per-paper"
+)
 KNOWLEDGE_PATH = Path("knowledge/中国法学自主知识体系-树状知识库.md")
 ONTOLOGY_PATH = Path("knowledge/law_ontology.json")
-OUTPUT_DIR = Path("results/jiaodafaxue-position-assessment")
+OUTPUT_DIR = Path("results/runs/jiaodafaxue-position")
 
 MODELS = ["deepseek-v4-pro", "qwen3.6-plus"]
 CONCURRENT_PAPERS = 5

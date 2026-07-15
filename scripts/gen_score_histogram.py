@@ -5,7 +5,7 @@
 
 数据口径：
 - 三大核心刊 = 中国法学 / 法学研究 / 中国社会科学（数据集无《中外法学》）
-- Paper ID 真源：results/merged-metadata.csv 的「编号」字段；report_paper_master.csv 的 pid 与之一致
+- Paper ID 真源：results/datasets/three-journals/metadata.csv 的「编号」字段；report_paper_master.csv 的 pid 与之一致
 - 加权分真源：fullevaluation/round2/paper-{id}.json 的 overall.round2_final_score_mean
 """
 

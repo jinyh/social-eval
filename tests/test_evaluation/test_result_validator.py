@@ -6,7 +6,7 @@ from src.knowledge.loader import load_framework
 
 
 def _load_dimension(key: str):
-    framework = load_framework("configs/frameworks/law-v2.15-20260423.yaml")
+    framework = load_framework("configs/frameworks/law-v2.56.6-20260522.yaml")
     return next(dimension for dimension in framework.dimensions if dimension.key == key)
 
 

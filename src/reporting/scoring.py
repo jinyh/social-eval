@@ -110,7 +110,8 @@ def _core_ceiling_bonus_total(
     bonus = compute_bonus(dimension_scores, protocol)
     subtotal = base + bonus
     ceiling = compute_ceiling(dimension_scores, protocol)
-    return subtotal if ceiling is None else min(subtotal, ceiling)
+    total = subtotal if ceiling is None else min(subtotal, ceiling)
+    return min(total, float(protocol.get("total_max", 100.0)))
 
 
 def calculate_weighted_total(

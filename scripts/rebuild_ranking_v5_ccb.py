@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """用 core_ceiling_bonus 重生 E2 候选池的 ranking（E2 重新排名）。
 
-E2 重排名口径：core_ceiling_bonus。从 E1(fullevaluation/round2) + E2(e2-pool/round2)
-+ E2(e2-pool/round2) 的 round2_scores median 池化每维，再 calculate_weighted_total(ccb)
+E2 重排名口径：core_ceiling_bonus。从 E1 与 E2 的 round2_scores
+median 池化每维，再 calculate_weighted_total(ccb)
 算总分。分类用 sandakan 专家分类(优先)→原分类。
 
-前置：results/e2-pool/e2-pool.json 已由 reselect_e2_pool_ccb.py 重写为 ccb 池；
-      缺 E2 的论文已补跑写入 results/e2-pool/round2/。
+前置：results/rankings/e2-ccb-v5/pool.json 已由 reselect_e2_pool_ccb.py 重写为 ccb 池；
+      缺 E2 的论文已补跑写入 results/rankings/e2-ccb-v5/per-paper/round2/。
 
-输出：results/e2-pool/ranking_v5_pool.json（weighted_score=ccb，metadata 标注）
+输出：results/rankings/e2-ccb-v5/ranking.json（weighted_score=ccb，metadata 标注）
 
 用法：python3 scripts/rebuild_ranking_v5_ccb.py
 """
@@ -22,22 +22,32 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-import yaml  # noqa: E402
-from src.reporting.scoring import calculate_weighted_total  # noqa: E402
-from scripts.merge_top101 import (  # noqa: E402
-    WEIGHTS,
-    DIM_ZH,
+from src.knowledge.registry import load_scoring_protocol  # noqa: E402
+from src.reporting.pooling import (  # noqa: E402
+    DIMENSION_LABELS,
     aggregate_pool,
     pool_dimension_scores,
 )
+from src.reporting.scoring import calculate_weighted_total  # noqa: E402
 
-POOL_JSON = PROJECT_ROOT / "results" / "e2-pool" / "e2-pool.json"
-E1_DIR = PROJECT_ROOT / "results" / "fullevaluation" / "round2"
-E2_DIR = PROJECT_ROOT / "results" / "e2-pool" / "round2"
-META_CSV = PROJECT_ROOT / "results" / "merged-metadata.csv"
-SANDAKAN_CSV = PROJECT_ROOT / "results" / "sandakan-new-metadata.csv"
-FRAMEWORK_YAML = PROJECT_ROOT / "configs" / "frameworks" / "law-v2.56.6-20260522.yaml"
-OUT_JSON = PROJECT_ROOT / "results" / "e2-pool" / "ranking_v5_pool.json"
+WEIGHTS = {
+    "problem_awareness": 0.30,
+    "literature_review": 0.20,
+    "analytical_framework": 0.15,
+    "logical_consistency": 0.20,
+    "conclusion_acceptability": 0.10,
+    "forward_looking": 0.05,
+}
+DIM_ZH = DIMENSION_LABELS
+
+RESULTS = PROJECT_ROOT / "results"
+DATASET = RESULTS / "datasets" / "three-journals"
+POOL_JSON = RESULTS / "rankings" / "e2-ccb-v5" / "pool.json"
+E1_DIR = DATASET / "six-dimension" / "phase2-r2-v2.55" / "per-paper"
+E2_DIR = RESULTS / "rankings" / "e2-ccb-v5" / "per-paper" / "round2"
+META_CSV = DATASET / "metadata.csv"
+SANDAKAN_CSV = DATASET / "classification.csv"
+OUT_JSON = RESULTS / "rankings" / "e2-ccb-v5" / "ranking.json"
 
 
 def load_round2(path: Path) -> dict[str, dict[str, float]] | None:
@@ -50,10 +60,6 @@ def load_round2(path: Path) -> dict[str, dict[str, float]] | None:
         if r2:
             out[dk] = dict(r2)
     return out or None
-
-
-def load_scoring_protocol() -> dict:
-    return yaml.safe_load(FRAMEWORK_YAML.read_text(encoding="utf-8"))["scoring_protocol"]
 
 
 def load_meta() -> dict[int, dict]:

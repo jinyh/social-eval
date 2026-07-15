@@ -5,6 +5,7 @@ from collections import defaultdict
 from sqlalchemy.orm import Session
 
 from src.knowledge.loader import load_framework
+from src.knowledge.registry import resolve_framework_path
 from src.models.evaluation import DimensionScore, EvaluationTask
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
@@ -15,7 +16,7 @@ from src.reporting.summary_extractor import extract_dimension_summary
 
 
 def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> dict:
-    framework = load_framework(task.framework_path or "configs/frameworks/law-v2.0-20260413.yaml")
+    framework = load_framework(task.framework_path or resolve_framework_path())
     score_rows = db.query(DimensionScore).filter(DimensionScore.task_id == task.id).all()
     reliability_rows = {
         row.dimension_key: row

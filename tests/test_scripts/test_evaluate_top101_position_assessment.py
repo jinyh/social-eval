@@ -1,4 +1,4 @@
-from scripts.evaluate_top101_position_assessment_two_rounds import (
+from src.evaluation.position.workflow import (
     AXIS_KEYS,
     CONCURRENT_PAPERS,
     aggregate_final_assessment,

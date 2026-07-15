@@ -4,7 +4,7 @@ from src.knowledge.loader import load_framework
 
 
 def test_law_framework_prompts_are_actionable_and_renderable():
-    framework = load_framework("configs/frameworks/law_v1.yaml")
+    framework = load_framework("configs/frameworks/law-v2.56.6-20260522.yaml")
     paper = ProcessedPaper(
         full_text="论文全文",
         body="论文正文",
@@ -12,26 +12,17 @@ def test_law_framework_prompts_are_actionable_and_renderable():
         structure_status="detected",
     )
 
-    required_markers = [
-        "不得直接凭整体印象",
-        "证据片段",
-        "缺陷触发",
-        "跨维度边界",
-        "分档锚点",
-        "请严格按以下 JSON 格式返回",
-    ]
-
     for dimension in framework.dimensions:
         prompt = build_prompt(dimension, paper)
         assert "论文正文" in prompt
         assert "参考文献一" in prompt
-        assert f'"dimension": "{dimension.key}"' in prompt
-        for marker in required_markers:
-            assert marker in prompt
+        assert f'"dimension": "{dimension.key}"' in prompt.replace("\n  ", " ")
+        assert '"evidence_quotes"' in prompt
+        assert '"score"' in prompt
 
 
 def test_law_v2_prompt_builder_appends_paper_context_without_placeholders():
-    framework = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    framework = load_framework("configs/frameworks/law-v2.56.6-20260522.yaml")
     paper = ProcessedPaper(
         full_text="论文全文",
         body="这是一段法学论文正文",
@@ -44,13 +35,13 @@ def test_law_v2_prompt_builder_appends_paper_context_without_placeholders():
 
     assert "这是一段法学论文正文" in prompt
     assert "参考文献A" in prompt
-    assert '{"dimension": "problem_originality"' in prompt
+    assert '"dimension": "problem_originality"' in prompt
     assert "论文正文：" in prompt
     assert "参考文献列表：" in prompt
 
 
 def test_law_v2_precheck_prompt_builder_appends_paper_context():
-    framework = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    framework = load_framework("configs/frameworks/law-v2.56.6-20260522.yaml")
     paper = ProcessedPaper(
         full_text="完整论文内容",
         body="正文片段",
@@ -60,14 +51,14 @@ def test_law_v2_precheck_prompt_builder_appends_paper_context():
 
     prompt = build_precheck_prompt(framework, paper)
 
-    assert "学术规范性准入检查" in prompt
+    assert "阶段1：项目口径预检" in prompt
     assert "正文片段" in prompt
-    assert '{"status": "pass|reject"' in prompt
+    assert '"conclusion": "enter_six_dimension_review|boundary_review|obviously_ineligible"' in prompt
 
 
 def test_law_v2_prompt_requests_summary_output():
     """测试 prompt 模板要求输出 summary 字段"""
-    framework = load_framework("configs/frameworks/law-v2.0-20260413.yaml")
+    framework = load_framework("configs/frameworks/law-v2.56.6-20260522.yaml")
     paper = ProcessedPaper(
         full_text="论文全文",
         body="正文内容",

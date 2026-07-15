@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Any
 
 from jinja2 import Template
-from weasyprint import HTML
 
 DIMENSION_ORDER = [
     "problem_originality",
@@ -336,6 +335,8 @@ def _build_report_data(source_path: Path) -> dict[str, Any]:
 
 
 def export_pdf(source_path: Path, output_path: Path) -> None:
+    from weasyprint import HTML
+
     report = _build_report_data(source_path)
     html = HTML_TEMPLATE.render(report=report)
     output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -326,34 +326,7 @@ API 与 Worker 启动后会输出 JSON 结构化日志，适合接入 Loki / ELK
 - 对象存储 bucket 生命周期与版本控制策略
 - 应用日志保留周期
 
-单机试点环境可直接使用仓库脚本生成时间戳备份包（默认输出到部署目录下 `./backups`）：
-
-```bash
-uv run python scripts/manage_backups.py create --dry-run
-uv run python scripts/manage_backups.py create
-```
-
-说明：备份脚本使用 `docker compose`（Compose v2）并默认按 `socialevalpilot` project 名解析卷名；如环境 project 名不同，可加 `--compose-project <name>`。
-正式执行 `create` 前必须先停止 `api`、`worker`、`redis` 等写入相关服务，并保持 `postgres` 运行；脚本会在执行前做这层校验。
-正式执行 `create` / `restore` 前，脚本还会校验当前 `docker-compose.prod.yml` 仍声明并挂载预期的 `appdata` / `redisdata`，且对应命名卷真实存在，避免误备份/误恢复到新建空卷。
-恢复时必须使用与备份时一致的 `--compose-project`；该值会写入 `manifest.json` 并在 restore 时校验，不一致会直接阻止破坏性恢复。
-恢复时 `--postgres-user` 与 `--postgres-db` 也必须与创建备份时一致；这两个目标同样会写入 `manifest.json` 并在 restore 时校验。
-若部署使用 `OBJECT_STORAGE_BACKEND=s3`，该脚本只覆盖 PostgreSQL/Redis/本地卷，不覆盖对象存储 bucket；必须另外配置 bucket 版本控制或独立备份流程。
-
-恢复前先执行 dry-run 校验计划：
-
-```bash
-uv run python scripts/manage_backups.py restore \
-  --bundle-dir ./backups/<backup-id> \
-  --allow-destructive-restore \
-  --confirm-backup-id <backup-id> \
-  --dry-run
-```
-
-说明：
-- dry-run 会打印接近真实执行的命令计划，包含 `pg_restore` 的输入重定向路径。
-- 正式恢复前必须先停止 `api`、`worker`、`redis`、`frontend`、`nginx` 等相关服务，并保留 `postgres` 运行用于恢复预检与导入。
-- 正式恢复前脚本还会校验 `postgres.dump` 与两个卷归档的有效性，并要求这些文件不是 symlink；未通过时不会进入破坏性恢复步骤。
+当前仓库不提供自动备份/恢复脚本。单机试点使用 `pg_dump` / `pg_restore`，生产环境优先使用托管数据库快照；对象存储和 Redis 分别使用平台级版本控制或快照。正式恢复前必须停止全部写入入口、校验备份 SHA-256，并先在临时数据库演练。
 
 恢复实操、前置条件、校验与回滚注意事项见：
 

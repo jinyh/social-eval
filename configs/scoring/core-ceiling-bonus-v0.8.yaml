@@ -1,0 +1,43 @@
+version: "0.8"
+mode: core_ceiling_bonus
+total_max: 100
+summary: 核心四维形成基础分，学术共识度决定封顶，前瞻延展性满足前提时最多加 5 分。
+ai_role: initial_screening_and_risk_routing
+core_dimensions:
+  - key: problem_originality
+    weight: 0.30
+  - key: literature_insight
+    weight: 0.20
+  - key: analytical_framework
+    weight: 0.15
+  - key: logical_coherence
+    weight: 0.20
+ceiling_dimension:
+  key: conclusion_consensus
+  thresholds:
+    - min_score: 75
+      score_ceiling: null
+    - min_score: 60
+      score_ceiling: 75
+    - min_score: 0
+      score_ceiling: 65
+bonus_dimension:
+  key: forward_extension
+  max_bonus: 5
+  prerequisites:
+    logical_coherence_min: 60
+    conclusion_consensus_min: 60
+    core_dimension_min: 50
+  bands:
+    - min_score: 80
+      bonus: 5
+    - min_score: 60
+      bonus: 3
+    - min_score: 40
+      bonus: 2
+    - min_score: 0
+      bonus: 0
+misuse_guardrails:
+  - 不得用最终总分替代专家终审
+  - 不得因结论主流、立场正确或展望宏大补救核心四维缺陷
+  - 高争议但论证扎实的论文应进入专家复核

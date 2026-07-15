@@ -19,6 +19,7 @@ from src.api.schemas.papers import (
 from src.core.database import get_db
 from src.core.storage import save_upload_file, validate_upload_filename
 from src.knowledge.loader import load_framework
+from src.knowledge.registry import resolve_framework_path
 from src.models.batch import BatchTask
 from src.models.evaluation import AICallLog, DimensionScore, EvaluationTask
 from src.models.paper import Paper
@@ -30,7 +31,7 @@ from src.models.user import User
 
 router = APIRouter()
 
-DEFAULT_FRAMEWORK_PATH = "configs/frameworks/law-v2.0-20260413.yaml"
+DEFAULT_FRAMEWORK_PATH = str(resolve_framework_path())
 DEFAULT_PROVIDER_NAMES = ["qwen3.6-plus", "kimi-k2.6", "glm-5.1"]
 
 

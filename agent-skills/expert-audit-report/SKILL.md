@@ -21,10 +21,10 @@ description: 把单篇法学论文 AI 多模型评审原始数据（六维+五�
 
 | # | 数据 | 路径 | 取法与字段 |
 |---|---|---|---|
-| 1 | 元数据 | `results/merged-metadata.csv` | `编号`={pid} 行，取 题目/作者/作者机构/期刊/年份/卷/期/页数/主题词 |
-| 2 | 六维评审 | `results/fullevaluation/round2/paper-{pid}.json` | `dimensions[*]`（每维 `round1_scores`/`round2_scores`/`round1_mean`/`round2_mean`/`round1_std`/`round2_std`/`raw_outputs[model]`）、`overall.*` |
-| 3 | 五轴评估 | `results/fullpaper-position-assessment-stage0/merged/paper-{pid}.json` | `final.*`（`axis_scores`/`total_score`/`strength`/`agreement_level`/`research_route`）、`round2.round2_policy`、`round{1,2}.models[m].research_route`、各模型 `axis_scores[axis].{score,rationale,evidence_quotes}`。**此为 1920 篇全量五轴权威源**（restic 备份恢复，2026-07-12）；个别论文缺失时降级省略 §3 |
-| 4 | 候选池 | `results/e2-pool/ranking_v5_pool.json` | 按 pid 查 `papers` 条目，取 `rank`（**E2 候选池排名唯一来源**）、`weighted_score`、`weighted_std`、`dimensions[*]`（维度字段是英文 code，**用同条目的 `name_zh` 字段映射中文名**） |
+| 1 | 元数据 | `results/datasets/three-journals/metadata.csv` | `编号`={pid} 行，取 题目/作者/作者机构/期刊/年份/卷/期/页数/主题词 |
+| 2 | 六维评审 | `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-{pid}.json` | `dimensions[*]`（每维 `round1_scores`/`round2_scores`/`round1_mean`/`round2_mean`/`round1_std`/`round2_std`/`raw_outputs[model]`）、`overall.*` |
+| 3 | 五轴评估 | `results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-{pid}.json` | `final.*`（`axis_scores`/`total_score`/`strength`/`agreement_level`/`research_route`）、`round2.round2_policy`、`round{1,2}.models[m].research_route`、各模型 `axis_scores[axis].{score,rationale,evidence_quotes}`。**此为 1920 篇全量五轴权威源**（restic 备份恢复，2026-07-12）；个别论文缺失时降级省略 §3 |
+| 4 | 候选池 | `results/rankings/e2-ccb-v5/ranking.json` | 按 pid 查 `papers` 条目，取 `rank`（**E2 候选池排名唯一来源**）、`weighted_score`、`weighted_std`、`dimensions[*]`（维度字段是英文 code，**用同条目的 `name_zh` 字段映射中文名**） |
 | 5 | CCB 总分 | `results/report_paper_master.csv` | pid 行，取 `weighted_score`（**CCB 总分唯一来源，core_ceiling_bonus=base+bonus+ceiling**）；该行还有 top101_rank/top50_rank 等，**不要用它们作 E2 排名** |
 
 **降级原则**（用户要求支持任意论文 ID）：

@@ -1,7 +1,7 @@
 """校领导汇报 PPT —— 朱军案例页六维雷达 + 五轴条形.
 
-读 results/fullevaluation/round2/paper-1322.json 的六维 round2_mean，
-读 results/top101-position-assessment-v0.2/merged/paper-1322.json 的五轴 final 分数，
+读 results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-1322.json 的六维 round2_mean，
+读 results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-1322.json 的五轴 final 分数，
 输出六维雷达图与五轴条形图到 docs/presentations/assets/。
 
 口径：六维 final_score 用 report_paper_master.csv 的 weighted_score（E1 加权分 85.2），

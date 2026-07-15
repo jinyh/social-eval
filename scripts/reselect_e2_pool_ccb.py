@@ -7,8 +7,8 @@ E1 候选选取口径：core_ceiling_bonus（src/reporting/scoring.py:calculate_
 学科分类用 sandakan 的 专家分类（33 篇专家纠正）优先，否则 原分类。
 
 输出：
-  results/e2-pool/e2-pool.json   重写（e1_score=ccb，109 篇左右）
-  results/e2-pool/e2-pool-diff.md  旧 117 vs 新 ccb 池 逐篇进出
+  results/rankings/e2-ccb-v5/pool.json   重写（e1_score=ccb，109 篇左右）
+  results/reports/current/e2-pool-diff.md  旧池 vs 新 ccb 池的逐篇进出
 
 用法：
     python3 scripts/reselect_e2_pool_ccb.py
@@ -22,7 +22,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-import yaml  # noqa: E402
+from src.knowledge.registry import load_scoring_protocol  # noqa: E402
 from src.reporting.scoring import calculate_weighted_total  # noqa: E402
 
 DIM_KEY = {
@@ -35,11 +35,11 @@ DIM_KEY = {
 }
 DIMS_ZH = list(DIM_KEY.keys())
 
-E1_CSV = PROJECT_ROOT / "results" / "fullpaper-e1-six-dim-results.csv"
-FIVE_AXIS_CSV = PROJECT_ROOT / "results" / "fullpaper-5axis-results.csv"
-SANDAKAN_CSV = PROJECT_ROOT / "results" / "sandakan-new-metadata.csv"
-META_CSV = PROJECT_ROOT / "results" / "merged-metadata.csv"
-FRAMEWORK_YAML = PROJECT_ROOT / "configs" / "frameworks" / "law-v2.56.6-20260522.yaml"
+DATASET_DIR = PROJECT_ROOT / "results" / "datasets" / "three-journals"
+E1_CSV = DATASET_DIR / "six-dimension" / "phase2-r2-v2.55" / "summary.csv"
+FIVE_AXIS_CSV = DATASET_DIR / "five-axis" / "position-v0.2" / "summary.csv"
+SANDAKAN_CSV = DATASET_DIR / "classification.csv"
+META_CSV = DATASET_DIR / "metadata.csv"
 
 TOP_N = 80
 DISC_MIN = 5
@@ -56,22 +56,16 @@ TOP50_QUOTAS = {
     "经济法学": 2, "法律史": 2, "党内法规学": 1,
 }
 
-OUT_POOL = PROJECT_ROOT / "results" / "e2-pool" / "e2-pool.json"
-OUT_DIFF = PROJECT_ROOT / "results" / "e2-pool" / "e2-pool-diff.md"
-OLD_POOL_BASELINE = PROJECT_ROOT / "results" / "e2-pool" / "e2-pool.json"  # 自身，diff 用 git HEAD
-
-
-def load_scoring_protocol() -> dict:
-    with open(FRAMEWORK_YAML, encoding="utf-8") as f:
-        cfg = yaml.safe_load(f)
-    return cfg["scoring_protocol"]
+OUT_POOL = PROJECT_ROOT / "results" / "rankings" / "e2-ccb-v5" / "pool.json"
+OUT_DIFF = PROJECT_ROOT / "results" / "reports" / "current" / "e2-pool-diff.md"
+OLD_POOL_BASELINE = OUT_POOL
 
 
 def load_e1_dims() -> dict[int, dict[str, float]]:
     out = {}
     with open(E1_CSV, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
-            pid = int(row["编号"])
+            pid = int(row["paper_id"])
             out[pid] = {DIM_KEY[k]: float(row[k]) for k in DIMS_ZH}
     return out
 
@@ -81,7 +75,7 @@ def load_axis5() -> dict[int, float]:
     with open(FIVE_AXIS_CSV, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             try:
-                out[int(row["编号"])] = float(row["五轴总分"])
+                out[int(row["paper_id"])] = float(row["五轴总分"])
             except (KeyError, ValueError):
                 continue
     return out
@@ -168,10 +162,10 @@ def main():
     axis5 = load_axis5()
     meta = load_meta()
 
-    # 旧池基线（git HEAD 的 117 简单均值池）
+    # 上一版规范池仅用于输出变更对比；不影响当前重选。
     import subprocess
     try:
-        r = subprocess.run(["git", "show", "main:results/new-e2-top102/e2-pool-final.json"],
+        r = subprocess.run(["git", "show", "HEAD:results/rankings/e2-ccb-v5/pool.json"],
                            cwd=PROJECT_ROOT, capture_output=True, text=True, check=True)
         old = json.loads(r.stdout)
     except Exception:

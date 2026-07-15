@@ -1,4 +1,3 @@
-import pytest
 from src.ingestion.reference_extractor import extract_references
 from src.ingestion.structure_detector import detect_structure
 

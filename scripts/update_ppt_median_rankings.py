@@ -33,7 +33,7 @@ def load_data():
         e1e2_rank = {int(k): v for k, v in json.load(f).items()}
 
     meta = {}
-    with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
+    with open('results/datasets/three-journals/metadata.csv', 'r', encoding='utf-8-sig') as f:
         for row in csv.DictReader(f):
             meta[int(row['编号'])] = row
 

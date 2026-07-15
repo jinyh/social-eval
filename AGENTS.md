@@ -197,21 +197,21 @@ SMTP_FROM=noreply@socialeval.local
 **⚠️ 警告**：项目中存在多个 Paper ID 映射文件，使用不当会导致分析错误。
 
 **权威数据源**：
-- ✅ `results/merged-metadata.csv`（1920 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
-- ✅ `results/fullevaluation/round2/paper-{id}.json`（1920 个文件）：评审结果，ID 与 CSV 一致
-- ✅ `results/e2-pool/ranking_v5_pool.json`（110 条）：E2 候选池真源；五轴≥9 且 E1(core_ceiling_bonus)≥80，Top80 + 学科保底 max(5,Top50配额) + 年≥5；E1 候选选取与 E2 重排名均用 core_ceiling_bonus
+- ✅ `results/datasets/three-journals/metadata.csv`（1920 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
+- ✅ `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-{id}.json`（1920 个文件）：评审结果，ID 与 CSV 一致
+- ✅ `results/rankings/e2-ccb-v5/ranking.json`（110 条）：E2 候选池真源；五轴≥9 且 E1(core_ceiling_bonus)≥80，Top80 + 学科保底 max(5,Top50配额) + 年≥5；E1 候选选取与 E2 重排名均用 core_ceiling_bonus
 
 **常见错误**：
 - ❌ **错误示例**：使用错误的 ID 映射导致 paper-1238（"债权人代位权的类型化构造"，2024年）的分数被标到"党政体制如何塑造基层执法"（paper-1244，2017年）上
 - ❌ **根因**：从中间文件、缓存或手动构建的映射表中读取 ID，导致 +1~+7 的偏移
-- ✅ **正确做法**：始终从 `results/merged-metadata.csv` 读取 `编号` 字段作为 Paper ID，不要从其他来源构建映射
+- ✅ **正确做法**：始终从 `results/datasets/three-journals/metadata.csv` 读取 `编号` 字段作为 Paper ID，不要从其他来源构建映射
 
 **验证方法**：
 ```bash
 # 检查特定论文的 ID 和标题
 python3 -c "
 import csv
-with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
+with open('results/datasets/three-journals/metadata.csv', 'r', encoding='utf-8-sig') as f:
     for row in csv.DictReader(f):
         if '党政体制' in row['题目']:
             print(f\"ID={row['编号']}, 年份={row['年份']}, 标题={row['题目']}\")
@@ -233,7 +233,7 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 
 新增样本时必须先说明用途并归入明确分组；不要把已经参与调参的样本重新标记为验证集。
 
-- `raw/fullpaper/`：全量评审集。当前 1920 篇 PDF，用于 Phase 2 大规模评审。元数据见 `results/merged-metadata.csv`（1920 条记录，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）。
+- `raw/fullpaper/`：全量评审集。当前 1920 篇 PDF，用于 Phase 2 大规模评审。元数据见 `results/datasets/three-journals/metadata.csv`（1920 条记录，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）。
 
 ---
 
@@ -340,16 +340,16 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 **两轮评估流程（R1→R2）**：
 - R1：deepseek-v4-pro + qwen3.6-plus 独立五轴评估
 - R2 按分歧条件触发：skip（完全一致，~33%）、light（路径/节点分歧，~45%）、full（轴分/置信度分歧，~23%）
-- Top101 实测：R1 两模型平均总分差 0.53，严重分歧（≥4）仅 4%；R2 实际触发率 67%
+- 历史 Top101 实测：R1 两模型平均总分差 0.53，严重分歧（≥4）仅 4%；R2 实际触发率 67%
 - 实现脚本：
-  - Top101：`scripts/evaluate_top101_position_assessment_two_rounds.py`（101 篇已完成，v0.2 结果在 `results/top101-position-assessment-v0.2/`）
+  - Top101 兼容入口：`scripts/evaluate_top101_position_assessment_two_rounds.py`；共用实现位于 `src/evaluation/position/`
   - 交大法学期刊：`scripts/evaluate_jiaodafaxue_position.py`（311 篇 final_score > 55，R1+R2）
 
 **交大法学期刊评估**：
 - 原始论文：`raw/jiaodafaxue/`（642 篇 .md 文件，期刊：交大法学）
-- 论文列表：`results/jiaodafaxue-paper-list.json`（ID 1-642，独立于 merged-metadata.csv）
-- 六维评审：`results/jiaodafaxue-evaluation/round2/paper-{id}.json`（642 篇已完成）
-- 五轴评估输出：`results/jiaodafaxue-position-assessment/`（round1/ + round2/ + merged/）
+- 论文列表：`results/datasets/jiaodafaxue/metadata.json`（ID 1-642，独立于三大刊元数据）
+- 六维评审：`results/datasets/jiaodafaxue/six-dimension/phase2-r2-v2.55/per-paper/paper-{id}.json`（642 篇已完成）
+- 五轴评估输出：`results/datasets/jiaodafaxue/five-axis/position-v0.2/`
 - 分数阈值可调：`--min-score 55`（默认，311 篇）、`--min-score 60`（280 篇）、`--min-score 70`（175 篇）
 
 ### 推荐模型配置
@@ -444,21 +444,21 @@ with open('results/merged-metadata.csv', 'r', encoding='utf-8-sig') as f:
 
 ### Phase 2 全量评审完成情况（2026-05-27）
 
-全量评审已完成，结果存放在 `results/fullevaluation/`。
+全量评审已完成，当前结果登记在 `results/catalog.yaml`。
 
 **执行配置**：
 - 框架：v2.55（交叉评审版本）
 - 模型：4 个（deepseek-v4-pro, glm-5.1, kimi-k2.6, qwen3.6-plus）
 - 原始论文：`raw/fullpaper/`（1920 篇 PDF）
-- 元数据：`results/merged-metadata.csv`（1920 条，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）
+- 元数据：`results/datasets/three-journals/metadata.csv`（1920 条，列：期刊/年份/卷/期/题目/作者/作者机构/页数/主题词）
 
 **结果目录结构**：
 
 ```
-results/fullevaluation/
-├── round2/            # 1920 篇完整评审结果（paper-{id}.json）
-│   └── paper-{id}.json  # 自包含 R1+R2：round1_scores, round2_scores, changes, raw_outputs
-└── round1-err/        # Round 1 问题论文分类（64 篇，已排除空状态）
+results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
+├── summary.csv        # Git 保留的 1920 篇六维摘要与 CCB 总分
+├── per-paper/         # 本地忽略；1920 篇完整 R1+R2 结果
+└── audit/round1-errors/ # Round 1 问题论文分类（64 篇，已排除空状态）
     ├── 2-all-reject/      # 4 模型全拒（5 篇）
     ├── 3-majority-reject/ # 多数拒绝（19 篇）
     ├── 4-single-reject/   # 单模型拒绝（15 篇）
@@ -538,7 +538,7 @@ results/fullevaluation/
 - **框架版本**：v2.55（交叉评审版本）+ R2 逻辑，不再用 autoresearch 迭代 R2 prompt
 - **DeepSeek 顽固性是设计正确行为**：B 组严格模型看到 A 组宽松评价后系统性拒绝调整，属锚定效应，防止模型向均值漂移；不是 bug，不需要修
 - **未收敛维度（std > 8）的处理**：剩余分歧多为真实学术判断差异（如"论文是否提出可争辩理论问题"），prompt 无法修复，交由专家终审
-- **Phase 2 大规模执行**：已完成（2026-05-27）。v2.55 + R2 逻辑，1920 篇完整结果存于 `results/fullevaluation/round2/`；64 篇 Round 1 问题论文已分类存于 `round1-err/`（空状态 90 篇已全部补测完成并清理）
+- **Phase 2 大规模执行**：已完成（2026-05-27）。v2.55 + R2 逻辑，1920 篇完整结果存于 `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/`；64 篇 Round 1 问题论文已分类存于 `round1-err/`（空状态 90 篇已全部补测完成并清理）
 
 详细分析见 `results/single-paper-test-032/`
 
@@ -570,7 +570,7 @@ results/fullevaluation/
 
 ### 当前可用
 
-当前无启用的项目专属 skill。项目上下文以本文件为准。
+- `expert-audit-report`：把单篇论文的六维、五轴与 E2 原始数据整理为专家审计报告；内容真源位于 `agent-skills/expert-audit-report/`。
 
 ### 已废弃
 
@@ -592,27 +592,27 @@ results/fullevaluation/
 
 ## 归档管理
 
-### 归档策略（2026-06-07 更新）
+### 归档策略（2026-07-16 更新）
 
 为保持仓库边界清晰，归档文件只保留在本地忽略区，不再进入 Git。当前 Git 只保留活跃代码、当前报告/摘要、核心元数据、必要 manifest 和可复现生成脚本。
 
 #### 当前 Git 保留范围
 
-1. **配置文件**：3 个生产/基线版本（v2.56.6, v2.55, v2.50.2）+ `schema_v2.json`
-2. **原始数据指针**：`results/merged-metadata.csv` 和必要说明；大语料、逐篇原始输出保留本地
-3. **评审结果摘要**：`results/fullevaluation/`、`results/e2-pool/ranking_v5_pool.json`、`results/e2-pool/top50-proportional.*`、`results/report_*`
+1. **配置文件**：3 个六维生产/基线版本 + 五轴 v0.2 + `registry.yaml` + 独立 CCB v0.8 协议
+2. **原始数据指针**：`results/datasets/three-journals/metadata.csv` 和必要说明；大语料、逐篇原始输出保留本地
+3. **评审结果摘要**：`results/datasets/`、`results/rankings/`、`results/reports/current/` 与 `results/catalog.yaml`
 4. **脚本**：当前可复跑、可维护的核心工具脚本
 5. **文档**：当前活跃规程、当前报告、README/CLAUDE/manifest
 
 #### 本地忽略范围
 
 - `archive/` 与所有 `**/archive/`
-- `results/e2-pool/round1/`、`results/e2-pool/round2/` 等逐篇 AI 原始输出
+- `results/datasets/**/per-paper/`、`results/datasets/**/audit/`、`results/rankings/**/per-paper/` 等逐篇 AI 原始输出
 - `results/retest-*/`、旧候选/Top50 诊断文件、补测中间产物
 - `raw/review_comments/`、`raw/fullpaper/`、`法学三大刊论文/`
 - 缓存、虚拟环境、系统文件和临时日志
 
-这些文件可在本机用于审计或重生结果，但不作为仓库制品提交；需要共享时应另做外部数据包或仓库瘦身/发布方案。
+历史制品统一放在仓库同级 `../SocialEval-archive/2026-07-16-deep-clean/`；归档清单记录原路径、字节数与 SHA-256。逐篇活动数据仍留在上述本地忽略目录。
 
 #### E2 候选池（v5，2026-06-15 选入；2026-07-12 口径切 core_ceiling_bonus）
 
@@ -627,12 +627,12 @@ results/fullevaluation/
 | 不足容忍 | 学科/年度保底可不满 | 如果池内该学科/年度论文不足，接受缺口 |
 
 **E1 总分口径（E1 候选选取）**：`calculate_weighted_total(scoring_protocol=core_ceiling_bonus)`，即
-`min(base + bonus, ceiling)`——base=核心四维加权平均(0.85归一化)、bonus=前瞻分档弱加分(0–5)、ceiling=学术共识度封顶。
+`min(base + bonus, ceiling, 100)`——base=核心四维加权平均(0.85归一化)、bonus=前瞻分档弱加分(0–5)、ceiling=学术共识度封顶，并执行最终 100 分封顶。
 **E2 重排名口径**：同样 core_ceiling_bonus，作用于 E1+E2 median 池化的六维 pooled_avg。
-两层均用 ccb，口径一致。实现真源 `src/reporting/scoring.py`，协议 `configs/frameworks/law-v2.56.6-20260522.yaml:425-467`。
+两层均用 ccb，口径一致。实现真源 `src/reporting/scoring.py`，协议真源 `configs/scoring/core-ceiling-bonus-v0.8.yaml`。
 **不再用**六维简单算术平均或简单加权和（旧 v5 池口径）。**E3 选择性补测已弃用**（E1+E2 median(8) 对 92% 论文已收敛；剩余高分歧多为真实学术判断差异，多轮同模型补测无法修复，交专家终审）。
 
-**学科分类口径**：`results/sandakan-new-metadata.csv` 的 **专家分类（33 篇专家纠正）优先 → 否则原分类**。
+**学科分类口径**：`results/datasets/three-journals/classification.csv` 的 **专家分类（33 篇专家纠正）优先 → 否则原分类**。
 AI 主分类（6 轮迭代产物）因过度归并到法学理论等可疑归类，已被弃用并从该文件删除相关列。
 
 **实际结果**（2026-07-12 ccb 重选，原分类+专家分类）：
@@ -651,36 +651,24 @@ AI 主分类（6 轮迭代产物）因过度归并到法学理论等可疑归类
 
 **关键文件**：
 
-- 候选池 ranking：`results/e2-pool/ranking_v5_pool.json`（110 篇，E1+E2 median 聚合 + ccb 总分）
-- 入池选择清单：`results/e2-pool/e2-pool.json`（110 篇，e1_score=E1-only ccb）
-- 重选对照清单：`results/e2-pool/e2-pool-diff.md`（新 ccb 池 vs 旧 117 简单均值池）
-- E2 评测原始数据：`results/e2-pool/round1/` + `round2/`（110 篇 E2）
-- 学科分类：`results/sandakan-new-metadata.csv`（原分类 + 专家分类）
+- 候选池 ranking：`results/rankings/e2-ccb-v5/ranking.json`（110 篇，E1+E2 median 聚合 + ccb 总分）
+- 入池选择清单：`results/rankings/e2-ccb-v5/pool.json`（110 篇，e1_score=E1-only ccb）
+- E2 评测原始数据：`results/rankings/e2-ccb-v5/per-paper/round1/` + `round2/`（110 篇 E2，本地忽略）
+- 学科分类：`results/datasets/three-journals/classification.csv`（原分类 + 专家分类）
 - 重选/重建脚本：`scripts/reselect_e2_pool_ccb.py`（E1 ccb 重选）、`scripts/rebuild_ranking_v5_ccb.py`（E2 ccb 重排名）、`scripts/rebuild_top50_proportional_ccb.py`（Top50）
 - E2 补跑脚本：`scripts/e2_new_supplement.py`（5 论文并发，断点续传）
-- 专家审阅展示清单：`results/e2-pool/top50-proportional.json` + `results/e2-pool/top50-ccb-list.md`
+- 专家审阅展示清单：`results/rankings/e2-ccb-v5/top50-proportional.json` + `results/rankings/e2-ccb-v5/top50-ccb-list.md`
 
 **历史口径（已废弃）**：
 
 - 旧 E2-Top102（v5，2026-06-15）：102 篇，E1 用六维简单算术平均；2026-07-12 切 ccb 后调整为 110 篇
-- `results/e2-top102/`、`results/top101/`（旧 E2 数据/候选池目录，已被 `results/e2-pool/` 取代并删除）
-- `results/top101/ranking.json`：v3/v4 旧候选池（101 篇，旧分类，简单加权和）
+- 旧 Top102/Top101 目录：旧 E2 数据与候选池，已迁入冷归档并由当前排名目录取代
+- v3/v4 旧候选池 ranking：101 篇，使用旧分类与简单加权和，仅供冷归档追溯
 - E3 选择性补测（45 篇）：已弃用（E1+E2 已收敛，高分歧交专家终审）
 
 #### 查找本地归档文件
 ```bash
-# 查看归档目录结构
-tree -L 2 results/archive/ scripts/archive/ docs/evaluation/archive/ configs/frameworks/archive/
-
-# 搜索特定版本的配置文件
-find configs/frameworks/archive/ -name "*v2.47*"
-
-# 搜索特定版本的测试结果
-find results/archive/ -name "*v2.30*"
-
-# 搜索特定模型的测试脚本
-find scripts/archive/ -name "*deepseek*"
-
-# 查看 schema 演进历史
-ls -lh configs/frameworks/archive/schemas/
+# 查看冷归档及校验清单
+tree -L 2 ../SocialEval-archive/2026-07-16-deep-clean/
+wc -l ../SocialEval-archive/2026-07-16-deep-clean/manifest.jsonl
 ```

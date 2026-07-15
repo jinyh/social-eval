@@ -18,6 +18,7 @@ from src.evaluation.signal_check import (
 )
 from src.ingestion.preprocessor import process_file
 from src.knowledge.loader import load_framework
+from src.knowledge.registry import resolve_framework_path
 from src.models.evaluation import DimensionScore, EvaluationTask
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
@@ -44,7 +45,7 @@ async def run_evaluation_pipeline(
     if paper is None or not paper.file_path:
         raise ValueError(f"Paper for task {task_id} not found or missing file")
 
-    framework = load_framework(task.framework_path or "configs/frameworks/law-v2.0-20260413.yaml")
+    framework = load_framework(task.framework_path or resolve_framework_path())
     provider_names = json.loads(task.provider_names or '["openai","anthropic","deepseek"]')
     providers = provider_factory(provider_names)
     if not providers:
@@ -196,7 +197,7 @@ async def run_evaluation_pipeline(
                                 f"策略={framework.arbitration_config.aggregation_strategy}"
                             )
                         else:
-                            logger.warning(f"仲裁模型未返回结果，使用原始评分")
+                            logger.warning("仲裁模型未返回结果，使用原始评分")
                     else:
                         logger.warning(f"无法创建仲裁模型 {framework.arbitration_config.arbiter_model}")
                 except Exception as e:

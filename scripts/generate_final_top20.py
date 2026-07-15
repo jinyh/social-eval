@@ -9,7 +9,7 @@ from pathlib import Path
 def load_metadata():
     """Load paper metadata"""
     metadata = {}
-    csv_path = Path("results/merged-metadata.csv")
+    csv_path = Path("results/datasets/three-journals/metadata.csv")
     with open(csv_path, 'r', encoding='utf-8-sig') as f:  # utf-8-sig handles BOM
         reader = csv.DictReader(f)
         for row in reader:
@@ -45,7 +45,7 @@ def generate_final_ranking():
     # Get Tier 1 original scores from fullevaluation
     for paper in tier1_papers:
         pid = paper['paper_id']
-        orig_path = Path(f"results/fullevaluation/round2/paper-{pid}.json")
+        orig_path = Path(f"results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-{pid}.json")
         if orig_path.exists():
             with open(orig_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)

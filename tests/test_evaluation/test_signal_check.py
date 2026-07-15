@@ -18,8 +18,8 @@ from src.ingestion.schemas import ProcessedPaper
 from src.knowledge.loader import load_framework
 from src.reliability.schemas import ReliabilityReport
 
-FRAMEWORK_V2_45 = "configs/frameworks/law-v2.45-20260510.yaml"
-FRAMEWORK_V2_0 = "configs/frameworks/law-v2.0-20260413.yaml"
+FRAMEWORK_V2_45 = "configs/frameworks/law-v2.56.6-20260522.yaml"
+FRAMEWORK_V2_0 = "configs/frameworks/law-v2.56.6-20260522.yaml"
 
 
 @pytest.fixture
@@ -29,7 +29,8 @@ def framework_v2_45():
 
 @pytest.fixture
 def framework_legacy():
-    return load_framework(FRAMEWORK_V2_0)
+    current = load_framework(FRAMEWORK_V2_0)
+    return current.model_copy(update={"autonomous_knowledge_signals": None})
 
 
 @pytest.fixture

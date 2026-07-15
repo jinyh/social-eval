@@ -100,3 +100,40 @@ def test_legacy_weighted_total_is_preserved_without_protocol():
     total = calculate_weighted_total(dimension_scores, None, dimension_weights)
 
     assert total == 34.5
+
+
+def test_core_ceiling_bonus_never_exceeds_protocol_total_max():
+    protocol = {
+        "mode": "core_ceiling_bonus",
+        "total_max": 100,
+        "core_dimensions": [
+            {"key": "problem_originality", "weight": 0.30},
+            {"key": "literature_insight", "weight": 0.20},
+            {"key": "analytical_framework", "weight": 0.15},
+            {"key": "logical_coherence", "weight": 0.20},
+        ],
+        "ceiling_dimension": {
+            "key": "conclusion_consensus",
+            "thresholds": [{"min_score": 75, "score_ceiling": None}],
+        },
+        "bonus_dimension": {
+            "key": "forward_extension",
+            "max_bonus": 5,
+            "prerequisites": {
+                "logical_coherence_min": 60,
+                "conclusion_consensus_min": 60,
+                "core_dimension_min": 50,
+            },
+            "bands": [{"min_score": 80, "bonus": 5}],
+        },
+    }
+    all_maximum = {
+        "problem_originality": 100,
+        "literature_insight": 100,
+        "analytical_framework": 100,
+        "logical_coherence": 100,
+        "conclusion_consensus": 100,
+        "forward_extension": 100,
+    }
+
+    assert calculate_weighted_total(all_maximum, protocol) == 100.0

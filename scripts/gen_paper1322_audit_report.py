@@ -4,10 +4,10 @@
 法学研究 2023）的全部模型评审证据，生成自包含 Markdown 审计报告。
 
 数据源（零外部数据引入）：
-- results/merged-metadata.csv                       论文元数据
-- results/fullevaluation/round2/paper-1322.json     六维 4 模型 R1+R2 评审
-- results/top101-position-assessment-v0.2/merged/paper-1322.json  五轴 2 模型 R1+R2 评估
-- results/e2-pool/ranking_v5_pool.json               E2-Top102 候选池聚合
+- results/datasets/three-journals/metadata.csv                       论文元数据
+- results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-1322.json     六维 4 模型 R1+R2 评审
+- results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-1322.json  五轴 2 模型 R1+R2 评估
+- results/rankings/e2-ccb-v5/ranking.json               E2-Top102 候选池聚合
 - results/report_paper_master.csv                   CCB 总分（core_ceiling_bonus）
 
 口径与 scripts/gen_case_radar.py 一致：六维 final 用 report_paper_master.csv 的
@@ -517,17 +517,17 @@ def section_provenance() -> str:
     md.append("")
     md.append("| 报告数字 | 源文件 | 字段路径 |")
     md.append("|---|---|---|")
-    md.append("| 论文元数据 | `results/merged-metadata.csv` | `编号=1322` 行 |")
+    md.append("| 论文元数据 | `results/datasets/three-journals/metadata.csv` | `编号=1322` 行 |")
     md.append(
         "| CCB 总分 | `results/report_paper_master.csv` | `weighted_score` |"
     )
     md.append(
-        "| 六维 R1/R2 分数、均值、std | `results/fullevaluation/round2/paper-1322.json` | `dimensions[*].round{1,2}_scores/round{1,2}_mean/round{1,2}_std` |"
+        "| 六维 R1/R2 分数、均值、std | `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-1322.json` | `dimensions[*].round{1,2}_scores/round{1,2}_mean/round{1,2}_std` |"
     )
     md.append("| 六维 24 条证据 | 同上 | `dimensions[*].raw_outputs[model].*` |")
     md.append("| 全局收敛（std 2.03 等） | 同上 | `overall.*` |")
     md.append(
-        "| 五轴 final 分、强度、一致性 | `results/top101-position-assessment-v0.2/merged/paper-1322.json` | `final.*` |"
+        "| 五轴 final 分、强度、一致性 | `results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-1322.json` | `final.*` |"
     )
     md.append(
         "| 五轴 10 条证据（R2） | 同上 | `round2.models[model].axis_scores[axis].{score,rationale,evidence_quotes}` |"
@@ -536,7 +536,7 @@ def section_provenance() -> str:
         "| R2 触发与路径分歧 | 同上 | `round2.round2_policy`、`round{1,2}.models[m].research_route` |"
     )
     md.append(
-        "| 候选池 rank、CCB 总分、pooled | `results/e2-pool/ranking_v5_pool.json` | `papers[pid=1322].*` |"
+        "| 候选池 rank、CCB 总分、pooled | `results/rankings/e2-ccb-v5/ranking.json` | `papers[pid=1322].*` |"
     )
     md.append("")
     md.append("---")

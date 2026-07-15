@@ -16,7 +16,7 @@ def extract_dimension_summary(analysis_text: str, max_length: int | None = None)
 
     Args:
         analysis_text: 分析文本
-        max_length: 最大长度（已弃用，不再截断）
+        max_length: 最大长度；为 ``None`` 时不截断
 
     Returns:
         一句话总结
@@ -41,10 +41,10 @@ def extract_dimension_summary(analysis_text: str, max_length: int | None = None)
     for sentence in sentences:
         for keyword in conclusion_keywords:
             if keyword in sentence:
-                return sentence
+                return _truncate(sentence, max_length) if max_length else sentence
 
     # 否则取首句
-    return sentences[0]
+    return _truncate(sentences[0], max_length) if max_length else sentences[0]
 
 
 def _truncate(text: str | None, max_length: int) -> str:

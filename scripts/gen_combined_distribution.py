@@ -4,7 +4,7 @@
 布局/字体/无框图例等与 gen_combined_year_trend.py 一致。
 
 数据口径（与趋势图一致，避免混用不可比指标）：
-- 五轴：results/fullpaper-5axis-results.csv 的 五轴总分 + 期刊（量尺 0-10）
+- 五轴：results/datasets/three-journals/five-axis/position-v0.2/summary.csv 的 五轴总分 + 期刊（量尺 0-10）
 - 六维：fullevaluation/round2/paper-{id}.json 经 calculate_weighted_total(core_ceiling_bonus)
         重算，按 merged-metadata.csv 的 期刊 分组（与趋势图同算法，非简单均值）
 """

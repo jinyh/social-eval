@@ -31,7 +31,7 @@
 
 ---
 
-## 目录结构（规划）
+## 目录结构
 
 ```
 social-eval/
@@ -45,14 +45,17 @@ social-eval/
 │   ├── api/             # F8: RESTful API
 │   └── web/             # F7: Web 前端
 ├── configs/
-│   └── frameworks/      # 各学科知识体系 YAML 配置
+│   ├── frameworks/      # 六维/五轴框架与角色注册表
+│   └── scoring/         # 独立、可版本化的总分协议
 ├── docs/
 │   ├── requirements/    # 需求文档
 │   ├── architecture/    # ADR（架构决策记录）
 │   └── reports/         # 当前报告与摘要
 ├── results/
-│   ├── fullevaluation/  # Phase 2 全量评审结果
-│   └── top101/          # 当前 E2=101 候选池摘要与 manifest
+│   ├── catalog.yaml     # 结果总目录
+│   ├── datasets/        # 三大刊、交大法学、学术月刊（元数据/摘要/manifest）
+│   ├── rankings/        # 全库 CCB 与 E2 CCB 当前排名
+│   └── reports/current/ # 当前诊断和完整性报告
 ├── tests/               # 镜像 src/ 结构
 ├── .env.example
 ├── .gitignore
@@ -80,9 +83,10 @@ social-eval/
 - 当前法学框架：`configs/frameworks/law-v2.56.6-20260522.yaml`
 - 架构决策：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
 - 当前报告：`docs/reports/china-autonomous-knowledge-innovation-index-report.md`
-- Top101 manifest：`results/top101/MANIFEST.md`
+- 结果目录：`results/catalog.yaml`
+- 全库排名：`results/rankings/all-papers-ccb-v1/`
+- E2 候选池：`results/rankings/e2-ccb-v5/`
 - 部署与运维说明：`docs/deployment/SocialEval-deployment-and-operations-guide.md`
-- 开发路线图：`development-roadmap.md`
 - 参考资料：`ref/` 目录（法学论文评价方法论、AI 评价系统方案）
 
 ---
@@ -117,7 +121,7 @@ npm run dev
 - 邀请制账号激活
 - 论文单篇/批量上传
 - v2.56.6 准入检查 + 六维评分 + Round 2 交叉评审可靠性计算
-- E2=101 候选池与 E3=45 选择性补测报告链
+- E2=110 候选池与 E1+E2 median(8) 重排名；E3 选择性补测已弃用
 - 内部/公开报告生成与 JSON/PDF 导出
 - 专家复核队列、分配、提交
 - 审计日志、管理员重试/关闭、批量任务状态聚合

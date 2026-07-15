@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
-from src.api.auth.dependencies import get_current_user, require_roles
+from src.api.auth.dependencies import require_roles
 from src.api.schemas.reviews import (
     AssignExpertsRequest,
     AssignExpertsResponse,

@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import String, Float, Text, DateTime, ForeignKey, JSON
+from sqlalchemy import String, Float, DateTime, ForeignKey, JSON
 from sqlalchemy.orm import Mapped, mapped_column
 from src.core.database import Base
 from src.core.time import utc_now

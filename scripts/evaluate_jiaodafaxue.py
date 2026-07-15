@@ -10,15 +10,15 @@
 用法：
     # 全量执行（R1 + R2），5 篇并发
     python scripts/evaluate_jiaodafaxue.py \
-        --paper-list results/jiaodafaxue-paper-list.json \
-        --output-dir results/jiaodafaxue-evaluation \
+        --paper-list results/datasets/jiaodafaxue/metadata.json \
+        --output-dir results/runs/jiaodafaxue-six-dimension \
         --concurrency 5 \
         --rounds both
 
     # 分批执行（先跑前 50 篇测试）
     python scripts/evaluate_jiaodafaxue.py \
-        --paper-list results/jiaodafaxue-paper-list.json \
-        --output-dir results/jiaodafaxue-evaluation \
+        --paper-list results/datasets/jiaodafaxue/metadata.json \
+        --output-dir results/runs/jiaodafaxue-six-dimension \
         --concurrency 5 \
         --rounds both \
         --paper-range 1-50
@@ -445,7 +445,7 @@ async def main():
     parser = argparse.ArgumentParser(description="交大法学六维度两轮评审")
     parser.add_argument(
         "--paper-list",
-        default="results/jiaodafaxue-paper-list.json",
+        default="results/datasets/jiaodafaxue/metadata.json",
         help="论文列表 JSON 路径",
     )
     parser.add_argument(
@@ -455,7 +455,7 @@ async def main():
     )
     parser.add_argument(
         "--output-dir",
-        default="results/jiaodafaxue-evaluation",
+        default="results/runs/jiaodafaxue-six-dimension",
         help="输出目录",
     )
     parser.add_argument(

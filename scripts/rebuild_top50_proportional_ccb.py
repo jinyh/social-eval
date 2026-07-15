@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """用 core_ceiling_bonus 重算 Top50 比例配额清单。
 
-输入：results/e2-pool/ranking_v5_pool.json（已由 rebuild_ranking_v5_ccb.py 重生为 ccb）
+输入：results/rankings/e2-ccb-v5/ranking.json（已由 rebuild_ranking_v5_ccb.py 重生为 ccb）
 配额：复用旧 top50-proportional.json 的 discipline_quotas（基于全库 1920 篇学科比例，
       与池成员无关，保持不变）
 逻辑：每个学科从新池成员中按 ccb weighted_score 降序取前 quota[s] 篇（不足则取全部）；
       全局再按 ccb 降序排名。
 
-输出：results/e2-pool/top50-proportional.json（重写，score=ccb）
+输出：results/rankings/e2-ccb-v5/top50-proportional.json（重写，score=ccb）
 
 用法：
     python3 scripts/rebuild_top50_proportional_ccb.py
@@ -17,8 +17,9 @@ import json
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-RANKING_JSON = PROJECT_ROOT / "results" / "e2-pool" / "ranking_v5_pool.json"
-OLD_TOP50 = PROJECT_ROOT / "results" / "e2-pool" / "top50-proportional.json"
+RANKING_DIR = PROJECT_ROOT / "results" / "rankings" / "e2-ccb-v5"
+RANKING_JSON = RANKING_DIR / "ranking.json"
+OLD_TOP50 = RANKING_DIR / "top50-proportional.json"
 OUT_JSON = OLD_TOP50
 
 

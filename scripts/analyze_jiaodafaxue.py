@@ -3,8 +3,8 @@
 import json, os, statistics
 from collections import defaultdict
 
-RESULTS_DIR = "results/jiaodafaxue-evaluation/round2"
-PAPER_LIST = "results/jiaodafaxue-paper-list.json"
+RESULTS_DIR = "results/datasets/jiaodafaxue/six-dimension/phase2-r2-v2.55/per-paper"
+PAPER_LIST = "results/datasets/jiaodafaxue/metadata.json"
 
 with open(PAPER_LIST, 'r', encoding='utf-8') as f:
     paper_meta = json.load(f)
@@ -19,14 +19,14 @@ for fname in sorted(os.listdir(RESULTS_DIR)):
         data = json.load(f)
     results[pid] = data
 
-dim_keys = ['problem_originality', 'current_awareness', 'theoretical_construction',
-            'logical_coherence', 'academic_consensus', 'forward_extension']
+dim_keys = ['problem_originality', 'literature_insight', 'analytical_framework',
+            'logical_coherence', 'conclusion_consensus', 'forward_extension']
 dim_zh = {
     'problem_originality': '研究创新性',
-    'current_awareness': '现状洞察度',
-    'theoretical_construction': '理论建构力',
+    'literature_insight': '现状洞察度',
+    'analytical_framework': '理论建构力',
     'logical_coherence': '逻辑连贯性',
-    'academic_consensus': '学术共识度',
+    'conclusion_consensus': '学术共识度',
     'forward_extension': '前瞻延展性'
 }
 
@@ -84,21 +84,6 @@ p(f"- 成功评价：{len(paper_stats)} 篇（R1 失败 1 篇）")
 p(f"- 评价框架：law-v2.55（交叉评审版本）")
 p(f"- 评价模型：4 个（deepseek-v4-pro, glm-5.1, kimi-k2.6, qwen3.6-plus）")
 p(f"- 总耗时：约 20 小时")
-p()
-
-with open("results/jiaodafaxue-evaluation/batch-report.json") as f:
-    batch = json.load(f)
-
-p("## 批次报告")
-p(f"| 指标 | 值 |")
-p(f"|------|-----|")
-p(f"| R1 完成 | {batch['r1_completed']}/{batch['total']} |")
-p(f"| R2 完成 | {batch['r2_completed']}/{batch['total']} |")
-p(f"| R1 平均分均值 | {batch['r1_avg_score_mean']:.2f} |")
-p(f"| R1 平均最大 std | {batch['r1_avg_max_std']:.2f} |")
-p(f"| R2 平均 std | {batch['r2_avg_std']:.2f} |")
-p(f"| R2 收敛率 | {batch['r2_convergence_rate']} |")
-p(f"| 内容审查问题 | {batch['content_inspection_issues']} |")
 p()
 
 # Score distribution
@@ -309,6 +294,6 @@ output = "\n".join(out)
 print(output)
 
 # Also save to file
-with open("results/jiaodafaxue-evaluation/summary-report.md", "w", encoding="utf-8") as f:
+with open("results/reports/current/jiaodafaxue-six-dimension-summary.md", "w", encoding="utf-8") as f:
     f.write(output)
-print("\n\n[Report saved to results/jiaodafaxue-evaluation/summary-report.md]")
+print("\n\n[Report saved to results/reports/current/jiaodafaxue-six-dimension-summary.md]")

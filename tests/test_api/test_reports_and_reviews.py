@@ -98,7 +98,7 @@ def test_low_confidence_task_appears_in_review_queue_and_editor_can_assign_exper
     client: TestClient, db_session: Session
 ) -> None:
     create_user(db_session, email="submitter@example.com", role="submitter")
-    editor = create_user(db_session, email="editor@example.com", role="editor")
+    create_user(db_session, email="editor@example.com", role="editor")
     expert = create_user(db_session, email="expert@example.com", role="expert")
     sent_notifications: list[dict] = []
     client.app.state.email_sender = lambda **kwargs: sent_notifications.append(kwargs)

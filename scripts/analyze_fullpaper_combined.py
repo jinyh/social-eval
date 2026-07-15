@@ -42,7 +42,7 @@ print("加载数据...")
 
 # 元数据（学科）
 meta = {}
-with open("results/merged-metadata.csv", "r", encoding="utf-8-sig") as f:
+with open("results/datasets/three-journals/metadata.csv", "r", encoding="utf-8-sig") as f:
     for row in csv.DictReader(f):
         meta[int(row["编号"])] = row
 

@@ -29,6 +29,8 @@ src/web/dist/
 uploads/
 data/
 *.db
+logs/
+.firecrawl/
 
 # IDE
 .vscode/
@@ -52,6 +54,8 @@ Thumbs.db
 # Local-only archives
 archive/
 **/archive/
+research/*.pdf
+.plan/
 
 # Claude worktrees
 .claude/worktrees/
@@ -122,6 +126,14 @@ results/archive/phase2-superseded-20260601/
 outputs/
 projects/
 
+# 生成型演示与报告制品（源 Markdown / 脚本 / 小型图表保留）
+docs/presentations/*.pptx
+docs/presentations/*.pdf
+docs/presentations/*-render/
+docs/reports/*.pdf
+slide-deck/**/*.pptx
+slide-deck/**/*.pdf
+
 # 交大法学期刊 & 学术月刊原始论文（本地数据，不提交）
 raw/jiaodafaxue/
 raw/xueshuyuekan/
@@ -147,3 +159,9 @@ tmp/
 # E2 候选池逐篇评测 raw（本地保留，aggregates 入 git）
 results/e2-pool/round1/
 results/e2-pool/round2/
+
+# 数据集中心目录：逐篇原始模型输出只在本地保存
+results/datasets/**/per-paper/
+results/datasets/**/audit/
+results/rankings/**/per-paper/
+results/runs/

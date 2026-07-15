@@ -9,10 +9,10 @@ from pathlib import Path
 from collections import defaultdict, Counter
 
 # === 路径 ===
-EVAL_DIR = Path("results/jiaodafaxue-evaluation/round2")
-POS_DIR = Path("results/jiaodafaxue-position-assessment/merged")
-PAPER_LIST = Path("results/jiaodafaxue-paper-list.json")
-SUMMARY_JSON = Path("results/jiaodafaxue-position-assessment/merged/summary.json")
+EVAL_DIR = Path("results/datasets/jiaodafaxue/six-dimension/phase2-r2-v2.55/per-paper")
+POS_DIR = Path("results/datasets/jiaodafaxue/five-axis/position-v0.2/per-paper")
+PAPER_LIST = Path("results/datasets/jiaodafaxue/metadata.json")
+SUMMARY_JSON = Path("results/datasets/jiaodafaxue/five-axis/position-v0.2/per-paper/summary.json")
 
 # === 维度/轴名称映射 ===
 DIM_ZH = {
