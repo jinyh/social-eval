@@ -160,10 +160,13 @@ class CrossReviewService:
                 round_number=2,
                 call_type="cross_review",
             )
+        evidence_quotes = raw.get("new_evidence_found", [])
+        if not isinstance(evidence_quotes, list):
+            evidence_quotes = []
         result = DimensionResult(
             dimension=dimension.key,
             score=float(revised),
-            evidence_quotes=list(raw.get("new_evidence_found", [])),
+            evidence_quotes=evidence_quotes,
             analysis=str(raw.get("revision_rationale", "")),
             model_name=provider.model_name,
         )

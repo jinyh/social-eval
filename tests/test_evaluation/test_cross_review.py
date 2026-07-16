@@ -116,3 +116,32 @@ async def test_cross_review_retries_transient_provider_failure():
 
     assert len(outcomes) == 2
     assert flaky.calls == 2
+
+
+@pytest.mark.asyncio
+async def test_cross_review_normalizes_non_list_evidence_to_empty_list():
+    class BooleanEvidenceProvider(FakeCrossProvider):
+        async def generate_json_response(self, prompt: str) -> dict:
+            payload = await super().generate_json_response(prompt)
+            payload["new_evidence_found"] = False
+            return payload
+
+    service = CrossReviewService()
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    lenient = BooleanEvidenceProvider("glm-5.1", 78)
+    strict = FakeCrossProvider("deepseek-v4-pro", 72)
+
+    outcomes = await service.evaluate_dimension(
+        [lenient, strict],
+        dimension,
+        ProcessedPaper(body="正文", full_text="正文", structure_status="detected"),
+        {
+            "glm-5.1": _r1("glm-5.1", 80),
+            "deepseek-v4-pro": _r1("deepseek-v4-pro", 70),
+        },
+    )
+
+    outcome = next(item for item in outcomes if item.result.model_name == "glm-5.1")
+    assert outcome.result.evidence_quotes == []
