@@ -31,12 +31,12 @@ from src.reporting.pooling import (  # noqa: E402
 from src.reporting.scoring import calculate_weighted_total  # noqa: E402
 
 WEIGHTS = {
-    "problem_awareness": 0.30,
-    "literature_review": 0.20,
+    "problem_originality": 0.30,
+    "literature_insight": 0.20,
     "analytical_framework": 0.15,
-    "logical_consistency": 0.20,
-    "conclusion_acceptability": 0.10,
-    "forward_looking": 0.05,
+    "logical_coherence": 0.20,
+    "conclusion_consensus": 0.10,
+    "forward_extension": 0.05,
 }
 DIM_ZH = DIMENSION_LABELS
 
@@ -90,7 +90,8 @@ def build_paper(pid: int, protocol, meta) -> dict | None:
     e1 = load_round2(E1_DIR / f"paper-{pid}.json")
     e2 = load_round2(E2_DIR / f"paper-{pid}.json")
     parts = ["E1"]
-    if e2: parts.append("E2")
+    if e2:
+        parts.append("E2")
     source_label = "+".join(parts)
 
     dimensions = {}
@@ -101,8 +102,10 @@ def build_paper(pid: int, protocol, meta) -> dict | None:
         avg, method, n = aggregate_pool(pools, sources)
         std = round(statistics.stdev(pools), 2) if len(pools) >= 2 else 0
         round_scores = {}
-        if e1 and dk in e1: round_scores["E1"] = e1[dk]
-        if e2 and dk in e2: round_scores["E2"] = e2[dk]
+        if e1 and dk in e1:
+            round_scores["E1"] = e1[dk]
+        if e2 and dk in e2:
+            round_scores["E2"] = e2[dk]
         dimensions[dk] = {
             "dimension": dk, "name_zh": DIM_ZH[dk],
             "pooled_avg": avg, "pooled_std": std, "pooled_n": n,

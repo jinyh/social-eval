@@ -46,7 +46,26 @@ def test_r1_linkage_audit_records_known_mismatches_without_rerun():
         (RESULTS / "reports/current/r1-linkage-audit.json").read_text(encoding="utf-8")
     )
 
-    assert audit["exact_matches"] == 1836
-    assert audit["mismatches"] == 84
+    assert audit["exact_matches"] == 1760
+    assert audit["mismatches"] == 160
     assert audit["missing"] == 0
-    assert len(audit["mismatch_paper_ids"]) == 84
+    assert len(audit["mismatch_paper_ids"]) == 160
+
+
+def test_e2_ranking_uses_complete_e1_e2_pool_for_every_dimension():
+    ranking = json.loads(
+        (RESULTS / "rankings/e2-ccb-v5/ranking.json").read_text(encoding="utf-8")
+    )
+    pool = json.loads(
+        (RESULTS / "rankings/e2-ccb-v5/pool.json").read_text(encoding="utf-8")
+    )
+
+    assert {paper["pid"] for paper in ranking["papers"]} == {
+        paper["id"] for paper in pool
+    }
+    assert len(ranking["papers"]) == 110
+    for paper in ranking["papers"]:
+        assert len(paper["dimensions"]) == 6
+        for dimension in paper["dimensions"].values():
+            assert dimension["pooled_n"] == 8
+            assert dimension["method"] == "median(8) [E1+E2]"
