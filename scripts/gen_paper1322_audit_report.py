@@ -8,10 +8,9 @@
 - results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-1322.json     六维 4 模型 R1+R2 评审
 - results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-1322.json  五轴 2 模型 R1+R2 评估
 - results/rankings/e2-ccb-v5/ranking.json               E2-Top102 候选池聚合
-- results/report_paper_master.csv                   CCB 总分（core_ceiling_bonus）
+- results/rankings/all-papers-ccb-v1/ranking.json  CCB 总分（core_ceiling_bonus）
 
-口径与 scripts/gen_case_radar.py 一致：六维 final 用 report_paper_master.csv 的
-weighted_score（CCB 总分，core_ceiling_bonus=base+bonus+ceiling）；维度/轴名映射复用同一套键名。
+口径与 scripts/gen_case_radar.py 一致：六维 final 用全库 ranking 的 ccb_score。
 """
 
 from __future__ import annotations
@@ -54,16 +53,16 @@ WEIGHTS = {
 
 # ---------- 数据加载 ----------
 def load_metadata(pid: int) -> dict:
-    p = ROOT / "results" / "merged-metadata.csv"
+    p = ROOT / "results/datasets/three-journals/metadata.csv"
     with p.open(encoding="utf-8-sig", newline="") as f:
         for r in csv.DictReader(f):
             if r.get("编号") and int(r["编号"]) == pid:
                 return r
-    raise RuntimeError(f"pid {pid} not in merged-metadata.csv")
+    raise RuntimeError(f"pid {pid} not in three-journals metadata.csv")
 
 
 def load_sixdim(pid: int) -> dict:
-    p = ROOT / "results" / "fullevaluation" / "round2" / f"paper-{pid}.json"
+    p = ROOT / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper" / f"paper-{pid}.json"
     return json.loads(p.read_text(encoding="utf-8"))
 
 
@@ -71,29 +70,27 @@ def load_fiveaxis(pid: int) -> dict:
     p = (
         ROOT
         / "results"
-        / "top101-position-assessment-v0.2"
-        / "merged"
+        / "datasets/three-journals/five-axis/position-v0.2/per-paper"
         / f"paper-{pid}.json"
     )
     return json.loads(p.read_text(encoding="utf-8"))
 
 
 def load_pool_entry(pid: int) -> dict:
-    p = ROOT / "results" / "e2-pool" / "ranking_v5_pool.json"
+    p = ROOT / "results/rankings/e2-ccb-v5/ranking.json"
     d = json.loads(p.read_text(encoding="utf-8"))
     for x in d["papers"]:
         if int(x["pid"]) == pid:
             return x
-    raise RuntimeError(f"pid {pid} not in ranking_v5_pool.json")
+    raise RuntimeError(f"pid {pid} not in E2 ranking.json")
 
 
 def load_weighted(pid: int) -> dict:
-    p = ROOT / "results" / "report_paper_master.csv"
-    with p.open(encoding="utf-8-sig", newline="") as f:
-        for r in csv.DictReader(f):
-            if int(r["pid"]) == pid:
-                return r
-    raise RuntimeError(f"pid {pid} not in report_paper_master.csv")
+    p = ROOT / "results/rankings/all-papers-ccb-v1/ranking.json"
+    for row in json.loads(p.read_text(encoding="utf-8"))["papers"]:
+        if int(row["pid"]) == pid:
+            return {"weighted_score": row["ccb_score"]}
+    raise RuntimeError(f"pid {pid} not in all-papers ranking.json")
 
 
 # ---------- 渲染辅助 ----------
@@ -162,7 +159,7 @@ def section_meta(meta: dict, weighted: dict) -> str:
     )
     md.append("| 评审框架 | `configs/frameworks/law-v2.55-cross-review.yaml` |")
     md.append(
-        f"| CCB 总分 | **{num(weighted.get('weighted_score'), 1)}**（`report_paper_master.csv`，core_ceiling_bonus） |"
+        f"| CCB 总分 | **{num(weighted.get('weighted_score'), 1)}**（全库 CCB ranking） |"
     )
     md.append("")
     return "\n".join(md)
@@ -182,7 +179,7 @@ def section_top(six: dict, fa: dict, pool: dict, weighted: dict) -> str:
     md.append("| 指标 | 值 | 来源 |")
     md.append("|---|---:|---|")
     md.append(
-        f"| CCB 总分 | **{num(weighted.get('weighted_score'), 1)}** | `report_paper_master.csv:weighted_score` |"
+        f"| CCB 总分 | **{num(weighted.get('weighted_score'), 1)}** | `all-papers-ccb-v1:ccb_score` |"
     )
     md.append(
         f"| R2 总分均值（六维） | {num(ov.get('round2_final_score_mean'), 2)} | `overall.round2_final_score_mean` |"
@@ -487,7 +484,7 @@ def section_boundary(weighted: dict, six: dict) -> str:
     ccb_score = num(weighted.get("weighted_score"), 1)
     md.append(
         f"- **双口径**：CCB 总分 **{ccb_score}**"
-        f"（`report_paper_master.csv:weighted_score`，core_ceiling_bonus=base+bonus+ceiling）"
+        f"（`all-papers-ccb-v1:ccb_score`，core_ceiling_bonus=base+bonus+ceiling）"
         f"≠ R2 总分均值 {r2_mean}"
         f"（`overall.round2_final_score_mean`，四模型 R2 直接平均）。报告与雷达图统一用 CCB 总分。"
     )
@@ -519,7 +516,7 @@ def section_provenance() -> str:
     md.append("|---|---|---|")
     md.append("| 论文元数据 | `results/datasets/three-journals/metadata.csv` | `编号=1322` 行 |")
     md.append(
-        "| CCB 总分 | `results/report_paper_master.csv` | `weighted_score` |"
+        "| CCB 总分 | `results/rankings/all-papers-ccb-v1/ranking.json` | `ccb_score` |"
     )
     md.append(
         "| 六维 R1/R2 分数、均值、std | `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-1322.json` | `dimensions[*].round{1,2}_scores/round{1,2}_mean/round{1,2}_std` |"

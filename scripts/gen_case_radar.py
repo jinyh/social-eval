@@ -4,7 +4,7 @@
 读 results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-1322.json 的五轴 final 分数，
 输出六维雷达图与五轴条形图到 docs/presentations/assets/。
 
-口径：六维 final_score 用 report_paper_master.csv 的 weighted_score（E1 加权分 85.2），
+口径：六维 final_score 用全库 CCB ranking 的 ccb_score，
 与直方图标注一致；round2_final_score_mean(84.42) 不在图上展示，避免双口径混淆。
 """
 
@@ -22,9 +22,9 @@ import numpy as np
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "docs" / "presentations" / "assets"
 
-SIXDIM_FILE = ROOT / "results" / "fullevaluation" / "round2" / "paper-1322.json"
-FIVEAXIS_FILE = ROOT / "results" / "top101-position-assessment-v0.2" / "merged" / "paper-1322.json"
-MASTER_CSV = ROOT / "results" / "report_paper_master.csv"
+SIXDIM_FILE = ROOT / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-1322.json"
+FIVEAXIS_FILE = ROOT / "results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-1322.json"
+RANKING_JSON = ROOT / "results/rankings/all-papers-ccb-v1/ranking.json"
 
 # 六维：旧键 → 中文名（固定顺序，雷达顺时针）
 SIXDIM = [
@@ -63,12 +63,11 @@ def load_fiveaxis() -> list[int]:
 
 
 def load_master_weighted(pid: int = 1322) -> float:
-    import csv
-    with MASTER_CSV.open(encoding="utf-8-sig", newline="") as f:
-        for r in csv.DictReader(f):
-            if int(r["pid"]) == pid:
-                return float(r["weighted_score"])
-    raise RuntimeError(f"pid {pid} not found in master csv")
+    ranking = json.loads(RANKING_JSON.read_text(encoding="utf-8"))
+    for row in ranking["papers"]:
+        if int(row["pid"]) == pid:
+            return float(row["ccb_score"])
+    raise RuntimeError(f"pid {pid} not found in all-papers ranking")
 
 
 def render_sixdim_radar(scores: list[float], weighted: float, r2_std: float) -> None:

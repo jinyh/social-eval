@@ -533,7 +533,7 @@
 
 - 比较分析：`docs/evaluation/top101-four-signals-vs-five-axes-comparison-v2-20260613.md`
 - 五轴方法论：`docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md`
-- 评审规程：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`
+- 当前评审规程：`docs/evaluation/law-ai-assisted-review-rules-v0.17.md`
 
 ### 9.2 已有数据
 

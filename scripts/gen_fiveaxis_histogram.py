@@ -3,13 +3,12 @@
 与 gen_score_histogram.py 配对：六维加权分用前者（质量评价），五轴总分用本脚本
 （中国自主知识体系位置归属度）。样式严格对齐，仅分箱/量纲/观察框位置按五轴特性调整。
 
-读 results/report_paper_master.csv 的 pid+journal，按 pid 加载五轴聚合总分，
+读当前五轴摘要，并从权威元数据关联期刊，
 按期刊分色堆叠，标注分层观察数字，输出 PNG/SVG 到 docs/presentations/assets/。
 
 数据口径：
-- 五轴总分真源：fullpaper-position-assessment-stage0/round2/paper-{pid}.json 的 aggregate_preview.total_score
-  （0–10 整数，deepseek-v4-pro + qwen3.6-plus 两模型 R2 条件收敛聚合）
-- 期刊关联：report_paper_master.csv 的 pid（与 merged-metadata.csv 编号一致）+ journal
+- 五轴总分真源：results/datasets/three-journals/five-axis/position-v0.2/summary.csv
+- 期刊关联：results/datasets/three-journals/metadata.csv 的编号与期刊
 - 三大核心刊 = 中国法学 / 法学研究 / 中国社会科学（数据集无《中外法学》）
 - 6 篇全拒论文无五轴聚合，自动跳过
 """
@@ -17,7 +16,6 @@
 from __future__ import annotations
 
 import csv
-import json
 from pathlib import Path
 
 import matplotlib
@@ -32,27 +30,23 @@ JOURNAL_COLOR: dict[str, str] = {
 }
 
 ROOT = Path(__file__).resolve().parent.parent
-CSV_PATH = ROOT / "results" / "report_paper_master.csv"
-FIVEAXIS_DIR = ROOT / "results" / "fullpaper-position-assessment-stage0" / "round2"
+CSV_PATH = ROOT / "results/datasets/three-journals/metadata.csv"
+FIVEAXIS_CSV = ROOT / "results/datasets/three-journals/five-axis/position-v0.2/summary.csv"
 OUT_DIR = ROOT / "docs" / "presentations" / "assets"
 
 
 def load_rows() -> list[dict[str, str]]:
     with CSV_PATH.open("r", encoding="utf-8-sig", newline="") as f:
-        return list(csv.DictReader(f))
-
-
-def fiveaxis_total(pid: int) -> int | None:
-    """取某篇论文的五轴聚合总分（0–10）。无文件或无聚合返回 None。"""
-    p = FIVEAXIS_DIR / f"paper-{pid}.json"
-    if not p.exists():
-        return None
-    try:
-        d = json.loads(p.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-        return None
-    ap = d.get("aggregate_preview") or {}
-    return ap.get("total_score")
+        metadata = {int(row["编号"]): row for row in csv.DictReader(f)}
+    with FIVEAXIS_CSV.open("r", encoding="utf-8-sig", newline="") as f:
+        return [
+            {
+                "pid": row["paper_id"],
+                "journal": metadata.get(int(row["paper_id"]), {}).get("期刊", ""),
+                "fiveaxis_total": row.get("五轴总分", ""),
+            }
+            for row in csv.DictReader(f)
+        ]
 
 
 def main() -> None:
@@ -70,8 +64,9 @@ def main() -> None:
         journal = r.get("journal", "").strip()
         if journal not in by_journal:
             continue
-        score = fiveaxis_total(pid)
-        if score is None:
+        try:
+            score = int(float(r["fiveaxis_total"]))
+        except (KeyError, TypeError, ValueError):
             continue
         by_journal[journal].append(score)
         all_scores.append(score)

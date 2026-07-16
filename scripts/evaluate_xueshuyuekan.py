@@ -10,14 +10,14 @@
     .venv/bin/python scripts/evaluate_xueshuyuekan.py \
         --input-dir raw/xueshuyuekan/ \
         --framework configs/frameworks/law-v2.55-cross-review.yaml \
-        --output-dir results/xueshuyuekan \
+        --output-dir results/runs/xueshuyuekan-evaluation \
         --concurrency 5
 
     # 只跑特定论文 ID
     .venv/bin/python scripts/evaluate_xueshuyuekan.py \
         --input-dir raw/xueshuyuekan/ \
         --framework configs/frameworks/law-v2.55-cross-review.yaml \
-        --output-dir results/xueshuyuekan \
+        --output-dir results/runs/xueshuyuekan-evaluation \
         --concurrency 5 \
         --paper-ids 1,2,3
 """

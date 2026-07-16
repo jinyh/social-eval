@@ -5,7 +5,7 @@
 
 数据口径（三源统一，避免混用不可比指标）：
 - 三源评审结果结构一致（results/{fullevaluation,xueshuyuekan,jiaodafaxue-evaluation}/round2/paper-{id}.json）
-- **不混用** report_paper_master.weighted_score（含 E1+E2+E3 合并，另两源无 E2/E3，不可比）
+- **不混用**全库 E1+E2 CCB 排名（另两源无 E2，不可比）
 - 统一加权算法：与 src/reporting/builder.py:108 权威路径一致
     dim_means = {dim: mean(dim.round2_scores 各模型分)}
     weighted_score = calculate_weighted_total(dim_means, scoring_protocol)  # core_ceiling_bonus
@@ -263,10 +263,10 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     protocol = load_scoring_protocol()
 
-    # 数据一致性自检锚点：三大刊 paper-1 重算分应 ≈ report_paper_master 82.725
+    # 数据一致性自检锚点：三大刊 paper-1 重算分应处于历史同量级
     anchor = paper_weighted_score(FULL_ROUND2 / "paper-1.json", protocol)
     print(
-        f"[自检] 三大刊 paper-1 重算加权分 = {anchor}（对照 report_paper_master 82.725，量级一致即可）"
+        f"[自检] 三大刊 paper-1 重算加权分 = {anchor}（历史量级检查）"
     )
 
     rows: list[tuple[int, str, float]] = []

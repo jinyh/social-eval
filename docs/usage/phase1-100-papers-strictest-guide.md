@@ -266,4 +266,4 @@ final_score_strictest = calculate_weighted_total(dimension_strictest, scoring_pr
 如有问题，请查看：
 - 计划文档：`/Users/jinyh/.claude/plans/100-4-synchronous-glacier.md`
 - 项目文档：`CLAUDE.md`
-- 评审规程：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`
+- 当前评审规程：`docs/evaluation/law-ai-assisted-review-rules-v0.17.md`

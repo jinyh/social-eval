@@ -4,7 +4,7 @@
 > 创建日期：2026-07-14
 > 性质：设计提案 + 整改基线
 > 适用范围：SocialEval 全评价链路（预检 → 六维 → 五轴 → 复核 → 榜单）
-> 关联文档：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`、`docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md`、`docs/evaluation/concept-operationalization-v1.0.md`、`results/zhang-wenxian-score-diagnosis-20260714.md`
+> 当前规程：`docs/evaluation/law-ai-assisted-review-rules-v0.17.md`；关联方法：`docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md`、`docs/evaluation/concept-operationalization-v1.0.md`。
 
 ## 1. 立场
 

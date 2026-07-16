@@ -39,7 +39,7 @@ from src.core.config import settings
 
 CSV_PATH = PROJECT_ROOT / "raw/xueshuyuekan/97001X_学术月刊_法学院2015起.csv"
 MD_DIR = PROJECT_ROOT / "raw/xueshuyuekan"
-PROGRESS_PATH = PROJECT_ROOT / "results/xueshuyuekan-classify-progress.json"
+PROGRESS_PATH = PROJECT_ROOT / "results/runs/xueshuyuekan-classify/progress.json"
 MAX_CONTENT_CHARS = 12000  # 正文截断长度
 
 # 四个模型及其对应的分类列后缀
@@ -372,13 +372,14 @@ async def main():
     args = parser.parse_args()
 
     # 配置日志
+    PROGRESS_PATH.parent.mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[
             logging.StreamHandler(),
             logging.FileHandler(
-                PROJECT_ROOT / "results/xueshuyuekan-classify.log",
+                PROJECT_ROOT / "results/runs/xueshuyuekan-classify/execution.log",
                 encoding="utf-8",
             ),
         ],

@@ -1,12 +1,12 @@
 """校领导汇报 PPT —— 三大核心刊 1920 篇论文加权得分分布直方图.
 
-读 results/report_paper_master.csv 的 weighted_score 列，按期刊分色堆叠，
+读当前全库 CCB summary，并从权威元数据关联期刊，按期刊分色堆叠，
 标注朱军案例位置与分层数字，输出 PNG/SVG 到 docs/presentations/assets/。
 
 数据口径：
 - 三大核心刊 = 中国法学 / 法学研究 / 中国社会科学（数据集无《中外法学》）
-- Paper ID 真源：results/datasets/three-journals/metadata.csv 的「编号」字段；report_paper_master.csv 的 pid 与之一致
-- 加权分真源：fullevaluation/round2/paper-{id}.json 的 overall.round2_final_score_mean
+- Paper ID 真源：results/datasets/three-journals/metadata.csv 的「编号」字段
+- 加权分真源：results/rankings/all-papers-ccb-v1/summary.csv 的 ccb_score
 """
 
 from __future__ import annotations
@@ -27,13 +27,23 @@ JOURNAL_COLOR: dict[str, str] = {
 }
 
 ROOT = Path(__file__).resolve().parent.parent
-CSV_PATH = ROOT / "results" / "report_paper_master.csv"
+CSV_PATH = ROOT / "results" / "rankings" / "all-papers-ccb-v1" / "summary.csv"
+META_PATH = ROOT / "results" / "datasets" / "three-journals" / "metadata.csv"
 OUT_DIR = ROOT / "docs" / "presentations" / "assets"
 
 
 def load_rows() -> list[dict[str, str]]:
+    with META_PATH.open("r", encoding="utf-8-sig", newline="") as f:
+        journal = {int(row["编号"]): row.get("期刊", "") for row in csv.DictReader(f)}
     with CSV_PATH.open("r", encoding="utf-8-sig", newline="") as f:
-        return list(csv.DictReader(f))
+        return [
+            {
+                **row,
+                "weighted_score": row.get("ccb_score", ""),
+                "journal": journal.get(int(row["pid"]), ""),
+            }
+            for row in csv.DictReader(f)
+        ]
 
 
 def to_float(v: str) -> float | None:

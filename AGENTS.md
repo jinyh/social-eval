@@ -99,9 +99,8 @@ docs/
   architecture/    # ADR（架构决策记录）
   evaluation/      # 评价方法论文档
     concept-operationalization-v1.0.md  # 概念操作化定义
-    std-analysis-summary-20260423.md    # 标准差分析总结
     v0.15-phase1-test-report-20260511.md # v0.15 第一阶段测试报告
-    law-ai-assisted-review-rules-v0.16-large-scale-candidate.md # 当前活跃规程
+    law-ai-assisted-review-rules-v0.17.md # 当前活跃规程
   discussion/      # 设计讨论记录
 tests/             # 测试（镜像 src/ 结构）
 alembic/           # 数据库迁移脚本
@@ -175,7 +174,7 @@ SMTP_FROM=noreply@socialeval.local
 - 🔄 **无需重启**：修改配置后无需重启服务，下次评价时自动生效
 - ✅ **Schema 验证**：配置文件必须符合 `configs/frameworks/schema_v2.json` 定义的 schema
 - 🚫 **禁止硬编码**：不要在代码中硬编码评价维度，必须从配置文件读取
-- 📌 **Prompt/契约真源**：评价 prompt、`output_template`、JSON 输出契约与量化映射优先以 `configs/frameworks/*.yaml` 为真源（实现层）；评审方法论、流程规则和复核条件以 `docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md` 为真源（规程层）。业务代码只负责渲染、适配、校验和兼容 fallback，不得新增硬编码评价口径
+- 📌 **Prompt/契约真源**：评价 prompt、`output_template`、JSON 输出契约与量化映射优先以 `configs/frameworks/*.yaml` 为真源（实现层）；评审方法论、流程规则和复核条件以 `docs/evaluation/law-ai-assisted-review-rules-v0.17.md` 为真源（规程层）。业务代码只负责渲染、适配、校验和兼容 fallback，不得新增硬编码评价口径
 
 ### 数据库迁移
 - 📝 **自动生成**：修改 `src/models/` 下的模型后，运行 `alembic revision --autogenerate -m "描述"`
@@ -241,10 +240,9 @@ with open('results/datasets/three-journals/metadata.csv', 'r', encoding='utf-8-s
 
 ### 权威真源
 
-- **方法论规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`（四阶段流程、评分协议、复核规则、大规模评估执行规则）
+- **方法论规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.17.md`（六维 R1/R2、五轴、CCB、复核与审计规则）
 - **实现框架**：`configs/frameworks/law-v2.56.6-20260522.yaml`（Phase 2 Round 1 生产 prompt、输出模板、JSON 契约、量化映射）
 - **概念操作化**：`docs/evaluation/concept-operationalization-v1.0.md`
-- **标准差分析**：`docs/evaluation/std-analysis-summary-20260423.md`
 - **架构决策**：`docs/architecture/20260414_ADR-001_evaluation-framework-v2.md`
 
 ### 当前活跃版本
@@ -355,7 +353,7 @@ with open('results/datasets/three-journals/metadata.csv', 'r', encoding='utf-8-s
 ### 推荐模型配置
 
 - **主力模型**：Qwen3.6-Plus / GLM-5.1（阿里百炼平台），Temperature 0.3
-- **分歧仲裁**：当单维度 std > 8 时，引入 GPT-5.5（Fucheers 提供商）作为仲裁模型
+- **分歧处理**：六维 R2 后单维度 std > 8 时进入专家复核，不自动调用 GPT 仲裁
 - **不推荐**：Gemini 3.1 Pro（评分波动 ±35 分）
 
 ### 可靠性阈值
@@ -527,11 +525,11 @@ results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
 ### 来自标准差分析（2026-04-23）
 
 - **推荐模型**：Qwen3.6-Plus / GLM-5.1（阿里百炼平台），Temperature 0.3
-- **分歧仲裁**：单维度 std > 8 时引入 GPT-5.5（Fucheers 提供商）
+- **分歧处理**：六维 R2 后单维度 std > 8 时进入专家复核
 - **供应商策略**：国内模型→DashScope 百炼，仲裁模型→Fucheers
 - **AI 定位**：辅助初筛，不替代专家终审
 
-详细分析见 `docs/evaluation/std-analysis-summary-20260423.md`
+当前口径见 `docs/evaluation/law-ai-assisted-review-rules-v0.17.md`。
 
 ### 来自 Round 2 机制验证（2026-05-22，已冻结）
 
@@ -622,8 +620,8 @@ results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
 |------|------|------|
 | 硬条件 | 五轴 ≥ 9 **且** E1(core_ceiling_bonus 总分) ≥ 80 | 不满足则不入池 |
 | 选入 | Top 80（按 E1 ccb 降序） | 前 80 名直接入选 |
-| 学科保底 | 每学科 ≥ max(5, Top50 配额) | 从五轴≥9 宽池按 ccb 补入；配额大的学科保底相应提高 |
-| 年度保底 | 每年（2015–2025）≥ 5 篇 | 从五轴≥9 宽池按 ccb 补入 |
+| 学科保底 | 每学科 ≥ max(5, Top50 配额) | 只从满足两项硬条件的候选补入；不足时接受缺口 |
+| 年度保底 | 每年（2015–2025）≥ 5 篇 | 只从满足两项硬条件的候选补入；不足时接受缺口 |
 | 不足容忍 | 学科/年度保底可不满 | 如果池内该学科/年度论文不足，接受缺口 |
 
 **E1 总分口径（E1 候选选取）**：`calculate_weighted_total(scoring_protocol=core_ceiling_bonus)`，即
