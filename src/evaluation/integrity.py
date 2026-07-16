@@ -9,6 +9,9 @@ from typing import Any
 
 import yaml
 
+from src.evaluation.repair.five_axis import scan_five_axis_gaps
+from src.evaluation.repair.registry import target_registry
+from src.evaluation.repair.six_dimension import scan_six_dimension_gaps
 from src.knowledge.loader import load_framework
 from src.knowledge.registry import (
     assert_embedded_scoring_protocols_match,
@@ -129,6 +132,34 @@ def audit_active_results(project_root: Path) -> dict[str, Any]:
             elif not per_paper.exists():
                 warnings.append(f"{dataset}.{family}: 本机无逐篇目录，仅校验追踪摘要")
 
+    score_slots: dict[str, dict[str, int]] = {}
+    for target_key, target in target_registry(root).items():
+        if not target.per_paper_dir.exists():
+            score_slots[target_key] = {"files": 0, "gaps": 0, "missing_files": 0}
+            continue
+        paths = {
+            int(path.stem.removeprefix("paper-")): path
+            for path in target.per_paper_dir.glob("paper-*.json")
+        }
+        expected_ids = set(target.expected_paper_ids)
+        missing_files = len(expected_ids - set(paths))
+        gaps = 0
+        for pid, path in paths.items():
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if target.family == "five_axis":
+                gaps += len(scan_five_axis_gaps(target, pid, payload))
+            else:
+                gaps += len(scan_six_dimension_gaps(target, pid, payload))
+        score_slots[target_key] = {
+            "files": len(paths),
+            "gaps": gaps,
+            "missing_files": missing_files,
+        }
+        if gaps:
+            errors.append(f"{target_key}: {gaps} 个评分槽位缺失")
+        if missing_files:
+            errors.append(f"{target_key}: {missing_files} 个逐篇文件缺失")
+
     return {
         "valid": not errors,
         "errors": errors,
@@ -140,6 +171,7 @@ def audit_active_results(project_root: Path) -> dict[str, Any]:
         },
         "datasets": datasets,
         "per_paper_counts": per_paper_counts,
+        "score_slots": score_slots,
         "e2": {
             "pool_count": len(pool),
             "ranking_count": len(ranking["papers"]),
