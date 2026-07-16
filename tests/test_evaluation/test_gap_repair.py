@@ -10,11 +10,13 @@ from src.evaluation.repair.five_axis import (
     scan_five_axis_gaps,
 )
 from src.evaluation.repair.registry import ensure_allowed_path, target_registry
+from src.evaluation.repair.runtime import compact_paper_for_content_inspection
 from src.evaluation.repair.six_dimension import (
     merge_model_response,
     recompute_result_statistics,
     scan_six_dimension_gaps,
 )
+from src.ingestion.schemas import ProcessedPaper
 
 
 MODELS = ["deepseek-v4-pro", "glm-5.1", "kimi-k2.6", "qwen3.6-plus"]
@@ -341,3 +343,21 @@ def test_five_axis_triggered_r2_requires_two_valid_models(tmp_path: Path) -> Non
         (1, "qwen3.6-plus"),
         (2, "qwen3.6-plus"),
     }
+
+
+def test_content_inspection_fallback_keeps_abstract_head_and_tail() -> None:
+    paper = ProcessedPaper(
+        abstract="摘要",
+        introduction="引言" * 2_000,
+        body="H" * 3_000 + "M" * 10_000 + "T" * 7_000,
+        full_text="完整文本",
+        structure_status="detected",
+    )
+
+    compact = compact_paper_for_content_inspection(paper)
+
+    assert compact.abstract == "摘要"
+    assert len(compact.introduction) == 2_000
+    assert compact.body.startswith("H" * 3_000)
+    assert compact.body.endswith("T" * 7_000)
+    assert "中间论证已省略" in compact.body

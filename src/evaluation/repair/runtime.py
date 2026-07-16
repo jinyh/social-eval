@@ -43,6 +43,8 @@ from src.knowledge.loader import DEFAULT_STD_THRESHOLD, _normalize_framework_dat
 from src.knowledge.schemas import Framework
 
 FRAMEWORK_RELATIVE_PATH = Path("configs/frameworks/law-v2.55-cross-review.yaml")
+CONTENT_INSPECTION_HEAD_CHARS = 3_000
+CONTENT_INSPECTION_TAIL_CHARS = 7_000
 
 
 def _load_framework(project_root: Path) -> Framework:
@@ -69,6 +71,27 @@ def _parse_md_meta(path: Path) -> dict[str, Any]:
             "题目": parts[4],
         }
     return {"题目": path.stem}
+
+
+def compact_paper_for_content_inspection(paper: Any) -> Any:
+    """保留摘要、正文开头和结论区，缩短内容审查拒绝后的重试上下文。"""
+
+    body = str(getattr(paper, "body", "") or "")
+    compact_body = (
+        body
+        if len(body) <= CONTENT_INSPECTION_HEAD_CHARS + CONTENT_INSPECTION_TAIL_CHARS
+        else (
+            body[:CONTENT_INSPECTION_HEAD_CHARS]
+            + "\n\n……（内容审查重试：中间论证已省略）……\n\n"
+            + body[-CONTENT_INSPECTION_TAIL_CHARS:]
+        )
+    )
+    return paper.model_copy(
+        update={
+            "body": compact_body,
+            "introduction": str(getattr(paper, "introduction", "") or "")[:2_000],
+        }
+    )
 
 
 class RepairRuntime:
@@ -228,6 +251,27 @@ class RepairRuntime:
         )
         self.dirty_keys.add((gap.target_key, gap.paper_id))
 
+    def _build_gap_prompt(self, gap: Gap, paper_path: Path, paper: Any) -> str:
+        family = self.registry[gap.target_key].family
+        if family == "five_axis":
+            return self._five_axis_prompt(gap, paper_path, _paper_content(paper))
+        dimension = self.dimensions[gap.dimension]
+        if gap.round_number == 1:
+            return build_prompt(dimension, paper)
+        r1_dimension = self._r1_dimension(gap)
+        self_output = self._raw_or_score(r1_dimension, gap.model)
+        other_group = B_GROUP if gap.model in A_GROUP else A_GROUP
+        other_outputs = [
+            self._raw_or_score(r1_dimension, model) for model in other_group
+        ]
+        return build_cross_review_prompt(
+            dimension.name_zh,
+            dimension.key,
+            self_output,
+            other_outputs,
+            paper,
+        )
+
     async def call_gap(self, gap: Gap) -> dict[str, Any]:
         """为单槽位构造原项目 prompt、调用 provider 并更新内存副本。"""
 
@@ -236,31 +280,28 @@ class RepairRuntime:
             raise ValueError(f"Provider 不存在：{gap.model}")
         paper_path = self._paper_path(gap)
         paper = await self._paper(paper_path)
-        family = self.registry[gap.target_key].family
-        if family == "five_axis":
-            prompt = self._five_axis_prompt(gap, paper_path, _paper_content(paper))
-        else:
-            dimension = self.dimensions[gap.dimension]
-            if gap.round_number == 1:
-                prompt = build_prompt(dimension, paper)
-            else:
-                r1_dimension = self._r1_dimension(gap)
-                self_output = self._raw_or_score(r1_dimension, gap.model)
-                other_group = B_GROUP if gap.model in A_GROUP else A_GROUP
-                other_outputs = [
-                    self._raw_or_score(r1_dimension, model) for model in other_group
-                ]
-                prompt = build_cross_review_prompt(
-                    dimension.name_zh,
-                    dimension.key,
-                    self_output,
-                    other_outputs,
-                    paper,
-                )
+        prompt = self._build_gap_prompt(gap, paper_path, paper)
         started = time.monotonic()
-        response = await provider.call_with_timeout(
-            provider.generate_json_response(prompt)
-        )
+        try:
+            response = await provider.call_with_timeout(
+                provider.generate_json_response(prompt)
+            )
+        except Exception as exc:
+            error = str(exc).lower()
+            if "datainspectionfailed" not in error and "data_inspection_failed" not in error:
+                raise
+            compact_paper = compact_paper_for_content_inspection(paper)
+            compact_prompt = self._build_gap_prompt(gap, paper_path, compact_paper)
+            response = await provider.call_with_timeout(
+                provider.generate_json_response(compact_prompt)
+            )
+            response.setdefault("_repair_metadata", {}).update(
+                {
+                    "content_inspection_fallback": True,
+                    "context_strategy": "abstract_head3000_tail7000",
+                    "original_error": str(exc),
+                }
+            )
         elapsed = time.monotonic() - started
         self._merge_response(gap, response, elapsed)
         return response
