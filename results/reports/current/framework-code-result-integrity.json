@@ -1,0 +1,165 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "three-journals.round1: 147 个历史原始响应缺失；评分槽位完整性不受影响",
+    "three-journals.round2: 73 个历史原始响应缺失；评分槽位完整性不受影响",
+    "jiaodafaxue.round1: 34 个历史原始响应缺失；评分槽位完整性不受影响",
+    "jiaodafaxue.round2: 53 个历史原始响应缺失；评分槽位完整性不受影响",
+    "xueshuyuekan.round2: 3571 个历史原始响应缺失；评分槽位完整性不受影响",
+    "e2.round1: 2 个历史原始响应缺失；评分槽位完整性不受影响",
+    "e2.round2: 839 个历史原始响应缺失；评分槽位完整性不受影响"
+  ],
+  "frameworks": {
+    "six_dimension_default": {
+      "path": "configs/frameworks/law-v2.56.6-20260522.yaml",
+      "version": "2.56.6",
+      "status": "production",
+      "valid": true
+    },
+    "six_dimension_cross_review": {
+      "path": "configs/frameworks/law-v2.55-cross-review.yaml",
+      "version": "2.55",
+      "status": "historical-production",
+      "valid": true
+    },
+    "six_dimension_baseline": {
+      "path": "configs/frameworks/law-v2.50.2-20260514.yaml",
+      "version": "2.50.2",
+      "status": "baseline",
+      "valid": true
+    },
+    "five_axis_default": {
+      "path": "configs/frameworks/law-position-v0.2.yaml",
+      "version": "0.2",
+      "status": "production",
+      "valid": true
+    }
+  },
+  "review_protocol": {
+    "version": "1.0",
+    "unresolved_disagreement": {
+      "std_threshold": 8,
+      "action": "expert_review"
+    }
+  },
+  "datasets": {
+    "three-journals": {
+      "six_dimension": 1920,
+      "five_axis": 1920
+    },
+    "jiaodafaxue": {
+      "six_dimension": 642,
+      "five_axis": 642
+    },
+    "xueshuyuekan": {
+      "six_dimension": 149,
+      "five_axis": 149
+    }
+  },
+  "per_paper_counts": {
+    "three-journals.six_dimension": 1920,
+    "three-journals.five_axis": 1920,
+    "jiaodafaxue.six_dimension": 642,
+    "jiaodafaxue.five_axis": 642,
+    "xueshuyuekan.six_dimension": 149,
+    "xueshuyuekan.five_axis": 149
+  },
+  "score_slots": {
+    "three-journals-six": {
+      "files": 1920,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "three-journals-five": {
+      "files": 1920,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "jiaodafaxue-six": {
+      "files": 642,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "jiaodafaxue-five": {
+      "files": 642,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "xueshuyuekan-six": {
+      "files": 149,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "xueshuyuekan-five": {
+      "files": 149,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "e2-r1": {
+      "files": 114,
+      "gaps": 0,
+      "missing_files": 0
+    },
+    "e2-r2": {
+      "files": 114,
+      "gaps": 0,
+      "missing_files": 0
+    }
+  },
+  "raw_payload_slots": {
+    "three-journals": {
+      "round1": {
+        "expected": 46080,
+        "present": 45933,
+        "missing": 147
+      },
+      "round2": {
+        "expected": 46080,
+        "present": 46007,
+        "missing": 73
+      }
+    },
+    "jiaodafaxue": {
+      "round1": {
+        "expected": 15408,
+        "present": 15374,
+        "missing": 34
+      },
+      "round2": {
+        "expected": 15408,
+        "present": 15355,
+        "missing": 53
+      }
+    },
+    "xueshuyuekan": {
+      "round1": {
+        "expected": 3576,
+        "present": 3576,
+        "missing": 0
+      },
+      "round2": {
+        "expected": 3576,
+        "present": 5,
+        "missing": 3571
+      }
+    },
+    "e2": {
+      "round1": {
+        "expected": 2520,
+        "present": 2518,
+        "missing": 2
+      },
+      "round2": {
+        "expected": 2520,
+        "present": 1681,
+        "missing": 839
+      }
+    }
+  },
+  "e2": {
+    "pool_count": 105,
+    "ranking_count": 105
+  },
+  "generated_at": "2026-07-16T14:12:47.604595+00:00"
+}
