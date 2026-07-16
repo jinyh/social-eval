@@ -3,7 +3,7 @@
 
 E1 候选选取口径：core_ceiling_bonus（src/reporting/scoring.py:calculate_weighted_total
 + law-v2.56.6 的 scoring_protocol）。硬条件 五轴≥9 且 E1_ccb≥80；Top80 按 ccb 降序；
-学科保底≥5、年度保底≥5（从五轴≥9 宽池按 ccb 补入，匹配现行 117 池规则）。
+学科保底≥5、年度保底≥5；所有补入仍必须满足两项硬条件，候选不足时保留缺口。
 学科分类用 sandakan 的 专家分类（33 篇专家纠正）优先，否则 原分类。
 
 输出：
@@ -107,7 +107,7 @@ def load_meta() -> dict[int, dict]:
 def select_pool(e1_dims, axis5, meta, protocol):
     ccb = {pid: calculate_weighted_total(d, protocol) for pid, d in e1_dims.items()}
     elig = [p for p in e1_dims if axis5.get(p, 0) >= AXIS5_THRESHOLD and ccb[p] >= E1_THRESHOLD]
-    wide = [p for p in e1_dims if axis5.get(p, 0) >= AXIS5_THRESHOLD]  # 五轴≥9 宽池（保底用）
+    wide = [p for p in e1_dims if axis5.get(p, 0) >= AXIS5_THRESHOLD]
 
     pool = []
     in_pool = set()
@@ -116,12 +116,15 @@ def select_pool(e1_dims, axis5, meta, protocol):
         in_pool.add(pid)
 
     by_subj: dict[str, list[int]] = {}
-    for pid in wide:
+    for pid in elig:
         by_subj.setdefault(meta["subject"].get(pid, ""), []).append(pid)
     for s in by_subj:
         by_subj[s].sort(key=lambda p: -ccb[p])
     subj_added = []
-    for s, lst in by_subj.items():
+    subject_shortfalls = {}
+    all_subjects = sorted({meta["subject"].get(pid, "") for pid in e1_dims})
+    for s in all_subjects:
+        lst = by_subj.get(s, [])
         floor = max(DISC_MIN, TOP50_QUOTAS.get(s, DISC_MIN))
         cnt = sum(1 for p in lst if p in in_pool)
         for p in lst:
@@ -132,14 +135,19 @@ def select_pool(e1_dims, axis5, meta, protocol):
                 in_pool.add(p)
                 subj_added.append((p, s))
                 cnt += 1
+        if cnt < floor:
+            subject_shortfalls[s] = floor - cnt
 
     by_year: dict[str, list[int]] = {}
-    for pid in wide:
+    for pid in elig:
         by_year.setdefault(meta["year"].get(pid, ""), []).append(pid)
     for y in by_year:
         by_year[y].sort(key=lambda p: -ccb[p])
     year_added = []
-    for y, lst in by_year.items():
+    year_shortfalls = {}
+    all_years = sorted({meta["year"].get(pid, "") for pid in e1_dims})
+    for y in all_years:
+        lst = by_year.get(y, [])
         cnt = sum(1 for p in lst if p in in_pool)
         for p in lst:
             if cnt >= YEAR_MIN:
@@ -149,9 +157,13 @@ def select_pool(e1_dims, axis5, meta, protocol):
                 in_pool.add(p)
                 year_added.append((p, y))
                 cnt += 1
+        if cnt < YEAR_MIN:
+            year_shortfalls[y] = YEAR_MIN - cnt
 
     return pool, {"eligible": len(elig), "wide": len(wide), "ccb": ccb,
-                  "subj_added": subj_added, "year_added": year_added}
+                  "subj_added": subj_added, "year_added": year_added,
+                  "subject_shortfalls": subject_shortfalls,
+                  "year_shortfalls": year_shortfalls}
 
 
 def main():
@@ -178,6 +190,8 @@ def main():
     print(f"硬条件合格池(五轴≥9 且 ccb≥80): {stats['eligible']} (五轴≥9 宽池 {stats['wide']})")
     print(f"Top80 + 学科保底 {len(stats['subj_added'])} + 年度保底 {len(stats['year_added'])} "
           f"→ 最终池 {len(pool)} 篇")
+    print(f"允许的学科缺口: {stats['subject_shortfalls']}")
+    print(f"允许的年度缺口: {stats['year_shortfalls']}")
 
     records = []
     for pid in pool:

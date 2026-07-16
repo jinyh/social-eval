@@ -19,6 +19,7 @@ import statistics
 import sys
 import time
 from pathlib import Path
+from typing import Any
 
 # 确保项目根目录在 sys.path 中
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -178,6 +179,7 @@ async def run_convergence_test(
     dimension_keys: list[str] | None = None,
     include_precheck: bool = True,
     aggregation_mode: str = "mean",
+    provider_instances: list[Any] | None = None,
 ) -> dict:
     """运行完整的收敛测试
 
@@ -191,7 +193,7 @@ async def run_convergence_test(
     """
     framework = _load_framework_skip_validation(framework_path)
     paper = process_file(paper_path)
-    providers = create_providers(model_names)
+    providers = provider_instances or create_providers(model_names)
 
     # 确定要评估的维度
     if dimension_keys:

@@ -99,7 +99,12 @@ class CrossReviewService:
             raise ValueError(f"{provider.model_name} 缺少对方组第一轮意见")
         prompt = self.build_prompt(dimension, paper, self_result, opposite)
         started = time.time()
-        timeout = getattr(provider, "timeout", settings.provider_timeout)
+        configured_timeout = getattr(provider, "timeout", None)
+        timeout = (
+            configured_timeout
+            if isinstance(configured_timeout, (int, float))
+            else settings.provider_timeout
+        )
         async with self._semaphore:
             raw = await asyncio.wait_for(
                 provider.generate_json_response(prompt), timeout=timeout
