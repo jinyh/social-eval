@@ -185,3 +185,37 @@ async def test_cross_review_compacts_context_after_content_inspection_failure():
     assert outcome.raw_payload["_cross_review_metadata"][
         "content_inspection_fallback"
     ] is True
+
+
+@pytest.mark.asyncio
+async def test_cross_review_retries_response_without_revised_score():
+    class MissingScoreProvider(FakeCrossProvider):
+        calls = 0
+
+        async def generate_json_response(self, prompt: str) -> dict:
+            self.calls += 1
+            if self.calls == 1:
+                return {"revision_rationale": "缺少分数"}
+            return await super().generate_json_response(prompt)
+
+    service = CrossReviewService()
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    lenient = MissingScoreProvider("glm-5.1", 78)
+    strict = FakeCrossProvider("deepseek-v4-pro", 72)
+
+    outcomes = await service.evaluate_dimension(
+        [lenient, strict],
+        dimension,
+        ProcessedPaper(body="正文", full_text="正文", structure_status="detected"),
+        {
+            "glm-5.1": _r1("glm-5.1", 80),
+            "deepseek-v4-pro": _r1("deepseek-v4-pro", 70),
+        },
+    )
+
+    assert lenient.calls == 2
+    assert next(
+        item for item in outcomes if item.result.model_name == "glm-5.1"
+    ).result.score == 78

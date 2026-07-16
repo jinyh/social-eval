@@ -153,9 +153,17 @@ class CrossReviewService:
         for attempt in range(1, 4):
             try:
                 async with self._semaphore:
-                    raw = await asyncio.wait_for(
+                    candidate = await asyncio.wait_for(
                         provider.generate_json_response(prompt), timeout=timeout
                     )
+                revised = candidate.get("revised_score")
+                if (
+                    isinstance(revised, bool)
+                    or not isinstance(revised, (int, float))
+                    or not 0 <= revised <= 100
+                ):
+                    raise ValueError(f"R2 revised_score 无效: {revised!r}")
+                raw = candidate
                 break
             except Exception as exc:  # noqa: BLE001 - 供应商瞬时错误需受控重试
                 last_error = exc
@@ -190,13 +198,7 @@ class CrossReviewService:
                     "original_error": str(content_inspection_error),
                 }
             )
-        revised = raw.get("revised_score")
-        if (
-            isinstance(revised, bool)
-            or not isinstance(revised, (int, float))
-            or not 0 <= revised <= 100
-        ):
-            raise ValueError(f"R2 revised_score 无效: {revised!r}")
+        revised = raw["revised_score"]
         if db is not None and task_id is not None:
             log_call(
                 db,
