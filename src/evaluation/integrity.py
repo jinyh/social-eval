@@ -21,6 +21,13 @@ from src.knowledge.registry import (
     load_scoring_protocol,
 )
 
+SIX_DIMENSION_MODELS = {
+    "deepseek-v4-pro",
+    "glm-5.1",
+    "kimi-k2.6",
+    "qwen3.6-plus",
+}
+
 
 def _csv_count(path: Path) -> int:
     with path.open(encoding="utf-8-sig", newline="") as handle:
@@ -42,10 +49,66 @@ def validate_e2_pool_records(records: list[dict[str, Any]]) -> list[str]:
     return errors
 
 
+def raw_payload_coverage(
+    payloads: list[dict[str, Any]],
+    dimension_keys: tuple[str, ...],
+    *,
+    mode: str,
+    expected_payload_count: int | None = None,
+) -> dict[str, int]:
+    """统计历史逐模型原始响应；与评分槽位完整性分开报告。"""
+
+    paper_count = len(payloads) if expected_payload_count is None else expected_payload_count
+    expected = paper_count * len(dimension_keys) * len(SIX_DIMENSION_MODELS)
+    present = 0
+    for payload in payloads:
+        dimensions = payload.get("dimensions", {})
+        if not isinstance(dimensions, dict):
+            dimensions = {}
+        for key in dimension_keys:
+            dimension = dimensions.get(key, {})
+            if not isinstance(dimension, dict):
+                continue
+            shared = dimension.get("raw_outputs", {})
+            shared = shared if isinstance(shared, dict) else {}
+            explicit_r2 = dimension.get("round2_raw_outputs", {})
+            explicit_r2 = explicit_r2 if isinstance(explicit_r2, dict) else {}
+            if mode == "shared":
+                raw = shared
+            elif mode == "explicit_r2":
+                raw = explicit_r2
+            elif mode == "e2_r2":
+                # 新格式完整保存 round2_raw_outputs；旧格式把 R2 放在
+                # raw_outputs，补测槽位另写 round2_raw_outputs。
+                raw = (
+                    explicit_r2
+                    if SIX_DIMENSION_MODELS.issubset(explicit_r2)
+                    else shared | explicit_r2
+                )
+            else:
+                raise ValueError(f"未知原始响应统计模式: {mode}")
+            present += sum(
+                isinstance(raw.get(model), dict) for model in SIX_DIMENSION_MODELS
+            )
+    return {"expected": expected, "present": present, "missing": expected - present}
+
+
+def _load_json_paths(paths: list[Path]) -> list[dict[str, Any]]:
+    return [
+        json.loads(path.read_text(encoding="utf-8")) for path in paths if path.exists()
+    ]
+
+
 def audit_active_results(project_root: Path) -> dict[str, Any]:
     """只读审计注册框架、数据集摘要、排名和可用逐篇结果。"""
 
     root = project_root.resolve()
+    six_dimension_keys = tuple(
+        dimension.key
+        for dimension in load_framework(
+            root / "configs/frameworks/law-v2.55-cross-review.yaml"
+        ).dimensions
+    )
     errors: list[str] = []
     warnings: list[str] = []
     registry_path = root / "configs/frameworks/registry.yaml"
@@ -160,6 +223,72 @@ def audit_active_results(project_root: Path) -> dict[str, Any]:
         if missing_files:
             errors.append(f"{target_key}: {missing_files} 个逐篇文件缺失")
 
+    raw_payload_slots: dict[str, dict[str, dict[str, int]]] = {}
+    for dataset in ("three-journals", "jiaodafaxue", "xueshuyuekan"):
+        base = (
+            root
+            / "results/datasets"
+            / dataset
+            / "six-dimension/phase2-r2-v2.55"
+        )
+        per_paper_paths = sorted((base / "per-paper").glob("paper-*.json"))
+        if dataset == "xueshuyuekan":
+            r1_payloads = _load_json_paths(per_paper_paths)
+            r1_mode = "shared"
+            r2_payloads = r1_payloads
+            r2_mode = "explicit_r2"
+        else:
+            r1_paths = sorted((base / "audit/round1-standalone").glob("paper-*.json"))
+            r1_paths.extend(sorted((base / "audit/round1-errors").glob("*/paper-*.json")))
+            r1_payloads = _load_json_paths(r1_paths)
+            r1_mode = "shared"
+            r2_payloads = _load_json_paths(per_paper_paths)
+            r2_mode = "shared"
+        raw_payload_slots[dataset] = {
+            "round1": raw_payload_coverage(
+                r1_payloads,
+                six_dimension_keys,
+                mode=r1_mode,
+                expected_payload_count=datasets[dataset]["six_dimension"],
+            ),
+            "round2": raw_payload_coverage(
+                r2_payloads,
+                six_dimension_keys,
+                mode=r2_mode,
+                expected_payload_count=datasets[dataset]["six_dimension"],
+            ),
+        }
+
+    e2_ids = sorted(pool_ids)
+    e2_base = root / "results/rankings/e2-ccb-v5/per-paper"
+    e2_r1 = _load_json_paths(
+        [e2_base / "round1" / f"paper-{pid}.json" for pid in e2_ids]
+    )
+    e2_r2 = _load_json_paths(
+        [e2_base / "round2" / f"paper-{pid}.json" for pid in e2_ids]
+    )
+    raw_payload_slots["e2"] = {
+        "round1": raw_payload_coverage(
+            e2_r1,
+            six_dimension_keys,
+            mode="shared",
+            expected_payload_count=len(e2_ids),
+        ),
+        "round2": raw_payload_coverage(
+            e2_r2,
+            six_dimension_keys,
+            mode="e2_r2",
+            expected_payload_count=len(e2_ids),
+        ),
+    }
+    for dataset, rounds in raw_payload_slots.items():
+        for round_name, coverage in rounds.items():
+            if coverage["missing"]:
+                warnings.append(
+                    f"{dataset}.{round_name}: {coverage['missing']} 个历史原始响应缺失；"
+                    "评分槽位完整性不受影响"
+                )
+
     return {
         "valid": not errors,
         "errors": errors,
@@ -172,6 +301,7 @@ def audit_active_results(project_root: Path) -> dict[str, Any]:
         "datasets": datasets,
         "per_paper_counts": per_paper_counts,
         "score_slots": score_slots,
+        "raw_payload_slots": raw_payload_slots,
         "e2": {
             "pool_count": len(pool),
             "ranking_count": len(ranking["papers"]),
