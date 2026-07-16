@@ -198,7 +198,7 @@ SMTP_FROM=noreply@socialeval.local
 **权威数据源**：
 - ✅ `results/datasets/three-journals/metadata.csv`（1920 条）：论文元数据（标题、期刊、年份、作者等），**这是权威来源**
 - ✅ `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-{id}.json`（1920 个文件）：评审结果，ID 与 CSV 一致
-- ✅ `results/rankings/e2-ccb-v5/ranking.json`（110 条）：E2 候选池真源；五轴≥9 且 E1(core_ceiling_bonus)≥80，Top80 + 学科保底 max(5,Top50配额) + 年≥5；E1 候选选取与 E2 重排名均用 core_ceiling_bonus
+- ✅ `results/rankings/e2-ccb-v5/ranking.json`（105 条）：E2 候选池真源；五轴≥9 且 E1(core_ceiling_bonus)≥80，Top80 + 学科保底 max(5,Top50配额) + 年≥5；E1 候选选取与 E2 重排名均用 core_ceiling_bonus
 
 **常见错误**：
 - ❌ **错误示例**：使用错误的 ID 映射导致 paper-1238（"债权人代位权的类型化构造"，2024年）的分数被标到"党政体制如何塑造基层执法"（paper-1244，2017年）上
@@ -633,33 +633,33 @@ results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
 **学科分类口径**：`results/datasets/three-journals/classification.csv` 的 **专家分类（33 篇专家纠正）优先 → 否则原分类**。
 AI 主分类（6 轮迭代产物）因过度归并到法学理论等可疑归类，已被弃用并从该文件删除相关列。
 
-**实际结果**（2026-07-12 ccb 重选，原分类+专家分类）：
+**实际结果**（2026-07-16 严格门槛重建，原分类+专家分类）：
 
-- 全库满足硬条件（五轴≥9 且 ccb≥80）：**637 篇**（旧简单均值口径 421 篇 → ccb 拯救核心四维强但前瞻/共识一般的论文）
+- 全库满足硬条件（五轴≥9 且 ccb≥80）：**638 篇**（旧简单均值口径 421 篇 → ccb 拯救核心四维强但前瞻/共识一般的论文）
 - Top 80 直接入选：80 篇
-- 学科保底补入：26 篇
+- 学科保底补入：21 篇
 - 年度保底补入：4 篇
-- **最终池：110 篇**（旧 117 篇简单均值池 → ccb 110 篇，新增 30 / 剔除 37）
-- 池内 ranking：`weighted_score` = core_ceiling_bonus(median 池化六维)，区间 ~60–93.97
+- **最终池：105 篇**（相对 2026-07-12 的 110 篇池新增 4、剔除 9）
+- 池内 ranking：`weighted_score` = core_ceiling_bonus(median 池化六维)，区间 83.59–94.32
 
 **Top50 比例配额**（按全库 1920 篇学科比例分配，池内按 ccb 选取）：
 
 - 配额：民商12/刑法9/宪法6/诉讼6/法理6/知产2/国际2/环境2/经济2/法律史2/党内1 = 50
-- Top50 score 区间 86.24–93.97，**无 underflow**
+- Top50 score 区间 86.24–94.32，**无 underflow**
 
 **关键文件**：
 
-- 候选池 ranking：`results/rankings/e2-ccb-v5/ranking.json`（110 篇，E1+E2 median 聚合 + ccb 总分）
-- 入池选择清单：`results/rankings/e2-ccb-v5/pool.json`（110 篇，e1_score=E1-only ccb）
-- E2 评测原始数据：`results/rankings/e2-ccb-v5/per-paper/round1/` + `round2/`（110 篇 E2，本地忽略）
+- 候选池 ranking：`results/rankings/e2-ccb-v5/ranking.json`（105 篇，E1+E2 median 聚合 + ccb 总分）
+- 入池选择清单：`results/rankings/e2-ccb-v5/pool.json`（105 篇，e1_score=E1-only ccb）
+- E2 评测原始数据：`results/rankings/e2-ccb-v5/per-paper/round1/` + `round2/`（当前池 105 篇；目录另保留 9 篇已出池历史结果，本地忽略）
 - 学科分类：`results/datasets/three-journals/classification.csv`（原分类 + 专家分类）
 - 重选/重建脚本：`scripts/reselect_e2_pool_ccb.py`（E1 ccb 重选）、`scripts/rebuild_ranking_v5_ccb.py`（E2 ccb 重排名）、`scripts/rebuild_top50_proportional_ccb.py`（Top50）
-- E2 补跑脚本：`scripts/e2_new_supplement.py`（5 论文并发，断点续传）
+- E2 补跑脚本：`scripts/e2_new_supplement.py`（默认 4 论文并发、API 全局并发上限 5、断点续传）
 - 专家审阅展示清单：`results/rankings/e2-ccb-v5/top50-proportional.json` + `results/rankings/e2-ccb-v5/top50-ccb-list.md`
 
 **历史口径（已废弃）**：
 
-- 旧 E2-Top102（v5，2026-06-15）：102 篇，E1 用六维简单算术平均；2026-07-12 切 ccb 后调整为 110 篇
+- 旧 E2-Top102（v5，2026-06-15）：102 篇，E1 用六维简单算术平均；2026-07-12 切 ccb 后调整为 110 篇，2026-07-16 严格门槛重建为 105 篇
 - 旧 Top102/Top101 目录：旧 E2 数据与候选池，已迁入冷归档并由当前排名目录取代
 - v3/v4 旧候选池 ranking：101 篇，使用旧分类与简单加权和，仅供冷归档追溯
 - E3 选择性补测（45 篇）：已弃用（E1+E2 已收敛，高分歧交专家终审）

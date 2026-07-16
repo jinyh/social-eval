@@ -41,7 +41,7 @@ SocialEval 声称的是另一件事：**每一个分数都能被第三方完整�
 
 以下能力已在设计中存在，是本系统的真亮点，汇报时应敢讲：
 
-1. **AI 调用全留痕**——输入/输出/时间戳/模型名自动持久化（CLAUDE.md 已列为硬约束），不只存最终结果。
+1. **AI 调用留痕机制**——当前代码要求输入/输出/时间戳/模型名持久化，不只存最终结果；历史批次仍有原始响应缺口，准确数量以 `results/reports/current/framework-code-result-integrity.json` 为准，不应表述为历史数据已 100% 全留痕。
 2. **per 维度 per 模型分数 + std**——`results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-*.json` 的 `dimensions[*]` 含 `round1_scores`、`round2_scores`、`changes`、`raw_outputs`，评分者间信度可见。
 3. **R2 交叉评审 changes 记录**——A 组看 B 组、B 组看 A 组后的调整轨迹可追溯，锚定效应（如 DeepSeek 顽固性）可被识别为设计行为而非 bug。
 4. **五轴证据等级量尺**——0-1-2 每一分必须对应原文证据或知识树位置（`evidence_quotes` + `rationale`），抑制模型滑回质量判断。
