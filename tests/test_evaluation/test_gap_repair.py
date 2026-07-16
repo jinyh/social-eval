@@ -1,3 +1,4 @@
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -175,6 +176,21 @@ def test_scan_standard_result_reports_only_missing_score_slots(tmp_path: Path) -
         (2, "kimi-k2.6"),
         (2, "qwen3.6-plus"),
     }
+
+
+def test_scan_reports_all_slots_when_an_expected_dimension_is_missing(
+    tmp_path: Path,
+) -> None:
+    target = replace(
+        target_registry(tmp_path)["three-journals-six"],
+        expected_dimensions=("problem_originality", "literature_insight"),
+    )
+
+    gaps = scan_six_dimension_gaps(target, 344, _standard_result())
+
+    missing_dimension = [gap for gap in gaps if gap.dimension == "literature_insight"]
+    assert len(missing_dimension) == 8
+    assert {gap.reason for gap in missing_dimension} == {"missing_dimension"}
 
 
 def test_scan_legacy_e2_r1_uses_model_scores(tmp_path: Path) -> None:

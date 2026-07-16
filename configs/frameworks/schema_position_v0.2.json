@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["metadata", "scale", "axes", "strength_bands", "research_routes", "round2", "prompt_templates", "output_contract"],
+  "properties": {
+    "metadata": {"type": "object", "required": ["name", "discipline", "version", "status"]},
+    "scale": {"type": "object", "required": ["axis_min", "axis_max", "total_min", "total_max"]},
+    "axes": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"type": "object", "required": ["key", "name_zh"]}
+    },
+    "strength_bands": {"type": "array", "minItems": 1},
+    "research_routes": {"type": "array", "minItems": 1, "uniqueItems": true},
+    "round2": {"type": "object", "required": ["policies", "modes", "severe_dispute_axes", "aggregation"]},
+    "prompt_templates": {"type": "object", "required": ["round1_instructions", "round2_instructions", "light_round2_instructions"]},
+    "output_contract": {"type": "object", "required": ["required"]}
+  }
+}

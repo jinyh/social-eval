@@ -33,11 +33,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-import yaml
-
 from src.evaluation.providers.zenmux_provider import ZenmuxProvider
-from src.knowledge.loader import _normalize_framework_data, DEFAULT_STD_THRESHOLD
-from src.knowledge.schemas import Framework
+from src.knowledge.loader import load_framework
 
 DIMENSION_ORDER = [
     "problem_originality",
@@ -59,10 +56,7 @@ def load_test_result(path: str) -> dict:
 
 
 def load_framework_yaml(path: str) -> dict:
-    data = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
-    if "std_threshold" not in data:
-        data["std_threshold"] = DEFAULT_STD_THRESHOLD
-    return data
+    return load_framework(path).raw_config
 
 
 def extract_dimension_prompt(yaml_data: dict, dim_key: str) -> str | None:

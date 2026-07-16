@@ -27,9 +27,8 @@ from scripts.run_convergence_test import run_convergence_test
 from scripts.run_cross_review import build_cross_review_prompt, A_GROUP, B_GROUP
 from src.evaluation.providers.factory import create_providers
 from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import _normalize_framework_data, DEFAULT_STD_THRESHOLD
+from src.knowledge.loader import load_framework as load_validated_framework
 from src.knowledge.schemas import Framework
-import yaml
 
 # === 配置 ===
 FRAMEWORK_PATH = "configs/frameworks/law-v2.55-cross-review.yaml"
@@ -47,10 +46,7 @@ log = logging.getLogger("e2-new-supplement")
 
 
 def load_framework():
-    data = yaml.safe_load(Path(FRAMEWORK_PATH).read_text(encoding="utf-8"))
-    if "std_threshold" not in data:
-        data["std_threshold"] = DEFAULT_STD_THRESHOLD
-    return Framework(**_normalize_framework_data(data))
+    return load_validated_framework(FRAMEWORK_PATH)
 
 
 def get_pdf_path(pid: int) -> str:

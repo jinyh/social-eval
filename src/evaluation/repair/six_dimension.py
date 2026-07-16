@@ -46,12 +46,15 @@ def scan_six_dimension_gaps(
     rounds = (target.round_number,) if target.family == "e2" else (1, 2)
     dimensions = result.get("dimensions", {})
     if not isinstance(dimensions, Mapping):
-        return []
+        dimensions = {}
 
     gaps: list[Gap] = []
-    for dimension_key, dimension in dimensions.items():
-        if not isinstance(dimension, Mapping):
-            continue
+    dimension_keys = target.expected_dimensions or tuple(str(key) for key in dimensions)
+    for dimension_key in dimension_keys:
+        dimension = dimensions.get(dimension_key)
+        missing_dimension = not isinstance(dimension, Mapping)
+        if missing_dimension:
+            dimension = {}
         for round_number in rounds:
             if round_number is None:
                 continue
@@ -60,7 +63,10 @@ def scan_six_dimension_gaps(
                 value = scores.get(model)
                 if is_valid_score(value):
                     continue
-                reason = "missing_score" if model not in scores else "invalid_score"
+                if missing_dimension:
+                    reason = "missing_dimension"
+                else:
+                    reason = "missing_score" if model not in scores else "invalid_score"
                 gaps.append(
                     Gap(
                         target_key=target.key,
@@ -280,4 +286,3 @@ def recompute_result_statistics(
     overall["round1_final_score_mean"] = round(statistics.mean(all_r1), 2) if all_r1 else 0
     overall["round2_final_score_mean"] = round(statistics.mean(all_r2), 2) if all_r2 else 0
     return recomputed
-

@@ -27,12 +27,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from src.evaluation.prompt_builder import build_prompt, build_precheck_prompt
 from src.evaluation.providers.factory import create_providers
 from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import _normalize_framework_data, DEFAULT_STD_THRESHOLD
+from src.knowledge.loader import load_framework
 from src.knowledge.schemas import Framework
 from src.reporting.scoring import calculate_weighted_total
-
-import yaml
-import jsonschema
 
 
 def aggregate_scores(model_scores: dict[str, float], mode: str) -> dict:
@@ -170,12 +167,8 @@ async def run_precheck(providers, framework, paper) -> dict:
 
 
 def _load_framework_skip_validation(framework_path: str) -> Framework:
-    """加载框架但跳过 schema 验证（YAML 可能缺少部分 schema 必需字段）"""
-    data = yaml.safe_load(Path(framework_path).read_text(encoding="utf-8"))
-    if "std_threshold" not in data:
-        data["std_threshold"] = DEFAULT_STD_THRESHOLD
-    normalized = _normalize_framework_data(data)
-    return Framework(**normalized)
+    """兼容旧函数名；所有活跃框架均执行 schema 验证。"""
+    return load_framework(framework_path)
 
 
 async def run_convergence_test(

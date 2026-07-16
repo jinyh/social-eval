@@ -78,8 +78,23 @@ def build_audit_manifest(
     sources: dict[str, dict[str, Any]] = {}
     target_file_counts: Counter[str] = Counter()
     target_gap_counts: Counter[str] = Counter()
+    structure_errors: list[dict[str, Any]] = []
     for target_key in target_keys:
         target = registry[target_key]
+        expected_ids = set(target.expected_paper_ids)
+        if paper_ids is not None:
+            expected_ids &= paper_ids
+        existing_ids = {
+            _paper_id(path) for path in target.per_paper_dir.glob("paper-*.json")
+        }
+        for missing_id in sorted(expected_ids - existing_ids):
+            structure_errors.append(
+                {
+                    "target_key": target_key,
+                    "paper_id": missing_id,
+                    "reason": "missing_result_file",
+                }
+            )
         for path in sorted(target.per_paper_dir.glob("paper-*.json")):
             pid = _paper_id(path)
             if paper_ids is not None and pid not in paper_ids:
@@ -118,11 +133,13 @@ def build_audit_manifest(
         "summary": {
             "source_file_count": len(sources),
             "gap_count": len(gaps),
+            "missing_file_count": len(structure_errors),
             "files_by_target": dict(target_file_counts),
             "gaps_by_target": dict(target_gap_counts),
         },
         "sources": sources,
         "gaps": gaps,
+        "structure_errors": structure_errors,
     }
 
 
@@ -150,9 +167,10 @@ def command_audit(args: argparse.Namespace) -> int:
     print(f"审计文件：{manifest_path}")
     print(f"源文件：{manifest['summary']['source_file_count']}")
     print(f"缺失槽位：{manifest['summary']['gap_count']}")
+    print(f"结构错误：{manifest['summary']['missing_file_count']}")
     for key, count in manifest["summary"]["gaps_by_target"].items():
         print(f"  {key}: {count}")
-    return 0
+    return 1 if manifest["structure_errors"] else 0
 
 
 def _load_manifest(path: Path) -> dict[str, Any]:

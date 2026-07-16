@@ -174,6 +174,35 @@ def test_audit_manifest_scans_partial_file_instead_of_skipping_it(
     assert manifest["sources"]["three-journals-six:344"]["sha256"]
 
 
+def test_audit_manifest_reports_expected_paper_file_that_is_entirely_missing(
+    tmp_path: Path,
+) -> None:
+    target_dir = (
+        tmp_path
+        / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper"
+    )
+    target_dir.mkdir(parents=True)
+    summary = target_dir.parent / "summary.csv"
+    summary.write_text("paper_id,ccb_score\n1,80\n2,81\n", encoding="utf-8")
+    (target_dir / "paper-1.json").write_text(
+        json.dumps({"dimensions": {}}, ensure_ascii=False), encoding="utf-8"
+    )
+
+    manifest = build_audit_manifest(
+        tmp_path,
+        target_keys=["three-journals-six"],
+    )
+
+    assert manifest["summary"]["missing_file_count"] == 1
+    assert manifest["structure_errors"] == [
+        {
+            "target_key": "three-journals-six",
+            "paper_id": 2,
+            "reason": "missing_result_file",
+        }
+    ]
+
+
 def test_staged_result_path_is_namespaced_by_target(tmp_path: Path) -> None:
     path = staged_result_path(tmp_path, "e2-r2", 205)
 

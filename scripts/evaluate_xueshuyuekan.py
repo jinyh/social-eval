@@ -44,11 +44,10 @@ from src.evaluation.prompt_builder import (
 )
 from src.evaluation.providers.factory import create_providers
 from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import _normalize_framework_data, DEFAULT_STD_THRESHOLD
+from src.knowledge.loader import load_framework as load_validated_framework
 from src.knowledge.schemas import Framework
 from src.reporting.scoring import calculate_weighted_total
 
-import yaml
 
 # ── 常量 ──
 
@@ -75,12 +74,8 @@ def setup_logging(output_dir: Path) -> logging.Logger:
 
 
 def load_framework(framework_path: str) -> Framework:
-    """加载框架配置（跳过 schema 验证）"""
-    data = yaml.safe_load(Path(framework_path).read_text(encoding="utf-8"))
-    if "std_threshold" not in data:
-        data["std_threshold"] = DEFAULT_STD_THRESHOLD
-    normalized = _normalize_framework_data(data)
-    return Framework(**normalized)
+    """加载并校验框架配置。"""
+    return load_validated_framework(framework_path)
 
 
 def generate_paper_list(input_dir: str) -> list[dict]:

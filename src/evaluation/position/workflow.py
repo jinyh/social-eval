@@ -34,7 +34,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -50,6 +49,7 @@ from src.knowledge.law_ontology import (  # noqa: E402
     write_law_ontology,
 )
 from src.knowledge.node_retrieval import RetrievedNode, retrieve_nodes  # noqa: E402
+from src.knowledge.registry import load_position_framework  # noqa: E402
 
 RANKING_PATH = Path("results/rankings/e2-ccb-v5/ranking.json")
 METADATA_PATH = Path("results/datasets/three-journals/metadata.csv")
@@ -62,8 +62,7 @@ CONCURRENT_PAPERS = 5
 MAX_TEXT_CHARS = 50_000
 MAX_KNOWLEDGE_CHARS = 45_000
 
-POSITION_CONFIG_PATH = PROJECT_ROOT / "configs/frameworks/law-position-v0.2.yaml"
-POSITION_CONFIG = yaml.safe_load(POSITION_CONFIG_PATH.read_text(encoding="utf-8"))
+POSITION_CONFIG = load_position_framework()
 ROUTE_VALUES = tuple(POSITION_CONFIG["research_routes"])
 AXIS_KEYS = tuple(axis["key"] for axis in POSITION_CONFIG["axes"])
 SEVERE_DISPUTE_AXES = set(POSITION_CONFIG["round2"]["severe_dispute_axes"])

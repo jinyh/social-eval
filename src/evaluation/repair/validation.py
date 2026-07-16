@@ -101,6 +101,12 @@ def validate_staged(project_root: Path, output_dir: Path) -> dict[str, Any]:
     unresolved: list[str] = []
     checked: list[dict[str, Any]] = []
     sources = manifest.get("sources", {})
+    for error in manifest.get("structure_errors", []):
+        errors.append(
+            "结构错误："
+            f"{error.get('target_key')}:paper-{error.get('paper_id')}:"
+            f"{error.get('reason')}"
+        )
     staged_index: dict[tuple[str, int], Path] = {}
     for entry in run_report.get("staged_files", []):
         key = (entry["target_key"], int(entry["paper_id"]))

@@ -50,10 +50,7 @@ from scripts.run_cross_review import (
 )
 from src.evaluation.providers.factory import create_providers
 from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import _normalize_framework_data
-from src.knowledge.schemas import Framework
-
-import yaml
+from src.knowledge.loader import load_framework
 
 
 # 配置日志
@@ -305,10 +302,7 @@ async def process_batch(
     logger.info(f"[批次 {batch_num}] Round 2 开始...")
 
     # 加载框架和 providers
-    with open(framework_path, 'r', encoding='utf-8') as f:
-        framework_data = yaml.safe_load(f)
-    framework_data = _normalize_framework_data(framework_data)
-    framework = Framework(**framework_data)
+    framework = load_framework(framework_path)
 
     providers_list = create_providers(models)
     providers = {p.model_name: p for p in providers_list}

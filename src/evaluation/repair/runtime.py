@@ -10,8 +10,6 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
-import yaml
-
 from scripts.run_cross_review import A_GROUP, B_GROUP, build_cross_review_prompt
 from src.evaluation.position.workflow import (
     build_light_round2_prompt,
@@ -39,7 +37,7 @@ from src.evaluation.repair.six_dimension import (
     round_scores,
 )
 from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import DEFAULT_STD_THRESHOLD, _normalize_framework_data
+from src.knowledge.loader import load_framework
 from src.knowledge.schemas import Framework
 
 FRAMEWORK_RELATIVE_PATH = Path("configs/frameworks/law-v2.55-cross-review.yaml")
@@ -48,12 +46,7 @@ CONTENT_INSPECTION_TAIL_CHARS = 7_000
 
 
 def _load_framework(project_root: Path) -> Framework:
-    data = yaml.safe_load(
-        (project_root / FRAMEWORK_RELATIVE_PATH).read_text(encoding="utf-8")
-    )
-    if "std_threshold" not in data:
-        data["std_threshold"] = DEFAULT_STD_THRESHOLD
-    return Framework(**_normalize_framework_data(data))
+    return load_framework(project_root / FRAMEWORK_RELATIVE_PATH)
 
 
 def _resolve_project_path(project_root: Path, path_value: str) -> Path:

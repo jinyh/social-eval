@@ -28,10 +28,8 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.evaluation.providers.factory import create_providers
 from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import _normalize_framework_data, DEFAULT_STD_THRESHOLD
+from src.knowledge.loader import load_framework
 from src.knowledge.schemas import Framework
-
-import yaml
 
 # 模型分组
 A_GROUP = ['glm-5.1', 'qwen3.6-plus']
@@ -427,11 +425,7 @@ async def evaluate_paper_cross_review(
 
 def _load_framework(framework_path: str) -> Framework:
     """加载框架配置"""
-    data = yaml.safe_load(Path(framework_path).read_text(encoding="utf-8"))
-    if "std_threshold" not in data:
-        data["std_threshold"] = DEFAULT_STD_THRESHOLD
-    normalized = _normalize_framework_data(data)
-    return Framework(**normalized)
+    return load_framework(framework_path)
 
 
 async def main():

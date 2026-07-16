@@ -26,6 +26,8 @@ class RepairTarget:
     family: ResultFamily
     per_paper_dir: Path
     round_number: int | None = None
+    expected_dimensions: tuple[str, ...] = ()
+    expected_paper_ids: tuple[int, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,4 +49,3 @@ class Gap:
             f"{self.target_key}:{self.paper_id}:{self.dimension}:"
             f"r{self.round_number}:{self.model}"
         )
-

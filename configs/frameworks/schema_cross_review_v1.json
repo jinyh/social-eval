@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["metadata", "model_groups", "execution", "unresolved_disagreement", "prompt_template", "output_contract"],
+  "properties": {
+    "metadata": {"type": "object", "required": ["name", "version", "status", "methodology_source"]},
+    "model_groups": {
+      "type": "object",
+      "required": ["lenient", "strict"],
+      "properties": {
+        "lenient": {"type": "array", "minItems": 1, "uniqueItems": true},
+        "strict": {"type": "array", "minItems": 1, "uniqueItems": true}
+      }
+    },
+    "execution": {"type": "object", "required": ["rounds", "max_api_concurrency", "require_opposite_group_review"]},
+    "unresolved_disagreement": {
+      "type": "object",
+      "required": ["std_threshold", "action"],
+      "properties": {
+        "std_threshold": {"type": "number", "exclusiveMinimum": 0},
+        "action": {"const": "expert_review"}
+      }
+    },
+    "prompt_template": {"type": "string", "minLength": 1},
+    "output_contract": {"type": "object", "required": ["required", "change_direction", "revised_band", "confidence"]}
+  }
+}

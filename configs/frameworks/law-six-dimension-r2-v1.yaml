@@ -1,0 +1,45 @@
+metadata:
+  name: 六维交叉评审协议
+  version: "1.0"
+  status: production
+  methodology_source: docs/evaluation/law-ai-assisted-review-rules-v0.17.md
+model_groups:
+  lenient: [glm-5.1, qwen3.6-plus]
+  strict: [deepseek-v4-pro, kimi-k2.6]
+execution:
+  rounds: 2
+  max_api_concurrency: 5
+  require_opposite_group_review: true
+unresolved_disagreement:
+  std_threshold: 8
+  action: expert_review
+prompt_template: |-
+  你是一位法学论文评审专家。请针对【{dimension_name}】重新阅读论文，审视自己的第一轮评价，并参考对方组的第一轮意见。
+
+  【你的第一轮评价】
+  {self_review}
+
+  【对方组第一轮评价】
+  {opposite_reviews}
+
+  【论文正文】
+  {paper_content}
+
+  只在证据支持时调整评分；不同意对方时必须给出可复核理由。严格按 JSON 契约输出。
+output_contract:
+  required:
+    - original_score
+    - revised_score
+    - score_changed
+    - change_direction
+    - change_magnitude
+    - revised_band
+    - revised_core_judgment
+    - revision_rationale
+    - accepted_points
+    - rejected_points
+    - new_evidence_found
+    - confidence
+  change_direction: [up, down, unchanged]
+  revised_band: [excellent, good, marginal, unacceptable]
+  confidence: [high, medium, low]
