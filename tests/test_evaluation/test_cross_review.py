@@ -145,3 +145,43 @@ async def test_cross_review_normalizes_non_list_evidence_to_empty_list():
 
     outcome = next(item for item in outcomes if item.result.model_name == "glm-5.1")
     assert outcome.result.evidence_quotes == []
+
+
+@pytest.mark.asyncio
+async def test_cross_review_compacts_context_after_content_inspection_failure():
+    class ContentInspectionProvider(FakeCrossProvider):
+        calls = 0
+
+        async def generate_json_response(self, prompt: str) -> dict:
+            self.calls += 1
+            if self.calls == 1:
+                raise RuntimeError("data_inspection_failed")
+            assert "内容审查重试：中间论证已省略" in prompt
+            return await super().generate_json_response(prompt)
+
+    service = CrossReviewService()
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    lenient = ContentInspectionProvider("glm-5.1", 78)
+    strict = FakeCrossProvider("deepseek-v4-pro", 72)
+
+    outcomes = await service.evaluate_dimension(
+        [lenient, strict],
+        dimension,
+        ProcessedPaper(
+            body="甲" * 20_000,
+            full_text="甲" * 20_000,
+            structure_status="detected",
+        ),
+        {
+            "glm-5.1": _r1("glm-5.1", 80),
+            "deepseek-v4-pro": _r1("deepseek-v4-pro", 70),
+        },
+    )
+
+    outcome = next(item for item in outcomes if item.result.model_name == "glm-5.1")
+    assert lenient.calls == 2
+    assert outcome.raw_payload["_cross_review_metadata"][
+        "content_inspection_fallback"
+    ] is True

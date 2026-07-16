@@ -75,6 +75,29 @@ class CrossReviewService:
             opposite_reviews=[result.model_dump() for result in opposite_results],
         )
 
+    def _compact_paper_for_content_inspection(
+        self, paper: ProcessedPaper
+    ) -> ProcessedPaper:
+        fallback = self.protocol["execution"].get("content_inspection_fallback", {})
+        head_chars = int(fallback.get("head_chars", 3_000))
+        tail_chars = int(fallback.get("tail_chars", 7_000))
+        content = paper.body or paper.full_text or ""
+        if len(content) <= head_chars + tail_chars:
+            compact = content
+        else:
+            compact = (
+                content[:head_chars]
+                + "\n\n……（内容审查重试：中间论证已省略）……\n\n"
+                + content[-tail_chars:]
+            )
+        return paper.model_copy(
+            update={
+                "body": compact,
+                "full_text": compact,
+                "introduction": paper.introduction[:2_000],
+            }
+        )
+
     def render_prompt(
         self,
         *,
@@ -126,6 +149,7 @@ class CrossReviewService:
         )
         raw: dict[str, Any] | None = None
         last_error: Exception | None = None
+        content_inspection_error: Exception | None = None
         for attempt in range(1, 4):
             try:
                 async with self._semaphore:
@@ -135,12 +159,37 @@ class CrossReviewService:
                 break
             except Exception as exc:  # noqa: BLE001 - 供应商瞬时错误需受控重试
                 last_error = exc
+                normalized_error = str(exc).lower()
+                fallback = self.protocol["execution"].get(
+                    "content_inspection_fallback", {}
+                )
+                if (
+                    fallback.get("enabled", True)
+                    and content_inspection_error is None
+                    and (
+                        "datainspectionfailed" in normalized_error
+                        or "data_inspection_failed" in normalized_error
+                    )
+                ):
+                    content_inspection_error = exc
+                    compact_paper = self._compact_paper_for_content_inspection(paper)
+                    prompt = self.build_prompt(
+                        dimension, compact_paper, self_result, opposite
+                    )
                 if attempt < 3:
                     await asyncio.sleep(0.5 * attempt)
         if raw is None:
             raise RuntimeError(
                 f"R2 模型 {provider.model_name} 连续失败 3 次: {last_error}"
             ) from last_error
+        if content_inspection_error is not None:
+            raw.setdefault("_cross_review_metadata", {}).update(
+                {
+                    "content_inspection_fallback": True,
+                    "context_strategy": "abstract_head_tail",
+                    "original_error": str(content_inspection_error),
+                }
+            )
         revised = raw.get("revised_score")
         if (
             isinstance(revised, bool)
