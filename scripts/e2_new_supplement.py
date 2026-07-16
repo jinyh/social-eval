@@ -7,7 +7,7 @@
     uv run python scripts/e2_new_supplement.py --pids 56 124 295
 
 特性:
-    - 5 篇论文并发执行（可 --concurrency 调整）
+    - 默认 4 篇论文并发执行（可 --concurrency 调整）
     - 断点续传: 已完成的 round1/round2 自动跳过
     - 输出到 results/rankings/e2-ccb-v5/per-paper/round1/ 和 round2/
 """
@@ -24,13 +24,15 @@ from typing import Any
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from scripts.run_convergence_test import run_convergence_test
-from src.evaluation.cross_review import CrossReviewService
-from src.evaluation.providers.factory import create_providers
-from src.evaluation.schemas import DimensionResult
-from src.ingestion.preprocessor import process_file
-from src.knowledge.loader import load_framework as load_validated_framework
-from src.knowledge.schemas import Framework
+from scripts.run_convergence_test import run_convergence_test  # noqa: E402
+from src.evaluation.cross_review import CrossReviewService  # noqa: E402
+from src.evaluation.providers.factory import create_providers  # noqa: E402
+from src.evaluation.schemas import DimensionResult  # noqa: E402
+from src.ingestion.preprocessor import process_file  # noqa: E402
+from src.knowledge.loader import (  # noqa: E402
+    load_framework as load_validated_framework,
+)
+from src.knowledge.schemas import Framework  # noqa: E402
 
 # === 配置 ===
 FRAMEWORK_PATH = "configs/frameworks/law-v2.55-cross-review.yaml"
@@ -300,7 +302,7 @@ async def main():
     total = len(pids)
 
     log.info("=" * 60)
-    log.info(f"E2 新候选池补跑开始")
+    log.info("E2 新候选池补跑开始")
     log.info(f"  框架: {FRAMEWORK_PATH}")
     log.info(f"  模型: {MODELS}")
     log.info(f"  待评测: {total} 篇")
@@ -336,7 +338,7 @@ async def main():
 
     log.info("")
     log.info("=" * 60)
-    log.info(f"E2 新候选池补跑完成")
+    log.info("E2 新候选池补跑完成")
     log.info(f"  成功: {success}/{total}")
     log.info(f"  失败: {len(failed)}/{total}")
     if failed:

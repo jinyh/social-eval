@@ -21,6 +21,57 @@ RANKING_DIR = PROJECT_ROOT / "results" / "rankings" / "e2-ccb-v5"
 RANKING_JSON = RANKING_DIR / "ranking.json"
 OLD_TOP50 = RANKING_DIR / "top50-proportional.json"
 OUT_JSON = OLD_TOP50
+OUT_MARKDOWN = RANKING_DIR / "top50-ccb-list.md"
+
+
+def _cell(value: object) -> str:
+    return str(value or "—").replace("|", "\\|").replace("\n", " ")
+
+
+def build_markdown(result: dict) -> str:
+    """从同一 Top50 结构生成专家审阅清单，避免 JSON/Markdown 漂移。"""
+
+    papers = result["papers"]
+    high, low = result["metadata"]["score_range"]
+    underflow = result["metadata"]["underflow"]
+    lines = [
+        "# E2-Top50 专家审阅清单（core_ceiling_bonus，E1+E2 median）",
+        "",
+        f"score 区间：{high} – {low}，共 {len(papers)} 篇，"
+        + (f"underflow：{underflow}。" if underflow else "无 underflow。"),
+        "",
+        "## 全表",
+        "",
+        "| # | pid | 刊物 | 年份 | 学科 | 作者 | 机构 | 题目 | ccb |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    for paper in papers:
+        lines.append(
+            "| {rank} | {pid} | {journal} | {year} | {category} | {author} | "
+            "{institution} | {title} | {score} |".format(
+                **{key: _cell(value) for key, value in paper.items()}
+            )
+        )
+    lines.extend(["", "## 按学科分组", ""])
+    for category, quota in result["discipline_quotas"].items():
+        members = [paper for paper in papers if paper["category"] == category]
+        lines.extend(
+            [
+                "",
+                f"### {category}（{len(members)}/{quota}）",
+                "",
+                "| # | pid | 刊物 | 年份 | 作者 | 机构 | 题目 | ccb |",
+                "|---|---|---|---|---|---|---|---|",
+            ]
+        )
+        for paper in members:
+            lines.append(
+                "| {rank} | {pid} | {journal} | {year} | {author} | "
+                "{institution} | {title} | {score} |".format(
+                    **{key: _cell(value) for key, value in paper.items()}
+                )
+            )
+    return "\n".join(lines) + "\n"
 
 
 def main():
@@ -107,7 +158,9 @@ def main():
         "papers": out_papers,
     }
     OUT_JSON.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    OUT_MARKDOWN.write_text(build_markdown(out), encoding="utf-8")
     print(f"已写入 {OUT_JSON.relative_to(PROJECT_ROOT)}（{len(out_papers)} 篇）")
+    print(f"已写入 {OUT_MARKDOWN.relative_to(PROJECT_ROOT)}")
     print(f"score 范围: {out['metadata']['score_range']}")
     if underflow:
         print(f"学科不足: {underflow}")

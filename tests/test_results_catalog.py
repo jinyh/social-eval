@@ -1,5 +1,6 @@
 import csv
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -35,8 +36,8 @@ def test_all_papers_ranking_has_canonical_and_deduplicated_views():
     assert len(historical["papers"]) == 1920
     assert len(analysis["papers"]) == 1916
     assert Counter(row["source"] for row in historical["papers"]) == {
-        "E1": 1810,
-        "E1+E2": 110,
+        "E1": 1815,
+        "E1+E2": 105,
     }
     assert max(row["ccb_score"] for row in historical["papers"]) <= 100
 
@@ -63,9 +64,24 @@ def test_e2_ranking_uses_complete_e1_e2_pool_for_every_dimension():
     assert {paper["pid"] for paper in ranking["papers"]} == {
         paper["id"] for paper in pool
     }
-    assert len(ranking["papers"]) == 110
+    assert len(ranking["papers"]) == 105
     for paper in ranking["papers"]:
         assert len(paper["dimensions"]) == 6
         for dimension in paper["dimensions"].values():
             assert dimension["pooled_n"] == 8
             assert dimension["method"] == "median(8) [E1+E2]"
+
+
+def test_top50_json_and_expert_markdown_have_identical_order():
+    base = RESULTS / "rankings/e2-ccb-v5"
+    top50 = json.loads((base / "top50-proportional.json").read_text(encoding="utf-8"))
+    markdown = (base / "top50-ccb-list.md").read_text(encoding="utf-8")
+    markdown_ids: list[int] = []
+    for line in markdown.splitlines():
+        match = re.match(r"\|\s*(\d+)\s*\|\s*(\d+)\s*\|", line)
+        if match and int(match.group(1)) == len(markdown_ids) + 1:
+            markdown_ids.append(int(match.group(2)))
+            if len(markdown_ids) == 50:
+                break
+
+    assert markdown_ids == [paper["pid"] for paper in top50["papers"]]
