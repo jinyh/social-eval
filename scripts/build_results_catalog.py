@@ -205,12 +205,20 @@ def dataset_manifest(
     }
 
 
-def build_rankings(source_root: Path, output_root: Path, protocol: dict[str, Any]) -> None:
-    e1_rows = score_rows(source_root / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper", protocol)
+def build_rankings(
+    source_root: Path, output_root: Path, protocol: dict[str, Any]
+) -> None:
+    e1_rows = score_rows(
+        source_root
+        / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper",
+        protocol,
+    )
     e1_by_pid = {int(row["paper_id"]): row for row in e1_rows}
     e2_data = read_json(source_root / "results/rankings/e2-ccb-v5/ranking.json")
     e2_by_pid = {int(row["pid"]): row for row in e2_data["papers"]}
-    metadata, _ = metadata_rows(source_root / "results/datasets/three-journals/metadata.csv")
+    metadata, _ = metadata_rows(
+        source_root / "results/datasets/three-journals/metadata.csv"
+    )
     meta_by_pid = {int(row["编号"]): row for row in metadata}
     papers: list[dict[str, Any]] = []
     for pid in sorted(meta_by_pid):
@@ -251,7 +259,9 @@ def build_rankings(source_root: Path, output_root: Path, protocol: dict[str, Any
         },
         "papers": papers,
     }
-    write_json(output_root / "results/rankings/all-papers-ccb-v1/ranking.json", canonical)
+    write_json(
+        output_root / "results/rankings/all-papers-ccb-v1/ranking.json", canonical
+    )
     write_csv(
         output_root / "results/rankings/all-papers-ccb-v1/summary.csv",
         [
@@ -282,9 +292,7 @@ def build_rankings(source_root: Path, output_root: Path, protocol: dict[str, Any
             "papers": analysis,
         },
     )
-    write_json(
-        output_root / "results/rankings/e2-ccb-v5/ranking.json", e2_data
-    )
+    write_json(output_root / "results/rankings/e2-ccb-v5/ranking.json", e2_data)
     write_json(
         output_root / "results/rankings/e2-ccb-v5/pool.json",
         read_json(source_root / "results/rankings/e2-ccb-v5/pool.json"),
@@ -295,22 +303,34 @@ def build(source_root: Path, output_root: Path) -> None:
     protocol = load_scoring_protocol()
     datasets = {
         "three-journals": {
-            "six": source_root / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper",
-            "five": source_root / "results/datasets/three-journals/five-axis/position-v0.2/per-paper",
+            "six": source_root
+            / "results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper",
+            "five": source_root
+            / "results/datasets/three-journals/five-axis/position-v0.2/per-paper",
             "metadata": "metadata.csv",
             "metadata_source": "results/datasets/three-journals/metadata.csv",
+            "six_migrated_from": "results/fullevaluation/round2",
+            "five_migrated_from": "results/fullpaper-position-assessment-stage0/merged",
         },
         "jiaodafaxue": {
-            "six": source_root / "results/datasets/jiaodafaxue/six-dimension/phase2-r2-v2.55/per-paper",
-            "five": source_root / "results/datasets/jiaodafaxue/five-axis/position-v0.2/per-paper",
+            "six": source_root
+            / "results/datasets/jiaodafaxue/six-dimension/phase2-r2-v2.55/per-paper",
+            "five": source_root
+            / "results/datasets/jiaodafaxue/five-axis/position-v0.2/per-paper",
             "metadata": "metadata.json",
             "metadata_source": "results/datasets/jiaodafaxue/metadata.json",
+            "six_migrated_from": "results/jiaodafaxue-evaluation/round2",
+            "five_migrated_from": "results/jiaodafaxue-position-assessment/merged",
         },
         "xueshuyuekan": {
-            "six": source_root / "results/datasets/xueshuyuekan/six-dimension/phase2-r2-v2.55/per-paper",
-            "five": source_root / "results/datasets/xueshuyuekan/five-axis/position-v0.2/per-paper",
+            "six": source_root
+            / "results/datasets/xueshuyuekan/six-dimension/phase2-r2-v2.55/per-paper",
+            "five": source_root
+            / "results/datasets/xueshuyuekan/five-axis/position-v0.2/per-paper",
             "metadata": "metadata.json",
             "metadata_source": "由逐篇结果路径生成",
+            "six_migrated_from": "results/xueshuyuekan/round2",
+            "five_migrated_from": "results/xueshuyuekan-position-assessment/merged",
         },
     }
     for name, spec in datasets.items():
@@ -319,18 +339,20 @@ def build(source_root: Path, output_root: Path) -> None:
         five_rows = five_axis_rows(spec["five"])
         write_csv(base / "six-dimension/phase2-r2-v2.55/summary.csv", six_rows)
         write_csv(base / "five-axis/position-v0.2/summary.csv", five_rows)
+        six_manifest = {
+            "run_id": "phase2-r2-v2.55",
+            "framework_role": "six_dimension_cross_review",
+            "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
+            "scoring_protocol": "configs/scoring/core-ceiling-bonus-v0.8.yaml",
+            "paper_count": len(six_rows),
+            "summary": "summary.csv",
+            "per_paper": "per-paper/",
+        }
+        if name != "xueshuyuekan":
+            six_manifest["audit"] = "audit/"
         write_yaml(
             base / "six-dimension/phase2-r2-v2.55/manifest.yaml",
-            {
-                "run_id": "phase2-r2-v2.55",
-                "framework_role": "six_dimension_cross_review",
-                "framework": "configs/frameworks/law-v2.55-cross-review.yaml",
-                "scoring_protocol": "configs/scoring/core-ceiling-bonus-v0.8.yaml",
-                "paper_count": len(six_rows),
-                "summary": "summary.csv",
-                "per_paper": "per-paper/",
-                "audit": "audit/" if name != "xueshuyuekan" else None,
-            },
+            six_manifest,
         )
         write_yaml(
             base / "five-axis/position-v0.2/manifest.yaml",
@@ -344,18 +366,24 @@ def build(source_root: Path, output_root: Path) -> None:
             },
         )
         if name == "three-journals":
-            full, dedup = metadata_rows(source_root / "results/datasets/three-journals/metadata.csv")
+            full, dedup = metadata_rows(
+                source_root / "results/datasets/three-journals/metadata.csv"
+            )
             write_csv(base / "metadata.csv", full)
             write_csv(base / "metadata-deduplicated.csv", dedup)
         elif name == "jiaodafaxue":
-            write_json(base / "metadata.json", read_json(source_root / "results/datasets/jiaodafaxue/metadata.json"))
+            write_json(
+                base / "metadata.json",
+                read_json(source_root / "results/datasets/jiaodafaxue/metadata.json"),
+            )
         else:
             write_json(
                 base / "metadata.json",
                 {
                     "total": len(six_rows),
                     "papers": [
-                        {"id": row["paper_id"], "path": row["paper"]} for row in six_rows
+                        {"id": row["paper_id"], "path": row["paper"]}
+                        for row in six_rows
                     ],
                 },
             )
@@ -366,8 +394,8 @@ def build(source_root: Path, output_root: Path) -> None:
                 spec["metadata"],
                 len(six_rows),
                 len(five_rows),
-                str(spec["six"].relative_to(source_root)),
-                str(spec["five"].relative_to(source_root)),
+                spec["six_migrated_from"],
+                spec["five_migrated_from"],
             ),
         )
     audit = r1_audit(source_root)
