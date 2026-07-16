@@ -68,15 +68,34 @@ class CrossReviewService:
         self_result: DimensionResult,
         opposite_results: list[DimensionResult],
     ) -> str:
-        body = paper.body or paper.full_text or ""
-        return self.protocol["prompt_template"].format(
+        return self.render_prompt(
             dimension_name=dimension.name_zh,
-            self_review=self_result.model_dump_json(),
+            paper_content=paper.body or paper.full_text or "",
+            self_review=self_result.model_dump(),
+            opposite_reviews=[result.model_dump() for result in opposite_results],
+        )
+
+    def render_prompt(
+        self,
+        *,
+        dimension_name: str,
+        paper_content: str,
+        self_review: dict[str, Any],
+        opposite_reviews: list[dict[str, Any]],
+    ) -> str:
+        """供 API 与历史 CLI 共同使用的唯一 R2 prompt 渲染入口。"""
+
+        return self.protocol["prompt_template"].format(
+            dimension_name=dimension_name,
+            self_review=json.dumps(self_review, ensure_ascii=False),
             opposite_reviews=json.dumps(
-                [result.model_dump() for result in opposite_results],
+                opposite_reviews,
                 ensure_ascii=False,
             ),
-            paper_content=body,
+            paper_content=paper_content,
+            output_contract=json.dumps(
+                self.protocol["output_contract"], ensure_ascii=False
+            ),
         )
 
     async def _evaluate_one(
