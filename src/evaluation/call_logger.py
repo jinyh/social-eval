@@ -11,6 +11,9 @@ def log_call(
     prompt: str,
     response: str,
     start_time: float,
+    *,
+    round_number: int = 1,
+    call_type: str = "dimension_score",
 ) -> None:
     duration_ms = int((time.time() - start_time) * 1000)
     log = AICallLog(
@@ -20,6 +23,8 @@ def log_call(
         prompt_text=prompt,
         response_text=response,
         duration_ms=duration_ms,
+        round_number=round_number,
+        call_type=call_type,
     )
     db.add(log)
     db.commit()

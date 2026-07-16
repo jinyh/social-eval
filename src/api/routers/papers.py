@@ -18,6 +18,7 @@ from src.api.schemas.papers import (
 )
 from src.core.database import get_db
 from src.core.storage import save_upload_file, validate_upload_filename
+from src.evaluation.cross_review import CrossReviewService
 from src.knowledge.loader import load_framework
 from src.knowledge.registry import resolve_framework_path
 from src.models.batch import BatchTask
@@ -86,9 +87,12 @@ def _create_task_record(
     paper: Paper,
     framework_path: str,
     provider_names: list[str],
+    cross_review_enabled: bool = False,
     batch_id: str | None = None,
 ) -> EvaluationTask:
     framework = load_framework(framework_path)
+    if cross_review_enabled:
+        CrossReviewService().validate_provider_names(provider_names)
     task = EvaluationTask(
         paper_id=paper.id,
         batch_id=batch_id,
@@ -96,6 +100,8 @@ def _create_task_record(
         framework_path=framework_path,
         provider_names=json.dumps(provider_names, ensure_ascii=False),
         status="pending",
+        cross_review_enabled=cross_review_enabled,
+        final_round=1,
     )
     db.add(task)
     db.commit()
@@ -129,8 +135,16 @@ async def _create_paper_and_task(
     *,
     framework_path: str,
     provider_names: list[str],
+    cross_review_enabled: bool = False,
     batch_id: str | None = None,
 ) -> PaperTaskResponse:
+    if cross_review_enabled:
+        try:
+            CrossReviewService().validate_provider_names(provider_names)
+        except ValueError as exc:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)
+            ) from exc
     try:
         ext = validate_upload_filename(file.filename or "")
     except ValueError as exc:
@@ -158,6 +172,7 @@ async def _create_paper_and_task(
         paper=paper,
         framework_path=framework_path,
         provider_names=provider_names,
+        cross_review_enabled=cross_review_enabled,
         batch_id=batch_id,
     )
     await _dispatch_pipeline(request, db, task.id)
@@ -178,6 +193,7 @@ async def upload_paper(
     file: UploadFile = File(...),
     framework_path: str = Form(DEFAULT_FRAMEWORK_PATH),
     provider_names: str | None = Form(default=None),
+    cross_review_enabled: bool = Form(default=False),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> PaperTaskResponse:
@@ -188,6 +204,7 @@ async def upload_paper(
         current_user,
         framework_path=framework_path,
         provider_names=_parse_provider_names(provider_names),
+        cross_review_enabled=cross_review_enabled,
     )
 
 
@@ -220,6 +237,7 @@ async def batch_upload_papers(
     files: list[UploadFile] = File(...),
     framework_path: str = Form(DEFAULT_FRAMEWORK_PATH),
     provider_names: str | None = Form(default=None),
+    cross_review_enabled: bool = Form(default=False),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ) -> BatchPaperTaskResponse:
@@ -238,6 +256,7 @@ async def batch_upload_papers(
                 current_user,
                 framework_path=framework_path,
                 provider_names=parsed_provider_names,
+                cross_review_enabled=cross_review_enabled,
                 batch_id=batch.id,
             )
         )
@@ -265,7 +284,14 @@ def get_paper_status(
 
     _ensure_paper_status_access(db, current_user, paper, task)
 
-    reliability_rows = db.query(ReliabilityResult).filter(ReliabilityResult.task_id == task.id).all()
+    reliability_rows = (
+        db.query(ReliabilityResult)
+        .filter(
+            ReliabilityResult.task_id == task.id,
+            ReliabilityResult.round_number == task.final_round,
+        )
+        .all()
+    )
     reliability_summary = None
     if reliability_rows:
         reliability_summary = summarize_reliability(

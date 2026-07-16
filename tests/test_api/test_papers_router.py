@@ -27,6 +27,21 @@ class FakeProvider:
         )
 
     async def generate_json_response(self, prompt: str) -> dict:
+        if "【对方组第一轮评价】" in prompt:
+            return {
+                "original_score": self.score,
+                "revised_score": self.score,
+                "score_changed": False,
+                "change_direction": "unchanged",
+                "change_magnitude": 0,
+                "revised_band": "good",
+                "revised_core_judgment": "维持原判",
+                "revision_rationale": "未发现足以调整的证据",
+                "accepted_points": [],
+                "rejected_points": ["证据不足"],
+                "new_evidence_found": [],
+                "confidence": "high",
+            }
         return {
             "status": self.precheck_status,
             "issues": [] if self.precheck_status == "pass" else ["写作规范性不足"],
@@ -93,6 +108,43 @@ def test_upload_txt_file_runs_pipeline_and_persists_results(
 
     assert db_session.query(DimensionScore).count() == 18
     assert db_session.query(ReliabilityResult).count() == 6
+
+
+def test_upload_can_enable_shared_cross_review_and_persist_both_rounds(
+    client: TestClient, db_session: Session
+) -> None:
+    from src.models.evaluation import EvaluationTask
+
+    _login_submitter(client, db_session)
+    _install_sync_pipeline(
+        client,
+        [
+            FakeProvider("glm-5.1", 80),
+            FakeProvider("qwen3.6-plus", 82),
+            FakeProvider("deepseek-v4-pro", 70),
+            FakeProvider("kimi-k2.6", 72),
+        ],
+    )
+
+    response = client.post(
+        "/api/papers",
+        files={"file": ("paper.txt", "摘要\n正文".encode(), "text/plain")},
+        data={
+            "provider_names": (
+                "glm-5.1,qwen3.6-plus,deepseek-v4-pro,kimi-k2.6"
+            ),
+            "cross_review_enabled": "true",
+        },
+    )
+
+    assert response.status_code == 202
+    task = db_session.get(EvaluationTask, response.json()["task_id"])
+    assert task.cross_review_enabled is True
+    assert task.final_round == 2
+    assert db_session.query(DimensionScore).filter_by(round_number=1).count() == 24
+    assert db_session.query(DimensionScore).filter_by(round_number=2).count() == 24
+    assert db_session.query(ReliabilityResult).filter_by(round_number=1).count() == 6
+    assert db_session.query(ReliabilityResult).filter_by(round_number=2).count() == 6
 
 
 def test_precheck_reject_short_circuits_dimension_scoring(

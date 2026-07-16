@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import String, Float, Text, DateTime, ForeignKey, JSON, Integer
+from sqlalchemy import Boolean, String, Float, Text, DateTime, ForeignKey, JSON, Integer
 from sqlalchemy.orm import Mapped, mapped_column
 from src.core.database import Base
 from src.core.time import utc_now
@@ -17,6 +17,8 @@ class EvaluationTask(Base):
     provider_names: Mapped[str | None] = mapped_column(String(500), nullable=True)  # JSON 字符串，如 ["openai","anthropic"]
     status: Mapped[str] = mapped_column(String(20), default="pending")  # pending/processing/completed/failed
     manual_review_requested: Mapped[bool] = mapped_column(default=False)
+    cross_review_enabled: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    final_round: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
     failure_stage: Mapped[str | None] = mapped_column(String(50), nullable=True)
     failure_detail: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
@@ -33,6 +35,8 @@ class DimensionScore(Base):
     score: Mapped[float] = mapped_column(Float, nullable=False)
     evidence_quotes: Mapped[dict] = mapped_column(JSON, nullable=True)
     analysis: Mapped[str] = mapped_column(Text, nullable=True)
+    structured_payload: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    round_number: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
 
 
@@ -46,4 +50,6 @@ class AICallLog(Base):
     prompt_text: Mapped[str] = mapped_column(Text, nullable=False)
     response_text: Mapped[str] = mapped_column(Text, nullable=False)
     duration_ms: Mapped[int] = mapped_column(Integer, nullable=False)
+    round_number: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
+    call_type: Mapped[str] = mapped_column(String(50), default="dimension_score", nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)

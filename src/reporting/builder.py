@@ -17,11 +17,30 @@ from src.reporting.summary_extractor import extract_dimension_summary
 
 def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> dict:
     framework = load_framework(task.framework_path or resolve_framework_path())
-    score_rows = db.query(DimensionScore).filter(DimensionScore.task_id == task.id).all()
+    score_rows = (
+        db.query(DimensionScore)
+        .filter(
+            DimensionScore.task_id == task.id,
+            DimensionScore.round_number == task.final_round,
+        )
+        .all()
+    )
     reliability_rows = {
         row.dimension_key: row
-        for row in db.query(ReliabilityResult).filter(ReliabilityResult.task_id == task.id).all()
+        for row in db.query(ReliabilityResult)
+        .filter(
+            ReliabilityResult.task_id == task.id,
+            ReliabilityResult.round_number == task.final_round,
+        )
+        .all()
     }
+    reliability_history: dict[str, dict[int, ReliabilityResult]] = defaultdict(dict)
+    for row in (
+        db.query(ReliabilityResult)
+        .filter(ReliabilityResult.task_id == task.id)
+        .all()
+    ):
+        reliability_history[row.dimension_key][row.round_number] = row
     review_rows = db.query(ExpertReview).filter(ExpertReview.task_id == task.id).all()
     review_ids = [review.id for review in review_rows]
     comments_by_review: dict[str, list[ReviewComment]] = defaultdict(list)
@@ -71,6 +90,16 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
                     ],
                     "analysis": analysis_texts,
                     "summary": summary,
+                    "rounds": {
+                        str(round_number): {
+                            "mean_score": round(round_row.mean_score, 2),
+                            "std_score": round(round_row.std_score, 2),
+                            "model_scores": round_row.model_scores or {},
+                        }
+                        for round_number, round_row in sorted(
+                            reliability_history.get(dimension.key, {}).items()
+                        )
+                    },
                 },
             }
         )
@@ -100,6 +129,7 @@ def build_internal_report(db: Session, task: EvaluationTask, paper: Paper) -> di
         "report_type": "internal",
         "paper_id": paper.id,
         "task_id": task.id,
+        "final_round": task.final_round,
         "paper_title": paper.title or paper.original_filename,
         "precheck_status": paper.precheck_status,
         "precheck_result": paper.precheck_result,

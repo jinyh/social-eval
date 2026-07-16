@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from src.core.state_machine import ensure_valid_task_transition
 from src.evaluation.concurrent_evaluator import evaluate_dimension_concurrent
+from src.evaluation.cross_review import CrossReviewService
 from src.evaluation.precheck import run_precheck
 from src.evaluation.providers.factory import create_providers
 from src.evaluation.result_validator import aggregate_result, aggregate_result_to_dict
@@ -22,13 +23,22 @@ from src.knowledge.registry import resolve_framework_path
 from src.models.evaluation import DimensionScore, EvaluationTask
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
-from src.reliability.arbitration import aggregate_with_arbiter, needs_arbitration
 from src.reliability.calculator import calculate_reliability
 from src.reliability.threshold_checker import summarize_reliability
 from src.reporting.scoring import calculate_weighted_total
 from src.reporting.versioning import generate_reports_for_task
 
 logger = logging.getLogger(__name__)
+
+
+def _confidence_level(std_score: float) -> str:
+    if std_score <= 5:
+        return "high"
+    if std_score <= 8:
+        return "medium"
+    if std_score <= 12:
+        return "low"
+    return "critical"
 
 
 async def run_evaluation_pipeline(
@@ -50,6 +60,9 @@ async def run_evaluation_pipeline(
     providers = provider_factory(provider_names)
     if not providers:
         raise ValueError("No providers configured")
+    cross_review = CrossReviewService() if task.cross_review_enabled else None
+    if cross_review is not None:
+        cross_review.validate_provider_names([provider.model_name for provider in providers])
 
     task.status = "processing"
     task.failure_stage = None
@@ -111,104 +124,67 @@ async def run_evaluation_pipeline(
         dimension_means: dict[str, float] = {}
         per_model_scores: dict[str, dict[str, float]] = {}
         for dimension in framework.dimensions:
-            results = await evaluate_dimension_concurrent(
+            round1_results = await evaluate_dimension_concurrent(
                 providers,
                 dimension,
                 processed_paper,
                 task.id,
                 db,
             )
-            if not results:
+            if not round1_results:
                 raise ValueError(f"No successful results for dimension {dimension.key}")
 
-            # 计算初始可靠性
-            report = calculate_reliability(
+            round1_report = calculate_reliability(
                 dimension.key,
-                results,
+                round1_results,
                 std_threshold=framework.std_threshold,
             )
-
-            # 判断是否需要仲裁
-            if needs_arbitration(dimension.key, report, framework.arbitration_config):
-                logger.info(
-                    f"维度 {dimension.key} std={report.std:.1f} 触发仲裁 "
-                    f"(阈值={[t.std_threshold for t in framework.arbitration_config.trigger_conditions if t.dimension == dimension.key][0]})"
+            for result in round1_results:
+                db.add(
+                    DimensionScore(
+                        task_id=task.id,
+                        dimension_key=dimension.key,
+                        model_name=result.model_name,
+                        score=result.score,
+                        evidence_quotes=result.evidence_quotes,
+                        analysis=result.analysis,
+                        structured_payload=result.model_dump(),
+                        round_number=1,
+                    )
                 )
+            db.add(
+                ReliabilityResult(
+                    task_id=task.id,
+                    dimension_key=dimension.key,
+                    mean_score=round1_report.mean,
+                    std_score=round1_report.std,
+                    is_high_confidence=round1_report.is_high_confidence,
+                    model_scores=round1_report.model_scores,
+                    confidence_level=_confidence_level(round1_report.std),
+                    requires_evidence_supplement=round1_report.std > 8,
+                    divergence_description=(
+                        "模型分歧超过专家复核阈值" if round1_report.std > 8 else ""
+                    ),
+                    round_number=1,
+                )
+            )
 
-                try:
-                    # 创建仲裁模型
-                    arbiter_providers = provider_factory([framework.arbitration_config.arbiter_model])
-                    if arbiter_providers:
-                        # 调用仲裁模型评价
-                        arbiter_results = await evaluate_dimension_concurrent(
-                            arbiter_providers,
-                            dimension,
-                            processed_paper,
-                            task.id,
-                            db,
-                        )
-
-                        if arbiter_results:
-                            arbiter_result = arbiter_results[0]
-                            logger.info(
-                                f"仲裁模型 {arbiter_result.model_name} 评分: {arbiter_result.score}"
-                            )
-
-                            # 保存仲裁模型的评分
-                            db.add(
-                                DimensionScore(
-                                    task_id=task.id,
-                                    dimension_key=dimension.key,
-                                    model_name=arbiter_result.model_name,
-                                    score=arbiter_result.score,
-                                    evidence_quotes=arbiter_result.evidence_quotes,
-                                    analysis=arbiter_result.analysis,
-                                )
-                            )
-
-                            # 重新聚合分数（包含仲裁模型）
-                            original_scores = [r.score for r in results]
-                            new_mean = aggregate_with_arbiter(
-                                original_scores,
-                                arbiter_result.score,
-                                framework.arbitration_config.aggregation_strategy,
-                            )
-
-                            # 重新计算标准差（包含仲裁模型）
-                            import statistics
-                            all_scores = original_scores + [arbiter_result.score]
-                            new_std = statistics.stdev(all_scores) if len(all_scores) > 1 else 0.0
-
-                            # 更新 model_scores
-                            new_model_scores = report.model_scores.copy()
-                            new_model_scores[arbiter_result.model_name] = arbiter_result.score
-
-                            # 更新报告
-                            report.mean = new_mean
-                            report.std = new_std
-                            report.is_high_confidence = new_std <= framework.std_threshold
-                            report.model_scores = new_model_scores
-
-                            # 将仲裁结果加入 results（用于后续保存）
-                            results.append(arbiter_result)
-
-                            logger.info(
-                                f"仲裁后：mean={new_mean:.1f}, std={new_std:.1f}, "
-                                f"策略={framework.arbitration_config.aggregation_strategy}"
-                            )
-                        else:
-                            logger.warning("仲裁模型未返回结果，使用原始评分")
-                    else:
-                        logger.warning(f"无法创建仲裁模型 {framework.arbitration_config.arbiter_model}")
-                except Exception as e:
-                    logger.error(f"仲裁过程出错: {e}，使用原始评分")
-
-            # 保存所有模型的评分
-            for result in results:
-                # 检查是否已保存（仲裁模型已在上面保存）
-                if not (framework.arbitration_config and
-                        framework.arbitration_config.enabled and
-                        result.model_name == framework.arbitration_config.arbiter_model):
+            final_results = round1_results
+            final_report = round1_report
+            if cross_review is not None:
+                outcomes = await cross_review.evaluate_dimension(
+                    providers,
+                    dimension,
+                    processed_paper,
+                    {result.model_name: result for result in round1_results},
+                    task_id=task.id,
+                    db=db,
+                )
+                round2_results = [outcome.result for outcome in outcomes]
+                if not round2_results:
+                    raise ValueError(f"No successful R2 results for {dimension.key}")
+                for outcome in outcomes:
+                    result = outcome.result
                     db.add(
                         DimensionScore(
                             task_id=task.id,
@@ -217,25 +193,46 @@ async def run_evaluation_pipeline(
                             score=result.score,
                             evidence_quotes=result.evidence_quotes,
                             analysis=result.analysis,
+                            structured_payload=outcome.raw_payload,
+                            round_number=2,
                         )
                     )
+                round2_report = calculate_reliability(
+                    dimension.key,
+                    round2_results,
+                    std_threshold=framework.std_threshold,
+                )
+                unresolved = cross_review.requires_expert_review(round2_report.std)
+                db.add(
+                    ReliabilityResult(
+                        task_id=task.id,
+                        dimension_key=dimension.key,
+                        mean_score=round2_report.mean,
+                        std_score=round2_report.std,
+                        is_high_confidence=round2_report.is_high_confidence,
+                        model_scores=round2_report.model_scores,
+                        confidence_level=_confidence_level(round2_report.std),
+                        requires_evidence_supplement=unresolved,
+                        divergence_description=(
+                            "R2 后仍超过 8 分，交专家复核" if unresolved else ""
+                        ),
+                        round_number=2,
+                    )
+                )
+                if unresolved:
+                    task.manual_review_requested = True
+                final_results = round2_results
+                final_report = round2_report
+
+            for result in final_results:
                 per_model_scores.setdefault(result.model_name, {})[dimension.key] = (
                     result.score
                 )
-
-            reliability_reports.append(report)
-            dimension_means[dimension.key] = report.mean
-            db.add(
-                ReliabilityResult(
-                    task_id=task.id,
-                    dimension_key=dimension.key,
-                    mean_score=report.mean,
-                    std_score=report.std,
-                    is_high_confidence=report.is_high_confidence,
-                    model_scores=report.model_scores,
-                )
-            )
+            reliability_reports.append(final_report)
+            dimension_means[dimension.key] = final_report.mean
             db.commit()
+
+        task.final_round = 2 if cross_review is not None else 1
 
         # 先按 v2.45 scoring_protocol (core_ceiling_bonus) 算出最终分
         # 用于 contradiction_triggers 判定（修复 #4：不再用维度均值近似）
