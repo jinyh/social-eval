@@ -258,7 +258,9 @@ class RepairRuntime:
                     paper,
                 )
         started = time.monotonic()
-        response = await provider.generate_json_response(prompt)
+        response = await provider.call_with_timeout(
+            provider.generate_json_response(prompt)
+        )
         elapsed = time.monotonic() - started
         self._merge_response(gap, response, elapsed)
         return response
