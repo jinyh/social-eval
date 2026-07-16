@@ -121,6 +121,14 @@ class RepairRuntime:
         if direct.exists():
             return direct
         target = self.registry[gap.target_key]
+        if target.dataset == "three-journals":
+            matches = sorted(
+                (self.project_root / "raw" / "fullpaper").glob(
+                    f"{gap.paper_id:04d}-*.pdf"
+                )
+            )
+            if matches:
+                return matches[0]
         if target.family == "five_axis":
             if target.dataset in {"jiaodafaxue", "xueshuyuekan"}:
                 meta = self._load_json_meta(target.dataset).get(gap.paper_id, {})
