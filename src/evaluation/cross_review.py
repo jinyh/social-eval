@@ -124,10 +124,23 @@ class CrossReviewService:
             if isinstance(configured_timeout, (int, float))
             else settings.provider_timeout
         )
-        async with self._semaphore:
-            raw = await asyncio.wait_for(
-                provider.generate_json_response(prompt), timeout=timeout
-            )
+        raw: dict[str, Any] | None = None
+        last_error: Exception | None = None
+        for attempt in range(1, 4):
+            try:
+                async with self._semaphore:
+                    raw = await asyncio.wait_for(
+                        provider.generate_json_response(prompt), timeout=timeout
+                    )
+                break
+            except Exception as exc:  # noqa: BLE001 - 供应商瞬时错误需受控重试
+                last_error = exc
+                if attempt < 3:
+                    await asyncio.sleep(0.5 * attempt)
+        if raw is None:
+            raise RuntimeError(
+                f"R2 模型 {provider.model_name} 连续失败 3 次: {last_error}"
+            ) from last_error
         revised = raw.get("revised_score")
         if (
             isinstance(revised, bool)

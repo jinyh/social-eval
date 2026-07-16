@@ -84,3 +84,35 @@ def test_unresolved_std_routes_to_expert_review_only():
     assert service.requires_expert_review(8.01) is True
     assert service.requires_expert_review(8.0) is False
     assert service.protocol["unresolved_disagreement"]["action"] == "expert_review"
+
+
+@pytest.mark.asyncio
+async def test_cross_review_retries_transient_provider_failure():
+    class FlakyProvider(FakeCrossProvider):
+        calls = 0
+
+        async def generate_json_response(self, prompt: str) -> dict:
+            self.calls += 1
+            if self.calls == 1:
+                raise RuntimeError("temporary")
+            return await super().generate_json_response(prompt)
+
+    service = CrossReviewService()
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    flaky = FlakyProvider("glm-5.1", 78)
+    strict = FakeCrossProvider("deepseek-v4-pro", 72)
+
+    outcomes = await service.evaluate_dimension(
+        [flaky, strict],
+        dimension,
+        ProcessedPaper(body="正文", full_text="正文", structure_status="detected"),
+        {
+            "glm-5.1": _r1("glm-5.1", 80),
+            "deepseek-v4-pro": _r1("deepseek-v4-pro", 70),
+        },
+    )
+
+    assert len(outcomes) == 2
+    assert flaky.calls == 2
