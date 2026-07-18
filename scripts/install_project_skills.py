@@ -20,8 +20,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--target-dir",
         type=Path,
-        default=Path.home() / ".agents" / "skills",
-        help="Directory where skill symlinks will be created.",
+        action="append",
+        help=(
+            "Directory where skill symlinks will be created. Repeat for multiple "
+            "engines. Defaults to ~/.codex/skills and ~/.claude/skills."
+        ),
     )
     return parser.parse_args()
 
@@ -38,11 +41,13 @@ def find_skill_dirs(repo_root: Path) -> list[Path]:
 
 
 def install_symlink(skill_dir: Path, target_dir: Path) -> None:
-    link_path = (target_dir / skill_dir.name).resolve()
+    link_path = target_dir / skill_dir.name
 
-    if link_path.exists():
+    if link_path.is_symlink():
         if link_path.resolve() == skill_dir:
             return
+        raise FileExistsError(f"Refusing to overwrite existing path: {link_path}")
+    if link_path.exists():
         raise FileExistsError(f"Refusing to overwrite existing path: {link_path}")
 
     try:
@@ -62,25 +67,36 @@ def _create_windows_junction(source: Path, link_path: Path) -> None:
         check=False,
     )
     if result.returncode != 0:
-        message = result.stderr.strip() or result.stdout.strip() or "Failed to create junction"
+        message = (
+            result.stderr.strip()
+            or result.stdout.strip()
+            or "Failed to create junction"
+        )
         raise OSError(message)
 
 
 def main() -> int:
     args = parse_args()
     repo_root = args.repo_root.resolve()
-    target_dir = args.target_dir.expanduser().resolve()
     skill_dirs = find_skill_dirs(repo_root)
 
     if not skill_dirs:
-        print(f"No project skills found under {repo_root / 'agent-skills'}", file=sys.stderr)
+        print(
+            f"No project skills found under {repo_root / 'agent-skills'}",
+            file=sys.stderr,
+        )
         return 1
 
-    target_dir.mkdir(parents=True, exist_ok=True)
-
-    for skill_dir in skill_dirs:
-        install_symlink(skill_dir, target_dir)
-        print(f"linked {target_dir / skill_dir.name} -> {skill_dir}")
+    target_dirs = args.target_dir or [
+        Path.home() / ".codex" / "skills",
+        Path.home() / ".claude" / "skills",
+    ]
+    for raw_target_dir in target_dirs:
+        target_dir = raw_target_dir.expanduser().resolve()
+        target_dir.mkdir(parents=True, exist_ok=True)
+        for skill_dir in skill_dirs:
+            install_symlink(skill_dir, target_dir)
+            print(f"linked {target_dir / skill_dir.name} -> {skill_dir}")
 
     return 0
 

@@ -584,7 +584,7 @@ results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
 
 - 项目通用上下文优先维护在本文件，避免与 skill 重复维护
 - 只有当某个项目工作流需要独立触发规则、脚本或参考材料时，才在 `agent-skills/` 下新增独立 skill
-- 若重新启用项目专属 skill，可用 `scripts/install_project_skills.py` 把仓库内 skill 软链接到本机技能目录，例如 `~/.agents/skills/`
+- 若重新启用项目专属 skill，可运行 `python3 scripts/install_project_skills.py`，默认同时软链接到 Codex 的 `~/.codex/skills/` 与 Claude Code 的 `~/.claude/skills/`；`agent-skills/` 始终是唯一内容真源
 
 ---
 

@@ -24,16 +24,16 @@ description: 把单篇法学论文 AI 多模型评审原始数据（六维+五�
 | 1 | 元数据 | `results/datasets/three-journals/metadata.csv` | `编号`={pid} 行，取 题目/作者/作者机构/期刊/年份/卷/期/页数/主题词 |
 | 2 | 六维评审 | `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/per-paper/paper-{pid}.json` | `dimensions[*]`（每维 `round1_scores`/`round2_scores`/`round1_mean`/`round2_mean`/`round1_std`/`round2_std`/`raw_outputs[model]`）、`overall.*` |
 | 3 | 五轴评估 | `results/datasets/three-journals/five-axis/position-v0.2/per-paper/paper-{pid}.json` | `final.*`（`axis_scores`/`total_score`/`strength`/`agreement_level`/`research_route`）、`round2.round2_policy`、`round{1,2}.models[m].research_route`、各模型 `axis_scores[axis].{score,rationale,evidence_quotes}`。**此为 1920 篇全量五轴权威源**（restic 备份恢复，2026-07-12）；个别论文缺失时降级省略 §3 |
-| 4 | 候选池 | `results/rankings/e2-ccb-v5/ranking.json` | 按 pid 查 `papers` 条目，取 `rank`（**E2 候选池排名唯一来源**）、`weighted_score`、`weighted_std`、`dimensions[*]`（维度字段是英文 code，**用同条目的 `name_zh` 字段映射中文名**） |
-| 5 | CCB 总分 | `results/report_paper_master.csv` | pid 行，取 `weighted_score`（**CCB 总分唯一来源，core_ceiling_bonus=base+bonus+ceiling**）；该行还有 top101_rank/top50_rank 等，**不要用它们作 E2 排名** |
+| 4 | 候选池 | `results/rankings/e2-ccb-v5/ranking.json` | 按 pid 查 `papers` 条目，取 `rank`（**E2 候选池排名唯一来源**）、`weighted_score`、`weighted_std`、`dimensions` 字典；维度中文名取各项的 `name_zh` |
+| 5 | E1 CCB 总分 | `results/datasets/three-journals/six-dimension/phase2-r2-v2.55/summary.csv` | 按 `paper_id` 查行并取 `ccb_score`；这是未进入 E2 时的当前 CCB 主分。进入 E2 后，候选池聚合 CCB 取 `ranking.json` 同篇的 `weighted_score` |
 
 **降级原则**（用户要求支持任意论文 ID）：
 - 六维文件缺失 → 报错退出（报告基石，不能少）。
 - 五轴文件缺失 → 省略 §3 五轴、§2.1 五轴指标；§0 注明"本篇未做五轴位置归属度评估"。
-- pid 不在候选池 → 省略 §5；§0 注明"本篇未入 E2-Top102 候选池"。
+- pid 不在候选池 → 省略 §5；§0 注明"本篇未入当前 E2 候选池"。
 - 元数据/加权分缺失 → 该字段留空或省略，不报错。
 
-Paper ID 权威来源：始终以 `merged-metadata.csv` 的 `编号` 字段为准，不要从中间文件或缓存构建映射（详见 CLAUDE.md「Paper ID 映射」警告）。
+Paper ID 权威来源：始终以 `results/datasets/three-journals/metadata.csv` 的 `编号` 字段为准，不要从中间文件或缓存构建映射（详见 `AGENTS.md`「Paper ID 映射」警告）。
 
 ## 输出结构（务必按此层级，含表格优先；章节标题统一用 `## §N.` / `### §N.M` 格式带 § 前缀）
 
@@ -53,14 +53,14 @@ Paper ID 权威来源：始终以 `merged-metadata.csv` 的 `编号` 字段为�
    §4.1 评分汇总（表：维度|权重|各模型R1/R2|R1均值|R2均值|R1 std|R2 std|收敛改善；权重列写数值 0.30/0.20/0.15/0.20/0.10/0.05，不用「封顶/加分」角色标签替代数值）
    §4.2 收敛说明（一句：六维全部收敛，R2 平均标准差 X，属高度收敛样本）
    §4.3 逐维度×逐模型证据（每维度：共性+分歧表+审计提示，再接各模型 ##### 子节）
-§5 E2-Top102 候选池聚合（只留主表）
+§5 E2 候选池聚合（只留主表）
 ```
 
 输出到 `docs/presentations/`，文件名 `P{n}-{作者关键词}-专家审计最终报告.md`，或按用户指定。
 
 **表格优先**：§2.1/§2.2/§3.1/§3.2/§4.1 用 Markdown 表格，不要用项目符号列表替代——表格让专家横向对照模型/维度。
 
-**降级时章节顺延**：五轴缺失则去掉 §3（五轴）与 §2.1（五轴指标），六维评审顺延为 §3、§2 只剩六维指标小节（标 §2.1），**子节号同步顺延**（§4.1→§3.1、§4.2→§3.2、§4.3→§3.3）；候选池缺失则直接去掉 §5，不留空号、不补占位。§0 第 3 条注明降级原因（"未做五轴位置归属度评估""未入 E2-Top102 候选池"）。
+**降级时章节顺延**：五轴缺失则去掉 §3（五轴）与 §2.1（五轴指标），六维评审顺延为 §3、§2 只剩六维指标小节（标 §2.1），**子节号同步顺延**（§4.1→§3.1、§4.2→§3.2、§4.3→§3.3）；候选池缺失则直接去掉 §5，不留空号、不补占位。§0 第 3 条注明降级原因（"未做五轴位置归属度评估""未入当前 E2 候选池"）。
 
 ## 改写规则（核心，7 条）
 
@@ -123,7 +123,7 @@ Paper ID 权威来源：始终以 `merged-metadata.csv` 的 `编号` 字段为�
 
 ### R4 文科教授向清理
 
-- **去文件路径/字段路径**：删 JSON 字段路径（`overall.round2_avg_std`、`final.total_score`）、csv/yaml 文件路径、表格「来源」列、`（report_paper_master.csv）` 括注。
+- **去文件路径/字段路径**：删 JSON 字段路径（`overall.round2_avg_std`、`final.total_score`）、csv/yaml 文件路径和表格「来源」列。
 - **代码枚举译中文**：`strong`→强、`high`→高、`light`→轻度、`False`→否、`[]`→无；研究路径枚举 `china_practice_governance`→中国实践治理、`chinese_doctrinal`→中国教义学、`comparative_localization`→比较法本土化；触发原因 `route_primary_disagreement`→研究路径主路径判定分歧、`route_or_node_arbitration`→路径或节点仲裁。
 - **去标题代码键**：维度/轴标题去英文 code（`problem_originality`、`object_belonging` 等），只留中文名+权重；`final 分`→最终分；`（evidence_quotes）` 标签→论文原文引文；§3.1 标题去「（final）」。
 - 五轴汇总表的 `分值范围 [2,2]` 列冗余，删。
@@ -132,8 +132,8 @@ Paper ID 权威来源：始终以 `merged-metadata.csv` 的 `编号` 字段为�
 
 §0 阅读说明必须解释这几套术语：
 - **交叉评审机制（R1/R2）**：R1 各模型独立评；R2 看对方意见后重评。报告取 R2 收敛分。
-- **评价阶段（E1/E2）**：E1 = 全量六维评审（全库 1920 篇，§4 详评）；因成绩靠前入选 Top102 候选池，进入 E2 二次评审（§5）；五轴位置归属度评估（§3）独立于六维，评定在自主知识体系中的位置结构。
-- §2.1 候选池排名标「E2 候选池排名」，值取 `ranking_v5_pool.json` 的 `rank` 字段（不用 report_paper_master 的 top101_rank/top50_rank）。
+- **评价阶段（E1/E2）**：E1 = 全量六维评审（全库 1920 篇，§4 详评）；满足当前硬门槛并按 Top80、学科保底、年度保底规则入选 105 篇候选池后，进入 E2 二次评审（§5）；五轴位置归属度评估（§3）独立于六维，评定在自主知识体系中的位置结构。
+- §2.1 候选池排名标「E2 候选池排名」，值取 `results/rankings/e2-ccb-v5/ranking.json` 同篇的 `rank` 字段。
 
 ### R6 删冗余（注意：编号指原始机器报告，不是本报告）
 
@@ -149,13 +149,13 @@ Paper ID 权威来源：始终以 `merged-metadata.csv` 的 `编号` 字段为�
 2. 交叉评审机制（R1/R2）
 3. 评价阶段（E1/E2）
 4. 证据来源（核心判断/改分理由/原文引文均为 AI 模型输出，原文引文来自模型从全文抽取）
-5. 双口径提示：CCB 总分（报告统一口径，`report_paper_master.weighted_score`，core_ceiling_bonus=base+bonus+ceiling，核心四维形成基础分+前瞻有条件弱加分+共识封顶）≠ R2 总分均值（四模型 R2 直接平均，六维简单均值），报告统一用 CCB 总分。**报告正文不写 csv/json 字段路径**（如 `report_paper_master.csv:weighted_score`），那些只是你定位数据用的内部信息。
+5. 双口径提示：CCB 总分（报告统一口径，core_ceiling_bonus=base+bonus+ceiling，核心四维形成基础分+前瞻有条件弱加分+共识封顶）≠ R2 总分均值（四模型 R2 直接平均，六维简单均值），报告统一用 CCB 总分。**报告正文不写 csv/json 字段路径**，那些只是定位数据用的内部信息。
 
 降级时在 §0 相应条目注明缺失项。
 
 ## 执行步骤
 
-1. 确认 pid（从 `merged-metadata.csv` 的 `编号` 核验）。
+1. 确认 pid（从 `results/datasets/three-journals/metadata.csv` 的 `编号` 核验）。
 2. 读 5 个数据源；按降级原则处理缺失。
 3. 按「输出结构」层级组装，表格优先。
 4. §3 五轴：§3.1 汇总表 → §3.2 R2 触发与路径分歧 → §3.3 **一个**综合段（共性+分歧+审计提示）→ §3.4 逐轴逐模型证据（只分数/理由/引文）。
@@ -171,5 +171,5 @@ Paper ID 权威来源：始终以 `merged-metadata.csv` 的 `编号` 字段为�
 - **exemplar（全量路径）**：`docs/presentations/P8-朱军单篇案例-专家审计最终报告.md`（paper-1322，六维+五轴+E2 齐全，结构+规则的黄金标准，改写前先扫一遍其 §3/§4 层级与逐模型证据格式）
 - **exemplar（低分 + 五轴路径分歧 + 无候选池）**：`docs/presentations/P448-杨清望-专家审计最终报告.md`（paper-448，五轴满分但路径有分歧、六维低分 47.9、未入候选池省 §5，展示部分降级与低分报告写法）
 - **原始报告生成器**：`scripts/gen_paper1322_audit_report.py`（了解字段结构；本 skill 不依赖它，但可读其 `section_*` 函数与 `load_*` 函数确认字段路径）
-- **评审规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.16-large-scale-candidate.md`（六维/五轴/复核规则的方法论真源）
+- **评审规程**：`docs/evaluation/law-ai-assisted-review-rules-v0.17.md`（六维/五轴/CCB/复核规则的方法论真源）
 - **总分公式**：`src/reporting/scoring.py` → `calculate_weighted_total()`（base/ceiling/bonus 的量化映射）
