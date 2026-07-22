@@ -8,10 +8,8 @@
 # 1. 安装 uv（如果尚未安装）
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# 2. 创建虚拟环境并安装依赖
-uv venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-uv pip install -e ".[dev]"
+# 2. 安装依赖（按 uv.lock 锁定版本，含 dev extra）
+uv sync --extra dev
 
 # 3. 配置环境变量
 cp .env.example .env
@@ -115,11 +113,11 @@ scripts/           # 工具脚本
   rubric_reflector.py
   run_convergence_test.py
   run_v0.14_*.py/sh
-results/           # 测试结果与评价报告
-  fullevaluation/  # Phase 2 全量评审结果
-  e2-pool/         # E2 候选池（ranking/Top50/评测数据 round1+round2）
-  report_*.json/csv # 当前报告统计派生文件
-  autoresearch/    # 当前活跃的自动研究测试
+results/           # 评价结果与报告
+  catalog.yaml     # 结果总目录
+  datasets/        # 三大刊/交大法学/学术月刊 元数据与六维/五轴摘要
+  rankings/        # 全库 CCB 与 E2 CCB 当前排名
+  reports/         # 当前诊断与完整性报告（reports/current/）
 ```
 
 > 归档目录（如 `archive/`、`docs/**/archive/`、`results/**/archive/`、`scripts/archive/`、`configs/frameworks/archive/`）只作为本地保留区使用，已被 `.gitignore` 忽略，不再作为仓库内容维护。
@@ -141,9 +139,25 @@ REDIS_URL=redis://localhost:6379/0
 SECRET_KEY=change-me-in-production  # ⚠️ 生产环境必须修改
 
 # AI 模型 API Keys（多模型评价必需)
+# 直连 SDK 三家（可只填需要的一家）
 OPENAI_API_KEY=sk-...        # OpenAI API 密钥
 ANTHROPIC_API_KEY=sk-ant-... # Anthropic API 密钥
 DEEPSEEK_API_KEY=...         # DeepSeek API 密钥（可选)
+# 多供应商网关抽象层（统一抽象层实际调用入口，每项含 *_BASE_URL + *_API_KEY）
+ZENMUX_BASE_URL=https://zenmux.ai/api/v1
+ZENMUX_API_KEY=...
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+OPENROUTER_API_KEY=...
+DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1  # 阿里百炼
+DASHSCOPE_API_KEY=...
+KETAN_BASE_URL=https://api.ketan.ai/v1
+KETAN_API_KEY=...
+FUCHEERS_BASE_URL=https://api.fucheers.ai/v1  # 仲裁模型
+FUCHEERS_API_KEY=...
+YUNYI_BASE_URL=https://api.yunyi.ai/v1
+YUNYI_API_KEY=...
+SSS_BASE_URL=https://api.sss.ai/v1
+SSS_API_KEY=...
 
 # SMTP 配置（邮件通知)
 SMTP_HOST=smtp.mailtrap.io
@@ -157,7 +171,7 @@ SMTP_FROM=noreply@socialeval.local
 
 - **DATABASE_URL**: PostgreSQL 连接字符串，格式 `postgresql://user:password@host:port/dbname`
 - **SECRET_KEY**: JWT 签名密钥，生产环境必须使用强随机字符串
-- **AI API Keys**: 至少配置 2 个模型的 API Key（用于多模型并发验证)
+- **AI API Keys**: 统一抽象层通过多供应商网关调用，每项需同时配 `*_BASE_URL` 与 `*_API_KEY`（见 `.env.example`）。直连 SDK 三家（OpenAI/Anthropic/DeepSeek）与网关（Zenmux/OpenRouter/DashScope 百炼/Ketan/Fucheers/Yunyi/SSS）可按需混用；主力模型走 DashScope 百炼（Qwen3.6-Plus / GLM-5.1），仲裁走 Fucheers
 - **SMTP**: 用于发送专家复核通知邮件，开发环境可使用 Mailtrap
 
 ---
@@ -585,6 +599,17 @@ results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
 - 项目通用上下文优先维护在本文件，避免与 skill 重复维护
 - 只有当某个项目工作流需要独立触发规则、脚本或参考材料时，才在 `agent-skills/` 下新增独立 skill
 - 若重新启用项目专属 skill，可运行 `python3 scripts/install_project_skills.py`，默认同时软链接到 Codex 的 `~/.codex/skills/` 与 Claude Code 的 `~/.claude/skills/`；`agent-skills/` 始终是唯一内容真源
+
+### Skill 目录边界
+
+仓库里存在两套 skill 目录，职责不同，不要混用：
+
+- **`agent-skills/`（项目专属 skill 真源）**：Git 跟踪，由 `scripts/install_project_skills.py` 扫描 `agent-skills/*/SKILL.md` 并同时软链到 `~/.codex/skills/` 与 `~/.claude/skills/`。当前仅 `expert-audit-report`。新增项目专属 skill → 放 `agent-skills/<name>/SKILL.md` 后跑安装脚本。
+- **`.agents/skills/`（全局/第三方 skill）**：`.gitignore` 忽略，不进 Git；由各自引擎或全局机制管理（如 `baoyu-*`、`ppt-master`、`autoresearch`），不在本仓库维护。第三方 skill 放全局，不放 `agent-skills/`。
+
+### autoresearch skill 去留（历史，不链入双引擎）
+
+`autoresearch` 仅作为 v2.56.6 Round 1 锚定规则迭代的历史工具（见前文"v2.56.6 锚定规则迭代"与"不需要 autoresearch 迭代 R2 的理由"）。Phase 2 全量评审已完成，当前不再需要其主动迭代。其 skill 文件位于本地忽略的 `.agents/skills/autoresearch`，**不链入** Codex/Claude Code 双引擎。如后续框架迭代需要复用，可手动软链 `ln -s "$PWD/.agents/skills/autoresearch" ~/.codex/skills/autoresearch` 与对应 `~/.claude/skills/`，或把它迁移到 `agent-skills/` 后跑安装脚本。
 
 ---
 

@@ -10,8 +10,8 @@
 | 属主 | `bright:staff` |
 | 大小 | 4.9G |
 | 文件数 | 13239 |
-| git HEAD | `4ac65b6`(`docs: 记录严格重建与历史审计边界`) |
-| git status | `main` 与已记录的 `origin/main` 一致；迁移收尾文件尚待提交 |
+| git HEAD | `0bff25b`（`fix: 修复迁移后的双引擎配置`，2026-07-18 迁移当时的 HEAD） |
+| git status | 迁移时刻工作树干净；`main` 领先 `origin/main` 1 提交（`0bff25b`）待推送（后续提交会前进，此处为迁移时快照） |
 
 ### 迁移时排除项
 
@@ -36,7 +36,8 @@
 - 项目 skill 内容真源为 `agent-skills/`，安装脚本默认同时链接到 `~/.codex/skills/` 与 `~/.claude/skills/`。
 - Python 版本固定为 3.10；旧 `.venv` 不复用。
 - 三大刊元数据、六维、五轴和原始 PDF 均核验为 1920 篇；当前 E2 池为 105 篇。
-- 旧 `core.hookspath` 已解除，`repair-evaluation-gaps` linked worktree 已修复到 bright 当前路径。
+- 旧 `core.hookspath` 已解除，`repair-evaluation-gaps` linked worktree 与残留分支已清理（内容等价于 main 上的 `bde47a1`，删除无损失）。
+- 双引擎（Codex/Claude Code）skill 目录边界已在 `AGENTS.md` 写明；`skills-lock.json` 已补登 `expert-audit-report`。
 - GitHub Ed25519 主机密钥已按官方指纹核验；bright 公钥已加入 `jinyh` 账户，`git ls-remote` 与 `git push --dry-run` 均验证通过。
 - `.venv` 已用 Python 3.10 和 `uv.lock` 重建，完整测试通过。
 - 文档声明的冷归档 `../SocialEval-archive/2026-07-16-deep-clean/` 未随主仓库出现，需从旧账户或 NAS/restic 单独恢复。
@@ -52,7 +53,7 @@ uv sync --extra dev --frozen # 项目用 uv 管理(pyproject.toml + uv.lock)
 
 # 2. 确认 git 状态
 git status                    # 提交迁移收尾变更后应为干净
-git log --oneline -1          # 应为 4ac65b6
+git log --oneline -1          # 应为迁移收尾提交（迁移当时为 0bff25b）
 git remote -v                 # origin 指向 GitHub,沿用原 remote
 
 # 3. 推送时用 bright 自己的 git 凭证(jinyh 的凭证不跨账户生效)
