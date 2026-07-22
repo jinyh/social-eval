@@ -616,7 +616,7 @@
 | 朱军案例六维雷达图 | `docs/presentations/assets/case_zhujun_sixdim_radar.png` |
 | 高低对照雷达图 | `docs/presentations/assets/case_comparison_radar.png` |
 | 朱军五轴条形图 | `docs/presentations/assets/case_zhujun_fiveaxis_bar.png` |
-| chemAgent 科学智能体方向 | `/Users/jinyh/Documents/AIProjects/chemAgent/化学智能-课题一-实施方案草案.md`、`/Users/jinyh/Documents/AIProjects/chemAgent/科学智能体.md` |
+| chemAgent 科学智能体方向 | 外部项目 chemAgent（未随本仓库迁移，路径已失效，需另行定位） |
 | 全量分布图 | `docs/presentations/assets/score_histogram_1920.png` |
 | 全量分布统计 | `results/report_overview_stats.json` |
 | 年度趋势图 | 原 PPT P11；三大核心刊、学术月刊法学板块、交大法学三类数据源 |

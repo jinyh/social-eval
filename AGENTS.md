@@ -621,7 +621,7 @@ results/datasets/three-journals/six-dimension/phase2-r2-v2.55/
 
 #### 当前 Git 保留范围
 
-1. **配置文件**：3 个六维生产/基线版本 + 五轴 v0.2 + `registry.yaml` + 独立 CCB v0.8 协议
+1. **配置文件**：3 个六维生产/基线版本（`configs/frameworks/`）+ 五轴 v0.2 + `configs/frameworks/registry.yaml` + `configs/scoring/core-ceiling-bonus-v0.8.yaml`
 2. **原始数据指针**：`results/datasets/three-journals/metadata.csv` 和必要说明；大语料、逐篇原始输出保留本地
 3. **评审结果摘要**：`results/datasets/`、`results/rankings/`、`results/reports/current/` 与 `results/catalog.yaml`
 4. **脚本**：当前可复跑、可维护的核心工具脚本
