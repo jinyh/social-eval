@@ -23,7 +23,7 @@ def parse_args() -> argparse.Namespace:
         action="append",
         help=(
             "Directory where skill symlinks will be created. Repeat for multiple "
-            "engines. Defaults to ~/.codex/skills and ~/.claude/skills."
+            "engines. Defaults to <repo-root>/.claude/skills."
         ),
     )
     return parser.parse_args()
@@ -51,7 +51,12 @@ def install_symlink(skill_dir: Path, target_dir: Path) -> None:
         raise FileExistsError(f"Refusing to overwrite existing path: {link_path}")
 
     try:
-        link_path.symlink_to(skill_dir, target_is_directory=True)
+        symlink_target: str | Path = os.path.relpath(skill_dir, start=target_dir)
+    except ValueError:
+        symlink_target = skill_dir
+
+    try:
+        link_path.symlink_to(symlink_target, target_is_directory=True)
     except OSError as exc:
         if os.name == "nt" and getattr(exc, "winerror", None) == 1314:
             _create_windows_junction(skill_dir, link_path)
@@ -87,10 +92,7 @@ def main() -> int:
         )
         return 1
 
-    target_dirs = args.target_dir or [
-        Path.home() / ".codex" / "skills",
-        Path.home() / ".claude" / "skills",
-    ]
+    target_dirs = args.target_dir or [repo_root / ".claude" / "skills"]
     for raw_target_dir in target_dirs:
         target_dir = raw_target_dir.expanduser().resolve()
         target_dir.mkdir(parents=True, exist_ok=True)

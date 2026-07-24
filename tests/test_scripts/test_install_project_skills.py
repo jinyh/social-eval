@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 import subprocess
 import sys
 from pathlib import Path
@@ -48,30 +47,28 @@ def test_install_project_skills_creates_symlinks_for_each_skill(tmp_path: Path) 
     assert (target_dir / "skill-two").resolve() == skill_root / "skill-two"
 
 
-def test_install_project_skills_defaults_to_codex_and_claude(
-    tmp_path: Path,
-) -> None:
+def test_install_project_skills_defaults_to_project_claude(tmp_path: Path) -> None:
     repo_root = tmp_path / "repo"
     skill_dir = repo_root / "agent-skills" / "skill-one"
     skill_dir.mkdir(parents=True)
     (skill_dir / "SKILL.md").write_text(
         "---\nname: skill-one\ndescription: test\n---\n", encoding="utf-8"
     )
-    fake_home = tmp_path / "home"
-    env = os.environ.copy()
-    env["HOME"] = str(fake_home)
 
     result = subprocess.run(
         [sys.executable, str(SCRIPT_PATH), "--repo-root", str(repo_root)],
         capture_output=True,
         text=True,
         check=False,
-        env=env,
     )
 
     assert result.returncode == 0, result.stderr
-    assert (fake_home / ".codex" / "skills" / "skill-one").resolve() == skill_dir
-    assert (fake_home / ".claude" / "skills" / "skill-one").resolve() == skill_dir
+    assert (
+        repo_root / ".claude" / "skills" / "skill-one"
+    ).resolve() == skill_dir
+    assert (
+        repo_root / ".claude" / "skills" / "skill-one"
+    ).readlink() == Path("../../agent-skills/skill-one")
 
 
 def test_install_symlink_falls_back_to_windows_junction_on_privilege_error(
