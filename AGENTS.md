@@ -108,6 +108,9 @@ tests/             与 src/ 对应的测试
 
 - 所有模型调用必须经过 `src/evaluation/providers/` 统一抽象层；业务代码不得直接
   `import openai`、`anthropic` 等供应商 SDK。
+- `raw/label/`、未发表投稿和真实审稿意见不得发送给 Web Search、Firecrawl、
+  浏览器/普通连接器或无审计的外部工具；经授权的模型评审仍须通过上述 providers
+  抽象层，并按本节要求持久化调用记录。
 - 每次调用均须持久化输入、原始输出、时间戳、模型、供应商与失败信息；不能只存最终分数。
 - R2 后单维度 `std > 8` 表示需要专家复核，不得自动用仲裁模型覆盖真实学术分歧。
 - v2.55 R2 机制已经冻结；不要用 `autoresearch` 继续调整 R2 Prompt。
