@@ -70,6 +70,9 @@ def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
     Returns:
         PDF 文件的字节数据
     """
+    if "position_summary" in report_data:
+        return _build_editorial_pdf(report_data)
+
     buffer = BytesIO()
     figure, axis = plt.subplots(figsize=(8.27, 11.69))
     axis.axis("off")
@@ -248,6 +251,291 @@ def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
 
     plt.close(figure)
     return buffer.getvalue()
+
+
+def _build_editorial_pdf(report_data: dict[str, Any]) -> bytes:
+    """生成五轴在前、六维在后的两页编辑预审报告。"""
+
+    buffer = BytesIO()
+    font = get_chinese_font()
+    title = report_data.get("title") or "未命名论文"
+    position = report_data.get("position_summary") or {}
+    dimensions = report_data.get("dimensions") or []
+    ccb = report_data.get("ccb_summary") or {}
+    total_score = report_data.get("weighted_total") or 0
+
+    position_figure, position_axis = plt.subplots(figsize=(8.27, 11.69))
+    position_axis.axis("off")
+    _draw_editorial_header(
+        position_axis,
+        title,
+        "五轴位置归属度",
+        font,
+        page_number=1,
+    )
+    if position:
+        position_axis.text(
+            0.08,
+            0.79,
+            f"五轴总分：{position.get('total_score', 0)} / 10",
+            fontsize=16,
+            ha="left",
+            va="top",
+            fontweight="bold",
+            fontproperties=font,
+        )
+        position_axis.text(
+            0.92,
+            0.79,
+            (
+                f"{position.get('strength_label', '待确认')} · "
+                f"{position.get('agreement_label', '待确认')}"
+            ),
+            fontsize=10,
+            ha="right",
+            va="top",
+            color="#475569",
+            fontproperties=font,
+        )
+    else:
+        position_axis.text(
+            0.08,
+            0.79,
+            "五轴结果尚未生成。",
+            fontsize=13,
+            ha="left",
+            va="top",
+            color="#92400E",
+            fontproperties=font,
+        )
+    position_axis.axhline(
+        y=0.745,
+        xmin=0.06,
+        xmax=0.94,
+        color="#94A3B8",
+        linewidth=0.6,
+    )
+
+    for index, item in enumerate(position.get("axes") or []):
+        y_pos = 0.70 - index * 0.125
+        position_axis.text(
+            0.08,
+            y_pos,
+            str(item.get("axis_name") or "未知轴"),
+            fontsize=12,
+            ha="left",
+            va="top",
+            fontweight="bold",
+            fontproperties=font,
+        )
+        position_axis.text(
+            0.31,
+            y_pos,
+            str(item.get("focus_label") or ""),
+            fontsize=10,
+            ha="left",
+            va="top",
+            color="#475569",
+            fontproperties=font,
+        )
+        position_axis.text(
+            0.92,
+            y_pos,
+            f"{item.get('score', 0)} / 2",
+            fontsize=12,
+            ha="right",
+            va="top",
+            fontweight="bold",
+            fontproperties=font,
+        )
+        position_axis.text(
+            0.08,
+            y_pos - 0.045,
+            _wrap_text(str(item.get("guiding_question") or ""), 38),
+            fontsize=10,
+            ha="left",
+            va="top",
+            fontproperties=font,
+        )
+        if index < len(position.get("axes") or []) - 1:
+            position_axis.axhline(
+                y=y_pos - 0.098,
+                xmin=0.06,
+                xmax=0.94,
+                color="#E2E8F0",
+                linewidth=0.4,
+            )
+    position_axis.text(
+        0.08,
+        0.07,
+        _wrap_text(str(position.get("notice") or ""), 52),
+        fontsize=9,
+        ha="left",
+        va="bottom",
+        color="#64748B",
+        fontproperties=font,
+    )
+
+    dimension_figure, dimension_axis = plt.subplots(figsize=(8.27, 11.69))
+    dimension_axis.axis("off")
+    _draw_editorial_header(
+        dimension_axis,
+        title,
+        "六维学术评价",
+        font,
+        page_number=2,
+    )
+    dimension_axis.text(
+        0.08,
+        0.79,
+        f"六维综合参考分：{total_score:g}",
+        fontsize=16,
+        ha="left",
+        va="top",
+        fontweight="bold",
+        fontproperties=font,
+    )
+    if ccb:
+        dimension_axis.text(
+            0.08,
+            0.745,
+            (
+                f"核心基础分 {ccb.get('base_score', 0):g} · "
+                f"{ccb.get('ceiling_label') or '未触发封顶'} · "
+                f"前瞻弱加分 {ccb.get('bonus_score', 0):g}"
+            ),
+            fontsize=9,
+            ha="left",
+            va="top",
+            color="#475569",
+            fontproperties=font,
+        )
+    dimension_axis.axhline(
+        y=0.70,
+        xmin=0.06,
+        xmax=0.94,
+        color="#94A3B8",
+        linewidth=0.6,
+    )
+    for index, item in enumerate(dimensions):
+        y_pos = 0.655 - index * 0.09
+        dimension_axis.text(
+            0.08,
+            y_pos,
+            str(item.get("name_zh") or "未知维度"),
+            fontsize=11,
+            ha="left",
+            va="top",
+            fontweight="bold",
+            fontproperties=font,
+        )
+        score = (item.get("ai") or {}).get("mean_score") or 0
+        dimension_axis.text(
+            0.32,
+            y_pos,
+            f"{score:.1f} 分",
+            fontsize=11,
+            ha="left",
+            va="top",
+            fontproperties=font,
+        )
+        dimension_axis.text(
+            0.44,
+            y_pos,
+            _wrap_text(_get_dimension_summary(item), 34),
+            fontsize=9,
+            ha="left",
+            va="top",
+            color="#334155",
+            fontproperties=font,
+        )
+        if index < len(dimensions) - 1:
+            dimension_axis.axhline(
+                y=y_pos - 0.072,
+                xmin=0.06,
+                xmax=0.94,
+                color="#E2E8F0",
+                linewidth=0.4,
+            )
+
+    expert_conclusion = report_data.get("expert_conclusion")
+    if expert_conclusion:
+        expert_y = 0.655 - len(dimensions) * 0.09 - 0.015
+        dimension_axis.text(
+            0.08,
+            expert_y,
+            "专家复核意见",
+            fontsize=11,
+            ha="left",
+            va="top",
+            fontweight="bold",
+            fontproperties=font,
+        )
+        dimension_axis.text(
+            0.08,
+            expert_y - 0.04,
+            _wrap_text(str(expert_conclusion), 52),
+            fontsize=9,
+            ha="left",
+            va="top",
+            fontproperties=font,
+        )
+
+    with PdfPages(buffer) as pdf:
+        pdf.savefig(position_figure)
+        pdf.savefig(dimension_figure)
+    plt.close(position_figure)
+    plt.close(dimension_figure)
+    return buffer.getvalue()
+
+
+def _draw_editorial_header(
+    axis: Any,
+    title: str,
+    section_title: str,
+    font: fm.FontProperties,
+    *,
+    page_number: int,
+) -> None:
+    axis.text(
+        0.5,
+        0.95,
+        "中国自主知识创新（法学论文）评价系统",
+        fontsize=16,
+        ha="center",
+        va="top",
+        fontweight="bold",
+        fontproperties=font,
+    )
+    axis.text(
+        0.5,
+        0.905,
+        _truncate_text(title, 42),
+        fontsize=11,
+        ha="center",
+        va="top",
+        fontproperties=font,
+    )
+    axis.text(
+        0.5,
+        0.855,
+        section_title,
+        fontsize=14,
+        ha="center",
+        va="top",
+        fontweight="bold",
+        fontproperties=font,
+    )
+    axis.text(
+        0.94,
+        0.035,
+        f"第 {page_number} 页 / 共 2 页",
+        fontsize=8,
+        ha="right",
+        va="bottom",
+        color="#64748B",
+        fontproperties=font,
+    )
 
 
 def _get_dimension_summary(dim: dict[str, Any]) -> str:

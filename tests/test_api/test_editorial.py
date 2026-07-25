@@ -162,7 +162,17 @@ def test_responsible_editor_decision_locks_and_admin_can_reopen(
         f"/api/editorial/submissions/{submission_id}/report?format=json"
     )
     assert json_report.status_code == 200
-    assert json_report.json()["schema_version"] == "editorial-report-v2"
+    assert json_report.json()["schema_version"] == "editorial-report-v3"
+    assert json_report.json()["evaluation"]["display_order"] == [
+        "five_axis",
+        "six_dimension",
+    ]
+    listed = client.get(
+        "/api/editorial/submissions",
+        params={"unit_id": unit_id},
+    )
+    assert listed.status_code == 200
+    assert listed.json()["items"][0]["current_report_version"] == 1
     pdf_report = client.get(
         f"/api/editorial/submissions/{submission_id}/report?format=pdf"
     )

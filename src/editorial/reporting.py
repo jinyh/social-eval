@@ -24,6 +24,8 @@ from src.editorial.presentation import (
     build_six_dimension_summary,
 )
 from src.reporting.simple_pdf_builder import build_simple_pdf
+from src.knowledge.loader import load_framework
+from src.knowledge.registry import resolve_framework_path
 
 REPORT_ROOT = Path("data/editorial")
 
@@ -85,8 +87,13 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
     )
     policy = load_editorial_policy(submission.policy_key)
     provider_names = json.loads(task.provider_names or "[]")
+    framework = load_framework(task.framework_path or str(resolve_framework_path()))
     six_dimension_summary = build_six_dimension_summary(
-        scores, reliability, policy, provider_names
+        scores,
+        reliability,
+        policy,
+        provider_names,
+        [(dimension.key, dimension.name_zh) for dimension in framework.dimensions],
     )
     expert_reviews = []
     for review in (
@@ -125,7 +132,7 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
             }
         )
     return {
-        "schema_version": "editorial-report-v2",
+        "schema_version": "editorial-report-v3",
         "submission": {
             "id": submission.id,
             "unit_id": submission.unit_id,
@@ -149,6 +156,7 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
             "journal_fit_result": submission.fit_result,
         },
         "evaluation": {
+            "display_order": ["five_axis", "six_dimension"],
             "framework_id": task.framework_id,
             "final_round": task.final_round,
             "cross_review_enabled": task.cross_review_enabled,
@@ -234,6 +242,7 @@ def _pdf_payload(report: dict) -> dict:
         {},
     )
     ccb = report["evaluation"].get("ccb_summary") or {}
+    position = report["evaluation"].get("position_summary")
     expert_comments = [
         comment["reason"]
         for review in report.get("expert_reviews", [])
@@ -244,6 +253,7 @@ def _pdf_payload(report: dict) -> dict:
         "title": report["submission"]["title"],
         "weighted_total": ccb.get("final_score", 0),
         "ccb_summary": ccb,
+        "position_summary": position,
         "conclusion": synthesis.get("synthesis") or synthesis.get("summary"),
         "dimensions": [
             {

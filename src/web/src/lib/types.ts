@@ -258,6 +258,7 @@ export type EditorialSubmissionListItem = {
   status: string;
   responsible_editor_id?: string | null;
   recommendation_state: "shadow" | "ready" | "withheld";
+  current_report_version: number;
   created_at: string;
   updated_at: string;
 };
@@ -332,6 +333,8 @@ export type CcbSummary = {
 export type PositionAxisSummary = {
   axis_key: string;
   axis_name: string;
+  focus_label: string;
+  guiding_question: string;
   score: number;
   score_range: number[];
   evidence_quotes: string[];

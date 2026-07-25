@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { App } from "./App";
@@ -97,11 +97,22 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
+    const reportTab = await screen.findByRole("tab", { name: "评阅报告" });
+    expect(reportTab).toHaveAttribute("aria-selected", "true");
+    fireEvent.click(reportTab);
     expect(await screen.findByText(/四模型评价/i)).toBeInTheDocument();
+    const fiveAxis = screen.getByRole("heading", { name: "五轴位置归属度" });
+    const sixDimension = screen.getByRole("heading", { name: "六维学术评价" });
+    expect(
+      fiveAxis.compareDocumentPosition(sixDimension) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(screen.getByText("核心问题是否归属于中国法学语境")).toBeInTheDocument();
     expect(screen.getAllByText(/模型甲/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/模型丁/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/glm-5.1/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/qwen3.6-plus/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Choose File|No File Chosen/i)).not.toBeInTheDocument();
   });
 
   it("submits expert review comments without hard-coded scores", async () => {

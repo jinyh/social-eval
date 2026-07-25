@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
   Download,
@@ -35,6 +35,7 @@ import type {
   PreReviewDecision,
   User,
 } from "@/lib/types";
+import { localizeEvaluationValue } from "@/lib/evaluationLocalization";
 import { cn } from "@/lib/utils";
 
 import { Badge } from "./ui/badge";
@@ -98,6 +99,185 @@ const dimensionNames: Record<string, string> = {
   forward_extension: "前瞻延展性",
 };
 
+const submissionStatusGroups = {
+  processing: new Set<string>([
+    "queued",
+    "anonymizing",
+    "formal_check",
+    "prechecking",
+    "journal_fit_check",
+    "evaluating",
+    "generating_opinions",
+    "expert_review",
+  ]),
+  awaiting_action: new Set<string>([
+    "awaiting_anonymization_confirmation",
+    "awaiting_formal_check_confirmation",
+    "awaiting_precheck_confirmation",
+    "awaiting_fit_confirmation",
+    "awaiting_editor",
+  ]),
+  completed: new Set<string>(["sent_for_external_review", "completed"]),
+  failed: new Set<string>(["recovering"]),
+} as const;
+
+export type SubmissionStatusFilter =
+  | "all"
+  | keyof typeof submissionStatusGroups;
+
+export type SubmissionFilters = {
+  keyword: string;
+  status: SubmissionStatusFilter;
+  submittedFrom: string;
+  submittedTo: string;
+};
+
+function beijingDateKey(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "";
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
+
+export function filterEditorialSubmissions(
+  rows: EditorialSubmissionListItem[],
+  filters: SubmissionFilters
+): EditorialSubmissionListItem[] {
+  const keyword = filters.keyword.trim().toLocaleLowerCase("zh-CN");
+  return rows.filter((item) => {
+    const matchesKeyword =
+      !keyword ||
+      (item.title ?? "").toLocaleLowerCase("zh-CN").includes(keyword) ||
+      (item.external_manuscript_id ?? "")
+        .toLocaleLowerCase("zh-CN")
+        .includes(keyword);
+    const matchesStatus =
+      filters.status === "all" ||
+      submissionStatusGroups[filters.status].has(item.status);
+    const submittedDate = beijingDateKey(item.created_at);
+    const matchesFrom =
+      !filters.submittedFrom || submittedDate >= filters.submittedFrom;
+    const matchesTo = !filters.submittedTo || submittedDate <= filters.submittedTo;
+    return matchesKeyword && matchesStatus && matchesFrom && matchesTo;
+  });
+}
+
+function formatBeijingTime(value: string): string {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "时间待确认";
+  return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(date);
+}
+
+type ProgressExplanation = {
+  state: "running" | "paused" | "completed";
+  stageLabel: string;
+  headline: string;
+  detail: string;
+};
+
+function stringList(
+  result: Record<string, unknown> | null | undefined,
+  ...keys: string[]
+): string[] {
+  for (const key of keys) {
+    const value = result?.[key];
+    if (Array.isArray(value)) {
+      const items = value.filter(
+        (item): item is string => typeof item === "string" && item.trim().length > 0
+      );
+      if (items.length > 0) return items;
+    }
+  }
+  return [];
+}
+
+export function describeEditorialProgress(
+  detail: Pick<
+    EditorialSubmissionDetail,
+    | "status"
+    | "anonymization_result"
+    | "formal_check_result"
+    | "precheck_result"
+    | "fit_result"
+    | "progress"
+  >
+): ProgressExplanation {
+  const pauseConfiguration: Record<
+    string,
+    { result?: Record<string, unknown> | null; fallback: string }
+  > = {
+    awaiting_anonymization_confirmation: {
+      result: detail.anonymization_result,
+      fallback: "匿名化检查发现需要人工核对的残留信息。",
+    },
+    awaiting_formal_check_confirmation: {
+      result: detail.formal_check_result,
+      fallback: "形式完整性检查发现需要人工判断的边界情况。",
+    },
+    awaiting_precheck_confirmation: {
+      result: detail.precheck_result,
+      fallback: "公共预检发现需要人工确认的问题。",
+    },
+    awaiting_fit_confirmation: {
+      result: detail.fit_result,
+      fallback: "期刊适配性检查发现需要人工确认的问题。",
+    },
+  };
+  const pause = pauseConfiguration[detail.status];
+  if (pause) {
+    const reasons = stringList(
+      pause.result,
+      "issues",
+      "boundary_reasons",
+      "obviously_ineligible_reasons",
+      "remaining_markers",
+      "reasons"
+    );
+    return {
+      state: "paused",
+      stageLabel: statusLabels[detail.status] ?? "等待编辑确认",
+      headline: "流程已暂停，等待编辑确认",
+      detail: `暂停原因：${reasons.join("；") || pause.fallback} 请核对后在下方填写理由并确认继续。`,
+    };
+  }
+
+  if (detail.status === "completed") {
+    return {
+      state: "completed",
+      stageLabel: "已完成",
+      headline: "全部处理单元已完成",
+      detail: "评价结果和报告已经生成。",
+    };
+  }
+
+  const runningUnit = Math.min(
+    detail.progress.completed + 1,
+    Math.max(detail.progress.total, 1)
+  );
+  return {
+    state: "running",
+    stageLabel:
+      statusLabels[detail.status] ?? detail.progress.stage_label ?? "处理中",
+    headline: statusLabels[detail.status] ?? "正在处理",
+    detail:
+      detail.progress.total > 0
+        ? `正在执行第 ${runningUnit} 个处理单元；当前单元完成后，已完成数量和百分比会自动更新。`
+        : "任务正在排队，处理计划生成后将显示完整进度。",
+  };
+}
+
 export function EditorialWorkspace({ user }: { user: User }) {
   const [units, setUnits] = useState<EditorialUnit[]>([]);
   const [unitId, setUnitId] = useState("");
@@ -116,9 +296,20 @@ export function EditorialWorkspace({ user }: { user: User }) {
   const [experts, setExperts] = useState<User[]>([]);
   const [expertId, setExpertId] = useState("");
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+  const [detailTab, setDetailTab] = useState<"overview" | "report">("overview");
+  const [uploadFileName, setUploadFileName] = useState("");
+  const [filters, setFilters] = useState<SubmissionFilters>({
+    keyword: "",
+    status: "all",
+    submittedFrom: "",
+    submittedTo: "",
+  });
 
   const selectedUnit = units.find((unit) => unit.id === unitId);
-
+  const visibleSubmissions = useMemo(
+    () => filterEditorialSubmissions(submissions, filters),
+    [filters, submissions]
+  );
   const refreshList = async (nextUnitId = unitId) => {
     if (!nextUnitId) return;
     const rows = await listEditorialSubmissions(nextUnitId);
@@ -165,6 +356,20 @@ export function EditorialWorkspace({ user }: { user: User }) {
       current = false;
     };
   }, [selectedId]);
+
+  useEffect(() => {
+    const selected = submissions.find((item) => item.id === selectedId);
+    if (!selected) return;
+    setDetailTab(selected.current_report_version > 0 ? "report" : "overview");
+  }, [selectedId]);
+
+  useEffect(() => {
+    setSelectedId((current) =>
+      visibleSubmissions.some((item) => item.id === current)
+        ? current
+        : visibleSubmissions[0]?.id ?? null
+    );
+  }, [visibleSubmissions]);
 
   useEffect(() => {
     if (!selectedId) return;
@@ -214,8 +419,10 @@ export function EditorialWorkspace({ user }: { user: User }) {
       );
       setMessage(`稿件已进入队列：${result.submission_id}`);
       form.reset();
+      setUploadFileName("");
       await refreshList();
       setSelectedId(result.submission_id);
+      setDetailTab("overview");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "上传失败");
     }
@@ -229,21 +436,25 @@ export function EditorialWorkspace({ user }: { user: User }) {
 
   const handleGate = async () => {
     if (!detail) return;
-    if (detail.status === "awaiting_anonymization_confirmation") {
-      await confirmEditorialAnonymization(
-        detail.id,
-        gateReason || "编辑确认匿名化结果"
-      );
-    } else if (detail.status === "awaiting_formal_check_confirmation") {
-      await continueEditorialSubmission(detail.id, "formal_check", gateReason);
-    } else if (detail.status === "awaiting_precheck_confirmation") {
-      await continueEditorialSubmission(detail.id, "precheck", gateReason);
-    } else if (detail.status === "awaiting_fit_confirmation") {
-      await continueEditorialSubmission(detail.id, "journal_fit", gateReason);
+    try {
+      if (detail.status === "awaiting_anonymization_confirmation") {
+        await confirmEditorialAnonymization(
+          detail.id,
+          gateReason || "编辑确认匿名化结果"
+        );
+      } else if (detail.status === "awaiting_formal_check_confirmation") {
+        await continueEditorialSubmission(detail.id, "formal_check", gateReason);
+      } else if (detail.status === "awaiting_precheck_confirmation") {
+        await continueEditorialSubmission(detail.id, "precheck", gateReason);
+      } else if (detail.status === "awaiting_fit_confirmation") {
+        await continueEditorialSubmission(detail.id, "journal_fit", gateReason);
+      }
+      setMessage("已记录确认，后台将从当前检查点继续。");
+      setGateReason("");
+      await refreshDetail();
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "确认失败，请稍后重试。");
     }
-    setMessage("已记录确认，后台将从当前检查点继续。");
-    setGateReason("");
-    await refreshDetail();
   };
 
   const handleDecision = async () => {
@@ -373,7 +584,27 @@ export function EditorialWorkspace({ user }: { user: User }) {
               ) : (
                 <form className="space-y-3" onSubmit={handleUpload}>
                   <Input name="externalId" placeholder="外部稿号（可选）" />
-                  <Input name="paper" type="file" accept=".pdf,.docx,.txt" />
+                  <input
+                    id="editorial-paper-upload"
+                    className="sr-only"
+                    name="paper"
+                    type="file"
+                    accept=".pdf,.docx,.txt"
+                    onChange={(event) =>
+                      setUploadFileName(event.target.files?.[0]?.name ?? "")
+                    }
+                  />
+                  <div className="rounded-xl border border-slate-200 bg-white p-3">
+                    <label
+                      htmlFor="editorial-paper-upload"
+                      className="inline-flex cursor-pointer items-center rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                    >
+                      选择稿件文件
+                    </label>
+                    <p className="mt-2 truncate text-xs text-slate-500">
+                      {uploadFileName || "尚未选择文件"}
+                    </p>
+                  </div>
                   <Button className="w-full" type="submit">
                     <UploadCloud className="h-4 w-4" />
                     上传并开始预审
@@ -386,40 +617,150 @@ export function EditorialWorkspace({ user }: { user: User }) {
           <Card>
             <CardHeader>
               <CardTitle>投稿列表</CardTitle>
-              <CardDescription>同一编辑单元成员可见。</CardDescription>
+              <CardDescription>
+                同一编辑单元成员可见；当前显示 {visibleSubmissions.length}/
+                {submissions.length} 篇。
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
+              <div className="space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <Input
+                  value={filters.keyword}
+                  onChange={(event) =>
+                    setFilters((current) => ({
+                      ...current,
+                      keyword: event.target.value,
+                    }))
+                  }
+                  placeholder="搜索投稿题目或外部稿号"
+                />
+                <Select
+                  value={filters.status}
+                  onChange={(event) =>
+                    setFilters((current) => ({
+                      ...current,
+                      status: event.target.value as SubmissionStatusFilter,
+                    }))
+                  }
+                >
+                  <option value="all">全部状态</option>
+                  <option value="processing">处理中</option>
+                  <option value="awaiting_action">待人工处理</option>
+                  <option value="completed">已完成</option>
+                  <option value="failed">处理失败</option>
+                </Select>
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="space-y-1 text-xs text-slate-600">
+                    投稿日期起
+                    <Input
+                      type="date"
+                      lang="zh-CN"
+                      value={filters.submittedFrom}
+                      onChange={(event) =>
+                        setFilters((current) => ({
+                          ...current,
+                          submittedFrom: event.target.value,
+                        }))
+                      }
+                    />
+                  </label>
+                  <label className="space-y-1 text-xs text-slate-600">
+                    投稿日期止
+                    <Input
+                      type="date"
+                      lang="zh-CN"
+                      value={filters.submittedTo}
+                      onChange={(event) =>
+                        setFilters((current) => ({
+                          ...current,
+                          submittedTo: event.target.value,
+                        }))
+                      }
+                    />
+                  </label>
+                </div>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full"
+                  onClick={() =>
+                    setFilters({
+                      keyword: "",
+                      status: "all",
+                      submittedFrom: "",
+                      submittedTo: "",
+                    })
+                  }
+                >
+                  清除筛选
+                </Button>
+              </div>
               {submissions.length === 0 ? (
                 <Empty text="当前编辑单元暂无投稿。" />
+              ) : visibleSubmissions.length === 0 ? (
+                <Empty text="没有符合当前筛选条件的投稿。" />
               ) : (
-                submissions.map((item) => (
-                  <button
-                    type="button"
+                visibleSubmissions.map((item) => (
+                  <div
                     key={item.id}
-                    onClick={() => setSelectedId(item.id)}
                     className={cn(
-                      "w-full rounded-xl border p-3 text-left transition-colors",
+                      "rounded-xl border p-3 transition-colors",
                       selectedId === item.id
                         ? "border-blue-200 bg-blue-50"
                         : "border-slate-200 bg-white hover:bg-slate-50"
                     )}
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <p className="truncate text-sm font-medium text-slate-950">
-                          {item.title ?? item.id}
-                        </p>
-                        <p className="mt-1 text-xs text-slate-500">
-                          {item.external_manuscript_id ?? item.id}
-                        </p>
+                    <button
+                      type="button"
+                      className="w-full text-left"
+                      onClick={() => {
+                        setSelectedId(item.id);
+                        setDetailTab(
+                          item.current_report_version > 0 ? "report" : "overview"
+                        );
+                      }}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="truncate text-sm font-medium text-slate-950">
+                            {item.title ?? item.id}
+                          </p>
+                          <p className="mt-1 text-xs text-slate-500">
+                            {item.external_manuscript_id ?? item.id}
+                          </p>
+                        </div>
+                        <Badge
+                          variant={
+                            item.status === "recovering" ? "danger" : "neutral"
+                          }
+                        >
+                          {statusLabels[item.status] ?? "状态待确认"}
+                        </Badge>
                       </div>
-                      <Badge
-                        variant={item.status === "recovering" ? "danger" : "neutral"}
+                      <dl className="mt-3 grid gap-1 text-xs text-slate-500">
+                        <div className="flex justify-between gap-2">
+                          <dt>投稿时间</dt>
+                          <dd>{formatBeijingTime(item.created_at)}</dd>
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <dt>最后更新</dt>
+                          <dd>{formatBeijingTime(item.updated_at)}</dd>
+                        </div>
+                      </dl>
+                    </button>
+                    {item.current_report_version > 0 ? (
+                      <button
+                        type="button"
+                        className="mt-3 w-full rounded-lg border border-blue-200 bg-white px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50"
+                        onClick={() => {
+                          setSelectedId(item.id);
+                          setDetailTab("report");
+                        }}
                       >
-                        {statusLabels[item.status] ?? "状态待确认"}
-                      </Badge>
-                    </div>
-                  </button>
+                        查看评阅报告 · 第 {item.current_report_version} 版
+                      </button>
+                    ) : null}
+                  </div>
                 ))
               )}
             </CardContent>
@@ -430,6 +771,8 @@ export function EditorialWorkspace({ user }: { user: User }) {
           {detail ? (
             <SubmissionDetail
               detail={detail}
+              activeTab={detailTab}
+              onTabChange={setDetailTab}
               gateReason={gateReason}
               onGateReasonChange={setGateReason}
               onGate={handleGate}
@@ -467,6 +810,8 @@ export function EditorialWorkspace({ user }: { user: User }) {
 
 type DetailProps = {
   detail: EditorialSubmissionDetail;
+  activeTab: "overview" | "report";
+  onTabChange: (value: "overview" | "report") => void;
   gateReason: string;
   onGateReasonChange: (value: string) => void;
   onGate: () => void;
@@ -488,6 +833,8 @@ type DetailProps = {
 function SubmissionDetail(props: DetailProps) {
   const {
     detail,
+    activeTab,
+    onTabChange,
     gateReason,
     onGateReasonChange,
     onGate,
@@ -523,6 +870,7 @@ function SubmissionDetail(props: DetailProps) {
     preReviewRecord?.final_decision === "priority_external_review";
   const currentStageLocked =
     decisionStage === "pre_review" ? Boolean(preReviewRecord) : Boolean(finalRecord);
+  const progressExplanation = describeEditorialProgress(detail);
 
   return (
     <div className="space-y-5">
@@ -544,7 +892,29 @@ function SubmissionDetail(props: DetailProps) {
           </div>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
-          {detail.documents.original ? (
+          <dl className="grid w-full gap-3 text-sm sm:grid-cols-2 xl:grid-cols-4">
+            <Metric
+              label="投稿时间"
+              value={formatBeijingTime(detail.created_at)}
+            />
+            <Metric
+              label="最后更新"
+              value={formatBeijingTime(detail.updated_at)}
+            />
+            <Metric
+              label="系统稿号"
+              value={detail.id}
+            />
+            <Metric
+              label="当前报告"
+              value={
+                detail.current_report_version > 0
+                  ? `第 ${detail.current_report_version} 版`
+                  : "尚未形成正式快照"
+              }
+            />
+          </dl>
+          {activeTab === "overview" && detail.documents.original ? (
             <a
               href={editorialDocumentUrl(detail.id, "original")}
               target="_blank"
@@ -555,7 +925,7 @@ function SubmissionDetail(props: DetailProps) {
               </Button>
             </a>
           ) : null}
-          {detail.documents.anonymized ? (
+          {activeTab === "overview" && detail.documents.anonymized ? (
             <a
               href={editorialDocumentUrl(detail.id, "anonymized")}
               target="_blank"
@@ -566,7 +936,7 @@ function SubmissionDetail(props: DetailProps) {
               </Button>
             </a>
           ) : null}
-          {detail.decisions.length > 0 ? (
+          {activeTab === "report" && detail.current_report_version > 0 ? (
             <>
               <a
                 href={editorialReportUrl(detail.id, "pdf")}
@@ -592,11 +962,48 @@ function SubmissionDetail(props: DetailProps) {
         </CardContent>
       </Card>
 
-      <Card>
+      <div
+        className="grid grid-cols-2 gap-2 rounded-xl border border-slate-200 bg-white p-2"
+        role="tablist"
+        aria-label="投稿详情"
+      >
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "overview"}
+          className={cn(
+            "rounded-lg px-4 py-2 text-sm font-medium",
+            activeTab === "overview"
+              ? "bg-blue-600 text-white"
+              : "text-slate-600 hover:bg-slate-50"
+          )}
+          onClick={() => onTabChange("overview")}
+        >
+          稿件概览
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "report"}
+          className={cn(
+            "rounded-lg px-4 py-2 text-sm font-medium",
+            activeTab === "report"
+              ? "bg-blue-600 text-white"
+              : "text-slate-600 hover:bg-slate-50"
+          )}
+          onClick={() => onTabChange("report")}
+        >
+          评阅报告
+        </button>
+      </div>
+
+      {activeTab === "overview" ? (
+        <>
+          <Card>
         <CardHeader>
           <CardTitle>处理进度</CardTitle>
           <CardDescription>
-            {detail.progress.stage_label}
+            {progressExplanation.stageLabel}
             {detail.progress.current_dimension
               ? ` · ${
                   dimensionNames[detail.progress.current_dimension] ??
@@ -624,6 +1031,19 @@ function SubmissionDetail(props: DetailProps) {
             </span>
             <span>{detail.progress.percent}%</span>
           </div>
+          <div
+            className={cn(
+              "mt-3 rounded-lg border px-3 py-2 text-sm",
+              progressExplanation.state === "paused"
+                ? "border-amber-200 bg-amber-50 text-amber-800"
+                : progressExplanation.state === "completed"
+                  ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                  : "border-blue-100 bg-blue-50 text-blue-800"
+            )}
+          >
+            <p className="font-medium">{progressExplanation.headline}</p>
+            <p className="mt-1">{progressExplanation.detail}</p>
+          </div>
           {detail.progress.is_stalled ? (
             <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700">
               处理进度长时间未更新，请管理员检查工作进程和模型服务。
@@ -635,10 +1055,10 @@ function SubmissionDetail(props: DetailProps) {
             </p>
           ) : null}
         </CardContent>
-      </Card>
+          </Card>
 
-      {gate ? (
-        <Card className="border-amber-200 bg-amber-50/40">
+          {gate ? (
+            <Card className="border-amber-200 bg-amber-50/40">
           <CardHeader>
             <div className="flex items-center gap-3">
               <AlertTriangle className="h-5 w-5 text-amber-700" />
@@ -667,48 +1087,53 @@ function SubmissionDetail(props: DetailProps) {
               确认并从检查点继续
             </Button>
           </CardContent>
-        </Card>
+            </Card>
+          ) : null}
+
+          <GateEvidence detail={detail} />
+        </>
       ) : null}
 
-      <GateEvidence detail={detail} />
+      {activeTab === "report" ? (
+        <>
+          <PositionPanel detail={detail} />
 
-      <Card>
-        <CardHeader>
-          <CardTitle>智能辅助综合摘要</CardTitle>
-          <CardDescription>
-            摘要基于四模型既有评价和证据生成，不是人类审稿意见。
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {synthesis ? (
-            <OpinionContent content={synthesis.content} />
-          ) : (
-            <Empty text="综合摘要尚未生成。" />
-          )}
-        </CardContent>
-      </Card>
+          <CcbPanel detail={detail} />
 
-      <SixDimensionPanel
-        dimensions={detail.six_dimension_summary.dimensions}
-        modelCount={detail.six_dimension_summary.model_participation.count}
-        differenceCount={detail.six_dimension_summary.difference_count}
-        expertCount={detail.six_dimension_summary.expert_review_dimension_count}
-      />
+          <SixDimensionPanel
+            dimensions={detail.six_dimension_summary.dimensions}
+            modelCount={detail.six_dimension_summary.model_participation.count}
+            differenceCount={detail.six_dimension_summary.difference_count}
+            expertCount={
+              detail.six_dimension_summary.expert_review_dimension_count
+            }
+          />
 
-      <div className="grid gap-5 lg:grid-cols-2">
-        <CcbPanel detail={detail} />
-        <PositionPanel detail={detail} />
-      </div>
+          <Card>
+            <CardHeader>
+              <CardTitle>智能辅助综合摘要</CardTitle>
+              <CardDescription>
+                摘要基于四模型既有评价和证据生成，不是人类审稿意见。
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {synthesis ? (
+                <OpinionContent content={synthesis.content} />
+              ) : (
+                <Empty text="综合摘要尚未生成。" />
+              )}
+            </CardContent>
+          </Card>
 
-      <ExpertReviewPanel
-        detail={detail}
-        experts={experts}
-        expertId={expertId}
-        onExpertChange={onExpertChange}
-        onAssign={onAssignExpert}
-      />
+          <ExpertReviewPanel
+            detail={detail}
+            experts={experts}
+            expertId={expertId}
+            onExpertChange={onExpertChange}
+            onAssign={onAssignExpert}
+          />
 
-      <Card>
+          <Card>
         <CardHeader>
           <CardTitle>编辑决定</CardTitle>
           <CardDescription>
@@ -795,7 +1220,9 @@ function SubmissionDetail(props: DetailProps) {
             </div>
           ) : null}
         </CardContent>
-      </Card>
+          </Card>
+        </>
+      ) : null}
     </div>
   );
 }
@@ -972,7 +1399,9 @@ function PositionPanel({ detail }: { detail: EditorialSubmissionDetail }) {
     <Card>
       <CardHeader>
         <CardTitle>五轴位置归属度</CardTitle>
-        <CardDescription>主视图只显示总分，明细按需展开。</CardDescription>
+        <CardDescription>
+          判断知识在中国法学自主知识体系中的位置归属，不评价论文质量。
+        </CardDescription>
       </CardHeader>
       <CardContent>
         {!value ? (
@@ -1001,16 +1430,11 @@ function PositionPanel({ detail }: { detail: EditorialSubmissionDetail }) {
                 {value.conflict_message}
               </div>
             ) : null}
-            <details className="rounded-xl border border-slate-200 p-4">
-              <summary className="cursor-pointer font-medium text-slate-950">
-                查看五轴归属依据
-              </summary>
-              <div className="mt-4 space-y-3">
-                {value.axes.map((axis) => (
-                  <PositionAxis key={axis.axis_key} axis={axis} />
-                ))}
-              </div>
-            </details>
+            <div className="space-y-3">
+              {value.axes.map((axis) => (
+                <PositionAxis key={axis.axis_key} axis={axis} />
+              ))}
+            </div>
             <p className="text-xs leading-5 text-slate-500">{value.notice}</p>
           </div>
         )}
@@ -1021,14 +1445,23 @@ function PositionPanel({ detail }: { detail: EditorialSubmissionDetail }) {
 
 function PositionAxis({ axis }: { axis: PositionAxisSummary }) {
   return (
-    <div className="rounded-lg bg-slate-50 p-3 text-sm">
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm">
       <div className="flex justify-between gap-3">
-        <span className="font-medium text-slate-950">{axis.axis_name}</span>
+        <div>
+          <p className="font-medium text-slate-950">{axis.axis_name}</p>
+          <p className="mt-1 text-slate-600">{axis.focus_label}</p>
+        </div>
         <span>
           {axis.score} / 2{axis.has_model_difference ? " · 两模型有差异" : ""}
         </span>
       </div>
-      <Evidence value={axis.evidence_quotes} />
+      <p className="mt-3 leading-6 text-slate-700">{axis.guiding_question}</p>
+      <details className="mt-3 rounded-lg border border-slate-200 bg-white p-3">
+        <summary className="cursor-pointer font-medium text-slate-700">
+          查看原文依据
+        </summary>
+        <Evidence value={axis.evidence_quotes} />
+      </details>
     </div>
   );
 }
@@ -1188,34 +1621,20 @@ function fieldLabel(key: string) {
       notice: "说明",
       boundary_status: "边界状态",
       boundary_reasons: "边界理由",
+      obviously_ineligible_reasons: "明显不适格理由",
+      recommendation: "处理建议",
+      enter_six_dimension_review: "是否进入六维评审",
+      triggered_signals: "触发信号",
+      requires_manual_confirmation: "需要人工确认",
+      text_quality_gate: "文本质量检查",
+      project_scope_precheck: "项目范围预检",
       confidence: "可信程度",
     }[key] ?? "补充信息"
   );
 }
 
 function localizedValue(value: unknown): string {
-  const text = String(value ?? "");
-  return (
-    {
-      pass: "通过",
-      passed: "通过",
-      boundary: "边界，需确认",
-      boundary_review: "边界复核",
-      reject: "不通过",
-      pending: "待处理",
-      confirmed: "已确认",
-      needs_confirmation: "需要确认",
-      comparison: "已完成独立评阅，正在对照",
-      submitted: "专家复核已完成",
-      returned: "已退回修改",
-      high: "高",
-      medium: "中等",
-      low: "较低",
-      critical: "很低",
-      true: "是",
-      false: "否",
-    }[text] ?? (text || "待确认")
-  );
+  return localizeEvaluationValue(value);
 }
 
 function decisionLabel(value: EditorialDecision) {

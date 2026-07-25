@@ -11,6 +11,7 @@ from typing import Any, Iterable
 
 from src.editorial.decision import band_for_score
 from src.editorial.policy import EditorialPolicy
+from src.knowledge.registry import load_position_framework
 from src.models.evaluation import DimensionScore
 from src.models.reliability import ReliabilityResult
 
@@ -28,13 +29,7 @@ DIMENSION_LABELS = {
     "forward_extension": "前瞻延展性",
 }
 
-AXIS_LABELS = {
-    "object_belonging": "对象归属度",
-    "material_belonging": "材料归属度",
-    "category_autonomy": "范畴自主度",
-    "explanatory_orientation": "解释目标归属度",
-    "system_mappability": "体系映射度",
-}
+POSITION_AXES = tuple(load_position_framework()["axes"])
 
 BAND_LABELS = {
     "excellent": "优",
@@ -58,9 +53,14 @@ STRENGTH_LABELS = {
 }
 
 
-def dimension_label(key: str) -> str:
+def dimension_label(
+    key: str,
+    configured_labels: dict[str, str] | None = None,
+) -> str:
     """返回权威六维中文名称。"""
 
+    if configured_labels and key in configured_labels:
+        return configured_labels[key]
     return DIMENSION_LABELS.get(key, key)
 
 
@@ -79,9 +79,15 @@ def build_six_dimension_summary(
     reliability: Iterable[ReliabilityResult],
     policy: EditorialPolicy,
     provider_names: list[str],
+    dimension_definitions: Iterable[tuple[str, str]] | None = None,
 ) -> dict[str, Any]:
     """把最终轮四模型结果整理为匿名、可审计的编辑视图。"""
 
+    configured_dimensions = list(dimension_definitions or [])
+    configured_labels = dict(configured_dimensions)
+    configured_order = {
+        key: index for index, (key, _) in enumerate(configured_dimensions)
+    }
     score_rows: dict[str, dict[str, DimensionScore]] = defaultdict(dict)
     for row in scores:
         score_rows[row.dimension_key][row.model_name] = row
@@ -152,7 +158,10 @@ def build_six_dimension_summary(
         dimensions.append(
             {
                 "dimension_key": dimension_key,
-                "dimension_name": dimension_label(dimension_key),
+                "dimension_name": dimension_label(
+                    dimension_key,
+                    configured_labels,
+                ),
                 "mean_score": round(float(mean_score), 2),
                 "std_score": round(float(std_score), 2),
                 "confidence_label": _confidence(float(std_score)),
@@ -166,10 +175,13 @@ def build_six_dimension_summary(
         )
 
     dimensions.sort(
-        key=lambda item: (
-            list(DIMENSION_LABELS).index(item["dimension_key"])
-            if item["dimension_key"] in DIMENSION_LABELS
-            else len(DIMENSION_LABELS)
+        key=lambda item: configured_order.get(
+            item["dimension_key"],
+            (
+                list(DIMENSION_LABELS).index(item["dimension_key"])
+                if item["dimension_key"] in DIMENSION_LABELS
+                else len(DIMENSION_LABELS)
+            ),
         )
     )
     return {
@@ -215,13 +227,16 @@ def build_position_summary(
     axes = final.get("axis_scores")
     axes = axes if isinstance(axes, dict) else {}
     details = []
-    for key, label in AXIS_LABELS.items():
+    for axis in POSITION_AXES:
+        key = str(axis["key"])
         payload = axes.get(key)
         payload = payload if isinstance(payload, dict) else {}
         details.append(
             {
                 "axis_key": key,
-                "axis_name": label,
+                "axis_name": str(axis["name_zh"]),
+                "focus_label": str(axis["focus_zh"]),
+                "guiding_question": str(axis["question_zh"]),
                 "score": int(payload.get("score", 0) or 0),
                 "score_range": payload.get("score_range", [0, 0]),
                 "evidence_quotes": payload.get("evidence_quotes", []),

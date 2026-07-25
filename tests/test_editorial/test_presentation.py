@@ -100,6 +100,31 @@ def test_band_difference_below_expert_threshold_is_still_visible() -> None:
     assert result["dimensions"][0]["difference_label"] == "存在观点差异"
 
 
+def test_six_dimension_uses_configured_chinese_names_and_order() -> None:
+    policy = load_editorial_policy("jiaoda-law-v1")
+    definitions = [
+        ("problem_originality", "研究创新性"),
+        ("literature_insight", "现状洞察度"),
+        ("analytical_framework", "理论建构力"),
+        ("logical_coherence", "逻辑连贯性"),
+        ("conclusion_consensus", "学术共识度"),
+        ("forward_extension", "前瞻延展性"),
+    ]
+    scores = [_score(key, "模型一", 80, "good") for key, _ in reversed(definitions)]
+
+    result = build_six_dimension_summary(
+        scores,
+        [],
+        policy,
+        ["模型一"],
+        definitions,
+    )
+
+    assert [item["dimension_name"] for item in result["dimensions"]] == [
+        name for _, name in definitions
+    ]
+
+
 def test_ccb_and_five_axis_are_described_as_separate_reference_outputs() -> None:
     ccb = build_ccb_summary(
         {
@@ -136,6 +161,8 @@ def test_ccb_and_five_axis_are_described_as_separate_reference_outputs() -> None
     assert position["total_score"] == 9
     assert position["conflict_with_precheck"] is True
     assert position["axes"][0]["axis_name"] == "对象归属度"
+    assert position["axes"][0]["focus_label"] == "研究问题归属"
+    assert position["axes"][0]["guiding_question"] == "核心问题是否归属于中国法学语境"
     assert position["axes"][0]["has_model_difference"] is True
     assert "不评价论文质量" in position["notice"]
 

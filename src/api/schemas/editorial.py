@@ -54,6 +54,7 @@ class EditorialSubmissionListItem(BaseModel):
     status: str
     responsible_editor_id: str | None
     recommendation_state: str
+    current_report_version: int
     created_at: datetime
     updated_at: datetime
 

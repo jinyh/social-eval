@@ -36,6 +36,24 @@ def test_registry_loads_validated_position_and_cross_review_protocols():
         "explanatory_orientation",
         "system_mappability",
     ]
+    assert [
+        (axis["name_zh"], axis["focus_zh"], axis["question_zh"])
+        for axis in position["axes"]
+    ] == [
+        ("对象归属度", "研究问题归属", "核心问题是否归属于中国法学语境"),
+        (
+            "材料归属度",
+            "核心材料归属",
+            "材料是否来自中国规范、判例、史料、数据",
+        ),
+        ("范畴自主度", "分析范畴自主", "核心范畴是否经中国法语境重置"),
+        (
+            "解释目标归属度",
+            "解释目标方向",
+            "最终目标是否指向中国法学知识生产",
+        ),
+        ("体系映射度", "知识体系映射", "知识能否映射到知识树位置"),
+    ]
     assert review["model_groups"]["lenient"] == ["glm-5.1", "qwen3.6-plus"]
     assert review["unresolved_disagreement"] == {
         "std_threshold": 8,
