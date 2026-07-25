@@ -6,7 +6,7 @@ from pathlib import Path
 from sqlalchemy.orm import Session
 
 from src.core.email import send_editorial_event_email
-from src.editorial.anonymization import create_anonymized_document
+from src.editorial.anonymization import create_anonymized_artifacts
 from src.editorial.decision import band_for_score, build_recommendation
 from src.editorial.fit import evaluate_journal_fit
 from src.editorial.formal_check import evaluate_formal_completeness
@@ -149,26 +149,41 @@ async def run_editorial_pipeline(
             set_work_status(db, task.id, "anonymization", "running")
             submission.status = "anonymizing"
             db.commit()
-            path, result, digest = create_anonymized_document(
-                paper.file_path, submission.id
-            )
-            document = EditorialDocument(
-                submission_id=submission.id,
-                kind="anonymized",
+            path, view_path, result, digest, view_digest = create_anonymized_artifacts(
+                paper.file_path,
+                submission.id,
                 version=1,
-                file_path=str(path),
-                sha256=digest,
             )
+            documents = [
+                EditorialDocument(
+                    submission_id=submission.id,
+                    kind="anonymized",
+                    version=1,
+                    file_path=str(path),
+                    sha256=digest,
+                ),
+                EditorialDocument(
+                    submission_id=submission.id,
+                    kind="anonymized_view",
+                    version=1,
+                    file_path=str(view_path),
+                    sha256=view_digest,
+                ),
+            ]
+            document = documents[0]
             submission.anonymization_result = {
+                "policy_version": "anonymous-manuscript-v1",
+                "document_version": 1,
                 "redaction_counts": result.redaction_counts,
                 "remaining_markers": result.remaining_markers,
                 "requires_confirmation": result.requires_confirmation,
+                "risk_flags": result.risk_flags or [],
+                "omitted_content_types": result.omitted_content_types or [],
+                "human_confirmed": False,
             }
-            submission.anonymization_status = (
-                "needs_confirmation" if result.requires_confirmation else "confirmed"
-            )
+            submission.anonymization_status = "needs_confirmation"
             task.input_file_path = str(path)
-            db.add(document)
+            db.add_all(documents)
             db.add(task)
             db.add(submission)
             db.commit()

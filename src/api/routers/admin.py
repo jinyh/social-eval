@@ -10,6 +10,7 @@ from src.api.schemas.admin import AdminTaskActionResponse
 from src.core.audit import record_audit_log
 from src.core.database import get_db
 from src.core.state_machine import ensure_valid_task_transition
+from src.models.editorial import EditorialSubmission
 from src.models.evaluation import EvaluationTask
 from src.models.paper import Paper
 from src.models.user import User
@@ -18,6 +19,23 @@ router = APIRouter()
 
 
 async def _dispatch_retry(request: Request, db: Session, task_id: str) -> None:
+    submission = (
+        db.query(EditorialSubmission)
+        .filter(EditorialSubmission.evaluation_task_id == task_id)
+        .first()
+    )
+    if submission is not None:
+        runner = getattr(request.app.state, "editorial_pipeline_runner", None)
+        if runner is not None:
+            result = runner(submission.id, db)
+            if inspect.isawaitable(result):
+                await result
+            return
+        dispatcher = getattr(request.app.state, "editorial_dispatcher", None)
+        if dispatcher is None:
+            raise RuntimeError("No editorial task dispatcher configured")
+        dispatcher(submission.id)
+        return
     pipeline_runner = getattr(request.app.state, "pipeline_runner", None)
     if pipeline_runner is not None:
         result = pipeline_runner(task_id, db)
@@ -33,10 +51,14 @@ async def _dispatch_retry(request: Request, db: Session, task_id: str) -> None:
 def _load_task_and_paper(db: Session, task_id: str) -> tuple[EvaluationTask, Paper]:
     task = db.get(EvaluationTask, task_id)
     if task is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Task not found"
+        )
     paper = db.get(Paper, task.paper_id)
     if paper is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Paper not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Paper not found"
+        )
     return task, paper
 
 
@@ -68,7 +90,9 @@ async def retry_task(
         result=task.status,
         details={"paper_id": paper.id},
     )
-    return AdminTaskActionResponse(task_id=task.id, task_status=task.status, paper_status=paper.status)
+    return AdminTaskActionResponse(
+        task_id=task.id, task_status=task.status, paper_status=paper.status
+    )
 
 
 @router.post("/tasks/{task_id}/close", response_model=AdminTaskActionResponse)
@@ -93,4 +117,6 @@ def close_task(
         result="closed",
         details={"paper_id": paper.id},
     )
-    return AdminTaskActionResponse(task_id=task.id, task_status=task.status, paper_status=paper.status)
+    return AdminTaskActionResponse(
+        task_id=task.id, task_status=task.status, paper_status=paper.status
+    )

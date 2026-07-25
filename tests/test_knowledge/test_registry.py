@@ -60,6 +60,11 @@ def test_registry_loads_validated_position_and_cross_review_protocols():
         "action": "expert_review",
     }
 
+    peer_review = load_review_protocol("six_dimension_peer_review")
+    assert peer_review["review_mode"] == "all_peers"
+    assert peer_review["execution"]["require_complete_first_round"] is True
+    assert peer_review["execution"]["anonymize_peer_identity"] is True
+
 
 def test_all_embedded_ccb_protocols_match_canonical_truth():
     assert assert_embedded_scoring_protocols_match() == []

@@ -4,6 +4,7 @@ from src.models.reliability import ReliabilityResult
 
 def test_round_and_structured_audit_columns_exist_on_orm_models():
     assert hasattr(EvaluationTask, "cross_review_enabled")
+    assert hasattr(EvaluationTask, "review_protocol_version")
     assert hasattr(EvaluationTask, "final_round")
     assert hasattr(DimensionScore, "structured_payload")
     assert hasattr(DimensionScore, "round_number")

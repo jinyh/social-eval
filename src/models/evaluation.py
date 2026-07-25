@@ -37,6 +37,9 @@ class EvaluationTask(Base):
     model_set_version: Mapped[str] = mapped_column(
         String(100), default="six-dimension-v1", nullable=False
     )
+    review_protocol_version: Mapped[str] = mapped_column(
+        String(100), default="six_dimension_cross_review", nullable=False
+    )
     run_role: Mapped[str] = mapped_column(
         String(30), default="production", nullable=False
     )

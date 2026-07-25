@@ -12,6 +12,34 @@ from src.evaluation.providers.base import BaseProvider
 FIT_STATUSES = {"pass", "boundary", "reject"}
 
 
+def _normalize_text_items(
+    value: Any,
+    *,
+    keys: tuple[str, ...],
+) -> list[str] | None:
+    if not isinstance(value, list):
+        return None
+    normalized: list[str] = []
+    for item in value:
+        if isinstance(item, str) and item.strip():
+            normalized.append(item.strip())
+            continue
+        if not isinstance(item, dict):
+            return None
+        text = next(
+            (
+                item.get(key).strip()
+                for key in keys
+                if isinstance(item.get(key), str) and item.get(key).strip()
+            ),
+            None,
+        )
+        if text is None:
+            return None
+        normalized.append(text)
+    return normalized
+
+
 def _validate_fit_payload(payload: dict[str, Any]) -> dict[str, Any]:
     """严格校验期刊适配性契约，避免字段漂移后静默降级。"""
 
@@ -27,15 +55,17 @@ def _validate_fit_payload(payload: dict[str, Any]) -> dict[str, Any]:
     status = payload["status"]
     if status not in FIT_STATUSES:
         raise ValueError(f"期刊适配性状态无效：{status}")
-    reasons = payload["reasons"]
-    evidence = payload["evidence_quotes"]
-    if not isinstance(reasons, list) or not all(
-        isinstance(item, str) for item in reasons
-    ):
+    reasons = _normalize_text_items(
+        payload["reasons"],
+        keys=("reason", "rationale", "summary", "text"),
+    )
+    evidence = _normalize_text_items(
+        payload["evidence_quotes"],
+        keys=("quote", "evidence_quote", "evidence", "text"),
+    )
+    if reasons is None:
         raise ValueError("期刊适配性理由必须是文字列表")
-    if not isinstance(evidence, list) or not all(
-        isinstance(item, str) for item in evidence
-    ):
+    if evidence is None:
         raise ValueError("期刊适配性证据必须是原文引文列表")
     if not isinstance(payload["requires_editor_confirmation"], bool):
         raise ValueError("期刊适配性人工确认字段必须为布尔值")

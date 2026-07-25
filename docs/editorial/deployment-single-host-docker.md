@@ -56,6 +56,16 @@ docker compose --env-file .env.production -f docker-compose.prod.yml logs --tail
 发布前先记录当前 Git commit 和镜像摘要。代码回滚与数据库降级必须分开评估；不要在
 包含真实投稿后自动运行 `alembic downgrade`。
 
+升级到编辑报告 v4 后，先列出待升级投稿，再显式追加新版本。脚本只追加新快照，
+不会覆盖历史报告；重复执行不会再次追加 v4：
+
+```bash
+docker compose --env-file .env.production -f docker-compose.prod.yml exec api \
+  python scripts/upgrade_editorial_reports_v4.py
+docker compose --env-file .env.production -f docker-compose.prod.yml exec api \
+  python scripts/upgrade_editorial_reports_v4.py --execute
+```
+
 ## 生产检查
 
 - 使用强随机 `SECRET_KEY`，模型和邮件凭据仅通过环境注入；

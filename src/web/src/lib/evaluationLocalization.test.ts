@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { localizeEvaluationValue } from "./evaluationLocalization";
+import {
+  localizeEvaluationText,
+  localizeEvaluationValue,
+} from "./evaluationLocalization";
 
 describe("localizeEvaluationValue", () => {
   it("localizes precheck and review enums shown to users", () => {
@@ -22,5 +25,14 @@ describe("localizeEvaluationValue", () => {
 
   it("does not expose unknown machine enums in the editor view", () => {
     expect(localizeEvaluationValue("unknown_machine_state")).toBe("待确认");
+  });
+
+  it("localizes band codes embedded in synthesis text", () => {
+    expect(localizeEvaluationText("模型甲 excellent，模型乙 good。")).toBe(
+      "模型甲 优，模型乙 良。"
+    );
+    expect(localizeEvaluationText("goodness 不应被替换")).toBe(
+      "goodness 不应被替换"
+    );
   });
 });

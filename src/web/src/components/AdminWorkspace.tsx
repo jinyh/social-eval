@@ -356,6 +356,12 @@ export function AdminWorkspace() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-3 text-xs text-slate-600">
+                  第二轮方式：
+                  {modelSet.review_mode === "all_peers"
+                    ? "四模型匿名互评"
+                    : "分组交叉复核"}
+                </p>
               </div>
             ))}
           </div>

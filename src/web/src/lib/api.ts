@@ -1,11 +1,13 @@
 import type {
+  AnonymousManuscript,
   InternalReport,
   ModelSet,
   NotificationItem,
   EditorialDecision,
   EditorialDecisionRecord,
   EditorialSubmissionDetail,
-  EditorialSubmissionListItem,
+  EditorialSubmissionListQuery,
+  EditorialSubmissionPage,
   EditorialUnit,
   PaperListItem,
   PaperStatus,
@@ -196,6 +198,27 @@ export function expertDocumentUrl(reviewId: string): string {
   return `${API_BASE}/api/reviews/${reviewId}/document`;
 }
 
+export async function getExpertManuscript(
+  reviewId: string
+): Promise<AnonymousManuscript> {
+  if (isMockMode()) {
+    return {
+      manuscript_id: reviewId,
+      document_version: 1,
+      blocks: [
+        { type: "heading", level: 1, text: "匿名稿件" },
+        { type: "paragraph", text: "这里展示供专家复核的匿名稿正文。" },
+      ],
+      risk_flags: [],
+      omitted_content_types: [],
+      notice: "匿名稿仅供本次评审使用，严禁转发或用于其他目的。",
+    };
+  }
+  return apiFetch<AnonymousManuscript>(
+    `/api/reviews/${reviewId}/manuscript`
+  );
+}
+
 export async function listUsers(): Promise<User[]> {
   if (isMockMode()) return mockUserDirectory;
   const result = await apiFetch<UserListResponse>("/api/users");
@@ -243,18 +266,80 @@ export async function markNotificationRead(notificationId: string): Promise<void
 }
 
 export async function listEditorialSubmissions(
-  unitId?: string
-): Promise<EditorialSubmissionListItem[]> {
+  options: EditorialSubmissionListQuery = {}
+): Promise<EditorialSubmissionPage> {
   if (isMockMode()) {
-    return unitId
-      ? mockEditorialSubmissions.filter((item) => item.unit_id === unitId)
+    const keyword = options.keyword?.trim().toLocaleLowerCase("zh-CN") ?? "";
+    const statusGroups = {
+      processing: new Set([
+        "queued",
+        "anonymizing",
+        "formal_check",
+        "prechecking",
+        "journal_fit_check",
+        "evaluating",
+        "generating_opinions",
+        "expert_review",
+      ]),
+      awaiting_action: new Set([
+        "awaiting_anonymization_confirmation",
+        "awaiting_formal_check_confirmation",
+        "awaiting_precheck_confirmation",
+        "awaiting_fit_confirmation",
+        "awaiting_editor",
+      ]),
+      completed: new Set(["sent_for_external_review", "completed"]),
+      failed: new Set(["recovering"]),
+    };
+    const unitRows = options.unitId
+      ? mockEditorialSubmissions.filter((item) => item.unit_id === options.unitId)
       : mockEditorialSubmissions;
+    const dateFiltered = unitRows.filter((item) => {
+      const matchesKeyword =
+        !keyword ||
+        (item.title ?? "").toLocaleLowerCase("zh-CN").includes(keyword) ||
+        (item.external_manuscript_id ?? "")
+          .toLocaleLowerCase("zh-CN")
+          .includes(keyword);
+      const date = item.created_at.slice(0, 10);
+      return (
+        matchesKeyword &&
+        (!options.submittedFrom || date >= options.submittedFrom) &&
+        (!options.submittedTo || date <= options.submittedTo)
+      );
+    });
+    const statusCounts = Object.fromEntries(
+      Object.entries(statusGroups).map(([key, statuses]) => [
+        key,
+        dateFiltered.filter((item) => statuses.has(item.status)).length,
+      ])
+    ) as EditorialSubmissionPage["status_counts"];
+    const filtered = options.statusGroup
+      ? dateFiltered.filter((item) =>
+          statusGroups[options.statusGroup!].has(item.status)
+        )
+      : dateFiltered;
+    const page = options.page ?? 1;
+    const pageSize = options.pageSize ?? 20;
+    return {
+      items: filtered.slice((page - 1) * pageSize, page * pageSize),
+      total: filtered.length,
+      page,
+      page_size: pageSize,
+      status_counts: statusCounts,
+    };
   }
-  const query = unitId ? `?unit_id=${encodeURIComponent(unitId)}` : "";
-  const result = await apiFetch<{ items: EditorialSubmissionListItem[] }>(
-    `/api/editorial/submissions${query}`
+  const query = new URLSearchParams();
+  if (options.unitId) query.set("unit_id", options.unitId);
+  if (options.keyword?.trim()) query.set("q", options.keyword.trim());
+  if (options.statusGroup) query.set("status_group", options.statusGroup);
+  if (options.submittedFrom) query.set("submitted_from", options.submittedFrom);
+  if (options.submittedTo) query.set("submitted_to", options.submittedTo);
+  query.set("page", String(options.page ?? 1));
+  query.set("page_size", String(options.pageSize ?? 20));
+  return apiFetch<EditorialSubmissionPage>(
+    `/api/editorial/submissions?${query.toString()}`
   );
-  return result.items;
 }
 
 export async function getEditorialSubmission(
@@ -356,6 +441,17 @@ export function editorialDocumentUrl(
   return `${API_BASE}/api/editorial/submissions/${submissionId}/documents/${kind}`;
 }
 
+export async function getEditorialManuscript(
+  submissionId: string
+): Promise<AnonymousManuscript> {
+  if (isMockMode()) {
+    return getExpertManuscript(submissionId);
+  }
+  return apiFetch<AnonymousManuscript>(
+    `/api/editorial/submissions/${submissionId}/manuscript`
+  );
+}
+
 export function editorialReportUrl(
   submissionId: string,
   format: "json" | "pdf"
@@ -389,6 +485,8 @@ export async function listModelSets(): Promise<ModelSet[]> {
           "deepseek-v4-pro",
           "kimi-k2.6",
         ],
+        review_protocol: "six_dimension_cross_review",
+        review_mode: "opposite_groups",
         model_groups: {
           lenient: ["glm-5.1", "qwen3.6-plus"],
           strict: ["deepseek-v4-pro", "kimi-k2.6"],
@@ -403,10 +501,8 @@ export async function listModelSets(): Promise<ModelSet[]> {
           "deepseek-v4-pro",
           "kimi-k2.6",
         ],
-        model_groups: {
-          lenient: ["glm-5.2", "qwen3.7-max-2026-06-08"],
-          strict: ["deepseek-v4-pro", "kimi-k2.6"],
-        },
+        review_protocol: "six_dimension_peer_review",
+        review_mode: "all_peers",
       },
     ];
   }

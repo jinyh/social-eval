@@ -15,7 +15,8 @@
 
 - [系统与成果上下文](docs/project-context.md)：架构、评价方法、历史实验、数据集与归档。
 - [主系统需求 v0.4](docs/requirements/SocialEval-requirements-v0.4.md)。
-- [编辑辅助预审需求 v1.0](docs/requirements/editorial-pre-review-requirements-v1.0.md)：当前活文档。
+- [编辑辅助预审设计索引](docs/editorial/README.md)：当前活文档入口。
+- [编辑辅助预审需求 v1.1](docs/requirements/editorial-pre-review-requirements-v1.1.md)。
 - [法学 AI 辅助评审规程 v0.17](docs/evaluation/law-ai-assisted-review-rules-v0.17.md)。
 - [概念操作化定义](docs/evaluation/concept-operationalization-v1.0.md)。
 - [评价框架 ADR](docs/architecture/20260414_ADR-001_evaluation-framework-v2.md)。

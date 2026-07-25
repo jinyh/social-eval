@@ -1,6 +1,15 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import {
   AlertTriangle,
+  ArrowLeft,
+  Bell,
+  ClipboardCheck,
   Download,
   FileSearch,
   ShieldCheck,
@@ -14,6 +23,7 @@ import {
   continueEditorialSubmission,
   editorialDocumentUrl,
   editorialReportUrl,
+  getEditorialManuscript,
   getEditorialSubmission,
   listEditorialSubmissions,
   listEditorialUnits,
@@ -24,10 +34,12 @@ import {
   uploadEditorialSubmission,
 } from "@/lib/api";
 import type {
+  AnonymousManuscript,
   EditorialDecision,
   EditorialDimensionSummary,
   EditorialSubmissionDetail,
   EditorialSubmissionListItem,
+  EditorialSubmissionStatusGroup,
   EditorialUnit,
   FinalDecision,
   NotificationItem,
@@ -35,9 +47,17 @@ import type {
   PreReviewDecision,
   User,
 } from "@/lib/types";
-import { localizeEvaluationValue } from "@/lib/evaluationLocalization";
+import {
+  localizeEvaluationText,
+  localizeEvaluationValue,
+} from "@/lib/evaluationLocalization";
 import { cn } from "@/lib/utils";
 
+import {
+  EditorialSidebar,
+  type EditorWorkspaceView,
+} from "./EditorialSidebar";
+import { AnonymousManuscriptReader } from "./AnonymousManuscriptReader";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import {
@@ -121,9 +141,7 @@ const submissionStatusGroups = {
   failed: new Set<string>(["recovering"]),
 } as const;
 
-export type SubmissionStatusFilter =
-  | "all"
-  | keyof typeof submissionStatusGroups;
+export type SubmissionStatusFilter = "all" | EditorialSubmissionStatusGroup;
 
 export type SubmissionFilters = {
   keyword: string;
@@ -186,6 +204,49 @@ type ProgressExplanation = {
   headline: string;
   detail: string;
 };
+
+type DetailTab = "overview" | "report" | "actions";
+
+const workspaceViewLabels: Record<EditorWorkspaceView, string> = {
+  dashboard: "编辑工作台",
+  submissions: "投稿管理",
+  new: "新建投稿",
+  pending: "待处理稿件",
+  notifications: "通知",
+};
+
+function initialWorkspaceView(): EditorWorkspaceView {
+  if (typeof window === "undefined") return "dashboard";
+  const value = new URLSearchParams(window.location.search).get("view");
+  return value === "submissions" ||
+    value === "new" ||
+    value === "pending" ||
+    value === "notifications"
+    ? value
+    : "dashboard";
+}
+
+function initialSubmissionId(): string | null {
+  if (typeof window === "undefined") return null;
+  return new URLSearchParams(window.location.search).get("submission");
+}
+
+function initialDetailTab(): DetailTab {
+  if (typeof window === "undefined") return "overview";
+  const value = new URLSearchParams(window.location.search).get("tab");
+  return value === "report" || value === "actions" ? value : "overview";
+}
+
+function initialSidebarCollapsed(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return (
+      window.localStorage?.getItem("socialeval.editor.sidebar.collapsed") === "1"
+    );
+  } catch {
+    return false;
+  }
+}
 
 function stringList(
   result: Record<string, unknown> | null | undefined,
@@ -282,8 +343,26 @@ export function EditorialWorkspace({ user }: { user: User }) {
   const [units, setUnits] = useState<EditorialUnit[]>([]);
   const [unitId, setUnitId] = useState("");
   const [submissions, setSubmissions] = useState<EditorialSubmissionListItem[]>([]);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [submissionTotal, setSubmissionTotal] = useState(0);
+  const [statusCounts, setStatusCounts] = useState<
+    Record<EditorialSubmissionStatusGroup, number>
+  >({
+    processing: 0,
+    awaiting_action: 0,
+    completed: 0,
+    failed: 0,
+  });
+  const [page, setPage] = useState(1);
+  const [selectedId, setSelectedId] = useState<string | null>(
+    initialSubmissionId
+  );
   const [detail, setDetail] = useState<EditorialSubmissionDetail | null>(null);
+  const [workspaceView, setWorkspaceView] =
+    useState<EditorWorkspaceView>(initialWorkspaceView);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(
+    initialSidebarCollapsed
+  );
+  const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [gateReason, setGateReason] = useState("");
   const [decisionStage, setDecisionStage] = useState<"pre_review" | "final">(
@@ -296,7 +375,7 @@ export function EditorialWorkspace({ user }: { user: User }) {
   const [experts, setExperts] = useState<User[]>([]);
   const [expertId, setExpertId] = useState("");
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
-  const [detailTab, setDetailTab] = useState<"overview" | "report">("overview");
+  const [detailTab, setDetailTab] = useState<DetailTab>(initialDetailTab);
   const [uploadFileName, setUploadFileName] = useState("");
   const [filters, setFilters] = useState<SubmissionFilters>({
     keyword: "",
@@ -306,18 +385,36 @@ export function EditorialWorkspace({ user }: { user: User }) {
   });
 
   const selectedUnit = units.find((unit) => unit.id === unitId);
-  const visibleSubmissions = useMemo(
-    () => filterEditorialSubmissions(submissions, filters),
-    [filters, submissions]
+  const unreadNotificationCount = notifications.filter(
+    (item) => !item.read_at
+  ).length;
+  const listOptions = useMemo(
+    () => ({
+      unitId,
+      keyword:
+        workspaceView === "dashboard" ? undefined : filters.keyword.trim(),
+      statusGroup:
+        workspaceView === "pending"
+          ? ("awaiting_action" as const)
+          : filters.status === "all"
+            ? undefined
+            : filters.status,
+      submittedFrom:
+        workspaceView === "dashboard" ? undefined : filters.submittedFrom,
+      submittedTo:
+        workspaceView === "dashboard" ? undefined : filters.submittedTo,
+      page: workspaceView === "dashboard" ? 1 : page,
+      pageSize: workspaceView === "dashboard" ? 5 : 20,
+    }),
+    [filters, page, unitId, workspaceView]
   );
-  const refreshList = async (nextUnitId = unitId) => {
-    if (!nextUnitId) return;
-    const rows = await listEditorialSubmissions(nextUnitId);
-    setSubmissions(rows);
-    setSelectedId((current) =>
-      rows.some((item) => item.id === current) ? current : rows[0]?.id ?? null
-    );
-  };
+  const refreshList = useCallback(async () => {
+    if (!listOptions.unitId) return;
+    const result = await listEditorialSubmissions(listOptions);
+    setSubmissions(result.items);
+    setSubmissionTotal(result.total);
+    setStatusCounts(result.status_counts);
+  }, [listOptions]);
 
   useEffect(() => {
     void Promise.all([listEditorialUnits(), listExperts(), listNotifications()])
@@ -336,8 +433,15 @@ export function EditorialWorkspace({ user }: { user: User }) {
 
   useEffect(() => {
     if (!unitId) return;
-    void refreshList(unitId).catch(() => setSubmissions([]));
-  }, [unitId]);
+    const delay = filters.keyword.trim() ? 250 : 0;
+    const timer = window.setTimeout(() => {
+      void refreshList().catch(() => {
+        setSubmissions([]);
+        setSubmissionTotal(0);
+      });
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [filters.keyword, refreshList, unitId]);
 
   useEffect(() => {
     if (!selectedId) {
@@ -358,18 +462,34 @@ export function EditorialWorkspace({ user }: { user: User }) {
   }, [selectedId]);
 
   useEffect(() => {
-    const selected = submissions.find((item) => item.id === selectedId);
-    if (!selected) return;
-    setDetailTab(selected.current_report_version > 0 ? "report" : "overview");
-  }, [selectedId]);
+    if (typeof window === "undefined") return;
+    try {
+      window.localStorage?.setItem(
+        "socialeval.editor.sidebar.collapsed",
+        sidebarCollapsed ? "1" : "0"
+      );
+    } catch {
+      // 无持久化存储时仍保留当前会话中的收缩状态。
+    }
+  }, [sidebarCollapsed]);
 
   useEffect(() => {
-    setSelectedId((current) =>
-      visibleSubmissions.some((item) => item.id === current)
-        ? current
-        : visibleSubmissions[0]?.id ?? null
+    if (typeof window === "undefined") return;
+    const query = new URLSearchParams(window.location.search);
+    query.set("view", workspaceView);
+    if (selectedId) {
+      query.set("submission", selectedId);
+      query.set("tab", detailTab);
+    } else {
+      query.delete("submission");
+      query.delete("tab");
+    }
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}?${query.toString()}${window.location.hash}`
     );
-  }, [visibleSubmissions]);
+  }, [detailTab, selectedId, workspaceView]);
 
   useEffect(() => {
     if (!selectedId) return;
@@ -388,18 +508,17 @@ export function EditorialWorkspace({ user }: { user: User }) {
       if (document.visibilityState !== "visible") return;
       void Promise.all([
         getEditorialSubmission(selectedId),
-        listEditorialSubmissions(unitId),
         listNotifications(),
       ])
-        .then(([nextDetail, rows, notificationRows]) => {
+        .then(([nextDetail, notificationRows]) => {
           setDetail(nextDetail);
-          setSubmissions(rows);
           setNotifications(notificationRows);
+          void refreshList();
         })
         .catch(() => undefined);
     }, 3000);
     return () => window.clearInterval(timer);
-  }, [detail?.status, selectedId, unitId]);
+  }, [detail?.status, refreshList, selectedId]);
 
   const handleUpload = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -420,6 +539,14 @@ export function EditorialWorkspace({ user }: { user: User }) {
       setMessage(`稿件已进入队列：${result.submission_id}`);
       form.reset();
       setUploadFileName("");
+      setWorkspaceView("submissions");
+      setFilters({
+        keyword: "",
+        status: "all",
+        submittedFrom: "",
+        submittedTo: "",
+      });
+      setPage(1);
       await refreshList();
       setSelectedId(result.submission_id);
       setDetailTab("overview");
@@ -489,286 +616,154 @@ export function EditorialWorkspace({ user }: { user: User }) {
     }
   };
 
+  const changeWorkspaceView = (view: EditorWorkspaceView) => {
+    setWorkspaceView(view);
+    setSelectedId(null);
+    setDetail(null);
+    setPage(1);
+    if (view === "pending") setDetailTab("actions");
+  };
+
+  const openSubmission = (
+    item: EditorialSubmissionListItem,
+    preferredTab?: DetailTab
+  ) => {
+    setSelectedId(item.id);
+    setDetailTab(
+      preferredTab ??
+        (workspaceView === "pending"
+          ? "actions"
+          : item.current_report_version > 0
+            ? "report"
+            : "overview")
+    );
+  };
+
   return (
-    <div className="space-y-5">
-      <Card>
-        <CardHeader>
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-center gap-3">
-              <div className="rounded-xl border border-blue-100 bg-blue-50 p-2 text-blue-700">
-                <FileSearch className="h-5 w-5" />
-              </div>
-              <div>
-                <CardTitle className="text-xl">期刊编辑预审工作台</CardTitle>
-                <CardDescription>
-                  从形式检查、学术评价和专家复核到两级编辑决定。
-                </CardDescription>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="default">编辑视角</Badge>
-              <Badge variant="neutral">{user.display_name ?? user.email}</Badge>
-              {selectedUnit ? (
-                <Badge
-                  variant={
-                    selectedUnit.rollout_state === "active" ? "success" : "warning"
-                  }
-                >
-                  {selectedUnit.rollout_state === "active"
-                    ? "正式启用"
-                    : "试运行"}
-                </Badge>
-              ) : null}
-            </div>
-          </div>
-        </CardHeader>
-      </Card>
+    <div className="flex items-start gap-5">
+      <EditorialSidebar
+        units={units}
+        unitId={unitId}
+        onUnitChange={(nextUnitId) => {
+          setUnitId(nextUnitId);
+          setSelectedId(null);
+          setPage(1);
+        }}
+        activeView={workspaceView}
+        onViewChange={changeWorkspaceView}
+        collapsed={sidebarCollapsed}
+        onCollapsedChange={setSidebarCollapsed}
+        mobileOpen={mobileNavigationOpen}
+        onMobileOpenChange={setMobileNavigationOpen}
+        pendingCount={statusCounts.awaiting_action}
+        unreadCount={unreadNotificationCount}
+      />
 
-      {message ? (
-        <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-700">
-          {message}
-        </div>
-      ) : null}
-
-      {notifications.some((item) => !item.read_at) ? (
+      <main className="min-w-0 flex-1 space-y-5">
         <Card>
           <CardHeader>
-            <CardTitle>待读通知</CardTitle>
-            <CardDescription>仅显示与你当前账户有关的流程事件。</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {notifications
-              .filter((item) => !item.read_at)
-              .slice(0, 5)
-              .map((item) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  className="flex w-full items-center justify-between rounded-xl border border-slate-200 p-3 text-left text-sm"
-                  onClick={async () => {
-                    await markNotificationRead(item.id);
-                    setNotifications((current) =>
-                      current.map((row) =>
-                        row.id === item.id
-                          ? { ...row, read_at: new Date().toISOString() }
-                          : row
-                      )
-                    );
-                  }}
-                >
-                  <span>{notificationLabel(item.event_type)}</span>
-                  <span className="text-xs text-slate-500">标为已读</span>
-                </button>
-              ))}
-          </CardContent>
-        </Card>
-      ) : null}
-
-      <div className="grid gap-5 xl:grid-cols-[370px_minmax(0,1fr)]">
-        <aside className="space-y-5 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:self-start xl:overflow-y-auto xl:pr-1">
-          <Card>
-            <CardHeader>
-              <CardTitle>编辑单元与上传</CardTitle>
-              <CardDescription>外部稿号在当前编辑单元内唯一。</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Select value={unitId} onChange={(event) => setUnitId(event.target.value)}>
-                {units.map((unit) => (
-                  <option key={unit.id} value={unit.id}>
-                    {unit.name}
-                  </option>
-                ))}
-              </Select>
-              {units.length === 0 ? (
-                <Empty text="尚未分配编辑单元，请联系管理员。" />
-              ) : (
-                <form className="space-y-3" onSubmit={handleUpload}>
-                  <Input name="externalId" placeholder="外部稿号（可选）" />
-                  <input
-                    id="editorial-paper-upload"
-                    className="sr-only"
-                    name="paper"
-                    type="file"
-                    accept=".pdf,.docx,.txt"
-                    onChange={(event) =>
-                      setUploadFileName(event.target.files?.[0]?.name ?? "")
-                    }
-                  />
-                  <div className="rounded-xl border border-slate-200 bg-white p-3">
-                    <label
-                      htmlFor="editorial-paper-upload"
-                      className="inline-flex cursor-pointer items-center rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-                    >
-                      选择稿件文件
-                    </label>
-                    <p className="mt-2 truncate text-xs text-slate-500">
-                      {uploadFileName || "尚未选择文件"}
-                    </p>
-                  </div>
-                  <Button className="w-full" type="submit">
-                    <UploadCloud className="h-4 w-4" />
-                    上传并开始预审
-                  </Button>
-                </form>
-              )}
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>投稿列表</CardTitle>
-              <CardDescription>
-                同一编辑单元成员可见；当前显示 {visibleSubmissions.length}/
-                {submissions.length} 篇。
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <div className="space-y-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
-                <Input
-                  value={filters.keyword}
-                  onChange={(event) =>
-                    setFilters((current) => ({
-                      ...current,
-                      keyword: event.target.value,
-                    }))
-                  }
-                  placeholder="搜索投稿题目或外部稿号"
-                />
-                <Select
-                  value={filters.status}
-                  onChange={(event) =>
-                    setFilters((current) => ({
-                      ...current,
-                      status: event.target.value as SubmissionStatusFilter,
-                    }))
-                  }
-                >
-                  <option value="all">全部状态</option>
-                  <option value="processing">处理中</option>
-                  <option value="awaiting_action">待人工处理</option>
-                  <option value="completed">已完成</option>
-                  <option value="failed">处理失败</option>
-                </Select>
-                <div className="grid grid-cols-2 gap-2">
-                  <label className="space-y-1 text-xs text-slate-600">
-                    投稿日期起
-                    <Input
-                      type="date"
-                      lang="zh-CN"
-                      value={filters.submittedFrom}
-                      onChange={(event) =>
-                        setFilters((current) => ({
-                          ...current,
-                          submittedFrom: event.target.value,
-                        }))
-                      }
-                    />
-                  </label>
-                  <label className="space-y-1 text-xs text-slate-600">
-                    投稿日期止
-                    <Input
-                      type="date"
-                      lang="zh-CN"
-                      value={filters.submittedTo}
-                      onChange={(event) =>
-                        setFilters((current) => ({
-                          ...current,
-                          submittedTo: event.target.value,
-                        }))
-                      }
-                    />
-                  </label>
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl border border-blue-100 bg-blue-50 p-2 text-blue-700">
+                  <FileSearch className="h-5 w-5" />
                 </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full"
-                  onClick={() =>
-                    setFilters({
-                      keyword: "",
-                      status: "all",
-                      submittedFrom: "",
-                      submittedTo: "",
-                    })
-                  }
-                >
-                  清除筛选
-                </Button>
+                <div>
+                  <CardTitle className="text-xl">
+                    {workspaceViewLabels[workspaceView]}
+                  </CardTitle>
+                  <CardDescription>
+                    {selectedUnit?.name ?? "尚未分配编辑单元"}
+                  </CardDescription>
+                </div>
               </div>
-              {submissions.length === 0 ? (
-                <Empty text="当前编辑单元暂无投稿。" />
-              ) : visibleSubmissions.length === 0 ? (
-                <Empty text="没有符合当前筛选条件的投稿。" />
-              ) : (
-                visibleSubmissions.map((item) => (
-                  <div
-                    key={item.id}
-                    className={cn(
-                      "rounded-xl border p-3 transition-colors",
-                      selectedId === item.id
-                        ? "border-blue-200 bg-blue-50"
-                        : "border-slate-200 bg-white hover:bg-slate-50"
-                    )}
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="default">编辑视角</Badge>
+                <Badge variant="neutral">{user.display_name ?? user.email}</Badge>
+                {selectedUnit ? (
+                  <Badge
+                    variant={
+                      selectedUnit.rollout_state === "active"
+                        ? "success"
+                        : "warning"
+                    }
                   >
-                    <button
-                      type="button"
-                      className="w-full text-left"
-                      onClick={() => {
-                        setSelectedId(item.id);
-                        setDetailTab(
-                          item.current_report_version > 0 ? "report" : "overview"
-                        );
-                      }}
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
-                          <p className="truncate text-sm font-medium text-slate-950">
-                            {item.title ?? item.id}
-                          </p>
-                          <p className="mt-1 text-xs text-slate-500">
-                            {item.external_manuscript_id ?? item.id}
-                          </p>
-                        </div>
-                        <Badge
-                          variant={
-                            item.status === "recovering" ? "danger" : "neutral"
-                          }
-                        >
-                          {statusLabels[item.status] ?? "状态待确认"}
-                        </Badge>
-                      </div>
-                      <dl className="mt-3 grid gap-1 text-xs text-slate-500">
-                        <div className="flex justify-between gap-2">
-                          <dt>投稿时间</dt>
-                          <dd>{formatBeijingTime(item.created_at)}</dd>
-                        </div>
-                        <div className="flex justify-between gap-2">
-                          <dt>最后更新</dt>
-                          <dd>{formatBeijingTime(item.updated_at)}</dd>
-                        </div>
-                      </dl>
-                    </button>
-                    {item.current_report_version > 0 ? (
-                      <button
-                        type="button"
-                        className="mt-3 w-full rounded-lg border border-blue-200 bg-white px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50"
-                        onClick={() => {
-                          setSelectedId(item.id);
-                          setDetailTab("report");
-                        }}
-                      >
-                        查看评阅报告 · 第 {item.current_report_version} 版
-                      </button>
-                    ) : null}
-                  </div>
-                ))
-              )}
+                    {selectedUnit.rollout_state === "active"
+                      ? "正式启用"
+                      : "试运行"}
+                  </Badge>
+                ) : null}
+              </div>
+            </div>
+          </CardHeader>
+        </Card>
+
+        {message ? (
+          <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-700">
+            {message}
+          </div>
+        ) : null}
+
+        {units.length === 0 ? (
+          <Card>
+            <CardContent className="p-10">
+              <Empty text="尚未分配编辑单元，请联系管理员。" />
             </CardContent>
           </Card>
-        </aside>
-
-        <main className="min-w-0">
-          {detail ? (
+        ) : workspaceView === "dashboard" ? (
+          <EditorialDashboard
+            statusCounts={statusCounts}
+            submissions={submissions}
+            notifications={notifications}
+            onOpenSubmission={(item) => {
+              setWorkspaceView("submissions");
+              openSubmission(item);
+            }}
+            onNavigate={changeWorkspaceView}
+            onStatusNavigate={(status) => {
+              setFilters({
+                keyword: "",
+                status,
+                submittedFrom: "",
+                submittedTo: "",
+              });
+              changeWorkspaceView(
+                status === "awaiting_action" ? "pending" : "submissions"
+              );
+            }}
+          />
+        ) : workspaceView === "new" ? (
+          <EditorialUpload
+            uploadFileName={uploadFileName}
+            onUploadFileNameChange={setUploadFileName}
+            onSubmit={handleUpload}
+          />
+        ) : workspaceView === "notifications" ? (
+          <EditorialNotifications
+            notifications={notifications}
+            onRead={async (notificationId) => {
+              await markNotificationRead(notificationId);
+              setNotifications((current) =>
+                current.map((row) =>
+                  row.id === notificationId
+                    ? { ...row, read_at: new Date().toISOString() }
+                    : row
+                )
+              );
+            }}
+          />
+        ) : detail && selectedId ? (
+          <>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => {
+                setSelectedId(null);
+                setDetail(null);
+              }}
+            >
+              <ArrowLeft className="h-4 w-4" />
+              返回{workspaceView === "pending" ? "待处理列表" : "投稿列表"}
+            </Button>
             <SubmissionDetail
               detail={detail}
               activeTab={detailTab}
@@ -795,23 +790,432 @@ export function EditorialWorkspace({ user }: { user: User }) {
               onExpertChange={setExpertId}
               onAssignExpert={handleAssignExpert}
             />
-          ) : (
-            <Card>
-              <CardContent className="p-10">
-                <Empty text="选择一篇投稿查看预审进度和报告。" />
-              </CardContent>
-            </Card>
-          )}
-        </main>
+          </>
+        ) : (
+          <EditorialSubmissionList
+            submissions={submissions}
+            total={submissionTotal}
+            page={page}
+            pageSize={20}
+            pendingOnly={workspaceView === "pending"}
+            filters={filters}
+            onFiltersChange={(nextFilters) => {
+              setFilters(nextFilters);
+              setPage(1);
+            }}
+            onPageChange={setPage}
+            onOpenSubmission={openSubmission}
+          />
+        )}
+      </main>
+    </div>
+  );
+}
+
+function EditorialDashboard({
+  statusCounts,
+  submissions,
+  notifications,
+  onOpenSubmission,
+  onNavigate,
+  onStatusNavigate,
+}: {
+  statusCounts: Record<EditorialSubmissionStatusGroup, number>;
+  submissions: EditorialSubmissionListItem[];
+  notifications: NotificationItem[];
+  onOpenSubmission: (item: EditorialSubmissionListItem) => void;
+  onNavigate: (view: EditorWorkspaceView) => void;
+  onStatusNavigate: (status: EditorialSubmissionStatusGroup) => void;
+}) {
+  const statusCards = [
+    ["处理中", statusCounts.processing, "processing"],
+    ["待人工处理", statusCounts.awaiting_action, "awaiting_action"],
+    ["已完成", statusCounts.completed, "completed"],
+    ["处理失败", statusCounts.failed, "failed"],
+  ] as const;
+  const unread = notifications.filter((item) => !item.read_at);
+  return (
+    <div className="space-y-5">
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        {statusCards.map(([label, count, key]) => (
+          <button
+            type="button"
+            key={key}
+            className="rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition-colors hover:border-blue-200 hover:bg-blue-50/30"
+            onClick={() => onStatusNavigate(key)}
+          >
+            <p className="text-sm text-slate-500">{label}</p>
+            <p className="mt-2 text-3xl font-semibold text-slate-950">{count}</p>
+          </button>
+        ))}
+      </div>
+
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)]">
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <CardTitle>最近投稿</CardTitle>
+                <CardDescription>按最后更新时间显示最近五篇。</CardDescription>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => onNavigate("submissions")}
+              >
+                查看全部
+              </Button>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {submissions.length === 0 ? (
+              <Empty text="当前编辑单元暂无投稿。" />
+            ) : (
+              submissions.map((item) => (
+                <button
+                  type="button"
+                  key={item.id}
+                  className="flex w-full items-center justify-between gap-4 rounded-xl border border-slate-200 p-4 text-left hover:bg-slate-50"
+                  onClick={() => onOpenSubmission(item)}
+                >
+                  <div className="min-w-0">
+                    <p className="truncate font-medium text-slate-950">
+                      {item.title ?? item.id}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      {item.external_manuscript_id ?? item.id} ·{" "}
+                      {formatBeijingTime(item.updated_at)}
+                    </p>
+                  </div>
+                  <Badge
+                    variant={item.status === "recovering" ? "danger" : "neutral"}
+                  >
+                    {statusLabels[item.status] ?? "状态待确认"}
+                  </Badge>
+                </button>
+              ))
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <Bell className="h-5 w-5 text-blue-700" />
+              <div>
+                <CardTitle>未读通知</CardTitle>
+                <CardDescription>{unread.length} 条需要查看。</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {unread.length === 0 ? (
+              <Empty text="当前没有未读通知。" />
+            ) : (
+              unread.slice(0, 5).map((item) => (
+                <button
+                  type="button"
+                  key={item.id}
+                  className="w-full rounded-xl border border-slate-200 p-3 text-left text-sm hover:bg-slate-50"
+                  onClick={() => onNavigate("notifications")}
+                >
+                  {notificationLabel(item.event_type)}
+                </button>
+              ))
+            )}
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
 }
 
+function EditorialUpload({
+  uploadFileName,
+  onUploadFileNameChange,
+  onSubmit,
+}: {
+  uploadFileName: string;
+  onUploadFileNameChange: (name: string) => void;
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+}) {
+  return (
+    <Card className="max-w-3xl">
+      <CardHeader>
+        <CardTitle>上传新稿件</CardTitle>
+        <CardDescription>
+          支持 PDF、DOCX、TXT；外部稿号在当前编辑单元内唯一。
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form className="space-y-5" onSubmit={onSubmit}>
+          <label className="block space-y-2 text-sm font-medium text-slate-700">
+            外部稿号（可选）
+            <Input name="externalId" placeholder="例如 JL-2026-001" />
+          </label>
+          <input
+            id="editorial-paper-upload"
+            className="sr-only"
+            name="paper"
+            type="file"
+            accept=".pdf,.docx,.txt"
+            onChange={(event) =>
+              onUploadFileNameChange(event.target.files?.[0]?.name ?? "")
+            }
+          />
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
+            <UploadCloud className="mx-auto h-8 w-8 text-blue-700" />
+            <label
+              htmlFor="editorial-paper-upload"
+              className="mt-4 inline-flex cursor-pointer items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+            >
+              选择稿件文件
+            </label>
+            <p className="mt-3 truncate text-sm text-slate-500">
+              {uploadFileName || "尚未选择文件"}
+            </p>
+          </div>
+          <Button type="submit">
+            <UploadCloud className="h-4 w-4" />
+            上传并开始预审
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  );
+}
+
+function EditorialNotifications({
+  notifications,
+  onRead,
+}: {
+  notifications: NotificationItem[];
+  onRead: (notificationId: string) => Promise<void>;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>通知中心</CardTitle>
+        <CardDescription>仅显示与你当前账户有关的流程事件。</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-2">
+        {notifications.length === 0 ? (
+          <Empty text="当前没有通知。" />
+        ) : (
+          notifications.map((item) => (
+            <div
+              key={item.id}
+              className={cn(
+                "flex flex-col justify-between gap-3 rounded-xl border p-4 sm:flex-row sm:items-center",
+                item.read_at
+                  ? "border-slate-200 bg-white"
+                  : "border-blue-200 bg-blue-50/40"
+              )}
+            >
+              <div>
+                <p className="font-medium text-slate-950">
+                  {notificationLabel(item.event_type)}
+                </p>
+                <p className="mt-1 text-xs text-slate-500">
+                  {formatBeijingTime(item.created_at)}
+                </p>
+              </div>
+              {item.read_at ? (
+                <Badge variant="neutral">已读</Badge>
+              ) : (
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => void onRead(item.id)}
+                >
+                  标为已读
+                </Button>
+              )}
+            </div>
+          ))
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function EditorialSubmissionList({
+  submissions,
+  total,
+  page,
+  pageSize,
+  pendingOnly,
+  filters,
+  onFiltersChange,
+  onPageChange,
+  onOpenSubmission,
+}: {
+  submissions: EditorialSubmissionListItem[];
+  total: number;
+  page: number;
+  pageSize: number;
+  pendingOnly: boolean;
+  filters: SubmissionFilters;
+  onFiltersChange: (filters: SubmissionFilters) => void;
+  onPageChange: (page: number) => void;
+  onOpenSubmission: (
+    item: EditorialSubmissionListItem,
+    preferredTab?: DetailTab
+  ) => void;
+}) {
+  const pageCount = Math.max(1, Math.ceil(total / pageSize));
+  return (
+    <Card>
+      <CardHeader>
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <CardTitle>{pendingOnly ? "待处理稿件" : "投稿列表"}</CardTitle>
+            <CardDescription>
+              共 {total} 篇；当前第 {page}/{pageCount} 页。
+            </CardDescription>
+          </div>
+          {pendingOnly ? <Badge variant="warning">需要编辑操作</Badge> : null}
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 lg:grid-cols-[minmax(220px,1fr)_180px_160px_160px_auto]">
+          <Input
+            value={filters.keyword}
+            onChange={(event) =>
+              onFiltersChange({ ...filters, keyword: event.target.value })
+            }
+            placeholder="搜索投稿题目或外部稿号"
+          />
+          <Select
+            value={pendingOnly ? "awaiting_action" : filters.status}
+            disabled={pendingOnly}
+            onChange={(event) =>
+              onFiltersChange({
+                ...filters,
+                status: event.target.value as SubmissionStatusFilter,
+              })
+            }
+          >
+            <option value="all">全部状态</option>
+            <option value="processing">处理中</option>
+            <option value="awaiting_action">待人工处理</option>
+            <option value="completed">已完成</option>
+            <option value="failed">处理失败</option>
+          </Select>
+          <Input
+            type="date"
+            lang="zh-CN"
+            aria-label="投稿日期起"
+            value={filters.submittedFrom}
+            onChange={(event) =>
+              onFiltersChange({ ...filters, submittedFrom: event.target.value })
+            }
+          />
+          <Input
+            type="date"
+            lang="zh-CN"
+            aria-label="投稿日期止"
+            value={filters.submittedTo}
+            onChange={(event) =>
+              onFiltersChange({ ...filters, submittedTo: event.target.value })
+            }
+          />
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() =>
+              onFiltersChange({
+                keyword: "",
+                status: "all",
+                submittedFrom: "",
+                submittedTo: "",
+              })
+            }
+          >
+            清除筛选
+          </Button>
+        </div>
+
+        {submissions.length === 0 ? (
+          <Empty
+            text={
+              pendingOnly
+                ? "当前没有需要人工处理的稿件。"
+                : "没有符合筛选条件的投稿。"
+            }
+          />
+        ) : (
+          <div className="overflow-hidden rounded-xl border border-slate-200">
+            {submissions.map((item) => (
+              <button
+                type="button"
+                key={item.id}
+                className="grid w-full gap-3 border-b border-slate-200 p-4 text-left last:border-b-0 hover:bg-slate-50 md:grid-cols-[minmax(0,1fr)_180px_180px_auto] md:items-center"
+                onClick={() =>
+                  onOpenSubmission(item, pendingOnly ? "actions" : undefined)
+                }
+              >
+                <div className="min-w-0">
+                  <p className="truncate font-medium text-slate-950">
+                    {item.title ?? item.id}
+                  </p>
+                  <p className="mt-1 truncate text-xs text-slate-500">
+                    {item.external_manuscript_id ?? item.id}
+                  </p>
+                </div>
+                <span className="text-sm text-slate-600">
+                  {formatBeijingTime(item.created_at)}
+                </span>
+                <span className="text-sm text-slate-600">
+                  {formatBeijingTime(item.updated_at)}
+                </span>
+                <div className="flex items-center gap-2 md:justify-end">
+                  <Badge
+                    variant={item.status === "recovering" ? "danger" : "neutral"}
+                  >
+                    {statusLabels[item.status] ?? "状态待确认"}
+                  </Badge>
+                  {item.current_report_version > 0 ? (
+                    <Badge variant="default">
+                      报告 {item.current_report_version}
+                    </Badge>
+                  ) : null}
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="flex items-center justify-between gap-3">
+          <Button
+            type="button"
+            variant="outline"
+            disabled={page <= 1}
+            onClick={() => onPageChange(page - 1)}
+          >
+            上一页
+          </Button>
+          <span className="text-sm text-slate-500">
+            第 {page} 页 / 共 {pageCount} 页
+          </span>
+          <Button
+            type="button"
+            variant="outline"
+            disabled={page >= pageCount}
+            onClick={() => onPageChange(page + 1)}
+          >
+            下一页
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 type DetailProps = {
   detail: EditorialSubmissionDetail;
-  activeTab: "overview" | "report";
-  onTabChange: (value: "overview" | "report") => void;
+  activeTab: DetailTab;
+  onTabChange: (value: DetailTab) => void;
   gateReason: string;
   onGateReasonChange: (value: string) => void;
   onGate: () => void;
@@ -871,6 +1275,36 @@ function SubmissionDetail(props: DetailProps) {
   const currentStageLocked =
     decisionStage === "pre_review" ? Boolean(preReviewRecord) : Boolean(finalRecord);
   const progressExplanation = describeEditorialProgress(detail);
+  const [manuscript, setManuscript] =
+    useState<AnonymousManuscript | null>(null);
+  const [manuscriptLoading, setManuscriptLoading] = useState(false);
+  const [manuscriptError, setManuscriptError] = useState("");
+
+  useEffect(() => {
+    if (activeTab !== "overview" || !detail.documents.anonymized) {
+      return;
+    }
+    let current = true;
+    setManuscriptLoading(true);
+    setManuscriptError("");
+    void getEditorialManuscript(detail.id)
+      .then((payload) => {
+        if (current) setManuscript(payload);
+      })
+      .catch((error) => {
+        if (!current) return;
+        setManuscript(null);
+        setManuscriptError(
+          error instanceof Error ? error.message : "匿名稿加载失败"
+        );
+      })
+      .finally(() => {
+        if (current) setManuscriptLoading(false);
+      });
+    return () => {
+      current = false;
+    };
+  }, [activeTab, detail.documents.anonymized, detail.id]);
 
   return (
     <div className="space-y-5">
@@ -925,17 +1359,6 @@ function SubmissionDetail(props: DetailProps) {
               </Button>
             </a>
           ) : null}
-          {activeTab === "overview" && detail.documents.anonymized ? (
-            <a
-              href={editorialDocumentUrl(detail.id, "anonymized")}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button type="button" variant="outline">
-                查看匿名稿
-              </Button>
-            </a>
-          ) : null}
           {activeTab === "report" && detail.current_report_version > 0 ? (
             <>
               <a
@@ -962,8 +1385,17 @@ function SubmissionDetail(props: DetailProps) {
         </CardContent>
       </Card>
 
+      {activeTab === "overview" && detail.documents.anonymized ? (
+        <AnonymousManuscriptReader
+          manuscript={manuscript}
+          loading={manuscriptLoading}
+          error={manuscriptError}
+          showRisks
+        />
+      ) : null}
+
       <div
-        className="grid grid-cols-2 gap-2 rounded-xl border border-slate-200 bg-white p-2"
+        className="grid grid-cols-3 gap-2 rounded-xl border border-slate-200 bg-white p-2"
         role="tablist"
         aria-label="投稿详情"
       >
@@ -995,110 +1427,37 @@ function SubmissionDetail(props: DetailProps) {
         >
           评阅报告
         </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeTab === "actions"}
+          className={cn(
+            "rounded-lg px-4 py-2 text-sm font-medium",
+            activeTab === "actions"
+              ? "bg-blue-600 text-white"
+              : "text-slate-600 hover:bg-slate-50"
+          )}
+          onClick={() => onTabChange("actions")}
+        >
+          处理与决定
+        </button>
       </div>
 
       {activeTab === "overview" ? (
         <>
-          <Card>
-        <CardHeader>
-          <CardTitle>处理进度</CardTitle>
-          <CardDescription>
-            {progressExplanation.stageLabel}
-            {detail.progress.current_dimension
-              ? ` · ${
-                  dimensionNames[detail.progress.current_dimension] ??
-                  detail.progress.current_dimension
-                }`
-              : ""}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div
-            className="h-2 overflow-hidden rounded-full bg-slate-100"
-            role="progressbar"
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={detail.progress.percent}
-          >
-            <div
-              className="h-full rounded-full bg-blue-600 transition-all"
-              style={{ width: `${detail.progress.percent}%` }}
-            />
-          </div>
-          <div className="mt-2 flex justify-between text-xs text-slate-500">
-            <span>
-              已完成 {detail.progress.completed}/{detail.progress.total} 个处理单元
-            </span>
-            <span>{detail.progress.percent}%</span>
-          </div>
-          <div
-            className={cn(
-              "mt-3 rounded-lg border px-3 py-2 text-sm",
-              progressExplanation.state === "paused"
-                ? "border-amber-200 bg-amber-50 text-amber-800"
-                : progressExplanation.state === "completed"
-                  ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                  : "border-blue-100 bg-blue-50 text-blue-800"
-            )}
-          >
-            <p className="font-medium">{progressExplanation.headline}</p>
-            <p className="mt-1">{progressExplanation.detail}</p>
-          </div>
-          {detail.progress.is_stalled ? (
-            <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700">
-              处理进度长时间未更新，请管理员检查工作进程和模型服务。
-            </p>
-          ) : null}
-          {detail.progress.failure_detail ? (
-            <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
-              {detail.progress.failure_detail}
-            </p>
-          ) : null}
-        </CardContent>
-          </Card>
-
-          {gate ? (
-            <Card className="border-amber-200 bg-amber-50/40">
-          <CardHeader>
-            <div className="flex items-center gap-3">
-              <AlertTriangle className="h-5 w-5 text-amber-700" />
-              <div>
-                <CardTitle>流程需要编辑确认</CardTitle>
-                <CardDescription>
-                  原始检查结果会保留；继续操作不会改写它。
-                </CardDescription>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <Textarea
-              value={gateReason}
-              onChange={(event) => onGateReasonChange(event.target.value)}
-              placeholder="填写确认或继续理由，至少 5 个字符。"
-            />
-            <Button
-              type="button"
-              onClick={onGate}
-              disabled={
-                detail.status !== "awaiting_anonymization_confirmation" &&
-                gateReason.trim().length < 5
-              }
-            >
-              确认并从检查点继续
-            </Button>
-          </CardContent>
-            </Card>
-          ) : null}
-
+          <ProgressPanel
+            detail={detail}
+            progressExplanation={progressExplanation}
+          />
           <GateEvidence detail={detail} />
         </>
       ) : null}
 
       {activeTab === "report" ? (
         <>
-          <PositionPanel detail={detail} />
+          <EditorialSynthesisPanel detail={detail} synthesis={synthesis?.content} />
 
-          <CcbPanel detail={detail} />
+          <PositionPanel detail={detail} />
 
           <SixDimensionPanel
             dimensions={detail.six_dimension_summary.dimensions}
@@ -1109,22 +1468,21 @@ function SubmissionDetail(props: DetailProps) {
             }
           />
 
-          <Card>
-            <CardHeader>
-              <CardTitle>智能辅助综合摘要</CardTitle>
-              <CardDescription>
-                摘要基于四模型既有评价和证据生成，不是人类审稿意见。
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {synthesis ? (
-                <OpinionContent content={synthesis.content} />
-              ) : (
-                <Empty text="综合摘要尚未生成。" />
-              )}
-            </CardContent>
-          </Card>
+          <ExpertReviewSummary detail={detail} />
 
+          <DecisionHistory decisions={detail.decisions} />
+        </>
+      ) : null}
+
+      {activeTab === "actions" ? (
+        <>
+          <GateActionPanel
+            detail={detail}
+            visible={gate}
+            gateReason={gateReason}
+            onGateReasonChange={onGateReasonChange}
+            onGate={onGate}
+          />
           <ExpertReviewPanel
             detail={detail}
             experts={experts}
@@ -1133,97 +1491,444 @@ function SubmissionDetail(props: DetailProps) {
             onAssign={onAssignExpert}
           />
 
-          <Card>
-        <CardHeader>
-          <CardTitle>编辑决定</CardTitle>
-          <CardDescription>
-            预审决定与终审决定分别记录、分别锁定并保留审计。
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-3 md:grid-cols-2">
-            <label className="space-y-2 text-sm font-medium text-slate-700">
-              决定阶段
-              <Select
-                value={decisionStage}
-                onChange={(event) =>
-                  onDecisionStageChange(
-                    event.target.value as "pre_review" | "final"
-                  )
-                }
-              >
-                <option value="pre_review">编辑预审</option>
-                <option value="final" disabled={!canSubmitFinal}>
-                  {canSubmitFinal ? "期刊终审" : "期刊终审（需先送外审）"}
-                </option>
-              </Select>
-            </label>
-            <label className="space-y-2 text-sm font-medium text-slate-700">
-              决定类型
-              <Select
-                value={decision}
-                onChange={(event) =>
-                  onDecisionChange(event.target.value as EditorialDecision)
-                }
-              >
-                {Object.entries(decisionOptions).map(([value, label]) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </Select>
-            </label>
-          </div>
-          <Textarea
-            value={decisionReason}
-            onChange={(event) => onDecisionReasonChange(event.target.value)}
-            placeholder="填写决定依据。偏离系统建议或绕过专家门禁时为必填。"
+          <EditorialDecisionPanel
+            detail={detail}
+            decisionStage={decisionStage}
+            onDecisionStageChange={onDecisionStageChange}
+            decision={decision}
+            onDecisionChange={onDecisionChange}
+            decisionOptions={decisionOptions}
+            decisionReason={decisionReason}
+            onDecisionReasonChange={onDecisionReasonChange}
+            bypassExpert={bypassExpert}
+            onBypassExpertChange={onBypassExpertChange}
+            canSubmitFinal={canSubmitFinal}
+            currentStageLocked={currentStageLocked}
+            onDecision={onDecision}
           />
-          {detail.manual_review_requested && decisionStage === "pre_review" ? (
-            <label className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-              <input
-                type="checkbox"
-                checked={bypassExpert}
-                onChange={(event) => onBypassExpertChange(event.target.checked)}
-              />
-              我确认绕过专家复核门禁，并接受该操作进入高风险审计。
-            </label>
-          ) : null}
-          <Button
-            type="button"
-            onClick={onDecision}
-            disabled={currentStageLocked || (decisionStage === "final" && !canSubmitFinal)}
-          >
-            <ShieldCheck className="h-4 w-4" />
-            {currentStageLocked ? "当前阶段决定已锁定" : "提交并锁定当前阶段决定"}
-          </Button>
-          {detail.decisions.length > 0 ? (
-            <div className="space-y-2">
-              {detail.decisions.map((record) => (
-                <div
-                  key={record.id}
-                  className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm"
-                >
-                  <p className="font-medium text-slate-950">
-                    {record.decision_stage === "final"
-                      ? "终审"
-                      : record.decision_stage === "pre_review"
-                        ? "预审"
-                        : "历史预审记录"}
-                    ：{decisionLabel(record.final_decision)}
-                  </p>
-                  {record.rationale ? (
-                    <p className="mt-1 text-slate-600">{record.rationale}</p>
-                  ) : null}
-                </div>
-              ))}
-            </div>
-          ) : null}
-        </CardContent>
-          </Card>
         </>
       ) : null}
     </div>
+  );
+}
+
+function ProgressPanel({
+  detail,
+  progressExplanation,
+}: {
+  detail: EditorialSubmissionDetail;
+  progressExplanation: ProgressExplanation;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>处理进度</CardTitle>
+        <CardDescription>
+          {progressExplanation.stageLabel}
+          {detail.progress.current_dimension
+            ? ` · ${
+                dimensionNames[detail.progress.current_dimension] ??
+                detail.progress.current_dimension
+              }`
+            : ""}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div
+          className="h-2 overflow-hidden rounded-full bg-slate-100"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={detail.progress.percent}
+        >
+          <div
+            className="h-full rounded-full bg-blue-600 transition-all"
+            style={{ width: `${detail.progress.percent}%` }}
+          />
+        </div>
+        <div className="mt-2 flex justify-between text-xs text-slate-500">
+          <span>
+            已完成 {detail.progress.completed}/{detail.progress.total} 个处理单元
+          </span>
+          <span>{detail.progress.percent}%</span>
+        </div>
+        <div
+          className={cn(
+            "mt-3 rounded-lg border px-3 py-2 text-sm",
+            progressExplanation.state === "paused"
+              ? "border-amber-200 bg-amber-50 text-amber-800"
+              : progressExplanation.state === "completed"
+                ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                : "border-blue-100 bg-blue-50 text-blue-800"
+          )}
+        >
+          <p className="font-medium">{progressExplanation.headline}</p>
+          <p className="mt-1">{progressExplanation.detail}</p>
+        </div>
+        {detail.progress.is_stalled ? (
+          <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700">
+            处理进度长时间未更新，请管理员检查工作进程和模型服务。
+          </p>
+        ) : null}
+        {detail.progress.failure_detail ? (
+          <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+            {detail.progress.failure_detail}
+          </p>
+        ) : null}
+      </CardContent>
+    </Card>
+  );
+}
+
+function GateActionPanel({
+  detail,
+  visible,
+  gateReason,
+  onGateReasonChange,
+  onGate,
+}: {
+  detail: EditorialSubmissionDetail;
+  visible: boolean;
+  gateReason: string;
+  onGateReasonChange: (reason: string) => void;
+  onGate: () => void;
+}) {
+  if (!visible) {
+    return (
+      <Card>
+        <CardContent className="flex items-center gap-3 p-5 text-sm text-slate-600">
+          <ClipboardCheck className="h-5 w-5 text-emerald-700" />
+          当前流程没有等待编辑确认的门禁。
+        </CardContent>
+      </Card>
+    );
+  }
+  return (
+    <Card className="border-amber-200 bg-amber-50/40">
+      <CardHeader>
+        <div className="flex items-center gap-3">
+          <AlertTriangle className="h-5 w-5 text-amber-700" />
+          <div>
+            <CardTitle>流程需要编辑确认</CardTitle>
+            <CardDescription>
+              原始检查结果会保留；继续操作不会改写它。
+            </CardDescription>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <Textarea
+          value={gateReason}
+          onChange={(event) => onGateReasonChange(event.target.value)}
+          placeholder="填写确认或继续理由，至少 5 个字符。"
+        />
+        <Button
+          type="button"
+          onClick={onGate}
+          disabled={
+            detail.status !== "awaiting_anonymization_confirmation" &&
+            gateReason.trim().length < 5
+          }
+        >
+          确认并从检查点继续
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}
+
+const synthesisSections = [
+  ["synthesis", "综合判断"],
+  ["consensus_points", "四模型共识"],
+  ["disagreement_points", "四模型分歧"],
+  ["priority_issues", "编辑优先核验事项"],
+  ["modification_suggestions", "修改建议"],
+] as const;
+
+function EditorialSynthesisPanel({
+  detail,
+  synthesis,
+}: {
+  detail: EditorialSubmissionDetail;
+  synthesis?: Record<string, unknown>;
+}) {
+  const ccb = detail.ccb_summary;
+  const recommendation =
+    detail.recommendation_state === "ready" && detail.internal_candidate_decision
+      ? decisionLabel(detail.internal_candidate_decision)
+      : detail.recommendation_state === "withheld"
+        ? "建议已扣留，需人工处理"
+        : "试运行结果，不直接形成编辑决定";
+  return (
+    <Card id="report-summary" className="border-blue-200 shadow-sm">
+      <CardHeader>
+        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div>
+            <CardTitle>智能辅助综合摘要</CardTitle>
+            <CardDescription>
+              摘要基于四模型既有评价和证据生成，不是人类审稿意见。
+            </CardDescription>
+          </div>
+          <Badge
+            variant={detail.recommendation_state === "ready" ? "success" : "warning"}
+          >
+            {recommendation}
+          </Badge>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-5">
+        <dl className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <Metric
+            label="六维综合参考分"
+            value={ccb ? ccb.final_score.toFixed(1) : "尚未生成"}
+          />
+          <Metric
+            label="匿名模型参与"
+            value={`${detail.six_dimension_summary.model_participation.count} 个`}
+          />
+          <Metric
+            label="观点差异维度"
+            value={`${detail.six_dimension_summary.difference_count} 个`}
+          />
+          <Metric
+            label="必须专家复核"
+            value={`${detail.six_dimension_summary.expert_review_dimension_count} 个`}
+          />
+        </dl>
+        {ccb ? (
+          <p className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
+            核心基础分 {ccb.base_score.toFixed(1)} · 共识封顶{" "}
+            {ccb.ceiling_label} · 前瞻弱加分 {ccb.bonus_score.toFixed(1)}
+          </p>
+        ) : null}
+        {!synthesis ? (
+          <Empty text="综合摘要尚未生成。" />
+        ) : (
+          <div className="grid gap-4 lg:grid-cols-2">
+            {synthesisSections.map(([key, label], index) => {
+              const value = synthesis[key];
+              return (
+                <section
+                  key={key}
+                  className={cn(
+                    "rounded-xl border border-slate-200 p-4",
+                    index === 0 && "lg:col-span-2"
+                  )}
+                >
+                  <p className="font-medium text-slate-950">{label}</p>
+                  {Array.isArray(value) ? (
+                    value.length > 0 ? (
+                      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-slate-700">
+                        {value.map((item, itemIndex) => (
+                          <li key={`${key}-${itemIndex}`}>
+                            {localizeEvaluationText(item)}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="mt-2 text-sm text-slate-500">未提出。</p>
+                    )
+                  ) : (
+                    <p className="mt-2 text-sm leading-7 text-slate-700">
+                      {localizeEvaluationText(value ?? "尚未形成")}
+                    </p>
+                  )}
+                </section>
+              );
+            })}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function ExpertReviewSummary({
+  detail,
+}: {
+  detail: EditorialSubmissionDetail;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>专家复核意见</CardTitle>
+        <CardDescription>这里只展示已提交结果，分配操作位于处理页签。</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {detail.expert_reviews.length === 0 ? (
+          <Empty text="当前版本尚无专家复核意见。" />
+        ) : (
+          <div className="space-y-3">
+            {detail.expert_reviews.map((review) => (
+              <div key={review.review_id} className="rounded-xl border p-4">
+                <p className="font-medium text-slate-950">
+                  {localizedValue(review.status)}
+                </p>
+                <div className="mt-3 space-y-2">
+                  {review.comments.map((comment) => (
+                    <div
+                      key={comment.dimension_key}
+                      className="rounded-lg bg-slate-50 p-3 text-sm"
+                    >
+                      <p className="font-medium text-slate-950">
+                        {dimensionNames[comment.dimension_key] ?? "补充维度"} ·{" "}
+                        {comment.expert_score.toFixed(1)} 分
+                      </p>
+                      <p className="mt-1 leading-6 text-slate-600">
+                        {comment.reason}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function DecisionHistory({
+  decisions,
+}: {
+  decisions: EditorialSubmissionDetail["decisions"];
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>编辑决定记录</CardTitle>
+        <CardDescription>决定提交后锁定；新的决定生成新版本。</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {decisions.length === 0 ? (
+          <Empty text="当前尚无已提交的编辑决定。" />
+        ) : (
+          <div className="space-y-2">
+            {decisions.map((record) => (
+              <div
+                key={record.id}
+                className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm"
+              >
+                <p className="font-medium text-slate-950">
+                  {record.decision_stage === "final"
+                    ? "终审"
+                    : record.decision_stage === "pre_review"
+                      ? "预审"
+                      : "历史预审记录"}
+                  ：{decisionLabel(record.final_decision)}
+                </p>
+                {record.rationale ? (
+                  <p className="mt-1 text-slate-600">{record.rationale}</p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function EditorialDecisionPanel({
+  detail,
+  decisionStage,
+  onDecisionStageChange,
+  decision,
+  onDecisionChange,
+  decisionOptions,
+  decisionReason,
+  onDecisionReasonChange,
+  bypassExpert,
+  onBypassExpertChange,
+  canSubmitFinal,
+  currentStageLocked,
+  onDecision,
+}: {
+  detail: EditorialSubmissionDetail;
+  decisionStage: "pre_review" | "final";
+  onDecisionStageChange: (value: "pre_review" | "final") => void;
+  decision: EditorialDecision;
+  onDecisionChange: (value: EditorialDecision) => void;
+  decisionOptions: Record<string, string>;
+  decisionReason: string;
+  onDecisionReasonChange: (value: string) => void;
+  bypassExpert: boolean;
+  onBypassExpertChange: (value: boolean) => void;
+  canSubmitFinal: boolean;
+  currentStageLocked: boolean;
+  onDecision: () => void;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>编辑决定</CardTitle>
+        <CardDescription>
+          预审决定与终审决定分别记录、分别锁定并保留审计。
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid gap-3 md:grid-cols-2">
+          <label className="space-y-2 text-sm font-medium text-slate-700">
+            决定阶段
+            <Select
+              value={decisionStage}
+              onChange={(event) =>
+                onDecisionStageChange(
+                  event.target.value as "pre_review" | "final"
+                )
+              }
+            >
+              <option value="pre_review">编辑预审</option>
+              <option value="final" disabled={!canSubmitFinal}>
+                {canSubmitFinal ? "期刊终审" : "期刊终审（需先送外审）"}
+              </option>
+            </Select>
+          </label>
+          <label className="space-y-2 text-sm font-medium text-slate-700">
+            决定类型
+            <Select
+              value={decision}
+              onChange={(event) =>
+                onDecisionChange(event.target.value as EditorialDecision)
+              }
+            >
+              {Object.entries(decisionOptions).map(([value, label]) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
+            </Select>
+          </label>
+        </div>
+        <Textarea
+          value={decisionReason}
+          onChange={(event) => onDecisionReasonChange(event.target.value)}
+          placeholder="填写决定依据。偏离系统建议或绕过专家门禁时为必填。"
+        />
+        {detail.manual_review_requested && decisionStage === "pre_review" ? (
+          <label className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+            <input
+              type="checkbox"
+              checked={bypassExpert}
+              onChange={(event) => onBypassExpertChange(event.target.checked)}
+            />
+            我确认绕过专家复核门禁，并接受该操作进入高风险审计。
+          </label>
+        ) : null}
+        <Button
+          type="button"
+          onClick={onDecision}
+          disabled={
+            currentStageLocked || (decisionStage === "final" && !canSubmitFinal)
+          }
+        >
+          <ShieldCheck className="h-4 w-4" />
+          {currentStageLocked ? "当前阶段决定已锁定" : "提交并锁定当前阶段决定"}
+        </Button>
+        <DecisionHistory decisions={detail.decisions} />
+      </CardContent>
+    </Card>
   );
 }
 
@@ -1357,35 +2062,6 @@ function SixDimensionPanel({
                 </div>
               </details>
             ))}
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
-
-function CcbPanel({ detail }: { detail: EditorialSubmissionDetail }) {
-  const value = detail.ccb_summary;
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>六维综合参考分</CardTitle>
-        <CardDescription>核心维度加权、学术共识封顶和前瞻弱加分。</CardDescription>
-      </CardHeader>
-      <CardContent>
-        {!value ? (
-          <Empty text="综合参考分尚未生成。" />
-        ) : (
-          <div className="space-y-4">
-            <p className="text-4xl font-semibold text-slate-950">
-              {value.final_score.toFixed(1)}
-            </p>
-            <dl className="grid grid-cols-3 gap-2 text-sm">
-              <Metric label="核心基础分" value={value.base_score.toFixed(1)} />
-              <Metric label="前瞻弱加分" value={value.bonus_score.toFixed(1)} />
-              <Metric label="共识封顶" value={value.ceiling_label} />
-            </dl>
-            <p className="text-xs leading-5 text-slate-500">{value.notice}</p>
           </div>
         )}
       </CardContent>
@@ -1542,42 +2218,6 @@ function ExpertReviewPanel({
         )}
       </CardContent>
     </Card>
-  );
-}
-
-function OpinionContent({ content }: { content: Record<string, unknown> }) {
-  return (
-    <div className="space-y-3 text-sm leading-7 text-slate-700">
-      {Object.entries(content).map(([key, value]) => (
-        <section key={key}>
-          <p className="font-medium text-slate-950">{opinionFieldLabel(key)}</p>
-          {Array.isArray(value) ? (
-            <ul className="list-disc pl-5">
-              {value.map((item, index) => (
-                <li key={`${key}-${index}`}>{String(item)}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>{typeof value === "object" ? "详见审计数据" : String(value)}</p>
-          )}
-        </section>
-      ))}
-    </div>
-  );
-}
-
-function opinionFieldLabel(key: string) {
-  return (
-    {
-      synthesis: "综合判断",
-      summary: "总评",
-      strengths: "主要优点",
-      issues: "主要问题",
-      consensus_points: "四模型共识",
-      disagreement_points: "四模型分歧",
-      priority_issues: "优先核验",
-      modification_suggestions: "修改建议",
-    }[key] ?? "补充信息"
   );
 }
 

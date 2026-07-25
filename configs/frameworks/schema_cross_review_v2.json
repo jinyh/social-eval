@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["metadata", "review_mode", "execution", "unresolved_disagreement", "prompt_template", "output_contract"],
+  "properties": {
+    "metadata": {"type": "object", "required": ["name", "version", "status", "methodology_source"]},
+    "review_mode": {"const": "all_peers"},
+    "execution": {
+      "type": "object",
+      "required": ["rounds", "max_api_concurrency", "require_complete_first_round", "anonymize_peer_identity"],
+      "properties": {
+        "rounds": {"const": 2},
+        "max_api_concurrency": {"type": "integer", "minimum": 1, "maximum": 5},
+        "require_complete_first_round": {"const": true},
+        "anonymize_peer_identity": {"const": true}
+      }
+    },
+    "unresolved_disagreement": {
+      "type": "object",
+      "required": ["std_threshold", "action"],
+      "properties": {
+        "std_threshold": {"type": "number", "exclusiveMinimum": 0},
+        "action": {"const": "expert_review"}
+      }
+    },
+    "prompt_template": {"type": "string", "minLength": 1},
+    "output_contract": {"type": "object", "required": ["required", "change_direction", "revised_band", "confidence"]}
+  }
+}

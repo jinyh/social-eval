@@ -14,6 +14,7 @@ REGISTRY_PATH = PROJECT_ROOT / "configs" / "frameworks" / "registry.yaml"
 DEFAULT_FRAMEWORK_ROLE = "six_dimension_default"
 POSITION_SCHEMA_PATH = REGISTRY_PATH.parent / "schema_position_v0.2.json"
 CROSS_REVIEW_SCHEMA_PATH = REGISTRY_PATH.parent / "schema_cross_review_v1.json"
+DEFAULT_REVIEW_PROTOCOL = "six_dimension_cross_review"
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:
@@ -88,18 +89,30 @@ def load_position_framework(
 
 
 def load_review_protocol(
-    name: str = "six_dimension_cross_review",
+    name: str = DEFAULT_REVIEW_PROTOCOL,
     registry_path: Path = REGISTRY_PATH,
 ) -> dict[str, Any]:
     """加载并校验六维第二轮交叉评审协议。"""
 
-    protocol = _load_registered_config(
-        "review_protocols", name, CROSS_REVIEW_SCHEMA_PATH, registry_path
-    )
-    lenient = set(protocol["model_groups"]["lenient"])
-    strict = set(protocol["model_groups"]["strict"])
-    if lenient & strict:
-        raise ValueError("交叉评审模型组不得重叠")
+    registry = load_registry(registry_path)
+    try:
+        entry = registry["review_protocols"][name]
+        relative = entry["path"]
+    except (KeyError, TypeError) as exc:
+        raise KeyError(f"未知配置角色: review_protocols.{name}") from exc
+    schema_relative = entry.get("schema", CROSS_REVIEW_SCHEMA_PATH.name)
+    schema_path = (registry_path.parent / str(schema_relative)).resolve()
+    protocol = _load_yaml((registry_path.parent / str(relative)).resolve())
+    schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    jsonschema.validate(protocol, schema)
+    protocol["source_path"] = str((registry_path.parent / str(relative)).resolve())
+    protocol["registry_name"] = name
+    review_mode = str(protocol.get("review_mode", "opposite_groups"))
+    if review_mode == "opposite_groups":
+        lenient = set(protocol["model_groups"]["lenient"])
+        strict = set(protocol["model_groups"]["strict"])
+        if lenient & strict:
+            raise ValueError("交叉评审模型组不得重叠")
     return protocol
 
 
@@ -115,24 +128,41 @@ def load_model_set(
     except (KeyError, TypeError) as exc:
         raise KeyError(f"未知模型集: {name}") from exc
     provider_names = payload.get("provider_names")
+    review_protocol_name = str(payload.get("review_protocol", DEFAULT_REVIEW_PROTOCOL))
+    review_protocol = load_review_protocol(
+        review_protocol_name, registry_path=registry_path
+    )
+    review_mode = str(review_protocol.get("review_mode", "opposite_groups"))
     groups = payload.get("model_groups")
     if not isinstance(provider_names, list) or len(provider_names) != 4:
         raise ValueError(f"模型集 {name} 必须包含四个模型")
-    if not isinstance(groups, dict):
-        raise ValueError(f"模型集 {name} 缺少交叉评审分组")
-    lenient = set(groups.get("lenient", []))
-    strict = set(groups.get("strict", []))
-    if lenient & strict or lenient | strict != set(provider_names):
-        raise ValueError(f"模型集 {name} 的交叉评审分组不完整")
-    return {
+    result = {
         "name": name,
         "status": str(payload.get("status", "")),
         "provider_names": list(provider_names),
-        "model_groups": {
+        "review_protocol": review_protocol_name,
+        "review_mode": review_mode,
+    }
+    legacy_groups = payload.get("legacy_model_groups")
+    if isinstance(legacy_groups, dict):
+        result["legacy_model_groups"] = {
+            "lenient": list(legacy_groups.get("lenient", [])),
+            "strict": list(legacy_groups.get("strict", [])),
+        }
+    if review_mode == "opposite_groups":
+        if not isinstance(groups, dict):
+            raise ValueError(f"模型集 {name} 缺少交叉评审分组")
+        lenient = set(groups.get("lenient", []))
+        strict = set(groups.get("strict", []))
+        if lenient & strict or lenient | strict != set(provider_names):
+            raise ValueError(f"模型集 {name} 的交叉评审分组不完整")
+        result["model_groups"] = {
             "lenient": list(groups["lenient"]),
             "strict": list(groups["strict"]),
-        },
-    }
+        }
+    elif review_mode != "all_peers":
+        raise ValueError(f"模型集 {name} 使用未知互评方式: {review_mode}")
+    return result
 
 
 def _scoring_semantics(protocol: dict[str, Any]) -> dict[str, Any]:

@@ -49,6 +49,19 @@ def test_cross_review_requires_at_least_one_provider_in_each_group():
         service.validate_provider_names(["glm-5.1", "qwen3.6-plus"])
 
 
+def test_peer_review_requires_the_complete_candidate_model_set():
+    service = CrossReviewService.for_model_set("six-dimension-v2-candidate")
+
+    with pytest.raises(ValueError, match="完整候选模型集"):
+        service.validate_provider_names(
+            [
+                "glm-5.2",
+                "qwen3.7-max-2026-06-08",
+                "deepseek-v4-pro",
+            ]
+        )
+
+
 @pytest.mark.asyncio
 async def test_cross_review_uses_opposite_group_and_returns_structured_payload():
     service = CrossReviewService()
@@ -76,6 +89,82 @@ async def test_cross_review_uses_opposite_group_and_returns_structured_payload()
     }
     assert {outcome.result.score for outcome in outcomes} == {72, 78}
     assert all(outcome.raw_payload["rejected_points"] for outcome in outcomes)
+    glm_outcome = next(
+        outcome for outcome in outcomes if outcome.result.model_name == "glm-5.1"
+    )
+    assert "deepseek-v4-pro" in glm_outcome.prompt
+    assert "qwen3.6-plus" not in glm_outcome.prompt
+
+
+@pytest.mark.asyncio
+async def test_peer_review_shares_three_anonymous_r1_reviews_and_audits_mapping():
+    class CapturingProvider(FakeCrossProvider):
+        prompt: str = ""
+
+        async def generate_json_response(self, prompt: str) -> dict:
+            self.prompt = prompt
+            return await super().generate_json_response(prompt)
+
+    service = CrossReviewService.for_model_set("six-dimension-v2-candidate")
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    names = [
+        "glm-5.2",
+        "qwen3.7-max-2026-06-08",
+        "deepseek-v4-pro",
+        "kimi-k2.6",
+    ]
+    providers = [
+        CapturingProvider(name, revised_score=80 + index)
+        for index, name in enumerate(names)
+    ]
+    r1 = {name: _r1(name, 70 + index) for index, name in enumerate(names)}
+
+    outcomes = await service.evaluate_dimension(
+        providers,
+        dimension,
+        ProcessedPaper(body="正文", full_text="正文", structure_status="detected"),
+        r1,
+    )
+
+    assert len(outcomes) == 4
+    for provider, outcome in zip(providers, outcomes, strict=True):
+        assert all(name not in provider.prompt for name in names)
+        assert provider.prompt.count('"review_label": "评审意见') == 3
+        mapping = outcome.raw_payload["_cross_review_metadata"][
+            "anonymous_peer_mapping"
+        ]
+        assert list(mapping) == ["评审意见1", "评审意见2", "评审意见3"]
+        assert set(mapping.values()) == set(names) - {provider.model_name}
+
+
+@pytest.mark.asyncio
+async def test_peer_review_waits_when_any_r1_result_is_missing():
+    service = CrossReviewService.for_model_set("six-dimension-v2-candidate")
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    names = [
+        "glm-5.2",
+        "qwen3.7-max-2026-06-08",
+        "deepseek-v4-pro",
+        "kimi-k2.6",
+    ]
+    providers = [FakeCrossProvider(name, 80) for name in names]
+    r1 = {name: _r1(name, 75) for name in names[:-1]}
+
+    with pytest.raises(ValueError, match="等待四模型第一轮评价齐全"):
+        await service.evaluate_dimension(
+            providers,
+            dimension,
+            ProcessedPaper(
+                body="正文",
+                full_text="正文",
+                structure_status="detected",
+            ),
+            r1,
+        )
 
 
 def test_unresolved_std_routes_to_expert_review_only():
@@ -148,6 +237,38 @@ async def test_cross_review_normalizes_non_list_evidence_to_empty_list():
 
 
 @pytest.mark.asyncio
+async def test_cross_review_normalizes_structured_evidence_quote_objects():
+    class StructuredEvidenceProvider(FakeCrossProvider):
+        async def generate_json_response(self, prompt: str) -> dict:
+            payload = await super().generate_json_response(prompt)
+            payload["new_evidence_found"] = [
+                {"quote": "可核验证据", "location": "正文"},
+                {"evidence_quote": "补充证据"},
+            ]
+            return payload
+
+    service = CrossReviewService()
+    dimension = load_framework(
+        "configs/frameworks/law-v2.56.6-20260522.yaml"
+    ).dimensions[0]
+    lenient = StructuredEvidenceProvider("glm-5.1", 78)
+    strict = FakeCrossProvider("deepseek-v4-pro", 72)
+
+    outcomes = await service.evaluate_dimension(
+        [lenient, strict],
+        dimension,
+        ProcessedPaper(body="正文", full_text="正文", structure_status="detected"),
+        {
+            "glm-5.1": _r1("glm-5.1", 80),
+            "deepseek-v4-pro": _r1("deepseek-v4-pro", 70),
+        },
+    )
+
+    outcome = next(item for item in outcomes if item.result.model_name == "glm-5.1")
+    assert outcome.result.evidence_quotes == ["可核验证据", "补充证据"]
+
+
+@pytest.mark.asyncio
 async def test_cross_review_compacts_context_after_content_inspection_failure():
     class ContentInspectionProvider(FakeCrossProvider):
         calls = 0
@@ -182,9 +303,10 @@ async def test_cross_review_compacts_context_after_content_inspection_failure():
 
     outcome = next(item for item in outcomes if item.result.model_name == "glm-5.1")
     assert lenient.calls == 2
-    assert outcome.raw_payload["_cross_review_metadata"][
-        "content_inspection_fallback"
-    ] is True
+    assert (
+        outcome.raw_payload["_cross_review_metadata"]["content_inspection_fallback"]
+        is True
+    )
 
 
 @pytest.mark.asyncio
@@ -216,6 +338,9 @@ async def test_cross_review_retries_response_without_revised_score():
     )
 
     assert lenient.calls == 2
-    assert next(
-        item for item in outcomes if item.result.model_name == "glm-5.1"
-    ).result.score == 78
+    assert (
+        next(
+            item for item in outcomes if item.result.model_name == "glm-5.1"
+        ).result.score
+        == 78
+    )

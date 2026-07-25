@@ -15,9 +15,11 @@ def test_candidate_model_set_upgrades_only_targeted_six_dimension_models() -> No
         "deepseek-v4-pro",
         "kimi-k2.6",
     ]
-    assert set(candidate["model_groups"]["lenient"]) | set(
-        candidate["model_groups"]["strict"]
-    ) == set(candidate["provider_names"])
+    assert production["review_protocol"] == "six_dimension_cross_review"
+    assert production["review_mode"] == "opposite_groups"
+    assert candidate["review_protocol"] == "six_dimension_peer_review"
+    assert candidate["review_mode"] == "all_peers"
+    assert "model_groups" not in candidate
 
 
 def test_unknown_model_set_does_not_fall_back_silently() -> None:

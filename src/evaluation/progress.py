@@ -195,6 +195,7 @@ def mark_model_results(
 
 
 def progress_summary(db: Session, task_id: str) -> dict:
+    task = db.get(EvaluationTask, task_id)
     rows = (
         db.query(EvaluationWorkUnit)
         .filter(EvaluationWorkUnit.task_id == task_id)
@@ -227,9 +228,16 @@ def progress_summary(db: Session, task_id: str) -> dict:
         and heartbeat
         and (utc_now() - heartbeat).total_seconds() > settings.task_stale_seconds
     )
+    stage_label = PHASE_LABELS.get(current.phase, "处理中")
+    if (
+        current.phase == "six_dimension_r2"
+        and task is not None
+        and task.review_protocol_version == "six_dimension_peer_review"
+    ):
+        stage_label = "第二轮四模型匿名互评"
     return {
         "stage": current.phase,
-        "stage_label": PHASE_LABELS.get(current.phase, "处理中"),
+        "stage_label": stage_label,
         "completed": completed,
         "total": len(rows),
         "percent": round(completed * 100 / len(rows)),
@@ -240,4 +248,7 @@ def progress_summary(db: Session, task_id: str) -> dict:
         "failure_detail": current.failure_detail
         if current.status == "failed"
         else None,
+        "review_protocol_version": (
+            task.review_protocol_version if task is not None else None
+        ),
     }

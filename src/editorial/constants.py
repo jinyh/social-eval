@@ -25,3 +25,25 @@ INITIAL_EDITORIAL_UNITS = (
 )
 
 EDITORIAL_POLICY_PATH = "configs/frameworks/editorial-law-v1.yaml"
+
+SUBMISSION_STATUS_GROUPS: dict[str, tuple[str, ...]] = {
+    "processing": (
+        "queued",
+        "anonymizing",
+        "formal_check",
+        "prechecking",
+        "journal_fit_check",
+        "evaluating",
+        "generating_opinions",
+        "expert_review",
+    ),
+    "awaiting_action": (
+        "awaiting_anonymization_confirmation",
+        "awaiting_formal_check_confirmation",
+        "awaiting_precheck_confirmation",
+        "awaiting_fit_confirmation",
+        "awaiting_editor",
+    ),
+    "completed": ("sent_for_external_review", "completed"),
+    "failed": ("recovering",),
+}

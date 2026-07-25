@@ -2,39 +2,67 @@ from __future__ import annotations
 
 import hashlib
 import json
+from datetime import timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from sqlalchemy.orm import Session
 
+from src.core.time import utc_now
+from src.editorial.policy import load_editorial_policy
+from src.editorial.presentation import (
+    build_ccb_summary,
+    build_position_summary,
+    build_six_dimension_summary,
+    localize_synthesis_payload,
+)
+from src.knowledge.loader import load_framework
+from src.knowledge.registry import resolve_framework_path
 from src.models.editorial import (
     EditorialDecision,
     EditorialDocument,
     EditorialOpinion,
     EditorialSubmission,
+    EditorialUnit,
+    Journal,
     PositionAssessment,
 )
 from src.models.evaluation import DimensionScore, EvaluationTask
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
 from src.models.review import ExpertReview, ReviewComment
-from src.editorial.policy import load_editorial_policy
-from src.editorial.presentation import (
-    build_ccb_summary,
-    build_position_summary,
-    build_six_dimension_summary,
-)
-from src.reporting.simple_pdf_builder import build_simple_pdf
-from src.knowledge.loader import load_framework
-from src.knowledge.registry import resolve_framework_path
+from src.reporting.editorial_pdf_builder import build_editorial_pdf
 
 REPORT_ROOT = Path("data/editorial")
+
+_DECISION_LABELS = {
+    "decline_without_review": "不送外审",
+    "revise_resubmit": "修改后重投",
+    "send_external_review": "送外审",
+    "priority_external_review": "优先送外审",
+    "reject": "退稿",
+    "major_revision": "重大修改",
+    "minor_accept": "小修后录用",
+    "direct_accept": "直接录用",
+}
+
+_STAGE_LABELS = {
+    "pre_review": "编辑预审",
+    "final": "期刊终审",
+    "legacy": "历史预审记录",
+}
 
 
 def _sha256(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()
 
 
-def build_editorial_report(db: Session, submission_id: str) -> dict:
+def build_editorial_report(
+    db: Session,
+    submission_id: str,
+    *,
+    report_version: int | None = None,
+) -> dict:
     """构建不含原稿正文的编辑预审规范 JSON。"""
 
     submission = db.get(EditorialSubmission, submission_id)
@@ -44,6 +72,10 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
     task = db.get(EvaluationTask, submission.evaluation_task_id)
     if paper is None or task is None:
         raise ValueError("编辑报告所需数据不完整")
+    unit = db.get(EditorialUnit, submission.unit_id)
+    journal = db.get(Journal, unit.journal_id) if unit else None
+    next_version = report_version or submission.current_report_version + 1
+    generated_at = utc_now().replace(tzinfo=timezone.utc)
 
     scores = (
         db.query(DimensionScore)
@@ -95,6 +127,9 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
         provider_names,
         [(dimension.key, dimension.name_zh) for dimension in framework.dimensions],
     )
+    dimension_labels = {
+        dimension.key: dimension.name_zh for dimension in framework.dimensions
+    }
     expert_reviews = []
     for review in (
         db.query(ExpertReview)
@@ -122,6 +157,10 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
                 "comments": [
                     {
                         "dimension_key": item.dimension_key,
+                        "dimension_name": dimension_labels.get(
+                            item.dimension_key,
+                            "补充维度",
+                        ),
                         "expert_score": item.expert_score,
                         "reason": item.reason,
                         "statement_decisions": item.statement_decisions,
@@ -131,8 +170,40 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
                 ],
             }
         )
+    candidate_decision = (
+        submission.internal_candidate_decision
+        if submission.recommendation_state == "ready"
+        else None
+    )
+    recommendation_label = (
+        _DECISION_LABELS.get(candidate_decision, "建议状态待确认")
+        if candidate_decision
+        else (
+            "建议已扣留，需人工处理"
+            if submission.recommendation_state == "withheld"
+            else "试运行结果，不直接形成编辑决定"
+        )
+    )
     return {
-        "schema_version": "editorial-report-v3",
+        "schema_version": "editorial-report-v4",
+        "report_metadata": {
+            "report_version": next_version,
+            "generated_at": generated_at.isoformat(),
+            "generated_at_zh": generated_at.astimezone(
+                ZoneInfo("Asia/Shanghai")
+            ).strftime("%Y年%m月%d日 %H:%M"),
+            "journal_name": journal.name if journal else None,
+            "unit_name": unit.name if unit else None,
+            "framework_version": task.framework_id,
+            "model_set_version": task.model_set_version,
+            "review_protocol_version": task.review_protocol_version,
+            "review_protocol_label": (
+                "四模型匿名互评"
+                if task.review_protocol_version == "six_dimension_peer_review"
+                else "分组交叉复核"
+            ),
+            "policy_version": submission.policy_version,
+        },
         "submission": {
             "id": submission.id,
             "unit_id": submission.unit_id,
@@ -156,10 +227,17 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
             "journal_fit_result": submission.fit_result,
         },
         "evaluation": {
-            "display_order": ["five_axis", "six_dimension"],
+            "display_order": [
+                "ai_synthesis",
+                "five_axis",
+                "six_dimension",
+                "expert_review",
+                "editorial_decision",
+            ],
             "framework_id": task.framework_id,
             "final_round": task.final_round,
             "cross_review_enabled": task.cross_review_enabled,
+            "review_protocol_version": task.review_protocol_version,
             "manual_review_requested": task.manual_review_requested,
             "aggregate": paper.aggregate_result,
             "ccb_summary": build_ccb_summary(paper.aggregate_result),
@@ -197,7 +275,11 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
                 "type": row.opinion_type,
                 "version": row.version,
                 "sequence": row.sequence,
-                "content": row.content,
+                "content": (
+                    localize_synthesis_payload(row.content)
+                    if row.opinion_type == "ai_synthesis"
+                    else row.content
+                ),
                 "label": (
                     "智能辅助意见" if row.opinion_type.startswith("ai_") else "编辑意见"
                 ),
@@ -207,18 +289,23 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
         ],
         "recommendation": {
             "state": submission.recommendation_state,
-            "candidate_decision": (
-                submission.internal_candidate_decision
-                if submission.recommendation_state == "ready"
-                else None
-            ),
+            "candidate_decision": candidate_decision,
+            "display_label": recommendation_label,
         },
         "editorial_decisions": [
             {
                 "id": row.id,
                 "version": row.version,
                 "decision_stage": row.decision_stage,
+                "stage_label": _STAGE_LABELS.get(
+                    row.decision_stage,
+                    "历史预审记录",
+                ),
                 "final_decision": row.final_decision,
+                "decision_label": _DECISION_LABELS.get(
+                    row.final_decision,
+                    "决定待确认",
+                ),
                 "suggested_decision": row.suggested_decision,
                 "rationale": row.rationale,
                 "bypassed_expert_gate": row.bypassed_expert_gate,
@@ -231,61 +318,28 @@ def build_editorial_report(db: Session, submission_id: str) -> dict:
     }
 
 
-def _pdf_payload(report: dict) -> dict:
-    dimensions = report["evaluation"]["six_dimension_summary"]["dimensions"]
-    synthesis = next(
-        (
-            item["content"]
-            for item in report["ai_opinions"]
-            if item["type"] == "ai_synthesis"
-        ),
-        {},
-    )
-    ccb = report["evaluation"].get("ccb_summary") or {}
-    position = report["evaluation"].get("position_summary")
-    expert_comments = [
-        comment["reason"]
-        for review in report.get("expert_reviews", [])
-        for comment in review.get("comments", [])
-        if comment.get("reason")
-    ]
-    return {
-        "title": report["submission"]["title"],
-        "weighted_total": ccb.get("final_score", 0),
-        "ccb_summary": ccb,
-        "position_summary": position,
-        "conclusion": synthesis.get("synthesis") or synthesis.get("summary"),
-        "dimensions": [
-            {
-                "name_zh": item["dimension_name"],
-                "ai": {"mean_score": item["mean_score"]},
-                "summary": (
-                    f"标准差 {item['std_score']:.2f}，{item['difference_label']}"
-                ),
-            }
-            for item in dimensions
-        ],
-        "expert_conclusion": "；".join(expert_comments) or None,
-    }
-
-
 def generate_editorial_report(db: Session, submission_id: str) -> tuple[int, dict]:
     """追加一版不可变 JSON 与 PDF，并更新当前报告版本指针。"""
 
     submission = db.get(EditorialSubmission, submission_id)
     if submission is None:
         raise ValueError(f"EditorialSubmission {submission_id} not found")
-    report = build_editorial_report(db, submission_id)
     version = submission.current_report_version + 1
+    report = build_editorial_report(
+        db,
+        submission_id,
+        report_version=version,
+    )
     directory = REPORT_ROOT / submission.id
     directory.mkdir(parents=True, exist_ok=True)
 
     json_content = json.dumps(
         report, ensure_ascii=False, indent=2, sort_keys=True
     ).encode("utf-8")
+    pdf_content = build_editorial_pdf(report)
+
     json_path = directory / f"report-v{version}.json"
     json_path.write_bytes(json_content)
-    pdf_content = build_simple_pdf(_pdf_payload(report))
     pdf_path = directory / f"report-v{version}.pdf"
     pdf_path.write_bytes(pdf_content)
 

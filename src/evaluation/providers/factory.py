@@ -66,6 +66,7 @@ _PROVIDER_REGISTRY: dict[str, tuple[str, str, tuple]] = {
                 "thinking_budget": 4096,
             },
             "max_completion_tokens": 8192,
+            "timeout": 240.0,
         },
     ),
     "glm-5.1": (
@@ -77,7 +78,7 @@ _PROVIDER_REGISTRY: dict[str, tuple[str, str, tuple]] = {
         "src.evaluation.providers.dashscope_provider",
         "DashScopeProvider",
         ("glm-5.2",),
-        {"temperature": 0.3},
+        {"temperature": 0.3, "timeout": 240.0},
     ),
     "deepseek-v4-pro": (
         "src.evaluation.providers.dashscope_provider",

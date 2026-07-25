@@ -38,7 +38,7 @@ describe("App", () => {
       />
     );
 
-    expect(screen.getByRole("heading", { name: /期刊编辑预审工作台/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /编辑工作台/i })).toBeInTheDocument();
     expect(screen.getByText(/编辑视角/i)).toBeInTheDocument();
   });
 
@@ -97,12 +97,26 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
+    fireEvent.click(
+      await screen.findByRole("button", { name: "投稿管理" })
+    );
+    fireEvent.click(
+      await screen.findByRole("button", {
+        name: /平台治理中算法责任的规范结构研究/,
+      })
+    );
     const reportTab = await screen.findByRole("tab", { name: "评阅报告" });
     expect(reportTab).toHaveAttribute("aria-selected", "true");
-    fireEvent.click(reportTab);
+    const synthesis = screen.getByRole("heading", {
+      name: "智能辅助综合摘要",
+    });
     expect(await screen.findByText(/四模型评价/i)).toBeInTheDocument();
     const fiveAxis = screen.getByRole("heading", { name: "五轴位置归属度" });
     const sixDimension = screen.getByRole("heading", { name: "六维学术评价" });
+    expect(
+      synthesis.compareDocumentPosition(fiveAxis) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
     expect(
       fiveAxis.compareDocumentPosition(sixDimension) &
         Node.DOCUMENT_POSITION_FOLLOWING
@@ -112,6 +126,32 @@ describe("App", () => {
     expect(screen.getAllByText(/模型丁/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/glm-5.1/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/qwen3.6-plus/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Choose File|No File Chosen/i)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("决定阶段")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("tab", { name: "处理与决定" }));
+    expect(screen.getByText("编辑决定")).toBeInTheDocument();
+    expect(screen.getByText("决定阶段")).toBeInTheDocument();
+  });
+
+  it("uses a collapsible editor navigation and a separate upload workspace", async () => {
+    window.history.pushState({}, "", "/?mock=editor");
+
+    render(<App initialUser={undefined} />);
+
+    expect(
+      await screen.findByRole("navigation", { name: "编辑工作台导航" })
+    ).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "收起导航栏" }));
+    expect(
+      screen.getByRole("button", { name: "展开导航栏" })
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "新建投稿" }));
+    expect(
+      await screen.findByRole("heading", { name: "上传新稿件" })
+    ).toBeInTheDocument();
+    expect(screen.getByText("尚未选择文件")).toBeInTheDocument();
     expect(screen.queryByText(/Choose File|No File Chosen/i)).not.toBeInTheDocument();
   });
 

@@ -59,3 +59,14 @@ export function localizeEvaluationValue(value: unknown): string {
   if (!text) return "待确认";
   return /^[A-Za-z][A-Za-z0-9_.-]*$/.test(text) ? "待确认" : text;
 }
+
+const bandCodePattern =
+  /(^|[^A-Za-z0-9_])(excellent|good|marginal|unacceptable)(?=$|[^A-Za-z0-9_])/gi;
+
+export function localizeEvaluationText(value: unknown): string {
+  return String(value ?? "").replace(
+    bandCodePattern,
+    (_match, prefix: string, code: string) =>
+      `${prefix}${evaluationValueLabels[code.toLowerCase()] ?? code}`
+  );
+}

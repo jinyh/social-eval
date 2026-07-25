@@ -51,7 +51,8 @@
 - 系统自动生成投稿 ID；允许填写编辑单元内唯一的外部稿号；
 - 原稿不可覆盖，匿名化稿作为派生文档另存；
 - 送入外部模型前移除作者、机构、联系方式和可识别元数据；
-- 匿名化结果不确定时暂停，由编辑确认后继续；
+- 每篇匿名稿均暂停并由编辑网页预览确认后继续；自动检查只提供风险提示，
+  不代替人工匿名确认；
 - v1 不支持扫描 PDF OCR，应提示上传可解析版本。
 
 ## 4. 评审流程
@@ -59,7 +60,7 @@
 ```text
 queued
   → anonymizing
-  → awaiting_anonymization_confirmation（可选）
+  → awaiting_anonymization_confirmation
   → formal_check
   → awaiting_formal_check_confirmation（可选）
   → prechecking

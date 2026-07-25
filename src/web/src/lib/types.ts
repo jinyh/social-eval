@@ -39,6 +39,7 @@ export type TaskProgress = {
   heartbeat_at?: string | null;
   is_stalled: boolean;
   failure_detail?: string | null;
+  review_protocol_version?: string | null;
 };
 
 export type NotificationItem = {
@@ -229,7 +230,9 @@ export type ModelSet = {
   name: string;
   status: string;
   provider_names: string[];
-  model_groups: {
+  review_protocol: string;
+  review_mode: "opposite_groups" | "all_peers";
+  model_groups?: {
     lenient: string[];
     strict: string[];
   };
@@ -261,6 +264,48 @@ export type EditorialSubmissionListItem = {
   current_report_version: number;
   created_at: string;
   updated_at: string;
+};
+
+export type AnonymousManuscriptBlock = {
+  type: "heading" | "paragraph" | "table" | "footnote" | "page_break";
+  text?: string | null;
+  level?: number | null;
+  rows?: string[][] | null;
+  number?: string | number | null;
+  page?: number | null;
+};
+
+export type AnonymousManuscript = {
+  manuscript_id: string;
+  document_version: number;
+  blocks: AnonymousManuscriptBlock[];
+  risk_flags: string[];
+  omitted_content_types: string[];
+  notice: string;
+};
+
+export type EditorialSubmissionStatusGroup =
+  | "processing"
+  | "awaiting_action"
+  | "completed"
+  | "failed";
+
+export type EditorialSubmissionListQuery = {
+  unitId?: string;
+  keyword?: string;
+  statusGroup?: EditorialSubmissionStatusGroup;
+  submittedFrom?: string;
+  submittedTo?: string;
+  page?: number;
+  pageSize?: number;
+};
+
+export type EditorialSubmissionPage = {
+  items: EditorialSubmissionListItem[];
+  total: number;
+  page: number;
+  page_size: number;
+  status_counts: Record<EditorialSubmissionStatusGroup, number>;
 };
 
 export type EditorialOpinion = {
@@ -377,6 +422,8 @@ export type EditorialSubmissionDetail = EditorialSubmissionListItem & {
   position_summary?: PositionSummary | null;
   position_assessment?: Record<string, unknown> | null;
   model_set_version: string;
+  review_protocol_version: string;
+  review_protocol_label: string;
   progress: TaskProgress;
   documents: Record<string, string>;
   expert_reviews: Array<{

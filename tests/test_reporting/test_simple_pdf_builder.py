@@ -1,6 +1,7 @@
 # tests/test_reporting/test_simple_pdf_builder.py
 import fitz
 
+from src.reporting.editorial_pdf_builder import build_editorial_pdf
 from src.reporting.simple_pdf_builder import build_simple_pdf
 
 
@@ -105,3 +106,129 @@ def test_editorial_pdf_places_five_axis_before_six_dimension():
     assert document.page_count == 2
     assert len(document[0].get_pixmap().samples) > 0
     assert len(document[1].get_pixmap().samples) > 0
+
+
+def test_v4_editorial_pdf_is_a_five_page_summary_first_brief():
+    report = {
+        "schema_version": "editorial-report-v4",
+        "report_metadata": {
+            "report_version": 4,
+            "generated_at_zh": "2026年07月25日 19:30",
+            "journal_name": "交大法学",
+            "unit_name": "交大法学编辑部",
+        },
+        "submission": {
+            "id": "submission-1",
+            "external_manuscript_id": "JD-2026-001",
+            "title": "数字平台治理中法律责任配置与规范结构研究",
+        },
+        "recommendation": {
+            "state": "ready",
+            "display_label": "修改后重投",
+        },
+        "evaluation": {
+            "ccb_summary": {
+                "final_score": 81.6,
+            },
+            "position_summary": {
+                "total_score": 8,
+                "strength_label": "归属证据较强",
+                "agreement_label": "两模型存在局部差异",
+                "notice": "五轴不评价论文质量，也不参与录退决定。",
+                "axes": [
+                    {
+                        "axis_name": "对象归属度",
+                        "focus_label": "研究问题归属",
+                        "guiding_question": "核心问题是否归属于中国法学语境",
+                        "score": 2,
+                        "has_model_difference": False,
+                        "evidence_quotes": [],
+                    },
+                    {
+                        "axis_name": "材料归属度",
+                        "focus_label": "核心材料归属",
+                        "guiding_question": "材料是否来自中国规范、判例、史料、数据",
+                        "score": 2,
+                        "has_model_difference": False,
+                        "evidence_quotes": [],
+                    },
+                    {
+                        "axis_name": "范畴自主度",
+                        "focus_label": "分析范畴自主",
+                        "guiding_question": "核心范畴是否经中国法语境重置",
+                        "score": 1,
+                        "has_model_difference": True,
+                        "evidence_quotes": ["文章对平台责任范畴进行了中国法语境重释。"],
+                    },
+                    {
+                        "axis_name": "解释目标归属度",
+                        "focus_label": "解释目标方向",
+                        "guiding_question": "最终目标是否指向中国法学知识生产",
+                        "score": 2,
+                        "has_model_difference": False,
+                        "evidence_quotes": [],
+                    },
+                    {
+                        "axis_name": "体系映射度",
+                        "focus_label": "知识体系映射",
+                        "guiding_question": "知识能否映射到知识树位置",
+                        "score": 1,
+                        "has_model_difference": False,
+                        "evidence_quotes": [],
+                    },
+                ],
+            },
+            "six_dimension_summary": {
+                "model_participation": {"count": 4},
+                "difference_count": 2,
+                "expert_review_dimension_count": 1,
+                "dimensions": [
+                    {
+                        "dimension_name": name,
+                        "mean_score": 80 + index,
+                        "band_label": "良",
+                        "std_score": 4 + index,
+                        "difference_level": (
+                            "expert_review" if index == 2 else "consensus"
+                        ),
+                        "difference_label": (
+                            "必须专家复核" if index == 2 else "四模型基本一致"
+                        ),
+                        "model_results": [
+                            {"evidence_quotes": ["关键论证仍需要补充规范依据。"]}
+                        ],
+                    }
+                    for index, name in enumerate(
+                        [
+                            "研究创新性",
+                            "现状洞察度",
+                            "理论建构力",
+                            "逻辑连贯性",
+                            "学术共识度",
+                            "前瞻延展性",
+                        ]
+                    )
+                ],
+            },
+        },
+        "ai_opinions": [
+            {
+                "type": "ai_synthesis",
+                "content": {
+                    "synthesis": "论文问题意识清晰，但规范基础仍需加强。",
+                    "consensus_points": ["四模型均认可论文的问题意识。"],
+                    "disagreement_points": ["对理论建构完整性的判断不同。"],
+                    "priority_issues": ["优先核验核心规范依据。"],
+                    "modification_suggestions": ["补充反对观点并逐项回应。"],
+                },
+            }
+        ],
+        "expert_reviews": [],
+        "editorial_decisions": [],
+    }
+
+    pdf_bytes = build_editorial_pdf(report)
+    document = fitz.open(stream=pdf_bytes, filetype="pdf")
+
+    assert document.page_count == 5
+    assert all(len(page.get_pixmap().samples) > 0 for page in document)

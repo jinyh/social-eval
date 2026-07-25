@@ -22,11 +22,13 @@ class DashScopeProvider(BaseProvider):
         temperature: float = DEFAULT_TEMPERATURE,
         extra_body: dict | None = None,
         max_completion_tokens: int | None = None,
+        timeout: float | None = None,
     ):
         self.model_name = model_name
         self.temperature = temperature
         self.extra_body = extra_body or {}
         self.max_completion_tokens = max_completion_tokens
+        self.timeout = timeout or settings.provider_timeout
         self._last_response_metadata: dict = {}
         self._client = openai.AsyncOpenAI(
             api_key=settings.dashscope_api_key,

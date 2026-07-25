@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from src.editorial.ai_calls import generate_json_with_audit
 from src.editorial.policy import EditorialPolicy
+from src.editorial.presentation import localize_synthesis_payload
 from src.evaluation.providers.base import BaseProvider
 from src.models.editorial import EditorialOpinion
 
@@ -77,6 +78,7 @@ async def generate_editorial_opinions(
         )
         try:
             _validate_synthesis(payload)
+            payload = localize_synthesis_payload(payload)
             break
         except ValueError as exc:
             last_error = exc

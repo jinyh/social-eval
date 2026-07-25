@@ -4,9 +4,28 @@ from src.editorial.presentation import (
     build_ccb_summary,
     build_position_summary,
     build_six_dimension_summary,
+    localize_band_text,
+    localize_synthesis_payload,
 )
 from src.models.evaluation import DimensionScore
 from src.models.reliability import ReliabilityResult
+
+
+def test_synthesis_band_codes_are_localized_without_changing_longer_words() -> None:
+    assert localize_band_text("模型甲 excellent，模型乙 good。") == (
+        "模型甲 优，模型乙 良。"
+    )
+    assert localize_band_text("goodness 不属于档位代码") == "goodness 不属于档位代码"
+    payload = localize_synthesis_payload(
+        {
+            "synthesis": "整体为 marginal",
+            "disagreement_points": ["一方 good，另一方 unacceptable"],
+        }
+    )
+    assert payload == {
+        "synthesis": "整体为 中",
+        "disagreement_points": ["一方 良，另一方 差"],
+    }
 
 
 def _score(

@@ -5,6 +5,7 @@
 
 from __future__ import annotations
 
+import re
 import statistics
 from collections import defaultdict
 from typing import Any, Iterable
@@ -38,6 +39,11 @@ BAND_LABELS = {
     "unacceptable": "差",
 }
 
+_BAND_TEXT_PATTERN = re.compile(
+    r"(?<![A-Za-z0-9_])(excellent|good|marginal|unacceptable)(?![A-Za-z0-9_])",
+    re.IGNORECASE,
+)
+
 CONFIDENCE_LABELS = {
     "high": "高",
     "medium": "中等",
@@ -51,6 +57,33 @@ STRENGTH_LABELS = {
     "weak": "归属证据较弱",
     "absent": "尚无明确归属证据",
 }
+
+
+def localize_band_text(value: str) -> str:
+    """把自然语言中的内部四档代码转换为中文展示值。"""
+
+    return _BAND_TEXT_PATTERN.sub(
+        lambda match: BAND_LABELS[match.group(1).lower()],
+        value,
+    )
+
+
+def localize_synthesis_payload(payload: dict[str, Any] | None) -> dict[str, Any]:
+    """递归转换综合摘要中的档位代码，不触碰论文正文或证据字段。"""
+
+    if not payload:
+        return {}
+
+    def normalize(value: Any) -> Any:
+        if isinstance(value, str):
+            return localize_band_text(value)
+        if isinstance(value, list):
+            return [normalize(item) for item in value]
+        if isinstance(value, dict):
+            return {key: normalize(item) for key, item in value.items()}
+        return value
+
+    return {key: normalize(value) for key, value in payload.items()}
 
 
 def dimension_label(

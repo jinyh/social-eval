@@ -3,7 +3,9 @@ from __future__ import annotations
 import hashlib
 import inspect
 import json
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from fastapi import (
     APIRouter,
@@ -11,17 +13,20 @@ from fastapi import (
     File,
     Form,
     HTTPException,
+    Query,
     Request,
     Response,
     UploadFile,
     status,
 )
 from fastapi.responses import FileResponse, JSONResponse
+from sqlalchemy import or_
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from src.api.auth.dependencies import require_roles
 from src.api.schemas.editorial import (
+    AnonymousManuscriptResponse,
     AnonymizationConfirmRequest,
     AssignmentRequest,
     EditorialBatchCreateResponse,
@@ -47,11 +52,14 @@ from src.editorial.access import (
     require_submission_access,
     require_unit_access,
 )
+from src.editorial.constants import SUBMISSION_STATUS_GROUPS
+from src.editorial.manuscript import load_anonymous_manuscript
 from src.editorial.policy import load_editorial_policy
 from src.editorial.presentation import (
     build_ccb_summary,
     build_position_summary,
     build_six_dimension_summary,
+    localize_synthesis_payload,
 )
 from src.editorial.reporting import generate_editorial_report
 from src.evaluation.cross_review import CrossReviewService
@@ -344,6 +352,12 @@ async def create_submission_batch(
 def list_submissions(
     unit_id: str | None = None,
     submission_status: str | None = None,
+    query_text: str | None = Query(default=None, alias="q", max_length=200),
+    status_group: str | None = Query(default=None),
+    submitted_from: date | None = Query(default=None),
+    submitted_to: date | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
     current_user: User = Depends(require_roles("editor", "admin")),
     db: Session = Depends(get_db),
 ) -> EditorialSubmissionListResponse:
@@ -352,15 +366,65 @@ def list_submissions(
         require_unit_access(db, current_user, unit_id)
         unit_ids = {unit_id}
     if not unit_ids:
-        return EditorialSubmissionListResponse(items=[])
-    query = db.query(EditorialSubmission).filter(
+        return EditorialSubmissionListResponse(
+            items=[],
+            total=0,
+            page=page,
+            page_size=page_size,
+            status_counts={key: 0 for key in SUBMISSION_STATUS_GROUPS},
+        )
+    base_query = db.query(EditorialSubmission).filter(
         EditorialSubmission.unit_id.in_(unit_ids)
     )
+    if query_text and query_text.strip():
+        pattern = f"%{query_text.strip()}%"
+        base_query = base_query.filter(
+            or_(
+                EditorialSubmission.title.ilike(pattern),
+                EditorialSubmission.external_manuscript_id.ilike(pattern),
+            )
+        )
+    shanghai = ZoneInfo("Asia/Shanghai")
+    if submitted_from:
+        local_start = datetime.combine(submitted_from, time.min, tzinfo=shanghai)
+        utc_start = local_start.astimezone(timezone.utc).replace(tzinfo=None)
+        base_query = base_query.filter(EditorialSubmission.created_at >= utc_start)
+    if submitted_to:
+        local_end = datetime.combine(
+            submitted_to + timedelta(days=1),
+            time.min,
+            tzinfo=shanghai,
+        )
+        utc_end = local_end.astimezone(timezone.utc).replace(tzinfo=None)
+        base_query = base_query.filter(EditorialSubmission.created_at < utc_end)
+
+    status_counts = {
+        key: base_query.filter(EditorialSubmission.status.in_(statuses)).count()
+        for key, statuses in SUBMISSION_STATUS_GROUPS.items()
+    }
+    filtered_query = base_query
     if submission_status:
-        query = query.filter(EditorialSubmission.status == submission_status)
-    rows = query.order_by(EditorialSubmission.updated_at.desc()).all()
+        filtered_query = filtered_query.filter(
+            EditorialSubmission.status == submission_status
+        )
+    if status_group:
+        statuses = SUBMISSION_STATUS_GROUPS.get(status_group)
+        if statuses is None:
+            raise HTTPException(status_code=422, detail="未知投稿状态组")
+        filtered_query = filtered_query.filter(EditorialSubmission.status.in_(statuses))
+    total = filtered_query.count()
+    rows = (
+        filtered_query.order_by(EditorialSubmission.updated_at.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
+        .all()
+    )
     return EditorialSubmissionListResponse(
-        items=[EditorialSubmissionListItem.model_validate(row) for row in rows]
+        items=[EditorialSubmissionListItem.model_validate(row) for row in rows],
+        total=total,
+        page=page,
+        page_size=page_size,
+        status_counts=status_counts,
     )
 
 
@@ -527,6 +591,12 @@ def get_submission(
         ),
         position_assessment=position.result_data if position else None,
         model_set_version=task.model_set_version,
+        review_protocol_version=task.review_protocol_version,
+        review_protocol_label=(
+            "四模型匿名互评"
+            if task.review_protocol_version == "six_dimension_peer_review"
+            else "分组交叉复核"
+        ),
         progress=progress_summary(db, task.id),
         documents=documents,
         expert_reviews=expert_reviews,
@@ -534,6 +604,11 @@ def get_submission(
             EditorialOpinionResponse(
                 **{
                     **EditorialOpinionResponse.model_validate(opinion).model_dump(),
+                    "content": (
+                        localize_synthesis_payload(opinion.content)
+                        if opinion.opinion_type == "ai_synthesis"
+                        else opinion.content
+                    ),
                     "model_name": (
                         opinion.model_name if current_user.role == "admin" else None
                     ),
@@ -586,6 +661,46 @@ def get_submission_document(
     )
 
 
+@router.get(
+    "/submissions/{submission_id}/manuscript",
+    response_model=AnonymousManuscriptResponse,
+)
+def get_submission_manuscript(
+    submission_id: str,
+    response: Response,
+    current_user: User = Depends(require_roles("editor", "admin")),
+    db: Session = Depends(get_db),
+) -> AnonymousManuscriptResponse:
+    """编辑在网页中预览待确认或已确认的匿名稿。"""
+
+    submission = require_submission_access(db, current_user, submission_id)
+    task = (
+        db.get(EvaluationTask, submission.evaluation_task_id)
+        if submission.evaluation_task_id
+        else None
+    )
+    try:
+        payload = load_anonymous_manuscript(
+            db,
+            submission=submission,
+            task=task,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="editorial_document",
+        object_id=submission.id,
+        action="preview_anonymized_editorial_document",
+        result="allowed",
+        details={"document_version": payload["document_version"]},
+    )
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return AnonymousManuscriptResponse(**payload)
+
+
 @router.post("/submissions/{submission_id}/confirm-anonymization")
 async def confirm_anonymization(
     submission_id: str,
@@ -597,6 +712,16 @@ async def confirm_anonymization(
     submission = require_submission_access(db, current_user, submission_id)
     if submission.status != "awaiting_anonymization_confirmation":
         raise HTTPException(status_code=409, detail="当前稿件不处于匿名化确认阶段")
+    anonymization_result = dict(submission.anonymization_result or {})
+    anonymization_result.update(
+        {
+            "human_confirmed": True,
+            "confirmed_by": current_user.id,
+            "confirmed_at": utc_now().isoformat(),
+            "confirmation_reason": payload.reason,
+        }
+    )
+    submission.anonymization_result = anonymization_result
     submission.anonymization_status = "confirmed"
     submission.status = "queued"
     db.commit()

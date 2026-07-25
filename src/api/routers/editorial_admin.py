@@ -99,10 +99,15 @@ def list_model_sets(
 ) -> dict:
     """列出生产与候选四模型集合。"""
 
+    def public_model_set(name: str) -> dict:
+        model_set = load_model_set(name)
+        model_set.pop("legacy_model_groups", None)
+        return model_set
+
     return {
         "items": [
-            load_model_set("six-dimension-v1"),
-            load_model_set("six-dimension-v2-candidate"),
+            public_model_set("six-dimension-v1"),
+            public_model_set("six-dimension-v2-candidate"),
         ]
     }
 
@@ -194,12 +199,15 @@ async def start_candidate_run(
         .filter(
             EditorialDocument.submission_id == submission.id,
             EditorialDocument.kind == "anonymized",
+            EditorialDocument.file_path == baseline.input_file_path,
         )
-        .order_by(EditorialDocument.version.desc())
         .first()
     )
     if anonymous is None:
-        raise HTTPException(status_code=409, detail="匿名稿尚未生成")
+        raise HTTPException(
+            status_code=409,
+            detail="生产任务绑定的匿名稿不存在，不能创建可比候选任务",
+        )
 
     comparison_group_id = baseline.comparison_group_id or str(uuid.uuid4())
     existing = (
@@ -227,6 +235,7 @@ async def start_candidate_run(
         input_file_path=anonymous.file_path,
         provider_names=json.dumps(model_set["provider_names"], ensure_ascii=False),
         model_set_version=model_set["name"],
+        review_protocol_version=model_set["review_protocol"],
         run_role="candidate",
         comparison_group_id=comparison_group_id,
         status="pending",
@@ -249,6 +258,7 @@ async def start_candidate_run(
             "baseline_task_id": baseline.id,
             "comparison_group_id": comparison_group_id,
             "model_set_version": model_set["name"],
+            "review_protocol_version": model_set["review_protocol"],
         },
     )
     await _dispatch_evaluation(request, db, candidate.id)
@@ -257,6 +267,7 @@ async def start_candidate_run(
         "baseline_task_id": baseline.id,
         "comparison_group_id": comparison_group_id,
         "model_set_version": candidate.model_set_version,
+        "review_protocol_version": candidate.review_protocol_version,
         "status": candidate.status,
     }
 

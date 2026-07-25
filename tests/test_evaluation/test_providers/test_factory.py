@@ -46,3 +46,11 @@ def test_qwen_upgrade_candidate_has_frozen_generation_parameters():
         "thinking_budget": 4096,
     }
     assert provider.max_completion_tokens == 8192
+    assert provider.timeout == 240.0
+
+
+def test_glm_upgrade_candidate_has_extended_timeout():
+    provider = create_providers(["glm-5.2"])[0]
+
+    assert isinstance(provider, DashScopeProvider)
+    assert provider.timeout == 240.0

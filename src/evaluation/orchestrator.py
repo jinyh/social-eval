@@ -146,7 +146,10 @@ async def run_evaluation_pipeline(
     if not providers:
         raise ValueError("No providers configured")
     cross_review = (
-        CrossReviewService.for_model_set(task.model_set_version)
+        CrossReviewService.for_model_set(
+            task.model_set_version,
+            review_protocol_name=task.review_protocol_version,
+        )
         if task.cross_review_enabled
         else None
     )
@@ -303,8 +306,16 @@ async def run_evaluation_pipeline(
                 name for name in actual_provider_names if name not in round1_by_model
             ]
             if still_missing:
-                detail = f"{dimension.name_zh}第一轮缺少有效模型结果：" + "、".join(
-                    still_missing
+                waiting_prefix = (
+                    "等待四模型第一轮评价齐全；"
+                    if cross_review is not None
+                    and cross_review.review_mode == "all_peers"
+                    else ""
+                )
+                detail = (
+                    waiting_prefix
+                    + f"{dimension.name_zh}第一轮缺少有效模型结果："
+                    + "、".join(still_missing)
                 )
                 for name in still_missing:
                     set_work_status(

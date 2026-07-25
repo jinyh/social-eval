@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -41,6 +42,24 @@ class EditorialSubmissionCreateResponse(BaseModel):
     status: str
 
 
+class AnonymousManuscriptBlock(BaseModel):
+    type: Literal["heading", "paragraph", "table", "footnote", "page_break"]
+    text: str | None = None
+    level: int | None = None
+    rows: list[list[str]] | None = None
+    number: str | int | None = None
+    page: int | None = None
+
+
+class AnonymousManuscriptResponse(BaseModel):
+    manuscript_id: str
+    document_version: int
+    blocks: list[AnonymousManuscriptBlock]
+    risk_flags: list[str] = Field(default_factory=list)
+    omitted_content_types: list[str] = Field(default_factory=list)
+    notice: str
+
+
 class EditorialBatchCreateResponse(BaseModel):
     total: int
     items: list[EditorialSubmissionCreateResponse]
@@ -63,6 +82,10 @@ class EditorialSubmissionListItem(BaseModel):
 
 class EditorialSubmissionListResponse(BaseModel):
     items: list[EditorialSubmissionListItem]
+    total: int
+    page: int
+    page_size: int
+    status_counts: dict[str, int]
 
 
 class EditorialOpinionResponse(BaseModel):
@@ -114,6 +137,8 @@ class EditorialSubmissionDetailResponse(EditorialSubmissionListItem):
     position_summary: dict | None
     position_assessment: dict | None
     model_set_version: str
+    review_protocol_version: str
+    review_protocol_label: str
     progress: dict
     documents: dict[str, str]
     expert_reviews: list[dict]

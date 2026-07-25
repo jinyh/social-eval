@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime
 from pathlib import Path
 
 import pytest
@@ -41,7 +42,7 @@ class _OpinionProvider(BaseProvider):
         return {
             "synthesis": "四模型综合摘要",
             "consensus_points": ["共同认可问题意识"],
-            "disagreement_points": ["对论证充分性的判断不同"],
+            "disagreement_points": ["一方为 excellent，另一方为 good"],
             "priority_issues": ["补充关键法条依据"],
             "modification_suggestions": ["逐项回应反对观点"],
         }
@@ -121,6 +122,90 @@ def test_submission_is_row_scoped_and_external_id_is_unique_per_unit(
     assert client.get(f"/api/papers/{paper_id}/status").status_code == 404
 
 
+def test_submission_list_supports_server_filters_pagination_and_status_counts(
+    client: TestClient,
+    db_session: Session,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    import src.core.storage
+
+    monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
+    unit_id, _ = _bootstrap_and_add_editor(client, db_session)
+    _noop_editorial_runner(client)
+    client.cookies.clear()
+    _login(client, "editor-one@example.com")
+
+    submission_ids = []
+    for index, name in enumerate(("平台治理", "规范结构", "判例研究"), start=1):
+        response = client.post(
+            "/api/editorial/submissions",
+            data={
+                "unit_id": unit_id,
+                "external_manuscript_id": f"JD-2026-00{index}",
+            },
+            files={
+                "file": (
+                    f"{name}.txt",
+                    ("正文内容" * 80).encode(),
+                    "text/plain",
+                )
+            },
+        )
+        submission_ids.append(response.json()["submission_id"])
+
+    rows = [
+        db_session.get(EditorialSubmission, submission_id)
+        for submission_id in submission_ids
+    ]
+    rows[0].status = "completed"
+    rows[0].created_at = datetime(2026, 7, 24, 16, 0)
+    rows[1].status = "evaluating"
+    rows[1].created_at = datetime(2026, 7, 25, 8, 0)
+    rows[2].status = "awaiting_editor"
+    rows[2].created_at = datetime(2026, 7, 26, 8, 0)
+    db_session.commit()
+
+    first_page = client.get(
+        "/api/editorial/submissions",
+        params={
+            "unit_id": unit_id,
+            "q": "JD-2026",
+            "page": 1,
+            "page_size": 1,
+        },
+    )
+    payload = first_page.json()
+    assert first_page.status_code == 200
+    assert payload["total"] == 3
+    assert len(payload["items"]) == 1
+    assert payload["status_counts"] == {
+        "processing": 1,
+        "awaiting_action": 1,
+        "completed": 1,
+        "failed": 0,
+    }
+
+    pending = client.get(
+        "/api/editorial/submissions",
+        params={
+            "unit_id": unit_id,
+            "status_group": "awaiting_action",
+            "submitted_from": "2026-07-26",
+            "submitted_to": "2026-07-26",
+        },
+    )
+    assert pending.status_code == 200
+    assert pending.json()["total"] == 1
+    assert pending.json()["items"][0]["status"] == "awaiting_editor"
+
+    invalid = client.get(
+        "/api/editorial/submissions",
+        params={"unit_id": unit_id, "status_group": "unknown"},
+    )
+    assert invalid.status_code == 422
+
+
 def test_responsible_editor_decision_locks_and_admin_can_reopen(
     client: TestClient,
     db_session: Session,
@@ -162,10 +247,15 @@ def test_responsible_editor_decision_locks_and_admin_can_reopen(
         f"/api/editorial/submissions/{submission_id}/report?format=json"
     )
     assert json_report.status_code == 200
-    assert json_report.json()["schema_version"] == "editorial-report-v3"
+    assert json_report.json()["schema_version"] == "editorial-report-v4"
+    assert json_report.json()["report_metadata"]["report_version"] == 1
+    assert json_report.json()["report_metadata"]["journal_name"]
     assert json_report.json()["evaluation"]["display_order"] == [
+        "ai_synthesis",
         "five_axis",
         "six_dimension",
+        "expert_review",
+        "editorial_decision",
     ]
     listed = client.get(
         "/api/editorial/submissions",
@@ -338,6 +428,9 @@ def test_admin_candidate_model_run_is_separate_from_production_snapshot(
     submission_id = uploaded.json()["submission_id"]
     anonymous_path = tmp_path / "anonymous.txt"
     anonymous_path.write_text("匿名稿正文", encoding="utf-8")
+    submission = db_session.get(EditorialSubmission, submission_id)
+    baseline = db_session.get(EvaluationTask, submission.evaluation_task_id)
+    baseline.input_file_path = str(anonymous_path)
     db_session.add(
         EditorialDocument(
             submission_id=submission_id,
@@ -347,6 +440,7 @@ def test_admin_candidate_model_run_is_separate_from_production_snapshot(
             sha256="test-anonymous-sha256",
         )
     )
+    db_session.add(baseline)
     db_session.commit()
 
     async def candidate_runner(_: str, __: Session) -> None:
@@ -362,12 +456,14 @@ def test_admin_candidate_model_run_is_separate_from_production_snapshot(
     assert response.status_code == 202
     payload = response.json()
     assert payload["model_set_version"] == "six-dimension-v2-candidate"
+    assert payload["review_protocol_version"] == "six_dimension_peer_review"
     baseline = db_session.get(EvaluationTask, payload["baseline_task_id"])
     candidate = db_session.get(EvaluationTask, payload["task_id"])
     assert baseline is not None
     assert candidate is not None
     assert baseline.run_role == "baseline"
     assert candidate.run_role == "candidate"
+    assert candidate.review_protocol_version == "six_dimension_peer_review"
     assert candidate.id != baseline.id
     assert candidate.comparison_group_id == baseline.comparison_group_id
     assert candidate.input_file_path == str(anonymous_path)
@@ -398,6 +494,9 @@ async def test_opinion_generation_reuses_four_model_results_without_duplicate_ca
     assert len(records) == 1
     assert records[0].opinion_type == "ai_synthesis"
     assert records[0].content["synthesis"] == "四模型综合摘要"
+    assert records[0].content["disagreement_points"] == [
+        "一方为 优，另一方为 良"
+    ]
     assert first.calls == 1
     assert second.calls == 0
 

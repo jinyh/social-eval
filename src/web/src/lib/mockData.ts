@@ -390,6 +390,8 @@ export const mockEditorialSubmissionDetail: EditorialSubmissionDetail = {
     },
   ],
   model_set_version: "six-dimension-v1",
+  review_protocol_version: "six_dimension_cross_review",
+  review_protocol_label: "分组交叉复核",
   progress: {
     stage: "report",
     stage_label: "生成报告",

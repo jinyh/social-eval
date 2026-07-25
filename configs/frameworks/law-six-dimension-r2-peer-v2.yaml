@@ -1,0 +1,51 @@
+metadata:
+  name: 六维四模型同级匿名互评协议
+  version: "2.0"
+  status: candidate-unvalidated
+  methodology_source: docs/evaluation/law-ai-assisted-review-rules-v0.18.md
+review_mode: all_peers
+execution:
+  rounds: 2
+  max_api_concurrency: 5
+  require_complete_first_round: true
+  anonymize_peer_identity: true
+  content_inspection_fallback:
+    enabled: true
+    head_chars: 3000
+    tail_chars: 7000
+unresolved_disagreement:
+  std_threshold: 8
+  action: expert_review
+prompt_template: |-
+  你是一位法学论文评审专家。请针对【{dimension_name}】重新阅读论文，审视自己的第一轮评价，并参考另外三位匿名评审的第一轮意见。
+
+  【你的第一轮评价】
+  {self_review}
+
+  【其他匿名评审的第一轮意见】
+  {peer_reviews}
+
+  【论文正文】
+  {paper_content}
+
+  其他意见仅供证据核对。只在论文证据支持时调整评分；接受或拒绝其他观点均须给出可复核理由，不得为了趋同而修改判断。
+
+  【JSON 输出契约】
+  {output_contract}
+output_contract:
+  required:
+    - original_score
+    - revised_score
+    - score_changed
+    - change_direction
+    - change_magnitude
+    - revised_band
+    - revised_core_judgment
+    - revision_rationale
+    - accepted_points
+    - rejected_points
+    - new_evidence_found
+    - confidence
+  change_direction: [up, down, unchanged]
+  revised_band: [excellent, good, marginal, unacceptable]
+  confidence: [high, medium, low]

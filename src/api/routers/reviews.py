@@ -2,11 +2,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
 from src.api.auth.dependencies import require_roles
+from src.api.schemas.editorial import AnonymousManuscriptResponse
 from src.api.schemas.reviews import (
     AssignExpertsRequest,
     AssignExpertsResponse,
@@ -18,8 +19,13 @@ from src.api.schemas.reviews import (
     SubmitReviewRequest,
     SubmitReviewResponse,
 )
+from src.core.audit import record_audit_log
 from src.core.database import get_db
 from src.editorial.access import accessible_unit_ids, editor_can_access_task
+from src.editorial.manuscript import (
+    has_human_anonymization_confirmation,
+    load_anonymous_manuscript,
+)
 from src.models.editorial import EditorialDocument, EditorialSubmission
 from src.models.evaluation import EvaluationTask
 from src.models.paper import Paper
@@ -101,9 +107,13 @@ def list_my_reviews(
     db: Session = Depends(get_db),
 ) -> MyReviewsResponse:
     rows = (
-        db.query(ExpertReview, EvaluationTask, Paper)
+        db.query(ExpertReview, EvaluationTask, Paper, EditorialSubmission)
         .join(EvaluationTask, ExpertReview.task_id == EvaluationTask.id)
         .join(Paper, EvaluationTask.paper_id == Paper.id)
+        .outerjoin(
+            EditorialSubmission,
+            EditorialSubmission.evaluation_task_id == EvaluationTask.id,
+        )
         .filter(ExpertReview.expert_id == current_user.id)
         .all()
     )
@@ -113,7 +123,11 @@ def list_my_reviews(
                 review_id=review.id,
                 task_id=review.task_id,
                 paper_id=paper.id,
-                paper_title=paper.title or paper.original_filename,
+                paper_title=(
+                    f"匿名稿件 {submission.external_manuscript_id or submission.id[:8]}"
+                    if submission is not None
+                    else (paper.title or f"稿件 {paper.id[:8]}")
+                ),
                 status=review.status,
                 review_stage=(
                     "blind"
@@ -122,9 +136,63 @@ def list_my_reviews(
                 ),
                 required_dimensions=required_review_dimensions(db, task),
             )
-            for review, task, paper in rows
+            for review, task, paper, submission in rows
         ]
     )
+
+
+@router.get(
+    "/{review_id}/manuscript",
+    response_model=AnonymousManuscriptResponse,
+)
+def get_anonymous_manuscript(
+    review_id: str,
+    response: Response,
+    current_user: User = Depends(require_roles("expert")),
+    db: Session = Depends(get_db),
+) -> AnonymousManuscriptResponse:
+    """专家在网页中查看与本人任务绑定的已确认匿名稿。"""
+
+    review = db.get(ExpertReview, review_id)
+    if review is None or review.expert_id != current_user.id:
+        raise HTTPException(status_code=404, detail="未找到专家复核任务")
+    task = db.get(EvaluationTask, review.task_id)
+    submission = (
+        db.query(EditorialSubmission)
+        .filter(EditorialSubmission.evaluation_task_id == review.task_id)
+        .first()
+    )
+    if task is None or submission is None:
+        raise HTTPException(status_code=404, detail="未找到匿名稿")
+    if not has_human_anonymization_confirmation(db, submission):
+        raise HTTPException(
+            status_code=409,
+            detail="匿名稿尚未经过编辑人工确认",
+        )
+    try:
+        payload = load_anonymous_manuscript(
+            db,
+            submission=submission,
+            task=task,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="editorial_document",
+        object_id=submission.id,
+        action="view_anonymized_review_document",
+        result="allowed",
+        details={
+            "review_id": review.id,
+            "task_id": task.id,
+            "document_version": payload["document_version"],
+        },
+    )
+    response.headers["Cache-Control"] = "no-store"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return AnonymousManuscriptResponse(**payload)
 
 
 @router.get("/{review_id}/document")
@@ -145,21 +213,30 @@ def get_anonymized_review_document(
     )
     if submission is None:
         raise HTTPException(status_code=404, detail="未找到匿名稿")
+    if not has_human_anonymization_confirmation(db, submission):
+        raise HTTPException(
+            status_code=409,
+            detail="匿名稿尚未经过编辑人工确认",
+        )
+    task = db.get(EvaluationTask, review.task_id)
+    if task is None or not task.input_file_path:
+        raise HTTPException(status_code=404, detail="匿名稿版本未绑定")
     document = (
         db.query(EditorialDocument)
         .filter(
             EditorialDocument.submission_id == submission.id,
             EditorialDocument.kind == "anonymized",
+            EditorialDocument.file_path == task.input_file_path,
         )
-        .order_by(EditorialDocument.version.desc())
         .first()
     )
     if document is None or not Path(document.file_path).exists():
         raise HTTPException(status_code=404, detail="匿名稿文件不存在")
     return FileResponse(
         document.file_path,
-        filename="匿名稿.txt",
+        filename="匿名稿",
         media_type="text/plain",
+        content_disposition_type="inline",
     )
 
 

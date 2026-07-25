@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { ClipboardCheck, FileText, LockKeyhole, Send } from "lucide-react";
+import { ClipboardCheck, LockKeyhole, Send } from "lucide-react";
 
 import {
-  expertDocumentUrl,
+  getExpertManuscript,
   getInternalReport,
   listMyReviews,
   submitBlindReview,
@@ -14,6 +14,7 @@ import {
   normalizeInternalDimensions,
 } from "@/lib/report";
 import type {
+  AnonymousManuscript,
   ExpertComparisonInput,
   ExpertDecisionState,
   InternalReport,
@@ -23,6 +24,7 @@ import type {
 } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
+import { AnonymousManuscriptReader } from "./AnonymousManuscriptReader";
 import { InternalReportView } from "./InternalReportView";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -60,6 +62,13 @@ export function ReviewWorkspace({ user }: { user: User }) {
   const [tasks, setTasks] = useState<WorkspaceTask[]>([]);
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
   const [report, setReport] = useState<InternalReport | null>(null);
+  const [manuscript, setManuscript] =
+    useState<AnonymousManuscript | null>(null);
+  const [manuscriptLoading, setManuscriptLoading] = useState(false);
+  const [manuscriptError, setManuscriptError] = useState("");
+  const [activeView, setActiveView] = useState<"manuscript" | "report">(
+    "manuscript"
+  );
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "info">(
     "info"
@@ -86,6 +95,39 @@ export function ReviewWorkspace({ user }: { user: User }) {
   useEffect(() => {
     void refresh().catch(() => setTasks([]));
   }, []);
+
+  useEffect(() => {
+    if (!selectedTask?.reviewId) {
+      setManuscript(null);
+      setManuscriptError("");
+      return;
+    }
+    let isCurrent = true;
+    setManuscriptLoading(true);
+    setManuscriptError("");
+    void getExpertManuscript(selectedTask.reviewId)
+      .then((nextManuscript) => {
+        if (!isCurrent) return;
+        setManuscript(nextManuscript);
+      })
+      .catch((error) => {
+        if (!isCurrent) return;
+        setManuscript(null);
+        setManuscriptError(
+          error instanceof Error ? error.message : "匿名稿加载失败"
+        );
+      })
+      .finally(() => {
+        if (isCurrent) setManuscriptLoading(false);
+      });
+    return () => {
+      isCurrent = false;
+    };
+  }, [selectedTask?.reviewId]);
+
+  useEffect(() => {
+    setActiveView(selectedTask?.stage === "blind" ? "manuscript" : "report");
+  }, [selectedTask?.id, selectedTask?.stage]);
 
   useEffect(() => {
     if (!selectedTask?.paperId) {
@@ -274,22 +316,58 @@ export function ReviewWorkspace({ user }: { user: User }) {
         <main className="min-w-0">
           {!selectedTask ? (
             <Empty text="暂无专家复核任务。" />
-          ) : selectedTask.stage === "blind" ? (
-            <BlindInstructions task={selectedTask} />
-          ) : report ? (
-            <InternalReportView
-              report={report}
-              decisions={decisions}
-              readonly={selectedTask.stage === "completed"}
-              onDecisionChange={(opinionId, decision) =>
-                setDecisions((current) => ({
-                  ...current,
-                  [opinionId]: decision,
-                }))
-              }
-            />
           ) : (
-            <Empty text="暂未能加载对照报告，请稍后重试。" />
+            <div className="space-y-4">
+              {selectedTask.stage !== "blind" ? (
+                <div className="flex rounded-xl border border-slate-200 bg-white p-1">
+                  <button
+                    type="button"
+                    onClick={() => setActiveView("manuscript")}
+                    className={cn(
+                      "flex-1 rounded-lg px-4 py-2 text-sm font-medium",
+                      activeView === "manuscript"
+                        ? "bg-blue-50 text-blue-800"
+                        : "text-slate-600 hover:bg-slate-50"
+                    )}
+                  >
+                    匿名稿
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveView("report")}
+                    className={cn(
+                      "flex-1 rounded-lg px-4 py-2 text-sm font-medium",
+                      activeView === "report"
+                        ? "bg-blue-50 text-blue-800"
+                        : "text-slate-600 hover:bg-slate-50"
+                    )}
+                  >
+                    四模型对照
+                  </button>
+                </div>
+              ) : null}
+              {activeView === "manuscript" ? (
+                <AnonymousManuscriptReader
+                  manuscript={manuscript}
+                  loading={manuscriptLoading}
+                  error={manuscriptError}
+                />
+              ) : report ? (
+                <InternalReportView
+                  report={report}
+                  decisions={decisions}
+                  readonly={selectedTask.stage === "completed"}
+                  onDecisionChange={(opinionId, decision) =>
+                    setDecisions((current) => ({
+                      ...current,
+                      [opinionId]: decision,
+                    }))
+                  }
+                />
+              ) : (
+                <Empty text="暂未能加载对照报告，请稍后重试。" />
+              )}
+            </div>
           )}
         </main>
       </div>
@@ -340,39 +418,6 @@ function TaskList({
             </button>
           ))
         )}
-      </CardContent>
-    </Card>
-  );
-}
-
-function BlindInstructions({ task }: { task: WorkspaceTask }) {
-  return (
-    <Card>
-      <CardHeader>
-        <div className="flex items-center gap-3">
-          <LockKeyhole className="h-5 w-5 text-blue-700" />
-          <div>
-            <CardTitle>独立评阅阶段</CardTitle>
-            <CardDescription>
-              当前不会显示任何智能评分、模型意见或综合参考分。
-            </CardDescription>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm leading-7 text-slate-600">
-          请先阅读匿名稿，并仅依据稿件内容对指定维度作出独立评分和书面理由。提交后首次判断将锁定，随后才开放四模型对照材料。
-        </p>
-        <a
-          href={expertDocumentUrl(task.reviewId)}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Button type="button">
-            <FileText className="h-4 w-4" />
-            打开匿名稿
-          </Button>
-        </a>
       </CardContent>
     </Card>
   );
