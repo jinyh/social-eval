@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { LogOut } from "lucide-react";
 
 import { AdminWorkspace } from "@/components/AdminWorkspace";
+import { EditorialWorkspace } from "@/components/EditorialWorkspace";
 import { ReviewWorkspace } from "@/components/ReviewWorkspace";
 import { SubmitterPortal } from "@/components/SubmitterPortal";
 import { Button } from "@/components/ui/button";
@@ -42,11 +43,11 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
         <CardContent>
           <form onSubmit={handleSubmit}>
             <label className="block space-y-3 text-sm font-medium text-slate-700">
-              Email
+              电子邮箱
               <Input value={email} onChange={(event) => setEmail(event.target.value)} />
             </label>
             <label className="mt-5 block space-y-3 text-sm font-medium text-slate-700">
-              Password
+              密码
               <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
             </label>
             <Button type="submit" className="mt-7 w-full">登录</Button>
@@ -60,7 +61,8 @@ function LoginForm({ onLoggedIn }: { onLoggedIn: (user: User) => void }) {
 
 function RoleDashboard({ user }: { user: User }) {
   if (user.role === "submitter") return <SubmitterPortal />;
-  if (user.role === "editor" || user.role === "expert") return <ReviewWorkspace user={user} />;
+  if (user.role === "editor") return <EditorialWorkspace user={user} />;
+  if (user.role === "expert") return <ReviewWorkspace user={user} />;
   return <AdminWorkspace />;
 }
 
@@ -79,7 +81,7 @@ export function App({ initialUser }: AppProps) {
   }, [initialUser]);
 
   if (user === undefined) {
-    return <div className="flex min-h-screen items-center justify-center bg-slate-50 text-sm text-slate-500">Loading session...</div>;
+    return <div className="flex min-h-screen items-center justify-center bg-slate-50 text-sm text-slate-500">正在加载登录状态……</div>;
   }
 
   if (user === null) return <LoginForm onLoggedIn={setUser} />;

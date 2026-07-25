@@ -4,7 +4,10 @@ import asyncio
 
 import pytest
 
-from src.core.exceptions import ProviderTimeoutError
+from src.core.exceptions import (
+    ProviderResponseValidationError,
+    ProviderTimeoutError,
+)
 from src.evaluation.concurrent_evaluator import _call_with_timing
 from src.evaluation.providers.base import BaseProvider
 from src.evaluation.schemas import DimensionResult
@@ -42,6 +45,34 @@ class FastProvider(BaseProvider):
     async def evaluate_dimension(self, prompt: str) -> DimensionResult:
         return DimensionResult(
             dimension="test", score=85, evidence_quotes=[], model_name=self.model_name
+        )
+
+
+class SchemaRepairProvider(BaseProvider):
+    """首次返回结构错误，第二次在纠错提示下成功。"""
+
+    def __init__(self):
+        self.model_name = "schema-repair-model"
+        self.timeout = 5.0
+        self.prompts: list[str] = []
+
+    async def generate_json_response(self, prompt: str) -> dict:
+        return {}
+
+    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+        self.prompts.append(prompt)
+        if len(self.prompts) == 1:
+            raise ProviderResponseValidationError(
+                self.model_name,
+                "结构化输出校验失败",
+                raw_response='{"dimension":"test","score":80}',
+                invalid_fields=("evidence_quotes",),
+            )
+        return DimensionResult(
+            dimension="test",
+            score=80,
+            evidence_quotes=[],
+            model_name=self.model_name,
         )
 
 
@@ -97,3 +128,19 @@ async def test_provider_timeout_error_attributes():
     assert err.provider == "glm-5.1"
     assert err.timeout == 90.0
     assert "90.0s" in str(err)
+
+
+@pytest.mark.asyncio
+async def test_schema_failure_retry_names_invalid_fields():
+    provider = SchemaRepairProvider()
+
+    outcome, _, used_prompt = await _call_with_timing(
+        provider,
+        "original prompt",
+        retry_attempts=2,
+    )
+
+    assert isinstance(outcome, DimensionResult)
+    assert len(provider.prompts) == 2
+    assert "evidence_quotes" in provider.prompts[1]
+    assert "完整 JSON" in used_prompt

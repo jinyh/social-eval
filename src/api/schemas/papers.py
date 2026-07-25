@@ -20,6 +20,7 @@ class PaperStatusResponse(BaseModel):
     failure_stage: str | None
     failure_detail: str | None
     reliability_summary: dict | None
+    progress: dict
 
 
 class BatchPaperTaskResponse(BaseModel):

@@ -64,20 +64,30 @@ export function SubmitterPortal() {
     if (!selectedPaperId) return;
     let isCurrent = true;
     const paperId = selectedPaperId;
-    void Promise.all([getPaperStatus(selectedPaperId), getPublicReport(selectedPaperId)])
-      .then(([nextStatus, nextReport]) => {
+    const refresh = async () => {
+      const nextStatus = await getPaperStatus(paperId);
+      if (!isCurrent) return;
+      setStatus(nextStatus);
+      if (nextStatus.task_status === "completed") {
+        const nextReport = await getPublicReport(paperId);
         if (!isCurrent) return;
         const reportPaperId = nextReport.paper_id;
         if (reportPaperId && reportPaperId !== paperId) return;
-        setStatus(nextStatus);
         setReport(nextReport);
-      })
-      .catch(() => {
-        if (!isCurrent) return;
-        setStatus(null);
-        setReport(null);
-      });
+      }
+    };
+    void refresh().catch(() => {
+      if (!isCurrent) return;
+      setStatus(null);
+      setReport(null);
+    });
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === "visible") {
+        void refresh().catch(() => undefined);
+      }
+    }, 3000);
     return () => {
+      window.clearInterval(timer);
       isCurrent = false;
     };
   }, [selectedPaperId]);
@@ -199,6 +209,8 @@ export function SubmitterPortal() {
       <main className="space-y-5">
         {report ? (
           <StudentSummary report={report} status={status} onDownload={handleDownloadReport} downloading={downloading} />
+        ) : status ? (
+          <ProgressOnly status={status} />
         ) : (
           <Card>
             <CardContent className="p-10">
@@ -208,6 +220,34 @@ export function SubmitterPortal() {
         )}
       </main>
     </div>
+  );
+}
+
+function ProgressOnly({ status }: { status: PaperStatus }) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>论文正在评价</CardTitle>
+        <CardDescription>{status.progress.stage_label}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+          <div
+            className="h-full rounded-full bg-blue-600 transition-all"
+            style={{ width: `${status.progress.percent}%` }}
+          />
+        </div>
+        <p className="mt-3 text-sm text-slate-600">
+          已完成 {status.progress.completed}/{status.progress.total} 个处理单元，
+          当前进度 {status.progress.percent}%。
+        </p>
+        {status.progress.is_stalled ? (
+          <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700">
+            处理进度长时间未更新，系统正在等待恢复。
+          </p>
+        ) : null}
+      </CardContent>
+    </Card>
   );
 }
 

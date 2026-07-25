@@ -103,6 +103,38 @@ def load_review_protocol(
     return protocol
 
 
+def load_model_set(
+    name: str,
+    registry_path: Path = REGISTRY_PATH,
+) -> dict[str, Any]:
+    """加载并校验版本化四模型集合。"""
+
+    registry = load_registry(registry_path)
+    try:
+        payload = registry["model_sets"][name]
+    except (KeyError, TypeError) as exc:
+        raise KeyError(f"未知模型集: {name}") from exc
+    provider_names = payload.get("provider_names")
+    groups = payload.get("model_groups")
+    if not isinstance(provider_names, list) or len(provider_names) != 4:
+        raise ValueError(f"模型集 {name} 必须包含四个模型")
+    if not isinstance(groups, dict):
+        raise ValueError(f"模型集 {name} 缺少交叉评审分组")
+    lenient = set(groups.get("lenient", []))
+    strict = set(groups.get("strict", []))
+    if lenient & strict or lenient | strict != set(provider_names):
+        raise ValueError(f"模型集 {name} 的交叉评审分组不完整")
+    return {
+        "name": name,
+        "status": str(payload.get("status", "")),
+        "provider_names": list(provider_names),
+        "model_groups": {
+            "lenient": list(groups["lenient"]),
+            "strict": list(groups["strict"]),
+        },
+    }
+
+
 def _scoring_semantics(protocol: dict[str, Any]) -> dict[str, Any]:
     return {
         key: protocol.get(key)

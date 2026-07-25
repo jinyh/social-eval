@@ -1,5 +1,8 @@
 import type {
   InternalReport,
+  EditorialSubmissionDetail,
+  EditorialSubmissionListItem,
+  EditorialUnit,
   PaperListItem,
   PaperStatus,
   PublicReport,
@@ -49,12 +52,23 @@ export const mockPaperStatus: PaperStatus = {
     low_confidence_count: 2,
     overall_high_confidence: false,
   },
+  progress: {
+    stage: "report",
+    stage_label: "生成报告",
+    completed: 35,
+    total: 35,
+    percent: 100,
+    current_dimension: null,
+    current_model_slot: null,
+    heartbeat_at: "2026-07-24T09:00:00",
+    is_stalled: false,
+  },
 };
 
 const mockDimensions = [
   {
     key: "problem_originality",
-    name_zh: "问题创新性",
+    name_zh: "研究创新性",
     name_en: "Problem Originality",
     weight: 0.3,
     ai: { mean_score: 82, std_score: 4.2, is_high_confidence: true },
@@ -70,7 +84,7 @@ const mockDimensions = [
   },
   {
     key: "analytical_framework",
-    name_zh: "分析框架建构力",
+    name_zh: "理论建构力",
     name_en: "Analytical Framework",
     weight: 0.15,
     ai: { mean_score: 74, std_score: 6.1, is_high_confidence: false },
@@ -78,7 +92,7 @@ const mockDimensions = [
   },
   {
     key: "logical_coherence",
-    name_zh: "逻辑严密性",
+    name_zh: "逻辑连贯性",
     name_en: "Logical Coherence",
     weight: 0.25,
     ai: { mean_score: 79, std_score: 4.8, is_high_confidence: true },
@@ -86,7 +100,7 @@ const mockDimensions = [
   },
   {
     key: "conclusion_consensus",
-    name_zh: "结论可接受性",
+    name_zh: "学术共识度",
     name_en: "Conclusion Acceptability",
     weight: 0.1,
     ai: { mean_score: 72, std_score: 5.7, is_high_confidence: false },
@@ -146,7 +160,14 @@ export const mockInternalReport: InternalReport = {
         "openai/gpt-5.4": dimension.ai.mean_score + (index % 2 === 0 ? 2 : -1),
         "z-ai/glm-5.1": dimension.ai.mean_score - (index % 2 === 0 ? 1 : 4),
         "qwen/qwen3.6-plus": dimension.ai.mean_score + (index % 3 === 0 ? -3 : 3),
+        "moonshot/kimi-k2.6": dimension.ai.mean_score + (index % 2 === 0 ? 1 : -2),
       },
+      model_results: ["甲", "乙", "丙", "丁"].map((label, modelIndex) => ({
+        model_label: `模型${label}`,
+        score: dimension.ai.mean_score + modelIndex - 1.5,
+        evidence_quotes: [`第 ${index + 1} 部分的论证可支持该模型判断。`],
+        analysis: `${dimension.name_zh}的第 ${modelIndex + 1} 份匿名模型分析。`,
+      })),
       evidence_quotes: [
         [`第 ${index + 1} 部分出现关键论证段落，可支持该维度判断。`],
         [`摘要与结论部分均指向同一规范问题，证据链较集中。`],
@@ -190,10 +211,197 @@ export const mockReviewTasks: ReviewTask[] = [
     paper_id: "paper-mock-001",
     paper_title: "平台治理中算法责任的规范结构研究",
     status: "pending",
+    review_stage: "blind",
+    required_dimensions: ["literature_insight", "forward_extension"],
   },
 ];
 
 export const mockUserDirectory: User[] = [mockUsers.submitter, mockUsers.editor, mockUsers.expert, mockUsers.admin];
+
+export const mockEditorialUnits: EditorialUnit[] = [
+  {
+    id: "unit-jiaoda",
+    journal_id: "journal-jiaoda",
+    journal_name: "交大法学",
+    code: "default",
+    name: "交大法学编辑部",
+    policy_key: "jiaoda-law-v1",
+    policy_version: "1.0",
+    rollout_state: "shadow",
+  },
+];
+
+export const mockEditorialSubmissions: EditorialSubmissionListItem[] = [
+  {
+    id: "submission-mock-001",
+    unit_id: "unit-jiaoda",
+    external_manuscript_id: "JD-2026-001",
+    title: "平台治理中算法责任的规范结构研究",
+    status: "awaiting_editor",
+    responsible_editor_id: "mock-editor",
+    recommendation_state: "withheld",
+    created_at: "2026-07-24T08:00:00",
+    updated_at: "2026-07-24T09:00:00",
+  },
+];
+
+export const mockEditorialSubmissionDetail: EditorialSubmissionDetail = {
+  ...mockEditorialSubmissions[0],
+  paper_id: "paper-mock-001",
+  task_id: "task-mock-001",
+  anonymization_status: "confirmed",
+  anonymization_result: {
+    redaction_counts: { email: 1, phone: 0, labeled_identity: 2 },
+  },
+  formal_check_status: "pass",
+  formal_check_result: {
+    status: "pass",
+    character_count: 12000,
+    has_section_structure: true,
+    has_reference_markers: true,
+  },
+  precheck_status: "pass",
+  precheck_result: { status: "pass" },
+  fit_status: "pass",
+  fit_result: { status: "pass" },
+  internal_candidate_decision: null,
+  manual_review_requested: false,
+  six_dimension: [
+    {
+      dimension_key: "problem_originality",
+      model_name: "模型一",
+      score: 82,
+      band: "excellent",
+    },
+    {
+      dimension_key: "logical_coherence",
+      model_name: "模型一",
+      score: 78,
+      band: "good",
+    },
+  ],
+  six_dimension_summary: {
+    model_participation: {
+      count: 4,
+      labels: ["模型甲", "模型乙", "模型丙", "模型丁"],
+    },
+    difference_count: 1,
+    expert_review_dimension_count: 0,
+    dimensions: [
+      {
+        dimension_key: "problem_originality",
+        dimension_name: "研究创新性",
+        mean_score: 82,
+        std_score: 4.2,
+        confidence_label: "高",
+        band: "excellent",
+        band_label: "优",
+        difference_level: "consensus",
+        difference_label: "意见基本一致",
+        requires_expert_review: false,
+        model_results: ["甲", "乙", "丙", "丁"].map((label, index) => ({
+          model_label: `模型${label}`,
+          score: 80 + index,
+          band: "excellent",
+          band_label: "优",
+          evidence_quotes: ["稿件明确提出平台算法责任的规范问题。"],
+          analysis: "问题意识较为明确。",
+        })),
+      },
+      {
+        dimension_key: "logical_coherence",
+        dimension_name: "逻辑连贯性",
+        mean_score: 78,
+        std_score: 6.2,
+        confidence_label: "中等",
+        band: "good",
+        band_label: "良",
+        difference_level: "band_difference",
+        difference_label: "存在观点差异",
+        requires_expert_review: false,
+        model_results: ["甲", "乙", "丙", "丁"].map((label, index) => ({
+          model_label: `模型${label}`,
+          score: 74 + index * 2,
+          band: index < 2 ? "good" : "excellent",
+          band_label: index < 2 ? "良" : "优",
+          evidence_quotes: ["第三部分对反对观点作出回应。"],
+          analysis: "反驳结构的完成度判断存在差异。",
+        })),
+      },
+    ],
+  },
+  ccb_summary: {
+    label: "核心—封顶—加分综合参考分",
+    base_score: 79,
+    bonus_score: 3,
+    ceiling_score: null,
+    ceiling_label: "未触发封顶",
+    final_score: 82,
+    notice: "仅供编辑参考，不作为录用或退稿阈值。",
+  },
+  position_summary: {
+    total_score: 7,
+    strength_label: "归属证据中等",
+    confidence_label: "中等",
+    agreement_label: "两模型存在局部差异",
+    review_required: false,
+    conflict_with_precheck: false,
+    axes: [
+      "对象归属度",
+      "材料归属度",
+      "范畴自主度",
+      "解释目标归属度",
+      "体系映射度",
+    ].map((axis_name, index) => ({
+      axis_key: `axis-${index}`,
+      axis_name,
+      score: index < 2 ? 2 : 1,
+      score_range: [1, index < 2 ? 2 : 1],
+      evidence_quotes: ["稿件中的中国法材料与制度解释线索。"],
+      has_model_difference: index < 2,
+    })),
+    notice: "五轴评价知识体系位置归属，不评价论文质量，也不参与录退决定。",
+  },
+  position_assessment: {
+    final: { total_score: 7, strength: "medium", review_required: false },
+  },
+  opinions: [
+    {
+      id: "opinion-synthesis",
+      opinion_type: "ai_synthesis",
+      version: 1,
+      sequence: 1,
+      content: {
+        synthesis: "稿件具备明确问题意识，但理论框架与反驳处理仍需加强。",
+        consensus_points: ["选题具有现实价值"],
+        disagreement_points: ["理论建构完成度判断不同"],
+        priority_issues: ["核验核心概念的稳定性"],
+      },
+      model_name: "模型一",
+      is_locked: true,
+      created_at: "2026-07-24T09:00:00",
+    },
+  ],
+  model_set_version: "six-dimension-v1",
+  progress: {
+    stage: "report",
+    stage_label: "生成报告",
+    completed: 44,
+    total: 44,
+    percent: 100,
+    current_dimension: null,
+    current_model_slot: null,
+    heartbeat_at: "2026-07-24T09:00:00",
+    is_stalled: false,
+  },
+  documents: {
+    original: "/api/editorial/submissions/submission-mock-001/documents/original",
+    anonymized:
+      "/api/editorial/submissions/submission-mock-001/documents/anonymized",
+  },
+  expert_reviews: [],
+  decisions: [],
+};
 
 export function getMockRole(): User["role"] | null {
   if (!isQueryMockEnabled()) return null;

@@ -33,7 +33,7 @@ export function StudentSummary({ report, status, onDownload, downloading = false
               <CardDescription>面向作者修改的公开视图，不展示真实模型名和内部复核细节。</CardDescription>
             </div>
             <div className="flex shrink-0 flex-col gap-3 rounded-2xl border border-blue-100 bg-blue-50 px-5 py-4 text-center">
-              <div className="text-xs font-medium text-blue-600">综合总分</div>
+              <div className="text-xs font-medium text-blue-600">综合参考分</div>
               <div className="text-3xl font-semibold text-blue-700">{formatScore(report.weighted_total)}</div>
               <div className="flex gap-2">
                 <Button type="button" variant="outline" size="sm" onClick={handlePreview} className="bg-white">
@@ -68,6 +68,45 @@ export function StudentSummary({ report, status, onDownload, downloading = false
         </CardContent>
       </Card>
 
+      {status?.progress && status.progress.percent < 100 ? (
+        <Card>
+          <CardHeader>
+            <CardTitle>评价进度</CardTitle>
+            <CardDescription>
+              {status.progress.stage_label}
+              {status.progress.current_dimension
+                ? ` · ${dimensionLabel(status.progress.current_dimension)}`
+                : ""}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div
+              className="h-2 overflow-hidden rounded-full bg-slate-100"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={status.progress.percent}
+            >
+              <div
+                className="h-full rounded-full bg-blue-600 transition-all"
+                style={{ width: `${status.progress.percent}%` }}
+              />
+            </div>
+            <div className="mt-2 flex justify-between text-xs text-slate-500">
+              <span>
+                已完成 {status.progress.completed}/{status.progress.total} 个处理单元
+              </span>
+              <span>{status.progress.percent}%</span>
+            </div>
+            {status.progress.is_stalled ? (
+              <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700">
+                处理进度长时间未更新，系统正在等待恢复；如持续不变请联系管理员。
+              </p>
+            ) : null}
+          </CardContent>
+        </Card>
+      ) : null}
+
       <DimensionOverview dimensions={dimensions} mode="student" />
 
       <div className="grid gap-4 lg:grid-cols-3">
@@ -85,6 +124,18 @@ export function StudentSummary({ report, status, onDownload, downloading = false
       </div>
     </div>
   );
+}
+
+function dimensionLabel(key: string): string {
+  const labels: Record<string, string> = {
+    problem_originality: "研究创新性",
+    literature_insight: "现状洞察度",
+    analytical_framework: "理论建构力",
+    logical_coherence: "逻辑连贯性",
+    conclusion_consensus: "学术共识度",
+    forward_extension: "前瞻延展性",
+  };
+  return labels[key] ?? key;
 }
 
 function InsightCard({ title, items }: { title: string; items: string[] }) {

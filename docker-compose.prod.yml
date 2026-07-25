@@ -1,87 +1,169 @@
 services:
   postgres:
-    image: postgres:16
+    image: postgres:16-alpine
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-socialeval}
       POSTGRES_USER: ${POSTGRES_USER:-socialeval}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-socialeval}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-socialeval} -d ${POSTGRES_DB:-socialeval}"]
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+    security_opt:
+      - no-new-privileges:true
 
   redis:
     image: redis:7-alpine
     restart: unless-stopped
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
-      - redisdata:/data
+      - redis_data:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+    security_opt:
+      - no-new-privileges:true
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    env_file:
+      - ${ENV_FILE:-.env.production}
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
+      REDIS_URL: redis://redis:6379/0
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
 
   api:
     build:
       context: .
       dockerfile: Dockerfile.api
     restart: unless-stopped
+    init: true
     env_file:
-      - .env
+      - ${ENV_FILE:-.env.production}
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
+      REDIS_URL: redis://redis:6379/0
+      SESSION_HTTPS_ONLY: "true"
     volumes:
-      - appdata:/app/data
-      - /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc:/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc:ro
+      - app_data:/app/data
+    command:
+      - uvicorn
+      - src.api.main:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --proxy-headers
+      - --forwarded-allow-ips=*
     depends_on:
-      postgres:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
       redis:
         condition: service_healthy
-    expose:
-      - "8000"
-    command: ["uv", "run", "uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import os, urllib.request;
+          host = next((value.strip() for value in
+          os.getenv('ALLOWED_HOSTS', '').split(',') if value.strip()),
+          '127.0.0.1');
+          request = urllib.request.Request(
+          'http://127.0.0.1:8000/api/health/ready', headers={'Host': host});
+          urllib.request.urlopen(request)
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
 
   worker:
     build:
       context: .
       dockerfile: Dockerfile.api
     restart: unless-stopped
+    init: true
     env_file:
-      - .env
+      - ${ENV_FILE:-.env.production}
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
+      REDIS_URL: redis://redis:6379/0
     volumes:
-      - appdata:/app/data
-      - /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc:/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc:ro
+      - app_data:/app/data
+    command:
+      - celery
+      - -A
+      - src.tasks.celery_app.celery_app
+      - worker
+      - --loglevel=INFO
+      - --concurrency=3
     depends_on:
-      postgres:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
       redis:
         condition: service_healthy
-    command: ["uv", "run", "celery", "-A", "src.tasks.celery_app.celery_app", "worker", "--loglevel=info"]
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - celery -A src.tasks.celery_app.celery_app inspect ping
+          --destination "celery@$${HOSTNAME}" --timeout 5
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
 
   frontend:
     build:
-      context: ./src/web
+      context: src/web
       dockerfile: Dockerfile
     restart: unless-stopped
-    expose:
-      - "80"
+    security_opt:
+      - no-new-privileges:true
 
-  nginx:
-    image: nginx:1.27-alpine
+  proxy:
+    image: caddy:2.10-alpine
     restart: unless-stopped
-    depends_on:
-      - api
-      - frontend
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:-localhost}
     ports:
       - "80:80"
+      - "443:443"
+      - "443:443/udp"
     volumes:
-      - ./deploy/nginx/socialeval.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+      frontend:
+        condition: service_started
+    security_opt:
+      - no-new-privileges:true
 
 volumes:
-  appdata:
-  pgdata:
-  redisdata:
+  app_data:
+  caddy_config:
+  caddy_data:
+  postgres_data:
+  redis_data:

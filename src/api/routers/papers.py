@@ -4,7 +4,16 @@ import inspect
 import json
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, UploadFile, status
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    Form,
+    HTTPException,
+    Request,
+    UploadFile,
+    status,
+)
 from sqlalchemy.orm import Session
 
 from src.api.schemas.admin import BatchStatusResponse
@@ -18,11 +27,18 @@ from src.api.schemas.papers import (
 )
 from src.core.database import get_db
 from src.core.storage import save_upload_file, validate_upload_filename
+from src.editorial.access import (
+    accessible_unit_ids,
+    editor_can_access_paper,
+    editorial_submission_for_paper,
+)
 from src.evaluation.cross_review import CrossReviewService
+from src.evaluation.progress import progress_summary
 from src.knowledge.loader import load_framework
 from src.knowledge.registry import resolve_framework_path
 from src.models.batch import BatchTask
 from src.models.evaluation import AICallLog, DimensionScore, EvaluationTask
+from src.models.editorial import EditorialSubmission
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
 from src.models.report import Report
@@ -48,29 +64,44 @@ def _ensure_paper_status_access(
     paper: Paper,
     task: EvaluationTask,
 ) -> None:
-    if current_user.role in {"admin", "editor"}:
+    if current_user.role == "admin":
         return
+    if current_user.role == "editor":
+        if editor_can_access_paper(db, current_user, paper.id):
+            return
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     if current_user.role == "submitter" and paper.uploaded_by == current_user.id:
         return
     if current_user.role == "expert":
         review = (
             db.query(ExpertReview)
             .join(EvaluationTask, ExpertReview.task_id == EvaluationTask.id)
-            .filter(EvaluationTask.paper_id == paper.id, ExpertReview.expert_id == current_user.id)
+            .filter(
+                EvaluationTask.paper_id == paper.id,
+                ExpertReview.expert_id == current_user.id,
+            )
             .first()
         )
         if review is not None:
             return
-    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
+    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="无权访问")
 
 
-def _ensure_batch_status_access(db: Session, current_user: User, tasks: list[EvaluationTask]) -> None:
-    if current_user.role in {"admin", "editor"}:
+def _ensure_batch_status_access(
+    db: Session, current_user: User, tasks: list[EvaluationTask]
+) -> None:
+    if current_user.role == "admin":
+        return
+    if current_user.role == "editor" and all(
+        editor_can_access_paper(db, current_user, task.paper_id) for task in tasks
+    ):
         return
     if current_user.role == "submitter":
         paper_ids = [task.paper_id for task in tasks]
         if not paper_ids:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, detail="无权访问"
+            )
         owned_count = (
             db.query(Paper)
             .filter(Paper.id.in_(paper_ids), Paper.uploaded_by == current_user.id)
@@ -78,7 +109,7 @@ def _ensure_batch_status_access(db: Session, current_user: User, tasks: list[Eva
         )
         if owned_count == len(paper_ids):
             return
-    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
+    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="无权访问")
 
 
 def _create_task_record(
@@ -148,7 +179,9 @@ async def _create_paper_and_task(
     try:
         ext = validate_upload_filename(file.filename or "")
     except ValueError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)
+        ) from exc
 
     paper = Paper(
         original_filename=file.filename or "upload",
@@ -158,10 +191,14 @@ async def _create_paper_and_task(
         title=Path(file.filename or "upload").stem,
     )
     db.add(paper)
-    db.commit()
-    db.refresh(paper)
-
-    file_path = await save_upload_file(file, paper.id)
+    db.flush()
+    try:
+        file_path = await save_upload_file(file, paper.id)
+    except ValueError as exc:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)
+        ) from exc
     paper.file_path = str(file_path)
     db.add(paper)
     db.commit()
@@ -216,6 +253,15 @@ def list_papers(
     query = db.query(Paper)
     if current_user.role == "submitter":
         query = query.filter(Paper.uploaded_by == current_user.id)
+    elif current_user.role == "editor":
+        editorial_paper_ids = db.query(EditorialSubmission.paper_id)
+        allowed_editorial_paper_ids = db.query(EditorialSubmission.paper_id).filter(
+            EditorialSubmission.unit_id.in_(accessible_unit_ids(db, current_user))
+        )
+        query = query.filter(
+            ~Paper.id.in_(editorial_paper_ids)
+            | Paper.id.in_(allowed_editorial_paper_ids)
+        )
     papers = query.order_by(Paper.created_at.desc()).all()
     return PaperListResponse(
         items=[
@@ -231,7 +277,11 @@ def list_papers(
     )
 
 
-@router.post("/batch", response_model=BatchPaperTaskResponse, status_code=status.HTTP_202_ACCEPTED)
+@router.post(
+    "/batch",
+    response_model=BatchPaperTaskResponse,
+    status_code=status.HTTP_202_ACCEPTED,
+)
 async def batch_upload_papers(
     request: Request,
     files: list[UploadFile] = File(...),
@@ -271,7 +321,7 @@ def get_paper_status(
 ) -> PaperStatusResponse:
     paper = db.get(Paper, paper_id)
     if paper is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Paper not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="未找到论文")
 
     task = (
         db.query(EvaluationTask)
@@ -280,7 +330,9 @@ def get_paper_status(
         .first()
     )
     if task is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="未找到评价任务"
+        )
 
     _ensure_paper_status_access(db, current_user, paper, task)
 
@@ -317,6 +369,7 @@ def get_paper_status(
         failure_stage=task.failure_stage,
         failure_detail=task.failure_detail,
         reliability_summary=reliability_summary,
+        progress=progress_summary(db, task.id),
     )
 
 
@@ -328,7 +381,9 @@ def get_batch_status(
 ) -> BatchStatusResponse:
     batch = db.get(BatchTask, batch_id)
     if batch is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Batch not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="未找到批量任务"
+        )
     tasks = db.query(EvaluationTask).filter(EvaluationTask.batch_id == batch.id).all()
     _ensure_batch_status_access(db, current_user, tasks)
     completed = sum(1 for task in tasks if task.status == "completed")
@@ -350,12 +405,20 @@ def delete_paper(
     """删除论文及其关联的任务、评分、报告等数据"""
     paper = db.get(Paper, paper_id)
     if paper is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Paper not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="未找到论文")
+
+    if editorial_submission_for_paper(db, paper.id) is not None:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="编辑投稿记录不可变，不能在此删除",
+        )
 
     # 权限检查：只有上传者本人或 admin/editor 可以删除
     if current_user.role not in {"admin", "editor"}:
         if current_user.role != "submitter" or paper.uploaded_by != current_user.id:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="无权删除此论文")
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, detail="无权删除此论文"
+            )
 
     # 获取关联的任务
     tasks = db.query(EvaluationTask).filter(EvaluationTask.paper_id == paper.id).all()
@@ -367,7 +430,9 @@ def delete_paper(
             db.query(ExpertReview).filter(ExpertReview.id == review.id).delete()
 
         # 删除可靠性结果
-        db.query(ReliabilityResult).filter(ReliabilityResult.task_id == task.id).delete()
+        db.query(ReliabilityResult).filter(
+            ReliabilityResult.task_id == task.id
+        ).delete()
 
         # 删除维度评分
         db.query(DimensionScore).filter(DimensionScore.task_id == task.id).delete()

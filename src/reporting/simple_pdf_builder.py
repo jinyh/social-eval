@@ -14,6 +14,7 @@
 - 置信度指标
 - 专家姓名
 """
+
 from __future__ import annotations
 
 from io import BytesIO
@@ -26,22 +27,30 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 from src.reporting.summary_extractor import extract_dimension_summary
 
-# 配置中文字体
-_CHINESE_FONT_PATH = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+# 常见 Linux/macOS 中文字体路径。生产镜像安装 Noto CJK，本地开发可回退到
+# macOS 自带字体；不依赖某一个操作系统的固定路径。
+_CHINESE_FONT_PATHS = (
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.otf",
+    "/Library/Fonts/Arial Unicode.ttf",
+    "/System/Library/Fonts/STHeiti Medium.ttc",
+)
 _CHINESE_FONT = None
 
 
-def _get_chinese_font():
+def get_chinese_font() -> fm.FontProperties:
     """获取中文字体，用于PDF渲染"""
     global _CHINESE_FONT
     if _CHINESE_FONT is not None:
         return _CHINESE_FONT
 
-    font_path = Path(_CHINESE_FONT_PATH)
-    if font_path.exists():
-        _CHINESE_FONT = fm.FontProperties(fname=str(font_path))
+    for candidate in _CHINESE_FONT_PATHS:
+        font_path = Path(candidate)
+        if font_path.exists():
+            _CHINESE_FONT = fm.FontProperties(fname=str(font_path))
+            break
     else:
-        # 回退到系统默认字体
+        # 最后回退到系统默认字体；调用方仍可生成只含 ASCII 的报告。
         _CHINESE_FONT = fm.FontProperties()
     return _CHINESE_FONT
 
@@ -66,32 +75,96 @@ def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
     axis.axis("off")
 
     # 获取中文字体
-    font = _get_chinese_font()
+    font = get_chinese_font()
 
     # 标题区域
     title = report_data.get("title") or "未命名论文"
-    axis.text(0.5, 0.95, "中国自主知识创新（法学论文）评价系统", fontsize=16, ha="center", va="top", fontweight="bold", fontproperties=font)
-    axis.text(0.5, 0.90, _truncate_text(title, 35), fontsize=12, ha="center", va="top", fontproperties=font)
+    axis.text(
+        0.5,
+        0.95,
+        "中国自主知识创新（法学论文）评价系统",
+        fontsize=16,
+        ha="center",
+        va="top",
+        fontweight="bold",
+        fontproperties=font,
+    )
+    axis.text(
+        0.5,
+        0.90,
+        _truncate_text(title, 35),
+        fontsize=12,
+        ha="center",
+        va="top",
+        fontproperties=font,
+    )
 
-    # 总分和评价结论（并排显示）
+    # 综合参考分和评价结论
     total_score = report_data.get("weighted_total") or 0
     conclusion = report_data.get("conclusion") or "未评定"
     conclusion_color = _get_conclusion_color(conclusion)
 
-    axis.text(0.25, 0.83, f"总分: {total_score}", fontsize=16, ha="center", va="top", fontweight="bold", fontproperties=font)
-    axis.text(0.75, 0.83, f"评价结论: {conclusion}", fontsize=14, ha="center", va="top", color=conclusion_color, fontweight="bold", fontproperties=font)
+    axis.text(
+        0.25,
+        0.83,
+        f"综合参考分：{total_score}",
+        fontsize=16,
+        ha="center",
+        va="top",
+        fontweight="bold",
+        fontproperties=font,
+    )
+    axis.text(
+        0.75,
+        0.83,
+        "评价结论：\n" + _wrap_text(str(conclusion), 18),
+        fontsize=11,
+        ha="center",
+        va="top",
+        color=conclusion_color,
+        fontweight="bold",
+        fontproperties=font,
+    )
+
+    ccb_summary = report_data.get("ccb_summary") or {}
+    if ccb_summary:
+        ceiling_text = ccb_summary.get("ceiling_label") or "未触发封顶"
+        axis.text(
+            0.5,
+            0.76,
+            (
+                f"核心基础分 {ccb_summary.get('base_score', 0):g} · "
+                f"{ceiling_text} · "
+                f"前瞻加分 {ccb_summary.get('bonus_score', 0):g} · "
+                f"最终值 {ccb_summary.get('final_score', total_score):g}"
+            ),
+            fontsize=9,
+            ha="center",
+            va="top",
+            color="#475569",
+            fontproperties=font,
+        )
 
     # 分隔线
-    axis.axhline(y=0.78, xmin=0.05, xmax=0.95, color='gray', linewidth=0.5)
+    axis.axhline(y=0.73, xmin=0.05, xmax=0.95, color="gray", linewidth=0.5)
 
     # 维度评分标题
-    axis.text(0.5, 0.74, "维度评分详情", fontsize=14, ha="center", va="top", fontweight="bold", fontproperties=font)
+    axis.text(
+        0.5,
+        0.70,
+        "维度评分详情",
+        fontsize=14,
+        ha="center",
+        va="top",
+        fontweight="bold",
+        fontproperties=font,
+    )
 
     # 维度分数 - 逐行显示，每行一个维度
     dimensions = report_data.get("dimensions") or []
+    line_height = 0.095
     if dimensions:
-        y_start = 0.68
-        line_height = 0.11  # 增加行高以容纳多行总结
+        y_start = 0.64
 
         for i, dim in enumerate(dimensions):
             y_pos = y_start - i * line_height
@@ -101,29 +174,77 @@ def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
             summary = _get_dimension_summary(dim)
 
             # 维度名称和分数
-            axis.text(0.07, y_pos, f"{name}", fontsize=11, ha="left", va="top", fontweight="bold", fontproperties=font)
-            axis.text(0.32, y_pos, f"{score:.1f}分", fontsize=11, ha="left", va="top", fontproperties=font)
+            axis.text(
+                0.07,
+                y_pos,
+                f"{name}",
+                fontsize=11,
+                ha="left",
+                va="top",
+                fontweight="bold",
+                fontproperties=font,
+            )
+            axis.text(
+                0.32,
+                y_pos,
+                f"{score:.1f}分",
+                fontsize=11,
+                ha="left",
+                va="top",
+                fontproperties=font,
+            )
 
             # 一句话总结（完整显示，可换行）
             wrapped_summary = _wrap_text(summary, 35)
-            axis.text(0.42, y_pos, wrapped_summary, fontsize=10, ha="left", va="top", fontproperties=font)
+            axis.text(
+                0.42,
+                y_pos,
+                wrapped_summary,
+                fontsize=10,
+                ha="left",
+                va="top",
+                fontproperties=font,
+            )
 
             # 分隔线
             if i < len(dimensions) - 1:
-                axis.axhline(y=y_pos - 0.09, xmin=0.05, xmax=0.95, color='#DDDDDD', linewidth=0.3)
+                axis.axhline(
+                    y=y_pos - 0.078,
+                    xmin=0.05,
+                    xmax=0.95,
+                    color="#DDDDDD",
+                    linewidth=0.3,
+                )
 
     # 专家复核结论（如有）
     expert_conclusion = report_data.get("expert_conclusion")
     if expert_conclusion:
-        y_expert = 0.68 - len(dimensions) * 0.09 - 0.05
-        axis.axhline(y=y_expert, xmin=0.05, xmax=0.95, color='gray', linewidth=0.5)
-        axis.text(0.5, y_expert - 0.03, "专家复核意见", fontsize=12, ha="center", va="top", fontweight="bold", fontproperties=font)
+        y_expert = 0.64 - len(dimensions) * line_height - 0.02
+        axis.axhline(y=y_expert, xmin=0.05, xmax=0.95, color="gray", linewidth=0.5)
+        axis.text(
+            0.5,
+            y_expert - 0.03,
+            "专家复核意见",
+            fontsize=12,
+            ha="center",
+            va="top",
+            fontweight="bold",
+            fontproperties=font,
+        )
         wrapped_text = _wrap_text(expert_conclusion, 40)
-        axis.text(0.5, y_expert - 0.07, wrapped_text, fontsize=10, ha="center", va="top", fontproperties=font)
+        axis.text(
+            0.5,
+            y_expert - 0.07,
+            wrapped_text,
+            fontsize=10,
+            ha="center",
+            va="top",
+            fontproperties=font,
+        )
 
     # 生成 PDF
     with PdfPages(buffer) as pdf:
-        pdf.savefig(figure, bbox_inches="tight")
+        pdf.savefig(figure)
 
     plt.close(figure)
     return buffer.getvalue()

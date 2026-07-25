@@ -3,19 +3,25 @@
 **版本**：2026-04-16  
 **适用范围**：单机 MVP 生产部署、容器化部署、宿主机 `systemd` 部署
 
+> **现行容器部署说明（2026-07-24）**：当前 `docker-compose.prod.yml`
+> 已切换为 Caddy 单一公网入口、独立 `migrate` 门禁和
+> `.env.production`。部署编辑辅助预审系统时，以
+> [`docs/editorial/deployment-single-host-docker.md`](../editorial/deployment-single-host-docker.md)
+> 为准。本文件后续章节保留旧版 Nginx/systemd 方案，仅作为历史运维参考。
+
 ---
 
 ## 1. 当前推荐部署形态
 
 当前仓库已经具备单机 MVP 生产部署骨架，推荐拓扑为：
 
-- `Nginx`
+- `Caddy`
 - `FastAPI`
 - `Celery Worker`
 - `PostgreSQL`
 - `Redis`
 - `SMTP`
-- `对象存储（local 或 S3 兼容）`
+- 本地具名卷存储
 
 配套上线能力已经覆盖：
 
@@ -23,8 +29,8 @@
 - API / Worker Docker 镜像与 `docker-compose.prod.yml`
 - `systemd` 服务单元
 - SMTP 邮件发送
-- 本地磁盘 / S3 对象存储抽象
-- `/api/health` 数据库、Redis、对象存储与任务队列可见性检查
+- 分块上传、容量与文件结构校验
+- `/api/health/live`、`/api/health/ready` 和管理员运行状态接口
 - JSON 结构化日志
 - GitHub Actions CI
 - 端到端 launch smoke test
@@ -42,7 +48,7 @@
 - API 镜像：`Dockerfile.api`
 - 前端镜像：`src/web/Dockerfile`
 - 生产编排：`docker-compose.prod.yml`
-- Nginx 模板：`deploy/nginx/socialeval.conf`
+- Caddy 配置：`deploy/Caddyfile`
 - API 服务单元：`deploy/systemd/socialeval-api.service`
 - Worker 服务单元：`deploy/systemd/socialeval-worker.service`
 - 生产环境变量示例：`docs/deployment/production-env.example.md`
@@ -58,14 +64,13 @@
 - 准备域名，例如 `app.socialeval.example`
 - 配置 DNS A/AAAA 记录指向应用入口
 - 申请 TLS 证书并规划 `80/443`
-- 为 PostgreSQL、Redis、SMTP、对象存储准备网络访问策略
+- 为 PostgreSQL、Redis、SMTP 准备网络访问策略
 
 ### 3.2 必须准备的密钥 / 凭据
 
 - `SECRET_KEY`
 - `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `DEEPSEEK_API_KEY`
 - `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASSWORD`
-- `OBJECT_STORAGE_*`
 - 数据库与 Redis 连接串
 
 ### 3.3 环境变量文件
@@ -74,14 +79,13 @@
 
 - `APP_ENV=production`
 - `ALLOWED_ORIGINS` 为真实前端来源
-- `SESSION_COOKIE_SECURE=true`
-- `SESSION_COOKIE_DOMAIN` 与正式域名一致
+- `SESSION_HTTPS_ONLY=true`
 - `PUBLIC_BASE_URL` 指向用户访问地址
-- `API_BASE_URL` 指向 API 对外地址
 
 说明：
 
 - 前端未显式设置 `VITE_API_BASE` 时，会优先走同源 `/api`
+- 当前单机方案使用 `app_data` 具名卷；对象存储尚未作为现成功能交付。
 - `OBJECT_STORAGE_BACKEND` 当前支持 `local` 和 `s3`
 - `s3` 模式下，`OBJECT_STORAGE_ENDPOINT` 可用于校内对象存储或其他 S3 兼容服务
 
@@ -120,14 +124,14 @@ docker compose -f docker-compose.prod.yml build api worker frontend
 ### 4.4 启动依赖服务与迁移
 
 ```bash
-docker compose -f docker-compose.prod.yml up -d postgres redis
-docker compose -f docker-compose.prod.yml run --rm api uv run alembic upgrade head
+docker compose --env-file .env.production -f docker-compose.prod.yml up -d postgres redis
+docker compose --env-file .env.production -f docker-compose.prod.yml up migrate
 ```
 
 ### 4.5 启动应用
 
 ```bash
-docker compose -f docker-compose.prod.yml up -d api worker frontend nginx
+docker compose --env-file .env.production -f docker-compose.prod.yml up -d
 ```
 
 ### 4.6 默认流量路径
@@ -135,11 +139,11 @@ docker compose -f docker-compose.prod.yml up -d api worker frontend nginx
 - `/api/` -> `api:8000`
 - `/` -> `frontend:80`
 
-对外入口统一由 `nginx` 暴露。
+对外入口统一由 `proxy`（Caddy）暴露。
 
 说明：
 
-- `OBJECT_STORAGE_BACKEND=local` 时，`api` 与 `worker` 会通过共享的 `appdata` 卷读写上传文件和导出产物。
+- `api` 与 `worker` 通过共享的 `app_data` 卷读写上传文件和导出产物。
 
 ---
 
@@ -269,30 +273,25 @@ PY
 ### 8.1 健康检查
 
 ```bash
-curl -fsS https://app.socialeval.example/api/health
+curl -fsS https://app.socialeval.example/api/health/live
+curl -fsS https://app.socialeval.example/api/health/ready
 ```
 
-成功时返回：
-
-- `status=ok`
-- `checks.database.status=ok`
-- `checks.redis.status=ok`
-- `checks.storage.status=ok`
-- `checks.task_queue.status=ok`（并包含 `pending/processing/reviewing/recovering` 计数）
+第二个接口会检查数据库、Redis 和上传目录；任一依赖失败时返回 503。
 
 ### 8.2 运维总览接口（管理员）
 
 ```bash
 curl -fsS -H "X-API-Key: <admin-api-key>" \
-  https://app.socialeval.example/api/admin/operations/overview
+  https://app.socialeval.example/api/health/operations
 ```
 
 返回核心字段：
 
-- `task_counts`：任务状态计数（含 `total`）
-- `recent_failures`：最近失败任务摘要
-- `pending_reviews`：待专家复核数
-- `dependencies`：`database/redis/storage/task_queue` 依赖状态（`task_queue` 包含 worker 存活与队列计数摘要）
+- `work_units`：处理单元状态计数
+- `stalled_work_units`：超过停滞阈值的处理中单元
+- `email_deliveries`：邮件投递状态计数
+- `queue_depth`：Celery 队列深度
 
 ### 8.3 日志
 

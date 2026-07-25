@@ -17,7 +17,6 @@ export function DimensionBreakdownList({ dimensions, mode = "student" }: Dimensi
           <div className="flex items-start justify-between gap-3">
             <div>
               <h4 className="text-sm font-semibold text-slate-950">{dimension.name}</h4>
-              {dimension.nameEn ? <p className="mt-0.5 text-xs text-slate-500">{dimension.nameEn}</p> : null}
             </div>
             <div className="text-right">
               <div className="text-lg font-semibold text-blue-700">{formatScore(dimension.score)}</div>
@@ -27,7 +26,7 @@ export function DimensionBreakdownList({ dimensions, mode = "student" }: Dimensi
           {mode === "internal" ? (
             <div className="mt-3 flex flex-wrap gap-2">
               <Badge variant={dimension.confidence === "高置信度" ? "success" : "warning"}>{dimension.confidence}</Badge>
-              {typeof dimension.stdScore === "number" ? <Badge variant="neutral">std {formatScore(dimension.stdScore)}</Badge> : null}
+              {typeof dimension.stdScore === "number" ? <Badge variant="neutral">标准差 {formatScore(dimension.stdScore)}</Badge> : null}
               {typeof dimension.weight === "number" ? <Badge variant="neutral">权重 {(dimension.weight * 100).toFixed(0)}%</Badge> : null}
             </div>
           ) : null}

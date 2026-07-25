@@ -3,6 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    app_env: str = "development"
+    public_base_url: str = "http://localhost:5173"
     database_url: str = "postgresql://socialeval:socialeval@localhost:5432/socialeval"
     redis_url: str = "redis://localhost:6379/0"
     secret_key: str = "change-me-in-production"
@@ -31,10 +33,21 @@ class Settings(BaseSettings):
     smtp_user: str = ""
     smtp_password: str = ""
     smtp_from: str = "noreply@socialeval.local"
+    smtp_from_name: str = "文科论文智能辅助评审系统"
+    smtp_starttls: bool = True
+    smtp_ssl: bool = False
+    smtp_timeout: float = 10.0
+    email_enabled: bool = False
     max_concurrent_models: int = 3
     default_std_threshold: float = 5.0
     allowed_origins: str = ""
+    allowed_hosts: str = ""
+    session_https_only: bool = False
     provider_timeout: float = 120.0
+    upload_max_bytes: int = 30 * 1024 * 1024
+    task_stale_seconds: int = 600
+    login_max_attempts: int = 5
+    login_window_seconds: int = 900
 
     model_config = SettingsConfigDict(
         env_file=".env",

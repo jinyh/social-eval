@@ -33,7 +33,8 @@ class InvitationResponse(BaseModel):
     id: str
     email: str
     role: str
-    token: str
+    token: str | None = None
+    email_status: str
     expires_at: datetime
 
 

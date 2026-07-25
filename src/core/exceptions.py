@@ -15,9 +15,25 @@ class EvaluationError(SocialEvalError):
 
 
 class ProviderCallError(EvaluationError):
-    def __init__(self, provider: str, message: str):
+    def __init__(self, provider: str, message: str, *, raw_response: str | None = None):
         super().__init__(f"[{provider}] {message}")
         self.provider = provider
+        self.raw_response = raw_response
+
+
+class ProviderResponseValidationError(ProviderCallError):
+    """供应商已返回内容，但内容不符合结构化输出契约。"""
+
+    def __init__(
+        self,
+        provider: str,
+        message: str,
+        *,
+        raw_response: str,
+        invalid_fields: tuple[str, ...] = (),
+    ):
+        super().__init__(provider, message, raw_response=raw_response)
+        self.invalid_fields = invalid_fields
 
 
 class ProviderTimeoutError(ProviderCallError):

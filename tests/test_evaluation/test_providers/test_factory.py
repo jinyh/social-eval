@@ -1,7 +1,8 @@
 from src.evaluation.providers.factory import create_providers
-from src.evaluation.providers.openrouter_provider import OpenRouterProvider
+from src.evaluation.providers.dashscope_provider import DashScopeProvider
 from src.evaluation.providers.fucheers_provider import FucheersProvider
 from src.evaluation.providers.ketan_provider import KetanProvider
+from src.evaluation.providers.openrouter_provider import OpenRouterProvider
 
 
 def test_create_providers_supports_openrouter_gpt_5_4():
@@ -34,3 +35,14 @@ def test_create_providers_supports_ketan_alias():
     assert len(providers) == 1
     assert isinstance(providers[0], KetanProvider)
     assert providers[0].model_name == "gpt-5.5"
+
+
+def test_qwen_upgrade_candidate_has_frozen_generation_parameters():
+    provider = create_providers(["qwen3.7-max-2026-06-08"])[0]
+
+    assert isinstance(provider, DashScopeProvider)
+    assert provider.extra_body == {
+        "enable_thinking": True,
+        "thinking_budget": 4096,
+    }
+    assert provider.max_completion_tokens == 8192

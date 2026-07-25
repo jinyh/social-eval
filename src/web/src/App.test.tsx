@@ -2,7 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { App } from "./App";
-import { submitReview } from "./lib/api";
+import { submitBlindReview } from "./lib/api";
 
 describe("App", () => {
   it("shows the login form when there is no authenticated user", () => {
@@ -26,7 +26,7 @@ describe("App", () => {
     expect(screen.getByText(/学生\/投稿人入口/i)).toBeInTheDocument();
   });
 
-  it("shows the unified review workspace for editor users", () => {
+  it("shows the editorial pre-review workspace for editor users", () => {
     render(
       <App
         initialUser={{
@@ -38,7 +38,7 @@ describe("App", () => {
       />
     );
 
-    expect(screen.getByRole("heading", { name: /编辑\/专家评审工作台/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /期刊编辑预审工作台/i })).toBeInTheDocument();
     expect(screen.getByText(/编辑视角/i)).toBeInTheDocument();
   });
 
@@ -54,7 +54,7 @@ describe("App", () => {
       />
     );
 
-    expect(screen.getByRole("heading", { name: /编辑\/专家评审工作台/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /专家复核工作台/i })).toBeInTheDocument();
     expect(screen.getByText(/专家视角/i)).toBeInTheDocument();
   });
 
@@ -81,7 +81,7 @@ describe("App", () => {
     expect(await screen.findByText(/给学生\/投稿人的摘要/i)).toBeInTheDocument();
     expect(screen.getByTestId("dimension-radar-chart")).toBeInTheDocument();
     expect(screen.getByTestId("dimension-breakdown-list")).toBeInTheDocument();
-    expect(screen.getAllByText(/问题创新性/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/研究创新性/i)[0]).toBeInTheDocument();
   });
 
   it("shows the login page explicitly in mock login mode", async () => {
@@ -92,17 +92,16 @@ describe("App", () => {
     expect(await screen.findByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 
-  it("anonymizes model names in the internal report mock", async () => {
+  it("shows all four anonymous models without exposing provider names", async () => {
     window.history.pushState({}, "", "/?mock=editor");
 
     render(<App initialUser={undefined} />);
 
-    expect((await screen.findAllByText(/模型一/i))[0]).toBeInTheDocument();
-    expect(screen.getAllByText(/模型二/i)[0]).toBeInTheDocument();
-    expect(screen.getAllByText(/模型三/i)[0]).toBeInTheDocument();
-    expect(screen.queryByText(/gpt-5.4/i)).not.toBeInTheDocument();
+    expect(await screen.findByText(/四模型评价/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/模型甲/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/模型丁/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/glm-5.1/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/qwen/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/qwen3.6-plus/i)).not.toBeInTheDocument();
   });
 
   it("submits expert review comments without hard-coded scores", async () => {
@@ -110,16 +109,15 @@ describe("App", () => {
     const comments = [
       {
         dimension_key: "problem_originality",
-        ai_score: 82,
         expert_score: 80,
         reason: "认可主判断，但建议微调表述。",
       },
     ];
 
-    await submitReview("review-1", comments);
+    await submitBlindReview("review-1", comments);
 
     await waitFor(() => expect(fetchMock).toHaveBeenCalled());
-    const [, init] = fetchMock.mock.calls.at(-1)!;
+    const [, init] = fetchMock.mock.calls[fetchMock.mock.calls.length - 1]!;
     expect(init?.body).toBe(JSON.stringify({ comments }));
   });
 

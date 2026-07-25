@@ -1,0 +1,122 @@
+metadata:
+  name: 法学期刊编辑辅助预审策略
+  version: "1.0"
+  status: deployed
+  academic_framework: law-v2.56.6-20260522
+  cross_review_framework: law-v2.55-cross-review
+  position_framework: autonomous-knowledge-system-position-v0.2
+
+evaluation:
+  provider_names:
+    - glm-5.1
+    - qwen3.6-plus
+    - deepseek-v4-pro
+    - kimi-k2.6
+
+profiles:
+  law-general-v1:
+    journal_name: 新增法学期刊
+    unit_name: 法学编辑单元
+    fit_focus: 由编辑单元正式接入评审确认的法学选题范围与读者定位
+  jiaoda-law-v1:
+    journal_name: 交大法学
+    unit_name: 交大法学编辑部
+    fit_focus: 法学理论与中国法治实践中的原创问题
+  academic-monthly-law-v1:
+    journal_name: 学术月刊
+    unit_name: 学术月刊法学板块
+    fit_focus: 兼具学术原创性、跨学科对话价值与法学问题意识的研究
+  oriental-law-v1:
+    journal_name: 东方法学
+    unit_name: 东方法学编辑部
+    fit_focus: 回应中国法治实践并具有制度解释力的法学研究
+
+# 优先使用六维模型结构化输出中的 band。只有历史结果没有 band 时才使用此回退。
+band_fallback:
+  excellent:
+    min_score: 80
+  good:
+    min_score: 60
+  marginal:
+    min_score: 50
+  unacceptable:
+    min_score: 0
+
+decision_mapping:
+  confirmed_gate_failure: decline_without_review
+  defect_rule:
+    dimensions:
+      - problem_originality
+      - analytical_framework
+      - logical_coherence
+    band: unacceptable
+    decision: decline_without_review
+  direct_accept_rule:
+    dimensions:
+      - problem_originality
+      - literature_insight
+      - analytical_framework
+      - logical_coherence
+      - conclusion_consensus
+      - forward_extension
+    all_dimensions_min_band: good
+    required_bands:
+      logical_coherence: excellent
+    core_dimensions:
+      - problem_originality
+      - literature_insight
+      - analytical_framework
+      - logical_coherence
+    core_excellent_min_count: 3
+    decision: priority_external_review
+  minor_accept_rule:
+    dimensions:
+      - problem_originality
+      - literature_insight
+      - analytical_framework
+      - logical_coherence
+      - conclusion_consensus
+    min_band: good
+    decision: send_external_review
+  fallback_decision: revise_resubmit
+  forward_extension:
+    may_promote_to_direct_accept: true
+    never_downgrade: true
+  excluded_from_decision:
+    - position_assessment
+    - ccb
+
+journal_fit:
+  output_contract:
+    status:
+      - pass
+      - boundary
+      - reject
+    required_fields:
+      - status
+      - reasons
+      - evidence_quotes
+      - requires_editor_confirmation
+  prompt_template: |
+    你是“{journal_name}”编辑部的投稿适配性辅助检查器。
+    本刊关注：{fit_focus}。
+    这里只判断稿件与本刊范围、栏目定位和读者对象的适配性，不重复六维学术质量评分，
+    不因观点立场不同判定不适配。请只输出符合契约的 JSON。
+
+opinion:
+  synthesis_prompt_template: |
+    你是法学期刊编辑部的智能辅助意见综合器。四个模型已经完成独立评价和交叉复核。
+    不得虚构法条、文献、作者观点或评分材料未支持的事实；不得把五轴位置归属度当作论文质量。
+    请显式区分四模型共识、普通观点差异和必须专家复核的分歧，只输出 JSON：
+    {
+      "synthesis": "综合意见",
+      "consensus_points": ["四模型共识"],
+      "disagreement_points": ["四模型分歧"],
+      "priority_issues": ["编辑应优先核验的问题"],
+      "modification_suggestions": ["综合修改建议"]
+    }
+  display_order:
+    - ai_synthesis
+  labels:
+    ai_synthesis: 智能辅助综合意见
+    editor_final: 编辑最终意见

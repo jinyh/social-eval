@@ -15,6 +15,12 @@ from src.api.schemas.auth import (
 )
 from src.api.schemas.users import UserResponse
 from src.core.database import get_db
+from src.core.config import settings
+from src.core.login_guard import (
+    LoginGuardUnavailable,
+    clear_failed_logins,
+    register_failed_login,
+)
 from src.core.time import utc_now
 from src.models.user import Invitation, User
 
@@ -39,17 +45,40 @@ def login(
     request: Request,
     db: Session = Depends(get_db),
 ) -> UserResponse:
+    client_ip = request.client.host if request.client else "unknown"
     user = db.query(User).filter(User.email == payload.email).first()
     if user is None or not verify_password(payload.password, user.hashed_password):
+        if settings.app_env == "production":
+            try:
+                attempts, retry_after = register_failed_login(client_ip, payload.email)
+            except LoginGuardUnavailable as exc:
+                raise HTTPException(
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                    detail=str(exc),
+                ) from exc
+            if attempts >= settings.login_max_attempts:
+                raise HTTPException(
+                    status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+                    detail=f"登录失败次数过多，请在 {retry_after} 秒后重试",
+                    headers={"Retry-After": str(retry_after)},
+                )
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid credentials",
+            detail="邮箱或密码错误",
         )
     if not user.is_active:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="User account is inactive",
+            detail="用户账户尚未启用",
         )
+    if settings.app_env == "production":
+        try:
+            clear_failed_logins(client_ip, payload.email)
+        except LoginGuardUnavailable as exc:
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail=str(exc),
+            ) from exc
     login_user(request, user)
     return _build_user_response(user, auth_method="session")
 
@@ -85,18 +114,18 @@ def accept_invitation(
     if invitation is None or invitation.is_used:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Invitation not found",
+            detail="未找到邀请",
         )
     if invitation.expires_at < utc_now():
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invitation has expired",
+            detail="邀请已经过期",
         )
     existing_user = db.query(User).filter(User.email == invitation.email).first()
     if existing_user is not None:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="User already exists",
+            detail="用户已经存在",
         )
 
     user = User(

@@ -31,6 +31,8 @@ class MyReviewItem(BaseModel):
     paper_id: str
     paper_title: str | None
     status: str
+    review_stage: str
+    required_dimensions: list[str]
 
 
 class MyReviewsResponse(BaseModel):
@@ -39,13 +41,24 @@ class MyReviewsResponse(BaseModel):
 
 class ReviewCommentInput(BaseModel):
     dimension_key: str
-    ai_score: float = Field(ge=0, le=100)
+    ai_score: float | None = Field(default=None, ge=0, le=100)
     expert_score: float = Field(ge=0, le=100)
     reason: str = Field(min_length=1)
+    statement_decisions: dict[str, str] | None = None
+
+
+class BlindReviewSubmitRequest(BaseModel):
+    comments: list[ReviewCommentInput] = Field(min_length=1)
+
+
+class ExpertComparisonInput(BaseModel):
+    dimension_key: str
+    statement_decisions: dict[str, str] = Field(default_factory=dict)
+    comparison_reason: str = Field(default="", max_length=5000)
 
 
 class SubmitReviewRequest(BaseModel):
-    comments: list[ReviewCommentInput]
+    comparisons: list[ExpertComparisonInput] = Field(default_factory=list)
 
 
 class SubmitReviewResponse(BaseModel):

@@ -25,6 +25,30 @@ export type PaperStatus = {
     low_confidence_count: number;
     overall_high_confidence: boolean;
   } | null;
+  progress: TaskProgress;
+};
+
+export type TaskProgress = {
+  stage: string;
+  stage_label: string;
+  completed: number;
+  total: number;
+  percent: number;
+  current_dimension?: string | null;
+  current_model_slot?: number | null;
+  heartbeat_at?: string | null;
+  is_stalled: boolean;
+  failure_detail?: string | null;
+};
+
+export type NotificationItem = {
+  id: string;
+  event_type: string;
+  object_type: string;
+  object_id: string;
+  payload?: Record<string, unknown> | null;
+  read_at?: string | null;
+  created_at: string;
 };
 
 export type ReviewQueueItem = {
@@ -42,6 +66,8 @@ export type ReviewTask = {
   status: string;
   paper_id?: string | null;
   paper_title?: string | null;
+  review_stage: "blind" | "comparison" | "completed";
+  required_dimensions: string[];
 };
 
 export type UserListResponse = {
@@ -83,6 +109,12 @@ export type InternalAiPayload = {
   is_high_confidence?: boolean;
   confidence?: string | number | null;
   model_scores?: ModelScoreMap;
+  model_results?: Array<{
+    model_label: string;
+    score: number;
+    evidence_quotes?: string[] | string;
+    analysis?: string | null;
+  }>;
   evidence_quotes?: Array<string | string[]>;
   analysis?: string[] | string | null;
 };
@@ -104,6 +136,8 @@ export type InternalExpertComment = {
   ai_score: number;
   expert_score: number;
   reason: string;
+  statement_decisions?: Record<string, ExpertDecisionState> | null;
+  comparison_reason?: string | null;
 };
 
 export type InternalExpertReview = {
@@ -129,7 +163,8 @@ export type InternalReport = {
   title?: string | null;
   precheck_status?: string | null;
   precheck_result?: Record<string, unknown> | string | null;
-  weighted_total?: number;
+  weighted_total?: number | null;
+  review_stage?: "blind" | "comparison" | "completed";
   dimensions?: InternalDimensionScore[];
   expert_reviews?: InternalExpertReview[];
   radar_chart?: {
@@ -141,9 +176,15 @@ export type InternalReport = {
 
 export type ReviewCommentInput = {
   dimension_key: string;
-  ai_score: number;
   expert_score: number;
   reason: string;
+  statement_decisions?: Record<string, ExpertDecisionState>;
+};
+
+export type ExpertComparisonInput = {
+  dimension_key: string;
+  statement_decisions: Record<string, ExpertDecisionState>;
+  comparison_reason: string;
 };
 
 export type ExpertDecisionState = "accept" | "reject" | "neutral";
@@ -157,4 +198,198 @@ export type DimensionMetric = {
   stdScore?: number;
   confidence?: string;
   weight?: number;
+};
+
+export type PreReviewDecision =
+  | "decline_without_review"
+  | "revise_resubmit"
+  | "send_external_review"
+  | "priority_external_review";
+
+export type FinalDecision =
+  | "reject"
+  | "major_revision"
+  | "minor_accept"
+  | "direct_accept";
+
+export type EditorialDecision = PreReviewDecision | FinalDecision;
+
+export type EditorialUnit = {
+  id: string;
+  journal_id: string;
+  journal_name: string;
+  code: string;
+  name: string;
+  policy_key: string;
+  policy_version: string;
+  rollout_state: "shadow" | "active";
+};
+
+export type ModelSet = {
+  name: string;
+  status: string;
+  provider_names: string[];
+  model_groups: {
+    lenient: string[];
+    strict: string[];
+  };
+};
+
+export type ValidationRun = {
+  id: string;
+  unit_id?: string | null;
+  validation_type: "calibration" | "holdout" | "final_validation" | "model_upgrade";
+  framework_version: string;
+  model_set_version: string;
+  sample_manifest_sha256: string;
+  sample_count: number;
+  metrics: Record<string, unknown>;
+  status: "draft" | "signed";
+  signed_by?: string | null;
+  signed_at?: string | null;
+  created_at: string;
+};
+
+export type EditorialSubmissionListItem = {
+  id: string;
+  unit_id: string;
+  external_manuscript_id?: string | null;
+  title?: string | null;
+  status: string;
+  responsible_editor_id?: string | null;
+  recommendation_state: "shadow" | "ready" | "withheld";
+  created_at: string;
+  updated_at: string;
+};
+
+export type EditorialOpinion = {
+  id: string;
+  opinion_type: "ai_independent" | "ai_synthesis" | "editor_final";
+  version: number;
+  sequence: number;
+  content: Record<string, unknown>;
+  model_name?: string | null;
+  created_by?: string | null;
+  is_locked: boolean;
+  created_at: string;
+};
+
+export type EditorialDecisionRecord = {
+  id: string;
+  version: number;
+  decision_stage: "legacy" | "pre_review" | "final";
+  suggested_decision?: EditorialDecision | null;
+  final_decision: EditorialDecision;
+  recommendation_state: "shadow" | "ready" | "withheld";
+  rationale?: string | null;
+  bypassed_expert_gate: boolean;
+  actor_id: string;
+  is_locked: boolean;
+  created_at: string;
+};
+
+export type EditorialDimensionScore = {
+  dimension_key: string;
+  model_name?: string | null;
+  score: number;
+  band?: string | null;
+  evidence_quotes?: unknown;
+};
+
+export type EditorialModelResult = {
+  model_label: string;
+  score: number;
+  band: string;
+  band_label: string;
+  evidence_quotes: unknown;
+  analysis: string;
+};
+
+export type EditorialDimensionSummary = {
+  dimension_key: string;
+  dimension_name: string;
+  mean_score: number;
+  std_score: number;
+  confidence_label: string;
+  band: string;
+  band_label: string;
+  difference_level: "consensus" | "band_difference" | "expert_review";
+  difference_label: string;
+  requires_expert_review: boolean;
+  model_results: EditorialModelResult[];
+};
+
+export type CcbSummary = {
+  label: string;
+  base_score: number;
+  bonus_score: number;
+  ceiling_score?: number | null;
+  ceiling_label: string;
+  final_score: number;
+  notice: string;
+};
+
+export type PositionAxisSummary = {
+  axis_key: string;
+  axis_name: string;
+  score: number;
+  score_range: number[];
+  evidence_quotes: string[];
+  has_model_difference: boolean;
+};
+
+export type PositionSummary = {
+  total_score: number;
+  strength_label: string;
+  confidence_label: string;
+  agreement_label: string;
+  review_required: boolean;
+  conflict_with_precheck: boolean;
+  conflict_message?: string | null;
+  axes: PositionAxisSummary[];
+  notice: string;
+};
+
+export type EditorialSubmissionDetail = EditorialSubmissionListItem & {
+  paper_id: string;
+  task_id: string;
+  anonymization_status: string;
+  anonymization_result?: Record<string, unknown> | null;
+  formal_check_status?: string | null;
+  formal_check_result?: Record<string, unknown> | null;
+  precheck_status?: string | null;
+  precheck_result?: Record<string, unknown> | null;
+  fit_status?: string | null;
+  fit_result?: Record<string, unknown> | null;
+  internal_candidate_decision?: EditorialDecision | null;
+  manual_review_requested: boolean;
+  six_dimension: EditorialDimensionScore[];
+  six_dimension_summary: {
+    model_participation: { count: number; labels: string[] };
+    difference_count: number;
+    expert_review_dimension_count: number;
+    dimensions: EditorialDimensionSummary[];
+  };
+  ccb_summary?: CcbSummary | null;
+  position_summary?: PositionSummary | null;
+  position_assessment?: Record<string, unknown> | null;
+  model_set_version: string;
+  progress: TaskProgress;
+  documents: Record<string, string>;
+  expert_reviews: Array<{
+    review_id: string;
+    status: string;
+    blind_submitted_at?: string | null;
+    ai_revealed_at?: string | null;
+    completed_at?: string | null;
+    comments: Array<{
+      dimension_key: string;
+      expert_score: number;
+      reason: string;
+      statement_decisions?: Record<string, string> | null;
+      comparison_reason?: string | null;
+    }>;
+  }>;
+  opinions: EditorialOpinion[];
+  decisions: EditorialDecisionRecord[];
 };

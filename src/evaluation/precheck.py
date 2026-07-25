@@ -89,10 +89,16 @@ def _adapt_to_v014_contract(
                 triggered_signals = {str(k): str(v) for k, v in raw_signals.items()}
         requires_manual = conclusion != "enter_six_dimension_review"
     else:
-        conclusion = _CONCLUSION_MAPPING.get(result.status, "enter_six_dimension_review")
+        conclusion = _CONCLUSION_MAPPING.get(
+            result.status, "enter_six_dimension_review"
+        )
         triggered_signals = result.triggered_signals
         # conditional_pass / manual_review / reject 都需要人工干预
-        requires_manual = result.status in ("conditional_pass", "manual_review", "reject")
+        requires_manual = result.status in (
+            "conditional_pass",
+            "manual_review",
+            "reject",
+        )
 
     return result.model_copy(
         update={
@@ -100,7 +106,9 @@ def _adapt_to_v014_contract(
             "enter_six_dimension_review": _ENTER_FIELD_MAPPING[conclusion],
             "triggered_signals": triggered_signals,
             "requires_manual_confirmation": requires_manual,
-            "boundary_reasons": result.issues if conclusion == "boundary_review" else [],
+            "boundary_reasons": result.issues
+            if conclusion == "boundary_review"
+            else [],
             "obviously_ineligible_reasons": (
                 result.issues if conclusion == "obviously_ineligible" else []
             ),
@@ -117,10 +125,10 @@ async def run_precheck(
     retry_attempts: int = 3,
 ) -> PrecheckResult:
     prompt = build_precheck_prompt(framework, paper)
-    start = time.time()
     last_error: Exception | None = None
 
     for _ in range(retry_attempts):
+        start = time.time()
         try:
             payload = await provider.generate_json_response(prompt)
             log_call(
@@ -131,19 +139,24 @@ async def run_precheck(
                 prompt,
                 str(payload),
                 start,
+                call_type="precheck",
+                provider_name=provider.__class__.__name__,
             )
             result = PrecheckResult(**payload)
             return _adapt_to_v014_contract(result, framework)
         except Exception as exc:
             last_error = exc
-
-    log_call(
-        db,
-        task_id,
-        provider.model_name,
-        "__precheck__",
-        prompt,
-        str(last_error),
-        start,
-    )
+            log_call(
+                db,
+                task_id,
+                provider.model_name,
+                "__precheck__",
+                prompt,
+                str(exc),
+                start,
+                call_type="precheck",
+                provider_name=provider.__class__.__name__,
+                status="failed",
+                failure_detail=str(exc),
+            )
     raise last_error or RuntimeError("Precheck failed")

@@ -30,9 +30,10 @@ AI 辅助学术评价系统，以法学论文评审为切入点，支持拓展�
 不使用 CCB 阈值。业务扩展放在 `src/editorial/`，复用六维引擎、providers、报告、
 认证和摄取能力。
 
-本地 `raw/label/` 中的 12 篇真实审稿意见只作为评估基准和输出格式参考，不进入 Git。
-当前活文档为
-`docs/requirements/editorial-pre-review-requirements-v1.0.md`。
+本地 `raw/label/` 中的真实审稿意见只作为评估基准和输出格式参考，不进入 Git。
+编辑辅助预审的当前设计入口为 `docs/editorial/README.md`，需求基线为
+`docs/requirements/editorial-pre-review-requirements-v1.1.md`。初始编辑单元包括
+《交大法学》、《学术月刊》法学板块和《东方法学》，均从 shadow 模式开始。
 
 ## 系统架构
 

@@ -1,25 +1,42 @@
-FROM python:3.10
+FROM python:3.12-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    UV_PROJECT_ENVIRONMENT=/app/.venv \
-    PATH="/app/.venv/bin:$PATH"
+    UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy
 
 WORKDIR /app
 
-RUN apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=600 -o Acquire::https::Timeout=600 update \
-    && apt-get -o Acquire::Retries=5 -o Acquire::http::Timeout=600 -o Acquire::https::Timeout=600 install -y --no-install-recommends fontconfig \
-    && mkdir -p /usr/share/fonts/opentype/noto \
-    && rm -rf /var/lib/apt/lists/* \
-    && pip install --no-cache-dir uv
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        fonts-noto-cjk \
+        libharfbuzz-subset0 \
+        libjpeg62-turbo \
+        libopenjp2-7 \
+        libpango-1.0-0 \
+        libpangoft2-1.0-0 \
+        shared-mime-info \
+    && pip install --no-cache-dir uv \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY pyproject.toml uv.lock README.md alembic.ini ./
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-dev --no-install-project
+
+COPY alembic.ini ./
 COPY alembic ./alembic
 COPY configs ./configs
+COPY knowledge ./knowledge
 COPY src ./src
 
-RUN uv sync --frozen --no-dev
+RUN uv sync --frozen --no-dev \
+    && useradd --create-home --uid 10001 app \
+    && mkdir -p /app/data \
+    && chown -R app:app /app/data \
+    && chmod -R a+rX /app
+
+USER app
+ENV PATH="/app/.venv/bin:${PATH}"
 
 EXPOSE 8000
 
-CMD ["uv", "run", "uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

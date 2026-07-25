@@ -8,7 +8,12 @@ type ModelComparisonTableProps = {
 };
 
 export function ModelComparisonTable({ dimension }: ModelComparisonTableProps) {
-  const scores = anonymizeModelScores(dimension.ai?.model_scores);
+  const scores = dimension.ai?.model_results?.length
+    ? dimension.ai.model_results.map((item) => ({
+        label: item.model_label,
+        score: item.score,
+      }))
+    : anonymizeModelScores(dimension.ai?.model_scores);
 
   return (
     <Table>

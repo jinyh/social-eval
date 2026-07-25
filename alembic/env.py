@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from logging.config import fileConfig
@@ -10,7 +11,16 @@ from sqlalchemy import pool
 from alembic import context
 
 from src.core.database import Base
-from src.models import user, paper, evaluation, reliability, review, report, framework  # noqa: F401
+from src.models import (  # noqa: F401
+    editorial,
+    evaluation,
+    framework,
+    paper,
+    reliability,
+    report,
+    review,
+    user,
+)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -76,9 +86,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

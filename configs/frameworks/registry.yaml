@@ -24,3 +24,33 @@ review_protocols:
   six_dimension_cross_review:
     path: law-six-dimension-r2-v1.yaml
     status: production
+model_sets:
+  six-dimension-v1:
+    status: production
+    provider_names:
+      - glm-5.1
+      - qwen3.6-plus
+      - deepseek-v4-pro
+      - kimi-k2.6
+    model_groups:
+      lenient:
+        - glm-5.1
+        - qwen3.6-plus
+      strict:
+        - deepseek-v4-pro
+        - kimi-k2.6
+  six-dimension-v2-candidate:
+    status: candidate-unvalidated
+    provider_names:
+      - glm-5.2
+      - qwen3.7-max-2026-06-08
+      - deepseek-v4-pro
+      - kimi-k2.6
+    model_groups:
+      # 初始替换分组只用于并行校准；上线前必须由校准结果重算并冻结。
+      lenient:
+        - glm-5.2
+        - qwen3.7-max-2026-06-08
+      strict:
+        - deepseek-v4-pro
+        - kimi-k2.6

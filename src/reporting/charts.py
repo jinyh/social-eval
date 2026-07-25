@@ -10,6 +10,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from src.reporting.simple_pdf_builder import get_chinese_font
+
 
 def generate_radar_chart_base64(labels: list[str], values: list[float]) -> str:
     if not labels or not values:
@@ -23,7 +25,7 @@ def generate_radar_chart_base64(labels: list[str], values: list[float]) -> str:
     axis.plot(angles_cycle, values_cycle, linewidth=2)
     axis.fill(angles_cycle, values_cycle, alpha=0.25)
     axis.set_xticks(angles)
-    axis.set_xticklabels(labels, fontsize=8)
+    axis.set_xticklabels(labels, fontsize=8, fontproperties=get_chinese_font())
     axis.set_yticklabels([])
     axis.set_ylim(0, 100)
 

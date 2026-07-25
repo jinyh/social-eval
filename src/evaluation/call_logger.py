@@ -1,5 +1,9 @@
 import time
+from datetime import datetime, timezone
+
 from sqlalchemy.orm import Session
+
+from src.core.time import utc_now
 from src.models.evaluation import AICallLog
 
 
@@ -14,17 +18,27 @@ def log_call(
     *,
     round_number: int = 1,
     call_type: str = "dimension_score",
+    provider_name: str | None = None,
+    status: str = "success",
+    failure_detail: str | None = None,
 ) -> None:
     duration_ms = int((time.time() - start_time) * 1000)
     log = AICallLog(
         task_id=task_id,
         model_name=model_name,
+        provider_name=provider_name,
         dimension_key=dimension_key,
         prompt_text=prompt,
         response_text=response,
         duration_ms=duration_ms,
         round_number=round_number,
         call_type=call_type,
+        status=status,
+        failure_detail=failure_detail,
+        started_at=datetime.fromtimestamp(start_time, tz=timezone.utc).replace(
+            tzinfo=None
+        ),
+        completed_at=utc_now(),
     )
     db.add(log)
     db.commit()

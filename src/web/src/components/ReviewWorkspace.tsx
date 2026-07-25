@@ -1,12 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
-import { ClipboardCheck, Send } from "lucide-react";
+import { ClipboardCheck, FileText, LockKeyhole, Send } from "lucide-react";
 
-import { assignExpert, getInternalReport, getReviewQueue, listExperts, listMyReviews, submitReview } from "@/lib/api";
-import { buildReviewOpinions, buildSubmitComments, clampScore, normalizeInternalDimensions } from "@/lib/report";
+import {
+  expertDocumentUrl,
+  getInternalReport,
+  listMyReviews,
+  submitBlindReview,
+  submitReview,
+} from "@/lib/api";
+import {
+  buildReviewOpinions,
+  clampScore,
+  normalizeInternalDimensions,
+} from "@/lib/report";
 import type {
+  ExpertComparisonInput,
   ExpertDecisionState,
   InternalReport,
-  ReviewQueueItem,
+  ReviewCommentInput,
   ReviewTask,
   User,
 } from "@/lib/types";
@@ -17,60 +28,64 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
-import { Select } from "./ui/select";
 import { Textarea } from "./ui/textarea";
-
-type ReviewWorkspaceProps = {
-  user: User;
-};
 
 type WorkspaceTask = {
   id: string;
   taskId: string;
   paperId?: string | null;
-  reviewId?: string;
+  reviewId: string;
   title: string;
   status: string;
-  lowConfidenceDimensions?: string[];
+  stage: "blind" | "comparison" | "completed";
+  requiredDimensions: string[];
 };
 
-export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
-  const isEditor = user.role === "editor";
+const dimensionNames: Record<string, string> = {
+  problem_originality: "研究创新性",
+  literature_insight: "现状洞察度",
+  analytical_framework: "理论建构力",
+  logical_coherence: "逻辑连贯性",
+  conclusion_consensus: "学术共识度",
+  forward_extension: "前瞻延展性",
+};
+
+const stageLabels = {
+  blind: "独立评阅",
+  comparison: "对照复核",
+  completed: "已完成",
+};
+
+export function ReviewWorkspace({ user }: { user: User }) {
   const [tasks, setTasks] = useState<WorkspaceTask[]>([]);
-  const [experts, setExperts] = useState<User[]>([]);
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
-  const [selectedExpertId, setSelectedExpertId] = useState("");
   const [report, setReport] = useState<InternalReport | null>(null);
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState<"success" | "error" | "info">("info");
-  const [decisions, setDecisions] = useState<Record<string, ExpertDecisionState>>({});
+  const [messageType, setMessageType] = useState<"success" | "error" | "info">(
+    "info"
+  );
+  const [decisions, setDecisions] = useState<
+    Record<string, ExpertDecisionState>
+  >({});
   const [scoreDrafts, setScoreDrafts] = useState<Record<string, number>>({});
   const [reasonDrafts, setReasonDrafts] = useState<Record<string, string>>({});
 
   const selectedTask = tasks.find((task) => task.id === selectedTaskId) ?? tasks[0];
 
   const refresh = async () => {
-    if (isEditor) {
-      const [queueItems, expertItems] = await Promise.all([getReviewQueue(), listExperts()]);
-      const nextTasks = queueItems.map(mapQueueItemToTask);
-      setTasks(nextTasks);
-      setExperts(expertItems);
-      setSelectedExpertId((current) => current || expertItems[0]?.id || "");
-      setSelectedTaskId((current) => current ?? nextTasks[0]?.id ?? null);
-      return;
-    }
     const reviewItems = await listMyReviews();
     const nextTasks = reviewItems.map(mapReviewTaskToTask);
     setTasks(nextTasks);
-    setSelectedTaskId((current) => current ?? nextTasks[0]?.id ?? null);
+    setSelectedTaskId((current) =>
+      nextTasks.some((task) => task.id === current)
+        ? current
+        : nextTasks[0]?.id ?? null
+    );
   };
 
   useEffect(() => {
-    void refresh().catch(() => {
-      setTasks([]);
-      setExperts([]);
-    });
-  }, [isEditor]);
+    void refresh().catch(() => setTasks([]));
+  }, []);
 
   useEffect(() => {
     if (!selectedTask?.paperId) {
@@ -78,16 +93,11 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
       return;
     }
     let isCurrent = true;
-    const paperId = selectedTask.paperId;
-    const taskId = selectedTask.taskId;
-    void getInternalReport(paperId, taskId)
+    void getInternalReport(selectedTask.paperId, selectedTask.taskId)
       .then((nextReport) => {
         if (!isCurrent) return;
-        if (nextReport.paper_id && nextReport.paper_id !== paperId) return;
-        if (nextReport.task_id && nextReport.task_id !== taskId) return;
         setReport(nextReport);
-        const metrics = normalizeInternalDimensions(nextReport);
-        setScoreDrafts(Object.fromEntries(metrics.map((metric) => [metric.key, metric.score])));
+        setScoreDrafts({});
         setReasonDrafts({});
         setDecisions({});
       })
@@ -97,57 +107,95 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
     return () => {
       isCurrent = false;
     };
-  }, [selectedTask?.paperId, selectedTask?.taskId]);
+  }, [
+    selectedTask?.paperId,
+    selectedTask?.taskId,
+    selectedTask?.stage,
+  ]);
 
-  const metrics = useMemo(() => normalizeInternalDimensions(report), [report]);
+  const allMetrics = useMemo(() => normalizeInternalDimensions(report), [report]);
+  const metrics = useMemo(() => {
+    if (!selectedTask?.requiredDimensions.length) return allMetrics;
+    const required = new Set(selectedTask.requiredDimensions);
+    return allMetrics.filter((metric) => required.has(metric.key));
+  }, [allMetrics, selectedTask]);
   const opinionsByDimension = useMemo(() => {
     if (!report?.dimensions) return {};
     return Object.fromEntries(
       report.dimensions.map((dimension, index) => {
-        const metric = metrics[index];
-        return [metric?.key ?? dimension.key ?? `dimension-${index + 1}`, buildReviewOpinions(dimension, index)];
+        const key =
+          dimension.key ?? allMetrics[index]?.key ?? `dimension-${index + 1}`;
+        return [key, buildReviewOpinions(dimension, index)];
       })
     );
-  }, [metrics, report]);
+  }, [allMetrics, report]);
 
-  const handleAssign = async () => {
-    if (!selectedTask || !selectedExpertId) return;
-    await assignExpert(selectedTask.taskId, [selectedExpertId]);
-    setMessage("已分配专家，任务队列已刷新。");
-    await refresh();
+  const handleBlindSubmit = async () => {
+    if (!selectedTask) return;
+    const missing = metrics.filter(
+      (metric) =>
+        typeof scoreDrafts[metric.key] !== "number" ||
+        !reasonDrafts[metric.key]?.trim()
+    );
+    if (missing.length > 0) {
+      setMessage(
+        `请完成独立评分和理由：${missing.map((item) => item.name).join("、")}`
+      );
+      setMessageType("error");
+      return;
+    }
+    const comments: ReviewCommentInput[] = metrics.map((metric) => ({
+      dimension_key: metric.key,
+      expert_score: clampScore(scoreDrafts[metric.key]),
+      reason: reasonDrafts[metric.key].trim(),
+    }));
+    try {
+      await submitBlindReview(selectedTask.reviewId, comments);
+      setMessage("独立评阅已经锁定，现在可以查看四模型结果并进行对照。");
+      setMessageType("success");
+      await refresh();
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "独立评阅提交失败");
+      setMessageType("error");
+    }
   };
 
-  const handleSubmitReview = async () => {
-    if (!selectedTask?.reviewId) return;
-    if (report?.paper_id && selectedTask.paperId && report.paper_id !== selectedTask.paperId) {
-      setMessage("当前报告与选中任务不一致，请重新选择任务后再提交。");
-      setMessageType("error");
-      return;
-    }
-    if (report?.task_id && selectedTask.taskId && report.task_id !== selectedTask.taskId) {
-      setMessage("当前报告任务与选中复核不一致，请重新选择任务后再提交。");
-      setMessageType("error");
-      return;
-    }
-    const { comments, missingRejectedReasons } = buildSubmitComments(
-      metrics,
-      decisions,
-      opinionsByDimension,
-      scoreDrafts,
-      reasonDrafts
+  const handleComparisonSubmit = async () => {
+    if (!selectedTask) return;
+    const comparisons: ExpertComparisonInput[] = metrics.map((metric) => {
+      const opinions = opinionsByDimension[metric.key] ?? [];
+      return {
+        dimension_key: metric.key,
+        statement_decisions: Object.fromEntries(
+          opinions.map((opinion) => [
+            opinion.id,
+            decisions[opinion.id] ?? "neutral",
+          ])
+        ),
+        comparison_reason: reasonDrafts[metric.key]?.trim() ?? "",
+      };
+    });
+    const missing = comparisons.filter(
+      (item) =>
+        Object.values(item.statement_decisions).includes("reject") &&
+        !item.comparison_reason
     );
-    if (missingRejectedReasons.length > 0) {
-      setMessage(`以下维度选择了叉，需填写修正理由：${missingRejectedReasons.join("、")}`);
+    if (missing.length > 0) {
+      setMessage(
+        `不认可智能判断时必须说明理由：${missing
+          .map((item) => dimensionNames[item.dimension_key] ?? "补充维度")
+          .join("、")}`
+      );
       setMessageType("error");
       return;
     }
     try {
-      await submitReview(selectedTask.reviewId, comments);
-      setMessage("✅ 提交成功！专家复核意见已保存。");
+      await submitReview(selectedTask.reviewId, comparisons);
+      setMessage("专家对照复核已经提交并锁定。");
       setMessageType("success");
       await refresh();
-    } catch (err) {
-      setMessage(err instanceof Error ? err.message : "提交失败，请重试");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "对照复核提交失败");
       setMessageType("error");
     }
   };
@@ -162,12 +210,14 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
                 <ClipboardCheck className="h-5 w-5" />
               </div>
               <div>
-                <CardTitle className="text-xl">编辑/专家评审工作台</CardTitle>
-                <CardDescription>统一任务队列、内部评价表、专家确认与复核提交。</CardDescription>
+                <CardTitle className="text-xl">专家复核工作台</CardTitle>
+                <CardDescription>
+                  先独立评阅匿名稿，锁定判断后再对照四模型意见。
+                </CardDescription>
               </div>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Badge variant="default">{isEditor ? "编辑视角" : "专家视角"}</Badge>
+              <Badge variant="default">专家视角</Badge>
               <Badge variant="neutral">{user.display_name ?? user.email}</Badge>
             </div>
           </div>
@@ -175,51 +225,71 @@ export function ReviewWorkspace({ user }: ReviewWorkspaceProps) {
       </Card>
 
       {message ? (
-        <div className={cn(
-          "rounded-xl border px-4 py-3 text-sm",
-          messageType === "success" && "border-emerald-200 bg-emerald-50 text-emerald-700",
-          messageType === "error" && "border-red-200 bg-red-50 text-red-700",
-          messageType === "info" && "border-blue-100 bg-blue-50 text-blue-700"
-        )}>{message}</div>
+        <div
+          className={cn(
+            "rounded-xl border px-4 py-3 text-sm",
+            messageType === "success" &&
+              "border-emerald-200 bg-emerald-50 text-emerald-700",
+            messageType === "error" && "border-red-200 bg-red-50 text-red-700",
+            messageType === "info" && "border-blue-100 bg-blue-50 text-blue-700"
+          )}
+        >
+          {message}
+        </div>
       ) : null}
 
       <div className="grid gap-5 xl:grid-cols-[360px_minmax(0,1fr)]">
         <aside className="space-y-5 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:self-start xl:overflow-y-auto xl:pr-1">
-          <TaskList tasks={tasks} selectedTaskId={selectedTask?.id ?? null} onSelect={setSelectedTaskId} />
-          {isEditor ? (
-            <EditorPanel experts={experts} selectedExpertId={selectedExpertId} onExpertChange={setSelectedExpertId} onAssign={handleAssign} />
-          ) : (
-            <ExpertPanel
+          <TaskList
+            tasks={tasks}
+            selectedTaskId={selectedTask?.id ?? null}
+            onSelect={setSelectedTaskId}
+          />
+          {selectedTask?.stage === "blind" ? (
+            <BlindPanel
+              task={selectedTask}
               metrics={metrics}
               scoreDrafts={scoreDrafts}
               reasonDrafts={reasonDrafts}
-              onScoreChange={(key, score) => setScoreDrafts((current) => ({ ...current, [key]: score }))}
-              onReasonChange={(key, reason) => setReasonDrafts((current) => ({ ...current, [key]: reason }))}
-              onSubmit={handleSubmitReview}
-              disabled={!selectedTask?.reviewId || metrics.length === 0}
+              onScoreChange={(key, score) =>
+                setScoreDrafts((current) => ({ ...current, [key]: score }))
+              }
+              onReasonChange={(key, reason) =>
+                setReasonDrafts((current) => ({ ...current, [key]: reason }))
+              }
+              onSubmit={handleBlindSubmit}
             />
-          )}
+          ) : selectedTask?.stage === "comparison" ? (
+            <ComparisonPanel
+              metrics={metrics}
+              reasonDrafts={reasonDrafts}
+              onReasonChange={(key, reason) =>
+                setReasonDrafts((current) => ({ ...current, [key]: reason }))
+              }
+              onSubmit={handleComparisonSubmit}
+            />
+          ) : null}
         </aside>
 
         <main className="min-w-0">
-          {report ? (
+          {!selectedTask ? (
+            <Empty text="暂无专家复核任务。" />
+          ) : selectedTask.stage === "blind" ? (
+            <BlindInstructions task={selectedTask} />
+          ) : report ? (
             <InternalReportView
               report={report}
               decisions={decisions}
-              readonly={isEditor}
-              onDecisionChange={(opinionId, decision) => setDecisions((current) => ({ ...current, [opinionId]: decision }))}
-              onSubmit={isEditor ? undefined : handleSubmitReview}
+              readonly={selectedTask.stage === "completed"}
+              onDecisionChange={(opinionId, decision) =>
+                setDecisions((current) => ({
+                  ...current,
+                  [opinionId]: decision,
+                }))
+              }
             />
           ) : (
-            <Card>
-              <CardContent className="p-10">
-                <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50 p-8 text-center text-sm text-slate-500">
-                  {selectedTask?.paperId
-                    ? "暂未能加载内部评价表，请确认报告已生成。"
-                    : "当前任务缺少 paper_id，前端无法调用内部报告接口；后端补充该字段后会自动展示。"}
-                </div>
-              </CardContent>
-            </Card>
+            <Empty text="暂未能加载对照报告，请稍后重试。" />
           )}
         </main>
       </div>
@@ -237,16 +307,14 @@ function TaskList({
   onSelect: (taskId: string) => void;
 }) {
   return (
-    <Card className="h-fit">
+    <Card>
       <CardHeader>
-        <CardTitle>任务队列</CardTitle>
-        <CardDescription>选择任务后在中部查看内部评价表。</CardDescription>
+        <CardTitle>复核任务</CardTitle>
+        <CardDescription>每项任务均显示当前复核阶段。</CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
         {tasks.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500">
-            暂无评审任务。
-          </div>
+          <Empty text="暂无评审任务。" />
         ) : (
           tasks.map((task) => (
             <button
@@ -254,20 +322,21 @@ function TaskList({
               type="button"
               onClick={() => onSelect(task.id)}
               className={cn(
-                "w-full rounded-xl border p-3 text-left transition-colors",
-                task.id === selectedTaskId ? "border-blue-200 bg-blue-50" : "border-slate-200 bg-white hover:bg-slate-50"
+                "w-full rounded-xl border p-3 text-left",
+                task.id === selectedTaskId
+                  ? "border-blue-200 bg-blue-50"
+                  : "border-slate-200 bg-white hover:bg-slate-50"
               )}
             >
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-slate-950">{task.title}</p>
-                  <p className="mt-1 text-xs text-slate-500">{task.taskId}</p>
-                </div>
-                <Badge variant="neutral">{task.status}</Badge>
+              <p className="truncate text-sm font-medium text-slate-950">
+                {task.title}
+              </p>
+              <div className="mt-2 flex items-center justify-between gap-2">
+                <span className="text-xs text-slate-500">
+                  {task.requiredDimensions.length} 个复核维度
+                </span>
+                <Badge variant="neutral">{stageLabels[task.stage]}</Badge>
               </div>
-              {task.lowConfidenceDimensions?.length ? (
-                <p className="mt-3 text-xs leading-5 text-amber-700">低置信度：{task.lowConfidenceDimensions.join("、")}</p>
-              ) : null}
             </button>
           ))
         )}
@@ -276,116 +345,137 @@ function TaskList({
   );
 }
 
-function EditorPanel({
-  experts,
-  selectedExpertId,
-  onExpertChange,
-  onAssign,
-}: {
-  experts: User[];
-  selectedExpertId: string;
-  onExpertChange: (expertId: string) => void;
-  onAssign: () => void;
-}) {
+function BlindInstructions({ task }: { task: WorkspaceTask }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>编辑操作</CardTitle>
-        <CardDescription>分配专家并查看结构化内部评价表。</CardDescription>
+        <div className="flex items-center gap-3">
+          <LockKeyhole className="h-5 w-5 text-blue-700" />
+          <div>
+            <CardTitle>独立评阅阶段</CardTitle>
+            <CardDescription>
+              当前不会显示任何智能评分、模型意见或综合参考分。
+            </CardDescription>
+          </div>
+        </div>
       </CardHeader>
-      <CardContent>
-        <label className="space-y-2 text-sm font-medium text-slate-700">
-          专家
-          <Select value={selectedExpertId} onChange={(event) => onExpertChange(event.target.value)}>
-            {experts.map((expert) => (
-              <option key={expert.id} value={expert.id}>
-                {expert.display_name ?? expert.email}
-              </option>
-            ))}
-          </Select>
-        </label>
-        <Button type="button" className="mt-10 w-full" onClick={onAssign} disabled={!selectedExpertId}>
-          分配当前任务
-        </Button>
-        <p className="text-xs leading-5 text-slate-500">编辑端可查看三态确认位置，但不编辑专家确认状态。</p>
+      <CardContent className="space-y-4">
+        <p className="text-sm leading-7 text-slate-600">
+          请先阅读匿名稿，并仅依据稿件内容对指定维度作出独立评分和书面理由。提交后首次判断将锁定，随后才开放四模型对照材料。
+        </p>
+        <a
+          href={expertDocumentUrl(task.reviewId)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button type="button">
+            <FileText className="h-4 w-4" />
+            打开匿名稿
+          </Button>
+        </a>
       </CardContent>
     </Card>
   );
 }
 
-function ExpertPanel({
+function BlindPanel({
+  task,
   metrics,
   scoreDrafts,
   reasonDrafts,
   onScoreChange,
   onReasonChange,
   onSubmit,
-  disabled,
 }: {
+  task: WorkspaceTask;
   metrics: ReturnType<typeof normalizeInternalDimensions>;
   scoreDrafts: Record<string, number>;
   reasonDrafts: Record<string, string>;
   onScoreChange: (key: string, score: number) => void;
   onReasonChange: (key: string, reason: string) => void;
   onSubmit: () => void;
-  disabled: boolean;
 }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>专家复核提交</CardTitle>
-        <CardDescription>三态确认只在前端保存，提交时转译为每维度专家分数与理由。</CardDescription>
+        <CardTitle>独立评分</CardTitle>
+        <CardDescription>分数和理由提交后不可覆盖。</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        {metrics.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50 p-6 text-center text-sm text-slate-500">
-            暂无可提交的维度数据。
+        {metrics.map((metric) => (
+          <div key={metric.key} className="rounded-xl border p-3">
+            <p className="text-sm font-medium text-slate-950">{metric.name}</p>
+            <Input
+              className="mt-3"
+              type="number"
+              min={0}
+              max={100}
+              step={0.5}
+              placeholder="独立评分"
+              value={scoreDrafts[metric.key] ?? ""}
+              onChange={(event) =>
+                onScoreChange(metric.key, clampScore(Number(event.target.value)))
+              }
+            />
+            <Textarea
+              className="mt-3 min-h-24"
+              placeholder="填写独立判断理由"
+              value={reasonDrafts[metric.key] ?? ""}
+              onChange={(event) => onReasonChange(metric.key, event.target.value)}
+            />
           </div>
-        ) : (
-          metrics.map((metric) => (
-            <div key={metric.key} className="rounded-xl border border-slate-200 bg-white p-3">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-sm font-medium text-slate-950">{metric.name}</p>
-                  <p className="text-xs text-slate-500">AI 均分 {metric.score.toFixed(1)}</p>
-                </div>
-                <Input
-                  type="number"
-                  min={0}
-                  max={100}
-                  step={0.5}
-                  value={scoreDrafts[metric.key] ?? metric.score}
-                  onChange={(event) => onScoreChange(metric.key, clampScore(Number(event.target.value)))}
-                  className="w-24"
-                />
-              </div>
-              <Textarea
-                className="mt-3 min-h-20"
-                placeholder="填写专家理由；选择叉时必须填写修正理由。"
-                value={reasonDrafts[metric.key] ?? ""}
-                onChange={(event) => onReasonChange(metric.key, event.target.value)}
-              />
-            </div>
-          ))
-        )}
-        <Button type="button" className="w-full" onClick={onSubmit} disabled={disabled}>
-          <Send className="h-4 w-4" />
-          提交复核意见
+        ))}
+        <Button
+          type="button"
+          className="w-full"
+          onClick={onSubmit}
+          disabled={!task.reviewId || metrics.length === 0}
+        >
+          <LockKeyhole className="h-4 w-4" />
+          提交并锁定独立评阅
         </Button>
       </CardContent>
     </Card>
   );
 }
 
-function mapQueueItemToTask(item: ReviewQueueItem): WorkspaceTask {
-  return {
-    id: item.task_id,
-    taskId: item.task_id,
-    paperId: item.paper_id,
-    title: item.paper_title ?? item.paper_id,
-    status: item.task_status ?? item.paper_status ?? "reviewing",
-    lowConfidenceDimensions: item.low_confidence_dimensions,
-  };
+function ComparisonPanel({
+  metrics,
+  reasonDrafts,
+  onReasonChange,
+  onSubmit,
+}: {
+  metrics: ReturnType<typeof normalizeInternalDimensions>;
+  reasonDrafts: Record<string, string>;
+  onReasonChange: (key: string, reason: string) => void;
+  onSubmit: () => void;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>对照说明</CardTitle>
+        <CardDescription>
+          在右侧逐条选择认可、不认可或无意见；不认可时必须说明。
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {metrics.map((metric) => (
+          <label key={metric.key} className="block space-y-2 text-sm">
+            <span className="font-medium text-slate-700">{metric.name}</span>
+            <Textarea
+              placeholder="填写与四模型意见对照后的补充说明"
+              value={reasonDrafts[metric.key] ?? ""}
+              onChange={(event) => onReasonChange(metric.key, event.target.value)}
+            />
+          </label>
+        ))}
+        <Button type="button" className="w-full" onClick={onSubmit}>
+          <Send className="h-4 w-4" />
+          提交并锁定对照复核
+        </Button>
+      </CardContent>
+    </Card>
+  );
 }
 
 function mapReviewTaskToTask(item: ReviewTask): WorkspaceTask {
@@ -396,5 +486,17 @@ function mapReviewTaskToTask(item: ReviewTask): WorkspaceTask {
     reviewId: item.review_id,
     title: item.paper_title ?? item.paper_id ?? item.task_id,
     status: item.status,
+    stage: item.review_stage,
+    requiredDimensions: item.required_dimensions,
   };
+}
+
+function Empty({ text }: { text: string }) {
+  return (
+    <Card>
+      <CardContent className="p-8 text-center text-sm text-slate-500">
+        {text}
+      </CardContent>
+    </Card>
+  );
 }

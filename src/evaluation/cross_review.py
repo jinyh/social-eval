@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import copy
 import json
 import time
 from dataclasses import dataclass
@@ -14,7 +15,7 @@ from src.core.config import settings
 from src.evaluation.call_logger import log_call
 from src.evaluation.schemas import DimensionResult
 from src.ingestion.schemas import ProcessedPaper
-from src.knowledge.registry import load_review_protocol
+from src.knowledge.registry import load_model_set, load_review_protocol
 from src.knowledge.schemas import Dimension
 
 
@@ -38,6 +39,19 @@ class CrossReviewService:
         self._semaphore = asyncio.Semaphore(
             int(self.protocol["execution"]["max_api_concurrency"])
         )
+
+    @classmethod
+    def for_model_set(cls, model_set_version: str) -> "CrossReviewService":
+        """复用冻结第二轮机制，仅覆盖版本化模型成员与分组。"""
+
+        protocol = copy.deepcopy(load_review_protocol())
+        model_set = load_model_set(model_set_version)
+        protocol["model_groups"] = model_set["model_groups"]
+        protocol["metadata"] = {
+            **protocol["metadata"],
+            "model_set_version": model_set_version,
+        }
+        return cls(protocol)
 
     def validate_provider_names(self, provider_names: list[str]) -> None:
         """启用 R2 时必须同时存在宽松组和严格组模型。"""
@@ -140,7 +154,6 @@ class CrossReviewService:
         if not opposite:
             raise ValueError(f"{provider.model_name} 缺少对方组第一轮意见")
         prompt = self.build_prompt(dimension, paper, self_result, opposite)
-        started = time.time()
         configured_timeout = getattr(provider, "timeout", None)
         timeout = (
             configured_timeout
@@ -151,6 +164,7 @@ class CrossReviewService:
         last_error: Exception | None = None
         content_inspection_error: Exception | None = None
         for attempt in range(1, 4):
+            started = time.time()
             try:
                 async with self._semaphore:
                     candidate = await asyncio.wait_for(
@@ -167,6 +181,21 @@ class CrossReviewService:
                 break
             except Exception as exc:  # noqa: BLE001 - 供应商瞬时错误需受控重试
                 last_error = exc
+                if db is not None and task_id is not None:
+                    log_call(
+                        db,
+                        task_id,
+                        provider.model_name,
+                        dimension.key,
+                        prompt,
+                        str(getattr(exc, "raw_response", None) or ""),
+                        started,
+                        round_number=2,
+                        call_type="cross_review",
+                        provider_name=provider.__class__.__name__,
+                        status="failed",
+                        failure_detail=str(exc),
+                    )
                 normalized_error = str(exc).lower()
                 fallback = self.protocol["execution"].get(
                     "content_inspection_fallback", {}
@@ -210,6 +239,7 @@ class CrossReviewService:
                 started,
                 round_number=2,
                 call_type="cross_review",
+                provider_name=provider.__class__.__name__,
             )
         evidence_quotes = raw.get("new_evidence_found", [])
         if not isinstance(evidence_quotes, list):
@@ -219,6 +249,7 @@ class CrossReviewService:
             score=float(revised),
             evidence_quotes=evidence_quotes,
             analysis=str(raw.get("revision_rationale", "")),
+            band=str(raw.get("revised_band", "") or "") or None,
             model_name=provider.model_name,
         )
         return CrossReviewOutcome(result=result, raw_payload=dict(raw), prompt=prompt)

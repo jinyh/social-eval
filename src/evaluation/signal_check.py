@@ -123,13 +123,15 @@ async def run_signal_check(
     """执行第 3 阶段信号校验。失败降级为 triggers_review=True。"""
 
     prompt = build_signal_check_prompt(framework, paper)
-    start = time.time()
     last_error: Exception | None = None
 
     for _ in range(retry_attempts):
+        start = time.time()
         try:
             val = getattr(provider, "timeout", None)
-            timeout = val if isinstance(val, (int, float)) else settings.provider_timeout
+            timeout = (
+                val if isinstance(val, (int, float)) else settings.provider_timeout
+            )
             payload = await asyncio.wait_for(
                 provider.generate_json_response(prompt),
                 timeout=timeout,
@@ -143,29 +145,38 @@ async def run_signal_check(
                     prompt,
                     json.dumps(payload, ensure_ascii=False),
                     start,
+                    call_type="signal_check",
+                    provider_name=provider.__class__.__name__,
                 )
             return _build_signal_result(payload)
         except asyncio.TimeoutError:
             from src.core.exceptions import ProviderTimeoutError
+
             val = getattr(provider, "timeout", None)
-            timeout = val if isinstance(val, (int, float)) else settings.provider_timeout
+            timeout = (
+                val if isinstance(val, (int, float)) else settings.provider_timeout
+            )
             last_error = ProviderTimeoutError(provider.model_name, timeout)
             logger.warning("signal_check timeout: %s", last_error)
         except Exception as exc:
             last_error = exc
             logger.warning("signal_check attempt failed: %s", exc)
+        if db is not None and last_error is not None:
+            log_call(
+                db,
+                task_id,
+                provider.model_name,
+                SIGNAL_CHECK_DIMENSION_KEY,
+                prompt,
+                str(last_error),
+                start,
+                call_type="signal_check",
+                provider_name=provider.__class__.__name__,
+                status="failed",
+                failure_detail=str(last_error),
+            )
 
     # 降级：不阻塞主流程，返回触发复核的空结果
-    if db is not None:
-        log_call(
-            db,
-            task_id,
-            provider.model_name,
-            SIGNAL_CHECK_DIMENSION_KEY,
-            prompt,
-            f"[FAILED] {last_error}",
-            start,
-        )
     return SignalCheckResult(
         triggers_review=True,
         review_reason=f"signal_check_failed: {last_error}",
@@ -259,7 +270,15 @@ async def run_signal_check_multi(
     ]
     results = await asyncio.gather(*tasks)
     # 过滤掉完全失败降级的结果（仅当有成功结果时）
-    successful = [r for r in results if not (r.triggers_review and r.review_reason and r.review_reason.startswith("signal_check_failed"))]
+    successful = [
+        r
+        for r in results
+        if not (
+            r.triggers_review
+            and r.review_reason
+            and r.review_reason.startswith("signal_check_failed")
+        )
+    ]
     return successful if successful else list(results)
 
 
@@ -291,7 +310,11 @@ def aggregate_signal_results(
     # 收集各模型的 signal_scores
     all_model_scores: dict[str, dict[str, int]] = {}
     for i, r in enumerate(results):
-        name = provider_names[i] if provider_names and i < len(provider_names) else f"model_{i}"
+        name = (
+            provider_names[i]
+            if provider_names and i < len(provider_names)
+            else f"model_{i}"
+        )
         all_model_scores[name] = dict(r.signal_scores) if r.signal_scores else {}
 
     # 判断 agreement：四项 signal_scores 完全一致
@@ -322,9 +345,13 @@ def aggregate_signal_results(
         values = [r.signal_scores.get(key, 0) for r in results]
         key_has_disagreement = len(set(values)) > 1
         if strategy == AGGREGATION_CONSERVATIVE and key_has_disagreement:
-            target_idx = min(range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0))
+            target_idx = min(
+                range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0)
+            )
         else:
-            target_idx = max(range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0))
+            target_idx = max(
+                range(len(results)), key=lambda i: results[i].signal_scores.get(key, 0)
+            )
         best_result_per_key[key] = results[target_idx]
 
     # evidence_quotes 合并去重
@@ -347,16 +374,30 @@ def aggregate_signal_results(
 
     # triggers_review: OR 逻辑
     any_triggers = any(r.triggers_review for r in results)
-    review_reasons = [r.review_reason for r in results if r.triggers_review and r.review_reason]
+    review_reasons = [
+        r.review_reason for r in results if r.triggers_review and r.review_reason
+    ]
 
     return SignalCheckResult(
-        china_problem_centered=best_result_per_key["china_problem_centered"].china_problem_centered,
-        china_practice_explanation_attempted=best_result_per_key["china_practice_explanation_attempted"].china_practice_explanation_attempted,
-        external_theory_transformation=best_result_per_key["external_theory_transformation"].external_theory_transformation,
-        verifiable_concept_or_thesis=best_result_per_key["verifiable_concept_or_thesis"].verifiable_concept_or_thesis,
-        involves_special_chinese_institutional_issue=results[0].involves_special_chinese_institutional_issue,
+        china_problem_centered=best_result_per_key[
+            "china_problem_centered"
+        ].china_problem_centered,
+        china_practice_explanation_attempted=best_result_per_key[
+            "china_practice_explanation_attempted"
+        ].china_practice_explanation_attempted,
+        external_theory_transformation=best_result_per_key[
+            "external_theory_transformation"
+        ].external_theory_transformation,
+        verifiable_concept_or_thesis=best_result_per_key[
+            "verifiable_concept_or_thesis"
+        ].verifiable_concept_or_thesis,
+        involves_special_chinese_institutional_issue=results[
+            0
+        ].involves_special_chinese_institutional_issue,
         issue_types=list({t for r in results for t in r.issue_types}),
-        uses_traditional_cultural_resource=results[0].uses_traditional_cultural_resource,
+        uses_traditional_cultural_resource=results[
+            0
+        ].uses_traditional_cultural_resource,
         evidence_quotes=all_quotes,
         risks=all_risks,
         triggers_review=any_triggers,

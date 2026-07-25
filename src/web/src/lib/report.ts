@@ -10,19 +10,15 @@ import type {
 } from "./types";
 
 export const STANDARD_DIMENSIONS: DimensionMetric[] = [
-  { key: "problem_originality", name: "问题创新性", nameEn: "Problem Originality", score: 70 },
-  { key: "literature_insight", name: "现状洞察度", nameEn: "Literature Insight", score: 70 },
-  { key: "analytical_framework", name: "分析框架建构力", nameEn: "Analytical Framework", score: 70 },
-  { key: "logical_coherence", name: "逻辑严密性", nameEn: "Logical Coherence", score: 70 },
-  { key: "conclusion_consensus", name: "结论可接受性", nameEn: "Conclusion Acceptability", score: 70 },
-  { key: "forward_extension", name: "前瞻延展性", nameEn: "Forward Extension", score: 70 },
+  { key: "problem_originality", name: "研究创新性", score: 70 },
+  { key: "literature_insight", name: "现状洞察度", score: 70 },
+  { key: "analytical_framework", name: "理论建构力", score: 70 },
+  { key: "logical_coherence", name: "逻辑连贯性", score: 70 },
+  { key: "conclusion_consensus", name: "学术共识度", score: 70 },
+  { key: "forward_extension", name: "前瞻延展性", score: 70 },
 ];
 
-const MODEL_DISPLAY_ORDER = [
-  { label: "模型一", aliases: ["gpt-5.4", "openai/gpt-5.4"] },
-  { label: "模型二", aliases: ["glm-5.1", "z-ai/glm-5.1"] },
-  { label: "模型三", aliases: ["qwen3.6-plus", "qwen/qwen3.6-plus", "qwen 3.6 plus"] },
-];
+const MODEL_LABELS = ["模型甲", "模型乙", "模型丙", "模型丁"];
 
 export type AnonymousModelScore = {
   label: string;
@@ -107,31 +103,30 @@ export function confidenceLabel(
 
 export function anonymizeModelScores(modelScores: ModelScoreMap | undefined): AnonymousModelScore[] {
   if (!modelScores) {
-    return MODEL_DISPLAY_ORDER.map((model) => ({ label: model.label, score: null }));
+    return MODEL_LABELS.map((label) => ({ label, score: null }));
   }
 
-  const normalizedEntries = Object.entries(modelScores);
-  const usedKeys = new Set<string>();
-  const ordered = MODEL_DISPLAY_ORDER.map((model) => {
-    const match = normalizedEntries.find(([key]) =>
-      model.aliases.some((alias) => normalizeModelKey(key).includes(normalizeModelKey(alias)))
-    );
-    if (match) usedKeys.add(match[0]);
-    return { label: model.label, score: match ? extractModelScore(match[1]) : null };
-  });
-
-  const unknownScores = normalizedEntries.filter(([key]) => !usedKeys.has(key));
-  unknownScores.slice(0, MODEL_DISPLAY_ORDER.length).forEach(([, value], index) => {
-    if (ordered[index].score === null) {
-      ordered[index] = { ...ordered[index], score: extractModelScore(value) };
-    }
-  });
-
-  return ordered;
+  const values = Object.values(modelScores);
+  return MODEL_LABELS.map((label, index) => ({
+    label,
+    score: extractModelScore(values[index]),
+  }));
 }
 
 export function buildReviewOpinions(dimension: InternalDimensionScore, index: number): ReviewOpinion[] {
   const metric = normalizeInternalDimension(dimension, index);
+  const modelResults = dimension.ai?.model_results;
+  if (modelResults?.length) {
+    return modelResults.map((result) => ({
+      id: `${metric.key}-${result.model_label}`,
+      dimensionKey: metric.key,
+      title: `${result.model_label}判断`,
+      body:
+        result.analysis?.trim() ||
+        `${result.model_label}给出 ${formatScore(result.score)} 分，未提供补充分析。`,
+      evidence: normalizeTextList(result.evidence_quotes)[0],
+    }));
+  }
   const analysisItems = normalizeTextList(dimension.ai?.analysis ?? dimension.analysis);
   const evidenceItems = normalizeTextList(dimension.ai?.evidence_quotes);
   const riskItems = normalizeTextList(dimension.risk_flags);
@@ -194,15 +189,20 @@ export function buildSubmitComments(
     if (hasReject && !manualReason) missingRejectedReasons.push(metric.name);
 
     let reason = manualReason;
-    if (!reason && hasReject) reason = "不认可该维度部分 AI 判断，需专家修正。";
-    if (!reason && hasAccept) reason = "认可 AI 对该维度的判断。";
+    if (!reason && hasReject) reason = "不认可该维度部分智能辅助判断，需专家修正。";
+    if (!reason && hasAccept) reason = "认可智能辅助对该维度的判断。";
     if (!reason) reason = "无补充意见。";
 
     return {
       dimension_key: metric.key,
-      ai_score: clampScore(metric.score),
       expert_score: score,
       reason,
+      statement_decisions: Object.fromEntries(
+        opinions.map((opinion) => [
+          opinion.id,
+          decisionsByOpinion[opinion.id] ?? "neutral",
+        ])
+      ),
     };
   });
   return { comments, missingRejectedReasons };
@@ -225,10 +225,6 @@ export function normalizeTextList(value: unknown): string[] {
     })
     .map((item) => item.trim())
     .filter(Boolean);
-}
-
-function normalizeModelKey(value: string): string {
-  return value.toLowerCase().replaceAll("_", "-").replaceAll(" ", "");
 }
 
 function extractModelScore(value: ModelScoreMap[string]): number | null {
