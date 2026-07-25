@@ -10,7 +10,8 @@ from src.core.exceptions import (
 )
 from src.evaluation.concurrent_evaluator import _call_with_timing
 from src.evaluation.providers.base import BaseProvider
-from src.evaluation.schemas import DimensionResult
+from src.evaluation.schemas import DimensionResult, LimitRuleTriggered
+from src.knowledge.schemas import Dimension
 
 
 class SlowProvider(BaseProvider):
@@ -72,6 +73,41 @@ class SchemaRepairProvider(BaseProvider):
             dimension="test",
             score=80,
             evidence_quotes=[],
+            model_name=self.model_name,
+        )
+
+
+class RuleIdRepairProvider(BaseProvider):
+    """首次自造规则编号，收到纠错提示后返回有效编号。"""
+
+    def __init__(self):
+        self.model_name = "rule-repair-model"
+        self.timeout = 5.0
+        self.prompts: list[str] = []
+
+    async def generate_json_response(self, prompt: str) -> dict:
+        return {}
+
+    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+        self.prompts.append(prompt)
+        rule_id = (
+            "analytical_framework.no_operational_framework"
+            if len(self.prompts) > 1
+            else "analytical_framework.invented_rule"
+        )
+        return DimensionResult(
+            dimension="analytical_framework",
+            score=70,
+            evidence_quotes=[],
+            limit_rule_triggered=[
+                LimitRuleTriggered(
+                    rule_id=rule_id,
+                    rule="测试规则",
+                    score_ceiling=50,
+                    priority=1,
+                    evidence="测试证据",
+                )
+            ],
             model_name=self.model_name,
         )
 
@@ -144,3 +180,34 @@ async def test_schema_failure_retry_names_invalid_fields():
     assert len(provider.prompts) == 2
     assert "evidence_quotes" in provider.prompts[1]
     assert "完整 JSON" in used_prompt
+
+
+@pytest.mark.asyncio
+async def test_unknown_rule_id_retries_with_allowed_ids():
+    provider = RuleIdRepairProvider()
+    dimension = Dimension(
+        key="analytical_framework",
+        name_zh="理论建构力",
+        name_en="Analytical Framework",
+        weight=0.15,
+        prompt_template="评价论文",
+        ceiling_rules=[
+            {
+                "rule_id": "analytical_framework.no_operational_framework",
+                "score_ceiling": 50,
+            }
+        ],
+    )
+
+    outcome, _, used_prompt = await _call_with_timing(
+        provider,
+        "original prompt",
+        dimension_key=dimension.key,
+        dimension=dimension,
+        retry_attempts=2,
+    )
+
+    assert isinstance(outcome, DimensionResult)
+    assert outcome.score == 50
+    assert len(provider.prompts) == 2
+    assert "analytical_framework.no_operational_framework" in used_prompt

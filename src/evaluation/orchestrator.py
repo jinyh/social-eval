@@ -57,6 +57,25 @@ def _stored_dimension_results(
     round_number: int,
     provider_names: list[str],
 ) -> list[DimensionResult] | None:
+    by_model = _stored_dimension_result_map(
+        db,
+        task_id,
+        dimension_key,
+        round_number,
+        provider_names,
+    )
+    if not all(name in by_model for name in provider_names):
+        return None
+    return [by_model[name] for name in provider_names]
+
+
+def _stored_dimension_result_map(
+    db: Session,
+    task_id: str,
+    dimension_key: str,
+    round_number: int,
+    provider_names: list[str],
+) -> dict[str, DimensionResult]:
     rows = (
         db.query(DimensionScore)
         .filter(
@@ -66,22 +85,19 @@ def _stored_dimension_results(
         )
         .all()
     )
-    by_model = {row.model_name: row for row in rows}
-    if not all(name in by_model for name in provider_names):
-        return None
-    results = []
-    for name in provider_names:
-        row = by_model[name]
+    allowed = set(provider_names)
+    results: dict[str, DimensionResult] = {}
+    for row in rows:
+        if row.model_name not in allowed or row.model_name in results:
+            continue
         payload = row.structured_payload or {}
-        results.append(
-            DimensionResult(
-                dimension=dimension_key,
-                score=round(row.score),
-                evidence_quotes=list(row.evidence_quotes or []),
-                analysis=row.analysis,
-                band=payload.get("band") or payload.get("revised_band"),
-                model_name=name,
-            )
+        results[row.model_name] = DimensionResult(
+            dimension=dimension_key,
+            score=round(row.score),
+            evidence_quotes=list(row.evidence_quotes or []),
+            analysis=row.analysis,
+            band=payload.get("band") or payload.get("revised_band"),
+            model_name=row.model_name,
         )
     return results
 
@@ -228,39 +244,39 @@ async def run_evaluation_pipeline(
         dimension_means: dict[str, float] = {}
         per_model_scores: dict[str, dict[str, float]] = {}
         for dimension in framework.dimensions:
-            round1_results = _stored_dimension_results(
+            round1_by_model = _stored_dimension_result_map(
                 db,
                 task.id,
                 dimension.key,
                 1,
                 actual_provider_names,
             )
-            round1_was_stored = round1_results is not None
-            if round1_results is None:
+            missing_names = [
+                name for name in actual_provider_names if name not in round1_by_model
+            ]
+            if missing_names:
                 _set_model_units_running(
                     db,
                     task.id,
                     prefix="r1",
                     dimension_key=dimension.key,
-                    provider_names=actual_provider_names,
+                    provider_names=missing_names,
                 )
-                round1_results = await evaluate_dimension_concurrent(
-                    providers,
+                missing_providers = [
+                    provider
+                    for provider in providers
+                    if provider.model_name in missing_names
+                ]
+                new_round1_results = await evaluate_dimension_concurrent(
+                    missing_providers,
                     dimension,
                     processed_paper,
                     task.id,
                     db,
                 )
-            if not round1_results:
-                raise ValueError(f"No successful results for dimension {dimension.key}")
-
-            round1_report = calculate_reliability(
-                dimension.key,
-                round1_results,
-                std_threshold=framework.std_threshold,
-            )
-            if not round1_was_stored:
-                for result in round1_results:
+                for result in new_round1_results:
+                    if result.model_name in round1_by_model:
+                        continue
                     db.add(
                         DimensionScore(
                             task_id=task.id,
@@ -273,6 +289,42 @@ async def run_evaluation_pipeline(
                             round_number=1,
                         )
                     )
+                    round1_by_model[result.model_name] = result
+                db.commit()
+                mark_model_results(
+                    db,
+                    task.id,
+                    phase="six_dimension_r1",
+                    dimension_key=dimension.key,
+                    model_names=[result.model_name for result in new_round1_results],
+                )
+
+            still_missing = [
+                name for name in actual_provider_names if name not in round1_by_model
+            ]
+            if still_missing:
+                detail = f"{dimension.name_zh}第一轮缺少有效模型结果：" + "、".join(
+                    still_missing
+                )
+                for name in still_missing:
+                    set_work_status(
+                        db,
+                        task.id,
+                        f"r1:{dimension.key}:{name}",
+                        "failed",
+                        failure_detail=detail,
+                        commit=False,
+                    )
+                db.commit()
+                raise ValueError(detail)
+
+            round1_results = [round1_by_model[name] for name in actual_provider_names]
+
+            round1_report = calculate_reliability(
+                dimension.key,
+                round1_results,
+                std_threshold=framework.std_threshold,
+            )
             existing_round1_reliability = (
                 db.query(ReliabilityResult)
                 .filter(
@@ -282,23 +334,30 @@ async def run_evaluation_pipeline(
                 )
                 .first()
             )
+            round1_values = {
+                "mean_score": round1_report.mean,
+                "std_score": round1_report.std,
+                "is_high_confidence": round1_report.is_high_confidence,
+                "model_scores": round1_report.model_scores,
+                "confidence_level": _confidence_level(round1_report.std),
+                "requires_evidence_supplement": round1_report.std > 8,
+                "divergence_description": (
+                    "模型分歧超过专家复核阈值" if round1_report.std > 8 else ""
+                ),
+            }
             if existing_round1_reliability is None:
                 db.add(
                     ReliabilityResult(
                         task_id=task.id,
                         dimension_key=dimension.key,
-                        mean_score=round1_report.mean,
-                        std_score=round1_report.std,
-                        is_high_confidence=round1_report.is_high_confidence,
-                        model_scores=round1_report.model_scores,
-                        confidence_level=_confidence_level(round1_report.std),
-                        requires_evidence_supplement=round1_report.std > 8,
-                        divergence_description=(
-                            "模型分歧超过专家复核阈值" if round1_report.std > 8 else ""
-                        ),
                         round_number=1,
+                        **round1_values,
                     )
                 )
+            else:
+                for key, value in round1_values.items():
+                    setattr(existing_round1_reliability, key, value)
+                db.add(existing_round1_reliability)
             db.commit()
             mark_model_results(
                 db,

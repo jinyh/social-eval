@@ -1,4 +1,5 @@
 import type { PaperStatus, PublicReport } from "@/lib/types";
+import { localizeEvaluationValue } from "@/lib/evaluationLocalization";
 import { buildStudentSummary, formatScore, getReportTitle, normalizePublicDimensions } from "@/lib/report";
 import { Download, Eye } from "lucide-react";
 
@@ -58,10 +59,14 @@ export function StudentSummary({ report, status, onDownload, downloading = false
           <section className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <h3 className="text-sm font-semibold text-slate-950">流程状态</h3>
             <div className="mt-3 flex flex-wrap gap-2">
-              <Badge variant="neutral">论文：{status?.paper_status ?? "未知"}</Badge>
-              <Badge variant="neutral">任务：{status?.task_status ?? "未知"}</Badge>
+              <Badge variant="neutral">
+                论文：{localizeEvaluationValue(status?.paper_status)}
+              </Badge>
+              <Badge variant="neutral">
+                任务：{localizeEvaluationValue(status?.task_status)}
+              </Badge>
               <Badge variant={status?.precheck_status === "passed" ? "success" : "warning"}>
-                预检：{status?.precheck_status ?? "待确认"}
+                预检：{localizeEvaluationValue(status?.precheck_status)}
               </Badge>
             </div>
           </section>

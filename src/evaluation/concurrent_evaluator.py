@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from src.core.config import settings
 from src.core.exceptions import (
+    EvaluationError,
     ProviderResponseValidationError,
     ProviderTimeoutError,
 )
@@ -36,12 +37,35 @@ def _corrective_retry_prompt(
     )
 
 
+def _rule_id_retry_prompt(
+    original_prompt: str,
+    dimension: Dimension,
+    error: EvaluationError,
+) -> str:
+    """为模型自造上限规则编号时提供可执行的纠错提示。"""
+
+    model_extra = getattr(dimension, "model_extra", None) or {}
+    allowed_ids = [
+        str(rule["rule_id"])
+        for rule in model_extra.get("ceiling_rules", [])
+        if isinstance(rule, dict) and rule.get("rule_id")
+    ]
+    allowed = "、".join(allowed_ids) or "本维度未配置上限规则"
+    return (
+        f"{original_prompt}\n\n"
+        "【上限规则编号纠错】上一次输出未通过系统校验："
+        f"{error}。limit_rule_triggered.rule_id 只能使用：{allowed}。"
+        "如果均未触发，必须返回空数组。请重新返回一份完整 JSON。"
+    )
+
+
 async def _call_with_timing(
     provider: BaseProvider,
     prompt: str,
     task_id: str | None = None,
     dimension_key: str | None = None,
     db: Session | None = None,
+    dimension: Dimension | None = None,
     retry_attempts: int = 3,
 ) -> tuple[DimensionResult | Exception, float, str]:
     last_error: Exception | None = None
@@ -54,6 +78,30 @@ async def _call_with_timing(
                 provider.evaluate_dimension(attempt_prompt),
                 timeout=timeout,
             )
+            if dimension is not None:
+                try:
+                    result = normalize_dimension_result(result, dimension)
+                except EvaluationError as exc:
+                    last_error = exc
+                    if (
+                        db is not None
+                        and task_id is not None
+                        and dimension_key is not None
+                    ):
+                        log_call(
+                            db,
+                            task_id,
+                            provider.model_name,
+                            dimension_key,
+                            attempt_prompt,
+                            result.model_dump_json(),
+                            start,
+                            provider_name=provider.__class__.__name__,
+                            status="failed",
+                            failure_detail=str(exc),
+                        )
+                    attempt_prompt = _rule_id_retry_prompt(prompt, dimension, exc)
+                    continue
             return result, start, attempt_prompt
         except asyncio.TimeoutError:
             last_error = ProviderTimeoutError(
@@ -105,6 +153,7 @@ async def evaluate_dimension_concurrent(
                 task_id,
                 dimension.key,
                 db,
+                dimension,
             )
             for p in providers
         ],

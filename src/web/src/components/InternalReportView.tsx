@@ -7,6 +7,7 @@ import {
   normalizeInternalDimension,
   normalizeInternalDimensions,
 } from "@/lib/report";
+import { localizeEvaluationValue } from "@/lib/evaluationLocalization";
 import { cn } from "@/lib/utils";
 
 import { DimensionOverview } from "./DimensionOverview";
@@ -207,7 +208,13 @@ function PrecheckCard({ status, result }: { status?: string | null; result?: Int
             {entries.map(([key, value]) => (
               <div key={key} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
                 <dt className="text-xs font-medium text-slate-500">{precheckFieldLabel(key)}</dt>
-                <dd className="mt-2 text-sm leading-6 text-slate-700">{localizedStatus(String(value))}</dd>
+                <dd className="mt-2 text-sm leading-6 text-slate-700">
+                  {Array.isArray(value)
+                    ? value.map(localizeEvaluationValue).join("；") || "无"
+                    : typeof value === "object" && value !== null
+                      ? "详见审计数据"
+                      : localizedStatus(String(value))}
+                </dd>
               </div>
             ))}
           </dl>
@@ -233,23 +240,7 @@ function precheckFieldLabel(key: string): string {
 }
 
 function localizedStatus(value?: string | null): string {
-  const text = String(value ?? "");
-  return (
-    {
-      passed: "通过",
-      pass: "通过",
-      boundary: "边界，需确认",
-      boundary_review: "边界复核",
-      reject: "不通过",
-      pending: "待处理",
-      high: "高",
-      medium: "中等",
-      low: "较低",
-      critical: "很低",
-      true: "是",
-      false: "否",
-    }[text] ?? (text || "待确认")
-  );
+  return localizeEvaluationValue(value);
 }
 
 function Metric({ label, value }: { label: string; value: string }) {

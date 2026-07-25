@@ -206,9 +206,25 @@ async def run_editorial_pipeline(
             submission.status = "prechecking"
             db.commit()
             processed = process_file(document.file_path)
-            precheck = await run_precheck(
-                providers[0], framework, processed, task.id, db
-            )
+            try:
+                precheck = await run_precheck(
+                    providers[0], framework, processed, task.id, db
+                )
+            except Exception as exc:
+                set_work_status(
+                    db,
+                    task.id,
+                    "precheck",
+                    "failed",
+                    failure_detail=str(exc),
+                    commit=False,
+                )
+                task.status = "failed"
+                task.failure_stage = "precheck"
+                task.failure_detail = str(exc)
+                db.add(task)
+                db.commit()
+                raise
             paper.precheck_status = precheck.status
             paper.precheck_result = precheck.model_dump()
             db.add(paper)

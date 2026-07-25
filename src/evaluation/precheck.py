@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import asyncio
 import time
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
 
+from src.core.config import settings
+from src.core.exceptions import ProviderTimeoutError
 from src.evaluation.call_logger import log_call
 from src.evaluation.prompt_builder import build_precheck_prompt
 from src.evaluation.providers.base import BaseProvider
@@ -130,7 +133,14 @@ async def run_precheck(
     for _ in range(retry_attempts):
         start = time.time()
         try:
-            payload = await provider.generate_json_response(prompt)
+            timeout = getattr(provider, "timeout", settings.provider_timeout)
+            try:
+                payload = await asyncio.wait_for(
+                    provider.generate_json_response(prompt),
+                    timeout=timeout,
+                )
+            except asyncio.TimeoutError as exc:
+                raise ProviderTimeoutError(provider.model_name, timeout) from exc
             log_call(
                 db,
                 task_id,
