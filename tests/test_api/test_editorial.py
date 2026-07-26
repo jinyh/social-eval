@@ -404,6 +404,17 @@ def test_unit_activation_requires_validation_and_signoff(
     assert activated.status_code == 200
     assert activated.json()["rollout_state"] == "active"
 
+    returned = client.post(
+        f"/api/admin/editorial/units/{unit_id}/rollout",
+        json={
+            "rollout_state": "shadow",
+            "reason": "发现关键验证异常，暂停正式建议",
+            "editor_signoff": False,
+        },
+    )
+    assert returned.status_code == 200
+    assert returned.json()["rollout_state"] == "shadow"
+
 
 def test_admin_candidate_model_run_is_separate_from_production_snapshot(
     client: TestClient,
@@ -494,9 +505,7 @@ async def test_opinion_generation_reuses_four_model_results_without_duplicate_ca
     assert len(records) == 1
     assert records[0].opinion_type == "ai_synthesis"
     assert records[0].content["synthesis"] == "四模型综合摘要"
-    assert records[0].content["disagreement_points"] == [
-        "一方为 优，另一方为 良"
-    ]
+    assert records[0].content["disagreement_points"] == ["一方为 优，另一方为 良"]
     assert first.calls == 1
     assert second.calls == 0
 

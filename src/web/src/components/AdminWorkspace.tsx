@@ -16,6 +16,7 @@ import {
   resendInvitation,
   revokeInvitation,
   revokeUserApiKeys,
+  returnEditorialUnitToTrial,
   sendUserPasswordReset,
   startCandidateModelRun,
   signValidationRun,
@@ -123,6 +124,23 @@ export function AdminWorkspace() {
     await refresh();
   };
 
+  const handleReturnToTrial = async () => {
+    if (!selectedUnitId || activationReason.trim().length < 5) return;
+    if (
+      !window.confirm(
+        "确定将该编辑单元退回试运行吗？新的智能建议将恢复为扣留展示，历史记录不会删除。"
+      )
+    ) {
+      return;
+    }
+    await returnEditorialUnitToTrial(
+      selectedUnitId,
+      activationReason.trim()
+    );
+    setMessage("编辑单元已退回试运行；历史评价和决定记录均已保留。");
+    await refresh();
+  };
+
   const handleCandidateRun = async () => {
     if (!candidateSubmissionId.trim()) return;
     const result = await startCandidateModelRun(candidateSubmissionId.trim());
@@ -141,6 +159,7 @@ export function AdminWorkspace() {
       (userStatus === "active" ? user.is_active !== false : user.is_active === false);
     return matchesKeyword && matchesRole && matchesStatus;
   });
+  const selectedUnit = units.find((unit) => unit.id === selectedUnitId);
 
   const runUserAction = async (
     action: () => Promise<unknown>,
@@ -494,36 +513,57 @@ export function AdminWorkspace() {
                 添加编辑
               </Button>
             </div>
-            <Input
-              type="number"
-              min={1}
-              value={sampleCount}
-              onChange={(event) => setSampleCount(Number(event.target.value))}
-              placeholder="试运行验证样本数"
-            />
-            <Input
-              value={manifestSha256}
-              onChange={(event) => setManifestSha256(event.target.value.trim())}
-              placeholder="样本清单 SHA-256（64 位小写十六进制）"
-              pattern="[0-9a-f]{64}"
-            />
+            {selectedUnit?.rollout_state !== "active" ? (
+              <>
+                <Input
+                  type="number"
+                  min={1}
+                  value={sampleCount}
+                  onChange={(event) => setSampleCount(Number(event.target.value))}
+                  placeholder="试运行验证样本数"
+                />
+                <Input
+                  value={manifestSha256}
+                  onChange={(event) =>
+                    setManifestSha256(event.target.value.trim())
+                  }
+                  placeholder="样本清单 SHA-256（64 位小写十六进制）"
+                  pattern="[0-9a-f]{64}"
+                />
+              </>
+            ) : null}
             <Textarea
               value={activationReason}
               onChange={(event) => setActivationReason(event.target.value)}
-              placeholder="填写验证结论和编辑签字说明（至少 5 个字符）"
-            />
-            <Button
-              type="button"
-              onClick={handleActivate}
-              disabled={
-                !selectedUnitId ||
-                sampleCount < 1 ||
-                !/^[0-9a-f]{64}$/.test(manifestSha256) ||
-                activationReason.trim().length < 5
+              placeholder={
+                selectedUnit?.rollout_state === "active"
+                  ? "填写退回试运行的原因（至少 5 个字符）"
+                  : "填写验证结论和编辑签字说明（至少 5 个字符）"
               }
-            >
-              验证并正式启用
-            </Button>
+            />
+            {selectedUnit?.rollout_state === "active" ? (
+              <Button
+                type="button"
+                variant="destructive"
+                onClick={handleReturnToTrial}
+                disabled={activationReason.trim().length < 5}
+              >
+                退回试运行
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                onClick={handleActivate}
+                disabled={
+                  !selectedUnitId ||
+                  sampleCount < 1 ||
+                  !/^[0-9a-f]{64}$/.test(manifestSha256) ||
+                  activationReason.trim().length < 5
+                }
+              >
+                验证并正式启用
+              </Button>
+            )}
           </CardContent>
         </Card>
       </div>

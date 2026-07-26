@@ -785,6 +785,28 @@ export async function activateEditorialUnit(
   );
 }
 
+export async function returnEditorialUnitToTrial(
+  unitId: string,
+  reason: string
+): Promise<EditorialUnit> {
+  if (isMockMode()) {
+    const unit = mockEditorialUnits.find((item) => item.id === unitId);
+    if (!unit) throw new Error("未找到编辑单元");
+    return { ...unit, rollout_state: "shadow" };
+  }
+  return apiFetch<EditorialUnit>(
+    `/api/admin/editorial/units/${unitId}/rollout`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        rollout_state: "shadow",
+        reason,
+        editor_signoff: false,
+      }),
+    }
+  );
+}
+
 export async function createValidationRun(
   unitId: string,
   sampleCount: number,
