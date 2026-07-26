@@ -12,6 +12,28 @@ from src.evaluation.providers.base import BaseProvider
 FIT_STATUSES = {"pass", "boundary", "reject"}
 
 
+def _format_fit_profile(profile: dict[str, Any]) -> str:
+    """把版本化期刊口径整理为模型可核对的中文清单。"""
+
+    labels = (
+        ("accepted_scope", "收稿范围"),
+        ("excluded_scope", "明确排除范围"),
+        ("column_positioning", "栏目定位"),
+        ("article_types", "稿件类型"),
+        ("target_readers", "目标读者"),
+    )
+    lines = ["【本刊版本化适配口径】"]
+    for key, label in labels:
+        values = profile.get(key)
+        if isinstance(values, list) and values:
+            lines.append(f"{label}：" + "；".join(str(value) for value in values))
+    special_notes = str(profile.get("special_notes") or "").strip()
+    if special_notes:
+        lines.append(f"特别说明：{special_notes}")
+    lines.append("上述口径只用于适配性判断，不得替代六维学术质量评价。")
+    return "\n".join(lines)
+
+
 def _normalize_text_items(
     value: Any,
     *,
@@ -96,6 +118,7 @@ async def evaluate_journal_fit(
         "unit_name": unit_name,
     }
     prompt = policy.journal_fit["prompt_template"].format(**prompt_context)
+    prompt += "\n\n" + _format_fit_profile(policy.profile)
     prompt += "\n\n输出契约：\n" + json.dumps(
         policy.journal_fit["output_contract"], ensure_ascii=False
     )

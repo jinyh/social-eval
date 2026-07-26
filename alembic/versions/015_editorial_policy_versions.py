@@ -43,10 +43,18 @@ def _snapshot(
     version: str,
     model_set_version: str,
 ) -> dict:
-    profile = editorial["profiles"].get(
-        policy_key,
-        editorial["profiles"]["law-general-v1"],
+    profile = dict(
+        editorial["profiles"].get(
+            policy_key,
+            editorial["profiles"]["law-general-v1"],
+        )
     )
+    profile.setdefault("accepted_scope", [str(profile["fit_focus"])])
+    profile.setdefault("excluded_scope", [])
+    profile.setdefault("column_positioning", [])
+    profile.setdefault("article_types", ["法学研究论文"])
+    profile.setdefault("target_readers", ["法学研究者与法律实务工作者"])
+    profile.setdefault("special_notes", "")
     model_set = registry["model_sets"][model_set_version]
     return {
         "key": policy_key,
