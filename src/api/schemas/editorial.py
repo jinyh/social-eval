@@ -222,3 +222,8 @@ class ValidationRunCreateRequest(BaseModel):
 
 class ReopenDecisionRequest(BaseModel):
     reason: str = Field(min_length=5, max_length=2000)
+
+
+class RetentionHoldRequest(BaseModel):
+    enabled: bool
+    reason: str = Field(min_length=5, max_length=2000)

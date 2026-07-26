@@ -43,6 +43,7 @@ from src.api.schemas.editorial import (
     GateContinueRequest,
 )
 from src.core.audit import record_audit_log
+from src.core.config import settings
 from src.core.database import get_db
 from src.core.email import send_editorial_event_email
 from src.core.storage import save_upload_file, validate_upload_filename
@@ -975,6 +976,11 @@ def submit_decision(
         in {"send_external_review", "priority_external_review"}
         else "completed"
     )
+    submission.retention_due_at = (
+        utc_now() + timedelta(days=settings.retention_manuscript_days)
+        if submission.status == "completed"
+        else None
+    )
     db.add(decision)
     db.add(submission)
     db.commit()
@@ -993,7 +999,7 @@ def submit_decision(
         details={
             "version": decision.version,
             "stage": payload.decision_stage,
-            "rationale": payload.rationale,
+            "rationale_provided": bool((payload.rationale or "").strip()),
         },
     )
     generate_editorial_report(db, submission.id)

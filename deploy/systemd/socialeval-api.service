@@ -6,9 +6,9 @@ After=network.target
 Type=simple
 User=socialeval
 Group=socialeval
-WorkingDirectory=/opt/social-eval
+WorkingDirectory=/opt/socialeval
 EnvironmentFile=-/etc/socialeval/socialeval.env
-ExecStart=/usr/bin/env bash -lc 'cd /opt/social-eval && uv run uvicorn src.api.main:app --host 127.0.0.1 --port 8000'
+ExecStart=/usr/bin/env bash -lc 'cd /opt/socialeval && uv run uvicorn src.api.main:app --host 127.0.0.1 --port 8000'
 Restart=always
 RestartSec=5
 

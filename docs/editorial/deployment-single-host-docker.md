@@ -15,8 +15,9 @@ Kubernetes。
 - `postgres`：业务和审计数据；
 - `redis`：任务队列。
 
-PostgreSQL 和 Redis 不映射公网端口。稿件、报告和数据库使用具名卷；备份必须复制到
-另一存储位置。
+PostgreSQL 和 Redis 不映射公网端口。稿件、报告、数据库、Redis 与 Caddy 状态均绑定
+到 `SOCIALEVAL_DATA_ROOT` 指向的独立数据盘；备份由 Restic 加密后复制到私有交大云
+对象存储。
 
 ## 发布顺序
 
@@ -69,6 +70,9 @@ docker compose --env-file .env.production -f docker-compose.prod.yml exec api \
 ## 生产检查
 
 - 使用强随机 `SECRET_KEY`，模型和邮件凭据仅通过环境注入；
+- 独立生成 `FIELD_ENCRYPTION_KEY`，管理员强制启用 TOTP；
+- 首次启动前运行 `deploy/scripts/prepare_data_dirs.sh`，确保数据库、队列和稿件
+  目录可由各自容器用户写入；
 - 设置 `APP_ENV=production`、HTTPS 的 `PUBLIC_BASE_URL`、准确的
   `ALLOWED_ORIGINS` 与 `ALLOWED_HOSTS`；生产配置缺失时 API 会拒绝启动；
 - SMTP 使用 `EMAIL_ENABLED=true` 显式启用；`SMTP_SSL` 和
@@ -80,14 +84,19 @@ docker compose --env-file .env.production -f docker-compose.prod.yml exec api \
 - 日志不得记录稿件正文、Session、API Key 或邮件凭据；
 - 定期验证备份可以恢复，而不只是检查备份任务成功。
 
+首次上线前还必须安装 `deploy/systemd/` 中的备份和健康检查定时器，并按
+`docs/deployment/backup-and-recovery-runbook.md` 完成一次临时数据库恢复演练。
+
 ## 健康、进度与邮件验证
 
 ```bash
 # 进程存活
 curl -fsS https://review.example.com/api/health/live
 
-# 数据库、Redis 与上传目录就绪
-curl -fsS https://review.example.com/api/health/ready
+# 数据库、Redis 与上传目录就绪；该端点不向公网暴露
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  exec -T api python -c \
+  "import os,urllib.request; h=os.environ['ALLOWED_HOSTS'].split(',')[0]; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/api/health/ready',headers={'Host':h}))"
 
 # 管理员运行状态；请用正式 API Key 注入，不要写入脚本或历史记录
 curl -fsS -H "X-API-Key: ${SOCIALEVAL_ADMIN_API_KEY}" \

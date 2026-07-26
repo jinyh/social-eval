@@ -8,14 +8,20 @@ import {
   createInvitation,
   createJournal,
   createValidationRun,
+  listInvitations,
   listEditorialPolicies,
   listEditorialUnits,
   listModelSets,
   listUsers,
+  resendInvitation,
+  revokeInvitation,
+  revokeUserApiKeys,
+  sendUserPasswordReset,
   startCandidateModelRun,
   signValidationRun,
+  updateUser,
 } from "@/lib/api";
-import type { EditorialUnit, ModelSet, User } from "@/lib/types";
+import type { EditorialUnit, Invitation, ModelSet, User } from "@/lib/types";
 
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -27,6 +33,10 @@ import { Textarea } from "./ui/textarea";
 
 export function AdminWorkspace() {
   const [users, setUsers] = useState<User[]>([]);
+  const [invitations, setInvitations] = useState<Invitation[]>([]);
+  const [userQuery, setUserQuery] = useState("");
+  const [userRole, setUserRole] = useState("");
+  const [userStatus, setUserStatus] = useState("");
   const [inviteEmail, setInviteEmail] = useState("new-user@example.com");
   const [inviteRole, setInviteRole] = useState<User["role"]>("submitter");
   const [message, setMessage] = useState("");
@@ -46,13 +56,15 @@ export function AdminWorkspace() {
   const [candidateSubmissionId, setCandidateSubmissionId] = useState("");
 
   const refresh = async () => {
-    const [userRows, unitRows, policyRows, modelSetRows] = await Promise.all([
+    const [userRows, invitationRows, unitRows, policyRows, modelSetRows] = await Promise.all([
       listUsers(),
+      listInvitations(),
       listEditorialUnits(),
       listEditorialPolicies(),
       listModelSets(),
     ]);
     setUsers(userRows);
+    setInvitations(invitationRows);
     setUnits(unitRows);
     setPolicies(policyRows);
     setModelSets(modelSetRows);
@@ -117,6 +129,32 @@ export function AdminWorkspace() {
     setMessage(`候选模型任务已创建：${result.task_id}`);
   };
 
+  const filteredUsers = users.filter((user) => {
+    const keyword = userQuery.trim().toLocaleLowerCase("zh-CN");
+    const matchesKeyword =
+      !keyword ||
+      user.email.toLocaleLowerCase("zh-CN").includes(keyword) ||
+      (user.display_name ?? "").toLocaleLowerCase("zh-CN").includes(keyword);
+    const matchesRole = !userRole || user.role === userRole;
+    const matchesStatus =
+      !userStatus ||
+      (userStatus === "active" ? user.is_active !== false : user.is_active === false);
+    return matchesKeyword && matchesRole && matchesStatus;
+  });
+
+  const runUserAction = async (
+    action: () => Promise<unknown>,
+    successMessage: string
+  ) => {
+    try {
+      await action();
+      setMessage(successMessage);
+      await refresh();
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "操作失败");
+    }
+  };
+
   return (
     <div className="space-y-5">
       <div className="grid gap-5 lg:grid-cols-[360px_1fr]">
@@ -156,23 +194,129 @@ export function AdminWorkspace() {
         <Card>
         <CardHeader>
           <CardTitle>用户目录</CardTitle>
-          <CardDescription>管理员入口保持独立后台风格，不混入评审主流程。</CardDescription>
+          <CardDescription>筛选用户、调整角色、停用账户或发送密码重置邮件。</CardDescription>
         </CardHeader>
         <CardContent>
+          <div className="mb-4 grid gap-3 md:grid-cols-3">
+            <Input
+              value={userQuery}
+              onChange={(event) => setUserQuery(event.target.value)}
+              placeholder="搜索姓名或邮箱"
+            />
+            <Select value={userRole} onChange={(event) => setUserRole(event.target.value)}>
+              <option value="">全部角色</option>
+              <option value="submitter">学生/投稿人</option>
+              <option value="editor">编辑</option>
+              <option value="expert">专家</option>
+              <option value="admin">管理员</option>
+            </Select>
+            <Select value={userStatus} onChange={(event) => setUserStatus(event.target.value)}>
+              <option value="">全部状态</option>
+              <option value="active">已启用</option>
+              <option value="inactive">已停用</option>
+            </Select>
+          </div>
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>用户</TableHead>
                 <TableHead>邮箱</TableHead>
                 <TableHead>角色</TableHead>
+                <TableHead>状态</TableHead>
+                <TableHead>最后登录</TableHead>
+                <TableHead>操作</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {users.map((user) => (
+              {filteredUsers.map((user) => (
                 <TableRow key={user.id}>
                   <TableCell className="font-medium text-slate-950">{user.display_name ?? "未命名"}</TableCell>
                   <TableCell>{user.email}</TableCell>
-                  <TableCell><Badge variant="neutral">{roleLabel[user.role]}</Badge></TableCell>
+                  <TableCell>
+                    <Select
+                      value={user.role}
+                      onChange={(event) =>
+                        void runUserAction(
+                          () =>
+                            updateUser(user.id, {
+                              role: event.target.value as User["role"],
+                            }),
+                          "用户角色已更新。"
+                        )
+                      }
+                    >
+                      <option value="submitter">学生/投稿人</option>
+                      <option value="editor">编辑</option>
+                      <option value="expert">专家</option>
+                      <option value="admin">管理员</option>
+                    </Select>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant={user.is_active === false ? "neutral" : "success"}>
+                      {user.is_active === false ? "已停用" : "已启用"}
+                    </Badge>
+                    {user.role === "admin" ? (
+                      <span className="ml-2 text-xs text-slate-500">
+                        {user.mfa_enabled ? "已启用双因素认证" : "待设置双因素认证"}
+                      </span>
+                    ) : null}
+                    {user.password_reset_required ? (
+                      <span className="ml-2 text-xs text-amber-700">
+                        待完成密码重置
+                      </span>
+                    ) : null}
+                  </TableCell>
+                  <TableCell>
+                    {user.last_login_at
+                      ? new Date(user.last_login_at).toLocaleString("zh-CN")
+                      : "尚未登录"}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="secondary"
+                        onClick={() =>
+                          void runUserAction(
+                            () => sendUserPasswordReset(user.id),
+                            "密码重置邮件已进入发送队列。"
+                          )
+                        }
+                      >
+                        重置密码
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="secondary"
+                        onClick={() =>
+                          void runUserAction(
+                            () => revokeUserApiKeys(user.id),
+                            "该用户的 API Key 已全部撤销。"
+                          )
+                        }
+                      >
+                        撤销 Key
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant={user.is_active === false ? "outline" : "destructive"}
+                        onClick={() =>
+                          void runUserAction(
+                            () =>
+                              updateUser(user.id, {
+                                is_active: user.is_active === false,
+                              }),
+                            user.is_active === false ? "用户已恢复。" : "用户已停用。"
+                          )
+                        }
+                      >
+                        {user.is_active === false ? "恢复" : "停用"}
+                      </Button>
+                    </div>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -180,6 +324,74 @@ export function AdminWorkspace() {
         </CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>邀请记录</CardTitle>
+          <CardDescription>查看、重新发送或撤销尚未使用的账户邀请。</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>邮箱</TableHead>
+                <TableHead>角色</TableHead>
+                <TableHead>状态</TableHead>
+                <TableHead>有效期至</TableHead>
+                <TableHead>操作</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {invitations.map((invitation) => (
+                <TableRow key={invitation.id}>
+                  <TableCell>{invitation.email}</TableCell>
+                  <TableCell>{roleLabel[invitation.role]}</TableCell>
+                  <TableCell>
+                    <Badge variant={invitation.status === "pending" ? "warning" : "neutral"}>
+                      {invitationStatusLabel[invitation.status]}
+                    </Badge>
+                  </TableCell>
+                  <TableCell>
+                    {new Date(invitation.expires_at).toLocaleString("zh-CN")}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex gap-2">
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="secondary"
+                        disabled={invitation.status === "used" || invitation.status === "revoked"}
+                        onClick={() =>
+                          void runUserAction(
+                            () => resendInvitation(invitation.id),
+                            "邀请已经重新发送。"
+                          )
+                        }
+                      >
+                        重新发送
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="destructive"
+                        disabled={invitation.status === "used" || invitation.status === "revoked"}
+                        onClick={() =>
+                          void runUserAction(
+                            () => revokeInvitation(invitation.id),
+                            "邀请已经撤销。"
+                          )
+                        }
+                      >
+                        撤销
+                      </Button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
 
       <div className="grid gap-5 xl:grid-cols-[1fr_1fr]">
         <Card>
@@ -393,4 +605,11 @@ const roleLabel: Record<User["role"], string> = {
   editor: "编辑",
   expert: "专家",
   admin: "管理员",
+};
+
+const invitationStatusLabel: Record<Invitation["status"], string> = {
+  pending: "待使用",
+  used: "已使用",
+  expired: "已过期",
+  revoked: "已撤销",
 };

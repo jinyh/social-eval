@@ -6,9 +6,9 @@ After=network.target
 Type=simple
 User=socialeval
 Group=socialeval
-WorkingDirectory=/opt/social-eval
+WorkingDirectory=/opt/socialeval
 EnvironmentFile=-/etc/socialeval/socialeval.env
-ExecStart=/usr/bin/env bash -lc 'cd /opt/social-eval && uv run celery -A src.tasks.celery_app.celery_app worker --loglevel=info'
+ExecStart=/usr/bin/env bash -lc 'cd /opt/socialeval && uv run celery -A src.tasks.celery_app.celery_app worker --loglevel=info'
 Restart=always
 RestartSec=5
 

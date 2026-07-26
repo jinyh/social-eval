@@ -1,3 +1,9 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "20m"
+    max-file: "5"
+
 services:
   postgres:
     image: postgres:16-alpine
@@ -7,7 +13,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-socialeval}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ${SOCIALEVAL_DATA_ROOT:?set SOCIALEVAL_DATA_ROOT}/postgres:/var/lib/postgresql/data
+    cpus: 2
+    mem_limit: 8g
+    logging: *default-logging
     healthcheck:
       test:
         - CMD-SHELL
@@ -23,7 +32,10 @@ services:
     restart: unless-stopped
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
-      - redis_data:/data
+      - ${SOCIALEVAL_DATA_ROOT:?set SOCIALEVAL_DATA_ROOT}/redis:/data
+    cpus: 1
+    mem_limit: 2g
+    logging: *default-logging
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -39,6 +51,7 @@ services:
     env_file:
       - ${ENV_FILE:-.env.production}
     environment:
+      APP_ENV: production
       DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
       REDIS_URL: redis://redis:6379/0
     command: ["alembic", "upgrade", "head"]
@@ -46,6 +59,9 @@ services:
       postgres:
         condition: service_healthy
     restart: "no"
+    cpus: 1
+    mem_limit: 2g
+    logging: *default-logging
     security_opt:
       - no-new-privileges:true
 
@@ -58,11 +74,13 @@ services:
     env_file:
       - ${ENV_FILE:-.env.production}
     environment:
+      APP_ENV: production
       DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
       REDIS_URL: redis://redis:6379/0
       SESSION_HTTPS_ONLY: "true"
+      ADMIN_MFA_REQUIRED: "true"
     volumes:
-      - app_data:/app/data
+      - ${SOCIALEVAL_DATA_ROOT:?set SOCIALEVAL_DATA_ROOT}/app:/app/data
     command:
       - uvicorn
       - src.api.main:app
@@ -95,6 +113,9 @@ services:
       retries: 5
     security_opt:
       - no-new-privileges:true
+    cpus: 2
+    mem_limit: 4g
+    logging: *default-logging
 
   worker:
     build:
@@ -105,10 +126,11 @@ services:
     env_file:
       - ${ENV_FILE:-.env.production}
     environment:
+      APP_ENV: production
       DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL}
       REDIS_URL: redis://redis:6379/0
     volumes:
-      - app_data:/app/data
+      - ${SOCIALEVAL_DATA_ROOT:?set SOCIALEVAL_DATA_ROOT}/app:/app/data
     command:
       - celery
       - -A
@@ -131,6 +153,9 @@ services:
       retries: 5
     security_opt:
       - no-new-privileges:true
+    cpus: 4
+    mem_limit: 16g
+    logging: *default-logging
 
   frontend:
     build:
@@ -139,6 +164,9 @@ services:
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
+    cpus: 0.5
+    mem_limit: 512m
+    logging: *default-logging
 
   proxy:
     image: caddy:2.10-alpine
@@ -151,8 +179,8 @@ services:
       - "443:443/udp"
     volumes:
       - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
+      - ${SOCIALEVAL_DATA_ROOT:?set SOCIALEVAL_DATA_ROOT}/caddy/data:/data
+      - ${SOCIALEVAL_DATA_ROOT:?set SOCIALEVAL_DATA_ROOT}/caddy/config:/config
     depends_on:
       api:
         condition: service_healthy
@@ -160,10 +188,6 @@ services:
         condition: service_started
     security_opt:
       - no-new-privileges:true
-
-volumes:
-  app_data:
-  caddy_config:
-  caddy_data:
-  postgres_data:
-  redis_data:
+    cpus: 0.5
+    mem_limit: 512m
+    logging: *default-logging

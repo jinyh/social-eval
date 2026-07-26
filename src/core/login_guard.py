@@ -46,3 +46,18 @@ def clear_failed_logins(client_ip: str, email: str) -> None:
         _client().delete(_key(client_ip, email))
     except RedisError as exc:
         raise LoginGuardUnavailable("登录保护服务暂不可用") from exc
+
+
+def register_security_failure(scope: str, identity: str) -> tuple[int, int]:
+    """为重置、双因素等安全流程提供统一 Redis 限速。"""
+
+    digest = hashlib.sha256(f"{scope}|{identity}".encode()).hexdigest()
+    key = f"socialeval:security:{scope}:{digest}"
+    try:
+        client = _client()
+        count = int(client.incr(key))
+        if count == 1:
+            client.expire(key, settings.security_window_seconds)
+        return count, max(int(client.ttl(key)), 1)
+    except RedisError as exc:
+        raise LoginGuardUnavailable("安全校验服务暂不可用") from exc

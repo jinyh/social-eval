@@ -14,6 +14,10 @@ class UserResponse(BaseModel):
     display_name: str | None = None
     is_active: bool
     created_at: datetime
+    last_login_at: datetime | None = None
+    password_changed_at: datetime | None = None
+    password_reset_required: bool = False
+    mfa_enabled: bool = False
     auth_method: str | None = None
 
     model_config = ConfigDict(from_attributes=True)
@@ -35,7 +39,18 @@ class InvitationResponse(BaseModel):
     role: str
     token: str | None = None
     email_status: str
+    status: str = "pending"
+    created_at: datetime
     expires_at: datetime
+
+
+class UserUpdateRequest(BaseModel):
+    role: str | None = Field(default=None, pattern="^(submitter|editor|expert|admin)$")
+    is_active: bool | None = None
+
+
+class InvitationListResponse(BaseModel):
+    items: list[InvitationResponse]
 
 
 def default_expiration(days: int) -> datetime:

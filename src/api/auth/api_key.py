@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import hmac
 import secrets
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from sqlalchemy.orm import Session
 
@@ -22,6 +22,8 @@ def create_api_key(
     name: str | None = None,
     expires_at: datetime | None = None,
 ) -> tuple[ApiKey, str]:
+    if expires_at is None:
+        expires_at = utc_now() + timedelta(days=90)
     raw_key = f"sk_socialeval_{secrets.token_urlsafe(32)}"
     hashed_key = _hash_api_key_value(raw_key)
     api_key = ApiKey(

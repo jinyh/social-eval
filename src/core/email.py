@@ -9,6 +9,7 @@ import aiosmtplib
 from sqlalchemy.orm import Session
 
 from src.core.config import settings
+from src.core.field_encryption import decrypt_field, encrypt_field
 from src.core.logging import logger
 from src.core.time import utc_now
 from src.models.editorial import EmailDelivery
@@ -39,6 +40,18 @@ EVENT_CONTENT: dict[str, tuple[str, str]] = {
         "责任编辑任务已转移",
         "一项稿件已转交给你负责，请登录系统查看。",
     ),
+    "password_reset_requested": (
+        "重置账户密码",
+        "我们收到了你的密码重置请求。如非本人操作，请忽略本邮件。",
+    ),
+    "password_changed": (
+        "账户密码已更新",
+        "你的账户密码已经更新。如非本人操作，请立即联系系统管理员。",
+    ),
+    "account_status_changed": (
+        "账户状态已更新",
+        "你的账户状态已由管理员更新，请联系管理员了解详情。",
+    ),
 }
 
 
@@ -53,9 +66,12 @@ def _safe_error(exc: Exception) -> str:
 
 def _login_url(event_type: str, template_data: dict) -> str:
     base = settings.public_base_url.rstrip("/")
+    encrypted_token = str(template_data.get("token_encrypted", ""))
+    token = decrypt_field(encrypted_token) if encrypted_token else ""
     if event_type == "invitation_created":
-        token = str(template_data.get("token", ""))
-        return f"{base}/?invitation_token={token}"
+        return f"{base}/activate#token={token}"
+    if event_type == "password_reset_requested":
+        return f"{base}/reset-password#token={token}"
     return base
 
 
@@ -64,7 +80,7 @@ def _render_message(delivery: EmailDelivery) -> EmailMessage:
         delivery.event_type,
         ("系统通知", "你有一项新的系统通知，请登录系统查看。"),
     )
-    template_data = delivery.template_data or {}
+    template_data = dict(delivery.template_data or {})
     system_id = str(template_data.get("system_id") or delivery.object_id)
     link = _login_url(delivery.event_type, template_data)
     lines = [body]
@@ -112,13 +128,17 @@ def queue_email(
     )
     if existing is not None:
         return existing
+    safe_template_data = dict(template_data or {})
+    raw_token = safe_template_data.pop("token", None)
+    if raw_token:
+        safe_template_data["token_encrypted"] = encrypt_field(str(raw_token))
     delivery = EmailDelivery(
         idempotency_key=idempotency_key,
         event_type=event_type,
         recipient_email=recipient_email,
         object_type=object_type,
         object_id=object_id,
-        template_data=template_data,
+        template_data=safe_template_data,
         status="queued" if settings.email_enabled else "disabled",
     )
     db.add(delivery)
@@ -170,6 +190,12 @@ async def deliver_email(delivery_id: str, db: Session) -> EmailDelivery:
         db.commit()
         raise
     delivery.status = "accepted"
+    if delivery.template_data and "token_encrypted" in delivery.template_data:
+        delivery.template_data = {
+            key: value
+            for key, value in delivery.template_data.items()
+            if key != "token_encrypted"
+        }
     delivery.provider_message_id = str(message["Message-ID"])
     delivery.accepted_at = utc_now()
     delivery.next_attempt_at = None

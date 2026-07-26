@@ -26,10 +26,13 @@ from src.models.reliability import ReliabilityResult
 from src.models.report import Report, ReportExport
 from src.models.review import ExpertReview, ReviewComment
 from src.models.user import Invitation, User
+from src.models.user import MfaRecoveryCode, PasswordResetToken
 
 __all__ = [
     "User",
     "Invitation",
+    "MfaRecoveryCode",
+    "PasswordResetToken",
     "ApiKey",
     "AuditLog",
     "BatchTask",

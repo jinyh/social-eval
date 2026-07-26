@@ -21,7 +21,7 @@
 - `PostgreSQL`
 - `Redis`
 - `SMTP`
-- 本地具名卷存储
+- 独立数据盘绑定挂载
 
 配套上线能力已经覆盖：
 
@@ -85,9 +85,9 @@
 说明：
 
 - 前端未显式设置 `VITE_API_BASE` 时，会优先走同源 `/api`
-- 当前单机方案使用 `app_data` 具名卷；对象存储尚未作为现成功能交付。
-- `OBJECT_STORAGE_BACKEND` 当前支持 `local` 和 `s3`
-- `s3` 模式下，`OBJECT_STORAGE_ENDPOINT` 可用于校内对象存储或其他 S3 兼容服务
+- 当前单机方案将 `/app/data` 绑定到独立数据盘的
+  `${SOCIALEVAL_DATA_ROOT}/app`。
+- 对象存储尚未作为应用主存储交付，只用于 Restic 客户端加密备份。
 
 ---
 
@@ -130,6 +130,16 @@ docker compose --env-file .env.production -f docker-compose.prod.yml up migrate
 
 ### 4.5 启动应用
 
+第一次启动前先创建绑定挂载目录，并按镜像内固定用户设置权限：
+
+```bash
+sudo env SOCIALEVAL_DATA_ROOT=/srv/socialeval \
+  ./deploy/scripts/prepare_data_dirs.sh
+```
+
+脚本只接受 `/srv` 下的专用子目录，避免误改宽泛路径。若升级基础镜像后改变了
+PostgreSQL 或 Redis 的容器用户编号，须先复核脚本中的 UID/GID。
+
 ```bash
 docker compose --env-file .env.production -f docker-compose.prod.yml up -d
 ```
@@ -143,7 +153,7 @@ docker compose --env-file .env.production -f docker-compose.prod.yml up -d
 
 说明：
 
-- `api` 与 `worker` 通过共享的 `app_data` 卷读写上传文件和导出产物。
+- `api` 与 `worker` 通过独立数据盘上的共享目录读写上传文件和导出产物。
 
 ---
 
@@ -156,19 +166,19 @@ docker compose --env-file .env.production -f docker-compose.prod.yml up -d
 
 ### 5.1 建议目录
 
-- 代码：`/opt/social-eval`
+- 代码：`/opt/socialeval`
 - 环境变量：`/etc/socialeval/socialeval.env`
 - systemd 运行用户：`socialeval`
 
 ### 5.2 宿主机准备
 
 ```bash
-sudo useradd --system --home /opt/social-eval --shell /usr/sbin/nologin socialeval
+sudo useradd --system --home /opt/socialeval --shell /usr/sbin/nologin socialeval
 sudo mkdir -p /etc/socialeval
-sudo chown -R socialeval:socialeval /opt/social-eval /etc/socialeval
+sudo chown -R socialeval:socialeval /opt/socialeval /etc/socialeval
 ```
 
-将仓库代码部署到 `/opt/social-eval`，并写入 `/etc/socialeval/socialeval.env`。
+将仓库代码部署到 `/opt/socialeval`，并写入 `/etc/socialeval/socialeval.env`。
 
 ### 5.3 服务文件
 
@@ -230,41 +240,29 @@ sudo journalctl -u socialeval-worker -f
 2. 在生产环境中执行一次性脚本创建 `admin`
 3. 首个管理员登录后，通过 `/api/users/invitations` 邀请其他角色账号
 
-示例脚本：
+在应用容器中运行交互式初始化脚本，密码不会出现在命令历史或日志中：
 
 ```bash
-uv run python - <<'PY'
-from src.api.auth.password import hash_password
-from src.core.database import SessionLocal
-from src.models.user import User
-
-db = SessionLocal()
-try:
-    email = "admin@example.com"
-    existing = db.query(User).filter(User.email == email).first()
-    if existing is not None:
-        raise SystemExit(f"{email} already exists")
-
-    db.add(
-        User(
-            email=email,
-            display_name="Initial Admin",
-            hashed_password=hash_password("change-this-immediately"),
-            role="admin",
-            is_active=True,
-        )
-    )
-    db.commit()
-finally:
-    db.close()
-PY
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  run --rm api python scripts/create_initial_admin.py \
+  --email admin@example.com --display-name "系统管理员"
 ```
 
 执行后必须：
 
-- 立即登录验证
-- 立刻修改为正式强密码
-- 将初始密码从任何工单、聊天记录、跳板机历史中清除
+- 立即登录并绑定双因素认证
+- 将一次性恢复码离线保存在受控位置
+- 用邀请流程创建其他账户，不直接写数据库
+
+如果管理员同时丢失认证器和恢复码，应在受控运维终端执行：
+
+```bash
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  run --rm api python scripts/reset_admin_mfa.py --email admin@example.com
+```
+
+该操作要求再次输入目标邮箱确认，并会同时撤销该管理员的全部会话、API Key
+和旧恢复码；下一次登录必须重新绑定双因素认证。执行记录会写入审计日志。
 
 ---
 
@@ -274,10 +272,13 @@ PY
 
 ```bash
 curl -fsS https://app.socialeval.example/api/health/live
-curl -fsS https://app.socialeval.example/api/health/ready
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  exec -T api python -c \
+  "import os,urllib.request; h=os.environ['ALLOWED_HOSTS'].split(',')[0]; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/api/health/ready',headers={'Host':h}))"
 ```
 
-第二个接口会检查数据库、Redis 和上传目录；任一依赖失败时返回 503。
+就绪检查会验证数据库、Redis 和上传目录；任一依赖失败时返回 503。Caddy
+故意不向公网暴露 `/api/health/ready`，避免泄露内部依赖状态。
 
 ### 8.2 运维总览接口（管理员）
 
@@ -303,13 +304,13 @@ API 与 Worker 启动后会输出 JSON 结构化日志，适合接入 Loki / ELK
 
 1. 管理员登录成功
 2. 管理员创建 `submitter` / `editor` / `expert` 邀请
-3. 受邀用户通过 `/?invitation_token=<token>` 完成激活并返回登录页
+3. 受邀用户通过邮件中的 `/activate#token=...` 完成激活并返回登录页
 4. 投稿人上传一篇样例论文，并手动点击“开始评测”
 5. Worker 完成任务，论文状态变为 `completed`，投稿人可读取公开报告
 6. 若稿件被预检拒稿，投稿人界面会显示“需重新上传”及重传提示，而不是伪造 `0` 分报告
 7. 编辑可读取内部报告与复核队列，并完成专家分配
 8. 专家登录后可在网页端打开分配到的任务，逐维度填写专家评分与修改理由并提交复核
-9. 若启用对象存储，确认 bucket 中出现 `uploads/` 与 `exports/` 对象
+9. 确认稿件和报告写入独立数据盘，Restic 能把加密备份写入私有存储桶
 10. 若启用 SMTP，确认邀请/分配邮件成功发出
 
 回归基线可参考自动化测试：`tests/integration/test_launch_smoke.py`
@@ -322,10 +323,13 @@ API 与 Worker 启动后会输出 JSON 结构化日志，适合接入 Loki / ELK
 
 - PostgreSQL 迁移前快照 / 逻辑备份
 - Redis 持久化策略确认
-- 对象存储 bucket 生命周期与版本控制策略
+- Restic 私有存储桶的权限、版本控制与生命周期策略
 - 应用日志保留周期
 
-当前仓库不提供自动备份/恢复脚本。单机试点使用 `pg_dump` / `pg_restore`，生产环境优先使用托管数据库快照；对象存储和 Redis 分别使用平台级版本控制或快照。正式恢复前必须停止全部写入入口、校验备份 SHA-256，并先在临时数据库演练。
+仓库已提供 `deploy/scripts/backup.sh`、每日备份定时器和
+`deploy/scripts/healthcheck.sh`。备份组合使用 PostgreSQL 自定义格式逻辑备份、
+独立数据盘文件和 Restic 客户端加密异机备份；Redis 不作为权威数据源。正式
+恢复前必须停止全部写入入口，并先在临时数据库和临时目录演练。
 
 恢复实操、前置条件、校验与回滚注意事项见：
 
@@ -333,7 +337,7 @@ API 与 Worker 启动后会输出 JSON 结构化日志，适合接入 Loki / ELK
 
 建议重点监控：
 
-- `/api/health` 持续状态
+- 公网 `/api/health/live` 与容器内 `/api/health/ready` 状态
 - `/api/admin/operations/overview` 中 `recovering`、`recent_failures`、`pending_reviews` 变化
 - API 5xx 比例
 - Celery 队列堆积

@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     database_url: str = "postgresql://socialeval:socialeval@localhost:5432/socialeval"
     redis_url: str = "redis://localhost:6379/0"
     secret_key: str = "change-me-in-production"
+    field_encryption_key: str = "development-field-encryption-key"
     openai_api_key: str = ""
     anthropic_api_key: str = ""
     deepseek_api_key: str = ""
@@ -48,6 +49,14 @@ class Settings(BaseSettings):
     task_stale_seconds: int = 600
     login_max_attempts: int = 5
     login_window_seconds: int = 900
+    session_max_age_seconds: int = 12 * 60 * 60
+    password_reset_ttl_seconds: int = 30 * 60
+    invitation_ttl_days: int = 7
+    security_max_attempts: int = 5
+    security_window_seconds: int = 600
+    retention_manuscript_days: int = 365
+    retention_audit_days: int = 3 * 365
+    admin_mfa_required: bool = False
 
     model_config = SettingsConfigDict(
         env_file=".env",

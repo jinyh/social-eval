@@ -16,6 +16,7 @@ from src.api.schemas.editorial import (
     JournalCreateRequest,
     MembershipCreateRequest,
     ReopenDecisionRequest,
+    RetentionHoldRequest,
     RolloutStateRequest,
     ValidationRunCreateRequest,
 )
@@ -40,6 +41,38 @@ from src.models.evaluation import EvaluationTask
 from src.models.user import User
 
 router = APIRouter()
+
+
+@router.post("/submissions/{submission_id}/retention-hold")
+def set_retention_hold(
+    submission_id: str,
+    payload: RetentionHoldRequest,
+    current_user: User = Depends(require_roles("admin")),
+    db: Session = Depends(get_db),
+) -> dict:
+    submission = db.get(EditorialSubmission, submission_id)
+    if submission is None:
+        raise HTTPException(status_code=404, detail="未找到投稿")
+    if submission.content_deleted_at is not None:
+        raise HTTPException(status_code=409, detail="稿件内容已经按保留策略清理")
+    submission.retention_hold_at = utc_now() if payload.enabled else None
+    db.add(submission)
+    db.commit()
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="editorial_submission",
+        object_id=submission.id,
+        action=(
+            "retention_hold_enabled" if payload.enabled else "retention_hold_released"
+        ),
+        result="success",
+        details={"reason": payload.reason},
+    )
+    return {
+        "submission_id": submission.id,
+        "retention_hold_at": submission.retention_hold_at,
+    }
 
 
 def _validation_response(row: ValidationRun) -> dict:

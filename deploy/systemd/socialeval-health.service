@@ -1,0 +1,9 @@
+[Unit]
+Description=Check SocialEval production health
+OnFailure=socialeval-alert@%n.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/socialeval/health.env
+ExecStart=/opt/socialeval/deploy/scripts/healthcheck.sh
+User=root

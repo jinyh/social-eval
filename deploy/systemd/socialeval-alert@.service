@@ -1,0 +1,7 @@
+[Unit]
+Description=Send SocialEval failure alert for %i
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/socialeval/deploy/scripts/send_operations_alert.py --env-file /opt/socialeval/.env.production --unit %i
+User=root

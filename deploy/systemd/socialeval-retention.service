@@ -1,0 +1,10 @@
+[Unit]
+Description=Apply SocialEval manuscript and audit retention policy
+OnFailure=socialeval-alert@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/socialeval
+ExecStart=/usr/bin/docker compose --env-file .env.production -f docker-compose.prod.yml run --rm api python scripts/cleanup_retention.py --execute
+User=root
+Nice=10

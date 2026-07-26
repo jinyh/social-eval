@@ -1,5 +1,7 @@
 import type {
+  ApiKeyMetadata,
   AnonymousManuscript,
+  CreatedApiKey,
   InternalReport,
   ModelSet,
   NotificationItem,
@@ -9,6 +11,9 @@ import type {
   EditorialSubmissionListQuery,
   EditorialSubmissionPage,
   EditorialUnit,
+  Invitation,
+  LoginChallenge,
+  MfaSetup,
   PaperListItem,
   PaperStatus,
   PublicReport,
@@ -90,12 +95,138 @@ export async function getCurrentUser(): Promise<User> {
   return apiFetch<User>("/api/auth/me");
 }
 
-export async function login(email: string, password: string): Promise<User> {
+export async function login(
+  email: string,
+  password: string
+): Promise<User | LoginChallenge> {
   if (isMockMode()) return mockUsers.submitter;
-  return apiFetch<User>("/api/auth/login", {
+  return apiFetch<User | LoginChallenge>("/api/auth/login", {
     method: "POST",
     body: JSON.stringify({ email, password }),
   });
+}
+
+export async function requestPasswordReset(email: string): Promise<void> {
+  await apiFetch("/api/auth/password-reset/request", {
+    method: "POST",
+    body: JSON.stringify({ email }),
+  });
+}
+
+export async function confirmPasswordReset(
+  token: string,
+  newPassword: string
+): Promise<void> {
+  await apiFetch("/api/auth/password-reset/confirm", {
+    method: "POST",
+    body: JSON.stringify({ token, new_password: newPassword }),
+  });
+}
+
+export async function acceptInvitation(
+  token: string,
+  displayName: string,
+  password: string
+): Promise<User> {
+  return apiFetch<User>("/api/auth/invitations/accept", {
+    method: "POST",
+    body: JSON.stringify({
+      token,
+      display_name: displayName,
+      password,
+    }),
+  });
+}
+
+export async function setupMfa(): Promise<MfaSetup> {
+  return apiFetch<MfaSetup>("/api/auth/mfa/setup", { method: "POST" });
+}
+
+export async function confirmMfa(
+  code: string
+): Promise<{ user: User; recovery_codes: string[] }> {
+  return apiFetch<{ user: User; recovery_codes: string[] }>(
+    "/api/auth/mfa/confirm",
+    { method: "POST", body: JSON.stringify({ code }) }
+  );
+}
+
+export async function verifyMfa(code: string): Promise<User> {
+  return apiFetch<User>("/api/auth/mfa/verify", {
+    method: "POST",
+    body: JSON.stringify({ code }),
+  });
+}
+
+export async function changePassword(
+  currentPassword: string,
+  newPassword: string,
+  revokeApiKeys: boolean
+): Promise<User> {
+  const mockRole = getMockRole();
+  if (mockRole) return mockUsers[mockRole];
+  return apiFetch<User>("/api/auth/password/change", {
+    method: "POST",
+    body: JSON.stringify({
+      current_password: currentPassword,
+      new_password: newPassword,
+      revoke_api_keys: revokeApiKeys,
+    }),
+  });
+}
+
+export async function listApiKeys(): Promise<ApiKeyMetadata[]> {
+  if (isMockMode()) return [];
+  return apiFetch<ApiKeyMetadata[]>("/api/auth/api-keys");
+}
+
+export async function createApiKey(
+  name: string,
+  expiresInDays: number
+): Promise<CreatedApiKey> {
+  if (isMockMode()) {
+    const now = new Date();
+    const expiresAt = new Date(now);
+    expiresAt.setDate(expiresAt.getDate() + expiresInDays);
+    return {
+      id: "mock-api-key",
+      name,
+      key_prefix: "sk_socialeval_mock",
+      api_key: "sk_socialeval_mock_only",
+      is_active: true,
+      created_at: now.toISOString(),
+      expires_at: expiresAt.toISOString(),
+    };
+  }
+  return apiFetch<CreatedApiKey>("/api/auth/api-keys", {
+    method: "POST",
+    body: JSON.stringify({ name, expires_in_days: expiresInDays }),
+  });
+}
+
+export async function revokeApiKey(apiKeyId: string): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch(`/api/auth/api-keys/${apiKeyId}`, { method: "DELETE" });
+}
+
+export async function regenerateMfaRecoveryCodes(
+  password: string,
+  code: string
+): Promise<string[]> {
+  if (isMockMode()) {
+    return Array.from(
+      { length: 10 },
+      (_, index) => `DEMO-${String(index + 1).padStart(2, "0")}-CODE`
+    );
+  }
+  const result = await apiFetch<{ recovery_codes: string[] }>(
+    "/api/auth/mfa/recovery-codes/regenerate",
+    {
+      method: "POST",
+      body: JSON.stringify({ password, code }),
+    }
+  );
+  return result.recovery_codes;
 }
 
 export async function logout(): Promise<void> {
@@ -219,9 +350,18 @@ export async function getExpertManuscript(
   );
 }
 
-export async function listUsers(): Promise<User[]> {
+export async function listUsers(filters?: {
+  q?: string;
+  role?: string;
+  active?: boolean;
+}): Promise<User[]> {
   if (isMockMode()) return mockUserDirectory;
-  const result = await apiFetch<UserListResponse>("/api/users");
+  const query = new URLSearchParams();
+  if (filters?.q) query.set("q", filters.q);
+  if (filters?.role) query.set("role", filters.role);
+  if (filters?.active !== undefined) query.set("active", String(filters.active));
+  const suffix = query.size ? `?${query.toString()}` : "";
+  const result = await apiFetch<UserListResponse>(`/api/users${suffix}`);
   return result.items;
 }
 
@@ -231,6 +371,49 @@ export async function createInvitation(email: string, role: string): Promise<voi
     method: "POST",
     body: JSON.stringify({ email, role }),
   });
+}
+
+export async function updateUser(
+  userId: string,
+  changes: { role?: User["role"]; is_active?: boolean }
+): Promise<User> {
+  if (isMockMode()) {
+    const existing = mockUserDirectory.find((user) => user.id === userId);
+    if (!existing) throw new Error("未找到用户");
+    return { ...existing, ...changes };
+  }
+  return apiFetch<User>(`/api/users/${userId}`, {
+    method: "PATCH",
+    body: JSON.stringify(changes),
+  });
+}
+
+export async function sendUserPasswordReset(userId: string): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch(`/api/users/${userId}/password-reset`, { method: "POST" });
+}
+
+export async function revokeUserApiKeys(userId: string): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch(`/api/users/${userId}/api-keys/revoke`, { method: "POST" });
+}
+
+export async function listInvitations(): Promise<Invitation[]> {
+  if (isMockMode()) return [];
+  const result = await apiFetch<{ items: Invitation[] }>("/api/users/invitations");
+  return result.items;
+}
+
+export async function resendInvitation(invitationId: string): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch(`/api/users/invitations/${invitationId}/resend`, {
+    method: "POST",
+  });
+}
+
+export async function revokeInvitation(invitationId: string): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch(`/api/users/invitations/${invitationId}`, { method: "DELETE" });
 }
 
 export async function exportSimpleReport(paperId: string): Promise<Blob> {

@@ -133,6 +133,9 @@ class EditorialSubmission(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime, default=utc_now, onupdate=utc_now
     )
+    retention_due_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    retention_hold_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    content_deleted_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
 
 class EditorialDocument(Base):

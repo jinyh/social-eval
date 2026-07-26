@@ -1,0 +1,10 @@
+[Unit]
+Description=SocialEval encrypted production backup
+OnFailure=socialeval-alert@%n.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/socialeval/backup.env
+ExecStart=/opt/socialeval/deploy/scripts/backup.sh
+User=root
+Nice=10

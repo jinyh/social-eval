@@ -3,6 +3,47 @@ export type User = {
   email: string;
   role: "submitter" | "editor" | "expert" | "admin";
   display_name?: string | null;
+  is_active?: boolean;
+  created_at?: string;
+  last_login_at?: string | null;
+  password_changed_at?: string | null;
+  password_reset_required?: boolean;
+  mfa_enabled?: boolean;
+};
+
+export type LoginChallenge = {
+  status: "mfa_required" | "mfa_setup_required";
+  user: null;
+};
+
+export type MfaSetup = {
+  secret: string;
+  provisioning_uri: string;
+  qr_svg: string;
+};
+
+export type ApiKeyMetadata = {
+  id: string;
+  name?: string | null;
+  key_prefix: string;
+  is_active: boolean;
+  created_at: string;
+  last_used_at?: string | null;
+  expires_at: string;
+};
+
+export type CreatedApiKey = ApiKeyMetadata & {
+  api_key: string;
+};
+
+export type Invitation = {
+  id: string;
+  email: string;
+  role: User["role"];
+  status: "pending" | "used" | "expired" | "revoked";
+  email_status: string;
+  created_at: string;
+  expires_at: string;
 };
 
 export type PaperListItem = {

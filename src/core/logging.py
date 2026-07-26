@@ -19,9 +19,17 @@ class JSONFormatter(logging.Formatter):
 
 
 def setup_logging(level: str = "INFO") -> None:
-    handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(JSONFormatter())
+    """安装一次结构化日志处理器，避免测试或应用工厂重复挂载。"""
+
     root_logger = logging.getLogger()
+    if any(
+        getattr(handler, "_socialeval_handler", False)
+        for handler in root_logger.handlers
+    ):
+        return
+    handler = logging.StreamHandler(sys.stdout)
+    handler._socialeval_handler = True  # type: ignore[attr-defined]
+    handler.setFormatter(JSONFormatter())
     root_logger.setLevel(getattr(logging, level.upper(), logging.INFO))
     root_logger.addHandler(handler)
 

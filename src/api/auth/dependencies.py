@@ -6,7 +6,7 @@ from fastapi import Depends, Header, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
 from src.api.auth.api_key import verify_api_key
-from src.api.auth.session import SESSION_USER_ID_KEY
+from src.api.auth.session import SESSION_USER_ID_KEY, SESSION_VERSION_KEY
 from src.core.database import get_db
 from src.models.user import User
 
@@ -19,7 +19,8 @@ def get_current_user(
     session_user_id = request.session.get(SESSION_USER_ID_KEY)
     if session_user_id:
         user = db.get(User, session_user_id)
-        if user and user.is_active:
+        session_version = request.session.get(SESSION_VERSION_KEY)
+        if user and user.is_active and session_version == user.session_version:
             request.state.auth_method = "session"
             return user
 
@@ -33,7 +34,7 @@ def get_current_user(
 
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Authentication required",
+        detail="请先登录或提供有效的 API Key",
     )
 
 
@@ -42,7 +43,7 @@ def require_roles(*roles: str) -> Callable[[User], User]:
         if current_user.role not in roles:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="Insufficient permissions",
+                detail="当前账户无权执行此操作",
             )
         return current_user
 

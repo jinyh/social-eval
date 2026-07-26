@@ -28,6 +28,10 @@ COPY configs ./configs
 COPY knowledge ./knowledge
 COPY scripts/upgrade_editorial_reports_v3.py ./scripts/upgrade_editorial_reports_v3.py
 COPY scripts/upgrade_editorial_reports_v4.py ./scripts/upgrade_editorial_reports_v4.py
+COPY scripts/create_initial_admin.py ./scripts/create_initial_admin.py
+COPY scripts/reset_admin_mfa.py ./scripts/reset_admin_mfa.py
+COPY scripts/check_production_readiness.py ./scripts/check_production_readiness.py
+COPY scripts/cleanup_retention.py ./scripts/cleanup_retention.py
 COPY src ./src
 
 RUN uv sync --frozen --no-dev \

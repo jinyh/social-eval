@@ -21,35 +21,16 @@ from src.api.routers import (
 )
 from src.core.config import settings
 from src.core.email import send_review_assignment_email
+from src.core.logging import setup_logging
+from src.core.production import production_config_errors
 from src.tasks.evaluation_task import dispatch_evaluation_task
 from src.tasks.editorial_task import dispatch_editorial_submission
 
 
-def _production_errors() -> list[str]:
-    errors = []
-    if (
-        settings.secret_key == "change-me-in-production"
-        or len(settings.secret_key) < 32
-    ):
-        errors.append("SECRET_KEY 必须至少 32 个字符且不能使用默认值")
-    if not settings.allowed_hosts:
-        errors.append("必须配置 ALLOWED_HOSTS")
-    if not settings.allowed_origins:
-        errors.append("必须配置 ALLOWED_ORIGINS")
-    if not settings.session_https_only:
-        errors.append("SESSION_HTTPS_ONLY 必须为 true")
-    if not settings.public_base_url.startswith("https://"):
-        errors.append("PUBLIC_BASE_URL 必须使用 https")
-    if settings.email_enabled and (not settings.smtp_host or not settings.smtp_from):
-        errors.append("启用邮件后必须配置 SMTP_HOST 和 SMTP_FROM")
-    if settings.smtp_ssl and settings.smtp_starttls:
-        errors.append("SMTP_SSL 与 SMTP_STARTTLS 不能同时启用")
-    return errors
-
-
 def create_app() -> FastAPI:
+    setup_logging()
     if settings.app_env == "production":
-        errors = _production_errors()
+        errors = production_config_errors()
         if errors:
             raise RuntimeError("生产配置不完整：" + "；".join(errors))
     app = FastAPI(title="中国自主知识创新（法学论文）评价系统 API", version="0.1.0")
@@ -94,6 +75,7 @@ def create_app() -> FastAPI:
         same_site="lax",
         session_cookie="socialeval_session",
         https_only=settings.session_https_only,
+        max_age=settings.session_max_age_seconds,
     )
     if settings.allowed_hosts:
         app.add_middleware(

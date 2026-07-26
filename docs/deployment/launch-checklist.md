@@ -13,8 +13,8 @@
 1. 用户可通过正式域名访问前端
 2. Session 登录与权限控制正常
 3. 投稿上传、异步评测、报告读取链路正常
-4. 数据库存储、Redis 队列、对象存储、SMTP 均可工作
-5. `/api/health` 返回 `200`
+4. PostgreSQL、Redis、独立数据盘、Restic 备份和 SMTP 均可工作
+5. 公网存活检查与容器内就绪检查均通过
 6. 冒烟链路全部通过且无阻塞告警
 
 若以上任一项不满足，则上线不算完成。
@@ -36,8 +36,8 @@
 
 ### T-7 天到 T-3 天：资源与依赖准备
 
-- 确认云主机、系统盘、数据盘、对象存储 bucket 已创建
-- 确认 PostgreSQL、Redis、SMTP、对象存储白名单和网络策略已放通
+- 确认云主机、系统盘、数据盘、Restic 私有存储桶已创建
+- 确认 PostgreSQL、Redis、SMTP、备份存储白名单和网络策略已放通
 - 确认正式域名与 TLS 证书已准备
 - 确认 `.env` 生产值已收集完毕并放入密钥管理系统
 - 确认 build 机可访问 Debian 软件源或内网镜像
@@ -47,7 +47,7 @@
 - 用同一份部署脚本在预发布环境走完整流程
 - 执行数据库迁移并记录耗时
 - 执行一次完整冒烟
-- 验证对象存储上传与导出
+- 验证独立数据盘写入和 Restic 私有对象存储备份
 - 验证 SMTP 发信
 - 整理上线窗口中的实际命令清单
 
@@ -81,9 +81,11 @@
 - `.env` 已确认 `APP_ENV=production`
 - `SECRET_KEY` 已替换默认值
 - `ALLOWED_ORIGINS` 已配置正式前端来源
-- `SESSION_COOKIE_SECURE=true`
-- `SESSION_COOKIE_DOMAIN` 与正式域名一致
-- AI Provider、SMTP、对象存储密钥已填入
+- `SESSION_HTTPS_ONLY=true`
+- `ADMIN_MFA_REQUIRED=true`
+- `FIELD_ENCRYPTION_KEY` 与 `SECRET_KEY` 独立生成
+- `SOCIALEVAL_DATA_ROOT` 指向独立数据盘
+- AI Provider、SMTP、Restic 备份密钥已按各自环境文件填入
 - Nginx、DNS、TLS 已就绪
 
 ### 4.2 部署执行
@@ -92,45 +94,59 @@
 2. 渲染并验证编排配置
 
 ```bash
-docker compose -f docker-compose.prod.yml config
+docker compose --env-file .env.production -f docker-compose.prod.yml config
 ```
 
-3. 构建镜像
+3. 创建绑定挂载目录
 
 ```bash
-docker compose -f docker-compose.prod.yml build api worker frontend
+sudo env SOCIALEVAL_DATA_ROOT=/srv/socialeval \
+  ./deploy/scripts/prepare_data_dirs.sh
 ```
 
-4. 启动依赖
+4. 构建镜像
 
 ```bash
-docker compose -f docker-compose.prod.yml up -d postgres redis
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  build api worker frontend
 ```
 
-5. 执行数据库迁移
+5. 启动依赖
 
 ```bash
-docker compose -f docker-compose.prod.yml run --rm api uv run alembic upgrade head
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  up -d postgres redis
 ```
 
-6. 启动应用
+6. 执行数据库迁移
 
 ```bash
-docker compose -f docker-compose.prod.yml up -d api worker frontend nginx
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  run --rm migrate
 ```
 
-7. 验证健康检查
+7. 启动应用
 
 ```bash
-curl -fsS https://app.socialeval.example/api/health
+docker compose --env-file .env.production -f docker-compose.prod.yml up -d
+```
+
+8. 验证健康检查
+
+```bash
+curl -fsS https://app.socialeval.example/api/health/live
+docker compose --env-file .env.production -f docker-compose.prod.yml \
+  exec -T api python -c \
+  "import os,urllib.request; h=os.environ['ALLOWED_HOSTS'].split(',')[0]; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/api/health/ready',headers={'Host':h}))"
 ```
 
 ### 4.3 首个管理员初始化
 
 若生产库中还没有管理员：
 
-- 按部署说明中的一次性脚本创建首个 `admin`
-- 立即完成首次登录
+- 运行 `scripts/create_initial_admin.py` 交互式创建首个 `admin`
+- 立即完成首次登录和双因素认证绑定
+- 将恢复码离线保存在受控位置，并演练 `scripts/reset_admin_mfa.py`
 - 用该管理员邀请 `submitter`、`editor`、`expert`
 
 ---
@@ -140,7 +156,7 @@ curl -fsS https://app.socialeval.example/api/health
 至少验证以下路径：
 
 1. 正式域名可访问首页
-2. `/api/health` 返回 `200`
+2. `/api/health/live` 返回 `200`，容器内就绪检查通过
 3. 管理员可以登录
 4. 管理员可以创建邀请
 5. 受邀用户可以完成激活
@@ -148,7 +164,7 @@ curl -fsS https://app.socialeval.example/api/health
 7. 任务可以被 Worker 正常消费并完成
 8. 投稿人可以读取公开报告
 9. 编辑可以读取内部报告与复核队列
-10. 对象存储中出现 `uploads/` 与 `exports/` 对象
+10. 数据盘出现稿件与报告文件，Restic 快照可列出并完成完整性检查
 11. 若发生专家分配，SMTP 邮件能送达测试邮箱
 
 建议记录：
@@ -164,13 +180,13 @@ curl -fsS https://app.socialeval.example/api/health
 
 满足任一条件应立即评估回滚，不要拖到业务全面受影响：
 
-- `/api/health` 持续返回 `503` 超过 5 分钟
+- 容器内 `/api/health/ready` 持续返回 `503` 超过 5 分钟
 - 登录链路异常，管理员或投稿人无法建立 Session
 - 新上传论文无法进入或完成异步任务
 - 报告接口持续报错
 - 数据库迁移失败或造成关键表读写异常
 - Worker 堆积明显上升且无法恢复
-- 对象存储或 SMTP 关键依赖配置错误，导致主流程不可用
+- 独立数据盘、加密备份或 SMTP 关键依赖配置错误，导致主流程不可用
 
 ---
 
@@ -181,7 +197,7 @@ curl -fsS https://app.socialeval.example/api/health
 1. 暂停新一轮变更操作
 2. 记录故障时间点、报错请求、任务 ID
 3. 切回上一个稳定 commit 或镜像 tag
-4. 重新启动 `api`、`worker`、`frontend`、`nginx`
+4. 重新启动 `api`、`worker`、`frontend`、`proxy`
 5. 再次执行健康检查与最小冒烟
 
 ### 7.2 数据层回滚
@@ -209,7 +225,7 @@ curl -fsS https://app.socialeval.example/api/health
 - Celery 队列深度是否持续增长
 - PostgreSQL CPU、连接数、磁盘空间是否异常
 - Redis 内存与持久化状态是否正常
-- 对象存储写入是否持续成功
+- Restic 异机备份是否持续成功
 - SMTP 是否存在退信或认证失败
 
 ---

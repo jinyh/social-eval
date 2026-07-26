@@ -1,56 +1,63 @@
 # SocialEval 备份与恢复运行手册
 
-> 当前仓库不提供自动备份脚本。生产环境应优先使用托管 PostgreSQL、Redis 与对象存储的快照/版本控制能力；以下命令仅适用于单机 Docker Compose 试点环境。
+## 目标与范围
 
-## 备份范围
+- 恢复点目标：不超过 24 小时。
+- 恢复时间目标：不超过 4 小时。
+- 范围：PostgreSQL、`/srv/socialeval/app`、发布版本和必要配置。
+- Redis 不是权威数据源，不代替 PostgreSQL 与文件备份。
 
-- PostgreSQL：论文、评分、用户、复核与审计数据。
-- `appdata`：仅在使用本地文件存储时备份。
-- Redis：任务队列可重建时不作为权威数据源；确需恢复时使用平台快照。
-- S3/对象存储：通过 bucket 版本控制和生命周期策略独立保护。
+## 首次配置
 
-## 创建 PostgreSQL 逻辑备份
+1. 在交大云创建私有 S3 存储空间。
+2. 安装 Restic，将 `deploy/backup.env.example` 复制到
+   `/etc/socialeval/backup.env`，权限设为 `0600`。
+3. 将 Restic 仓库密码单独写入 `/etc/socialeval/restic-password`，权限设为
+   `0600`；该密码必须由另一名责任人离线保管副本。
+4. 执行 `restic init`，再手工运行一次 `deploy/scripts/backup.sh`。
+5. 安装并启用 `socialeval-backup.timer`。
+6. 在交大云控制台为独立数据盘设置每日自动快照，并建立位于不同存储池的云硬盘备份。
 
-先停止 API、worker 等写入服务并保持 PostgreSQL 运行，然后执行：
+备份脚本先生成 PostgreSQL 自定义格式逻辑备份并用 `pg_restore --list`
+检查，再由 Restic 客户端加密数据库备份和应用文件后上传。保留 7 个每日、
+8 个每周和 6 个每月备份。
 
-```bash
-backup_id="$(date -u +%Y%m%dT%H%M%SZ)"
-mkdir -p "backups/${backup_id}"
-docker compose -f docker-compose.prod.yml exec -T postgres \
-  pg_dump -U socialeval -d socialeval -Fc \
-  > "backups/${backup_id}/postgres.dump"
-sha256sum "backups/${backup_id}/postgres.dump" \
-  > "backups/${backup_id}/SHA256SUMS"
-```
-
-将备份复制到部署主机之外，并验证摘要：
-
-```bash
-sha256sum -c "backups/${backup_id}/SHA256SUMS"
-pg_restore --list "backups/${backup_id}/postgres.dump" >/dev/null
-```
-
-## 恢复前检查
-
-恢复是破坏性操作，必须在维护窗口内完成，并满足：
-
-1. 业务方确认目标备份 ID 和恢复点。
-2. API、worker、frontend、nginx 等入口全部停止。
-3. 当前数据库另做一次快照或逻辑备份。
-4. `SHA256SUMS` 与 `pg_restore --list` 校验通过。
-5. PostgreSQL 用户名、数据库名和目标环境已由两人复核。
-
-## 执行恢复
-
-先在临时数据库演练并完成应用冒烟测试；生产恢复应由运维人员按平台流程执行。单机试点可在确认目标无误后使用：
+## 日常检查
 
 ```bash
-docker compose -f docker-compose.prod.yml exec -T postgres \
-  psql -U socialeval -d socialeval \
-  -v ON_ERROR_STOP=1 -c 'DROP SCHEMA public CASCADE; CREATE SCHEMA public;'
-docker compose -f docker-compose.prod.yml exec -T postgres \
-  pg_restore -U socialeval -d socialeval --no-owner --exit-on-error \
-  < "backups/<backup-id>/postgres.dump"
+systemctl status socialeval-backup.timer
+journalctl -u socialeval-backup.service --since today
+restic snapshots --tag socialeval-production
+restic check
 ```
 
-恢复后依次运行数据库迁移检查、API 健康检查、登录/上传/评测冒烟测试，再开放入口。对象存储与 Redis 的恢复遵循各自平台的快照流程，不与 PostgreSQL 命令混用。
+每周运行 `restic check`。备份超过 26 小时未成功时，健康检查必须告警。
+
+## 恢复演练
+
+1. 记录目标快照、Restic 快照和应用 Git commit。
+2. 在临时目录执行 `restic restore`，不得直接覆盖生产数据。
+3. 用恢复出的 dump 创建临时 PostgreSQL：
+
+```bash
+createdb socialeval_restore_test
+pg_restore --exit-on-error --no-owner \
+  --dbname socialeval_restore_test postgres-<backup-id>.dump
+```
+
+4. 校验 Alembic 版本、用户数、投稿数、审计数及抽样文件 SHA-256。
+5. 用临时应用实例验证登录、稿件读取和报告读取。
+6. 记录总耗时；超过 4 小时即视为恢复目标未通过。
+
+## 生产恢复
+
+生产恢复必须在维护窗口执行，并由两人核对目标：
+
+1. 停止 `api`、`worker`，保留 PostgreSQL 运行。
+2. 为当前数据盘和数据库再做一次保护性快照。
+3. 将 Restic 内容恢复到临时路径并验证。
+4. 恢复 PostgreSQL 和 `/srv/socialeval/app`。
+5. 运行迁移检查、生产配置自检和完整冒烟。
+6. 确认无误后恢复入口；原故障数据保留到事件复盘完成。
+
+不得使用 `alembic downgrade` 代替数据恢复。

@@ -12,15 +12,15 @@ import type {
 } from "./types";
 
 export const mockUsers: Record<User["role"], User> = {
-  submitter: { id: "mock-submitter", email: "submitter@example.com", role: "submitter", display_name: "学生用户" },
-  editor: { id: "mock-editor", email: "editor@example.com", role: "editor", display_name: "编辑老师" },
-  expert: { id: "mock-expert", email: "expert@example.com", role: "expert", display_name: "复核专家" },
-  admin: { id: "mock-admin", email: "admin@example.com", role: "admin", display_name: "系统管理员" },
+  submitter: { id: "mock-submitter", email: "submitter@example.com", role: "submitter", display_name: "学生用户", is_active: true, created_at: "2026-01-01T00:00:00" },
+  editor: { id: "mock-editor", email: "editor@example.com", role: "editor", display_name: "编辑老师", is_active: true, created_at: "2026-01-01T00:00:00" },
+  expert: { id: "mock-expert", email: "expert@example.com", role: "expert", display_name: "复核专家", is_active: true, created_at: "2026-01-01T00:00:00" },
+  admin: { id: "mock-admin", email: "admin@example.com", role: "admin", display_name: "系统管理员", is_active: true, created_at: "2026-01-01T00:00:00", mfa_enabled: true },
 };
 
 export const mockExperts: User[] = [
   mockUsers.expert,
-  { id: "mock-expert-2", email: "expert2@example.com", role: "expert", display_name: "外部专家 A" },
+  { id: "mock-expert-2", email: "expert2@example.com", role: "expert", display_name: "外部专家 A", is_active: true, created_at: "2026-01-02T00:00:00" },
 ];
 
 export const mockPapers: PaperListItem[] = [
