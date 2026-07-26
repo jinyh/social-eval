@@ -110,6 +110,36 @@ describe("App", () => {
     expect(screen.getByRole("navigation", { name: /管理员工作台导航/i })).toBeInTheDocument();
   });
 
+  it("lays out user management as a full-width vertical workflow", async () => {
+    window.history.pushState({}, "", "/?mock=admin");
+
+    render(<App initialUser={undefined} />);
+
+    fireEvent.click(
+      await screen.findByRole("button", { name: "用户与权限" })
+    );
+    const directory = screen.getByRole("heading", { name: "用户目录" });
+    const invite = screen.getByRole("heading", { name: "邀请内部成员" });
+    const invitationHistory = screen.getByRole("heading", {
+      name: "邀请记录",
+    });
+
+    expect(
+      directory.compareDocumentPosition(invite) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(
+      invite.compareDocumentPosition(invitationHistory) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy();
+    expect(
+      screen.queryByRole("heading", { name: "内部后台" })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getAllByRole("columnheader", { name: "邮箱" })
+    ).toHaveLength(1);
+  });
+
   it("renders mock student report with radar and six-dimension breakdown", async () => {
     window.history.pushState({}, "", "/?mock=submitter");
 

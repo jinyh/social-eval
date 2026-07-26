@@ -378,181 +378,215 @@ export function AdminWorkspace() {
         </>
       ) : null}
       {activeView === "users" ? (
-      <div className="grid gap-5 lg:grid-cols-[360px_1fr]">
+      <div className="space-y-5">
+        <div>
+          <h2 className="text-xl font-semibold text-slate-950">用户与权限</h2>
+          <p className="mt-1 text-sm text-slate-500">
+            先查看和维护现有用户，再处理内部成员邀请。
+          </p>
+        </div>
+
         <Card>
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <div className="rounded-xl border border-blue-100 bg-blue-50 p-2 text-blue-700">
-              <ShieldCheck className="h-5 w-5" />
-            </div>
-            <div>
-              <CardTitle>内部后台</CardTitle>
-              <CardDescription>邀请编辑、专家或管理员开通内部账户。</CardDescription>
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleInvite}>
-            <label className="block space-y-3 text-sm font-medium text-slate-700">
-              邮箱
-              <Input value={inviteEmail} onChange={(event) => setInviteEmail(event.target.value)} />
-            </label>
-            <label className="mt-6 block space-y-3 text-sm font-medium text-slate-700">
-              角色
-              <Select value={inviteRole} onChange={(event) => setInviteRole(event.target.value as User["role"])}>
+          <CardHeader>
+            <CardTitle>用户目录</CardTitle>
+            <CardDescription>
+              筛选用户、调整角色、停用账户或发送密码重置邮件。
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="mb-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-[minmax(260px,1fr)_180px_160px]">
+              <Input
+                value={userQuery}
+                onChange={(event) => setUserQuery(event.target.value)}
+                placeholder="搜索姓名或邮箱"
+              />
+              <Select value={userRole} onChange={(event) => setUserRole(event.target.value)}>
+                <option value="">全部角色</option>
+                <option value="submitter">投稿人</option>
                 <option value="editor">编辑</option>
                 <option value="expert">专家</option>
                 <option value="admin">管理员</option>
               </Select>
-            </label>
-            <Button type="submit" className="mt-8 w-full">创建邀请</Button>
-          </form>
-        </CardContent>
+              <Select value={userStatus} onChange={(event) => setUserStatus(event.target.value)}>
+                <option value="">全部状态</option>
+                <option value="active">已启用</option>
+                <option value="inactive">已停用</option>
+              </Select>
+            </div>
+            <Table className="min-w-[900px]">
+              <TableHeader>
+                <TableRow>
+                  <TableHead>用户</TableHead>
+                  <TableHead>角色</TableHead>
+                  <TableHead>状态</TableHead>
+                  <TableHead>最后登录</TableHead>
+                  <TableHead>操作</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredUsers.length === 0 ? (
+                  <TableRow>
+                    <TableCell
+                      colSpan={5}
+                      className="py-10 text-center text-sm text-slate-500"
+                    >
+                      没有符合当前筛选条件的用户。
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  filteredUsers.map((user) => (
+                    <TableRow key={user.id}>
+                      <TableCell className="font-medium text-slate-950">
+                        {user.display_name ?? "未命名"}
+                        <span className="mt-1 block text-xs font-normal text-slate-500">
+                          {user.email}
+                        </span>
+                        {user.affiliation ? (
+                          <span className="mt-1 block text-xs font-normal text-slate-500">
+                            {user.affiliation}
+                          </span>
+                        ) : null}
+                      </TableCell>
+                      <TableCell>
+                        <Select
+                          value={user.role}
+                          onChange={(event) =>
+                            void runUserAction(
+                              () =>
+                                updateUser(user.id, {
+                                  role: event.target.value as User["role"],
+                                }),
+                              "用户角色已更新。"
+                            )
+                          }
+                        >
+                          <option value="submitter">投稿人</option>
+                          <option value="editor">编辑</option>
+                          <option value="expert">专家</option>
+                          <option value="admin">管理员</option>
+                        </Select>
+                      </TableCell>
+                      <TableCell>
+                        <div className="space-y-1">
+                          <Badge variant={user.is_active === false ? "neutral" : "success"}>
+                            {user.is_active === false ? "已停用" : "已启用"}
+                          </Badge>
+                          {user.role === "submitter" ? (
+                            <span className="block text-xs text-slate-500">
+                              {user.email_verified_at ? "邮箱已验证" : "邮箱待验证"}
+                            </span>
+                          ) : null}
+                          {user.role === "admin" ? (
+                            <span className="block text-xs text-slate-500">
+                              {user.mfa_enabled ? "已启用双因素认证" : "待设置双因素认证"}
+                            </span>
+                          ) : null}
+                          {user.password_reset_required ? (
+                            <span className="block text-xs text-amber-700">
+                              待完成密码重置
+                            </span>
+                          ) : null}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        {user.last_login_at
+                          ? new Date(user.last_login_at).toLocaleString("zh-CN")
+                          : "尚未登录"}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex flex-wrap gap-2">
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="secondary"
+                            onClick={() =>
+                              void runUserAction(
+                                () => sendUserPasswordReset(user.id),
+                                "密码重置邮件已进入发送队列。"
+                              )
+                            }
+                          >
+                            重置密码
+                          </Button>
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="secondary"
+                            onClick={() =>
+                              void runUserAction(
+                                () => revokeUserApiKeys(user.id),
+                                "该用户的接口密钥已全部撤销。"
+                              )
+                            }
+                          >
+                            撤销 Key
+                          </Button>
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant={user.is_active === false ? "outline" : "destructive"}
+                            onClick={() =>
+                              void runUserAction(
+                                () =>
+                                  updateUser(user.id, {
+                                    is_active: user.is_active === false,
+                                  }),
+                                user.is_active === false ? "用户已恢复。" : "用户已停用。"
+                              )
+                            }
+                          >
+                            {user.is_active === false ? "恢复" : "停用"}
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </CardContent>
         </Card>
 
         <Card>
-        <CardHeader>
-          <CardTitle>用户目录</CardTitle>
-          <CardDescription>筛选用户、调整角色、停用账户或发送密码重置邮件。</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="mb-4 grid gap-3 md:grid-cols-3">
-            <Input
-              value={userQuery}
-              onChange={(event) => setUserQuery(event.target.value)}
-              placeholder="搜索姓名或邮箱"
-            />
-            <Select value={userRole} onChange={(event) => setUserRole(event.target.value)}>
-              <option value="">全部角色</option>
-              <option value="submitter">投稿人</option>
-              <option value="editor">编辑</option>
-              <option value="expert">专家</option>
-              <option value="admin">管理员</option>
-            </Select>
-            <Select value={userStatus} onChange={(event) => setUserStatus(event.target.value)}>
-              <option value="">全部状态</option>
-              <option value="active">已启用</option>
-              <option value="inactive">已停用</option>
-            </Select>
-          </div>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>用户</TableHead>
-                <TableHead>邮箱</TableHead>
-                <TableHead>角色</TableHead>
-                <TableHead>状态</TableHead>
-                <TableHead>最后登录</TableHead>
-                <TableHead>操作</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredUsers.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell className="font-medium text-slate-950">
-                    {user.display_name ?? "未命名"}
-                    {user.affiliation ? (
-                      <span className="mt-1 block text-xs font-normal text-slate-500">
-                        {user.affiliation}
-                      </span>
-                    ) : null}
-                  </TableCell>
-                  <TableCell>{user.email}</TableCell>
-                  <TableCell>
-                    <Select
-                      value={user.role}
-                      onChange={(event) =>
-                        void runUserAction(
-                          () =>
-                            updateUser(user.id, {
-                              role: event.target.value as User["role"],
-                            }),
-                          "用户角色已更新。"
-                        )
-                      }
-                    >
-                      <option value="submitter">投稿人</option>
-                      <option value="editor">编辑</option>
-                      <option value="expert">专家</option>
-                      <option value="admin">管理员</option>
-                    </Select>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant={user.is_active === false ? "neutral" : "success"}>
-                      {user.is_active === false ? "已停用" : "已启用"}
-                    </Badge>
-                    {user.role === "submitter" ? (
-                      <span className="ml-2 text-xs text-slate-500">
-                        {user.email_verified_at ? "邮箱已验证" : "邮箱待验证"}
-                      </span>
-                    ) : null}
-                    {user.role === "admin" ? (
-                      <span className="ml-2 text-xs text-slate-500">
-                        {user.mfa_enabled ? "已启用双因素认证" : "待设置双因素认证"}
-                      </span>
-                    ) : null}
-                    {user.password_reset_required ? (
-                      <span className="ml-2 text-xs text-amber-700">
-                        待完成密码重置
-                      </span>
-                    ) : null}
-                  </TableCell>
-                  <TableCell>
-                    {user.last_login_at
-                      ? new Date(user.last_login_at).toLocaleString("zh-CN")
-                      : "尚未登录"}
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex flex-wrap gap-2">
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="secondary"
-                        onClick={() =>
-                          void runUserAction(
-                            () => sendUserPasswordReset(user.id),
-                            "密码重置邮件已进入发送队列。"
-                          )
-                        }
-                      >
-                        重置密码
-                      </Button>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="secondary"
-                        onClick={() =>
-                          void runUserAction(
-                            () => revokeUserApiKeys(user.id),
-                            "该用户的接口密钥已全部撤销。"
-                          )
-                        }
-                      >
-                        撤销 Key
-                      </Button>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant={user.is_active === false ? "outline" : "destructive"}
-                        onClick={() =>
-                          void runUserAction(
-                            () =>
-                              updateUser(user.id, {
-                                is_active: user.is_active === false,
-                              }),
-                            user.is_active === false ? "用户已恢复。" : "用户已停用。"
-                          )
-                        }
-                      >
-                        {user.is_active === false ? "恢复" : "停用"}
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl border border-blue-100 bg-blue-50 p-2 text-blue-700">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <CardTitle>邀请内部成员</CardTitle>
+                <CardDescription>邀请编辑、专家或管理员开通内部账户。</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <form
+              onSubmit={handleInvite}
+              className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end"
+            >
+              <label className="block space-y-2 text-sm font-medium text-slate-700">
+                邮箱
+                <Input
+                  value={inviteEmail}
+                  onChange={(event) => setInviteEmail(event.target.value)}
+                />
+              </label>
+              <label className="block space-y-2 text-sm font-medium text-slate-700">
+                角色
+                <Select
+                  value={inviteRole}
+                  onChange={(event) =>
+                    setInviteRole(event.target.value as User["role"])
+                  }
+                >
+                  <option value="editor">编辑</option>
+                  <option value="expert">专家</option>
+                  <option value="admin">管理员</option>
+                </Select>
+              </label>
+              <Button type="submit" className="md:min-w-32">创建邀请</Button>
+            </form>
+          </CardContent>
         </Card>
       </div>
       ) : null}
@@ -737,7 +771,7 @@ export function AdminWorkspace() {
           <CardDescription>查看、重新发送或撤销尚未使用的账户邀请。</CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
+          <Table className="min-w-[720px]">
             <TableHeader>
               <TableRow>
                 <TableHead>邮箱</TableHead>
@@ -748,52 +782,63 @@ export function AdminWorkspace() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {invitations.map((invitation) => (
-                <TableRow key={invitation.id}>
-                  <TableCell>{invitation.email}</TableCell>
-                  <TableCell>{roleLabel[invitation.role]}</TableCell>
-                  <TableCell>
-                    <Badge variant={invitation.status === "pending" ? "warning" : "neutral"}>
-                      {invitationStatusLabel[invitation.status]}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    {new Date(invitation.expires_at).toLocaleString("zh-CN")}
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex gap-2">
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="secondary"
-                        disabled={invitation.status === "used" || invitation.status === "revoked"}
-                        onClick={() =>
-                          void runUserAction(
-                            () => resendInvitation(invitation.id),
-                            "邀请已经重新发送。"
-                          )
-                        }
-                      >
-                        重新发送
-                      </Button>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="destructive"
-                        disabled={invitation.status === "used" || invitation.status === "revoked"}
-                        onClick={() =>
-                          void runUserAction(
-                            () => revokeInvitation(invitation.id),
-                            "邀请已经撤销。"
-                          )
-                        }
-                      >
-                        撤销
-                      </Button>
-                    </div>
+              {invitations.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={5}
+                    className="py-10 text-center text-sm text-slate-500"
+                  >
+                    暂无内部成员邀请记录。
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                invitations.map((invitation) => (
+                  <TableRow key={invitation.id}>
+                    <TableCell>{invitation.email}</TableCell>
+                    <TableCell>{roleLabel[invitation.role]}</TableCell>
+                    <TableCell>
+                      <Badge variant={invitation.status === "pending" ? "warning" : "neutral"}>
+                        {invitationStatusLabel[invitation.status]}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      {new Date(invitation.expires_at).toLocaleString("zh-CN")}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex gap-2">
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="secondary"
+                          disabled={invitation.status === "used" || invitation.status === "revoked"}
+                          onClick={() =>
+                            void runUserAction(
+                              () => resendInvitation(invitation.id),
+                              "邀请已经重新发送。"
+                            )
+                          }
+                        >
+                          重新发送
+                        </Button>
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="destructive"
+                          disabled={invitation.status === "used" || invitation.status === "revoked"}
+                          onClick={() =>
+                            void runUserAction(
+                              () => revokeInvitation(invitation.id),
+                              "邀请已经撤销。"
+                            )
+                          }
+                        >
+                          撤销
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </CardContent>

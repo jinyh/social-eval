@@ -125,7 +125,7 @@ tests/             与 src/ 对应的测试
   远端旧 `main` 当作当前可部署版本。
 - 本机 `socialeval-test` 已按当前工作区重建：API、Worker、PostgreSQL、Redis
   健康，前端和 Caddy 正常，迁移容器退出码为 0，数据库为 Alembic `016 (head)`。
-- 最近全量验证为后端 `286 passed`、前端 `23 passed`，Vite 生产构建和
+- 最近全量验证为后端 `286 passed`、前端 `24 passed`，Vite 生产构建和
   `uv lock --check`、`ruff check src/ tests/` 均通过。
 - 编辑单元使用不可变期刊策略版本。管理员登记验证，单元负责人在编辑工作台签署，
   管理员不能代签；历史投稿绑定创建时的策略快照。
