@@ -84,7 +84,7 @@ export function PasswordResetConfirmation() {
     try {
       await confirmPasswordReset(tokenFromFragment(), password);
       window.history.replaceState(null, "", "/");
-      setMessage("密码已经重置，所有旧会话和 API Key 均已失效。");
+      setMessage("密码已经重置，所有旧会话和接口密钥均已失效。");
       setError("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "密码重置失败");

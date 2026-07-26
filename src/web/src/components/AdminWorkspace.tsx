@@ -459,7 +459,7 @@ export function AdminWorkspace() {
                         onClick={() =>
                           void runUserAction(
                             () => revokeUserApiKeys(user.id),
-                            "该用户的 API Key 已全部撤销。"
+                            "该用户的接口密钥已全部撤销。"
                           )
                         }
                       >

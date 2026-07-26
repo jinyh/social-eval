@@ -77,10 +77,10 @@ export function AccountSettings({
       setCreatedKey(result);
       setKeyName("");
       setError("");
-      setMessage("API Key 已创建，请立即复制保存。");
+      setMessage("接口密钥已创建，请立即复制保存。");
       await refreshKeys();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "API Key 创建失败");
+      setError(err instanceof Error ? err.message : "接口密钥创建失败");
     }
   };
 
@@ -161,7 +161,7 @@ export function AccountSettings({
                 checked={revokeKeys}
                 onChange={(event) => setRevokeKeys(event.target.checked)}
               />
-              同时撤销全部 API Key
+              同时撤销全部接口密钥
             </label>
             <Button type="submit">更新密码</Button>
           </form>
