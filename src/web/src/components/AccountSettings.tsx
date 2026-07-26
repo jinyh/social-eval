@@ -231,7 +231,7 @@ export function AccountSettings({
           <div className="flex items-center gap-3">
             <KeyRound className="h-5 w-5 text-blue-700" />
             <div>
-              <CardTitle>API Key</CardTitle>
+              <CardTitle>接口密钥</CardTitle>
               <CardDescription>
                 Key 明文只显示一次，最长有效 90 天。
               </CardDescription>

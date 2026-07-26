@@ -265,6 +265,8 @@ export type EditorialUnit = {
   policy_key: string;
   policy_version: string;
   rollout_state: "shadow" | "active";
+  trial_policy_version_id?: string | null;
+  active_policy_version_id?: string | null;
 };
 
 export type ModelSet = {
@@ -285,13 +287,78 @@ export type ValidationRun = {
   validation_type: "calibration" | "holdout" | "final_validation" | "model_upgrade";
   framework_version: string;
   model_set_version: string;
+  policy_version_id?: string | null;
   sample_manifest_sha256: string;
   sample_count: number;
   metrics: Record<string, unknown>;
-  status: "draft" | "signed";
+  status: "draft" | "signed" | "rejected";
   signed_by?: string | null;
+  signer_membership_role?: "editor" | "unit_admin" | null;
+  rejection_reason?: string | null;
   signed_at?: string | null;
   created_at: string;
+};
+
+export type EditorialPolicyProfile = {
+  journal_name?: string;
+  unit_name?: string;
+  fit_focus: string;
+  accepted_scope: string[];
+  excluded_scope: string[];
+  column_positioning: string[];
+  article_types: string[];
+  target_readers: string[];
+  special_notes: string;
+};
+
+export type EditorialPolicyVersion = {
+  id: string;
+  unit_id: string;
+  policy_key: string;
+  version: string;
+  status: "draft" | "trial" | "active" | "retired";
+  profile: EditorialPolicyProfile;
+  model_set_version: string;
+  review_protocol_version: string;
+  framework_version: string;
+  provider_names: string[];
+  content_sha256: string;
+  based_on_id?: string | null;
+  created_by?: string | null;
+  activated_by?: string | null;
+  created_at: string;
+  frozen_at?: string | null;
+  activated_at?: string | null;
+};
+
+export type EditorialPolicyReview = EditorialPolicyVersion & {
+  validations: ValidationRun[];
+};
+
+export type ModelComparison = {
+  submission_id: string;
+  comparison_group_id?: string;
+  items: Array<{
+    task_id: string;
+    run_role: "baseline" | "candidate";
+    status: string;
+    model_set_version: string;
+    review_protocol_version: string;
+    provider_names: string[];
+    final_round: number;
+    metrics: Array<{
+      dimension_key: string;
+      mean_score: number;
+      std_score: number;
+      requires_expert_review: boolean;
+    }>;
+  }>;
+  deltas?: Array<{
+    dimension_key: string;
+    baseline_score: number;
+    candidate_score: number;
+    delta: number;
+  }>;
 };
 
 export type EditorialSubmissionListItem = {

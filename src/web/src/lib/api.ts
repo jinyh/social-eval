@@ -7,12 +7,16 @@ import type {
   NotificationItem,
   EditorialDecision,
   EditorialDecisionRecord,
+  EditorialPolicyProfile,
+  EditorialPolicyReview,
+  EditorialPolicyVersion,
   EditorialSubmissionDetail,
   EditorialSubmissionListQuery,
   EditorialSubmissionPage,
   EditorialUnit,
   Invitation,
   LoginChallenge,
+  ModelComparison,
   MfaSetup,
   PaperListItem,
   PaperStatus,
@@ -752,19 +756,24 @@ export async function createEditorialUnit(
 
 export async function addEditorialUnitMember(
   unitId: string,
-  userId: string
+  userId: string,
+  membershipRole: "editor" | "unit_admin" = "editor"
 ): Promise<void> {
   if (isMockMode()) return;
   await apiFetch(`/api/admin/editorial/units/${unitId}/members`, {
     method: "POST",
-    body: JSON.stringify({ user_id: userId, membership_role: "editor" }),
+    body: JSON.stringify({
+      user_id: userId,
+      membership_role: membershipRole,
+    }),
   });
 }
 
 export async function activateEditorialUnit(
   unitId: string,
   reason: string,
-  validationRunId: string
+  validationRunId: string,
+  policyVersionId: string
 ): Promise<EditorialUnit> {
   if (isMockMode()) {
     const unit = mockEditorialUnits.find((item) => item.id === unitId);
@@ -779,7 +788,7 @@ export async function activateEditorialUnit(
         rollout_state: "active",
         reason,
         validation_run_id: validationRunId,
-        editor_signoff: true,
+        policy_version_id: policyVersionId,
       }),
     }
   );
@@ -811,15 +820,17 @@ export async function createValidationRun(
   unitId: string,
   sampleCount: number,
   manifestSha256: string,
-  reason: string
+  reason: string,
+  policyVersion: EditorialPolicyVersion
 ): Promise<ValidationRun> {
   if (isMockMode()) {
     return {
       id: "validation-mock",
       unit_id: unitId,
       validation_type: "final_validation",
-      framework_version: "law-v2.56.6-20260522",
-      model_set_version: "six-dimension-v1",
+      framework_version: policyVersion.framework_version,
+      model_set_version: policyVersion.model_set_version,
+      policy_version_id: policyVersion.id,
       sample_manifest_sha256: manifestSha256,
       sample_count: sampleCount,
       metrics: { conclusion: reason },
@@ -832,8 +843,9 @@ export async function createValidationRun(
     body: JSON.stringify({
       unit_id: unitId,
       validation_type: "final_validation",
-      framework_version: "law-v2.56.6-20260522",
-      model_set_version: "six-dimension-v1",
+      framework_version: policyVersion.framework_version,
+      model_set_version: policyVersion.model_set_version,
+      policy_version_id: policyVersion.id,
       sample_manifest_sha256: manifestSha256,
       sample_count: sampleCount,
       metrics: { conclusion: reason },
@@ -841,24 +853,98 @@ export async function createValidationRun(
   });
 }
 
-export async function signValidationRun(runId: string): Promise<ValidationRun> {
-  if (isMockMode()) {
-    return {
-      id: runId,
-      unit_id: "unit-jiaoda",
-      validation_type: "final_validation",
-      framework_version: "law-v2.56.6-20260522",
-      model_set_version: "six-dimension-v1",
-      sample_manifest_sha256: "0".repeat(64),
-      sample_count: 1,
-      metrics: {},
-      status: "signed",
-      signed_at: new Date().toISOString(),
-      created_at: new Date().toISOString(),
-    };
+export async function listValidationRuns(
+  unitId: string
+): Promise<ValidationRun[]> {
+  if (isMockMode()) return [];
+  const result = await apiFetch<{ items: ValidationRun[] }>(
+    `/api/admin/editorial/validation-runs?unit_id=${encodeURIComponent(unitId)}`
+  );
+  return result.items;
+}
+
+export async function listEditorialPolicyVersions(
+  unitId: string
+): Promise<EditorialPolicyVersion[]> {
+  if (isMockMode()) return [];
+  const result = await apiFetch<{ items: EditorialPolicyVersion[] }>(
+    `/api/admin/editorial/units/${unitId}/policy-versions`
+  );
+  return result.items;
+}
+
+export async function createEditorialPolicyVersion(
+  unitId: string,
+  input: {
+    version: string;
+    based_on_id?: string | null;
+    model_set_version: string;
+    profile: EditorialPolicyProfile;
   }
-  return apiFetch<ValidationRun>(
-    `/api/admin/editorial/validation-runs/${runId}/sign`,
+): Promise<EditorialPolicyVersion> {
+  if (isMockMode()) {
+    throw new Error("模拟模式不保存期刊策略版本");
+  }
+  return apiFetch<EditorialPolicyVersion>(
+    `/api/admin/editorial/units/${unitId}/policy-versions`,
+    { method: "POST", body: JSON.stringify(input) }
+  );
+}
+
+export async function updateEditorialPolicyVersion(
+  versionId: string,
+  input: {
+    version: string;
+    based_on_id?: string | null;
+    model_set_version: string;
+    profile: EditorialPolicyProfile;
+  }
+): Promise<EditorialPolicyVersion> {
+  return apiFetch<EditorialPolicyVersion>(
+    `/api/admin/editorial/policy-versions/${versionId}`,
+    { method: "PUT", body: JSON.stringify(input) }
+  );
+}
+
+export async function freezeEditorialPolicyVersion(
+  versionId: string
+): Promise<EditorialPolicyVersion> {
+  return apiFetch<EditorialPolicyVersion>(
+    `/api/admin/editorial/policy-versions/${versionId}/trial`,
     { method: "POST" }
+  );
+}
+
+export async function listPendingPolicySignatures(): Promise<
+  EditorialPolicyReview[]
+> {
+  if (isMockMode()) return [];
+  const result = await apiFetch<{ items: EditorialPolicyReview[] }>(
+    "/api/editorial/policy-versions/pending-signature"
+  );
+  return result.items;
+}
+
+export async function decidePolicyValidation(
+  validationRunId: string,
+  approved: boolean,
+  reason: string
+): Promise<void> {
+  await apiFetch(
+    `/api/editorial/validation-runs/${validationRunId}/decision`,
+    {
+      method: "POST",
+      body: JSON.stringify({ approved, reason }),
+    }
+  );
+}
+
+export async function getModelComparison(
+  submissionId: string
+): Promise<ModelComparison> {
+  return apiFetch<ModelComparison>(
+    `/api/admin/editorial/model-comparisons?submission_id=${encodeURIComponent(
+      submissionId
+    )}`
   );
 }

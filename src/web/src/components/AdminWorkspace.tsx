@@ -4,13 +4,18 @@ import { ShieldCheck } from "lucide-react";
 import {
   activateEditorialUnit,
   addEditorialUnitMember,
+  createEditorialPolicyVersion,
   createEditorialUnit,
   createInvitation,
   createJournal,
   createValidationRun,
+  freezeEditorialPolicyVersion,
+  getModelComparison,
   listInvitations,
   listEditorialPolicies,
+  listEditorialPolicyVersions,
   listEditorialUnits,
+  listValidationRuns,
   listModelSets,
   listUsers,
   resendInvitation,
@@ -19,10 +24,19 @@ import {
   returnEditorialUnitToTrial,
   sendUserPasswordReset,
   startCandidateModelRun,
-  signValidationRun,
+  updateEditorialPolicyVersion,
   updateUser,
 } from "@/lib/api";
-import type { EditorialUnit, Invitation, ModelSet, User } from "@/lib/types";
+import type {
+  EditorialPolicyProfile,
+  EditorialPolicyVersion,
+  EditorialUnit,
+  Invitation,
+  ModelComparison,
+  ModelSet,
+  User,
+  ValidationRun,
+} from "@/lib/types";
 
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -45,6 +59,9 @@ export function AdminWorkspace() {
   const [policies, setPolicies] = useState<string[]>([]);
   const [selectedUnitId, setSelectedUnitId] = useState("");
   const [selectedEditorId, setSelectedEditorId] = useState("");
+  const [membershipRole, setMembershipRole] = useState<
+    "editor" | "unit_admin"
+  >("editor");
   const [journalCode, setJournalCode] = useState("");
   const [journalName, setJournalName] = useState("");
   const [unitCode, setUnitCode] = useState("default");
@@ -53,8 +70,29 @@ export function AdminWorkspace() {
   const [sampleCount, setSampleCount] = useState(0);
   const [activationReason, setActivationReason] = useState("");
   const [manifestSha256, setManifestSha256] = useState("");
+  const [manifestFileName, setManifestFileName] = useState("");
   const [modelSets, setModelSets] = useState<ModelSet[]>([]);
   const [candidateSubmissionId, setCandidateSubmissionId] = useState("");
+  const [policyVersions, setPolicyVersions] = useState<
+    EditorialPolicyVersion[]
+  >([]);
+  const [validationRuns, setValidationRuns] = useState<ValidationRun[]>([]);
+  const [selectedPolicyVersionId, setSelectedPolicyVersionId] = useState("");
+  const [policyVersionNumber, setPolicyVersionNumber] = useState("1.2");
+  const [policyModelSet, setPolicyModelSet] = useState(
+    "six-dimension-v2-candidate"
+  );
+  const [policyProfile, setPolicyProfile] = useState<EditorialPolicyProfile>({
+    fit_focus: "",
+    accepted_scope: [],
+    excluded_scope: [],
+    column_positioning: [],
+    article_types: [],
+    target_readers: [],
+    special_notes: "",
+  });
+  const [modelComparison, setModelComparison] =
+    useState<ModelComparison | null>(null);
 
   const refresh = async () => {
     const [userRows, invitationRows, unitRows, policyRows, modelSetRows] = await Promise.all([
@@ -81,6 +119,25 @@ export function AdminWorkspace() {
     void refresh().catch(() => setUsers([]));
   }, []);
 
+  useEffect(() => {
+    if (!selectedUnitId) return;
+    void Promise.all([
+      listEditorialPolicyVersions(selectedUnitId),
+      listValidationRuns(selectedUnitId),
+    ]).then(([versions, validations]) => {
+      setPolicyVersions(versions);
+      setValidationRuns(validations);
+      const unit = units.find((item) => item.id === selectedUnitId);
+      const preferred =
+        versions.find(
+          (version) =>
+            version.id ===
+            (unit?.trial_policy_version_id ?? unit?.active_policy_version_id)
+        ) ?? versions[0];
+      if (preferred) selectPolicyVersion(preferred);
+    });
+  }, [selectedUnitId, units]);
+
   const handleInvite = async (event: FormEvent) => {
     event.preventDefault();
     await createInvitation(inviteEmail, inviteRole);
@@ -106,20 +163,45 @@ export function AdminWorkspace() {
 
   const handleAddMember = async () => {
     if (!selectedUnitId || !selectedEditorId) return;
-    await addEditorialUnitMember(selectedUnitId, selectedEditorId);
+    await addEditorialUnitMember(
+      selectedUnitId,
+      selectedEditorId,
+      membershipRole
+    );
     setMessage("已更新编辑单元成员关系。");
   };
 
-  const handleActivate = async () => {
-    if (!selectedUnitId) return;
+  const handleCreateValidation = async () => {
+    const trialPolicy = policyVersions.find(
+      (version) => version.id === selectedUnit?.trial_policy_version_id
+    );
+    if (!selectedUnitId || !trialPolicy) return;
     const validation = await createValidationRun(
       selectedUnitId,
       sampleCount,
       manifestSha256,
-      activationReason
+      activationReason,
+      trialPolicy
     );
-    await signValidationRun(validation.id);
-    await activateEditorialUnit(selectedUnitId, activationReason, validation.id);
+    setValidationRuns((current) => [validation, ...current]);
+    setMessage("验证记录已登记，请由当前单元负责人在编辑工作台签署。");
+  };
+
+  const handleActivate = async () => {
+    const trialPolicy = policyVersions.find(
+      (version) => version.id === selectedUnit?.trial_policy_version_id
+    );
+    const validation = validationRuns.find(
+      (row) =>
+        row.policy_version_id === trialPolicy?.id && row.status === "signed"
+    );
+    if (!selectedUnitId || !trialPolicy || !validation) return;
+    await activateEditorialUnit(
+      selectedUnitId,
+      activationReason,
+      validation.id,
+      trialPolicy.id
+    );
     setMessage("编辑单元已转为正式启用；该操作已写入审计日志。");
     await refresh();
   };
@@ -147,6 +229,61 @@ export function AdminWorkspace() {
     setMessage(`候选模型任务已创建：${result.task_id}`);
   };
 
+  const handleLoadComparison = async () => {
+    if (!candidateSubmissionId.trim()) return;
+    setModelComparison(
+      await getModelComparison(candidateSubmissionId.trim())
+    );
+  };
+
+  const handleManifestFile = async (file: File | undefined) => {
+    if (!file) return;
+    setManifestFileName(file.name);
+    setManifestSha256(await sha256File(file));
+  };
+
+  const selectPolicyVersion = (version: EditorialPolicyVersion) => {
+    setSelectedPolicyVersionId(version.id);
+    setPolicyVersionNumber(version.version);
+    setPolicyModelSet(version.model_set_version);
+    setPolicyProfile(normalizePolicyProfile(version.profile));
+  };
+
+  const handleSavePolicyDraft = async () => {
+    if (!selectedUnitId) return;
+    const selected = policyVersions.find(
+      (version) => version.id === selectedPolicyVersionId
+    );
+    const input = {
+      version: policyVersionNumber,
+      based_on_id: selected?.status === "draft"
+        ? selected.based_on_id
+        : selected?.id,
+      model_set_version: policyModelSet,
+      profile: policyProfile,
+    };
+    const saved =
+      selected?.status === "draft"
+        ? await updateEditorialPolicyVersion(selected.id, input)
+        : await createEditorialPolicyVersion(selectedUnitId, input);
+    setMessage(`期刊策略草稿 ${saved.version} 已保存。`);
+    const versions = await listEditorialPolicyVersions(selectedUnitId);
+    setPolicyVersions(versions);
+    selectPolicyVersion(
+      versions.find((version) => version.id === saved.id) ?? saved
+    );
+  };
+
+  const handleFreezePolicy = async () => {
+    const selected = policyVersions.find(
+      (version) => version.id === selectedPolicyVersionId
+    );
+    if (!selected || selected.status !== "draft") return;
+    const frozen = await freezeEditorialPolicyVersion(selected.id);
+    setMessage(`策略 ${frozen.version} 已冻结并进入试运行。`);
+    await refresh();
+  };
+
   const filteredUsers = users.filter((user) => {
     const keyword = userQuery.trim().toLocaleLowerCase("zh-CN");
     const matchesKeyword =
@@ -160,6 +297,16 @@ export function AdminWorkspace() {
     return matchesKeyword && matchesRole && matchesStatus;
   });
   const selectedUnit = units.find((unit) => unit.id === selectedUnitId);
+  const selectedPolicyVersion = policyVersions.find(
+    (version) => version.id === selectedPolicyVersionId
+  );
+  const trialPolicy = policyVersions.find(
+    (version) => version.id === selectedUnit?.trial_policy_version_id
+  );
+  const signedValidation = validationRuns.find(
+    (row) =>
+      row.policy_version_id === trialPolicy?.id && row.status === "signed"
+  );
 
   const runUserAction = async (
     action: () => Promise<unknown>,
@@ -346,6 +493,166 @@ export function AdminWorkspace() {
 
       <Card>
         <CardHeader>
+          <CardTitle>期刊策略管理</CardTitle>
+          <CardDescription>
+            这里只维护期刊适配口径与已部署模型集。六维、五轴、综合参考分和提示词仍由版本化配置发布。
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid gap-3 md:grid-cols-3">
+            <Select
+              value={selectedPolicyVersionId}
+              onChange={(event) => {
+                const version = policyVersions.find(
+                  (item) => item.id === event.target.value
+                );
+                if (version) selectPolicyVersion(version);
+              }}
+            >
+              {policyVersions.map((version) => (
+                <option key={version.id} value={version.id}>
+                  第 {version.version} 版 · {policyStatusLabel(version.status)}
+                </option>
+              ))}
+            </Select>
+            <Input
+              value={policyVersionNumber}
+              onChange={(event) => setPolicyVersionNumber(event.target.value)}
+              placeholder="新版本号，如 1.2"
+            />
+            <Select
+              value={policyModelSet}
+              onChange={(event) => setPolicyModelSet(event.target.value)}
+            >
+              {modelSets.map((modelSet) => (
+                <option key={modelSet.name} value={modelSet.name}>
+                  {modelSet.status === "production"
+                    ? "稳定四模型"
+                    : "新四模型试运行"}
+                </option>
+              ))}
+            </Select>
+          </div>
+          <Textarea
+            value={policyProfile.fit_focus}
+            onChange={(event) =>
+              setPolicyProfile((current) => ({
+                ...current,
+                fit_focus: event.target.value,
+              }))
+            }
+            placeholder="本刊关注方向"
+          />
+          <div className="grid gap-3 md:grid-cols-2">
+            <PolicyListField
+              label="收稿范围"
+              value={policyProfile.accepted_scope}
+              onChange={(accepted_scope) =>
+                setPolicyProfile((current) => ({
+                  ...current,
+                  accepted_scope,
+                }))
+              }
+            />
+            <PolicyListField
+              label="明确排除范围"
+              value={policyProfile.excluded_scope}
+              onChange={(excluded_scope) =>
+                setPolicyProfile((current) => ({
+                  ...current,
+                  excluded_scope,
+                }))
+              }
+            />
+            <PolicyListField
+              label="栏目定位"
+              value={policyProfile.column_positioning}
+              onChange={(column_positioning) =>
+                setPolicyProfile((current) => ({
+                  ...current,
+                  column_positioning,
+                }))
+              }
+            />
+            <PolicyListField
+              label="稿件类型"
+              value={policyProfile.article_types}
+              onChange={(article_types) =>
+                setPolicyProfile((current) => ({
+                  ...current,
+                  article_types,
+                }))
+              }
+            />
+            <PolicyListField
+              label="目标读者"
+              value={policyProfile.target_readers}
+              onChange={(target_readers) =>
+                setPolicyProfile((current) => ({
+                  ...current,
+                  target_readers,
+                }))
+              }
+            />
+            <label className="space-y-2 text-sm font-medium text-slate-700">
+              特别说明
+              <Textarea
+                value={policyProfile.special_notes}
+                onChange={(event) =>
+                  setPolicyProfile((current) => ({
+                    ...current,
+                    special_notes: event.target.value,
+                  }))
+                }
+                placeholder="没有可留空"
+              />
+            </label>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={handleSavePolicyDraft}
+              disabled={
+                !selectedUnitId ||
+                !policyProfile.fit_focus.trim() ||
+                policyProfile.accepted_scope.length === 0 ||
+                policyProfile.target_readers.length === 0
+              }
+            >
+              {selectedPolicyVersion?.status === "draft"
+                ? "保存草稿"
+                : "另存为新草稿"}
+            </Button>
+            <Button
+              type="button"
+              onClick={handleFreezePolicy}
+              disabled={selectedPolicyVersion?.status !== "draft"}
+            >
+              冻结并进入试运行
+            </Button>
+          </div>
+          {selectedPolicyVersion ? (
+            <details className="rounded-xl border border-slate-200 px-4 py-3 text-xs text-slate-600">
+              <summary className="cursor-pointer font-medium text-slate-700">
+                查看技术审计信息
+              </summary>
+              <p className="mt-2 break-all">
+                内容摘要：{selectedPolicyVersion.content_sha256}
+              </p>
+              <p className="mt-1">
+                模型配置：{selectedPolicyVersion.model_set_version}
+              </p>
+              <p className="mt-1">
+                互评协议：{selectedPolicyVersion.review_protocol_version}
+              </p>
+            </details>
+          ) : null}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
           <CardTitle>邀请记录</CardTitle>
           <CardDescription>查看、重新发送或撤销尚未使用的账户邀请。</CardDescription>
         </CardHeader>
@@ -493,7 +800,7 @@ export function AdminWorkspace() {
                 <option key={unit.id} value={unit.id}>{unit.name}</option>
               ))}
             </Select>
-            <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+            <div className="grid gap-3 sm:grid-cols-[1fr_160px_auto]">
               <Select
                 value={selectedEditorId}
                 onChange={(event) => setSelectedEditorId(event.target.value)}
@@ -504,13 +811,24 @@ export function AdminWorkspace() {
                   </option>
                 ))}
               </Select>
+              <Select
+                value={membershipRole}
+                onChange={(event) =>
+                  setMembershipRole(
+                    event.target.value as "editor" | "unit_admin"
+                  )
+                }
+              >
+                <option value="editor">编辑</option>
+                <option value="unit_admin">单元负责人</option>
+              </Select>
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleAddMember}
                 disabled={!selectedUnitId || !selectedEditorId}
               >
-                添加编辑
+                更新成员
               </Button>
             </div>
             {selectedUnit?.rollout_state !== "active" ? (
@@ -522,14 +840,26 @@ export function AdminWorkspace() {
                   onChange={(event) => setSampleCount(Number(event.target.value))}
                   placeholder="试运行验证样本数"
                 />
-                <Input
-                  value={manifestSha256}
-                  onChange={(event) =>
-                    setManifestSha256(event.target.value.trim())
-                  }
-                  placeholder="样本清单 SHA-256（64 位小写十六进制）"
-                  pattern="[0-9a-f]{64}"
-                />
+                <div className="flex flex-wrap items-center gap-3 rounded-xl border border-slate-200 p-3">
+                  <label className="cursor-pointer rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                    选择样本清单
+                    <input
+                      type="file"
+                      className="hidden"
+                      onChange={(event) =>
+                        void handleManifestFile(event.target.files?.[0])
+                      }
+                    />
+                  </label>
+                  <span className="text-sm text-slate-600">
+                    {manifestFileName || "尚未选择文件"}
+                  </span>
+                  {manifestSha256 ? (
+                    <span className="w-full break-all text-xs text-slate-500">
+                      本地计算摘要：{manifestSha256}
+                    </span>
+                  ) : null}
+                </div>
               </>
             ) : null}
             <Textarea
@@ -551,19 +881,41 @@ export function AdminWorkspace() {
                 退回试运行
               </Button>
             ) : (
-              <Button
-                type="button"
-                onClick={handleActivate}
-                disabled={
-                  !selectedUnitId ||
-                  sampleCount < 1 ||
-                  !/^[0-9a-f]{64}$/.test(manifestSha256) ||
-                  activationReason.trim().length < 5
-                }
-              >
-                验证并正式启用
-              </Button>
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={handleCreateValidation}
+                  disabled={
+                    !trialPolicy ||
+                    sampleCount < 1 ||
+                    !/^[0-9a-f]{64}$/.test(manifestSha256) ||
+                    activationReason.trim().length < 5
+                  }
+                >
+                  登记验证记录
+                </Button>
+                <Button
+                  type="button"
+                  onClick={handleActivate}
+                  disabled={
+                    !trialPolicy ||
+                    !signedValidation ||
+                    activationReason.trim().length < 5
+                  }
+                >
+                  使用编辑签署并正式启用
+                </Button>
+              </div>
             )}
+            {trialPolicy ? (
+              <p className="text-xs leading-5 text-slate-500">
+                当前试运行策略：第 {trialPolicy.version} 版；
+                {signedValidation
+                  ? "单元负责人已经签署。"
+                  : "尚待单元负责人签署验证记录。"}
+              </p>
+            ) : null}
           </CardContent>
         </Card>
       </div>
@@ -617,7 +969,7 @@ export function AdminWorkspace() {
               </div>
             ))}
           </div>
-          <div className="grid gap-3 md:grid-cols-[1fr_auto]">
+          <div className="grid gap-3 md:grid-cols-[1fr_auto_auto]">
             <Input
               value={candidateSubmissionId}
               onChange={(event) => setCandidateSubmissionId(event.target.value)}
@@ -630,13 +982,149 @@ export function AdminWorkspace() {
             >
               创建候选模型并行任务
             </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={handleLoadComparison}
+              disabled={!candidateSubmissionId.trim()}
+            >
+              查看新旧模型比较
+            </Button>
           </div>
+          {modelComparison ? (
+            <div className="rounded-xl border border-slate-200 bg-white p-4">
+              <p className="font-medium text-slate-900">
+                新旧模型任务：{modelComparison.items.length} 组
+              </p>
+              <div className="mt-3 grid gap-2 md:grid-cols-2">
+                {modelComparison.items.map((item) => (
+                  <div
+                    key={item.task_id}
+                    className="rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700"
+                  >
+                    <p>
+                      {item.run_role === "candidate"
+                        ? "新四模型"
+                        : "原四模型"}
+                      ：{taskStatusLabel(item.status)}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      已形成 {item.metrics.length} 个维度结果
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {modelComparison.deltas?.length ? (
+                <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {modelComparison.deltas.map((delta) => (
+                    <div
+                      key={delta.dimension_key}
+                      className="rounded-lg border border-slate-100 px-3 py-2 text-xs text-slate-600"
+                    >
+                      {dimensionLabel(delta.dimension_key)}：
+                      {delta.delta >= 0 ? "+" : ""}
+                      {delta.delta.toFixed(1)} 分
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          ) : null}
           <p className="text-xs leading-5 text-slate-500">
             仅用于获授权样本的校准、冻结测试和最终验证。候选模型通过编辑签字前不得切换为生产配置。
           </p>
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+function normalizePolicyProfile(
+  profile: EditorialPolicyProfile
+): EditorialPolicyProfile {
+  return {
+    ...profile,
+    accepted_scope:
+      profile.accepted_scope?.length > 0
+        ? profile.accepted_scope
+        : [profile.fit_focus],
+    excluded_scope: profile.excluded_scope ?? [],
+    column_positioning: profile.column_positioning ?? [],
+    article_types: profile.article_types ?? ["法学研究论文"],
+    target_readers:
+      profile.target_readers?.length > 0
+        ? profile.target_readers
+        : ["法学研究者与法律实务工作者"],
+    special_notes: profile.special_notes ?? "",
+  };
+}
+
+function PolicyListField({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string[];
+  onChange: (value: string[]) => void;
+}) {
+  return (
+    <label className="space-y-2 text-sm font-medium text-slate-700">
+      {label}
+      <Textarea
+        value={value.join("\n")}
+        onChange={(event) =>
+          onChange(
+            event.target.value
+              .split("\n")
+              .map((item) => item.trim())
+              .filter(Boolean)
+          )
+        }
+        placeholder="每行填写一项"
+      />
+    </label>
+  );
+}
+
+export async function sha256File(file: File): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", await file.arrayBuffer());
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function policyStatusLabel(status: EditorialPolicyVersion["status"]): string {
+  return {
+    draft: "草稿",
+    trial: "试运行",
+    active: "正式使用",
+    retired: "历史版本",
+  }[status];
+}
+
+function taskStatusLabel(status: string): string {
+  return (
+    {
+      pending: "等待处理",
+      processing: "处理中",
+      reviewing: "等待专家复核",
+      completed: "已完成",
+      failed: "处理失败",
+    }[status] ?? "状态待确认"
+  );
+}
+
+function dimensionLabel(key: string): string {
+  return (
+    {
+      problem_originality: "研究创新性",
+      literature_insight: "现状洞察度",
+      analytical_framework: "理论建构力",
+      logical_coherence: "逻辑连贯性",
+      conclusion_consensus: "学术共识度",
+      forward_extension: "前瞻延展性",
+    }[key] ?? "评价维度"
   );
 }
 

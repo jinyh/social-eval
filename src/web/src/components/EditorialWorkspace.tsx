@@ -21,6 +21,7 @@ import {
   assignExpert,
   confirmEditorialAnonymization,
   continueEditorialSubmission,
+  decidePolicyValidation,
   editorialDocumentUrl,
   editorialReportUrl,
   getEditorialManuscript,
@@ -29,6 +30,7 @@ import {
   listEditorialUnits,
   listExperts,
   listNotifications,
+  listPendingPolicySignatures,
   markNotificationRead,
   submitEditorialDecision,
   uploadEditorialSubmission,
@@ -37,6 +39,7 @@ import type {
   AnonymousManuscript,
   EditorialDecision,
   EditorialDimensionSummary,
+  EditorialPolicyReview,
   EditorialSubmissionDetail,
   EditorialSubmissionListItem,
   EditorialSubmissionStatusGroup,
@@ -375,6 +378,10 @@ export function EditorialWorkspace({ user }: { user: User }) {
   const [experts, setExperts] = useState<User[]>([]);
   const [expertId, setExpertId] = useState("");
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+  const [policyReviews, setPolicyReviews] = useState<EditorialPolicyReview[]>(
+    []
+  );
+  const [policyDecisionReason, setPolicyDecisionReason] = useState("");
   const [detailTab, setDetailTab] = useState<DetailTab>(initialDetailTab);
   const [uploadFileName, setUploadFileName] = useState("");
   const [filters, setFilters] = useState<SubmissionFilters>({
@@ -417,17 +424,24 @@ export function EditorialWorkspace({ user }: { user: User }) {
   }, [listOptions]);
 
   useEffect(() => {
-    void Promise.all([listEditorialUnits(), listExperts(), listNotifications()])
-      .then(([unitRows, expertRows, notificationRows]) => {
+    void Promise.all([
+      listEditorialUnits(),
+      listExperts(),
+      listNotifications(),
+      listPendingPolicySignatures(),
+    ])
+      .then(([unitRows, expertRows, notificationRows, policyRows]) => {
         setUnits(unitRows);
         setUnitId(unitRows[0]?.id ?? "");
         setExperts(expertRows);
         setExpertId(expertRows[0]?.id ?? "");
         setNotifications(notificationRows);
+        setPolicyReviews(policyRows);
       })
       .catch(() => {
         setUnits([]);
         setExperts([]);
+        setPolicyReviews([]);
       });
   }, []);
 
@@ -616,6 +630,32 @@ export function EditorialWorkspace({ user }: { user: User }) {
     }
   };
 
+  const handlePolicyDecision = async (
+    review: EditorialPolicyReview,
+    approved: boolean
+  ) => {
+    const validation = review.validations.find(
+      (row) => row.status === "draft"
+    );
+    if (!validation || policyDecisionReason.trim().length < 5) return;
+    try {
+      await decidePolicyValidation(
+        validation.id,
+        approved,
+        policyDecisionReason.trim()
+      );
+      setPolicyDecisionReason("");
+      setPolicyReviews(await listPendingPolicySignatures());
+      setMessage(
+        approved
+          ? "期刊策略验证记录已经签署，管理员现在可以正式启用。"
+          : "已经记录不予签署的理由。"
+      );
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "策略签署失败");
+    }
+  };
+
   const changeWorkspaceView = (view: EditorWorkspaceView) => {
     setWorkspaceView(view);
     setSelectedId(null);
@@ -710,27 +750,37 @@ export function EditorialWorkspace({ user }: { user: User }) {
             </CardContent>
           </Card>
         ) : workspaceView === "dashboard" ? (
-          <EditorialDashboard
-            statusCounts={statusCounts}
-            submissions={submissions}
-            notifications={notifications}
-            onOpenSubmission={(item) => {
-              setWorkspaceView("submissions");
-              openSubmission(item);
-            }}
-            onNavigate={changeWorkspaceView}
-            onStatusNavigate={(status) => {
-              setFilters({
-                keyword: "",
-                status,
-                submittedFrom: "",
-                submittedTo: "",
-              });
-              changeWorkspaceView(
-                status === "awaiting_action" ? "pending" : "submissions"
-              );
-            }}
-          />
+          <>
+            <PolicySignaturePanel
+              reviews={policyReviews.filter(
+                (review) => review.unit_id === unitId
+              )}
+              reason={policyDecisionReason}
+              onReasonChange={setPolicyDecisionReason}
+              onDecision={handlePolicyDecision}
+            />
+            <EditorialDashboard
+              statusCounts={statusCounts}
+              submissions={submissions}
+              notifications={notifications}
+              onOpenSubmission={(item) => {
+                setWorkspaceView("submissions");
+                openSubmission(item);
+              }}
+              onNavigate={changeWorkspaceView}
+              onStatusNavigate={(status) => {
+                setFilters({
+                  keyword: "",
+                  status,
+                  submittedFrom: "",
+                  submittedTo: "",
+                });
+                changeWorkspaceView(
+                  status === "awaiting_action" ? "pending" : "submissions"
+                );
+              }}
+            />
+          </>
         ) : workspaceView === "new" ? (
           <EditorialUpload
             uploadFileName={uploadFileName}
@@ -809,6 +859,100 @@ export function EditorialWorkspace({ user }: { user: User }) {
         )}
       </main>
     </div>
+  );
+}
+
+function PolicySignaturePanel({
+  reviews,
+  reason,
+  onReasonChange,
+  onDecision,
+}: {
+  reviews: EditorialPolicyReview[];
+  reason: string;
+  onReasonChange: (value: string) => void;
+  onDecision: (
+    review: EditorialPolicyReview,
+    approved: boolean
+  ) => Promise<void>;
+}) {
+  const review = reviews.find((item) =>
+    item.validations.some((validation) => validation.status === "draft")
+  );
+  if (!review) return null;
+  const validation = review.validations.find(
+    (item) => item.status === "draft"
+  );
+  if (!validation) return null;
+  return (
+    <Card className="border-indigo-200 bg-indigo-50/40">
+      <CardHeader>
+        <CardTitle>期刊策略等待负责人签署</CardTitle>
+        <CardDescription>
+          请核对学术适配口径和验证证据。签署只确认该版本可以正式使用，不代表接受具体稿件。
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="rounded-xl border border-indigo-100 bg-white p-4">
+            <p className="text-sm font-medium text-slate-900">
+              第 {review.version} 版适配策略
+            </p>
+            <p className="mt-2 text-sm leading-6 text-slate-700">
+              {review.profile.fit_focus}
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              收稿范围：{review.profile.accepted_scope.join("、")}
+            </p>
+            <p className="mt-1 text-xs text-slate-500">
+              目标读者：{review.profile.target_readers.join("、")}
+            </p>
+          </div>
+          <div className="rounded-xl border border-indigo-100 bg-white p-4">
+            <p className="text-sm font-medium text-slate-900">
+              验证证据
+            </p>
+            <p className="mt-2 text-sm text-slate-700">
+              样本数量：{validation.sample_count}
+            </p>
+            <p className="mt-1 text-sm text-slate-700">
+              模型策略：
+              {review.model_set_version === "six-dimension-v2-candidate"
+                ? "新四模型同级匿名互评"
+                : "原四模型分组复核"}
+            </p>
+            <details className="mt-2 text-xs text-slate-500">
+              <summary className="cursor-pointer">查看样本摘要</summary>
+              <p className="mt-1 break-all">
+                {validation.sample_manifest_sha256}
+              </p>
+            </details>
+          </div>
+        </div>
+        <Textarea
+          value={reason}
+          onChange={(event) => onReasonChange(event.target.value)}
+          placeholder="填写签署结论或不予签署理由，至少 5 个字符。"
+        />
+        <div className="flex flex-wrap gap-3">
+          <Button
+            type="button"
+            onClick={() => void onDecision(review, true)}
+            disabled={reason.trim().length < 5}
+          >
+            确认并签署
+          </Button>
+          <Button
+            type="button"
+            variant="destructive"
+            onClick={() => void onDecision(review, false)}
+            disabled={reason.trim().length < 5}
+          >
+            不予签署
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
