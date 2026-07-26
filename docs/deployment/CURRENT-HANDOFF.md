@@ -9,8 +9,8 @@
 
 - 生产化账户安全、数据库迁移、Docker 编排、HTTPS 入口、备份、健康检查、
   保留策略和部署文档已经实现。
-- 生产化主提交为 `b88b515`：
-  `feat: harden production accounts and operations`。
+- 生产化账户与运维基线提交为 `b88b515`；当前已验证功能基线为 `d8b40a1`
+  （五轴已切换 Qwen3.7-Max）。
 - 本机 `socialeval-test` 已使用新代码完成重建，六个常驻服务均健康。
 - 本机测试数据库已经迁移到 Alembic `015 (head)`，原命名卷和原测试数据仍在。
 - 本机测试邀请公开基址已覆盖为 `https://localhost`；修复前邮件中的
@@ -224,7 +224,8 @@ Restic/S3 备份凭据
 4. 在服务器生成正式 `.env.production`，权限设为 `0600`。
 5. 运行 `scripts/check_production_readiness.py`；不得通过测试覆盖文件绕过失败项。
 6. 运行 `deploy/scripts/prepare_data_dirs.sh` 初始化独立数据盘目录。
-7. 以 commit `b88b515` 或其后明确审核过的提交构建并标记镜像。
+7. 以 commit `d8b40a1` 或其后明确审核过的提交构建并标记镜像；当前本机分支
+   尚未推送，不能从远端旧 `main` 直接部署。
 8. 先启动 PostgreSQL/Redis，再运行 `migrate`，确认 `015 (head)` 后启动其余服务。
 9. 创建首个管理员或迁移获批准的账户，首次登录立即绑定双因素认证并离线保存恢复码。
 10. 完成邀请、激活、密码重置、角色变化、投稿、模型评阅、专家复核、报告和 SMTP
