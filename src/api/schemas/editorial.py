@@ -29,6 +29,8 @@ class EditorialUnitResponse(BaseModel):
     policy_key: str
     policy_version: str
     rollout_state: str
+    trial_policy_version_id: str | None = None
+    active_policy_version_id: str | None = None
 
 
 class EditorialUnitListResponse(BaseModel):
@@ -205,6 +207,7 @@ class RolloutStateRequest(BaseModel):
     reason: str = Field(min_length=5, max_length=2000)
     validation_summary: dict | None = None
     validation_run_id: str | None = None
+    policy_version_id: str | None = None
     editor_signoff: bool = False
 
 
@@ -215,9 +218,54 @@ class ValidationRunCreateRequest(BaseModel):
     )
     framework_version: str = Field(min_length=2, max_length=100)
     model_set_version: str = Field(min_length=2, max_length=100)
+    policy_version_id: str | None = None
     sample_manifest_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
     sample_count: int = Field(gt=0, le=100000)
     metrics: dict
+
+
+class EditorialPolicyProfileRequest(BaseModel):
+    fit_focus: str = Field(min_length=5, max_length=2000)
+    accepted_scope: list[str] = Field(default_factory=list, max_length=50)
+    excluded_scope: list[str] = Field(default_factory=list, max_length=50)
+    column_positioning: list[str] = Field(default_factory=list, max_length=30)
+    article_types: list[str] = Field(default_factory=list, max_length=30)
+    target_readers: list[str] = Field(default_factory=list, max_length=30)
+    special_notes: str = Field(default="", max_length=3000)
+
+    @model_validator(mode="after")
+    def validate_meaningful_scope(self) -> "EditorialPolicyProfileRequest":
+        if not self.accepted_scope:
+            raise ValueError("至少填写一项收稿范围")
+        if not self.target_readers:
+            raise ValueError("至少填写一项目标读者")
+        for values in (
+            self.accepted_scope,
+            self.excluded_scope,
+            self.column_positioning,
+            self.article_types,
+            self.target_readers,
+        ):
+            if any(not value.strip() or len(value) > 500 for value in values):
+                raise ValueError("策略列表项必须为 1 至 500 个字符")
+        return self
+
+
+class EditorialPolicyVersionRequest(BaseModel):
+    version: str = Field(pattern=r"^[0-9]+(?:\.[0-9]+){1,2}$", max_length=50)
+    based_on_id: str | None = None
+    model_set_version: str = Field(min_length=2, max_length=100)
+    profile: EditorialPolicyProfileRequest
+
+
+class EditorialPolicyValidationDecisionRequest(BaseModel):
+    approved: bool
+    reason: str = Field(min_length=5, max_length=3000)
+
+
+class EditorialPolicyRollbackRequest(BaseModel):
+    policy_version_id: str
+    reason: str = Field(min_length=5, max_length=2000)
 
 
 class ReopenDecisionRequest(BaseModel):

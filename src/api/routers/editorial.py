@@ -33,6 +33,7 @@ from src.api.schemas.editorial import (
     EditorialDecisionCreateRequest,
     EditorialDecisionResponse,
     EditorialOpinionResponse,
+    EditorialPolicyValidationDecisionRequest,
     EditorialSubmissionCreateResponse,
     EditorialSubmissionDetailResponse,
     EditorialSubmissionListItem,
@@ -55,7 +56,10 @@ from src.editorial.access import (
 )
 from src.editorial.constants import SUBMISSION_STATUS_GROUPS
 from src.editorial.manuscript import load_anonymous_manuscript
-from src.editorial.policy import load_editorial_policy
+from src.editorial.policy import (
+    resolve_submission_policy,
+    resolve_unit_policy,
+)
 from src.editorial.presentation import (
     build_ccb_summary,
     build_position_summary,
@@ -71,12 +75,14 @@ from src.models.editorial import (
     EditorialDecision,
     EditorialDocument,
     EditorialOpinion,
+    EditorialPolicyVersion,
     EditorialSubmission,
     EditorialUnit,
     EditorialUnitMembership,
     Journal,
     Notification,
     PositionAssessment,
+    ValidationRun,
 )
 from src.models.evaluation import DimensionScore, EvaluationTask
 from src.models.paper import Paper
@@ -111,6 +117,8 @@ def _unit_response(db: Session, unit: EditorialUnit) -> EditorialUnitResponse:
         policy_key=unit.policy_key,
         policy_version=unit.policy_version,
         rollout_state=unit.rollout_state,
+        trial_policy_version_id=unit.trial_policy_version_id,
+        active_policy_version_id=unit.active_policy_version_id,
     )
 
 
@@ -129,6 +137,167 @@ def list_editorial_units(
         .all()
     )
     return EditorialUnitListResponse(items=[_unit_response(db, unit) for unit in units])
+
+
+def _require_unit_admin_membership(
+    db: Session,
+    user: User,
+    unit_id: str,
+) -> EditorialUnitMembership:
+    membership = (
+        db.query(EditorialUnitMembership)
+        .filter(
+            EditorialUnitMembership.unit_id == unit_id,
+            EditorialUnitMembership.user_id == user.id,
+            EditorialUnitMembership.membership_role == "unit_admin",
+            EditorialUnitMembership.is_active.is_(True),
+        )
+        .first()
+    )
+    if membership is None:
+        raise HTTPException(status_code=403, detail="只有单元负责人可以签署策略")
+    return membership
+
+
+def _policy_review_payload(
+    db: Session,
+    row: EditorialPolicyVersion,
+) -> dict:
+    snapshot = row.snapshot
+    if isinstance(snapshot, str):
+        snapshot = json.loads(snapshot)
+    validations = (
+        db.query(ValidationRun)
+        .filter(ValidationRun.policy_version_id == row.id)
+        .order_by(ValidationRun.created_at.desc())
+        .all()
+    )
+    return {
+        "id": row.id,
+        "unit_id": row.unit_id,
+        "policy_key": row.policy_key,
+        "version": row.version,
+        "status": row.status,
+        "profile": snapshot["profile"],
+        "model_set_version": snapshot["model_set_version"],
+        "review_protocol_version": snapshot["review_protocol_version"],
+        "framework_version": snapshot["framework_version"],
+        "provider_names": snapshot["provider_names"],
+        "content_sha256": row.content_sha256,
+        "based_on_id": row.based_on_id,
+        "created_by": row.created_by,
+        "activated_by": row.activated_by,
+        "created_at": row.created_at,
+        "frozen_at": row.frozen_at,
+        "activated_at": row.activated_at,
+        "validations": [
+            {
+                "id": validation.id,
+                "validation_type": validation.validation_type,
+                "sample_count": validation.sample_count,
+                "sample_manifest_sha256": validation.sample_manifest_sha256,
+                "metrics": validation.metrics,
+                "status": validation.status,
+                "signed_by": validation.signed_by,
+                "signed_at": validation.signed_at,
+                "signer_membership_role": validation.signer_membership_role,
+                "rejection_reason": validation.rejection_reason,
+                "unit_id": validation.unit_id,
+                "framework_version": validation.framework_version,
+                "model_set_version": validation.model_set_version,
+                "policy_version_id": validation.policy_version_id,
+                "created_at": validation.created_at,
+            }
+            for validation in validations
+        ],
+    }
+
+
+@router.get("/policy-versions/pending-signature")
+def list_pending_policy_signatures(
+    current_user: User = Depends(require_roles("editor")),
+    db: Session = Depends(get_db),
+) -> dict:
+    memberships = (
+        db.query(EditorialUnitMembership)
+        .filter(
+            EditorialUnitMembership.user_id == current_user.id,
+            EditorialUnitMembership.membership_role == "unit_admin",
+            EditorialUnitMembership.is_active.is_(True),
+        )
+        .all()
+    )
+    unit_ids = [membership.unit_id for membership in memberships]
+    if not unit_ids:
+        return {"items": []}
+    rows = (
+        db.query(EditorialPolicyVersion)
+        .filter(
+            EditorialPolicyVersion.unit_id.in_(unit_ids),
+            EditorialPolicyVersion.status == "trial",
+        )
+        .order_by(EditorialPolicyVersion.created_at.desc())
+        .all()
+    )
+    return {"items": [_policy_review_payload(db, row) for row in rows]}
+
+
+@router.get("/policy-versions/{version_id}/review")
+def get_policy_version_review(
+    version_id: str,
+    current_user: User = Depends(require_roles("editor")),
+    db: Session = Depends(get_db),
+) -> dict:
+    row = db.get(EditorialPolicyVersion, version_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail="未找到策略版本")
+    require_unit_access(db, current_user, row.unit_id)
+    return _policy_review_payload(db, row)
+
+
+@router.post("/validation-runs/{run_id}/decision")
+def decide_validation_run(
+    run_id: str,
+    payload: EditorialPolicyValidationDecisionRequest,
+    current_user: User = Depends(require_roles("editor")),
+    db: Session = Depends(get_db),
+) -> dict:
+    row = db.get(ValidationRun, run_id)
+    if row is None or row.unit_id is None or row.policy_version_id is None:
+        raise HTTPException(status_code=404, detail="未找到可签署的策略验证记录")
+    membership = _require_unit_admin_membership(db, current_user, row.unit_id)
+    policy_version = db.get(EditorialPolicyVersion, row.policy_version_id)
+    if policy_version is None or policy_version.status != "trial":
+        raise HTTPException(status_code=409, detail="策略版本不处于试运行状态")
+    if row.status == "signed":
+        raise HTTPException(status_code=409, detail="验证记录已经签署")
+    row.signed_by = current_user.id
+    row.signer_membership_role = membership.membership_role
+    row.signed_at = utc_now()
+    row.rejection_reason = None if payload.approved else payload.reason
+    row.status = "signed" if payload.approved else "rejected"
+    db.add(row)
+    db.commit()
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="validation_run",
+        object_id=row.id,
+        action="editor_validation_decision",
+        result=row.status,
+        details={
+            "policy_version_id": row.policy_version_id,
+            "reason": payload.reason,
+        },
+    )
+    return {
+        "id": row.id,
+        "status": row.status,
+        "signed_by": row.signed_by,
+        "signed_at": row.signed_at,
+        "signer_membership_role": row.signer_membership_role,
+        "rejection_reason": row.rejection_reason,
+    }
 
 
 @router.get("/notifications")
@@ -203,9 +372,12 @@ async def _create_submission(
 
     framework_path = str(resolve_framework_path())
     framework = load_framework(framework_path)
-    policy = load_editorial_policy(unit.policy_key)
+    policy, policy_version = resolve_unit_policy(db, unit)
     provider_names = list(policy.provider_names)
-    CrossReviewService().validate_provider_names(provider_names)
+    CrossReviewService.for_model_set(
+        policy.model_set_version,
+        policy.review_protocol_version,
+    ).validate_provider_names(provider_names)
     paper = Paper(
         title=Path(file.filename or "upload").stem,
         original_filename=file.filename or "upload",
@@ -226,7 +398,8 @@ async def _create_submission(
         framework_id=framework.version,
         framework_path=framework_path,
         provider_names=json.dumps(provider_names, ensure_ascii=False),
-        model_set_version="six-dimension-v1",
+        model_set_version=policy.model_set_version,
+        review_protocol_version=policy.review_protocol_version,
         run_role="production",
         status="pending",
         cross_review_enabled=True,
@@ -256,7 +429,8 @@ async def _create_submission(
         responsible_editor_id=responsible_editor_id,
         recommendation_state="shadow",
         policy_key=unit.policy_key,
-        policy_version=unit.policy_version,
+        policy_version=policy.version,
+        policy_version_id=policy_version.id if policy_version else None,
         created_by=current_user.id,
     )
     db.add(submission)
@@ -493,7 +667,7 @@ def get_submission(
         .order_by(EditorialDecision.version)
         .all()
     )
-    policy = load_editorial_policy(submission.policy_key)
+    policy = resolve_submission_policy(db, submission)
     provider_names = json.loads(task.provider_names or "[]")
     framework = load_framework(task.framework_path or str(resolve_framework_path()))
     six_dimension_summary = build_six_dimension_summary(

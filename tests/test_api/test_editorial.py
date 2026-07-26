@@ -12,7 +12,11 @@ from src.editorial.policy import load_editorial_policy
 from src.evaluation.providers.base import BaseProvider
 from src.evaluation.schemas import DimensionResult
 from src.models.audit import AuditLog
-from src.models.editorial import EditorialDocument, EditorialSubmission
+from src.models.editorial import (
+    EditorialDocument,
+    EditorialPolicyVersion,
+    EditorialSubmission,
+)
 from src.models.evaluation import EvaluationTask
 from tests.test_api.conftest import create_user
 
@@ -63,7 +67,7 @@ def _bootstrap_and_add_editor(
     unit_id = response.json()["items"][0]["id"]
     member_response = client.post(
         f"/api/admin/editorial/units/{unit_id}/members",
-        json={"user_id": editor.id, "membership_role": "editor"},
+        json={"user_id": editor.id, "membership_role": "unit_admin"},
     )
     assert member_response.status_code == 201
     return unit_id, editor.id
@@ -381,6 +385,12 @@ def test_unit_activation_requires_validation_and_signoff(
     db_session: Session,
 ) -> None:
     unit_id, _ = _bootstrap_and_add_editor(client, db_session)
+    unit_payload = client.get("/api/admin/editorial/policies")
+    assert unit_payload.status_code == 200
+    versions = client.get(
+        f"/api/admin/editorial/units/{unit_id}/policy-versions"
+    ).json()["items"]
+    trial = next(version for version in versions if version["status"] == "trial")
 
     denied = client.post(
         f"/api/admin/editorial/units/{unit_id}/rollout",
@@ -392,13 +402,44 @@ def test_unit_activation_requires_validation_and_signoff(
     )
     assert denied.status_code == 400
 
+    validation = client.post(
+        "/api/admin/editorial/validation-runs",
+        json={
+            "unit_id": unit_id,
+            "validation_type": "final_validation",
+            "framework_version": trial["framework_version"],
+            "model_set_version": trial["model_set_version"],
+            "policy_version_id": trial["id"],
+            "sample_manifest_sha256": "a" * 64,
+            "sample_count": 20,
+            "metrics": {"conclusion": "样本验证通过"},
+        },
+    )
+    assert validation.status_code == 201
+    validation_id = validation.json()["id"]
+    admin_sign = client.post(
+        f"/api/admin/editorial/validation-runs/{validation_id}/sign"
+    )
+    assert admin_sign.status_code == 403
+
+    client.cookies.clear()
+    _login(client, "editor-one@example.com")
+    signed = client.post(
+        f"/api/editorial/validation-runs/{validation_id}/decision",
+        json={"approved": True, "reason": "已核对样本与期刊适配口径"},
+    )
+    assert signed.status_code == 200
+    assert signed.json()["signer_membership_role"] == "unit_admin"
+
+    client.cookies.clear()
+    _login(client, "admin-editorial@example.com")
     activated = client.post(
         f"/api/admin/editorial/units/{unit_id}/rollout",
         json={
             "rollout_state": "active",
             "reason": "样本验证和编辑复核均已完成",
-            "validation_summary": {"sample_count": 20, "approved": True},
-            "editor_signoff": True,
+            "validation_run_id": validation_id,
+            "policy_version_id": trial["id"],
         },
     )
     assert activated.status_code == 200
@@ -416,12 +457,109 @@ def test_unit_activation_requires_validation_and_signoff(
     assert returned.json()["rollout_state"] == "shadow"
 
 
+def test_trial_submission_uses_frozen_candidate_model_strategy(
+    client: TestClient,
+    db_session: Session,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    import json
+
+    import src.core.storage
+
+    monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
+    unit_id, _ = _bootstrap_and_add_editor(client, db_session)
+    _noop_editorial_runner(client)
+
+    client.cookies.clear()
+    _login(client, "editor-one@example.com")
+    uploaded = client.post(
+        "/api/editorial/submissions",
+        data={"unit_id": unit_id},
+        files={"file": ("paper.txt", ("正文内容" * 80).encode(), "text/plain")},
+    )
+    assert uploaded.status_code == 202
+    submission = db_session.get(
+        EditorialSubmission,
+        uploaded.json()["submission_id"],
+    )
+    task = db_session.get(EvaluationTask, submission.evaluation_task_id)
+    policy_version = db_session.get(
+        EditorialPolicyVersion,
+        submission.policy_version_id,
+    )
+
+    assert task.model_set_version == "six-dimension-v2-candidate"
+    assert task.review_protocol_version == "six_dimension_peer_review"
+    assert json.loads(task.provider_names) == [
+        "glm-5.2",
+        "qwen3.7-max-2026-06-08",
+        "deepseek-v4-pro",
+        "kimi-k2.6",
+    ]
+    assert policy_version.status == "trial"
+    assert submission.policy_version == policy_version.version
+
+
+def test_policy_draft_is_editable_but_trial_snapshot_is_immutable(
+    client: TestClient,
+    db_session: Session,
+) -> None:
+    unit_id, _ = _bootstrap_and_add_editor(client, db_session)
+    versions = client.get(
+        f"/api/admin/editorial/units/{unit_id}/policy-versions"
+    ).json()["items"]
+    trial = next(version for version in versions if version["status"] == "trial")
+    payload = {
+        "version": "1.2",
+        "based_on_id": trial["id"],
+        "model_set_version": "six-dimension-v2-candidate",
+        "profile": {
+            "fit_focus": "中国法治实践中的原创法学问题与制度解释",
+            "accepted_scope": ["法学理论", "部门法制度研究"],
+            "excluded_scope": ["不具有法学问题意识的泛社会评论"],
+            "column_positioning": ["专题论文"],
+            "article_types": ["研究论文"],
+            "target_readers": ["法学研究者", "法律实务工作者"],
+            "special_notes": "比较法研究须说明中国法语境的解释价值",
+        },
+    }
+    created = client.post(
+        f"/api/admin/editorial/units/{unit_id}/policy-versions",
+        json=payload,
+    )
+    assert created.status_code == 201
+    draft_id = created.json()["id"]
+
+    payload["profile"]["fit_focus"] = "经编辑部确认的中国法学原创问题"
+    updated = client.put(
+        f"/api/admin/editorial/policy-versions/{draft_id}",
+        json=payload,
+    )
+    assert updated.status_code == 200
+    frozen = client.post(f"/api/admin/editorial/policy-versions/{draft_id}/trial")
+    assert frozen.status_code == 200
+    assert frozen.json()["status"] == "trial"
+
+    immutable = client.put(
+        f"/api/admin/editorial/policy-versions/{draft_id}",
+        json=payload,
+    )
+    assert immutable.status_code == 409
+    assert (
+        db_session.get(EditorialPolicyVersion, draft_id).content_sha256
+        == frozen.json()["content_sha256"]
+    )
+
+
 def test_admin_candidate_model_run_is_separate_from_production_snapshot(
     client: TestClient,
     db_session: Session,
     tmp_path: Path,
     monkeypatch,
 ) -> None:
+    import json
+
     import src.core.storage
 
     monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
@@ -442,6 +580,11 @@ def test_admin_candidate_model_run_is_separate_from_production_snapshot(
     submission = db_session.get(EditorialSubmission, submission_id)
     baseline = db_session.get(EvaluationTask, submission.evaluation_task_id)
     baseline.input_file_path = str(anonymous_path)
+    baseline.model_set_version = "six-dimension-v1"
+    baseline.review_protocol_version = "six_dimension_cross_review"
+    baseline.provider_names = json.dumps(
+        ["glm-5.1", "qwen3.6-plus", "deepseek-v4-pro", "kimi-k2.6"]
+    )
     db_session.add(
         EditorialDocument(
             submission_id=submission_id,

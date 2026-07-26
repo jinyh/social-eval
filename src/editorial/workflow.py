@@ -18,7 +18,7 @@ from src.editorial.decision import band_for_score, build_recommendation
 from src.editorial.fit import evaluate_journal_fit
 from src.editorial.formal_check import evaluate_formal_completeness
 from src.editorial.opinions import generate_editorial_opinions
-from src.editorial.policy import load_editorial_policy
+from src.editorial.policy import EditorialPolicy, resolve_submission_policy
 from src.editorial.presentation import build_six_dimension_summary
 from src.editorial.position import run_position_assessment
 from src.editorial.reporting import generate_editorial_report
@@ -47,9 +47,8 @@ from src.models.user import User
 def _final_bands(
     db: Session,
     task: EvaluationTask,
-    policy_key: str,
+    policy: EditorialPolicy,
 ) -> tuple[dict[str, str], dict[str, float]]:
-    policy = load_editorial_policy(policy_key)
     rows = (
         db.query(ReliabilityResult)
         .filter(
@@ -126,7 +125,7 @@ async def run_editorial_pipeline(
     if paper is None or task is None or unit is None or not paper.file_path:
         raise ValueError("编辑投稿所需数据不完整")
 
-    policy = load_editorial_policy(submission.policy_key)
+    policy = resolve_submission_policy(db, submission)
     provider_names = json.loads(task.provider_names or "[]")
     providers = provider_factory(provider_names)
     if not providers:
@@ -470,7 +469,7 @@ async def run_editorial_pipeline(
             )
         db.commit()
 
-        bands, means = _final_bands(db, task, submission.policy_key)
+        bands, means = _final_bands(db, task, policy)
         final_scores = (
             db.query(DimensionScore)
             .filter(

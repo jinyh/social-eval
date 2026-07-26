@@ -3,8 +3,13 @@ from __future__ import annotations
 from sqlalchemy.orm import Session
 
 from src.editorial.constants import INITIAL_EDITORIAL_UNITS
-from src.editorial.policy import load_editorial_policy
-from src.models.editorial import EditorialUnit, Journal
+from src.core.time import utc_now
+from src.editorial.policy import (
+    build_policy_snapshot,
+    load_editorial_policy,
+    policy_snapshot_digest,
+)
+from src.models.editorial import EditorialPolicyVersion, EditorialUnit, Journal
 
 
 def ensure_initial_editorial_units(db: Session) -> list[EditorialUnit]:
@@ -41,6 +46,38 @@ def ensure_initial_editorial_units(db: Session) -> list[EditorialUnit]:
             )
             db.add(unit)
             db.flush()
+        if unit.rollout_state != "active" and unit.trial_policy_version_id is None:
+            policy = load_editorial_policy(item["policy_key"])
+            version = "1.1"
+            profile = {
+                **policy.profile,
+                "accepted_scope": [str(policy.profile["fit_focus"])],
+                "excluded_scope": [],
+                "column_positioning": [],
+                "article_types": ["法学研究论文"],
+                "target_readers": ["法学研究者与法律实务工作者"],
+                "special_notes": "",
+            }
+            snapshot = build_policy_snapshot(
+                policy_key=policy.key,
+                version=version,
+                profile=profile,
+                model_set_version="six-dimension-v2-candidate",
+            )
+            policy_version = EditorialPolicyVersion(
+                unit_id=unit.id,
+                policy_key=policy.key,
+                version=version,
+                status="trial",
+                snapshot=snapshot,
+                content_sha256=policy_snapshot_digest(snapshot),
+                frozen_at=utc_now(),
+            )
+            db.add(policy_version)
+            db.flush()
+            unit.trial_policy_version_id = policy_version.id
+            unit.policy_version = version
+            db.add(unit)
         units.append(unit)
     db.commit()
     return units

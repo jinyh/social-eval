@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 from sqlalchemy.orm import Session
 
 from src.core.time import utc_now
-from src.editorial.policy import load_editorial_policy
+from src.editorial.policy import resolve_submission_policy
 from src.editorial.presentation import (
     build_ccb_summary,
     build_position_summary,
@@ -117,7 +117,7 @@ def build_editorial_report(
         .order_by(EditorialDecision.version)
         .all()
     )
-    policy = load_editorial_policy(submission.policy_key)
+    policy = resolve_submission_policy(db, submission)
     provider_names = json.loads(task.provider_names or "[]")
     framework = load_framework(task.framework_path or str(resolve_framework_path()))
     six_dimension_summary = build_six_dimension_summary(

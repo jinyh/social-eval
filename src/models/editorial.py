@@ -46,6 +46,24 @@ class EditorialUnit(Base):
     discipline: Mapped[str] = mapped_column(String(100), default="law", nullable=False)
     policy_key: Mapped[str] = mapped_column(String(120), nullable=False)
     policy_version: Mapped[str] = mapped_column(String(50), nullable=False)
+    trial_policy_version_id: Mapped[str | None] = mapped_column(
+        String(36),
+        ForeignKey(
+            "editorial_policy_versions.id",
+            name="fk_unit_trial_policy_version",
+            use_alter=True,
+        ),
+        nullable=True,
+    )
+    active_policy_version_id: Mapped[str | None] = mapped_column(
+        String(36),
+        ForeignKey(
+            "editorial_policy_versions.id",
+            name="fk_unit_active_policy_version",
+            use_alter=True,
+        ),
+        nullable=True,
+    )
     rollout_state: Mapped[str] = mapped_column(
         String(20), default="shadow", nullable=False
     )
@@ -54,6 +72,37 @@ class EditorialUnit(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime, default=utc_now, onupdate=utc_now
     )
+
+
+class EditorialPolicyVersion(Base):
+    """编辑单元不可变的期刊适配与模型策略快照。"""
+
+    __tablename__ = "editorial_policy_versions"
+    __table_args__ = (
+        UniqueConstraint("unit_id", "version", name="uq_unit_policy_version"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    unit_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("editorial_units.id"), nullable=False
+    )
+    policy_key: Mapped[str] = mapped_column(String(120), nullable=False)
+    version: Mapped[str] = mapped_column(String(50), nullable=False)
+    status: Mapped[str] = mapped_column(String(20), default="draft", nullable=False)
+    snapshot: Mapped[dict] = mapped_column(JSON, nullable=False)
+    content_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
+    based_on_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("editorial_policy_versions.id"), nullable=True
+    )
+    created_by: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("users.id"), nullable=True
+    )
+    activated_by: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("users.id"), nullable=True
+    )
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
+    frozen_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    activated_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
 
 class EditorialUnitMembership(Base):
@@ -123,6 +172,9 @@ class EditorialSubmission(Base):
     )
     policy_key: Mapped[str] = mapped_column(String(120), nullable=False)
     policy_version: Mapped[str] = mapped_column(String(50), nullable=False)
+    policy_version_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("editorial_policy_versions.id"), nullable=True
+    )
     current_report_version: Mapped[int] = mapped_column(
         Integer, default=0, nullable=False
     )
@@ -284,6 +336,9 @@ class ValidationRun(Base):
     validation_type: Mapped[str] = mapped_column(String(50), nullable=False)
     framework_version: Mapped[str] = mapped_column(String(100), nullable=False)
     model_set_version: Mapped[str] = mapped_column(String(100), nullable=False)
+    policy_version_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("editorial_policy_versions.id"), nullable=True
+    )
     sample_manifest_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
     sample_count: Mapped[int] = mapped_column(Integer, nullable=False)
     metrics: Mapped[dict] = mapped_column(JSON, nullable=False)
@@ -291,5 +346,9 @@ class ValidationRun(Base):
     signed_by: Mapped[str | None] = mapped_column(
         String(36), ForeignKey("users.id"), nullable=True
     )
+    signer_membership_role: Mapped[str | None] = mapped_column(
+        String(30), nullable=True
+    )
+    rejection_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
     signed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
