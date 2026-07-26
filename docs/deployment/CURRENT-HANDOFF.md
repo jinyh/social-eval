@@ -1,0 +1,260 @@
+# SocialEval 部署与当前进展交接
+
+> 更新时间：2026-07-26（Asia/Taipei）
+>
+> 用途：供后续 Claude Code/Codex 在不重新猜测上下文的情况下继续本机测试和
+> 交大 jCloud 生产部署。
+
+## 1. 当前结论
+
+- 生产化账户安全、数据库迁移、Docker 编排、HTTPS 入口、备份、健康检查、
+  保留策略和部署文档已经实现。
+- 生产化主提交为 `b88b515`：
+  `feat: harden production accounts and operations`。
+- 本机 `socialeval-test` 已使用新代码完成重建，六个常驻服务均健康。
+- 本机测试数据库已经迁移到 Alembic `014 (head)`，原命名卷和原测试数据仍在。
+- 本机测试邀请公开基址已覆盖为 `https://localhost`；修复前邮件中的
+  `http://localhost:5173` 旧链接不会自动改写，须在管理员邀请记录中重新发送。
+- 尚未部署到交大 jCloud，也没有推送到远程镜像仓库。
+- `docker-compose.test.yml` 已纳入版本管理；它用于复用已有测试命名卷并绕开只适用于
+  正式域名的生产启动门禁。不要当成生产配置使用。
+
+## 2. 已实现功能
+
+### 2.1 账户与权限
+
+- 密码摘要改为 Argon2id；旧 PBKDF2 摘要在成功登录后自动升级。
+- 用户可修改密码，并选择撤销全部 API Key。
+- 支持忘记密码、邮件重置和管理员强制重置。
+- 管理员强制重置后，旧密码、全部旧会话和全部 API Key 立即失效。
+- 用户角色变化或账户停用后，旧会话和 API Key 立即失效。
+- 保留“至少一名有效管理员”及“有在办责任时禁止停用/换角色”的保护。
+- 管理员必须绑定 TOTP 双因素认证；支持一次性恢复码、恢复码重新生成和运维紧急
+  重置。
+- 邀请和密码重置令牌只以哈希或加密形式落库；邮件提交成功后清除发件箱中的加密
+  令牌。
+- API Key 最长有效 90 天，可在账户设置或管理员后台撤销。
+
+### 2.2 管理界面
+
+- 账户设置中可修改密码、管理 API Key、重新生成双因素认证恢复码。
+- 管理员可筛选用户、调整角色、停用/恢复、发送密码重置邮件、撤销 API Key。
+- 管理员可查看、重发和撤销邀请。
+- 编辑工作台保持“左侧可收缩导航、右侧工作区”的双栏结构；从 768px 浏览器宽度
+  开始显示常驻左栏，避免 Retina 笔记本窗口误进入单页移动布局。
+- 匿名化人工门禁在“稿件概览”和“处理与决定”中均提供确认入口；按钮明确要求核对
+  网页匿名稿无身份信息后才能继续，不能把原稿含姓名本身当作确认依据。
+- 新投稿先由确定性规则处理身份字段，再由配置
+  `editorial-anonymization-v1` 指定的 GLM-5.2 检测高风险段落并按原文精确替换。
+  自动处理成功后流程继续并向责任编辑发送站内通知；模型不确定、片段无法匹配或调用
+  失败时安全降级到人工门禁。该用途独立于六维生产模型集。
+- 管理员可将编辑单元从“试运行”验证并切换为“正式启用”，也可填写原因后退回
+  “试运行”；回退保留历史稿件、评价、决定、验证和审计记录。
+- 激活链接使用 `/activate#token=...`，密码重置链接使用
+  `/reset-password#token=...`，令牌不会进入服务器访问日志的 URL 查询部分。
+- 投稿人、编辑、专家和管理员的分角色手册见
+  [用户手册索引](../user-manuals/README.md)。
+
+### 2.3 生产运维
+
+- `docker-compose.prod.yml` 使用 Caddy 作为唯一公网入口，仅暴露 80/443。
+- API、Worker、PostgreSQL、Redis、前端和代理均设置健康检查、资源限制及日志轮转。
+- 稿件、数据库和 Caddy 状态绑定到 `SOCIALEVAL_DATA_ROOT` 指向的独立数据盘。
+- `deploy/scripts/prepare_data_dirs.sh` 负责创建目录并设置容器 UID/GID。
+- `deploy/scripts/backup.sh` 使用 `pg_dump`、`pg_restore --list` 和 Restic 备份。
+- 已提供备份、健康检查、保留清理及失败邮件告警的 systemd 单元和定时器。
+- 公网只开放 `/api/health/live`；包含数据库、Redis 和存储状态的
+  `/api/health/ready` 只允许从容器内部检查。
+- 生产启动会拒绝 HTTP、本机域名、默认/占位密钥、未启用管理员双因素认证或邮件
+  配置不完整等情况。
+
+### 2.4 编辑预审与模型状态
+
+- 编辑工作台当前按“智能辅助综合摘要在前，五轴在前、六维在后”组织报告。
+- 五轴首屏只显示总分，可展开五个轴的分值范围和原文证据；五轴不评价论文质量，
+  不与六维加总。
+- 六维标准名称为研究创新性、现状洞察度、理论建构力、逻辑连贯性、学术共识度和
+  前瞻延展性。
+- 编辑看到四个匿名模型的实际分歧；专家先在网页中阅读结构化匿名稿并独立评阅，
+  锁定后才能对照模型结果。
+- 新候选协议不再按“宽松组/严格组”运行。第二轮中，每个模型匿名参考另外三个模型
+  的完整第一轮意见；旧分组只用于复现变更前创建的候选任务。
+- **当前生产模型集仍是 `six-dimension-v1`**：GLM-5.1、Qwen3.6-Plus、
+  DeepSeek-v4-Pro、Kimi-k2.6。
+- **新模型集仍是 `six-dimension-v2-candidate`，状态为
+  `candidate-unvalidated`**：GLM-5.2、Qwen3.7-Max、DeepSeek-v4-Pro、
+  Kimi-k2.6。不得因为本地批次测试完成就直接修改生产指向；必须完成结果复核、
+  编辑抽样和验证签字。
+- 《交大法学》《学术月刊》的正式校准与启用仍应以本机 `raw/label/` 授权材料、
+  冻结样本和最终验证记录为依据，原始材料不得提交 Git 或交给普通连接器。
+
+## 3. 已完成验证
+
+- 后端：`276 passed`。
+- 前端：`21 passed`，Vite 生产构建通过。
+- Ruff、Python 格式、Shell 语法、`uv lock --check`、Compose 配置和 Caddy
+  配置验证通过。
+- PostgreSQL 临时实例验证：
+  `全量升级到 014 → 插入已有邀请数据 → 回退到 013 → 再升级到 014`。
+- 本地生产 API/前端镜像和 `socialeval-test-*` 测试镜像均构建成功。
+- 当前测试环境：
+  - `api`：健康；
+  - `worker`：健康；
+  - `postgres`：健康；
+  - `redis`：健康；
+  - `frontend`、`proxy`：运行中；
+  - `migrate`：退出码 `0`；
+  - 内部就绪检查：database、redis、storage 均为 `ok`；
+  - 数据库迁移：`014 (head)`。
+- 2026-07-26 邀请修复复核：
+  - API 与 Worker 的有效 `PUBLIC_BASE_URL` 均为 `https://localhost`；
+  - `https://localhost/activate` 返回 `200`；
+  - 公网 `/api/health/live` 返回正常；
+  - 公网 `/api/health/ready` 按设计返回 `404`，详细就绪状态只供容器内部检查。
+- 更新时抽查到的本地测试数据计数为：4 个用户、6 篇论文、6 条编辑投稿记录。
+  这里只记录数量，不记录未公开稿件信息。
+
+## 4. 本机测试环境
+
+访问地址：
+
+```text
+https://localhost
+```
+
+本地 Caddy 使用测试证书，命令行检查可使用 `curl -k`。浏览器是否需要手工信任证书
+取决于本机证书状态。
+
+测试环境沿用以下外部命名卷：
+
+```text
+socialeval-test_postgres_data
+socialeval-test_redis_data
+socialeval-test_app_data
+socialeval-test_caddy_data
+socialeval-test_caddy_config
+```
+
+不要删除这些卷，也不要使用会清理卷的命令。重建测试环境使用：
+
+```bash
+SOCIALEVAL_DATA_ROOT=/tmp/socialeval-test-unused \
+docker compose -p socialeval-test \
+  --env-file .env.production \
+  -f docker-compose.prod.yml \
+  -f docker-compose.test.yml \
+  up -d --build
+```
+
+`SOCIALEVAL_DATA_ROOT` 在这里仅用于满足基础生产 Compose 的插值要求；
+`docker-compose.test.yml` 会把所有持久化目标替换为上述已有外部命名卷。
+
+验证命令：
+
+```bash
+SOCIALEVAL_DATA_ROOT=/tmp/socialeval-test-unused \
+docker compose -p socialeval-test \
+  --env-file .env.production \
+  -f docker-compose.prod.yml \
+  -f docker-compose.test.yml ps
+
+docker exec socialeval-test-api-1 alembic current
+curl -kfsS https://localhost/api/health/live
+```
+
+测试覆盖文件明确设置 `APP_ENV=development` 和
+`SESSION_HTTPS_ONLY=false`，但仍要求管理员双因素认证。它只适用于本机，不得叠加到
+jCloud 生产命令中。测试环境使用开发字段加密口径，新产生的双因素认证密钥和短期
+令牌不得迁移到生产数据库。
+
+测试覆盖文件还将 API 和 Worker 的公开基址设为 `https://localhost`，确保新邀请与
+密码重置邮件指向当前 Docker 入口。修复前已经发送的邮件必须从管理员后台重新发送；
+重建容器不会修改旧邮件内容，也不会自动产生外部邮件。
+
+## 5. 当前生产配置状态
+
+本机 `.env.production` 仍是本地测试配置，不能直接上传 jCloud。生产自检目前会
+指出以下类别的问题：
+
+- `PUBLIC_BASE_URL` 仍是本机 HTTP 地址；
+- `ALLOWED_ORIGINS` 尚未与正式来源对齐；
+- 尚未设置独立、至少 32 字符且非占位值的 `FIELD_ENCRYPTION_KEY`。
+
+不要在文档、提交、聊天或日志中写出 `.env.production` 的真实内容。正式环境至少要
+重新确认：
+
+```text
+APP_DOMAIN
+PUBLIC_BASE_URL
+ALLOWED_HOSTS
+ALLOWED_ORIGINS
+SECRET_KEY
+FIELD_ENCRYPTION_KEY
+POSTGRES_PASSWORD
+DATABASE_URL
+SOCIALEVAL_DATA_ROOT
+SMTP_*
+OPERATIONS_ALERT_RECIPIENTS
+模型供应商 API Key
+Restic/S3 备份凭据
+```
+
+`SECRET_KEY` 与 `FIELD_ENCRYPTION_KEY` 必须独立随机生成。字段加密密钥一经生产使用
+不得随意更换，否则已有 TOTP 密钥和待发送安全令牌将无法解密。
+
+## 6. jCloud 下一步
+
+按以下顺序继续：
+
+1. 确认正式域名、DNS、学校 SMTP 账号和发件人地址已经批准。
+2. 准备 Ubuntu 主机、独立数据盘、私有 Restic/S3 备份存储及仅允许必要来源的 SSH。
+3. 只开放公网 80/443；PostgreSQL 和 Redis 不映射公网端口。
+4. 在服务器生成正式 `.env.production`，权限设为 `0600`。
+5. 运行 `scripts/check_production_readiness.py`；不得通过测试覆盖文件绕过失败项。
+6. 运行 `deploy/scripts/prepare_data_dirs.sh` 初始化独立数据盘目录。
+7. 以 commit `b88b515` 或其后明确审核过的提交构建并标记镜像。
+8. 先启动 PostgreSQL/Redis，再运行 `migrate`，确认 `014 (head)` 后启动其余服务。
+9. 创建首个管理员或迁移获批准的账户，首次登录立即绑定双因素认证并离线保存恢复码。
+10. 完成邀请、激活、密码重置、角色变化、投稿、模型评阅、专家复核、报告和 SMTP
+    的端到端冒烟。
+11. 初始化 Restic，手工完成一次备份和临时数据库恢复演练，再启用 systemd 定时器。
+12. 观察 API 5xx、Celery 队列、模型超时、SMTP 失败、磁盘空间和备份新鲜度至少
+    24 小时。
+
+生产命令和回滚步骤以
+[上线检查清单](launch-checklist.md)及
+[备份恢复手册](backup-and-recovery-runbook.md)为准。
+
+## 7. 上线前必须再次确认
+
+- 数据保留默认值目前为：稿件内容 365 天、审计 1095 天。正式上线前应由期刊和学校
+  确认该口径是否符合业务、档案和合规要求。
+- 外部期刊接入的签名、幂等策略和 MinerU 启用方式尚未冻结，不应在本次 jCloud
+  单机部署中擅自扩展。
+- `raw/label/`、未发表稿件和真实审稿意见不得进入 Git、普通浏览器连接器、Web
+  Search 或未经审计的外部工具。
+- 模型调用必须继续经过 `src/evaluation/providers/`；默认并发 3，上限 5。
+- 本机测试数据库不得直接当作生产数据库；至少应重新创建正式管理员安全材料和生产
+  字段加密口径。
+- 上线前需要确认模型供应商对未公开稿件的数据处理条款和学校授权范围。
+
+## 8. Claude Code 接手时的第一组检查
+
+```bash
+git status --short
+git log -3 --oneline
+docker compose ls --all
+docker ps -a --filter label=com.docker.compose.project=socialeval-test
+uv lock --check
+```
+
+然后阅读：
+
+1. 根目录 `AGENTS.md`；
+2. 本文档；
+3. `docs/deployment/launch-checklist.md`；
+4. `docs/deployment/backup-and-recovery-runbook.md`；
+5. `docs/editorial/deployment-single-host-docker.md`。
+
+不得在未核对当前卷挂载、目标数据库和备份状态前执行破坏性 Docker、数据库或文件
+命令。

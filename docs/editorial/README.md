@@ -16,6 +16,7 @@
 5. [单机 Docker 部署](deployment-single-host-docker.md)
 6. [编辑、专家与管理员操作手册 v1.1](operator-guide-v1.1.md)
 7. [业务全流程 v1.2](business-process-v1.2.md)
+8. [按角色划分的用户手册](../user-manuals/README.md)
 
 ## 已冻结边界
 

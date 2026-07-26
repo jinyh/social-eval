@@ -96,6 +96,9 @@ results/
 DashScope 百炼调用，历史仲裁模型通过 Fucheers 调用。所有业务调用均应经过
 `src/evaluation/providers/`，不直接依赖供应商 SDK。
 
+当前本机 Docker 状态、生产化完成项和交大 jCloud 后续步骤见
+[部署与当前进展交接](deployment/CURRENT-HANDOFF.md)。该文件不记录任何真实凭据。
+
 ## 评价体系
 
 ### 权威真源
