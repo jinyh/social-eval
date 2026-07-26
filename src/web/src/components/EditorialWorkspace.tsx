@@ -1449,6 +1449,15 @@ function SubmissionDetail(props: DetailProps) {
             detail={detail}
             progressExplanation={progressExplanation}
           />
+          {gate ? (
+            <GateActionPanel
+              detail={detail}
+              visible
+              gateReason={gateReason}
+              onGateReasonChange={onGateReasonChange}
+              onGate={onGate}
+            />
+          ) : null}
           <GateEvidence detail={detail} />
         </>
       ) : null}
@@ -1580,7 +1589,7 @@ function ProgressPanel({
   );
 }
 
-function GateActionPanel({
+export function GateActionPanel({
   detail,
   visible,
   gateReason,
@@ -1603,34 +1612,56 @@ function GateActionPanel({
       </Card>
     );
   }
+  const isAnonymization =
+    detail.status === "awaiting_anonymization_confirmation";
   return (
     <Card className="border-amber-200 bg-amber-50/40">
       <CardHeader>
         <div className="flex items-center gap-3">
           <AlertTriangle className="h-5 w-5 text-amber-700" />
           <div>
-            <CardTitle>流程需要编辑确认</CardTitle>
+            <CardTitle>
+              {isAnonymization
+                ? "核对匿名稿后确认是否继续"
+                : "流程需要编辑确认"}
+            </CardTitle>
             <CardDescription>
-              原始检查结果会保留；继续操作不会改写它。
+              {isAnonymization
+                ? "这里确认的是系统生成的匿名稿，不是确认原稿本来就符合匿名要求。"
+                : "原始检查结果会保留；继续操作不会改写它。"}
             </CardDescription>
           </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
+        {isAnonymization ? (
+          <div className="space-y-2 rounded-lg border border-amber-200 bg-white px-4 py-3 text-sm leading-6 text-amber-950">
+            <p>
+              请先核对本页上方“匿名稿”，确认姓名、作者单位、邮箱、电话及其他身份线索
+              已经移除。
+            </p>
+            <p className="font-medium text-red-700">
+              匿名稿仍含身份信息时不要确认；请从“新建投稿”重新上传已经人工匿名的版本。
+            </p>
+          </div>
+        ) : null}
         <Textarea
           value={gateReason}
           onChange={(event) => onGateReasonChange(event.target.value)}
-          placeholder="填写确认或继续理由，至少 5 个字符。"
+          placeholder={
+            isAnonymization
+              ? "例如：已逐项核对网页匿名稿，未发现姓名、单位及联系方式。"
+              : "填写确认或继续理由，至少 5 个字符。"
+          }
         />
         <Button
           type="button"
           onClick={onGate}
-          disabled={
-            detail.status !== "awaiting_anonymization_confirmation" &&
-            gateReason.trim().length < 5
-          }
+          disabled={gateReason.trim().length < 5}
         >
-          确认并从检查点继续
+          {isAnonymization
+            ? "确认匿名稿无身份信息并继续"
+            : "确认并从检查点继续"}
         </Button>
       </CardContent>
     </Card>
@@ -2269,6 +2300,17 @@ function fieldLabel(key: string) {
       text_quality_gate: "文本质量检查",
       project_scope_precheck: "项目范围预检",
       confidence: "可信程度",
+      policy_version: "匿名规则版本",
+      document_version: "匿名稿版本",
+      redaction_counts: "隐去统计",
+      remaining_markers: "剩余可疑标记",
+      risk_flags: "核验提示",
+      omitted_content_types: "未展示内容类型",
+      human_confirmed: "人工确认",
+      auto_confirmed: "模型自动确认",
+      confirmed_by_model: "匿名检测模型",
+      confirmed_at: "匿名处理时间",
+      ai_anonymization: "模型匿名审计",
     }[key] ?? "补充信息"
   );
 }
@@ -2291,6 +2333,7 @@ function notificationLabel(eventType: string): string {
       expert_review_assigned: "有新的专家复核任务",
       editorial_review_ready: "智能辅助预审材料已就绪",
       editorial_review_failed: "稿件处理失败，等待恢复",
+      anonymization_auto_processed: "GLM-5.2 已自动完成匿名检测与处理",
       expert_review_submitted: "专家复核已提交",
       responsible_editor_transferred: "责任编辑任务已转移",
     }[eventType] ?? "有新的流程通知"

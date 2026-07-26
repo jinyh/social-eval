@@ -1,8 +1,10 @@
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import {
   describeEditorialProgress,
   filterEditorialSubmissions,
+  GateActionPanel,
 } from "./EditorialWorkspace";
 import type {
   EditorialSubmissionDetail,
@@ -62,6 +64,32 @@ describe("describeEditorialProgress", () => {
     expect(result.headline).toBe("公共预检中");
     expect(result.detail).toContain("正在执行第 3 个处理单元");
     expect(result.detail).toContain("当前单元完成后");
+  });
+});
+
+describe("GateActionPanel", () => {
+  it("明确要求编辑核对匿名稿，并在稿件概览提供确认入口", () => {
+    render(
+      <GateActionPanel
+        detail={
+          {
+            status: "awaiting_anonymization_confirmation",
+          } as EditorialSubmissionDetail
+        }
+        visible
+        gateReason="已核对匿名稿"
+        onGateReasonChange={() => undefined}
+        onGate={() => undefined}
+      />
+    );
+
+    expect(
+      screen.getByRole("heading", { name: "核对匿名稿后确认是否继续" })
+    ).toBeInTheDocument();
+    expect(screen.getByText(/匿名稿仍含身份信息时不要确认/)).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "确认匿名稿无身份信息并继续" })
+    ).toBeEnabled();
   });
 });
 

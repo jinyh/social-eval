@@ -162,7 +162,7 @@ export function EditorialSidebar(props: EditorialSidebarProps) {
     <>
       <aside
         className={cn(
-          "sticky top-24 hidden h-[calc(100vh-7rem)] shrink-0 self-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:block",
+          "sticky top-24 hidden h-[calc(100vh-7rem)] shrink-0 self-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:block",
           props.collapsed ? "w-[72px]" : "w-60"
         )}
       >
@@ -172,7 +172,7 @@ export function EditorialSidebar(props: EditorialSidebarProps) {
       <Button
         type="button"
         variant="outline"
-        className="fixed bottom-5 right-5 z-30 rounded-full shadow-lg lg:hidden"
+        className="fixed bottom-5 right-5 z-30 rounded-full shadow-lg md:hidden"
         onClick={() => onMobileOpenChange(true)}
         aria-label="打开编辑导航"
       >
@@ -180,7 +180,7 @@ export function EditorialSidebar(props: EditorialSidebarProps) {
       </Button>
 
       {mobileOpen ? (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-40 md:hidden">
           <button
             type="button"
             className="absolute inset-0 bg-slate-950/30"
