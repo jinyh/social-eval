@@ -81,7 +81,7 @@ docker compose --env-file .env.production -f docker-compose.prod.yml exec api \
 - 服务器磁盘和异机备份加密；
 - 容器使用非 root 用户并设置资源限制；
 - 迁移在 API/worker 切换前单独执行；
-- 日志不得记录稿件正文、Session、API Key 或邮件凭据；
+- 日志不得记录稿件正文、会话令牌、接口密钥或邮件凭据；
 - 定期验证备份可以恢复，而不只是检查备份任务成功。
 
 首次上线前还必须安装 `deploy/systemd/` 中的备份和健康检查定时器，并按
@@ -98,7 +98,7 @@ docker compose --env-file .env.production -f docker-compose.prod.yml \
   exec -T api python -c \
   "import os,urllib.request; h=os.environ['ALLOWED_HOSTS'].split(',')[0]; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/api/health/ready',headers={'Host':h}))"
 
-# 管理员运行状态；请用正式 API Key 注入，不要写入脚本或历史记录
+# 管理员运行状态；请用正式接口密钥注入，不要写入脚本或历史记录
 curl -fsS -H "X-API-Key: ${SOCIALEVAL_ADMIN_API_KEY}" \
   https://review.example.com/api/health/operations
 ```
@@ -118,5 +118,6 @@ docker compose --profile mail up -d mailpit
 ## 正式启用门禁
 
 编辑单元首次只能进入试运行。正式启用前，管理员须在后台登记验证类型、框架版本、
-模型集合版本、样本清单 SHA-256、样本数和指标，完成签字后再绑定验证记录。生产
-模式不接受只填样本数的自由文本替代验证记录。
+模型集合版本、策略版本、样本清单 SHA-256、样本数和指标；对应单元负责人在编辑
+工作台核对并签署，最后由管理员绑定该记录并启用。管理员不能代签，生产模式也不接受
+只填样本数的自由文本替代验证记录。

@@ -85,3 +85,20 @@ def test_top50_json_and_expert_markdown_have_identical_order():
                 break
 
     assert markdown_ids == [paper["pid"] for paper in top50["papers"]]
+
+
+def test_model_upgrade_summary_records_complete_pairing_and_open_closure_gate():
+    summary = json.loads(
+        (RESULTS / "reports/current/model-upgrade-paired-24-summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert summary["sample_count"] == 24
+    assert summary["completed_paper_count"] == 24
+    assert summary["missing_paper_count"] == 0
+    assert summary["full_framework_closure"] == {
+        "required_sample_count": 6,
+        "completed_sample_count": 1,
+        "status": "incomplete",
+    }

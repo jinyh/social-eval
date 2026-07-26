@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-26",
+  "purpose": "两款升级模型与历史模型在同一论文、同一第一轮提示下的配对漂移摘要",
+  "sample_count": 24,
+  "completed_paper_count": 24,
+  "missing_paper_count": 0,
+  "candidate_model_set_version": "two-model-upgrade-isolation-v2",
+  "models": [
+    {
+      "model_name": "glm-5.2",
+      "baseline_model_name": "glm-5.1",
+      "mean_delta_across_dimensions": -5.444444444444444,
+      "mean_absolute_delta_across_dimensions": 6.083333333333333,
+      "mean_large_shift_rate": 0.19444444444444442,
+      "unit_retry_rate": 0.03546099290780142,
+      "mean_success_duration_ms": 49330.97163120568
+    },
+    {
+      "model_name": "qwen3.7-max-2026-06-08",
+      "baseline_model_name": "qwen3.6-plus",
+      "mean_delta_across_dimensions": -6.583333333333332,
+      "mean_absolute_delta_across_dimensions": 6.9305555555555545,
+      "mean_large_shift_rate": 0.3194444444444445,
+      "unit_retry_rate": 0.04861111111111111,
+      "mean_success_duration_ms": 48414.79861111111
+    }
+  ],
+  "full_framework_closure": {
+    "required_sample_count": 6,
+    "completed_sample_count": 1,
+    "status": "incomplete"
+  },
+  "decision": "允许在试运行编辑单元使用新四模型策略；不得据此直接批准正式生产切换。",
+  "sensitive_data_policy": "逐篇结果、论文正文和模型调用日志仅保存在本地忽略目录。"
+}
