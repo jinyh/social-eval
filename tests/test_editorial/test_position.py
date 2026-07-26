@@ -31,7 +31,8 @@ def test_position_models_are_completed_independently_from_candidate_six_dimensio
 
     assert [provider.model_name for provider in providers] == [
         "deepseek-v4-pro",
-        "qwen3.6-plus",
+        "qwen3.7-max-2026-06-08",
     ]
     assert providers[0] is six_dimension_providers[2]
-    assert requested == [["qwen3.6-plus"]]
+    assert providers[1] is six_dimension_providers[1]
+    assert requested == []

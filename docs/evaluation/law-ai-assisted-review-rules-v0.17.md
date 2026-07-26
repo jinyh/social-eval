@@ -9,7 +9,7 @@
 
 - 六维 Round 1：`configs/frameworks/law-v2.56.6-20260522.yaml`
 - 六维 Round 2：`configs/frameworks/law-six-dimension-r2-v1.yaml`
-- 五轴位置评价：`configs/frameworks/law-position-v0.2.yaml`
+- 五轴位置评价：`configs/frameworks/law-position-v0.3.yaml`
 - 总分协议：`configs/scoring/core-ceiling-bonus-v0.8.yaml`
 - 稳定角色：`configs/frameworks/registry.yaml`
 

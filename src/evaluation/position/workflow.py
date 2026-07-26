@@ -5,7 +5,7 @@
 docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md
 
 默认流程：
-- Round 1：deepseek-v4-pro / qwen3.6-plus 独立五轴评估
+- Round 1：deepseek-v4-pro / qwen3.7-max-2026-06-08 独立五轴评估
 - Round 2：默认按 R1 分歧条件触发；完全一致则跳过，路径/节点差异轻量复核，
   轴分/低置信/复核标记差异完整复核
 - Final：逐轴保守聚合，严重分歧不取均值，保留 score_range 与复核标记
@@ -57,12 +57,13 @@ KNOWLEDGE_PATH = Path("knowledge/中国法学自主知识体系-树状知识库.
 ONTOLOGY_PATH = Path("knowledge/law_ontology.json")
 OUTPUT_DIR = Path("results/runs/top101-position-assessment")
 
-MODELS = ["deepseek-v4-pro", "qwen3.6-plus"]
 CONCURRENT_PAPERS = 5
 MAX_TEXT_CHARS = 50_000
 MAX_KNOWLEDGE_CHARS = 45_000
 
 POSITION_CONFIG = load_position_framework()
+POSITION_VERSION = str(POSITION_CONFIG["metadata"]["version"])
+MODELS = list(POSITION_CONFIG["models"])
 ROUTE_VALUES = tuple(POSITION_CONFIG["research_routes"])
 AXIS_KEYS = tuple(axis["key"] for axis in POSITION_CONFIG["axes"])
 SEVERE_DISPUTE_AXES = set(POSITION_CONFIG["round2"]["severe_dispute_axes"])
@@ -440,11 +441,17 @@ def decide_round2_policy(r1_result: dict[str, Any]) -> dict[str, Any]:
     """
 
     assessments = _valid_r1_model_assessments(r1_result)
+    raw_models = r1_result.get("models", {})
+    expected_models = (
+        list(raw_models)
+        if isinstance(raw_models, dict) and raw_models
+        else list(MODELS)
+    )
     reasons: list[str] = []
     axis_disagreements: list[str] = []
 
-    if len(assessments) < len(MODELS):
-        missing = sorted(set(MODELS) - set(assessments))
+    if len(assessments) < len(expected_models):
+        missing = sorted(set(expected_models) - set(assessments))
         return {
             "mode": "full",
             "reason": "r1_incomplete",
@@ -569,8 +576,7 @@ def enforce_light_round2_axis_agreement(
     if overrides:
         corrected["light_round2_score_overrides"] = overrides
         corrected["total_score"] = sum(
-            axis_payload["score"]
-            for axis_payload in corrected["axis_scores"].values()
+            axis_payload["score"] for axis_payload in corrected["axis_scores"].values()
         )
         corrected["strength"] = strength_for_score(corrected["total_score"])
     return corrected
@@ -1083,6 +1089,7 @@ async def run_round1_paper(
             "paper_id": pid,
             "paper": pdf_path.name,
             "timestamp": datetime.now().isoformat(),
+            "framework_version": POSITION_VERSION,
             "node_retrieval_candidates": [node.to_dict() for node in retrieved_nodes],
             "models": dict(zip(MODELS, outputs, strict=False)),
             "elapsed_seconds": round(time.time() - start, 1),
@@ -1122,7 +1129,13 @@ async def run_round2_paper(
         return json.loads(output_path.read_text(encoding="utf-8"))
 
     r1_models = r1_result.get("models", {})
-    if any("error" in r1_models.get(model, {"error": "missing"}) for model in MODELS):
+    models = (
+        list(r1_models) if isinstance(r1_models, dict) and r1_models else list(MODELS)
+    )
+    if len(models) != 2:
+        logger.warning("[R2] PID=%s R1 模型数量不是 2，跳过", pid)
+        return None
+    if any("error" in r1_models.get(model, {"error": "missing"}) for model in models):
         logger.warning("[R2] PID=%s R1 不完整，跳过", pid)
         return None
 
@@ -1134,8 +1147,8 @@ async def run_round2_paper(
         retrieved_nodes = retrieved_nodes_from_result(r1_result)
         if mode == "light":
             node_candidates_text = format_retrieved_nodes_for_prompt(retrieved_nodes)
-            for index, model_name in enumerate(MODELS):
-                other_model_name = MODELS[1 - index]
+            for index, model_name in enumerate(models):
+                other_model_name = models[1 - index]
                 prompts.append(
                     build_light_round2_prompt(
                         paper_meta=paper_meta,
@@ -1164,8 +1177,8 @@ async def run_round2_paper(
                 top_k=node_top_k,
             )
             node_candidates_text = format_retrieved_nodes_for_prompt(retrieved_nodes)
-            for index, model_name in enumerate(MODELS):
-                other_model_name = MODELS[1 - index]
+            for index, model_name in enumerate(models):
+                other_model_name = models[1 - index]
                 prompts.append(
                     build_round2_prompt(
                         paper_meta=paper_meta,
@@ -1182,7 +1195,7 @@ async def run_round2_paper(
         outputs = await asyncio.gather(
             *[
                 call_model(model_name, prompt, provider_map)
-                for model_name, prompt in zip(MODELS, prompts, strict=False)
+                for model_name, prompt in zip(models, prompts, strict=False)
             ]
         )
         if mode == "light":
@@ -1192,7 +1205,7 @@ async def run_round2_paper(
                     r1_result=r1_result,
                     model_name=model_name,
                 )
-                for model_name, output in zip(MODELS, outputs, strict=False)
+                for model_name, output in zip(models, outputs, strict=False)
             ]
         title = str(paper_meta.get("题目") or paper_meta.get("title") or "")
         validation_text = paper_text or ""
@@ -1210,10 +1223,13 @@ async def run_round2_paper(
             "paper_id": pid,
             "paper": pdf_path.name,
             "timestamp": datetime.now().isoformat(),
+            "framework_version": str(
+                r1_result.get("framework_version", POSITION_VERSION)
+            ),
             "round2_mode": mode,
             "round2_policy": policy,
             "node_retrieval_candidates": [node.to_dict() for node in retrieved_nodes],
-            "models": dict(zip(MODELS, outputs, strict=False)),
+            "models": dict(zip(models, outputs, strict=False)),
             "elapsed_seconds": round(time.time() - start, 1),
         }
         valid = {m: o for m, o in result["models"].items() if "error" not in o}
@@ -1245,6 +1261,7 @@ async def write_round2_skip_marker(
         "paper_id": pid,
         "paper": pdf_path.name,
         "timestamp": datetime.now().isoformat(),
+        "framework_version": str(r1_result.get("framework_version", POSITION_VERSION)),
         "round2_mode": "skip",
         "round2_policy": policy,
         "skipped": True,
@@ -1273,6 +1290,7 @@ def merge_paper_result(
 ) -> dict[str, Any]:
     source = r2_result or r1_result
     final = None
+    source_models: dict[str, Any] = {}
     if source:
         source_models = source.get("models", {})
         if (
@@ -1295,11 +1313,24 @@ def merge_paper_result(
         }
         if valid:
             final = aggregate_final_assessment(valid)
+    result_models = (
+        list(source_models)
+        if isinstance(source_models, dict) and source_models
+        else list(MODELS)
+    )
+    framework_version = str((source or {}).get("framework_version") or "")
+    if not framework_version:
+        framework_version = (
+            "0.2" if "qwen3.6-plus" in result_models else POSITION_VERSION
+        )
     return {
         "paper_id": pid,
         "paper": pdf_path.name,
-        "models": MODELS,
-        "method": "position_assessment_v0.2_two_models_conditional_round2",
+        "models": result_models,
+        "framework_version": framework_version,
+        "method": (
+            f"position_assessment_v{framework_version}_two_models_conditional_round2"
+        ),
         "round2_mode": (r2_result or {}).get("round2_mode", "not_run"),
         "round2_policy": (r2_result or {}).get("round2_policy"),
         "node_retrieval_candidates": (source or {}).get(
@@ -1342,11 +1373,16 @@ def generate_summary(merged_results: list[dict[str, Any]]) -> dict[str, Any]:
             "min": min(scores),
             "max": max(scores),
         }
+    result_models = list(
+        dict.fromkeys(
+            model for result in merged_results for model in result.get("models", [])
+        )
+    )
     return {
         "generated_at": datetime.now().isoformat(),
         "total_results": len(merged_results),
         "completed": completed,
-        "models": MODELS,
+        "models": result_models or list(MODELS),
         "score_stats": score_stats,
         "strength_distribution": dict(strengths),
         "agreement_distribution": dict(agreements),
@@ -1370,7 +1406,7 @@ def generate_report(
         "# Top101 中国法学自主知识体系位置归属度评估报告",
         "",
         f"生成时间：{summary['generated_at']}",
-        f"模型：{', '.join(MODELS)}",
+        f"模型：{', '.join(summary.get('models', MODELS))}",
         f"完成：{summary['completed']}/{summary['total_results']}",
         "",
         "## 统计概览",

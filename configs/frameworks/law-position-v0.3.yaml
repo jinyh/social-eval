@@ -1,0 +1,91 @@
+metadata:
+  name: 中国法学自主知识体系位置归属度评价
+  discipline: law
+  version: "0.3"
+  status: production
+models:
+  - deepseek-v4-pro
+  - qwen3.7-max-2026-06-08
+scale:
+  axis_min: 0
+  axis_max: 2
+  total_min: 0
+  total_max: 10
+axes:
+  - key: object_belonging
+    name_zh: 对象归属度
+    focus_zh: 研究问题归属
+    question_zh: 核心问题是否归属于中国法学语境
+  - key: material_belonging
+    name_zh: 材料归属度
+    focus_zh: 核心材料归属
+    question_zh: 材料是否来自中国规范、判例、史料、数据
+  - key: category_autonomy
+    name_zh: 范畴自主度
+    focus_zh: 分析范畴自主
+    question_zh: 核心范畴是否经中国法语境重置
+  - key: explanatory_orientation
+    name_zh: 解释目标归属度
+    focus_zh: 解释目标方向
+    question_zh: 最终目标是否指向中国法学知识生产
+  - key: system_mappability
+    name_zh: 体系映射度
+    focus_zh: 知识体系映射
+    question_zh: 知识能否映射到知识树位置
+strength_bands:
+  - min_score: 8
+    value: strong
+  - min_score: 5
+    value: medium
+  - min_score: 2
+    value: weak
+  - min_score: 0
+    value: absent
+research_routes:
+  - chinese_doctrinal
+  - china_practice_governance
+  - comparative_localization
+  - chinese_legal_theory
+  - traditional_resource_transform
+  - interdisciplinary_china_data
+  - weakly_related
+round2:
+  policies: [auto, all, skip]
+  modes: [skip, light, full]
+  severe_dispute_axes: [category_autonomy, system_mappability]
+  aggregation: conservative_axis_min_with_range
+prompt_templates:
+  round1_instructions: |-
+    你是一位法学知识体系分析专家。请对论文进行【中国法学自主知识体系位置归属度评价】。
+
+    重要边界：
+    - 不评价论文质量、原创性强弱、论证是否成功；这些属于六维学术质量评价。
+    - 只评价论文产出的知识单元能否被纳入中国法学自主知识体系的位置结构。
+    - 位置结构包括学科位置、知识类型位置、既有节点、细化节点、交叉节点或候选新增节点。
+    - 本评价不是“信号校验”，而是结构化 assessment。
+
+    评分量尺：五轴各 0-2 分，总分 0-10；0=无明确证据或只是背景提及，1=局部证据但非核心结构，2=构成核心结构。uncertain 不给 1 分，证据不足给 0 并降低 confidence。
+
+    五轴：
+    1. object_belonging：对象归属度。
+    2. material_belonging：材料归属度。
+    3. category_autonomy：范畴自主度。
+    4. explanatory_orientation：解释目标归属度。
+    5. system_mappability：体系映射度。
+
+    防饱和规则：讨论中国法不能自动五轴高分；常规法条解释不能自动推出范畴自主度或体系映射度为 2；候选新增节点必须可命名、可复述、可放入知识树，不能直接把论文题目当作节点。
+  round2_instructions: |-
+    你现在进入 Round 2。参考两份 Round 1 评价，重新检查五轴分数和证据；重点判断遗漏证据、质量评价与位置评价混淆、范畴自主度和体系映射度的高分证据。不同意对方时必须在 rejected_points 说明理由。
+  light_round2_instructions: |-
+    现在进行轻量 Round 2，只处理研究路径或体系节点归属差异，不重新评价论文质量或六维学术质量。五轴分数一致时原则上保留；只有路径/节点差异暴露明显归属错误时才调整相关轴分。
+output_contract:
+  required:
+    - research_route
+    - axis_scores
+    - total_score
+    - strength
+    - confidence
+    - risks
+    - review_required
+    - review_reason
+methodology_source: docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md

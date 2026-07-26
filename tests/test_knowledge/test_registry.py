@@ -29,6 +29,8 @@ def test_registry_loads_validated_position_and_cross_review_protocols():
     position = load_position_framework()
     review = load_review_protocol()
 
+    assert position["metadata"]["version"] == "0.3"
+    assert Path(position["source_path"]).name == "law-position-v0.3.yaml"
     assert [axis["key"] for axis in position["axes"]] == [
         "object_belonging",
         "material_belonging",
@@ -53,6 +55,10 @@ def test_registry_loads_validated_position_and_cross_review_protocols():
             "最终目标是否指向中国法学知识生产",
         ),
         ("体系映射度", "知识体系映射", "知识能否映射到知识树位置"),
+    ]
+    assert position["models"] == [
+        "deepseek-v4-pro",
+        "qwen3.7-max-2026-06-08",
     ]
     assert review["model_groups"]["lenient"] == ["glm-5.1", "qwen3.6-plus"]
     assert review["unresolved_disagreement"] == {

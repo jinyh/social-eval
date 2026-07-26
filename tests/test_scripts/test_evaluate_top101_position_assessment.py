@@ -303,3 +303,6 @@ def test_merge_reconciles_existing_light_round2_outputs_when_r1_axes_agreed(tmp_
     assert merged["final"]["total_score"] == 10
     assert merged["final"]["score_range"] == [10, 10]
     assert merged["final"]["review_required"] is False
+    assert merged["models"] == ["deepseek-v4-pro", "qwen3.6-plus"]
+    assert merged["framework_version"] == "0.2"
+    assert merged["method"].startswith("position_assessment_v0.2_")

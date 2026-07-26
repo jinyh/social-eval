@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from src.editorial.ai_calls import generate_json_with_audit
 from src.evaluation.position.workflow import (
     MODELS,
+    POSITION_VERSION,
     aggregate_final_assessment,
     apply_node_validation_to_assessment,
     build_light_round2_prompt,
@@ -155,6 +156,8 @@ async def run_position_assessment(
         final_outputs = dict([await r2(model) for model in MODELS])
 
     result = {
+        "framework_version": POSITION_VERSION,
+        "models": list(MODELS),
         "round1": r1_result,
         "round2_policy": r2_policy,
         "final": aggregate_final_assessment(final_outputs),

@@ -12,7 +12,7 @@ from src.knowledge.loader import load_framework
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 REGISTRY_PATH = PROJECT_ROOT / "configs" / "frameworks" / "registry.yaml"
 DEFAULT_FRAMEWORK_ROLE = "six_dimension_default"
-POSITION_SCHEMA_PATH = REGISTRY_PATH.parent / "schema_position_v0.2.json"
+POSITION_SCHEMA_PATH = REGISTRY_PATH.parent / "schema_position_v0.3.json"
 CROSS_REVIEW_SCHEMA_PATH = REGISTRY_PATH.parent / "schema_cross_review_v1.json"
 DEFAULT_REVIEW_PROTOCOL = "six_dimension_cross_review"
 

@@ -2,7 +2,7 @@
 """交大法学期刊五轴位置归属度两轮评价（R1 + R2）
 
 对 raw/jiaodafaxue/ 下 final_score > 阈值的论文执行五轴位置归属度评估：
-- Round 1：deepseek-v4-pro / qwen3.6-plus 独立五轴评估
+- Round 1：deepseek-v4-pro / qwen3.7-max-2026-06-08 独立五轴评估
 - Round 2：按 R1 分歧条件触发（skip / light / full）
 - Merge：逐轴保守聚合
 
@@ -82,7 +82,7 @@ KNOWLEDGE_PATH = Path("knowledge/中国法学自主知识体系-树状知识库.
 ONTOLOGY_PATH = Path("knowledge/law_ontology.json")
 OUTPUT_DIR = Path("results/runs/jiaodafaxue-position")
 
-MODELS = ["deepseek-v4-pro", "qwen3.6-plus"]
+MODELS = ["deepseek-v4-pro", "qwen3.7-max-2026-06-08"]
 CONCURRENT_PAPERS = 5
 MAX_TEXT_CHARS = 50_000
 DEFAULT_MIN_SCORE = 55
@@ -510,7 +510,7 @@ def generate_summary_report(
         f"评估时间：{datetime.now().strftime('%Y-%m-%d %H:%M')}",
         f"论文总数：{len(results)} 篇",
         f"模型：{', '.join(MODELS)}",
-        f"方法论：position_assessment_v0.2",
+        "方法论：position_assessment_v0.3",
         "",
         "## 分数分布",
         "",

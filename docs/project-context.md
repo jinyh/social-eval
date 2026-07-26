@@ -160,10 +160,12 @@ DashScope 百炼调用，历史仲裁模型通过 Fucheers 调用。所有业务
 `docs/evaluation/autonomous-knowledge-system-position-assessment-v0.2.md`。
 旧四信号字段仅作兼容，不再作为位置归属度主结构。
 
-历史两轮流程：
+当前两轮流程：
 
-- R1：`deepseek-v4-pro` 与 `qwen3.6-plus` 独立评估；
+- R1：`deepseek-v4-pro` 与 `qwen3.7-max-2026-06-08` 独立评估；
 - R2：按分歧触发 `skip`、`light` 或 `full`；
+- 2026-07-26 起未来任务直接使用 Qwen3.7-Max；既有 Qwen3.6-Plus 逐篇结果
+  保持历史版本，不重跑、不回写；
 - Top101 历史实测中，R1 两模型平均总分差 0.53，严重分歧（差值 ≥4）约 4%，
   R2 实际触发率约 67%；
 - 共用实现位于 `src/evaluation/position/`；
