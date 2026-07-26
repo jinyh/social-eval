@@ -57,6 +57,7 @@ class Settings(BaseSettings):
     retention_manuscript_days: int = 365
     retention_audit_days: int = 3 * 365
     admin_mfa_required: bool = False
+    editorial_ai_anonymization_enabled: bool = True
 
     model_config = SettingsConfigDict(
         env_file=".env",

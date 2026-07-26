@@ -95,6 +95,8 @@ def load_anonymous_manuscript(
         )
         payload["blocks"] = _fallback_blocks(text)
     result = submission.anonymization_result or {}
+    confidentiality_notice = "匿名稿仅供本次评审使用，严禁转发或用于其他目的。"
+    processing_notice = str(result.get("notice") or "").strip()
     return {
         "manuscript_id": submission.external_manuscript_id or submission.id,
         "document_version": text_document.version,
@@ -105,5 +107,9 @@ def load_anonymous_manuscript(
             or result.get("omitted_content_types")
             or []
         ),
-        "notice": "匿名稿仅供本次评审使用，严禁转发或用于其他目的。",
+        "notice": (
+            f"{processing_notice} {confidentiality_notice}"
+            if processing_notice
+            else confidentiality_notice
+        ),
     }

@@ -5,7 +5,14 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
+from src.core.config import settings
 from src.core.email import send_editorial_event_email
+from src.core.time import utc_now
+from src.editorial.ai_anonymization import (
+    AIAnonymizationOutcome,
+    load_anonymization_config,
+    run_ai_anonymization,
+)
 from src.editorial.anonymization import create_anonymized_artifacts
 from src.editorial.decision import band_for_score, build_recommendation
 from src.editorial.fit import evaluate_journal_fit
@@ -145,6 +152,15 @@ async def run_editorial_pipeline(
             )
             .first()
         )
+        view_document = (
+            db.query(EditorialDocument)
+            .filter(
+                EditorialDocument.submission_id == submission.id,
+                EditorialDocument.kind == "anonymized_view",
+                EditorialDocument.version == 1,
+            )
+            .first()
+        )
         if document is None:
             set_work_status(db, task.id, "anonymization", "running")
             submission.status = "anonymizing"
@@ -171,6 +187,7 @@ async def run_editorial_pipeline(
                 ),
             ]
             document = documents[0]
+            view_document = documents[1]
             submission.anonymization_result = {
                 "policy_version": "anonymous-manuscript-v1",
                 "document_version": 1,
@@ -186,6 +203,114 @@ async def run_editorial_pipeline(
             db.add_all(documents)
             db.add(task)
             db.add(submission)
+            db.commit()
+        anonymization_result = dict(submission.anonymization_result or {})
+        ai_result = dict(anonymization_result.get("ai_anonymization") or {})
+        if (
+            settings.editorial_ai_anonymization_enabled
+            and not ai_result.get("attempted")
+            and document is not None
+            and view_document is not None
+        ):
+            anonymization_model = "glm-5.2"
+            try:
+                ai_config = load_anonymization_config()
+                anonymization_model = str(ai_config["model_name"])
+                anonymization_providers = provider_factory([anonymization_model])
+                if not anonymization_providers:
+                    raise ValueError("未配置匿名检测模型")
+                outcome = await run_ai_anonymization(
+                    provider=anonymization_providers[0],
+                    task_id=task.id,
+                    db=db,
+                    text_path=Path(document.file_path),
+                    view_path=Path(view_document.file_path),
+                    config=ai_config,
+                )
+            except Exception as exc:
+                outcome = AIAnonymizationOutcome(
+                    model_name=anonymization_model,
+                    status="failed",
+                    applied_count=0,
+                    requires_manual_review=True,
+                    uncertainty_reasons=[
+                        f"模型身份检测未启动，已安全转为人工确认：{exc}"
+                    ],
+                    summary="模型辅助匿名未完成",
+                    failure_detail=str(exc),
+                )
+            if outcome.text_sha256:
+                document.sha256 = outcome.text_sha256
+            if outcome.view_sha256:
+                view_document.sha256 = outcome.view_sha256
+            redaction_counts = dict(anonymization_result.get("redaction_counts") or {})
+            redaction_counts["model_identity"] = outcome.applied_count
+            risk_flags = list(anonymization_result.get("risk_flags") or [])
+            if outcome.status == "completed":
+                risk_flags = [
+                    flag
+                    for flag in risk_flags
+                    if not flag.startswith("未检测到可自动隐去的身份信息")
+                ]
+            if outcome.requires_manual_review:
+                for reason in outcome.uncertainty_reasons:
+                    if reason not in risk_flags:
+                        risk_flags.append(reason)
+                notice = (
+                    f"{outcome.model_name} 已完成初步身份检测，但存在不确定项，"
+                    "流程已暂停并等待编辑核对。"
+                )
+            else:
+                notice = (
+                    f"{outcome.model_name} 已自动检测并处理匿名信息，共精确隐去 "
+                    f"{outcome.applied_count} 处；流程已继续，请编辑知悉并抽查。"
+                )
+                submission.anonymization_status = "confirmed"
+                db.add(
+                    Notification(
+                        user_id=submission.responsible_editor_id
+                        or submission.created_by,
+                        event_type="anonymization_auto_processed",
+                        object_type="editorial_submission",
+                        object_id=submission.id,
+                        payload={
+                            "submission_id": submission.id,
+                            "model_name": outcome.model_name,
+                            "applied_count": outcome.applied_count,
+                        },
+                    )
+                )
+            anonymization_result.update(
+                {
+                    "redaction_counts": redaction_counts,
+                    "risk_flags": risk_flags,
+                    "requires_confirmation": outcome.requires_manual_review,
+                    "auto_confirmed": not outcome.requires_manual_review,
+                    "confirmed_by_model": (
+                        outcome.model_name
+                        if not outcome.requires_manual_review
+                        else None
+                    ),
+                    "confirmed_at": (
+                        utc_now().isoformat()
+                        if not outcome.requires_manual_review
+                        else None
+                    ),
+                    "notice": notice,
+                    "ai_anonymization": {
+                        "attempted": True,
+                        "model_name": outcome.model_name,
+                        "status": outcome.status,
+                        "applied_count": outcome.applied_count,
+                        "requires_manual_review": outcome.requires_manual_review,
+                        "uncertainty_reasons": outcome.uncertainty_reasons,
+                        "summary": outcome.summary,
+                        "failure_detail": outcome.failure_detail,
+                    },
+                }
+            )
+            submission.anonymization_result = anonymization_result
+            db.add_all([document, view_document, submission])
             db.commit()
         set_work_status(db, task.id, "anonymization", "completed")
         if submission.anonymization_status != "confirmed":
