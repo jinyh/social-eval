@@ -118,6 +118,8 @@ async def run_editorial_pipeline(
     submission = db.get(EditorialSubmission, submission_id)
     if submission is None:
         raise ValueError(f"EditorialSubmission {submission_id} not found")
+    if submission.status == "withdrawn":
+        return {"status": "withdrawn"}
     paper = db.get(Paper, submission.paper_id)
     task = db.get(EvaluationTask, submission.evaluation_task_id)
     unit = db.get(EditorialUnit, submission.unit_id)
@@ -537,6 +539,9 @@ async def run_editorial_pipeline(
             rollout_state=unit.rollout_state,
             requires_expert_review=task.manual_review_requested,
         )
+        db.refresh(submission)
+        if submission.status == "withdrawn":
+            return {"status": "withdrawn"}
         submission.internal_candidate_decision = recommendation.candidate_decision
         submission.recommendation_state = recommendation.state
         submission.status = (
@@ -555,6 +560,9 @@ async def run_editorial_pipeline(
             "withheld_reasons": recommendation.withheld_reasons,
         }
     except Exception:
+        db.refresh(submission)
+        if submission.status == "withdrawn":
+            return {"status": "withdrawn"}
         submission.status = "recovering"
         submission.recommendation_state = "withheld"
         _notify_responsible(db, submission, "editorial_review_failed")

@@ -11,6 +11,42 @@ describe("App", () => {
     expect(screen.getByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 
+  it("allows a submitter to register and resend the verification email", async () => {
+    vi.mocked(fetch).mockResolvedValueOnce({
+      ok: true,
+      status: 202,
+      headers: new Headers({ "Content-Type": "application/json" }),
+      json: async () => ({ message: "请检查邮箱并完成账户验证" }),
+      text: async () => "",
+    } as Response);
+    render(<App initialUser={null} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "投稿人注册" }));
+    fireEvent.change(screen.getByLabelText("姓名"), {
+      target: { value: "投稿人甲" },
+    });
+    fireEvent.change(screen.getByLabelText("电子邮箱"), {
+      target: { value: "author@example.com" },
+    });
+    const passwordInputs = screen.getAllByLabelText(/密码/);
+    fireEvent.change(passwordInputs[0], {
+      target: { value: "a-secure-password" },
+    });
+    fireEvent.change(passwordInputs[1], {
+      target: { value: "a-secure-password" },
+    });
+    fireEvent.click(
+      screen.getByRole("button", { name: "注册并发送验证邮件" })
+    );
+
+    expect(
+      await screen.findByText("请检查邮箱并完成账户验证")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "重新发送验证邮件" })
+    ).toBeInTheDocument();
+  });
+
   it("shows the submitter portal for submitter users", () => {
     render(
       <App
@@ -23,7 +59,7 @@ describe("App", () => {
       />
     );
 
-    expect(screen.getByText(/学生\/投稿人入口/i)).toBeInTheDocument();
+    expect(screen.getByText(/投稿人入口/i)).toBeInTheDocument();
   });
 
   it("shows the editorial pre-review workspace for editor users", () => {
@@ -70,7 +106,8 @@ describe("App", () => {
       />
     );
 
-    expect(screen.getByRole("heading", { name: /内部后台/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /系统总览/i })).toBeInTheDocument();
+    expect(screen.getByRole("navigation", { name: /管理员工作台导航/i })).toBeInTheDocument();
   });
 
   it("renders mock student report with radar and six-dimension breakdown", async () => {
@@ -78,7 +115,7 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
-    expect(await screen.findByText(/给学生\/投稿人的摘要/i)).toBeInTheDocument();
+    expect(await screen.findByText(/给投稿人的摘要/i)).toBeInTheDocument();
     expect(screen.getByTestId("dimension-radar-chart")).toBeInTheDocument();
     expect(screen.getByTestId("dimension-breakdown-list")).toBeInTheDocument();
     expect(screen.getAllByText(/研究创新性/i)[0]).toBeInTheDocument();

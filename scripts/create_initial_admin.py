@@ -33,6 +33,7 @@ def main() -> None:
             hashed_password=hash_password(password),
             role="admin",
             is_active=True,
+            email_verified_at=utc_now(),
             password_changed_at=utc_now(),
         )
         db.add(user)

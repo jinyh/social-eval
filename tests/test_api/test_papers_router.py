@@ -45,7 +45,9 @@ class FakeProvider:
         return {
             "status": self.precheck_status,
             "issues": [] if self.precheck_status == "pass" else ["写作规范性不足"],
-            "recommendation": "continue" if self.precheck_status == "pass" else "reject",
+            "recommendation": "continue"
+            if self.precheck_status == "pass"
+            else "reject",
         }
 
 
@@ -62,16 +64,16 @@ def _install_sync_pipeline(client: TestClient, providers: list[FakeProvider]) ->
     client.app.state.pipeline_runner = pipeline_runner
 
 
-def _login_submitter(client: TestClient, db_session: Session) -> None:
+def _login_internal_uploader(client: TestClient, db_session: Session) -> None:
     create_user(
         db_session,
-        email="submitter@example.com",
-        role="submitter",
-        display_name="Submitter",
+        email="uploader@example.com",
+        role="editor",
+        display_name="Internal uploader",
     )
     login_response = client.post(
         "/api/auth/login",
-        json={"email": "submitter@example.com", "password": "secret123"},
+        json={"email": "uploader@example.com", "password": "secret123"},
     )
     assert login_response.status_code == 200
 
@@ -79,7 +81,7 @@ def _login_submitter(client: TestClient, db_session: Session) -> None:
 def test_upload_txt_file_runs_pipeline_and_persists_results(
     client: TestClient, db_session: Session
 ) -> None:
-    _login_submitter(client, db_session)
+    _login_internal_uploader(client, db_session)
     _install_sync_pipeline(
         client,
         [
@@ -91,7 +93,13 @@ def test_upload_txt_file_runs_pipeline_and_persists_results(
 
     upload_response = client.post(
         "/api/papers",
-        files={"file": ("paper.txt", "摘要\n正文内容\n参考文献\n[1] 文献".encode("utf-8"), "text/plain")},
+        files={
+            "file": (
+                "paper.txt",
+                "摘要\n正文内容\n参考文献\n[1] 文献".encode("utf-8"),
+                "text/plain",
+            )
+        },
         data={"provider_names": "mock-a,mock-b,mock-c"},
     )
     assert upload_response.status_code == 202
@@ -115,7 +123,7 @@ def test_upload_can_enable_shared_cross_review_and_persist_both_rounds(
 ) -> None:
     from src.models.evaluation import EvaluationTask
 
-    _login_submitter(client, db_session)
+    _login_internal_uploader(client, db_session)
     _install_sync_pipeline(
         client,
         [
@@ -130,9 +138,7 @@ def test_upload_can_enable_shared_cross_review_and_persist_both_rounds(
         "/api/papers",
         files={"file": ("paper.txt", "摘要\n正文".encode(), "text/plain")},
         data={
-            "provider_names": (
-                "glm-5.1,qwen3.6-plus,deepseek-v4-pro,kimi-k2.6"
-            ),
+            "provider_names": ("glm-5.1,qwen3.6-plus,deepseek-v4-pro,kimi-k2.6"),
             "cross_review_enabled": "true",
         },
     )
@@ -150,7 +156,7 @@ def test_upload_can_enable_shared_cross_review_and_persist_both_rounds(
 def test_precheck_reject_short_circuits_dimension_scoring(
     client: TestClient, db_session: Session
 ) -> None:
-    _login_submitter(client, db_session)
+    _login_internal_uploader(client, db_session)
     _install_sync_pipeline(
         client,
         [
@@ -180,7 +186,7 @@ def test_precheck_reject_short_circuits_dimension_scoring(
 def test_upload_rejects_unsupported_file_type(
     client: TestClient, db_session: Session
 ) -> None:
-    _login_submitter(client, db_session)
+    _login_internal_uploader(client, db_session)
 
     response = client.post(
         "/api/papers",
@@ -193,7 +199,7 @@ def test_upload_rejects_unsupported_file_type(
 def test_batch_upload_returns_multiple_tasks(
     client: TestClient, db_session: Session
 ) -> None:
-    _login_submitter(client, db_session)
+    _login_internal_uploader(client, db_session)
     _install_sync_pipeline(
         client,
         [
@@ -221,7 +227,7 @@ def test_batch_upload_returns_multiple_tasks(
 def test_batch_status_is_limited_to_batch_owner_or_internal_roles(
     client: TestClient, db_session: Session
 ) -> None:
-    _login_submitter(client, db_session)
+    _login_internal_uploader(client, db_session)
     create_user(db_session, email="other@example.com", role="submitter")
     create_user(db_session, email="editor@example.com", role="editor")
     _install_sync_pipeline(
@@ -245,13 +251,17 @@ def test_batch_status_is_limited_to_batch_owner_or_internal_roles(
     assert owner_response.status_code == 200
 
     client.cookies.clear()
-    login_response = client.post("/api/auth/login", json={"email": "other@example.com", "password": "secret123"})
+    login_response = client.post(
+        "/api/auth/login", json={"email": "other@example.com", "password": "secret123"}
+    )
     assert login_response.status_code == 200
     other_response = client.get(f"/api/papers/batch/{batch_id}/status")
     assert other_response.status_code == 403
 
     client.cookies.clear()
-    login_response = client.post("/api/auth/login", json={"email": "editor@example.com", "password": "secret123"})
+    login_response = client.post(
+        "/api/auth/login", json={"email": "editor@example.com", "password": "secret123"}
+    )
     assert login_response.status_code == 200
     editor_response = client.get(f"/api/papers/batch/{batch_id}/status")
     assert editor_response.status_code == 200

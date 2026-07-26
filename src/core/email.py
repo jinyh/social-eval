@@ -48,6 +48,26 @@ EVENT_CONTENT: dict[str, tuple[str, str]] = {
         "账户密码已更新",
         "你的账户密码已经更新。如非本人操作，请立即联系系统管理员。",
     ),
+    "email_verification_requested": (
+        "验证投稿人邮箱",
+        "请验证邮箱以完成投稿人账户注册。",
+    ),
+    "submitter_submission_received": (
+        "投稿已收到",
+        "系统已经收到你的投稿，请登录查看处理进度。",
+    ),
+    "submitter_result_released": (
+        "投稿处理结果已发布",
+        "编辑已经发布投稿处理结果，请登录系统查看。",
+    ),
+    "submitter_withdrawal_approved": (
+        "撤稿申请已批准",
+        "你的撤稿申请已经批准，请登录系统查看。",
+    ),
+    "submitter_withdrawal_rejected": (
+        "撤稿申请未批准",
+        "你的撤稿申请未获批准，请登录系统查看编辑说明。",
+    ),
     "account_status_changed": (
         "账户状态已更新",
         "你的账户状态已由管理员更新，请联系管理员了解详情。",
@@ -72,6 +92,8 @@ def _login_url(event_type: str, template_data: dict) -> str:
         return f"{base}/activate#token={token}"
     if event_type == "password_reset_requested":
         return f"{base}/reset-password#token={token}"
+    if event_type == "email_verification_requested":
+        return f"{base}/verify-email#token={token}"
     return base
 
 
@@ -84,7 +106,7 @@ def _render_message(delivery: EmailDelivery) -> EmailMessage:
     system_id = str(template_data.get("system_id") or delivery.object_id)
     link = _login_url(delivery.event_type, template_data)
     lines = [body]
-    if delivery.event_type != "invitation_created":
+    if delivery.object_type in {"editorial_submission", "evaluation_task"}:
         lines.append(f"系统稿号：{system_id}")
     if template_data.get("expires_at"):
         lines.append(f"邀请有效期至：{template_data['expires_at']}")
@@ -102,7 +124,11 @@ def _render_message(delivery: EmailDelivery) -> EmailMessage:
     message.add_alternative(
         "<html><body>"
         + "".join(f"<p>{html.escape(line)}</p>" for line in lines if line)
-        + f'<p><a href="{html.escape(link)}">登录系统</a></p>'
+        + (
+            f'<p><a href="{html.escape(link)}">'
+            f"{'完成邮箱验证' if delivery.event_type == 'email_verification_requested' else '登录系统'}"
+            "</a></p>"
+        )
         + "</body></html>",
         subtype="html",
     )

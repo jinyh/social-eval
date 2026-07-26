@@ -21,6 +21,7 @@ import {
   assignExpert,
   confirmEditorialAnonymization,
   continueEditorialSubmission,
+  decideSubmissionWithdrawal,
   decidePolicyValidation,
   editorialDocumentUrl,
   editorialReportUrl,
@@ -32,6 +33,7 @@ import {
   listNotifications,
   listPendingPolicySignatures,
   markNotificationRead,
+  releaseEditorialResult,
   submitEditorialDecision,
   uploadEditorialSubmission,
 } from "@/lib/api";
@@ -839,6 +841,7 @@ export function EditorialWorkspace({ user }: { user: User }) {
               expertId={expertId}
               onExpertChange={setExpertId}
               onAssignExpert={handleAssignExpert}
+              onRefresh={refreshDetail}
             />
           </>
         ) : (
@@ -1376,6 +1379,7 @@ type DetailProps = {
   expertId: string;
   onExpertChange: (value: string) => void;
   onAssignExpert: () => void;
+  onRefresh: () => Promise<void>;
 };
 
 function SubmissionDetail(props: DetailProps) {
@@ -1399,6 +1403,7 @@ function SubmissionDetail(props: DetailProps) {
     expertId,
     onExpertChange,
     onAssignExpert,
+    onRefresh,
   } = props;
   const gate =
     detail.status.startsWith("awaiting_") && detail.status !== "awaiting_editor";
@@ -1659,9 +1664,147 @@ function SubmissionDetail(props: DetailProps) {
             currentStageLocked={currentStageLocked}
             onDecision={onDecision}
           />
+          <AuthorCommunicationPanel detail={detail} onRefresh={onRefresh} />
         </>
       ) : null}
     </div>
+  );
+}
+
+function AuthorCommunicationPanel({
+  detail,
+  onRefresh,
+}: {
+  detail: EditorialSubmissionDetail;
+  onRefresh: () => Promise<void>;
+}) {
+  const [authorMessage, setAuthorMessage] = useState("");
+  const [withdrawalNote, setWithdrawalNote] = useState("");
+  const [message, setMessage] = useState("");
+  const latestDecision = detail.decisions.at(-1);
+  const pendingWithdrawal = (detail.withdrawal_requests ?? []).find(
+    (request) => request.status === "pending"
+  );
+
+  const handleRelease = async () => {
+    if (!latestDecision || authorMessage.trim().length < 5) return;
+    try {
+      await releaseEditorialResult(
+        detail.id,
+        latestDecision.id,
+        authorMessage.trim()
+      );
+      setAuthorMessage("");
+      setMessage("结果已发布给投稿人。");
+      await onRefresh();
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "结果发布失败");
+    }
+  };
+
+  const handleWithdrawal = async (approved: boolean) => {
+    if (!pendingWithdrawal || withdrawalNote.trim().length < 2) return;
+    try {
+      await decideSubmissionWithdrawal(
+        detail.id,
+        pendingWithdrawal.id,
+        approved,
+        withdrawalNote.trim()
+      );
+      setWithdrawalNote("");
+      setMessage(approved ? "撤稿申请已批准。" : "撤稿申请已驳回。");
+      await onRefresh();
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "撤稿申请处理失败");
+    }
+  };
+
+  if (!detail.submitter) return null;
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>投稿人沟通</CardTitle>
+        <CardDescription>
+          编辑可核对投稿人身份；下列信息不会进入模型输入或专家匿名稿。
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <dl className="grid gap-3 rounded-xl bg-slate-50 p-4 text-sm md:grid-cols-3">
+          <Metric label="投稿人" value={detail.submitter.display_name || "未填写"} />
+          <Metric label="邮箱" value={detail.submitter.email} />
+          <Metric label="工作单位" value={detail.submitter.affiliation || "未填写"} />
+        </dl>
+
+        {pendingWithdrawal ? (
+          <section className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+            <p className="font-medium text-amber-900">待处理撤稿申请</p>
+            <p className="mt-2 text-sm leading-6 text-amber-800">
+              {pendingWithdrawal.reason}
+            </p>
+            <Textarea
+              className="mt-3 bg-white"
+              value={withdrawalNote}
+              onChange={(event) => setWithdrawalNote(event.target.value)}
+              placeholder="填写处理说明（至少 2 个字符）"
+            />
+            <div className="mt-3 flex gap-2">
+              <Button
+                type="button"
+                variant="destructive"
+                disabled={withdrawalNote.trim().length < 2}
+                onClick={() => void handleWithdrawal(true)}
+              >
+                批准撤稿
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                disabled={withdrawalNote.trim().length < 2}
+                onClick={() => void handleWithdrawal(false)}
+              >
+                驳回申请
+              </Button>
+            </div>
+          </section>
+        ) : null}
+
+        <section className="rounded-xl border border-slate-200 p-4">
+          <p className="font-medium text-slate-950">发布作者向结果</p>
+          <p className="mt-1 text-sm text-slate-500">
+            只有发布后，投稿人才可以查看公开摘要、PDF和对外决定。
+          </p>
+          <Textarea
+            className="mt-3"
+            value={authorMessage}
+            onChange={(event) => setAuthorMessage(event.target.value)}
+            placeholder="填写给投稿人的决定说明（至少 5 个字符）"
+          />
+          <Button
+            type="button"
+            className="mt-3"
+            disabled={
+              !latestDecision ||
+              authorMessage.trim().length < 5 ||
+              detail.status === "withdrawn"
+            }
+            onClick={() => void handleRelease()}
+          >
+            {latestDecision ? "发布给投稿人" : "请先提交并锁定编辑决定"}
+          </Button>
+          {(detail.author_releases ?? []).length > 0 ? (
+            <p className="mt-3 text-xs text-slate-500">
+              最近发布时间：
+              {formatBeijingTime(detail.author_releases[0].released_at)}
+            </p>
+          ) : null}
+        </section>
+        {message ? (
+          <p className="rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-700">
+            {message}
+          </p>
+        ) : null}
+      </CardContent>
+    </Card>
   );
 }
 

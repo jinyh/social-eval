@@ -10,8 +10,10 @@ from src.api.auth.dependencies import get_current_user
 from src.core.audit import record_audit_log
 from src.core.database import get_db
 from src.editorial.access import editor_can_access_paper
+from src.models.editorial import EditorialSubmission, SubmissionAuthorRelease
 from src.models.evaluation import EvaluationTask
 from src.models.paper import Paper
+from src.models.report import Report
 from src.models.review import ExpertReview
 from src.models.user import User
 from src.reporting.exporters import (
@@ -112,12 +114,65 @@ def _ensure_public_access(
             return
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     if current_user.role == "submitter" and paper.uploaded_by == current_user.id:
-        return
+        editorial_submission = (
+            db.query(EditorialSubmission)
+            .filter(EditorialSubmission.paper_id == paper.id)
+            .first()
+        )
+        if editorial_submission is None:
+            return
+        released = (
+            db.query(SubmissionAuthorRelease)
+            .filter(SubmissionAuthorRelease.submission_id == editorial_submission.id)
+            .first()
+        )
+        if released is not None:
+            return
+        raise HTTPException(status_code=409, detail="编辑尚未发布投稿处理结果")
     if current_user.role == "expert" and _expert_has_task_access(
         db, current_user, task
     ):
         return
     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="无权访问")
+
+
+def _public_report_for_user(
+    db: Session,
+    current_user: User,
+    paper: Paper,
+    task: EvaluationTask,
+) -> Report:
+    """投稿人只读取编辑明确发布的不可变报告版本。"""
+
+    if current_user.role != "submitter":
+        return get_current_report(db, task.id, "public")
+    submission = (
+        db.query(EditorialSubmission)
+        .filter(EditorialSubmission.paper_id == paper.id)
+        .first()
+    )
+    if submission is None:
+        return get_current_report(db, task.id, "public")
+    release = (
+        db.query(SubmissionAuthorRelease)
+        .filter(SubmissionAuthorRelease.submission_id == submission.id)
+        .order_by(SubmissionAuthorRelease.released_at.desc())
+        .first()
+    )
+    if release is None:
+        raise HTTPException(status_code=409, detail="编辑尚未发布投稿处理结果")
+    report = (
+        db.query(Report)
+        .filter(
+            Report.task_id == task.id,
+            Report.report_type == "public",
+            Report.version == release.report_version,
+        )
+        .first()
+    )
+    if report is None:
+        raise HTTPException(status_code=409, detail="已发布报告版本暂不可用")
+    return report
 
 
 def _ensure_internal_access(
@@ -146,7 +201,7 @@ def get_public_report(
     expert_review = _expert_review_for_task(db, current_user, task)
     if expert_review is not None and expert_review.blind_submitted_at is None:
         raise HTTPException(status_code=409, detail="提交独立评阅后才能查看评价报告")
-    report = get_current_report(db, task.id, "public")
+    report = _public_report_for_user(db, current_user, paper, task)
     return report.report_data
 
 
@@ -197,7 +252,11 @@ def export_report(
     if expert_review is not None and expert_review.blind_submitted_at is None:
         raise HTTPException(status_code=409, detail="提交独立评阅后才能导出评价报告")
 
-    report = get_current_report(db, task.id, report_type)
+    report = (
+        get_current_report(db, task.id, "internal")
+        if report_type == "internal"
+        else _public_report_for_user(db, current_user, paper, task)
+    )
     if format == "json":
         content = export_report_json(report)
         persist_report_export(db, report=report, export_type="json", content=content)
@@ -228,7 +287,7 @@ def export_simple_report(
     if expert_review is not None and expert_review.blind_submitted_at is None:
         raise HTTPException(status_code=409, detail="提交独立评阅后才能导出评价报告")
 
-    report = get_current_report(db, task.id, "public")
+    report = _public_report_for_user(db, current_user, paper, task)
 
     # 构建简洁版报告数据
     simple_data = _build_simple_report_data(report.report_data)

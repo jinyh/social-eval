@@ -1,21 +1,21 @@
 # 编辑辅助预审设计文档索引
 
-> 当前基线：2026-07-25
+> 当前基线：2026-07-26
 >
-> 范围：面向期刊编辑的法学论文 AI 辅助预审；不包含作者端投稿系统。
+> 范围：法学期刊编辑辅助预审，以及与其衔接的投稿人注册、投稿、结果发布和撤稿流程。
 
 本目录是编辑辅助预审的统一设计入口。需求、交互、系统和实施设计分别维护，
 避免把期刊规则、界面状态和工程实现混在同一份文档中。
 
 ## 文档
 
-1. [需求规格 v1.1](../requirements/editorial-pre-review-requirements-v1.1.md)
+1. [需求规格 v1.2](../requirements/editorial-pre-review-requirements-v1.2.md)
 2. [交互设计 v1.0](interaction-design-v1.0.md)
 3. [系统设计 v1.0](system-design-v1.0.md)
 4. [实施计划 v1.0](implementation-plan-v1.0.md)
 5. [单机 Docker 部署](deployment-single-host-docker.md)
 6. [编辑、专家与管理员操作手册 v1.1](operator-guide-v1.1.md)
-7. [业务全流程 v1.2](business-process-v1.2.md)
+7. [业务全流程 v1.3](business-process-v1.3.md)
 8. [按角色划分的用户手册](../user-manuals/README.md)
 
 ## 已冻结边界
@@ -32,6 +32,8 @@
 - 编辑和专家看到四个匿名模型的实际分歧，不把四模型合并伪装成两份意见。
 - 专家先阅读匿名稿并独立提交判断，锁定后才开放四模型结果。
 - 五轴先显示总分，可展开五个轴的证据；五轴不评价论文质量。
+- 投稿人邮箱自助注册并完成验证；编辑、专家和管理员继续由管理员邀请。
+- 投稿人只看到正式启用期刊、本人稿件和编辑明确发布的作者结果。
 
 ## 当前实现阶段
 

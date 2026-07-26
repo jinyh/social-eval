@@ -28,6 +28,8 @@ import type {
   User,
   UserListResponse,
   ValidationRun,
+  SubmitterJournal,
+  SubmitterSubmission,
 } from "./types";
 import {
   getMockRole,
@@ -107,6 +109,41 @@ export async function login(
   return apiFetch<User | LoginChallenge>("/api/auth/login", {
     method: "POST",
     body: JSON.stringify({ email, password }),
+  });
+}
+
+export async function registerSubmitter(input: {
+  email: string;
+  displayName: string;
+  affiliation?: string;
+  password: string;
+  website?: string;
+}): Promise<{ message: string; verification_url?: string | null }> {
+  return apiFetch("/api/auth/register", {
+    method: "POST",
+    body: JSON.stringify({
+      email: input.email,
+      display_name: input.displayName,
+      affiliation: input.affiliation || null,
+      password: input.password,
+      website: input.website ?? "",
+    }),
+  });
+}
+
+export async function confirmEmailVerification(token: string): Promise<void> {
+  await apiFetch("/api/auth/email-verification/confirm", {
+    method: "POST",
+    body: JSON.stringify({ token }),
+  });
+}
+
+export async function resendEmailVerification(
+  email: string
+): Promise<{ message: string; verification_url?: string | null }> {
+  return apiFetch("/api/auth/email-verification/resend", {
+    method: "POST",
+    body: JSON.stringify({ email }),
   });
 }
 
@@ -431,6 +468,97 @@ export async function exportSimpleReport(paperId: string): Promise<Blob> {
   return response.blob();
 }
 
+export async function listSubmitterJournals(): Promise<SubmitterJournal[]> {
+  if (isMockMode()) {
+    return [
+      {
+        unit_id: "unit-jiaoda",
+        journal_name: "交大法学",
+        unit_name: "交大法学编辑部",
+        accepted_scope: ["法学理论与中国法治实践"],
+        column_positioning: ["专题论文"],
+        article_types: ["研究论文"],
+        special_notes: "",
+      },
+    ];
+  }
+  return apiFetch<SubmitterJournal[]>("/api/submitter/journals");
+}
+
+export async function listSubmitterSubmissions(): Promise<SubmitterSubmission[]> {
+  if (isMockMode()) {
+    return mockPapers.map((paper) => ({
+      id: `submission-${paper.paper_id}`,
+      paper_id: paper.paper_id,
+      unit_id: "unit-jiaoda",
+      journal_name: "交大法学",
+      unit_name: "交大法学编辑部",
+      title: paper.title ?? paper.original_filename,
+      status: paper.paper_status,
+      status_label: paper.paper_status === "completed" ? "编辑处理完成" : "处理中",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      report_released: paper.paper_status === "completed",
+      author_message:
+        paper.paper_status === "completed" ? "编辑已发布本次处理结果。" : null,
+    }));
+  }
+  return apiFetch<SubmitterSubmission[]>("/api/submitter/submissions");
+}
+
+export async function getSubmitterSubmission(
+  submissionId: string
+): Promise<SubmitterSubmission> {
+  if (isMockMode()) {
+    return (await listSubmitterSubmissions()).find(
+      (item) => item.id === submissionId
+    ) as SubmitterSubmission;
+  }
+  return apiFetch<SubmitterSubmission>(
+    `/api/submitter/submissions/${submissionId}`
+  );
+}
+
+export async function uploadSubmitterSubmission(
+  unitId: string,
+  title: string,
+  file: File
+): Promise<{ submission_id: string; paper_id: string; status: string }> {
+  if (isMockMode()) {
+    return {
+      submission_id: "submission-mock-uploaded",
+      paper_id: "paper-mock-uploaded",
+      status: "queued",
+    };
+  }
+  const formData = new FormData();
+  formData.append("unit_id", unitId);
+  formData.append("title", title);
+  formData.append("file", file);
+  const response = await fetch(`${API_BASE}/api/submitter/submissions`, {
+    method: "POST",
+    credentials: "include",
+    body: formData,
+  });
+  if (!response.ok) throw new Error(await readErrorMessage(response));
+  return response.json() as Promise<{
+    submission_id: string;
+    paper_id: string;
+    status: string;
+  }>;
+}
+
+export async function requestSubmissionWithdrawal(
+  submissionId: string,
+  reason: string
+): Promise<void> {
+  if (isMockMode()) return;
+  await apiFetch(
+    `/api/submitter/submissions/${submissionId}/withdrawal-requests`,
+    { method: "POST", body: JSON.stringify({ reason }) }
+  );
+}
+
 export async function listEditorialUnits(): Promise<EditorialUnit[]> {
   if (isMockMode()) return mockEditorialUnits;
   const result = await apiFetch<{ items: EditorialUnit[] }>("/api/editorial/units");
@@ -616,6 +744,38 @@ export async function submitEditorialDecision(
         final_decision: finalDecision,
         rationale: rationale || null,
         bypass_expert_gate: bypassExpertGate,
+      }),
+    }
+  );
+}
+
+export async function releaseEditorialResult(
+  submissionId: string,
+  decisionId: string,
+  authorMessage: string
+): Promise<void> {
+  await apiFetch(`/api/editorial/submissions/${submissionId}/author-release`, {
+    method: "POST",
+    body: JSON.stringify({
+      decision_id: decisionId,
+      author_message: authorMessage,
+    }),
+  });
+}
+
+export async function decideSubmissionWithdrawal(
+  submissionId: string,
+  requestId: string,
+  approved: boolean,
+  decisionNote: string
+): Promise<void> {
+  await apiFetch(
+    `/api/editorial/submissions/${submissionId}/withdrawal-requests/${requestId}/decision`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        approved,
+        decision_note: decisionNote,
       }),
     }
   );

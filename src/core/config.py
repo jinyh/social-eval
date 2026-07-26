@@ -51,6 +51,8 @@ class Settings(BaseSettings):
     login_window_seconds: int = 900
     session_max_age_seconds: int = 12 * 60 * 60
     password_reset_ttl_seconds: int = 30 * 60
+    email_verification_ttl_seconds: int = 24 * 60 * 60
+    registration_resend_cooldown_seconds: int = 60
     invitation_ttl_days: int = 7
     security_max_attempts: int = 5
     security_window_seconds: int = 600

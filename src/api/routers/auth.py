@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import timedelta
+import re
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from sqlalchemy.orm import Session
@@ -32,6 +33,8 @@ from src.api.schemas.auth import (
     ApiKeyMetadata,
     ApiKeyResponse,
     ChangePasswordRequest,
+    EmailVerificationRequest,
+    EmailVerificationResendRequest,
     LoginRequest,
     LoginResponse,
     MfaCodeRequest,
@@ -40,6 +43,8 @@ from src.api.schemas.auth import (
     MfaSetupResponse,
     PasswordResetConfirmRequest,
     PasswordResetRequest,
+    RegistrationRequest,
+    RegistrationResponse,
 )
 from src.api.schemas.users import UserResponse
 from src.core.audit import record_audit_log
@@ -54,7 +59,12 @@ from src.core.login_guard import (
 )
 from src.core.time import utc_now
 from src.models.api_key import ApiKey
-from src.models.user import Invitation, PasswordResetToken, User
+from src.models.user import (
+    EmailVerificationToken,
+    Invitation,
+    PasswordResetToken,
+    User,
+)
 
 router = APIRouter()
 
@@ -65,13 +75,182 @@ def _build_user_response(user: User, *, auth_method: str | None = None) -> UserR
         email=user.email,
         role=user.role,
         display_name=user.display_name,
+        affiliation=user.affiliation,
         is_active=user.is_active,
+        email_verified_at=user.email_verified_at,
         created_at=user.created_at,
         last_login_at=user.last_login_at,
         password_changed_at=user.password_changed_at,
         password_reset_required=user.password_reset_required,
         mfa_enabled=user.mfa_enabled_at is not None,
         auth_method=auth_method,
+    )
+
+
+def _normalized_email(email: str) -> str:
+    value = email.strip().lower()
+    if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", value):
+        raise HTTPException(status_code=422, detail="请输入有效的电子邮箱")
+    return value
+
+
+def _queue_verification(db: Session, user: User) -> str:
+    now = utc_now()
+    db.query(EmailVerificationToken).filter(
+        EmailVerificationToken.user_id == user.id,
+        EmailVerificationToken.used_at.is_(None),
+    ).update({"used_at": now})
+    raw_token, token_hash = create_one_time_token()
+    token = EmailVerificationToken(
+        user_id=user.id,
+        token_hash=token_hash,
+        expires_at=now + timedelta(seconds=settings.email_verification_ttl_seconds),
+    )
+    db.add(token)
+    db.commit()
+    db.refresh(token)
+    queue_email(
+        db,
+        idempotency_key=f"email-verification:{token.id}",
+        event_type="email_verification_requested",
+        recipient_email=user.email,
+        object_type="email_verification",
+        object_id=token.id,
+        template_data={"token": raw_token},
+    )
+    return raw_token
+
+
+@router.post(
+    "/register",
+    response_model=RegistrationResponse,
+    status_code=status.HTTP_202_ACCEPTED,
+)
+def register(
+    payload: RegistrationRequest,
+    request: Request,
+    db: Session = Depends(get_db),
+) -> RegistrationResponse:
+    if payload.website:
+        return RegistrationResponse(message="请检查邮箱并完成账户验证")
+    if settings.app_env == "production" and not settings.email_enabled:
+        raise HTTPException(status_code=503, detail="账户注册暂不可用，请稍后再试")
+    email = _normalized_email(payload.email)
+    client_ip = request.client.host if request.client else "unknown"
+    _security_limit("registration", f"{client_ip}|{email}")
+    existing = db.query(User).filter(User.email == email).first()
+    verification_url = None
+    if existing is None:
+        user = User(
+            email=email,
+            display_name=payload.display_name.strip(),
+            affiliation=(payload.affiliation or "").strip() or None,
+            hashed_password=hash_password(payload.password),
+            role="submitter",
+            is_active=False,
+            password_changed_at=utc_now(),
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+        raw_token = _queue_verification(db, user)
+        record_audit_log(
+            db,
+            actor_id=user.id,
+            object_type="user",
+            object_id=user.id,
+            action="self_registration_created",
+            result="pending_verification",
+        )
+        if settings.app_env != "production":
+            verification_url = (
+                f"{settings.public_base_url.rstrip('/')}/verify-email#token={raw_token}"
+            )
+    return RegistrationResponse(
+        message="请检查邮箱并完成账户验证",
+        verification_url=verification_url,
+    )
+
+
+@router.post("/email-verification/confirm", status_code=status.HTTP_204_NO_CONTENT)
+def confirm_email_verification(
+    payload: EmailVerificationRequest,
+    db: Session = Depends(get_db),
+) -> Response:
+    token_hash = hash_one_time_token(payload.token)
+    token = (
+        db.query(EmailVerificationToken)
+        .filter(EmailVerificationToken.token_hash == token_hash)
+        .first()
+    )
+    if token is None or token.used_at is not None or token.expires_at <= utc_now():
+        _security_limit("email-verification-confirm", token_hash)
+        raise HTTPException(status_code=400, detail="邮箱验证链接无效或已经过期")
+    user = db.get(User, token.user_id)
+    if user is None or user.role != "submitter":
+        raise HTTPException(status_code=400, detail="邮箱验证链接无效或已经过期")
+    token.used_at = utc_now()
+    user.email_verified_at = utc_now()
+    user.is_active = True
+    db.add_all([token, user])
+    db.commit()
+    record_audit_log(
+        db,
+        actor_id=user.id,
+        object_type="user",
+        object_id=user.id,
+        action="email_verified",
+        result="success",
+    )
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.post(
+    "/email-verification/resend",
+    response_model=RegistrationResponse,
+    status_code=status.HTTP_202_ACCEPTED,
+)
+def resend_email_verification(
+    payload: EmailVerificationResendRequest,
+    request: Request,
+    db: Session = Depends(get_db),
+) -> RegistrationResponse:
+    if settings.app_env == "production" and not settings.email_enabled:
+        raise HTTPException(status_code=503, detail="账户注册暂不可用，请稍后再试")
+    email = _normalized_email(payload.email)
+    client_ip = request.client.host if request.client else "unknown"
+    _security_limit("registration-resend", f"{client_ip}|{email}")
+    user = (
+        db.query(User)
+        .filter(
+            User.email == email,
+            User.role == "submitter",
+            User.email_verified_at.is_(None),
+        )
+        .first()
+    )
+    verification_url = None
+    if user is not None:
+        latest = (
+            db.query(EmailVerificationToken)
+            .filter(EmailVerificationToken.user_id == user.id)
+            .order_by(EmailVerificationToken.created_at.desc())
+            .first()
+        )
+        if (
+            latest is None
+            or (utc_now() - latest.created_at).total_seconds()
+            >= settings.registration_resend_cooldown_seconds
+        ):
+            raw_token = _queue_verification(db, user)
+            if settings.app_env != "production":
+                verification_url = (
+                    f"{settings.public_base_url.rstrip('/')}"
+                    f"/verify-email#token={raw_token}"
+                )
+    return RegistrationResponse(
+        message="如果该邮箱存在待验证账户，系统将重新发送验证邮件",
+        verification_url=verification_url,
     )
 
 
@@ -125,6 +304,8 @@ def login(
                     headers={"Retry-After": str(retry_after)},
                 )
         raise HTTPException(status_code=401, detail="邮箱或密码错误")
+    if user.email_verified_at is None and user.role == "submitter":
+        raise HTTPException(status_code=403, detail="请先完成邮箱验证")
     if not user.is_active:
         raise HTTPException(status_code=403, detail="用户账户尚未启用")
     if user.password_reset_required:
@@ -434,10 +615,12 @@ def accept_invitation(
     user = User(
         email=invitation.email.strip().lower(),
         display_name=payload.display_name,
+        affiliation=None,
         hashed_password=hash_password(payload.password),
         role=invitation.role,
         is_active=True,
         password_changed_at=utc_now(),
+        email_verified_at=utc_now(),
     )
     invitation.is_used = True
     invitation.token = None

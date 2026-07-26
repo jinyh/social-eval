@@ -17,6 +17,7 @@ from src.api.routers import (
     papers,
     reports,
     reviews,
+    submitter,
     users,
 )
 from src.core.config import settings
@@ -97,6 +98,11 @@ def create_app() -> FastAPI:
     app.include_router(papers.router, prefix="/api/papers", tags=["papers"])
     app.include_router(reports.router, prefix="/api/papers", tags=["reports"])
     app.include_router(reviews.router, prefix="/api/reviews", tags=["reviews"])
+    app.include_router(
+        submitter.router,
+        prefix="/api/submitter",
+        tags=["submitter"],
+    )
     app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
     app.include_router(editorial.router, prefix="/api/editorial", tags=["editorial"])
     app.include_router(

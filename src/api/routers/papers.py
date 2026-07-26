@@ -17,7 +17,7 @@ from fastapi import (
 from sqlalchemy.orm import Session
 
 from src.api.schemas.admin import BatchStatusResponse
-from src.api.auth.dependencies import get_current_user
+from src.api.auth.dependencies import get_current_user, require_roles
 from src.api.schemas.papers import (
     BatchPaperTaskResponse,
     PaperListItemResponse,
@@ -231,7 +231,7 @@ async def upload_paper(
     framework_path: str = Form(DEFAULT_FRAMEWORK_PATH),
     provider_names: str | None = Form(default=None),
     cross_review_enabled: bool = Form(default=False),
-    current_user: User = Depends(get_current_user),
+    current_user: User = Depends(require_roles("editor", "admin")),
     db: Session = Depends(get_db),
 ) -> PaperTaskResponse:
     return await _create_paper_and_task(
@@ -288,7 +288,7 @@ async def batch_upload_papers(
     framework_path: str = Form(DEFAULT_FRAMEWORK_PATH),
     provider_names: str | None = Form(default=None),
     cross_review_enabled: bool = Form(default=False),
-    current_user: User = Depends(get_current_user),
+    current_user: User = Depends(require_roles("editor", "admin")),
     db: Session = Depends(get_db),
 ) -> BatchPaperTaskResponse:
     batch = BatchTask(total=len(files))

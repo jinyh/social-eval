@@ -143,9 +143,12 @@ class EditorialSubmissionDetailResponse(EditorialSubmissionListItem):
     review_protocol_label: str
     progress: dict
     documents: dict[str, str]
+    submitter: dict | None
     expert_reviews: list[dict]
     opinions: list[EditorialOpinionResponse]
     decisions: list[EditorialDecisionResponse]
+    author_releases: list[dict]
+    withdrawal_requests: list[dict]
 
 
 class AssignmentRequest(BaseModel):
@@ -178,6 +181,16 @@ class EditorialDecisionCreateRequest(BaseModel):
         if self.final_decision not in allowed:
             raise ValueError("决定类型与当前决定阶段不匹配")
         return self
+
+
+class AuthorReleaseRequest(BaseModel):
+    decision_id: str
+    author_message: str = Field(min_length=5, max_length=5000)
+
+
+class WithdrawalDecisionRequest(BaseModel):
+    approved: bool
+    decision_note: str = Field(min_length=2, max_length=2000)
 
 
 class EditorOpinionRequest(BaseModel):

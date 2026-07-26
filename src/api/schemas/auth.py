@@ -17,6 +17,27 @@ class AcceptInvitationRequest(BaseModel):
     password: str = Field(min_length=12, max_length=128)
 
 
+class RegistrationRequest(BaseModel):
+    email: str = Field(min_length=3, max_length=255)
+    display_name: str = Field(min_length=1, max_length=255)
+    affiliation: str | None = Field(default=None, max_length=255)
+    password: str = Field(min_length=12, max_length=128)
+    website: str = Field(default="", max_length=255)
+
+
+class EmailVerificationRequest(BaseModel):
+    token: str = Field(min_length=1, max_length=500)
+
+
+class EmailVerificationResendRequest(BaseModel):
+    email: str = Field(min_length=3, max_length=255)
+
+
+class RegistrationResponse(BaseModel):
+    message: str
+    verification_url: str | None = None
+
+
 class LoginResponse(BaseModel):
     status: Literal["authenticated", "mfa_required", "mfa_setup_required"]
     user: "UserResponse | None" = None

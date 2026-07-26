@@ -29,7 +29,7 @@ export function StudentSummary({ report, status, onDownload, downloading = false
         <CardHeader className="pb-4">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="space-y-2">
-              <Badge variant="default">给学生/投稿人的摘要</Badge>
+              <Badge variant="default">给投稿人的摘要</Badge>
               <CardTitle className="text-xl">{getReportTitle(report)}</CardTitle>
               <CardDescription>面向作者修改的公开视图，不展示真实模型名和内部复核细节。</CardDescription>
             </div>

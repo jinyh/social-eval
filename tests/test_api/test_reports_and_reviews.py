@@ -47,11 +47,9 @@ def test_internal_and_public_report_endpoints_expose_different_detail_levels(
         db_session, email="editor@example.com", role="editor", display_name="Editor"
     )
 
-    _login(client, "submitter@example.com")
+    _login(client, "editor@example.com")
     payload = _upload_with_scores(client, [80, 82, 84])
 
-    client.cookies.clear()
-    _login(client, "editor@example.com")
     internal_response = client.get(f"/api/papers/{payload['paper_id']}/internal-report")
     assert internal_response.status_code == 200
     task_scoped_response = client.get(
@@ -69,8 +67,6 @@ def test_internal_and_public_report_endpoints_expose_different_detail_levels(
     assert internal_body["report_type"] == "internal"
     assert "model_scores" in internal_body["dimensions"][0]["ai"]
 
-    client.cookies.clear()
-    _login(client, "submitter@example.com")
     public_response = client.get(f"/api/papers/{payload['paper_id']}/report")
     assert public_response.status_code == 200
     public_body = public_response.json()
@@ -84,11 +80,9 @@ def test_report_export_supports_json_and_pdf(
     create_user(db_session, email="submitter@example.com", role="submitter")
     create_user(db_session, email="editor@example.com", role="editor")
 
-    _login(client, "submitter@example.com")
+    _login(client, "editor@example.com")
     payload = _upload_with_scores(client, [78, 79, 80])
 
-    client.cookies.clear()
-    _login(client, "editor@example.com")
     json_export = client.get(
         f"/api/papers/{payload['paper_id']}/report/export",
         params={"format": "json", "report_type": "internal"},
@@ -114,11 +108,9 @@ def test_low_confidence_task_appears_in_review_queue_and_editor_can_assign_exper
     sent_notifications: list[dict] = []
     client.app.state.email_sender = lambda **kwargs: sent_notifications.append(kwargs)
 
-    _login(client, "submitter@example.com")
+    _login(client, "editor@example.com")
     payload = _upload_with_scores(client, [40, 75, 95])
 
-    client.cookies.clear()
-    _login(client, "editor@example.com")
     queue_response = client.get("/api/reviews/queue")
     assert queue_response.status_code == 200
     assert queue_response.json()["items"][0]["task_id"] == payload["task_id"]
@@ -140,11 +132,9 @@ def test_expert_can_submit_review_and_internal_report_contains_feedback(
     expert = create_user(db_session, email="expert@example.com", role="expert")
     client.app.state.email_sender = lambda **kwargs: None
 
-    _login(client, "submitter@example.com")
+    _login(client, "editor@example.com")
     payload = _upload_with_scores(client, [45, 70, 95])
 
-    client.cookies.clear()
-    _login(client, "editor@example.com")
     assign_response = client.post(
         f"/api/reviews/{payload['task_id']}/assign",
         json={"expert_ids": [expert.id]},
@@ -231,9 +221,10 @@ def test_unassigned_expert_cannot_access_other_paper_reports_or_status(
     client: TestClient, db_session: Session
 ) -> None:
     create_user(db_session, email="submitter@example.com", role="submitter")
+    create_user(db_session, email="editor@example.com", role="editor")
     create_user(db_session, email="expert@example.com", role="expert")
 
-    _login(client, "submitter@example.com")
+    _login(client, "editor@example.com")
     payload = _upload_with_scores(client, [78, 79, 80])
 
     client.cookies.clear()
@@ -257,11 +248,9 @@ def test_submit_review_rejects_out_of_range_scores(
     expert = create_user(db_session, email="expert@example.com", role="expert")
     client.app.state.email_sender = lambda **kwargs: None
 
-    _login(client, "submitter@example.com")
+    _login(client, "editor@example.com")
     payload = _upload_with_scores(client, [45, 70, 95])
 
-    client.cookies.clear()
-    _login(client, "editor@example.com")
     assign_response = client.post(
         f"/api/reviews/{payload['task_id']}/assign",
         json={"expert_ids": [expert.id]},

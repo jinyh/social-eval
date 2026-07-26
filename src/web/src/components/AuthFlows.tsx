@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 
 import {
   acceptInvitation,
+  confirmEmailVerification,
   confirmMfa,
   confirmPasswordReset,
   setupMfa,
@@ -64,6 +65,49 @@ export function InvitationActivation() {
         {message ? <p className="mt-4 text-sm text-emerald-700">{message}</p> : null}
         {error ? <p className="mt-4 text-sm text-red-700">{error}</p> : null}
         {message ? <Button className="mt-4 w-full" variant="secondary" onClick={() => window.location.assign("/")}>返回登录</Button> : null}
+      </CardContent>
+    </AuthCard>
+  );
+}
+
+export function EmailVerification() {
+  const [message, setMessage] = useState("正在验证邮箱……");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const token = tokenFromFragment();
+    if (!token) {
+      setMessage("");
+      setError("验证链接缺少令牌，请重新发送验证邮件。");
+      return;
+    }
+    void confirmEmailVerification(token)
+      .then(() => {
+        window.history.replaceState(null, "", "/");
+        setMessage("邮箱验证成功，现在可以登录并投稿。");
+      })
+      .catch((err: unknown) => {
+        setMessage("");
+        setError(err instanceof Error ? err.message : "邮箱验证失败");
+      });
+  }, []);
+
+  return (
+    <AuthCard>
+      <CardHeader>
+        <CardTitle>验证投稿邮箱</CardTitle>
+        <CardDescription>验证成功后，投稿人账户才会正式启用。</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {message ? <p className="text-sm text-emerald-700">{message}</p> : null}
+        {error ? <p className="text-sm text-red-700">{error}</p> : null}
+        <Button
+          className="mt-4 w-full"
+          variant="secondary"
+          onClick={() => window.location.assign("/")}
+        >
+          返回登录
+        </Button>
       </CardContent>
     </AuthCard>
   );

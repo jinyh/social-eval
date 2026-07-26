@@ -16,9 +16,9 @@
 ### 项目文档入口
 
 - [系统与成果上下文](docs/project-context.md)：架构、评价方法、历史实验、数据集与归档。
-- [主系统需求 v0.4](docs/requirements/SocialEval-requirements-v0.4.md)。
+- [主系统需求 v0.5](docs/requirements/SocialEval-requirements-v0.5.md)。
 - [编辑辅助预审设计索引](docs/editorial/README.md)：当前活文档入口。
-- [编辑辅助预审需求 v1.1](docs/requirements/editorial-pre-review-requirements-v1.1.md)。
+- [编辑辅助预审需求 v1.2](docs/requirements/editorial-pre-review-requirements-v1.2.md)。
 - [法学 AI 辅助评审规程 v0.17](docs/evaluation/law-ai-assisted-review-rules-v0.17.md)。
 - [概念操作化定义](docs/evaluation/concept-operationalization-v1.0.md)。
 - [评价框架 ADR](docs/architecture/20260414_ADR-001_evaluation-framework-v2.md)。
@@ -87,8 +87,8 @@ frontend/          React + TypeScript 前端
 tests/             与 src/ 对应的测试
 ```
 
-编辑辅助预审在本项目内扩展，业务代码放入 `src/editorial/`；当前阶段以法学稿件、
-编辑预审为主，不能把尚未确认的作者端或其他学科能力当作已实现功能。
+编辑辅助预审在本项目内扩展，业务代码放入 `src/editorial/`；当前已实现法学期刊
+投稿人注册、投稿与编辑预审流程，不能把其他学科能力当作已实现功能。
 
 ## 权威真源与当前版本
 
@@ -118,16 +118,19 @@ tests/             与 src/ 对应的测试
 本节是交接时点快照；开始部署前仍须以
 [部署与当前进展交接](docs/deployment/CURRENT-HANDOFF.md)和实际命令重新核对。
 
-- 当前已验证的功能基线提交为 `d8b40a1`。本机 `main` 明显领先
+- 最近已提交的功能基线为 `d8b40a1`；其后的投稿人注册、投稿工作流和管理员双栏
+  改动仍在本机工作区，尚未形成新提交。本机 `main` 明显领先
   `origin/main`（功能基线时领先 22 个提交，交接文档提交后会继续增加），尚未推送；
   部署前用 `git rev-list --left-right --count @{upstream}...HEAD` 复核，不得直接把
   远端旧 `main` 当作当前可部署版本。
-- 本机 `socialeval-test` 已按该基线重建：API、Worker、PostgreSQL、Redis
-  健康，前端和 Caddy 正常，迁移容器退出码为 0，数据库为 Alembic `015 (head)`。
-- 最近全量验证为后端 `281 passed`、前端 `22 passed`，Vite 生产构建和
+- 本机 `socialeval-test` 已按当前工作区重建：API、Worker、PostgreSQL、Redis
+  健康，前端和 Caddy 正常，迁移容器退出码为 0，数据库为 Alembic `016 (head)`。
+- 最近全量验证为后端 `286 passed`、前端 `23 passed`，Vite 生产构建和
   `uv lock --check`、`ruff check src/ tests/` 均通过。
 - 编辑单元使用不可变期刊策略版本。管理员登记验证，单元负责人在编辑工作台签署，
   管理员不能代签；历史投稿绑定创建时的策略快照。
+- 投稿人邮箱自助注册并验证，只能向正式启用期刊投稿；编辑、专家和管理员继续邀请
+  开通。投稿人不能调用可指定模型的通用上传接口，结果须由编辑按报告版本明确发布。
 - 试运行六维使用 GLM-5.2、Qwen3.7-Max、DeepSeek-v4-Pro、Kimi-k2.6，
   第二轮采用四模型同级匿名互评；正式启用单元继续使用其已批准快照。
 - 未来五轴任务已经直接切换为 DeepSeek-v4-Pro 与 Qwen3.7-Max，配置版本为
@@ -150,8 +153,9 @@ tests/             与 src/ 对应的测试
 - 先运行 `scripts/check_production_readiness.py`，再执行
   `deploy/scripts/prepare_data_dirs.sh`；只开放 80/443，PostgreSQL 和 Redis
   不得映射公网端口。
-- 首次上线必须完成邀请、激活、密码重置、投稿、六维、五轴、专家复核、报告和
-  SMTP 冒烟，并进行一次 PostgreSQL 备份与临时恢复演练。
+- 首次上线必须完成投稿人注册和邮箱验证、内部成员邀请和激活、密码重置、投稿、
+  六维、五轴、专家复核、作者结果发布、撤稿、报告和 SMTP 冒烟，并进行一次
+  PostgreSQL 备份与临时恢复演练。
 - 生产命令、回滚和验收以
   `docs/deployment/launch-checklist.md`、
   `docs/deployment/backup-and-recovery-runbook.md` 和
@@ -173,7 +177,8 @@ tests/             与 src/ 对应的测试
 ### API、认证与上传
 
 - 业务 API 必须执行 Token/Session/API Key 认证；只有显式登记的健康检查等公开端点可例外。
-- Web 端使用 Session，API 调用使用 API Key；用户采用邀请制，不开放自注册。
+- Web 端使用 Session，API 调用使用 API Key；投稿人使用邮箱自助注册并验证，
+  编辑、专家和管理员继续由管理员邀请。
 - 上传文件必须校验类型和可解析性；当前允许 PDF、DOCX、TXT，已有 Markdown 数据通道按
   现有实现处理。
 - v1 不提供扫描 PDF OCR；疑似扫描件应提示重新上传可解析版本。

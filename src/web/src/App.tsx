@@ -5,6 +5,7 @@ import { AccountSettings } from "@/components/AccountSettings";
 import { AdminWorkspace } from "@/components/AdminWorkspace";
 import {
   InvitationActivation,
+  EmailVerification,
   MfaChallenge,
   PasswordResetConfirmation,
 } from "@/components/AuthFlows";
@@ -19,6 +20,8 @@ import {
   login,
   logout,
   requestPasswordReset,
+  registerSubmitter,
+  resendEmailVerification,
 } from "@/lib/api";
 import { isMockLoginPage } from "@/lib/mockData";
 import type { LoginChallenge, User } from "@/lib/types";
@@ -37,16 +40,36 @@ function LoginForm({
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordAgain, setPasswordAgain] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [affiliation, setAffiliation] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [resetMode, setResetMode] = useState(false);
+  const [mode, setMode] = useState<"login" | "reset" | "register">("login");
   const [message, setMessage] = useState("");
+  const [verificationUrl, setVerificationUrl] = useState("");
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
-      if (resetMode) {
+      if (mode === "reset") {
         await requestPasswordReset(email);
         setMessage("如该邮箱存在有效账户，系统将发送密码重置邮件。");
+        setError(null);
+        return;
+      }
+      if (mode === "register") {
+        if (password !== passwordAgain) {
+          setError("两次输入的密码不一致");
+          return;
+        }
+        const result = await registerSubmitter({
+          email,
+          displayName,
+          affiliation,
+          password,
+        });
+        setMessage(result.message);
+        setVerificationUrl(result.verification_url ?? "");
         setError(null);
         return;
       }
@@ -62,47 +85,111 @@ function LoginForm({
     }
   };
 
+  const handleVerificationResend = async () => {
+    try {
+      const result = await resendEmailVerification(email);
+      setMessage(result.message);
+      setVerificationUrl(result.verification_url ?? "");
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "验证邮件发送失败");
+    }
+  };
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl">
-            {resetMode ? "找回密码" : "中国自主知识创新（法学论文）评价系统"}
+            {mode === "reset"
+              ? "找回密码"
+              : mode === "register"
+                ? "投稿人注册"
+                : "中国自主知识创新（法学论文）评价系统"}
           </CardTitle>
           <CardDescription>
-            {resetMode
+            {mode === "reset"
               ? "输入账户邮箱，系统将发送限时重置链接。"
-              : "登录后进入投稿入口、评审工作台或内部后台。"}
+              : mode === "register"
+                ? "投稿人自行注册；编辑、专家和管理员仍由系统邀请开通。"
+                : "登录后进入投稿入口、评审工作台或内部后台。"}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
+            {mode === "register" ? (
+              <>
+                <label className="block space-y-3 text-sm font-medium text-slate-700">
+                  姓名
+                  <Input value={displayName} onChange={(event) => setDisplayName(event.target.value)} required />
+                </label>
+                <label className="mt-5 block space-y-3 text-sm font-medium text-slate-700">
+                  工作单位（选填）
+                  <Input value={affiliation} onChange={(event) => setAffiliation(event.target.value)} />
+                </label>
+              </>
+            ) : null}
             <label className="block space-y-3 text-sm font-medium text-slate-700">
               电子邮箱
-              <Input value={email} onChange={(event) => setEmail(event.target.value)} />
+              <Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
             </label>
-            {!resetMode ? (
+            {mode !== "reset" ? (
               <label className="mt-5 block space-y-3 text-sm font-medium text-slate-700">
                 密码
-                <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+                <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} minLength={mode === "register" ? 12 : undefined} required />
+              </label>
+            ) : null}
+            {mode === "register" ? (
+              <label className="mt-5 block space-y-3 text-sm font-medium text-slate-700">
+                再次输入密码
+                <Input type="password" value={passwordAgain} onChange={(event) => setPasswordAgain(event.target.value)} minLength={12} required />
               </label>
             ) : null}
             <Button type="submit" className="mt-7 w-full">
-              {resetMode ? "发送重置邮件" : "登录"}
+              {mode === "reset" ? "发送重置邮件" : mode === "register" ? "注册并发送验证邮件" : "登录"}
             </Button>
             <Button
               type="button"
               variant="ghost"
               className="mt-2 w-full"
               onClick={() => {
-                setResetMode((current) => !current);
+                setMode(mode === "reset" ? "login" : "reset");
                 setError(null);
                 setMessage("");
+                setVerificationUrl("");
               }}
             >
-              {resetMode ? "返回登录" : "忘记密码"}
+              {mode === "reset" ? "返回登录" : "忘记密码"}
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              className="w-full"
+              onClick={() => {
+                setMode(mode === "register" ? "login" : "register");
+                setError(null);
+                setMessage("");
+                setVerificationUrl("");
+              }}
+            >
+              {mode === "register" ? "已有账户，返回登录" : "投稿人注册"}
             </Button>
             {message ? <p className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700">{message}</p> : null}
+            {verificationUrl ? (
+              <a className="mt-2 block text-sm text-blue-700 underline" href={verificationUrl}>
+                打开本地测试验证链接
+              </a>
+            ) : null}
+            {mode === "register" && message ? (
+              <Button
+                type="button"
+                variant="outline"
+                className="mt-2 w-full"
+                onClick={() => void handleVerificationResend()}
+              >
+                重新发送验证邮件
+              </Button>
+            ) : null}
             {error ? <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p> : null}
           </form>
         </CardContent>
@@ -143,6 +230,9 @@ export function App({ initialUser }: AppProps) {
   }
   if (window.location.pathname === "/reset-password") {
     return <PasswordResetConfirmation />;
+  }
+  if (window.location.pathname === "/verify-email") {
+    return <EmailVerification />;
   }
   if (challenge) {
     return (

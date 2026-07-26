@@ -29,6 +29,7 @@ from src.api.schemas.editorial import (
     AnonymousManuscriptResponse,
     AnonymizationConfirmRequest,
     AssignmentRequest,
+    AuthorReleaseRequest,
     EditorialBatchCreateResponse,
     EditorialDecisionCreateRequest,
     EditorialDecisionResponse,
@@ -42,11 +43,12 @@ from src.api.schemas.editorial import (
     EditorialUnitResponse,
     EditorOpinionRequest,
     GateContinueRequest,
+    WithdrawalDecisionRequest,
 )
 from src.core.audit import record_audit_log
 from src.core.config import settings
 from src.core.database import get_db
-from src.core.email import send_editorial_event_email
+from src.core.email import queue_email, send_editorial_event_email
 from src.core.storage import save_upload_file, validate_upload_filename
 from src.core.time import utc_now
 from src.editorial.access import (
@@ -82,6 +84,8 @@ from src.models.editorial import (
     Journal,
     Notification,
     PositionAssessment,
+    SubmissionAuthorRelease,
+    SubmissionWithdrawalRequest,
     ValidationRun,
 )
 from src.models.evaluation import DimensionScore, EvaluationTask
@@ -89,6 +93,7 @@ from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
 from src.models.review import ExpertReview, ReviewComment
 from src.models.user import User
+from src.reporting.versioning import get_current_report
 
 router = APIRouter()
 
@@ -343,7 +348,7 @@ def mark_notification_read(
     return {"id": row.id, "read_at": row.read_at}
 
 
-async def _create_submission(
+async def create_editorial_submission(
     request: Request,
     db: Session,
     *,
@@ -351,6 +356,7 @@ async def _create_submission(
     file: UploadFile,
     external_manuscript_id: str | None,
     current_user: User,
+    title: str | None = None,
 ) -> EditorialSubmissionCreateResponse:
     if external_manuscript_id and (
         db.query(EditorialSubmission)
@@ -379,7 +385,7 @@ async def _create_submission(
         policy.review_protocol_version,
     ).validate_provider_names(provider_names)
     paper = Paper(
-        title=Path(file.filename or "upload").stem,
+        title=title or Path(file.filename or "upload").stem,
         original_filename=file.filename or "upload",
         file_type=extension,
         status="pending",
@@ -486,13 +492,14 @@ async def create_submission(
     db: Session = Depends(get_db),
 ) -> EditorialSubmissionCreateResponse:
     unit = require_unit_access(db, current_user, unit_id)
-    return await _create_submission(
+    return await create_editorial_submission(
         request,
         db,
         unit=unit,
         file=file,
         external_manuscript_id=external_manuscript_id,
         current_user=current_user,
+        title=None,
     )
 
 
@@ -510,13 +517,14 @@ async def create_submission_batch(
 ) -> EditorialBatchCreateResponse:
     unit = require_unit_access(db, current_user, unit_id)
     items = [
-        await _create_submission(
+        await create_editorial_submission(
             request,
             db,
             unit=unit,
             file=file,
             external_manuscript_id=None,
             current_user=current_user,
+            title=None,
         )
         for file in files
     ]
@@ -667,6 +675,19 @@ def get_submission(
         .order_by(EditorialDecision.version)
         .all()
     )
+    submitter = db.get(User, submission.created_by)
+    author_releases = (
+        db.query(SubmissionAuthorRelease)
+        .filter(SubmissionAuthorRelease.submission_id == submission.id)
+        .order_by(SubmissionAuthorRelease.released_at.desc())
+        .all()
+    )
+    withdrawal_requests = (
+        db.query(SubmissionWithdrawalRequest)
+        .filter(SubmissionWithdrawalRequest.submission_id == submission.id)
+        .order_by(SubmissionWithdrawalRequest.requested_at.desc())
+        .all()
+    )
     policy = resolve_submission_policy(db, submission)
     provider_names = json.loads(task.provider_names or "[]")
     framework = load_framework(task.framework_path or str(resolve_framework_path()))
@@ -774,6 +795,15 @@ def get_submission(
         ),
         progress=progress_summary(db, task.id),
         documents=documents,
+        submitter=(
+            {
+                "display_name": submitter.display_name,
+                "email": submitter.email,
+                "affiliation": submitter.affiliation,
+            }
+            if submitter is not None and submitter.role == "submitter"
+            else None
+        ),
         expert_reviews=expert_reviews,
         opinions=[
             EditorialOpinionResponse(
@@ -793,6 +823,29 @@ def get_submission(
         ],
         decisions=[
             EditorialDecisionResponse.model_validate(decision) for decision in decisions
+        ],
+        author_releases=[
+            {
+                "id": row.id,
+                "decision_id": row.decision_id,
+                "report_version": row.report_version,
+                "public_decision": row.public_decision,
+                "author_message": row.author_message,
+                "released_by": row.released_by,
+                "released_at": row.released_at,
+            }
+            for row in author_releases
+        ],
+        withdrawal_requests=[
+            {
+                "id": row.id,
+                "reason": row.reason,
+                "status": row.status,
+                "decision_note": row.decision_note,
+                "requested_at": row.requested_at,
+                "decided_at": row.decided_at,
+            }
+            for row in withdrawal_requests
         ],
     )
 
@@ -1178,6 +1231,139 @@ def submit_decision(
     )
     generate_editorial_report(db, submission.id)
     return EditorialDecisionResponse.model_validate(decision)
+
+
+@router.post("/submissions/{submission_id}/author-release", status_code=201)
+def release_to_submitter(
+    submission_id: str,
+    payload: AuthorReleaseRequest,
+    current_user: User = Depends(require_roles("editor", "admin")),
+    db: Session = Depends(get_db),
+) -> dict:
+    submission = require_submission_access(db, current_user, submission_id)
+    if (
+        current_user.role != "admin"
+        and submission.responsible_editor_id != current_user.id
+    ):
+        raise HTTPException(status_code=403, detail="只有责任编辑可以发布投稿人结果")
+    if submission.status == "withdrawn":
+        raise HTTPException(status_code=409, detail="已撤稿稿件不能发布结果")
+    submitter = db.get(User, submission.created_by)
+    if submitter is None or submitter.role != "submitter":
+        raise HTTPException(status_code=409, detail="该稿件没有关联投稿人账户")
+    decision = db.get(EditorialDecision, payload.decision_id)
+    if (
+        decision is None
+        or decision.submission_id != submission.id
+        or not decision.is_locked
+    ):
+        raise HTTPException(status_code=400, detail="请选择已锁定的编辑决定")
+    if submission.evaluation_task_id is None:
+        raise HTTPException(status_code=409, detail="稿件尚未形成评价报告")
+    report = get_current_report(db, submission.evaluation_task_id, "public")
+    release = SubmissionAuthorRelease(
+        submission_id=submission.id,
+        decision_id=decision.id,
+        report_version=report.version,
+        public_decision=decision.final_decision,
+        author_message=payload.author_message.strip(),
+        released_by=current_user.id,
+    )
+    db.add(release)
+    db.commit()
+    db.refresh(release)
+    queue_email(
+        db,
+        idempotency_key=f"submitter-result-released:{release.id}",
+        event_type="submitter_result_released",
+        recipient_email=submitter.email,
+        object_type="editorial_submission",
+        object_id=submission.id,
+        template_data={"system_id": submission.id},
+    )
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="editorial_submission",
+        object_id=submission.id,
+        action="author_result_released",
+        result=decision.final_decision,
+        details={
+            "decision_id": decision.id,
+            "report_version": report.version,
+        },
+    )
+    return {
+        "id": release.id,
+        "decision_id": release.decision_id,
+        "report_version": release.report_version,
+        "public_decision": release.public_decision,
+        "author_message": release.author_message,
+        "released_at": release.released_at,
+    }
+
+
+@router.post("/submissions/{submission_id}/withdrawal-requests/{request_id}/decision")
+def decide_withdrawal_request(
+    submission_id: str,
+    request_id: str,
+    payload: WithdrawalDecisionRequest,
+    current_user: User = Depends(require_roles("editor", "admin")),
+    db: Session = Depends(get_db),
+) -> dict:
+    submission = require_submission_access(db, current_user, submission_id)
+    if (
+        current_user.role != "admin"
+        and submission.responsible_editor_id != current_user.id
+    ):
+        raise HTTPException(status_code=403, detail="只有责任编辑可以处理撤稿申请")
+    row = db.get(SubmissionWithdrawalRequest, request_id)
+    if row is None or row.submission_id != submission.id or row.status != "pending":
+        raise HTTPException(status_code=409, detail="该撤稿申请不能处理")
+    row.status = "approved" if payload.approved else "rejected"
+    row.decided_by = current_user.id
+    row.decision_note = payload.decision_note.strip()
+    row.decided_at = utc_now()
+    if payload.approved:
+        submission.status = "withdrawn"
+        submission.retention_due_at = utc_now() + timedelta(
+            days=settings.retention_manuscript_days
+        )
+        task = (
+            db.get(EvaluationTask, submission.evaluation_task_id)
+            if submission.evaluation_task_id
+            else None
+        )
+        if task is not None and task.status == "pending":
+            task.status = "cancelled"
+            db.add(task)
+        db.add(submission)
+    db.add(row)
+    db.commit()
+    submitter = db.get(User, row.requested_by)
+    if submitter is not None:
+        queue_email(
+            db,
+            idempotency_key=f"withdrawal-decided:{row.id}",
+            event_type=(
+                "submitter_withdrawal_approved"
+                if payload.approved
+                else "submitter_withdrawal_rejected"
+            ),
+            recipient_email=submitter.email,
+            object_type="editorial_submission",
+            object_id=submission.id,
+            template_data={"system_id": submission.id},
+        )
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="editorial_submission",
+        object_id=submission.id,
+        action="withdrawal_decided",
+        result=row.status,
+    )
+    return {"id": row.id, "status": row.status, "decided_at": row.decided_at}
 
 
 @router.get("/submissions/{submission_id}/report")

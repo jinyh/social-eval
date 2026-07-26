@@ -21,7 +21,6 @@ def _login(client: TestClient, email: str) -> None:
 def test_retry_only_reruns_missing_first_round_models(
     client: TestClient, db_session: Session
 ) -> None:
-    create_user(db_session, email="submitter@example.com", role="submitter")
     create_user(db_session, email="admin@example.com", role="admin")
 
     class PartialProvider(FakeProvider):
@@ -51,7 +50,7 @@ def test_retry_only_reruns_missing_first_round_models(
         except Exception:
             pass
 
-    _login(client, "submitter@example.com")
+    _login(client, "admin@example.com")
     client.app.state.pipeline_runner = safe_runner
     upload_response = client.post(
         "/api/papers",

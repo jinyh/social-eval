@@ -282,6 +282,49 @@ class EditorialDecision(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
 
 
+class SubmissionAuthorRelease(Base):
+    """编辑向投稿人发布的不可变结果快照。"""
+
+    __tablename__ = "submission_author_releases"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    submission_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("editorial_submissions.id"), nullable=False
+    )
+    decision_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("editorial_decisions.id"), nullable=False
+    )
+    report_version: Mapped[int] = mapped_column(Integer, nullable=False)
+    public_decision: Mapped[str] = mapped_column(String(30), nullable=False)
+    author_message: Mapped[str] = mapped_column(Text, nullable=False)
+    released_by: Mapped[str] = mapped_column(
+        String(36), ForeignKey("users.id"), nullable=False
+    )
+    released_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
+
+
+class SubmissionWithdrawalRequest(Base):
+    """投稿人的撤稿申请及编辑处理结果。"""
+
+    __tablename__ = "submission_withdrawal_requests"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    submission_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("editorial_submissions.id"), nullable=False
+    )
+    requested_by: Mapped[str] = mapped_column(
+        String(36), ForeignKey("users.id"), nullable=False
+    )
+    reason: Mapped[str] = mapped_column(Text, nullable=False)
+    status: Mapped[str] = mapped_column(String(20), default="pending", nullable=False)
+    decided_by: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("users.id"), nullable=True
+    )
+    decision_note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    requested_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
+    decided_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+
 class Notification(Base):
     __tablename__ = "notifications"
 

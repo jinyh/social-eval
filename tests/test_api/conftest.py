@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session, sessionmaker
 import src.models  # noqa: F401
 from src.core.database import Base, get_db
 from src.models.user import User
+from src.core.time import utc_now
 
 
 PWD_CONTEXT = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
@@ -70,6 +71,7 @@ def create_user(
         role=role,
         is_active=is_active,
         display_name=display_name,
+        email_verified_at=utc_now(),
     )
     db_session.add(user)
     db_session.commit()

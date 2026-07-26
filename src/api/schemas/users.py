@@ -12,7 +12,9 @@ class UserResponse(BaseModel):
     email: str
     role: str
     display_name: str | None = None
+    affiliation: str | None = None
     is_active: bool
+    email_verified_at: datetime | None = None
     created_at: datetime
     last_login_at: datetime | None = None
     password_changed_at: datetime | None = None
@@ -29,7 +31,7 @@ class UserListResponse(BaseModel):
 
 class InvitationCreateRequest(BaseModel):
     email: str
-    role: str = Field(pattern="^(submitter|editor|expert|admin)$")
+    role: str = Field(pattern="^(editor|expert|admin)$")
     expires_in_days: int = Field(default=7, ge=1, le=30)
 
 

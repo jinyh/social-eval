@@ -20,13 +20,15 @@ from src.models.editorial import (
     Journal,
     Notification,
     PositionAssessment,
+    SubmissionAuthorRelease,
+    SubmissionWithdrawalRequest,
     ValidationRun,
 )
 from src.models.paper import Paper
 from src.models.reliability import ReliabilityResult
 from src.models.report import Report, ReportExport
 from src.models.review import ExpertReview, ReviewComment
-from src.models.user import Invitation, User
+from src.models.user import EmailVerificationToken, Invitation, User
 from src.models.user import MfaRecoveryCode, PasswordResetToken
 
 __all__ = [
@@ -34,6 +36,7 @@ __all__ = [
     "Invitation",
     "MfaRecoveryCode",
     "PasswordResetToken",
+    "EmailVerificationToken",
     "ApiKey",
     "AuditLog",
     "BatchTask",
@@ -57,6 +60,8 @@ __all__ = [
     "PositionAssessment",
     "EditorialOpinion",
     "EditorialDecision",
+    "SubmissionAuthorRelease",
+    "SubmissionWithdrawalRequest",
     "EmailDelivery",
     "Notification",
     "ValidationRun",

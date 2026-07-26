@@ -45,6 +45,10 @@ import { Input } from "./ui/input";
 import { Select } from "./ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import { Textarea } from "./ui/textarea";
+import {
+  AdminSidebar,
+  type AdminWorkspaceView,
+} from "./AdminSidebar";
 
 export function AdminWorkspace() {
   const [users, setUsers] = useState<User[]>([]);
@@ -53,7 +57,11 @@ export function AdminWorkspace() {
   const [userRole, setUserRole] = useState("");
   const [userStatus, setUserStatus] = useState("");
   const [inviteEmail, setInviteEmail] = useState("new-user@example.com");
-  const [inviteRole, setInviteRole] = useState<User["role"]>("submitter");
+  const [inviteRole, setInviteRole] = useState<User["role"]>("editor");
+  const [activeView, setActiveView] =
+    useState<AdminWorkspaceView>("overview");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [units, setUnits] = useState<EditorialUnit[]>([]);
   const [policies, setPolicies] = useState<string[]>([]);
@@ -322,7 +330,54 @@ export function AdminWorkspace() {
   };
 
   return (
-    <div className="space-y-5">
+    <div className="flex items-start gap-5">
+      <AdminSidebar
+        activeView={activeView}
+        onViewChange={setActiveView}
+        collapsed={sidebarCollapsed}
+        onCollapsedChange={setSidebarCollapsed}
+        mobileOpen={mobileNavigationOpen}
+        onMobileOpenChange={setMobileNavigationOpen}
+      />
+      <main className="min-w-0 flex-1 space-y-5">
+      {message ? (
+        <p className="rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
+          {message}
+        </p>
+      ) : null}
+      {activeView === "overview" ? (
+        <>
+          <Card>
+            <CardHeader>
+              <CardTitle>系统总览</CardTitle>
+              <CardDescription>
+                查看账户、期刊和策略启用情况；具体操作请从左侧进入对应模块。
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              <SummaryMetric label="用户总数" value={users.length} />
+              <SummaryMetric
+                label="已验证投稿人"
+                value={users.filter((user) => user.role === "submitter" && user.email_verified_at).length}
+              />
+              <SummaryMetric label="编辑单元" value={units.length} />
+              <SummaryMetric
+                label="正式启用"
+                value={units.filter((unit) => unit.rollout_state === "active").length}
+              />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>账号开通规则</CardTitle>
+              <CardDescription>
+                投稿人通过登录页自行注册并验证邮箱；编辑、专家和管理员由内部邀请开通。
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </>
+      ) : null}
+      {activeView === "users" ? (
       <div className="grid gap-5 lg:grid-cols-[360px_1fr]">
         <Card>
         <CardHeader>
@@ -332,7 +387,7 @@ export function AdminWorkspace() {
             </div>
             <div>
               <CardTitle>内部后台</CardTitle>
-              <CardDescription>用户目录与邀请制账号管理。</CardDescription>
+              <CardDescription>邀请编辑、专家或管理员开通内部账户。</CardDescription>
             </div>
           </div>
         </CardHeader>
@@ -345,7 +400,6 @@ export function AdminWorkspace() {
             <label className="mt-6 block space-y-3 text-sm font-medium text-slate-700">
               角色
               <Select value={inviteRole} onChange={(event) => setInviteRole(event.target.value as User["role"])}>
-                <option value="submitter">学生/投稿人</option>
                 <option value="editor">编辑</option>
                 <option value="expert">专家</option>
                 <option value="admin">管理员</option>
@@ -353,7 +407,6 @@ export function AdminWorkspace() {
             </label>
             <Button type="submit" className="mt-8 w-full">创建邀请</Button>
           </form>
-          {message ? <p className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700">{message}</p> : null}
         </CardContent>
         </Card>
 
@@ -371,7 +424,7 @@ export function AdminWorkspace() {
             />
             <Select value={userRole} onChange={(event) => setUserRole(event.target.value)}>
               <option value="">全部角色</option>
-              <option value="submitter">学生/投稿人</option>
+              <option value="submitter">投稿人</option>
               <option value="editor">编辑</option>
               <option value="expert">专家</option>
               <option value="admin">管理员</option>
@@ -396,7 +449,14 @@ export function AdminWorkspace() {
             <TableBody>
               {filteredUsers.map((user) => (
                 <TableRow key={user.id}>
-                  <TableCell className="font-medium text-slate-950">{user.display_name ?? "未命名"}</TableCell>
+                  <TableCell className="font-medium text-slate-950">
+                    {user.display_name ?? "未命名"}
+                    {user.affiliation ? (
+                      <span className="mt-1 block text-xs font-normal text-slate-500">
+                        {user.affiliation}
+                      </span>
+                    ) : null}
+                  </TableCell>
                   <TableCell>{user.email}</TableCell>
                   <TableCell>
                     <Select
@@ -411,7 +471,7 @@ export function AdminWorkspace() {
                         )
                       }
                     >
-                      <option value="submitter">学生/投稿人</option>
+                      <option value="submitter">投稿人</option>
                       <option value="editor">编辑</option>
                       <option value="expert">专家</option>
                       <option value="admin">管理员</option>
@@ -421,6 +481,11 @@ export function AdminWorkspace() {
                     <Badge variant={user.is_active === false ? "neutral" : "success"}>
                       {user.is_active === false ? "已停用" : "已启用"}
                     </Badge>
+                    {user.role === "submitter" ? (
+                      <span className="ml-2 text-xs text-slate-500">
+                        {user.email_verified_at ? "邮箱已验证" : "邮箱待验证"}
+                      </span>
+                    ) : null}
                     {user.role === "admin" ? (
                       <span className="ml-2 text-xs text-slate-500">
                         {user.mfa_enabled ? "已启用双因素认证" : "待设置双因素认证"}
@@ -490,7 +555,9 @@ export function AdminWorkspace() {
         </CardContent>
         </Card>
       </div>
+      ) : null}
 
+      {activeView === "policies" ? (
       <Card>
         <CardHeader>
           <CardTitle>期刊策略管理</CardTitle>
@@ -499,7 +566,18 @@ export function AdminWorkspace() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid gap-3 md:grid-cols-3">
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <Select
+              value={selectedUnitId}
+              onChange={(event) => setSelectedUnitId(event.target.value)}
+              aria-label="期刊编辑单元"
+            >
+              {units.map((unit) => (
+                <option key={unit.id} value={unit.id}>
+                  {unit.journal_name} · {unit.name}
+                </option>
+              ))}
+            </Select>
             <Select
               value={selectedPolicyVersionId}
               onChange={(event) => {
@@ -622,7 +700,7 @@ export function AdminWorkspace() {
             >
               {selectedPolicyVersion?.status === "draft"
                 ? "保存草稿"
-                : "另存为新草稿"}
+                : "基于此版本创建草稿"}
             </Button>
             <Button
               type="button"
@@ -650,7 +728,9 @@ export function AdminWorkspace() {
           ) : null}
         </CardContent>
       </Card>
+      ) : null}
 
+      {activeView === "users" ? (
       <Card>
         <CardHeader>
           <CardTitle>邀请记录</CardTitle>
@@ -718,8 +798,9 @@ export function AdminWorkspace() {
           </Table>
         </CardContent>
       </Card>
+      ) : null}
 
-      <div className="grid gap-5 xl:grid-cols-[1fr_1fr]">
+      {activeView === "units" ? (
         <Card>
           <CardHeader>
             <CardTitle>期刊与编辑单元</CardTitle>
@@ -783,7 +864,9 @@ export function AdminWorkspace() {
             </div>
           </CardContent>
         </Card>
+      ) : null}
 
+      {activeView === "activation" ? (
         <Card>
           <CardHeader>
             <CardTitle>成员与启用门禁</CardTitle>
@@ -918,8 +1001,9 @@ export function AdminWorkspace() {
             ) : null}
           </CardContent>
         </Card>
-      </div>
+      ) : null}
 
+      {activeView === "models" ? (
       <Card>
         <CardHeader>
           <CardTitle>六维模型升级验证</CardTitle>
@@ -1035,6 +1119,8 @@ export function AdminWorkspace() {
           </p>
         </CardContent>
       </Card>
+      ) : null}
+      </main>
     </div>
   );
 }
@@ -1057,6 +1143,21 @@ function normalizePolicyProfile(
         : ["法学研究者与法律实务工作者"],
     special_notes: profile.special_notes ?? "",
   };
+}
+
+function SummaryMetric({
+  label,
+  value,
+}: {
+  label: string;
+  value: number;
+}) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+      <p className="text-sm text-slate-500">{label}</p>
+      <p className="mt-2 text-2xl font-semibold text-slate-950">{value}</p>
+    </div>
+  );
 }
 
 function PolicyListField({
@@ -1129,7 +1230,7 @@ function dimensionLabel(key: string): string {
 }
 
 const roleLabel: Record<User["role"], string> = {
-  submitter: "学生/投稿人",
+  submitter: "投稿人",
   editor: "编辑",
   expert: "专家",
   admin: "管理员",

@@ -8,16 +8,22 @@ from tests.test_api.test_papers_router import FakeProvider, _install_sync_pipeli
 
 
 def _login(client: TestClient, email: str, password: str = "secret123") -> None:
-    response = client.post("/api/auth/login", json={"email": email, "password": password})
+    response = client.post(
+        "/api/auth/login", json={"email": email, "password": password}
+    )
     assert response.status_code == 200
 
 
-def _safe_runner_with_providers(client: TestClient, providers: list[FakeProvider]) -> None:
+def _safe_runner_with_providers(
+    client: TestClient, providers: list[FakeProvider]
+) -> None:
     from src.evaluation.orchestrator import run_evaluation_pipeline
 
     async def runner(task_id: str, db: Session) -> None:
         try:
-            await run_evaluation_pipeline(task_id, db, provider_factory=lambda _: providers)
+            await run_evaluation_pipeline(
+                task_id, db, provider_factory=lambda _: providers
+            )
         except Exception:
             pass
 
@@ -29,11 +35,17 @@ def test_internal_report_access_creates_audit_log(
 ) -> None:
     from src.models.audit import AuditLog
 
-    create_user(db_session, email="submitter@example.com", role="submitter")
     create_user(db_session, email="editor@example.com", role="editor")
 
-    _login(client, "submitter@example.com")
-    _install_sync_pipeline(client, [FakeProvider("mock-a", 80), FakeProvider("mock-b", 82), FakeProvider("mock-c", 84)])
+    _login(client, "editor@example.com")
+    _install_sync_pipeline(
+        client,
+        [
+            FakeProvider("mock-a", 80),
+            FakeProvider("mock-b", 82),
+            FakeProvider("mock-c", 84),
+        ],
+    )
     upload_response = client.post(
         "/api/papers",
         files={"file": ("paper.txt", "正文".encode("utf-8"), "text/plain")},
@@ -54,7 +66,6 @@ def test_internal_report_access_creates_audit_log(
 def test_admin_can_retry_failed_task_and_close_task(
     client: TestClient, db_session: Session
 ) -> None:
-    create_user(db_session, email="submitter@example.com", role="submitter")
     create_user(db_session, email="admin@example.com", role="admin")
 
     class FailingProvider(FakeProvider):
@@ -64,8 +75,15 @@ def test_admin_can_retry_failed_task_and_close_task(
         async def generate_json_response(self, prompt: str) -> dict:
             return {"status": "pass", "issues": [], "recommendation": "continue"}
 
-    _login(client, "submitter@example.com")
-    _safe_runner_with_providers(client, [FailingProvider("mock-a", 0), FailingProvider("mock-b", 0), FailingProvider("mock-c", 0)])
+    _login(client, "admin@example.com")
+    _safe_runner_with_providers(
+        client,
+        [
+            FailingProvider("mock-a", 0),
+            FailingProvider("mock-b", 0),
+            FailingProvider("mock-c", 0),
+        ],
+    )
     upload_response = client.post(
         "/api/papers",
         files={"file": ("paper.txt", "正文".encode("utf-8"), "text/plain")},
@@ -80,7 +98,14 @@ def test_admin_can_retry_failed_task_and_close_task(
 
     client.cookies.clear()
     _login(client, "admin@example.com")
-    _install_sync_pipeline(client, [FakeProvider("mock-a", 75), FakeProvider("mock-b", 78), FakeProvider("mock-c", 81)])
+    _install_sync_pipeline(
+        client,
+        [
+            FakeProvider("mock-a", 75),
+            FakeProvider("mock-b", 78),
+            FakeProvider("mock-c", 81),
+        ],
+    )
     retry_response = client.post(f"/api/admin/tasks/{payload['task_id']}/retry")
     assert retry_response.status_code == 200
     assert retry_response.json()["task_status"] == "completed"
@@ -93,10 +118,17 @@ def test_admin_can_retry_failed_task_and_close_task(
 def test_batch_status_aggregates_child_tasks(
     client: TestClient, db_session: Session
 ) -> None:
-    create_user(db_session, email="submitter@example.com", role="submitter")
+    create_user(db_session, email="editor@example.com", role="editor")
 
-    _login(client, "submitter@example.com")
-    _install_sync_pipeline(client, [FakeProvider("mock-a", 80), FakeProvider("mock-b", 81), FakeProvider("mock-c", 82)])
+    _login(client, "editor@example.com")
+    _install_sync_pipeline(
+        client,
+        [
+            FakeProvider("mock-a", 80),
+            FakeProvider("mock-b", 81),
+            FakeProvider("mock-c", 82),
+        ],
+    )
     batch_response = client.post(
         "/api/papers/batch",
         files=[

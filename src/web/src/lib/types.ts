@@ -3,7 +3,9 @@ export type User = {
   email: string;
   role: "submitter" | "editor" | "expert" | "admin";
   display_name?: string | null;
+  affiliation?: string | null;
   is_active?: boolean;
+  email_verified_at?: string | null;
   created_at?: string;
   last_login_at?: string | null;
   password_changed_at?: string | null;
@@ -67,6 +69,33 @@ export type PaperStatus = {
     overall_high_confidence: boolean;
   } | null;
   progress: TaskProgress;
+};
+
+export type SubmitterJournal = {
+  unit_id: string;
+  journal_name: string;
+  unit_name: string;
+  accepted_scope: string[];
+  column_positioning: string[];
+  article_types: string[];
+  special_notes: string;
+};
+
+export type SubmitterSubmission = {
+  id: string;
+  paper_id: string;
+  unit_id: string;
+  journal_name: string;
+  unit_name: string;
+  title: string;
+  status: string;
+  status_label: string;
+  created_at: string;
+  updated_at: string;
+  report_released: boolean;
+  public_decision?: string | null;
+  author_message?: string | null;
+  withdrawal_status?: "pending" | "approved" | "rejected" | null;
 };
 
 export type TaskProgress = {
@@ -534,6 +563,11 @@ export type EditorialSubmissionDetail = EditorialSubmissionListItem & {
   review_protocol_label: string;
   progress: TaskProgress;
   documents: Record<string, string>;
+  submitter?: {
+    display_name?: string | null;
+    email: string;
+    affiliation?: string | null;
+  } | null;
   expert_reviews: Array<{
     review_id: string;
     status: string;
@@ -550,4 +584,21 @@ export type EditorialSubmissionDetail = EditorialSubmissionListItem & {
   }>;
   opinions: EditorialOpinion[];
   decisions: EditorialDecisionRecord[];
+  author_releases: Array<{
+    id: string;
+    decision_id: string;
+    report_version: number;
+    public_decision: EditorialDecision;
+    author_message: string;
+    released_by: string;
+    released_at: string;
+  }>;
+  withdrawal_requests: Array<{
+    id: string;
+    reason: string;
+    status: "pending" | "approved" | "rejected";
+    decision_note?: string | null;
+    requested_at: string;
+    decided_at?: string | null;
+  }>;
 };
