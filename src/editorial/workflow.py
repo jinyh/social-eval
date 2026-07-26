@@ -20,7 +20,7 @@ from src.editorial.formal_check import evaluate_formal_completeness
 from src.editorial.opinions import generate_editorial_opinions
 from src.editorial.policy import EditorialPolicy, resolve_submission_policy
 from src.editorial.presentation import build_six_dimension_summary
-from src.editorial.position import run_position_assessment
+from src.editorial.position import resolve_position_providers, run_position_assessment
 from src.editorial.reporting import generate_editorial_report
 from src.evaluation.orchestrator import run_evaluation_pipeline
 from src.evaluation.precheck import PrecheckResult, run_precheck
@@ -427,6 +427,10 @@ async def run_editorial_pipeline(
             .first()
         )
         if position is None:
+            position_providers = resolve_position_providers(
+                providers,
+                provider_factory,
+            )
             for slot in (1, 2):
                 set_work_status(
                     db,
@@ -440,7 +444,7 @@ async def run_editorial_pipeline(
                 db,
                 submission_id=submission.id,
                 task_id=task.id,
-                providers=providers,
+                providers=position_providers,
                 title=submission.title or paper.title or "",
                 journal_name=journal.name if journal else "",
                 anonymized_text=anonymized_text,

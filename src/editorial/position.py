@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from pathlib import Path
 
 from sqlalchemy.orm import Session
@@ -22,6 +23,26 @@ from src.evaluation.position.workflow import (
 from src.evaluation.providers.base import BaseProvider
 from src.knowledge.node_retrieval import retrieve_nodes
 from src.models.editorial import PositionAssessment
+
+
+def resolve_position_providers(
+    providers: list[BaseProvider],
+    provider_factory: Callable[[list[str]], list[BaseProvider]],
+) -> list[BaseProvider]:
+    """按五轴独立模型配置补齐并排序供应商，不依赖六维模型集合。"""
+
+    provider_map = {provider.model_name: provider for provider in providers}
+    missing = [model for model in MODELS if model not in provider_map]
+    if missing:
+        provider_map.update(
+            {provider.model_name: provider for provider in provider_factory(missing)}
+        )
+    still_missing = [model for model in MODELS if model not in provider_map]
+    if still_missing:
+        raise ValueError(
+            "Position assessment requires providers: " + ", ".join(still_missing)
+        )
+    return [provider_map[model] for model in MODELS]
 
 
 async def run_position_assessment(
