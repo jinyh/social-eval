@@ -1,0 +1,57 @@
+services:
+  postgres:
+    volumes:
+      - test_postgres_data:/var/lib/postgresql/data
+
+  redis:
+    volumes:
+      - test_redis_data:/data
+
+  migrate:
+    environment:
+      APP_ENV: development
+
+  api:
+    environment:
+      APP_ENV: development
+      PUBLIC_BASE_URL: https://localhost
+      ALLOWED_HOSTS: localhost
+      ALLOWED_ORIGINS: https://localhost
+      SESSION_HTTPS_ONLY: "false"
+      ADMIN_MFA_REQUIRED: "true"
+    volumes:
+      - test_app_data:/app/data
+
+  worker:
+    environment:
+      APP_ENV: development
+      PUBLIC_BASE_URL: https://localhost
+      ALLOWED_HOSTS: localhost
+      ALLOWED_ORIGINS: https://localhost
+    volumes:
+      - test_app_data:/app/data
+
+  proxy:
+    environment:
+      APP_DOMAIN: localhost
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - test_caddy_data:/data
+      - test_caddy_config:/config
+
+volumes:
+  test_postgres_data:
+    external: true
+    name: socialeval-test_postgres_data
+  test_redis_data:
+    external: true
+    name: socialeval-test_redis_data
+  test_app_data:
+    external: true
+    name: socialeval-test_app_data
+  test_caddy_data:
+    external: true
+    name: socialeval-test_caddy_data
+  test_caddy_config:
+    external: true
+    name: socialeval-test_caddy_config
