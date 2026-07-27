@@ -30,7 +30,7 @@ def export_report_pdf(report: Report) -> bytes:
         axis.text(
             0.5,
             0.95,
-            "中国自主知识创新（法学论文）评价报告",
+            "自主知识创新法学评价报告",
             fontsize=17,
             ha="center",
             va="top",

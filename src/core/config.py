@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     smtp_user: str = ""
     smtp_password: str = ""
     smtp_from: str = "noreply@socialeval.local"
-    smtp_from_name: str = "文科论文智能辅助评审系统"
+    smtp_from_name: str = "自主知识创新法学评价系统"
     smtp_starttls: bool = True
     smtp_ssl: bool = False
     smtp_timeout: float = 10.0

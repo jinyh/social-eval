@@ -427,7 +427,7 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
         topMargin=20 * mm,
         bottomMargin=20 * mm,
         title=_text((report.get("submission") or {}).get("title")),
-        author="中国自主知识创新（法学论文）评价系统",
+        author="中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统",
     )
     submission = report.get("submission") or {}
     opinions = report.get("ai_opinions") or []
@@ -443,7 +443,7 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
     recommendation_label = recommendation.get("display_label") or "状态待确认"
 
     story: list = [
-        Paragraph("中国自主知识创新（法学论文）评价系统", styles["title"]),
+        Paragraph("中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统", styles["title"]),
         Paragraph(
             escape(_text(submission.get("title"), limit=120) or "未命名稿件"),
             styles["subtitle"],

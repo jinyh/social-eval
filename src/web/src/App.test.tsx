@@ -8,7 +8,7 @@ describe("App", () => {
   it("shows the login form when there is no authenticated user", () => {
     render(<App initialUser={null} />);
 
-    expect(screen.getByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /中国哲学社会科学自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 
   it("allows a submitter to register and resend the verification email", async () => {
@@ -156,7 +156,7 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
-    expect(await screen.findByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /中国哲学社会科学自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 
   it("shows all four anonymous models without exposing provider names", async () => {
@@ -253,6 +253,6 @@ describe("App", () => {
 
     render(<App initialUser={undefined} />);
 
-    expect(await screen.findByRole("heading", { name: /中国自主知识创新.*评价系统/i })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /中国哲学社会科学自主知识创新.*评价系统/i })).toBeInTheDocument();
   });
 });

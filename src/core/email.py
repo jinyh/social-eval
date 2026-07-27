@@ -18,7 +18,7 @@ from src.models.editorial import EmailDelivery
 EVENT_CONTENT: dict[str, tuple[str, str]] = {
     "invitation_created": (
         "账户邀请",
-        "管理员已邀请你加入文科论文智能辅助评审系统。",
+        "管理员已邀请你加入中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统。",
     ),
     "expert_review_assigned": (
         "专家复核任务",
@@ -114,7 +114,7 @@ def _render_message(delivery: EmailDelivery) -> EmailMessage:
     text_body = "\n".join(lines)
 
     message = EmailMessage()
-    message["Subject"] = f"【文科论文智能辅助评审系统】{subject}"
+    message["Subject"] = f"【自主知识创新法学评价系统】{subject}"
     message["From"] = formataddr((settings.smtp_from_name, settings.smtp_from))
     message["To"] = delivery.recipient_email
     domain = settings.smtp_from.rpartition("@")[2] or "socialeval.local"

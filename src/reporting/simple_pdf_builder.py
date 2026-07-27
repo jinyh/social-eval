@@ -85,7 +85,7 @@ def build_simple_pdf(report_data: dict[str, Any]) -> bytes:
     axis.text(
         0.5,
         0.95,
-        "中国自主知识创新（法学论文）评价系统",
+        "中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统",
         fontsize=16,
         ha="center",
         va="top",
@@ -500,7 +500,7 @@ def _draw_editorial_header(
     axis.text(
         0.5,
         0.95,
-        "中国自主知识创新（法学论文）评价系统",
+        "自主知识创新法学评价系统",
         fontsize=16,
         ha="center",
         va="top",

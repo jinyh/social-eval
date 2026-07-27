@@ -105,7 +105,7 @@ function LoginForm({
               ? "找回密码"
               : mode === "register"
                 ? "投稿人注册"
-                : "中国自主知识创新（法学论文）评价系统"}
+                : "中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统"}
           </CardTitle>
           <CardDescription>
             {mode === "reset"
@@ -259,7 +259,7 @@ export function App({ initialUser }: AppProps) {
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div>
-            <h1 className="text-lg font-semibold tracking-tight text-slate-950">中国自主知识创新（法学论文）评价系统</h1>
+            <h1 className="text-lg font-semibold tracking-tight text-slate-950">自主知识创新法学评价系统</h1>
             <p className="text-sm text-slate-500">{user.display_name ?? user.email}</p>
           </div>
           <div className="flex items-center gap-2">

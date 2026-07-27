@@ -329,7 +329,7 @@ def main():
             f.write(f"| {journal} | {stats['count']} | {avg_score:.2f} | {avg_std:.2f} |\n")
 
         f.write("\n---\n\n")
-        f.write("*本报告由 SocialEval 系统自动生成*\n")
+        f.write("*本报告由自主知识创新法学评价系统自动生成*\n")
 
     print(f"\n报告已生成: {output_file}")
     print(f"总计 {len(papers)} 篇论文")

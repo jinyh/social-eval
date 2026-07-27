@@ -21,7 +21,7 @@ def create_totp_setup(user: User) -> tuple[str, str, str]:
     user.mfa_secret_encrypted = encrypt_field(secret)
     uri = pyotp.TOTP(secret).provisioning_uri(
         name=user.email,
-        issuer_name="文科论文智能辅助评审系统",
+        issuer_name="自主知识创新法学评价系统",
     )
     output = BytesIO()
     qrcode.make(uri, image_factory=qrcode.image.svg.SvgPathImage).save(output)

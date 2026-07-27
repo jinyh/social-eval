@@ -8,9 +8,9 @@ try {
 const pptx = new PptxGenJS();
 pptx.layout = "LAYOUT_WIDE";
 pptx.author = "OpenAI Codex";
-pptx.company = "SocialEval";
+pptx.company = "自主知识创新法学评价系统";
 pptx.subject = "AI-assisted academic evaluation system";
-pptx.title = "面向自主知识体系的 AI 辅助学术评价系统";
+pptx.title = "中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统";
 pptx.lang = "zh-CN";
 pptx.theme = {
   headFontFace: "Microsoft YaHei",
@@ -130,7 +130,7 @@ function addLightFrame(slide, n, section) {
     margin: 0,
     charSpacing: 1.2,
   });
-  slide.addText("SocialEval", {
+  slide.addText("自主知识创新法学评价系统", {
     x: 11.0,
     y: 0.38,
     w: 1.0,
@@ -360,7 +360,7 @@ function addSlide1() {
     h: 0,
     line: { color: C.lineDark, width: 1.2 },
   });
-  slide.addText("面向自主知识体系的\nAI 辅助学术评价系统", {
+  slide.addText("中国哲学社会科学自主知识创新\n（法学论文）AI辅助评价系统", {
     x: 2.05,
     y: 2.25,
     w: 9.25,
@@ -405,7 +405,7 @@ function addSlide1() {
     h: 2.65,
     transparency: 0,
   });
-  slide.addText("SocialEval\n2026.03", {
+  slide.addText("自主知识创新法学评价系统\n2026.03", {
     x: 5.45,
     y: 5.4,
     w: 2.4,

@@ -92,7 +92,7 @@ def build_workbook(destination: Path) -> None:
         {
             "title": "双期刊编辑盲校准工作簿",
             "subject": "交大法学与学术月刊编辑预审盲标",
-            "author": "SocialEval",
+            "author": "自主知识创新法学评价系统",
         }
     )
     base = {"font_name": "Heiti SC", "font_size": 10, "valign": "vcenter"}

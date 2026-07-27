@@ -18,7 +18,7 @@ def read_env(path: Path) -> dict[str, str]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="发送 SocialEval 运维告警")
+    parser = argparse.ArgumentParser(description="发送自主知识创新法学评价系统运维告警")
     parser.add_argument("--env-file", required=True, type=Path)
     parser.add_argument("--unit", required=True)
     args = parser.parse_args()
@@ -32,7 +32,7 @@ def main() -> None:
         raise SystemExit("未配置 OPERATIONS_ALERT_RECIPIENTS")
 
     message = EmailMessage()
-    message["Subject"] = f"【SocialEval 运维告警】{args.unit}"
+    message["Subject"] = f"【自主知识创新法学评价系统 运维告警】{args.unit}"
     message["From"] = env["SMTP_FROM"]
     message["To"] = ", ".join(recipients)
     message.set_content(

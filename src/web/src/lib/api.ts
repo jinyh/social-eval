@@ -458,7 +458,7 @@ export async function revokeInvitation(invitationId: string): Promise<void> {
 }
 
 export async function exportSimpleReport(paperId: string): Promise<Blob> {
-  if (isMockMode()) return new Blob(["Mock 中国自主知识创新（法学论文）评价系统 报告"], { type: "application/pdf" });
+  if (isMockMode()) return new Blob(["Mock 自主知识创新法学评价系统 报告"], { type: "application/pdf" });
   const response = await fetch(`${API_BASE}/api/papers/${paperId}/export/simple`, {
     credentials: "include",
   });

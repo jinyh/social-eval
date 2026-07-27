@@ -34,7 +34,7 @@ def create_app() -> FastAPI:
         errors = production_config_errors()
         if errors:
             raise RuntimeError("生产配置不完整：" + "；".join(errors))
-    app = FastAPI(title="中国自主知识创新（法学论文）评价系统 API", version="0.1.0")
+    app = FastAPI(title="中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统 API", version="0.1.0")
     allowed_origins: list[str] = []
     if settings.app_env != "production":
         allowed_origins.extend(["http://localhost:5173", "http://127.0.0.1:5173"])

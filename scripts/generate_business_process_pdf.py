@@ -93,7 +93,7 @@ def build_pdf(source: Path, destination: Path) -> None:
         topMargin=20 * mm,
         bottomMargin=20 * mm,
         title="文科期刊智能辅助预审业务全流程",
-        author="SocialEval",
+        author="自主知识创新法学评价系统",
     )
     frame = Frame(
         document.leftMargin,

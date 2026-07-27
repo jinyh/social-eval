@@ -37,7 +37,7 @@ Use a three-column evidence-card layout inside the body region.
 
 Slide title:
 
-`中国法学自主知识体系创新 AI 辅助评价成果`
+`中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统成果`
 
 Central subtitle or ribbon:
 
