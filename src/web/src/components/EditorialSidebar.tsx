@@ -80,7 +80,7 @@ function SidebarContent({
             >
               {units.map((unit) => (
                 <option key={unit.id} value={unit.id}>
-                  {unit.name}
+                  {unit.journal_name ? `${unit.journal_name} · ${unit.name}` : unit.name}
                 </option>
               ))}
             </Select>
