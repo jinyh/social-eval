@@ -2,3 +2,8 @@ services:
   proxy:
     volumes:
       - ./deploy/Caddyfile.staging:/etc/caddy/Caddyfile:ro
+
+  api:
+    environment:
+      APP_ENV: development
+      SESSION_HTTPS_ONLY: "false"
