@@ -48,6 +48,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
+      args:
+        APT_MIRROR: ${APT_MIRROR:-}
+        UV_INDEX: ${UV_INDEX:-}
     env_file:
       - ${ENV_FILE:-.env.production}
     environment:
@@ -69,6 +72,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
+      args:
+        APT_MIRROR: ${APT_MIRROR:-}
+        UV_INDEX: ${UV_INDEX:-}
     restart: unless-stopped
     init: true
     env_file:
@@ -121,6 +127,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
+      args:
+        APT_MIRROR: ${APT_MIRROR:-}
+        UV_INDEX: ${UV_INDEX:-}
     restart: unless-stopped
     init: true
     env_file:
