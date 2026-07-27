@@ -33,6 +33,8 @@ class InvitationCreateRequest(BaseModel):
     email: str
     role: str = Field(pattern="^(editor|expert|admin)$")
     expires_in_days: int = Field(default=7, ge=1, le=30)
+    unit_ids: list[str] = Field(default_factory=list)
+    membership_role: str = Field(default="editor", pattern="^(editor|unit_admin)$")
 
 
 class InvitationResponse(BaseModel):
@@ -42,6 +44,7 @@ class InvitationResponse(BaseModel):
     token: str | None = None
     email_status: str
     status: str = "pending"
+    unit_ids: list[str] = Field(default_factory=list)
     created_at: datetime
     expires_at: datetime
 

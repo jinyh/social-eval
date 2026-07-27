@@ -44,6 +44,7 @@ export type Invitation = {
   role: User["role"];
   status: "pending" | "used" | "expired" | "revoked";
   email_status: string;
+  unit_ids?: string[];
   created_at: string;
   expires_at: string;
 };

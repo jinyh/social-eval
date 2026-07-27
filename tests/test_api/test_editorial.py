@@ -73,6 +73,125 @@ def _bootstrap_and_add_editor(
     return unit_id, editor.id
 
 
+def test_invitation_with_unit_ids_binds_membership_on_accept(
+    client: TestClient,
+    db_session: Session,
+) -> None:
+    """邀请时指定编辑单元，激活后编辑立即看到所属单元（兼任多期刊闭环）。"""
+    admin = create_user(db_session, email="admin-invite@example.com", role="admin")
+    _login(client, admin.email)
+    bootstrap = client.post("/api/admin/editorial/bootstrap")
+    assert bootstrap.status_code == 200
+    unit_ids = [item["id"] for item in bootstrap.json()["items"][:2]]
+
+    invite = client.post(
+        "/api/users/invitations",
+        json={
+            "email": "editor-invite@example.com",
+            "role": "editor",
+            "unit_ids": unit_ids,
+            "membership_role": "editor",
+        },
+    )
+    assert invite.status_code == 201
+    assert invite.json()["unit_ids"] == unit_ids
+    token = invite.json()["token"]
+
+    client.cookies.clear()
+    accept = client.post(
+        "/api/auth/invitations/accept",
+        json={
+            "token": token,
+            "display_name": "Invite Editor",
+            "password": "new-password-123",
+        },
+    )
+    assert accept.status_code == 201
+
+    login = client.post(
+        "/api/auth/login",
+        json={"email": "editor-invite@example.com", "password": "new-password-123"},
+    )
+    assert login.status_code == 200
+    units_response = client.get("/api/editorial/units")
+    assert units_response.status_code == 200
+    assert [item["id"] for item in units_response.json()["items"]] == unit_ids
+
+
+def test_invitation_without_unit_ids_stays_empty(
+    client: TestClient,
+    db_session: Session,
+) -> None:
+    """邀请不带 unit_ids 时激活后编辑看不到任何单元（向后兼容）。"""
+    admin = create_user(db_session, email="admin-nounit@example.com", role="admin")
+    _login(client, admin.email)
+    client.post("/api/admin/editorial/bootstrap")
+    invite = client.post(
+        "/api/users/invitations",
+        json={"email": "editor-nounit@example.com", "role": "editor"},
+    )
+    assert invite.status_code == 201
+    token = invite.json()["token"]
+
+    client.cookies.clear()
+    accept = client.post(
+        "/api/auth/invitations/accept",
+        json={
+            "token": token,
+            "display_name": "No Unit Editor",
+            "password": "new-password-123",
+        },
+    )
+    assert accept.status_code == 201
+    login = client.post(
+        "/api/auth/login",
+        json={"email": "editor-nounit@example.com", "password": "new-password-123"},
+    )
+    assert login.status_code == 200
+    units_response = client.get("/api/editorial/units")
+    assert units_response.status_code == 200
+    assert units_response.json()["items"] == []
+
+
+def test_remove_membership_revokes_unit_access(
+    client: TestClient,
+    db_session: Session,
+) -> None:
+    """DELETE membership 后编辑不再看到该单元，其它单元仍可见。"""
+    admin = create_user(db_session, email="admin-rm@example.com", role="admin")
+    editor = create_user(db_session, email="editor-rm@example.com", role="editor")
+    _login(client, admin.email)
+    bootstrap = client.post("/api/admin/editorial/bootstrap")
+    assert bootstrap.status_code == 200
+    items = bootstrap.json()["items"]
+    unit_a, unit_b = items[0]["id"], items[1]["id"]
+    for uid in (unit_a, unit_b):
+        member_response = client.post(
+            f"/api/admin/editorial/units/{uid}/members",
+            json={"user_id": editor.id, "membership_role": "editor"},
+        )
+        assert member_response.status_code == 201
+
+    client.cookies.clear()
+    _login(client, editor.email)
+    before = client.get("/api/editorial/units")
+    before_ids = [i["id"] for i in before.json()["items"]]
+    assert unit_a in before_ids
+    assert unit_b in before_ids
+
+    client.cookies.clear()
+    _login(client, admin.email)
+    delete = client.delete(f"/api/admin/editorial/units/{unit_a}/members/{editor.id}")
+    assert delete.status_code == 200
+
+    client.cookies.clear()
+    _login(client, editor.email)
+    after = client.get("/api/editorial/units")
+    after_ids = [i["id"] for i in after.json()["items"]]
+    assert unit_a not in after_ids
+    assert unit_b in after_ids
+
+
 def test_editor_only_lists_member_units(
     client: TestClient,
     db_session: Session,

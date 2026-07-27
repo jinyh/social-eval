@@ -59,6 +59,7 @@ from src.core.login_guard import (
 )
 from src.core.time import utc_now
 from src.models.api_key import ApiKey
+from src.models.editorial import EditorialUnit, EditorialUnitMembership
 from src.models.user import (
     EmailVerificationToken,
     Invitation,
@@ -625,6 +626,23 @@ def accept_invitation(
     invitation.is_used = True
     invitation.token = None
     db.add_all([user, invitation])
+    db.flush()  # 让 user.id 可用于建立成员关系
+    memberships: list[EditorialUnitMembership] = []
+    if invitation.role == "editor":
+        membership_role = invitation.membership_role or "editor"
+        for uid in invitation.unit_ids or []:
+            if db.get(EditorialUnit, uid) is None:
+                continue  # 单元已删则跳过，不阻断激活
+            memberships.append(
+                EditorialUnitMembership(
+                    unit_id=uid,
+                    user_id=user.id,
+                    membership_role=membership_role,
+                    is_active=True,
+                )
+            )
+    if memberships:
+        db.add_all(memberships)
     db.commit()
     db.refresh(user)
     record_audit_log(

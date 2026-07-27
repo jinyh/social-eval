@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 from src.core.database import Base
 from src.core.time import utc_now
@@ -53,6 +53,10 @@ class Invitation(Base):
     revoked_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     sent_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     expires_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    unit_ids: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    membership_role: Mapped[str] = mapped_column(
+        String(30), default="editor", nullable=False, server_default="editor"
+    )
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
 
 

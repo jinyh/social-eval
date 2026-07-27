@@ -26,6 +26,7 @@ from src.core.time import utc_now
 from src.models.editorial import (
     EmailDelivery,
     EditorialSubmission,
+    EditorialUnit,
     EditorialUnitMembership,
 )
 from src.models.review import ExpertReview
@@ -83,6 +84,7 @@ def _invitation_response(
         token=raw_token if settings.app_env != "production" else None,
         email_status=email_status,
         status=_invitation_status(invitation),
+        unit_ids=invitation.unit_ids or [],
         created_at=invitation.created_at,
         expires_at=invitation.expires_at,
     )
@@ -362,6 +364,10 @@ def create_invitation(
     )
     if existing is not None:
         raise HTTPException(status_code=409, detail="该邮箱已经存在有效邀请")
+    unit_ids = payload.unit_ids if payload.role == "editor" else []
+    for uid in unit_ids:
+        if db.get(EditorialUnit, uid) is None:
+            raise HTTPException(status_code=422, detail=f"编辑单元不存在：{uid}")
     raw_token, token_hash = create_one_time_token()
     invitation = Invitation(
         email=email,
@@ -370,6 +376,8 @@ def create_invitation(
         invited_by=current_user.id,
         expires_at=default_expiration(payload.expires_in_days),
         sent_at=utc_now(),
+        unit_ids=unit_ids,
+        membership_role=payload.membership_role if payload.role == "editor" else "editor",
     )
     db.add(invitation)
     db.commit()

@@ -406,11 +406,21 @@ export async function listUsers(filters?: {
   return result.items;
 }
 
-export async function createInvitation(email: string, role: string): Promise<void> {
+export async function createInvitation(
+  email: string,
+  role: string,
+  unitIds: string[] = [],
+  membershipRole: "editor" | "unit_admin" = "editor"
+): Promise<void> {
   if (isMockMode()) return;
   await apiFetch("/api/users/invitations", {
     method: "POST",
-    body: JSON.stringify({ email, role }),
+    body: JSON.stringify({
+      email,
+      role,
+      unit_ids: role === "editor" ? unitIds : [],
+      membership_role: membershipRole,
+    }),
   });
 }
 

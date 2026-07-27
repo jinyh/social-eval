@@ -747,6 +747,37 @@ def add_member(
     return {"id": membership.id, "unit_id": unit_id, "user_id": payload.user_id}
 
 
+@router.delete("/units/{unit_id}/members/{user_id}")
+def remove_member(
+    unit_id: str,
+    user_id: str,
+    current_user: User = Depends(require_roles("admin")),
+    db: Session = Depends(get_db),
+) -> dict:
+    membership = (
+        db.query(EditorialUnitMembership)
+        .filter(
+            EditorialUnitMembership.unit_id == unit_id,
+            EditorialUnitMembership.user_id == user_id,
+        )
+        .first()
+    )
+    if membership is None:
+        raise HTTPException(status_code=404, detail="成员关系不存在")
+    membership.is_active = False
+    db.commit()
+    record_audit_log(
+        db,
+        actor_id=current_user.id,
+        object_type="editorial_unit",
+        object_id=unit_id,
+        action="remove_editorial_member",
+        result="inactive",
+        details={"user_id": user_id},
+    )
+    return {"unit_id": unit_id, "user_id": user_id, "is_active": False}
+
+
 @router.post("/units/{unit_id}/rollout", response_model=EditorialUnitResponse)
 def set_rollout_state(
     unit_id: str,

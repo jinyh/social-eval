@@ -58,6 +58,10 @@ export function AdminWorkspace() {
   const [userStatus, setUserStatus] = useState("");
   const [inviteEmail, setInviteEmail] = useState("new-user@example.com");
   const [inviteRole, setInviteRole] = useState<User["role"]>("editor");
+  const [inviteUnitIds, setInviteUnitIds] = useState<string[]>([]);
+  const [inviteMembershipRole, setInviteMembershipRole] = useState<
+    "editor" | "unit_admin"
+  >("editor");
   const [activeView, setActiveView] =
     useState<AdminWorkspaceView>("overview");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -148,8 +152,15 @@ export function AdminWorkspace() {
 
   const handleInvite = async (event: FormEvent) => {
     event.preventDefault();
-    await createInvitation(inviteEmail, inviteRole);
+    await createInvitation(
+      inviteEmail,
+      inviteRole,
+      inviteRole === "editor" ? inviteUnitIds : [],
+      inviteMembershipRole
+    );
     setMessage(`已创建邀请：${inviteEmail}`);
+    setInviteEmail("");
+    setInviteUnitIds([]);
     await refresh();
   };
 
@@ -585,6 +596,59 @@ export function AdminWorkspace() {
                 </Select>
               </label>
               <Button type="submit" className="md:min-w-32">创建邀请</Button>
+              {inviteRole === "editor" ? (
+                <div className="md:col-span-3 space-y-2">
+                  <span className="text-sm font-medium text-slate-700">
+                    所属编辑单元（可多选，支持兼任多期刊）
+                  </span>
+                  {units.length === 0 ? (
+                    <p className="text-sm text-slate-500">
+                      暂无编辑单元，将创建无单元的编辑（激活后可另行绑定）。
+                    </p>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                      {units.map((unit) => {
+                        const checked = inviteUnitIds.includes(unit.id);
+                        return (
+                          <label
+                            key={unit.id}
+                            className="inline-flex items-center gap-1 rounded border border-slate-200 px-2 py-1 text-sm"
+                          >
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={(event) => {
+                                setInviteUnitIds((prev) =>
+                                  event.target.checked
+                                    ? [...prev, unit.id]
+                                    : prev.filter((id) => id !== unit.id)
+                                );
+                              }}
+                            />
+                            {unit.name}
+                          </label>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {inviteUnitIds.length > 0 ? (
+                    <label className="block space-y-1 text-sm font-medium text-slate-700">
+                      成员角色
+                      <Select
+                        value={inviteMembershipRole}
+                        onChange={(event) =>
+                          setInviteMembershipRole(
+                            event.target.value as "editor" | "unit_admin"
+                          )
+                        }
+                      >
+                        <option value="editor">编辑</option>
+                        <option value="unit_admin">单元负责人</option>
+                      </Select>
+                    </label>
+                  ) : null}
+                </div>
+              ) : null}
             </form>
           </CardContent>
         </Card>
@@ -776,6 +840,7 @@ export function AdminWorkspace() {
               <TableRow>
                 <TableHead>邮箱</TableHead>
                 <TableHead>角色</TableHead>
+                <TableHead>所属单元</TableHead>
                 <TableHead>状态</TableHead>
                 <TableHead>有效期至</TableHead>
                 <TableHead>操作</TableHead>
@@ -785,7 +850,7 @@ export function AdminWorkspace() {
               {invitations.length === 0 ? (
                 <TableRow>
                   <TableCell
-                    colSpan={5}
+                    colSpan={6}
                     className="py-10 text-center text-sm text-slate-500"
                   >
                     暂无内部成员邀请记录。
@@ -796,6 +861,15 @@ export function AdminWorkspace() {
                   <TableRow key={invitation.id}>
                     <TableCell>{invitation.email}</TableCell>
                     <TableCell>{roleLabel[invitation.role]}</TableCell>
+                    <TableCell>
+                      {invitation.role === "editor" &&
+                      invitation.unit_ids &&
+                      invitation.unit_ids.length > 0
+                        ? invitation.unit_ids
+                            .map((uid) => units.find((u) => u.id === uid)?.name ?? uid)
+                            .join("、")
+                        : "—"}
+                    </TableCell>
                     <TableCell>
                       <Badge variant={invitation.status === "pending" ? "warning" : "neutral"}>
                         {invitationStatusLabel[invitation.status]}
