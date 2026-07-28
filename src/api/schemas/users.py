@@ -31,6 +31,7 @@ class UserListResponse(BaseModel):
 
 class InvitationCreateRequest(BaseModel):
     email: str
+    display_name: str = Field(min_length=1, max_length=255)
     role: str = Field(pattern="^(editor|expert|admin)$")
     expires_in_days: int = Field(default=7, ge=1, le=30)
     unit_ids: list[str] = Field(default_factory=list)
@@ -40,6 +41,7 @@ class InvitationCreateRequest(BaseModel):
 class InvitationResponse(BaseModel):
     id: str
     email: str
+    display_name: str | None = None
     role: str
     token: str | None = None
     email_status: str

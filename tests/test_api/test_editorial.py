@@ -88,6 +88,7 @@ def test_invitation_with_unit_ids_binds_membership_on_accept(
         "/api/users/invitations",
         json={
             "email": "editor-invite@example.com",
+            "display_name": "Invite Editor",
             "role": "editor",
             "unit_ids": unit_ids,
             "membership_role": "editor",
@@ -102,7 +103,6 @@ def test_invitation_with_unit_ids_binds_membership_on_accept(
         "/api/auth/invitations/accept",
         json={
             "token": token,
-            "display_name": "Invite Editor",
             "password": "new-password-123",
         },
     )
@@ -128,7 +128,7 @@ def test_invitation_without_unit_ids_stays_empty(
     client.post("/api/admin/editorial/bootstrap")
     invite = client.post(
         "/api/users/invitations",
-        json={"email": "editor-nounit@example.com", "role": "editor"},
+        json={"email": "editor-nounit@example.com", "role": "editor", "display_name": "No Unit Editor"},
     )
     assert invite.status_code == 201
     token = invite.json()["token"]
@@ -138,7 +138,6 @@ def test_invitation_without_unit_ids_stays_empty(
         "/api/auth/invitations/accept",
         json={
             "token": token,
-            "display_name": "No Unit Editor",
             "password": "new-password-123",
         },
     )

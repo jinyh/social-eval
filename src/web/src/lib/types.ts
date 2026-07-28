@@ -41,6 +41,7 @@ export type CreatedApiKey = ApiKeyMetadata & {
 export type Invitation = {
   id: string;
   email: string;
+  display_name?: string | null;
   role: User["role"];
   status: "pending" | "used" | "expired" | "revoked";
   email_status: string;

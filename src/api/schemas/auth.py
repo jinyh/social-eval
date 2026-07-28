@@ -13,7 +13,6 @@ class LoginRequest(BaseModel):
 
 class AcceptInvitationRequest(BaseModel):
     token: str
-    display_name: str = Field(min_length=1, max_length=255)
     password: str = Field(min_length=12, max_length=128)
 
 

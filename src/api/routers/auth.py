@@ -615,7 +615,7 @@ def accept_invitation(
         raise HTTPException(status_code=409, detail="用户已经存在")
     user = User(
         email=invitation.email.strip().lower(),
-        display_name=payload.display_name,
+        display_name=invitation.display_name,
         affiliation=None,
         hashed_password=hash_password(payload.password),
         role=invitation.role,

@@ -27,7 +27,6 @@ function AuthCard({ children }: { children: React.ReactNode }) {
 }
 
 export function InvitationActivation() {
-  const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
   const [message, setMessage] = useState("");
@@ -40,7 +39,7 @@ export function InvitationActivation() {
       return;
     }
     try {
-      await acceptInvitation(tokenFromFragment(), displayName, password);
+      await acceptInvitation(tokenFromFragment(), password);
       window.history.replaceState(null, "", "/");
       setMessage("账户已经激活，请返回登录。");
       setError("");
@@ -53,11 +52,10 @@ export function InvitationActivation() {
     <AuthCard>
       <CardHeader>
         <CardTitle>激活账户</CardTitle>
-        <CardDescription>设置姓名和至少 12 个字符的登录密码。</CardDescription>
+        <CardDescription>设置至少 12 个字符的登录密码。</CardDescription>
       </CardHeader>
       <CardContent>
         <form className="space-y-4" onSubmit={handleSubmit}>
-          <Input value={displayName} onChange={(event) => setDisplayName(event.target.value)} placeholder="姓名" required />
           <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="密码" minLength={12} required />
           <Input type="password" value={passwordAgain} onChange={(event) => setPasswordAgain(event.target.value)} placeholder="再次输入密码" minLength={12} required />
           <Button type="submit" className="w-full">激活账户</Button>

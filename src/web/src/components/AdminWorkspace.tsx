@@ -56,6 +56,7 @@ export function AdminWorkspace() {
   const [userQuery, setUserQuery] = useState("");
   const [userRole, setUserRole] = useState("");
   const [userStatus, setUserStatus] = useState("");
+  const [inviteDisplayName, setInviteDisplayName] = useState("");
   const [inviteEmail, setInviteEmail] = useState("new-user@example.com");
   const [inviteRole, setInviteRole] = useState<User["role"]>("editor");
   const [inviteUnitIds, setInviteUnitIds] = useState<string[]>([]);
@@ -153,12 +154,14 @@ export function AdminWorkspace() {
   const handleInvite = async (event: FormEvent) => {
     event.preventDefault();
     await createInvitation(
+      inviteDisplayName,
       inviteEmail,
       inviteRole,
       inviteRole === "editor" ? inviteUnitIds : [],
       inviteMembershipRole
     );
-    setMessage(`已创建邀请：${inviteEmail}`);
+    setMessage(`已创建邀请：${inviteDisplayName} <${inviteEmail}>`);
+    setInviteDisplayName("");
     setInviteEmail("");
     setInviteUnitIds([]);
     await refresh();
@@ -573,13 +576,23 @@ export function AdminWorkspace() {
           <CardContent>
             <form
               onSubmit={handleInvite}
-              className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px_auto] md:items-end"
+              className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_200px_auto] md:items-end"
             >
+              <label className="block space-y-2 text-sm font-medium text-slate-700">
+                姓名
+                <Input
+                  value={inviteDisplayName}
+                  onChange={(event) => setInviteDisplayName(event.target.value)}
+                  required
+                />
+              </label>
               <label className="block space-y-2 text-sm font-medium text-slate-700">
                 邮箱
                 <Input
+                  type="email"
                   value={inviteEmail}
                   onChange={(event) => setInviteEmail(event.target.value)}
+                  required
                 />
               </label>
               <label className="block space-y-2 text-sm font-medium text-slate-700">
@@ -597,7 +610,7 @@ export function AdminWorkspace() {
               </label>
               <Button type="submit" className="md:min-w-32">创建邀请</Button>
               {inviteRole === "editor" ? (
-                <div className="md:col-span-3 space-y-2">
+                <div className="md:col-span-4 space-y-2">
                   <span className="text-sm font-medium text-slate-700">
                     所属编辑单元（可多选，支持兼任多期刊）
                   </span>
@@ -838,6 +851,7 @@ export function AdminWorkspace() {
           <Table className="min-w-[720px]">
             <TableHeader>
               <TableRow>
+                <TableHead>姓名</TableHead>
                 <TableHead>邮箱</TableHead>
                 <TableHead>角色</TableHead>
                 <TableHead>所属单元</TableHead>
@@ -850,7 +864,7 @@ export function AdminWorkspace() {
               {invitations.length === 0 ? (
                 <TableRow>
                   <TableCell
-                    colSpan={6}
+                    colSpan={7}
                     className="py-10 text-center text-sm text-slate-500"
                   >
                     暂无内部成员邀请记录。
@@ -859,6 +873,7 @@ export function AdminWorkspace() {
               ) : (
                 invitations.map((invitation) => (
                   <TableRow key={invitation.id}>
+                    <TableCell>{invitation.display_name || "—"}</TableCell>
                     <TableCell>{invitation.email}</TableCell>
                     <TableCell>{roleLabel[invitation.role]}</TableCell>
                     <TableCell>

@@ -100,12 +100,17 @@ function LoginForm({
     <main className="relative flex min-h-screen items-center justify-center bg-slate-50 p-6">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl">
+          <CardTitle className="text-2xl text-center">
             {mode === "reset"
               ? "找回密码"
               : mode === "register"
                 ? "投稿人注册"
-                : "中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统"}
+                : (
+                  <>
+                    <span className="block">中国哲学社会科学自主知识创新</span>
+                    <span className="block">（法学论文）AI辅助评价系统</span>
+                  </>
+                )}
           </CardTitle>
           <CardDescription>
             {mode === "reset"

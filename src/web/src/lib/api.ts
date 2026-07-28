@@ -166,14 +166,12 @@ export async function confirmPasswordReset(
 
 export async function acceptInvitation(
   token: string,
-  displayName: string,
   password: string
 ): Promise<User> {
   return apiFetch<User>("/api/auth/invitations/accept", {
     method: "POST",
     body: JSON.stringify({
       token,
-      display_name: displayName,
       password,
     }),
   });
@@ -407,6 +405,7 @@ export async function listUsers(filters?: {
 }
 
 export async function createInvitation(
+  displayName: string,
   email: string,
   role: string,
   unitIds: string[] = [],
@@ -416,6 +415,7 @@ export async function createInvitation(
   await apiFetch("/api/users/invitations", {
     method: "POST",
     body: JSON.stringify({
+      display_name: displayName,
       email,
       role,
       unit_ids: role === "editor" ? unitIds : [],

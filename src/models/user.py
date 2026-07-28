@@ -45,6 +45,7 @@ class Invitation(Base):
         String(64), unique=True, nullable=True
     )
     email: Mapped[str] = mapped_column(String(255), nullable=False)
+    display_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
     role: Mapped[str] = mapped_column(String(20), nullable=False)
     invited_by: Mapped[str] = mapped_column(
         String(36), ForeignKey("users.id"), nullable=False

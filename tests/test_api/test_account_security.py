@@ -100,7 +100,7 @@ def test_invitation_stores_only_hash(
     _login(client, "admin@example.com")
     response = client.post(
         "/api/users/invitations",
-        json={"email": "new@example.com", "role": "editor"},
+        json={"email": "new@example.com", "role": "editor", "display_name": "New Editor"},
     )
     assert response.status_code == 201
     raw_token = response.json()["token"]

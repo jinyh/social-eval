@@ -80,6 +80,7 @@ def _invitation_response(
     return InvitationResponse(
         id=invitation.id,
         email=invitation.email,
+        display_name=invitation.display_name,
         role=invitation.role,
         token=raw_token if settings.app_env != "production" else None,
         email_status=email_status,
@@ -371,6 +372,7 @@ def create_invitation(
     raw_token, token_hash = create_one_time_token()
     invitation = Invitation(
         email=email,
+        display_name=payload.display_name.strip(),
         role=payload.role,
         token_hash=token_hash,
         invited_by=current_user.id,

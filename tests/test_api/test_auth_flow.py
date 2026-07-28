@@ -27,7 +27,7 @@ def test_admin_can_invite_user_activate_account_and_login(
 
     invite_response = client.post(
         "/api/users/invitations",
-        json={"email": "editor@example.com", "role": "editor"},
+        json={"email": "editor@example.com", "role": "editor", "display_name": "Editor User"},
     )
     assert invite_response.status_code == 201
     token = invite_response.json()["token"]
@@ -36,7 +36,6 @@ def test_admin_can_invite_user_activate_account_and_login(
         "/api/auth/invitations/accept",
         json={
             "token": token,
-            "display_name": "Editor User",
             "password": "new-password-123",
         },
     )
