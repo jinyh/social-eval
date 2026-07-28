@@ -97,7 +97,7 @@ function LoginForm({
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
+    <main className="relative flex min-h-screen items-center justify-center bg-slate-50 p-6">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl">
@@ -194,6 +194,9 @@ function LoginForm({
           </form>
         </CardContent>
       </Card>
+      <footer className="absolute bottom-4 left-0 w-full text-center text-xs text-slate-400">
+        沪交ICP备20260213号
+      </footer>
     </main>
   );
 }
