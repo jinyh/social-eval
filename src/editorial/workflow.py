@@ -213,7 +213,7 @@ async def run_editorial_pipeline(
             and document is not None
             and view_document is not None
         ):
-            anonymization_model = "glm-5.2"
+            anonymization_model = "qwen3.7-max-2026-06-08"
             try:
                 ai_config = load_anonymization_config()
                 anonymization_model = str(ai_config["model_name"])
@@ -258,12 +258,12 @@ async def run_editorial_pipeline(
                     if reason not in risk_flags:
                         risk_flags.append(reason)
                 notice = (
-                    f"{outcome.model_name} 已完成初步身份检测，但存在不确定项，"
+                    "AI 模型已完成初步身份检测，但存在不确定项，"
                     "流程已暂停并等待编辑核对。"
                 )
             else:
                 notice = (
-                    f"{outcome.model_name} 已自动检测并处理匿名信息，共精确隐去 "
+                    f"AI 模型已自动检测并处理匿名信息，共精确隐去 "
                     f"{outcome.applied_count} 处；流程已继续，请编辑知悉并抽查。"
                 )
                 submission.anonymization_status = "confirmed"
@@ -276,7 +276,7 @@ async def run_editorial_pipeline(
                         object_id=submission.id,
                         payload={
                             "submission_id": submission.id,
-                            "model_name": outcome.model_name,
+                            "model_name": "AI 模型",
                             "applied_count": outcome.applied_count,
                         },
                     )
@@ -288,7 +288,7 @@ async def run_editorial_pipeline(
                     "requires_confirmation": outcome.requires_manual_review,
                     "auto_confirmed": not outcome.requires_manual_review,
                     "confirmed_by_model": (
-                        outcome.model_name
+                        "AI 模型"
                         if not outcome.requires_manual_review
                         else None
                     ),
@@ -300,7 +300,7 @@ async def run_editorial_pipeline(
                     "notice": notice,
                     "ai_anonymization": {
                         "attempted": True,
-                        "model_name": outcome.model_name,
+                        "model_name": "AI 模型",
                         "status": outcome.status,
                         "applied_count": outcome.applied_count,
                         "requires_manual_review": outcome.requires_manual_review,
@@ -516,11 +516,17 @@ async def run_editorial_pipeline(
             set_work_status(db, task.id, "opinion-synthesis", "running")
             submission.status = "generating_opinions"
             db.commit()
+            synthesis_model_name = policy.opinion.get("synthesis_model")
+            synthesis_providers = (
+                provider_factory([synthesis_model_name])
+                if synthesis_model_name
+                else []
+            ) or providers
             await generate_editorial_opinions(
                 db,
                 submission_id=submission.id,
                 task_id=task.id,
-                providers=providers,
+                providers=synthesis_providers,
                 policy=policy,
                 anonymized_text=anonymized_text,
                 evaluation_context=evaluation_context,
