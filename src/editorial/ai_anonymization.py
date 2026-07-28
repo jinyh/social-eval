@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
 import re
@@ -247,65 +248,48 @@ async def run_ai_anonymization(
         max_characters=int(selected_config["max_block_characters"]),
     )
     prompt = build_identity_prompt(candidates, selected_config)
-    start = time.time()
+    max_attempts = 3
     raw: dict[str, Any] | None = None
-    try:
-        raw = await provider.call_with_timeout(provider.generate_json_response(prompt))
-        payload = IdentityDetectionPayload.model_validate(raw)
-        applied, apply_uncertainties, text_digest, view_digest = (
-            apply_identity_findings(
-                text_path=text_path,
-                view_path=view_path,
-                findings=payload.findings,
-                minimum_confidence=float(selected_config["minimum_confidence"]),
+    payload: IdentityDetectionPayload | None = None
+    last_exc: Exception | None = None
+    start = time.time()
+    for attempt in range(1, max_attempts + 1):
+        start = time.time()
+        try:
+            raw = await provider.call_with_timeout(
+                provider.generate_json_response(prompt)
             )
-        )
-        log_call(
-            db,
-            task_id,
-            provider.model_name,
-            "__anonymization__",
-            prompt,
-            json.dumps(raw, ensure_ascii=False),
-            start,
-            call_type="anonymization_identity_detection",
-            provider_name=provider.__class__.__name__,
-        )
-        uncertainties = [
-            *payload.uncertainty_reasons,
-            *apply_uncertainties,
-        ]
-        return AIAnonymizationOutcome(
-            model_name=provider.model_name,
-            status="completed",
-            applied_count=applied,
-            requires_manual_review=payload.needs_manual_review or bool(uncertainties),
-            uncertainty_reasons=uncertainties,
-            summary=payload.summary,
-            text_sha256=text_digest,
-            view_sha256=view_digest,
-        )
-    except Exception as exc:
-        raw_response = str(getattr(exc, "raw_response", "") or "")
-        if not raw_response and raw is not None:
-            raw_response = json.dumps(raw, ensure_ascii=False)
-        log_call(
-            db,
-            task_id,
-            provider.model_name,
-            "__anonymization__",
-            prompt,
-            raw_response,
-            start,
-            call_type="anonymization_identity_detection",
-            provider_name=provider.__class__.__name__,
-            status="failed",
-            failure_detail=str(exc),
-        )
+            payload = IdentityDetectionPayload.model_validate(raw)
+            break
+        except Exception as exc:
+            last_exc = exc
+            raw_response = str(getattr(exc, "raw_response", "") or "")
+            if not raw_response and raw is not None:
+                raw_response = json.dumps(raw, ensure_ascii=False)
+            log_call(
+                db,
+                task_id,
+                provider.model_name,
+                "__anonymization__",
+                prompt,
+                raw_response,
+                start,
+                call_type="anonymization_identity_detection",
+                provider_name=provider.__class__.__name__,
+                status="failed",
+                failure_detail=f"attempt {attempt}/{max_attempts} 失败：{exc}",
+            )
+            if attempt < max_attempts:
+                await asyncio.sleep(2 * attempt)
+                continue
+            raw = None
+
+    if raw is None or payload is None:
+        assert last_exc is not None
         failure = (
-            "模型身份检测失败，已安全转为人工确认"
-            if isinstance(exc, ValidationError)
-            else f"模型身份检测失败，已安全转为人工确认：{exc}"
+            "模型身份检测失败（已重试 3 次），已安全转为人工确认"
+            if isinstance(last_exc, ValidationError)
+            else f"模型身份检测失败（已重试 3 次），已安全转为人工确认：{last_exc}"
         )
         return AIAnonymizationOutcome(
             model_name=provider.model_name,
@@ -314,5 +298,39 @@ async def run_ai_anonymization(
             requires_manual_review=True,
             uncertainty_reasons=[failure],
             summary="模型辅助匿名未完成",
-            failure_detail=str(exc),
+            failure_detail=str(last_exc),
         )
+
+    applied, apply_uncertainties, text_digest, view_digest = (
+        apply_identity_findings(
+            text_path=text_path,
+            view_path=view_path,
+            findings=payload.findings,
+            minimum_confidence=float(selected_config["minimum_confidence"]),
+        )
+    )
+    log_call(
+        db,
+        task_id,
+        provider.model_name,
+        "__anonymization__",
+        prompt,
+        json.dumps(raw, ensure_ascii=False),
+        start,
+        call_type="anonymization_identity_detection",
+        provider_name=provider.__class__.__name__,
+    )
+    uncertainties = [
+        *payload.uncertainty_reasons,
+        *apply_uncertainties,
+    ]
+    return AIAnonymizationOutcome(
+        model_name=provider.model_name,
+        status="completed",
+        applied_count=applied,
+        requires_manual_review=payload.needs_manual_review or bool(uncertainties),
+        uncertainty_reasons=uncertainties,
+        summary=payload.summary,
+        text_sha256=text_digest,
+        view_sha256=view_digest,
+    )
