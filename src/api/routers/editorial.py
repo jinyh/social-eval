@@ -317,6 +317,19 @@ def list_notifications(
         .limit(100)
         .all()
     )
+    submission_ids = [
+        row.object_id
+        for row in rows
+        if row.object_type == "editorial_submission" and row.object_id
+    ]
+    title_map: dict[str, str | None] = {}
+    if submission_ids:
+        title_rows = (
+            db.query(EditorialSubmission.id, EditorialSubmission.title)
+            .filter(EditorialSubmission.id.in_(submission_ids))
+            .all()
+        )
+        title_map = {str(sid): title for sid, title in title_rows}
     return {
         "items": [
             {
@@ -325,6 +338,11 @@ def list_notifications(
                 "object_type": row.object_type,
                 "object_id": row.object_id,
                 "payload": row.payload,
+                "title": (
+                    title_map.get(row.object_id)
+                    if row.object_type == "editorial_submission"
+                    else None
+                ),
                 "read_at": row.read_at,
                 "created_at": row.created_at,
             }

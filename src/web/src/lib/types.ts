@@ -120,6 +120,7 @@ export type NotificationItem = {
   object_type: string;
   object_id: string;
   payload?: Record<string, unknown> | null;
+  title?: string | null;
   read_at?: string | null;
   created_at: string;
 };

@@ -1066,7 +1066,7 @@ function EditorialDashboard({
                   className="w-full rounded-xl border border-slate-200 p-3 text-left text-sm hover:bg-slate-50"
                   onClick={() => onNavigate("notifications")}
                 >
-                  {notificationLabel(item.event_type)}
+                  {notificationLabel(item)}
                 </button>
               ))
             )}
@@ -1161,7 +1161,7 @@ function EditorialNotifications({
             >
               <div>
                 <p className="font-medium text-slate-950">
-                  {notificationLabel(item.event_type)}
+                  {notificationLabel(item)}
                 </p>
                 <p className="mt-1 text-xs text-slate-500">
                   {formatBeijingTime(item.created_at)}
@@ -2614,17 +2614,19 @@ function decisionLabel(value: EditorialDecision) {
   );
 }
 
-function notificationLabel(eventType: string): string {
-  return (
-    {
-      expert_review_assigned: "有新的专家复核任务",
-      editorial_review_ready: "智能辅助预审材料已就绪",
-      editorial_review_failed: "稿件处理失败，等待恢复",
-      anonymization_auto_processed: "GLM-5.2 已自动完成匿名检测与处理",
-      expert_review_submitted: "专家复核已提交",
-      responsible_editor_transferred: "责任编辑任务已转移",
-    }[eventType] ?? "有新的流程通知"
-  );
+function notificationLabel(item: NotificationItem): string {
+  const title = (item.title ?? "").trim();
+  const prefix = title ? `《${title}》` : "";
+  const base: Record<string, string> = {
+    expert_review_assigned: "有新的专家复核任务",
+    editorial_review_ready: "智能辅助预审材料已就绪",
+    editorial_review_failed: "稿件处理失败，等待恢复",
+    anonymization_auto_processed: "AI 模型已自动完成匿名检测与处理",
+    expert_review_submitted: "专家复核已提交",
+    responsible_editor_transferred: "责任编辑任务已转移",
+  };
+  const base_text = base[item.event_type] ?? "有新的流程通知";
+  return prefix ? `${prefix}${base_text}` : base_text;
 }
 
 function Evidence({ value }: { value: unknown }) {
