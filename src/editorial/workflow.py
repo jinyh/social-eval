@@ -253,17 +253,20 @@ async def run_editorial_pipeline(
                     for flag in risk_flags
                     if not flag.startswith("未检测到可自动隐去的身份信息")
                 ]
+            paper_title = (
+                submission.title or submission.external_manuscript_id or "本稿件"
+            )
             if outcome.requires_manual_review:
                 for reason in outcome.uncertainty_reasons:
                     if reason not in risk_flags:
                         risk_flags.append(reason)
                 notice = (
-                    "AI 模型已完成初步身份检测，但存在不确定项，"
+                    f"AI 模型已完成对《{paper_title}》的初步身份检测，但存在不确定项，"
                     "流程已暂停并等待编辑核对。"
                 )
             else:
                 notice = (
-                    f"AI 模型已自动检测并处理匿名信息，共精确隐去 "
+                    f"AI 模型已自动检测并处理《{paper_title}》的匿名信息，共精确隐去 "
                     f"{outcome.applied_count} 处；流程已继续，请编辑知悉并抽查。"
                 )
                 submission.anonymization_status = "confirmed"
