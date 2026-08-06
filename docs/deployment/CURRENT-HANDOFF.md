@@ -289,3 +289,33 @@ uv lock --check
 
 不得在未核对当前卷挂载、目标数据库和备份状态前执行破坏性 Docker、数据库或文件
 命令。
+
+## 9. 绕门禁生产操作记录（2026-08-06，用户授权）
+
+为测试投稿人预审路径，用户授权在生产 social（`111.186.57.186`）绕门禁执行以下
+操作，事后需走正式门禁补齐：
+
+- 交大法学单元（`00000000-0000-0000-0000-000000000101`）绕门禁切
+  `rollout_state=active` + 绑 `active_policy_version_id=b0146939-817d-4c0f-a938-e2f9538a13cf`
+  （trial policy v1.1）；该 trial policy `status` 改 `active`、`activated_by=a1aa8f14-...`
+  （admin `socialeval@sjtu.edu.cn`）。
+- 改 frozen `editorial_policy_versions.snapshot.opinion.synthesis_prompt_template` 两次
+  （先去照抄占位，后同步 `fd70907`/`09275a1` 改进 prompt），每次重算 `content_sha256`
+  （`policy_from_version` 校验通过）。
+- `synthesis_model` 留空 → 综合意见用 `providers[0]=glm-5.2`（用户要求 glm-5.2）。
+- 候选集（`six-dimension-v2-candidate` glm-5.2/qwen3.7-max）随单元启用进入生产评审
+  （候选集验证闭环 1/6，未达转正门禁）。
+- 部署链：工作线一 `732d902`/`e71148b` → `fd70907`/`a3eafc3` → `09275a1`/`136586e`。
+- 回滚锚点：`backup-20260806-v2/v3/v4` 镜像 tag + 各 merge commit
+  （`git reset --hard <commit>` + `docker tag backup→latest` + `up -d`）。
+- 综合意见示例：投稿 `8440e9c8` 有 glm-5.2 真实综合意见（法言法语、7 条改进、
+  modification 字符串前缀【必改】/【可选】）。
+
+遗留：
+
+- 候选集转正门禁未完成（编辑抽样 + unit_admin 签署 + 验证闭环 1/6→达标）。
+- yaml `synthesis_model=qwen3.7-max-2026-06-08` 与生产实际 glm-5.2 不一致，
+  建议改 yaml 为空或 glm-5.2。
+- 正式启用门禁（`validation_run` + unit_admin 签署 + `set_rollout_state`）需补齐
+  后才能合规。
+
