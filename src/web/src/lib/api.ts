@@ -548,7 +548,8 @@ export async function getSubmitterOpinion(
 export async function uploadSubmitterSubmission(
   unitId: string,
   title: string,
-  file: File
+  file: File,
+  previousSubmissionId?: string
 ): Promise<{ submission_id: string; paper_id: string; status: string }> {
   if (isMockMode()) {
     return {
@@ -561,6 +562,9 @@ export async function uploadSubmitterSubmission(
   formData.append("unit_id", unitId);
   formData.append("title", title);
   formData.append("file", file);
+  if (previousSubmissionId) {
+    formData.append("previous_submission_id", previousSubmissionId);
+  }
   const response = await fetch(`${API_BASE}/api/submitter/submissions`, {
     method: "POST",
     credentials: "include",

@@ -30,6 +30,8 @@ class SubmitterSubmission(BaseModel):
     public_decision: str | None = None
     author_message: str | None = None
     withdrawal_status: str | None = None
+    root_submission_id: str | None = None
+    resubmission_round: int = 1
 
 
 class WithdrawalRequestCreate(BaseModel):

@@ -375,6 +375,7 @@ async def create_editorial_submission(
     external_manuscript_id: str | None,
     current_user: User,
     title: str | None = None,
+    previous_submission_id: str | None = None,
 ) -> EditorialSubmissionCreateResponse:
     if external_manuscript_id and (
         db.query(EditorialSubmission)
@@ -444,6 +445,30 @@ async def create_editorial_submission(
         )
         if membership is not None:
             responsible_editor_id = current_user.id
+    # 投稿人重投链 + 配额：同一篇最多 3 次（含已撤稿，防撤-投绕开）
+    root_submission_id: str | None = None
+    resubmission_round = 1
+    if previous_submission_id is not None:
+        previous = db.get(EditorialSubmission, previous_submission_id)
+        if previous is None or previous.created_by != current_user.id:
+            raise HTTPException(status_code=404, detail="未找到可重投的上一轮投稿")
+        if previous.unit_id != unit.id:
+            raise HTTPException(status_code=400, detail="重投必须指向同一编辑单元")
+        if previous.status == "withdrawn":
+            raise HTTPException(status_code=400, detail="已撤稿的投稿不能作为重投基础")
+        root = previous.root_submission_id or previous.id
+        existing = (
+            db.query(EditorialSubmission)
+            .filter(EditorialSubmission.root_submission_id == root)
+            .count()
+        )
+        if existing >= 3:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="该论文已达3次重投上限",
+            )
+        root_submission_id = root
+        resubmission_round = previous.resubmission_round + 1
     submission = EditorialSubmission(
         unit_id=unit.id,
         paper_id=paper.id,
@@ -456,6 +481,9 @@ async def create_editorial_submission(
         policy_version=policy.version,
         policy_version_id=policy_version.id if policy_version else None,
         created_by=current_user.id,
+        root_submission_id=root_submission_id,
+        previous_submission_id=previous_submission_id,
+        resubmission_round=resubmission_round,
     )
     db.add(submission)
     try:
@@ -466,6 +494,10 @@ async def create_editorial_submission(
             status_code=status.HTTP_409_CONFLICT,
             detail="该外部稿号已存在于当前编辑单元",
         ) from exc
+    # 首轮投稿：root 指向自身
+    if submission.root_submission_id is None:
+        submission.root_submission_id = submission.id
+        db.flush()
     digest = hashlib.sha256(file_path.read_bytes()).hexdigest()
     db.add(
         EditorialDocument(

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { UploadCloud } from "lucide-react";
 
 import {
@@ -43,12 +43,15 @@ export function SubmitterPortal() {
   const [opinion, setOpinion] = useState<SubmitterOpinion | null>(null);
   const [message, setMessage] = useState("");
   const [withdrawing, setWithdrawing] = useState(false);
+  const [resubmitting, setResubmitting] = useState(false);
+  const resubmitInputRef = useRef<HTMLInputElement>(null);
 
   const refreshSubmissions = async () =>
     setSubmissions(await listSubmitterSubmissions());
   const selectedSubmission = submissions.find(
     (item) => item.id === selectedSubmissionId
   );
+  const currentRound = selectedSubmission?.resubmission_round ?? 1;
 
   useEffect(() => {
     void Promise.all([listSubmitterJournals(), listSubmitterSubmissions()])
@@ -130,6 +133,29 @@ export function SubmitterPortal() {
       setMessage(err instanceof Error ? err.message : "撤稿申请提交失败");
     } finally {
       setWithdrawing(false);
+    }
+  };
+
+  const handleResubmit = async (event: FormEvent<HTMLInputElement>) => {
+    const input = resubmitInputRef.current;
+    const file = input?.files?.[0];
+    if (!file || !selectedSubmission) return;
+    setResubmitting(true);
+    try {
+      const payload = await uploadSubmitterSubmission(
+        selectedSubmission.unit_id,
+        selectedSubmission.title,
+        file,
+        selectedSubmission.id
+      );
+      setMessage(`重投成功，系统稿号：${payload.submission_id}；预审完成后将展示新一轮意见。`);
+      setSelectedSubmissionId(payload.submission_id);
+      await refreshSubmissions();
+      input.value = "";
+    } catch (err) {
+      setMessage(err instanceof Error ? err.message : "重投失败");
+    } finally {
+      setResubmitting(false);
     }
   };
 
@@ -228,7 +254,30 @@ export function SubmitterPortal() {
 
       <main className="space-y-5">
         {opinion ? (
-          <SubmitterOpinionCard opinion={opinion} />
+          <>
+            <SubmitterOpinionCard opinion={opinion} />
+            {selectedSubmission && selectedSubmission.status !== "withdrawn" ? (
+              <div className="space-y-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => resubmitInputRef.current?.click()}
+                  disabled={resubmitting || currentRound >= 3}
+                >
+                  {currentRound >= 3
+                    ? "已达3次重投上限"
+                    : `改稿后重新投稿（第 ${currentRound + 1} 轮）`}
+                </Button>
+                <input
+                  ref={resubmitInputRef}
+                  type="file"
+                  accept=".pdf,.docx,.txt"
+                  className="hidden"
+                  onChange={handleResubmit}
+                />
+              </div>
+            ) : null}
+          </>
         ) : status ? (
           <>
             <ProgressOnly status={status} />

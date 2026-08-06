@@ -102,6 +102,8 @@ def _submission_response(
         public_decision=release.public_decision if release else None,
         author_message=release.author_message if release else None,
         withdrawal_status=withdrawal.status if withdrawal else None,
+        root_submission_id=row.root_submission_id or row.id,
+        resubmission_round=row.resubmission_round,
     )
 
 
@@ -147,6 +149,7 @@ async def submit_manuscript(
     unit_id: str = Form(...),
     title: str = Form(..., min_length=2, max_length=500),
     file: UploadFile = File(...),
+    previous_submission_id: str | None = Form(None),
     current_user: User = Depends(require_roles("submitter")),
     db: Session = Depends(get_db),
 ) -> dict:
@@ -170,6 +173,7 @@ async def submit_manuscript(
         external_manuscript_id=None,
         current_user=current_user,
         title=title.strip(),
+        previous_submission_id=previous_submission_id,
     )
     queue_email(
         db,
@@ -191,10 +195,22 @@ def list_submissions(
     rows = (
         db.query(EditorialSubmission)
         .filter(EditorialSubmission.created_by == current_user.id)
-        .order_by(EditorialSubmission.created_at.desc())
+        .order_by(
+            EditorialSubmission.resubmission_round.desc(),
+            EditorialSubmission.created_at.desc(),
+        )
         .all()
     )
-    return [_submission_response(db, row) for row in rows]
+    # 同一篇论文（按 root_submission_id）只显示最新一轮，"只算1篇"
+    seen_roots: set[str] = set()
+    deduped: list[EditorialSubmission] = []
+    for row in rows:
+        root = row.root_submission_id or row.id
+        if root in seen_roots:
+            continue
+        seen_roots.add(root)
+        deduped.append(row)
+    return [_submission_response(db, row) for row in deduped]
 
 
 @router.get(

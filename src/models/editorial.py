@@ -181,6 +181,13 @@ class EditorialSubmission(Base):
     created_by: Mapped[str] = mapped_column(
         String(36), ForeignKey("users.id"), nullable=False
     )
+    root_submission_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("editorial_submissions.id"), nullable=True, index=True
+    )
+    previous_submission_id: Mapped[str | None] = mapped_column(
+        String(36), ForeignKey("editorial_submissions.id"), nullable=True
+    )
+    resubmission_round: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utc_now)
     updated_at: Mapped[datetime] = mapped_column(
         DateTime, default=utc_now, onupdate=utc_now

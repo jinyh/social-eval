@@ -98,6 +98,8 @@ export type SubmitterSubmission = {
   public_decision?: string | null;
   author_message?: string | null;
   withdrawal_status?: "pending" | "approved" | "rejected" | null;
+  root_submission_id?: string | null;
+  resubmission_round?: number;
 };
 
 export type SubmitterOpinion = {

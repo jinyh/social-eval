@@ -315,3 +315,68 @@ def test_submitter_opinion_returns_synthesis_and_suggestions_without_release(
     _login(client, other.email)
     forbidden = client.get(f"/api/submitter/submissions/{submission.id}/opinion")
     assert forbidden.status_code == 404
+
+
+def test_submitter_resubmission_quota_and_dedup(
+    client: TestClient,
+    db_session: Session,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    """同一篇最多3次重投、第4次409、列表按 root 去重只算1篇。"""
+    import src.core.storage
+
+    monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
+    unit, _editor_id = _active_unit(client, db_session)
+    submitter = create_user(
+        db_session, email="author-resub@example.com", role="submitter"
+    )
+
+    async def runner(_: str, __: Session) -> None:
+        return None
+
+    client.app.state.editorial_pipeline_runner = runner
+    client.cookies.clear()
+    _login(client, submitter.email)
+
+    def submit(prev: str | None = None) -> TestClient:
+        data: dict = {"unit_id": unit.id, "title": "重投测试论文"}
+        if prev is not None:
+            data["previous_submission_id"] = prev
+        return client.post(
+            "/api/submitter/submissions",
+            data=data,
+            files={"file": ("p.txt", ("正文内容" * 80).encode(), "text/plain")},
+        )
+
+    s1 = submit()
+    assert s1.status_code == 202
+    id1 = s1.json()["submission_id"]
+    s2 = submit(id1)
+    assert s2.status_code == 202
+    id2 = s2.json()["submission_id"]
+    s3 = submit(id2)
+    assert s3.status_code == 202
+    id3 = s3.json()["submission_id"]
+
+    s4 = submit(id3)
+    assert s4.status_code == 409
+    assert "3次重投上限" in s4.json()["detail"]
+
+    # 非本人 previous 应 404
+    other = create_user(
+        db_session, email="author-other-resub@example.com", role="submitter"
+    )
+    client.cookies.clear()
+    _login(client, other.email)
+    s_other = submit(id1)
+    assert s_other.status_code == 404
+
+    # 列表按 root 去重，只算1篇，显示最新轮
+    client.cookies.clear()
+    _login(client, submitter.email)
+    subs = client.get("/api/submitter/submissions").json()
+    assert len(subs) == 1
+    assert subs[0]["id"] == id3
+    assert subs[0]["resubmission_round"] == 3
+    assert subs[0]["root_submission_id"] == id1
