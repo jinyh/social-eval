@@ -294,18 +294,18 @@ def build_position_summary(
             str(final.get("confidence", "")), str(final.get("confidence", "待确认"))
         ),
         "agreement_label": {
-            "high": "两模型意见一致",
-            "medium": "两模型存在局部差异",
-            "low": "两模型分歧较大",
-            "none": "缺少有效模型结果",
+            "high": "两方评审意见一致",
+            "medium": "两方评审存在局部差异",
+            "low": "两方评审分歧较大",
+            "none": "缺少有效评审结果",
         }.get(str(final.get("agreement_level", "")), "待确认"),
         "review_required": bool(final.get("review_required", False)),
         "conflict_with_precheck": conflict,
         "conflict_message": (
-            "五轴高分与公共预检的边界判断不一致，需核对中国法和知识体系归属证据。"
+            "位置归属高分与公共预检的边界判断不一致，需核对中国法和知识体系归属证据。"
             if conflict
             else None
         ),
         "axes": details,
-        "notice": "五轴评价知识体系位置归属，不评价论文质量，也不参与录退决定。",
+        "notice": "位置归属度只判断知识体系位置归属，不评价论文质量，也不参与录退决定。",
     }

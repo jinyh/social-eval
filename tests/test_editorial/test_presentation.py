@@ -186,6 +186,37 @@ def test_ccb_and_five_axis_are_described_as_separate_reference_outputs() -> None
     assert "不评价论文质量" in position["notice"]
 
 
+def test_synthesis_prompt_avoids_engineering_jargon() -> None:
+    """综合意见 prompt 不得点名"四模型/五轴/六维"，并须显式禁用工程术语。"""
+    policy = load_editorial_policy("jiaoda-law-v1")
+    template = policy.opinion["synthesis_prompt_template"]
+    for term in ("四模型", "五轴", "六维"):
+        assert term not in template
+    assert "评审共识" in template
+    assert "评审分歧" in template
+    # prompt 须明确要求意见正文禁用工程术语
+    assert "工程化术语" in template
+
+
+def test_position_summary_labels_drop_axis_and_model_jargon() -> None:
+    """位置归属摘要的用户可见文案不得出现"五轴/模型"字样。"""
+    position = build_position_summary(
+        {
+            "final": {
+                "total_score": 7,
+                "agreement_level": "high",
+                "axis_scores": {},
+            }
+        },
+    )
+    assert position is not None
+    for field in ("agreement_label", "notice", "conflict_message"):
+        value = position.get(field) or ""
+        assert "五轴" not in value
+        assert "六维" not in value
+    assert "两方评审意见一致" == position["agreement_label"]
+
+
 def test_formal_completeness_requires_editor_confirmation_at_boundary() -> None:
     incomplete = evaluate_formal_completeness("一段很短的正文")
     complete = evaluate_formal_completeness(

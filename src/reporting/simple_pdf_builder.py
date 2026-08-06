@@ -269,7 +269,7 @@ def _build_editorial_pdf(report_data: dict[str, Any]) -> bytes:
     _draw_editorial_header(
         position_axis,
         title,
-        "五轴位置归属度",
+        "知识体系位置归属度",
         font,
         page_number=1,
     )
@@ -277,7 +277,7 @@ def _build_editorial_pdf(report_data: dict[str, Any]) -> bytes:
         position_axis.text(
             0.08,
             0.79,
-            f"五轴总分：{position.get('total_score', 0)} / 10",
+            f"位置归属总分：{position.get('total_score', 0)} / 10",
             fontsize=16,
             ha="left",
             va="top",
@@ -301,7 +301,7 @@ def _build_editorial_pdf(report_data: dict[str, Any]) -> bytes:
         position_axis.text(
             0.08,
             0.79,
-            "五轴结果尚未生成。",
+            "位置归属结果尚未生成。",
             fontsize=13,
             ha="left",
             va="top",
@@ -381,14 +381,14 @@ def _build_editorial_pdf(report_data: dict[str, Any]) -> bytes:
     _draw_editorial_header(
         dimension_axis,
         title,
-        "六维学术评价",
+        "学术质量评价",
         font,
         page_number=2,
     )
     dimension_axis.text(
         0.08,
         0.79,
-        f"六维综合参考分：{total_score:g}",
+        f"综合参考分：{total_score:g}",
         fontsize=16,
         ha="left",
         va="top",

@@ -128,7 +128,11 @@ def test_invitation_without_unit_ids_stays_empty(
     client.post("/api/admin/editorial/bootstrap")
     invite = client.post(
         "/api/users/invitations",
-        json={"email": "editor-nounit@example.com", "role": "editor", "display_name": "No Unit Editor"},
+        json={
+            "email": "editor-nounit@example.com",
+            "role": "editor",
+            "display_name": "No Unit Editor",
+        },
     )
     assert invite.status_code == 201
     token = invite.json()["token"]
@@ -781,3 +785,31 @@ async def test_opinion_generation_reuses_four_model_results_without_duplicate_ca
     )
     assert first.calls == 1
     assert second.calls == 0
+
+
+@pytest.mark.asyncio
+async def test_opinion_prompt_does_not_name_models_or_axes(
+    db_session: Session,
+) -> None:
+    """组装给综合器的 prompt 不得出现"四模型/五轴/六维"工程术语。"""
+    captured: list[str] = []
+
+    class _CapturingProvider(_OpinionProvider):
+        async def generate_json_response(self, prompt: str) -> dict:
+            captured.append(prompt)
+            return await super().generate_json_response(prompt)
+
+    await generate_editorial_opinions(
+        db_session,
+        submission_id="submission-prompt-check",
+        task_id="task-prompt-check",
+        providers=[_CapturingProvider("qwen3.7-max-2026-06-08")],
+        policy=load_editorial_policy("jiaoda-law-v1"),
+        anonymized_text="",
+        evaluation_context={"dimension_summary": "示例上下文"},
+    )
+
+    assert captured
+    for term in ("四模型", "五轴", "六维"):
+        assert term not in captured[0]
+    assert "评审意见、分歧与其他辅助材料" in captured[0]

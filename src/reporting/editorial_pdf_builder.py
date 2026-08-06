@@ -272,7 +272,7 @@ def _metric_table(payload: dict, styles: dict[str, ParagraphStyle]) -> Table:
     evaluation = payload.get("evaluation") or {}
     ccb = evaluation.get("ccb_summary") or {}
     six = evaluation.get("six_dimension_summary") or {}
-    labels = ["六维综合参考分", "匿名模型参与", "观点差异维度", "必须专家复核"]
+    labels = ["综合参考分", "匿名评审参与", "观点差异维度", "必须专家复核"]
     values = [
         f"{float(ccb.get('final_score') or 0):.1f}",
         f"{int((six.get('model_participation') or {}).get('count') or 0)} 个",
@@ -443,7 +443,9 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
     recommendation_label = recommendation.get("display_label") or "状态待确认"
 
     story: list = [
-        Paragraph("中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统", styles["title"]),
+        Paragraph(
+            "中国哲学社会科学自主知识创新（法学论文）AI辅助评价系统", styles["title"]
+        ),
         Paragraph(
             escape(_text(submission.get("title"), limit=120) or "未命名稿件"),
             styles["subtitle"],
@@ -457,13 +459,13 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
         ),
         _metric_table(report, styles),
         Spacer(1, 5 * mm),
-        Paragraph("综合判断", styles["subsection"]),
+        Paragraph("综合意见", styles["subsection"]),
         _paragraph(synthesis.get("synthesis"), styles["body"], limit=1200),
-        Paragraph("四模型共识", styles["subsection"]),
+        Paragraph("评审共识", styles["subsection"]),
         *_list_flowables(synthesis.get("consensus_points"), styles),
         PageBreak(),
         *_section_heading("分歧、核验与修改建议", styles),
-        Paragraph("四模型分歧", styles["subsection"]),
+        Paragraph("评审分歧", styles["subsection"]),
         *_list_flowables(synthesis.get("disagreement_points"), styles),
         Paragraph("编辑优先核验事项", styles["subsection"]),
         *_list_flowables(synthesis.get("priority_issues"), styles),
@@ -471,19 +473,19 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
         *_list_flowables(synthesis.get("modification_suggestions"), styles),
         Spacer(1, 7 * mm),
         Paragraph(
-            "说明：综合摘要来自既有模型评价和证据，不是人类审稿意见；"
+            "说明：综合摘要来自既有评审数据与证据，不构成人类审稿意见；"
             "任何候选建议均须由编辑结合稿件原文和专家意见独立判断。",
             styles["small"],
         ),
         PageBreak(),
-        *_section_heading("五轴位置归属度", styles),
+        *_section_heading("知识体系位置归属度", styles),
     ]
     position = (report.get("evaluation") or {}).get("position_summary") or {}
     story.extend(
         [
             Paragraph(
                 (
-                    f"<b>五轴总分：{int(position.get('total_score') or 0)} / 10</b>"
+                    f"<b>位置归属总分：{int(position.get('total_score') or 0)} / 10</b>"
                     f"　{escape(_text(position.get('strength_label')))}；"
                     f"{escape(_text(position.get('agreement_label')))}"
                 ),
@@ -501,7 +503,7 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
         axis for axis in position.get("axes") or [] if axis.get("has_model_difference")
     ]
     if differing_axes:
-        story.append(Paragraph("五轴差异证据节选", styles["subsection"]))
+        story.append(Paragraph("位置归属差异证据节选", styles["subsection"]))
         for axis in differing_axes:
             quotes = axis.get("evidence_quotes")
             story.append(
@@ -514,7 +516,7 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
     story.extend(
         [
             PageBreak(),
-            *_section_heading("六维学术评价", styles),
+            *_section_heading("学术质量评价", styles),
             _six_dimension_table(report, styles),
             Spacer(1, 5 * mm),
             Paragraph("关键风险证据节选", styles["subsection"]),
@@ -579,9 +581,9 @@ def build_editorial_pdf(report: dict[str, Any]) -> bytes:
             Spacer(1, 6 * mm),
             Paragraph("方法边界与审计说明", styles["subsection"]),
             Paragraph(
-                "五轴只判断知识体系位置归属，不评价论文质量，也不与六维加总。"
-                "六维综合参考分采用核心维度、学术共识封顶和前瞻弱加分。"
-                "模型分歧超过阈值时必须由专家复核，不以自动仲裁覆盖真实学术分歧。"
+                "位置归属度只判断知识体系位置归属，不评价论文质量，也不与学术评价加总。"
+                "综合参考分采用核心维度、学术共识封顶和前瞻弱加分。"
+                "评审分歧超过阈值时必须由专家复核，不以自动仲裁覆盖真实学术分歧。"
                 "本简报只展示关键风险证据节选，完整结果见同版本结构化审计数据。",
                 styles["small"],
             ),

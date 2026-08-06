@@ -198,7 +198,7 @@ def build_editorial_report(
             "model_set_version": task.model_set_version,
             "review_protocol_version": task.review_protocol_version,
             "review_protocol_label": (
-                "四模型匿名互评"
+                "多视角匿名互评"
                 if task.review_protocol_version == "six_dimension_peer_review"
                 else "分组交叉复核"
             ),

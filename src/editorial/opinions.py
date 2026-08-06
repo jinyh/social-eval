@@ -39,7 +39,7 @@ async def generate_editorial_opinions(
     anonymized_text: str,
     evaluation_context: dict,
 ) -> list[EditorialOpinion]:
-    """基于四模型既有结果生成一份综合摘要，不重复调用全文独立意见。"""
+    """基于既有评审结果生成一份综合摘要，不重复调用全文独立意见。"""
 
     del anonymized_text  # 综合阶段只使用已持久化的评分、证据和分歧摘要。
     existing = (
@@ -54,7 +54,7 @@ async def generate_editorial_opinions(
     if existing is not None:
         return [existing]
     if not providers:
-        raise ValueError("生成综合摘要至少需要一个已配置模型")
+        raise ValueError("生成综合摘要至少需要配置一个评审提供方")
 
     context = json.dumps(evaluation_context, ensure_ascii=False)
     base_prompt = policy.opinion["synthesis_prompt_template"]
@@ -72,7 +72,7 @@ async def generate_editorial_opinions(
             call_type="editorial_opinion_synthesis",
             prompt=base_prompt
             + retry_notice
-            + "\n\n四模型评价、分歧与其他辅助材料：\n"
+            + "\n\n评审意见、分歧与其他辅助材料：\n"
             + context,
             dimension_key="__opinion_synthesis__",
         )
