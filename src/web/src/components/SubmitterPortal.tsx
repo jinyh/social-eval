@@ -112,7 +112,7 @@ export function SubmitterPortal() {
     if (!file || !title || !unitId) return;
     try {
       const payload = await uploadSubmitterSubmission(unitId, title, file);
-      setMessage(`投稿成功，系统稿号：${payload.submission_id}`);
+      setMessage(`投稿成功，系统稿号：${payload.submission_id}；预审完成后意见将由编辑发布。`);
       setSelectedSubmissionId(payload.submission_id);
       await refreshSubmissions();
       form.reset();
@@ -170,7 +170,7 @@ export function SubmitterPortal() {
               </div>
               <div>
                 <CardTitle>投稿人入口</CardTitle>
-                <CardDescription>选择正式启用的期刊并提交稿件。</CardDescription>
+                <CardDescription>选择正式启用的期刊提交稿件，获取智能辅助预审意见以改进论文质量。</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -298,7 +298,7 @@ export function SubmitterPortal() {
         ) : (
           <Card>
             <CardContent className="p-10">
-              <EmptyHint text="选择一篇论文查看评价结果。" />
+              <EmptyHint text="选择一篇论文查看预审结果。" />
             </CardContent>
           </Card>
         )}
@@ -311,7 +311,7 @@ function ProgressOnly({ status }: { status: PaperStatus }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>论文正在评价</CardTitle>
+        <CardTitle>论文预审中</CardTitle>
         <CardDescription>{status.progress.stage_label}</CardDescription>
       </CardHeader>
       <CardContent>

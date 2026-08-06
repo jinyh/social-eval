@@ -159,6 +159,40 @@ def test_submitter_selects_active_journal_and_report_requires_editor_release(
     assert author_row["public_decision"] == "revise_resubmit"
 
 
+def test_submitter_cannot_submit_to_inactive_unit(
+    client: TestClient,
+    db_session: Session,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    """未正式启用的期刊对投稿人不可见，投稿应被拒绝。"""
+    import src.core.storage
+
+    monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
+    admin = create_user(db_session, email="admin@example.com", role="admin")
+    _login(client, admin.email)
+    unit_id = client.post("/api/admin/editorial/bootstrap").json()["items"][0]["id"]
+    # bootstrap 默认 rollout_state=shadow，未正式启用
+
+    submitter = create_user(
+        db_session, email="author-inactive@example.com", role="submitter"
+    )
+    client.cookies.clear()
+    _login(client, submitter.email)
+
+    journals = client.get("/api/submitter/journals")
+    assert journals.status_code == 200
+    assert journals.json() == []
+
+    rejected = client.post(
+        "/api/submitter/submissions",
+        data={"unit_id": unit_id, "title": "向未启用期刊投稿应被拒绝"},
+        files={"file": ("paper.txt", ("正文内容" * 80).encode(), "text/plain")},
+    )
+    assert rejected.status_code == 400
+    assert "暂未开放" in rejected.json()["detail"]
+
+
 def test_withdrawal_request_preserves_submission_and_requires_editor_decision(
     client: TestClient,
     db_session: Session,
