@@ -100,6 +100,12 @@ export type SubmitterSubmission = {
   withdrawal_status?: "pending" | "approved" | "rejected" | null;
 };
 
+export type SubmitterOpinion = {
+  ready: boolean;
+  synthesis: string;
+  modification_suggestions: string[];
+};
+
 export type TaskProgress = {
   stage: string;
   stage_label: string;

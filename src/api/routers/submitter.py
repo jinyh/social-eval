@@ -7,6 +7,7 @@ from src.api.auth.dependencies import require_roles
 from src.api.routers.editorial import create_editorial_submission
 from src.api.schemas.submitter import (
     SubmitterJournal,
+    SubmitterOpinionResponse,
     SubmitterSubmission,
     WithdrawalRequestCreate,
 )
@@ -14,7 +15,9 @@ from src.core.audit import record_audit_log
 from src.core.database import get_db
 from src.core.email import queue_email
 from src.editorial.policy import policy_from_version
+from src.editorial.presentation import localize_synthesis_payload
 from src.models.editorial import (
+    EditorialOpinion,
     EditorialPolicyVersion,
     EditorialSubmission,
     EditorialUnit,
@@ -206,6 +209,40 @@ def get_submission(
     return _submission_response(
         db,
         _owned_submission(db, current_user, submission_id),
+    )
+
+
+@router.get(
+    "/submissions/{submission_id}/opinion",
+    response_model=SubmitterOpinionResponse,
+)
+def get_submission_opinion(
+    submission_id: str,
+    current_user: User = Depends(require_roles("submitter")),
+    db: Session = Depends(get_db),
+) -> SubmitterOpinionResponse:
+    """投稿人预审反馈：综合意见 + 修改建议。
+
+    纯预审模式，综合意见生成后即可见，不等编辑发布（release）。
+    """
+
+    submission = _owned_submission(db, current_user, submission_id)
+    opinion = (
+        db.query(EditorialOpinion)
+        .filter(
+            EditorialOpinion.submission_id == submission.id,
+            EditorialOpinion.opinion_type == "ai_synthesis",
+        )
+        .order_by(EditorialOpinion.version.desc())
+        .first()
+    )
+    if opinion is None:
+        return SubmitterOpinionResponse(ready=False)
+    content = localize_synthesis_payload(opinion.content)
+    return SubmitterOpinionResponse(
+        ready=True,
+        synthesis=str(content.get("synthesis") or ""),
+        modification_suggestions=list(content.get("modification_suggestions") or []),
     )
 
 

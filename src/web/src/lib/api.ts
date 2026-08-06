@@ -29,6 +29,7 @@ import type {
   UserListResponse,
   ValidationRun,
   SubmitterJournal,
+  SubmitterOpinion,
   SubmitterSubmission,
 } from "./types";
 import {
@@ -526,6 +527,21 @@ export async function getSubmitterSubmission(
   }
   return apiFetch<SubmitterSubmission>(
     `/api/submitter/submissions/${submissionId}`
+  );
+}
+
+export async function getSubmitterOpinion(
+  submissionId: string
+): Promise<SubmitterOpinion> {
+  if (isMockMode()) {
+    return {
+      ready: true,
+      synthesis: "本稿研究问题明确，但理论建构力有待加强。",
+      modification_suggestions: ["补充文献对话", "细化分析步骤"],
+    };
+  }
+  return apiFetch<SubmitterOpinion>(
+    `/api/submitter/submissions/${submissionId}/opinion`
   );
 }
 

@@ -140,15 +140,15 @@ describe("App", () => {
     ).toHaveLength(1);
   });
 
-  it("renders mock student report with radar and six-dimension breakdown", async () => {
+  it("renders submitter portal with submission list", async () => {
     window.history.pushState({}, "", "/?mock=submitter");
 
     render(<App initialUser={undefined} />);
 
-    expect(await screen.findByText(/给投稿人的摘要/i)).toBeInTheDocument();
-    expect(screen.getByTestId("dimension-radar-chart")).toBeInTheDocument();
-    expect(screen.getByTestId("dimension-breakdown-list")).toBeInTheDocument();
-    expect(screen.getAllByText(/研究创新性/i)[0]).toBeInTheDocument();
+    expect(
+      await screen.findByText(/平台治理中算法责任的规范结构研究/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText(/投稿人入口/)).toBeInTheDocument();
   });
 
   it("shows the login page explicitly in mock login mode", async () => {

@@ -1,10 +1,9 @@
 import { FormEvent, useEffect, useState } from "react";
-import { FileText, UploadCloud } from "lucide-react";
+import { UploadCloud } from "lucide-react";
 
 import {
-  exportSimpleReport,
   getPaperStatus,
-  getPublicReport,
+  getSubmitterOpinion,
   listSubmitterJournals,
   listSubmitterSubmissions,
   requestSubmissionWithdrawal,
@@ -12,13 +11,13 @@ import {
 } from "@/lib/api";
 import type {
   PaperStatus,
-  PublicReport,
   SubmitterJournal,
+  SubmitterOpinion,
   SubmitterSubmission,
 } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-import { StudentSummary } from "./StudentSummary";
+import { SubmitterOpinionCard } from "./SubmitterOpinionCard";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
@@ -41,9 +40,8 @@ export function SubmitterPortal() {
   const [submissions, setSubmissions] = useState<SubmitterSubmission[]>([]);
   const [selectedSubmissionId, setSelectedSubmissionId] = useState<string | null>(null);
   const [status, setStatus] = useState<PaperStatus | null>(null);
-  const [report, setReport] = useState<PublicReport | null>(null);
+  const [opinion, setOpinion] = useState<SubmitterOpinion | null>(null);
   const [message, setMessage] = useState("");
-  const [downloading, setDownloading] = useState(false);
   const [withdrawing, setWithdrawing] = useState(false);
 
   const refreshSubmissions = async () =>
@@ -73,23 +71,19 @@ export function SubmitterPortal() {
   useEffect(() => {
     if (!selectedSubmission) return;
     let isCurrent = true;
-    const paperId = selectedSubmission.paper_id;
+    const submissionId = selectedSubmission.id;
     const refresh = async () => {
-      const nextStatus = await getPaperStatus(paperId);
+      const nextStatus = await getPaperStatus(selectedSubmission.paper_id);
       if (!isCurrent) return;
       setStatus(nextStatus);
-      if (selectedSubmission.report_released) {
-        const nextReport = await getPublicReport(paperId);
-        if (!isCurrent) return;
-        const reportPaperId = nextReport.paper_id;
-        if (reportPaperId && reportPaperId !== paperId) return;
-        setReport(nextReport);
-      }
+      const nextOpinion = await getSubmitterOpinion(submissionId);
+      if (!isCurrent) return;
+      setOpinion(nextOpinion);
     };
     void refresh().catch(() => {
       if (!isCurrent) return;
       setStatus(null);
-      setReport(null);
+      setOpinion(null);
     });
     const timer = window.setInterval(() => {
       if (document.visibilityState === "visible") {
@@ -100,7 +94,7 @@ export function SubmitterPortal() {
       window.clearInterval(timer);
       isCurrent = false;
     };
-  }, [selectedSubmission?.id, selectedSubmission?.report_released]);
+  }, [selectedSubmission?.id]);
 
   const handleUpload = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -112,32 +106,12 @@ export function SubmitterPortal() {
     if (!file || !title || !unitId) return;
     try {
       const payload = await uploadSubmitterSubmission(unitId, title, file);
-      setMessage(`投稿成功，系统稿号：${payload.submission_id}；预审完成后意见将由编辑发布。`);
+      setMessage(`投稿成功，系统稿号：${payload.submission_id}；预审完成后将直接展示综合意见与修改建议。`);
       setSelectedSubmissionId(payload.submission_id);
       await refreshSubmissions();
       form.reset();
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "投稿失败");
-    }
-  };
-
-  const handleDownloadReport = async () => {
-    if (!selectedSubmission) return;
-    setDownloading(true);
-    try {
-      const blob = await exportSimpleReport(selectedSubmission.paper_id);
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `report-${selectedSubmission.id}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "下载失败");
-    } finally {
-      setDownloading(false);
     }
   };
 
@@ -227,7 +201,7 @@ export function SubmitterPortal() {
                         type="button"
                         onClick={() => {
                           setSelectedSubmissionId(submission.id);
-                          setReport(null);
+                          setOpinion(null);
                         }}
                         className="min-w-0 flex-1 text-left"
                       >
@@ -253,30 +227,8 @@ export function SubmitterPortal() {
       </aside>
 
       <main className="space-y-5">
-        {selectedSubmission?.report_released ? (
-          <>
-            <Card>
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <FileText className="h-5 w-5 text-blue-700" />
-                  <div>
-                    <CardTitle>编辑发布结果</CardTitle>
-                    <CardDescription>{selectedSubmission.status_label}</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm leading-7 text-slate-700">
-                  {selectedSubmission.author_message}
-                </p>
-              </CardContent>
-            </Card>
-            {report ? (
-              <StudentSummary report={report} status={status} onDownload={handleDownloadReport} downloading={downloading} />
-            ) : (
-              <EmptyHint text="公开报告正在加载。" />
-            )}
-          </>
+        {opinion ? (
+          <SubmitterOpinionCard opinion={opinion} />
         ) : status ? (
           <>
             <ProgressOnly status={status} />

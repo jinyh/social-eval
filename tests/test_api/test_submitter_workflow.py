@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from src.models.editorial import (
     EditorialDecision,
+    EditorialOpinion,
     EditorialPolicyVersion,
     EditorialSubmission,
     EditorialUnit,
@@ -244,3 +245,73 @@ def test_withdrawal_request_preserves_submission_and_requires_editor_decision(
     assert submission.status == "withdrawn"
     assert db_session.query(SubmissionWithdrawalRequest).one().status == "approved"
     assert db_session.get(EditorialSubmission, submission.id) is not None
+
+
+def test_submitter_opinion_returns_synthesis_and_suggestions_without_release(
+    client: TestClient,
+    db_session: Session,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    """综合意见生成后投稿人直接可见，不等编辑发布。"""
+    import src.core.storage
+
+    monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
+    unit, _editor_id = _active_unit(client, db_session)
+    submitter = create_user(
+        db_session, email="author-opinion@example.com", role="submitter"
+    )
+
+    async def runner(_: str, __: Session) -> None:
+        return None
+
+    client.app.state.editorial_pipeline_runner = runner
+    client.cookies.clear()
+    _login(client, submitter.email)
+    uploaded = client.post(
+        "/api/submitter/submissions",
+        data={"unit_id": unit.id, "title": "预审意见端点测试论文"},
+        files={"file": ("paper.txt", ("正文内容" * 80).encode(), "text/plain")},
+    )
+    assert uploaded.status_code == 202
+    submission = db_session.get(EditorialSubmission, uploaded.json()["submission_id"])
+
+    # 未生成意见时返回 ready=False
+    empty = client.get(f"/api/submitter/submissions/{submission.id}/opinion")
+    assert empty.status_code == 200
+    assert empty.json()["ready"] is False
+
+    # 写入综合意见（模拟管线生成）
+    db_session.add(
+        EditorialOpinion(
+            submission_id=submission.id,
+            opinion_type="ai_synthesis",
+            version=1,
+            sequence=1,
+            content={
+                "synthesis": "本稿研究问题明确，但理论建构力有待加强。",
+                "consensus_points": ["共识点"],
+                "disagreement_points": ["分歧点"],
+                "priority_issues": ["优先核验"],
+                "modification_suggestions": ["补充文献对话", "细化分析步骤"],
+            },
+            model_name="glm-5.2",
+            provider_name="DashScopeProvider",
+            is_locked=True,
+        )
+    )
+    db_session.commit()
+
+    opinion = client.get(f"/api/submitter/submissions/{submission.id}/opinion")
+    assert opinion.status_code == 200
+    payload = opinion.json()
+    assert payload["ready"] is True
+    assert payload["synthesis"] == "本稿研究问题明确，但理论建构力有待加强。"
+    assert payload["modification_suggestions"] == ["补充文献对话", "细化分析步骤"]
+
+    # 非本人投稿人无权访问
+    other = create_user(db_session, email="author-other@example.com", role="submitter")
+    client.cookies.clear()
+    _login(client, other.email)
+    forbidden = client.get(f"/api/submitter/submissions/{submission.id}/opinion")
+    assert forbidden.status_code == 404

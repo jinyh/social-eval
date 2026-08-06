@@ -34,3 +34,11 @@ class SubmitterSubmission(BaseModel):
 
 class WithdrawalRequestCreate(BaseModel):
     reason: str = Field(min_length=5, max_length=2000)
+
+
+class SubmitterOpinionResponse(BaseModel):
+    """投稿人预审反馈：综合意见 + 修改建议，纯预审、不等编辑发布。"""
+
+    ready: bool
+    synthesis: str = ""
+    modification_suggestions: list[str] = Field(default_factory=list)
