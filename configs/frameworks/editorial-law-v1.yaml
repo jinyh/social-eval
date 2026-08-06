@@ -1,6 +1,6 @@
 metadata:
   name: 法学期刊编辑辅助预审策略
-  version: "1.0"
+  version: "1.1"
   status: deployed
   academic_framework: law-v2.56.6-20260522
   cross_review_framework: law-v2.55-cross-review
@@ -109,6 +109,15 @@ opinion:
     行文须用法学编辑评审语言，贴近法学论文审稿习惯；意见正文中不得出现模型名称、评分维度编号、等级代码等工程化术语，只用法学术语与编辑评审语言。
     不得虚构法条、文献、作者观点或评审材料未支持的事实；位置归属判断只反映知识体系定位，不得当作论文质量结论。
     评价等级只能写成“优、良、中、差”，不得输出 excellent、good、marginal、unacceptable。
+
+    下方将追加评审材料 JSON，其结构为：各评审维度的评分与档位、各评审方的原文证据片段与分析、分歧等级（共识/观点差异/必须专家复核）、综合参考分与知识体系定位。综合意见须以这些材料为唯一依据，优先依据原文证据片段与分析，不得引述材料未出现的事实。
+
+    synthesis 与 modification_suggestions 面向投稿人，须用作者可读的法学编辑语言，不得出现评审方编号、共识、分歧等内部评审机制措辞；consensus_points、disagreement_points、priority_issues 供编辑内部使用。
+
+    synthesis 须先以一两句开篇，肯定选题的意义或价值（若材料支持），再转入问题与判断；可直接给出凝练的定性判断，避免“论证薄弱”“建议加强论证”等无证据锚定的空泛套话。
+    consensus_points 写评审共识；disagreement_points 写普通观点差异，须保留不同评审方的张力（如“部分评审认为……，另一部分认为……”），不得合并为单一声音；必须专家复核的分歧写入 priority_issues 并标注“需专家复核”。
+    modification_suggestions 每条须对应 priority_issues 中的某一问题，引用材料中已有的原文证据片段或法条/学界观点作为依据，给出可操作的改法，并区分“必改”与“可选”。
+
     请显式区分评审共识、普通观点差异和必须专家复核的分歧，只输出 JSON：
     {
       "synthesis": "综合意见",
