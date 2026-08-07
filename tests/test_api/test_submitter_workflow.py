@@ -323,7 +323,7 @@ def test_submitter_resubmission_quota_and_dedup(
     tmp_path: Path,
     monkeypatch,
 ) -> None:
-    """同一篇最多3次重投、第4次409、列表按 root 去重只算1篇。"""
+    """链上最多 3 条投稿（含原始轮），第 4 条 409、列表按 root 去重只算 1 篇。"""
     import src.core.storage
 
     monkeypatch.setattr(src.core.storage, "UPLOAD_ROOT", tmp_path / "uploads")
@@ -361,7 +361,7 @@ def test_submitter_resubmission_quota_and_dedup(
 
     s4 = submit(id3)
     assert s4.status_code == 409
-    assert "3次重投上限" in s4.json()["detail"]
+    assert "投稿上限" in s4.json()["detail"]
 
     # 非本人 previous 应 404
     other = create_user(

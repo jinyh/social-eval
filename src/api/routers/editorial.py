@@ -445,7 +445,7 @@ async def create_editorial_submission(
         )
         if membership is not None:
             responsible_editor_id = current_user.id
-    # 投稿人重投链 + 配额：同一篇最多 3 次（含已撤稿，防撤-投绕开）
+    # 投稿人重投链 + 配额：链上最多 3 条投稿（含原始轮，含已撤稿防撤-投绕开）
     root_submission_id: str | None = None
     resubmission_round = 1
     if previous_submission_id is not None:
@@ -465,7 +465,7 @@ async def create_editorial_submission(
         if existing >= 3:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
-                detail="该论文已达3次重投上限",
+                detail="该论文已达投稿上限（链上最多 3 条，含原始轮）",
             )
         root_submission_id = root
         resubmission_round = previous.resubmission_round + 1
