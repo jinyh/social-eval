@@ -9,7 +9,7 @@
 
 ## 文档
 
-1. [需求规格 v1.2](../requirements/editorial-pre-review-requirements-v1.2.md)
+1. [需求规格 v1.3](../requirements/editorial-pre-review-requirements-v1.3.md)
 2. [交互设计 v1.0](interaction-design-v1.0.md)
 3. [系统设计 v1.0](system-design-v1.0.md)
 4. [实施计划 v1.0](implementation-plan-v1.0.md)

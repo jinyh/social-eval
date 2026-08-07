@@ -1,6 +1,7 @@
 # SocialEval 部署与当前进展交接
 
-> 更新时间：2026-07-26（Asia/Taipei）
+> 更新时间：2026-08-06（Asia/Taipei）；总览字段已按当日仓库实际刷新，
+> 其余叙述为 2026-07-26 交接时点记录。
 >
 > 用途：供后续 Claude Code/Codex 在不重新猜测上下文的情况下继续本机测试和
 > 交大 jCloud 生产部署。
@@ -9,11 +10,15 @@
 
 - 生产化账户安全、数据库迁移、Docker 编排、HTTPS 入口、备份、健康检查、
   保留策略和部署文档已经实现。
-- 生产化账户与运维基线提交为 `b88b515`；最近已提交功能基线为 `d8b40a1`
-  （五轴已切换 Qwen3.7-Max）。其后的投稿人注册、投稿工作流和管理员双栏改动已
-  验证并部署到本机测试容器，但本交接时仍在工作区，必须先提交再交付 jCloud。
+- 生产化账户与运维基线提交为 `b88b515`；功能基线 `d8b40a1`
+  （五轴已切换 Qwen3.7-Max）。其后至当前 `main` HEAD `902d300` 已推进 26 个提交
+  （投稿人注册、投稿工作流、管理员双栏、品牌统一、staging Caddy、匿名化、
+  综合意见 prompt 重构、重投链、绕门禁生产操作记录等），均已提交，本机领先
+  `origin/main` 7 个提交。
 - 本机 `socialeval-test` 已使用新代码完成重建，六个常驻服务均健康。
-- 本机测试数据库已迁移到 Alembic `016 (head)`；原命名卷和原测试数据仍在。
+- 本机测试数据库已迁移到 Alembic `019 (head)`（`016` submitter 注册与工作流、
+  `017` 邀请绑定编辑单元、`018` invitation display_name、`019` submission
+  resubmission chain）；原命名卷和原测试数据仍在。
 - 本机测试邀请公开基址已覆盖为 `https://localhost`；修复前邮件中的
   `http://localhost:5173` 旧链接不会自动改写，须在管理员邀请记录中重新发送。
 - 尚未部署到交大 jCloud，也没有推送到远程镜像仓库。
@@ -108,8 +113,8 @@
 
 ## 3. 已完成验证
 
-- 后端：`286 passed`。
-- 前端：`24 passed`，Vite 生产构建通过。
+- 后端：`297 passed`（`uv run pytest --cache-clear`，2026-08-06）。
+- 前端：前端测试不在本仓库内，需在前端所属仓库核对。
 - Ruff、Python 格式、Shell 语法、`uv lock --check`、Compose 配置和 Caddy
   配置验证通过。
 - PostgreSQL 临时实例验证：
@@ -127,7 +132,7 @@
   - `frontend`、`proxy`：运行中；
   - `migrate`：退出码 `0`；
   - 内部就绪检查：database、redis、storage 均为 `ok`；
-  - 数据库迁移：`016 (head)`。
+  - 数据库迁移：`019 (head)`。
 - 2026-07-26 邀请修复复核：
   - API 与 Worker 的有效 `PUBLIC_BASE_URL` 均为 `https://localhost`；
   - `https://localhost/activate` 返回 `200`；
@@ -242,9 +247,9 @@ Restic/S3 备份凭据
 4. 在服务器生成正式 `.env.production`，权限设为 `0600`。
 5. 运行 `scripts/check_production_readiness.py`；不得通过测试覆盖文件绕过失败项。
 6. 运行 `deploy/scripts/prepare_data_dirs.sh` 初始化独立数据盘目录。
-7. 以 commit `d8b40a1` 或其后明确审核过的提交构建并标记镜像；当前本机分支
-   尚未推送，不能从远端旧 `main` 直接部署。
-8. 先启动 PostgreSQL/Redis，再运行 `migrate`，确认 `016 (head)` 后启动其余服务。
+7. 以 commit `d8b40a1` 及其后至当前 HEAD（`902d300`）的提交构建并标记镜像；当前本机
+   分支领先 `origin/main` 7 个提交，不能从远端旧 `main` 直接部署。
+8. 先启动 PostgreSQL/Redis，再运行 `migrate`，确认 `019 (head)` 后启动其余服务。
 9. 创建首个管理员或迁移获批准的账户，首次登录立即绑定双因素认证并离线保存恢复码。
 10. 完成投稿人注册与邮箱验证、内部成员邀请与激活、密码重置、角色变化、投稿、
     模型评阅、专家复核、作者结果发布、撤稿、报告和 SMTP 的端到端冒烟。

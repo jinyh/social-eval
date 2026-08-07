@@ -18,7 +18,7 @@
 - [系统与成果上下文](docs/project-context.md)：架构、评价方法、历史实验、数据集与归档。
 - [主系统需求 v0.5](docs/requirements/SocialEval-requirements-v0.5.md)。
 - [编辑辅助预审设计索引](docs/editorial/README.md)：当前活文档入口。
-- [编辑辅助预审需求 v1.2](docs/requirements/editorial-pre-review-requirements-v1.2.md)。
+- [编辑辅助预审需求 v1.3](docs/requirements/editorial-pre-review-requirements-v1.3.md)。
 - [法学 AI 辅助评审规程 v0.17](docs/evaluation/law-ai-assisted-review-rules-v0.17.md)。
 - [概念操作化定义](docs/evaluation/concept-operationalization-v1.0.md)。
 - [评价框架 ADR](docs/architecture/20260414_ADR-001_evaluation-framework-v2.md)。
@@ -106,6 +106,14 @@ tests/             与 src/ 对应的测试
   保持历史版本，不重跑、不回写。
 - Prompt、`output_template`、JSON 契约和量化映射：
   `configs/frameworks/*.yaml`，并符合 `configs/frameworks/schema_v2.json`。
+- 框架登记真源：`configs/frameworks/registry.yaml`，所有评价框架、评审协议、
+  评分协议、模型集与编辑策略配置的角色名、路径与状态均在此登记。
+- 编辑辅助预审策略配置：
+  `configs/frameworks/editorial-law-v1.yaml`（法学策略，引用六维/五轴/CCB）、
+  `configs/frameworks/editorial-anonymization-v1.yaml`（匿名化规则，pilot）。
+- 维度标签真源：六维 `key` 与中文标签从
+  `configs/frameworks/law-v2.56.6-20260522.yaml` 的 `dimensions` 块派生
+  （`src/reporting/dimension_labels.py`），业务代码不得重复维护。
 - 总分实现：`src/reporting/scoring.py` 的 `calculate_weighted_total()`。
 - CCB 协议：`configs/scoring/core-ceiling-bonus-v0.8.yaml`。
 - 结果登记：`results/catalog.yaml`。
@@ -115,18 +123,23 @@ tests/             与 src/ 对应的测试
 
 ## 2026-07-26 Claude Code / jCloud 接手快照
 
-本节是交接时点快照；开始部署前仍须以
-[部署与当前进展交接](docs/deployment/CURRENT-HANDOFF.md)和实际命令重新核对。
+> 最近一次核对：2026-08-06。下述操作性指标已按当日仓库实际刷新；其余叙述
+> 为交接时点记录，部署前仍须以
+> [部署与当前进展交接](docs/deployment/CURRENT-HANDOFF.md)和实际命令重新核对。
 
-- 最近已提交的功能基线为 `d8b40a1`；其后的投稿人注册、投稿工作流和管理员双栏
-  改动仍在本机工作区，尚未形成新提交。本机 `main` 明显领先
-  `origin/main`（功能基线时领先 22 个提交，交接文档提交后会继续增加），尚未推送；
-  部署前用 `git rev-list --left-right --count @{upstream}...HEAD` 复核，不得直接把
+- 功能基线 `d8b40a1`；其后至当前 `main` HEAD `902d300` 已推进 26 个提交
+  （投稿人注册、投稿工作流、管理员双栏、品牌统一、staging Caddy、匿名化、
+  综合意见 prompt 重构、重投链、绕门禁生产操作记录等），均已提交。本机 `main`
+  领先 `origin/main` 7 个提交、落后 0；部署前用
+  `git rev-list --left-right --count @{upstream}...HEAD` 复核，不得直接把
   远端旧 `main` 当作当前可部署版本。
 - 本机 `socialeval-test` 已按当前工作区重建：API、Worker、PostgreSQL、Redis
-  健康，前端和 Caddy 正常，迁移容器退出码为 0，数据库为 Alembic `016 (head)`。
-- 最近全量验证为后端 `286 passed`、前端 `24 passed`，Vite 生产构建和
-  `uv lock --check`、`ruff check src/ tests/` 均通过。
+  健康，前端和 Caddy 正常，迁移容器退出码为 0，数据库为 Alembic `019 (head)`
+  （`016` submitter 注册与工作流、`017` 邀请绑定编辑单元、`018` invitation
+  display_name、`019` submission resubmission chain）。
+- 最近全量验证为后端 `297 passed`（`uv run pytest --cache-clear`，2026-08-06）；
+  `uv lock --check`、`ruff check src/ tests/` 均通过。前端测试不在本仓库内，
+  需在前端所属仓库核对。
 - 编辑单元使用不可变期刊策略版本。管理员登记验证，单元负责人在编辑工作台签署，
   管理员不能代签；历史投稿绑定创建时的策略快照。
 - 投稿人邮箱自助注册并验证，只能向正式启用期刊投稿；编辑、专家和管理员继续邀请
@@ -144,7 +157,7 @@ tests/             与 src/ 对应的测试
 ### jCloud 部署边界
 
 - 尚未部署到 `jcloud.sjtu.edu.cn`，也未推送远程镜像。部署前先确认代码交付方式，
-  保证服务器构建的提交包含 `d8b40a1` 及后续交接文档提交。
+  保证服务器构建的提交包含 `d8b40a1` 及其后至当前 HEAD（`902d300`）的所有提交。
 - 本机 `.env.production` 是本地测试配置，不能上传服务器。生产端须重新生成独立的
   `SECRET_KEY`、`FIELD_ENCRYPTION_KEY`、数据库密码和备份凭据，并配置正式域名、
   HTTPS、学校 SMTP、允许来源与模型供应商密钥。
