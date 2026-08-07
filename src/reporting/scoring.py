@@ -8,7 +8,10 @@ def _legacy_weighted_total(
 ) -> float:
     if not dimension_weights:
         return 0.0
-    return sum(dimension_scores.get(key, 0.0) * weight for key, weight in dimension_weights.items())
+    return sum(
+        dimension_scores.get(key, 0.0) * weight
+        for key, weight in dimension_weights.items()
+    )
 
 
 def pick_ceiling(score: float, thresholds: list[dict[str, Any]]) -> float | None:
@@ -24,7 +27,9 @@ def pick_ceiling(score: float, thresholds: list[dict[str, Any]]) -> float | None
 
 def pick_bonus(score: float, bands: list[dict[str, Any]], max_bonus: float) -> float:
     """根据前瞻延展性分数查表确定加分。"""
-    for band in sorted(bands, key=lambda item: float(item.get("min_score", 0.0)), reverse=True):
+    for band in sorted(
+        bands, key=lambda item: float(item.get("min_score", 0.0)), reverse=True
+    ):
         if score >= float(band.get("min_score", 0.0)):
             return min(float(band.get("bonus", 0.0)), max_bonus)
     return 0.0
@@ -67,19 +72,24 @@ def compute_bonus(
         return 0.0
 
     prerequisites = bonus_dimension.get("prerequisites", {}) or {}
-    logical_ok = dimension_scores.get("logical_coherence", 0.0) >= float(
-        prerequisites.get("logical_coherence_min", 0.0)
-    )
-    consensus_ok = dimension_scores.get("conclusion_consensus", 0.0) >= float(
-        prerequisites.get("conclusion_consensus_min", 0.0)
-    )
     core_min = float(prerequisites.get("core_dimension_min", 0.0))
+    # 维度级前提从字段名（如 logical_coherence_min）派生 key，不在代码中硬编码
+    # 具体维度名；core_dimension_min 是通用阈值，不对应单个维度。
+    dimension_prereqs = {
+        name.removesuffix("_min"): float(value)
+        for name, value in prerequisites.items()
+        if name.endswith("_min") and name != "core_dimension_min"
+    }
+    dimension_prereqs_ok = all(
+        dimension_scores.get(dim_key, 0.0) >= threshold
+        for dim_key, threshold in dimension_prereqs.items()
+    )
     core_dimensions = protocol.get("core_dimensions", []) or []
     core_ok = all(
         dimension_scores.get(str(item.get("key")), 0.0) >= core_min
         for item in core_dimensions
     )
-    if not (logical_ok and consensus_ok and core_ok):
+    if not (dimension_prereqs_ok and core_ok):
         return 0.0
 
     return pick_bonus(

@@ -23,8 +23,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.knowledge.registry import load_scoring_protocol  # noqa: E402
+from src.knowledge.dimension_labels import DIMENSION_LABELS  # noqa: E402
 from src.reporting.pooling import (  # noqa: E402
-    DIMENSION_LABELS,
     aggregate_pool,
     pool_dimension_scores,
 )

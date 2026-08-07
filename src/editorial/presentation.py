@@ -15,19 +15,25 @@ from src.editorial.policy import EditorialPolicy
 from src.knowledge.registry import load_position_framework
 from src.models.evaluation import DimensionScore
 from src.models.reliability import ReliabilityResult
+from src.knowledge.dimension_labels import (
+    DIMENSION_LABELS as _SIX_DIMENSION_LABELS,
+)
+from src.knowledge.dimension_labels import LEGACY_DIMENSION_ALIASES
 
 
+# 兼容历史 per-paper 结果中的旧字段名：别名紧跟对应主键后，保持既有显示排序；
+# 中文标签与维度 key 的真源为 `law-v2.56.6-20260522.yaml` 的 dimensions 块。
 DIMENSION_LABELS = {
-    "problem_originality": "研究创新性",
-    "research_innovation": "研究创新性",
-    "literature_insight": "现状洞察度",
-    "problem_situation_insight": "现状洞察度",
-    "analytical_framework": "理论建构力",
-    "theoretical_construction": "理论建构力",
-    "logical_coherence": "逻辑连贯性",
-    "conclusion_consensus": "学术共识度",
-    "scholarly_consensus": "学术共识度",
-    "forward_extension": "前瞻延展性",
+    "problem_originality": _SIX_DIMENSION_LABELS["problem_originality"],
+    "research_innovation": LEGACY_DIMENSION_ALIASES["research_innovation"],
+    "literature_insight": _SIX_DIMENSION_LABELS["literature_insight"],
+    "problem_situation_insight": LEGACY_DIMENSION_ALIASES["problem_situation_insight"],
+    "analytical_framework": _SIX_DIMENSION_LABELS["analytical_framework"],
+    "theoretical_construction": LEGACY_DIMENSION_ALIASES["theoretical_construction"],
+    "logical_coherence": _SIX_DIMENSION_LABELS["logical_coherence"],
+    "conclusion_consensus": _SIX_DIMENSION_LABELS["conclusion_consensus"],
+    "scholarly_consensus": LEGACY_DIMENSION_ALIASES["scholarly_consensus"],
+    "forward_extension": _SIX_DIMENSION_LABELS["forward_extension"],
 }
 
 POSITION_AXES = tuple(load_position_framework()["axes"])

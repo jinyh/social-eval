@@ -2,15 +2,6 @@ from __future__ import annotations
 
 import statistics
 
-DIMENSION_LABELS = {
-    "problem_originality": "研究创新性",
-    "literature_insight": "现状洞察度",
-    "analytical_framework": "理论建构力",
-    "logical_coherence": "逻辑连贯性",
-    "conclusion_consensus": "学术共识度",
-    "forward_extension": "前瞻延展性",
-}
-
 
 def pool_dimension_scores(
     e1_scores: dict[str, dict[str, float]] | None,
