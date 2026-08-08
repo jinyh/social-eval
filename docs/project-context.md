@@ -16,6 +16,7 @@ AI 辅助学术评价系统，以法学论文评审为切入点，支持拓展�
 
 主系统需求：
 `docs/requirements/SocialEval-requirements-v0.5.md`。
+未来用途探索（方向草案，非需求）：`docs/future-use-exploration-v0.1.md`。
 
 ### 编辑辅助预审阶段
 
