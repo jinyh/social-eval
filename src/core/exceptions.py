@@ -15,10 +15,18 @@ class EvaluationError(SocialEvalError):
 
 
 class ProviderCallError(EvaluationError):
-    def __init__(self, provider: str, message: str, *, raw_response: str | None = None):
+    def __init__(
+        self,
+        provider: str,
+        message: str,
+        *,
+        raw_response: str | None = None,
+        finish_reason: str | None = None,
+    ):
         super().__init__(f"[{provider}] {message}")
         self.provider = provider
         self.raw_response = raw_response
+        self.finish_reason = finish_reason
 
 
 class ProviderResponseValidationError(ProviderCallError):

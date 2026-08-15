@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from src.core.exceptions import ProviderResponseValidationError
+from src.core.exceptions import ProviderCallError, ProviderResponseValidationError
 from src.evaluation.providers import dashscope_provider
 from src.evaluation.providers.dashscope_provider import DashScopeProvider
 
@@ -59,11 +59,39 @@ async def test_candidate_generation_parameters_are_forwarded(monkeypatch):
     provider = DashScopeProvider(
         "qwen3.7-max-2026-06-08",
         extra_body={"enable_thinking": True, "thinking_budget": 4096},
-        max_completion_tokens=8192,
+        max_completion_tokens=16384,
     )
 
     await provider.generate_json_response("prompt")
 
     request = client.chat.completions.last_request
     assert request["extra_body"]["thinking_budget"] == 4096
-    assert request["max_completion_tokens"] == 8192
+    assert request["max_completion_tokens"] == 16384
+
+
+class _TruncatedFakeCompletions:
+    async def create(self, **kwargs):
+        message = SimpleNamespace(content='{"dimension": "test"')
+        return SimpleNamespace(
+            choices=[SimpleNamespace(message=message, finish_reason="length")],
+            usage=SimpleNamespace(completion_tokens=16384),
+        )
+
+
+@pytest.mark.asyncio
+async def test_truncated_response_carries_finish_reason(monkeypatch):
+    client = SimpleNamespace(
+        chat=SimpleNamespace(completions=_TruncatedFakeCompletions()),
+    )
+    monkeypatch.setattr(
+        dashscope_provider.openai,
+        "AsyncOpenAI",
+        lambda **kwargs: client,
+    )
+    provider = DashScopeProvider("qwen3.7-max-2026-06-08")
+
+    with pytest.raises(ProviderCallError) as exc_info:
+        await provider.generate_json_response("prompt")
+
+    assert exc_info.value.finish_reason == "length"
+    assert "length" in str(exc_info.value)

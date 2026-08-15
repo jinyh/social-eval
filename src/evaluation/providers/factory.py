@@ -65,7 +65,7 @@ _PROVIDER_REGISTRY: dict[str, tuple[str, str, tuple]] = {
                 "enable_thinking": True,
                 "thinking_budget": 4096,
             },
-            "max_completion_tokens": 8192,
+            "max_completion_tokens": 16384,
             "timeout": 240.0,
         },
     ),

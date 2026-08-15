@@ -5,6 +5,7 @@ import asyncio
 import pytest
 
 from src.core.exceptions import (
+    ProviderCallError,
     ProviderResponseValidationError,
     ProviderTimeoutError,
 )
@@ -112,6 +113,34 @@ class RuleIdRepairProvider(BaseProvider):
         )
 
 
+class LengthRepairProvider(BaseProvider):
+    """首次输出超长被截断，收到压缩纠错提示后成功。"""
+
+    def __init__(self):
+        self.model_name = "length-repair-model"
+        self.timeout = 5.0
+        self.prompts: list[str] = []
+
+    async def generate_json_response(self, prompt: str) -> dict:
+        return {}
+
+    async def evaluate_dimension(self, prompt: str) -> DimensionResult:
+        self.prompts.append(prompt)
+        if len(self.prompts) == 1:
+            raise ProviderCallError(
+                self.model_name,
+                "模型输出未正常结束：length",
+                raw_response='{"dimension":"test","score":80',
+                finish_reason="length",
+            )
+        return DimensionResult(
+            dimension="test",
+            score=80,
+            evidence_quotes=["证据"],
+            model_name=self.model_name,
+        )
+
+
 @pytest.mark.asyncio
 async def test_timeout_returns_error_not_hang():
     """超时 provider 应在 timeout 后返回 ProviderTimeoutError，而非无限等待"""
@@ -211,3 +240,20 @@ async def test_unknown_rule_id_retries_with_allowed_ids():
     assert outcome.score == 50
     assert len(provider.prompts) == 2
     assert "analytical_framework.no_operational_framework" in used_prompt
+
+
+@pytest.mark.asyncio
+async def test_length_truncation_retry_uses_compression_prompt():
+    provider = LengthRepairProvider()
+
+    outcome, _, used_prompt = await _call_with_timing(
+        provider,
+        "original prompt",
+        retry_attempts=2,
+    )
+
+    assert isinstance(outcome, DimensionResult)
+    assert len(provider.prompts) == 2
+    assert "长度上限" in provider.prompts[1]
+    assert "必填字段" in provider.prompts[1]
+    assert "完整 JSON" in used_prompt

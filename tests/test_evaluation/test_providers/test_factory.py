@@ -45,7 +45,7 @@ def test_qwen_upgrade_candidate_has_frozen_generation_parameters():
         "enable_thinking": True,
         "thinking_budget": 4096,
     }
-    assert provider.max_completion_tokens == 8192
+    assert provider.max_completion_tokens == 16384
     assert provider.timeout == 240.0
 
 

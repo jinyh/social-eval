@@ -65,6 +65,7 @@ class DashScopeProvider(BaseProvider):
                     "模型输出未正常结束："
                     f"{self._last_response_metadata['finish_reason']}",
                     raw_response=content,
+                    finish_reason=self._last_response_metadata["finish_reason"],
                 )
 
             extracted = extract_json(content)

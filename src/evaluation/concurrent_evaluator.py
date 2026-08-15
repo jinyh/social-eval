@@ -59,6 +59,18 @@ def _rule_id_retry_prompt(
     )
 
 
+def _length_retry_prompt(original_prompt: str) -> str:
+    """为输出超出长度上限被截断的重试提供压缩指引。"""
+
+    return (
+        f"{original_prompt}\n\n"
+        "【输出长度纠错】上一次输出超出长度上限被截断。请严格按输出契约中的字数限制"
+        "压缩 summary、core_judgment、score_rationale、strengths、weaknesses 等分析内容，"
+        "evidence_quotes 保留最关键的 1-2 条即可，但所有必填字段都不得缺失。"
+        "不要输出解释文字，重新返回一份完整 JSON。"
+    )
+
+
 async def _call_with_timing(
     provider: BaseProvider,
     prompt: str,
@@ -129,6 +141,8 @@ async def _call_with_timing(
             )
         if isinstance(last_error, ProviderResponseValidationError):
             attempt_prompt = _corrective_retry_prompt(prompt, last_error)
+        elif getattr(last_error, "finish_reason", None) == "length":
+            attempt_prompt = _length_retry_prompt(prompt)
     return (
         last_error or RuntimeError("Unknown evaluation failure"),
         start,
