@@ -95,3 +95,34 @@ async def test_truncated_response_carries_finish_reason(monkeypatch):
 
     assert exc_info.value.finish_reason == "length"
     assert "length" in str(exc_info.value)
+
+
+class _CommaKeyFakeCompletions:
+    async def create(self, **kwargs):
+        message = SimpleNamespace(
+            content='{"dimension": "problem_originality", "score": 85, '
+            '",evidence_quotes": ["证据"], ",summary": "论文以"}'
+        )
+        return SimpleNamespace(
+            choices=[SimpleNamespace(message=message, finish_reason="stop")],
+            usage=SimpleNamespace(completion_tokens=128),
+        )
+
+
+@pytest.mark.asyncio
+async def test_comma_prefixed_keys_are_normalized(monkeypatch):
+    client = SimpleNamespace(
+        chat=SimpleNamespace(completions=_CommaKeyFakeCompletions()),
+    )
+    monkeypatch.setattr(
+        dashscope_provider.openai,
+        "AsyncOpenAI",
+        lambda **kwargs: client,
+    )
+    provider = DashScopeProvider("qwen3.7-max-2026-06-08")
+
+    result = await provider.evaluate_dimension("prompt")
+
+    assert result.score == 85
+    assert result.evidence_quotes == ["证据"]
+    assert result.summary == "论文以"

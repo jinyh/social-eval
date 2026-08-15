@@ -19,6 +19,26 @@ def extract_json(text: str) -> str:
     start = text.find("{")
     end = text.rfind("}")
     if start != -1 and end != -1 and end > start:
-        return text[start:end + 1]
+        return text[start : end + 1]
 
     return text
+
+
+def normalize_json_keys(data):
+    """递归去除 dict 键名开头的逗号与空白。
+
+    个别模型（如开启思考模式的 qwen）偶发把分隔逗号写进下一个键的引号内，
+    例如本该输出 `"summary": "...", "score_rationale": ...`，实际输出
+    `"summary": "...", ",score_rationale": ...`，解析后键名以逗号开头，
+    导致必填字段校验失败。契约键名不会以逗号开头，去除前导逗号是安全的。
+    """
+    if isinstance(data, dict):
+        return {
+            (key.lstrip(", \t\r\n") if isinstance(key, str) else key): (
+                normalize_json_keys(value)
+            )
+            for key, value in data.items()
+        }
+    if isinstance(data, list):
+        return [normalize_json_keys(item) for item in data]
+    return data

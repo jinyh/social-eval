@@ -4,7 +4,7 @@ import openai
 from pydantic import ValidationError
 
 from src.evaluation.providers.base import BaseProvider
-from src.evaluation.providers.utils import extract_json
+from src.evaluation.providers.utils import extract_json, normalize_json_keys
 from src.evaluation.schemas import DimensionResult
 from src.core.config import settings
 from src.core.exceptions import ProviderCallError, ProviderResponseValidationError
@@ -69,7 +69,7 @@ class DashScopeProvider(BaseProvider):
                 )
 
             extracted = extract_json(content)
-            return json.loads(extracted)
+            return normalize_json_keys(json.loads(extracted))
         except json.JSONDecodeError as e:
             raise ProviderCallError(
                 self.model_name,
